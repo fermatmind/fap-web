@@ -1,0 +1,2240 @@
+{
+  "slug": "spatial-reasoning",
+  "code": "FM_SPATIAL_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Spatial Reasoning Test",
+    "zh": "空间推理测试"
+  },
+  "seoTitle": {
+    "en": "Spatial Reasoning Test: 30 Original Tasks & Worked Answers",
+    "zh": "空间推理测试：30道原创题、坐标推演与完整题解"
+  },
+  "description": {
+    "en": "Practise 30 original rotations, mirrors, folds, cube turns and layouts. Worked answers and five full guides, free. Untimed text-and-coordinate tasks.",
+    "zh": "免费练习30道原创旋转、镜像、折纸、立方体转向与布局题，查看逐题解析及五份完整指南。不计时文字与坐标任务，不给智商或人群等级。"
+  },
+  "minutes": 18,
+  "instructions": {
+    "en": "Answer 30 original four-option tasks, six per topic. Fixed axes, fold portions, cube moves and the quantity requested are stated in each task. One correct adds one; another valid choice adds zero. No timer, guessing penalty, partial credit or speed adjustment applies. Paper, sketches and a calculator are allowed. Finish all items to read every worked answer and all five complete guides. Eighteen minutes is an editorial estimate, not measured completion data.",
+    "zh": "完成30道原创四选一题，每主题六题。各题明确固定坐标轴、折叠区域、立方体转向及所问数量。选对记一道，其他有效选择记零；不计时、不倒扣、无部分分或速度加权。允许纸笔画草图与计算器。全部作答后给每题解析及五份完整指南。十八分钟为编辑估计，不是实测完成时间。"
+  },
+  "introduction": {
+    "en": "This original edition practises spatial transformations through written directions and exact coordinates: planar rotations, reflections, ideal paper folds, labelled cube turns, projections and short routes. Read the coordinate convention before transforming an object. The tasks and all prose are independently written; no commercial figures, instrument items or competitor answers are reproduced. Exact integer geometry and a separate matrix, inverse-fold and voxel implementation check the stated cases. Reading and arithmetic familiarity are part of these written tasks. There is no nonverbal-instrument equivalence, norm, percentile, intelligence estimate, hiring threshold or evidence of training transfer. All five revision guides remain available together at every complete score.",
+    "zh": "本原创版本用文字指令与精确坐标练习平面旋转、镜像、理想折纸、标记立方体转向、投影及短路径，变换前先读坐标约定。题目与全部文字独立编写，不复用商业图形、测验题或竞品答案。精确整数几何与另一套矩阵、折叠逆像、体素实现核对题定情况。文字阅读与算术熟悉度属于任务条件，不声称等同非言语工具，不给常模、百分位、智商估计或招聘线，也不以此证明训练迁移。每个完整成绩都同时开放五份复习指南。"
+  },
+  "resultHeading": {
+    "en": "Your five topic counts and every worked answer",
+    "zh": "五项主题正确数与全部题解"
+  },
+  "directions": [
+    {
+      "id": "rotations",
+      "title": {
+        "en": "Planar rotations",
+        "zh": "平面旋转"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "reflections",
+      "title": {
+        "en": "Reflections and composition",
+        "zh": "镜像与复合变换"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "folds",
+      "title": {
+        "en": "Ideal paper folds",
+        "zh": "理想折纸"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "cube-turns",
+      "title": {
+        "en": "Labelled cube turns",
+        "zh": "标记立方体转向"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "layouts",
+      "title": {
+        "en": "Layouts, projections and routes",
+        "zh": "布局、投影与路径"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPACE_01",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Point P is at (2, 3). Rotate it 90° counterclockwise about (0, 0). What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P为(2, 3)，绕(0, 0)逆时针转90°，新位置是哪一个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-3, 2)",
+            "zh": "(-3, 2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, -3)",
+            "zh": "(-2, -3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2, -3)",
+            "zh": "(2, -3)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A quarter-turn counterclockwise maps (x, y) to (-y, x). Substituting (2, 3) gives (-3, 2). The original upward component becomes a leftward component; changing both signs instead would describe a half-turn.",
+        "zh": "逆时针四分之一转将(x,y)变为(-y,x)，代入得(-3,2)。原向上分量转成向左分量；同时改两坐标符号则是半圈，不是此题的操作。"
+      }
+    },
+    {
+      "id": "SPACE_02",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. An L shape has occupied unit-cell centres {(0,0), (0,1), (0,2), (1,0)}. Rotate the whole shape 90° clockwise about (0,0), without translation. Which set gives its new occupied centres?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。L形占据单位格中心{(0,0),(0,1),(0,2),(1,0)}。整体绕(0,0)顺时针转90°，不平移，新中心集合是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(-1, 0); (0, -2); (0, -1); (0, 0)}",
+            "zh": "{(-1, 0); (0, -2); (0, -1); (0, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, 0); (-1, 0); (0, -1); (0, 0)}",
+            "zh": "{(-2, 0); (-1, 0); (0, -1); (0, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(0, 0); (0, 1); (1, 0); (2, 0)}",
+            "zh": "{(0, 0); (0, 1); (1, 0); (2, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, -1); (0, 0); (1, 0); (2, 0)}",
+            "zh": "{(0, -1); (0, 0); (1, 0); (2, 0)}"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Clockwise 90° sends every centre (x,y) to (y,-x). The vertical three-cell arm moves to (0,0), (1,0), (2,0), while (1,0) moves to (0,-1). Apply the same turn to every centre; moving only the long arm leaves a different shape.",
+        "zh": "顺时针90°将每个中心(x,y)变为(y,-x)。原竖直三格变(0,0)、(1,0)、(2,0)，另一个(1,0)变(0,-1)。所有格须同转，不能只移动长臂。"
+      }
+    },
+    {
+      "id": "SPACE_03",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Point P is at (-1,4). Rotate it 180° about (0,0). What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P为(-1,4)，绕(0,0)转180°，新位置是哪一个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 1)",
+            "zh": "(4, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-1, -4)",
+            "zh": "(-1, -4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(1, -4)",
+            "zh": "(1, -4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-4, -1)",
+            "zh": "(-4, -1)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A half-turn about the origin reverses both components, sending (-1,4) to (1,-4). Clockwise and counterclockwise half-turns have the same endpoint. Swapping coordinates alone would describe a different transformation and would not settle this turn.",
+        "zh": "绕原点半圈将两个分量都反向，(-1,4)成为(1,-4)。顺、逆时针的半圈终点相同，单独互换坐标则是另一种变换。"
+      }
+    },
+    {
+      "id": "SPACE_04",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. A segment has endpoints P(1,1) and Q(3,2). Rotate the segment 270° counterclockwise about (0,0). Which coordinate is the new Q?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。线段端点P(1,1)、Q(3,2)，整体绕(0,0)逆时针转270°。Q的新坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, -3)",
+            "zh": "(2, -3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 3)",
+            "zh": "(-2, 3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-3, -2)",
+            "zh": "(-3, -2)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A 270° counterclockwise turn has the same endpoint as 90° clockwise. Use (x,y)→(y,-x) on Q, giving (2,-3). P rotates too, but the question asks only for Q; exchanging the endpoint labels would answer a different question.",
+        "zh": "逆时针270°的终点等于顺时针90°，Q按(x,y)→(y,-x)变为(2,-3)。P也同转，但题只问Q，不能把端点标签交换。"
+      }
+    },
+    {
+      "id": "SPACE_05",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Rotate P(4,-1) 90° counterclockwise around centre C(1,-2). What is P’s new position in the original grid?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P(4,-1)绕中心C(1,-2)逆时针转90°，在原网格中的新坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(0, 1)",
+            "zh": "(0, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, -5)",
+            "zh": "(2, -5)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-3, 4)",
+            "zh": "(-3, 4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-1, 3)",
+            "zh": "(-1, 3)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "First subtract the centre: P-C=(3,1). Rotate that offset to (-1,3), then add C back, obtaining (0,1). Rotating the original coordinate pair about the origin would use the wrong centre. The grid itself remains fixed throughout.",
+        "zh": "先减中心得相对位移(3,1)，逆时针转成(-1,3)，再加回C得(0,1)。直接绕原点转原坐标，会用错旋转中心，网格本身并未转动。"
+      }
+    },
+    {
+      "id": "SPACE_06",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. P starts at (-2,-1). Rotate it 90° clockwise about (0,0), then 180° about (0,0). What is the final position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。P起于(-2,-1)，先绕原点顺时针90°，再绕原点180°，最终位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-1, 2)",
+            "zh": "(-1, 2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 1)",
+            "zh": "(-2, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, -2)",
+            "zh": "(1, -2)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The first turn gives (-1,2); the second reverses both components to (1,-2). Equivalently, the combined turn is 90° counterclockwise. Keep the intermediate point or combine signed angles, but do not stop after the first operation or change the rotation centre.",
+        "zh": "第一步得到(-1,2)，第二步两分量反向得(1,-2)，合成也等于逆时针90°。可以保留中间点或合并有向角，但不能只做第一步或换中心。"
+      }
+    },
+    {
+      "id": "SPACE_07",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(-3,2) across the x-axis. What is its reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。将P(-3,2)关于x轴镜像，所得位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-2, 3)",
+            "zh": "(-2, 3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-3, -2)",
+            "zh": "(-3, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reflection across the x-axis preserves the horizontal coordinate and reverses the vertical one: (-3,2) becomes (-3,-2). The reflection line is horizontal, so the left-right location is unchanged. Reversing x instead would reflect across the y-axis.",
+        "zh": "关于x轴镜像保留横坐标、反转纵坐标，所以为(-3,-2)。镜线水平，左右位置不变；若改横坐标符号，做的就是关于y轴的镜像。"
+      }
+    },
+    {
+      "id": "SPACE_08",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(4,-2) across the vertical line x=1. What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(4,-2)关于竖直线x=1镜像，新位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 2)",
+            "zh": "(4, 2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-2, -2)",
+            "zh": "(-2, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, -2)",
+            "zh": "(2, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-4, -2)",
+            "zh": "(-4, -2)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "P is three units to the right of x=1. Its reflection is three units to the left, at x=-2, while y remains -2. The resulting point is (-2,-2). Negating x alone would use the different mirror line x=0.",
+        "zh": "P在镜线右方三格，镜像落在其左方三格，即x=-2，y仍为-2，故(-2,-2)。只把x改负号，是用了另一条镜线x=0。"
+      }
+    },
+    {
+      "id": "SPACE_09",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(2,-5) across the diagonal line y=x. What is the reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(2,-5)关于对角线y=x镜像，坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-5, 2)",
+            "zh": "(-5, 2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(5, -2)",
+            "zh": "(5, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 5)",
+            "zh": "(-2, 5)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2, 5)",
+            "zh": "(2, 5)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Reflection in y=x exchanges the two coordinates, giving (-5,2). It does not additionally negate either component. A rotation can also exchange component positions, but its sign rule differs; use the stated diagonal mirror rather than a quarter-turn rule.",
+        "zh": "关于y=x镜像互换两坐标，得(-5,2)，不另外改变符号。旋转有时也交换坐标位置，但符号规则不同，不能用四分之一转替代此对角镜像。"
+      }
+    },
+    {
+      "id": "SPACE_10",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(-4,1) across the diagonal line y=-x. What is the reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(-4,1)关于对角线y=-x镜像，坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(1, -4)",
+            "zh": "(1, -4)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(4, -1)",
+            "zh": "(4, -1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-4, -1)",
+            "zh": "(-4, -1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-1, 4)",
+            "zh": "(-1, 4)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "For this diagonal, exchange and negate the coordinates: (x,y)→(-y,-x). Thus (-4,1) becomes (-1,4). Exchanging without negation would reflect in y=x instead. The two diagonals are distinct mirror lines even though both exchange coordinate roles.",
+        "zh": "关于这条对角线要互换并同时取反，(x,y)→(-y,-x)，得到(-1,4)。只互换不取反是关于y=x镜像，两条对角镜线不能混用。"
+      }
+    },
+    {
+      "id": "SPACE_11",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. P starts at (3,1). First rotate it 90° counterclockwise about (0,0); then reflect the result across the x-axis. What is the final position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。P起于(3,1)，先绕原点逆时针90°，再将结果关于x轴镜像，终点是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(1, -3)",
+            "zh": "(1, -3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-3, 1)",
+            "zh": "(-3, 1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-1, -3)",
+            "zh": "(-1, -3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The rotation gives (-1,3), and the subsequent x-axis reflection gives (-1,-3). Order matters: reflecting first and then rotating would give (1,3), a different offered point. Apply each operation to the result of the preceding one.",
+        "zh": "先旋转得(-1,3)，再关于x轴镜像得(-1,-3)。顺序重要：先镜像再旋转会得到另一个选项(1,3)，每步应作用于上一步结果。"
+      }
+    },
+    {
+      "id": "SPACE_12",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. The occupied centres of an L shape are {(0,0),(0,1),(0,2),(1,0)}. Allow only 0°, 90°, 180° or 270° rotations followed by any translation; no reflection. Which candidate is the same shape under those moves?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。L形中心为{(0,0),(0,1),(0,2),(1,0)}，只允许转0°、90°、180°或270°后平移，不许镜像。哪组仍是同一形状？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(0, 0); (1, 0); (2, 0); (3, 0)}",
+            "zh": "{(0, 0); (1, 0); (2, 0); (3, 0)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(5, 1); (5, 2); (6, 2); (7, 2)}",
+            "zh": "{(5, 1); (5, 2); (6, 2); (7, 2)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(-1, 0); (0, 0); (0, 1); (0, 2)}",
+            "zh": "{(-1, 0); (0, 0); (0, 1); (0, 2)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, 0); (1, 0); (1, 1); (2, 0)}",
+            "zh": "{(0, 0); (1, 0); (1, 1); (2, 0)}"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Rotate the original shape 90° clockwise and translate by (5,2): the centres become {(5,2),(6,2),(7,2),(5,1)}. Comparing shapes after subtracting a common offset removes translation. The mirrored L, T arrangement and straight line do not match any of the four permitted rotations.",
+        "zh": "原形顺时针90°再平移(5,2)，得到{(5,2),(6,2),(7,2),(5,1)}。减去共同偏移可排除平移影响；镜像L、T形和直线均不能经所准四种旋转得到。"
+      }
+    },
+    {
+      "id": "SPACE_13",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -3≤x≤3 and -3≤y≤3. Fold x>0 onto x<0 about x=0, then y>0 onto y<0 about y=0. Punch through every layer at (-1,-2). Fully unfold. Which set gives all distinct hole locations?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-3≤x≤3、-3≤y≤3。先把x>0关于x=0折向x<0，再把y>0关于y=0折向y<0。在(-1,-2)贯穿所有层打点孔，完全展开后的全部不同孔位是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(-1, -2); (-1, 2); (1, -2); (1, 2)}",
+            "zh": "{(-1, -2); (-1, 2); (1, -2); (1, 2)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, -1); (-2, 1); (2, -1); (2, 1)}",
+            "zh": "{(-2, -1); (-2, 1); (2, -1); (2, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(-1, -2); (-1, -1); (1, -2); (1, -1)}",
+            "zh": "{(-1, -2); (-1, -1); (1, -2); (1, -1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(-1, -2); (-1, 2); (2, -2); (2, 2)}",
+            "zh": "{(-1, -2); (-1, 2); (2, -2); (2, 2)}"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Undo the last fold to obtain y=-2 and y=2, then undo the x fold to obtain x=-1 and x=1. Pairing those coordinates gives four holes at (±1,±2), all inside the square. A fold duplicates the reflected hole positions; it does not swap the x and y distances here.",
+        "zh": "先反解最后一折，y有-2、2，再解x折，x有-1、1，组合成(±1,±2)四孔，均在纸内。本题轴向折叠复制镜像孔位，不交换横纵距离。"
+      }
+    },
+    {
+      "id": "SPACE_14",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness sheet spans -1≤x≤3 and -2≤y≤2. Fold its right half x>1 left across x=1. Punch every layer at (0,1), then unfold. Which set gives all distinct hole locations?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度纸片为-1≤x≤3、-2≤y≤2，把右半x>1关于x=1折向左，在(0,1)贯穿各层打点孔后展开，全部不同孔位是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(0, 1); (1, 1)}",
+            "zh": "{(0, 1); (1, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, 1); (0, 1)}",
+            "zh": "{(-2, 1); (0, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(0, -1); (0, 1)}",
+            "zh": "{(0, -1); (0, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, 1); (2, 1)}",
+            "zh": "{(0, 1); (2, 1)}"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "One hole stays at (0,1). Reflecting that point across x=1 gives the second at (2,1), because both are one unit from the fold. y does not change. Using x=0 as the fold would incorrectly put this punch on the mirror line and collapse the two positions.",
+        "zh": "一个孔在(0,1)，关于x=1反射得到另一个(2,1)，两者到折线均一格，y不变。若误用x=0，会把伙伴错误重叠到原位置，遗漏此处的两层对应关系。"
+      }
+    },
+    {
+      "id": "SPACE_15",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -4≤x,y≤4. Fold the positive-y half onto negative y, then positive x onto negative x, using y=0 and x=0. Punch every layer at (-2,-1), then fully unfold. How many distinct hole locations result?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-4≤x,y≤4，先沿y=0把正y半折向负y，再沿x=0把正x半折向负x。在(-2,-1)贯穿各层打点孔后完全展开，不同孔位有几个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The punch is away from both fold lines. Unfolding supplies y=±1 and x=±2, producing four different combinations. Each location remains within the original square. Count geometric positions rather than the number of fold actions; two complete half-folds create four layers at this interior punch point.",
+        "zh": "孔不在任一折线上，展开后y=±1、x=±2，有四种不同组合且均在原纸内。应数几何孔位，不是折叠动作数；两次完整对半折在此内点形成四层。"
+      }
+    },
+    {
+      "id": "SPACE_16",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -4≤x,y≤4. First fold x>0 left across x=0. Then fold the portion x<-2 right across x=-2. Punch all layers at (-1,-1) and fully unfold. What is the largest x-coordinate among the holes?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-4≤x,y≤4。先沿x=0把x>0折向左，再沿x=-2把x<-2部分折向右。在(-1,-1)贯穿各层打点孔并全展开，孔位最大的x坐标是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Undoing the x=-2 fold gives x=-1 and x=-3. Undoing the first x=0 fold also gives x=1 and x=3. All holes have y=-1, so the largest x is 3. These parallel folds do not generate new y values; unfolding must reverse the fold order.",
+        "zh": "反解x=-2那折得x=-1、-3，再反解最初x=0那折得另两处x=1、3，故最大为3。所有孔y=-1；两次平行折不会改变y，展开须按折叠的逆序推。"
+      }
+    },
+    {
+      "id": "SPACE_17",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -2≤x,y≤2. Fold the triangle y>x across y=x onto y<x. Punch every layer at (1,-1), then unfold. Apart from (1,-1), where is the other hole?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-2≤x,y≤2，把三角区y>x沿y=x折到y<x，在(1,-1)贯穿各层打点孔后展开。除(1,-1)外，另一个孔在哪？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-1, 1)",
+            "zh": "(-1, 1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1, 1)",
+            "zh": "(1, 1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-1, -1)",
+            "zh": "(-1, -1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(0, 0)",
+            "zh": "(0, 0)"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Unfolding this diagonal reflects the punch across y=x, which exchanges coordinates. The partner of (1,-1) is (-1,1), inside the square and off the fold line. The operation is one diagonal fold, so it does not independently create both horizontal and vertical reflection partners.",
+        "zh": "展开该对角折时交换坐标，(1,-1)的伙伴是(-1,1)，在纸内且不在折线上。这是一次对角折，不是分别做横、纵轴折，不能额外生成那些镜像伙伴。"
+      }
+    },
+    {
+      "id": "SPACE_18",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -3≤x,y≤3. Fold positive x onto negative x at x=0, then positive y onto negative y at y=0. Punch all layers at (-1,-1). Unfold only the y fold, leaving x folded. How many distinct hole positions are visible in the still-folded sheet?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-3≤x,y≤3。先沿x=0把正x半折向负x，再沿y=0把正y半折向负y，在(-1,-1)贯穿各层打点孔。只展开y那一折，x折保持关闭；尚折着的纸上有几个不同孔位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Opening only the y fold gives positions (-1,-1) and (-1,1). The x-reflected partners remain superimposed because the x fold is still closed. Therefore there are two distinct geometric locations, although multiple material layers were punched. Counting all four fully unfolded positions would answer a later stage than the one requested.",
+        "zh": "只开y折后是(-1,-1)、(-1,1)两处。x的镜像伙伴仍因x折关闭而叠在一起，故几何位置两个，尽管贯穿了多层。答四个是把题目还没展开的x折也打开了。"
+      }
+    },
+    {
+      "id": "SPACE_19",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. After one forward roll, which original face is now on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向前滚一次后，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A forward roll moves the original back face to the top. That face is marked K. Track the label carried by a face rather than renaming it when its position changes; the original top T moves to the front, not back to the top.",
+        "zh": "向前滚把原后面送到顶部，原后面标记K。应追踪面携带的标签，不能随位置变化给面重新命名；原顶T此时到了前面。"
+      }
+    },
+    {
+      "id": "SPACE_20",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top and keeps front/back fixed. After one right roll, which original face is now on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向右滚使顶→右→底→左→顶，前后保持；向右滚一次后，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The original left face moves upward to replace the top, so the answer is L. Meanwhile T moves right and R moves down. Those three movements belong to one rigid roll; exchanging only T and R would not preserve the cube’s full orientation.",
+        "zh": "原左面向上替代顶部，故为L；同时T到右、R到底。它们是同一次刚体滚动的组成部分，只交换T与R不能保持完整朝向。"
+      }
+    },
+    {
+      "id": "SPACE_21",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform forward, then right, then forward rolls. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向右滚使顶→右→底→左→顶，前后保持；按向前、向右、向前的顺序滚动，哪个原始标记面最终在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "After the first forward roll, B is at the back. The right roll leaves front and back positions unchanged, so B stays there. The last forward roll moves that back face to the top. Keeping a position-to-label record avoids incorrectly restarting from the initial cube at each move.",
+        "zh": "第一次向前后B在后面，向右滚保持前后位置不变，所以B仍在后面；最后向前把后面移到顶，故为B。须连续更新位置与标签，不能每一步都从初始立方体重来。"
+      }
+    },
+    {
+      "id": "SPACE_22",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform two consecutive right rolls. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向右滚使顶→右→底→左→顶，前后保持；连续向右滚两次，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Two right quarter-rolls make a half-turn about the same fixed direction. The original bottom B reaches the top, and T reaches the bottom. Front and back labels remain in place. This is not a pair of cancelling moves: both rolls have the same direction.",
+        "zh": "同方向两次向右四分之一滚合成半圈，原底B到顶、T到底，前后标记仍留原位。两次同向不是互相抵消，只有反向配对才可能回到原朝向。"
+      }
+    },
+    {
+      "id": "SPACE_23",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A yaw-right turn sends front→right→back→left→front and keeps top/bottom fixed. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. Perform a yaw-right turn, then a forward roll. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。水平右转使前→右→后→左→前，顶底保持；向前滚使顶→前→底→后→顶，左右保持；先水平右转，再向前滚，哪个原始标记面最终在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The yaw-right mapping moves original R to the back while keeping T on top. The following forward roll brings the current back face R to the top. The labels must be tracked through both different axes; looking only at the final move on the initial arrangement would incorrectly give K.",
+        "zh": "水平右转把原R移到后面、T仍在顶；随后向前把当前后面R送到顶。两步涉及不同轴，须连续追踪；只对初始朝向做最后一步会误答K。"
+      }
+    },
+    {
+      "id": "SPACE_24",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform forward twice, then right once. Which original face ends on the left?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向右滚使顶→右→底→左→顶，前后保持；先向前滚两次，再向右滚一次，哪个原始标记面最终在左侧？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Two forward rolls put the original top T at the bottom. A right roll then moves the current bottom to the left, carrying T with it. The question asks for the left position rather than the top; tracking the correct destination matters as much as tracking the move sequence.",
+        "zh": "两次向前使原顶T到底，随后向右滚把当前底移到左，所以为T。此题问左侧，不是顶部；追踪正确目标位置与记住动作顺序同样重要。"
+      }
+    },
+    {
+      "id": "SPACE_25",
+      "prompt": {
+        "en": "Opaque unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}, with z upward. View orthographically from negative y toward positive y. How many distinct unit cells appear in the x–z front projection, counting overlapping projections once?",
+        "zh": "不透明单位立方体的左下角坐标为{(0,0,0),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}，z向上。从负y沿正y作正投影，x–z前视投影中有几个不同单位格？重叠投影只数一次。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Removing y leaves projected cells (0,0), (1,0), (1,1) and (2,0). Two cubes project to (1,0), so they occupy one visible cell in this view rather than two. The five three-dimensional cubes therefore produce four distinct projected cells, not five visible cells.",
+        "zh": "去掉y后得到(0,0)、(1,0)、(1,1)、(2,0)。两个立方体重叠投到(1,0)，该视图只占一个格，因此五个三维立方体产生四个不同投影格。"
+      }
+    },
+    {
+      "id": "SPACE_26",
+      "prompt": {
+        "en": "Unit cubes have lower-corner coordinates {(0,0,0),(0,0,1),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}. For the orthographic top footprint, ignore height z. Which listed (x,y) cell is absent?",
+        "zh": "单位立方体左下角坐标为{(0,0,0),(0,0,1),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}。俯视足迹忽略高度z，哪一个所列(x,y)格不存在？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(0, 0)",
+            "zh": "(0, 0)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1, 1)",
+            "zh": "(1, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(0, 1)",
+            "zh": "(0, 1)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The footprint contains (0,0), (1,0), (1,1) and (2,1), each counted once regardless of stack height. The listed cell (0,1) is absent. An additional cube above an existing footprint increases height but does not create a new top-view location.",
+        "zh": "俯视足迹为(0,0)、(1,0)、(1,1)、(2,1)，各位置不论堆高都只计一次，所列(0,1)不存在。同一位置向上添一块只增加高度，不增加新的俯视位置。"
+      }
+    },
+    {
+      "id": "SPACE_27",
+      "prompt": {
+        "en": "There are two x columns, left to right, and three y rows, near to far. Full solid stacks have heights: y=1: [1,3]; y=2: [2,0]; y=3: [1,2]. z is up and 0 means no cubes. Looking from negative y along positive y, what pair gives the maximum front-silhouette height at each x column?",
+        "zh": "x有从左到右两列，y有从近到远三行，实心堆高为y=1:[1,3]；y=2:[2,0]；y=3:[1,2]。z向上，0表示无块。从负y沿正y看，每个x列前视轮廓最高高度组成哪一对？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 5)",
+            "zh": "(4, 5)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 3)",
+            "zh": "(2, 3)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "At the left x column, the three heights are 1,2,1 and their maximum is 2. At the right they are 3,0,2 and their maximum is 3. The silhouette is therefore (2,3). Summing the rows would count stacked material rather than the maximum visible height at each horizontal position.",
+        "zh": "左x列三行高度1、2、1，最大2；右列3、0、2，最大3，故轮廓为(2,3)。把各行相加算的是材料总量，不是每个横向位置的最高可见高度。"
+      }
+    },
+    {
+      "id": "SPACE_28",
+      "prompt": {
+        "en": "Six full vertical stacks on a 2-row, 3-column grid have heights [2,1,0] in the first row and [1,3,2] in the second. Every stack is filled from the floor without internal gaps. How many unit cubes are present altogether?",
+        "zh": "两行三列的六个竖直堆高，首行为[2,1,0]、次行为[1,3,2]，各堆从地面填满、内部无空隙。总共有几个单位立方体？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Count every cube in each filled column: 2+1+0+1+3+2=9. Hidden cubes still belong to the solid stacks because the no-gap condition is explicit. Counting only nonempty footprint cells gives five locations, a different quantity from the total number of cubes.",
+        "zh": "逐堆累加2+1+0+1+3+2=9。题明示堆内无空隙，隐藏块也计入。只数非空足迹会得到五个位置，那是另一种量，不是总立方体数。"
+      }
+    },
+    {
+      "id": "SPACE_29",
+      "prompt": {
+        "en": "On a fixed grid, +x is east and +y north. Start at (-1,2) facing east. Move forward 3 units; turn left 90° and move 2; turn right 90° and move 1. What is the endpoint?",
+        "zh": "固定网格+x为东、+y为北，起点(-1,2)，面朝东。先前进3格，左转90°走2格，再右转90°走1格，终点是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, 4)",
+            "zh": "(3, 4)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, 4)",
+            "zh": "(2, 4)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(3, 0)",
+            "zh": "(3, 0)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Eastward movement reaches (2,2), then the left turn points north and reaches (2,4). Turning right from north points east, giving (3,4) after one more unit. Update both heading and position; a right turn changes direction without automatically moving the point until the stated step is taken.",
+        "zh": "向东3格到(2,2)，左转朝北走2格到(2,4)，再右转朝东走1格到(3,4)。须同时更新朝向与位置；转向本身不移动，要再按题述步数走。"
+      }
+    },
+    {
+      "id": "SPACE_30",
+      "prompt": {
+        "en": "On a fixed map, +x is east/right and +y north/up. An observer at (3,1) faces west. Which listed point is exactly one grid unit directly to the observer’s left?",
+        "zh": "固定地图+x为东/向右、+y为北/向上，观察者在(3,1)面朝西。哪一个所列点恰在观察者正左方一格？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(4, 1)",
+            "zh": "(4, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(3, 0)",
+            "zh": "(3, 0)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Facing west makes the observer’s left point south, the negative-y direction. Move from (3,1) to (3,0). The map’s left edge still means west, but the observer’s bodily left is a different reference frame here. Do not rotate the coordinate axes when changing the observer’s facing direction.",
+        "zh": "面朝西时，身体左方为南，即负y，从(3,1)到(3,0)。地图左侧仍代表西，但观察者的左方是另一参照系；不能因其转身而把坐标轴也旋转。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "rotations",
+      "directionIds": [
+        "rotations"
+      ],
+      "title": {
+        "en": "Planar rotation: keep axes and centres fixed",
+        "zh": "平面旋转：保持坐标轴与中心明确"
+      },
+      "headline": {
+        "en": "Planar rotation: keep axes and centres fixed",
+        "zh": "平面旋转：保持坐标轴与中心明确"
+      },
+      "summary": {
+        "en": "Review quarter-turns, non-origin centres, whole shapes and composition with worked examples. Original untimed text-and-coordinate practice, without norms.",
+        "zh": "用完整算例复习四分之一转、非原点中心、整体形状与连续变换。原创不计时文字坐标练习，不换算常模。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one part of the original word-and-coordinate practice. Every complete attempt shows all five topic counts and all five full guides. It is not a private attempt, ranked outcome, percentile or general spatial-ability classification.",
+        "zh": "本公开指南解释原创文字与坐标练习的一部分。每次完整作答同时显示五项计数与全部五份完整指南；不是私人答卷、高低结果档、百分位或总体空间能力分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rotations: Full Spatial Practice Guide",
+          "zh": "平面旋转：保持坐标轴与中心明确｜空间推理练习"
+        },
+        "description": {
+          "en": "Review quarter-turns, non-origin centres, whole shapes and composition with worked examples. Original untimed text-and-coordinate practice, without norms.",
+          "zh": "用完整算例复习四分之一转、非原点中心、整体形状与连续变换。原创不计时文字坐标练习，不换算常模。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-rotations",
+          "title": {
+            "en": "Read the coordinate convention before turning",
+            "zh": "旋转前先读坐标约定"
+          },
+          "paragraphs": [
+            {
+              "en": "The planar questions keep the grid fixed: positive x points right and positive y up. The object moves within that grid. A clockwise turn therefore is not defined by an arbitrary phone orientation, nor does it rotate the coordinate axes themselves. Identify the named centre and the exact requested endpoint before calculating. A question about Q must preserve Q’s identity even if another endpoint lies closer to an attractive answer. These are written spatial tasks, so understanding the coordinate language is part of the exercise.",
+              "zh": "平面题固定+x向右、+y向上，动的是网格里的对象，不是坐标轴，也不随手机朝向重定义顺时针。先找旋转中心及题目指定的端点；问Q时须保留Q身份，不能因为另一端点更接近某选项就交换。理解坐标文字也是本练习的组成条件。"
+            }
+          ]
+        },
+        {
+          "id": "2-rotations",
+          "title": {
+            "en": "A fresh quarter-turn and its inverse",
+            "zh": "新算例：四分之一转与反向核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a new point P(4,2) and turn it 90° counterclockwise about the origin. The rule (x,y)→(-y,x) gives (-2,4). A clockwise quarter-turn of that result returns (4,2), providing a separate inverse check. The squared distance from the origin stays 4²+2²=20, also equal to (-2)²+4². Distance alone does not identify the answer, because several different points can have that distance; it is a useful check after the direction and endpoint have been settled.",
+              "zh": "另设P(4,2)绕原点逆时针90°，按(x,y)→(-y,x)得(-2,4)；把结果顺时针转回应回到(4,2)。两点到原点的距离平方都为20，但相同距离可对应多点，故距离只是方向和终点算出后的复核，不能单独选答案。"
+            }
+          ]
+        },
+        {
+          "id": "3-rotations",
+          "title": {
+            "en": "Move the centre out of the arithmetic first",
+            "zh": "非原点中心：先算相对位移"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh centre C(2,1) and point P(3,4), first form the offset P-C=(1,3). A counterclockwise quarter-turn changes the offset to (-3,1). Adding C back gives P′=(-1,2). The distance squared from C remains 10, although distance from the origin need not stay the same. Skipping the subtraction or forgetting to add the centre back answers an origin-based problem instead. Keep centre coordinates and moving-point coordinates in separate rows when using a paper sketch.",
+              "zh": "另设中心C(2,1)、点P(3,4)，先得相对位移(1,3)，逆时针四分之一转为(-3,1)，加回C得(-1,2)。到C的距离平方仍为10，到原点的距离则不必保持。少做减中心或加回中心，实际回答的就是另一个原点旋转问题。"
+            }
+          ]
+        },
+        {
+          "id": "4-rotations",
+          "title": {
+            "en": "Transform every occupied cell consistently",
+            "zh": "整个形状的各格必须同样变换"
+          },
+          "paragraphs": [
+            {
+              "en": "For an occupied-cell shape, apply the same turn to every listed centre. Trace one distinctive short arm or corner, then check the remaining centres rather than moving only the longest segment. Some tasks request exact positions about a fixed origin; others explicitly permit translation when matching shapes. Subtracting a common offset is appropriate only for the latter comparison. Do not quietly slide a shape in a question that forbids translation. An unordered set of occupied cells also differs from a pair of named endpoints whose labels must stay attached.",
+              "zh": "占格形状的每个中心都要做同一变换，可先追踪特别的短臂或转角，再核其余各格。固定原点题要求精确位置，只有明确准许平移的匹配题才可减去共同偏移比较。不能在禁止平移时悄悄挪形状，也要区分无序格集合与带身份的端点标签。"
+            }
+          ]
+        },
+        {
+          "id": "5-rotations",
+          "title": {
+            "en": "Combine turns only under the stated conditions",
+            "zh": "连续旋转的合并条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Four quarter-turns in one direction about one fixed centre return an object to its starting position. Two same-direction quarter-turns make a half-turn; they do not cancel. A clockwise and a counterclockwise quarter-turn about that same centre do cancel. These shortcuts depend on the shared centre and fixed axes. If a new problem changes centres or inserts a reflection, keep the intermediate positions instead of merely adding remembered angles. The bank states its operations explicitly, and the item explanation shows which sequence was actually used.",
+              "zh": "同中心同方向四次四分之一转回原位，两次则半圈，不能说成抵消；同中心一顺一逆才相消。若新题换中心或插入镜像，应保留中间位置，不能只凭角度相加。是否可合并取决于共同中心与固定坐标轴，逐题解析会展示实际使用的顺序。"
+            }
+          ]
+        },
+        {
+          "id": "6-rotations",
+          "title": {
+            "en": "Use the six-item count with its worked answers",
+            "zh": "把六题计数与逐题过程一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "The rotation sub-count records how many of these six original items were answered correctly. It does not separate mental imagery from symbolic calculation, reading or prior coordinate familiarity. Two identical counts may contain different errors, such as the wrong centre or a reversed turning direction. Read the actual item working before deciding what to practise. Every complete attempt, including a zero-correct attempt, receives all 30 explanations and all five full guides, without assigning a high or low spatial-ability identity.",
+              "zh": "旋转计数只记录本组六题答对数，不把心像、符号计算、阅读或坐标熟悉度拆成独立能力。同分可能分别用错中心或转向，应连同该题过程选择复习方向。即使零题正确，完整作答仍给全部30题解析及五份指南，不贴高低空间能力身份。"
+            }
+          ]
+        },
+        {
+          "id": "7-rotations",
+          "title": {
+            "en": "Try fresh coordinates rather than memorised options",
+            "zh": "换新坐标练，不只记固定选项"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a new point and an explicitly stated centre, predict the direction of its offset after a turn, and then calculate the exact coordinate. Reverse the turn to check your result. Paper and sketches are allowed, and the exercise is untimed. Repeating this fixed bank may improve memory for its options, so a higher retake count does not establish a training effect, reaction speed or transfer to a different assessment. Treat the new calculation as a check of the written transformation rather than as a comparison with other people.",
+              "zh": "可另设一个点和明确中心，先预测相对位移转向，再算精确坐标，最后反转核对。允许纸笔且不计时。重做固定题本可能记住选项，涨分不能证明训练效果、反应速度或迁移到另一测评。重点是核对这次书面变换，不与他人比较。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflections",
+      "directionIds": [
+        "reflections"
+      ],
+      "title": {
+        "en": "Reflections: identify the line and the order",
+        "zh": "镜像：认清镜线与操作顺序"
+      },
+      "headline": {
+        "en": "Reflections: identify the line and the order",
+        "zh": "镜像：认清镜线与操作顺序"
+      },
+      "summary": {
+        "en": "Work through axis and diagonal mirrors, non-origin lines and rotation order. Complete examples for original coordinate practice, without ability bands.",
+        "zh": "完整复习轴向、对角、非原点镜线与旋转顺序，用原创坐标算例检查，不划能力档位。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one part of the original word-and-coordinate practice. Every complete attempt shows all five topic counts and all five full guides. It is not a private attempt, ranked outcome, percentile or general spatial-ability classification.",
+        "zh": "本公开指南解释原创文字与坐标练习的一部分。每次完整作答同时显示五项计数与全部五份完整指南；不是私人答卷、高低结果档、百分位或总体空间能力分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reflections: Full Spatial Practice Guide",
+          "zh": "镜像：认清镜线与操作顺序｜空间推理练习"
+        },
+        "description": {
+          "en": "Work through axis and diagonal mirrors, non-origin lines and rotation order. Complete examples for original coordinate practice, without ability bands.",
+          "zh": "完整复习轴向、对角、非原点镜线与旋转顺序，用原创坐标算例检查，不划能力档位。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-reflections",
+          "title": {
+            "en": "A mirror preserves distance to its line",
+            "zh": "镜像保留到镜线的垂直距离"
+          },
+          "paragraphs": [
+            {
+              "en": "Reflection places a point on the opposite side of the specified line at the same perpendicular distance. It is a whole transformation, not a general instruction to negate whichever coordinate looks convenient. A horizontal mirror keeps horizontal position and changes vertical position; a vertical mirror does the reverse. Diagonal mirrors combine the coordinate roles differently. Identify the actual line, including any nonzero offset, before using a formula. The grid remains fixed and the object is reflected within it, rather than the coordinate system being renamed.",
+              "zh": "镜像把点移到指定直线另一侧、保持到线的垂直距离，不是随意改一个看着方便的符号。水平镜线保留横位置，竖直镜线保留纵位置，对角线又有不同坐标关系。先认清线及其偏移，网格仍固定，不能把坐标系统重新命名。"
+            }
+          ]
+        },
+        {
+          "id": "2-reflections",
+          "title": {
+            "en": "A fresh non-origin mirror example",
+            "zh": "新算例：镜线不在原点"
+          },
+          "paragraphs": [
+            {
+              "en": "Reflect P(5,-2) across x=2. The point is three units to the right of that vertical line, so its partner lies three units left, at (-1,-2). The horizontal distances to the mirror match, while y stays unchanged. Reflecting the same original point across the x-axis instead gives (5,2). These are different operations with different lines. Merely seeing a minus sign in the starting coordinate does not tell you which sign should change or whether a translation of the mirror is involved.",
+              "zh": "另设P(5,-2)关于x=2镜像，原点在线右三格，伙伴在线左三格，为(-1,-2)，y保持不变。若将同一原点关于x轴镜像，则是(5,2)，属于另一操作。起始坐标有负号，并不能据此决定改哪个符号或忽略镜线偏移。"
+            }
+          ]
+        },
+        {
+          "id": "3-reflections",
+          "title": {
+            "en": "Keep the two diagonals distinct",
+            "zh": "两条对角镜线不要混用"
+          },
+          "paragraphs": [
+            {
+              "en": "For the fresh point (5,-2), reflection in y=x exchanges coordinates and gives (-2,5). Reflection in y=-x exchanges and negates them, giving (2,-5). Applying either same reflection a second time returns the original point, which is a useful inverse check. That return does not make the two first images equal. Mark the diagonal or write its equation before computing so the correct coordinate rule stays attached to the specified line rather than to a remembered picture from another item.",
+              "zh": "新点(5,-2)关于y=x镜像得(-2,5)，关于y=-x则得(2,-5)，后者要互换并取反。各自再镜像一次都会回原点，但不表示第一次结果相同。可先写镜线方程或画出那条线，再把相应规则附在该线上。"
+            }
+          ]
+        },
+        {
+          "id": "4-reflections",
+          "title": {
+            "en": "Rotation and reflection generally do not commute",
+            "zh": "旋转与镜像通常不能交换顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Start a new example at (2,4). Rotating 90° counterclockwise first gives (-4,2); reflecting that across the x-axis gives (-4,-2). Reversing the operations gives (2,-4) after reflection and then (4,2) after rotation. The endpoints differ. Keep an intermediate coordinate after every step, especially when the operations have different kinds or centres. A single shortcut chosen from the last verb can miss the entire effect of the earlier move even when each individual formula is familiar.",
+              "zh": "新例从(2,4)起，先逆时针90°得(-4,2)，再关于x轴镜像得(-4,-2)。反过来先得(2,-4)、再旋转得(4,2)，终点不同。操作种类或中心变化时尤其应逐步写中间坐标，不能只看最后一个动词套熟悉公式。"
+            }
+          ]
+        },
+        {
+          "id": "5-reflections",
+          "title": {
+            "en": "Compare full shapes under allowed moves",
+            "zh": "只在题目允许的变换中比较整体"
+          },
+          "paragraphs": [
+            {
+              "en": "Matching one corner does not establish that two occupied-cell shapes are the same. Check every listed centre after the same allowed rotation and translation. A reflected shape sometimes matches its original set when the figure is symmetric, so do not use a universal claim that every mirror image is different. For the asymmetric L in this bank, all four permitted quarter-turn orientations can be compared explicitly. Keeping the short arm’s attachment point visible helps distinguish its mirror from a translated or rotated copy.",
+              "zh": "一个角匹配不等于整体相同，要把同一允许变换施于全部中心。对称图形的镜像有时仍与原集合一致，不能宣称所有镜像都必然不同。本题非对称L可逐一核所准四种朝向；注意短臂附着的位置，有助区分镜像与单纯旋转平移。"
+            }
+          ]
+        },
+        {
+          "id": "6-reflections",
+          "title": {
+            "en": "Use a sketch without changing the task",
+            "zh": "画草图时也保留原参照系"
+          },
+          "paragraphs": [
+            {
+              "en": "Sketch the mirror line and a perpendicular segment from the point to that line. Place the partner the same distance beyond it, then read the fixed coordinates. For a diagonal line, use the stated coordinate rule as a second check rather than judging by how a rough drawing looks. A map’s left side and an observer’s bodily left are different reference questions; neither should silently replace the line in a reflection task. Draw only what the wording supports, keeping point labels and operation order visible.",
+              "zh": "草图可画镜线与点到线的垂线，在线另一边放等距离伙伴，再读固定坐标；对角线可用坐标规则复核，不只看手绘像不像。地图左侧、身体左侧属于不同参照问题，不能偷偷替代本题镜线。标签和顺序都应保留，只画题目支持的关系。"
+            }
+          ]
+        },
+        {
+          "id": "7-reflections",
+          "title": {
+            "en": "A six-item result is a revision record",
+            "zh": "六题结果是一份复习记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The reflection count is a correct-answer count on these six written cases, not a diagnosis of perception, attention, handedness or general spatial ability. A missed option cannot by itself reveal whether the mirror line, offset or operation order caused the error. Read that item’s explanation and try a fresh case changing just one condition. All complete attempts receive all five guides, regardless of count. Paper is allowed and there is no timer, norm, percentile, hiring cut-off or evidence here of improvement beyond the fixed practice bank.",
+              "zh": "镜像计数是这六道文字题答对记录，不诊断知觉、注意、惯用手或总体空间能力。单一错选不能证明是镜线、偏移还是顺序导致，宜读该题解析后另写只改一个条件的新题。完整作答均给五份指南，允许纸笔，无计时、常模、百分位、招聘线或题本之外改善的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "folds",
+      "directionIds": [
+        "folds"
+      ],
+      "title": {
+        "en": "Paper folds: undo one crease at a time",
+        "zh": "折纸：按逆序恢复点孔"
+      },
+      "headline": {
+        "en": "Paper folds: undo one crease at a time",
+        "zh": "折纸：按逆序恢复点孔"
+      },
+      "summary": {
+        "en": "Follow ideal folds, inverse hole positions, sheet bounds and partial unfolding with complete examples. Original untimed practice, without a norm.",
+        "zh": "用完整算例追踪理想折叠、反解孔位、纸张边界与部分展开。原创不计时练习，不换算常模。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one part of the original word-and-coordinate practice. Every complete attempt shows all five topic counts and all five full guides. It is not a private attempt, ranked outcome, percentile or general spatial-ability classification.",
+        "zh": "本公开指南解释原创文字与坐标练习的一部分。每次完整作答同时显示五项计数与全部五份完整指南；不是私人答卷、高低结果档、百分位或总体空间能力分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Paper Folds: Full Spatial Practice Guide",
+          "zh": "折纸：按逆序恢复点孔｜空间推理练习"
+        },
+        "description": {
+          "en": "Follow ideal folds, inverse hole positions, sheet bounds and partial unfolding with complete examples. Original untimed practice, without a norm.",
+          "zh": "用完整算例追踪理想折叠、反解孔位、纸张边界与部分展开。原创不计时练习，不换算常模。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-folds",
+          "title": {
+            "en": "The ideal sheet and point hole are explicit",
+            "zh": "先把理想纸张与点孔条件说清"
+          },
+          "paragraphs": [
+            {
+              "en": "The folding tasks use zero-thickness sheets, fixed original coordinates and ideal point-sized holes punched through every current layer. The wording states the moving side and the fold line, so no imagined crease or physical paper thickness needs to be added. Read the original bounds as well as the final punch position. A point outside the material at an intermediate stage cannot become a hole merely because a reflection formula can generate its coordinate. These are mathematical fold models rather than measurements of manual dexterity or performance with actual materials.",
+              "zh": "折纸题用无厚度纸张、固定原坐标和贯穿当前各层的理想点孔；移动哪侧、沿哪条线都明示，不额外假设折痕或厚度。原纸边界与最终打孔位置同样重要，反射公式生成的点若不在材料上，也不能当孔。本题是数学折叠模型，不测真实材料操作或手巧程度。"
+            }
+          ]
+        },
+        {
+          "id": "2-folds",
+          "title": {
+            "en": "A fresh pair of perpendicular folds",
+            "zh": "新算例：两条垂直折线"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a square with both coordinates between -4 and 4. Fold positive x onto negative x at x=0, then positive y onto negative y at y=0, and punch at (-3,-2). Unfolding the last crease supplies y=-2 and y=2. Unfolding the earlier crease supplies x=-3 and x=3. The four positions are therefore (-3,-2), (-3,2), (3,-2) and (3,2), all inside the original square. The distances three and two stay attached to their own coordinate axes; they are not exchanged by these folds.",
+              "zh": "另设两坐标都在-4至4的方纸，依次将正x、正y半折向负侧，在(-3,-2)打点孔。反解最后一折得y=±2，再解先前一折得x=±3，组合为(-3,-2)、(-3,2)、(3,-2)、(3,2)，均在原纸内。三与二分别属于各自轴，这两折不会把它们交换。"
+            }
+          ]
+        },
+        {
+          "id": "3-folds",
+          "title": {
+            "en": "Undo parallel folds in reverse order",
+            "zh": "平行折叠同样要逆序解"
+          },
+          "paragraphs": [
+            {
+              "en": "For another paper model, let x range from -6 to 6. Fold the right half left at x=0, then fold the portion x<-3 right across x=-3. A punch with final x=-2 has x=-2 and x=-4 as preimages of the last fold. Undoing the first fold adds x=2 and x=4. This gives four distinct horizontal locations, with the same unchanged y. Reflecting around zero twice would miss the offset crease and would not reconstruct the stated sequence.",
+              "zh": "另设x从-6至6，先沿x=0向左对折，再把x<-3部分沿x=-3向右折。最终x=-2反解后一折得-2、-4，再解原先x=0得2、4，共四个横位置，y不变。若两次都绕零反射，就会漏掉偏移折线，不能恢复题述顺序。"
+            }
+          ]
+        },
+        {
+          "id": "4-folds",
+          "title": {
+            "en": "Bounds and coinciding images limit shortcuts",
+            "zh": "边界与重叠孔位限制倍增口诀"
+          },
+          "paragraphs": [
+            {
+              "en": "An off-crease punch in a completely covered region may produce two distinct preimages for one fold. A point on the fold line can coincide with its own reflection, and clipped or differently folded sheets may not cover every imagined partner. Thus doubling after every crease is not a universal counting rule. Track the candidate positions, retain only those supported by the material and count each geometric location once. The bank avoids finite hole sizes so overlapping circular areas do not silently change what a point-location question means.",
+              "zh": "离折线且完全覆盖的区域，一折可能有两个不同原像；折线上的点可能与反射重合，不同纸形或覆盖范围也会排除某些伙伴。因此不能不看条件就每折乘二。应追踪位置、保留确有材料的伙伴、重合位置只计一次。本题用点孔，避免圆孔面积交叠改变位置题含义。"
+            }
+          ]
+        },
+        {
+          "id": "5-folds",
+          "title": {
+            "en": "Stop at the unfolding stage requested",
+            "zh": "只展开到题目要求的阶段"
+          },
+          "paragraphs": [
+            {
+              "en": "Fully unfolding and opening only the last crease are different questions. A still-closed earlier fold can keep multiple punched layers superimposed at one location even after another crease has opened. Count positions in the stated current sheet, not the number of original layers or the positions that would appear after extra unfolding. Draw the sequence as named stages and mark which creases remain closed. This keeps an intermediate-stage answer from being replaced by a correct calculation for a later, unrequested stage.",
+              "zh": "完全展开与只开最后一折是不同题。尚关闭的先前折痕，会让若干已打孔层继续重叠在同一位置。应数当前纸上的位置，不是原层数或继续展开后的位置。可以把各阶段命名，注明哪些折还关闭，避免用后续阶段的正确计算回答当前问题。"
+            }
+          ]
+        },
+        {
+          "id": "6-folds",
+          "title": {
+            "en": "Use six written items as revision evidence",
+            "zh": "六题只能作为本组复习线索"
+          },
+          "paragraphs": [
+            {
+              "en": "The folding count records correct choices on six particular original models. A missed choice does not establish difficulty with everyday paper folding, vision, attention or a general spatial trait. It may involve the fold line, moving side, bounds or requested stage, but the count alone cannot identify that cause. Read the full explanation with the original wording. Every completed attempt receives all 30 worked answers and all five full guides, even at zero correct, without a ranked band, percentile or qualification claim.",
+              "zh": "折纸计数只记录这六个原创模型答对情况。错选不能证明日常折纸、视觉、注意或总体空间特质有问题；可能涉及折线、移动侧、边界或阶段，但计数不独自诊断原因。应合看原题与解析；零题正确的完整作答也给30题解析和五份指南，不划等级、百分位或资格。"
+            }
+          ]
+        },
+        {
+          "id": "7-folds",
+          "title": {
+            "en": "Make a new model with one clear change",
+            "zh": "新练习每次只改一个条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep a fresh model small enough to draw: state its rectangle, crease, moving half and punch coordinate, then reverse the fold and check every proposed location against the bounds. Change only the punch coordinate or one fold line on the next example. Paper sketches are allowed, and the test imposes no timer. Repeating its fixed choices can reward memory, so a higher count does not prove transfer, training benefit or faster practical manipulation. The useful learning record is the explicit sequence you can check.",
+              "zh": "另写可画清的小模型，交代矩形、折线、移动半边和孔坐标，再反解并逐点核边界。下一例只改孔位或一条折线。允许草图且无计时，重复固定选项可能靠记忆涨分，不能证明迁移、训练收益或实际操作更快；可复核的明确步骤才是练习记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cube-turns",
+      "directionIds": [
+        "cube-turns"
+      ],
+      "title": {
+        "en": "Cube turns: carry labels through every roll",
+        "zh": "立方体转向：逐步追踪面标记"
+      },
+      "headline": {
+        "en": "Cube turns: carry labels through every roll",
+        "zh": "立方体转向：逐步追踪面标记"
+      },
+      "summary": {
+        "en": "Track labelled faces through explicit forward, right and yaw turns. Full examples explain order, fixed positions and the limits of six written tasks.",
+        "zh": "按明示向前、向右、水平转向追踪面标签，完整说明顺序、固定位置与六道文字题的边界。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one part of the original word-and-coordinate practice. Every complete attempt shows all five topic counts and all five full guides. It is not a private attempt, ranked outcome, percentile or general spatial-ability classification.",
+        "zh": "本公开指南解释原创文字与坐标练习的一部分。每次完整作答同时显示五项计数与全部五份完整指南；不是私人答卷、高低结果档、百分位或总体空间能力分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cube Turns: Full Spatial Practice Guide",
+          "zh": "立方体转向：逐步追踪面标记｜空间推理练习"
+        },
+        "description": {
+          "en": "Track labelled faces through explicit forward, right and yaw turns. Full examples explain order, fixed positions and the limits of six written tasks.",
+          "zh": "按明示向前、向右、水平转向追踪面标签，完整说明顺序、固定位置与六道文字题的边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-cube-turns",
+          "title": {
+            "en": "Face labels stay attached while positions change",
+            "zh": "标签贴在面上，位置会改变"
+          },
+          "paragraphs": [
+            {
+              "en": "The cube starts with T on top, B below, F in front, K behind, R on the right and L on the left. Those letters remain attached to their original physical faces. After a roll, T need not be on top; calling the new top T would erase the task. The wording defines each movement as a cycle of named positions and names the stationary pair. Use those stated cycles rather than an unannounced viewing side or a vague clockwise picture of a cube.",
+              "zh": "初始顶T、底B、前F、后K、右R、左L，字母一直贴在原来的面上。滚动后T不必仍在顶，不能给新顶重新叫T。题目以位置循环定义动作，并指出不动的一对面，应使用这些明示循环，不能自行换观察侧或凭含糊的顺时针印象判断。"
+            }
+          ]
+        },
+        {
+          "id": "2-cube-turns",
+          "title": {
+            "en": "A fresh sequence uses all three turn kinds",
+            "zh": "新算例：连续使用三种转向"
+          },
+          "paragraphs": [
+            {
+              "en": "Start from that initial cube and perform right, forward, then yaw-right. After the right roll, L is on top and B is on the left. The forward roll brings K to the top while B remains left. The yaw-right turn then carries that left face B to the front and leaves the top K unchanged. The final top is K and front is B. Tracking only the final move from the initial arrangement would produce a different answer because the previous two moves changed which labels occupy the positions.",
+              "zh": "另从初始朝向依次向右、向前、水平右转。向右后L在顶、B在左；向前使K到顶，B仍在左；水平右转再把左侧B送到前，顶部K不动。因此最终顶K、前B。若只从初始朝向做最后一步，就会漏掉前两步已改变的位置标签。"
+            }
+          ]
+        },
+        {
+          "id": "3-cube-turns",
+          "title": {
+            "en": "Update a six-position record once per move",
+            "zh": "每次动作完整更新六个位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a row for top, bottom, front, back, right and left, then copy the labels into a new row according to the stated cycle. Read all source labels from the old row before writing the new one, so an early replacement does not overwrite a label needed later in the same move. Carry the stationary pair unchanged. Every completed row must contain the same six distinct labels once each. A duplicate or missing label is a bookkeeping error, not a legitimate cube orientation.",
+              "zh": "可列顶、底、前、后、右、左六格，每步依题述循环从旧行抄到新行。先从旧行读取全部标签，避免写入时覆盖同一步后面还要用的值；不动那对照抄。每行都应六种标签各一次，重复或缺失表示记录错误，不是合法立方体朝向。"
+            }
+          ]
+        },
+        {
+          "id": "4-cube-turns",
+          "title": {
+            "en": "Check cycles and opposite pairs",
+            "zh": "用循环与对面关系做复核"
+          },
+          "paragraphs": [
+            {
+              "en": "Four same-direction quarter-rolls about the same fixed axis return every face to its original position. Two such rolls make a half-turn rather than cancel. A rigid rotation also preserves which labels are opposite: T stays opposite B, F opposite K and R opposite L, although those pairs move to different positions. These facts can check a proposed record, but opposite pairs alone may fit more than one orientation. Use the full sequence to settle the particular queried face and treat the invariants as supporting checks.",
+              "zh": "同一固定轴同向四次四分之一转才全回原位，两次是半圈，不是抵消。刚体旋转也保留T对B、F对K、R对L，但这些对面可换到不同位置。这些条件可复核记录，却不能只凭对面关系确定唯一朝向；仍要按完整顺序找到所问位置。"
+            }
+          ]
+        },
+        {
+          "id": "5-cube-turns",
+          "title": {
+            "en": "Different axes make order matter",
+            "zh": "换轴以后，顺序不能忽略"
+          },
+          "paragraphs": [
+            {
+              "en": "A forward roll and a right roll act on different sets of positions. Exchanging their order can change the final arrangement, even when both descriptions contain one of each move. Keep the exact order and the named target position visible: a question asking for the left face cannot be answered by a perfectly tracked top face. If the sequence repeats a move, apply it to the current row rather than resetting the cube. The bank uses explicit cycles to make these written operations checkable without relying on proprietary diagrams.",
+              "zh": "向前与向右作用于不同位置，交换先后可能改变最终朝向，即使两种动作次数相同。顺序与目标位置都要标清：问左面时，算对顶面仍答非所问。重复动作也应接着当前行做，不能重置。题内明示循环，使书面变换可以核对，不依赖专有图形。"
+            }
+          ]
+        },
+        {
+          "id": "6-cube-turns",
+          "title": {
+            "en": "Interpret the six answers without a trait label",
+            "zh": "读六道答案，不贴能力特质"
+          },
+          "paragraphs": [
+            {
+              "en": "The cube sub-count is correctness on these six original label-tracking questions. It combines reading the cycles, maintaining a record and reasoning about positions; it is not a pure measure of vivid mental imagery, memory or overall intelligence. A total does not diagnose why an individual move was missed. Use that item’s working to choose a new example. All complete attempts get all five topic guides and every answer explanation, without assigning a spatial type, percentile, hiring result or equipment-handling certification.",
+              "zh": "立方体计数是本组六道标记追踪题答对数，涉及读循环、维护记录与位置推演，不纯测心像鲜明度、记忆或总体智力。总数不能诊断漏掉某动作的原因，应按该题步骤另选练习。完整作答都给五份指南与全部题解，不分空间类型、百分位、招聘结果或设备操作认证。"
+            }
+          ]
+        },
+        {
+          "id": "7-cube-turns",
+          "title": {
+            "en": "Practise fresh sequences with explicit definitions",
+            "zh": "用定义明确的新序列练习"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh paper example, change the order of two moves or ask for a different final position while keeping the same initial labels and movement definitions. Predict the stationary pair first, then update all six positions and check for duplicates. Sketches and written tables are allowed; there is no timer. Repeating the fixed bank can increase familiarity with its answers, so a changed count does not establish broader training transfer. The useful target is a sequence whose intermediate rows and final queried position you can explain.",
+              "zh": "可另写纸上题，只换两步顺序或改问另一个终点位置，保留初始标签和动作定义。先预测不动的那对，再更新六位置、查重复。允许草图表格且不计时；重做可能熟悉答案，涨分不证明广泛迁移。应能解释中间各行与最后所问的位置。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "layouts",
+      "directionIds": [
+        "layouts"
+      ],
+      "title": {
+        "en": "Layouts and views: separate cells from volume",
+        "zh": "布局与视图：分开投影格与体积"
+      },
+      "headline": {
+        "en": "Layouts and views: separate cells from volume",
+        "zh": "布局与视图：分开投影格与体积"
+      },
+      "summary": {
+        "en": "Review orthographic cells, full-stack counts, silhouette heights and observer-relative directions with complete worked examples and clear score limits.",
+        "zh": "完整复习正投影格、实心堆计数、轮廓高度和观察者相对方向，附算例及明确分数边界。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one part of the original word-and-coordinate practice. Every complete attempt shows all five topic counts and all five full guides. It is not a private attempt, ranked outcome, percentile or general spatial-ability classification.",
+        "zh": "本公开指南解释原创文字与坐标练习的一部分。每次完整作答同时显示五项计数与全部五份完整指南；不是私人答卷、高低结果档、百分位或总体空间能力分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Layouts: Full Spatial Practice Guide",
+          "zh": "布局与视图：分开投影格与体积｜空间推理练习"
+        },
+        "description": {
+          "en": "Review orthographic cells, full-stack counts, silhouette heights and observer-relative directions with complete worked examples and clear score limits.",
+          "zh": "完整复习正投影格、实心堆计数、轮廓高度和观察者相对方向，附算例及明确分数边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-layouts",
+          "title": {
+            "en": "Name the view and the requested quantity",
+            "zh": "先给视图与所求量命名"
+          },
+          "paragraphs": [
+            {
+              "en": "A three-dimensional cube arrangement can produce several different two-dimensional views. A front projection along the stated y direction keeps x and height z while dropping depth y; a top footprint keeps x and y while dropping height. Cubes at different depths may occupy the same projected cell and must then be counted once in that view. A question about total material is different from one about occupied footprint cells or a silhouette. Identify that requested quantity before adding stack heights or counting visible positions.",
+              "zh": "同一三维积木可有不同二维视图。沿题定y方向的前视保留x与高度z、舍去深度y；俯视足迹保留x、y、舍去高度。不同深度的块可能重叠到同一投影格，该视图只数一次。总材料、非空足迹和轮廓是不同量，求和之前应先命名所求量。"
+            }
+          ]
+        },
+        {
+          "id": "2-layouts",
+          "title": {
+            "en": "A fresh stack has three different counts",
+            "zh": "新算例：同一堆形有三种计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider two rows of three full stacks, with heights [2,1,0] and [1,4,3]. They contain 2+1+0+1+4+3=11 unit cubes and occupy five nonempty footprint cells. Viewed from the front along the row direction, the maximum heights at the three x columns are (2,4,3), producing nine occupied front-projection cells. Eleven, five and nine are all correct for their separate quantities. Choosing one because it appeared in an earlier item without naming the requested view confuses volume, footprint and projection.",
+              "zh": "另设两行三列实心堆，高度[2,1,0]与[1,4,3]，总块数11、非空足迹5格。沿行方向前视，三x列最高为(2,4,3)，前投影共9格。11、5、9分别对应不同量，都可正确；不能因前题用过某数，就不看视图和所求量直接套来。"
+            }
+          ]
+        },
+        {
+          "id": "3-layouts",
+          "title": {
+            "en": "Full columns justify hidden-cube counting",
+            "zh": "实心列条件才支持隐藏块计数"
+          },
+          "paragraphs": [
+            {
+              "en": "When a problem states every vertical column is filled from the floor without gaps, its height determines the number of cubes in that column. Hidden cubes still count toward material total. Without that condition or an explicit coordinate list, a view alone may not determine the interior arrangement: different solids can share a projection. Do not fill unseen spaces by habit. The bank states either the cube positions or the full-stack conditions needed for its particular question, so the requested count has a definite basis rather than an assumed picture.",
+              "zh": "题明示竖列从地面填满、无空隙时，高度才直接给出该列块数，隐藏块也计入。若没有这项条件或明确坐标清单，仅一张视图可能无法确定内部，因为不同实体可有同样投影。不要习惯性补满看不见处；本题会给相应位置或实心堆条件。"
+            }
+          ]
+        },
+        {
+          "id": "4-layouts",
+          "title": {
+            "en": "Update heading and position separately on a route",
+            "zh": "路径题分开更新朝向与位置"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh route, start at (2,-1) facing north. Move four units to (2,3), turn right and move two to (4,3), then turn right again and move one south to (4,2). Turning changes heading; movement changes position by the stated number of units. Write both after each step. Keeping the initial heading throughout would miss the second and third displacements, while treating a turn itself as an extra step would add movement the question never specified.",
+              "zh": "新路径从(2,-1)面北起，前进四格到(2,3)，右转走二格到(4,3)，再右转向南一格到(4,2)。转向更新朝向，按步数移动才更新位置，每步都可分别记。一直用初始朝向会漏掉后两段，若把转弯本身多算一步，也加入了题目没有的移动。"
+            }
+          ]
+        },
+        {
+          "id": "5-layouts",
+          "title": {
+            "en": "An observer’s left is not the map’s left",
+            "zh": "观察者左方不等于地图左侧"
+          },
+          "paragraphs": [
+            {
+              "en": "On a fixed map with east as positive x and north as positive y, a person facing south has east on their left. At (-2,3), one unit directly to that person’s left is therefore (-1,3). The map’s left side still points west, but the observer uses a body-relative frame. First establish facing direction, then rotate that heading left or right to find the relative direction, and only then update the fixed coordinate. Changing the observer’s orientation does not rename the map axes.",
+              "zh": "固定地图东为+x、北为+y时，面朝南者左边是东。若人在(-2,3)，其左一格为(-1,3)，而地图左侧仍是西。应先定其朝向，再找相对左或右，最后更新固定坐标；观察者转身，不会给地图轴重新命名。"
+            }
+          ]
+        },
+        {
+          "id": "6-layouts",
+          "title": {
+            "en": "Read six item results as a bounded record",
+            "zh": "六题结果只是有限作答记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The layouts sub-count shows how many of these six written projection, stack and direction cases were answered correctly. It is not an architectural, navigation or workplace qualification, and it does not identify a person’s general spatial strength. A miss can involve the requested quantity, an occluded cell, a stated stack condition or a reference frame. The total alone cannot establish which process occurred. Read each explanation with the actual wording; all completed attempts receive the full answers and all five guides at every correct count.",
+              "zh": "布局计数只记录六道投影、堆形和方向文字题答对数，不是建筑、导航或岗位资格，也不确定个人总体空间强项。错题可能涉及所求量、遮挡、实心条件或参照系，总数不独自判定过程。应结合原题看解析；任何正确数的完整作答都给全部答案与五份指南。"
+            }
+          ]
+        },
+        {
+          "id": "7-layouts",
+          "title": {
+            "en": "Use fresh layouts and clearly stated frames",
+            "zh": "用新布局与明确参照系练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Draw a small new stack-height grid, explicitly state whether columns are solid, and calculate its material total, footprint and front projection as three separate questions. For a route example, change one turn while keeping the start and axis convention fixed. Sketches and calculators are allowed, and there is no speed adjustment. Retakes use the same original bank and may reward recognition. These text-and-coordinate counts have no norm, percentile or evidence of transfer to a different visual test, job task or real-world navigation setting.",
+              "zh": "可另画小堆高网格，明示是否实心，分别算总块数、足迹与前投影；路径例则只改一个转向、保留起点轴约定。允许草图和计算器，不按速度加权。重做固定题可能靠识别，这些文字坐标计数无常模、百分位，也不证明迁移到别的图形测评、工作或现实导航。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_text_spatial_practice",
+    "formCode": "fermatmind_original_text_spatial_30_v1",
+    "itemBankVersion": "fermatmind_original_text_spatial_30_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_spatial_five_revision_guides_v1",
+    "itemBankSha256": "e68c67b5679b2547444f3bd42bc2a34cbe6ce80d108792daf92674f4641ce215",
+    "resultContentSha256": "9659e0349d5e42a4efebcf94f2ed257f1f76a0fc84e6b68b5dd17961a7369d75",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Princeton Math Alive: planar rotation matrix",
+        "zh": "Princeton Math Alive：平面旋转矩阵"
+      },
+      "url": "https://web.math.princeton.edu/math_alive/Geometry/Lab1/Rotation.html"
+    },
+    {
+      "title": {
+        "en": "Princeton Math Alive: reflection across y = x",
+        "zh": "Princeton Math Alive：关于y=x的镜像"
+      },
+      "url": "https://web.math.princeton.edu/math_alive/Geometry/Lab1/Reflection.html"
+    },
+    {
+      "title": {
+        "en": "OpenStax: reflections and transformations",
+        "zh": "OpenStax：镜像与变换"
+      },
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/3-5-transformation-of-functions"
+    },
+    {
+      "title": {
+        "en": "OpenStax: three-dimensional coordinates and vectors",
+        "zh": "OpenStax：三维坐标与向量"
+      },
+      "url": "https://openstax.org/books/calculus-volume-3/pages/2-2-vectors-in-three-dimensions"
+    }
+  ],
+  "guide": [
+    {
+      "id": "conventions",
+      "title": {
+        "en": "Keep the reference frame explicit",
+        "zh": "保持参照系明确"
+      },
+      "paragraphs": [
+        {
+          "en": "The planar grid uses +x to the right and +y upward. A turn moves the object within fixed axes. Folds use the original sheet axes, stated bounds and a point-sized hole in an ideal zero-thickness sheet. Cube letters mark faces and travel with them through explicitly defined quarter-turns; a view count asks for projected cells, not necessarily all cubes.",
+          "zh": "平面网格+x向右、+y向上，转的是对象，坐标轴固定。折纸沿原纸坐标轴，在明示边界的理想零厚度纸上打点状孔。立方体字母跟随面按明示四分之一转移动；视图所问是投影格，不一定是全部方块。"
+        }
+      ]
+    },
+    {
+      "id": "counts",
+      "title": {
+        "en": "Five six-item counts, all guides open",
+        "zh": "五组六题计数，全部指南开放"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete valid answers produce a total out of 30 and five counts out of six. Missing choices withhold a report rather than silently becoming errors. Zero, partial and perfect scores reveal the same 30 answers and all five full topic guides. These public pages are not private score reports or ability bands. A count alone does not identify the cause of an error.",
+          "zh": "全部有效作答给总数/30与五项各/6，缺答时暂不给报告，不暗中计错。零分、部分与满分开放相同30题答案及五份完整主题指南。公开页不是私人成绩报告或能力档，单独正确数不能识别错因。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Sketch, transform and check a fresh example",
+        "zh": "画草图、变换，再核对另一个例子"
+      },
+      "paragraphs": [
+        {
+          "en": "For a fresh example, rotating P = (4, 2) a quarter-turn counterclockwise about the origin gives (−2, 4), because (x, y) becomes (−y, x). The squared distance stays 20, and a clockwise quarter-turn returns to (4, 2). For a non-origin centre, subtract the centre, transform the offset and add the centre back. A length check can detect some errors but cannot distinguish two rotations with the same radius.",
+          "zh": "另设P=(4,2)，绕原点逆时针四分之一转得(−2,4)，因为(x,y)变为(−y,x)。距离平方仍为20，顺时针四分之一转可回(4,2)。非原点中心先相减、转偏移，再加回中心。长度核查能找出部分错误，但不能区分同半径的两种转向。"
+        }
+      ]
+    },
+    {
+      "id": "authorship",
+      "title": {
+        "en": "Original tasks with bounded geometry checks",
+        "zh": "原创任务与有界几何核查"
+      },
+      "paragraphs": [
+        {
+          "en": "Two separately implemented calculations check these particular keys: direct exact geometry and matrix rotations, inverse fold preimages, labelled face normals, voxel projections and heading-state walks. This is a correctness check under each written convention, not independent expert-panel review, psychometric validation, proof of all natural-language interpretations or a validated picture-based spatial instrument. References support elementary geometry facts without endorsing this bank.",
+          "zh": "两套分别实现的计算核这些具体答案：直接精确几何，以及矩阵旋转、折叠逆像、带标签面法向量、体素投影和朝向路径。这核题定约定下的正确性，不是独立专家评审、心理测量验证、所有自然语言解释的证明或已验证图形空间工具。参考仅支持基础几何事实，不为本题本背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the entire practice free?",
+        "zh": "整套练习都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 30 original questions, every worked answer and all five complete guides are free without signup, email or payment. Public guides can also be read before an attempt.",
+        "zh": "是，30道原创题、每题解析与五份完整指南均免费，无需注册、邮箱或付款，也可先读公开指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a picture-based IQ or employer test?",
+        "zh": "是图形智商或雇主测试吗？"
+      },
+      "answer": {
+        "en": "No. This edition uses written coordinates and explicit transformation rules. It has no equivalence to a nonverbal instrument, IQ score, employer test, norm, percentile or hiring threshold.",
+        "zh": "不是，本版用文字坐标与明确变换规则，不声称等同非言语工具，不给智商分、雇主成绩、常模、百分位或招聘线。"
+      }
+    },
+    {
+      "question": {
+        "en": "What are the five topics?",
+        "zh": "五个主题是什么？"
+      },
+      "answer": {
+        "en": "Planar rotations, reflections, ideal paper folds, labelled cube turns, and layouts or views each contain six tasks. Fixed axes and the requested position, face or projected count are stated explicitly.",
+        "zh": "平面旋转、镜像、理想折纸、标记立方体转向、布局与视图各六题，固定坐标轴及所求位置、面或投影数均明确给出。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I sketch and use a calculator?",
+        "zh": "可以画草图或用计算器吗？"
+      },
+      "answer": {
+        "en": "Yes. There is no timer or speed adjustment. Sketch the stated coordinates and face labels, check the order, and choose the exact offered answer. Reading and arithmetic familiarity remain part of this task format.",
+        "zh": "可以，不计时、不按速度调整。按给定坐标和面标记画草图、核操作顺序，再选精确选项；阅读与算术熟悉度仍是本题形式的一部分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher retake score prove improved spatial ability?",
+        "zh": "重做分数变高能证明空间能力提高吗？"
+      },
+      "answer": {
+        "en": "No. Counts describe only these fixed tasks. Familiarity and remembered answers can affect a retake. Review the actual transformations; this practice provides no evidence of training transfer to other tests or real-world activities.",
+        "zh": "不能，计数只描述本固定题目，熟悉度与答案记忆可影响重做。应复习实际变换，不据此证明对其他测试或真实活动的训练迁移。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I save progress or share private answers?",
+        "zh": "能保存进度或分享私人答案吗？"
+      },
+      "answer": {
+        "en": "An explicit opt-in saves this edition’s progress in this browser tab for 24 hours. Completion, clear or retake removes it. Sharing copies the public title and URL only, without a private answer sheet or score.",
+        "zh": "主动勾选可在本标签页按本版保存24小时进度，完成、清空或重测删除。分享仅复制公开标题与URL，不含私人答卷或分数。"
+      }
+    }
+  ]
+}

@@ -3983,5 +3983,31 @@
       "fluids"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "spatial-reasoning",
+    "code": "FM_SPATIAL_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Spatial Reasoning Test",
+      "zh": "空间推理测试"
+    },
+    "description": {
+      "en": "Practise 30 original rotations, mirrors, folds, cube turns and layouts. Worked answers and five full guides, free. Untimed text-and-coordinate tasks.",
+      "zh": "免费练习30道原创旋转、镜像、折纸、立方体转向与布局题，查看逐题解析及五份完整指南。不计时文字与坐标任务，不给智商或人群等级。"
+    },
+    "minutes": 18,
+    "collection": "explore",
+    "formCode": "fermatmind_original_text_spatial_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "rotations",
+      "reflections",
+      "folds",
+      "cube-turns",
+      "layouts"
+    ]
   }
 ]

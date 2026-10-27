@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "spatial-reasoning": async () => (await import("./data/spatial-reasoning.json")).default as Questionnaire,
   "mechanical-reasoning": async () => (await import("./data/mechanical-reasoning.json")).default as Questionnaire,
   "political-coordinates": async () => (await import("./data/political-coordinates.json")).default as Questionnaire,
   "relationship-commitment": async () => (await import("./data/relationship-commitment.json")).default as Questionnaire,

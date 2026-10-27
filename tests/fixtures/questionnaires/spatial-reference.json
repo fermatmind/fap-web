@@ -1,0 +1,2635 @@
+{
+  "id": "T155",
+  "form": "fermatmind_original_text_spatial_30_v1",
+  "coordinate_and_cube_definitions": {
+    "coordinates": "Fixed axes: x right/east, y up/north. Turns act on objects, not axes. Unit-cell sets are unordered centre coordinates.",
+    "folds": "Zero-thickness sheet, explicitbounds, allcurrentlayers punched at onepoint off foldlines;countpositions notlayers.",
+    "cubeFaces": {
+      "top": "T",
+      "bottom": "B",
+      "front": "F",
+      "back": "K",
+      "right": "R",
+      "left": "L"
+    },
+    "cubeMoves": {
+      "forward": {
+        "top": "front",
+        "front": "bottom",
+        "bottom": "back",
+        "back": "top"
+      },
+      "right": {
+        "top": "right",
+        "right": "bottom",
+        "bottom": "left",
+        "left": "top"
+      },
+      "yaw-right": {
+        "front": "right",
+        "right": "back",
+        "back": "left",
+        "left": "front"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "SPACE_01",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Point P is at (2, 3). Rotate it 90° counterclockwise about (0, 0). What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P为(2, 3)，绕(0, 0)逆时针转90°，新位置是哪一个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-3, 2)",
+            "zh": "(-3, 2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, -3)",
+            "zh": "(-2, -3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2, -3)",
+            "zh": "(2, -3)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A quarter-turn counterclockwise maps (x, y) to (-y, x). Substituting (2, 3) gives (-3, 2). The original upward component becomes a leftward component; changing both signs instead would describe a half-turn.",
+        "zh": "逆时针四分之一转将(x,y)变为(-y,x)，代入得(-3,2)。原向上分量转成向左分量；同时改两坐标符号则是半圈，不是此题的操作。"
+      }
+    },
+    {
+      "id": "SPACE_02",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. An L shape has occupied unit-cell centres {(0,0), (0,1), (0,2), (1,0)}. Rotate the whole shape 90° clockwise about (0,0), without translation. Which set gives its new occupied centres?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。L形占据单位格中心{(0,0),(0,1),(0,2),(1,0)}。整体绕(0,0)顺时针转90°，不平移，新中心集合是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(-1, 0); (0, -2); (0, -1); (0, 0)}",
+            "zh": "{(-1, 0); (0, -2); (0, -1); (0, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, 0); (-1, 0); (0, -1); (0, 0)}",
+            "zh": "{(-2, 0); (-1, 0); (0, -1); (0, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(0, 0); (0, 1); (1, 0); (2, 0)}",
+            "zh": "{(0, 0); (0, 1); (1, 0); (2, 0)}"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, -1); (0, 0); (1, 0); (2, 0)}",
+            "zh": "{(0, -1); (0, 0); (1, 0); (2, 0)}"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Clockwise 90° sends every centre (x,y) to (y,-x). The vertical three-cell arm moves to (0,0), (1,0), (2,0), while (1,0) moves to (0,-1). Apply the same turn to every centre; moving only the long arm leaves a different shape.",
+        "zh": "顺时针90°将每个中心(x,y)变为(y,-x)。原竖直三格变(0,0)、(1,0)、(2,0)，另一个(1,0)变(0,-1)。所有格须同转，不能只移动长臂。"
+      }
+    },
+    {
+      "id": "SPACE_03",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Point P is at (-1,4). Rotate it 180° about (0,0). What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P为(-1,4)，绕(0,0)转180°，新位置是哪一个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 1)",
+            "zh": "(4, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-1, -4)",
+            "zh": "(-1, -4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(1, -4)",
+            "zh": "(1, -4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-4, -1)",
+            "zh": "(-4, -1)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A half-turn about the origin reverses both components, sending (-1,4) to (1,-4). Clockwise and counterclockwise half-turns have the same endpoint. Swapping coordinates alone would describe a different transformation and would not settle this turn.",
+        "zh": "绕原点半圈将两个分量都反向，(-1,4)成为(1,-4)。顺、逆时针的半圈终点相同，单独互换坐标则是另一种变换。"
+      }
+    },
+    {
+      "id": "SPACE_04",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. A segment has endpoints P(1,1) and Q(3,2). Rotate the segment 270° counterclockwise about (0,0). Which coordinate is the new Q?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。线段端点P(1,1)、Q(3,2)，整体绕(0,0)逆时针转270°。Q的新坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, -3)",
+            "zh": "(2, -3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 3)",
+            "zh": "(-2, 3)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-3, -2)",
+            "zh": "(-3, -2)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A 270° counterclockwise turn has the same endpoint as 90° clockwise. Use (x,y)→(y,-x) on Q, giving (2,-3). P rotates too, but the question asks only for Q; exchanging the endpoint labels would answer a different question.",
+        "zh": "逆时针270°的终点等于顺时针90°，Q按(x,y)→(y,-x)变为(2,-3)。P也同转，但题只问Q，不能把端点标签交换。"
+      }
+    },
+    {
+      "id": "SPACE_05",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Rotate P(4,-1) 90° counterclockwise around centre C(1,-2). What is P’s new position in the original grid?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。点P(4,-1)绕中心C(1,-2)逆时针转90°，在原网格中的新坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(0, 1)",
+            "zh": "(0, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, -5)",
+            "zh": "(2, -5)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-3, 4)",
+            "zh": "(-3, 4)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-1, 3)",
+            "zh": "(-1, 3)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "First subtract the centre: P-C=(3,1). Rotate that offset to (-1,3), then add C back, obtaining (0,1). Rotating the original coordinate pair about the origin would use the wrong centre. The grid itself remains fixed throughout.",
+        "zh": "先减中心得相对位移(3,1)，逆时针转成(-1,3)，再加回C得(0,1)。直接绕原点转原坐标，会用错旋转中心，网格本身并未转动。"
+      }
+    },
+    {
+      "id": "SPACE_06",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. P starts at (-2,-1). Rotate it 90° clockwise about (0,0), then 180° about (0,0). What is the final position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。P起于(-2,-1)，先绕原点顺时针90°，再绕原点180°，最终位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-1, 2)",
+            "zh": "(-1, 2)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 1)",
+            "zh": "(-2, 1)"
+          },
+          "directionId": "rotations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, -2)",
+            "zh": "(1, -2)"
+          },
+          "directionId": "rotations"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The first turn gives (-1,2); the second reverses both components to (1,-2). Equivalently, the combined turn is 90° counterclockwise. Keep the intermediate point or combine signed angles, but do not stop after the first operation or change the rotation centre.",
+        "zh": "第一步得到(-1,2)，第二步两分量反向得(1,-2)，合成也等于逆时针90°。可以保留中间点或合并有向角，但不能只做第一步或换中心。"
+      }
+    },
+    {
+      "id": "SPACE_07",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(-3,2) across the x-axis. What is its reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。将P(-3,2)关于x轴镜像，所得位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, -2)",
+            "zh": "(3, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-2, 3)",
+            "zh": "(-2, 3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-3, -2)",
+            "zh": "(-3, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reflection across the x-axis preserves the horizontal coordinate and reverses the vertical one: (-3,2) becomes (-3,-2). The reflection line is horizontal, so the left-right location is unchanged. Reversing x instead would reflect across the y-axis.",
+        "zh": "关于x轴镜像保留横坐标、反转纵坐标，所以为(-3,-2)。镜线水平，左右位置不变；若改横坐标符号，做的就是关于y轴的镜像。"
+      }
+    },
+    {
+      "id": "SPACE_08",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(4,-2) across the vertical line x=1. What is its new position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(4,-2)关于竖直线x=1镜像，新位置是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 2)",
+            "zh": "(4, 2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-2, -2)",
+            "zh": "(-2, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, -2)",
+            "zh": "(2, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-4, -2)",
+            "zh": "(-4, -2)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "P is three units to the right of x=1. Its reflection is three units to the left, at x=-2, while y remains -2. The resulting point is (-2,-2). Negating x alone would use the different mirror line x=0.",
+        "zh": "P在镜线右方三格，镜像落在其左方三格，即x=-2，y仍为-2，故(-2,-2)。只把x改负号，是用了另一条镜线x=0。"
+      }
+    },
+    {
+      "id": "SPACE_09",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(2,-5) across the diagonal line y=x. What is the reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(2,-5)关于对角线y=x镜像，坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-5, 2)",
+            "zh": "(-5, 2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(5, -2)",
+            "zh": "(5, -2)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-2, 5)",
+            "zh": "(-2, 5)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2, 5)",
+            "zh": "(2, 5)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Reflection in y=x exchanges the two coordinates, giving (-5,2). It does not additionally negate either component. A rotation can also exchange component positions, but its sign rule differs; use the stated diagonal mirror rather than a quarter-turn rule.",
+        "zh": "关于y=x镜像互换两坐标，得(-5,2)，不另外改变符号。旋转有时也交换坐标位置，但符号规则不同，不能用四分之一转替代此对角镜像。"
+      }
+    },
+    {
+      "id": "SPACE_10",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. Reflect P(-4,1) across the diagonal line y=-x. What is the reflected position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。把P(-4,1)关于对角线y=-x镜像，坐标是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(1, -4)",
+            "zh": "(1, -4)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(4, -1)",
+            "zh": "(4, -1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-4, -1)",
+            "zh": "(-4, -1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(-1, 4)",
+            "zh": "(-1, 4)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "For this diagonal, exchange and negate the coordinates: (x,y)→(-y,-x). Thus (-4,1) becomes (-1,4). Exchanging without negation would reflect in y=x instead. The two diagonals are distinct mirror lines even though both exchange coordinate roles.",
+        "zh": "关于这条对角线要互换并同时取反，(x,y)→(-y,-x)，得到(-1,4)。只互换不取反是关于y=x镜像，两条对角镜线不能混用。"
+      }
+    },
+    {
+      "id": "SPACE_11",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. P starts at (3,1). First rotate it 90° counterclockwise about (0,0); then reflect the result across the x-axis. What is the final position?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。P起于(3,1)，先绕原点逆时针90°，再将结果关于x轴镜像，终点是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(1, -3)",
+            "zh": "(1, -3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(-3, 1)",
+            "zh": "(-3, 1)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-1, -3)",
+            "zh": "(-1, -3)"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The rotation gives (-1,3), and the subsequent x-axis reflection gives (-1,-3). Order matters: reflecting first and then rotating would give (1,3), a different offered point. Apply each operation to the result of the preceding one.",
+        "zh": "先旋转得(-1,3)，再关于x轴镜像得(-1,-3)。顺序重要：先镜像再旋转会得到另一个选项(1,3)，每步应作用于上一步结果。"
+      }
+    },
+    {
+      "id": "SPACE_12",
+      "prompt": {
+        "en": "Use a fixed Cartesian grid: +x points right and +y up. Turns move the object; the axes stay fixed. The occupied centres of an L shape are {(0,0),(0,1),(0,2),(1,0)}. Allow only 0°, 90°, 180° or 270° rotations followed by any translation; no reflection. Which candidate is the same shape under those moves?",
+        "zh": "使用固定直角网格：+x向右、+y向上，转的是对象，坐标轴保持不变。L形中心为{(0,0),(0,1),(0,2),(1,0)}，只允许转0°、90°、180°或270°后平移，不许镜像。哪组仍是同一形状？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(0, 0); (1, 0); (2, 0); (3, 0)}",
+            "zh": "{(0, 0); (1, 0); (2, 0); (3, 0)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(5, 1); (5, 2); (6, 2); (7, 2)}",
+            "zh": "{(5, 1); (5, 2); (6, 2); (7, 2)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(-1, 0); (0, 0); (0, 1); (0, 2)}",
+            "zh": "{(-1, 0); (0, 0); (0, 1); (0, 2)}"
+          },
+          "directionId": "reflections"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, 0); (1, 0); (1, 1); (2, 0)}",
+            "zh": "{(0, 0); (1, 0); (1, 1); (2, 0)}"
+          },
+          "directionId": "reflections"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Rotate the original shape 90° clockwise and translate by (5,2): the centres become {(5,2),(6,2),(7,2),(5,1)}. Comparing shapes after subtracting a common offset removes translation. The mirrored L, T arrangement and straight line do not match any of the four permitted rotations.",
+        "zh": "原形顺时针90°再平移(5,2)，得到{(5,2),(6,2),(7,2),(5,1)}。减去共同偏移可排除平移影响；镜像L、T形和直线均不能经所准四种旋转得到。"
+      }
+    },
+    {
+      "id": "SPACE_13",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -3≤x≤3 and -3≤y≤3. Fold x>0 onto x<0 about x=0, then y>0 onto y<0 about y=0. Punch through every layer at (-1,-2). Fully unfold. Which set gives all distinct hole locations?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-3≤x≤3、-3≤y≤3。先把x>0关于x=0折向x<0，再把y>0关于y=0折向y<0。在(-1,-2)贯穿所有层打点孔，完全展开后的全部不同孔位是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(-1, -2); (-1, 2); (1, -2); (1, 2)}",
+            "zh": "{(-1, -2); (-1, 2); (1, -2); (1, 2)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, -1); (-2, 1); (2, -1); (2, 1)}",
+            "zh": "{(-2, -1); (-2, 1); (2, -1); (2, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(-1, -2); (-1, -1); (1, -2); (1, -1)}",
+            "zh": "{(-1, -2); (-1, -1); (1, -2); (1, -1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(-1, -2); (-1, 2); (2, -2); (2, 2)}",
+            "zh": "{(-1, -2); (-1, 2); (2, -2); (2, 2)}"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Undo the last fold to obtain y=-2 and y=2, then undo the x fold to obtain x=-1 and x=1. Pairing those coordinates gives four holes at (±1,±2), all inside the square. A fold duplicates the reflected hole positions; it does not swap the x and y distances here.",
+        "zh": "先反解最后一折，y有-2、2，再解x折，x有-1、1，组合成(±1,±2)四孔，均在纸内。本题轴向折叠复制镜像孔位，不交换横纵距离。"
+      }
+    },
+    {
+      "id": "SPACE_14",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness sheet spans -1≤x≤3 and -2≤y≤2. Fold its right half x>1 left across x=1. Punch every layer at (0,1), then unfold. Which set gives all distinct hole locations?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度纸片为-1≤x≤3、-2≤y≤2，把右半x>1关于x=1折向左，在(0,1)贯穿各层打点孔后展开，全部不同孔位是哪组？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{(0, 1); (1, 1)}",
+            "zh": "{(0, 1); (1, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{(-2, 1); (0, 1)}",
+            "zh": "{(-2, 1); (0, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{(0, -1); (0, 1)}",
+            "zh": "{(0, -1); (0, 1)}"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{(0, 1); (2, 1)}",
+            "zh": "{(0, 1); (2, 1)}"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "One hole stays at (0,1). Reflecting that point across x=1 gives the second at (2,1), because both are one unit from the fold. y does not change. Using x=0 as the fold would incorrectly put this punch on the mirror line and collapse the two positions.",
+        "zh": "一个孔在(0,1)，关于x=1反射得到另一个(2,1)，两者到折线均一格，y不变。若误用x=0，会把伙伴错误重叠到原位置，遗漏此处的两层对应关系。"
+      }
+    },
+    {
+      "id": "SPACE_15",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -4≤x,y≤4. Fold the positive-y half onto negative y, then positive x onto negative x, using y=0 and x=0. Punch every layer at (-2,-1), then fully unfold. How many distinct hole locations result?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-4≤x,y≤4，先沿y=0把正y半折向负y，再沿x=0把正x半折向负x。在(-2,-1)贯穿各层打点孔后完全展开，不同孔位有几个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The punch is away from both fold lines. Unfolding supplies y=±1 and x=±2, producing four different combinations. Each location remains within the original square. Count geometric positions rather than the number of fold actions; two complete half-folds create four layers at this interior punch point.",
+        "zh": "孔不在任一折线上，展开后y=±1、x=±2，有四种不同组合且均在原纸内。应数几何孔位，不是折叠动作数；两次完整对半折在此内点形成四层。"
+      }
+    },
+    {
+      "id": "SPACE_16",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -4≤x,y≤4. First fold x>0 left across x=0. Then fold the portion x<-2 right across x=-2. Punch all layers at (-1,-1) and fully unfold. What is the largest x-coordinate among the holes?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-4≤x,y≤4。先沿x=0把x>0折向左，再沿x=-2把x<-2部分折向右。在(-1,-1)贯穿各层打点孔并全展开，孔位最大的x坐标是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Undoing the x=-2 fold gives x=-1 and x=-3. Undoing the first x=0 fold also gives x=1 and x=3. All holes have y=-1, so the largest x is 3. These parallel folds do not generate new y values; unfolding must reverse the fold order.",
+        "zh": "反解x=-2那折得x=-1、-3，再反解最初x=0那折得另两处x=1、3，故最大为3。所有孔y=-1；两次平行折不会改变y，展开须按折叠的逆序推。"
+      }
+    },
+    {
+      "id": "SPACE_17",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -2≤x,y≤2. Fold the triangle y>x across y=x onto y<x. Punch every layer at (1,-1), then unfold. Apart from (1,-1), where is the other hole?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-2≤x,y≤2，把三角区y>x沿y=x折到y<x，在(1,-1)贯穿各层打点孔后展开。除(1,-1)外，另一个孔在哪？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-1, 1)",
+            "zh": "(-1, 1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1, 1)",
+            "zh": "(1, 1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(-1, -1)",
+            "zh": "(-1, -1)"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(0, 0)",
+            "zh": "(0, 0)"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Unfolding this diagonal reflects the punch across y=x, which exchanges coordinates. The partner of (1,-1) is (-1,1), inside the square and off the fold line. The operation is one diagonal fold, so it does not independently create both horizontal and vertical reflection partners.",
+        "zh": "展开该对角折时交换坐标，(1,-1)的伙伴是(-1,1)，在纸内且不在折线上。这是一次对角折，不是分别做横、纵轴折，不能额外生成那些镜像伙伴。"
+      }
+    },
+    {
+      "id": "SPACE_18",
+      "prompt": {
+        "en": "Treat the punch as an ideal point hole in fixed original axes. A zero-thickness square spans -3≤x,y≤3. Fold positive x onto negative x at x=0, then positive y onto negative y at y=0. Punch all layers at (-1,-1). Unfold only the y fold, leaving x folded. How many distinct hole positions are visible in the still-folded sheet?",
+        "zh": "打孔视作理想点孔，原坐标轴保持固定。无厚度正方形为-3≤x,y≤3。先沿x=0把正x半折向负x，再沿y=0把正y半折向负y，在(-1,-1)贯穿各层打点孔。只展开y那一折，x折保持关闭；尚折着的纸上有几个不同孔位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "folds"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "folds"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Opening only the y fold gives positions (-1,-1) and (-1,1). The x-reflected partners remain superimposed because the x fold is still closed. Therefore there are two distinct geometric locations, although multiple material layers were punched. Counting all four fully unfolded positions would answer a later stage than the one requested.",
+        "zh": "只开y折后是(-1,-1)、(-1,1)两处。x的镜像伙伴仍因x折关闭而叠在一起，故几何位置两个，尽管贯穿了多层。答四个是把题目还没展开的x折也打开了。"
+      }
+    },
+    {
+      "id": "SPACE_19",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. After one forward roll, which original face is now on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向前滚一次后，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A forward roll moves the original back face to the top. That face is marked K. Track the label carried by a face rather than renaming it when its position changes; the original top T moves to the front, not back to the top.",
+        "zh": "向前滚把原后面送到顶部，原后面标记K。应追踪面携带的标签，不能随位置变化给面重新命名；原顶T此时到了前面。"
+      }
+    },
+    {
+      "id": "SPACE_20",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top and keeps front/back fixed. After one right roll, which original face is now on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向右滚使顶→右→底→左→顶，前后保持；向右滚一次后，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The original left face moves upward to replace the top, so the answer is L. Meanwhile T moves right and R moves down. Those three movements belong to one rigid roll; exchanging only T and R would not preserve the cube’s full orientation.",
+        "zh": "原左面向上替代顶部，故为L；同时T到右、R到底。它们是同一次刚体滚动的组成部分，只交换T与R不能保持完整朝向。"
+      }
+    },
+    {
+      "id": "SPACE_21",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform forward, then right, then forward rolls. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向右滚使顶→右→底→左→顶，前后保持；按向前、向右、向前的顺序滚动，哪个原始标记面最终在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "After the first forward roll, B is at the back. The right roll leaves front and back positions unchanged, so B stays there. The last forward roll moves that back face to the top. Keeping a position-to-label record avoids incorrectly restarting from the initial cube at each move.",
+        "zh": "第一次向前后B在后面，向右滚保持前后位置不变，所以B仍在后面；最后向前把后面移到顶，故为B。须连续更新位置与标签，不能每一步都从初始立方体重来。"
+      }
+    },
+    {
+      "id": "SPACE_22",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform two consecutive right rolls. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向右滚使顶→右→底→左→顶，前后保持；连续向右滚两次，哪个原始标记面在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Two right quarter-rolls make a half-turn about the same fixed direction. The original bottom B reaches the top, and T reaches the bottom. Front and back labels remain in place. This is not a pair of cancelling moves: both rolls have the same direction.",
+        "zh": "同方向两次向右四分之一滚合成半圈，原底B到顶、T到底，前后标记仍留原位。两次同向不是互相抵消，只有反向配对才可能回到原朝向。"
+      }
+    },
+    {
+      "id": "SPACE_23",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A yaw-right turn sends front→right→back→left→front and keeps top/bottom fixed. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. Perform a yaw-right turn, then a forward roll. Which original face ends on top?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。水平右转使前→右→后→左→前，顶底保持；向前滚使顶→前→底→后→顶，左右保持；先水平右转，再向前滚，哪个原始标记面最终在顶部？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The yaw-right mapping moves original R to the back while keeping T on top. The following forward roll brings the current back face R to the top. The labels must be tracked through both different axes; looking only at the final move on the initial arrangement would incorrectly give K.",
+        "zh": "水平右转把原R移到后面、T仍在顶；随后向前把当前后面R送到顶。两步涉及不同轴，须连续追踪；只对初始朝向做最后一步会误答K。"
+      }
+    },
+    {
+      "id": "SPACE_24",
+      "prompt": {
+        "en": "A labelled cube initially has T on top, B below, F in front, K behind, R right and L left. A forward roll sends top→front→bottom→back→top and keeps left/right fixed. A right roll sends top→right→bottom→left→top and keeps front/back fixed. Perform forward twice, then right once. Which original face ends on the left?",
+        "zh": "标记立方体初始顶T、底B、前F、后K、右R、左L。向前滚使顶→前→底→后→顶，左右保持；向右滚使顶→右→底→左→顶，前后保持；先向前滚两次，再向右滚一次，哪个原始标记面最终在左侧？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "cube-turns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "cube-turns"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Two forward rolls put the original top T at the bottom. A right roll then moves the current bottom to the left, carrying T with it. The question asks for the left position rather than the top; tracking the correct destination matters as much as tracking the move sequence.",
+        "zh": "两次向前使原顶T到底，随后向右滚把当前底移到左，所以为T。此题问左侧，不是顶部；追踪正确目标位置与记住动作顺序同样重要。"
+      }
+    },
+    {
+      "id": "SPACE_25",
+      "prompt": {
+        "en": "Opaque unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}, with z upward. View orthographically from negative y toward positive y. How many distinct unit cells appear in the x–z front projection, counting overlapping projections once?",
+        "zh": "不透明单位立方体的左下角坐标为{(0,0,0),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}，z向上。从负y沿正y作正投影，x–z前视投影中有几个不同单位格？重叠投影只数一次。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Removing y leaves projected cells (0,0), (1,0), (1,1) and (2,0). Two cubes project to (1,0), so they occupy one visible cell in this view rather than two. The five three-dimensional cubes therefore produce four distinct projected cells, not five visible cells.",
+        "zh": "去掉y后得到(0,0)、(1,0)、(1,1)、(2,0)。两个立方体重叠投到(1,0)，该视图只占一个格，因此五个三维立方体产生四个不同投影格。"
+      }
+    },
+    {
+      "id": "SPACE_26",
+      "prompt": {
+        "en": "Unit cubes have lower-corner coordinates {(0,0,0),(0,0,1),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}. For the orthographic top footprint, ignore height z. Which listed (x,y) cell is absent?",
+        "zh": "单位立方体左下角坐标为{(0,0,0),(0,0,1),(1,0,0),(1,1,0),(1,1,1),(2,1,0)}。俯视足迹忽略高度z，哪一个所列(x,y)格不存在？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(0, 0)",
+            "zh": "(0, 0)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1, 1)",
+            "zh": "(1, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(0, 1)",
+            "zh": "(0, 1)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The footprint contains (0,0), (1,0), (1,1) and (2,1), each counted once regardless of stack height. The listed cell (0,1) is absent. An additional cube above an existing footprint increases height but does not create a new top-view location.",
+        "zh": "俯视足迹为(0,0)、(1,0)、(1,1)、(2,1)，各位置不论堆高都只计一次，所列(0,1)不存在。同一位置向上添一块只增加高度，不增加新的俯视位置。"
+      }
+    },
+    {
+      "id": "SPACE_27",
+      "prompt": {
+        "en": "There are two x columns, left to right, and three y rows, near to far. Full solid stacks have heights: y=1: [1,3]; y=2: [2,0]; y=3: [1,2]. z is up and 0 means no cubes. Looking from negative y along positive y, what pair gives the maximum front-silhouette height at each x column?",
+        "zh": "x有从左到右两列，y有从近到远三行，实心堆高为y=1:[1,3]；y=2:[2,0]；y=3:[1,2]。z向上，0表示无块。从负y沿正y看，每个x列前视轮廓最高高度组成哪一对？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(4, 5)",
+            "zh": "(4, 5)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 3)",
+            "zh": "(2, 3)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "At the left x column, the three heights are 1,2,1 and their maximum is 2. At the right they are 3,0,2 and their maximum is 3. The silhouette is therefore (2,3). Summing the rows would count stacked material rather than the maximum visible height at each horizontal position.",
+        "zh": "左x列三行高度1、2、1，最大2；右列3、0、2，最大3，故轮廓为(2,3)。把各行相加算的是材料总量，不是每个横向位置的最高可见高度。"
+      }
+    },
+    {
+      "id": "SPACE_28",
+      "prompt": {
+        "en": "Six full vertical stacks on a 2-row, 3-column grid have heights [2,1,0] in the first row and [1,3,2] in the second. Every stack is filled from the floor without internal gaps. How many unit cubes are present altogether?",
+        "zh": "两行三列的六个竖直堆高，首行为[2,1,0]、次行为[1,3,2]，各堆从地面填满、内部无空隙。总共有几个单位立方体？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Count every cube in each filled column: 2+1+0+1+3+2=9. Hidden cubes still belong to the solid stacks because the no-gap condition is explicit. Counting only nonempty footprint cells gives five locations, a different quantity from the total number of cubes.",
+        "zh": "逐堆累加2+1+0+1+3+2=9。题明示堆内无空隙，隐藏块也计入。只数非空足迹会得到五个位置，那是另一种量，不是总立方体数。"
+      }
+    },
+    {
+      "id": "SPACE_29",
+      "prompt": {
+        "en": "On a fixed grid, +x is east and +y north. Start at (-1,2) facing east. Move forward 3 units; turn left 90° and move 2; turn right 90° and move 1. What is the endpoint?",
+        "zh": "固定网格+x为东、+y为北，起点(-1,2)，面朝东。先前进3格，左转90°走2格，再右转90°走1格，终点是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, 4)",
+            "zh": "(3, 4)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(2, 4)",
+            "zh": "(2, 4)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(3, 0)",
+            "zh": "(3, 0)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(1, 3)",
+            "zh": "(1, 3)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Eastward movement reaches (2,2), then the left turn points north and reaches (2,4). Turning right from north points east, giving (3,4) after one more unit. Update both heading and position; a right turn changes direction without automatically moving the point until the stated step is taken.",
+        "zh": "向东3格到(2,2)，左转朝北走2格到(2,4)，再右转朝东走1格到(3,4)。须同时更新朝向与位置；转向本身不移动，要再按题述步数走。"
+      }
+    },
+    {
+      "id": "SPACE_30",
+      "prompt": {
+        "en": "On a fixed map, +x is east/right and +y north/up. An observer at (3,1) faces west. Which listed point is exactly one grid unit directly to the observer’s left?",
+        "zh": "固定地图+x为东/向右、+y为北/向上，观察者在(3,1)面朝西。哪一个所列点恰在观察者正左方一格？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(3, 2)",
+            "zh": "(3, 2)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(4, 1)",
+            "zh": "(4, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2, 1)",
+            "zh": "(2, 1)"
+          },
+          "directionId": "layouts"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(3, 0)",
+            "zh": "(3, 0)"
+          },
+          "directionId": "layouts"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Facing west makes the observer’s left point south, the negative-y direction. Move from (3,1) to (3,0). The map’s left edge still means west, but the observer’s bodily left is a different reference frame here. Do not rotate the coordinate axes when changing the observer’s facing direction.",
+        "zh": "面朝西时，身体左方为南，即负y，从(3,1)到(3,0)。地图左侧仍代表西，但观察者的左方是另一参照系；不能因其转身而把坐标轴也旋转。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "SPACE_01",
+      "expected_label": "(-3, 2)",
+      "case": "point origin90CCW",
+      "geometry": {
+        "point": [
+          2,
+          3
+        ],
+        "centre": [
+          0,
+          0
+        ],
+        "turns": 1
+      },
+      "expected": [
+        -3,
+        2
+      ],
+      "distractors": [
+        [
+          3,
+          -2
+        ],
+        [
+          -2,
+          -3
+        ],
+        [
+          2,
+          -3
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_02",
+      "expected_label": "{(0, -1); (0, 0); (1, 0); (2, 0)}",
+      "case": "unit-cell Lshape90CW exact positions",
+      "geometry": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "centre": [
+          0,
+          0
+        ],
+        "turns": -1
+      },
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "distractors": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_03",
+      "expected_label": "(1, -4)",
+      "case": "point180",
+      "geometry": {
+        "point": [
+          -1,
+          4
+        ],
+        "centre": [
+          0,
+          0
+        ],
+        "turns": 2
+      },
+      "expected": [
+        1,
+        -4
+      ],
+      "distractors": [
+        [
+          -4,
+          -1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          -1,
+          -4
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_04",
+      "expected_label": "(2, -3)",
+      "case": "segment rotate270CCW ask Q",
+      "geometry": {
+        "points": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "queryIndex": 1,
+        "centre": [
+          0,
+          0
+        ],
+        "turns": 3
+      },
+      "expected": [
+        2,
+        -3
+      ],
+      "distractors": [
+        [
+          -2,
+          3
+        ],
+        [
+          -3,
+          -2
+        ],
+        [
+          3,
+          -2
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_05",
+      "expected_label": "(0, 1)",
+      "case": "nonorigin90CCW",
+      "geometry": {
+        "point": [
+          4,
+          -1
+        ],
+        "centre": [
+          1,
+          -2
+        ],
+        "turns": 1
+      },
+      "expected": [
+        0,
+        1
+      ],
+      "distractors": [
+        [
+          2,
+          -5
+        ],
+        [
+          -3,
+          4
+        ],
+        [
+          -1,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_06",
+      "expected_label": "(1, -2)",
+      "case": "clockwise90 then180 fixedaxes",
+      "geometry": {
+        "point": [
+          -2,
+          -1
+        ],
+        "centre": [
+          0,
+          0
+        ],
+        "turnSequence": [
+          -1,
+          2
+        ]
+      },
+      "expected": [
+        1,
+        -2
+      ],
+      "distractors": [
+        [
+          -1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          -2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_07",
+      "expected_label": "(-3, -2)",
+      "case": "point acrossxaxis",
+      "geometry": {
+        "point": [
+          -3,
+          2
+        ],
+        "reflection": "x-axis"
+      },
+      "expected": [
+        -3,
+        -2
+      ],
+      "distractors": [
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          -2
+        ],
+        [
+          -2,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_08",
+      "expected_label": "(-2, -2)",
+      "case": "point acrossx=1",
+      "geometry": {
+        "point": [
+          4,
+          -2
+        ],
+        "reflection": "x=1"
+      },
+      "expected": [
+        -2,
+        -2
+      ],
+      "distractors": [
+        [
+          2,
+          -2
+        ],
+        [
+          -4,
+          -2
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_09",
+      "expected_label": "(-5, 2)",
+      "case": "point acrossy=x",
+      "geometry": {
+        "point": [
+          2,
+          -5
+        ],
+        "reflection": "y=x"
+      },
+      "expected": [
+        -5,
+        2
+      ],
+      "distractors": [
+        [
+          5,
+          -2
+        ],
+        [
+          -2,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_10",
+      "expected_label": "(-1, 4)",
+      "case": "point acrossy=-x",
+      "geometry": {
+        "point": [
+          -4,
+          1
+        ],
+        "reflection": "y=-x"
+      },
+      "expected": [
+        -1,
+        4
+      ],
+      "distractors": [
+        [
+          1,
+          -4
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          -4,
+          -1
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_11",
+      "expected_label": "(-1, -3)",
+      "case": "rotate90CCW then reflectx-axis",
+      "geometry": {
+        "point": [
+          3,
+          1
+        ],
+        "sequence": [
+          "rotateCCW90",
+          "reflectx-axis"
+        ]
+      },
+      "expected": [
+        -1,
+        -3
+      ],
+      "distractors": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          -3
+        ],
+        [
+          -3,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_12",
+      "expected_label": "{(5, 1); (5, 2); (6, 2); (7, 2)}",
+      "case": "Lshape rotate+translate allowed no reflection",
+      "geometry": {
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "allowedTurns": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "translationAllowed": true
+      },
+      "expected": [
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "distractors": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_13",
+      "expected_label": "{(-1, -2); (-1, 2); (1, -2); (1, 2)}",
+      "case": "positive halves fold negative x0 theny0 all4layers punch",
+      "geometry": {
+        "bounds": [
+          -3,
+          3,
+          -3,
+          3
+        ],
+        "folds": [
+          {
+            "axis": "x",
+            "at": 0,
+            "moving": "positive"
+          },
+          {
+            "axis": "y",
+            "at": 0,
+            "moving": "positive"
+          }
+        ],
+        "punch": [
+          -1,
+          -2
+        ],
+        "query": "allLocations"
+      },
+      "expected": [
+        [
+          -1,
+          -2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "distractors": [
+        [
+          [
+            -2,
+            -1
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        [
+          [
+            -1,
+            -2
+          ],
+          [
+            -1,
+            2
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_14",
+      "expected_label": "{(0, 1); (2, 1)}",
+      "case": "onefold x1 rightonto left punch throughbothlayers",
+      "geometry": {
+        "bounds": [
+          -1,
+          3,
+          -2,
+          2
+        ],
+        "folds": [
+          {
+            "axis": "x",
+            "at": 1,
+            "moving": "positive"
+          }
+        ],
+        "punch": [
+          0,
+          1
+        ],
+        "query": "allLocations"
+      },
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "distractors": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            -2,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_15",
+      "expected_label": "4",
+      "case": "y0 thenx0 positivehalves ontonegative punch countlocations",
+      "geometry": {
+        "bounds": [
+          -4,
+          4,
+          -4,
+          4
+        ],
+        "folds": [
+          {
+            "axis": "y",
+            "at": 0,
+            "moving": "positive"
+          },
+          {
+            "axis": "x",
+            "at": 0,
+            "moving": "positive"
+          }
+        ],
+        "punch": [
+          -2,
+          -1
+        ],
+        "query": "count"
+      },
+      "expected": 4,
+      "distractors": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "id": "SPACE_16",
+      "expected_label": "3",
+      "case": "x0 rightleft thenleftmost x<-2 foldright atx=-2",
+      "geometry": {
+        "bounds": [
+          -4,
+          4,
+          -4,
+          4
+        ],
+        "folds": [
+          {
+            "axis": "x",
+            "at": 0,
+            "moving": "positive"
+          },
+          {
+            "axis": "x",
+            "at": -2,
+            "moving": "negative"
+          }
+        ],
+        "punch": [
+          -1,
+          -1
+        ],
+        "query": "largestX"
+      },
+      "expected": 3,
+      "distractors": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "SPACE_17",
+      "expected_label": "(-1, 1)",
+      "case": "fold square acrossy=x regiony>x ontoy<x",
+      "geometry": {
+        "bounds": [
+          -2,
+          2,
+          -2,
+          2
+        ],
+        "folds": [
+          {
+            "axis": "diagonal-y=x",
+            "moving": "y>x"
+          }
+        ],
+        "punch": [
+          1,
+          -1
+        ],
+        "query": "otherLocation"
+      },
+      "expected": [
+        -1,
+        1
+      ],
+      "distractors": [
+        [
+          1,
+          1
+        ],
+        [
+          -1,
+          -1
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_18",
+      "expected_label": "2",
+      "case": "foldx0 theny0;unfoldonlyy countdistinctlocations stillx-folded",
+      "geometry": {
+        "bounds": [
+          -3,
+          3,
+          -3,
+          3
+        ],
+        "folds": [
+          {
+            "axis": "x",
+            "at": 0,
+            "moving": "positive"
+          },
+          {
+            "axis": "y",
+            "at": 0,
+            "moving": "positive"
+          }
+        ],
+        "punch": [
+          -1,
+          -1
+        ],
+        "query": "countAfterUnfoldLast"
+      },
+      "expected": 2,
+      "distractors": [
+        1,
+        4,
+        8
+      ]
+    },
+    {
+      "id": "SPACE_19",
+      "expected_label": "K",
+      "case": "forward once ask top",
+      "geometry": {
+        "operations": [
+          "forward"
+        ],
+        "queryFace": "top"
+      },
+      "expected": "K",
+      "distractors": [
+        "T",
+        "F",
+        "B"
+      ]
+    },
+    {
+      "id": "SPACE_20",
+      "expected_label": "L",
+      "case": "right once ask top",
+      "geometry": {
+        "operations": [
+          "right"
+        ],
+        "queryFace": "top"
+      },
+      "expected": "L",
+      "distractors": [
+        "T",
+        "R",
+        "B"
+      ]
+    },
+    {
+      "id": "SPACE_21",
+      "expected_label": "B",
+      "case": "forward right forward ask top",
+      "geometry": {
+        "operations": [
+          "forward",
+          "right",
+          "forward"
+        ],
+        "queryFace": "top"
+      },
+      "expected": "B",
+      "distractors": [
+        "T",
+        "F",
+        "K"
+      ]
+    },
+    {
+      "id": "SPACE_22",
+      "expected_label": "B",
+      "case": "right twice ask top",
+      "geometry": {
+        "operations": [
+          "right",
+          "right"
+        ],
+        "queryFace": "top"
+      },
+      "expected": "B",
+      "distractors": [
+        "T",
+        "R",
+        "L"
+      ]
+    },
+    {
+      "id": "SPACE_23",
+      "expected_label": "R",
+      "case": "yawright thenforward ask top",
+      "geometry": {
+        "operations": [
+          "yaw-right",
+          "forward"
+        ],
+        "queryFace": "top"
+      },
+      "expected": "R",
+      "distractors": [
+        "L",
+        "F",
+        "K"
+      ]
+    },
+    {
+      "id": "SPACE_24",
+      "expected_label": "T",
+      "case": "forward twice thenright ask left",
+      "geometry": {
+        "operations": [
+          "forward",
+          "forward",
+          "right"
+        ],
+        "queryFace": "left"
+      },
+      "expected": "T",
+      "distractors": [
+        "B",
+        "F",
+        "K"
+      ]
+    },
+    {
+      "id": "SPACE_25",
+      "expected_label": "4",
+      "case": "opaqueunitcubes frontorthographic along+y distinct(x,z)cells",
+      "geometry": {
+        "cubes": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "project": "xz",
+        "query": "count"
+      },
+      "expected": 4,
+      "distractors": [
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "SPACE_26",
+      "expected_label": "(0, 1)",
+      "case": "unitcubes topview absentxyfootprint",
+      "geometry": {
+        "cubes": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "project": "xy",
+        "query": "absent"
+      },
+      "expected": [
+        0,
+        1
+      ],
+      "distractors": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_27",
+      "expected_label": "(2, 3)",
+      "case": "fullcolumnheights rowsy1to3 leftx1rightx2 front along+y askheightpair",
+      "geometry": {
+        "rows": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "query": "frontMaxPerX"
+      },
+      "expected": [
+        2,
+        3
+      ],
+      "distractors": [
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_28",
+      "expected_label": "9",
+      "case": "fullstackcolumns totalcubessum heights",
+      "geometry": {
+        "rows": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            3,
+            2
+          ]
+        ],
+        "query": "sum"
+      },
+      "expected": 9,
+      "distractors": [
+        6,
+        7,
+        10
+      ]
+    },
+    {
+      "id": "SPACE_29",
+      "expected_label": "(3, 4)",
+      "case": "route starts(-1,2)east3,left2,right1",
+      "geometry": {
+        "point": [
+          -1,
+          2
+        ],
+        "heading": "east",
+        "moves": [
+          [
+            "forward",
+            3
+          ],
+          [
+            "left",
+            2
+          ],
+          [
+            "right",
+            1
+          ]
+        ],
+        "query": "endPoint"
+      },
+      "expected": [
+        3,
+        4
+      ],
+      "distractors": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "SPACE_30",
+      "expected_label": "(3, 0)",
+      "case": "observer(3,1)faceswest;pointdirectlyleftoneunit",
+      "geometry": {
+        "point": [
+          3,
+          1
+        ],
+        "heading": "west",
+        "query": "leftAdjacent"
+      },
+      "expected": [
+        3,
+        0
+      ],
+      "distractors": [
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    }
+  ]
+}
