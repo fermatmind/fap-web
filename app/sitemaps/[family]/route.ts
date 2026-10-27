@@ -10,7 +10,7 @@ type SitemapFamilyRouteContext = {
   params: Promise<{ family: string }>;
 };
 
-export async function GET(_request: Request, context: SitemapFamilyRouteContext): Promise<Response> {
+export async function GET(request: Request, context: SitemapFamilyRouteContext): Promise<Response> {
   const { family: segment } = await context.params;
   const family = resolvePublicSitemapFamilySegment(segment);
 
@@ -24,5 +24,5 @@ export async function GET(_request: Request, context: SitemapFamilyRouteContext)
     });
   }
 
-  return buildPublicSitemapResponse(family);
+  return buildPublicSitemapResponse(family, request);
 }

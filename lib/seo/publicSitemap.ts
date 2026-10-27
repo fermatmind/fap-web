@@ -1,3 +1,6 @@
+import { promisify } from "node:util";
+import { gzip } from "node:zlib";
+
 import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
@@ -26,6 +29,35 @@ const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const SUCCESS_CACHE_CONTROL = "public, max-age=300, s-maxage=600, stale-while-revalidate=86400";
 const FAILURE_CACHE_CONTROL = "public, max-age=60, s-maxage=60";
+const gzipAsync = promisify(gzip);
+
+export async function buildPublicSitemapXmlResponse(
+  xml: string,
+  cacheHeaders: Record<string, string>,
+  request?: Request,
+): Promise<Response> {
+  const qualities = new Map<string, number>();
+  for (const item of (request?.headers.get("accept-encoding") ?? "").split(",")) {
+    const match = item.trim().match(/^(gzip|identity|\*)(?:\s*;\s*q=(0(?:\.\d{0,3})?|1(?:\.0{0,3})?))?$/i);
+    if (match) qualities.set(match[1].toLowerCase(), Number(match[2] ?? 1));
+  }
+  const gzipQuality = qualities.get("gzip") ?? qualities.get("*") ?? 0;
+  const identityQuality = qualities.get("identity") ?? (qualities.get("*") === 0 ? 0 : 1);
+  const headers = new Headers({
+    "Content-Type": "application/xml; charset=utf-8",
+    ...cacheHeaders,
+    Vary: "Accept-Encoding",
+  });
+  if (gzipQuality > 0 && gzipQuality >= (qualities.get("identity") ?? 0)) {
+    headers.set("Content-Encoding", "gzip");
+    return new Response(new Uint8Array(await gzipAsync(xml)), { headers });
+  }
+  if (identityQuality === 0) {
+    headers.set("Content-Type", "text/plain; charset=utf-8");
+    return new Response("No acceptable sitemap content encoding.\n", { status: 406, headers });
+  }
+  return new Response(xml, { headers });
+}
 const FAMILY_PATH_PATTERNS: ReadonlyArray<{
   family: Exclude<PublicSitemapFamily, "other">;
   pattern: RegExp;
@@ -230,7 +262,7 @@ export async function fetchBackendPublicSitemapSource(signal?: AbortSignal): Pro
   }
 }
 
-export async function buildPublicSitemapResponse(family?: PublicSitemapFamily): Promise<Response> {
+export async function buildPublicSitemapResponse(family?: PublicSitemapFamily, request?: Request): Promise<Response> {
   try {
     const payload = await fetchBackendPublicSitemapSource();
     const rootEntries = buildPublicSitemapEntries(payload);
@@ -242,13 +274,9 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily): 
     const allEntries = appendFriendshipSitemapEntries(appendFunSitemapEntries(rootEntries));
     const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
-    return new Response(buildPublicSitemapXml(entries), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/xml; charset=utf-8",
-        "Cache-Control": SUCCESS_CACHE_CONTROL,
-      },
-    });
+    return await buildPublicSitemapXmlResponse(buildPublicSitemapXml(entries), {
+      "Cache-Control": SUCCESS_CACHE_CONTROL,
+    }, request);
   } catch {
     return new Response("Public sitemap source unavailable.\n", {
       status: 503,

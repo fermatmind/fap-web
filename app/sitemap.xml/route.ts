@@ -3,6 +3,7 @@ import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import {
   buildPublicSitemapEntries,
   buildPublicSitemapXml,
+  buildPublicSitemapXmlResponse,
   fetchBackendPublicSitemapSource,
 } from "@/lib/seo/publicSitemap";
 
@@ -10,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 const CACHE_CONTROL = "private, no-store, max-age=0, must-revalidate";
 
-export async function GET(): Promise<Response> {
+export async function GET(request?: Request): Promise<Response> {
   try {
     const payload = await fetchBackendPublicSitemapSource();
     const entries = buildPublicSitemapEntries(payload);
@@ -19,14 +20,11 @@ export async function GET(): Promise<Response> {
       throw new Error("Backend sitemap source returned no public sitemap entries.");
     }
 
-    return new Response(buildPublicSitemapXml(appendFriendshipSitemapEntries(appendFunSitemapEntries(entries))), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/xml; charset=utf-8",
-        "Cache-Control": CACHE_CONTROL,
-        "CDN-Cache-Control": "no-store",
-      },
-    });
+    return await buildPublicSitemapXmlResponse(
+      buildPublicSitemapXml(appendFriendshipSitemapEntries(appendFunSitemapEntries(entries))),
+      { "Cache-Control": CACHE_CONTROL, "CDN-Cache-Control": "no-store" },
+      request,
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : "Public sitemap source unavailable.";
     return new Response(`Public sitemap source unavailable: ${message}\n`, {

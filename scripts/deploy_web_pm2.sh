@@ -479,7 +479,7 @@ require_sitemap_health() {
   for attempt in 1 2; do
     # A timed-out response may have left a partial document in the output file.
     : > "$body_file"
-    if status="$(curl -sS --max-time "$SITEMAP_CURL_TIMEOUT_SEC" -o "$body_file" -w '%{http_code}' "$url")"; then
+    if status="$(curl -sS --compressed --max-time "$SITEMAP_CURL_TIMEOUT_SEC" -o "$body_file" -w '%{http_code}' "$url")"; then
       break
     else
       curl_status=$?

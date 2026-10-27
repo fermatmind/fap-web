@@ -71,6 +71,7 @@ ${kind === 'headers' ? `probe_headers https://test.invalid/zh ${followRedirects}
     const argumentsText = readFileSync(path.join(root, 'args'), 'utf8');
     assert.doesNotMatch(argumentsText, /(?:^|\s)(?:-k|--insecure)(?:\s|$)/);
     for (const line of argumentsText.trim().split('\n')) assert.match(line, /--max-time 20/);
+    if (kind === 'sitemap') assert.match(argumentsText, /--compressed/);
     return { status: result.status, calls, output: result.stdout + result.stderr };
   } finally {
     rmSync(root, { recursive: true, force: true });
