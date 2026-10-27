@@ -23,7 +23,7 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   pairedDimensions?: PairedDimensionConfiguration[];
   typing?: TypingConfiguration;
   eightValues?: EightValuesConfiguration;

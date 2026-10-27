@@ -3726,5 +3726,28 @@
       "classification",
       "transformations"
     ]
+  },
+  {
+    "slug": "conservatism",
+    "code": "SECS_2013_US_12",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Conservatism Test: SECS 2013 U.S. Edition",
+      "zh": "保守主义测试：SECS2013美国议题版"
+    },
+    "description": {
+      "en": "Take a free conservatism test using all 12 SECS 2013 U.S. issues. Read separate social and economic means, reversals, missing information and full guides.",
+      "zh": "免费保守主义测试：保留2013年美国SECS完整12个议题及两处反向键，分别查看社会与经济领域的温度均分、资料不足、例子反例和完整读法，不派政治身份。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_secs_2013_us_warmth_12",
+    "questionCount": 12,
+    "resultSlugs": [
+      "social",
+      "economic"
+    ]
   }
 ]

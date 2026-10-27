@@ -1,0 +1,1883 @@
+{
+  "slug": "conservatism",
+  "code": "SECS_2013_US_12",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "secs",
+  "title": {
+    "en": "Conservatism Test: SECS 2013 U.S. Edition",
+    "zh": "保守主义测试：SECS2013美国议题版"
+  },
+  "resultHeading": {
+    "en": "Two historical SECS issue-warmth readings",
+    "zh": "SECS两个历史议题领域的温度读法"
+  },
+  "description": {
+    "en": "Take a free conservatism test using all 12 SECS 2013 U.S. issues. Read separate social and economic means, reversals, missing information and full guides.",
+    "zh": "免费保守主义测试：保留2013年美国SECS完整12个议题及两处反向键，分别查看社会与经济领域的温度均分、资料不足、例子反例和完整读法，不派政治身份。"
+  },
+  "seoTitle": {
+    "en": "Conservatism Test: 12 SECS Items and Free Full Results",
+    "zh": "保守主义测试：SECS12项与免费完整双语结果"
+  },
+  "minutes": 4,
+  "introduction": {
+    "en": "How warm or cool do these twelve issue names feel to you? This edition retains the complete English terms and social/economic grouping from Everett’s 2013 Social and Economic Conservatism Scale, with our Chinese trial translation. The source was developed in the United States and explicitly warns that political meanings change with time and place. It is presented as a historical educational edition, not a current universal or Chinese political scale, and not IDRlabs’ separate eighteen-statement test. After twelve selections, social and economic readings appear separately with both full eight-section guides. There are no parties, quadrants, conservative/liberal cutoffs or moral rankings. All content is free without signup.",
+    "zh": "这十二个议题名称给你怎样的正面或负面感受？本版保留Everett于2013年发表的社会与经济保守主义量表完整英文词语和两组归属，中文为本站试译。原工具在美国开发，并明确提醒政治含义随时间与地点变化；这里呈现的是历史教育版本，不是当前通用或中国政治量表，也不是IDRlabs另一套十八陈述测试。十二项都选择后，社会与经济读法分别呈现，两份各八节完整指南同时可读。不派政党、象限、保守／自由阈值或道德排名，全部免费且无需注册。"
+  },
+  "instructions": {
+    "en": "Rate your positive or negative feeling toward each term, not agreement with a policy statement. Zero is very negative, fifty neutral and one hundred very positive, in ten-point steps. No value is preselected. If a term is unfamiliar, unclear in your context or something you prefer not to answer, select the separate NA. Twelve selections complete the attempt; social needs all seven valid ratings and economic all five. An NA withholds only its own domain rather than filling it with fifty. Do not enter your identity, party, location or a personal story.",
+    "zh": "评价对每个词语的正面或负面感受，不是对某条政策陈述的同意程度。0非常负面，50中性，100非常正面，以10分为间隔，没有预选值。词语不熟悉、在自己的语境中含糊或不愿回答时，可选独立NA。十二项都需选择；社会组七项、经济组五项都有效才有该域个人分数，NA只使所属域保留不足，不补50。不填写身份、政党、地点或个人经历。"
+  },
+  "directions": [
+    {
+      "id": "social",
+      "title": {
+        "en": "Social issue warmth — SECS 2013",
+        "zh": "社会议题温度 — SECS2013"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "economic",
+      "title": {
+        "en": "Economic issue warmth — SECS 2013",
+        "zh": "经济议题温度 — SECS2013"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SECS_01",
+      "prompt": {
+        "en": "Abortion.",
+        "zh": "堕胎（人工终止妊娠）。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_02",
+      "prompt": {
+        "en": "Limited government.",
+        "zh": "有限政府。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "economic",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "economic",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "economic",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "economic",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "economic",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "economic",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "economic",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "economic",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "economic",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "economic",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "economic",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "economic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_03",
+      "prompt": {
+        "en": "Military and national security.",
+        "zh": "军事与国家安全。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_04",
+      "prompt": {
+        "en": "Religion.",
+        "zh": "宗教。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_05",
+      "prompt": {
+        "en": "Welfare benefits.",
+        "zh": "福利补助。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "economic",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "economic",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "economic",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "economic",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "economic",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "economic",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "economic",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "economic",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "economic",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "economic",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "economic",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "economic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_06",
+      "prompt": {
+        "en": "Gun ownership.",
+        "zh": "拥有枪支。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "economic",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "economic",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "economic",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "economic",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "economic",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "economic",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "economic",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "economic",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "economic",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "economic",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "economic",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "economic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_07",
+      "prompt": {
+        "en": "Traditional marriage.",
+        "zh": "传统婚姻。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_08",
+      "prompt": {
+        "en": "Traditional values.",
+        "zh": "传统价值观。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_09",
+      "prompt": {
+        "en": "Fiscal responsibility.",
+        "zh": "财政责任。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "economic",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "economic",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "economic",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "economic",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "economic",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "economic",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "economic",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "economic",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "economic",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "economic",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "economic",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "economic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_10",
+      "prompt": {
+        "en": "Business.",
+        "zh": "商业。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "economic",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "economic",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "economic",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "economic",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "economic",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "economic",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "economic",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "economic",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "economic",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "economic",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "economic",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "economic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_11",
+      "prompt": {
+        "en": "The family unit.",
+        "zh": "家庭这一社会单位。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SECS_12",
+      "prompt": {
+        "en": "Patriotism.",
+        "zh": "爱国主义。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "0 / 100 — Very negative",
+            "zh": "0 / 100 — 非常负面"
+          },
+          "directionId": "social",
+          "score": 0
+        },
+        {
+          "id": "10",
+          "label": {
+            "en": "10 / 100",
+            "zh": "10 / 100"
+          },
+          "directionId": "social",
+          "score": 10
+        },
+        {
+          "id": "20",
+          "label": {
+            "en": "20 / 100",
+            "zh": "20 / 100"
+          },
+          "directionId": "social",
+          "score": 20
+        },
+        {
+          "id": "30",
+          "label": {
+            "en": "30 / 100",
+            "zh": "30 / 100"
+          },
+          "directionId": "social",
+          "score": 30
+        },
+        {
+          "id": "40",
+          "label": {
+            "en": "40 / 100",
+            "zh": "40 / 100"
+          },
+          "directionId": "social",
+          "score": 40
+        },
+        {
+          "id": "50",
+          "label": {
+            "en": "50 / 100 — Neutral",
+            "zh": "50 / 100 — 中性"
+          },
+          "directionId": "social",
+          "score": 50
+        },
+        {
+          "id": "60",
+          "label": {
+            "en": "60 / 100",
+            "zh": "60 / 100"
+          },
+          "directionId": "social",
+          "score": 60
+        },
+        {
+          "id": "70",
+          "label": {
+            "en": "70 / 100",
+            "zh": "70 / 100"
+          },
+          "directionId": "social",
+          "score": 70
+        },
+        {
+          "id": "80",
+          "label": {
+            "en": "80 / 100",
+            "zh": "80 / 100"
+          },
+          "directionId": "social",
+          "score": 80
+        },
+        {
+          "id": "90",
+          "label": {
+            "en": "90 / 100",
+            "zh": "90 / 100"
+          },
+          "directionId": "social",
+          "score": 90
+        },
+        {
+          "id": "100",
+          "label": {
+            "en": "100 / 100 — Very positive",
+            "zh": "100 / 100 — 非常正面"
+          },
+          "directionId": "social",
+          "score": 100
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / unfamiliar term / prefer not to answer",
+            "zh": "资料不足／不熟悉词语／不愿回答"
+          },
+          "directionId": "social",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "social",
+      "directionIds": [
+        "social"
+      ],
+      "title": {
+        "en": "Social Conservatism",
+        "zh": "社会保守主义"
+      },
+      "headline": {
+        "en": "Seven social issue ratings, with the original abortion reversal.",
+        "zh": "七个社会议题，保留原堕胎反向键。"
+      },
+      "summary": {
+        "en": "Read seven historical SECS social items, including abortion reversal, with higher, lower, mixed and insufficient-information explanations.",
+        "zh": "完整阅读SECS七个历史社会议题及堕胎反向计分，覆盖较高、较低、混合与资料不足。"
+      },
+      "scoreReading": {
+        "en": "Read a descriptive issue-warmth mean in its 2013 United States context, without cutoffs or a fixed political identity.",
+        "zh": "把它放回2013年美国语境，作为描述性的议题温度均分来读，不按阈值派固定政治身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Conservatism Test: Social Conservatism Guide",
+          "zh": "保守主义测试：社会保守主义完整读法"
+        },
+        "description": {
+          "en": "Read seven historical SECS social items, including abortion reversal, with higher, lower, mixed and insufficient-information explanations.",
+          "zh": "完整阅读SECS七个历史社会议题及堕胎反向计分，覆盖较高、较低、混合与资料不足。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-context",
+          "title": {
+            "en": "Seven issues in a specific historical context",
+            "zh": "特定历史语境中的七个议题"
+          },
+          "paragraphs": [
+            {
+              "en": "The SECS was published by Jim A. C. Everett in 2013 and developed around United States political issues. Its social set includes abortion, military and national security, religion, traditional marriage, traditional values, the family unit and patriotism. Abortion is reverse scored. These groupings are retained from Supplementary Materials 1, rather than rebuilt according to how a topic sounds today. The content is a historical issue-based measure, not a universal definition of conservatism or a current Chinese political scale.",
+              "zh": "SECS由Jim A. C. Everett于2013年发表，围绕美国政治议题开发。其社会组包括堕胎、军事与国家安全、宗教、传统婚姻、传统价值观、家庭这一社会单位及爱国主义；堕胎反向计分。分组保留补充材料1的规定，没有按今天对词语的直觉重分。这是历史议题测量，不是保守主义的普遍定义，也不是当前中国政治量表。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Reading a higher keyed mean",
+            "zh": "怎样读较高的键向均分"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher descriptive mean reflects warmer feelings toward the six direct social topics and/or cooler feelings toward abortion, under this particular key. It does not establish endorsement of every policy associated with those words. Someone may feel warmly toward family and patriotism yet differ sharply from another respondent about law, institutions or who a tradition includes. The score cannot decide the content or quality of those reasons.",
+              "zh": "在本键下，描述性均分较高反映对六个正向社会主题更正面的感受，及／或对堕胎更负面的感受，并不证明支持这些词关联的每项政策。两个人可能都对家庭和爱国主义感到正面，却在法律、制度或传统包含谁的问题上分歧很大；分数无法判断理由的具体内容或质量。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Reading a lower keyed mean",
+            "zh": "怎样读较低的键向均分"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean describes cooler feelings toward the direct topics and/or warmer feelings toward abortion in this response set. It is not proof of hostility to other people, lack of attachment to family or membership of a liberal party. The original paper primarily designed the scale around conservatism; lower values do not comprehensively measure every form of liberalism, socialism or another ideology. Treat the name as a label for this key, not an exhaustive identity.",
+              "zh": "较低均分描述本次对正向主题较负面的感受，及／或对堕胎较正面的感受，不证明敌视别人、不重视家庭或属于自由派政党。原论文主要围绕保守主义设计量表；较低值不能完整测量自由主义、社会主义或其他意识形态。把名称当作本键的标签，而非穷尽身份。"
+            }
+          ]
+        },
+        {
+          "id": "middle-and-mixed",
+          "title": {
+            "en": "Neutral and mixed responses are different",
+            "zh": "中性感受与混合回答不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Seven ratings of fifty produce a keyed mean of fifty, but the same mean can arise from sharply different issue reactions. The midpoint is the response scale’s neutral point, not a population average or a certified moderate position. Social and economic readings can also differ. This edition keeps both guides visible and does not pick the larger mean as your dominant politics or create a quadrant-based type.",
+              "zh": "七项都评50时，键向均分为50，但同样均分也可能来自截然不同的议题反应。中点是回答标尺的中性感受点，不是人口平均或经认证的温和立场。社会与经济读法也可能不同；本版保留两份指南，不把较大均分选成主导政治倾向，也不派象限类型。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "An example that keeps the reverse key visible",
+            "zh": "保留反向键的可复算例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose abortion receives twenty and the other six items each receive fifty. Reversing the first gives eighty; adding six fifties produces a sum of 380. Divide by seven to obtain 54.2857…, displayed as 54.29 on the zero-to-one-hundred response scale. This is arithmetic, not 54.29 percent conservative, a probability or a percentile. Seven valid ratings are required; any NA withholds the personal sum and mean rather than replacing it with fifty.",
+              "zh": "假设堕胎评20，其余六项各评50，第一项反向后为80，加上六个50得到原始和380。除7得到54.2857…，在0—100回答标尺上显示54.29。这是算术，不是54.29%的保守程度、概率或百分位。七项都有效才有个人总和与均分；任一NA保留不足，不补50。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A term can hide more than one question",
+            "zh": "一个词可能隐藏多个问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider the phrase traditional values. A respondent may think of caring for older relatives, while another thinks of a restrictive social rule. Similar warmth ratings would not establish agreement about that rule. Likewise, a feeling toward military and national security does not specify a view about a particular conflict or budget. The original short phrases are preserved to avoid silently rewriting the instrument, while this guide makes their ambiguity explicit.",
+              "zh": "例如“传统价值观”，一个人想到照顾长辈，另一个人想到某条限制性社会规则；温度相近不证明对该规则意见一致。“军事与国家安全”的感受也不指定对某次冲突或预算的看法。本版保留原短语以免暗改题本，同时明确说明这种模糊性。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Clarify one interpretation without chasing a score",
+            "zh": "澄清一个理解，不追逐分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one term and privately note what you meant when rating it, and what you did not mean. Ask whether the 2013 United States wording is meaningful in your own context; using NA is appropriate when it is not. You do not need to disclose your political identity, persuade someone or move toward a preferred score. A useful reflection is clearer about the issue and the limits of the question.",
+              "zh": "选一个词，私下记下评分时想的是什么、不是什么。核对2013年美国措辞在自己的语境中是否有意义；没有意义时可以选NA。无需披露政治身份、说服别人或向某个理想分数移动。有用的观察是更清楚地理解议题及问题边界。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-limits",
+          "title": {
+            "en": "Source, licence and present-day limits",
+            "zh": "来源、许可与当下边界"
+          },
+          "paragraphs": [
+            {
+              "en": "English terms and the seven/five grouping follow the paper’s complete twelve-item appendix, not IDRlabs’ separate eighteen-statement test. The PLOS article explicitly provides a CC0 public-domain dedication; author, year and DOI remain credited. Chinese is our trial translation. Our fixed presentation, eleven ten-point choices, NA rule and descriptive mean display are edition choices, without independent validation here. The original paper itself warns that issue meanings vary with time and place and that the scale may need updating after ten years. We do not claim that its 2013 validation establishes current or cross-cultural validity. No diagnosis, moral judgement, voting recommendation, party match or actual behaviour prediction is generated.",
+              "zh": "英文词语和七／五分组遵循论文完整十二项附录，不是IDRlabs另一套十八陈述测试。PLOS原文明示CC0公有领域奉献；仍保留作者、年份与DOI署名。中文为本站试译。固定呈现、间隔10分的十一档回答、NA规则及描述性均分显示是本版本选择，尚未经本站独立验证。原论文本身警告议题含义随时地变化，并认为十年后可能需更新；本站不把2013年验证当作当下或跨文化效度。不生成诊断、道德评价、投票建议、政党匹配或实际行为预测。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "economic",
+      "directionIds": [
+        "economic"
+      ],
+      "title": {
+        "en": "Economic Conservatism",
+        "zh": "经济保守主义"
+      },
+      "headline": {
+        "en": "Five economic issue ratings, with welfare reversed and gun ownership retained in the source group.",
+        "zh": "五个经济议题，保留福利反向键与枪支原分组。"
+      },
+      "summary": {
+        "en": "Read five historical SECS economic items, including welfare reversal and the original gun-ownership grouping, without party or policy predictions.",
+        "zh": "完整阅读SECS五个历史经济议题，保留福利反向键及原枪支分组，不预测政党或具体政策。"
+      },
+      "scoreReading": {
+        "en": "Read a descriptive issue-warmth mean in its 2013 United States context, without cutoffs or a fixed political identity.",
+        "zh": "把它放回2013年美国语境，作为描述性的议题温度均分来读，不按阈值派固定政治身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Conservatism Test: Economic Conservatism Guide",
+          "zh": "保守主义测试：经济保守主义完整读法"
+        },
+        "description": {
+          "en": "Read five historical SECS economic items, including welfare reversal and the original gun-ownership grouping, without party or policy predictions.",
+          "zh": "完整阅读SECS五个历史经济议题，保留福利反向键及原枪支分组，不预测政党或具体政策。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-context",
+          "title": {
+            "en": "The five-item grouping is part of the edition",
+            "zh": "五项分组属于这一历史版本"
+          },
+          "paragraphs": [
+            {
+              "en": "The economic set in the 2013 SECS appendix contains limited government, welfare benefits, gun ownership, fiscal responsibility and business. Welfare benefits is reverse scored. Gun ownership is retained here because the original appendix marks it economic, while military and national security belongs to the social set. This may differ from a reader’s intuitive categories. It is a documented historical grouping, not a claim that these words always form one economic philosophy.",
+              "zh": "2013年SECS附录的经济组包括有限政府、福利补助、拥有枪支、财政责任及商业；福利补助反向计分。拥有枪支保留在此，是因为原附录把它标为经济组；军事与国家安全则属于社会组。这可能不同于读者直觉，但它是有记录的历史分组，不表示这些词总会构成同一种经济哲学。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Reading a higher keyed mean",
+            "zh": "怎样读较高的键向均分"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher descriptive mean indicates warmer feelings toward the four direct terms and/or cooler feelings toward welfare benefits under this key. It does not establish support for every market policy, opposition to every social programme or approval of unrestricted business conduct. Broad phrases do not specify how much government, which benefits, what regulation or whose responsibility is involved. A score cannot supply those missing details.",
+              "zh": "在本键下，较高描述性均分表示对四个正向词语更正面，及／或对福利补助更负面，并不证明支持所有市场政策、反对所有社会项目或赞成商业行为不受约束。宽泛短语没有指定政府规模、哪类福利、什么监管或谁的责任；分数不能补足这些细节。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Reading a lower keyed mean",
+            "zh": "怎样读较低的键向均分"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean may reflect warmer feelings toward welfare benefits or cooler feelings toward limited government, gun ownership, fiscal responsibility or business. Those responses need not have the same reason. Someone may oppose a particular business practice but value enterprise, or support a benefit while preferring tight oversight. The result does not measure economic knowledge, financial responsibility or membership of a socialist or liberal party.",
+              "zh": "较低均分可能反映对福利补助较正面，或对有限政府、拥有枪支、财政责任及商业较负面；这些回答未必出于同一理由。有人反对某种商业做法却重视创业，也有人支持福利且偏好严格监督。结果不测经济知识、财务责任，也不确立社会主义或自由派政党身份。"
+            }
+          ]
+        },
+        {
+          "id": "middle-and-mixed",
+          "title": {
+            "en": "Mixed preferences need not collapse into a label",
+            "zh": "混合偏好不必压成一个标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A middle mean can represent neutral feelings throughout, or strong but opposing reactions across the five topics. It does not certify moderation, inconsistency or the best balance between public and private activity. The separate social reading may be higher, lower or equal without requiring a tie-breaker. Because the two sets have different content, comparing their numbers does not identify your strongest political belief.",
+              "zh": "中间均分可以代表五项都感受中性，也可以来自跨议题强烈而相反的反应。它不认证温和、不一致或公私活动的最佳平衡。社会读法可较高、较低或相同，无需破同分。两组内容不同，比较数字不能识别最强政治信念。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "An example with welfare benefits reversed",
+            "zh": "福利补助反向计分的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose welfare benefits receives eighty and the other four items each receive fifty. Its keyed contribution becomes twenty, giving a raw sum of 220 and a descriptive mean of 44.00. If welfare instead receives twenty, its keyed contribution is eighty, the sum becomes 280 and the mean 56.00. These examples explain direction, not population standing or a party threshold. All five ratings must be valid; one NA leaves this domain insufficient even when the social domain is fully rated.",
+              "zh": "假设福利补助评80，其余四项各评50，福利键向贡献变成20，总和220，描述性均分44.00。若福利改评20，键向贡献为80，总和280、均分56.00。例子只解释方向，不代表人口位置或政党阈值。五项必须都有效；任一NA保留本域不足，即使社会领域完整也不代填。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Support for a word is not a detailed policy",
+            "zh": "对词语的好感不是详细政策"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people may both rate fiscal responsibility warmly while disagreeing about whether a particular budget is responsible. The phrase supplies no accounting test or policy definition. Similarly, views about gun ownership can depend on local history and institutions, making a 2013 United States grouping difficult to transport elsewhere. This edition does not quietly replace such terms with locally familiar policies, because that would create a different item bank.",
+              "zh": "两个人都可能对财政责任感到正面，却对某份预算是否负责意见相反。短语不提供会计测试或政策定义。拥有枪支的看法也可能依赖地方历史与制度，使2013年美国分组难以迁移到其他地方。本版不会悄悄替换成本地熟悉政策，因为那会成为另一份题库。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Separate the phrase from your reason",
+            "zh": "分开看词语和自己的理由"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately choose one item and describe the meaning you used. Would a different example or definition change your rating? If so, retain that uncertainty rather than retaking until a preferred label appears. There is no need to debate, disclose a party affiliation or follow another assessment to unlock this guide. You can stop with a clearer statement of what this small historical instrument does and does not ask.",
+              "zh": "私下选一项，描述自己采用的含义。换一个例子或定义，评分会不会变化？若会，保留这种不确定性，不必重测直到出现喜欢的标签。无需辩论、披露政党归属或继续另一测评解锁指南；可以在更清楚这份小型历史工具问了什么、没问什么时结束。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-limits",
+          "title": {
+            "en": "Source, licence and present-day limits",
+            "zh": "来源、许可与当下边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This guide accompanies all five economic items in Everett’s 2013 Social and Economic Conservatism Scale and our Chinese trial translation. The twelve English terms, two reversals and original domain membership come from complete Supplementary Materials 1; the publisher explicitly marks the work CC0. Attribution is preserved. Positive terms keep the selected warmth value; reversed terms use one hundred minus it. We display the unrounded keyed sum divided by five to two decimals on the response scale, not a percentage, percentile or probability. Our presentation and missing-response handling are not independently validated. The original American, time-specific research cannot establish current Chinese or universal validity, and the original paper explicitly anticipates a need for revision. This result is educational, with no diagnosis, voting advice, hiring use or claim about actual conduct.",
+              "zh": "本指南对应Everett于2013年发表的社会与经济保守主义量表全部五个经济条目及本站中文试译。十二个英文词语、两处反向键和原始组别来自完整补充材料1，出版方明示该作品为CC0；本站保留署名。正向词保留所选温度，反向词用100减所选值。未舍入键向和除5后，在回答标尺上显示两位小数，不是百分比、百分位或概率。本站呈现与缺失处理尚未经独立验证；原美国时点研究不能证明当前中国或普遍效度，原文也明确预期需修订。结果用于教育，不提供诊断、投票建议、招聘用途或实际行为判断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "A historical 2013 U.S. issue bank",
+        "zh": "2013年美国历史议题题本"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition uses all twelve English terms, seven social and five economic memberships, and two reversals from Jim A. C. Everett’s 2013 SECS Supplementary Materials 1. The publisher labels the article CC0; attribution remains Everett (2013), DOI 10.1371/journal.pone.0082131. Chinese is our trial translation. This is not IDRlabs’ separate eighteen-statement test. The original paper explicitly warns that issue meanings change with time and place and that the scale may need updating after ten years; its historical validation does not establish current or Chinese validity.",
+          "zh": "本版采用Jim A. C. Everett于2013年发表的SECS补充材料1全部十二个英文词语、七社会／五经济归属及两处反向键。出版方标注原文为CC0；仍保留Everett（2013）与DOI 10.1371/journal.pone.0082131署名。中文为本站试译，不是IDRlabs另一套十八陈述测试。原文明确警告议题含义随时地变化，并认为十年后可能需更新；历史验证不能证明当下或中文效度。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Two descriptive means, without percentages or types",
+        "zh": "两个描述性均分，不给百分比或派型"
+      },
+      "paragraphs": [
+        {
+          "en": "Warmth runs from zero to one hundred in ten-point choices, with fifty neutral and no preselected value. Direct terms keep the chosen value; abortion and welfare benefits use one hundred minus it. Social uses all seven valid items, economic all five. Divide each unrounded sum by its own item count and display two decimals. Means stay on the response scale: they are neither percentages conservative, percentiles nor probabilities. We generate no combined total, cutoffs, quadrant, dominant domain or party match.",
+          "zh": "温度以10分为间隔，从0到100，50为中性，没有预选值。正向词保留所选值，堕胎与福利补助用100减所选值。社会组七项、经济组五项都有效才评分；各自未舍入总和除所属题数，显示两位小数。均分仍是回答标尺，不是保守程度百分比、百分位或概率。不生成综合总分、阈值、象限、主导领域或政党匹配。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Preserve uncertainty and privacy",
+        "zh": "保留不确定性与隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "Any NA withholds only that domain’s personal sum and mean; the other fully rated domain can still appear. Both complete guides remain available and do not diagnose or certify a political identity. Fixed presentation, our Chinese trial translation, NA handling and mean display have no independent validation here. Optional drafts stay in this tab for up to twenty-four hours and clear on completion or retake. Sharing contains a public title and link without ratings or means. No party, location or personal narrative is entered.",
+          "zh": "任一NA只使所属域个人总和与均分保留不足，另一完整域仍可显示。两份完整指南一直可读，不诊断或认证政治身份。固定呈现、本站中文试译、NA处理与均分显示尚未经本站独立验证。主动保存的草稿在本标签页最多24小时，完成或重测即清除；分享仅含公开名称与链接，没有评分或均分。不填写政党、地点或个人叙事。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Everett (2013): SECS paper and CC0 statement",
+        "zh": "Everett（2013）：SECS论文与CC0声明"
+      },
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0082131"
+    },
+    {
+      "title": {
+        "en": "Complete Supplementary Materials 1: twelve terms, keys and groups",
+        "zh": "完整补充材料1：十二个词语、键向与分组"
+      },
+      "url": "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0082131.s001"
+    },
+    {
+      "title": {
+        "en": "PubMed Central: open full text and licence record",
+        "zh": "PubMed Central：开放全文与许可记录"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3859575/"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which conservatism test is this?",
+        "zh": "这是哪一种保守主义测试？"
+      },
+      "answer": {
+        "en": "The complete twelve-item SECS published by Everett in 2013, developed for the United States, with our Chinese trial translation. It is a historical educational edition, not IDRlabs’ separate eighteen-statement bank or a current universal or Chinese political scale.",
+        "zh": "这是Everett于2013年发表、为美国语境开发的完整十二项SECS，中文为本站试译。它是历史教育版本，不是IDRlabs另一套十八陈述题本，也不是当前通用或中国政治量表。"
+      }
+    },
+    {
+      "question": {
+        "en": "Am I agreeing with statements?",
+        "zh": "这是同意程度题吗？"
+      },
+      "answer": {
+        "en": "No. Rate your positive or negative feeling toward each original term on zero to one hundred in ten-point steps. Fifty is neutral. There is no default answer, and an unclear or unfamiliar term can receive the separate NA.",
+        "zh": "不是。按0至100、间隔10分，评价对每个原始词语的正面或负面感受，50为中性。没有默认回答；含义不清或不熟悉时可选独立NA。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do reversals and missing information work?",
+        "zh": "反向计分和资料不足怎样处理？"
+      },
+      "answer": {
+        "en": "Abortion and welfare benefits use one hundred minus the chosen warmth. All seven social ratings or all five economic ratings are required for that domain. Any NA withholds only its own domain, without replacing it with fifty or estimating from the other answers.",
+        "zh": "堕胎与福利补助用100减所选温度。社会组七项或经济组五项必须都有效才有该域个人分数；任一NA只使所属域不足，不补50，也不根据其余回答估算。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a mean of fifty fifty percent conservative?",
+        "zh": "均分50就是50%保守吗？"
+      },
+      "answer": {
+        "en": "No. It is a descriptive mean on the response scale, not a percentage, percentile, probability, population norm or moderate-party label. Two different answer patterns can have the same mean. We do not turn the two domains into quadrants or a winning identity.",
+        "zh": "不是。它只是回答标尺上的描述性均分，不是百分比、百分位、概率、人口常模或温和政党标签。不同回答组合可有同一均分，也不会把两域变成象限或胜出身份。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are current or Chinese results independently validated?",
+        "zh": "当下结果或中文结果经独立验证了吗？"
+      },
+      "answer": {
+        "en": "No. The original evidence is tied to the source study’s time and U.S. context, and the paper explicitly anticipates a need for revision. Our Chinese trial, presentation, NA rule and descriptive display have not been independently validated here. Results provide no diagnosis, voting recommendation, party match or behavioural prediction.",
+        "zh": "尚未。原始证据关联源研究的时点与美国语境，论文也明确预期需要修订。本站中文试译、呈现、NA规则及描述性显示尚未经独立验证；结果不提供诊断、投票建议、政党匹配或行为预测。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are both complete reports free and are answers shared?",
+        "zh": "两份完整报告都免费吗？会分享答案吗？"
+      },
+      "answer": {
+        "en": "All twelve items and both full guides are free without signup or another test. Optional tab drafts expire after twenty-four hours and clear on completion or retake. Sharing copies only a public title and link, not personal ratings or means.",
+        "zh": "十二项与两份完整指南免费，无需注册或另一测试。主动保存的标签页草稿24小时后失效，完成或重测清除；分享仅复制公开名称与链接，不含个人评分或均分。"
+      }
+    }
+  ],
+  "source": {
+    "kind": "Everett2013completeSECS12/7social5economic/2negative;publisherCC0. AuthorChinese/presentation/NAanddescriptivemeans,notcurrentcrossculturalvalidatedorIDR18.",
+    "formCode": "fm_secs_2013_us_warmth_12",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f77d254b0865584a3cfb2b27ef85819495a6a39da402f6951cfbc201b3b7714a",
+    "resultContentSha256": "7b1aed64213de249e09179637c6bc65c2574d98818d6f8c497e1634bbf64d760",
+    "psychometricValidationCompleted": false
+  }
+}
