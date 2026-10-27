@@ -1,5 +1,6 @@
 import { isMissingFunRoute } from "@/lib/entertainment/routing";
 import { createHash } from "node:crypto";
+import { deepStrictEqual } from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it, expect } from "vitest";
 import catalog from "@/lib/entertainment/catalog.json";
@@ -182,15 +183,17 @@ describe("original entertainment catalog", () => {
     expect(entries).toHaveLength(1 + publicCount);
     expect(entries).toContainEqual(base[0]);
     expect(appendFunSitemapEntries(entries)).toEqual(entries);
+    const expectedEntries = [...base];
     for (const card of catalog.filter(card => !questionnaires.some(native => native.slug === card.slug))) for (const locale of ["en", "zh"]) {
-      expect(entries).toContainEqual({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
-      for (const slug of card.resultSlugs) expect(entries).toContainEqual({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      for (const slug of card.resultSlugs) expectedEntries.push({ loc: `https://fermatmind.com/${locale}/tests/play/${card.slug}/results/${slug}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
     for (const card of questionnaires) for (const locale of ["en", "zh"]) {
       const path = `https://fermatmind.com/${locale}/tests/${card.collection}/${card.slug}`;
-      expect(entries).toContainEqual({ loc: path, lastmod: `${card.updated}T00:00:00.000Z` });
-      for (const profile of card.resultSlugs) expect(entries).toContainEqual({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
+      expectedEntries.push({ loc: path, lastmod: `${card.updated}T00:00:00.000Z` });
+      for (const profile of card.resultSlugs) expectedEntries.push({ loc: `${path}/results/${profile}`, lastmod: `${card.updated}T00:00:00.000Z` });
     }
+    deepStrictEqual(entries, expectedEntries.sort((a, b) => a.loc.localeCompare(b.loc)));
     expect(buildPublicSitemapFamilyMap(entries).tests).toHaveLength(publicCount);
     expect(entries.every(entry => !/[?#]|\/result\//.test(entry.loc))).toBe(true);
     expect(entries.filter(entry => entry.loc.includes("/results/")).every(entry => /^https:\/\/fermatmind\.com\/(?:en|zh)\/tests\/(?:play|explore)\/[^/]+\/results\/[^/]+$/.test(entry.loc))).toBe(true);
