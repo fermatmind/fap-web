@@ -3957,5 +3957,31 @@
       "right-communitarian",
       "right-liberal"
     ]
+  },
+  {
+    "slug": "mechanical-reasoning",
+    "code": "FM_MECHANICAL_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Mechanical Reasoning Test",
+      "zh": "机械推理测试"
+    },
+    "description": {
+      "en": "Practise 30 original lever, gear, pulley, spring and fluid tasks. Get worked answers and five full guides, free. Untimed; no norm or hiring band.",
+      "zh": "免费完成30道原创杠杆、齿轮、滑轮、弹簧与流体题，查看逐题解析和五份完整指南。明确理想假设，不计时，不给人群常模或招聘等级。"
+    },
+    "minutes": 18,
+    "formCode": "fermatmind_original_ideal_mechanics_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "levers",
+      "gears",
+      "pulleys",
+      "springs",
+      "fluids"
+    ],
+    "collection": "explore"
   }
 ]

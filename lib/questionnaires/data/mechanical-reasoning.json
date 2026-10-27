@@ -1,0 +1,2247 @@
+{
+  "slug": "mechanical-reasoning",
+  "code": "FM_MECHANICAL_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Mechanical Reasoning Test",
+    "zh": "机械推理测试"
+  },
+  "seoTitle": {
+    "en": "Mechanical Reasoning Test: 30 Questions & Worked Answers",
+    "zh": "机械推理测试：30道原创题、理想模型与完整题解"
+  },
+  "description": {
+    "en": "Practise 30 original lever, gear, pulley, spring and fluid tasks. Get worked answers and five full guides, free. Untimed; no norm or hiring band.",
+    "zh": "免费完成30道原创杠杆、齿轮、滑轮、弹簧与流体题，查看逐题解析和五份完整指南。明确理想假设，不计时，不给人群常模或招聘等级。"
+  },
+  "minutes": 18,
+  "instructions": {
+    "en": "Answer 30 original four-option questions, six per topic. Each has one checked answer under its explicit ideal assumptions, units, force directions and viewing side. One correct adds one; another valid choice adds zero. There is no timer, guessing penalty, partial credit or speed adjustment. Paper, sketches and a calculator are allowed. Complete all items to get every worked answer and all five full guides. Eighteen minutes is an editorial estimate, not observed completion data.",
+    "zh": "完成30道原创四选一题，每主题六题。按各题明示理想假设、单位、力方向与观察侧，只有一个已核答案。选对记一道，其余有效选择记零；不计时、不倒扣、无部分分或速度加权。可用纸笔画草图或计算器。全部作答后给所有题解与五份完整指南。十八分钟是编辑估计，不是实测完成时间。"
+  },
+  "introduction": {
+    "en": "This edition uses original word-and-number tasks about ideal moments, external gears, stated supporting rope segments, linear springs and stationary or ideal confined fluids. It provides practice with the model in each question, rather than a measurement of hands-on machine operation. All scenarios, options, explanations and guides are independently written. Correctness is checked through exact arithmetic, force balance and explicit direction reversals. There is no electronics section, visual-rotation score, employer comparison, percentile, intelligence estimate or certification. The five guides are revision topics that every complete attempt receives together.",
+    "zh": "本版以原创文字与数量任务练习理想力矩、外啮合齿轮、明确支持绳股、线性弹簧及静液与理想密闭液体，按题内模型作答，不测真实机器操作。场景、选项、解析和指南均独立编写，以精确运算、力平衡及明示转向核对答案。范围不含电学，不给视觉旋转分、雇主比较、百分位、智商估计或资格认证。五份指南是复习主题，每次完整作答同时获得。"
+  },
+  "resultHeading": {
+    "en": "Your five practice counts and every worked answer",
+    "zh": "五项练习正确数与全部题解"
+  },
+  "directions": [
+    {
+      "id": "levers",
+      "title": {
+        "en": "Levers and perpendicular moments",
+        "zh": "杠杆与垂直力臂"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "gears",
+      "title": {
+        "en": "External gears and tooth ratios",
+        "zh": "外啮合齿轮与齿数比"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "pulleys",
+      "title": {
+        "en": "Supporting segments and rope travel",
+        "zh": "支持绳股与拉绳行程"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "springs",
+      "title": {
+        "en": "Linear springs and static balance",
+        "zh": "线性弹簧与静力平衡"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "fluids",
+      "title": {
+        "en": "Static pressure and ideal hydraulics",
+        "zh": "静液压强与理想液压"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "MECH_01",
+      "prompt": {
+        "en": "An ideal massless lever balances. A 90 N downward load acts 0.40 m left of the pivot; an upward effort is applied 1.20 m left of the pivot. Both forces are perpendicular to the lever. What effort balances the load?",
+        "zh": "理想无重杠杆平衡：支点左侧0.40米处向下负载90牛，左侧1.20米处向上施力，均垂直杠杆。所需力是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15 N",
+            "zh": "15 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30 N",
+            "zh": "30 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "60 N",
+            "zh": "60 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "270 N",
+            "zh": "270 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Balance opposite moments: effort × 1.20 = 90 × 0.40, so effort = 30 N. Both act on the same side but in opposite directions; force direction matters.",
+        "zh": "两相反力矩平衡：F×1.20=90×0.40，得30牛。两力虽同在支点左侧，但方向相反。"
+      }
+    },
+    {
+      "id": "MECH_02",
+      "prompt": {
+        "en": "A massless horizontal beam has a 48 N downward load 0.75 m to the left of a pivot. A downward force acts 0.30 m to its right. What force produces rotational balance?",
+        "zh": "无重水平梁支点左0.75米有向下48牛负载，右0.30米施向下力。旋转平衡需多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "19.2 N",
+            "zh": "19.2 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48 N",
+            "zh": "48 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "96 N",
+            "zh": "96 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Opposite sides with downward forces give opposite moments. F × 0.30 = 48 × 0.75, giving 120 N. Pivot reaction does not contribute moment about the pivot.",
+        "zh": "支点两边同向下的力产生相反力矩。F×0.30=48×0.75，得120牛，支点反力对本支点力矩为零。"
+      }
+    },
+    {
+      "id": "MECH_03",
+      "prompt": {
+        "en": "An ideal lever has an effort arm of 0.90 m and load arm of 0.15 m, measured perpendicular to the force lines. What is its ideal force mechanical advantage, load force divided by effort?",
+        "zh": "理想杠杆的力臂分别为动力0.90米、阻力0.15米，均按垂直于力线测量。负载力除以动力的理想机械利益是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.1667",
+            "zh": "0.1667"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Moment balance gives Fload/Feffort = effort arm/load arm = 0.90/0.15 = 6. This is a force ratio, not energy multiplication.",
+        "zh": "力矩平衡给出负载力/动力=动力臂/阻力臂=0.90/0.15=6。这是力比，不是能量增加。"
+      }
+    },
+    {
+      "id": "MECH_04",
+      "prompt": {
+        "en": "Two perpendicular forces balance a massless lever. The effort is 35 N at an arm of 0.80 m; the opposing load is 140 N. What perpendicular load arm is required?",
+        "zh": "两垂直力使无重杠杆平衡：动力35牛、动力臂0.80米，反向力矩的负载140牛。负载力臂应是多少米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.20 m",
+            "zh": "0.20 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.40 m",
+            "zh": "0.40 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3.20 m",
+            "zh": "3.20 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.10 m",
+            "zh": "0.10 m"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Set 140 × load arm = 35 × 0.80. The arm is 0.20 m. A greater load needs a shorter arm for the same balancing moment. Substitution confirms 140 × 0.20 = 28 N m, equal to 35 × 0.80.",
+        "zh": "令140×阻力臂=35×0.80，得0.20米。相同平衡力矩下，较大力对应较短力臂。代回140×0.20=28牛米，与35×0.80相等。"
+      }
+    },
+    {
+      "id": "MECH_05",
+      "prompt": {
+        "en": "An ideal lever initially balances a 72 N load. Its effort arm stays fixed, but its perpendicular load arm doubles. What load force can the same effort now balance?",
+        "zh": "理想杠杆原能平衡72牛负载。动力及其力臂不变，垂直阻力臂变为两倍。同一动力现在能平衡多大负载？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18 N",
+            "zh": "18 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "36 N",
+            "zh": "36 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "72 N",
+            "zh": "72 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "144 N",
+            "zh": "144 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The available effort moment is unchanged. Doubling the load arm requires halving load force, from 72 to 36 N. No extra force source was introduced.",
+        "zh": "动力矩不变，阻力臂加倍，负载力须减半，由72变36牛，没有引入额外力源。"
+      }
+    },
+    {
+      "id": "MECH_06",
+      "prompt": {
+        "en": "A 12 N downward force acts 0.25 m left of a pivot and a 20 N downward force 0.15 m left of it. What downward force at 0.50 m to the right balances both on a massless beam?",
+        "zh": "无重梁支点左0.25米处向下12牛，左0.15米处向下20牛。右0.50米处需多大向下力同时平衡？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32 N",
+            "zh": "32 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "6 N",
+            "zh": "6 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "12 N",
+            "zh": "12 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "16 N",
+            "zh": "16 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Add moments on the left: 12 × 0.25 + 20 × 0.15 = 6 N m. Divide by the 0.50 m right arm to obtain 12 N. Adding force magnitudes alone misses their different arms.",
+        "zh": "左侧总力矩12×0.25+20×0.15=6牛米，再除右侧0.50米，得12牛。不能忽略力臂而只加力。"
+      }
+    },
+    {
+      "id": "MECH_07",
+      "prompt": {
+        "en": "Two external gears mesh without slip. Driver A has 18 teeth and turns at 240 rpm. Driven B has 54 teeth. What is B’s speed magnitude?",
+        "zh": "两个外啮合齿轮无滑动：主动A18齿、240转/分，从动B54齿。B转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "240 rpm",
+            "zh": "240 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "720 rpm",
+            "zh": "720 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "60 rpm",
+            "zh": "60 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "80 rpm",
+            "zh": "80 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Equal tooth passage gives nA × teethA = nB × teethB. Therefore nB = 240 × 18/54 = 80 rpm; the larger driven gear is slower.",
+        "zh": "每分钟经过啮合点的齿数相同，nA×齿数A=nB×齿数B，故240×18/54=80转/分。"
+      }
+    },
+    {
+      "id": "MECH_08",
+      "prompt": {
+        "en": "External gear A drives B, and B drives C on separate shafts. Their tooth counts are 16, 40 and 64. A turns at 360 rpm. What is C’s speed magnitude, with ideal no-slip engagement?",
+        "zh": "外齿轮A带B、B带C，分别位于不同轴，齿数16、40、64。A为360转/分，理想无滑动时C转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "90 rpm",
+            "zh": "90 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "144 rpm",
+            "zh": "144 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1440 rpm",
+            "zh": "1440 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "45 rpm",
+            "zh": "45 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The idler B cancels in the speed ratio: 360 × 16/40 × 40/64 = 90 rpm. Its teeth affect its own speed but not the end-to-end tooth ratio.",
+        "zh": "中间B齿数在比值中约掉：360×16/40×40/64=90转/分。B会影响自身速度，但不改变首尾齿数比。"
+      }
+    },
+    {
+      "id": "MECH_09",
+      "prompt": {
+        "en": "An ideal 12-tooth driver delivers 2 N m torque to a meshing 36-tooth driven gear. Neglect losses and use equal tangential tooth force. What is driven torque?",
+        "zh": "理想12齿主动轮的扭矩2牛米，啮合36齿从动轮。忽略损失、两轮齿面切向力相等，从动扭矩多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.667 N m",
+            "zh": "0.667 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2 N m",
+            "zh": "2 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4 N m",
+            "zh": "4 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "6 N m",
+            "zh": "6 N m"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "With the same tangential force, torque scales with radius and thus tooth count. Driven torque = 2 × 36/12 = 6 N m, while its speed is one third.",
+        "zh": "相同切向力下，扭矩随半径及齿数增加，2×36/12=6牛米，同时从动转速为三分之一。"
+      }
+    },
+    {
+      "id": "MECH_10",
+      "prompt": {
+        "en": "Two ideal external gears have 28 and 14 teeth. The 28-tooth driver turns at 75 rpm. What is the driven gear’s speed magnitude?",
+        "zh": "两理想外齿轮分别28齿、14齿。28齿主动轮75转/分，14齿从动转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "150 rpm",
+            "zh": "150 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "37.5 rpm",
+            "zh": "37.5 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75 rpm",
+            "zh": "75 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "112.5 rpm",
+            "zh": "112.5 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Use inverse tooth count for speed: 75 × 28/14 = 150 rpm. The smaller driven gear turns twice as fast, not half as fast. Both products, 75 × 28 and 150 × 14, equal 2100 teeth per minute.",
+        "zh": "速度与齿数成反比，75×28/14=150转/分。较小从动轮转速加倍，而非减半。75×28和150×14都为每分钟经过2100齿，可交叉核对。"
+      }
+    },
+    {
+      "id": "MECH_11",
+      "prompt": {
+        "en": "External gears A, B and C mesh in a chain on three separate parallel shafts. Viewed from the same side, A turns clockwise. In which direction does C turn?",
+        "zh": "A、B、C三个外齿轮分别在三根平行轴上依次啮合。从同一侧观察A顺时针，C方向是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Stationary",
+            "zh": "静止"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Direction cannot be determined",
+            "zh": "方向无法确定"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Clockwise",
+            "zh": "顺时针"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Counterclockwise",
+            "zh": "逆时针"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Each external mesh reverses direction. A→B reverses once and B→C a second time, so C turns in A’s clockwise direction when viewed from the same side.",
+        "zh": "每次外啮合反向，A到B一次、B到C二次，两次反向后C与A同为顺时针，观察方向须相同。"
+      }
+    },
+    {
+      "id": "MECH_12",
+      "prompt": {
+        "en": "Four external gears A→B→C→D mesh on four separate parallel shafts. Viewed from one side A turns counterclockwise. In which direction does D turn?",
+        "zh": "四个外齿轮A→B→C→D在四根不同平行轴上啮合，同一侧看A逆时针，D方向是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Clockwise",
+            "zh": "顺时针"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Stationary",
+            "zh": "静止"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Direction cannot be determined",
+            "zh": "方向无法确定"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Counterclockwise",
+            "zh": "逆时针"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "There are three external engagements, not four. Three reversals change counterclockwise to clockwise. Count meshes rather than simply counting gear bodies.",
+        "zh": "外啮合有三处而非四处，三次反向把逆时针变为顺时针，要数啮合处而不是轮体数。"
+      }
+    },
+    {
+      "id": "MECH_13",
+      "prompt": {
+        "en": "An ideal single fixed pulley redirects a massless rope. A 180 N load is held at rest by one upward rope segment. Neglect friction. What free-end rope tension is needed?",
+        "zh": "理想单定滑轮只改变无重绳方向，负载180牛静止，仅一股绳向上支持。忽略摩擦，自由端张力需多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45 N",
+            "zh": "45 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "90 N",
+            "zh": "90 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "180 N",
+            "zh": "180 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360 N",
+            "zh": "360 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "One supporting segment gives T = 180 N. A fixed pulley changes direction but does not create a force advantage in this arrangement.",
+        "zh": "一股支持绳给T=180牛。此定滑轮只变方向，不产生省力倍数。"
+      }
+    },
+    {
+      "id": "MECH_14",
+      "prompt": {
+        "en": "A massless moving pulley block holds a 240 N load at rest. Exactly two vertical segments of the same ideal rope support the block; both have tension T. What is T?",
+        "zh": "无重动滑轮组静止承受240牛负载，恰有同一理想绳的两股竖直绳支持，每股张力T。T是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "480 N",
+            "zh": "480 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60 N",
+            "zh": "60 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "240 N",
+            "zh": "240 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The moving block receives two upward tensions, so 2T = 240 N and T = 120 N. Count supporting segments, not merely visible pulleys.",
+        "zh": "动块受到两个向上T，2T=240，故120牛。要数支持动块的绳股，不只数轮。"
+      }
+    },
+    {
+      "id": "MECH_15",
+      "prompt": {
+        "en": "An ideal block is supported by four vertical rope segments of equal tension. Its total load including its own weight is 360 N, and it is at rest. What is each segment’s tension?",
+        "zh": "理想动块由四股等张力竖直绳支持，含自身重量总负载360牛，静止时每股张力是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180 N",
+            "zh": "180 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "360 N",
+            "zh": "360 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "45 N",
+            "zh": "45 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "90 N",
+            "zh": "90 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The stated total already includes block weight. Balance 4T = 360 N, giving T = 90 N. Do not add the block weight a second time.",
+        "zh": "题给总负载已含动块重量，4T=360，T=90牛，不能重复加动块重量。"
+      }
+    },
+    {
+      "id": "MECH_16",
+      "prompt": {
+        "en": "In an ideal system with three supporting rope segments, raising the moving load 0.40 m shortens each supporting segment by 0.40 m. How much free rope must be pulled?",
+        "zh": "理想系统有三股支持绳，负载升0.40米，每股支持段均缩短0.40米。自由端须拉过多少米绳？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.40 m",
+            "zh": "0.40 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.80 m",
+            "zh": "0.80 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1.20 m",
+            "zh": "1.20 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.133 m",
+            "zh": "0.133 m"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Total supporting length decreases by 3 × 0.40 = 1.20 m. The free end must take up that length. Reduced force requires increased rope travel.",
+        "zh": "三股支持段总缩短3×0.40=1.20米，自由端收进同样长度。省力对应更长拉绳距离。"
+      }
+    },
+    {
+      "id": "MECH_17",
+      "prompt": {
+        "en": "An ideal four-segment hoist raises a 200 N total load through 0.60 m at constant speed. Neglect losses. How much work does the pulling effort supply?",
+        "zh": "理想四股支持绳起重系统使总重200牛负载匀速升0.60米，忽略损失，动力做功多少焦？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30 J",
+            "zh": "30 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "50 J",
+            "zh": "50 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "120 J",
+            "zh": "120 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "480 J",
+            "zh": "480 J"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Input work equals load force × height = 200 × 0.60 = 120 J. Equivalently 50 N effort travels 2.40 m. Four segments do not divide the required ideal energy.",
+        "zh": "理想输入功等于200×0.60=120焦，也可用50牛拉2.40米。四股绳不把所需理想能量除四。"
+      }
+    },
+    {
+      "id": "MECH_18",
+      "prompt": {
+        "en": "A hoist’s moving block is supported by three vertical segments of one ideal rope, each at 70 N tension. It is at rest. What total downward load can it balance?",
+        "zh": "动块由同一理想绳三股竖直绳支持，每股张力70牛，静止可平衡多大总向下负载？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "210 N",
+            "zh": "210 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "23.33 N",
+            "zh": "23.33 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "70 N",
+            "zh": "70 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "140 N",
+            "zh": "140 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Add the three upward tensions: total load = 3 × 70 = 210 N. This total includes any block weight, so a separate attached payload could be smaller.",
+        "zh": "三股向上张力合计3×70=210牛，这一总量包括动块自身重量，因此另挂有效载荷可能较小。"
+      }
+    },
+    {
+      "id": "MECH_19",
+      "prompt": {
+        "en": "A linear ideal spring has stiffness k = 250 N/m and is stretched 0.08 m from its natural length. What is its restoring-force magnitude?",
+        "zh": "线性理想弹簧劲度250牛/米，比原长伸长0.08米，回复力大小多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "31.25 N",
+            "zh": "31.25 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2000 N",
+            "zh": "2000 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "2 N",
+            "zh": "2 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "20 N",
+            "zh": "20 N"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Hooke’s law gives magnitude F = kx = 250 × 0.08 = 20 N. Restoring force points opposite the displacement; the question asks magnitude only.",
+        "zh": "胡克定律大小F=kx=250×0.08=20牛，回复方向与位移相反，此题只问大小。"
+      }
+    },
+    {
+      "id": "MECH_20",
+      "prompt": {
+        "en": "A spring extends 0.03 m under a 12 N steady force and remains in its linear range. What is its stiffness in N/m?",
+        "zh": "弹簧在线性范围内，稳态12牛力令其伸长0.03米，劲度多少牛/米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.36 N/m",
+            "zh": "0.36 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "40 N/m",
+            "zh": "40 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "400 N/m",
+            "zh": "400 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.0025 N/m",
+            "zh": "0.0025 N/m"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Rearrange F = kx to k = F/x = 12/0.03 = 400 N/m. Dividing extension by force would give compliance, a different quantity.",
+        "zh": "由F=kx得k=12/0.03=400牛/米。伸长除以力得到柔度，是另一量。"
+      }
+    },
+    {
+      "id": "MECH_21",
+      "prompt": {
+        "en": "A vertical massless spring with k = 200 N/m holds a 1.5 kg mass at rest. Use g = 10 N/kg and neglect other forces. What is extension beyond natural length?",
+        "zh": "无重竖直弹簧劲度200牛/米，静止挂1.5千克质量，取g=10牛/千克、无其他力。比原长伸长多少米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.0075 m",
+            "zh": "0.0075 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.075 m",
+            "zh": "0.075 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.15 m",
+            "zh": "0.15 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.75 m",
+            "zh": "0.75 m"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "At rest the 15 N weight balances kx. Thus x = 15/200 = 0.075 m. Mass is not a force until multiplied by the specified g. The extension is 75 mm after converting the 0.075 m result.",
+        "zh": "静止时15牛重力与kx平衡，x=15/200=0.075米，质量要乘题给g才是重力。0.075米再换算为75毫米，不可把原数直接贴上毫米单位。"
+      }
+    },
+    {
+      "id": "MECH_22",
+      "prompt": {
+        "en": "One ideal spring stretches 4 cm under a steady 10 N load. Keeping it within its linear range, what extension follows a steady 25 N load on the same spring?",
+        "zh": "同一理想弹簧在10牛稳态负载下伸长4厘米，仍在线性范围，25牛负载下伸长多少厘米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "100 cm",
+            "zh": "100 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1.6 cm",
+            "zh": "1.6 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6 cm",
+            "zh": "6 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10 cm",
+            "zh": "10 cm"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The same k makes extension proportional to force. x2 = 4 × 25/10 = 10 cm. No change to spring stiffness was specified. The two force–extension pairs both give 250 N/m: 10/0.04 and 25/0.10.",
+        "zh": "劲度不变时伸长与力成正比，4×25/10=10厘米，题未改变弹簧劲度。10/0.04与25/0.10都给劲度250牛/米，可检查同一弹簧的线性条件。"
+      }
+    },
+    {
+      "id": "MECH_23",
+      "prompt": {
+        "en": "An ideal linear spring of stiffness 600 N/m is compressed 25 mm. What is restoring-force magnitude?",
+        "zh": "劲度600牛/米的理想线性弹簧压缩25毫米，回复力大小是多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24 N",
+            "zh": "24 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "15000 N",
+            "zh": "15000 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.015 N",
+            "zh": "0.015 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "15 N",
+            "zh": "15 N"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Convert 25 mm to 0.025 m before using F = kx: 600 × 0.025 = 15 N. Compression changes direction, not the magnitude rule in the linear range.",
+        "zh": "25毫米先换0.025米，F=600×0.025=15牛。线性范围内压缩改变方向，不改变大小公式。"
+      }
+    },
+    {
+      "id": "MECH_24",
+      "prompt": {
+        "en": "Two separate springs carry the same steady force. Spring A has k = 120 N/m; spring B has k = 300 N/m. If A extends 5 cm, what would B extend under that same force? The springs are not connected.",
+        "zh": "两根独立弹簧受同样大小稳态力；A劲度120牛/米、B300牛/米。A伸长5厘米，B在同一力下伸长多少厘米？两弹簧不连接。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "5 cm",
+            "zh": "5 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "12.5 cm",
+            "zh": "12.5 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "25 cm",
+            "zh": "25 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2 cm",
+            "zh": "2 cm"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The same force implies kA xA = kB xB, so xB = 5 × 120/300 = 2 cm. The springs are independent, not a series or parallel assembly.",
+        "zh": "同一力给kA×xA=kB×xB，xB=5×120/300=2厘米，两弹簧独立，不是串并联。"
+      }
+    },
+    {
+      "id": "MECH_25",
+      "prompt": {
+        "en": "A stationary liquid has density 1000 kg/m³. Use g = 10 N/kg. What pressure increase occurs 1.8 m below its free surface, excluding surface pressure?",
+        "zh": "静止液体密度1000千克/立方米，g=10牛/千克。自由面下1.8米由液柱增加的压强是多少帕，不计表面压强？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180 Pa",
+            "zh": "180 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1800 Pa",
+            "zh": "1800 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "18000 Pa",
+            "zh": "18000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "180000 Pa",
+            "zh": "180000 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Hydrostatic pressure increase is ρgh = 1000 × 10 × 1.8 = 18000 Pa. This is the fluid-column increment, not absolute pressure including the surface.",
+        "zh": "液柱压强增量ρgh=1000×10×1.8=18000帕，是液柱增量，不含表面压强的绝对值。"
+      }
+    },
+    {
+      "id": "MECH_26",
+      "prompt": {
+        "en": "Two points in the same stationary 800 kg/m³ liquid are vertically separated by 0.75 m. Use g = 10 N/kg. How much greater is pressure at the lower point?",
+        "zh": "同种静止液体密度800千克/立方米，两点竖直相差0.75米，g=10牛/千克。下点比上点压强大多少帕？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10666.67 Pa",
+            "zh": "10666.67 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "600 Pa",
+            "zh": "600 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6000 Pa",
+            "zh": "6000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "8000 Pa",
+            "zh": "8000 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The pressure difference depends on vertical separation: ΔP = ρgΔh = 800 × 10 × 0.75 = 6000 Pa. A shared surface pressure cancels.",
+        "zh": "压强差取竖直高差，800×10×0.75=6000帕，共同表面压强相消。"
+      }
+    },
+    {
+      "id": "MECH_27",
+      "prompt": {
+        "en": "At the same depth under equal surface pressure, liquid A has density 900 kg/m³ and liquid B 1200 kg/m³. What is the ratio of their fluid-column pressure increments, B divided by A?",
+        "zh": "同深度、同表面压强下，A液密度900、B液1200千克/立方米。B除以A的液柱压强增量比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4/3",
+            "zh": "4/3"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3/2",
+            "zh": "3/2"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.75",
+            "zh": "0.75"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "For pressure increments ρgh, the same g and depth cancel. The B/A ratio is 1200/900 = 4/3. The ratio of absolute pressures would also require surface pressure.",
+        "zh": "同g同深度在ρgh增量比中约去，1200/900=4/3。若问绝对压强比还须知道表面压强。"
+      }
+    },
+    {
+      "id": "MECH_28",
+      "prompt": {
+        "en": "Ideal hydraulic pistons are at the same height. Areas are 4 cm² and 28 cm². An extra 30 N force on the small piston produces what extra force on the large piston? Neglect friction and piston weight.",
+        "zh": "理想液压两活塞同高，面积4与28平方厘米，小活塞额外加30牛，大活塞额外力多少牛？忽略摩擦与活塞自重。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30 N",
+            "zh": "30 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "210 N",
+            "zh": "210 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4.286 N",
+            "zh": "4.286 N"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The added pressure is shared: Fsmall/Asmall = Flarge/Alarge. Thus the extra large-piston force is 30 × 28/4 = 210 N. Pressure is not multiplied.",
+        "zh": "附加压强相等，F小/A小=F大/A大，因此30×28/4=210牛，不是压强被放大。"
+      }
+    },
+    {
+      "id": "MECH_29",
+      "prompt": {
+        "en": "An ideal incompressible hydraulic system has small-piston area 3 cm² and large-piston area 15 cm². Pushing the small piston down 10 cm moves the large piston up how far? Assume no leakage.",
+        "zh": "理想不可压液压系统小面积3、大面积15平方厘米，小活塞下移10厘米，无泄漏时大活塞上移多少厘米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2 cm",
+            "zh": "2 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "5 cm",
+            "zh": "5 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10 cm",
+            "zh": "10 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50 cm",
+            "zh": "50 cm"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Equal displaced volumes give 3 × 10 = 15 × distance, so distance = 2 cm. Larger output force comes with smaller travel in the ideal system.",
+        "zh": "排出体积相同，3×10=15×位移，故2厘米。理想系统较大输出力对应较小行程。"
+      }
+    },
+    {
+      "id": "MECH_30",
+      "prompt": {
+        "en": "A 45 N extra force acts on an ideal hydraulic piston of area 0.003 m². What extra pressure does it produce in the confined liquid? Neglect losses.",
+        "zh": "45牛额外力作用于0.003平方米理想液压活塞，忽略损失，对密闭液体产生多少额外压强？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15000 Pa",
+            "zh": "15000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.000067 Pa",
+            "zh": "0.000067 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "135 Pa",
+            "zh": "135 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1500 Pa",
+            "zh": "1500 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Added pressure is F/A = 45/0.003 = 15000 Pa. Pascal’s principle transmits this pressure change; it does not mean every piston experiences the same force.",
+        "zh": "附加压强F/A=45/0.003=15000帕。帕斯卡原理传递压强变化，不表示各面积活塞受力都相等。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "levers",
+      "directionIds": [
+        "levers"
+      ],
+      "title": {
+        "en": "Levers: balance moments first",
+        "zh": "杠杆：先平衡力矩"
+      },
+      "headline": {
+        "en": "Levers: balance moments first",
+        "zh": "杠杆：先平衡力矩"
+      },
+      "summary": {
+        "en": "Review perpendicular arms, pivot choice, several loads and ideal force advantage with worked examples. Original practice; no equipment or job certification.",
+        "zh": "用完整算例复习垂直力臂、支点选择、多负载与理想省力比。原创纸上练习，不认证设备操作或岗位能力。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one ideal-mechanics topic. Every completed attempt includes all five guides, alongside its correct count and five topic counts. It is not a personal attempt, performance band, percentile or occupational qualification.",
+        "zh": "本公开指南解释一种理想力学题型。每次完整作答都同时给总答对数、五项计数和全部五份指南；不是私人答卷、表现档位、百分位或职业资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Levers: Full Mechanical Practice Guide",
+          "zh": "杠杆：先平衡力矩｜机械推理练习"
+        },
+        "description": {
+          "en": "Review perpendicular arms, pivot choice, several loads and ideal force advantage with worked examples. Original practice; no equipment or job certification.",
+          "zh": "用完整算例复习垂直力臂、支点选择、多负载与理想省力比。原创纸上练习，不认证设备操作或岗位能力。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-levers",
+          "title": {
+            "en": "What the lever tasks actually specify",
+            "zh": "题目指定的是怎样的杠杆"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks describe ideal rigid levers and explicitly located force lines. The useful quantity is a moment about a chosen pivot: force multiplied by the perpendicular distance from that pivot to the line of force. An arm is not automatically the entire beam length or the distance from one load to another. The beam is massless where stated, so do not add an unmentioned beam-weight moment. A pivot may supply a reaction force while contributing no moment about itself.",
+              "zh": "本题给定理想刚性杠杆与力线位置，要算选定支点的力矩，即力乘支点到力线的垂直距离。力臂不是整根梁长，也不是两负载间距。题设无重时不另加梁重；支点可以提供反力，但对其自身不产生力矩。先画支点与方向，比先套一个“省几倍”的印象更可靠。"
+            }
+          ]
+        },
+        {
+          "id": "2-levers",
+          "title": {
+            "en": "A fresh balance example",
+            "zh": "用一个新例子检查平衡"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a massless beam with a 28 N downward force 0.60 m to the left of its pivot and a downward force 0.40 m to the right. The left moment has magnitude 16.8 N m. Balance therefore requires a 42 N downward force on the right, because 42 × 0.40 also gives 16.8 N m. Both forces point down, yet their positions on opposite sides make their turning effects oppose each other. Equal moments do not require equal forces.",
+              "zh": "另设无重梁左0.60米向下28牛，右0.40米施向下力。左力矩28×0.60=16.8牛米，右力需42牛，因为42×0.40同为16.8牛米。两力都向下，因处于支点两侧而转向相反；平衡的是力矩，不要求两边力大小相等。"
+            }
+          ]
+        },
+        {
+          "id": "3-levers",
+          "title": {
+            "en": "Direction can reverse the turning effect",
+            "zh": "力的方向不能省略"
+          },
+          "paragraphs": [
+            {
+              "en": "A force on the left does not always turn the beam in the same sense. Reversing that force reverses its moment. Two forces on the same side can balance rotationally when their directions oppose and their moments match. Conversely, downward forces on opposite sides can oppose. Before adding magnitudes, assign a consistent turning sign or draw curved arrows. Combining all left-side forces as positive merely because of their location fails when one force points upward.",
+              "zh": "支点左侧的力并非永远同一转向，力反向则力矩反向。同侧的一上一下可以互相平衡，两侧都向下也可以。先统一顺逆时针正负号或画转向箭头，再加力矩；不能仅凭“都在左边”就把它们一律同号。这样才能处理题目中同侧相反方向的力。"
+            }
+          ]
+        },
+        {
+          "id": "4-levers",
+          "title": {
+            "en": "Add moments before solving the unknown",
+            "zh": "多负载先加力矩"
+          },
+          "paragraphs": [
+            {
+              "en": "When several loads act, calculate each force–arm product separately and then add the signed moments. Choose the pivot before writing the equation, keep every arm perpendicular to its own force, and express centimetres and metres in one unit. Solve the one remaining force or arm only after that sum is clear. Finally multiply the proposed answer by its arm and check that the opposing moment totals match; this catches division reversals that a plausible-looking force value may hide.",
+              "zh": "多个负载要逐项算力×力臂，再按转向求和。先定支点，各力臂对应各自力线，厘米米统一后才求未知量。得到答案后乘回该力臂，核对两组相反力矩总量。只看结果“像不像一个合理牛数”，容易漏掉把力臂比写反的错误。"
+            }
+          ]
+        },
+        {
+          "id": "5-levers",
+          "title": {
+            "en": "Read six-item counts as revision evidence",
+            "zh": "六题计数怎样用于复习"
+          },
+          "paragraphs": [
+            {
+              "en": "The lever sub-count is the number of these six lever tasks answered correctly. It is not a norm, percentile, measure of physical strength or observation of tool use. Two people with the same count can miss different principles: one may reverse an arm ratio while another drops a force direction. Use the item explanations to identify which written rule to revisit. A zero count still opens the complete explanations and every topic guide, without assigning a low-ability identity.",
+              "zh": "杠杆分项只是这六题答对几题，不是常模、百分位、肌力或真实工具操作观察。相同计数可能对应不同问题，例如一人写反力臂比，另一人忽略方向。应逐题看解析找需重练的规则；即使零题答对，也给全部解析与五份指南，不贴“能力低”身份。"
+            }
+          ]
+        },
+        {
+          "id": "6-levers",
+          "title": {
+            "en": "Practise one change at a time",
+            "zh": "每次只改一个条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Make a new paper example by keeping one balancing moment fixed and changing an arm. Predict whether the matching force should rise or fall before calculating it. Then reverse a force direction and redraw the moment signs. This separates a proportional relationship from a memorised answer. Keep the example hypothetical and within its stated rigid, massless model. The test does not require building a lever or lifting a real load, and repeated exposure to this fixed bank can also improve recall.",
+              "zh": "另写纸上算例，保持平衡力矩不变，只改一个力臂，先预测所需力增减再计算；随后单独反转某力方向，重画转向。这样能分清比例关系与记答案。只按假想刚性无重模型推演，不要求搭装置或搬重物；反复做固定题本也可能只是更熟悉答案。"
+            }
+          ]
+        },
+        {
+          "id": "7-levers",
+          "title": {
+            "en": "Ideal force advantage has a boundary",
+            "zh": "理想省力比的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "In the ideal balanced case, load force divided by effort equals effort arm divided by load arm. A larger force advantage does not multiply energy; an actual moving machine must exchange force and travel and may lose energy to friction or deformation. The static moments in this bank do not establish material strength, stability under motion or safe load capacity. Its untimed score also says nothing about operating speed. Treat a correct calculation as success on the stated model, not an equipment certificate.",
+              "zh": "理想平衡时负载力/动力=动力臂/阻力臂，省力不等于放大能量。真实运动还涉及行程与摩擦、变形损失。本题静态力矩不能证明材料强度、运动稳定性或安全承载；不计时成绩也不说明操作速度。答对表示在给定模型下算对，不能当设备使用证书。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gears",
+      "directionIds": [
+        "gears"
+      ],
+      "title": {
+        "en": "Gears: separate speed, torque and direction",
+        "zh": "齿轮：分开转速、扭矩与方向"
+      },
+      "headline": {
+        "en": "Gears: separate speed, torque and direction",
+        "zh": "齿轮：分开转速、扭矩与方向"
+      },
+      "summary": {
+        "en": "Work through tooth ratios, external-mesh reversals, idlers and ideal torque. Clear assumptions and complete examples; no hiring band.",
+        "zh": "完整复习齿数比、外啮合反向、中间轮与理想扭矩，分清假设与单位，不给招聘等级。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one ideal-mechanics topic. Every completed attempt includes all five guides, alongside its correct count and five topic counts. It is not a personal attempt, performance band, percentile or occupational qualification.",
+        "zh": "本公开指南解释一种理想力学题型。每次完整作答都同时给总答对数、五项计数和全部五份指南；不是私人答卷、表现档位、百分位或职业资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gears: Full Mechanical Practice Guide",
+          "zh": "齿轮：分开转速、扭矩与方向｜机械推理练习"
+        },
+        "description": {
+          "en": "Work through tooth ratios, external-mesh reversals, idlers and ideal torque. Clear assumptions and complete examples; no hiring band.",
+          "zh": "完整复习齿数比、外啮合反向、中间轮与理想扭矩，分清假设与单位，不给招聘等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-gears",
+          "title": {
+            "en": "The engagement assumptions come first",
+            "zh": "先识别啮合假设"
+          },
+          "paragraphs": [
+            {
+              "en": "The gear tasks use ideal external gears on the explicitly described shafts, with no slip. Meshing gears pass the same number of teeth through their contact in the same time. That makes rotational speed inversely proportional to tooth count for the pair. The tasks do not silently introduce a belt drive, internal ring gear, compound shaft or slipping clutch. Those mechanisms can change the rule, so use the arrangement actually stated rather than a general impression that larger gears are always faster or stronger.",
+              "zh": "本组使用题述轴上的理想外齿轮，无滑动时两轮在相同时间经过接触点的齿数相同，因此转速与齿数成反比。不能悄悄换成皮带、内齿圈、同轴复合齿轮或打滑离合器。不同结构会改变规则，必须先确定题里实际描述的连接，再判断大小轮转速。"
+            }
+          ]
+        },
+        {
+          "id": "2-gears",
+          "title": {
+            "en": "A fresh speed and torque calculation",
+            "zh": "用新算例分开速度与扭矩"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider an ideal 20-tooth driver turning at 180 rpm and a 50-tooth driven gear. The driven speed is 180 × 20/50 = 72 rpm. If driver torque is 3 N m and tangential tooth force is conserved, driven torque is 3 × 50/20 = 7.5 N m. Speed and torque therefore use opposite tooth ratios. Their ideal power products match: 180 × 3 and 72 × 7.5 both equal 540 before the common rpm-to-angular-speed conversion.",
+              "zh": "另设20齿主动轮180转/分，50齿从动轮转速180×20/50=72转/分。主动扭矩3牛米、理想齿面切向力相同，则从动扭矩3×50/20=7.5牛米。转速与扭矩用相反齿数比；180×3与72×7.5都为540，换成角速度时再乘相同系数。"
+            }
+          ]
+        },
+        {
+          "id": "3-gears",
+          "title": {
+            "en": "Count external meshes for direction",
+            "zh": "判断方向要数啮合处"
+          },
+          "paragraphs": [
+            {
+              "en": "Each external mesh reverses turning direction when all shafts are viewed from the same side. Two meshes reverse twice, returning to the initial turning sense; three reverse it. Count the contacts between gears, not just the number of gear bodies. A three-gear chain has two contacts. Stating the viewing side matters because looking from the opposite end reverses what clockwise looks like. The speed magnitude alone cannot tell you whether an answer’s direction has been tracked correctly.",
+              "zh": "从同一侧观察，每次外啮合反向。两次反向后与起始同向，三次则反向。要数接触关系，不是轮体数：三个轮的链只有两次啮合。必须保持观察侧一致，换到轴另一端看会反转顺逆时针。算对转速大小，并不代表方向也判断对了。"
+            }
+          ]
+        },
+        {
+          "id": "4-gears",
+          "title": {
+            "en": "An idler cancels only in the stated chain",
+            "zh": "中间轮何时会约掉"
+          },
+          "paragraphs": [
+            {
+              "en": "Insert a separate 35-tooth idler between that 20-tooth driver and 50-tooth output. The ideal output magnitude remains 180 × 20/35 × 35/50 = 72 rpm. The idler’s tooth count cancels between the two speed ratios, but its own speed and the number of direction reversals still matter. This cancellation applies to a simple sequential chain on separate shafts. Do not extend it to compound gears sharing a shaft without drawing and calculating the new arrangement.",
+              "zh": "在上述20齿主动与50齿输出之间插入独立35齿中间轮，输出大小仍为180×20/35×35/50=72转/分，中间齿数约去。但中间轮自己的转速、啮合次数和最终方向仍需算。这只适用于所述不同轴简单链，不能不画结构就推广到同轴复合传动。"
+            }
+          ]
+        },
+        {
+          "id": "5-gears",
+          "title": {
+            "en": "A topic count does not measure design skill",
+            "zh": "分项计数不等于设计能力"
+          },
+          "paragraphs": [
+            {
+              "en": "The six gear answers contribute six possible correct marks, and the report shows which original statements were answered correctly. A total alone cannot identify whether a miss involved an inverted ratio, a unit or a direction reversal. Read that item’s working before choosing a new example. All five complete topic guides remain available at every count. The result is not a calibrated test of CAD work, maintenance competence, mechanical aptitude relative to other people or suitability for an engineering occupation.",
+              "zh": "六道齿轮题提供最多六个答对计数，报告逐题显示判断。单一总数不能诊断是比值反了、单位错了还是方向漏了一次，应先读该题过程再选新练习。任何计数都能看全部五份指南；结果不校准CAD、维修能力、人群机械能力排名或工程职业适合度。"
+            }
+          ]
+        },
+        {
+          "id": "6-gears",
+          "title": {
+            "en": "Check an answer through invariants",
+            "zh": "用不变量做复核"
+          },
+          "paragraphs": [
+            {
+              "en": "For speed, multiply each speed by its gear’s tooth count and compare the products within a meshing pair. For ideal torque, compare torque divided by tooth count when the same tangential force is assumed. For direction, write a small clockwise/counterclockwise list at each successive contact. Keeping those three checks separate is more reliable than combining a remembered “gear ratio” phrase with an uncertain numerator. Practise with fresh tooth counts so a correct answer does not depend on recognising this bank’s numbers.",
+              "zh": "转速复核可比较每个轮的转速×齿数；理想同切向力时可比较扭矩÷齿数；方向则逐个接触点写顺、逆。三件事分开算，比只记一句“齿轮比”而不确定谁在分子可靠。换新齿数练习，避免只是认出固定题本中的数值答案。"
+            }
+          ]
+        },
+        {
+          "id": "7-gears",
+          "title": {
+            "en": "Ideal transmission is not measured machinery",
+            "zh": "理想传动不是设备实测"
+          },
+          "paragraphs": [
+            {
+              "en": "Lossless torque ratios explain an ideal exchange of speed for torque, not free energy. Actual systems involve friction, tooth contact, bearing losses, backlash, loading and structural constraints that are absent from these questions. The bank does not measure those quantities or establish safe machine settings. Its untimed format also provides no reaction-time or speed norm. Use the calculation and its explicit assumptions as the learning object; neither a perfect score nor a changed repeat score certifies practical machine performance.",
+              "zh": "无损扭矩比说明理想速度与扭矩交换，不产生免费能量。真实系统还有摩擦、轴承、齿面接触、间隙、负载和结构限制，本题未测这些量，也不规定设备安全设置。不计时形式没有反应时或速度常模；满分或重做涨分都不能认证实际机器操作表现。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pulleys",
+      "directionIds": [
+        "pulleys"
+      ],
+      "title": {
+        "en": "Pulleys: count the supporting segments",
+        "zh": "滑轮：数清支持动块的绳股"
+      },
+      "headline": {
+        "en": "Pulleys: count the supporting segments",
+        "zh": "滑轮：数清支持动块的绳股"
+      },
+      "summary": {
+        "en": "Understand equal tensions, rope travel, ideal work and included block weight with full examples. A paper exercise, not an operating certificate.",
+        "zh": "用完整例子理解等张力、拉绳行程、理想功与已计入的动块重量。是纸上练习，不是操作资格证明。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one ideal-mechanics topic. Every completed attempt includes all five guides, alongside its correct count and five topic counts. It is not a personal attempt, performance band, percentile or occupational qualification.",
+        "zh": "本公开指南解释一种理想力学题型。每次完整作答都同时给总答对数、五项计数和全部五份指南；不是私人答卷、表现档位、百分位或职业资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pulleys: Full Mechanical Practice Guide",
+          "zh": "滑轮：数清支持动块的绳股｜机械推理练习"
+        },
+        "description": {
+          "en": "Understand equal tensions, rope travel, ideal work and included block weight with full examples. A paper exercise, not an operating certificate.",
+          "zh": "用完整例子理解等张力、拉绳行程、理想功与已计入的动块重量。是纸上练习，不是操作资格证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-pulleys",
+          "title": {
+            "en": "Start with the moving body",
+            "zh": "先确定被支持的动块"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions explicitly state how many vertical rope segments support the moving block and which weight is included. The rope and pulleys are ideal where stated, so each relevant segment of one continuous rope has the same tension. Draw the moving body and its upward forces before counting anything. A wheel fixed to the ceiling can redirect the rope without adding another upward force to the moving body. Merely counting visible wheels is therefore not a general method for finding mechanical advantage.",
+              "zh": "题目明确有几股竖直绳支持动块、总重是否含自身。理想同一连续绳各有关段张力相同，应先把动块单独画出，再标向上的力。固定在天花板的轮可以变绳方向，却不一定给动块多一股向上力。因此数轮子不是计算省力比的通用办法。"
+            }
+          ]
+        },
+        {
+          "id": "2-pulleys",
+          "title": {
+            "en": "A fresh force, distance and work example",
+            "zh": "一个同时核对力、距离与功的新例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose three vertical segments support a total 330 N moving load at constant speed. Balance requires 3T = 330, so each tension and the ideal pulling effort is 110 N. Raising the block 0.25 m shortens each supporting segment by 0.25 m, requiring 0.75 m of free-rope pull. Input work is 110 × 0.75 = 82.5 J, matching 330 × 0.25 = 82.5 J delivered to the load. The smaller effort did not reduce the required ideal energy.",
+              "zh": "另设三股竖直绳匀速支持总重330牛，3T=330，所以每股与理想拉力110牛。动块升0.25米，各股均短0.25米，自由端须拉0.75米。输入功110×0.75=82.5焦，负载功330×0.25同为82.5焦；省力并不减少理想所需能量。"
+            }
+          ]
+        },
+        {
+          "id": "3-pulleys",
+          "title": {
+            "en": "Keep a fixed pulley distinct from a moving one",
+            "zh": "区分改变方向与增加支持力"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fixed pulley that merely redirects one supporting rope segment, the ideal force advantage is one. For a moving block with several specified supporting segments, add those upward tensions. The free end may point up or down depending on the routing, but that alone does not determine how many segments act on the block. When a problem already gives the exact supporting count, use it instead of imagining extra contacts or importing a different pulley diagram from memory.",
+              "zh": "只改变一股支持绳方向的定滑轮，理想省力比为一。动块若由多股明确支持，则把这些向上张力相加。自由端向上还是向下不单独决定股数，仍须看对动块的作用。题目已明确支持股数时就用该数，不能凭记过的另一张滑轮图额外想象接触段。"
+            }
+          ]
+        },
+        {
+          "id": "4-pulleys",
+          "title": {
+            "en": "Clarify what the stated load contains",
+            "zh": "避免重复计算重量"
+          },
+          "paragraphs": [
+            {
+              "en": "A load described as total weight including the block already combines the payload and moving equipment. Do not add an unspecified block weight again. If a question instead asks how much separate payload can be attached, the equipment’s weight would need to be known and subtracted from the supported total. Also distinguish mass in kilograms from weight in newtons: converting between them requires the specified gravitational acceleration. These written distinctions determine the balance equation before any multiplication or division begins.",
+              "zh": "如果写“总重含动块”，已经把载物与运动装置加在一起，不能再加一遍未给的轮重。若问另挂有效载荷，则需知道装置重量再从总支持力中减去。千克质量与牛顿重量也要分开，换算需用题给重力加速度。先读清这些条件，才知道方程中应填哪个量。"
+            }
+          ]
+        },
+        {
+          "id": "5-pulleys",
+          "title": {
+            "en": "Interpret the six pulley answers narrowly",
+            "zh": "把六题成绩限定在六题内"
+          },
+          "paragraphs": [
+            {
+              "en": "Your pulley count records correctness on these six written ideal-system tasks. It is not a lifting assessment, a rigging qualification, a norm or a measure of coordination. One missed item may concern segment count while another concerns rope travel, even when the total score is the same. Use the displayed item explanations to choose the next paper calculation. A full report always includes all five guides and all original answers, without requiring a particular number correct or offering a paid accuracy explanation.",
+              "zh": "滑轮计数只记录这六道理想系统文字题是否答对，不是起吊测评、索具资格、协调性或常模。同样少一分，可能一题错在支持股数，另一题错在绳行程，应据逐题解析选下一道纸上练习。完整报告始终给五份指南和所有答案，不设答对门槛或付费题解。"
+            }
+          ]
+        },
+        {
+          "id": "6-pulleys",
+          "title": {
+            "en": "Use conservation as a second route",
+            "zh": "用守恒关系交叉检查"
+          },
+          "paragraphs": [
+            {
+              "en": "After calculating effort, independently calculate how far the free rope moves for a small specified rise. In the ideal case the effort–distance product should equal the total-load–height product. If both effort and rope travel became smaller than the corresponding load quantities, the proposed answer would imply missing energy. Change one assumption at a time when practising: segment count, total load or rise. This builds a checkable model and is more useful than memorising a number of wheels as a universal shortcut.",
+              "zh": "先算拉力，再独立算负载升一点时自由绳移动多少。理想输入力×行程应等于总重×升高；若力和行程都变小，就出现能量账缺口。练习时一次只改支持股数、总负载或升高之一，比记住“几个轮就省几倍”更能形成可复核的模型。"
+            }
+          ]
+        },
+        {
+          "id": "7-pulleys",
+          "title": {
+            "en": "Real arrangements need more information",
+            "zh": "真实装置还缺哪些条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The stated model ignores friction and any mass explicitly declared negligible. Real systems can have unequal tensions, angled segments, moving equipment weight, dynamic loads and limits that cannot be inferred from a short word problem. A correct answer here does not establish a real arrangement’s capacity or authorise a lifting operation. The untimed exercise also does not measure how quickly someone inspects equipment. Repeating fixed questions may improve familiarity; use new hypothetical examples when checking whether the underlying relation is understood.",
+              "zh": "本模型忽略摩擦与明示可忽略质量。真实装置可能有斜绳、张力差、运动设备自重、动载与其他限制，不能从短文字题推出实际承载。答对不确定真实容量，也不等于有资格执行起吊。不计时成绩不测设备检查速度；重复固定题可能熟悉答案，理解关系应再用新的假想例子检查。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "springs",
+      "directionIds": [
+        "springs"
+      ],
+      "title": {
+        "en": "Springs: relate force to extension",
+        "zh": "弹簧：把力与形变量对应起来"
+      },
+      "headline": {
+        "en": "Springs: relate force to extension",
+        "zh": "弹簧：把力与形变量对应起来"
+      },
+      "summary": {
+        "en": "Review Hooke’s law, natural length, unit conversion and static balance with full worked examples. No material test or equipment qualification.",
+        "zh": "通过完整算例复习胡克定律、原长、单位换算与静力平衡；不冒充材料实测或设备资格。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one ideal-mechanics topic. Every completed attempt includes all five guides, alongside its correct count and five topic counts. It is not a personal attempt, performance band, percentile or occupational qualification.",
+        "zh": "本公开指南解释一种理想力学题型。每次完整作答都同时给总答对数、五项计数和全部五份指南；不是私人答卷、表现档位、百分位或职业资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Springs: Full Mechanical Practice Guide",
+          "zh": "弹簧：把力与形变量对应起来｜机械推理练习"
+        },
+        "description": {
+          "en": "Review Hooke’s law, natural length, unit conversion and static balance with full worked examples. No material test or equipment qualification.",
+          "zh": "通过完整算例复习胡克定律、原长、单位换算与静力平衡；不冒充材料实测或设备资格。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-springs",
+          "title": {
+            "en": "Extension is measured from natural length",
+            "zh": "形变量应从原长开始量"
+          },
+          "paragraphs": [
+            {
+              "en": "The spring questions state an ideal linear range. Within that model the restoring-force magnitude is stiffness multiplied by displacement from natural length, not the entire final spring length. Stiffness in N/m tells how many newtons correspond to a metre of extension or compression in the specified linear relation. It does not mean any real spring can safely move a full metre. Identify whether the problem gives mass, force, total length or extension before choosing numbers for the formula.",
+              "zh": "题目采用理想线性范围，回复力大小等于劲度乘相对原长的形变量，不是乘弹簧最终全长。牛/米描述线性关系，不表示真实弹簧能安全拉长一整米。先区分题给质量、力、总长还是伸长量，再决定公式中的量，避免把完整长度当形变量。"
+            }
+          ]
+        },
+        {
+          "id": "2-springs",
+          "title": {
+            "en": "A fresh calculation in metres and millimetres",
+            "zh": "一个贯通米与毫米的新算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Take an ideal spring with stiffness 180 N/m under a steady 9 N stretching force. Its extension is 9/180 = 0.05 m, or 50 mm. Check by multiplying back: 180 × 0.05 = 9 N. If the same force acts on a different ideal spring of stiffness 360 N/m, extension becomes 0.025 m. Doubling stiffness halves extension when force is fixed; it does not double the stretching force in a problem that explicitly holds force constant.",
+              "zh": "另设劲度180牛/米、稳态拉力9牛，伸长9/180=0.05米，即50毫米，乘回180×0.05=9牛。相同力换到360牛/米的理想弹簧，伸长0.025米。同力下劲度加倍、形变量减半，不能把明确固定的外力也说成加倍。"
+            }
+          ]
+        },
+        {
+          "id": "3-springs",
+          "title": {
+            "en": "Magnitude and restoring direction differ",
+            "zh": "大小公式与回复方向分开读"
+          },
+          "paragraphs": [
+            {
+              "en": "The signed form of Hooke’s law includes a minus sign because restoring force opposes displacement from equilibrium in the chosen coordinate description. When a question asks only for magnitude, the relevant answer is positive stiffness times displacement magnitude. Compression does not make the magnitude negative. For a hanging mass at rest, spring force balances weight, so use the specified gravitational acceleration to convert mass into weight before solving for extension. That equilibrium statement is separate from describing how the mass would oscillate after release.",
+              "zh": "带符号的胡克定律有负号，用来表达回复力与所选位移方向相反。题目只问大小时，用正劲度乘形变量大小；压缩不意味着力的大小是负数。静止悬挂质量须先用题给g换成重量，再与弹力平衡。静止条件也不同于释放后振动，不能混用。"
+            }
+          ]
+        },
+        {
+          "id": "4-springs",
+          "title": {
+            "en": "Convert the displacement unit first",
+            "zh": "先统一形变量单位"
+          },
+          "paragraphs": [
+            {
+              "en": "A stiffness written in N/m requires displacement in metres for a force in newtons. Convert millimetres by dividing by 1000 and centimetres by dividing by 100. Write the converted number before multiplying, rather than trying to fix an implausible result afterwards. When solving for stiffness, force divided by extension has units N/m; extension divided by force is a different quantity. A back-substitution into force equals stiffness times extension can reveal a reversed division or a thousandfold unit mistake.",
+              "zh": "劲度若为牛/米，求牛顿力时形变量须用米：毫米除1000、厘米除100。先写出换算数再乘，比算完觉得太大再随手改小数点可靠。求劲度应力除形变，单位牛/米；形变除力是另一量。将结果代回F=kx，可发现除法反了或差一千倍的单位问题。"
+            }
+          ]
+        },
+        {
+          "id": "5-springs",
+          "title": {
+            "en": "Six written tasks are a limited sample",
+            "zh": "六道文字题的分数边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The spring sub-count shows how many of these six original tasks were answered correctly. It does not test tactile control, material selection, fatigue prediction or real component inspection. Equal counts can hide different mistakes, including use of total length, omitted unit conversion or confusion between mass and weight. Review each explanation alongside the question rather than attaching a general ability label to the total. Zero, partial and perfect attempts all display the same full answer explanations and all five topic guides.",
+              "zh": "弹簧计数只给六道原创题答对数，不测触觉控制、材料选择、疲劳预测或零件检查。相同计数可能分别来自用了全长、漏换单位或混淆质量重量。应连同原题看解析，不给总分贴总体能力标签。零分、部分分与满分均显示同样完整题解和五份专题指南。"
+            }
+          ]
+        },
+        {
+          "id": "6-springs",
+          "title": {
+            "en": "Use proportional changes deliberately",
+            "zh": "把比例变化写成可检查的新题"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a fresh hypothetical example with one stiffness and two stated steady forces. Predict the extension ratio before calculating individual extensions. Then hold force fixed and compare two stiffness values. Keep the springs independent unless a problem explicitly introduces a connected arrangement; a pair of independent springs is not automatically a series or parallel system. Say which quantities remain constant each time. This small written discipline makes a proportional explanation clearer than memorising the numerical answer to a repeated item.",
+              "zh": "可自写同一劲度、两个稳态力的新例子，先预测伸长比，再算各自伸长；随后固定力，比较两个劲度。除非题目明示连接，两根独立弹簧不能自动看成串联或并联。每次写清哪些量不变，比例解释就能被检查，而不是记下重复题的数值。"
+            }
+          ]
+        },
+        {
+          "id": "7-springs",
+          "title": {
+            "en": "A linear model is not a material guarantee",
+            "zh": "线性模型不能保证真实材料表现"
+          },
+          "paragraphs": [
+            {
+              "en": "The ideal law applies here because the questions specify that range. It does not establish a real spring’s elastic limit, allowable stress, wear, temperature response or behaviour after a large deformation. The bank neither measures those properties nor gives an operating setting. Its untimed arithmetic also supplies no speed or endurance norm. Treat a worked answer as a check of a stated relation with explicit units. A higher repeat count may partly reflect memory of this fixed form and is not proof of a training effect.",
+              "zh": "题设指定线性范围，才在此使用理想定律。它不确定真实弹簧的弹性限度、容许应力、磨损、温度响应或大变形后行为，也不给实际操作设置。不计时算题没有速度耐力常模。一次答对表示会在给定单位下运用该关系；重做涨分也可能记住固定题，不能证明训练有效。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluids",
+      "directionIds": [
+        "fluids"
+      ],
+      "title": {
+        "en": "Fluids: distinguish pressure from force",
+        "zh": "流体：把压强与力区分开"
+      },
+      "headline": {
+        "en": "Fluids: distinguish pressure from force",
+        "zh": "流体：把压强与力区分开"
+      },
+      "summary": {
+        "en": "Work through depth pressure, surface pressure, hydraulic force and displaced volume. Full examples and score limits, without a job or ability band.",
+        "zh": "完整核对液深压强、表面压强、液压力与排液体积，给出算例和分数边界，不划职业或能力档位。"
+      },
+      "scoreReading": {
+        "en": "This public guide explains one ideal-mechanics topic. Every completed attempt includes all five guides, alongside its correct count and five topic counts. It is not a personal attempt, performance band, percentile or occupational qualification.",
+        "zh": "本公开指南解释一种理想力学题型。每次完整作答都同时给总答对数、五项计数和全部五份指南；不是私人答卷、表现档位、百分位或职业资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fluids: Full Mechanical Practice Guide",
+          "zh": "流体：把压强与力区分开｜机械推理练习"
+        },
+        "description": {
+          "en": "Work through depth pressure, surface pressure, hydraulic force and displaced volume. Full examples and score limits, without a job or ability band.",
+          "zh": "完整核对液深压强、表面压强、液压力与排液体积，给出算例和分数边界，不划职业或能力档位。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-fluids",
+          "title": {
+            "en": "Identify the pressure quantity",
+            "zh": "先判断问的是哪一种压强"
+          },
+          "paragraphs": [
+            {
+              "en": "The fluid questions distinguish a pressure increase due to a stationary liquid column from absolute pressure that also includes the surface value. For a constant-density stationary liquid under the stated gravity, the increase is density times gravitational acceleration times vertical depth. Depth means a vertical separation, not the length of a sloping pipe or the distance around a vessel. Equal-depth comparisons also require attention to which liquid and surface pressure are being held the same. Begin by naming the requested quantity and its unit.",
+              "zh": "本组区分液柱增加的压强与还包含表面值的绝对压强。题设均匀密度静止液体用ρgh，深度取竖直高差，不能拿斜管长度或容器周长替代。比较等深处也要确认液体密度和表面压强条件是否相同。第一步先写清所求量与单位，再代数。"
+            }
+          ]
+        },
+        {
+          "id": "2-fluids",
+          "title": {
+            "en": "A fresh depth example includes the surface",
+            "zh": "用新例子区分增量与绝对值"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose liquid density is 950 kg/m³, gravity is 10 N/kg and the point is 0.80 m below the surface. The fluid-column increase is 950 × 10 × 0.80 = 7600 Pa. If the stated surface pressure is 100000 Pa, absolute pressure is 107600 Pa. Without that surface value, the increment can still be calculated but the absolute number is not determined by depth alone. Ratios of column increments therefore cannot automatically be reused as ratios of absolute pressures.",
+              "zh": "另设密度950千克/立方米、g=10牛/千克、液面下0.80米，液柱增量950×10×0.80=7600帕。若另给表面100000帕，绝对值为107600帕。未给表面值时仍可算增量，但深度不独自确定绝对数；液柱增量之比也不能直接当绝对压强比。"
+            }
+          ]
+        },
+        {
+          "id": "3-fluids",
+          "title": {
+            "en": "Pascal’s principle transmits a change",
+            "zh": "帕斯卡原理传递的是压强变化"
+          },
+          "paragraphs": [
+            {
+              "en": "In an ideal confined hydraulic system, an added pressure is transmitted through the fluid. For pistons at the same height with the stated losses and weights neglected, equal added pressure means added force divided by piston area is equal. It does not mean every piston receives the same added force. A larger piston area produces a proportionally larger force for that pressure change. Keep the word added visible when surface loads or existing pressure could otherwise be confused with the particular change being calculated.",
+              "zh": "理想密闭液体传递附加压强。题设两活塞同高、忽略所述摩擦重量时，附加力/面积相等，不是各活塞附加力相等。相同压强变化作用在较大面积上，产生较大力。若涉及原有负载或已有压强，应保留“附加”二字，避免把所算变化与总量混淆。"
+            }
+          ]
+        },
+        {
+          "id": "4-fluids",
+          "title": {
+            "en": "A fresh hydraulic example checks travel too",
+            "zh": "用新液压算例连同行程核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Take piston areas of 4 cm² and 20 cm² and an added 18 N force on the small one. The ideal large-piston added force is 18 × 20/4 = 90 N. If an incompressible, leak-free system moves the small piston 6 cm, equal displaced volumes make the large travel 4 × 6/20 = 1.2 cm. Input work is 18 × 0.06 = 1.08 J and output work is 90 × 0.012 = 1.08 J. Force advantage is exchanged for travel.",
+              "zh": "另设面积4与20平方厘米，小活塞额外18牛，大活塞附加力18×20/4=90牛。不可压、无漏系统中小活塞行6厘米，大活塞行4×6/20=1.2厘米。输入功18×0.06=1.08焦，输出90×0.012同为1.08焦，增加力对应缩短行程。"
+            }
+          ]
+        },
+        {
+          "id": "5-fluids",
+          "title": {
+            "en": "Read the six answers with the explanations",
+            "zh": "用解析解释六题计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six fluid items sample the explicitly stated hydrostatic and ideal hydraulic relations. Their count is not a general fluid-mechanics grade, a percentile or evidence of work with pumps or pressure equipment. A miss may come from an area ratio, an absolute-versus-added distinction or a unit conversion. The report does not infer that cause from the count alone. It shows the actual item answer and reasoning, while all five full guides remain available even when no item was answered correctly.",
+              "zh": "六道流体题只抽样题述静液与理想液压关系，不是流体力学课程等级、百分位或泵及压力设备经验。错题可能涉及面积比、总量与增量或单位，报告不从计数独自诊断原因，而给该题真实答案与过程。即使没有答对，全部五份完整指南仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "6-fluids",
+          "title": {
+            "en": "Check dimensions and fixed conditions",
+            "zh": "复核量纲与保持不变的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "For force from pressure, multiply pressure by area; for pressure from force, divide force by area. An area ratio may use matching cm² units, but a pressure calculation in pascals needs square metres. For a volume relation, pair every piston area with its own displacement. When making a new paper question, explicitly fix density, gravity, surface pressure, relative height and compressibility where needed. These conditions make the answer checkable instead of relying on an imagined container or an unstated hydraulic layout.",
+              "zh": "压强求力用压强×面积，力求压强用力÷面积。面积比可两边同用平方厘米，但求帕时需平方米；体积关系要各面积乘各自位移。自写新纸上题时明确密度、g、表面压强、相对高度及是否可压等必要条件，才能检查答案，而不是凭想象中的容器或液压布局。"
+            }
+          ]
+        },
+        {
+          "id": "7-fluids",
+          "title": {
+            "en": "Ideal static answers have practical limits",
+            "zh": "理想静态答案的实际边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The model excludes flow losses, viscosity effects, compressibility or component weight only where the question explicitly makes those assumptions. It does not measure pressure ratings, real seals, dynamic surges or stability, and a correct word-problem answer supplies no real equipment setting. The exercise is untimed and has no norm, hiring cut-off or certification claim. Repeating the bank may improve familiarity with its wording. Use fresh stated examples to check understanding, without interpreting a one-session count as observed workplace performance or a guaranteed training gain.",
+              "zh": "题目只有明示时才排除流动损失、黏性、可压性或部件重量。本题不测实际耐压、密封、瞬态冲击与稳定性，也不给设备设置。不计时练习无常模、招聘线或认证。重做可能熟悉措辞，应再用新而条件明确的例子检查理解，不把一次计数当现场表现或保证训练收益。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_ideal_mechanics_practice",
+    "formCode": "fermatmind_original_ideal_mechanics_30_v1",
+    "itemBankVersion": "fermatmind_original_ideal_mechanics_30_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_mechanical_five_revision_guides_v1",
+    "itemBankSha256": "41a652ad42e4680540bc89d30b32743f28bbee4dd27750c25439ad3512bbf040",
+    "resultContentSha256": "5670f46d865f0a560760cdcd1e5548719d12ecf2c0e3d9b56d09d6de28a81ded",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "OpenStax: ideal simple machines, moments and supporting rope forces",
+        "zh": "OpenStax：理想简单机械、力矩与支持绳力"
+      },
+      "url": "https://openstax.org/books/college-physics/pages/9-5-simple-machines"
+    },
+    {
+      "title": {
+        "en": "MIT 6.186 mechanical lecture: external gear ratios",
+        "zh": "MIT 6.186机械讲义：外齿轮传动比"
+      },
+      "url": "https://web.mit.edu/6.186/OldFiles/2010/lectures/mechanical.pdf"
+    },
+    {
+      "title": {
+        "en": "OpenStax: Hooke’s law and linear spring force",
+        "zh": "OpenStax：胡克定律与线性弹簧力"
+      },
+      "url": "https://openstax.org/books/college-physics-ap-courses/pages/16-1-hookes-law-stress-and-strain-revisited"
+    },
+    {
+      "title": {
+        "en": "OpenStax: fluid pressure differences with depth",
+        "zh": "OpenStax：液深引起的压强差"
+      },
+      "url": "https://openstax.org/books/college-physics/pages/11-4-variation-of-pressure-with-depth-in-a-fluid"
+    },
+    {
+      "title": {
+        "en": "OpenStax: Pascal’s principle and ideal hydraulic force",
+        "zh": "OpenStax：帕斯卡原理与理想液压力"
+      },
+      "url": "https://openstax.org/books/college-physics/pages/11-5-pascals-principle"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Work within the stated ideal model",
+        "zh": "只按题定理想模型推演"
+      },
+      "paragraphs": [
+        {
+          "en": "A massless lever does not acquire an unstated beam weight. A simple external-gear chain does not become a compound shaft. Supporting rope segments are explicitly given, springs remain in their stated linear range, and hydraulic pistons use the stated relative height and loss assumptions. These choices make the written answer checkable; they do not establish real material limits or equipment settings.",
+          "zh": "无重杠杆不额外加入梁重，简单外啮合链不自行改成同轴复合轮。支持绳股明确给定，弹簧保留题定线性范围，液压活塞按题述高度与损失假设。这样才能核对文字答案，但不能据此确定真实材料限制或设备设置。"
+        }
+      ]
+    },
+    {
+      "id": "counts",
+      "title": {
+        "en": "Five six-item counts, no ability bands",
+        "zh": "五组六题计数，不换能力档位"
+      },
+      "paragraphs": [
+        {
+          "en": "Every valid complete attempt shows total correct out of 30 and five counts out of six. All choices must be valid before a report appears; a missing answer is not silently counted wrong. Zero, partial and perfect scores open the same 30 worked answers and all five full guides. The public topic pages are not private attempts or score bands, and a total cannot diagnose why a particular mistake happened.",
+          "zh": "全部选择有效才给总正确数/30与五项各/6，缺答不会暗中当错。零、部分与满分均开放同样30题解析及五份完整指南。公开专题不是私人作答或分数档，总数也不能诊断某个失误的原因。"
+        }
+      ]
+    },
+    {
+      "id": "units",
+      "title": {
+        "en": "Distinguish an increment from a total",
+        "zh": "分清增量、总量与单位"
+      },
+      "paragraphs": [
+        {
+          "en": "Keep mass in kilograms distinct from force in newtons, centimetres distinct from metres, and fluid-column pressure increments distinct from absolute pressure. For a fresh example, 950 kg/m³ liquid under g = 10 N/kg at depth 0.80 m adds 7600 Pa. With surface pressure 100000 Pa, absolute pressure becomes 107600 Pa. A question asking only the increment needs the former quantity.",
+          "zh": "千克质量与牛顿力、厘米与米、液柱压强增量与绝对压强都要分清。另设密度950千克/立方米、g=10、深0.80米，增量7600帕；另给表面100000帕才得绝对值107600帕。题只问增量时应取前一个量。"
+        }
+      ]
+    },
+    {
+      "id": "authorship",
+      "title": {
+        "en": "Original tasks and bounded verification",
+        "zh": "原创任务与核查边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently wrote these tasks and guides from elementary mechanics facts, without copying competitor items, textbook exercises or figures. Exact rational arithmetic and a separate literal-integer implementation check the 28 numeric keys; two direction keys use explicit external-mesh parity. This verifies the stated ideal mathematics, not measured apparatus, universal wording validity, expert-panel agreement or a psychometric scale. References explain the underlying facts and do not endorse this bank.",
+          "zh": "费马依据基础力学事实独立写题与指南，不复用竞品题、教材练习或插图。精确有理运算与独立整数实现核28个数值答案，另两题按明确外啮合次数核转向。这核的是题定理想数学，不是设备实测、所有措辞情况、专家共识或心理量表；参考解释基础事实，不为本题背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a real practice and is everything free?",
+        "zh": "是真正的练习题吗，全部免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 30 original tasks require choosing a checked answer under the stated model. Every answer, explanation and all five full guides are free, without signup, email or payment.",
+        "zh": "是，30道原创题均须按明示模型选已核答案；全部答案、解析及五份完整指南免费，无需注册、邮箱或付款。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a timed employer aptitude test?",
+        "zh": "是限时雇主能力测试吗？"
+      },
+      "answer": {
+        "en": "No. It is an untimed original practice. There is no employer equivalence, hiring pass line, norm, percentile, intelligence estimate or operating certificate.",
+        "zh": "不是，是不计时原创练习，没有雇主等价成绩、招聘线、常模、百分位、智商估计或操作证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "What assumptions and topics are included?",
+        "zh": "包括哪些主题与假设？"
+      },
+      "answer": {
+        "en": "Five topics have six items each: levers, external gears, pulleys, linear springs and fluids. Each problem states the ideal conditions it needs. There is no electronics section, apparatus trial or diagram-based spatial assessment.",
+        "zh": "杠杆、外齿轮、滑轮、线性弹簧、流体各六题，所需理想条件逐题说明，不含电学、装置实测或图形空间测评。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use paper and a calculator?",
+        "zh": "可以用纸笔与计算器吗？"
+      },
+      "answer": {
+        "en": "Yes. Sketch directions, track units and use a calculator. There is no speed adjustment. Most keys use exact given values; choose the offered exact result rather than inventing an unstated rounding rule.",
+        "zh": "可以，允许画方向、核单位、用计算器，不按速度加权。按给定精确量选选项，不自行加入题目未要求的舍入规则。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a missed item diagnose my weakest skill?",
+        "zh": "错题会诊断我的弱项吗？"
+      },
+      "answer": {
+        "en": "No. A count records the answers on this fixed bank. Read the particular question and rationale before choosing revision. Familiarity and memory may affect retakes, so improvement here does not establish training transfer or workplace performance.",
+        "zh": "不会，计数只记录本固定题本答对情况。应连同该题条件与解析选复习方向；重做熟悉度和记忆可能影响成绩，不证明训练迁移或现场表现。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I resume or share a private answer sheet?",
+        "zh": "能恢复进度或分享私人答卷吗？"
+      },
+      "answer": {
+        "en": "Progress can be saved by an explicit opt-in in this browser tab for 24 hours, using this edition. Completion, clear or retake removes that draft. Sharing copies only the public title and URL, without answers or a private score.",
+        "zh": "主动勾选后可在本浏览器标签页按本版存24小时进度，完成、清空或重测删除。分享仅复制公开标题和URL，不含答案或私人成绩。"
+      }
+    }
+  ]
+}

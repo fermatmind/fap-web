@@ -1,0 +1,1568 @@
+{
+  "id": "T153",
+  "form": "fermatmind_original_ideal_mechanics_30_v1",
+  "checks": [
+    {
+      "id": "MECH_01",
+      "expected_label": "30 N",
+      "exact_expression": "90*0.4/1.2",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_02",
+      "expected_label": "120 N",
+      "exact_expression": "48*0.75/0.3",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_03",
+      "expected_label": "6",
+      "exact_expression": "0.9/0.15",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_04",
+      "expected_label": "0.20 m",
+      "exact_expression": "35*0.8/140",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_05",
+      "expected_label": "36 N",
+      "exact_expression": "72/2",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_06",
+      "expected_label": "12 N",
+      "exact_expression": "(12*0.25+20*0.15)/0.5",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_07",
+      "expected_label": "80 rpm",
+      "exact_expression": "240*18/54",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_08",
+      "expected_label": "90 rpm",
+      "exact_expression": "360*16/64",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_09",
+      "expected_label": "6 N m",
+      "exact_expression": "2*36/12",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_10",
+      "expected_label": "150 rpm",
+      "exact_expression": "75*28/14",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_11",
+      "expected_label": "Clockwise",
+      "exact_expression": "external_meshes:2",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_12",
+      "expected_label": "Clockwise",
+      "exact_expression": "external_meshes:3",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_13",
+      "expected_label": "180 N",
+      "exact_expression": "180/1",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_14",
+      "expected_label": "120 N",
+      "exact_expression": "240/2",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_15",
+      "expected_label": "90 N",
+      "exact_expression": "360/4",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_16",
+      "expected_label": "1.20 m",
+      "exact_expression": "3*0.4",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_17",
+      "expected_label": "120 J",
+      "exact_expression": "200*0.6",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_18",
+      "expected_label": "210 N",
+      "exact_expression": "3*70",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_19",
+      "expected_label": "20 N",
+      "exact_expression": "250*0.08",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_20",
+      "expected_label": "400 N/m",
+      "exact_expression": "12/0.03",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_21",
+      "expected_label": "0.075 m",
+      "exact_expression": "1.5*10/200",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_22",
+      "expected_label": "10 cm",
+      "exact_expression": "4*25/10",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_23",
+      "expected_label": "15 N",
+      "exact_expression": "600*25/1000",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_24",
+      "expected_label": "2 cm",
+      "exact_expression": "5*120/300",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_25",
+      "expected_label": "18000 Pa",
+      "exact_expression": "1000*10*1.8",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_26",
+      "expected_label": "6000 Pa",
+      "exact_expression": "800*10*0.75",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_27",
+      "expected_label": "4/3",
+      "exact_expression": "1200/900",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_28",
+      "expected_label": "210 N",
+      "exact_expression": "30*28/4",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_29",
+      "expected_label": "2 cm",
+      "exact_expression": "3*10/15",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    },
+    {
+      "id": "MECH_30",
+      "expected_label": "15000 Pa",
+      "exact_expression": "45/0.003",
+      "authority": "Original task; ideal static balance/no-slip/linear-spring/hydrostatic and volume assumptions explicitly stated. Mathematical key recheck required."
+    }
+  ],
+  "questions": [
+    {
+      "id": "MECH_01",
+      "prompt": {
+        "en": "An ideal massless lever balances. A 90 N downward load acts 0.40 m left of the pivot; an upward effort is applied 1.20 m left of the pivot. Both forces are perpendicular to the lever. What effort balances the load?",
+        "zh": "理想无重杠杆平衡：支点左侧0.40米处向下负载90牛，左侧1.20米处向上施力，均垂直杠杆。所需力是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15 N",
+            "zh": "15 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30 N",
+            "zh": "30 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "60 N",
+            "zh": "60 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "270 N",
+            "zh": "270 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Balance opposite moments: effort × 1.20 = 90 × 0.40, so effort = 30 N. Both act on the same side but in opposite directions; force direction matters.",
+        "zh": "两相反力矩平衡：F×1.20=90×0.40，得30牛。两力虽同在支点左侧，但方向相反。"
+      }
+    },
+    {
+      "id": "MECH_02",
+      "prompt": {
+        "en": "A massless horizontal beam has a 48 N downward load 0.75 m to the left of a pivot. A downward force acts 0.30 m to its right. What force produces rotational balance?",
+        "zh": "无重水平梁支点左0.75米有向下48牛负载，右0.30米施向下力。旋转平衡需多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "19.2 N",
+            "zh": "19.2 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48 N",
+            "zh": "48 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "96 N",
+            "zh": "96 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Opposite sides with downward forces give opposite moments. F × 0.30 = 48 × 0.75, giving 120 N. Pivot reaction does not contribute moment about the pivot.",
+        "zh": "支点两边同向下的力产生相反力矩。F×0.30=48×0.75，得120牛，支点反力对本支点力矩为零。"
+      }
+    },
+    {
+      "id": "MECH_03",
+      "prompt": {
+        "en": "An ideal lever has an effort arm of 0.90 m and load arm of 0.15 m, measured perpendicular to the force lines. What is its ideal force mechanical advantage, load force divided by effort?",
+        "zh": "理想杠杆的力臂分别为动力0.90米、阻力0.15米，均按垂直于力线测量。负载力除以动力的理想机械利益是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.1667",
+            "zh": "0.1667"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Moment balance gives Fload/Feffort = effort arm/load arm = 0.90/0.15 = 6. This is a force ratio, not energy multiplication.",
+        "zh": "力矩平衡给出负载力/动力=动力臂/阻力臂=0.90/0.15=6。这是力比，不是能量增加。"
+      }
+    },
+    {
+      "id": "MECH_04",
+      "prompt": {
+        "en": "Two perpendicular forces balance a massless lever. The effort is 35 N at an arm of 0.80 m; the opposing load is 140 N. What perpendicular load arm is required?",
+        "zh": "两垂直力使无重杠杆平衡：动力35牛、动力臂0.80米，反向力矩的负载140牛。负载力臂应是多少米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.20 m",
+            "zh": "0.20 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.40 m",
+            "zh": "0.40 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3.20 m",
+            "zh": "3.20 m"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.10 m",
+            "zh": "0.10 m"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Set 140 × load arm = 35 × 0.80. The arm is 0.20 m. A greater load needs a shorter arm for the same balancing moment. Substitution confirms 140 × 0.20 = 28 N m, equal to 35 × 0.80.",
+        "zh": "令140×阻力臂=35×0.80，得0.20米。相同平衡力矩下，较大力对应较短力臂。代回140×0.20=28牛米，与35×0.80相等。"
+      }
+    },
+    {
+      "id": "MECH_05",
+      "prompt": {
+        "en": "An ideal lever initially balances a 72 N load. Its effort arm stays fixed, but its perpendicular load arm doubles. What load force can the same effort now balance?",
+        "zh": "理想杠杆原能平衡72牛负载。动力及其力臂不变，垂直阻力臂变为两倍。同一动力现在能平衡多大负载？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18 N",
+            "zh": "18 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "36 N",
+            "zh": "36 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "72 N",
+            "zh": "72 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "144 N",
+            "zh": "144 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The available effort moment is unchanged. Doubling the load arm requires halving load force, from 72 to 36 N. No extra force source was introduced.",
+        "zh": "动力矩不变，阻力臂加倍，负载力须减半，由72变36牛，没有引入额外力源。"
+      }
+    },
+    {
+      "id": "MECH_06",
+      "prompt": {
+        "en": "A 12 N downward force acts 0.25 m left of a pivot and a 20 N downward force 0.15 m left of it. What downward force at 0.50 m to the right balances both on a massless beam?",
+        "zh": "无重梁支点左0.25米处向下12牛，左0.15米处向下20牛。右0.50米处需多大向下力同时平衡？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32 N",
+            "zh": "32 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "6 N",
+            "zh": "6 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "12 N",
+            "zh": "12 N"
+          },
+          "directionId": "levers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "16 N",
+            "zh": "16 N"
+          },
+          "directionId": "levers"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Add moments on the left: 12 × 0.25 + 20 × 0.15 = 6 N m. Divide by the 0.50 m right arm to obtain 12 N. Adding force magnitudes alone misses their different arms.",
+        "zh": "左侧总力矩12×0.25+20×0.15=6牛米，再除右侧0.50米，得12牛。不能忽略力臂而只加力。"
+      }
+    },
+    {
+      "id": "MECH_07",
+      "prompt": {
+        "en": "Two external gears mesh without slip. Driver A has 18 teeth and turns at 240 rpm. Driven B has 54 teeth. What is B’s speed magnitude?",
+        "zh": "两个外啮合齿轮无滑动：主动A18齿、240转/分，从动B54齿。B转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "240 rpm",
+            "zh": "240 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "720 rpm",
+            "zh": "720 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "60 rpm",
+            "zh": "60 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "80 rpm",
+            "zh": "80 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Equal tooth passage gives nA × teethA = nB × teethB. Therefore nB = 240 × 18/54 = 80 rpm; the larger driven gear is slower.",
+        "zh": "每分钟经过啮合点的齿数相同，nA×齿数A=nB×齿数B，故240×18/54=80转/分。"
+      }
+    },
+    {
+      "id": "MECH_08",
+      "prompt": {
+        "en": "External gear A drives B, and B drives C on separate shafts. Their tooth counts are 16, 40 and 64. A turns at 360 rpm. What is C’s speed magnitude, with ideal no-slip engagement?",
+        "zh": "外齿轮A带B、B带C，分别位于不同轴，齿数16、40、64。A为360转/分，理想无滑动时C转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "90 rpm",
+            "zh": "90 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "144 rpm",
+            "zh": "144 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1440 rpm",
+            "zh": "1440 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "45 rpm",
+            "zh": "45 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The idler B cancels in the speed ratio: 360 × 16/40 × 40/64 = 90 rpm. Its teeth affect its own speed but not the end-to-end tooth ratio.",
+        "zh": "中间B齿数在比值中约掉：360×16/40×40/64=90转/分。B会影响自身速度，但不改变首尾齿数比。"
+      }
+    },
+    {
+      "id": "MECH_09",
+      "prompt": {
+        "en": "An ideal 12-tooth driver delivers 2 N m torque to a meshing 36-tooth driven gear. Neglect losses and use equal tangential tooth force. What is driven torque?",
+        "zh": "理想12齿主动轮的扭矩2牛米，啮合36齿从动轮。忽略损失、两轮齿面切向力相等，从动扭矩多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.667 N m",
+            "zh": "0.667 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2 N m",
+            "zh": "2 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4 N m",
+            "zh": "4 N m"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "6 N m",
+            "zh": "6 N m"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "With the same tangential force, torque scales with radius and thus tooth count. Driven torque = 2 × 36/12 = 6 N m, while its speed is one third.",
+        "zh": "相同切向力下，扭矩随半径及齿数增加，2×36/12=6牛米，同时从动转速为三分之一。"
+      }
+    },
+    {
+      "id": "MECH_10",
+      "prompt": {
+        "en": "Two ideal external gears have 28 and 14 teeth. The 28-tooth driver turns at 75 rpm. What is the driven gear’s speed magnitude?",
+        "zh": "两理想外齿轮分别28齿、14齿。28齿主动轮75转/分，14齿从动转速大小是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "150 rpm",
+            "zh": "150 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "37.5 rpm",
+            "zh": "37.5 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75 rpm",
+            "zh": "75 rpm"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "112.5 rpm",
+            "zh": "112.5 rpm"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Use inverse tooth count for speed: 75 × 28/14 = 150 rpm. The smaller driven gear turns twice as fast, not half as fast. Both products, 75 × 28 and 150 × 14, equal 2100 teeth per minute.",
+        "zh": "速度与齿数成反比，75×28/14=150转/分。较小从动轮转速加倍，而非减半。75×28和150×14都为每分钟经过2100齿，可交叉核对。"
+      }
+    },
+    {
+      "id": "MECH_11",
+      "prompt": {
+        "en": "External gears A, B and C mesh in a chain on three separate parallel shafts. Viewed from the same side, A turns clockwise. In which direction does C turn?",
+        "zh": "A、B、C三个外齿轮分别在三根平行轴上依次啮合。从同一侧观察A顺时针，C方向是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Stationary",
+            "zh": "静止"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Direction cannot be determined",
+            "zh": "方向无法确定"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Clockwise",
+            "zh": "顺时针"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Counterclockwise",
+            "zh": "逆时针"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Each external mesh reverses direction. A→B reverses once and B→C a second time, so C turns in A’s clockwise direction when viewed from the same side.",
+        "zh": "每次外啮合反向，A到B一次、B到C二次，两次反向后C与A同为顺时针，观察方向须相同。"
+      }
+    },
+    {
+      "id": "MECH_12",
+      "prompt": {
+        "en": "Four external gears A→B→C→D mesh on four separate parallel shafts. Viewed from one side A turns counterclockwise. In which direction does D turn?",
+        "zh": "四个外齿轮A→B→C→D在四根不同平行轴上啮合，同一侧看A逆时针，D方向是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Clockwise",
+            "zh": "顺时针"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Stationary",
+            "zh": "静止"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Direction cannot be determined",
+            "zh": "方向无法确定"
+          },
+          "directionId": "gears"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Counterclockwise",
+            "zh": "逆时针"
+          },
+          "directionId": "gears"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "There are three external engagements, not four. Three reversals change counterclockwise to clockwise. Count meshes rather than simply counting gear bodies.",
+        "zh": "外啮合有三处而非四处，三次反向把逆时针变为顺时针，要数啮合处而不是轮体数。"
+      }
+    },
+    {
+      "id": "MECH_13",
+      "prompt": {
+        "en": "An ideal single fixed pulley redirects a massless rope. A 180 N load is held at rest by one upward rope segment. Neglect friction. What free-end rope tension is needed?",
+        "zh": "理想单定滑轮只改变无重绳方向，负载180牛静止，仅一股绳向上支持。忽略摩擦，自由端张力需多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45 N",
+            "zh": "45 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "90 N",
+            "zh": "90 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "180 N",
+            "zh": "180 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360 N",
+            "zh": "360 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "One supporting segment gives T = 180 N. A fixed pulley changes direction but does not create a force advantage in this arrangement.",
+        "zh": "一股支持绳给T=180牛。此定滑轮只变方向，不产生省力倍数。"
+      }
+    },
+    {
+      "id": "MECH_14",
+      "prompt": {
+        "en": "A massless moving pulley block holds a 240 N load at rest. Exactly two vertical segments of the same ideal rope support the block; both have tension T. What is T?",
+        "zh": "无重动滑轮组静止承受240牛负载，恰有同一理想绳的两股竖直绳支持，每股张力T。T是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "480 N",
+            "zh": "480 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60 N",
+            "zh": "60 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "240 N",
+            "zh": "240 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The moving block receives two upward tensions, so 2T = 240 N and T = 120 N. Count supporting segments, not merely visible pulleys.",
+        "zh": "动块受到两个向上T，2T=240，故120牛。要数支持动块的绳股，不只数轮。"
+      }
+    },
+    {
+      "id": "MECH_15",
+      "prompt": {
+        "en": "An ideal block is supported by four vertical rope segments of equal tension. Its total load including its own weight is 360 N, and it is at rest. What is each segment’s tension?",
+        "zh": "理想动块由四股等张力竖直绳支持，含自身重量总负载360牛，静止时每股张力是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180 N",
+            "zh": "180 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "360 N",
+            "zh": "360 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "45 N",
+            "zh": "45 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "90 N",
+            "zh": "90 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The stated total already includes block weight. Balance 4T = 360 N, giving T = 90 N. Do not add the block weight a second time.",
+        "zh": "题给总负载已含动块重量，4T=360，T=90牛，不能重复加动块重量。"
+      }
+    },
+    {
+      "id": "MECH_16",
+      "prompt": {
+        "en": "In an ideal system with three supporting rope segments, raising the moving load 0.40 m shortens each supporting segment by 0.40 m. How much free rope must be pulled?",
+        "zh": "理想系统有三股支持绳，负载升0.40米，每股支持段均缩短0.40米。自由端须拉过多少米绳？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.40 m",
+            "zh": "0.40 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.80 m",
+            "zh": "0.80 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1.20 m",
+            "zh": "1.20 m"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.133 m",
+            "zh": "0.133 m"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Total supporting length decreases by 3 × 0.40 = 1.20 m. The free end must take up that length. Reduced force requires increased rope travel.",
+        "zh": "三股支持段总缩短3×0.40=1.20米，自由端收进同样长度。省力对应更长拉绳距离。"
+      }
+    },
+    {
+      "id": "MECH_17",
+      "prompt": {
+        "en": "An ideal four-segment hoist raises a 200 N total load through 0.60 m at constant speed. Neglect losses. How much work does the pulling effort supply?",
+        "zh": "理想四股支持绳起重系统使总重200牛负载匀速升0.60米，忽略损失，动力做功多少焦？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30 J",
+            "zh": "30 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "50 J",
+            "zh": "50 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "120 J",
+            "zh": "120 J"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "480 J",
+            "zh": "480 J"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Input work equals load force × height = 200 × 0.60 = 120 J. Equivalently 50 N effort travels 2.40 m. Four segments do not divide the required ideal energy.",
+        "zh": "理想输入功等于200×0.60=120焦，也可用50牛拉2.40米。四股绳不把所需理想能量除四。"
+      }
+    },
+    {
+      "id": "MECH_18",
+      "prompt": {
+        "en": "A hoist’s moving block is supported by three vertical segments of one ideal rope, each at 70 N tension. It is at rest. What total downward load can it balance?",
+        "zh": "动块由同一理想绳三股竖直绳支持，每股张力70牛，静止可平衡多大总向下负载？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "210 N",
+            "zh": "210 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "23.33 N",
+            "zh": "23.33 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "70 N",
+            "zh": "70 N"
+          },
+          "directionId": "pulleys"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "140 N",
+            "zh": "140 N"
+          },
+          "directionId": "pulleys"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Add the three upward tensions: total load = 3 × 70 = 210 N. This total includes any block weight, so a separate attached payload could be smaller.",
+        "zh": "三股向上张力合计3×70=210牛，这一总量包括动块自身重量，因此另挂有效载荷可能较小。"
+      }
+    },
+    {
+      "id": "MECH_19",
+      "prompt": {
+        "en": "A linear ideal spring has stiffness k = 250 N/m and is stretched 0.08 m from its natural length. What is its restoring-force magnitude?",
+        "zh": "线性理想弹簧劲度250牛/米，比原长伸长0.08米，回复力大小多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "31.25 N",
+            "zh": "31.25 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2000 N",
+            "zh": "2000 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "2 N",
+            "zh": "2 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "20 N",
+            "zh": "20 N"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Hooke’s law gives magnitude F = kx = 250 × 0.08 = 20 N. Restoring force points opposite the displacement; the question asks magnitude only.",
+        "zh": "胡克定律大小F=kx=250×0.08=20牛，回复方向与位移相反，此题只问大小。"
+      }
+    },
+    {
+      "id": "MECH_20",
+      "prompt": {
+        "en": "A spring extends 0.03 m under a 12 N steady force and remains in its linear range. What is its stiffness in N/m?",
+        "zh": "弹簧在线性范围内，稳态12牛力令其伸长0.03米，劲度多少牛/米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.36 N/m",
+            "zh": "0.36 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "40 N/m",
+            "zh": "40 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "400 N/m",
+            "zh": "400 N/m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.0025 N/m",
+            "zh": "0.0025 N/m"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Rearrange F = kx to k = F/x = 12/0.03 = 400 N/m. Dividing extension by force would give compliance, a different quantity.",
+        "zh": "由F=kx得k=12/0.03=400牛/米。伸长除以力得到柔度，是另一量。"
+      }
+    },
+    {
+      "id": "MECH_21",
+      "prompt": {
+        "en": "A vertical massless spring with k = 200 N/m holds a 1.5 kg mass at rest. Use g = 10 N/kg and neglect other forces. What is extension beyond natural length?",
+        "zh": "无重竖直弹簧劲度200牛/米，静止挂1.5千克质量，取g=10牛/千克、无其他力。比原长伸长多少米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.0075 m",
+            "zh": "0.0075 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.075 m",
+            "zh": "0.075 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.15 m",
+            "zh": "0.15 m"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0.75 m",
+            "zh": "0.75 m"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "At rest the 15 N weight balances kx. Thus x = 15/200 = 0.075 m. Mass is not a force until multiplied by the specified g. The extension is 75 mm after converting the 0.075 m result.",
+        "zh": "静止时15牛重力与kx平衡，x=15/200=0.075米，质量要乘题给g才是重力。0.075米再换算为75毫米，不可把原数直接贴上毫米单位。"
+      }
+    },
+    {
+      "id": "MECH_22",
+      "prompt": {
+        "en": "One ideal spring stretches 4 cm under a steady 10 N load. Keeping it within its linear range, what extension follows a steady 25 N load on the same spring?",
+        "zh": "同一理想弹簧在10牛稳态负载下伸长4厘米，仍在线性范围，25牛负载下伸长多少厘米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "100 cm",
+            "zh": "100 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1.6 cm",
+            "zh": "1.6 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6 cm",
+            "zh": "6 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10 cm",
+            "zh": "10 cm"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The same k makes extension proportional to force. x2 = 4 × 25/10 = 10 cm. No change to spring stiffness was specified. The two force–extension pairs both give 250 N/m: 10/0.04 and 25/0.10.",
+        "zh": "劲度不变时伸长与力成正比，4×25/10=10厘米，题未改变弹簧劲度。10/0.04与25/0.10都给劲度250牛/米，可检查同一弹簧的线性条件。"
+      }
+    },
+    {
+      "id": "MECH_23",
+      "prompt": {
+        "en": "An ideal linear spring of stiffness 600 N/m is compressed 25 mm. What is restoring-force magnitude?",
+        "zh": "劲度600牛/米的理想线性弹簧压缩25毫米，回复力大小是多少牛？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24 N",
+            "zh": "24 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "15000 N",
+            "zh": "15000 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.015 N",
+            "zh": "0.015 N"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "15 N",
+            "zh": "15 N"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Convert 25 mm to 0.025 m before using F = kx: 600 × 0.025 = 15 N. Compression changes direction, not the magnitude rule in the linear range.",
+        "zh": "25毫米先换0.025米，F=600×0.025=15牛。线性范围内压缩改变方向，不改变大小公式。"
+      }
+    },
+    {
+      "id": "MECH_24",
+      "prompt": {
+        "en": "Two separate springs carry the same steady force. Spring A has k = 120 N/m; spring B has k = 300 N/m. If A extends 5 cm, what would B extend under that same force? The springs are not connected.",
+        "zh": "两根独立弹簧受同样大小稳态力；A劲度120牛/米、B300牛/米。A伸长5厘米，B在同一力下伸长多少厘米？两弹簧不连接。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "5 cm",
+            "zh": "5 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "12.5 cm",
+            "zh": "12.5 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "25 cm",
+            "zh": "25 cm"
+          },
+          "directionId": "springs"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2 cm",
+            "zh": "2 cm"
+          },
+          "directionId": "springs"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The same force implies kA xA = kB xB, so xB = 5 × 120/300 = 2 cm. The springs are independent, not a series or parallel assembly.",
+        "zh": "同一力给kA×xA=kB×xB，xB=5×120/300=2厘米，两弹簧独立，不是串并联。"
+      }
+    },
+    {
+      "id": "MECH_25",
+      "prompt": {
+        "en": "A stationary liquid has density 1000 kg/m³. Use g = 10 N/kg. What pressure increase occurs 1.8 m below its free surface, excluding surface pressure?",
+        "zh": "静止液体密度1000千克/立方米，g=10牛/千克。自由面下1.8米由液柱增加的压强是多少帕，不计表面压强？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180 Pa",
+            "zh": "180 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1800 Pa",
+            "zh": "1800 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "18000 Pa",
+            "zh": "18000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "180000 Pa",
+            "zh": "180000 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Hydrostatic pressure increase is ρgh = 1000 × 10 × 1.8 = 18000 Pa. This is the fluid-column increment, not absolute pressure including the surface.",
+        "zh": "液柱压强增量ρgh=1000×10×1.8=18000帕，是液柱增量，不含表面压强的绝对值。"
+      }
+    },
+    {
+      "id": "MECH_26",
+      "prompt": {
+        "en": "Two points in the same stationary 800 kg/m³ liquid are vertically separated by 0.75 m. Use g = 10 N/kg. How much greater is pressure at the lower point?",
+        "zh": "同种静止液体密度800千克/立方米，两点竖直相差0.75米，g=10牛/千克。下点比上点压强大多少帕？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10666.67 Pa",
+            "zh": "10666.67 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "600 Pa",
+            "zh": "600 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6000 Pa",
+            "zh": "6000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "8000 Pa",
+            "zh": "8000 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The pressure difference depends on vertical separation: ΔP = ρgΔh = 800 × 10 × 0.75 = 6000 Pa. A shared surface pressure cancels.",
+        "zh": "压强差取竖直高差，800×10×0.75=6000帕，共同表面压强相消。"
+      }
+    },
+    {
+      "id": "MECH_27",
+      "prompt": {
+        "en": "At the same depth under equal surface pressure, liquid A has density 900 kg/m³ and liquid B 1200 kg/m³. What is the ratio of their fluid-column pressure increments, B divided by A?",
+        "zh": "同深度、同表面压强下，A液密度900、B液1200千克/立方米。B除以A的液柱压强增量比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4/3",
+            "zh": "4/3"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3/2",
+            "zh": "3/2"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.75",
+            "zh": "0.75"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "For pressure increments ρgh, the same g and depth cancel. The B/A ratio is 1200/900 = 4/3. The ratio of absolute pressures would also require surface pressure.",
+        "zh": "同g同深度在ρgh增量比中约去，1200/900=4/3。若问绝对压强比还须知道表面压强。"
+      }
+    },
+    {
+      "id": "MECH_28",
+      "prompt": {
+        "en": "Ideal hydraulic pistons are at the same height. Areas are 4 cm² and 28 cm². An extra 30 N force on the small piston produces what extra force on the large piston? Neglect friction and piston weight.",
+        "zh": "理想液压两活塞同高，面积4与28平方厘米，小活塞额外加30牛，大活塞额外力多少牛？忽略摩擦与活塞自重。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30 N",
+            "zh": "30 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "210 N",
+            "zh": "210 N"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4.286 N",
+            "zh": "4.286 N"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The added pressure is shared: Fsmall/Asmall = Flarge/Alarge. Thus the extra large-piston force is 30 × 28/4 = 210 N. Pressure is not multiplied.",
+        "zh": "附加压强相等，F小/A小=F大/A大，因此30×28/4=210牛，不是压强被放大。"
+      }
+    },
+    {
+      "id": "MECH_29",
+      "prompt": {
+        "en": "An ideal incompressible hydraulic system has small-piston area 3 cm² and large-piston area 15 cm². Pushing the small piston down 10 cm moves the large piston up how far? Assume no leakage.",
+        "zh": "理想不可压液压系统小面积3、大面积15平方厘米，小活塞下移10厘米，无泄漏时大活塞上移多少厘米？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2 cm",
+            "zh": "2 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "5 cm",
+            "zh": "5 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10 cm",
+            "zh": "10 cm"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50 cm",
+            "zh": "50 cm"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Equal displaced volumes give 3 × 10 = 15 × distance, so distance = 2 cm. Larger output force comes with smaller travel in the ideal system.",
+        "zh": "排出体积相同，3×10=15×位移，故2厘米。理想系统较大输出力对应较小行程。"
+      }
+    },
+    {
+      "id": "MECH_30",
+      "prompt": {
+        "en": "A 45 N extra force acts on an ideal hydraulic piston of area 0.003 m². What extra pressure does it produce in the confined liquid? Neglect losses.",
+        "zh": "45牛额外力作用于0.003平方米理想液压活塞，忽略损失，对密闭液体产生多少额外压强？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15000 Pa",
+            "zh": "15000 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.000067 Pa",
+            "zh": "0.000067 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "135 Pa",
+            "zh": "135 Pa"
+          },
+          "directionId": "fluids"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1500 Pa",
+            "zh": "1500 Pa"
+          },
+          "directionId": "fluids"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Added pressure is F/A = 45/0.003 = 15000 Pa. Pascal’s principle transmits this pressure change; it does not mean every piston experiences the same force.",
+        "zh": "附加压强F/A=45/0.003=15000帕。帕斯卡原理传递压强变化，不表示各面积活塞受力都相等。"
+      }
+    }
+  ]
+}
