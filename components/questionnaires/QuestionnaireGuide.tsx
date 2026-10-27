@@ -1,3 +1,5 @@
+import { isNineStarYearConfigurationValid } from "@/lib/questionnaires/nineStarYear";
+import { NineStarYearGuidePage } from "./NineStarYearPage";
 import { isMiniBreakupConfigurationValid } from "@/lib/questionnaires/miniBreakup";
 import { isHoldingBack35ConfigurationValid } from "@/lib/questionnaires/holdingBack35";
 import { isFscrs22ConfigurationValid } from "@/lib/questionnaires/fscrs22";
@@ -45,6 +47,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Cultural guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Symbolic guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
@@ -60,6 +63,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "nine-star-year") {
+    if (!isNineStarYearConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(item => item.id === id);
+    if (!profile) notFound();
+    return <NineStarYearGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "birth-number") {
     if (!isBirthNumberConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(item => item.id === id);

@@ -1,0 +1,110 @@
+{
+  "id": "T197",
+  "kind": "nine-star-year",
+  "code": "FM_NINE_STAR_YEAR_REFERENCE",
+  "slug": "nine-star-ki",
+  "source": {
+    "kind": "fermatmind_original_cultural_year_reference",
+    "formCode": "fm_nine_star_year_and_boundary_side_v1",
+    "itemBankVersion": "NAOJcurrenttheory2.1i_defaultDeltaT_JST9_1900_2026_fetched20261027",
+    "scoringVersion": "fm_sonoda1927_descending_mod9_jst_boundary_conditional_v1",
+    "resultContentVersion": "fm_nine_star_cultural_full9_reviewed_v1",
+    "itemBankSha256": "a10026b80b148c12b53871c2cc1f6bf855ba4923c9a7949d2848797d653cef9c",
+    "resultContentSha256": "8d477cc932e8890fb653b5bdcd63e16e082014f3765090a7cd3d3aa7902eb012",
+    "psychometricValidationCompleted": false
+  },
+  "nineStarYear": {
+    "minYear": 1900,
+    "maxYear": 2026,
+    "boundarySides": [
+      "before-boundary",
+      "after-boundary",
+      "uncertain"
+    ],
+    "boundaryTimeZone": "JST+09:00",
+    "boundaryPrecision": "minute",
+    "storagePolicy": "memory-only",
+    "calendarVersion": "NAOJcurrenttheory2.1i_defaultDeltaT_JST9_1900_2026_fetched20261027"
+  },
+  "guide": [
+    {
+      "id": "annual-rule",
+      "title": {
+        "en": "The year rule used here",
+        "zh": "本工具采用的节年规则"
+      },
+      "paragraphs": [
+        {
+          "en": "Before the displayed Beginning of Spring boundary, use the previous Gregorian year as the season year; clearly after it, use the entered year. The traditional anchor is 1927 = One White and 1928 = Nine Purple. The modular rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. It labels the selected season; it does not determine when a birth happened.",
+          "zh": "在所示立春界点之前，采用上一公历年作为节年；明确在界点之后，采用输入年份。传统锚点为1927节年对应一白、1928节年对应九紫。模运算规则为((1927−节年) mod 9+9) mod 9+1。该规则为所选节年分配标签，不替你判断出生时刻。"
+        }
+      ]
+    },
+    {
+      "id": "boundary-source",
+      "title": {
+        "en": "A sourced boundary, displayed to a minute",
+        "zh": "有来源、显示到分钟的立春界点"
+      },
+      "paragraphs": [
+        {
+          "en": "The 1900–2026 boundaries are literal Beginning of Spring rows from the National Astronomical Observatory of Japan calculation service, using its current-theory 2.1i option, default ΔT and JST (UTC+09:00), with no daylight-saving correction. The stored values are displayed to a minute. They do not silently adopt the birth location’s time zone or replace the boundary with February 4 or Lunar New Year.",
+          "zh": "1900—2026年的界点来自日本国立天文台计算服务的立春原始行，采用其现代理论2.1i选项、默认ΔT与日本标准时JST（UTC+09:00），不加夏令时修正。保存的值显示到分钟，不暗中采用出生地时区，也不以固定2月4日或农历正月初一代替界点。"
+        }
+      ]
+    },
+    {
+      "id": "uncertain",
+      "title": {
+        "en": "When to keep both possibilities",
+        "zh": "什么时候保留两个可能结果"
+      },
+      "paragraphs": [
+        {
+          "en": "If the birthday, birth time, time zone or comparison with JST is unknown, choose “Uncertain”. A birth within the displayed boundary minute is also uncertain. The result retains both the previous-season and current-season labels, with both complete guides. They are two conditional possibilities, without a probability, tie-break or preferred label.",
+          "zh": "生日、出生时刻、时区或与JST的换算不清楚时，请选“不确定”。出生在所显示的界点分钟内，也属于不确定。结果同时保留前一节年和当前节年的标签，并展示两篇完整指南。这是两个有条件的可能结果，不分配概率、不强行选一，也不推荐其中一个。"
+        }
+      ]
+    },
+    {
+      "id": "scope-privacy",
+      "title": {
+        "en": "Scope and private inputs",
+        "zh": "适用范围与输入隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "This is an annual cultural reference, without month, day, hour or third-star calculations, gender formulas, auspicious directions, compatibility, health or future predictions. Astronomy supplies the seasonal boundary; it does not validate personality claims. Only the year and boundary side enter this page’s memory. Editing invalidates the old result. Clearing, reloading, leaving or changing language removes the inputs; they are not stored as a draft or placed in a public URL. Copying shares only a public guide title and URL.",
+          "zh": "这里只提供年度文化参考，不计算月星、日星、时星或第三星，不使用性别公式，不推算吉方、配对、健康或未来。天文学提供季节界点，不验证人格主张。页面内存仅使用年份与界点前后；修改会清除旧结果，清除、刷新、离开或换语会移除输入。它们不保存为草稿，也不放入公开URL；复制仅包含公开指南标题和链接。"
+        }
+      ]
+    }
+  ],
+  "instructions": {
+    "en": "Enter a Gregorian year, then compare the birth moment with the displayed Beginning of Spring boundary in Japanese Standard Time (UTC+09:00). Select a side only if you can place that moment clearly before or after it; otherwise keep both possibilities. The displayed time is rounded to a minute, so a birth within that minute remains uncertain. This calculates one traditional year-star reference, not a complete birth chart or a measured personality.",
+    "zh": "输入公历年份，再将出生时刻与页面显示的立春界点比较。表中使用日本标准时（UTC+09:00），并非你的出生地时间。只有能够明确判断界点前后时才选单侧；生日、时刻或时区不清楚时保留两个可能结果。界点仅显示到分钟，出生在该分钟内也保留不确定。这只计算传统节年星参考，不是完整出生盘，也不是测得的人格。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Sonoda, 1934: historical calendar and Later Heaven diagrams",
+        "zh": "园田真次郎编，1934：历法规则与后天配属图"
+      },
+      "url": "https://doi.org/10.11501/1102174"
+    },
+    {
+      "title": {
+        "en": "National Astronomical Observatory of Japan: calendar calculations",
+        "zh": "日本国立天文台：历法计算"
+      },
+      "url": "https://eco2.mtk.nao.ac.jp/cgi-bin/koyomi/cande/phenomena_sy.cgi"
+    },
+    {
+      "title": {
+        "en": "Zhouyi Zhengyi, Shuo Gua: images and commentary",
+        "zh": "《周易正义·说卦》：卦象与疏文"
+      },
+      "url": "https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93%E6%AD%A3%E7%BE%A9/09.07"
+    }
+  ]
+}

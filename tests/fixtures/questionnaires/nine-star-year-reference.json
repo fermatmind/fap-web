@@ -1,0 +1,772 @@
+{
+  "id": "T197",
+  "source": "NAOJliteral127JSTrows+NDL1927/1928anchors",
+  "pureMethodModuleSha256": "56ad7d6c227c070ec6ca7b590e64f7c83d985ef957cad4f67e9e07ac2b85e538",
+  "calendarVersion": "NAOJcurrenttheory2.1i_defaultDeltaT_JST9_1900_2026_fetched20261027",
+  "rows": [
+    {
+      "year": 1900,
+      "before": 2,
+      "after": 1,
+      "boundary": "1900-02-04T14:51"
+    },
+    {
+      "year": 1901,
+      "before": 1,
+      "after": 9,
+      "boundary": "1901-02-04T20:40"
+    },
+    {
+      "year": 1902,
+      "before": 9,
+      "after": 8,
+      "boundary": "1902-02-05T02:38"
+    },
+    {
+      "year": 1903,
+      "before": 8,
+      "after": 7,
+      "boundary": "1903-02-05T08:31"
+    },
+    {
+      "year": 1904,
+      "before": 7,
+      "after": 6,
+      "boundary": "1904-02-05T14:24"
+    },
+    {
+      "year": 1905,
+      "before": 6,
+      "after": 5,
+      "boundary": "1905-02-04T20:16"
+    },
+    {
+      "year": 1906,
+      "before": 5,
+      "after": 4,
+      "boundary": "1906-02-05T02:04"
+    },
+    {
+      "year": 1907,
+      "before": 4,
+      "after": 3,
+      "boundary": "1907-02-05T07:59"
+    },
+    {
+      "year": 1908,
+      "before": 3,
+      "after": 2,
+      "boundary": "1908-02-05T13:47"
+    },
+    {
+      "year": 1909,
+      "before": 2,
+      "after": 1,
+      "boundary": "1909-02-04T19:33"
+    },
+    {
+      "year": 1910,
+      "before": 1,
+      "after": 9,
+      "boundary": "1910-02-05T01:27"
+    },
+    {
+      "year": 1911,
+      "before": 9,
+      "after": 8,
+      "boundary": "1911-02-05T07:10"
+    },
+    {
+      "year": 1912,
+      "before": 8,
+      "after": 7,
+      "boundary": "1912-02-05T12:54"
+    },
+    {
+      "year": 1913,
+      "before": 7,
+      "after": 6,
+      "boundary": "1913-02-04T18:43"
+    },
+    {
+      "year": 1914,
+      "before": 6,
+      "after": 5,
+      "boundary": "1914-02-05T00:29"
+    },
+    {
+      "year": 1915,
+      "before": 5,
+      "after": 4,
+      "boundary": "1915-02-05T06:25"
+    },
+    {
+      "year": 1916,
+      "before": 4,
+      "after": 3,
+      "boundary": "1916-02-05T12:14"
+    },
+    {
+      "year": 1917,
+      "before": 3,
+      "after": 2,
+      "boundary": "1917-02-04T17:58"
+    },
+    {
+      "year": 1918,
+      "before": 2,
+      "after": 1,
+      "boundary": "1918-02-04T23:53"
+    },
+    {
+      "year": 1919,
+      "before": 1,
+      "after": 9,
+      "boundary": "1919-02-05T05:39"
+    },
+    {
+      "year": 1920,
+      "before": 9,
+      "after": 8,
+      "boundary": "1920-02-05T11:26"
+    },
+    {
+      "year": 1921,
+      "before": 8,
+      "after": 7,
+      "boundary": "1921-02-04T17:20"
+    },
+    {
+      "year": 1922,
+      "before": 7,
+      "after": 6,
+      "boundary": "1922-02-04T23:06"
+    },
+    {
+      "year": 1923,
+      "before": 6,
+      "after": 5,
+      "boundary": "1923-02-05T05:00"
+    },
+    {
+      "year": 1924,
+      "before": 5,
+      "after": 4,
+      "boundary": "1924-02-05T10:50"
+    },
+    {
+      "year": 1925,
+      "before": 4,
+      "after": 3,
+      "boundary": "1925-02-04T16:37"
+    },
+    {
+      "year": 1926,
+      "before": 3,
+      "after": 2,
+      "boundary": "1926-02-04T22:38"
+    },
+    {
+      "year": 1927,
+      "before": 2,
+      "after": 1,
+      "boundary": "1927-02-05T04:30"
+    },
+    {
+      "year": 1928,
+      "before": 1,
+      "after": 9,
+      "boundary": "1928-02-05T10:16"
+    },
+    {
+      "year": 1929,
+      "before": 9,
+      "after": 8,
+      "boundary": "1929-02-04T16:09"
+    },
+    {
+      "year": 1930,
+      "before": 8,
+      "after": 7,
+      "boundary": "1930-02-04T21:51"
+    },
+    {
+      "year": 1931,
+      "before": 7,
+      "after": 6,
+      "boundary": "1931-02-05T03:41"
+    },
+    {
+      "year": 1932,
+      "before": 6,
+      "after": 5,
+      "boundary": "1932-02-05T09:29"
+    },
+    {
+      "year": 1933,
+      "before": 5,
+      "after": 4,
+      "boundary": "1933-02-04T15:09"
+    },
+    {
+      "year": 1934,
+      "before": 4,
+      "after": 3,
+      "boundary": "1934-02-04T21:04"
+    },
+    {
+      "year": 1935,
+      "before": 3,
+      "after": 2,
+      "boundary": "1935-02-05T02:49"
+    },
+    {
+      "year": 1936,
+      "before": 2,
+      "after": 1,
+      "boundary": "1936-02-05T08:29"
+    },
+    {
+      "year": 1937,
+      "before": 1,
+      "after": 9,
+      "boundary": "1937-02-04T14:26"
+    },
+    {
+      "year": 1938,
+      "before": 9,
+      "after": 8,
+      "boundary": "1938-02-04T20:15"
+    },
+    {
+      "year": 1939,
+      "before": 8,
+      "after": 7,
+      "boundary": "1939-02-05T02:10"
+    },
+    {
+      "year": 1940,
+      "before": 7,
+      "after": 6,
+      "boundary": "1940-02-05T08:08"
+    },
+    {
+      "year": 1941,
+      "before": 6,
+      "after": 5,
+      "boundary": "1941-02-04T13:50"
+    },
+    {
+      "year": 1942,
+      "before": 5,
+      "after": 4,
+      "boundary": "1942-02-04T19:49"
+    },
+    {
+      "year": 1943,
+      "before": 4,
+      "after": 3,
+      "boundary": "1943-02-05T01:40"
+    },
+    {
+      "year": 1944,
+      "before": 3,
+      "after": 2,
+      "boundary": "1944-02-05T07:23"
+    },
+    {
+      "year": 1945,
+      "before": 2,
+      "after": 1,
+      "boundary": "1945-02-04T13:19"
+    },
+    {
+      "year": 1946,
+      "before": 1,
+      "after": 9,
+      "boundary": "1946-02-04T19:04"
+    },
+    {
+      "year": 1947,
+      "before": 9,
+      "after": 8,
+      "boundary": "1947-02-05T00:50"
+    },
+    {
+      "year": 1948,
+      "before": 8,
+      "after": 7,
+      "boundary": "1948-02-05T06:42"
+    },
+    {
+      "year": 1949,
+      "before": 7,
+      "after": 6,
+      "boundary": "1949-02-04T12:23"
+    },
+    {
+      "year": 1950,
+      "before": 6,
+      "after": 5,
+      "boundary": "1950-02-04T18:21"
+    },
+    {
+      "year": 1951,
+      "before": 5,
+      "after": 4,
+      "boundary": "1951-02-05T00:13"
+    },
+    {
+      "year": 1952,
+      "before": 4,
+      "after": 3,
+      "boundary": "1952-02-05T05:53"
+    },
+    {
+      "year": 1953,
+      "before": 3,
+      "after": 2,
+      "boundary": "1953-02-04T11:46"
+    },
+    {
+      "year": 1954,
+      "before": 2,
+      "after": 1,
+      "boundary": "1954-02-04T17:31"
+    },
+    {
+      "year": 1955,
+      "before": 1,
+      "after": 9,
+      "boundary": "1955-02-04T23:18"
+    },
+    {
+      "year": 1956,
+      "before": 9,
+      "after": 8,
+      "boundary": "1956-02-05T05:12"
+    },
+    {
+      "year": 1957,
+      "before": 8,
+      "after": 7,
+      "boundary": "1957-02-04T10:55"
+    },
+    {
+      "year": 1958,
+      "before": 7,
+      "after": 6,
+      "boundary": "1958-02-04T16:49"
+    },
+    {
+      "year": 1959,
+      "before": 6,
+      "after": 5,
+      "boundary": "1959-02-04T22:42"
+    },
+    {
+      "year": 1960,
+      "before": 5,
+      "after": 4,
+      "boundary": "1960-02-05T04:23"
+    },
+    {
+      "year": 1961,
+      "before": 4,
+      "after": 3,
+      "boundary": "1961-02-04T10:22"
+    },
+    {
+      "year": 1962,
+      "before": 3,
+      "after": 2,
+      "boundary": "1962-02-04T16:17"
+    },
+    {
+      "year": 1963,
+      "before": 2,
+      "after": 1,
+      "boundary": "1963-02-04T22:08"
+    },
+    {
+      "year": 1964,
+      "before": 1,
+      "after": 9,
+      "boundary": "1964-02-05T04:05"
+    },
+    {
+      "year": 1965,
+      "before": 9,
+      "after": 8,
+      "boundary": "1965-02-04T09:46"
+    },
+    {
+      "year": 1966,
+      "before": 8,
+      "after": 7,
+      "boundary": "1966-02-04T15:38"
+    },
+    {
+      "year": 1967,
+      "before": 7,
+      "after": 6,
+      "boundary": "1967-02-04T21:31"
+    },
+    {
+      "year": 1968,
+      "before": 6,
+      "after": 5,
+      "boundary": "1968-02-05T03:07"
+    },
+    {
+      "year": 1969,
+      "before": 5,
+      "after": 4,
+      "boundary": "1969-02-04T08:59"
+    },
+    {
+      "year": 1970,
+      "before": 4,
+      "after": 3,
+      "boundary": "1970-02-04T14:46"
+    },
+    {
+      "year": 1971,
+      "before": 3,
+      "after": 2,
+      "boundary": "1971-02-04T20:25"
+    },
+    {
+      "year": 1972,
+      "before": 2,
+      "after": 1,
+      "boundary": "1972-02-05T02:20"
+    },
+    {
+      "year": 1973,
+      "before": 1,
+      "after": 9,
+      "boundary": "1973-02-04T08:04"
+    },
+    {
+      "year": 1974,
+      "before": 9,
+      "after": 8,
+      "boundary": "1974-02-04T14:00"
+    },
+    {
+      "year": 1975,
+      "before": 8,
+      "after": 7,
+      "boundary": "1975-02-04T19:59"
+    },
+    {
+      "year": 1976,
+      "before": 7,
+      "after": 6,
+      "boundary": "1976-02-05T01:39"
+    },
+    {
+      "year": 1977,
+      "before": 6,
+      "after": 5,
+      "boundary": "1977-02-04T07:33"
+    },
+    {
+      "year": 1978,
+      "before": 5,
+      "after": 4,
+      "boundary": "1978-02-04T13:27"
+    },
+    {
+      "year": 1979,
+      "before": 4,
+      "after": 3,
+      "boundary": "1979-02-04T19:12"
+    },
+    {
+      "year": 1980,
+      "before": 3,
+      "after": 2,
+      "boundary": "1980-02-05T01:09"
+    },
+    {
+      "year": 1981,
+      "before": 2,
+      "after": 1,
+      "boundary": "1981-02-04T06:55"
+    },
+    {
+      "year": 1982,
+      "before": 1,
+      "after": 9,
+      "boundary": "1982-02-04T12:45"
+    },
+    {
+      "year": 1983,
+      "before": 9,
+      "after": 8,
+      "boundary": "1983-02-04T18:40"
+    },
+    {
+      "year": 1984,
+      "before": 8,
+      "after": 7,
+      "boundary": "1984-02-05T00:19"
+    },
+    {
+      "year": 1985,
+      "before": 7,
+      "after": 6,
+      "boundary": "1985-02-04T06:12"
+    },
+    {
+      "year": 1986,
+      "before": 6,
+      "after": 5,
+      "boundary": "1986-02-04T12:08"
+    },
+    {
+      "year": 1987,
+      "before": 5,
+      "after": 4,
+      "boundary": "1987-02-04T17:52"
+    },
+    {
+      "year": 1988,
+      "before": 4,
+      "after": 3,
+      "boundary": "1988-02-04T23:43"
+    },
+    {
+      "year": 1989,
+      "before": 3,
+      "after": 2,
+      "boundary": "1989-02-04T05:27"
+    },
+    {
+      "year": 1990,
+      "before": 2,
+      "after": 1,
+      "boundary": "1990-02-04T11:14"
+    },
+    {
+      "year": 1991,
+      "before": 1,
+      "after": 9,
+      "boundary": "1991-02-04T17:08"
+    },
+    {
+      "year": 1992,
+      "before": 9,
+      "after": 8,
+      "boundary": "1992-02-04T22:48"
+    },
+    {
+      "year": 1993,
+      "before": 8,
+      "after": 7,
+      "boundary": "1993-02-04T04:37"
+    },
+    {
+      "year": 1994,
+      "before": 7,
+      "after": 6,
+      "boundary": "1994-02-04T10:31"
+    },
+    {
+      "year": 1995,
+      "before": 6,
+      "after": 5,
+      "boundary": "1995-02-04T16:13"
+    },
+    {
+      "year": 1996,
+      "before": 5,
+      "after": 4,
+      "boundary": "1996-02-04T22:08"
+    },
+    {
+      "year": 1997,
+      "before": 4,
+      "after": 3,
+      "boundary": "1997-02-04T04:02"
+    },
+    {
+      "year": 1998,
+      "before": 3,
+      "after": 2,
+      "boundary": "1998-02-04T09:57"
+    },
+    {
+      "year": 1999,
+      "before": 2,
+      "after": 1,
+      "boundary": "1999-02-04T15:57"
+    },
+    {
+      "year": 2000,
+      "before": 1,
+      "after": 9,
+      "boundary": "2000-02-04T21:40"
+    },
+    {
+      "year": 2001,
+      "before": 9,
+      "after": 8,
+      "boundary": "2001-02-04T03:29"
+    },
+    {
+      "year": 2002,
+      "before": 8,
+      "after": 7,
+      "boundary": "2002-02-04T09:24"
+    },
+    {
+      "year": 2003,
+      "before": 7,
+      "after": 6,
+      "boundary": "2003-02-04T15:05"
+    },
+    {
+      "year": 2004,
+      "before": 6,
+      "after": 5,
+      "boundary": "2004-02-04T20:56"
+    },
+    {
+      "year": 2005,
+      "before": 5,
+      "after": 4,
+      "boundary": "2005-02-04T02:43"
+    },
+    {
+      "year": 2006,
+      "before": 4,
+      "after": 3,
+      "boundary": "2006-02-04T08:27"
+    },
+    {
+      "year": 2007,
+      "before": 3,
+      "after": 2,
+      "boundary": "2007-02-04T14:18"
+    },
+    {
+      "year": 2008,
+      "before": 2,
+      "after": 1,
+      "boundary": "2008-02-04T20:00"
+    },
+    {
+      "year": 2009,
+      "before": 1,
+      "after": 9,
+      "boundary": "2009-02-04T01:50"
+    },
+    {
+      "year": 2010,
+      "before": 9,
+      "after": 8,
+      "boundary": "2010-02-04T07:48"
+    },
+    {
+      "year": 2011,
+      "before": 8,
+      "after": 7,
+      "boundary": "2011-02-04T13:33"
+    },
+    {
+      "year": 2012,
+      "before": 7,
+      "after": 6,
+      "boundary": "2012-02-04T19:22"
+    },
+    {
+      "year": 2013,
+      "before": 6,
+      "after": 5,
+      "boundary": "2013-02-04T01:13"
+    },
+    {
+      "year": 2014,
+      "before": 5,
+      "after": 4,
+      "boundary": "2014-02-04T07:03"
+    },
+    {
+      "year": 2015,
+      "before": 4,
+      "after": 3,
+      "boundary": "2015-02-04T12:58"
+    },
+    {
+      "year": 2016,
+      "before": 3,
+      "after": 2,
+      "boundary": "2016-02-04T18:46"
+    },
+    {
+      "year": 2017,
+      "before": 2,
+      "after": 1,
+      "boundary": "2017-02-04T00:34"
+    },
+    {
+      "year": 2018,
+      "before": 1,
+      "after": 9,
+      "boundary": "2018-02-04T06:28"
+    },
+    {
+      "year": 2019,
+      "before": 9,
+      "after": 8,
+      "boundary": "2019-02-04T12:14"
+    },
+    {
+      "year": 2020,
+      "before": 8,
+      "after": 7,
+      "boundary": "2020-02-04T18:03"
+    },
+    {
+      "year": 2021,
+      "before": 7,
+      "after": 6,
+      "boundary": "2021-02-03T23:59"
+    },
+    {
+      "year": 2022,
+      "before": 6,
+      "after": 5,
+      "boundary": "2022-02-04T05:51"
+    },
+    {
+      "year": 2023,
+      "before": 5,
+      "after": 4,
+      "boundary": "2023-02-04T11:43"
+    },
+    {
+      "year": 2024,
+      "before": 4,
+      "after": 3,
+      "boundary": "2024-02-04T17:27"
+    },
+    {
+      "year": 2025,
+      "before": 3,
+      "after": 2,
+      "boundary": "2025-02-03T23:10"
+    },
+    {
+      "year": 2026,
+      "before": 2,
+      "after": 1,
+      "boundary": "2026-02-04T05:02"
+    }
+  ],
+  "frozenRuntimeProofSha256": "c94d224d6e1a9a642b44239791950d203f82a318000bd67ded89aa885b2f92a6",
+  "adoptedContentSha256": "a212072f517a5150bc10cc6ea323ab7eb1688139c0606a510562d2c8a1940654"
+}

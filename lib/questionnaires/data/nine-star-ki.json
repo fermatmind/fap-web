@@ -1,0 +1,1234 @@
+{
+  "slug": "nine-star-ki",
+  "code": "FM_NINE_STAR_YEAR_REFERENCE",
+  "kind": "nine-star-year",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "fantasy",
+  "title": {
+    "en": "Nine Star Ki Year Reference",
+    "zh": "九星气学节年参考"
+  },
+  "seoTitle": {
+    "en": "Nine Star Ki Year Reference and Cultural Guides",
+    "zh": "九星气学节年参考与九篇文化指南"
+  },
+  "description": {
+    "en": "Find a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Explore nine cultural guides, with both labels retained when timing is uncertain.",
+    "zh": "按公历年份与立春界点查看有条件的九星节年标签，阅读九篇文化指南。时刻不确定时保留两个标签，不据出生年份测量人格或预测未来。"
+  },
+  "minutes": 2,
+  "introduction": {
+    "en": "Nine Star Ki uses nine inherited number, colour and phase labels. This tool follows one annual convention: the season changes at Beginning of Spring. It shows that boundary in Japanese Standard Time and asks you to choose a side explicitly. The nine guides explain cultural images and original everyday examples; they remain open without entering a year.",
+    "zh": "九星气学使用九个由数字、传统色名和五行组成的标签。本工具采用一种年度规则：立春时刻划分节年。页面用日本标准时显示界点，由你明确选择前后。九篇指南解释文化图像与原创日常例子，无需输入年份也能阅读。"
+  },
+  "instructions": {
+    "en": "Enter a Gregorian year, then compare the birth moment with the displayed Beginning of Spring boundary in Japanese Standard Time (UTC+09:00). Select a side only if you can place that moment clearly before or after it; otherwise keep both possibilities. The displayed time is rounded to a minute, so a birth within that minute remains uncertain. This calculates one traditional year-star reference, not a complete birth chart or a measured personality.",
+    "zh": "输入公历年份，再将出生时刻与页面显示的立春界点比较。表中使用日本标准时（UTC+09:00），并非你的出生地时间。只有能够明确判断界点前后时才选单侧；生日、时刻或时区不清楚时保留两个可能结果。界点仅显示到分钟，出生在该分钟内也保留不确定。这只计算传统节年星参考，不是完整出生盘，也不是测得的人格。"
+  },
+  "resultHeading": {
+    "en": "Your conditional year reference",
+    "zh": "按所选条件得到的节年参考"
+  },
+  "nineStarYear": {
+    "minYear": 1900,
+    "maxYear": 2026,
+    "boundarySides": [
+      "before-boundary",
+      "after-boundary",
+      "uncertain"
+    ],
+    "boundaryTimeZone": "JST+09:00",
+    "boundaryPrecision": "minute",
+    "storagePolicy": "memory-only",
+    "calendarVersion": "NAOJcurrenttheory2.1i_defaultDeltaT_JST9_1900_2026_fetched20261027"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Sonoda, 1934: historical calendar and Later Heaven diagrams",
+        "zh": "园田真次郎编，1934：历法规则与后天配属图"
+      },
+      "url": "https://doi.org/10.11501/1102174"
+    },
+    {
+      "title": {
+        "en": "National Astronomical Observatory of Japan: calendar calculations",
+        "zh": "日本国立天文台：历法计算"
+      },
+      "url": "https://eco2.mtk.nao.ac.jp/cgi-bin/koyomi/cande/phenomena_sy.cgi"
+    },
+    {
+      "title": {
+        "en": "Zhouyi Zhengyi, Shuo Gua: images and commentary",
+        "zh": "《周易正义·说卦》：卦象与疏文"
+      },
+      "url": "https://zh.wikisource.org/wiki/%E5%91%A8%E6%98%93%E6%AD%A3%E7%BE%A9/09.07"
+    }
+  ],
+  "directions": [],
+  "questions": [],
+  "profiles": [
+    {
+      "id": "one-white-water",
+      "star": 1,
+      "directionIds": [],
+      "title": {
+        "en": "One White Water: Water, Channels and the Difference Between a Symbol and a Person",
+        "zh": "一白水星：水、通道，以及符号与人的区别"
+      },
+      "headline": {
+        "en": "Water channels in the Kan symbol",
+        "zh": "坎象中的水与通道"
+      },
+      "summary": {
+        "en": "One White Water joins the number 1, a traditional colour-name and the Water phase. Sonoda’s Later Heaven diagram pairs it with Kan, the water trigram. The classical commentary discusses water, channels and concealed flow; its image of a hollow or difficulty is part of an old symbolic vocabulary. It does not report anything observed about a person born in a particular year.",
+        "zh": "一白水星把数字1、传统色名与水行组合起来。园田的后天图把它配于坎卦，即水的卦象。古典疏文讨论水、沟渠与隐伏流动；陷处或困难的意象属于旧有象征词汇，并不是对某年出生者的实际观察。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "One White Water Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "一白水星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Read One White Water through Kan, water and channels. Compare it with lake and fire symbols, then check a conditional year reference without personality claims.",
+          "zh": "从坎、水与通道理解一白水星，比较泽与火的不同象义，阅读原创交流例子及立春前后的条件节年参考。文化标签不用于判断人格。"
+        }
+      },
+      "sections": [
+        {
+          "id": "one-white-water-culture-1",
+          "title": {
+            "en": "Water in the inherited symbol map",
+            "zh": "传统符号地图中的水"
+          },
+          "paragraphs": [
+            {
+              "en": "One White Water joins the number 1, a traditional colour-name and the Water phase. Sonoda’s Later Heaven diagram pairs it with Kan, the water trigram. The classical commentary discusses water, channels and concealed flow; its image of a hollow or difficulty is part of an old symbolic vocabulary. It does not report anything observed about a person born in a particular year.",
+              "zh": "一白水星把数字1、传统色名与水行组合起来。园田的后天图把它配于坎卦，即水的卦象。古典疏文讨论水、沟渠与隐伏流动；陷处或困难的意象属于旧有象征词汇，并不是对某年出生者的实际观察。"
+            }
+          ]
+        },
+        {
+          "id": "one-white-water-culture-2",
+          "title": {
+            "en": "Flowing water differs from a lake and from fire",
+            "zh": "流水与泽、火有所区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Within the symbol map, Kan’s moving or channelled water differs from Dui’s lake image, which appears with Seven Red Metal. Nine Purple Fire instead uses Li and the fire image. These distinctions help read the tradition without collapsing every natural image into one personality story. Water here does not mean that you must be secretive, flexible or emotionally deep.",
+              "zh": "在符号地图里，坎所联系的水与沟道，有别于七赤金星所配兑卦的泽象；九紫火星则配离与火。这样的区别帮助理解传统，不把各种自然图像都压成一套人格故事。这里的水不表示你必须内敛、灵活或情感深沉。"
+            }
+          ]
+        },
+        {
+          "id": "one-white-water-culture-3",
+          "title": {
+            "en": "How to read the colour and phase",
+            "zh": "怎样读色名与五行"
+          },
+          "paragraphs": [
+            {
+              "en": "White is part of the inherited name, not a recommended clothing colour or a measure of purity. Water is a category in this cultural scheme, not a chemical finding about your body. A calendar label cannot establish a talent for communication, a health tendency or a favourable direction. Those are different claims and are not outputs of this tool.",
+              "zh": "白是传统名称的一部分，不是推荐穿衣色，也不评判纯洁程度。水是这套文化图式中的类别，不是关于身体的化学发现。历法标签不能确立沟通天赋、健康倾向或有利方位，这些是另外的主张，不属于本工具输出。"
+            }
+          ]
+        },
+        {
+          "id": "one-white-water-culture-4",
+          "title": {
+            "en": "A new example: following a missing address",
+            "zh": "原创例子：追一条缺少地址的消息"
+          },
+          "paragraphs": [
+            {
+              "en": "For a present-day analogy, imagine two friends arranging a meal. One says “the usual place” and the other has never been there. Drawing where the message stopped can make the missing address visible. This is FermatMind’s new use of a channel image, not a historical claim that One White people communicate in a particular way.",
+              "zh": "作为当下类比，两位朋友约吃饭，一人说“老地方”，另一人却没去过。画出消息停在哪里，能够看见缺的是地址。这是费马新写的通道图像用法，不是传统对一白之人沟通方式的断言。"
+            }
+          ]
+        },
+        {
+          "id": "one-white-water-culture-5",
+          "title": {
+            "en": "An optional reflection, available to every reader",
+            "zh": "所有读者都能选用的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one ordinary exchange and separate what was stated, assumed and still unknown. One clarification may be enough; no exercise is required. A person who prefers firm structure can use this prompt as readily as someone who enjoys change. Whether it helps depends on the exchange, not on matching the year-star label.",
+              "zh": "若有用，可选一次普通交流，分开写明确说了什么、假定了什么、还有什么未知。一次澄清可能就够，也完全可以不做练习。喜欢固定结构的人同样可以使用，效果取决于交流本身，不取决于是否配上这颗节年星。"
+            }
+          ]
+        },
+        {
+          "id": "one-white-water-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2026, the adopted table shows Beginning of Spring at 2026-02-04 05:02 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2026 and returns 1; clearly before it uses 2025 and returns 2. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2026年，采用的表在日本标准时UTC+09:00下显示立春为2026-02-04 05:02。明确在界点之后，采用2026节年并得1；明确在之前，采用2025节年并得2。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "two-black-earth",
+      "star": 2,
+      "directionIds": [],
+      "title": {
+        "en": "Two Black Earth: Earth, Receiving and the Difference Between Support and a Fixed Role",
+        "zh": "二黒土星：地、承载，以及支持与固定角色的区别"
+      },
+      "headline": {
+        "en": "Kun, the ground image and shared support",
+        "zh": "坤、地象与共同承载"
+      },
+      "summary": {
+        "en": "Two Black Earth combines the number 2, the name Black and the Earth phase. Sonoda’s Later Heaven diagram pairs it with Kun. The classical text associates Kun with earth, receiving and carrying; the commentary expands the image through what can hold or bear things. These are inherited cultural correspondences, not evidence that a birth year gives someone a caring occupation or a duty to serve.",
+        "zh": "二黑土星组合数字2、黑的色名与土行。园田后天图把它配于坤。古典文本以地、承顺与承载说明坤，疏文再用能容纳、负载的事物展开。这些是传统文化对应，不证明出生年份会赋予照顾职业或服务别人的义务。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Two Black Earth Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "二黒土星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Explore Two Black Earth through Kun and the ground image. Compare the three Earth labels, shared support and the limits of a conditional year-star reference.",
+          "zh": "从坤与地象理解二黑土星，区分二、五、八三个土行标签，阅读聚餐分工例子与条件节年参考。承载的文化图像不分配服务义务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "two-black-earth-culture-1",
+          "title": {
+            "en": "Earth as the image of Kun",
+            "zh": "坤的地象"
+          },
+          "paragraphs": [
+            {
+              "en": "Two Black Earth combines the number 2, the name Black and the Earth phase. Sonoda’s Later Heaven diagram pairs it with Kun. The classical text associates Kun with earth, receiving and carrying; the commentary expands the image through what can hold or bear things. These are inherited cultural correspondences, not evidence that a birth year gives someone a caring occupation or a duty to serve.",
+              "zh": "二黑土星组合数字2、黑的色名与土行。园田后天图把它配于坤。古典文本以地、承顺与承载说明坤，疏文再用能容纳、负载的事物展开。这些是传统文化对应，不证明出生年份会赋予照顾职业或服务别人的义务。"
+            }
+          ]
+        },
+        {
+          "id": "two-black-earth-culture-2",
+          "title": {
+            "en": "Three Earth labels do not say the same thing",
+            "zh": "三个土行标签并非一个意思"
+          },
+          "paragraphs": [
+            {
+              "en": "Two uses Kun’s ground image; Eight White Earth uses Gen’s mountain image; Five Yellow Earth occupies the centre without a separate ninth trigram. Ground, mountain and centre offer different ways to read the scheme. Sharing the Earth phase does not make the three labels interchangeable, nor does their difference prove that three kinds of people exist.",
+              "zh": "二配坤的地象，八白土星配艮的山象，五黄土星占中宫，没有另一个第九卦。地、山与中心是读这套图式的不同角度。同属土行不代表三个标签可以互换，它们的区别也不证明现实中存在三类人。"
+            }
+          ]
+        },
+        {
+          "id": "two-black-earth-culture-3",
+          "title": {
+            "en": "Receiving need not become obedience",
+            "zh": "承接不必变成服从要求"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical vocabulary includes ideas about order and social roles from its own setting. This guide does not turn those ideas into modern rules about gender, family hierarchy or self-sacrifice. Reading a symbol of support can raise a question about how work is carried, while leaving consent, limits and the distribution of responsibility open to actual discussion.",
+              "zh": "历史词汇带有其时代的秩序与社会角色观念。本指南不把这些变成当代性别、家庭等级或自我牺牲规则。读到支持与承载的符号，可以问一问工作由谁承担，同时把意愿、边界与责任分配留给真实讨论。"
+            }
+          ]
+        },
+        {
+          "id": "two-black-earth-culture-4",
+          "title": {
+            "en": "A new example: the invisible work of a shared meal",
+            "zh": "原创例子：一顿聚餐背后的未显工作"
+          },
+          "paragraphs": [
+            {
+              "en": "In a shared meal, buying ingredients, preparing space and cleaning afterwards are different tasks. A new reflection inspired by the ground image is to make that support visible before assigning it. It is not a prediction that someone with label Two will quietly do everything, and it should not be used to justify leaving them with the work.",
+              "zh": "一顿共同聚餐里，采购、准备场地与事后清理是不同任务。借地象写出的新观察，是先让这些支持工作可见，再讨论分工。它不预测二星之人会默默做完一切，更不能被拿来合理化把工作都留给某个人。"
+            }
+          ]
+        },
+        {
+          "id": "two-black-earth-culture-5",
+          "title": {
+            "en": "An optional question about a workable contribution",
+            "zh": "可选：怎样的投入才可承担"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-stakes shared activity and name what you can offer, what you cannot and what needs agreement. You may decide that another person or a simpler plan is needed. This is an original practical prompt, available under any label. Its value can be checked in the resulting arrangement rather than in how accurately a star seems to describe you.",
+              "zh": "可选一次低风险共同活动，说清能提供什么、不能提供什么、哪些需要约定；也可能因此决定请别人参与或简化安排。这是适用于任何标签的原创提示，其价值可以通过最后的安排核对，而不靠一颗星看起来多像你。"
+            }
+          ]
+        },
+        {
+          "id": "two-black-earth-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2025, the adopted table shows Beginning of Spring at 2025-02-03 23:10 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2025 and returns 2; clearly before it uses 2024 and returns 3. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2025年，采用的表在日本标准时UTC+09:00下显示立春为2025-02-03 23:10。明确在界点之后，采用2025节年并得2；明确在之前，采用2024节年并得3。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-jade-wood",
+      "star": 3,
+      "directionIds": [],
+      "title": {
+        "en": "Three Jade Wood: Thunder, Beginning and the Difference Between Movement and Growth",
+        "zh": "三碧木星：雷、起动，以及运动与生长的区别"
+      },
+      "headline": {
+        "en": "Zhen, thunder and a visible beginning",
+        "zh": "震、雷与开始显现"
+      },
+      "summary": {
+        "en": "Three Jade Wood combines the number 3, the inherited blue-green colour-name and the Wood phase. In Sonoda’s Later Heaven diagram it is paired with Zhen. The classical text uses thunder and movement for Zhen; its commentary also describes spring vegetation emerging. These images belong to the tradition’s vocabulary of beginning and motion, not a measurement of your energy or temperament.",
+        "zh": "三碧木星组合数字3、传统碧色名与木行。园田后天图把它配于震。古典文本以雷与动说明震，疏文也谈到春日草木初生。这些图像属于传统关于起动与运动的词汇，不是对你的精力或脾气的测量。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Three Jade Wood Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "三碧木星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Read Three Jade Wood through Zhen, thunder and movement. Compare it with Four Green Wood and explore a first-draft example, plus a conditional year reference.",
+          "zh": "从震、雷与动理解三碧木星，比较四绿木星的风象，阅读第一稿的原创例子及条件节年参考。传统起动图像不预测精力或成功。"
+        }
+      },
+      "sections": [
+        {
+          "id": "three-jade-wood-culture-1",
+          "title": {
+            "en": "Wood paired with thunder",
+            "zh": "木行与雷象相配"
+          },
+          "paragraphs": [
+            {
+              "en": "Three Jade Wood combines the number 3, the inherited blue-green colour-name and the Wood phase. In Sonoda’s Later Heaven diagram it is paired with Zhen. The classical text uses thunder and movement for Zhen; its commentary also describes spring vegetation emerging. These images belong to the tradition’s vocabulary of beginning and motion, not a measurement of your energy or temperament.",
+              "zh": "三碧木星组合数字3、传统碧色名与木行。园田后天图把它配于震。古典文本以雷与动说明震，疏文也谈到春日草木初生。这些图像属于传统关于起动与运动的词汇，不是对你的精力或脾气的测量。"
+            }
+          ]
+        },
+        {
+          "id": "three-jade-wood-culture-2",
+          "title": {
+            "en": "The two Wood labels have different images",
+            "zh": "两个木行标签使用不同图像"
+          },
+          "paragraphs": [
+            {
+              "en": "Three’s Zhen image emphasises movement and the appearance of a beginning. Four Green Wood instead pairs with Xun and wind. The distinction lets a reader compare a first movement with an image of entry and extension. It does not divide people into fast and slow, brave and hesitant, or better and worse at starting projects.",
+              "zh": "三的震象侧重运动与开始显现；四绿木星则配巽与风。读者可以比较起初一动，与进入、延伸的图像，但这不把人分为快慢、勇敢或犹豫，也不排列谁更会开启项目。"
+            }
+          ]
+        },
+        {
+          "id": "three-jade-wood-culture-3",
+          "title": {
+            "en": "A beginning is an image, not a forecast",
+            "zh": "开始是图像，不是预告"
+          },
+          "paragraphs": [
+            {
+              "en": "Thunder in an old symbolic system does not predict a disruptive event, sudden success or an impulsive personality. Nor is the Wood phase a claim that a particular physical element determines behaviour. This annual tool returns a conventional label. It cannot determine whether starting now is sensible; the actual resources, stakes and commitments still matter.",
+              "zh": "旧象征系统中的雷不预告突发事件、突然成功或冲动人格。木行也不意味着某种物理元素决定行为。本节年工具返回的是约定标签，不能决定此刻开始是否合理；实际资源、后果与承诺仍需考虑。"
+            }
+          ]
+        },
+        {
+          "id": "three-jade-wood-culture-4",
+          "title": {
+            "en": "A new example: making a first draft visible",
+            "zh": "原创例子：把第一稿变成看得见的一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group planning a small community notice. Producing one rough draft can expose a missing date more clearly than further discussion of the finished design. This is a new analogy for a beginning becoming visible. It is not evidence that a Three-labelled person should always lead or that moving first guarantees a useful result.",
+              "zh": "例如小组准备一份社区通知，先做一个粗稿，可能比继续讨论最终设计更容易看见日期还没定。这是“开始显现”的新类比，不证明三标签的人应该总带头，也不保证先行动就有用。"
+            }
+          ]
+        },
+        {
+          "id": "three-jade-wood-culture-5",
+          "title": {
+            "en": "An optional first step with a stopping point",
+            "zh": "可选：给第一步一个停止点"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary plan, identify a small step that can be revised and a moment to check what it revealed. You can choose to wait if key information is absent. The point is to inspect what a beginning makes visible, not to praise speed. Readers with any annual label may use or decline this prompt.",
+              "zh": "对一项普通计划，可选一个能修改的小步骤，并定一个回看它揭示了什么的时点。关键信息缺失时也可以等待。观察的是开始后能看见什么，不是赞美速度；任何节年标签的读者都可以选择使用或略过。"
+            }
+          ]
+        },
+        {
+          "id": "three-jade-wood-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2024, the adopted table shows Beginning of Spring at 2024-02-04 17:27 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2024 and returns 3; clearly before it uses 2023 and returns 4. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2024年，采用的表在日本标准时UTC+09:00下显示立春为2024-02-04 17:27。明确在界点之后，采用2024节年并得3；明确在之前，采用2023节年并得4。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "four-green-wood",
+      "star": 4,
+      "directionIds": [],
+      "title": {
+        "en": "Four Green Wood: Wind, Entry and the Difference Between Extension and Drift",
+        "zh": "四緑木星：风、进入，以及延伸与飘移的区别"
+      },
+      "headline": {
+        "en": "Xun, wind and how an idea reaches others",
+        "zh": "巽、风与想法怎样传达"
+      },
+      "summary": {
+        "en": "Four Green Wood combines the number 4, the inherited Green name and the Wood phase. Sonoda’s Later Heaven diagram pairs it with Xun. The classical text associates Xun with wind, wood and entry. That vocabulary gives the cultural label an image distinct from Three’s thunder. It does not demonstrate that a person is naturally diplomatic, indecisive or skilled at persuasion.",
+        "zh": "四绿木星组合数字4、绿的色名与木行。园田后天图把它配于巽。古典文本把巽与风、木和入相联系，使这个文化标签有别于三的雷象，却不能证明某个人天生圆融、犹豫或擅长说服。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Four Green Wood Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "四緑木星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Explore Four Green Wood through Xun, wind and entry. Compare it with thunder, read an original shared-routine example and check the conditional year method.",
+          "zh": "从巽、风与入理解四绿木星，比较三碧木星的雷象，阅读共同惯例的原创例子与条件节年方法。符号不规定社交角色。"
+        }
+      },
+      "sections": [
+        {
+          "id": "four-green-wood-culture-1",
+          "title": {
+            "en": "The image of Xun",
+            "zh": "巽的图像"
+          },
+          "paragraphs": [
+            {
+              "en": "Four Green Wood combines the number 4, the inherited Green name and the Wood phase. Sonoda’s Later Heaven diagram pairs it with Xun. The classical text associates Xun with wind, wood and entry. That vocabulary gives the cultural label an image distinct from Three’s thunder. It does not demonstrate that a person is naturally diplomatic, indecisive or skilled at persuasion.",
+              "zh": "四绿木星组合数字4、绿的色名与木行。园田后天图把它配于巽。古典文本把巽与风、木和入相联系，使这个文化标签有别于三的雷象，却不能证明某个人天生圆融、犹豫或擅长说服。"
+            }
+          ]
+        },
+        {
+          "id": "four-green-wood-culture-2",
+          "title": {
+            "en": "Wind and thunder offer a useful contrast",
+            "zh": "风与雷提供一种阅读对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Three and Four share the Wood phase but not their paired trigram. Zhen presents movement; Xun presents entry, with wind as a natural image. Reading the contrast is a way to understand the symbol map. It should not be turned into a claim that one birth group acts directly while another must influence people indirectly.",
+              "zh": "三与四同属木行，所配卦却不同：震以动为象，巽以入为义，并联系风。比较它们，是理解符号地图的一种办法，不应转成某一出生组直接行动、另一组必须间接影响人的断言。"
+            }
+          ]
+        },
+        {
+          "id": "four-green-wood-culture-3",
+          "title": {
+            "en": "Cultural vocabulary is not a social obligation",
+            "zh": "文化词汇不是社交义务"
+          },
+          "paragraphs": [
+            {
+              "en": "Old lists of correspondences contain claims and social assumptions beyond the limited images used here. This guide does not adopt predictions about trade, appearance, relationships or fate. Entry can be read as a metaphor while a person remains free to decline an invitation, state a direct boundary or choose not to adapt to someone else’s preference.",
+              "zh": "旧对应列表含有超出此处有限图像的主张与社会预设。本指南不采用关于交易、外貌、关系或命运的预测。可以把“入”当作比喻来读，同时仍可拒绝邀请、直接说明边界，或不去适应别人的偏好。"
+            }
+          ]
+        },
+        {
+          "id": "four-green-wood-culture-4",
+          "title": {
+            "en": "A new example: a change that reaches one shared routine",
+            "zh": "原创例子：一个改变怎样进入共同惯例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a household wants to reduce missed deliveries. Trying a clearly labelled collection spot in one routine can reveal whether the idea reaches the people who need it. This is FermatMind’s modern analogy for entry and extension. Whether the change works depends on access and agreement, not on the household members’ stars.",
+              "zh": "例如同住的人希望减少漏取快递，先在一项惯例中试用标识清楚的存放处，可以观察办法是否真正传达给需要的人。这是费马关于进入与延伸的新类比；它是否有效取决于可及性与约定，而不是成员的星。"
+            }
+          ]
+        },
+        {
+          "id": "four-green-wood-culture-5",
+          "title": {
+            "en": "An optional check on how an idea travels",
+            "zh": "可选：看看一个想法怎样传开"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-stakes suggestion. Note who has heard it, what they understood and whether they agreed to try it. A direct question may be more useful than further subtle signals. The exercise does not require you to become more accommodating, and a failed trial does not confirm a fixed Four Green personality.",
+              "zh": "可选一个低风险建议，记下谁听过、理解了什么、是否同意试用。直接问一句可能比继续暗示更有用。练习不要求你变得更迁就，一次尝试无效也不能证实固定的四绿人格。"
+            }
+          ]
+        },
+        {
+          "id": "four-green-wood-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2023, the adopted table shows Beginning of Spring at 2023-02-04 11:43 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2023 and returns 4; clearly before it uses 2022 and returns 5. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2023年，采用的表在日本标准时UTC+09:00下显示立春为2023-02-04 11:43。明确在界点之后，采用2023节年并得4；明确在之前，采用2022节年并得5。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "five-yellow-earth",
+      "star": 5,
+      "directionIds": [],
+      "title": {
+        "en": "Five Yellow Earth: The Centre, Connections and the Difference Between a Position and Power",
+        "zh": "五黄土星：中心、连接，以及位置与权力的区别"
+      },
+      "headline": {
+        "en": "The central Earth position and its limits",
+        "zh": "中宫土位及其边界"
+      },
+      "summary": {
+        "en": "Five Yellow Earth combines the number 5, the Yellow name and the Earth phase. In Sonoda’s Later Heaven diagram it occupies the centre while eight trigrams surround it. The visible source does not supply a separate ninth trigram for Five. Its distinct cultural feature here is a place in the scheme, not a measured central role in someone’s family or workplace.",
+        "zh": "五黄土星组合数字5、黄色名与土行。园田后天图中它占中心，周围是八卦。所见原文没有为五另设第九卦。此处明确的文化特点是图式中的位置，不是测得某人在家庭或工作中处于核心角色。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Five Yellow Earth Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "五黄土星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Understand Five Yellow Earth as the central position among eight trigrams. Explore its Earth-label contrasts, a coordination example and the year method.",
+          "zh": "理解五黄土星在八卦围绕中的中宫土位，区分地、山与中心，阅读共同文档例子与节年方法。不增设第九卦，也不预测吉凶。"
+        }
+      },
+      "sections": [
+        {
+          "id": "five-yellow-earth-culture-1",
+          "title": {
+            "en": "A central Earth label without a ninth trigram",
+            "zh": "位于中心的土星，没有第九卦"
+          },
+          "paragraphs": [
+            {
+              "en": "Five Yellow Earth combines the number 5, the Yellow name and the Earth phase. In Sonoda’s Later Heaven diagram it occupies the centre while eight trigrams surround it. The visible source does not supply a separate ninth trigram for Five. Its distinct cultural feature here is a place in the scheme, not a measured central role in someone’s family or workplace.",
+              "zh": "五黄土星组合数字5、黄色名与土行。园田后天图中它占中心，周围是八卦。所见原文没有为五另设第九卦。此处明确的文化特点是图式中的位置，不是测得某人在家庭或工作中处于核心角色。"
+            }
+          ]
+        },
+        {
+          "id": "five-yellow-earth-culture-2",
+          "title": {
+            "en": "Centre, ground and mountain are not interchangeable",
+            "zh": "中心、地与山不能互换"
+          },
+          "paragraphs": [
+            {
+              "en": "Two Black Earth pairs with Kun’s ground; Eight White Earth pairs with Gen’s mountain; Five is the central Earth position. The three share a phase but have different structural places in the inherited scheme. Centrality does not imply that Five is a superior result, a dominant personality or the cause of everything happening around a person.",
+              "zh": "二黑土星配坤的地，八白土星配艮的山，五则是中宫土位。同属土行，却在传统图式中有不同结构位置。居中不表示五是更优结果、主导人格，也不表示周围一切事情都由某个人造成。"
+            }
+          ]
+        },
+        {
+          "id": "five-yellow-earth-culture-3",
+          "title": {
+            "en": "The historical diagram is not a warning to live by",
+            "zh": "历史图式不是必须遵从的警告"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical work also makes fortune and direction claims that this tool does not adopt. In particular, the word Yellow or a central Five label should not be interpreted as predicting harm, granting authority or demanding control over other people. A calendar result provides no evidence for those conclusions and should not make an ordinary year feel threatening.",
+              "zh": "历史书中另有本工具不采用的吉凶与方位主张。尤其不能把黄或中宫五标签读成伤害预告、权威授予，或控制他人的要求。历法结果没有为这些结论提供证据，也不该让一个普通年份显得可怕。"
+            }
+          ]
+        },
+        {
+          "id": "five-yellow-earth-culture-4",
+          "title": {
+            "en": "A new example: a shared document as a connecting point",
+            "zh": "原创例子：把共同文档当作连接点"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a small event with separate tasks for the venue, invitations and supplies. A shared document can show which task depends on another without giving its editor ownership of everyone’s decisions. This is a new, limited analogy for a centre as a connecting place. It does not imply that Five-labelled people must be leaders or coordinators.",
+              "zh": "例如一个小活动，场地、邀请和物资各有任务。共同文档能显示谁依赖谁，却不意味着编辑文档的人拥有所有决定权。这是把中心当作连接点的新有限类比，不表示五标签的人必须成为领导者或协调者。"
+            }
+          ]
+        },
+        {
+          "id": "five-yellow-earth-culture-5",
+          "title": {
+            "en": "An optional map of dependencies and limits",
+            "zh": "可选：画出依赖，也画出边界"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary shared plan, mark what depends on what and who can decide each part. Notice any information that is missing. You may simplify the plan or distribute the connecting work. The practical question is how coordination is arranged, not whether you are important enough to deserve a central label.",
+              "zh": "对一项普通共同计划，可标出什么依赖什么、每部分由谁作主，再看缺什么信息。也可以简化计划，或把连接工作分担出去。实际问题是协调怎样安排，不是自己够不够重要、配不配中心标签。"
+            }
+          ]
+        },
+        {
+          "id": "five-yellow-earth-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, shows Five Yellow Earth in the centre with the eight trigrams around it. The classical eight-trigram images help explain its neighbours; they do not provide a ninth trigram or a Five personality. These are cultural records, not scientific validation. Boundary times use the adopted NAOJ table. All present-day examples above are original FermatMind writing. No forecast or direction advice is supplied.",
+              "zh": "园田1934年《改正方位明鉴》印刷页19，显示五黄土星在中心、八卦在周围。古典八卦图像帮助说明邻近符号，不提供第九卦或五的人格。这些是文化记录，不是科学验证。界点使用所注明的日本国立天文台表；以上当代例子均为费马原创，不提供预测或方位建议。"
+            },
+            {
+              "en": "For the Gregorian year 2022, the adopted table shows Beginning of Spring at 2022-02-04 05:51 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2022 and returns 5; clearly before it uses 2021 and returns 6. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2022年，采用的表在日本标准时UTC+09:00下显示立春为2022-02-04 05:51。明确在界点之后，采用2022节年并得5；明确在之前，采用2021节年并得6。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "six-white-metal",
+      "star": 6,
+      "directionIds": [],
+      "title": {
+        "en": "Six White Metal: Heaven, Continuity and the Difference Between a Standard and a Status",
+        "zh": "六白金星：天、持续，以及标准与地位的区别"
+      },
+      "headline": {
+        "en": "Qian, heaven and a standard that serves a task",
+        "zh": "乾、天象与服务实际任务的标准"
+      },
+      "summary": {
+        "en": "Six White Metal combines the number 6, the White name and the Metal phase. Sonoda’s Later Heaven diagram pairs it with Qian. The classical text associates Qian with heaven and continuing strength or activity. This is an inherited symbolic correspondence, not a measurement of leadership, reliability or social rank among people born in the same year.",
+        "zh": "六白金星组合数字6、白色名与金行。园田后天图把它配于乾。古典文本联系乾、天与持续健行。这是传统符号对应，不是对同年出生者领导力、可靠程度或社会地位的测量。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Six White Metal Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "六白金星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Explore Six White Metal through Qian, heaven and continuity. Compare it with Seven Red Metal, read a checklist example and check the conditional year method.",
+          "zh": "从乾、天与健行理解六白金星，比较七赤金星的泽象，阅读协作清单例子与条件节年参考。历史图像不授予地位或领导能力。"
+        }
+      },
+      "sections": [
+        {
+          "id": "six-white-metal-culture-1",
+          "title": {
+            "en": "Qian and the image of heaven",
+            "zh": "乾与天象"
+          },
+          "paragraphs": [
+            {
+              "en": "Six White Metal combines the number 6, the White name and the Metal phase. Sonoda’s Later Heaven diagram pairs it with Qian. The classical text associates Qian with heaven and continuing strength or activity. This is an inherited symbolic correspondence, not a measurement of leadership, reliability or social rank among people born in the same year.",
+              "zh": "六白金星组合数字6、白色名与金行。园田后天图把它配于乾。古典文本联系乾、天与持续健行。这是传统符号对应，不是对同年出生者领导力、可靠程度或社会地位的测量。"
+            }
+          ]
+        },
+        {
+          "id": "six-white-metal-culture-2",
+          "title": {
+            "en": "Two Metal labels, different images",
+            "zh": "两个金行标签，图像不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Six uses Qian’s heaven image; Seven Red Metal uses Dui’s lake image. Their shared Metal phase does not remove that difference. The contrast offers a way to read the traditional scheme without assuming that all Metal labels mean strictness, wealth or toughness. Nor does the shared White name make Six equivalent to One White Water or Eight White Earth.",
+              "zh": "六用乾的天象，七赤金星用兑的泽象；同属金行并不消除区别。这个对照帮助阅读传统，而不假定所有金标签都意味着严格、财富或强硬。同有白字，也不使六等同于一白水星或八白土星。"
+            }
+          ]
+        },
+        {
+          "id": "six-white-metal-culture-3",
+          "title": {
+            "en": "Historic status language stays in its setting",
+            "zh": "历史地位词汇留在其时代"
+          },
+          "paragraphs": [
+            {
+              "en": "Classical correspondences also use roles such as ruler and father. This guide does not turn that historical vocabulary into a modern hierarchy, a gender rule or permission to command. An image of continuity can be discussed while actual authority remains defined by consent, responsibility and the setting, rather than by a year-star assignment.",
+              "zh": "古典对应还使用君与父等角色。本指南不把这些历史词汇变成当代等级、性别规则或命令他人的许可。可以讨论持续的图像，同时让实际权责由意愿、责任与情境决定，而不由节年星分派。"
+            }
+          ]
+        },
+        {
+          "id": "six-white-metal-culture-4",
+          "title": {
+            "en": "A new example: a standard that helps a shared task",
+            "zh": "原创例子：一项真正帮助合作的标准"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people preparing materials for a local club. A short, agreed checklist can keep the date and contact details consistent across versions. This is a new analogy for continuity, not a historical test of Six White character. The checklist serves the task; its author does not gain a higher personal status from maintaining it.",
+              "zh": "例如两人为当地社团准备材料，一份简短且双方同意的清单，能让各版本的日期与联系方式保持一致。这是关于持续的新类比，不是对六白性格的传统检验。清单服务于任务，维护它的人不会因此获得更高的人格地位。"
+            }
+          ]
+        },
+        {
+          "id": "six-white-metal-culture-5",
+          "title": {
+            "en": "An optional look at what a standard serves",
+            "zh": "可选：看清标准服务什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary rule you follow. Name the practical need it serves and the circumstances in which it should be reviewed. If it no longer serves the need, discussing a change is compatible with care. This original reflection is available to any reader; it does not require becoming stricter or proving that you fit the label.",
+              "zh": "可选一项平时遵守的普通规则，说清它服务的实际需要，以及什么情况下应重新讨论。不再满足需要时，讨论改变也可以是认真负责。任何读者都能选用这份原创观察，无须更严格，也无须证明自己符合标签。"
+            }
+          ]
+        },
+        {
+          "id": "six-white-metal-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2021, the adopted table shows Beginning of Spring at 2021-02-03 23:59 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2021 and returns 6; clearly before it uses 2020 and returns 7. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2021年，采用的表在日本标准时UTC+09:00下显示立春为2021-02-03 23:59。明确在界点之后，采用2021节年并得6；明确在之前，采用2020节年并得7。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seven-red-metal",
+      "star": 7,
+      "directionIds": [],
+      "title": {
+        "en": "Seven Red Metal: The Lake, Shared Enjoyment and the Difference Between Expression and a Trait",
+        "zh": "七赤金星：泽、共享愉悦，以及表达与特质的区别"
+      },
+      "headline": {
+        "en": "Dui, the lake image and room for enjoyment",
+        "zh": "兑、泽象与不同的愉悦"
+      },
+      "summary": {
+        "en": "Seven Red Metal combines the number 7, the Red name and the Metal phase. Sonoda’s Later Heaven diagram pairs it with Dui. The classical text connects Dui with a lake or marsh and with delight; later in the same chapter it includes speech among its images. Those are cultural associations, not proof of charm, sociability or an easy life.",
+        "zh": "七赤金星组合数字7、赤色名与金行。园田后天图把它配于兑。古典文本联系兑、泽与悦，同章后文还列出口舌之象。这些是文化联系，不证明魅力、社交性或轻松的人生。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Red Metal Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "七赤金星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Read Seven Red Metal through Dui, the lake and delight. Distinguish its Metal phase from its red name, with a gathering example and conditional year reference.",
+          "zh": "从兑、泽与悦理解七赤金星，区分赤色名与金行，阅读聚会偏好的原创例子及条件节年参考。文化象义不要求外向或取悦他人。"
+        }
+      },
+      "sections": [
+        {
+          "id": "seven-red-metal-culture-1",
+          "title": {
+            "en": "Dui and the image of a lake",
+            "zh": "兑与泽象"
+          },
+          "paragraphs": [
+            {
+              "en": "Seven Red Metal combines the number 7, the Red name and the Metal phase. Sonoda’s Later Heaven diagram pairs it with Dui. The classical text connects Dui with a lake or marsh and with delight; later in the same chapter it includes speech among its images. Those are cultural associations, not proof of charm, sociability or an easy life.",
+              "zh": "七赤金星组合数字7、赤色名与金行。园田后天图把它配于兑。古典文本联系兑、泽与悦，同章后文还列出口舌之象。这些是文化联系，不证明魅力、社交性或轻松的人生。"
+            }
+          ]
+        },
+        {
+          "id": "seven-red-metal-culture-2",
+          "title": {
+            "en": "Lake differs from water, heaven and fire",
+            "zh": "泽与水、天、火各有区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Dui’s lake image differs from One White Water’s Kan and from Six White Metal’s Qian, despite sharing water imagery with the former and a phase with the latter. Its Red name also does not make it Fire; Nine Purple is the Fire label here. Keeping names, phases and trigrams separate prevents a colour from becoming an invented scoring rule.",
+              "zh": "兑的泽象不同于一白水星的坎，也不同于六白金星的乾，尽管与前者都有水的图像、与后者同属一行。赤字也不使它变成火；这里的火标签是九紫。区分名称、五行与卦象，可以避免把颜色变成凭空的计分规则。"
+            }
+          ]
+        },
+        {
+          "id": "seven-red-metal-culture-3",
+          "title": {
+            "en": "Delight is not a demand to entertain",
+            "zh": "悦不是取悦别人的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Reading a symbol of delight does not create a duty to smile, speak often or make a group happy. The historical source is not evidence that a Seven-labelled person should spend more, host every gathering or be responsible for others’ feelings. A cultural image can be enjoyed without becoming a prescribed social role.",
+              "zh": "读到悦的符号，不会产生必须微笑、多说话或逗大家开心的义务。历史来源不证明七标签的人应该多消费、主持每场聚会或为别人的感受负责。可以欣赏文化图像，不把它变成规定好的社交角色。"
+            }
+          ]
+        },
+        {
+          "id": "seven-red-metal-culture-4",
+          "title": {
+            "en": "A new example: checking what makes a gathering pleasant",
+            "zh": "原创例子：确认聚会怎样才令人舒适"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine friends choosing a short evening activity. Asking whether they prefer a quiet walk or a busy café makes different kinds of enjoyment discussable. This is a new reflection using the delight image; it is not a prediction of anyone’s tastes. A quiet preference is no less compatible with reading this guide than an outgoing one.",
+              "zh": "例如朋友在选晚间短活动，问一句喜欢安静散步还是热闹咖啡馆，就能讨论不同的愉悦。这是借悦之象写的新观察，不预测任何人的口味。喜欢安静与喜欢热闹的人，都同样可以阅读本指南。"
+            }
+          ]
+        },
+        {
+          "id": "seven-red-metal-culture-5",
+          "title": {
+            "en": "An optional expression with room for another answer",
+            "zh": "可选：表达偏好，也留出别的答案"
+          },
+          "paragraphs": [
+            {
+              "en": "In one low-stakes plan, state a preference and invite another person to offer theirs without demanding agreement. Notice whether the plan becomes clearer. You may decline to organise anything. The exercise is about an actual exchange, not proving a sociable identity, and an awkward response neither confirms nor refutes a calendar symbol.",
+              "zh": "在一次低风险安排中，可以说明自己的偏好，也邀请对方提出偏好，不要求立刻一致。看看计划是否更清楚；也可以不承担组织工作。练习针对真实交流，不是证明社交身份，一次尴尬回应既不证实也不推翻历法符号。"
+            }
+          ]
+        },
+        {
+          "id": "seven-red-metal-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2020, the adopted table shows Beginning of Spring at 2020-02-04 18:03 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2020 and returns 7; clearly before it uses 2019 and returns 8. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2020年，采用的表在日本标准时UTC+09:00下显示立春为2020-02-04 18:03。明确在界点之后，采用2020节年并得7；明确在之前，采用2019节年并得8。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eight-white-earth",
+      "star": 8,
+      "directionIds": [],
+      "title": {
+        "en": "Eight White Earth: The Mountain, Pausing and the Difference Between a Boundary and Stubbornness",
+        "zh": "八白土星：山、止，以及边界与固执的区别"
+      },
+      "headline": {
+        "en": "Gen, the mountain and a purposeful pause",
+        "zh": "艮、山与有用途的暂停"
+      },
+      "summary": {
+        "en": "Eight White Earth combines the number 8, the White name and the Earth phase. Sonoda’s Later Heaven diagram pairs it with Gen. The classical text uses mountain and stopping for Gen, and discusses endings and beginnings elsewhere in the chapter. This cultural vocabulary does not measure a person’s patience, resistance to change or ability to keep a secret.",
+        "zh": "八白土星组合数字8、白色名与土行。园田后天图把它配于艮。古典文本以山与止说明艮，同章别处也讨论终与始。这套文化词汇不测量耐心、抗拒变化或保守秘密的能力。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Eight White Earth Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "八白土星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Explore Eight White Earth through Gen, mountain and stopping. Compare the Earth labels, read a task-transition example and check the conditional year method.",
+          "zh": "从艮、山与止理解八白土星，区分三个土行标签，阅读任务转换例子与条件节年参考。山象不证明固执，也不要求拒绝变化。"
+        }
+      },
+      "sections": [
+        {
+          "id": "eight-white-earth-culture-1",
+          "title": {
+            "en": "Gen and the image of a mountain",
+            "zh": "艮与山象"
+          },
+          "paragraphs": [
+            {
+              "en": "Eight White Earth combines the number 8, the White name and the Earth phase. Sonoda’s Later Heaven diagram pairs it with Gen. The classical text uses mountain and stopping for Gen, and discusses endings and beginnings elsewhere in the chapter. This cultural vocabulary does not measure a person’s patience, resistance to change or ability to keep a secret.",
+              "zh": "八白土星组合数字8、白色名与土行。园田后天图把它配于艮。古典文本以山与止说明艮，同章别处也讨论终与始。这套文化词汇不测量耐心、抗拒变化或保守秘密的能力。"
+            }
+          ]
+        },
+        {
+          "id": "eight-white-earth-culture-2",
+          "title": {
+            "en": "Mountain, ground and centre offer different views",
+            "zh": "山、地与中心是不同视角"
+          },
+          "paragraphs": [
+            {
+              "en": "Eight’s mountain image is distinct from Two Black Earth’s ground and Five Yellow Earth’s central position. All three are Earth labels, yet one may be read through a stopping place, another through carrying and another through structural centrality. These are distinctions within a symbol system, not three validated profiles of how people manage change.",
+              "zh": "八的山象不同于二黑土星的地，也不同于五黄土星的中心位置。三者同属土行，却可分别从停止处、承载与结构居中来读。这些是符号系统内部的区别，不是三套已经验证的人如何应对变化的档案。"
+            }
+          ]
+        },
+        {
+          "id": "eight-white-earth-culture-3",
+          "title": {
+            "en": "Stopping is not automatically refusing",
+            "zh": "止不自动等于拒绝改变"
+          },
+          "paragraphs": [
+            {
+              "en": "A mountain image can support a discussion of a pause or limit, but it does not show that a person is stubborn, isolated or destined for major upheaval. A decision to stop may be sensible or unhelpful depending on the actual situation. The annual label supplies none of the evidence needed to decide which is true.",
+              "zh": "山的图像可以引出暂停或界限的讨论，却不说明一个人固执、孤立或注定经历剧变。停下来可能合理，也可能无益，要看实际情境。节年标签没有提供作出这种判断所需的证据。"
+            }
+          ]
+        },
+        {
+          "id": "eight-white-earth-culture-4",
+          "title": {
+            "en": "A new example: ending one task before accepting another",
+            "zh": "原创例子：接下一件事之前先结束眼前一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a volunteer finishing a small inventory when another request arrives. Recording the current stopping point and agreeing when the new request can begin may keep both tasks understandable. This is a new analogy for a boundary between activities, not an instruction for Eight-labelled people to avoid new plans or preserve every existing arrangement.",
+              "zh": "例如志愿者正在做小清点，又收到新请求。记下眼前做到哪一步，再约定新请求何时开始，可能让两项任务都更清楚。这是活动之间边界的新类比，不要求八标签的人躲开新计划，或保留所有既有安排。"
+            }
+          ]
+        },
+        {
+          "id": "eight-white-earth-culture-5",
+          "title": {
+            "en": "An optional pause with a defined purpose",
+            "zh": "可选：给暂停一个明确用途"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary transition, decide what must be recorded or completed before moving on and what can wait. Set a review point if a pause is needed. You may discover that immediate action is better. This original prompt asks what the boundary serves; it does not reward staying still or require you to resemble a mountain.",
+              "zh": "对一次普通转换，可以决定转入下一步前必须记下或完成什么，哪些能等。需要暂停时给一个回看时点；也可能发现立即行动更好。这份原创提示问的是边界服务什么，不奖励停住，也不要求你像一座山。"
+            }
+          ]
+        },
+        {
+          "id": "eight-white-earth-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2019, the adopted table shows Beginning of Spring at 2019-02-04 12:14 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2019 and returns 8; clearly before it uses 2018 and returns 9. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2019年，采用的表在日本标准时UTC+09:00下显示立春为2019-02-04 12:14。明确在界点之后，采用2019节年并得8；明确在之前，采用2018节年并得9。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nine-purple-fire",
+      "star": 9,
+      "directionIds": [],
+      "title": {
+        "en": "Nine Purple Fire: Fire, Illumination and the Difference Between Visibility and Approval",
+        "zh": "九紫火星：火、显明，以及看得见与被认可的区别"
+      },
+      "headline": {
+        "en": "Li, fire and what a demonstration reveals",
+        "zh": "离、火与展示能显出什么"
+      },
+      "summary": {
+        "en": "Nine Purple Fire combines the number 9, the Purple name and the Fire phase. Sonoda’s Later Heaven diagram pairs it with Li. The classical text relates Li to fire and the sun; its explanation of attachment concerns how fire rests on something. These are inherited images of the trigram, not observations that someone is dramatic, attractive or intellectually gifted.",
+        "zh": "九紫火星组合数字9、紫色名与火行。园田后天图把它配于离。古典文本联系离、火与日；关于附丽的解释涉及火有所附着。这些是卦的传统图像，不是对某个人张扬、有魅力或聪明的观察。"
+      },
+      "scoreReading": {
+        "en": "This is a calendar label, not a score. Your selected side of the displayed Beginning of Spring boundary determines the effective season year; uncertainty retains both adjacent labels.",
+        "zh": "这是历法标签，不是分数。所选立春界点前后决定采用的节年；不确定时保留前后两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nine Purple Fire Meaning, Symbol and Year Reference | Nine Star Ki",
+          "zh": "九紫火星的文化象义与节年参考｜九星气学"
+        },
+        "description": {
+          "en": "Read Nine Purple Fire through Li, fire and illumination. Compare it with thunder and Seven Red Metal, plus a demonstration example and conditional year method.",
+          "zh": "从离、火与显明理解九紫火星，比较雷象与七赤金星，阅读修补演示例子与条件节年参考。可见不等于正确，也不预测认可。"
+        }
+      },
+      "sections": [
+        {
+          "id": "nine-purple-fire-culture-1",
+          "title": {
+            "en": "Li and the image of fire",
+            "zh": "离与火象"
+          },
+          "paragraphs": [
+            {
+              "en": "Nine Purple Fire combines the number 9, the Purple name and the Fire phase. Sonoda’s Later Heaven diagram pairs it with Li. The classical text relates Li to fire and the sun; its explanation of attachment concerns how fire rests on something. These are inherited images of the trigram, not observations that someone is dramatic, attractive or intellectually gifted.",
+              "zh": "九紫火星组合数字9、紫色名与火行。园田后天图把它配于离。古典文本联系离、火与日；关于附丽的解释涉及火有所附着。这些是卦的传统图像，不是对某个人张扬、有魅力或聪明的观察。"
+            }
+          ]
+        },
+        {
+          "id": "nine-purple-fire-culture-2",
+          "title": {
+            "en": "Fire differs from thunder and from a red name",
+            "zh": "火不同于雷，也不由赤字决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Nine’s Li and fire image differs from Three’s Zhen and thunder. Both can suggest vivid natural scenes, but the traditional mapping keeps them separate. Seven Red is a Metal label here despite its colour-name. Likewise, the old term for attachment should not be casually read as a modern prediction of relationship style or a requirement to stay with someone.",
+              "zh": "九的离与火，有别于三的震与雷。两者都可形成鲜明自然图景，传统配属仍将它们分开。七赤在此属于金，不由色名决定为火。旧有附丽之义，也不能随手读成现代关系风格预测，或要求依附某个人。"
+            }
+          ]
+        },
+        {
+          "id": "nine-purple-fire-culture-3",
+          "title": {
+            "en": "Illumination does not guarantee truth or admiration",
+            "zh": "显明不保证正确，也不保证赞赏"
+          },
+          "paragraphs": [
+            {
+              "en": "A fire or sun image can be discussed as something becoming visible. Visibility itself does not show that a claim is correct or that an audience will approve. This guide adopts no forecast of recognition, reputation, beauty or fortune. It uses a cultural image while leaving a person’s actual work open to ordinary evidence and feedback.",
+              "zh": "火与日的图像可以引出事物变得可见的讨论。但可见本身不证明主张正确，也不保证观众赞同。本指南不预测认可、名声、美貌或运势，而是在使用文化图像时，仍让真实作品接受通常的证据与反馈。"
+            }
+          ]
+        },
+        {
+          "id": "nine-purple-fire-culture-4",
+          "title": {
+            "en": "A new example: a clear demonstration reveals a gap",
+            "zh": "原创例子：一次清楚展示也会显出缺口"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine explaining a small repair to a friend. Showing the steps may reveal that one part is missing, even though the written plan sounded complete. This is FermatMind’s new analogy for illumination. The useful result is the newly visible gap, not proof that a Nine-labelled person is naturally more perceptive or deserves an audience.",
+              "zh": "例如向朋友说明一项小修补，实际演示步骤后，可能发现缺了一个零件，虽然文字计划听起来完整。这是费马关于显明的新类比；有用结果是缺口变得可见，不证明九标签的人天生更敏锐或理应受到关注。"
+            }
+          ]
+        },
+        {
+          "id": "nine-purple-fire-culture-5",
+          "title": {
+            "en": "An optional demonstration with room for correction",
+            "zh": "可选：做一次允许纠正的展示"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary idea and make a small, revisable example. Ask what the example shows, what it leaves out and what would change your view. You can keep it private. The reflection is not a demand to perform or seek approval, and anyone can use it without accepting a fire-based account of their personality.",
+              "zh": "可选一个普通想法，做一个小而能修改的例子，问它显示了什么、漏掉什么、什么信息会改变自己的看法。也可以只给自己看。观察不要求表演或寻求认可，任何人都能使用，无须接受以火解释自己人格的说法。"
+            }
+          ]
+        },
+        {
+          "id": "nine-purple-fire-source-and-year",
+          "title": {
+            "en": "Sources and the separate year calculation",
+            "zh": "来源与另行说明的节年计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Source roles are separate: Sonoda’s 1934 Kaisei Hōi Meikan, printed page 19, supplies the Later Heaven diagram pairing; the classical Shuo Gua text and Kong Yingda commentary supply the inherited natural images. These are cultural records, not scientific validation. The annual calculation uses the adopted NAOJ boundary table and the stated year convention. It omits forecasts, directions and month/day/hour stars. All present-day examples above are original FermatMind writing.",
+              "zh": "来源分工明确：园田1934年《改正方位明鉴》印刷页19提供后天图的配属，《说卦》原文及孔颖达等疏提供传统自然图像。它们是文化记录，不是科学验证。节年计算采用所注明的日本国立天文台界点表及年份约定，不计算预测、方位及月日时星。以上当代例子均为费马原创。"
+            },
+            {
+              "en": "For the Gregorian year 2018, the adopted table shows Beginning of Spring at 2018-02-04 06:28 in Japanese Standard Time, UTC+09:00. Clearly after that boundary uses season year 2018 and returns 9; clearly before it uses 2017 and returns 1. The rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. Unknown time or timezone, or birth within the displayed boundary minute, keeps both labels. Do not treat a local calendar date alone as an exact instant.",
+              "zh": "对公历2018年，采用的表在日本标准时UTC+09:00下显示立春为2018-02-04 06:28。明确在界点之后，采用2018节年并得9；明确在之前，采用2017节年并得1。规则为((1927－节年)模9＋9)模9＋1。时刻、时区不明或出生在显示的界点分钟内，都保留两个标签。不要只凭出生地日期当作精确时刻。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "annual-rule",
+      "title": {
+        "en": "The year rule used here",
+        "zh": "本工具采用的节年规则"
+      },
+      "paragraphs": [
+        {
+          "en": "Before the displayed Beginning of Spring boundary, use the previous Gregorian year as the season year; clearly after it, use the entered year. The traditional anchor is 1927 = One White and 1928 = Nine Purple. The modular rule is ((1927 − season year) mod 9 + 9) mod 9 + 1. It labels the selected season; it does not determine when a birth happened.",
+          "zh": "在所示立春界点之前，采用上一公历年作为节年；明确在界点之后，采用输入年份。传统锚点为1927节年对应一白、1928节年对应九紫。模运算规则为((1927−节年) mod 9+9) mod 9+1。该规则为所选节年分配标签，不替你判断出生时刻。"
+        }
+      ]
+    },
+    {
+      "id": "boundary-source",
+      "title": {
+        "en": "A sourced boundary, displayed to a minute",
+        "zh": "有来源、显示到分钟的立春界点"
+      },
+      "paragraphs": [
+        {
+          "en": "The 1900–2026 boundaries are literal Beginning of Spring rows from the National Astronomical Observatory of Japan calculation service, using its current-theory 2.1i option, default ΔT and JST (UTC+09:00), with no daylight-saving correction. The stored values are displayed to a minute. They do not silently adopt the birth location’s time zone or replace the boundary with February 4 or Lunar New Year.",
+          "zh": "1900—2026年的界点来自日本国立天文台计算服务的立春原始行，采用其现代理论2.1i选项、默认ΔT与日本标准时JST（UTC+09:00），不加夏令时修正。保存的值显示到分钟，不暗中采用出生地时区，也不以固定2月4日或农历正月初一代替界点。"
+        }
+      ]
+    },
+    {
+      "id": "uncertain",
+      "title": {
+        "en": "When to keep both possibilities",
+        "zh": "什么时候保留两个可能结果"
+      },
+      "paragraphs": [
+        {
+          "en": "If the birthday, birth time, time zone or comparison with JST is unknown, choose “Uncertain”. A birth within the displayed boundary minute is also uncertain. The result retains both the previous-season and current-season labels, with both complete guides. They are two conditional possibilities, without a probability, tie-break or preferred label.",
+          "zh": "生日、出生时刻、时区或与JST的换算不清楚时，请选“不确定”。出生在所显示的界点分钟内，也属于不确定。结果同时保留前一节年和当前节年的标签，并展示两篇完整指南。这是两个有条件的可能结果，不分配概率、不强行选一，也不推荐其中一个。"
+        }
+      ]
+    },
+    {
+      "id": "scope-privacy",
+      "title": {
+        "en": "Scope and private inputs",
+        "zh": "适用范围与输入隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "This is an annual cultural reference, without month, day, hour or third-star calculations, gender formulas, auspicious directions, compatibility, health or future predictions. Astronomy supplies the seasonal boundary; it does not validate personality claims. Only the year and boundary side enter this page’s memory. Editing invalidates the old result. Clearing, reloading, leaving or changing language removes the inputs; they are not stored as a draft or placed in a public URL. Copying shares only a public guide title and URL.",
+          "zh": "这里只提供年度文化参考，不计算月星、日星、时星或第三星，不使用性别公式，不推算吉方、配对、健康或未来。天文学提供季节界点，不验证人格主张。页面内存仅使用年份与界点前后；修改会清除旧结果，清除、刷新、离开或换语会移除输入。它们不保存为草稿，也不放入公开URL；复制仅包含公开指南标题和链接。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a personality test or a full birth chart?",
+        "zh": "这是人格测验或完整出生盘吗？"
+      },
+      "answer": {
+        "en": "It is a conditional annual cultural reference. It does not measure traits or calculate a full birth chart. The nine cultural guides are available to everyone, regardless of the label returned.",
+        "zh": "这是有条件的年度文化参考，不测量人格特质，也不计算完整出生盘。无论计算得到哪个标签，九篇文化指南都可自由阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do you ask which side of Beginning of Spring applies?",
+        "zh": "为什么需要选择立春界点前后？"
+      },
+      "answer": {
+        "en": "The selected convention changes season at the actual Beginning of Spring boundary. A Gregorian year alone cannot distinguish the two sides. If you cannot compare the birth moment with the displayed JST boundary, keep both possibilities.",
+        "zh": "采用的规则在实际立春界点换节年，单凭公历年份无法区分前后。无法将出生时刻与所示JST界点比较时，请保留两个可能结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are there two results when I choose uncertain?",
+        "zh": "选择不确定后为什么出现两个结果？"
+      },
+      "answer": {
+        "en": "The moment could belong to the previous or current season year. Both adjacent labels and both full guides remain visible; the tool does not guess a time zone or force a single result.",
+        "zh": "该时刻可能属于前一节年，也可能属于当前节年。因此保留相邻两个标签与两篇全文，不猜测时区，也不强行指定单一结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use a year outside 1900–2026?",
+        "zh": "可以使用1900—2026以外的年份吗？"
+      },
+      "answer": {
+        "en": "The verified boundary table here covers 1900–2026 only. Other years are unavailable, including future years. A before-boundary input in 1900 can refer to the 1899 season under the same modular rule.",
+        "zh": "这里已核查的界点表仅覆盖1900—2026年，其他年份及未来年份暂不可用。1900年界点之前可按同一模运算规则参考1899节年。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the examples predictions about me?",
+        "zh": "例子是在预测我吗？"
+      },
+      "answer": {
+        "en": "The historical diagrams and classical commentary supply cultural images. FermatMind wrote the everyday examples and optional reflection questions. A year label does not establish your personality, responsibilities, abilities or future.",
+        "zh": "历史图式与古典疏文提供文化图像；日常例子与可选回想问题由费马原创。节年标签不决定人格、义务、能力或未来。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Only year and boundary side are used in this page’s memory. There is no date, time, name, sex, location or account field. Reloading or clearing removes the input. Public sharing contains a guide title and URL, without personal inputs or calculations.",
+        "zh": "本页内存只使用年份与界点前后，不收集完整日期、时刻、姓名、性别、地点或账号。刷新或清除会移除输入。公开分享只包含指南标题与链接，不包含个人输入或计算过程。"
+      }
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_cultural_year_reference",
+    "formCode": "fm_nine_star_year_and_boundary_side_v1",
+    "itemBankVersion": "NAOJcurrenttheory2.1i_defaultDeltaT_JST9_1900_2026_fetched20261027",
+    "scoringVersion": "fm_sonoda1927_descending_mod9_jst_boundary_conditional_v1",
+    "resultContentVersion": "fm_nine_star_cultural_full9_reviewed_v1",
+    "itemBankSha256": "a10026b80b148c12b53871c2cc1f6bf855ba4923c9a7949d2848797d653cef9c",
+    "resultContentSha256": "8d477cc932e8890fb653b5bdcd63e16e082014f3765090a7cd3d3aa7902eb012",
+    "psychometricValidationCompleted": false
+  }
+}

@@ -1,3 +1,5 @@
+import { isNineStarYearConfigurationValid } from "@/lib/questionnaires/nineStarYear";
+import { NineStarYearPage } from "./NineStarYearPage";
 import { isMiniBreakupConfigurationValid } from "@/lib/questionnaires/miniBreakup";
 import { isHoldingBack35ConfigurationValid } from "@/lib/questionnaires/holdingBack35";
 import { isFscrs22ConfigurationValid } from "@/lib/questionnaires/fscrs22";
@@ -50,6 +52,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Year reference unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Calculator unavailable", robots: { index: false, follow: false } };
   if (!quiz || (quiz.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) || (quiz.kind === "holding-back35" && !isHoldingBack35ConfigurationValid(quiz)) || (quiz.kind === "fscrs22" && !isFscrs22ConfigurationValid(quiz)) || (quiz.kind === "parenting-practices" && !isParentingPracticesConfigurationValid(quiz)) || (quiz.kind === "spq92" && !isSpq92ConfigurationValid(quiz)) || (quiz.kind === "adexi14" && !isAdexi14ConfigurationValid(quiz)) || (quiz.kind === "mini-friction" && !isMiniFrictionConfigurationValid(quiz)) || (quiz.kind === "ctl41" && !isCtl41ConfigurationValid(quiz)) || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
   return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: quiz.description[locale], imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
@@ -58,6 +61,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "nine-star-year") {
+    if (!isNineStarYearConfigurationValid(quiz)) notFound();
+    return <NineStarYearPage quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "birth-number") {
     if (!isBirthNumberConfigurationValid(quiz)) notFound();
     return <BirthNumberPage quiz={quiz} locale={locale} />;

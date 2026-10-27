@@ -1,0 +1,156 @@
+// A conditional traditional calendar reference. This is not a personality score.
+export type NineStarBoundarySide = "before-boundary" | "after-boundary" | "uncertain";
+export type NineStarYearResult = { status: "incomplete"; field: "year" | "boundarySide" }
+  | { status: "invalid" }
+  | { status: "reference"; inputYear: number; boundaryJst: string; precision: "minute";
+      certainty: "conditional-single" | "two-possibilities";
+      candidates: { seasonYear: number; star: number; side: "before-boundary" | "after-boundary" }[] };
+const boundaries: Readonly<Record<number, string>> = {
+  "1900": "1900-02-04T14:51",
+  "1901": "1901-02-04T20:40",
+  "1902": "1902-02-05T02:38",
+  "1903": "1903-02-05T08:31",
+  "1904": "1904-02-05T14:24",
+  "1905": "1905-02-04T20:16",
+  "1906": "1906-02-05T02:04",
+  "1907": "1907-02-05T07:59",
+  "1908": "1908-02-05T13:47",
+  "1909": "1909-02-04T19:33",
+  "1910": "1910-02-05T01:27",
+  "1911": "1911-02-05T07:10",
+  "1912": "1912-02-05T12:54",
+  "1913": "1913-02-04T18:43",
+  "1914": "1914-02-05T00:29",
+  "1915": "1915-02-05T06:25",
+  "1916": "1916-02-05T12:14",
+  "1917": "1917-02-04T17:58",
+  "1918": "1918-02-04T23:53",
+  "1919": "1919-02-05T05:39",
+  "1920": "1920-02-05T11:26",
+  "1921": "1921-02-04T17:20",
+  "1922": "1922-02-04T23:06",
+  "1923": "1923-02-05T05:00",
+  "1924": "1924-02-05T10:50",
+  "1925": "1925-02-04T16:37",
+  "1926": "1926-02-04T22:38",
+  "1927": "1927-02-05T04:30",
+  "1928": "1928-02-05T10:16",
+  "1929": "1929-02-04T16:09",
+  "1930": "1930-02-04T21:51",
+  "1931": "1931-02-05T03:41",
+  "1932": "1932-02-05T09:29",
+  "1933": "1933-02-04T15:09",
+  "1934": "1934-02-04T21:04",
+  "1935": "1935-02-05T02:49",
+  "1936": "1936-02-05T08:29",
+  "1937": "1937-02-04T14:26",
+  "1938": "1938-02-04T20:15",
+  "1939": "1939-02-05T02:10",
+  "1940": "1940-02-05T08:08",
+  "1941": "1941-02-04T13:50",
+  "1942": "1942-02-04T19:49",
+  "1943": "1943-02-05T01:40",
+  "1944": "1944-02-05T07:23",
+  "1945": "1945-02-04T13:19",
+  "1946": "1946-02-04T19:04",
+  "1947": "1947-02-05T00:50",
+  "1948": "1948-02-05T06:42",
+  "1949": "1949-02-04T12:23",
+  "1950": "1950-02-04T18:21",
+  "1951": "1951-02-05T00:13",
+  "1952": "1952-02-05T05:53",
+  "1953": "1953-02-04T11:46",
+  "1954": "1954-02-04T17:31",
+  "1955": "1955-02-04T23:18",
+  "1956": "1956-02-05T05:12",
+  "1957": "1957-02-04T10:55",
+  "1958": "1958-02-04T16:49",
+  "1959": "1959-02-04T22:42",
+  "1960": "1960-02-05T04:23",
+  "1961": "1961-02-04T10:22",
+  "1962": "1962-02-04T16:17",
+  "1963": "1963-02-04T22:08",
+  "1964": "1964-02-05T04:05",
+  "1965": "1965-02-04T09:46",
+  "1966": "1966-02-04T15:38",
+  "1967": "1967-02-04T21:31",
+  "1968": "1968-02-05T03:07",
+  "1969": "1969-02-04T08:59",
+  "1970": "1970-02-04T14:46",
+  "1971": "1971-02-04T20:25",
+  "1972": "1972-02-05T02:20",
+  "1973": "1973-02-04T08:04",
+  "1974": "1974-02-04T14:00",
+  "1975": "1975-02-04T19:59",
+  "1976": "1976-02-05T01:39",
+  "1977": "1977-02-04T07:33",
+  "1978": "1978-02-04T13:27",
+  "1979": "1979-02-04T19:12",
+  "1980": "1980-02-05T01:09",
+  "1981": "1981-02-04T06:55",
+  "1982": "1982-02-04T12:45",
+  "1983": "1983-02-04T18:40",
+  "1984": "1984-02-05T00:19",
+  "1985": "1985-02-04T06:12",
+  "1986": "1986-02-04T12:08",
+  "1987": "1987-02-04T17:52",
+  "1988": "1988-02-04T23:43",
+  "1989": "1989-02-04T05:27",
+  "1990": "1990-02-04T11:14",
+  "1991": "1991-02-04T17:08",
+  "1992": "1992-02-04T22:48",
+  "1993": "1993-02-04T04:37",
+  "1994": "1994-02-04T10:31",
+  "1995": "1995-02-04T16:13",
+  "1996": "1996-02-04T22:08",
+  "1997": "1997-02-04T04:02",
+  "1998": "1998-02-04T09:57",
+  "1999": "1999-02-04T15:57",
+  "2000": "2000-02-04T21:40",
+  "2001": "2001-02-04T03:29",
+  "2002": "2002-02-04T09:24",
+  "2003": "2003-02-04T15:05",
+  "2004": "2004-02-04T20:56",
+  "2005": "2005-02-04T02:43",
+  "2006": "2006-02-04T08:27",
+  "2007": "2007-02-04T14:18",
+  "2008": "2008-02-04T20:00",
+  "2009": "2009-02-04T01:50",
+  "2010": "2010-02-04T07:48",
+  "2011": "2011-02-04T13:33",
+  "2012": "2012-02-04T19:22",
+  "2013": "2013-02-04T01:13",
+  "2014": "2014-02-04T07:03",
+  "2015": "2015-02-04T12:58",
+  "2016": "2016-02-04T18:46",
+  "2017": "2017-02-04T00:34",
+  "2018": "2018-02-04T06:28",
+  "2019": "2019-02-04T12:14",
+  "2020": "2020-02-04T18:03",
+  "2021": "2021-02-03T23:59",
+  "2022": "2022-02-04T05:51",
+  "2023": "2023-02-04T11:43",
+  "2024": "2024-02-04T17:27",
+  "2025": "2025-02-03T23:10",
+  "2026": "2026-02-04T05:02"
+};
+export const NINE_STAR_MIN_YEAR = 1900;
+export const NINE_STAR_MAX_YEAR = 2026;
+// Sonoda's printed anchor: the 1927 season is One White; 1928 is Nine Purple.
+// This modular rule does not determine which season a birth moment belongs to.
+export function nineStarForSeasonYear(year: number): number {
+  if (!Number.isInteger(year) || year < 1899 || year > 2026) throw new RangeError("Unsupported season year");
+  return ((1927 - year) % 9 + 9) % 9 + 1;
+}
+export function calculateNineStarYearReference(year: unknown, boundarySide: unknown): NineStarYearResult {
+  if (year === undefined || year === "") return { status: "incomplete", field: "year" };
+  if (typeof year !== "number" || !Number.isInteger(year) || year < NINE_STAR_MIN_YEAR || year > NINE_STAR_MAX_YEAR) return { status: "invalid" };
+  if (boundarySide === undefined || boundarySide === "") return { status: "incomplete", field: "boundarySide" };
+  if (boundarySide !== "before-boundary" && boundarySide !== "after-boundary" && boundarySide !== "uncertain") return { status: "invalid" };
+  const sides: readonly Exclude<NineStarBoundarySide, "uncertain">[] = boundarySide === "uncertain" ? ["before-boundary", "after-boundary"] : [boundarySide];
+  const candidates = sides.map(side => {
+    const seasonYear = side === "before-boundary" ? year - 1 : year;
+    return { seasonYear, star: nineStarForSeasonYear(seasonYear), side };
+  });
+  return { status: "reference", inputYear: year, boundaryJst: boundaries[year], precision: "minute", certainty: boundarySide === "uncertain" ? "two-possibilities" : "conditional-single", candidates };
+}

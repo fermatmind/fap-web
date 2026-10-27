@@ -26,7 +26,7 @@ export type Questionnaire = {
   updated: string;
   category: string;
   birthNumber?: BirthNumberConfiguration;
-  kind: "mini-breakup" | "holding-back35" | "fscrs22" | "parenting-practices" | "spq92" | "adexi14" | "mini-friction" | "ctl41" | "birth-number" | "ptq15" | "interaction-pairs" | "skills-evidence" | "saps" | "scs26" | "cbi" | "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "nine-star-year" | "mini-breakup" | "holding-back35" | "fscrs22" | "parenting-practices" | "spq92" | "adexi14" | "mini-friction" | "ctl41" | "birth-number" | "ptq15" | "interaction-pairs" | "skills-evidence" | "saps" | "scs26" | "cbi" | "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   pairedDimensions?: PairedDimensionConfiguration[];
   typing?: TypingConfiguration;
   dataEntry?: DataEntryConfiguration;
