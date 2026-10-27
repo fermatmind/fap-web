@@ -1,0 +1,187 @@
+{
+  "code": "FM_PARENTING_RESPONSES12",
+  "formCode": "fm_parenting_warmth_boundaries12_v1",
+  "scoringVersion": "two_complete6_frequency_means1dp_no_typology_threshold_v1",
+  "version": "original12_bilingual_v1",
+  "directions": [
+    {
+      "id": "warm-response",
+      "title": {
+        "en": "Warm responses",
+        "zh": "温暖回应"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "clear-boundaries",
+      "title": {
+        "en": "Clear everyday boundaries",
+        "zh": "清楚的日常边界"
+      },
+      "itemCount": 6
+    }
+  ],
+  "items": [
+    {
+      "id": "PCARE_01",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "When the child described an ordinary frustration, I paused long enough to hear their account.",
+        "zh": "孩子讲起一件日常不顺心的事时，我会停下来，给对方把情况说完的时间。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_02",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "Before offering a solution, I checked what the child was trying to tell me.",
+        "zh": "提出解决办法前，我会先核对孩子想告诉我的是什么。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_03",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "After saying no to a request, I kept my tone respectful.",
+        "zh": "拒绝孩子的一项请求后，我仍会保持尊重的语气。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_04",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "I noticed and acknowledged a specific effort the child made.",
+        "zh": "我会留意并具体回应孩子作出的一项努力。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_05",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "I offered a brief period of attention without making it depend on perfect behavior.",
+        "zh": "我会留一小段专心陪伴的时间，而不要求孩子先表现得毫无差错。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_06",
+      "directionId": "warm-response",
+      "prompt": {
+        "en": "After a tense exchange, I returned to listen when we were both ready.",
+        "zh": "一次紧张的交流之后，双方准备好时，我会回来继续听孩子的想法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_07",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "I told the child what to do next in terms they could follow.",
+        "zh": "我会用孩子能理解的说法，说明接下来具体要做什么。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_08",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "Before a routine transition, I explained the practical limit or plan.",
+        "zh": "日常活动要转换之前，我会说明实际的时间限制或安排。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_09",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "When I set an everyday limit, I followed through on the action I had explained.",
+        "zh": "设下一项日常边界之后，我会落实先前说明过的做法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_10",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "When circumstances changed, I explained why an arrangement was being changed.",
+        "zh": "实际情况变化、需要调整安排时，我会解释为什么要改。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_11",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "I made expectations fit what this child could reasonably do at that time.",
+        "zh": "我会按这个孩子当时实际能做到的情况，设定合理的要求。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "PCARE_12",
+      "directionId": "clear-boundaries",
+      "prompt": {
+        "en": "After a plan did not work, I made the next step clear rather than adding an unrelated demand.",
+        "zh": "一项安排没有奏效后，我会说清下一步，而不是再加一项不相关的要求。"
+      },
+      "reverse": false
+    }
+  ],
+  "anchors": [
+    {
+      "id": "1",
+      "score": 1,
+      "label": {
+        "en": "Never",
+        "zh": "从不"
+      }
+    },
+    {
+      "id": "2",
+      "score": 2,
+      "label": {
+        "en": "Rarely",
+        "zh": "很少"
+      }
+    },
+    {
+      "id": "3",
+      "score": 3,
+      "label": {
+        "en": "Sometimes",
+        "zh": "有时"
+      }
+    },
+    {
+      "id": "4",
+      "score": 4,
+      "label": {
+        "en": "Often",
+        "zh": "经常"
+      }
+    },
+    {
+      "id": "5",
+      "score": 5,
+      "label": {
+        "en": "Almost always",
+        "zh": "几乎总是"
+      }
+    },
+    {
+      "id": "na",
+      "score": null,
+      "label": {
+        "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+        "zh": "没有相关机会／无法判断／暂不回答——不计分"
+      }
+    }
+  ],
+  "recall": "pastfourweeks",
+  "audience": "adultcaregiversofonechildaged3–12",
+  "source": "FermatMindoriginalquestions,notPAQ/PSDQ;frameworkreferencesarebackgroundonly"
+}

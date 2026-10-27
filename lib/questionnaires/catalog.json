@@ -4824,5 +4824,30 @@
     "resultSlugs": [
       "spq92-total-reading"
     ]
+  },
+  {
+    "slug": "parenting-style",
+    "code": "FM_PARENTING_RESPONSES12",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "relationships",
+    "title": {
+      "en": "Parenting Style Test: Warm Responses and Everyday Boundaries",
+      "zh": "育儿风格测试：温暖回应与日常边界"
+    },
+    "description": {
+      "en": "Take 12 original questions about warm responses and everyday boundaries. See two frequency summaries and read four complete parenting-style guides free.",
+      "zh": "用12道原创问题回看温暖回应与日常边界，查看两项频率摘要，免费阅读四种养育风格的完整指南、日常情境与行动示例。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_parenting_warmth_boundaries12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "authoritative",
+      "authoritarian",
+      "permissive",
+      "uninvolved"
+    ]
   }
 ]

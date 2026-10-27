@@ -1,0 +1,1561 @@
+{
+  "slug": "parenting-style",
+  "code": "FM_PARENTING_RESPONSES12",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "kind": "parenting-practices",
+  "category": "relationships",
+  "title": {
+    "en": "Parenting Style Test: Warm Responses and Everyday Boundaries",
+    "zh": "育儿风格测试：温暖回应与日常边界"
+  },
+  "seoTitle": {
+    "en": "Parenting Style Test: 12 Questions, Two Means & Four Guides",
+    "zh": "育儿风格测试：12题、两项均分与四份完整指南"
+  },
+  "description": {
+    "en": "Take 12 original questions about warm responses and everyday boundaries. See two frequency summaries and read four complete parenting-style guides free.",
+    "zh": "用12道原创问题回看温暖回应与日常边界，查看两项频率摘要，免费阅读四种养育风格的完整指南、日常情境与行动示例。"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Think about your own everyday care of one child aged 3–12 over the past four weeks. When a relevant situation occurred, how often did you take the action described? Choose unscored if there was no occasion, you cannot judge or you prefer not to answer. Keep the child’s identity private. Two separate means summarize these twelve original descriptions. They do not assign you or another caregiver to a parenting type, assess a child or predict a child’s future.",
+    "zh": "回想过去四周，你本人照料同一位3至12岁孩子的日常行为。有相关情境时，你多常采取题述做法？没有相关机会、无法判断或不愿回答时，选不计分。无需提供孩子的身份信息。两个独立呈现的均分只概括这十二条原创描述，不给你或其他照料者分配养育类型，不评估孩子，也不预测孩子的未来。"
+  },
+  "introduction": {
+    "en": "Parenting-style terms can open a discussion about responsiveness and expectations. Here, twelve original questions ask about actions you recall when caring for one child, while four full guides explain the framework through ordinary situations. You receive two separate descriptive frequency means when each six-item part is complete. All four guides remain available to everyone; the software does not choose a parenting type for you. About four minutes is an editorial estimate, without a timer.",
+    "zh": "养育风格的词汇可以开启关于回应与要求的讨论。这里用十二道原创问题回看照料同一位孩子时记得的行为，再通过四份完整指南与日常情境理解框架。 每组六项完整时，会分别显示两个描述性频率均分。四份指南对所有人开放，软件不会为你选择养育类型。约四分钟是编辑估计，没有计时器。"
+  },
+  "resultHeading": {
+    "en": "Two recent-care summaries and four complete general guides",
+    "zh": "两项近期照料摘要与四份完整通用指南"
+  },
+  "directions": [
+    {
+      "id": "warm-response",
+      "title": {
+        "en": "Warm responses",
+        "zh": "温暖回应"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "clear-boundaries",
+      "title": {
+        "en": "Clear everyday boundaries",
+        "zh": "清楚的日常边界"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "PCARE_01",
+      "prompt": {
+        "en": "When the child described an ordinary frustration, I paused long enough to hear their account.",
+        "zh": "孩子讲起一件日常不顺心的事时，我会停下来，给对方把情况说完的时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_02",
+      "prompt": {
+        "en": "Before offering a solution, I checked what the child was trying to tell me.",
+        "zh": "提出解决办法前，我会先核对孩子想告诉我的是什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_03",
+      "prompt": {
+        "en": "After saying no to a request, I kept my tone respectful.",
+        "zh": "拒绝孩子的一项请求后，我仍会保持尊重的语气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_04",
+      "prompt": {
+        "en": "I noticed and acknowledged a specific effort the child made.",
+        "zh": "我会留意并具体回应孩子作出的一项努力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_05",
+      "prompt": {
+        "en": "I offered a brief period of attention without making it depend on perfect behavior.",
+        "zh": "我会留一小段专心陪伴的时间，而不要求孩子先表现得毫无差错。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_06",
+      "prompt": {
+        "en": "After a tense exchange, I returned to listen when we were both ready.",
+        "zh": "一次紧张的交流之后，双方准备好时，我会回来继续听孩子的想法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "warm-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "warm-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "warm-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "warm-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "warm-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "warm-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_07",
+      "prompt": {
+        "en": "I told the child what to do next in terms they could follow.",
+        "zh": "我会用孩子能理解的说法，说明接下来具体要做什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_08",
+      "prompt": {
+        "en": "Before a routine transition, I explained the practical limit or plan.",
+        "zh": "日常活动要转换之前，我会说明实际的时间限制或安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_09",
+      "prompt": {
+        "en": "When I set an everyday limit, I followed through on the action I had explained.",
+        "zh": "设下一项日常边界之后，我会落实先前说明过的做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_10",
+      "prompt": {
+        "en": "When circumstances changed, I explained why an arrangement was being changed.",
+        "zh": "实际情况变化、需要调整安排时，我会解释为什么要改。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_11",
+      "prompt": {
+        "en": "I made expectations fit what this child could reasonably do at that time.",
+        "zh": "我会按这个孩子当时实际能做到的情况，设定合理的要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PCARE_12",
+      "prompt": {
+        "en": "After a plan did not work, I made the next step clear rather than adding an unrelated demand.",
+        "zh": "一项安排没有奏效后，我会说清下一步，而不是再加一项不相关的要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "clear-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "clear-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "clear-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "clear-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "clear-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "clear-boundaries",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "authoritative",
+      "directionIds": [
+        "warm-response",
+        "clear-boundaries"
+      ],
+      "title": {
+        "en": "Authoritative Parenting: Warmth with Clear Boundaries",
+        "zh": "权威型养育：温暖回应与清楚边界"
+      },
+      "headline": {
+        "en": "A clear limit can leave room for a child’s voice.",
+        "zh": "边界清楚，也可以给孩子留下表达空间。"
+      },
+      "summary": {
+        "en": "Explore the warm-and-firm idea through an ordinary transition, a conversation, a counterexample and one optional practice. Your answers do not assign this label.",
+        "zh": "通过一次日常转换、具体对话、反例和一个自选练习，理解温暖而有边界的思路。问卷不会给你分配这一标签。"
+      },
+      "scoreReading": {
+        "en": "This is a general explanation of a parenting framework, not a type assigned by your answers. The two six-item frequency means remain separate, without a cutoff or child-outcome prediction.",
+        "zh": "这是养育框架的通用说明，不是由回答分配的类型。两组六项频率均分分别保留，没有类型判定线，也不预测孩子的发展。"
+      },
+      "seo": {
+        "title": {
+          "en": "Authoritative Parenting: Meaning, Boundaries and Examples",
+          "zh": "权威型养育是什么：温暖、边界与具体例子"
+        },
+        "description": {
+          "en": "Read an authoritative-parenting guide with a worked frequency example, a park transition and a respectful limit. Separate the framework from a personal type or child prediction.",
+          "zh": "结合频率算例、公园离开情境和尊重的边界表达，理解权威型养育。区分理论框架、个人类型与对孩子的预测。"
+        }
+      },
+      "sections": [
+        {
+          "id": "authoritative-1",
+          "title": {
+            "en": "What warm and firm refers to",
+            "zh": "温暖而有边界指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "In the familiar parenting framework, authoritative describes responsiveness alongside expectations that are clear and followed through. It is a way to discuss an interaction pattern, rather than a title a parent earns. Listening can coexist with saying no; explaining a boundary does not require reopening every decision. This guide concerns an adult’s ordinary care of a child aged 3–12. It does not tell us how the child experiences the relationship, whether an interaction was safe, or what the child will become.",
+              "zh": "常见养育框架用authoritative描述：回应孩子，同时保持清楚、能够落实的要求。它是讨论互动方式的概念，不是家长获得的一项头衔。倾听可以与拒绝并存，解释边界也不要求每个决定都重新商议。本指南围绕成年人照料3至12岁孩子的日常行为，不能说明孩子实际怎样体验关系、某次互动是否安全，或将来会怎样发展。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-2",
+          "title": {
+            "en": "What the quiz can calculate",
+            "zh": "问卷实际能算什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine six warm-response answers of 4, 2, 3, 5, 2 and 4: the sum is 20 and the one-decimal mean is 3.3. Boundary answers of 3, 4, 2, 3, 5 and 1 total 18 and give 3.0. Neither value is a high-or-low classification, and their combination does not assign authoritative parenting. The original questions summarize recalled frequency over four weeks. They do not measure the full research dimensions or supply thresholds for the four styles.",
+              "zh": "假设温暖回应六项选择4、2、3、5、2、4，合计20，保留一位小数显示3.3；边界六项为3、4、2、3、5、1，合计18，显示3.0。两者都不是高低分类，组合起来也不会分配权威型养育。原创题目概括四周内记得的行为频率，没有测量研究框架的全部维度，也没有四种类型的判定阈值。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-3",
+          "title": {
+            "en": "An ordinary transition",
+            "zh": "一次日常活动转换"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional afternoon at a park. It is time to leave, while the child wants another game. The adult can acknowledge that wish, state that departure is now necessary and offer a manageable choice within the arrangement, such as carrying the ball or the water bottle. The departure boundary remains, without requiring the child to stop feeling disappointed. A child may still protest or need help. Their immediate response does not prove that the adult used the right style or that the relationship is good.",
+              "zh": "设想一个虚构的公园下午：到了离开时间，孩子还想再玩。成年人可以回应这个愿望，说明现在需要出发，并在安排内给一个可承受的选择，例如拿球还是拿水瓶。离开的边界仍在，不要求孩子马上停止失望。孩子可能依然抗议，或需要帮助；当下反应不能证明成年人采用了正确风格，也不能给整段关系打分。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-4",
+          "title": {
+            "en": "A limit that explains the next action",
+            "zh": "让边界说明下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible conversation is: “You wanted to keep playing. We need to leave now so we can make our next arrangement. I can help you collect your things.” The useful parts are the acknowledged wish, a concrete reason and an available next step. Words should fit the child’s understanding and the actual situation. A memorized sentence is not a technique guaranteed to produce agreement. If your earlier explanation was confusing, clarifying it is different from giving up every limit.",
+              "zh": "一种可能的说法是：“你还想继续玩。我们现在要走，才能赶上后面的安排。我可以帮你收东西。”其中可用的部分是回应愿望、给出具体原因，以及说明能够采取的下一步。用词应适合孩子的理解与实际情境。背熟一句话不是保证对方同意的技巧；若先前解释不清，重新说清楚也不等于放弃所有边界。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-5",
+          "title": {
+            "en": "A counterexample matters",
+            "zh": "反例同样重要"
+          },
+          "paragraphs": [
+            {
+              "en": "An immediate safety situation can require stopping an action before a long explanation. That single moment does not define an authoritarian parent. Conversely, a calm voice does not make every demand reasonable. Ask whether the expectation fits the child’s capabilities, whether the reason is real and whether their needs have been considered. The warm-and-firm vocabulary should help examine those questions, rather than make a decision immune to challenge because it has been given a positive label.",
+              "zh": "遇到即时安全问题，可能需要先停止行动，再作较长解释；这一个瞬间不能定义专制型家长。反过来，语气平静也不代表所有要求都合理。可以核对要求是否适合孩子实际能做到的事、理由是否真实，以及有无考虑孩子的需要。温暖而有边界的词汇应帮助检查这些问题，而不是给决定贴上正面标签后便不容讨论。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-6",
+          "title": {
+            "en": "Read opportunity and support before a number",
+            "zh": "先看机会与支持，再看数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Work hours, shared care, language, routines and the child’s current needs can affect opportunities for these actions. They do not let a questionnaire infer a cause or excuse an unmet need. A low frequency is a prompt to understand the occasion, not proof of being uncaring. An unscored answer withholds its six-item mean; a complete other part remains. All-unscored attempts finish without personal numbers, while all four general guides remain available.",
+              "zh": "工作时间、共同照料、语言、日常安排及孩子当下的需要，会影响这些行为的机会，但不能让问卷推断原因，或替未被满足的需要找借口。频率较少可用来了解具体情境，不证明缺乏关爱。一项不计分会使所属六项均分暂缺，另一完整部分仍保留；全部不计分也能完成，没有个人数值，但四份通用指南都可读。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-7",
+          "title": {
+            "en": "Try one small, voluntary change",
+            "zh": "尝试一个小而自选的调整"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary transition already within your care role. Before it happens, decide which practical boundary matters and how you can explain the next action in a short, respectful way. Afterward, privately note what you said, what you actually observed and what remains unknown. You can ask what the child understood when that is appropriate. The purpose is a clearer interaction, not a higher score, immediate compliance or collecting evidence against another caregiver.",
+              "zh": "可选一项本就在自己照料职责内的日常转换，事前想清哪项实际边界重要，以及怎样简短、尊重地说明下一步。事后私下记下自己说了什么、实际观察到什么，以及仍不知道什么；合适时可以询问孩子理解到了什么。目的是让互动更清楚，不是提高分数、获得即时服从，或收集针对另一位照料者的证据。"
+            }
+          ]
+        },
+        {
+          "id": "authoritative-8",
+          "title": {
+            "en": "Keep the source and the purpose visible",
+            "zh": "保留来源与使用目的"
+          },
+          "paragraphs": [
+            {
+              "en": "Stanford’s parenting overview describes four common styles, while CDC and American Academy of Pediatrics guidance discuss clear, age-appropriate rules and responsive care. Those sources provide background; they did not create or validate this original twelve-item reflection. There are no norms, child-development predictions or certification of good parenting here. Use concrete examples when discussing support with an appropriate professional. You need not share answers, a child’s identity or another caregiver’s private information to read any guide.",
+              "zh": "斯坦福的养育概述介绍四种常见风格，CDC与美国儿科学会的说明讨论适龄、清楚的规则与回应性照料。这些来源提供背景，没有编写或验证这份十二题原创反思。本页没有常模、儿童发展预测或好家长认证。需要讨论支持时，可以向适合的专业人士提供具体例子；阅读指南无需分享回答、孩子身份或其他照料者的私人资料。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "authoritarian",
+      "directionIds": [
+        "warm-response",
+        "clear-boundaries"
+      ],
+      "title": {
+        "en": "Authoritarian Parenting: Rules, Voice and Context",
+        "zh": "专制型养育：规则、表达与具体情境"
+      },
+      "headline": {
+        "en": "Look at how a rule is carried out, not only whether it exists.",
+        "zh": "既看有没有规则，也看规则怎样被执行。"
+      },
+      "summary": {
+        "en": "Understand a framework that combines strong demands with less responsiveness. Examine an ordinary homework conversation without assigning a parent or child a fixed identity.",
+        "zh": "理解要求较多、回应较少的框架概念，通过一次日常作业对话回看互动，不为家长或孩子定义固定身份。"
+      },
+      "scoreReading": {
+        "en": "This is a general explanation of a parenting framework, not a type assigned by your answers. The two six-item frequency means remain separate, without a cutoff or child-outcome prediction.",
+        "zh": "这是养育框架的通用说明，不是由回答分配的类型。两组六项频率均分分别保留，没有类型判定线，也不预测孩子的发展。"
+      },
+      "seo": {
+        "title": {
+          "en": "Authoritarian Parenting: Rules, Responsiveness and Examples",
+          "zh": "专制型养育是什么：规则、回应与对话例子"
+        },
+        "description": {
+          "en": "Read an authoritarian-parenting explanation with transparent arithmetic, an ordinary disagreement and a counterexample. Clear boundaries do not by themselves identify this style.",
+          "zh": "结合透明算例、一次普通分歧及反例，理解专制型养育。边界清楚本身不能识别这种风格，也不能预测孩子的未来。"
+        }
+      },
+      "sections": [
+        {
+          "id": "authoritarian-1",
+          "title": {
+            "en": "The distinction is about responsiveness as well as demands",
+            "zh": "区别同时涉及回应与要求"
+          },
+          "paragraphs": [
+            {
+              "en": "Authoritarian is commonly used for a framework pattern of stronger demands alongside less responsiveness to the child’s perspective. It is different from simply having an orderly household or a firm safety rule. A demand can be clear while leaving little room for questions or explanation. This vocabulary can organize a discussion of an interaction, but it cannot establish another adult’s motives, a child’s experience or the safety of a home from a few self-report answers.",
+              "zh": "authoritarian通常指框架中要求较多、对孩子视角回应较少的模式，不等同于家里有秩序，或设有坚定的安全规则。一项要求可以很清楚，同时几乎不留下提问或解释空间。这套词汇可以整理对互动的讨论，却不能凭几项自报回答，确定另一位成年人的动机、孩子的体验或家庭是否安全。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-2",
+          "title": {
+            "en": "Why these means do not assign authoritarian parenting",
+            "zh": "为什么均分不会分配专制型"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional warm-response pattern of 1, 3, 2, 2, 3 and 1 totals 12, giving 2.0. Boundary answers of 4, 3, 5, 3, 4 and 5 total 24, giving 4.0. Those descriptive values do not make the person authoritarian. In particular, the boundary items ask about understandable, reasonable arrangements, not harsh control. They cannot be treated as a complete measure of the framework’s demandingness dimension. There is no rule that turns a low-and-high pair into a personal type.",
+              "zh": "虚构的温暖回应选择1、3、2、2、3、1，合计12，均分2.0；边界选择4、3、5、3、4、5，合计24，均分4.0。这两个描述值不会让某人变成专制型。尤其要注意，边界条目问可理解、合理的安排，不问严厉控制，不能当作理论要求维度的完整测量。本版没有把一低一高转成人格或养育类型的规则。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-3",
+          "title": {
+            "en": "A question during homework",
+            "zh": "作业中的一次提问"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional child asking why a task must be done in a particular order. “Do it because I told you” ends the exchange without discovering whether the child is objecting, confused or missing something needed to begin. A different next step is to ask which part is unclear, explain a real constraint and decide what can reasonably be changed. The example does not mean every routine requires lengthy debate. It separates a usable explanation from assuming that a question is disobedience.",
+              "zh": "假设一个虚构的孩子问：为什么一定要按这个顺序做？“因为我让你这么做”结束了交流，却还不知道孩子是在反对、没理解，还是缺少开始所需的东西。另一种下一步，是问清哪部分不明白，解释真实限制，再决定有什么可以合理调整。例子不要求每个日常安排都长时间辩论，而是区分可使用的解释与把提问直接当作不服从。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-4",
+          "title": {
+            "en": "Make room for information before defending a rule",
+            "zh": "维护规则前，给信息留出位置"
+          },
+          "paragraphs": [
+            {
+              "en": "An adult might say: “The reason for this order is that the shared table will be needed later. Tell me which step you cannot start.” That offers information and invites a specific answer without promising that every preference will prevail. If the reason is only a habit, it is also possible to say that you need to reconsider it. You can acknowledge an earlier dismissive response without asking the child to reassure you or taking attention away from the practical question.",
+              "zh": "成年人可以说：“这样排，是因为后面别人要用这张桌子。你告诉我哪一步开始不了。”这既提供信息，也邀请具体回应，但没有承诺每个偏好都会被采用。若理由其实只是习惯，也可以承认需要重新考虑。可以承认先前回应过于敷衍，同时不要求孩子反过来安慰自己，也不把注意力从实际问题移开。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-5",
+          "title": {
+            "en": "A short command is not a whole parenting style",
+            "zh": "一句简短指令不是整种养育风格"
+          },
+          "paragraphs": [
+            {
+              "en": "A caregiver who calls out to stop an immediate danger has not thereby demonstrated a fixed style. A hurried exchange, a language mismatch or an unfamiliar situation may also need further context. At the same time, urgency is not a general justification for humiliation or ignoring needs. Return to what actually happened, which demand was made and whether explanation or repair was possible afterward. Neither strictness nor a low self-reported listening frequency alone settles the framework label.",
+              "zh": "照料者为阻止即时危险而大声叫停，不因此展示了一种固定风格。匆忙交流、语言不匹配或陌生情境，也需要更多背景；同时，紧急不能成为羞辱或忽略需要的通用理由。可以回到实际发生了什么、提出什么要求，以及之后能否解释或修复。严格，或自报倾听频率较少，单独都不足以确定框架标签。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-6",
+          "title": {
+            "en": "Missing answers are not evidence about character",
+            "zh": "缺答不是品格证据"
+          },
+          "paragraphs": [
+            {
+              "en": "The quiz requires all six numeric answers within a part. An unscored answer withholds that mean instead of becoming zero, a low rating or an estimated midpoint. A complete other part remains visible. Fewer occasions for care, uncertainty about recall and a choice to keep an answer private should not be converted into a judgment about love, competence or intention. The child’s actual needs and experience still matter independently of whether the questionnaire can calculate a number.",
+              "zh": "问卷要求同一部分六项数值齐全。不计分会使该均分暂缺，不补零、不当低档，也不估成中点；另一完整部分仍显示。照料机会较少、记忆不确定或希望保留隐私，都不应变成对爱、能力或动机的评价。无论问卷能否算数，孩子实际的需要与体验都仍然重要。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-7",
+          "title": {
+            "en": "Try one question about a rule",
+            "zh": "试着核对一项规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an ordinary, low-stakes rule within your responsibility. Write its purpose in one sentence and ask whether the next action is clear to the child. Listen for a misunderstanding or a practical obstacle rather than testing willingness to obey. If another caregiver is involved, discuss a concrete arrangement instead of diagnosing their style. The exercise is optional and should not delay a response to an actual unmet need or turn private family exchanges into a scorekeeping contest.",
+              "zh": "选一项职责内、低影响的日常规则，用一句话写出目的，再核对孩子是否清楚下一步。留意误解或实际障碍，不把它变成服从测试。涉及另一位照料者时，讨论一项具体安排，不替对方诊断风格。练习可以不做，也不应延误对真实未满足需要的回应，或把家庭私下交流变成计分竞争。"
+            }
+          ]
+        },
+        {
+          "id": "authoritarian-8",
+          "title": {
+            "en": "Use the concept to ask a better question",
+            "zh": "用概念提出更好的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "General descriptions of parenting styles are background for reflection. They do not validate these original questions or permit predictions about a child’s honesty, achievement, attachment or mental health. An actual concern needs details beyond a mean, including the child’s account where appropriate. No result can decide custody, a legal category or who is the better caregiver. All four complete guides remain freely readable, so you can compare ideas without accepting a label or sharing private answers.",
+              "zh": "养育风格的一般说明提供反思背景，没有验证这些原创问题，也不允许预测孩子是否诚实、成绩、依恋或心理健康。实际担忧需要均分之外的细节，合适时也包括孩子本人的说明。结果不能决定监护权、法律分类或谁是更好的照料者。四份完整指南都可免费阅读，可以比较思路，而无需接受标签或分享私人回答。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "permissive",
+      "directionIds": [
+        "warm-response",
+        "clear-boundaries"
+      ],
+      "title": {
+        "en": "Permissive Parenting: Warmth, Flexibility and Follow-Through",
+        "zh": "宽松型养育：温暖、灵活与边界落实"
+      },
+      "headline": {
+        "en": "Affection and follow-through can be discussed separately.",
+        "zh": "关爱与边界落实，可以分别讨论。"
+      },
+      "summary": {
+        "en": "Explore the permissive-parenting concept through an evening routine and a conversation about what will actually happen. Changing a plan thoughtfully does not automatically make care permissive.",
+        "zh": "通过晚间安排与一段落实约定的对话，理解宽松型养育的概念。根据情况认真调整计划，不自动等于宽松或放任。"
+      },
+      "scoreReading": {
+        "en": "This is a general explanation of a parenting framework, not a type assigned by your answers. The two six-item frequency means remain separate, without a cutoff or child-outcome prediction.",
+        "zh": "这是养育框架的通用说明，不是由回答分配的类型。两组六项频率均分分别保留，没有类型判定线，也不预测孩子的发展。"
+      },
+      "seo": {
+        "title": {
+          "en": "Permissive Parenting: Warmth, Limits and Everyday Examples",
+          "zh": "宽松型养育是什么：温暖、边界与日常例子"
+        },
+        "description": {
+          "en": "Understand permissive parenting with an explicit frequency example, a bedtime transition and a flexibility counterexample. No personal type or child outcome is inferred.",
+          "zh": "结合明确频率算例、睡前活动转换与灵活调整的反例，理解宽松型养育。不推断个人类型，也不预测孩子发展。"
+        }
+      },
+      "sections": [
+        {
+          "id": "permissive-1",
+          "title": {
+            "en": "What the framework means by permissive",
+            "zh": "框架中的宽松指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Permissive commonly describes a framework pattern with more responsiveness and less consistent structure or follow-through. That description should lead to questions about an actual arrangement, rather than a judgment that affection is the problem. Warm feelings do not tell us how a child experiences care, and having fewer rules does not by itself establish this style. The circumstances, the suitability of an expectation and what adults actually do all matter. This guide offers a way to examine those details without assigning a family identity.",
+              "zh": "permissive通常描述框架中回应较多、结构或落实较少的模式。这种说明应当帮助询问具体安排，而不是把关爱当成问题。成年人感到温暖，不能说明孩子实际怎样体验照料；规则较少，也不单独证明属于这种风格。情境、要求是否合适及成年人实际做了什么都重要。本指南帮助查看这些细节，不给家庭定义身份。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-2",
+          "title": {
+            "en": "Read the arithmetic without drawing a quadrant",
+            "zh": "复算数字，不划入象限"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine warm-response answers of 4, 5, 3, 4, 4 and 4. They total 24 and produce 4.0. Boundary answers of 2, 1, 3, 2, 1 and 3 total 12 and produce 2.0. This fictional pattern does not generate a permissive result: there are no high-and-low cutoffs in the original quiz. The means summarize how often twelve particular actions were recalled, not the full warmth-and-demandingness model or whether the actions were effective.",
+              "zh": "假设温暖回应选择4、5、3、4、4、4，合计24，均分4.0；边界选择2、1、3、2、1、3，合计12，均分2.0。这一虚构组合不会生成宽松型结果：原创问卷没有高低判定线。均分只概括记得十二项具体行为出现得多常，没有测量完整的温暖与要求模型，也不知道行为是否有效。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-3",
+          "title": {
+            "en": "An evening arrangement that remains unclear",
+            "zh": "一项仍不清楚的晚间安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional family that agrees to finish a game before preparing for bed. When the moment arrives, the adult repeatedly says “soon,” while neither person knows what happens next. A useful first question is whether the arrangement was specific and realistic, rather than whether the child is good at testing limits. The adult can state the next action and offer suitable help. The child may still dislike ending the game; disagreement alone does not show that the boundary or the relationship has failed.",
+              "zh": "设想一个虚构家庭约好：游戏结束后准备睡觉。时间到了，成年人反复说“马上”，双方却都不知道下一步实际怎样做。首先可问安排是否具体、可行，而不是孩子是否擅长试探边界。成年人可以说明接下来做什么，并提供合适帮助。孩子仍可能不喜欢结束游戏；出现分歧本身不证明边界或关系失败。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-4",
+          "title": {
+            "en": "Keep attention available while clarifying the limit",
+            "zh": "说清边界时，仍保留关注"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible exchange is: “We agreed that the game ends now. I know you wanted longer. I will stay with you while we put it away.” The adult names the arrangement and the next action without making care conditional on immediate agreement. If the original arrangement was unsuitable, acknowledge that and explain the revision. Repeating a rule or raising the volume is not the same as making it usable. A single script cannot guarantee that a routine will run smoothly.",
+              "zh": "一种可能的对话是：“我们约好现在结束游戏。我知道你还想再玩。我会陪你一起收起来。”成年人说明约定与下一步，同时不要求孩子立即同意才继续关注。若原安排不合适，可以承认并解释怎样修订。反复说规则或提高音量，不等于让规则更容易使用；一句固定说法也不能保证日常流程顺利。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-5",
+          "title": {
+            "en": "Flexibility is an important counterexample",
+            "zh": "灵活调整是重要反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Changing a plan after new information can be a responsible response. A delayed journey, an illness or an unsuitable expectation may require a different arrangement. Explaining the change is not automatically abandoning structure. Similarly, giving a child a meaningful choice within a practical boundary is not the same as leaving them without adult support. Ask what changed, which need matters and how the new next step becomes clear, rather than treating every revision as proof of permissive parenting.",
+              "zh": "获得新信息后改变计划，可以是一种负责的应对。行程耽搁、身体不适或原要求不合适，都可能需要不同安排。解释变化不自动等于放弃结构。同样，让孩子在实际边界内作有意义的选择，也不同于让其缺少成年人的支持。可以问什么变了、哪项需要重要，以及新下一步怎样说清楚，而不是把每次修订都当作宽松型证据。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-6",
+          "title": {
+            "en": "Opportunity is different from a low rating",
+            "zh": "没有机会不同于低档回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Never describes a relevant occasion on which the action did not occur. No relevant occasion or uncertainty can instead be unscored. The latter withholds its part’s mean, while a complete other part remains visible. The website does not turn missing answers into less affection, poor boundaries or a failed caregiver. A numerical difference between two attempts may reflect different routines, responsibilities or opportunities. It cannot by itself establish improvement, deterioration or a change from one style to another.",
+              "zh": "有相关情境却没有采取该行为，可选从不；没有相关机会或不确定，可以另选不计分。后者会使该部分均分暂缺，另一完整部分仍显示。网站不把缺答解释成较少关爱、边界差或照料失败。两次数字不同，可能涉及日常安排、职责或机会不同；数值本身不能证明改善、恶化或从一种风格变成另一种。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-7",
+          "title": {
+            "en": "Clarify one routine rather than adding many rules",
+            "zh": "先说清一个流程，不急着增加规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a manageable everyday transition. Before it starts, state what needs to happen next, why it matters and what help is available. Consider whether the child can understand and carry out that action. Afterward, note which part was clear and which part still needs adjustment. There is no need to create extra restrictions, withdraw attention or make the child responsible for improving your score. Another caregiver can help check the arrangement without agreeing to a label.",
+              "zh": "选一个可承受的日常转换，事前说明接下来需要做什么、原因是什么，以及能提供什么帮助，并考虑孩子能否理解、做到。事后记下哪部分清楚，哪部分仍需要调整。无需增加额外限制、撤回关注，或让孩子负责提高你的分数。另一位照料者也可以帮助核对安排，而不必先认同某种标签。"
+            }
+          ]
+        },
+        {
+          "id": "permissive-8",
+          "title": {
+            "en": "A guide is not an outcome forecast",
+            "zh": "指南不是发展预测"
+          },
+          "paragraphs": [
+            {
+              "en": "The four-style vocabulary and practical guidance are background, not evidence that this original self-report predicts frustration tolerance, school achievement, attachment or future relationships. A warm interaction and a workable boundary need to be understood in their actual setting. If a concern persists, concrete examples can support a conversation with an appropriate professional. All four full guides are available without signup or sharing a child’s information; reading another guide does not mean the software has changed your personal type.",
+              "zh": "四种风格的词汇和实践说明提供背景，不证明这份原创自报能预测挫折耐受、学习成绩、依恋或未来关系。温暖互动与可实行的边界，都需要放回实际情境理解。担忧持续时，具体例子可以支持与适合专业人士的讨论。无需注册或分享孩子信息，就能阅读四份完整指南；打开另一篇，也不表示软件改变了你的个人类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uninvolved",
+      "directionIds": [
+        "warm-response",
+        "clear-boundaries"
+      ],
+      "title": {
+        "en": "Uninvolved Parenting: Availability, Needs and Practical Support",
+        "zh": "低投入型养育：回应、需要与实际支持"
+      },
+      "headline": {
+        "en": "Start with who is available to meet an actual need.",
+        "zh": "先看实际需要由谁回应。"
+      },
+      "summary": {
+        "en": "Read the low-responsiveness, low-structure concept without diagnosing neglect or guessing a caregiver’s motives. Use a concrete handover to identify responsibility, availability and support.",
+        "zh": "理解低回应、低结构的概念，不诊断忽视，也不猜照料者动机。通过一次具体交接，核对责任、可回应的人与所需支持。"
+      },
+      "scoreReading": {
+        "en": "This is a general explanation of a parenting framework, not a type assigned by your answers. The two six-item frequency means remain separate, without a cutoff or child-outcome prediction.",
+        "zh": "这是养育框架的通用说明，不是由回答分配的类型。两组六项频率均分分别保留，没有类型判定线，也不预测孩子的发展。"
+      },
+      "seo": {
+        "title": {
+          "en": "Uninvolved Parenting: Availability, Context and Support",
+          "zh": "低投入型养育是什么：回应、情境与实际支持"
+        },
+        "description": {
+          "en": "Read an uninvolved-parenting guide with a worked example, a shared-care handover and a counterexample. Scores do not assess neglect, love or a child’s wellbeing.",
+          "zh": "结合算例、共同照料交接与反例，理解低投入型养育。分数不评估忽视、关爱程度或孩子福祉，重点是具体需要与支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "uninvolved-1",
+          "title": {
+            "en": "Use the term carefully",
+            "zh": "谨慎使用这个概念"
+          },
+          "paragraphs": [
+            {
+              "en": "Uninvolved is a framework term for a pattern with less responsiveness and less structure. It is not a label this quiz assigns, a finding about neglect or a measure of how much an adult loves a child. The term should not replace attention to a concrete need: who notices it, who is responsible and who can respond. Neither an adult’s intention nor a numerical mean tells the full story of a child’s care or experience.",
+              "zh": "uninvolved是框架中回应较少、结构较少的模式用语，不是本问卷分配的标签、对忽视的认定，或衡量成年人有多爱孩子的数字。它不应代替对具体需要的关注：谁会注意、由谁负责、谁能实际回应。无论成年人的意图，还是一个均分，都无法说明孩子的全部照料状况与体验。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-2",
+          "title": {
+            "en": "Two small numbers do not establish an uninvolved style",
+            "zh": "两个较小数字不能认定低投入型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine both six-item sets contain 2, 1, 3, 2, 1 and 3. Each sum is 12, and each mean is 2.0. These fictional frequencies do not classify the caregiver. If an action could not be judged or no occasion arose, unscored is available instead of inventing a low answer. The website needs six numeric answers within each part and supplies no overall score, quadrant boundary, child-welfare rating or comparison with other families.",
+              "zh": "假设两组六项都选2、1、3、2、1、3，各自合计12、均分2.0。这些虚构频率不会给照料者分类。无法判断或没有相关机会时，可选不计分，不必编成低档回答。网站要求每部分六项数值齐全，不提供总分、象限边界、儿童福祉评分或家庭之间的比较。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-3",
+          "title": {
+            "en": "A handover makes the question concrete",
+            "zh": "用一次交接把问题说具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an adult’s work schedule changes, while a child still needs a familiar responsible person after an activity. A useful plan identifies who is available, what they have agreed to do and what happens if the arrangement falls through. Naming a style does not complete that handover. Nor should a child’s ability to manage a task alone be treated as proof that support is unnecessary. The example concerns practical responsibility, without guessing why a particular family has fewer resources.",
+              "zh": "假设一位成年人的工作安排变化，而孩子活动结束后仍需要熟悉、负责的人照料。有用的安排应明确谁可回应、同意承担什么，以及安排落空时怎么办。给养育风格命名，并不能完成交接；孩子能够独自做一件事，也不证明不需要支持。例子关注实际责任，不猜某个家庭为何资源较少。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-4",
+          "title": {
+            "en": "Ask for a specific, realistic commitment",
+            "zh": "请求具体、能够兑现的支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A caregiver could say to another responsible adult: “I cannot cover that afternoon. Can we agree who will be available, and what our backup is?” The answer must be a real agreement, not an assumed obligation. In language the child can understand, clarify whom they can approach for help. The child does not need to solve the adults’ scheduling conflict or reassure them that everything is fine. This conversation is an example, not an assessment of any family’s arrangements.",
+              "zh": "照料者可以向另一位负责的成年人说：“那个下午我无法照料。我们能否商定由谁回应，以及备用安排是什么？”回应应是真实约定，不是默认别人有义务。也可以用孩子能理解的语言，说明需要帮助时能找谁。孩子不需要解决成年人的排程冲突，或反过来安慰成年人说一切没问题。这是一段示例对话，不是对任何家庭安排的评估。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-5",
+          "title": {
+            "en": "Shared care is a counterexample to a quick label",
+            "zh": "共同照料可以反驳仓促贴标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A parent working an evening shift may report fewer occasions for particular routines, while another agreed caregiver provides attentive care. That does not automatically describe an uninvolved home. Conversely, an adult being physically present does not establish that a child’s needs are met. Ask about actual availability and responses instead of inferring a whole relationship from contact time, a work schedule or this questionnaire. The child’s perspective may add information the adult’s answers do not contain.",
+              "zh": "一位上晚班的家长可能较少参与某些日常流程，同时由另一位已商定的照料者认真照顾；这不自动描述一个低投入家庭。反过来，成年人身体在场，也不能证明孩子的需要得到满足。应核对实际可回应的人与回应方式，不凭相处时长、工作安排或本问卷推断整段关系；孩子的视角也可能补充成年人回答中没有的信息。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-6",
+          "title": {
+            "en": "Do not guess the cause from a score",
+            "zh": "不从分数猜测原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Competing responsibilities, a changed routine, a lack of practical support or a different interpretation of an item may affect recalled frequency. The quiz cannot determine whether any of these applies, diagnose exhaustion or mental illness, or treat a resource problem as a character flaw. Context helps identify what needs clarification; it does not remove the importance of responding to an actual unmet need. Seeking support can be useful regardless of whether a numerical mean is available.",
+              "zh": "相互竞争的责任、日常安排变化、缺少实际支持，或对题目的不同理解，都可能影响回忆频率。问卷不能判断其中哪项适用、诊断疲惫或精神疾病，也不能把资源问题变成人格缺陷。背景有助于辨认哪里需要说清，但不会消除回应真实未满足需要的重要性。有无均分，都可以按实际情况寻找支持。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-7",
+          "title": {
+            "en": "Choose one practical point of contact",
+            "zh": "核对一个实际可回应的环节"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary care task within your role, identify the responsible adult, the expected next step and how a change will be communicated. Check that the person has actually agreed and is available. If the arrangement cannot meet the need, seek appropriate practical or professional support rather than waiting for a better questionnaire result. Keep notes private and limited to what is useful. This optional exercise is not a substitute for responding to an immediate real-world problem.",
+              "zh": "可选一项职责内的普通照料任务，明确负责的成年人、预计下一步，以及安排改变时怎样沟通，核对对方是否真的同意、能够回应。安排无法满足需要时，可以寻找适当的实际或专业支持，不必等待问卷结果变好。记录保留私下且只写有用内容。这是自选练习，不能代替对现实即时问题的回应。"
+            }
+          ]
+        },
+        {
+          "id": "uninvolved-8",
+          "title": {
+            "en": "Keep judgments within the available evidence",
+            "zh": "让判断止于现有证据"
+          },
+          "paragraphs": [
+            {
+              "en": "The original twelve items have no established clinical thresholds, norms or evidence for predicting a child’s development. General parenting-style sources do not turn a low response pattern into a legal or medical finding. All-unscored attempts still finish with all four complete guides and no personal numerical interpretation. You can read, retake or stop without sharing answers, identifying a child or rating another caregiver. A useful next question concerns an actual need and a workable response, rather than who deserves a label.",
+              "zh": "这十二道原创题没有已建立的临床阈值、常模或预测儿童发展的证据。一般养育风格来源，不会把较少发生的回答转成法律或医学认定。全部不计分也能完成，仍有四份完整指南，但没有个人数值解释。可以阅读、重做或结束，不需要分享回答、识别孩子身份，或给另一位照料者评分。更有用的下一问，是实际需要什么、怎样能够回应，而不是谁应被贴标签。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_parenting_responses_not_PAQ_PSDQ",
+    "formCode": "fm_parenting_warmth_boundaries12_v1",
+    "itemBankVersion": "original12_bilingual_v1",
+    "scoringVersion": "two_complete6_frequency_means1dp_no_typology_threshold_v1",
+    "resultContentVersion": "fm_parenting_four_full8_general_v1",
+    "itemBankSha256": "f2280e46efedd6d87541351f861d03c135d582a86de148359ea8777ef59c7d80",
+    "resultContentSha256": "754fbcc6854770f00f000d4acb9155b734f50ab688f5c0c5f5ec66d85470d7a4",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Stanford Medicine Children’s Health: four parenting styles and shared care, background only",
+        "zh": "斯坦福儿童健康：四种养育风格与共同照料，仅为背景"
+      },
+      "url": "https://www.stanfordchildrens.org/en/topic/default?id=when-partners-have-different-parenting-styles-197-29228"
+    },
+    {
+      "title": {
+        "en": "CDC: clear and age-appropriate family rules, young-child guidance",
+        "zh": "CDC：清楚、适龄的家庭规则，幼儿相关说明"
+      },
+      "url": "https://www.cdc.gov/parenting-toddlers/structure-rules/rules.html"
+    },
+    {
+      "title": {
+        "en": "American Academy of Pediatrics: relationships, routines and positive parenting",
+        "zh": "美国儿科学会：关系、日常安排与积极养育"
+      },
+      "url": "https://www.healthychildren.org/English/healthy-living/emotional-wellness/Building-Resilience/Pages/healthy-mental-and-emotional-development-in-children-key-building-blocks.aspx"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Two means that can be recalculated",
+        "zh": "可以自行复算的两个均分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each part contains six original items. Never, Rarely, Sometimes, Often and Almost always contribute 1–5 with no reversals. Add six values and divide by six, then round to one decimal for display. For example, 4, 2, 3, 5, 2 and 4 give 20 ÷ 6, displayed as 3.3 / 5. This summarizes frequency choices, not a percentage of occasions or parenting quality. The parts are not added into an overall score.",
+          "zh": "每部分含六项原创题。从不、很少、有时、经常、几乎总是依次记1至5，没有反向题。六项相加除以六，显示时保留一位小数。例如4、2、3、5、2、4得20÷6，显示3.3 / 5。它概括频率选项，不是实际机会百分比或养育质量，两部分也不再合成总分。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "No occasion is different from Never",
+        "zh": "没有机会与从不不同"
+      },
+      "paragraphs": [
+        {
+          "en": "If an occasion existed but the action did not occur, Never may describe it. No occasion, uncertainty and a choice not to answer remain unscored. All six numeric responses are required within a part; one unscored answer withholds only that part’s mean, without zero or midpoint imputation. A complete other part remains. All twelve unscored choices can finish with all four full guides available.",
+          "zh": "有机会却未采取该行为时，可以选从不；没有机会、不确定或不愿回答，则保留为不计分。每部分需要六项数值齐全，一项不计分只使所属均分暂缺，不补零或中点，另一完整部分仍保留。十二题全部不计分也能完成，四份完整指南都可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Four framework explanations, no assigned style",
+        "zh": "四份框架说明，不分配风格"
+      },
+      "paragraphs": [
+        {
+          "en": "Authoritative, authoritarian, permissive and uninvolved are framework terms discussed in the guides. This original twelve-item form has no validated thresholds for assigning those styles. Its clear-boundary items do not measure harsh control, and its two means do not measure the full research dimensions. No high/low quadrant, dominant type, caregiver ranking or child-development prediction is calculated.",
+          "zh": "四份指南讨论authoritative、authoritarian、permissive与uninvolved等框架用语。本原创十二题没有用于分配这些风格的已验证阈值；清楚边界条目不测严厉控制，两个均分也没有测量研究框架的全部维度。本版不计算高低象限、主导类型、照料者排名或儿童发展预测。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original questions and background sources",
+        "zh": "原创问题与背景来源"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote all twelve questions, both languages and the four complete guides. Stanford, CDC and American Academy of Pediatrics materials provide background about parenting concepts and practical care, not validation or endorsement of this form. Four weeks, the adult-caregiver/ages 3–12 audience and strict completeness policy are editorial choices. Reliability, norms, factor structure and language equivalence have not been established.",
+          "zh": "十二道题、双语措辞及四份完整指南由费马原创。斯坦福、CDC与美国儿科学会资料提供养育概念和实际照料背景，没有验证或背书本题本。四周期限、成年人照料3至12岁孩子的范围及严格齐全规则，均为编辑约定；尚未建立信度、常模、因子结构或语言等价性。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep the child’s identity private",
+        "zh": "保留孩子的身份隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "No child name, birth date, school or identifying information is needed. Answers describe the adult’s own recalled actions and are not a survey of the child. Optional progress stays in this tab for up to 24 hours and clears on completion, retake or exit-and-clear. Copying shares a public title and link without answers, means or a private score URL.",
+          "zh": "无需提供孩子姓名、生日、学校或其他身份信息。回答描述成年人自己记得的行为，不是对孩子作调查。可选进度最多留在本标签页24小时，完成、重做或退出清除即删除。复制只分享公开标题和链接，不带回答、均分或私人成绩网址。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which parenting-style test is this?",
+        "zh": "这是什么版本的育儿风格测试？"
+      },
+      "answer": {
+        "en": "A complete original twelve-item reflection for adult caregivers of one child aged 3–12. It asks about recalled actions in the past four weeks, not about how another person should be classified. It is not a PAQ or PSDQ short form.",
+        "zh": "这是面向照料同一位3至12岁孩子的成年人、完整的十二题原创反思。它询问过去四周记得的行为，不给其他人分类，也不是PAQ或PSDQ短版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will it tell me which of four styles I am?",
+        "zh": "会告诉我属于四种风格中的哪一种吗？"
+      },
+      "answer": {
+        "en": "You receive two descriptive means when the six-item parts are complete and can read all four full framework guides. The software does not select a personal style, draw a cutoff quadrant or label another caregiver.",
+        "zh": "每组六项完整时，可分别获得两个描述性均分，并阅读四份完整框架指南。软件不选择个人风格，不画判定象限，也不给另一位照料者贴标签。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do the two means describe?",
+        "zh": "两个均分描述什么？"
+      },
+      "answer": {
+        "en": "They summarize selected frequencies for warm responses and clear everyday boundaries. A larger mean means more frequent responses on these particular items, not better parenting, a stronger relationship or a predicted child outcome.",
+        "zh": "分别概括温暖回应与清楚日常边界条目的频率选项。均分较大，只表示这些具体条目的回答较常发生，不等于养育更好、关系更强或预期孩子发展更好。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why is there no score after an unscored answer?",
+        "zh": "选不计分后为什么没有均分？"
+      },
+      "answer": {
+        "en": "Each part needs all six numeric answers. An unscored answer withholds its own part only; a complete other part remains. Nothing is zero-filled, averaged in or prorated. All-unscored attempts still finish and show every full guide.",
+        "zh": "每部分需要六项数值齐全。不计分只使所属部分暂缺，另一完整部分仍保留；不补零、不代填平均数、不按比例放大。全部不计分也能完成并阅读所有完整指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a low mean a judgment of a caregiver?",
+        "zh": "较小均分是在评价照料者吗？"
+      },
+      "answer": {
+        "en": "A mean cannot establish love, intention, competence or why an action was infrequent. Consider the actual occasions and needs rather than treating an absence of a number or a smaller number as a personal verdict.",
+        "zh": "均分不能确定关爱程度、动机、能力，或某行为较少的原因。应结合实际机会与需要，不把没有数字或数字较小当作对整个人的判定。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use it to assess a child or another parent?",
+        "zh": "能用它评估孩子或另一位家长吗？"
+      },
+      "answer": {
+        "en": "This form concerns your own recalled actions. It cannot assess a child’s wellbeing, diagnose another person or decide legal or care arrangements. Concrete concerns need information beyond a self-report frequency mean.",
+        "zh": "它回看本人记得的行动，不能评估孩子福祉、诊断他人，或决定法律与照料安排。具体担忧需要自报频率均分之外的信息。"
+      }
+    },
+    {
+      "question": {
+        "en": "What can I try after reading a guide?",
+        "zh": "读完指南之后可以尝试什么？"
+      },
+      "answer": {
+        "en": "Choose one ordinary interaction, identify the practical next step and consider whether your explanation was understandable and respectful. The examples are optional, without a promise of compliance, treatment or a higher score.",
+        "zh": "可以选一次普通互动，明确实际下一步，再考虑自己的解释是否可理解、是否尊重。示例可以不做，不承诺服从、治疗或提高分数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the full result free, and can I keep answers private?",
+        "zh": "完整结果免费吗，回答可以保持私密吗？"
+      },
+      "answer": {
+        "en": "All twelve items and all four complete guides are free without signup. No identifying child data is requested. Saving is optional within this tab for 24 hours; completion, retake or exit-and-clear removes it. Public copying includes only the title and link.",
+        "zh": "十二题与四份完整指南免费，无需注册，不要求孩子身份信息。保存需主动选择，仅限本标签页24小时；完成、重做或退出清除即删除。公开复制只含标题和链接。"
+      }
+    }
+  ]
+}

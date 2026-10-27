@@ -1,0 +1,437 @@
+{
+  "source": "IndependentPythonitertools/Fraction/Decimalhalfup;notcopiedfromTypeScriptimplementation",
+  "per_part_vectors": 15625,
+  "parts": 2,
+  "native_vectors_to_check": 31250,
+  "not_full_joint_5pow12": true,
+  "states": [
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sum": 6,
+      "exact_mean_fraction": "1",
+      "display": "1.0"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "sum": 7,
+      "exact_mean_fraction": "7/6",
+      "display": "1.2"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "sum": 8,
+      "exact_mean_fraction": "4/3",
+      "display": "1.3"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "sum": 9,
+      "exact_mean_fraction": "3/2",
+      "display": "1.5"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "sum": 10,
+      "exact_mean_fraction": "5/3",
+      "display": "1.7"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        5
+      ],
+      "sum": 11,
+      "exact_mean_fraction": "11/6",
+      "display": "1.8"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        5
+      ],
+      "sum": 12,
+      "exact_mean_fraction": "2",
+      "display": "2.0"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        4,
+        5
+      ],
+      "sum": 13,
+      "exact_mean_fraction": "13/6",
+      "display": "2.2"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        5,
+        5
+      ],
+      "sum": 14,
+      "exact_mean_fraction": "7/3",
+      "display": "2.3"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        2,
+        5,
+        5
+      ],
+      "sum": 15,
+      "exact_mean_fraction": "5/2",
+      "display": "2.5"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        3,
+        5,
+        5
+      ],
+      "sum": 16,
+      "exact_mean_fraction": "8/3",
+      "display": "2.7"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        4,
+        5,
+        5
+      ],
+      "sum": 17,
+      "exact_mean_fraction": "17/6",
+      "display": "2.8"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        5,
+        5,
+        5
+      ],
+      "sum": 18,
+      "exact_mean_fraction": "3",
+      "display": "3.0"
+    },
+    {
+      "values": [
+        1,
+        1,
+        2,
+        5,
+        5,
+        5
+      ],
+      "sum": 19,
+      "exact_mean_fraction": "19/6",
+      "display": "3.2"
+    },
+    {
+      "values": [
+        1,
+        1,
+        3,
+        5,
+        5,
+        5
+      ],
+      "sum": 20,
+      "exact_mean_fraction": "10/3",
+      "display": "3.3"
+    },
+    {
+      "values": [
+        1,
+        1,
+        4,
+        5,
+        5,
+        5
+      ],
+      "sum": 21,
+      "exact_mean_fraction": "7/2",
+      "display": "3.5"
+    },
+    {
+      "values": [
+        1,
+        1,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 22,
+      "exact_mean_fraction": "11/3",
+      "display": "3.7"
+    },
+    {
+      "values": [
+        1,
+        2,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 23,
+      "exact_mean_fraction": "23/6",
+      "display": "3.8"
+    },
+    {
+      "values": [
+        1,
+        3,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 24,
+      "exact_mean_fraction": "4",
+      "display": "4.0"
+    },
+    {
+      "values": [
+        1,
+        4,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 25,
+      "exact_mean_fraction": "25/6",
+      "display": "4.2"
+    },
+    {
+      "values": [
+        1,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 26,
+      "exact_mean_fraction": "13/3",
+      "display": "4.3"
+    },
+    {
+      "values": [
+        2,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 27,
+      "exact_mean_fraction": "9/2",
+      "display": "4.5"
+    },
+    {
+      "values": [
+        3,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 28,
+      "exact_mean_fraction": "14/3",
+      "display": "4.7"
+    },
+    {
+      "values": [
+        4,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 29,
+      "exact_mean_fraction": "29/6",
+      "display": "4.8"
+    },
+    {
+      "values": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sum": 30,
+      "exact_mean_fraction": "5",
+      "display": "5.0"
+    }
+  ],
+  "worked": [
+    {
+      "id": "shared_report_example",
+      "answers": [
+        4,
+        2,
+        3,
+        5,
+        2,
+        4,
+        3,
+        4,
+        2,
+        3,
+        5,
+        1
+      ],
+      "sums": [
+        20,
+        18
+      ],
+      "displays": [
+        "3.3",
+        "3.0"
+      ]
+    },
+    {
+      "id": "authoritarian_guide_example",
+      "answers": [
+        1,
+        3,
+        2,
+        2,
+        3,
+        1,
+        4,
+        3,
+        5,
+        3,
+        4,
+        5
+      ],
+      "sums": [
+        12,
+        24
+      ],
+      "displays": [
+        "2.0",
+        "4.0"
+      ]
+    },
+    {
+      "id": "permissive_guide_example",
+      "answers": [
+        4,
+        5,
+        3,
+        4,
+        4,
+        4,
+        2,
+        1,
+        3,
+        2,
+        1,
+        3
+      ],
+      "sums": [
+        24,
+        12
+      ],
+      "displays": [
+        "4.0",
+        "2.0"
+      ]
+    },
+    {
+      "id": "uninvolved_guide_example",
+      "answers": [
+        2,
+        1,
+        3,
+        2,
+        1,
+        3,
+        2,
+        1,
+        3,
+        2,
+        1,
+        3
+      ],
+      "sums": [
+        12,
+        12
+      ],
+      "displays": [
+        "2.0",
+        "2.0"
+      ]
+    }
+  ],
+  "no_type_assignment": true
+}
