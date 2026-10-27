@@ -1,0 +1,1024 @@
+{
+  "id": "T093",
+  "slug": "sternberg-love",
+  "code": "FM_TRIANGLE_REFLECTION15",
+  "kind": "likert",
+  "form": "fm_triangle_original15_v1",
+  "scoring": "fm_triangle_three_complete5_means1dp_v1",
+  "minimumRatedItems": 5,
+  "instructions": {
+    "en": "Choose one current romantic relationship, or your most recent significant one. Keep that same relationship in mind and recall the past four weeks, or its final four weeks if it has ended. Rate how well each statement describes your own experience, using 1–5. This four-week window is editorial. Use unscored when irrelevant, inaccessible, uncertain or something you do not wish to answer. You do not need to have sexual experiences, reveal private information or contact anyone. All fifteen recognised choices, including unscored, can finish. Three groups remain separate; no love type, triangle area or partner compatibility is assigned.",
+    "zh": "选择一段当前恋爱关系，或最近一段重要关系。始终以同一段关系为参照，回想过去四周；已结束时回想最后四周。按1—5评价陈述与自身体验的符合程度；四周是本版编辑窗口。不相关、无法接触、不能判断或不愿回答时可不计分，不要求有性经历、披露隐私或联系任何人。十五项包括不计分的有效选择均可完成，三组分别呈现，不派类型、不算三角面积或伴侣匹配。"
+  },
+  "parts": [
+    {
+      "id": "intimacy",
+      "title": {
+        "en": "Intimacy experiences",
+        "zh": "亲密体验"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "passion",
+      "title": {
+        "en": "Passion and attraction experiences",
+        "zh": "激情与吸引体验"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "decision-commitment",
+      "title": {
+        "en": "Decision and commitment intentions",
+        "zh": "决定与承诺意向"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "TRI_01",
+      "prompt": {
+        "en": "I feel emotionally close to this person when we share something meaningful to us.",
+        "zh": "在分享对彼此有意义的事情时，我感到与这个人在情感上亲近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "intimacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "intimacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "intimacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "intimacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "intimacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "intimacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_02",
+      "prompt": {
+        "en": "I feel understood when I describe an important experience to this person.",
+        "zh": "向这个人描述重要经历时，我感到自己被理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "intimacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "intimacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "intimacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "intimacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "intimacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "intimacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_03",
+      "prompt": {
+        "en": "I can talk about a feeling with this person without having to disclose more than I want.",
+        "zh": "我能与这个人谈一种感受，同时保留自己不愿披露的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "intimacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "intimacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "intimacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "intimacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "intimacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "intimacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_04",
+      "prompt": {
+        "en": "I want to offer support that this person has said they would welcome.",
+        "zh": "我愿意提供这个人已表示愿意接受的支持。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "intimacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "intimacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "intimacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "intimacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "intimacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "intimacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_05",
+      "prompt": {
+        "en": "Ordinary time together gives me a sense of connection with this person.",
+        "zh": "普通的相处时光让我感到与这个人有连接。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "intimacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "intimacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "intimacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "intimacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "intimacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "intimacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_06",
+      "prompt": {
+        "en": "I look forward to seeing this person with a feeling of romantic excitement.",
+        "zh": "期待见到这个人时，我会感到浪漫的兴奋。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "passion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "passion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "passion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "passion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "passion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "passion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_07",
+      "prompt": {
+        "en": "I experience a strong wish for romantic closeness with this person.",
+        "zh": "我体验到想与这个人浪漫亲近的强烈愿望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "passion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "passion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "passion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "passion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "passion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "passion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_08",
+      "prompt": {
+        "en": "When sexual attraction is relevant to my experience, I feel it toward this person.",
+        "zh": "在性吸引与我的体验相关时，我会对这个人产生性吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "passion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "passion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "passion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "passion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "passion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "passion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_09",
+      "prompt": {
+        "en": "I want forms of physical closeness with this person that we both freely welcome.",
+        "zh": "我想与这个人有双方都自愿接受的身体亲近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "passion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "passion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "passion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "passion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "passion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "passion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_10",
+      "prompt": {
+        "en": "Thinking about our romantic connection brings a sense of excitement to my day.",
+        "zh": "想到我们的浪漫连接，会给我的日常带来兴奋感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "passion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "passion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "passion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "passion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "passion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "passion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_11",
+      "prompt": {
+        "en": "I currently choose to regard my feelings for this person as love.",
+        "zh": "目前，我选择把自己对这个人的感情理解为爱。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "decision-commitment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "decision-commitment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_12",
+      "prompt": {
+        "en": "My intention to continue this relationship extends beyond what I feel in this immediate moment.",
+        "zh": "我继续这段关系的意向，不仅限于此刻的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "decision-commitment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "decision-commitment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_13",
+      "prompt": {
+        "en": "When we freely agree on a shared future plan, I intend to keep my part of that agreement.",
+        "zh": "当我们自愿约定一个共同的未来计划时，我打算履行自己同意的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "decision-commitment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "decision-commitment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_14",
+      "prompt": {
+        "en": "I am willing to give an ordinary disagreement time and attention because I want this relationship to continue.",
+        "zh": "因为自己希望关系继续，我愿意花时间和注意力处理一次普通分歧。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "decision-commitment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "decision-commitment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TRI_15",
+      "prompt": {
+        "en": "I intend to make room for this relationship in the future I choose for myself.",
+        "zh": "在自己选择的未来中，我打算为这段关系留出位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe my experience",
+            "zh": "1 · 不符合我的体验"
+          },
+          "directionId": "decision-commitment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Describes my experience a little",
+            "zh": "2 · 少有符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Describes my experience somewhat",
+            "zh": "3 · 部分符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Describes my experience quite well",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes my experience very well",
+            "zh": "5 · 很符合"
+          },
+          "directionId": "decision-commitment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot judge / prefer not to answer",
+            "zh": "不适用／无法判断／暂不回答"
+          },
+          "directionId": "decision-commitment",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "provenance": "FermatMind original15 bilingual statements and prose, conceptual Sternberg framework only; no publishedTLS/competitorbank; no validation inheritance",
+  "overlap": "T086 continuing intention concept overlaps with five decision/commitment items, not an independent new commitment construct; distinct three-component interpretive purpose, not numeric conversion"
+}

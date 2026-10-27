@@ -1,0 +1,416 @@
+[
+  {
+    "id": "thoughts-reading",
+    "directionIds": [
+      "thoughts"
+    ],
+    "title": {
+      "en": "Jealousy Scale: Reading Returning Relationship Thoughts",
+      "zh": "嫉妒量表：反复关系担心的完整读法"
+    },
+    "headline": {
+      "en": "Separate a thought from what you actually know",
+      "zh": "把一个想法与实际知道的事实分开"
+    },
+    "summary": {
+      "en": "Read six original worry-frequency prompts, an exact mean, a delayed-reply example and a private way to keep uncertainty explicit.",
+      "zh": "完整阅读六条担心频率原创提示、准确均分、回复延迟的例子及保留不确定的私人记录方法。"
+    },
+    "seo": {
+      "title": {
+        "en": "Jealousy Scale: Reading Returning Relationship Thoughts",
+        "zh": "嫉妒量表：反复关系担心的完整读法"
+      },
+      "description": {
+        "en": "Understand returning jealousy-related thoughts through six original prompts, scoring examples and fact-versus-interpretation checks. No diagnosis or partner verdict.",
+        "zh": "用六条原创提示、算例和事实／解释核对理解反复的嫉妒相关思维，不诊断或判断伴侣。"
+      }
+    },
+    "scoreReading": {
+      "en": "Six numeric frequency ratings produce a separate 1–5 mean. It summarises these prompts, not the truth of a suspicion or a severity band.",
+      "zh": "六项频率数值完整后独立求1—5均分，只汇总这些提示，不确认怀疑是否真实，也不分严重程度。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What the thought prompts cover",
+          "zh": "这组思维提示覆盖什么"
+        },
+        "paragraphs": [
+          {
+            "en": "These original statements ask how often a relationship worry returned: imagining replacement, wondering about comparisons, replaying an interaction, interpreting a mention, seeking certainty and imagining change. They describe your recollection of thoughts, not evidence about a partner or another person. A thought can recur even when you do not endorse it. Conversely, a small number of recalled thoughts does not establish trust, security or an accurate assessment of what is happening.",
+            "zh": "本原创组询问关系担心多常回来：想象被取代、猜想比较、重放互动、解释提及、寻找确定及设想变化。它描述思维回忆，不是伴侣或第三人的证据。想法反复出现，也可能自己并不认同；回想得少，同样不证明信任、安全或判断准确。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A six-item frequency example",
+          "zh": "六题频率的准确算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose the six ratings are 2, 3, 4, 2, 3 and 4. They sum to 18 and give a mean of 18/6 = 3.0. All six statements are forward-coded in this original edition. The number is not a percentage of time, a population percentile or a probability that a partner is interested elsewhere. Two different response patterns can have the same mean, so the actual thought themes remain worth reading alongside the number.",
+            "zh": "如六项为2、3、4、2、3、4，合计18，18/6为3.0。本原创版六项均正向；数字不是时间百分比、人群百分位或伴侣另有兴趣的概率。不同回答组合可能均分相同，因此还需保留具体担心的题意。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Use an ordinary delay without assuming its cause",
+          "zh": "用普通延迟举例，不预设原因"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine sending a message and noticing no reply for several hours. The observable event is the delay; “I am being replaced” is one interpretation rather than an established explanation. Other context may be unknown. If a conversation is wanted and safe, a request could be: “I noticed I was guessing when I did not hear back. Is there an ordinary way we want to handle busy periods?” The other person can decline, clarify or propose something different.",
+            "zh": "假设发出消息几小时未获回复，可观察的是延迟，“我被取代了”只是解释，原因尚未确定，也可能缺少背景。若双方愿意且安全，可以问：“没收到回复时我发现自己在猜，我们要不要谈谈忙碌时怎样安排？”对方可以拒绝、澄清或另提办法。"
+          }
+        ]
+      },
+      {
+        "id": "counterexample",
+        "title": {
+          "en": "An intrusive thought is not a finding",
+          "zh": "闯入的想法不是调查发现"
+        },
+        "paragraphs": [
+          {
+            "en": "A counterexample is treating a larger mean as proof of infidelity or demanding a phone inspection to settle a score. The form cannot verify an event, read intentions or authorise access to another person’s accounts. It also cannot establish that a worry is unfounded. If you have concrete information about an agreement or boundary, consider that information separately rather than using a mean to confirm or dismiss it. No investigation or confrontation is needed to finish this tool.",
+            "zh": "反例是把较大均分当不忠证据，或为解决分数而要求查手机。问卷不核实事件、读心或授权访问他人账号，也不能证明担心毫无根据。若有关于约定或边界的具体信息，应单独考虑，不能用均分证实或驳回。完成工具不需要调查或对质。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Frequency and discomfort answer different questions",
+          "zh": "频率与不适回答不同问题"
+        },
+        "paragraphs": [
+          {
+            "en": "The discomfort group asks about intensity in recalled situations, while this group asks how often a thought returned. The action group concerns what you remember doing. A frequent thought need not produce strong discomfort or an action, and a single intense episode may be recalled rarely. The groups use different prompts and anchors, so their means are not ranked against each other or combined into an overall jealousy score. Close numbers do not establish equivalent experiences.",
+            "zh": "不适组询问回想情境中的强度，本组询问想法出现频率，行动组则问做过什么。想法频繁未必不适强或有行动，一次强烈体验也可能只发生一次。题意和端点不同，不跨组排名或合成嫉妒总分；数值接近也不表示体验相同。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "No opportunity and no wish to answer remain unscored",
+          "zh": "没有机会或不愿答均不计分"
+        },
+        "paragraphs": [
+          {
+            "en": "Use never when there was a relevant opportunity and the described thought did not occur. If there was no relevant experience, you cannot judge or you prefer not to answer, use unscored instead. Any unscored response withholds this group’s mean without replacing it with zero or estimating an answer. Other complete groups keep their means. All eighteen unscored choices can finish the form, and all three full readings stay available without a personal score.",
+            "zh": "有相关机会但没有所述想法时选从未；没有相关经历、无法判断或不愿答时选不计分。任一不计分使本组暂不给均分，不补零或估计；其他完整组保留。十八项全部不计分也可完成，三篇全文不依赖个人分数。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Conceptual background does not validate these new items",
+          "zh": "概念背景不验证本新题本"
+        },
+        "paragraphs": [
+          {
+            "en": "Research distinguishes cognitive, emotional and behavioural aspects of jealousy, but published MJS versions have different item sets and scoring. These eighteen bilingual statements, the four-week recall and the complete-six rule are FermatMind editorial choices. This is not the original 24-item MJS, a validated 17- or 15-item short form, or an endorsed clinical instrument. It has no established reliability, norms or language equivalence. A thought-frequency mean supplies no diagnosis or prediction about the relationship.",
+            "zh": "研究区分思维、情绪与行为，但不同MJS版本题本及计分不同。本十八条双语题、四周回忆和六项完整规则均由费马编辑制定，不是原24题MJS、验证过的17或15题短版，也不是临床工具。没有建立信度、常模或语言等价性，思维频率不诊断或预测关系。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep one uncertainty without turning it into a demand",
+          "zh": "保留一个疑问，不把它变成要求"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately separate one remembered event, the interpretation that followed and what remains unknown. You may choose a voluntary conversation, a different source of support or no further action. Another person does not need to disclose private material to make your answer legitimate. You can stop here if discussion would be unsafe. Public links contain the general guide, and copying does not expose the six ratings or send a message on your behalf.",
+            "zh": "若有用，私下分开一件记得的事件、随后解释及仍未知的部分。可以自主交谈、选择别的支持或不行动；对方无须披露隐私来证明你的回答成立。讨论不安全时可以停止。公开链接只有通用指南，复制不暴露六项回答，也不替你传话。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "discomfort-reading",
+    "directionIds": [
+      "discomfort"
+    ],
+    "title": {
+      "en": "Jealousy Scale: Reading Discomfort Without a Verdict",
+      "zh": "嫉妒量表：不适强度与读法边界"
+    },
+    "headline": {
+      "en": "A feeling can be real without proving an interpretation",
+      "zh": "感受真实，不等于解释已被证实"
+    },
+    "summary": {
+      "en": "Understand six original discomfort prompts, a separate intensity mean, a social-event example and the limits of comparing feelings with frequency.",
+      "zh": "用六条原创不适提示、独立强度均分及社交活动例子，理解感受与频率比较的边界。"
+    },
+    "seo": {
+      "title": {
+        "en": "Jealousy Scale: Reading Discomfort Without a Verdict",
+        "zh": "嫉妒量表：不适强度与读法边界"
+      },
+      "description": {
+        "en": "Read an original jealousy-related discomfort reflection, with a six-item scoring example, uncertainty and consent-aware conversation. No severity band or love score.",
+        "zh": "阅读原创嫉妒相关不适反思，含六题算例、不确定性及尊重意愿的对话，不分严重程度或爱的分数。"
+      }
+    },
+    "scoreReading": {
+      "en": "This mean uses six 1–5 discomfort-intensity ratings, not the frequency anchors of the other groups. It is not a calibrated clinical severity score.",
+      "zh": "本组用六项1—5不适强度评价，与其他组的频率端点不同，不是经校准的临床严重度。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What an intensity response describes",
+          "zh": "强度回答描述什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The six prompts refer to discomfort when attention feels special, replacement is imagined, an enjoyable interaction is mentioned, context is unknown, an explanation leaves a worry unresolved or a comparison arises. Recall only experiences relevant to your chosen relationship and period. The rating describes your own recollection of discomfort, not how a partner intended an action or whether someone caused harm. A strong feeling can be acknowledged without turning the form into an assessment of another person.",
+            "zh": "六题涉及感到特别关注、想象被取代、听说愉快互动、背景未知、说明未消除疑问及位置比较时的不适。只回想所选关系和时段中相关体验；回答描述自己记得的感受，不确定伴侣意图或谁造成伤害。可以承认感受强烈，而不拿问卷测别人。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "An exact intensity mean",
+          "zh": "强度均分的准确算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Ratings of 4, 2, 3, 5, 2 and 3 sum to 19. The unrounded average is 19/6, displayed as 3.2. No item is reversed. This is a descriptive summary of six ordinal responses, not a measured dose of distress or a clinical threshold. A mean of 3.2 does not tell you how long the experience lasted, how often it happened or how it affected an ordinary day. Those details would need separate attention if they matter to you.",
+            "zh": "4、2、3、5、2、3合计19，19/6显示为3.2，没有反向。它只是六项等级回答的描述汇总，不是测得的不适剂量或临床阈值。3.2不说明持续多久、发生多常或如何影响日常；这些细节有需要时应单独看。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Name the feeling while leaving intention open",
+          "zh": "说出感受，同时不替对方定意图"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine hearing about a friendly gathering you did not attend. You might privately notice discomfort and uncertainty at the same time. In a wanted conversation, an example is: “Hearing about the gathering brought up a feeling of being left out. I know I do not have the whole context.” This distinguishes a feeling from an accusation. It does not oblige another person to cancel friendships, reassure repeatedly or prove affection by surrendering privacy. A conversation can also wait or not happen.",
+            "zh": "假设听说一次自己未参加的朋友聚会，可能同时有不适与不确定。自愿交谈时可以说：“听到聚会让我有点被排除的感觉，我也知道自己不了解完整背景。”它分开感受与指责，不要求取消友谊、反复安慰或牺牲隐私来证明爱。交谈也可以推迟或不发生。"
+          }
+        ]
+      },
+      {
+        "id": "counterexample",
+        "title": {
+          "en": "Intensity does not measure love or establish facts",
+          "zh": "强烈不测爱，也不确定事实"
+        },
+        "paragraphs": [
+          {
+            "en": "A counterexample is saying that intense jealousy proves deeper love, or that low discomfort proves indifference. This tool supports neither conclusion. People differ in the situations they encountered, what they remember and what they are willing to rate. It is also possible to have a concrete boundary concern without intense emotion. Use any relevant facts and agreements separately; neither a larger nor a smaller mean verifies an accusation, excuses control or decides which feeling a person should have.",
+            "zh": "反例是说嫉妒越强越爱，或不适低就冷漠。本工具都不支持。经历的情境、记忆和愿意评价的部分各异；有具体边界问题也未必情绪强烈。事实与约定应单独看，均分大小不验证指控、不为控制开脱，也不规定应该有什么感受。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "An occasional strong episode can coexist with few thoughts",
+          "zh": "偶发强烈体验可以与较少思维并存"
+        },
+        "paragraphs": [
+          {
+            "en": "The thought and action groups use frequency anchors; the discomfort group uses intensity anchors. An occasional event can feel strong while the associated thought is uncommon. Repeated thoughts can also occur with mild discomfort. These are possible distinctions, not profiles diagnosed by a score combination. All three full guides remain present without a largest group or combined jealousy label. Similar numeric means do not imply the same amount of experience or identify a primary cause.",
+            "zh": "思维和行动用频率端点，不适用强度端点。偶发事件可以感受强烈，相关想法却少；反复想法也可能只有轻微不适。这些是可能的区别，不是分数组合诊断。三篇全文始终保留，不选最大组或综合标签；相近均分不代表等量体验，也不找主因。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "Use unscored when the situation did not arise",
+          "zh": "情境没有发生时可不计分"
+        },
+        "paragraphs": [
+          {
+            "en": "If you recalled the situation and felt no discomfort, choose the first numeric option. If there was no relevant experience, you cannot judge or you do not want to answer, choose unscored. Those situations are not interchangeable. All six numeric responses are needed for an intensity mean; the page does not treat a missing situation as calmness. Other complete groups keep their means, and an entirely unscored form can finish with every complete guide still readable.",
+            "zh": "回想情境且没有不适时选第一项数值；没有相关经历、无法判断或不愿答时选不计分，两者不同。本组需六项数值完整，不把缺少情境当平静。其他完整组仍保留，全部不计分也可完成并读所有全文。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "This is an original reflection, without clinical bands",
+          "zh": "这是原创反思，没有临床分档"
+        },
+        "paragraphs": [
+          {
+            "en": "The conceptual distinction between emotion, cognition and behaviour comes from jealousy research. The new prompts, 1–5 anchors, four-week window and completeness policy are not a published MJS protocol and inherit no reliability or validity evidence. English and Chinese are original FermatMind wording without established measurement equivalence. No normal range, diagnosis, attachment type or relationship prognosis is calculated. A mean also cannot tell whether support is needed; your lived difficulty matters independently of a score.",
+            "zh": "情绪、思维和行为的概念区分来自嫉妒研究，但新提示、1—5端点、四周窗口及完整规则不是发表的MJS协议，不继承信效度。中英文均为费马原创表述，未建立等价性。不计算正常区间、诊断、依恋类型或关系预后；是否需要支持也不能靠均分决定，实际困扰独立于分数。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Acknowledge one feeling without a required exercise",
+          "zh": "承认一个感受，不要求做练习"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, note what you felt, what was happening and what you still cannot know from the event. You may prefer time, an ordinary supportive conversation or no action for now. Nothing here requires reliving a difficult scene, checking another person or sharing a result. You can leave the tool when it is not helpful. The public guide explains the method rather than your private intensity ratings, and another person’s response to a link cannot validate or invalidate your feeling.",
+            "zh": "若有用，可记下感受、当时情境及无法知道的部分，也可先留时间、选择普通支持性交流或暂不行动。不要求重历困难场景、检查别人或分享结果；无帮助时可以离开。公开指南解释方法，不展示强度回答，别人对链接的反应也不验证或否定你的感受。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "responses-reading",
+    "directionIds": [
+      "responses"
+    ],
+    "title": {
+      "en": "Jealousy Scale: Reading Actions and Reassurance Seeking",
+      "zh": "嫉妒量表：行动与寻求安慰的读法"
+    },
+    "headline": {
+      "en": "A report of an action does not tell you its effect",
+      "zh": "报告做过什么，不等于知道造成什么"
+    },
+    "summary": {
+      "en": "Read six original action-frequency prompts, an exact example and the difference between a voluntary request, checking and a demand.",
+      "zh": "完整阅读六条原创行动频率提示、准确算例，以及自愿请求、核查与要求的区别。"
+    },
+    "seo": {
+      "title": {
+        "en": "Jealousy Scale: Reading Actions and Reassurance Seeking",
+        "zh": "嫉妒量表：行动与寻求安慰的读法"
+      },
+      "description": {
+        "en": "Understand six original jealousy-related action prompts with scoring, a reassurance example and privacy boundaries. No blame, diagnosis or partner judgment.",
+        "zh": "用计分、寻求安慰的例子和隐私边界理解六条原创行动提示，不归责、不诊断或判断伴侣。"
+      }
+    },
+    "scoreReading": {
+      "en": "Six complete 1–5 frequency ratings produce this group’s mean. A frequency summary cannot verify an incident, infer motives or measure its impact.",
+      "zh": "六项1—5频率数值完整后求均分，频率汇总不核实事件、推断动机或测量影响。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What these action prompts ask you to recall",
+          "zh": "这些行动提示要求回想什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The group concerns seeking more explanation, returning to the same worry, comparing public information, trying to change plans, joining an interaction and seeking more reassurance than intended. It asks only whether you recall those actions in relevant opportunities. Some actions can have different meanings depending on context, agreement and willingness. The form cannot observe the interaction, establish another person’s experience or tell whether a request became coercive. Read each prompt rather than replacing all six with a character label.",
+            "zh": "本组涉及继续追问、重提担心、比较公开信息、尝试改安排、加入互动和比原计划更多地寻求安慰，只问相关机会中是否记得这些行动。含义会受背景、约定与意愿影响；问卷不观察互动、不确定对方体验，也不判断请求是否变成胁迫。应读各题，不用人格标签替代六项。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Frequency is not a count of harmful incidents",
+          "zh": "频率均分不是有害事件次数"
+        },
+        "paragraphs": [
+          {
+            "en": "For ratings of 1, 2, 3, 2, 4 and 3, the sum is 15 and the mean is 15/6 = 2.5. None is reverse-coded, and a larger mean means only selecting larger frequency categories for these prompts. It is not fifteen incidents, a percentage of controlling behaviour or proof that a partner felt harmed. Different kinds of action are not assigned equivalent consequences by giving them the same numerical response options.",
+            "zh": "如1、2、3、2、4、3合计15，15/6为2.5。没有反向，较大均分仅表示在这些提示上选择了较大频率类别，不是十五起事件、控制行为百分比或伴侣受伤的证据。共用数值选项，也不表示不同行动有相同后果。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Turn a reassurance wish into an optional request",
+          "zh": "将寻求安慰的愿望表达成可拒绝请求"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine noticing that you have asked about the same interaction several times. You might say: “I notice I am returning to the same worry. Would you be willing to discuss one specific question, or would you prefer to pause?” This is a possible wording to adapt, not a prescribed treatment or a requirement to keep talking. The other person can decline. You can also stop without a new answer; a questionnaire does not make complete certainty available or create an obligation to reassure.",
+            "zh": "假设发现自己多次问同一次互动，可以说：“我注意到自己又回到同一担心，你愿意讨论一个具体问题，还是先暂停？”这是可修改的例子，不是治疗处方，也不要求继续谈。对方可以拒绝，自己也可以没有新答案就停止；问卷不提供完全确定，更不产生安慰义务。"
+          }
+        ]
+      },
+      {
+        "id": "counterexample",
+        "title": {
+          "en": "The form does not authorise checking or control",
+          "zh": "问卷不授权核查或控制"
+        },
+        "paragraphs": [
+          {
+            "en": "A counterexample is using a result to require passwords, inspect private messages, test loyalty or limit another person’s friendships. Another is claiming that a small mean proves you never crossed a boundary. Neither conclusion follows. The questions require no new checking activity, and you should not reproduce an action to answer them. Consider any real agreement, consent or safety concern on its own facts rather than relying on the number to permit, excuse or deny an incident.",
+            "zh": "反例是拿结果索要密码、查看私信、测试忠诚或限制友谊；另一个反例是用较小均分证明从未越界。都不能推出。题目不要求新做核查，也不应为作答重复某行动。真实约定、同意或安全问题应按实际事实看，不能靠数字许可、开脱或否认事件。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Thought, feeling and action are not interchangeable",
+          "zh": "思维、感受与行动不能互换"
+        },
+        "paragraphs": [
+          {
+            "en": "You may remember a worry without acting, take an action without recalling strong discomfort, or have few relevant opportunities for one group. These possibilities are not a fixed sequence, a diagnosis or a set of assigned jealousy types. The action mean is not ranked against thought frequency or discomfort intensity; each uses different content and, for discomfort, different anchors. Close or equal means stay visible without indicating equal risk or suggesting that one group cancels another.",
+            "zh": "可能有担心却未行动，行动时未记得强烈不适，或某组缺少相关机会。这些不是固定顺序、诊断或派发类型。行动不与思维频率、不适强度排名，内容不同，不适端点也不同。相近或相同值保留，不表示风险相等，也不让一组抵销另一组。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "A lack of opportunity is not a low action score",
+          "zh": "没有机会不是较低行动分"
+        },
+        "paragraphs": [
+          {
+            "en": "Use never when a relevant situation occurred and you did not take the action. Use unscored when no relevant opportunity arose, you cannot judge or you prefer not to answer. These cases remain distinct. All six numeric choices are required for this group’s mean, and an unscored choice is not filled with zero. Complete groups keep their own means. You may finish with eighteen unscored responses and still read every guide, without receiving an inferred substitute profile.",
+            "zh": "有相关情境而没有行动时选从未；没有相关机会、无法判断或不愿答时选不计分，三种情况分别保留。本组需六项数值完整，不计分不填零；其他完整组保留均分。十八项全不计分也能完成并读全文，不推断替代档案。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original prompts do not inherit an observational method",
+          "zh": "原创提示不继承观察法效度"
+        },
+        "paragraphs": [
+          {
+            "en": "Jealousy research provides conceptual distinctions, not an observation of your behaviour. This original eighteen-item bilingual edition uses new statements, 1–5 anchors, a four-week recall and a complete-six rule. It is not a published MJS item set or a validated short form. There are no established norms, reliability, language equivalence or thresholds for interpersonal risk. A self-report cannot establish motive, causality, a personality defect or the effect on another person, however complete the answers appear.",
+            "zh": "嫉妒研究提供概念区分，不是在观察你的行为。本原创十八题使用新陈述、1—5端点、四周回忆及六项完整规则，不是发表MJS题本或验证短版。没有建立常模、信度、语言等价性或人际风险阈值；回答再完整，也不确定动机、因果、人格缺陷或对他人影响。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Review one action without conducting a new test",
+          "zh": "回看一个行动，不开展新的测试"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately note one remembered action, the relevant agreement and what you actually know about its result. Separate a wish for reassurance from a demand that another person must meet. Any conversation or next step is voluntary, and you can stop here. You do not need to collect evidence, approach another person or share the report. The copied link contains a public explanation only, never your actions or counts, and cannot settle a real disagreement for you.",
+            "zh": "若有用，可私下记一个行动、相关约定及实际知道的结果，分开想得到安慰与要求对方必须满足。交谈和下一步都是自选，也可到此结束；无需搜集证据、接触他人或分享报告。复制链接只有公开说明，没有行动回答或计数，也不替你裁决真实分歧。"
+          }
+        ]
+      }
+    ]
+  }
+]

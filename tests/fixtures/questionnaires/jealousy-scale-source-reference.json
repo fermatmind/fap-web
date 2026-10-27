@@ -1,0 +1,1220 @@
+{
+  "id": "T092",
+  "slug": "jealousy-scale",
+  "code": "FM_JEALOUSY_REFLECTION18",
+  "kind": "likert",
+  "form": "fm_jealousy_original18_v1",
+  "scoring": "fm_jealousy_three_complete6_means1dp_v1",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Choose one current romantic relationship, or your most recent significant one, and keep that relationship in mind. Recall the past four weeks, or its final four weeks if it ended; this window is editorial. For thoughts and actions choose frequency when there was a relevant opportunity. For the six discomfort prompts choose the strength of discomfort in relevant recalled situations, not its frequency. Use unscored if no relevant experience occurred, you cannot judge or you prefer not to answer. Do not investigate, check private material or reproduce an action to answer. All eighteen recognised choices, including unscored, can finish.",
+    "zh": "选择一段当前恋爱关系，或最近一段重要关系，始终以同一段为参照。回想过去四周；已结束时回想最后四周，窗口为编辑选择。思维与行动按有相关机会时的频率回答，六条不适提示按相关回想情境中的不适强度答，不问频率。没有相关经历、无法判断或不愿答时可不计分。不要为作答调查、查看私密材料或重复行动。十八项包括不计分的有效选择均可完成。"
+  },
+  "parts": [
+    {
+      "id": "thoughts",
+      "title": {
+        "en": "Returning thoughts about the relationship",
+        "zh": "反复出现的关系担心"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "discomfort",
+      "title": {
+        "en": "Discomfort in jealousy-related situations",
+        "zh": "嫉妒相关情境的不适"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "responses",
+      "title": {
+        "en": "Actions accompanying relationship worries",
+        "zh": "伴随关系担心的行动"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "JEAL_01",
+      "prompt": {
+        "en": "After an ordinary delay in a reply, I returned to the thought that someone else might replace me.",
+        "zh": "一次普通的回复延迟后，我反复想到自己可能被另一个人取代。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_02",
+      "prompt": {
+        "en": "I wondered whether my partner was comparing me with someone else, without knowing whether such a comparison occurred.",
+        "zh": "不了解是否真的有比较时，我猜想伴侣是否在拿我和别人比较。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_03",
+      "prompt": {
+        "en": "I replayed a brief interaction in my mind, looking for signs that my partner preferred someone else.",
+        "zh": "我在心里重放一次短暂互动，想从中找出伴侣更偏向别人的迹象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_04",
+      "prompt": {
+        "en": "After hearing another person mentioned, I kept wondering what that person meant to my partner.",
+        "zh": "听到某个人被提起后，我持续猜想那个人对伴侣意味着什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_05",
+      "prompt": {
+        "en": "I found it difficult to leave uncertainty about my partner’s attention without an answer.",
+        "zh": "关于伴侣把注意力放在哪里的不确定，我很难暂时不去找答案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_06",
+      "prompt": {
+        "en": "I imagined our relationship changing after my partner became closer to another person.",
+        "zh": "伴侣与另一个人更熟悉后，我在心里设想我们的关系会因此变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "thoughts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "thoughts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "thoughts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "thoughts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "thoughts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "thoughts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_07",
+      "prompt": {
+        "en": "When I felt my partner was giving someone else special attention, the discomfort I experienced was…",
+        "zh": "当我感到伴侣在特别关注另一个人时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_08",
+      "prompt": {
+        "en": "When I imagined being replaced in the relationship, the discomfort I experienced was…",
+        "zh": "当我想象自己在关系中的位置被取代时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_09",
+      "prompt": {
+        "en": "When I heard about an enjoyable interaction between my partner and another person, the discomfort I experienced was…",
+        "zh": "听说伴侣与另一个人相处愉快时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_10",
+      "prompt": {
+        "en": "When I did not know the context of my partner’s closeness with another person, the discomfort I experienced was…",
+        "zh": "不了解伴侣与另一个人亲近的背景时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_11",
+      "prompt": {
+        "en": "When an explanation did not settle my relationship worry, the discomfort I experienced was…",
+        "zh": "一次说明没有消除自己的关系担心时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_12",
+      "prompt": {
+        "en": "When I compared my place in the relationship with another person’s place, the discomfort I experienced was…",
+        "zh": "把自己和另一个人在伴侣心中的位置作比较时，我体验到的不适是……"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · No discomfort",
+            "zh": "1 · 没有不适"
+          },
+          "directionId": "discomfort",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Slight discomfort",
+            "zh": "2 · 轻微不适"
+          },
+          "directionId": "discomfort",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Moderate discomfort",
+            "zh": "3 · 中等不适"
+          },
+          "directionId": "discomfort",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Strong discomfort",
+            "zh": "4 · 明显不适"
+          },
+          "directionId": "discomfort",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very strong discomfort",
+            "zh": "5 · 很强的不适"
+          },
+          "directionId": "discomfort",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "discomfort",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_13",
+      "prompt": {
+        "en": "I asked for more explanation about an interaction after I had already received an answer.",
+        "zh": "已得到一次回答后，我仍继续追问某次互动的解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_14",
+      "prompt": {
+        "en": "I brought the same worry about another person back into a conversation more than once.",
+        "zh": "在一次交谈中，我不止一次重新提到关于另一个人的同一担心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_15",
+      "prompt": {
+        "en": "I compared publicly shared information to work out how much attention another person was receiving.",
+        "zh": "我对照公开分享的信息，想弄清另一个人得到了多少关注。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_16",
+      "prompt": {
+        "en": "I tried to change our immediate plans so that my partner would spend less time with another person.",
+        "zh": "我尝试改变眼前的安排，让伴侣少一些与另一个人相处的时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_17",
+      "prompt": {
+        "en": "I joined an interaction mainly because I felt uneasy about being left out.",
+        "zh": "主要因为担心自己被排除，我加入了一次原本没有参与的互动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "JEAL_18",
+      "prompt": {
+        "en": "I sought reassurance about my place in the relationship more often than I had intended.",
+        "zh": "我为确认自己在关系中的位置寻求安慰的次数，比原先打算的更多。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never, when a relevant opportunity occurred",
+            "zh": "1 · 有相关机会时从未如此"
+          },
+          "directionId": "responses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "responses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "responses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "responses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Very often",
+            "zh": "5 · 很频繁"
+          },
+          "directionId": "responses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot judge / prefer not to answer",
+            "zh": "没有相关经历／无法判断／暂不回答"
+          },
+          "directionId": "responses",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "provenance": "All18prompts/ENZH/anchors/readings FermatMindoriginal; noMJSorcompetitorbank copied; three researchtopics conceptual only, notvalidatedindependentfactors",
+  "anchors": "thoughts/responses frequency;discomfort intensity;no comparisonoroverall",
+  "editorial": "fourweekrecall/allsixnumeric completeness;NAwithholdsownpart,allNAcanfinish"
+}

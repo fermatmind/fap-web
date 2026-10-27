@@ -1,0 +1,416 @@
+[
+  {
+    "id": "intimacy-reading",
+    "directionIds": [
+      "intimacy"
+    ],
+    "title": {
+      "en": "Sternberg Love Triangle: Reading Intimacy Experiences",
+      "zh": "斯特恩伯格爱的三角：亲密体验怎么读"
+    },
+    "headline": {
+      "en": "Ask what closeness means in this particular relationship",
+      "zh": "把亲近放回这段具体关系"
+    },
+    "summary": {
+      "en": "Understand five original intimacy statements, an exact mean, a conversation example and the difference between emotional closeness, passion and future intention.",
+      "zh": "用五条原创亲密自述、准确算例和对话，区分情感亲近、激情及未来意向。"
+    },
+    "seo": {
+      "title": {
+        "en": "Sternberg Love Triangle: Reading Intimacy Experiences",
+        "zh": "斯特恩伯格爱的三角：亲密体验怎么读"
+      },
+      "description": {
+        "en": "Read an original five-item intimacy reflection with a worked example, privacy boundaries and comparisons within Sternberg’s triangle theory. No assigned love type.",
+        "zh": "阅读参照三角理论的五题亲密反思，含算例、隐私边界与成分比较，不派发爱的类型。"
+      }
+    },
+    "scoreReading": {
+      "en": "Add five numeric ratings and divide by five. A 1–5 mean describes these statements only; any unscored response leaves this group insufficient.",
+      "zh": "五项数值相加除以五。1—5均分只描述这组陈述；任一不计分会使本组资料不足。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Closeness is a reported experience",
+          "zh": "亲近是自己报告的体验"
+        },
+        "paragraphs": [
+          {
+            "en": "Sternberg describes intimacy through feelings of closeness, connectedness and bondedness. These five original prompts ask about meaningful sharing, feeling understood, voluntary emotional conversation, welcome support and ordinary time together. They do not observe what your partner thinks or establish that the relationship is safe. A feeling of closeness can be important without being present in every conversation. Your answer belongs to the relationship and period you chose, rather than every relationship you have.",
+            "zh": "斯特恩伯格用亲近、连接和联结感说明亲密。本版五条原创提示询问有意义的分享、被理解、自愿的情绪交流、对方愿意接受的支持及普通相处，不观察伴侣想法，也不据此确认关系安全。亲近可能重要，但不必每次交谈都出现；回答只对应所选关系与时段，不代表所有关系。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "An exact five-item example",
+          "zh": "五题均分的准确算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 4, 3, 5, 2 and 4 add to 18, so the mean is 18/5 = 3.6. There are no reverse items in this original edition. A different set of responses can produce the same mean while describing different experiences. For instance, finding ordinary time connecting is not interchangeable with feeling understood during a difficult conversation. Keep the item meanings alongside the number; a mean cannot identify which experience matters most to you.",
+            "zh": "例如4、3、5、2、4合计18，18/5为3.6。本原创版没有反向题。不同回答也可能得到同一均分，但普通相处有连接，不等于困难谈话时被理解。阅读数字时保留题意；均分不能确定哪项体验对自己最重要。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Describe an occasion without requesting disclosure",
+          "zh": "说一个场景，不要求对方披露"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine two people discussing an ordinary change of plans. One might say: “I felt closer when you asked what mattered to me. Next time, could we leave a moment for that?” This names a particular experience and a voluntary request. A counterexample is demanding access to messages because a test supposedly proves that intimacy requires total openness. The questionnaire supports no such demand. A person can be close while keeping personal information, conversations and time private.",
+            "zh": "假设两人讨论一次普通的计划变化，可以说：“你问我在意什么时，我感到更亲近；下次能不能也留一点时间？”这描述具体体验并提出可协商请求。反例是借测试要求查看消息，声称亲密必须毫无保留。问卷不支持这种要求；有亲密感的人也可以保留私人信息、交谈与时间。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Compare the questions, rather than rank three capacities",
+          "zh": "比较题意，不排名三种能力"
+        },
+        "paragraphs": [
+          {
+            "en": "Intimacy concerns the closeness you experience, passion concerns attraction and excitement, and decision/commitment concerns present choices and future intentions. You may describe these differently without inconsistency. Three similar means do not prove equally strong components, because the original groups have not been calibrated to a common psychological unit. A small numerical difference has no established significance. Read each complete guide instead of selecting the largest number as the truth about your relationship.",
+            "zh": "亲密关注亲近体验，激情关注吸引与兴奋，决定／承诺关注当下选择和未来意向。三者回答不同并不矛盾；相近均分不证明成分同样强，因为题组没有校准为共同心理单位，小差异也没有已知显著性。应分别读全文，不把最大数值当关系真相。"
+          }
+        ]
+      },
+      {
+        "id": "framework",
+        "title": {
+          "en": "Friendship and the eight theoretical combinations",
+          "zh": "友谊与八种理论组合"
+        },
+        "paragraphs": [
+          {
+            "en": "The triangular theory discusses eight limiting combinations of the three components, including liking, romantic love and companionate love. They are conceptual examples rather than the eight outputs of this questionnaire. Emotional closeness alone does not make someone a romantic partner, and close friendship does not require romance. Actual relationships are rarely pure theoretical cases. The page therefore does not turn an intimacy mean above an invented threshold into a label or infer a missing component from another mean.",
+            "zh": "三角理论讨论三成分的八种极限组合，包括喜欢、浪漫爱与伴侣爱等；它们是概念例子，不是本问卷的八个结果。情感亲近本身不使某人成为恋爱伴侣，亲密友谊也无须浪漫。现实很少是纯理论情形，因此页面不按自设阈值将亲密均分变成标签，也不从一个均分推断另一成分缺失。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "Insufficient information has no relationship meaning",
+          "zh": "资料不足没有关系结论"
+        },
+        "paragraphs": [
+          {
+            "en": "If a prompt is irrelevant, inaccessible, hard to judge or something you do not wish to answer, use the unscored option. All five numeric responses are required for this group’s mean; missing is neither zero nor a value to estimate. The other complete groups keep their own means. An entirely unscored attempt can finish and every guide stays available. In particular, declining an emotional disclosure is not evidence that you lack intimacy or love.",
+            "zh": "不相关、难以接触、无法判断或不愿答时可选不计分。本组需五项数值完整，不把缺答当零或估算；其他完整组保留均分。全部不计分也能完成并阅读所有指南。尤其是不愿披露情绪，不证明缺乏亲密或爱。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "The theory does not validate this new item set",
+          "zh": "理论不等于本题本已验证"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind authored these fifteen items and their readings with the three-component theory as background. This is not the original Triangular Love Scale or a shortened edition validated by Sternberg. The four-week recall window and completeness rule are editorial choices. There are no local norms, established reliability, cross-language measurement-equivalence findings or relationship-outcome predictions for this edition. A self-report cannot determine another person’s feelings, diagnose an attachment pattern or decide whether a relationship should continue.",
+            "zh": "费马参照三成分理论原创十五题和读法，不是原版三角爱量表，也不是斯特恩伯格验证的短版。四周回忆窗及完整度规则是编辑选择；本版没有本地常模、已建立的信度、跨语言测量等价性或关系结果预测证据。自报不能确定他人感情、诊断依恋或决定关系是否继续。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep one observation and choose whether to discuss it",
+          "zh": "留下一个观察，自主决定是否讨论"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately note one ordinary interaction in which you felt understood or wanted something different. Separate what happened, what you felt and what you might ask for. No conversation is required to complete the test, and another person may decline a request. If discussing a result would feel unsafe, you can stop here. The public link contains a general explanation rather than your answers, and a copied title never proves what either person feels.",
+            "zh": "若有用，可私下记一次被理解或希望有所不同的普通互动，分开事件、感受与可能的请求。完成测试不要求交谈，对方也可以拒绝请求；讨论不安全时可以到此结束。公开链接只含通用说明，不含答案，复制的标题也不证明任何一方的感情。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "passion-reading",
+    "directionIds": [
+      "passion"
+    ],
+    "title": {
+      "en": "Sternberg Love Triangle: Passion, Attraction and Context",
+      "zh": "斯特恩伯格爱的三角：激情、吸引与背景"
+    },
+    "headline": {
+      "en": "Read excitement without turning desire into a duty",
+      "zh": "理解兴奋，不把欲望变成义务"
+    },
+    "summary": {
+      "en": "Read five original attraction prompts, exact scoring, a consent-aware example and the difference between romantic excitement and a verdict about love.",
+      "zh": "完整阅读五条原创吸引提示、准确算例与尊重同意的例子，区分浪漫兴奋和爱的判定。"
+    },
+    "seo": {
+      "title": {
+        "en": "Sternberg Love Triangle: Passion, Attraction and Context",
+        "zh": "斯特恩伯格爱的三角：激情、吸引与背景"
+      },
+      "description": {
+        "en": "Explore passion and attraction in an original Sternberg-informed reflection. Includes exact scoring, unscored responses and consent boundaries, without a love ranking.",
+        "zh": "用参照斯特恩伯格理论的原创反思理解激情与吸引，含准确计分、不计分及同意边界，不排名爱。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five valid ratings produce a separate 1–5 mean. It is not desire intensity in a calibrated unit or evidence of how much you love someone.",
+      "zh": "五项有效评价产生独立1—5均分，不是经校准的欲望强度单位，也不证明爱得多少。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "What this group asks about",
+          "zh": "这组具体询问什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Passion in the triangular theory concerns drives associated with romance, attraction and related arousal. This original group asks about anticipation, romantic closeness, relevant sexual attraction, mutually welcome physical closeness and excitement. These experiences are related topics, not identical requirements. In particular, romantic attraction and sexual attraction need not occur together. The questionnaire does not establish your orientation, assess sexual functioning or decide how often you ought to want contact.",
+            "zh": "三角理论的激情涉及浪漫、吸引及相关唤起。本原创组询问期待、浪漫亲近、与自身体验相关的性吸引、双方愿意的身体亲近及兴奋。这些是相关话题，不是相同要求；浪漫与性吸引未必同时存在。本问卷不确定取向、不评性功能，也不规定应该多常想接触。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Follow the item rule before reading a mean",
+          "zh": "先按题目规则，再读均分"
+        },
+        "paragraphs": [
+          {
+            "en": "If the five responses are 5, 4, 3, 4 and 4, their sum is 20 and the mean is 4.0. This number describes the selected prompts, without reverse coding or an overall love score. If the sexual-attraction item is not relevant to you and is unscored, the group has four numeric answers and no mean. It is not averaged over four to create an apparently complete passion score, and it is never replaced with a low value.",
+            "zh": "如五项为5、4、3、4、4，合计20，均分4.0。数字只描述这些提示，不反向、不合成爱的总分。性吸引题不适用而选不计分时，本组四项有数值，但不求均分；不会除以四伪装完整，也不把该项换成低值。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Ask for a wanted experience, with room for no",
+          "zh": "表达希望，同时容许拒绝"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine wanting a little time together after a busy period. A possible request is: “I would enjoy an evening that feels like a date. Would you want that too?” It names your wish without deciding the other person’s. A counterexample is demanding physical contact to improve a passion result. No test score creates consent, proves that affection is owed or makes refusal a problem to fix. A request can be declined, changed or left for another time without an explanation.",
+            "zh": "假设忙碌一阵后想有些相处时间，可以问：“我会喜欢一个有约会感觉的晚上，你也愿意吗？”它表达自己的希望，不替对方决定。反例是要求身体接触来提高激情结果；分数不产生同意、不证明亏欠亲密，也不把拒绝变成待修问题。请求可以被拒绝、修改或留待以后，不要求解释。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "A change in excitement has more than one possible context",
+          "zh": "兴奋变化可能有多种背景"
+        },
+        "paragraphs": [
+          {
+            "en": "Energy, illness, medication, stress, privacy, relationship stage, culture and opportunity can affect which experiences are available or easy to recall. The form cannot separate these influences. Familiarity may change excitement while closeness remains valuable; novelty may produce excitement without a wish to continue a relationship. Neither pattern supplies a diagnosis or a forecast. Do not use a single attempt to decide that an ordinary change means a person has stopped loving, become unfaithful or lost a desirable trait.",
+            "zh": "精力、疾病、药物、压力、隐私、关系阶段、文化与机会都可能影响体验或回忆，问卷无法分离这些影响。熟悉后兴奋可能变化，而亲近仍重要；新鲜感也可能让人兴奋，却无继续关系意向。两种情况都不产生诊断或预测；不能凭一次回答认定不爱、不忠或失去优点。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Compare attraction with closeness and intention",
+          "zh": "将吸引与亲近、意向分别看"
+        },
+        "paragraphs": [
+          {
+            "en": "A person may report romantic excitement without feeling understood, or feel deeply close without describing much arousal. Decision and commitment concern choices and intentions rather than either experience. The three means are descriptive summaries of different prompts and are not calibrated amounts of the same substance. Equal numbers do not prove a balanced triangle; a larger passion mean does not make this component more real or important. The page draws no triangle area and calculates no compatibility percentage between partners.",
+            "zh": "浪漫兴奋与被理解可以不同步，也可能感到很亲近却不描述太多唤起。决定与承诺关注选择和意向，仍是另一回事。三组均分描述不同提示，不是同一种物质的校准数量；相同数字不证明三角平衡，激情数值较大也不表示更真实或更重要。页面不算三角面积或伴侣匹配比例。"
+          }
+        ]
+      },
+      {
+        "id": "framework",
+        "title": {
+          "en": "Theoretical examples are not identities",
+          "zh": "理论例子不是身份"
+        },
+        "paragraphs": [
+          {
+            "en": "The triangular theory uses infatuated, romantic and consummate love among its conceptual combinations, depending on which components are considered present in a limiting case. This edition never decides component presence using a numerical cutoff, so none of those names is assigned to your attempt. The theory’s examples also do not establish a hierarchy of people. Asexuality, low sexual desire, disability, choosing not to have sex and a preference for less physical contact are not defects inferred from this form.",
+            "zh": "理论组合中有迷恋、浪漫爱、圆满爱等名称，它们取决于极限例中假定出现哪些成分。本版不以数值阈值判成分有无，因此不把这些名称派给作答，也不据理论例子排名人。无性恋、低性欲、残障、不选择性行为或较少身体接触偏好，都不是问卷能推断的缺陷。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Read the original-edition limits",
+          "zh": "保留原创版的读法边界"
+        },
+        "paragraphs": [
+          {
+            "en": "These are new FermatMind items informed by a theory, not published TLS items, a medical assessment or an author-endorsed short scale. The five-item mean and four-week recall are editorial arrangements without established reliability, norms or Chinese–English equivalence. No numerical difference has a validated importance threshold here. If a prompt is not relevant or you prefer not to answer, use unscored or leave the attempt. Incomplete information creates no conclusion about whether your relationship is adequate.",
+            "zh": "这些是参照理论的新题，不是发表的TLS原题、医学测评或作者背书短量表。五题均分和四周回忆是编辑安排，没有建立信度、常模或中英等价性，数值差异也无验证过的重要阈值。不适用或不愿答可不计分或退出；资料不完整不判断关系是否足够好。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose an observation without a performance target",
+          "zh": "选择一个观察，不设表现指标"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, think privately about an occasion you freely welcomed romantic closeness, or about a condition that would make a conversation more comfortable. You do not need to demonstrate attraction, start physical contact or promise a change. You may read the intimacy and commitment guides for different questions, then finish. Sharing copies a public title and URL, not the five ratings or a claim about your partner. Another person is never required to take the test to validate your experience.",
+            "zh": "若有用，可私下回想一次自愿接受浪漫亲近的场景，或让交谈更自在的条件。不需要展示吸引、开始身体接触或承诺变化。也可读亲密与承诺指南里的不同问题，然后结束。分享只含公开标题和地址，不含五项回答或伴侣结论；对方无须作答来验证自己的体验。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commitment-reading",
+    "directionIds": [
+      "decision-commitment"
+    ],
+    "title": {
+      "en": "Sternberg Love Triangle: Decision and Commitment Intentions",
+      "zh": "斯特恩伯格爱的三角：决定与承诺意向"
+    },
+    "headline": {
+      "en": "Separate a present decision from a promise about the future",
+      "zh": "分开当下决定与未来承诺"
+    },
+    "summary": {
+      "en": "Read five original statements about calling a feeling love and intending to continue, with exact scoring, a planning conversation and the right to reconsider.",
+      "zh": "阅读五条关于理解爱与继续意向的原创自述，含计分、计划对话及重新考虑的权利。"
+    },
+    "seo": {
+      "title": {
+        "en": "Sternberg Love Triangle: Decision and Commitment Intentions",
+        "zh": "斯特恩伯格爱的三角：决定与承诺意向"
+      },
+      "description": {
+        "en": "Understand decision and commitment in a Sternberg-informed reflection, with worked scoring and voluntary planning examples. No prediction or obligation to stay.",
+        "zh": "用参照三角理论的反思理解决定与承诺，含算例及自愿计划场景，不预测关系或要求留下。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five complete numeric ratings produce this group’s separate mean. A stated intention is not a verified future action or your partner’s agreement.",
+      "zh": "五项数值完整后独立求均分。自报意向不是已核实的未来行动，也不是对方的同意。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Two time horizons within one theoretical component",
+          "zh": "一个理论成分中的两个时间视角"
+        },
+        "paragraphs": [
+          {
+            "en": "Sternberg distinguishes the short-term decision that one loves someone from the longer-term intention to maintain that love. This original group includes both: how you currently name your feeling, whether continuation matters beyond the immediate moment, and intentions around freely agreed plans and ordinary disagreements. Combining them here does not prove they are one independently validated factor. Read the item meanings too, since a present decision and a future intention can differ without either being dishonest.",
+            "zh": "斯特恩伯格区分当下认为自己爱某人的决定与长期维持爱的意向。本组包括如何称呼当下感情、是否超出即时感受的继续意向，以及自愿计划和普通分歧中的打算。合为一组不证明它们是独立验证过的因子；当下决定与未来意向可能不同，并不等于不诚实。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Keep five original statements and one exact mean",
+          "zh": "保留五条题意与一个准确均分"
+        },
+        "paragraphs": [
+          {
+            "en": "Ratings of 3, 4, 4, 2 and 5 sum to 18, giving 3.6 after division by five. Each statement contributes equally and none is reverse-scored. The result does not apply the Investment Model, calculate satisfaction minus alternatives, or add past investments to a duty to stay. If any response is unscored, this group has no mean. A near or equal number in the intimacy or passion group remains visible without being treated as an equivalent psychological amount.",
+            "zh": "3、4、4、2、5合计18，除以五为3.6。各项等权，没有反向。本结果不运行投资模型，不计算满意度减关系外选择，也不把过去投入加成留下的义务。任一不计分会使本组不求均分；亲密或激情的相近数值保留，但不当成等量心理成分。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "A bounded agreement is clearer than a global promise",
+          "zh": "范围明确的约定比笼统保证更清楚"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine discussing the next few weeks while each person has separate plans. You could say: “I would like to keep making time for us. Could we discuss one arrangement we both want, and check it again later?” This expresses an intention and leaves the other person free to answer. A counterexample is interpreting a high mean as permission to book a shared future or announce a commitment on someone else’s behalf. Neither a questionnaire nor one person’s plan supplies joint consent.",
+            "zh": "假设讨论未来几周，各自也有安排，可以说：“我希望继续为我们留时间，能否谈一个都愿意的安排，以后再核对？”它表达意向，也给对方自由回答。反例是因均分较高就擅自预订共同未来，或替对方宣布承诺。问卷与单方计划都不产生共同同意。"
+          }
+        ]
+      },
+      {
+        "id": "boundary",
+        "title": {
+          "en": "Commitment never makes harm a requirement",
+          "zh": "承诺不要求承受伤害"
+        },
+        "paragraphs": [
+          {
+            "en": "An intention to continue can be reconsidered as circumstances change. Taking space, declining contact, leaving coercion or protecting private information cannot be scored here as a moral failure. The ordinary-disagreement prompt does not refer to violence, threats or situations in which a discussion is unsafe. No reading tells you to tolerate harm to become more committed. You may stop answering without producing a substitute conclusion, and your safety decisions do not require support from a test result.",
+            "zh": "情况变化时，继续意向可以重新考虑。留出空间、拒绝联系、离开胁迫或保护隐私，都不能在这里被判为道德失败。普通分歧题不指暴力、威胁或谈话不安全的情况；不要求为更有承诺而承受伤害。可停止作答，不产生替代结论，安全决定也无须测试支持。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Distinguish this component from a commitment-only questionnaire",
+          "zh": "与单独承诺问卷分清职责"
+        },
+        "paragraphs": [
+          {
+            "en": "The site’s separate relationship-commitment reflection asks about continuing intention, satisfaction, outside options and relationship-linked investment. These five triangle prompts overlap conceptually with continuing intention; they do not create a new independent commitment construct. Their role is to place a present love decision and future intentions beside intimacy and passion within Sternberg’s framework. The two forms have different items and cannot be converted or compared numerically. Neither form verifies your partner’s intentions or determines a relationship outcome.",
+            "zh": "站内单独承诺反思询问继续意愿、满意度、关系外选择和关联投入。本组三角题与继续意向有概念重叠，不创造新的独立承诺构念；职责是把当下爱的决定、未来意向与亲密和激情并置理解。两题本不同，不能转换或数值互比，也不核实伴侣意向或决定关系结果。"
+          }
+        ]
+      },
+      {
+        "id": "framework",
+        "title": {
+          "en": "Empty and consummate love remain conceptual examples",
+          "zh": "空洞爱与圆满爱仍是概念例子"
+        },
+        "paragraphs": [
+          {
+            "en": "The triangular theory calls a commitment-only limiting case empty love and the all-three limiting case consummate love. These names describe theoretical combinations, not scores assigned by this original form. A relationship can change over time and may not resemble a pure case. The page does not identify a missing component from a cutoff, call a relationship empty, or recommend pursuing a supposedly perfect triangle. You can examine a particular intention without turning a theory label into an instruction.",
+            "zh": "理论中仅有承诺的极限例称空洞爱，三成分同时存在的极限例称圆满爱。这些是理论组合，不是本原创版派发的分数类型。关系会变化，也未必像纯例；页面不按阈值找缺失成分、不称某关系空洞，也不建议追求完美三角。可以检查一个具体意向，而不把理论名称当行动指令。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "An intention is neither a guarantee nor a prediction",
+          "zh": "意向既非保证，也非预测"
+        },
+        "paragraphs": [
+          {
+            "en": "The fifteen original items are not Sternberg’s published TLS and have no established reliability, local norms or cross-language measurement equivalence. The four-week period helps recall rather than establishing a validated time boundary. Self-reports may change with context and cannot distinguish every reason for a plan. This group does not measure loyalty, honesty or the probability of staying together. A difference between two attempts also has no established change threshold, so it cannot certify improvement or decline.",
+            "zh": "十五条原创题不是已发表TLS，没有建立信度、本地常模或跨语言等价性。四周用于帮助回忆，不是验证时间界限。自报可能随情境变化，也无法区分计划的所有原因；不测忠诚、诚实或继续在一起的概率。两次作答差值也无已知变化阈值，不能认证改善或退步。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose a question you can answer for yourself",
+          "zh": "选一个自己能回答的问题"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, separate three private notes: what you call your feeling now, what you currently intend, and what would need another person’s agreement. Leave uncertainty explicit rather than replacing it with a promise. A conversation is optional; a joint decision requires each person’s voluntary participation. You may read the other guides or end here. Copying shares only the public title and link, never a commitment score, a message for a partner or permission to make a decision for them.",
+            "zh": "若有用，可私下分三栏：现在如何理解感情、目前打算什么、哪些事需要对方同意。保留不确定，不用保证填空。交谈是可选的，共同决定需要各自自愿参与。可以读其他指南或结束；复制只含公开标题和链接，不含承诺分数、不替你传话，也不授权替对方决定。"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -4515,5 +4515,53 @@
       "communication-reading",
       "domain-reading"
     ]
+  },
+  {
+    "slug": "jealousy-scale",
+    "code": "FM_JEALOUSY_REFLECTION18",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Jealousy Scale: Original Three-Part Reflection",
+      "zh": "嫉妒量表：费马原创三组反思"
+    },
+    "description": {
+      "en": "Reflect on returning thoughts, discomfort and actions through 18 original prompts. Read three full guides free, with separate summaries and no partner verdict or severity band.",
+      "zh": "用十八条原创提示回看反复思维、不适与行动，三篇完整指南免费。三组分别汇总，不判断伴侣或划分严重程度。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_jealousy_original18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "thoughts-reading",
+      "discomfort-reading",
+      "responses-reading"
+    ]
+  },
+  {
+    "slug": "sternberg-love",
+    "code": "FM_TRIANGLE_REFLECTION15",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Sternberg Love Triangle Test: Original Reflection",
+      "zh": "斯特恩伯格爱的三角测试：费马原创反思版"
+    },
+    "description": {
+      "en": "Reflect on intimacy, passion and decision/commitment through 15 original statements. Read all three full guides free, with separate means and no assigned love type.",
+      "zh": "用十五条原创自述分别回看亲密、激情与决定／承诺，三篇完整指南免费。均分独立呈现，不派发爱的类型。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_triangle_original15_v1",
+    "questionCount": 15,
+    "resultSlugs": [
+      "intimacy-reading",
+      "passion-reading",
+      "commitment-reading"
+    ]
   }
 ]
