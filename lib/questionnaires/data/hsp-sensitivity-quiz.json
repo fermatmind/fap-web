@@ -1,0 +1,2195 @@
+{
+  "slug": "hsp-sensitivity-quiz",
+  "code": "FM_SENSITIVITY_EXPERIENCE24",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Think of the past four weeks. When a relevant occasion occurred, how often did you experience what the statement describes? Choose the answer that fits your recall; if there was no relevant occasion, you cannot judge, or you prefer not to answer, choose unscored. These are original reflection questions about recent experiences. They do not determine whether you are a Highly Sensitive Person, measure how your brain works, or identify a condition. No activity or sensory exposure needs to be tried for this reflection.",
+    "zh": "回想过去四周。有相关情境时，你多常经历题述情况？按自己记得的情况作答；没有相关机会、无法判断或不愿回答时选不计分。这些原创问题用于回看近期体验，不能判断你是否属于高敏感人、测出大脑如何运作或识别某种状况。无需为了回答而尝试任何活动或感官刺激。"
+  },
+  "title": {
+    "en": "HSP Sensitivity Reflection: 24 Recent Experiences",
+    "zh": "高敏感体验反思：24项近期经历"
+  },
+  "description": {
+    "en": "Explore 24 original questions on meaning, busy input, emotions and small changes. Four descriptive means and all full guides are free, including unscored answers.",
+    "zh": "用24道原创问题回看含义、密集信息、情绪与细小变化，免费获取四组描述性均分和全部完整指南，也可选择不计分。"
+  },
+  "resultHeading": {
+    "en": "Your recent-experience reflection",
+    "zh": "本次近期体验反思"
+  },
+  "seoTitle": {
+    "en": "HSP Sensitivity Reflection: 24 Questions, Four Full Guides",
+    "zh": "高敏感体验反思：24道问题与四份完整指南"
+  },
+  "minutes": 8,
+  "introduction": {
+    "en": "This original bilingual reflection asks about experiences in the past four weeks. Returning to a meaningful idea, wanting less competing input, feeling affected and noticing a small change are considered separately. All four complete guides remain readable at every response pattern. The answers do not determine an HSP identity, objective sensory performance or how accurately you understand another person. The time estimate is for reading and reflection; this is untimed.",
+    "zh": "这份原创双语反思询问过去四周的体验，分别回看有意味的想法、减少竞争信息的需求、受到情绪影响，以及留意细小变化。所有回答组合都能阅读四份完整指南。回答不决定HSP身份，不测客观感官表现或理解他人的准确程度。时间只是阅读反思估计，本页不计时。"
+  },
+  "source": {
+    "kind": "FermatMind original sensitivity-experience reflection; DOES conceptual background only",
+    "formCode": "fm_sensitivity_experiences_four_topics24_v1",
+    "itemBankVersion": "original24_bilingual_four_topics_v1",
+    "scoringVersion": "fm_sensitivity_four_complete6_frequency_means1dp_no_hsp_cutoff_v1",
+    "resultContentVersion": "four_full_six_section_guides_v1",
+    "itemBankSha256": "a1a6a839af55a97a09d531f667780a2e58eadfc94e8ef7b044c496221049bfe1",
+    "resultContentSha256": "ddbc4951664ffb536a62b307a2c53c647a25432d0365c39f72cf7a9f8a354816",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "reflective-meaning",
+      "title": {
+        "en": "Returning to meaning",
+        "zh": "回看事情的含义"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "busy-input",
+      "title": {
+        "en": "Responding to busy input",
+        "zh": "应对密集信息"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "emotional-response",
+      "title": {
+        "en": "Feeling emotional responses",
+        "zh": "感受情绪反应"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "small-changes",
+      "title": {
+        "en": "Noticing small changes",
+        "zh": "留意细小变化"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "SEXP_01",
+      "prompt": {
+        "en": "After learning something unfamiliar, I found myself connecting it with an earlier experience.",
+        "zh": "接触不熟悉的内容后，我发现自己会把它与以前的经历联系起来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_02",
+      "prompt": {
+        "en": "When a story allowed several interpretations, I spent time considering more than one meaning.",
+        "zh": "一个故事有几种解释时，我会花时间想不止一种含义。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_03",
+      "prompt": {
+        "en": "A point from an ordinary conversation stayed with me because it still felt meaningful.",
+        "zh": "一次普通谈话中的某个点，因为仍有意味而留在我心里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_04",
+      "prompt": {
+        "en": "Before a choice that mattered to me, I needed time to think through its different implications.",
+        "zh": "作出对自己重要的选择前，我需要时间想清它在不同方面的影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_05",
+      "prompt": {
+        "en": "A question raised by something I read kept me curious after I had finished reading.",
+        "zh": "读完一段内容后，其中提出的问题仍让我好奇。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_06",
+      "prompt": {
+        "en": "When new information challenged my first impression, I found myself reconsidering it.",
+        "zh": "新信息与最初印象不一致时，我发现自己会重新思考那个印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_07",
+      "prompt": {
+        "en": "While following one set of instructions, repeated incoming messages made it harder for me to stay with it.",
+        "zh": "按照一组指示做事时，接连收到的新消息会让我更难继续跟住原来的指示。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_08",
+      "prompt": {
+        "en": "After spending time in a lively shared space, I wanted an interval with fewer things happening around me.",
+        "zh": "在热闹的共用空间待过一段时间后，我想留一段周围事情少一些的时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_09",
+      "prompt": {
+        "en": "When a display contained many moving or changing elements, I found it difficult to choose what to attend to.",
+        "zh": "画面同时包含许多移动或变化的内容时，我难以选择先关注什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_10",
+      "prompt": {
+        "en": "During a long sequence of conversations, I needed a pause before taking in another new topic.",
+        "zh": "连续谈了很久之后，接触下一个新话题前，我需要暂停一下。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_11",
+      "prompt": {
+        "en": "In an unfamiliar setting with several things happening at once, I needed time to get my bearings.",
+        "zh": "不熟悉的场所同时发生几件事时，我需要一些时间弄清当下的情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_12",
+      "prompt": {
+        "en": "After a period of dense activity, I wanted a simpler setting before continuing with another task.",
+        "zh": "经历一段安排密集的活动后，继续另一件事之前，我想先换到简单一些的环境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_13",
+      "prompt": {
+        "en": "Good news from someone I cared about brought a noticeable emotional response in me.",
+        "zh": "我在乎的人传来好消息时，我会明显感受到自己的情绪反应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_14",
+      "prompt": {
+        "en": "The mood of a fictional scene affected how I felt after the scene had ended.",
+        "zh": "一段虚构情节结束后，它的氛围仍会影响我的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_15",
+      "prompt": {
+        "en": "Seeing someone receive appreciation left me with a feeling that lasted beyond that moment.",
+        "zh": "看到别人受到感谢或肯定时，那份感受会在当时之后继续留在我心里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_16",
+      "prompt": {
+        "en": "Reading about a difficult personal experience affected my own feelings afterward.",
+        "zh": "读到别人一段艰难的个人经历后，我自己的情绪也会受到影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_17",
+      "prompt": {
+        "en": "A small act of kindness lifted my mood for longer than the moment itself.",
+        "zh": "一次小小的善意会让我在事情过去后仍感到心情变好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_18",
+      "prompt": {
+        "en": "The emotional tone of a group conversation affected my feelings even when it was not about me.",
+        "zh": "小组谈话的情绪氛围会影响我的感受，即使话题与我无关。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_19",
+      "prompt": {
+        "en": "A small change in wording drew my attention to a possible change in meaning.",
+        "zh": "措辞的一点变化会让我留意它的含义是否也变了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_20",
+      "prompt": {
+        "en": "A small change in a familiar routine caught my attention before I knew whether it mattered.",
+        "zh": "熟悉流程里的一点变化会先引起我的注意，即使还不知道它是否重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_21",
+      "prompt": {
+        "en": "A small rearrangement in a familiar room drew my attention.",
+        "zh": "熟悉房间里的一点摆设变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_22",
+      "prompt": {
+        "en": "In a conversation, a change in the timing of a pause caught my attention.",
+        "zh": "谈话中停顿时机的变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_23",
+      "prompt": {
+        "en": "While looking at a creative piece, I found myself attending to a small contrast in colour or texture.",
+        "zh": "看一件创作作品时，我发现自己会留意颜色或质感上的细小对比。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_24",
+      "prompt": {
+        "en": "In a familiar piece of music, a small change in phrasing drew my attention.",
+        "zh": "听熟悉的音乐时，乐句处理的一点变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reflective-meaning-reading",
+      "directionIds": [
+        "reflective-meaning"
+      ],
+      "title": {
+        "en": "HSP Reflection: Revisiting Meaning",
+        "zh": "高敏感体验反思：回看事情的含义"
+      },
+      "headline": {
+        "en": "Make room for a thought without turning it into a verdict.",
+        "zh": "给一个想法留出空间，不急着把它变成判定。"
+      },
+      "summary": {
+        "en": "Read six recent experiences of linking ideas, considering meanings and reconsidering first impressions. Separate curiosity from accuracy, and reflection from unwanted repetition.",
+        "zh": "回看联系经历、考虑含义和重想初步印象等六种近期体验，分清好奇与准确、主动反思与不想继续的重复思考。"
+      },
+      "seo": {
+        "title": {
+          "en": "HSP Reflection: Revisiting Meaning",
+          "zh": "高敏感体验反思：回看事情的含义"
+        },
+        "description": {
+          "en": "Read six recent experiences of linking ideas, considering meanings and reconsidering first impressions. Separate curiosity from accuracy, and reflection from unwanted repetition.",
+          "zh": "回看联系经历、考虑含义和重想初步印象等六种近期体验，分清好奇与准确、主动反思与不想继续的重复思考。"
+        }
+      },
+      "scoreReading": {
+        "en": "The six-item mean summarizes reported frequency in the past four weeks. It supplies no HSP threshold, rank or measured ability.",
+        "zh": "六项均分概括过去四周自报的发生频率，不提供HSP判定线、人群排名或测得的能力。"
+      },
+      "sections": [
+        {
+          "id": "reflective-meaning-scope",
+          "title": {
+            "en": "What these six answers cover",
+            "zh": "这六项回答覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns connecting an unfamiliar idea with experience, considering several meanings, retaining a meaningful point, thinking through implications, continuing curiosity and reconsidering an impression. A more frequent answer pattern means you recall these experiences more often when occasions arose. It does not establish deeper brain processing, intelligence or better decisions. You may think carefully in a way these six descriptions do not capture.",
+              "zh": "本组涉及把新内容与经历联系起来、考虑几种含义、记住有意味的点、想清不同影响、保留好奇和重想印象。较常发生的回答只表示：有相关机会时，你记得这些体验出现得较多。它不能证明大脑加工更深、智力更高或决策更好；你也可能用这六项没有覆盖的方式认真思考。"
+            }
+          ]
+        },
+        {
+          "id": "reflective-meaning-use",
+          "title": {
+            "en": "When staying with an idea is useful",
+            "zh": "一个想法值得继续时"
+          },
+          "paragraphs": [
+            {
+              "en": "An unfinished question can support learning when you have a reason to explore it and can change course. For example, a short story may make you reconsider what a character knew, rather than settle immediately on one motive. The useful outcome is a clearer question or a better supported interpretation, not time spent thinking by itself. The questionnaire has not checked whether your interpretation fits the evidence.",
+              "zh": "有理由继续探索、也能够转换方向时，一个尚未想完的问题可以成为学习的起点。例如，短篇故事可能让你重新考虑人物掌握了什么信息，而不马上给动机定性。实际有用的成果是问题更清楚、解释有更多依据，而不是思考时间本身；本题没有检查你的解释是否符合证据。"
+            }
+          ]
+        },
+        {
+          "id": "reflective-meaning-cost",
+          "title": {
+            "en": "Notice whether the thought can move",
+            "zh": "留意思考能不能向前走"
+          },
+          "paragraphs": [
+            {
+              "en": "A thought may feel meaningful yet stop adding information. Ask whether you can name what you are trying to understand, identify something new and pause when necessary. Repeating a distressing thought that you cannot readily leave is a different experience from choosing to investigate an interesting idea. These responses cannot diagnose either pattern or tell you that one caused the other.",
+              "zh": "一个想法可能仍有意味，却不再带来新信息。可以问自己：正在弄清什么，是否发现了新东西，需要时能否先停下。难以离开的痛苦重复念头，与主动探索一个有趣问题，是不同的体验。这些回答不能诊断其中哪种情况，也不能说明两者之间有因果关系。"
+            }
+          ]
+        },
+        {
+          "id": "reflective-meaning-example",
+          "title": {
+            "en": "A small reading experiment",
+            "zh": "一次小型阅读尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "After reading something engaging, write one question and one observation that prompted it. Give the question a short, chosen period of attention, then decide whether to return later. You can keep a question open without making it a task you must finish. Compare whether this leaves the reading more enjoyable or simply adds another obligation; the result is private feedback about this situation.",
+              "zh": "读到有兴趣的内容后，可以记下一个问题，以及触发它的一条观察。自行留一小段时间想想，再决定以后要不要回来。问题可以暂时开放，不必成为必须完成的任务。比较一下，这样做让阅读更有意思，还是只是多了一项负担；得到的是这一次情境的私人反馈。"
+            }
+          ]
+        },
+        {
+          "id": "reflective-meaning-shared",
+          "title": {
+            "en": "Explain the time you actually need",
+            "zh": "说明你实际需要的时间"
+          },
+          "paragraphs": [
+            {
+              "en": "In a shared discussion, you can request time to think without implying that quicker speakers are superficial. Try naming the unresolved point: you want to check a consequence, understand a term or compare an example. Ask when a response is needed. This makes the request easier to use than a broad statement about being a deep thinker, and leaves room for other people to work differently.",
+              "zh": "共同讨论时，可以请求思考时间，同时避免把回答快的人理解为肤浅。说明仍未解决的具体点：想核对一个影响、弄清一个词，或比较一个例子，再问何时需要回复。这样比笼统地说自己是深度思考者更便于协作，也给他人的不同做法留出空间。"
+            }
+          ]
+        },
+        {
+          "id": "reflective-meaning-reading",
+          "title": {
+            "en": "Read infrequency and missing information",
+            "zh": "怎样读较少发生和资料不足"
+          },
+          "paragraphs": [
+            {
+              "en": "Less frequent responses can reflect a routine month, little relevant reading, fatigue or a different way of engaging. They do not establish shallow thinking. One unscored answer withholds this part’s mean because all six are required; the other complete parts remain available. If you compare another attempt, first consider whether the occasions changed. A change in this mean alone cannot demonstrate a change in an enduring sensitivity trait.",
+              "zh": "较少发生可能与这个月较平常、相关阅读不多、疲倦或不同的参与方式有关，不等于思考浅薄。任一项不计分都会使本组不显示均分，因为需要六项齐全；其他完整分组仍保留。与另一次作答比较前，先看相关机会是否变了。均分变化本身不能证明持久的敏感特征发生变化。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "busy-input-reading",
+      "directionIds": [
+        "busy-input"
+      ],
+      "title": {
+        "en": "HSP Reflection: Busy Input and Recovery",
+        "zh": "高敏感体验反思：密集信息与恢复"
+      },
+      "headline": {
+        "en": "Describe the situation before explaining it as a trait.",
+        "zh": "先描述当时的情况，再考虑怎样理解它。"
+      },
+      "summary": {
+        "en": "Read recent experiences of competing messages, changing displays and pauses after dense activity. Use concrete conditions to explore manageable adjustments without inferring a neurological threshold.",
+        "zh": "回看消息竞争、变化画面和密集活动后的暂停需求，从具体条件寻找可尝试的调整，不推断神经阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "HSP Reflection: Busy Input and Recovery",
+          "zh": "高敏感体验反思：密集信息与恢复"
+        },
+        "description": {
+          "en": "Read recent experiences of competing messages, changing displays and pauses after dense activity. Use concrete conditions to explore manageable adjustments without inferring a neurological threshold.",
+          "zh": "回看消息竞争、变化画面和密集活动后的暂停需求，从具体条件寻找可尝试的调整，不推断神经阈值。"
+        }
+      },
+      "scoreReading": {
+        "en": "The six-item mean summarizes reported frequency in the past four weeks. It supplies no HSP threshold, rank or measured ability.",
+        "zh": "六项均分概括过去四周自报的发生频率，不提供HSP判定线、人群排名或测得的能力。"
+      },
+      "sections": [
+        {
+          "id": "busy-input-scope",
+          "title": {
+            "en": "What the busy-input mean describes",
+            "zh": "密集信息均分描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The six items concern keeping track of instructions during incoming messages, wanting fewer events after a lively space, selecting attention on changing displays, pausing between topics, finding your bearings and simplifying a setting after dense activity. The mean describes your recalled frequency of these experiences. It cannot identify their cause, a sensory threshold or how quickly you become overloaded compared with other people.",
+              "zh": "六项内容涉及新消息干扰下跟住指示、热闹场所之后想减少周围事件、变化画面中选择关注对象、话题间暂停、弄清陌生现场，以及密集活动后简化环境。均分描述你记得这些体验出现的频率，不能识别原因、测定感官阈值，或比较你与别人多快会觉得负荷过多。"
+            }
+          ]
+        },
+        {
+          "id": "busy-input-conditions",
+          "title": {
+            "en": "Find the input that actually competes",
+            "zh": "找出真正发生竞争的信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Busy is not one condition. A conversation may be easy to follow until several notifications appear; a room may be comfortable until the task requires reading small instructions. Note what arrived together, what you needed to do and which part became harder. This creates a more useful description than concluding that every social or sensory setting is unsuitable for you.",
+              "zh": "“忙乱”并不是单一条件：一次谈话可能本来好跟进，直到几条通知同时出现；一个房间可能本来舒适，直到任务要求阅读细小指示。记下什么同时到来、当时要做什么，以及哪部分变难。这比认定所有社交或感官环境都不适合自己，更能提供可用的信息。"
+            }
+          ]
+        },
+        {
+          "id": "busy-input-context",
+          "title": {
+            "en": "Keep other explanations available",
+            "zh": "保留其他可能的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "An unfamiliar task, a poor night’s sleep, an unusually crowded schedule or unclear instructions may all change the experience. Frequent pauses do not prove fragility, and infrequent pauses do not prove that a setting is harmless. The same person may welcome an energetic event on one occasion and want fewer demands on another. This questionnaire cannot distinguish a stable preference from a temporary strain.",
+              "zh": "任务不熟、前一晚没休息好、安排格外拥挤或指示不清，都可能改变体验。经常暂停不能证明脆弱，少暂停也不能证明环境没有影响。同一个人这次可能欢迎热闹活动，下次却希望要求少一些。本问卷不能区分稳定偏好与暂时的负担。"
+            }
+          ]
+        },
+        {
+          "id": "busy-input-example",
+          "title": {
+            "en": "Change one part of a familiar task",
+            "zh": "只调整熟悉任务的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary, safe task, try one reversible adjustment: silence optional notifications, show one instruction at a time or agree a pause before a new topic. Compare whether following the task becomes easier and whether the change creates a new difficulty. There is no need to expose yourself to an uncomfortable stimulus to test sensitivity. Stop the experiment if it is unhelpful.",
+              "zh": "对普通且安全的任务，可以尝试一个可撤回的调整：关闭非必要通知、一次只呈现一条指示，或约定进入新话题前暂停。比较跟进任务是否更容易，以及调整是否带来新困难。无需通过接触让自己不舒服的刺激来测试敏感性；没有帮助就不必继续。"
+            }
+          ]
+        },
+        {
+          "id": "busy-input-shared",
+          "title": {
+            "en": "Make a usable request for a pause",
+            "zh": "把暂停需求说得具体"
+          },
+          "paragraphs": [
+            {
+              "en": "A practical request states what would help and when you expect to return. For example, ask to finish reading a short instruction before another explanation begins. The other person does not need to accept a personality label to understand that request. In shared spaces, changes should also consider access, safety and the needs of other people; one person’s easier setting is not automatically suitable for everyone.",
+              "zh": "一个便于回应的请求，可以说明什么有帮助，以及预计何时继续。例如，请对方等你看完一小段指示，再开始下一轮解释。对方不必先接受某个人格标签，才能理解这项需求。共用空间里的调整也要考虑可及性、安全和其他人的需要；某个人更容易使用的环境，不一定对所有人都合适。"
+            }
+          ]
+        },
+        {
+          "id": "busy-input-reading",
+          "title": {
+            "en": "Use the result without a cutoff",
+            "zh": "不靠判定线使用结果"
+          },
+          "paragraphs": [
+            {
+              "en": "A low mean might reflect fewer competing demands rather than a different nervous system. An unscored answer may mean that a relevant setting simply did not occur; it is not counted as no difficulty. If all answers are unscored, the attempt ends with no numerical interpretation. Persistent discomfort or interference with activities deserves attention on its own terms, regardless of this questionnaire’s mean or whether you use an HSP label.",
+              "zh": "较低均分可能只是竞争要求较少，不表示神经系统不同。不计分可能意味着相关情境没有发生，不能当作没有困难。全部不计分时，本次作答会结束，但没有数值解释。持续的不适或对活动的影响，可以按实际情况寻求理解和支持，不取决于这里的均分，也不取决于是否使用HSP标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotional-response-reading",
+      "directionIds": [
+        "emotional-response"
+      ],
+      "title": {
+        "en": "HSP Reflection: Emotional Responses",
+        "zh": "高敏感体验反思：情绪反应"
+      },
+      "headline": {
+        "en": "Your own feeling is information about your experience.",
+        "zh": "自己的感受，是理解自身体验的一条信息。"
+      },
+      "summary": {
+        "en": "Read responses to good news, fiction, appreciation, difficult stories and kindness. Keep emotional resonance separate from knowing another person’s feelings or intentions.",
+        "zh": "回看好消息、虚构情节、肯定、艰难故事与善意带来的反应，把情绪共鸣与准确知道他人的感受或意图区分开。"
+      },
+      "seo": {
+        "title": {
+          "en": "HSP Reflection: Emotional Responses",
+          "zh": "高敏感体验反思：情绪反应"
+        },
+        "description": {
+          "en": "Read responses to good news, fiction, appreciation, difficult stories and kindness. Keep emotional resonance separate from knowing another person’s feelings or intentions.",
+          "zh": "回看好消息、虚构情节、肯定、艰难故事与善意带来的反应，把情绪共鸣与准确知道他人的感受或意图区分开。"
+        }
+      },
+      "scoreReading": {
+        "en": "The six-item mean summarizes reported frequency in the past four weeks. It supplies no HSP threshold, rank or measured ability.",
+        "zh": "六项均分概括过去四周自报的发生频率，不提供HSP判定线、人群排名或测得的能力。"
+      },
+      "sections": [
+        {
+          "id": "emotional-response-scope",
+          "title": {
+            "en": "Both pleasant and difficult responses count",
+            "zh": "愉快和艰难的反应都在其中"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items include reactions to good news, a fictional atmosphere, appreciation, a difficult story, kindness and a group’s emotional tone. They intentionally include positive experiences. The mean summarizes how often you recall a noticeable or continuing feeling in those situations. It does not measure how strong every emotion was, how well you regulate emotions, or whether you correctly understood someone else.",
+              "zh": "六项包括对好消息、虚构氛围、受到肯定、艰难经历、善意及小组情绪基调的反应，其中有意保留了积极体验。均分概括你多常记得自己在这些情境中有明显或持续的感受；它不测每次情绪有多强、调节得多好，也不检查是否正确理解了别人。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-response-connection",
+          "title": {
+            "en": "Let a feeling open a question",
+            "zh": "让感受成为提问的起点"
+          },
+          "paragraphs": [
+            {
+              "en": "A moving story or another person’s celebration may help you notice what matters to you. In a real conversation, feeling affected can be a reason to listen more carefully. It is not proof that you have absorbed another person’s emotion or know what they need. A simple invitation to describe their experience gives them more authority than an interpretation based only on your response.",
+              "zh": "被一个故事或别人的庆祝打动，可能让你注意到自己在乎什么。真实谈话中，受到触动可以成为认真听下去的理由，但不能证明你吸收了对方的情绪，或知道对方需要什么。邀请对方描述自己的体验，比只凭自己的反应作解释，更尊重对方对自身感受的说明。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-response-boundaries",
+          "title": {
+            "en": "Separate feeling from obligation",
+            "zh": "把感受与必须负责分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Being affected does not automatically make you responsible for changing the situation. You can care, ask what support is wanted and still acknowledge the limits of your time or role. Equally, a quieter emotional response does not establish indifference. Practical support and fairness can be present without a strong feeling, and a strong feeling can occur without a helpful action. Neither is assessed by this frequency mean.",
+              "zh": "受到影响，并不自动意味着你有责任改变局面。可以关心、询问对方想要什么支持，同时承认时间或角色的边界。反应较平静也不表示冷漠：实际支持与公平可以没有强烈感受，强烈感受也不一定带来有帮助的行动。这里的频率均分没有评估两者。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-response-example",
+          "title": {
+            "en": "Notice a response without reading a mind",
+            "zh": "留意自己的反应，不替别人读心"
+          },
+          "paragraphs": [
+            {
+              "en": "After a conversation that stayed with you, privately note what was said, what you felt and what remains unknown. Keep those as three different observations. If appropriate, ask the person whether you understood rather than telling them what they must feel. You can also notice a pleasant response to kindness without turning it into a task to explain or preserve the feeling.",
+              "zh": "一次让你久久有感的谈话之后，可以私下分别记下：对方说了什么、自己感到什么、还有什么不知道。把三者分开。情境合适时，询问自己是否理解到位，而不是告诉对方他们必然是什么感受。对善意带来的愉快反应，也可以只是留意，不必再承担解释或留住这种感受的任务。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-response-relationships",
+          "title": {
+            "en": "Check what connection means to each person",
+            "zh": "核对彼此怎样理解连接"
+          },
+          "paragraphs": [
+            {
+              "en": "People can express care in different ways: a visible emotional response, quiet attention or practical help. Describe what you would find supportive, and ask the other person what works for them. A difference in this part’s frequency would not establish that one person is more caring or compatible. The questionnaire never compares two people’s answers or recommends a relationship decision.",
+              "zh": "人们可能用不同方式表达在乎，例如明显的情绪反应、安静关注或实际帮助。说明什么会让自己感到被支持，也询问对方怎样更合适。本组发生频率不同，不能说明谁更在乎、谁更相配。问卷没有比较两个人的回答，也不据此建议关系决策。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-response-reading",
+          "title": {
+            "en": "Read less frequent and unscored responses",
+            "zh": "怎样理解较少发生与不计分"
+          },
+          "paragraphs": [
+            {
+              "en": "What happened during the month matters: fewer stories, celebrations or shared conversations mean fewer occasions for these experiences. An unscored item is not evidence of absent emotion or empathy; it withholds the six-item mean. Other complete parts remain readable, and all four guides stay available. If emotional experiences are troubling or disruptive, describe that actual impact when seeking support rather than treating this mean as a severity category.",
+              "zh": "这个月发生了什么也很重要：故事、庆祝或共同谈话较少，相关机会也会较少。不计分不证明缺乏情绪或共情，只会使这组六项不显示均分；其他完整分组保留，四份指南始终可读。情绪体验若带来困扰或妨碍活动，寻求支持时可以描述实际影响，不把此处均分当作严重程度等级。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "small-changes-reading",
+      "directionIds": [
+        "small-changes"
+      ],
+      "title": {
+        "en": "HSP Reflection: Small Changes and Context",
+        "zh": "高敏感体验反思：细小变化与情境"
+      },
+      "headline": {
+        "en": "Noticing a change comes before deciding what it means.",
+        "zh": "先留意到变化，再判断它意味着什么。"
+      },
+      "summary": {
+        "en": "Read recent attention to wording, routines, rooms, pauses, creative details and musical phrasing. Distinguish a noticed difference from objective acuity, accuracy or another person’s intention.",
+        "zh": "回看对措辞、流程、房间、停顿、创作细节与乐句处理的注意，区分留意到差别与客观感官能力、判断准确性或他人的意图。"
+      },
+      "seo": {
+        "title": {
+          "en": "HSP Reflection: Small Changes and Context",
+          "zh": "高敏感体验反思：细小变化与情境"
+        },
+        "description": {
+          "en": "Read recent attention to wording, routines, rooms, pauses, creative details and musical phrasing. Distinguish a noticed difference from objective acuity, accuracy or another person’s intention.",
+          "zh": "回看对措辞、流程、房间、停顿、创作细节与乐句处理的注意，区分留意到差别与客观感官能力、判断准确性或他人的意图。"
+        }
+      },
+      "scoreReading": {
+        "en": "The six-item mean summarizes reported frequency in the past four weeks. It supplies no HSP threshold, rank or measured ability.",
+        "zh": "六项均分概括过去四周自报的发生频率，不提供HSP判定线、人群排名或测得的能力。"
+      },
+      "sections": [
+        {
+          "id": "small-changes-scope",
+          "title": {
+            "en": "What is being noticed here",
+            "zh": "这里关注哪些变化"
+          },
+          "paragraphs": [
+            {
+              "en": "The six descriptions concern wording, a familiar routine, room arrangement, conversational pauses, colour or texture contrast and musical phrasing. A more frequent answer pattern means these differences drew your attention more often in the occasions you recall. It does not prove that you detected a smaller stimulus, noticed more than other people, or interpreted a subtle signal correctly. No sensory discrimination task was administered.",
+              "zh": "六项描述涉及措辞、熟悉流程、房间摆设、谈话停顿、颜色或质感对比，以及乐句处理。较常发生的回答，表示在记得的相关机会中，这些差别较常引起注意；不能证明你能检测更小的刺激、比别人注意到更多，或正确解释了细微信号。本题没有实施感官辨别任务。"
+            }
+          ]
+        },
+        {
+          "id": "small-changes-use",
+          "title": {
+            "en": "Ask whether the difference matters",
+            "zh": "再问这个差别是否重要"
+          },
+          "paragraphs": [
+            {
+              "en": "A small observation may be useful when it changes a question you need to answer. A wording change might alter a request; a rearranged room might change where an object can be found. Other differences may simply be interesting or pleasant. Not every noticed detail needs correction, explanation or action. The practical step is to connect the observation with the situation, rather than treating noticing itself as evidence of superior perception.",
+              "zh": "一个小观察若改变了需要回答的问题，可能就有用：措辞变化或许改变了请求，房间重排可能改变了物品位置。其他差别也可能只是有趣或令人愉快。并非每个细节都需要纠正、解释或行动。实际的一步，是把观察放回当时情境，而不是把留意本身当作感知更优越的证据。"
+            }
+          ]
+        },
+        {
+          "id": "small-changes-uncertainty",
+          "title": {
+            "en": "Keep interpretation open",
+            "zh": "让解释保持开放"
+          },
+          "paragraphs": [
+            {
+              "en": "A pause can have many meanings: thinking, distraction, turn-taking or something unrelated to the conversation. Hearing or seeing a difference cannot by itself establish intention, honesty or danger. If the meaning matters, use another observation or a respectful question to check it. This is especially important when a detail produces a strong feeling, because a vivid reaction still does not confirm the interpretation.",
+              "zh": "一次停顿可能意味着思考、分心、等待轮到自己，或与谈话无关的事情。听见、看见差别，本身不能确定意图、诚实与否或危险。如果含义重要，可以用另一条观察或尊重对方的询问来核对。细节带来强烈感受时尤其需要如此：反应鲜明，也不能确认解释就是对的。"
+            }
+          ]
+        },
+        {
+          "id": "small-changes-example",
+          "title": {
+            "en": "A small creative comparison",
+            "zh": "一次小型创作比较"
+          },
+          "paragraphs": [
+            {
+              "en": "With an ordinary piece of writing, music or visual work you already enjoy, note one detail that drew your attention and describe it without a quality label. Then ask whether it changes how you use or appreciate the piece. You do not need to test eyesight, hearing or tolerance. The point is to distinguish a concrete observation from a broad conclusion about your sensitivity or talent.",
+              "zh": "对一段自己本来就喜欢的文字、音乐或视觉作品，可以记下一处引起注意的细节，先不用好坏标签描述它，再问它是否改变了使用或欣赏作品的方式。无需检测视力、听力或耐受程度。重点是把具体观察与对自身敏感性、天赋的笼统结论分开。"
+            }
+          ]
+        },
+        {
+          "id": "small-changes-shared",
+          "title": {
+            "en": "Offer a detail in a useful form",
+            "zh": "把细节说成可使用的信息"
+          },
+          "paragraphs": [
+            {
+              "en": "In shared work, explain what changed and why it may matter for the current task. If the difference is only a preference, say so and leave room for another preference. This avoids turning noticing into criticism of people who attended to something else. A person can do excellent detailed work without endorsing these particular experiences, and this questionnaire cannot recommend a job on the basis of them.",
+              "zh": "共同做事时，可以说明什么变了，以及它可能为什么影响当前任务。如果差别只是个人偏好，也可以直说，并为其他偏好留出空间。这能避免把留意细节变成对关注了别处的人的批评。一个人即使没有认同这些具体体验，也可能把细致工作做得很好；问卷不能据此推荐职业。"
+            }
+          ]
+        },
+        {
+          "id": "small-changes-reading",
+          "title": {
+            "en": "Context limits every comparison",
+            "zh": "每次比较都受情境限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Familiarity, attention, interests and the number of relevant occasions affect what you remember noticing. A lower mean is not poor perception; an unscored item is not a failed detection. The strict six-item rule withholds this mean when any item is unscored. If you repeat the reflection, compare the month’s activities before comparing the numbers. Neither a higher nor a lower mean can establish a sensory condition or a fixed HSP identity.",
+              "zh": "熟悉程度、注意方向、兴趣和相关机会数量，都会影响记得自己留意过什么。较低均分不表示感知差，不计分也不是检测失败。六项齐全的规则，会在任一项不计分时不显示本组均分。再次反思时，可以先比较这一个月做过的事，再看数值。均分升降都不能确定某种感官状况或固定的HSP身份。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Four separate descriptive means",
+        "zh": "四个独立呈现的描述性均分"
+      },
+      "paragraphs": [
+        {
+          "en": "The 24 original items form four groups of six. Each response from Never to Almost always contributes 1 to 5, with no reversals. A group needs all six numeric responses; add them and divide by six, then round to one decimal for display. For example, 4, 2, 3, 5, 2 and 4 sum to 20 and display 3.3 / 5. This is a summary of reported recent frequency, not an HSP measurement or a percentage of sensitivity.",
+          "zh": "24道原创题分为四组，每组六项。从“从不”到几乎总是的回答依次记1至5，无反向题。每组需要六项数值回答；相加后除以六，显示时保留一位小数。例如4、2、3、5、2、4相加为20，显示3.3 / 5。它概括自报的近期发生频率，不是HSP测量值或敏感程度百分比。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Missing information stays missing",
+        "zh": "缺失资料保持缺失"
+      },
+      "paragraphs": [
+        {
+          "en": "No relevant occasion, uncertainty and a choice not to answer stay unscored. Any unscored item withholds only its own group’s mean; it is never a zero or evidence of absent emotion or perception. Other complete groups keep their means. An all-unscored attempt still finishes and shows all four full guides. There is no overall total, highest pattern, score band, population rank or HSP cutoff.",
+          "zh": "没有相关机会、无法判断或选择不回答，都保留为不计分。任一项不计分只会使所属组不显示均分，不能当作零分，也不证明没有情绪或感知。其他完整分组保留均分；全部不计分仍可完成并阅读四份完整指南。没有综合总分、最高模式、分数档位、人群排名或HSP判定线。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Original questions and conceptual background",
+        "zh": "原创题目与概念背景"
+      },
+      "paragraphs": [
+        {
+          "en": "Elaine Aron’s DOES discussion provides conceptual background about processing, busy input, emotional responses and subtleties. FermatMind independently wrote this bank, both languages and the guides; it does not administer, translate or shorten the HSP Scale or HSP-R. Four weeks, frequency anchors and strict completeness are editorial choices, without established reliability, factor structure, norms or language equivalence. The four topics do not identify a condition, neural mechanism, sensory acuity, empathic accuracy, career fit or relationship compatibility.",
+          "zh": "Elaine Aron的DOES论述提供加工、密集信息、情绪反应和细微之处的概念背景。费马独立撰写本题本、双语措辞和指南，没有施测、翻译或缩减HSP Scale或HSP-R。四周期限、频率选项和严格齐全规则均为编辑约定，尚未建立信度、因子结构、常模或语言等价性。四个主题不能识别某种状况、神经机制、感官敏锐度、共情准确性、职业契合或关系兼容。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will this tell me whether I am an HSP?",
+        "zh": "结果会告诉我是否属于HSP吗？"
+      },
+      "answer": {
+        "en": "No. It summarizes answers to 24 original recent-experience questions. Four means and four complete guides help you describe situations; there is no diagnostic or HSP classification threshold.",
+        "zh": "不会。它概括24道原创近期体验问题的回答，通过四个均分和四份完整指南帮助描述情境，没有诊断或HSP分类判定线。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are there 24 questions?",
+        "zh": "为什么是24道题？"
+      },
+      "answer": {
+        "en": "FermatMind wrote six items for each of four editorial topics. This is a complete original reflection bank, not a validated short form of the HSP Scale or HSP-R, and it does not inherit their measurement evidence.",
+        "zh": "费马为四个编辑主题分别写了六项，这是完整的原创反思题本，不是HSP Scale或HSP-R的已验证短版，也不继承其测量证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I cannot judge an item?",
+        "zh": "无法判断一道题时怎么办？"
+      },
+      "answer": {
+        "en": "Choose the unscored option. The affected group needs all six numeric answers and otherwise shows insufficient information. Other complete groups keep their means, and every full guide remains free to read. An all-unscored attempt can finish.",
+        "zh": "可以选不计分。所属组需要六项数值齐全，否则显示资料不足；其他完整分组保留均分，每份完整指南仍可免费阅读。全部不计分也可以完成。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why is no dominant type assigned?",
+        "zh": "为什么不分配主导类型？"
+      },
+      "answer": {
+        "en": "The topics describe different recent experiences and are not established as four independent factors or personality types. Comparing their means cannot establish which trait dominates, how you compare with others or how your brain works.",
+        "zh": "这些主题描述不同的近期体验，尚未建立为四个独立因子或人格类型。比较均分不能确定哪种特征主导、你与别人如何相比，或大脑怎样运作。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can this identify or rule out a condition?",
+        "zh": "它能识别或排除某种状况吗？"
+      },
+      "answer": {
+        "en": "No. These questions do not assess diagnostic criteria or distinguish causes of the experiences. If an experience is troubling or interferes with daily activities, its actual impact matters independently of these means.",
+        "zh": "不能。问题没有评估诊断标准，也不能区分体验的原因。体验若带来困扰或影响日常活动，实际影响本身就值得关注，不取决于这些均分。"
+      }
+    },
+    {
+      "question": {
+        "en": "How can I use this in everyday life?",
+        "zh": "怎样用于日常生活？"
+      },
+      "answer": {
+        "en": "Start with one actual situation, describe what happened and consider a small reversible adjustment. Ask other people about their needs instead of inferring them from a label. These means do not recommend jobs, judge care or decide relationships.",
+        "zh": "从一个真实情境出发，描述发生了什么，再考虑一个可撤回的小调整。询问他人的需要，不凭标签替他们推断。均分不用于推荐职业、判断是否在乎他人或决定关系。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I save, retake or share?",
+        "zh": "可以保存、重测或分享吗？"
+      },
+      "answer": {
+        "en": "Saving is optional and stays in this tab for up to 24 hours. Completion, retake or exit-and-clear removes the draft. Public copying shares the title and public link, not item answers, means or a private score URL.",
+        "zh": "保存需要主动选择，进度最多在本标签页保留24小时；完成、重测或退出清除会删除草稿。公开复制提供标题和公开链接，不包含逐题回答、均分或私人成绩网址。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Elaine Aron: DOES concepts and their evidence scope, not validation of this bank",
+        "zh": "Elaine Aron：DOES概念及证据范围，并非本题本验证"
+      },
+      "url": "https://hsperson.com/faq/evidence-for-does/"
+    },
+    {
+      "title": {
+        "en": "The author’s own self-test, a separate instrument",
+        "zh": "原作者自测：与本页不同的独立量表"
+      },
+      "url": "https://hsperson.com/test/highly-sensitive-test/"
+    }
+  ]
+}

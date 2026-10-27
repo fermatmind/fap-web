@@ -4750,5 +4750,30 @@
       "working-memory-reading",
       "inhibition-reading"
     ]
+  },
+  {
+    "slug": "hsp-sensitivity-quiz",
+    "code": "FM_SENSITIVITY_EXPERIENCE24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "HSP Sensitivity Reflection: 24 Recent Experiences",
+      "zh": "高敏感体验反思：24项近期经历"
+    },
+    "description": {
+      "en": "Explore 24 original questions on meaning, busy input, emotions and small changes. Four descriptive means and all full guides are free, including unscored answers.",
+      "zh": "用24道原创问题回看含义、密集信息、情绪与细小变化，免费获取四组描述性均分和全部完整指南，也可选择不计分。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_sensitivity_experiences_four_topics24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "reflective-meaning-reading",
+      "busy-input-reading",
+      "emotional-response-reading",
+      "small-changes-reading"
+    ]
   }
 ]

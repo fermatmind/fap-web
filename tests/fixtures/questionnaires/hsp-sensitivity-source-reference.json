@@ -1,0 +1,1876 @@
+{
+  "id": "T196",
+  "state": "external original24item method/content candidate only;notHSP-R/adopted/runtime",
+  "slug": "hsp-sensitivity-quiz",
+  "code": "FM_SENSITIVITY_EXPERIENCE24",
+  "kind": "likert",
+  "form": "fm_sensitivity_experiences_four_topics24_v1",
+  "scoring": "fm_sensitivity_four_complete6_frequency_means1dp_no_hsp_cutoff_v1",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Think of the past four weeks. When a relevant occasion occurred, how often did you experience what the statement describes? Choose the answer that fits your recall; if there was no relevant occasion, you cannot judge, or you prefer not to answer, choose unscored. These are original reflection questions about recent experiences. They do not determine whether you are a Highly Sensitive Person, measure how your brain works, or identify a condition. No activity or sensory exposure needs to be tried for this reflection.",
+    "zh": "回想过去四周。有相关情境时，你多常经历题述情况？按自己记得的情况作答；没有相关机会、无法判断或不愿回答时选不计分。这些原创问题用于回看近期体验，不能判断你是否属于高敏感人、测出大脑如何运作或识别某种状况。无需为了回答而尝试任何活动或感官刺激。"
+  },
+  "parts": [
+    {
+      "id": "reflective-meaning",
+      "title": {
+        "en": "Returning to meaning",
+        "zh": "回看事情的含义"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "busy-input",
+      "title": {
+        "en": "Responding to busy input",
+        "zh": "应对密集信息"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "emotional-response",
+      "title": {
+        "en": "Feeling emotional responses",
+        "zh": "感受情绪反应"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "small-changes",
+      "title": {
+        "en": "Noticing small changes",
+        "zh": "留意细小变化"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "reverse_numbers": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "SEXP_01",
+      "prompt": {
+        "en": "After learning something unfamiliar, I found myself connecting it with an earlier experience.",
+        "zh": "接触不熟悉的内容后，我发现自己会把它与以前的经历联系起来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_02",
+      "prompt": {
+        "en": "When a story allowed several interpretations, I spent time considering more than one meaning.",
+        "zh": "一个故事有几种解释时，我会花时间想不止一种含义。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_03",
+      "prompt": {
+        "en": "A point from an ordinary conversation stayed with me because it still felt meaningful.",
+        "zh": "一次普通谈话中的某个点，因为仍有意味而留在我心里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_04",
+      "prompt": {
+        "en": "Before a choice that mattered to me, I needed time to think through its different implications.",
+        "zh": "作出对自己重要的选择前，我需要时间想清它在不同方面的影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_05",
+      "prompt": {
+        "en": "A question raised by something I read kept me curious after I had finished reading.",
+        "zh": "读完一段内容后，其中提出的问题仍让我好奇。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_06",
+      "prompt": {
+        "en": "When new information challenged my first impression, I found myself reconsidering it.",
+        "zh": "新信息与最初印象不一致时，我发现自己会重新思考那个印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflective-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflective-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflective-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflective-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "reflective-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "reflective-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_07",
+      "prompt": {
+        "en": "While following one set of instructions, repeated incoming messages made it harder for me to stay with it.",
+        "zh": "按照一组指示做事时，接连收到的新消息会让我更难继续跟住原来的指示。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_08",
+      "prompt": {
+        "en": "After spending time in a lively shared space, I wanted an interval with fewer things happening around me.",
+        "zh": "在热闹的共用空间待过一段时间后，我想留一段周围事情少一些的时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_09",
+      "prompt": {
+        "en": "When a display contained many moving or changing elements, I found it difficult to choose what to attend to.",
+        "zh": "画面同时包含许多移动或变化的内容时，我难以选择先关注什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_10",
+      "prompt": {
+        "en": "During a long sequence of conversations, I needed a pause before taking in another new topic.",
+        "zh": "连续谈了很久之后，接触下一个新话题前，我需要暂停一下。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_11",
+      "prompt": {
+        "en": "In an unfamiliar setting with several things happening at once, I needed time to get my bearings.",
+        "zh": "不熟悉的场所同时发生几件事时，我需要一些时间弄清当下的情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_12",
+      "prompt": {
+        "en": "After a period of dense activity, I wanted a simpler setting before continuing with another task.",
+        "zh": "经历一段安排密集的活动后，继续另一件事之前，我想先换到简单一些的环境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "busy-input",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "busy-input",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "busy-input",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "busy-input",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "busy-input",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "busy-input",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_13",
+      "prompt": {
+        "en": "Good news from someone I cared about brought a noticeable emotional response in me.",
+        "zh": "我在乎的人传来好消息时，我会明显感受到自己的情绪反应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_14",
+      "prompt": {
+        "en": "The mood of a fictional scene affected how I felt after the scene had ended.",
+        "zh": "一段虚构情节结束后，它的氛围仍会影响我的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_15",
+      "prompt": {
+        "en": "Seeing someone receive appreciation left me with a feeling that lasted beyond that moment.",
+        "zh": "看到别人受到感谢或肯定时，那份感受会在当时之后继续留在我心里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_16",
+      "prompt": {
+        "en": "Reading about a difficult personal experience affected my own feelings afterward.",
+        "zh": "读到别人一段艰难的个人经历后，我自己的情绪也会受到影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_17",
+      "prompt": {
+        "en": "A small act of kindness lifted my mood for longer than the moment itself.",
+        "zh": "一次小小的善意会让我在事情过去后仍感到心情变好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_18",
+      "prompt": {
+        "en": "The emotional tone of a group conversation affected my feelings even when it was not about me.",
+        "zh": "小组谈话的情绪氛围会影响我的感受，即使话题与我无关。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "emotional-response",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "emotional-response",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "emotional-response",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "emotional-response",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "emotional-response",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "emotional-response",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_19",
+      "prompt": {
+        "en": "A small change in wording drew my attention to a possible change in meaning.",
+        "zh": "措辞的一点变化会让我留意它的含义是否也变了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_20",
+      "prompt": {
+        "en": "A small change in a familiar routine caught my attention before I knew whether it mattered.",
+        "zh": "熟悉流程里的一点变化会先引起我的注意，即使还不知道它是否重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_21",
+      "prompt": {
+        "en": "A small rearrangement in a familiar room drew my attention.",
+        "zh": "熟悉房间里的一点摆设变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_22",
+      "prompt": {
+        "en": "In a conversation, a change in the timing of a pause caught my attention.",
+        "zh": "谈话中停顿时机的变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_23",
+      "prompt": {
+        "en": "While looking at a creative piece, I found myself attending to a small contrast in colour or texture.",
+        "zh": "看一件创作作品时，我发现自己会留意颜色或质感上的细小对比。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEXP_24",
+      "prompt": {
+        "en": "In a familiar piece of music, a small change in phrasing drew my attention.",
+        "zh": "听熟悉的音乐时，乐句处理的一点变化会引起我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "small-changes",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "small-changes",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "small-changes",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "small-changes",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "small-changes",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "small-changes",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "worked_example": {
+    "raw_by_part": [
+      [
+        4,
+        2,
+        3,
+        5,
+        2,
+        4
+      ],
+      [
+        2,
+        3,
+        4,
+        2,
+        3,
+        4
+      ],
+      [
+        5,
+        4,
+        3,
+        4,
+        5,
+        3
+      ],
+      [
+        3,
+        2,
+        3,
+        4,
+        2,
+        3
+      ]
+    ],
+    "sums": [
+      20,
+      18,
+      24,
+      17
+    ],
+    "means": [
+      3.3,
+      3.0,
+      4.0,
+      2.8
+    ],
+    "meaning": "inventedanswerpatternonly;nohighsensitivityclassification,traitrankingorbetweenpersoncomparison"
+  },
+  "method": "24originalbilingualrecentexperiencefrequencyitems;4editorialtopicsx6;allpositive1..5+NA;strictall6numericperpartmean=sum/6rounded1dp;NAwithholdsownpartonly,othercompletepartsretained,allNAfinished. Nooverall,bands,norms,percentiles,dominantarchetype,HSPcutoff,clinicalidentification,hiring,neural/acuity/empathicaccuracyinference. DOESisconceptualreadingbackgroundnotfourfactorvalidation;original4weekwindow/frequencyanchors/completenessareeditorialchoices.",
+  "copyright": "All24items/newENZHwording/scoringinstructionsoriginal. NoHSPS27/HSP-R18/JobCannon12itemsorresultprosecopied,translatedoradapted. OriginalquestionsdoNOTinheritinstrumentpermissionsorpsychometrics. HSP-Rexplicitnomodificationpermissionisnotusedasabankgrant. OfficialDOESFAQprovidesconceptualbackgroundonly;notendorsement.",
+  "source_scope": [
+    {
+      "url": "https://hsperson.com/faq/evidence-for-does/",
+      "actual_read": "entireofficialmain57–97includingD/O/E/S;notlinkedAuthorsNotePDForallcitedpapers",
+      "supports": "fourconcepts/backgroundanddistinctionfromextraordinarysensesonly;doesnotvalidateitems/fourindependentdimensions/neuralcause orourfrequencymeans",
+      "not_adopted": "autismcomparativegeneralizations75–76;mirror-neuronmechanisms/intuition/empathicaccuracy/neuralcalibration/populationcounts/medicalorfittingclaims"
+    },
+    {
+      "url": "https://hsperson.com/wp-content/uploads/2025/02/New-Self-Test-PDF.pdf",
+      "actual_read": "OfficialHSP-R18/7point/6x3full3pagespreviousactualwebPDFread. CurrentnormalverifiedTLSrefreshHTTP202challenge558B,notPDF/notread;no bypass. Notusedasitemgrant.",
+      "supports": "scopeboundaryonly:currentHSP-Rdifferentfromold27/DOESfourtopics;doNOTcopyorclaimHSPRidentity/permission"
+    }
+  ],
+  "distinctness_limits": [
+    "Dreportsrecentmeaningful/curiousreflection,notT195negativeintrusive/uncontrollablerepetition;frequenciescannotestablishproductivityorabsenceofrumination.",
+    "Oreportsrecentinputload/recoverycontext,notT188basicsensorydetectionthreshold/Dunnfourquadrants. Someexperienceconceptsrelated;notempiricaldiscriminantvalidity.",
+    "Ereportsrespondentsownpositiveandnegativeemotionalresponse,notT091accuracy/takingperspective/knowingothersfeelings. Sharedemotionalconceptsnotindependentconstructproof.",
+    "Sreportsnoticedchangesandmeaning,notobjectivehearing/vision/acuityoraccuracyreadingintent. Noaboveaveragesuperiorityclaim."
+  ],
+  "future_profiles": [
+    "reflective-meaning-reading",
+    "busy-input-reading",
+    "emotional-response-reading",
+    "small-changes-reading"
+  ],
+  "languageEquivalence": "NeworiginalENZH;notvalidatedtranslation/reliability/factorstructure/norms/measurementinvariance.",
+  "pending": [
+    "4FULL6notwritten",
+    "package/report/font/tests/numericQA/notwritten",
+    "Rootmethod/productscopeandClient3slothandoff",
+    "latestnativeMiniidentitycheck",
+    "repositoryQA/exactSHApublicdelivery"
+  ]
+}
