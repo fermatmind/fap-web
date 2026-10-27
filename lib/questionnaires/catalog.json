@@ -4440,5 +4440,30 @@
     "resultSlugs": [
       "compassion-reading"
     ]
+  },
+  {
+    "slug": "culture-fit",
+    "code": "FM_WORK_ARRANGEMENT_PREFERENCES24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Culture Fit Assessment: Work Arrangement Preferences",
+      "zh": "职场文化契合度测评：工作安排偏好"
+    },
+    "description": {
+      "en": "Compare 24 original pairs of work arrangements and read four complete guides free. See separate position means with both endpoints, without a company-fit score, dominant type or hiring claim.",
+      "zh": "比较24组原创工作安排，免费读四篇完整指南。分别查看位置均值与两端，不计算公司契合分、不派主导型、不预测录用。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_work_arrangement_four_pairs24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "coordination-reading",
+      "decision-room-reading",
+      "change-rhythm-reading",
+      "feedback-rhythm-reading"
+    ]
   }
 ]

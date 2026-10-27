@@ -1,0 +1,1881 @@
+{
+  "id": "T106",
+  "state": "external original full-content candidate; parent adoption pending; no runtime or accepted count",
+  "slug": "culture-fit",
+  "code": "FM_WORK_ARRANGEMENT_PREFERENCES24",
+  "kind": "likert",
+  "form": "fm_work_arrangement_four_pairs24_v1",
+  "scoring": "fm_work_arrangement_four_complete6_position_means1dp_unranked_v1",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Imagine ordinary low-stakes work where both arrangements are permitted, can meet the stated task needs and provide equal safety, access and necessary information. Choose the arrangement you would currently prefer, not what you think an employer wants or what would make you better at the task. First and second switch positions across items. A midpoint means no clear preference; if the situation is irrelevant, cannot be judged or you prefer not to answer, choose unscored instead. Preferences can depend on the task. No company data are requested, and no organisational fit, competence or hiring score is calculated.",
+    "zh": "想象普通、低影响的工作，两种安排都获准、能满足明示任务需要，并同样满足安全、无障碍与必要信息条件。选目前更愿意采用的安排，不猜雇主想要什么，也不选看起来更能证明能力的答案。第一、第二的顺序会换位。中点表示没有明确偏好；情境不相关、无法判断或不愿答时选不计分。偏好可能随任务变化。不收公司资料，不计算组织契合、胜任或招聘分数。"
+  },
+  "parts": [
+    {
+      "id": "coordination",
+      "title": {
+        "en": "Live discussion and written coordination",
+        "zh": "直接讨论与书面协调"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reverse_numbers": [
+        2,
+        4,
+        6
+      ],
+      "anchor1": {
+        "en": "Scheduled live discussion",
+        "zh": "预先约定的直接讨论"
+      },
+      "anchor5": {
+        "en": "Written coordination with agreed reply times",
+        "zh": "有约定回复时间的书面协调"
+      }
+    },
+    {
+      "id": "decision-room",
+      "title": {
+        "en": "Step guidance and method choice",
+        "zh": "步骤指引与方法选择"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "reverse_numbers": [
+        8,
+        10,
+        12
+      ],
+      "anchor1": {
+        "en": "Provided steps and review points",
+        "zh": "明确步骤与复核点"
+      },
+      "anchor5": {
+        "en": "Choosing a method within agreed boundaries",
+        "zh": "在约定边界内选择方法"
+      }
+    },
+    {
+      "id": "change-rhythm",
+      "title": {
+        "en": "Stable scope and planned revision",
+        "zh": "稳定范围与按需修订"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reverse_numbers": [
+        14,
+        16,
+        18
+      ],
+      "anchor1": {
+        "en": "Stable scope until the agreed review",
+        "zh": "范围保持到约定复核点"
+      },
+      "anchor5": {
+        "en": "Revisable scope with explicit checkpoints",
+        "zh": "通过明确检查点调整范围"
+      }
+    },
+    {
+      "id": "feedback-rhythm",
+      "title": {
+        "en": "Consolidated and frequent feedback",
+        "zh": "集中反馈与频繁小反馈"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "reverse_numbers": [
+        20,
+        22,
+        24
+      ],
+      "anchor1": {
+        "en": "Consolidated feedback at a milestone",
+        "zh": "里程碑处集中反馈"
+      },
+      "anchor5": {
+        "en": "Brief feedback on small pieces",
+        "zh": "对小块成果给简短反馈"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "WARR_01",
+      "prompt": {
+        "en": "For a small shared project, I would prefer: first, short live discussions at agreed times; second, written updates with agreed reply windows.",
+        "zh": "对一个小型共同项目，我更愿意：第一，按约定时间简短直接讨论；第二，用书面更新并约定回复时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_02",
+      "prompt": {
+        "en": "When choosing the next routine action together, I would prefer: first, exchanging a written proposal before replies; second, talking it through in a scheduled short conversation.",
+        "zh": "共同选择下一项普通行动时，我更愿意：第一，先交流书面提案再回复；第二，在约定的简短谈话中讨论。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_03",
+      "prompt": {
+        "en": "For an ordinary handover, I would prefer: first, an arranged live walk-through; second, a written handover with a clear window for questions.",
+        "zh": "做普通交接时，我更愿意：第一，安排一次直接讲解；第二，书面交接并明确提问时段。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_04",
+      "prompt": {
+        "en": "While comparing ideas, I would prefer: first, reading and replying to notes in an agreed time window; second, a planned live discussion.",
+        "zh": "比较想法时，我更愿意：第一，在约定时段阅读并回复笔记；第二，安排一次直接讨论。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_05",
+      "prompt": {
+        "en": "At the start of a routine group task, I would prefer: first, a short scheduled conversation; second, a written outline that everyone can respond to within an agreed period.",
+        "zh": "普通小组任务开始时，我更愿意：第一，安排简短谈话；第二，先写提纲，大家在约定时段内回复。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_06",
+      "prompt": {
+        "en": "For a non-urgent coordination question, I would prefer: first, a clear written message and an agreed response time; second, an arranged brief conversation.",
+        "zh": "对不紧急的协同问题，我更愿意：第一，清楚写下问题并约定回复时间；第二，约一次简短谈话。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_07",
+      "prompt": {
+        "en": "For a permitted low-stakes task, I would prefer: first, recommended steps with review points; second, an agreed outcome with room to choose the method.",
+        "zh": "对获准的低影响任务，我更愿意：第一，有推荐步骤与复核点；第二，明确成果后自行选择做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_08",
+      "prompt": {
+        "en": "When both routes are allowed, I would prefer: first, designing my route within agreed limits; second, following a provided sequence.",
+        "zh": "两种路线都获准时，我更愿意：第一，在约定限制内设计路线；第二，采用已提供的顺序。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_09",
+      "prompt": {
+        "en": "When deciding how to start an ordinary task, I would prefer: first, choosing from a clear set of suggested routes; second, proposing a route against agreed criteria.",
+        "zh": "决定普通任务如何开始时，我更愿意：第一，从明确的建议路线中选；第二，按约定条件提出路线。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_10",
+      "prompt": {
+        "en": "For an unfamiliar but low-stakes piece of work, I would prefer: first, choosing my method after clarifying the boundaries; second, starting from a worked example and sequence.",
+        "zh": "面对不熟悉但低影响的工作，我更愿意：第一，澄清边界后选方法；第二，按示例和步骤开始。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_11",
+      "prompt": {
+        "en": "For routine work with a clear goal, I would prefer: first, a recommended procedure to follow; second, deciding the procedure within the same stated requirements.",
+        "zh": "目标清楚的普通工作，我更愿意：第一，采用推荐流程；第二，在相同明示要求内决定流程。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_12",
+      "prompt": {
+        "en": "When a checking task can be organised either way, I would prefer: first, setting the order within agreed limits; second, using a supplied checking order.",
+        "zh": "核对任务两种组织方式都可用时，我更愿意：第一，在约定范围内安排顺序；第二，采用给定核对顺序。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "decision-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "decision-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "decision-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "decision-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_13",
+      "prompt": {
+        "en": "For an ordinary project with both rhythms acceptable, I would prefer: first, keeping scope stable until a planned review; second, revising scope through explicit checkpoints as new information arrives.",
+        "zh": "普通项目允许两种节奏时，我更愿意：第一，范围保持到计划复核；第二，有新信息时通过明确检查点修订范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_14",
+      "prompt": {
+        "en": "For a week of low-stakes work, I would prefer: first, a provisional plan that can be revised with notice; second, a stable scope for an agreed work period.",
+        "zh": "安排一周低影响工作时，我更愿意：第一，有通知即可修订的暂定计划；第二，在约定工作时段保持范围稳定。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_15",
+      "prompt": {
+        "en": "When a useful new idea appears during routine work, I would prefer: first, considering it in the next agreed cycle; second, renegotiating an explicit checkpoint to consider it now.",
+        "zh": "普通工作中出现有用新想法时，我更愿意：第一，在下个约定周期考虑；第二，重新商定明确检查点后现在考虑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_16",
+      "prompt": {
+        "en": "For a shared routine task, I would prefer: first, adjustable milestones with clear updates; second, a stable sequence until the scheduled review.",
+        "zh": "共同处理普通任务时，我更愿意：第一，里程碑可调整并清楚更新；第二，顺序稳定到计划复核。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_17",
+      "prompt": {
+        "en": "When either arrangement meets the task needs, I would prefer: first, a known schedule for the agreed period; second, revisable priorities with explicit notice of changes.",
+        "zh": "两种安排都满足任务需要时，我更愿意：第一，约定时段内采用已知排程；第二，明确通知变化后可修订优先项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_18",
+      "prompt": {
+        "en": "For an ordinary project, I would prefer: first, revising the task sequence at agreed checkpoints; second, keeping the initial sequence until its planned review.",
+        "zh": "对普通项目，我更愿意：第一，在约定检查点修订任务顺序；第二，初始顺序保持到计划复核。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "change-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "change-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "change-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_19",
+      "prompt": {
+        "en": "Using the same agreed feedback medium, I would prefer: first, consolidated comments at a milestone; second, brief comments on each small piece.",
+        "zh": "反馈媒介相同且已获约定时，我更愿意：第一，在里程碑处集中收意见；第二，对每块小成果收简短意见。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_20",
+      "prompt": {
+        "en": "While preparing an ordinary draft, I would prefer: first, a brief response to an early small piece; second, a collected response to a coherent draft.",
+        "zh": "准备普通草稿时，我更愿意：第一，对早期小片段先收简短回复；第二，对完整连贯草稿集中收回复。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_21",
+      "prompt": {
+        "en": "When both review schedules work, I would prefer: first, one agreed review block; second, short reviews after smaller steps.",
+        "zh": "两种复核排程都可用时，我更愿意：第一，采用一个约定的集中复核时段；第二，较小步骤后分别简短复核。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_22",
+      "prompt": {
+        "en": "For ordinary work in progress, I would prefer: first, small feedback points along the way; second, a consolidated review at the agreed milestone.",
+        "zh": "普通任务进行中，我更愿意：第一，沿途收到小反馈点；第二，在约定里程碑集中复核。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_23",
+      "prompt": {
+        "en": "When feedback quality is assumed equal, I would prefer: first, fewer sessions covering larger pieces; second, more frequent brief checks of smaller pieces.",
+        "zh": "假设反馈质量相同时，我更愿意：第一，较少次、每次看较大块成果；第二，更频繁地简短核对小块成果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WARR_24",
+      "prompt": {
+        "en": "For a routine written task, I would prefer: first, an early comment on a short paragraph; second, comments once a complete section is ready.",
+        "zh": "做普通书面任务时，我更愿意：第一，先对短段落收早期意见；第二，等完整一节准备好再收意见。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly prefer the first arrangement",
+            "zh": "明显偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Lean toward the first arrangement",
+            "zh": "较偏好第一种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "No clear preference between them",
+            "zh": "两者之间没有明确偏好"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Lean toward the second arrangement",
+            "zh": "较偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly prefer the second arrangement",
+            "zh": "明显偏好第二种安排"
+          },
+          "directionId": "feedback-rhythm",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge this situation / prefer not to answer — unscored",
+            "zh": "无法判断此情境／暂不回答——不计分"
+          },
+          "directionId": "feedback-rhythm",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "method": "24originalENZHarrangementcomparisons,4x6. Raw1..5first-to-secondpreferencepositions;evenitemspresentpolesreversedandkey6-raw. All6numericperpartrequired;sumkeyed/6round1dp1..5 withexplicitanchor1and5. NAonlyownmeanNull,othercomplete retained/allNAfinished. Nooverall/winner/archetype/strongest/rank/norm/compatibilitydifference/employerprofileorcompanyfit/competency/hiringclaim. Amean3cancome fromneutralchoicesormixedpositions;notbalancedperformance. FouralwaysFULL6readingscoverbothpoles;groupsnotpsychometricallyvalidatedindependentfactors. Counterbalancingisdisplayalignment,nolie-detectionorvalidityclaim.",
+  "rightsAndProvenance": "All24pairedprompts,anchors,ENZHwording,grouping/keyingandfutureguidesareFermatMindoriginal. NoJobCannon25/OCAI/CVFproprietarybankadopted. O*NETWorkContextandKristof1996abstractsupplyconceptualbackgroundonly;nooccupationnorms,organisationdata,fitvalidityormetaeffectsizestransferred.",
+  "primary": [
+    {
+      "url": "https://www.onetonline.org/find/descriptor/browse/4.C",
+      "actual_read": "wholewebmainbody50–356acrosstwoactualopens;relevantcommunication/freedomdecisions/scheduling/taskpriorityconcepts;notoccupationratinginventory",
+      "supports": "workcontextdescribesphysical/social/structuraljobconditions,notpersonalpreferenceorfitnorms"
+    },
+    {
+      "url": "https://doi.org/10.1111/j.1744-6570.1996.tb01790.x",
+      "actual_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1744-6570.1996.tb01790.x",
+      "actual_read": "publisheridentity15–39andentireabstract64–67ONLY;not49pagearticleoritsreferencedpapers",
+      "supports": "distinguishesperson-organisation/group/vocationfit,directperceivedfitandindirectmeasurement/commensurateconstructs;doesnotvalidateourfourthemesoritems"
+    }
+  ],
+  "competitorRead": {
+    "entry": "ENZHwholepublicmainbody+7FAQeachactualwebread;25agreementstatementsclaimed,not25bankread",
+    "about": "currentwholemainbody+5FAQactualread",
+    "results": "all4ENpublicbody/strengths/growth+6FAQeachactualread;notallZHresults/privatealgorithm",
+    "not_adopted": [
+      "Collaborator/Owner/Adapter/Executorwinners",
+      "fourcapacityproactivitydimensions",
+      "reversekeyshardertofake",
+      "employerscreeningorclaimshighstakesworksafewithtype",
+      "tieredscoreaccess",
+      "knowncompanyfitwithoutcompanydata"
+    ]
+  },
+  "nativeAndMini": "W4factualcatalogsearchculture/workplace/workstyle:DISC andworkplace-technology/SJTonly;noexactculture-fit. ActualDISCsource/intro/directions+first2of24questionsread:Mini24first-actionpairs,4directioncounts/15singleortieprofiles;notclaimingwhole24bankor15bodiesread. Actualworkplace-technologyintro/sourcekindpractice16casesread,notwholebank. T106fourarrangementpositionmeansarenottheseproducts. Mini21hasDISCbutnoexactculturefit. NoMiniwritesorcanonicalchanges.",
+  "future_profiles": [
+    "coordination-reading",
+    "decision-room-reading",
+    "change-rhythm-reading",
+    "feedback-rhythm-reading"
+  ],
+  "languageEquivalence": "Neworiginalbilingualwording;noformalreliability/norms/validation/crosslanguagemeasurementequivalence.",
+  "pending": [
+    "parent method/full-content/source review",
+    "Root formal Client patch and current-base integration window",
+    "repository QA/public exactSHA delivery"
+  ]
+}

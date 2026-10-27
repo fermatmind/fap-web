@@ -1,0 +1,450 @@
+[
+  {
+    "id": "coordination-reading",
+    "directionIds": [
+      "coordination"
+    ],
+    "title": {
+      "en": "Culture Fit Reflection: Live and Written Coordination",
+      "zh": "文化契合反思：直接讨论与书面协调"
+    },
+    "headline": {
+      "en": "Talk about a coordination arrangement rather than a collaborative type",
+      "zh": "讨论协同安排，不派协作类型"
+    },
+    "summary": {
+      "en": "Six comparisons concern scheduled live discussion and written coordination with agreed reply times. Both can support collaboration; the position mean does not measure how helpful you are.",
+      "zh": "六项比较预定直接讨论与有回复约定的书面协调，两者都可以支持合作；位置均值不测是否乐于助人。"
+    },
+    "seo": {
+      "title": {
+        "en": "Culture Fit Reflection: Live and Written Coordination",
+        "zh": "文化契合反思：直接讨论与书面协调"
+      },
+      "description": {
+        "en": "Understand six coordination preferences, alternating item positions and missing responses. Compare a live check-in with a written handover without assigning a culture-fit score.",
+        "zh": "理解六项协同偏好、换位题与缺答，通过直接沟通和书面交接例子阅读位置均值，不指定文化匹配分。"
+      }
+    },
+    "scoreReading": {
+      "en": "After reversing items 2, 4 and 6, a complete six-item mean runs from 1.0 toward scheduled live discussion to 5.0 toward written coordination. No cutoffs or type assignment are used.",
+      "zh": "第2、4、6项反向后，六项完整的位置均值从1.0端的预定直接讨论到5.0端的书面协调。不设分档或类型。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Compare two permitted coordination arrangements",
+          "zh": "比较两种获准协同安排"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions concern a project start, a next action, a handover, comparing ideas and ordinary coordination questions. In every imagined setting, both arrangements are allowed and meet the task’s stated needs. Live discussion can be in person or through an accessible live medium; written coordination includes an agreed opportunity to reply. Neither pole means more teamwork, more effort or greater social ability. The form records current preferences for these six comparisons and does not measure an organisation’s culture or your fit with it.",
+            "zh": "题目涉及项目开始、下一步、交接、比较想法和普通协同问题，设想两种安排都获准且满足明示任务需要。直接讨论可以当面，也可采用适合的实时媒介；书面协调有约定的回复机会。任何一端都不表示合作更多、努力更多或社交能力更强。这里记录六项当前偏好，不测组织文化或你与组织的契合。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Reverse the displayed positions before averaging",
+          "zh": "先对齐显示位置，再求平均"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose raw answers are 2, 4, 3, 5, 2 and 4. Because the second, fourth and sixth comparisons swap the poles, their contributions are 6 minus the raw answer. The six contributions become 2, 2, 3, 1, 2 and 2, totalling 12 and displaying a mean of 2.0. This summarises positions among the listed arrangements. It is not two units of collaboration, a percentile or a match percentage. The position reversal aligns wording and does not detect dishonesty.",
+            "zh": "假设原选值为2、4、3、5、2、4。第二、第四、第六项交换了两端，需按6减原值处理，贡献为2、2、3、1、2、2，合计12，均值2.0。它概括对列出安排的位置选择，不是两单位合作能力、百分位或匹配百分比。换位处理只对齐措辞，不检测不诚实。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A handover can work through either route",
+          "zh": "交接可以通过两种路径完成"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a fictional handover of an event plan. A scheduled conversation may allow an immediate question about who brings the materials. A written note with a clear reply window may let the next person inspect details before asking. Both can be useful when permissions, access and timing are appropriate. A counterexample is assuming that choosing writing means avoiding colleagues, or that choosing conversation guarantees shared understanding. The relevant question is which information the handover needs and how the people involved can check that they received it.",
+            "zh": "假设交接一份虚构活动计划。约定谈话可立即确认谁带材料，书面说明和回复时段则方便接收方先看细节再问。在许可、接触条件与时间合适时，两种方式都可用。反例是把选书面说成躲同事，或认为选谈话必然理解一致。应看交接需要什么信息，以及参与者如何核对收到的内容。"
+          }
+        ]
+      },
+      {
+        "id": "mixed",
+        "title": {
+          "en": "A middle value can hide different patterns",
+          "zh": "中间值可能来自不同选择"
+        },
+        "paragraphs": [
+          {
+            "en": "A mean near 3.0 may come from choosing no clear preference repeatedly or from stronger choices in opposite directions across situations. Read the six responses before treating the number as a single preference. The task, language, accessibility and available response time can matter. Use unscored when a comparison is irrelevant, cannot be judged or you prefer not to answer; one such response withholds this mean without changing complete other groups. The all-six policy is editorial, not a validated missing-data threshold.",
+            "zh": "接近3.0可能来自反复选无明确偏好，也可能来自不同情境中分别强烈偏向两端。先回看六项，不把均值当单一固定偏好。任务、语言、无障碍条件和回复时间都可能重要。不相关、无法判断或不愿答时选不计分，任一项只使本组暂不给均值，不改变其他完整组；完整度政策是编辑选择，不是验证过的缺失阈值。"
+          }
+        ]
+      },
+      {
+        "id": "action",
+        "title": {
+          "en": "Clarify one actual coordination need",
+          "zh": "澄清一次实际协同需要"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, choose an ordinary low-stakes task and identify what must be shared, when a reply is needed and which routes are permitted and accessible. You can consider a short conversation, a written note or a combination without trying to prove a quiz type. If another person is involved, any arrangement needs their agreement and the task’s requirements. You may simply note a question for later. No message, workplace change or disclosure is required, and a preference is not permission to ignore a required communication process.",
+            "zh": "若有用，选一个普通低影响任务，明确需共享什么、何时要回复，以及哪些方式获准且适合参与者。可考虑简短讨论、书面说明或组合，不必证明某种测验类型。涉及别人时，安排仍需对方同意并满足任务要求；也可只留下以后要问的问题。不要求发消息、改变工作流程或披露资料，偏好不授权忽略既定沟通程序。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Read an environment separately from your preferences",
+          "zh": "将环境与自身偏好分别了解"
+        },
+        "paragraphs": [
+          {
+            "en": "To understand an actual team, examine its stated processes and what happens in practice rather than assuming this mean identifies where you will thrive. An organisation can use several coordination routes. This original bilingual reflection has no established reliability, norms, fit validity or cross-language equivalence. It cannot determine hiring, promotion or performance. All four full readings remain available when the mean is missing, and the other three means are not ranked against this one as strengths or weaknesses.",
+            "zh": "了解真实团队时，应看明示流程与实际运行，而不假定均值指出哪里最适合自己。组织可以使用多种协同方式。本原创双语反思未建立信度、常模、契合效度或跨语言等价性，不能决定录用、晋升或表现。缺均值时四篇全文仍开放，其余三组也不与本组排名强弱。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "decision-room-reading",
+    "directionIds": [
+      "decision-room"
+    ],
+    "title": {
+      "en": "Culture Fit Reflection: Step Guidance and Method Choice",
+      "zh": "文化契合反思：步骤指引与方法选择"
+    },
+    "headline": {
+      "en": "Discuss how much method choice a task allows",
+      "zh": "讨论一次任务允许多少做法选择"
+    },
+    "summary": {
+      "en": "Six comparisons contrast supplied steps with choosing a method inside agreed limits. They describe preferred arrangements, not initiative, leadership or permission to act beyond a role.",
+      "zh": "六项比较给定步骤与约定边界内的方法选择，描述安排偏好，不评主动性、领导力，也不授予角色外行动权限。"
+    },
+    "seo": {
+      "title": {
+        "en": "Culture Fit Reflection: Step Guidance and Method Choice",
+        "zh": "文化契合反思：步骤指引与方法选择"
+      },
+      "description": {
+        "en": "Read six method-choice preferences and a worked reverse-key example. Use a low-stakes planning task to separate preferred guidance from actual authority and task requirements.",
+        "zh": "阅读六项方法选择偏好与换位计分例子，用低影响规划任务区分希望获得的指引、实际权限和任务要求。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 8, 10 and 12 swap the pole positions. After alignment, the complete mean runs from 1.0 toward supplied steps to 5.0 toward method choice within agreed boundaries.",
+      "zh": "第8、10、12项交换两端位置。对齐后，完整均值从1.0端的给定步骤到5.0端的约定边界内选择方法。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Guidance and choice are arrangements, not personal worth",
+          "zh": "指引与选择是安排，不是价值高低"
+        },
+        "paragraphs": [
+          {
+            "en": "The six prompts compare recommended steps, example routes and checking orders with room to propose a method inside explicit limits. Both arrangements are assumed permitted and able to meet the stated task needs. Preferring guidance does not mean lacking initiative; preferring choice does not mean possessing better judgment. This group does not measure managerial authority, technical skill or a duty to claim unassigned work. It describes choices among editorially selected scenarios, not a validated autonomy trait or a diagnosis of dependence.",
+            "zh": "六项将推荐步骤、示例路线和核对顺序，与在明确限制内提出方法的空间作比较，假设两种安排都获准并满足明示任务需要。偏好指引不表示缺主动性，偏好选择也不表示判断更好。本组不测管理权限、技术能力或认领无人分配工作的义务；它描述编辑选定情境中的选择，不是验证过的自主特质，也不诊断依赖。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A complete example gives 4.2, not an authority rating",
+          "zh": "完整算例得到4.2，不是权限等级"
+        },
+        "paragraphs": [
+          {
+            "en": "Raw answers of 4, 2, 5, 3, 4 and 1 become contributions of 4, 4, 5, 3, 4 and 5 after reversing the second, fourth and sixth positions in this group. The sum is 25; dividing by six and rounding once gives 4.2. It points toward the method-choice end in these comparisons, without a high-autonomy cutoff or a winner label. The number does not establish that you can safely work without guidance, and it is not compared with other groups to select a dominant work archetype.",
+            "zh": "原值4、2、5、3、4、1，经本组第二、第四、第六位置反向后为4、4、5、3、4、5，合计25，除以六最后四舍五入为4.2。它在这些比较中靠近方法选择一端，不设高自主分档或胜出标签。数字不能确定可以安全地无指引工作，也不与其他组比较来选主导职场原型。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Clarify the goal, the allowed choices and the review",
+          "zh": "澄清目标、可选范围与复核"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine arranging a fictional display for a community event. One permitted route provides an order and a review point; another specifies the usable space and outcome but lets you choose the arrangement. A preference for the latter can start a question about which decisions are actually yours. A counterexample is treating the preference as permission to alter a venue rule or skip a safety check. Both routes may produce a suitable display. The example illustrates an agreement about method, not evidence of leadership or creativity.",
+            "zh": "假设布置一次虚构社区活动的展台。一种获准路线给顺序和复核点，另一种规定可用空间与目标，允许选择摆放方式。偏好后者可引出“哪些决定实际由自己作”的问题。反例是把偏好当成修改场地规则或跳过安全核对的许可。两种路线都可能布置合适；例子说明方法约定，不证明领导力或创造力。"
+          }
+        ]
+      },
+      {
+        "id": "mixed",
+        "title": {
+          "en": "Context can change the amount of guidance you want",
+          "zh": "背景会改变想要的指引程度"
+        },
+        "paragraphs": [
+          {
+            "en": "You may prefer more guidance for an unfamiliar task and more choice in a familiar one. A middle mean can average those different selections or reflect little preference within each comparison. Neither pattern is assigned a type. Workload, training, access and accountability boundaries can also matter. If the comparison cannot be judged, use unscored; one such choice withholds only this six-item mean while other complete groups remain. Missing responses are never coded as low autonomy, low competence or unwillingness to take responsibility.",
+            "zh": "陌生任务可能想要更多指引，熟悉任务可能想要更多选择；中间均值可来自这些差异，也可能来自每项都没明确偏好，两种模式都不派类型。任务量、训练、接触条件与责任边界也重要。无法判断时选不计分，只使本组六项均值暂不给，其他完整组保留。不把缺答计成低自主、能力低或不愿负责。"
+          }
+        ]
+      },
+      {
+        "id": "action",
+        "title": {
+          "en": "Ask one bounded question about a task arrangement",
+          "zh": "为任务安排提出一个有边界的问题"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful and safe, consider an ordinary task and write down the required outcome, the choices allowed and who reviews what. You might ask whether an example sequence is a requirement or just a starting point. No actual request or change is necessary to use this reading. Where a procedure is mandatory or expertise is limited, follow the appropriate requirement and seek guidance. The aim is a clearer agreement about one task, not a larger job scope, less supervision at any cost or a higher quiz number.",
+            "zh": "若有用且安全，可就普通任务写清所需成果、允许的选择及由谁核对什么。例如问示例顺序是必须遵循，还是仅作起点；使用本读法不要求真实提出请求或改流程。程序强制或专业知识有限时，仍应按要求做并寻求指引。目的是澄清一次任务约定，不是扩大岗位范围、不惜代价减少监督或提高数字。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Check the role rather than inferring a fit percentage",
+          "zh": "了解角色，不推算契合百分比"
+        },
+        "paragraphs": [
+          {
+            "en": "An actual role may offer different discretion for different tasks, and an interview description may differ from daily practice. Examine the relevant agreement and evidence rather than inferring company fit from one preference mean. This original bank does not supply organisational measurements, norms or validated hiring predictions. Its four groups are editorial topics rather than established independent factors. All four full guides remain readable for every pattern of answers, including all unscored, and no score tells you to accept work beyond your control or authority.",
+            "zh": "真实角色可能在不同任务中给不同决策空间，面试描述也可能不同于日常运行。应看相关约定与证据，不按一个偏好均值推算公司契合。本题本没有组织测量、常模或验证过的招聘预测，四组是编辑话题，不是已建立的独立因子。任何回答模式包括全部不计分都能读四篇全文，也不要求承担控制或权限以外的工作。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "change-rhythm-reading",
+    "directionIds": [
+      "change-rhythm"
+    ],
+    "title": {
+      "en": "Culture Fit Reflection: Stable Scope and Planned Revision",
+      "zh": "文化契合反思：稳定范围与按检查点修订"
+    },
+    "headline": {
+      "en": "Name when a plan can change instead of judging adaptability",
+      "zh": "说明计划何时可改，不评价适应能力"
+    },
+    "summary": {
+      "en": "Six comparisons concern stable work periods and revisable plans with explicit notice or checkpoints. Neither end measures how well you cope with pressure or uncertainty.",
+      "zh": "六项比较稳定工作时段与有通知、检查点的可修订计划，两端都不测应对压力或不确定性的能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "Culture Fit Reflection: Stable Scope and Planned Revision",
+        "zh": "文化契合反思：稳定范围与按检查点修订"
+      },
+      "description": {
+        "en": "Read six scope-change preferences with a 2.5 worked example and a fictional event plan. Identify an agreed review point without calling yourself rigid or adaptable.",
+        "zh": "用2.5的完整算例与虚构活动计划阅读六项范围调整偏好，确认约定复核点，不把人定成僵化或善变型。"
+      }
+    },
+    "scoreReading": {
+      "en": "Align the swapped positions in items 14, 16 and 18. A complete mean runs from 1.0 toward stable scope until a review to 5.0 toward revision through explicit checkpoints.",
+      "zh": "将第14、16、18项换位位置对齐后，完整均值从1.0端的范围稳定到复核，到5.0端的通过明确检查点修订。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "The comparison concerns an agreed change rhythm",
+          "zh": "比较的是约定变更节奏"
+        },
+        "paragraphs": [
+          {
+            "en": "This group compares keeping a scope or sequence stable for an agreed period with revising it through clear notice and checkpoints. Both arrangements are assumed suitable for the ordinary, low-stakes task. The questions do not ask whether you can tolerate chaos, work under pressure or rescue an unsafe plan. Preferring stability does not mean resisting useful information; preferring revision does not mean managing change effectively. The subject is a preferred arrangement for deciding when to reconsider a plan, not a capacity or a fixed culture archetype.",
+            "zh": "本组比较在约定时段维持范围、顺序，与通过明确通知和检查点修订，假设都适合普通低影响任务。不问能否忍受混乱、承压工作或挽救不安全计划。偏好稳定不表示拒绝有用信息，偏好修订也不表示擅长管理变化。话题是希望何时重看计划，不是能力或固定文化原型。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A mean of 2.5 still needs the six responses",
+          "zh": "均值2.5仍需结合六项回答"
+        },
+        "paragraphs": [
+          {
+            "en": "Take raw responses of 1, 5, 4, 2, 3 and 4. Reversing the second, fourth and sixth positions gives 1, 1, 4, 4, 3 and 2. The sum is 15 and the mean is 2.5. The selections lean differently across situations; the number does not describe a single rule you always want. It is not a flexibility score or a probability of succeeding in a changing workplace. No result band or dominant type is assigned, and the other three means are not converted into a common fit scale.",
+            "zh": "原值1、5、4、2、3、4，在第二、第四、第六位置反向后为1、1、4、4、3、2，合计15，均值2.5。不同情境选择方向不一，数字不描述永远想用的单一规则。它不是灵活性分，也不是在多变环境中成功的概率。不派结果分档或主导型，其余三组也不转成共同契合量尺。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A new request can wait or enter through a checkpoint",
+          "zh": "新要求可以等下一轮，也可以经检查点进入"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine planning a fictional low-stakes community display. A useful new suggestion arrives after the materials have been arranged. One agreed process considers it in the next cycle; another allows a review now if the people affected can agree what changes. Either may be suitable under the stated conditions. A counterexample is assuming that delaying a suggestion proves rigidity, or that accepting it immediately proves adaptability. The important information includes the actual deadline, dependencies and authority to change the scope, which the questionnaire does not observe.",
+            "zh": "假设规划虚构、低影响的社区展示，材料安排后出现有用新建议。一种约定流程留到下轮考虑，另一种允许现在复核并由受影响者商定改什么。在给定条件下都可能合适。反例是把延后建议当僵化证明，或把立即接受当适应力证明。实际期限、依赖和改范围的权限都重要，问卷并未观察它们。"
+          }
+        ]
+      },
+      {
+        "id": "mixed",
+        "title": {
+          "en": "Different tasks can reasonably lead to different choices",
+          "zh": "不同任务可以有不同选择"
+        },
+        "paragraphs": [
+          {
+            "en": "A small revision with clear effects may feel different from an uncertain change that affects several people. The six comparisons can therefore produce mixed positions or no clear preference. A middle mean does not show balanced performance, and a value near either endpoint does not establish a universal need. Use unscored for an irrelevant situation, uncertainty about the comparison or a choice not to answer. Only this group’s mean is withheld after a skip; no zero is inserted and the complete other groups remain visible.",
+            "zh": "影响清楚的小修订，可能不同于牵涉多人的不确定变更，因此六项可以选出混合位置或无明确偏好。中间均值不显示表现平衡，靠近端点也不证明普遍需要。情境不相关、无法判断比较或不愿答时选不计分；跳题后只暂不给本组均值，不填零，其他完整组保留。"
+          }
+        ]
+      },
+      {
+        "id": "action",
+        "title": {
+          "en": "Make one review point explicit",
+          "zh": "明确一个复核点"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, consider an ordinary project and identify what is currently agreed, which new information could justify reconsideration and who can decide. A clear review point may help both a stability preference and a revision preference without requiring either person to adopt a type. You can keep this as a private planning question. Do not change a shared plan, skip a required procedure or make a safety-critical decision because of the mean. Existing responsibilities, safe conditions and the actual people affected remain part of any real agreement.",
+            "zh": "若有用，可为一个普通项目明确当前约定、什么新信息值得重看，以及由谁决定。清楚的复核点可以同时服务偏好稳定和偏好修订的人，不要求谁变成某类型；也可只私下留下规划问题。不要因均值就改共同计划、跳过规定程序或作关键安全决定。实际约定仍要考虑既有责任、安全条件和受影响的人。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Ask about the actual rhythm of an environment",
+          "zh": "询问环境的实际节奏"
+        },
+        "paragraphs": [
+          {
+            "en": "A team may describe itself as flexible while changing priorities without notice, or as structured while using well-designed review points. Those are facts to investigate rather than predictions from this self-report. No organisational data are collected here, so no fit difference or compatibility percentage can be calculated. This original four-theme bank has no established reliability, norms or predictive validity. All four full readings remain free even for all-unscored answers, and the reading does not recommend a career, company or hiring decision.",
+            "zh": "团队可能自称灵活，却不通知就改优先项，也可能自称规范，同时有合理复核点。这些是需调查的实际情况，不是自报能预测的事实。这里不收组织资料，不能计算契合差异或匹配百分比。本原创四话题题本未建立信度、常模或预测效度，全部不计分也能免费读四篇全文，不推荐职业、公司或录用决定。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feedback-rhythm-reading",
+    "directionIds": [
+      "feedback-rhythm"
+    ],
+    "title": {
+      "en": "Culture Fit Reflection: Consolidated and Frequent Feedback",
+      "zh": "文化契合反思：集中反馈与频繁小反馈"
+    },
+    "headline": {
+      "en": "Discuss the timing of a review separately from its quality",
+      "zh": "将复核时机与反馈质量分开讨论"
+    },
+    "summary": {
+      "en": "Six comparisons concern consolidated reviews and brief feedback on small pieces, assuming the medium and quality are suitable. They do not measure coachability, resilience or delivery ability.",
+      "zh": "六项比较集中复核与小块简短反馈，假设媒介和质量适合；不测可指导性、韧性或交付能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "Culture Fit Reflection: Consolidated and Frequent Feedback",
+        "zh": "文化契合反思：集中反馈与频繁小反馈"
+      },
+      "description": {
+        "en": "Understand six feedback-timing preferences, a 3.0 mixed example and a draft-review scenario. Plan one useful review agreement without treating the mean as a performance score.",
+        "zh": "用3.0混合算例和草稿复核情境理解六项反馈时机偏好，商定一次有用复核，不把均值当绩效分。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 20, 22 and 24 reverse the displayed poles. After alignment, 1.0 points toward consolidated milestone feedback and 5.0 toward brief feedback on small pieces; no bands are applied.",
+      "zh": "第20、22、24项显示两端换位。对齐后，1.0端为里程碑集中反馈，5.0端为小块简短反馈，不设分档。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Timing is different from feedback quality or willingness to learn",
+          "zh": "时机不同于质量或学习意愿"
+        },
+        "paragraphs": [
+          {
+            "en": "The six comparisons concern when feedback is offered: after a coherent piece or at a milestone, versus brief responses to smaller pieces along the way. The imagined arrangements use an agreed, suitable medium and assume comparable quality. Preferring consolidated feedback does not mean rejecting criticism; preferring frequent feedback does not mean needing reassurance or being more teachable. The page does not observe a review, a response to criticism or a finished deliverable. It records choices among specific timing arrangements rather than measuring resilience, coachability or performance.",
+            "zh": "六项比较连贯成果或里程碑后的反馈，与沿途对小块成果给简短意见，假设使用约定、合适的媒介且质量可比。偏好集中不表示拒绝批评，偏好频繁也不表示需要保证或更容易教。页面没有观察复核、对批评的反应或最终交付，只记录具体时机安排的选择，不测韧性、可指导性或绩效。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A mean of 3.0 can contain non-neutral choices",
+          "zh": "3.0可以包含明确偏向的选择"
+        },
+        "paragraphs": [
+          {
+            "en": "For raw answers 3, 2, 4, 4, 2 and 3, the aligned contributions are 3, 4, 4, 2, 2 and 3. They sum to 18 and display a mean of 3.0. Some choices lean toward small-piece feedback and others toward consolidation; the mean is not proof that each situation felt neutral. It does not identify an ideal amount of feedback or compare your learning ability with someone else’s. Read the six selections and the two named endpoints without converting the number into a culture archetype.",
+            "zh": "原值3、2、4、4、2、3，对齐后为3、4、4、2、2、3，合计18，均值3.0。有的偏向小块反馈，有的偏向集中，均值不证明每个情境都中立，也不确定理想反馈次数或比较学习能力。应同时回看六项与两端名称，不把数字转成文化原型。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A draft review can focus on a paragraph or a complete section",
+          "zh": "草稿复核可以看一段，也可以看完整一节"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine preparing a fictional information sheet. An early comment on one paragraph might clarify the intended audience before more text is written. A review of a complete section might make the structure easier to judge. Neither timing is automatically better. A counterexample is requesting continuous comments without an agreed purpose, or withholding all questions because one person prefers a final review. The useful agreement concerns what the reviewer is looking for, when an answer is needed and which part is ready to inspect. This is an example, not a universal workflow.",
+            "zh": "假设写一份虚构说明单。早期看一段，可能在继续写前澄清对象；看完整一节，可能更易判断结构。没有哪种时机自动更好。反例是没有约定目的就要求持续评论，或因一人偏好最后复核就压住所有问题。有用约定包括复核者看什么、何时要回复，以及哪部分可检查。例子不规定通用流程。"
+          }
+        ]
+      },
+      {
+        "id": "mixed",
+        "title": {
+          "en": "Consider the task, the reviewer and available attention",
+          "zh": "考虑任务、复核者与可用注意力"
+        },
+        "paragraphs": [
+          {
+            "en": "A familiar task may need a different review rhythm from a new one, and a reviewer may need enough context before giving useful comments. Accessibility, workload and the cost of interruption can also matter. The form cannot decide those conditions. If a comparison is irrelevant or cannot be judged, choose unscored rather than forcing a neutral value. One skip withholds only this mean while the complete other groups remain. Choosing unscored is not a signal of poor attitude, and all-unscored answers can still finish and open all four guides.",
+            "zh": "熟悉任务与新任务可能需要不同节奏，复核者也可能需足够背景才能给有用意见。无障碍条件、任务量与打断成本同样重要，问卷无法判定。情境不相关或无法判断时选不计分，不必勉强给中点；跳题只使本组暂不给均值，其他完整组保留。不计分不代表态度差，全部不计分也能完成并读四篇全文。"
+          }
+        ]
+      },
+      {
+        "id": "action",
+        "title": {
+          "en": "Agree one review question and one time",
+          "zh": "商定一个复核问题与时间"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, take an ordinary low-stakes draft and identify a single question a review could answer. Consider whether the reviewer needs a small sample or a coherent section, and agree an appropriate time if another person is willing. You can also do a private check without contacting anyone. No ongoing feedback schedule or workplace change is required. Keep the aim tied to the task rather than to increasing a preference score, proving that you accept criticism or making another person provide unlimited attention.",
+            "zh": "若有用，选一份普通低影响草稿，明确复核能回答的一个问题，再考虑需要小样本还是完整一节；有人愿意参与时再商定合适时间，也可只私下核对而不联系任何人。不要求建立持续反馈安排或改变工作。目的应联系任务，不为提高偏好数字、证明能接受批评或要求别人无限投入注意力。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use a preference to start a question, not settle a personnel decision",
+          "zh": "用偏好启动提问，不裁定人事决定"
+        },
+        "paragraphs": [
+          {
+            "en": "A clear preference can help you ask about a team’s review process, but it cannot establish fit with that team or predict how a review will go. No company measurement, performance criterion or validated matching rule is present here. This original bilingual edition has no established reliability, norms or cross-language equivalence. Do not use it for hiring, promotion, discipline or a label such as difficult to coach. All four readings remain public and free; a shared link contains no personal responses, means or workplace details.",
+            "zh": "明确偏好可帮助询问团队复核流程，但不能确定与团队契合，也不能预测复核表现。这里没有公司测量、绩效标准或验证过的匹配规则。本原创双语版没有建立信度、常模或跨语言等价性，不用于录用、晋升、处分或“难指导”标签。四篇读法公开免费，分享链接不含个人回答、均值或工作细节。"
+          }
+        ]
+      }
+    ]
+  }
+]
