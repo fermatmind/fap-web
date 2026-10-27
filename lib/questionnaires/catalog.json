@@ -4315,5 +4315,28 @@
       "space-and-privacy",
       "different-strengths"
     ]
+  },
+  {
+    "slug": "perfectionism",
+    "code": "SAPS8_RICE_2014",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Perfectionism Test: Standards and Discrepancy",
+      "zh": "完美主义测试：标准与期待差距"
+    },
+    "description": {
+      "en": "Explore eight SAPS statements with separate Standards and Discrepancy readings, clear scoring examples and two complete guides. No combined type or percentile.",
+      "zh": "围绕SAPS八个陈述分别理解个人标准与期待差距，查看明确计分示例和两篇完整指南；不合成类型或人群百分位。"
+    },
+    "minutes": 3,
+    "collection": "explore",
+    "formCode": "saps8_rice2014_official_en_fm_zh_working_v1",
+    "questionCount": 8,
+    "resultSlugs": [
+      "standards-reading",
+      "discrepancy-reading"
+    ]
   }
 ]

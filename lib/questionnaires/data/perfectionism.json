@@ -1,0 +1,1127 @@
+{
+  "slug": "perfectionism",
+  "code": "SAPS8_RICE_2014",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "saps",
+  "title": {
+    "en": "Perfectionism Test: Standards and Discrepancy",
+    "zh": "完美主义测试：标准与期待差距"
+  },
+  "seoTitle": {
+    "en": "SAPS Perfectionism Test: Two Separate Readings",
+    "zh": "SAPS完美主义测试：分别理解标准与差距"
+  },
+  "description": {
+    "en": "Explore eight SAPS statements with separate Standards and Discrepancy readings, clear scoring examples and two complete guides. No combined type or percentile.",
+    "zh": "围绕SAPS八个陈述分别理解个人标准与期待差距，查看明确计分示例和两篇完整指南；不合成类型或人群百分位。"
+  },
+  "minutes": 3,
+  "resultHeading": {
+    "en": "Your two separate SAPS readings",
+    "zh": "本次SAPS两个维度的独立读法"
+  },
+  "introduction": {
+    "en": "How much do you expect of yourself, and how do you evaluate results against those expectations? The Short Almost Perfect Scale keeps those questions in two related but separate dimensions: Standards and Discrepancy. This page is a self-report reading, not an objective assessment of how good your work is.\n\nThe eight statements use seven agreement choices. Four contribute to Standards and four to Discrepancy. The result presents each dimension separately, with its response summary and a worked example. It does not combine them into a single perfectionism percentage or assign a clinical, healthy or unhealthy type.\n\nThe two complete reading guides can be read before or after answering. They explain the numbers, use ordinary examples and include counterexamples and optional questions. There is no requirement to recognise yourself in every scene.\n\nThe source instrument is by Rice, Richardson and Tueller (2014). The Chinese wording is a FermatMind working translation, without independent validation or a claim of equivalent cross-language norms.",
+    "zh": "你对自己有怎样的期待，又怎样评价结果与期待之间的差距？简版近乎完美量表将这两个相关问题保留为不同维度：标准与差距。本页呈现自我报告读法，不客观评定你的工作有多好。\n\n八个陈述使用七级同意程度选择，四题计入标准、四题计入差距。结果分别呈现两个维度、回答汇总与演算示例，不合成单一完美主义百分比，也不分配临床、健康或不健康类型。\n\n两篇完整读法指南可以作答前或作答后阅读，说明数字，使用日常例子，并提供反例与可选问题。你不必觉得每个情境都在描述自己。\n\n源工具由Rice、Richardson与Tueller于2014年发表。中文为费马工作译本，尚未独立验证；不宣称跨语言等价或中文常模。"
+  },
+  "instructions": {
+    "en": "These statements ask about attitudes toward yourself, your performance and others. Please answer truthfully and accurately for yourself. Select one response from 1 (strongly disagree) to 7 (strongly agree) for each statement.\n\nChoose one agreement response for every statement. Use the statement as written and answer for yourself; there are no right or wrong answers. No fixed recent-day recall window is added to the source instructions.\n\nAll eight valid responses are required for a calculated summary. Missing answers are not filled in, treated as disagreement or silently omitted from an average.\n\nRead Standards and Discrepancy separately. A mean from 1 to 7 describes the chosen agreement range, and its four-response sum runs from 4 to 28. Neither is a percentile or diagnostic category.\n\nIf an example in a guide does not fit, leave it aside. Personal context and the actual choices you face matter more than adopting a label from a number.",
+    "zh": "这些陈述涉及你对自己、自己的表现以及他人的一些态度。请如实、准确地按自己的情况回答。每个陈述选择一个1（非常不同意）至7（非常同意）的回答。\n\n每个陈述选择一个同意程度，按陈述原义为自己作答，没有标准答案。不额外给原说明添加固定的最近若干天回想窗口。\n\n八题均有有效回答后才计算汇总；不补填缺答，不将缺答当成不同意，也不静默从均值中删去。\n\n标准与差距分别读。1至7的均值描述所选同意程度范围，对应四题总和为4至28；两者都不是百分位或诊断类别。\n\n指南中的例子不适合时，可以放下。个人情境与实际面临的选择，比从数字认领一个标签更重要。"
+  },
+  "directions": [
+    {
+      "id": "standards",
+      "title": {
+        "en": "Personal standards",
+        "zh": "个人标准"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "discrepancy",
+      "title": {
+        "en": "Performance–expectation discrepancy",
+        "zh": "表现与期待的差距"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "saps-01",
+      "prompt": {
+        "en": "I have high expectations for myself.",
+        "zh": "我对自己有很高的期待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "standards"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "standards"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "standards"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "standards"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "standards"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "standards"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "standards"
+        }
+      ]
+    },
+    {
+      "id": "saps-02",
+      "prompt": {
+        "en": "Doing my best never seems to be enough.",
+        "zh": "我的全力以赴似乎总是不够。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "discrepancy"
+        }
+      ]
+    },
+    {
+      "id": "saps-03",
+      "prompt": {
+        "en": "I set very high standards for myself.",
+        "zh": "我为自己设定很高的标准。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "standards"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "standards"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "standards"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "standards"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "standards"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "standards"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "standards"
+        }
+      ]
+    },
+    {
+      "id": "saps-04",
+      "prompt": {
+        "en": "I often feel disappointment after completing a task because I know I could have done better.",
+        "zh": "完成一项任务后，我常感到失望，因为我知道自己本来可以做得更好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "discrepancy"
+        }
+      ]
+    },
+    {
+      "id": "saps-05",
+      "prompt": {
+        "en": "I have a strong need to strive for excellence.",
+        "zh": "我有很强的需要去追求卓越。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "standards"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "standards"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "standards"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "standards"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "standards"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "standards"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "standards"
+        }
+      ]
+    },
+    {
+      "id": "saps-06",
+      "prompt": {
+        "en": "My performance rarely measures up to my standards.",
+        "zh": "我的表现很少达到自己的标准。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "discrepancy"
+        }
+      ]
+    },
+    {
+      "id": "saps-07",
+      "prompt": {
+        "en": "I expect the best from myself.",
+        "zh": "我期待自己做到最好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "standards"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "standards"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "standards"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "standards"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "standards"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "standards"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "standards"
+        }
+      ]
+    },
+    {
+      "id": "saps-08",
+      "prompt": {
+        "en": "I am hardly ever satisfied with my performance.",
+        "zh": "我几乎从未对自己的表现感到满意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "score": 1,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Slightly disagree",
+            "zh": "略微不同意"
+          },
+          "score": 3,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "score": 4,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Slightly agree",
+            "zh": "略微同意"
+          },
+          "score": 5,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 6,
+          "directionId": "discrepancy"
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "score": 7,
+          "directionId": "discrepancy"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "standards-reading",
+      "directionIds": [
+        "standards"
+      ],
+      "title": {
+        "en": "Understanding Personal Standards in SAPS",
+        "zh": "怎样理解SAPS中的个人标准"
+      },
+      "headline": {
+        "en": "A separate reading of personal expectations",
+        "zh": "单独理解对自己的期待"
+      },
+      "summary": {
+        "en": "Read four Standards responses through exact arithmetic, a task-sized example, counterexamples and the distinction from self-critical evaluation.",
+        "zh": "通过准确算术、具体任务例子、反例，以及与自我批判性评价的区别，理解四个标准回答。"
+      },
+      "seo": {
+        "title": {
+          "en": "SAPS Standards Score: Meaning, Examples and Limits",
+          "zh": "SAPS标准分数：含义、算例与读法边界"
+        },
+        "description": {
+          "en": "Read the four-item SAPS Standards mean with a worked example, realistic task conditions and a separate view of Discrepancy. No percentile or type.",
+          "zh": "结合四题均值算例、真实任务条件及与差距维度的比较，理解SAPS个人标准；不换算百分位或类型。"
+        }
+      },
+      "scoreReading": {
+        "en": "The Standards mean summarises four agreement responses from 1 to 7; its sum is 4 to 28. It stays separate from Discrepancy and is not a population rank. All eight valid answers are required for a personal summary.",
+        "zh": "标准均值汇总四个1至7的同意程度回答，总和为4至28。它与差距分开，不是人群排名；八题均有效后才生成个人汇总。"
+      },
+      "sections": [
+        {
+          "id": "1",
+          "paragraphs": [
+            {
+              "en": "The Standards part of the Short Almost Perfect Scale concerns the performance expectations you set for yourself. It is one of two dimensions in the eight-item instrument, alongside Discrepancy. Read it as an account of your responses to four statements about personal expectations, rather than a verdict about whether you are a perfectionist. A stronger endorsement of demanding standards does not by itself establish distress, achievement, efficiency or a healthy way of working.",
+              "zh": "简版近乎完美量表中的标准维度，关注你对自己的表现期待。它与差距维度一起构成八题工具的两个部分。可以把它读成你对四个个人期待陈述的回应，而不是“是不是完美主义者”的判决。更认同高要求，本身不证明痛苦、成就、效率或健康的工作方式。"
+            },
+            {
+              "en": "A small distinction helps: the standard is what you expect, the outcome is what happened and your evaluation is how you judge the gap. Those things can relate, but one does not supply the others. Keep a concrete example nearby when reflecting on a score.",
+              "zh": "先区分三件事：标准是你期待什么，结果是实际发生什么，评价是你怎样判断其间差距。三者可能有关，但一项不能代替另外两项。反思分数时，最好把一个具体例子放在旁边。"
+            }
+          ],
+          "title": {
+            "en": "What Standards describes",
+            "zh": "标准维度描述什么"
+          }
+        },
+        {
+          "id": "2",
+          "paragraphs": [
+            {
+              "en": "The author's scoring FAQ permits averaging or summing the four Standards responses. Each response uses the instrument's seven-point agreement range. A sum can therefore run from 4 to 28, and the corresponding average from 1 to 7. Neither number is a population percentile. The arithmetic does not identify a threshold for a diagnosis, decide that a person needs to change or establish how they compare with everyone else.",
+              "zh": "作者计分FAQ允许将标准维度的四个回答求平均或求和。每题使用原工具的七级同意程度，因此总和范围为4至28，平均为1至7。两者都不是人群百分位。算术本身不会找出诊断阈值、判定某人必须改变，或说明你与所有其他人相比处于哪里。"
+            },
+            {
+              "en": "For an illustrative set of Standards responses 1, 7, 4 and 4, the sum is 16 and the average is 4.00. The calculation is transparent: sixteen divided by four. The middle of the response range is not automatically an average person or a validated category. Read the four responses as well as the summary.",
+              "zh": "例如，标准四题的演示回答为1、7、4、4，总和是16，平均为4.00，即16除以4。回答范围的中间位置，不自动等于“普通人的平均水平”或经过验证的类别。除了汇总数字，也要看四个回答本身。"
+            }
+          ],
+          "title": {
+            "en": "How the four responses become a score",
+            "zh": "四个回答怎样成为分数"
+          }
+        },
+        {
+          "id": "3",
+          "paragraphs": [
+            {
+              "en": "Imagine making a small information sheet for a neighbourhood event. Your preferred standard might include accurate dates, readable text, a clear map and elegant illustrations. You have one evening, a basic printer and no confirmed venue photograph. List the parts needed for the sheet to work before deciding which refinements to pursue. This does not require lowering every expectation; it makes the purpose and constraints explicit.",
+              "zh": "设想为邻里活动做一张说明页。你理想中的标准可能包括日期准确、文字易读、地图清楚、插图漂亮，但实际只有一个晚上、一台普通打印机，且没有确认场地照片。先列出说明页发挥作用必须具备的部分，再决定做哪些润色。这不要求降低所有期待，而是把目的和条件写清楚。"
+            },
+            {
+              "en": "Next decide what you would check once and what you would revisit if new information arrived. A correction to a wrong date serves a different purpose from moving an illustration for the fifth time. The Standards score cannot distinguish those actions for you. Your account of the task supplies that missing context.",
+              "zh": "接着决定哪些内容检查一次，哪些在新信息到来后再修订。更正错误日期，与第五次调整插图位置的作用不同；标准分数不能替你区分。你对任务的叙述补充了计分无法提供的情境。"
+            }
+          ],
+          "title": {
+            "en": "Separate the target from the conditions",
+            "zh": "把目标与完成条件分开"
+          }
+        },
+        {
+          "id": "4",
+          "paragraphs": [
+            {
+              "en": "Someone may endorse demanding expectations while describing a satisfying, flexible approach to a favourite activity. Another person with the same Standards average may feel trapped by a particular deadline or environment. Their four responses can match while their resources, choices and experience differ. The score records a narrow response pattern, not everything that led to it or everything that follows from it.",
+              "zh": "有人很认同高要求，同时觉得自己在喜欢的活动中满意、灵活；另一个标准均值相同的人，可能被特定期限或环境困住。四题回答可以相同，资源、选择与体验却不同。分数记录的是较窄的回应模式，不涵盖全部来由或后果。"
+            },
+            {
+              "en": "Avoid making a positive or negative identity out of one number. Instead ask where your standard came from, whether you still endorse it and what would count as an acceptable result for this task. Those questions can reveal a changeable decision without claiming that the questionnaire has discovered your motive.",
+              "zh": "不要把一个数字变成正面或负面的身份。可以改问：这个标准从何而来？自己现在是否仍认同它？对眼下任务而言，怎样的结果已经可以接受？这些问题有助于找到可调整的决定，却不声称问卷发现了你的动机。"
+            }
+          ],
+          "title": {
+            "en": "A demanding response is not a whole biography",
+            "zh": "认同高要求不是完整人生档案"
+          }
+        },
+        {
+          "id": "5",
+          "paragraphs": [
+            {
+              "en": "Discrepancy concerns self-critical evaluations of performance relative to expectations. The instrument keeps it separate from Standards. An account of demanding goals is therefore incomplete without listening to how the person experiences their results. A single combined percentage would hide the distinction that the two-dimensional reading is intended to preserve. The two averages also do not form a pass or fail pair.",
+              "zh": "差距维度关注相对于期待的自我批判性表现评价，原工具将它与标准分开。若只知道目标很高，却不知道当事人怎样体验结果，叙述并不完整。一个合并百分比会遮住双维读法要保留的区别；两个平均值也不是通过与否的配对。"
+            },
+            {
+              "en": "If an example has Standards 4.00 and Discrepancy 2.00, say exactly that. Do not turn the difference of two points into a new balance score, a success probability or an adaptive label without separate authority for that interpretation. Discuss the two themes with concrete experiences rather than inventing a third measure from the arithmetic.",
+              "zh": "假如演示为标准4.00、差距2.00，就准确写出这两个数。没有独立解释依据时，不把两分之差变成新的平衡分数、成功概率或“适应良好”标签。应结合具体经历讨论两个主题，而不是从算术临时发明第三个指标。"
+            }
+          ],
+          "title": {
+            "en": "Read Standards beside Discrepancy",
+            "zh": "把标准与差距并排读"
+          }
+        },
+        {
+          "id": "6",
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes task and write an explicit stopping rule before you begin. For the information sheet, you might stop after checking the time and address against the organiser's message, checking that the text is readable and completing one layout review. If an error appears, correct it. If you want another decorative revision, record what benefit you expect and whether the available time supports it.",
+              "zh": "选一件影响较小的任务，开始前写出明确停止规则。例如，说明页在依据组织者信息核对时间地址、确认文字可读并完成一次版式复查后停止。发现错误就修正；还想再做装饰性修改时，记录期待它带来什么益处，以及剩余时间是否支持。"
+            },
+            {
+              "en": "Afterwards, compare what you intended with what happened. The exercise is a way to gather information about one working choice; it is not a treatment protocol or a promise to change a scale score. Keep, revise or discard the stopping rule based on the task and what you learned.",
+              "zh": "做完再比较原先打算与实际发生的事。这是收集一次工作选择信息的办法，不是治疗方案，也不承诺改变量表分数。根据任务和获得的信息，可以保留、修订或放弃这条停止规则。"
+            }
+          ],
+          "title": {
+            "en": "Try one reversible adjustment",
+            "zh": "尝试一个可撤回的小调整"
+          }
+        },
+        {
+          "id": "7",
+          "paragraphs": [
+            {
+              "en": "Rice, Richardson and Tueller's 2014 paper developed the short instrument as a two-dimensional measure and reported checks in two samples. That supports a specific research history; it does not automatically calibrate a new Chinese translation, supply norms for every country or make a public web self-report suitable for consequential decisions. A translated interface needs its own candid account of what has and has not been evaluated.",
+              "zh": "Rice、Richardson与Tueller的2014年论文把简版工具作为双维测量开发，并在两个样本中进行核查。这是一段具体的研究历史，不会自动校准新的中文译法，不提供各国人群常模，也不使公开网页自评天然适合重大决策。翻译界面需要如实说明哪些部分经过评价，哪些尚未评价。"
+            },
+            {
+              "en": "Repeat responses may differ with the way you interpret a statement, the situations you recall or other changing circumstances. A repeated number is not proof of a fixed identity, and a changed number does not identify the reason for change. Do not treat a website result as a hiring decision, an academic judgement or a clinical finding.",
+              "zh": "重做时，对语句的理解、回想的情境或其他变化条件，可能伴随不同回答。重复数字不证明身份固定，数字变化也不指出变化原因。不要把网页结果作为招聘决定、学业评价或临床发现。"
+            }
+          ],
+          "title": {
+            "en": "What the research does and does not transfer",
+            "zh": "研究证据能迁移到哪里"
+          }
+        },
+        {
+          "id": "8",
+          "paragraphs": [
+            {
+              "en": "Write a short note in three parts: the four responses and chosen summary, the particular standard you examined and the next choice you want to test. For example, the numerical summary may stay the same while you decide to clarify a deadline before polishing a layout. That is still useful information, even if it does not produce a new label or a higher or lower score.",
+              "zh": "可以分三部分写一条简短笔记：四个回答及所选汇总、这次考察的具体标准、下一步想试的选择。例如，数字汇总可能没变，但你决定润色版式前先问清截止时间。这仍是有用的信息，不必以获得新标签或分数升降来证明价值。"
+            },
+            {
+              "en": "Keep personal answers out of public links and examples. You can read this guide without sharing a private result. If expectations are connected with persistent difficulties that concern you, describe those actual difficulties when seeking suitable support. The number cannot replace your account of what is happening or tell someone else what kind of help you should receive.",
+              "zh": "不要把个人答卷放进公开链接与例子；阅读本指南无需分享私有结果。若期待与持续的困难有关，且让你担心，寻求适当支持时应描述这些真实困难。数字不能代替你叙述正在发生什么，也不能替别人决定你应该获得哪种帮助。"
+            }
+          ],
+          "title": {
+            "en": "A useful closing note",
+            "zh": "留下有用的收尾笔记"
+          }
+        }
+      ]
+    },
+    {
+      "id": "discrepancy-reading",
+      "directionIds": [
+        "discrepancy"
+      ],
+      "title": {
+        "en": "Understanding Discrepancy in SAPS",
+        "zh": "怎样理解SAPS中的期待差距"
+      },
+      "headline": {
+        "en": "A separate reading of self-critical performance evaluation",
+        "zh": "单独理解自我批判性的表现评价"
+      },
+      "summary": {
+        "en": "Read four Discrepancy responses with different patterns at the same mean, a concrete correction, counterexamples and careful limits on interpretation.",
+        "zh": "结合相同均值的不同回答组合、具体修正、反例与解释边界，理解四个差距回答。"
+      },
+      "seo": {
+        "title": {
+          "en": "SAPS Discrepancy Score: Meaning and Worked Examples",
+          "zh": "SAPS差距分数：含义、算例与完整读法"
+        },
+        "description": {
+          "en": "Understand a SAPS Discrepancy mean with exact examples, feedback checks and a task-sized review. Keep the score separate from achievement or diagnosis.",
+          "zh": "用准确算例、反馈核对和具体任务复盘理解SAPS差距均值，区分回答分数、实际成就与诊断。"
+        }
+      },
+      "scoreReading": {
+        "en": "The Discrepancy mean summarises four agreement responses from 1 to 7; its sum is 4 to 28. It describes responses about self-critical evaluation, not objective performance, a diagnosis or a combined perfectionism type.",
+        "zh": "差距均值汇总四个1至7的同意程度回答，总和为4至28。它描述关于自我批判性评价的回答，不是客观表现、诊断或合并完美主义类型。"
+      },
+      "sections": [
+        {
+          "id": "1",
+          "paragraphs": [
+            {
+              "en": "Discrepancy in the Short Almost Perfect Scale concerns self-critical evaluations of performance in relation to personal expectations. The four responses describe how you endorse those statements. They do not directly measure the quality of a piece of work, the size of an actual mistake or how another person judges you. Feeling that a result falls short and demonstrating that it fails a requirement are different kinds of information.",
+              "zh": "简版近乎完美量表中的差距维度，关注相对于个人期待的自我批判性表现评价。四个回答描述你对这些陈述的认同程度，不直接测量某份工作的质量、实际错误大小，或别人怎样评价你。“觉得结果不够好”与“证明没有达到要求”，属于不同信息。"
+            },
+            {
+              "en": "Keep the distinction when reading a number. A response can be worth exploring without being a factual report that you performed badly. You can take a disappointment seriously while still checking what happened, which requirement applied and whether the judgement fits the available evidence.",
+              "zh": "读数字时，应保留这个区别。一个回应值得探索，不等于它已成为“表现很差”的事实报告。可以认真对待失望，同时继续检查实际发生什么、适用哪个要求，以及判断是否符合现有证据。"
+            }
+          ],
+          "title": {
+            "en": "The gap is an evaluation, not a measured failure",
+            "zh": "这里的差距是评价，不是实测失败"
+          }
+        },
+        {
+          "id": "2",
+          "paragraphs": [
+            {
+              "en": "The author FAQ allows the four Discrepancy responses to be summed or averaged. With responses from 1 to 7, the sum ranges from 4 to 28 and the mean from 1 to 7. These endpoints describe the response scale. They are not a scale from no distress to maximum distress, and the mean is not a probability that a person has a condition or will experience a problem.",
+              "zh": "作者FAQ允许将差距维度的四个回答求和或求平均。回答在1至7之间，总和范围就是4至28，均值为1至7。这些端点描述回答量尺，不是从“没有痛苦”到“最大痛苦”的刻度；均值也不是患有某种状况或将遇到某问题的概率。"
+            },
+            {
+              "en": "Consider illustrative responses 2, 3, 5 and 6. Their sum is 16 and mean is 4.00. Another pattern, 4, 4, 4 and 4, has the same summary. The number therefore does not tell you which statements were more strongly endorsed. Looking back at the actual responses can be more informative than trying to attach a universal category to the average.",
+              "zh": "例如，演示回答2、3、5、6，总和为16，均值4.00；另一组4、4、4、4的汇总相同。因此，数字不能说明哪些陈述认同较强。回看实际回答，可能比试图给均值套一个通用类别更有信息。"
+            }
+          ],
+          "title": {
+            "en": "Read the arithmetic before the interpretation",
+            "zh": "先理解算术，再讨论解释"
+          }
+        },
+        {
+          "id": "3",
+          "paragraphs": [
+            {
+              "en": "Imagine finishing a short report and noticing one missing citation after sending it. Start with a literal account: one source was omitted from the reference list. Then list the consequence you actually know, such as needing to send a corrected version. Keep that separate from a broader thought such as I never do anything properly. The broader statement reaches far beyond the observed mistake.",
+              "zh": "设想发出一份短报告后，发现漏了一条引用。先作字面描述：参考列表缺少一个来源。再列出实际知道的后果，例如需要补发修订版。把它与“我从来做不好任何事”这样的宽泛想法分开；后者远远超出已观察到的错误。"
+            },
+            {
+              "en": "A specific correction might be to add the source, tell the recipient what changed and note a check for the next report. None of this requires pretending that the error did not matter. It gives the error a size and a response grounded in the event, rather than making it stand for your entire ability or worth.",
+              "zh": "具体修正可能是补齐来源、告诉接收者改了哪里，并记录下次检查步骤。这不要求假装错误不重要，而是根据事件确定错误的范围与回应，不让它代表自己的全部能力或价值。"
+            }
+          ],
+          "title": {
+            "en": "Describe one result without the global verdict",
+            "zh": "先描述一次结果，不急于给整体判决"
+          }
+        },
+        {
+          "id": "4",
+          "paragraphs": [
+            {
+              "en": "You may feel dissatisfied with a result that another person finds useful. You may also feel content with a result that still needs an important correction. Neither mismatch can be settled by the scale score alone. Ask what standard each person is using and what the task needs. Feedback about an observable feature is easier to examine than a general request to feel differently.",
+              "zh": "你可能对他人觉得有用的成果不满意，也可能对仍需重要修正的成果感到满足。这两种不一致都不能由量表分数裁决。可以问每个人使用什么标准、任务需要什么。对可观察细节的反馈，比笼统要求自己“换种感受”更容易检查。"
+            },
+            {
+              "en": "For the report, ask whether the argument is understandable, whether the evidence supports the conclusion and which change matters next. If feedback is vague, a clarifying question may help. If your own expectations go beyond the agreed task, record that difference as a choice to consider. Do not assume that the questionnaire has determined whose judgement is correct.",
+              "zh": "以报告为例，可以问论点是否清楚、证据是否支持结论，以及下一项重要修改是什么。反馈含糊时，可进一步澄清；自己的期待超出约定任务时，也可以把差异记为待考虑的选择。不要认为问卷已经判定谁的评价正确。"
+            }
+          ],
+          "title": {
+            "en": "Expectations, feedback and feelings can differ",
+            "zh": "期待、反馈与感受可以不同"
+          }
+        },
+        {
+          "id": "5",
+          "paragraphs": [
+            {
+              "en": "The short instrument distinguishes demanding expectations from self-critical evaluations of performance. A strong endorsement on one dimension does not logically determine the response on the other. Someone can pursue demanding goals and describe relatively little self-critical dissatisfaction; another person can describe considerable dissatisfaction without endorsing the strongest possible standards. The two response summaries preserve information that a blended score would conceal.",
+              "zh": "简版工具区分了高要求与自我批判性的表现评价。一维认同较强，并不会在逻辑上决定另一维的回答。有人追求高目标，却较少报告自我批判性不满；另一个人可能明显不满，却没有认同最强程度的标准。两个回答汇总保留了混合分数会遮住的信息。"
+            },
+            {
+              "en": "Avoid naming every combination as a type. The author's FAQ discusses why classifications may not transfer unchanged across samples or cultures, and a website should not invent a universal scheme from a pair of raw means. Use the two numbers to organise questions about experiences, not to assign adaptive, maladaptive, healthy or unhealthy identities.",
+              "zh": "也不要给每种组合都起一个类型名。作者FAQ讨论了分类未必能原样迁移到不同样本或文化；网站不应仅凭两个原始均值发明通用分类。数字可以帮助整理经验问题，不用于赋予“适应性、非适应性、健康、不健康”的身份。"
+            }
+          ],
+          "title": {
+            "en": "Keep Discrepancy separate from Standards",
+            "zh": "差距与标准不要合成一个标签"
+          }
+        },
+        {
+          "id": "6",
+          "paragraphs": [
+            {
+              "en": "Choose one completed, low-stakes task. Write three short lines: what worked, what needs a specific correction and what you will leave unchanged for now. Give each line an observable example. For the report, a clear summary may have worked, the missing citation needs a correction and the approved section order can stay. This keeps acknowledgement and revision in the same review instead of treating them as competing stories.",
+              "zh": "选一件已经完成、影响较小的任务，写三条短句：哪些部分有效，哪里需要具体修正，哪些暂时保持不动。每条都配一个可观察例子。例如，报告的摘要清楚；缺失引用需要补齐；已获认可的章节顺序可以不改。这样，承认有效部分与修订问题就能出现在同一次复盘里，而不是互相排斥。"
+            },
+            {
+              "en": "Later, check whether the chosen correction addressed the issue. You can change the review format if it does not help. This is an optional way to document one task, not a treatment claim, a guaranteed way to reduce self-criticism or a substitute for discussing persistent difficulties with appropriate support.",
+              "zh": "随后检查所选修正是否解决了问题，格式没有帮助时也可以调整。这只是可选择的单次任务记录方式，不是治疗主张，不保证降低自我批判，也不替代就持续困难寻求适当支持。"
+            }
+          ],
+          "title": {
+            "en": "Try a task-sized review",
+            "zh": "把复盘限制在任务范围内"
+          }
+        },
+        {
+          "id": "7",
+          "paragraphs": [
+            {
+              "en": "On a later attempt, your Discrepancy mean might be different. That establishes a change in the recorded responses, provided the same items and scoring were used. It does not establish the cause. You may have recalled a different project, understood a phrase differently or experienced a change in circumstances. A repeated self-report is not an experiment that isolates the effect of one action.",
+              "zh": "后来再做，差距均值可能变化。在使用同一题目与计分的前提下，这说明记录的回答变了，但不说明原因。你可能回想了不同项目、对某个词有了不同理解，或所处条件发生变化。重复自评不是能隔离某一行动效果的实验。"
+            },
+            {
+              "en": "The original 2014 study provides evidence about the instrument in its reported samples. A new language adaptation needs its own evaluation; the existence of an English research paper does not establish Chinese norms or equivalence. Describe what was administered and avoid comparing languages as though they were already calibrated versions of one ruler.",
+              "zh": "2014年原始研究提供的是其报告样本中的工具证据。新语言适配需要自己的评价；已有英文研究，不会自动建立中文常模或等价性。应说明实际使用了什么，避免把不同语言当成已经校准好的同一把尺子。"
+            }
+          ],
+          "title": {
+            "en": "What a response change can tell you",
+            "zh": "回答变化可以告诉你多少"
+          }
+        },
+        {
+          "id": "8",
+          "paragraphs": [
+            {
+              "en": "A useful closing sentence might be: my responses described dissatisfaction with performance relative to expectations; this week I want to distinguish a fixable omission from a judgement about my entire performance. Keep the example provisional. If another event does not fit, record it rather than forcing it into the same story. The purpose is to make your account more specific, not to prove a label.",
+              "zh": "收尾可以写：“我的回答描述了对表现相对于期待的不满；这周想区分可修正的遗漏，与对整次表现的判决。”先把例子当成暂定叙述。另一事件不符合时，可以记下来，而不是硬塞进同一故事。目的是让叙述更具体，不是证实一个标签。"
+            },
+            {
+              "en": "A public guide cannot know the intensity, duration or consequences of a visitor's experience. If dissatisfaction is affecting daily life in a way that concerns you, those actual effects are the information to describe when seeking suitable support. Keep private answers out of public examples and share only what you choose after reviewing it.",
+              "zh": "公开指南不知道访客体验的强度、持续时间与后果。如果不满影响日常生活并让你担心，寻求适当支持时应描述这些实际影响。不要把私有答案放进公开例子；分享前看清文字，只披露自己选择披露的部分。"
+            }
+          ],
+          "title": {
+            "en": "End with the experience, not only the score",
+            "zh": "收尾回到经历，而不只看分数"
+          }
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "saps-source",
+      "title": {
+        "en": "Source and working translation",
+        "zh": "源工具与工作译本"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition follows the eight English SAPS statements and seven agreement choices in the source sheet. Chinese is a FermatMind working translation, without independent validation, Chinese norms or established cross-language equivalence.",
+          "zh": "本版遵循源页的八条英文SAPS陈述与七级同意程度选择。中文为费马工作译本，尚未独立验证，也未建立中文常模或跨语言等价。"
+        },
+        {
+          "en": "Source: Rice, K. G., Richardson, C. M., and Tueller, S. (2014), The Short Form of the Revised Almost Perfect Scale, Journal of Personality Assessment, 96, 368–379, doi:10.1080/00223891.2013.838172. Use and translation follow the author laboratory’s SAPS-specific notice with attribution.",
+          "zh": "来源：Rice、Richardson与Tueller（2014），The Short Form of the Revised Almost Perfect Scale，Journal of Personality Assessment，96，368–379，doi:10.1080/00223891.2013.838172。使用与翻译依据作者实验室针对SAPS的说明，并保留引用。"
+        }
+      ]
+    },
+    {
+      "id": "saps-scoring",
+      "title": {
+        "en": "Two four-response summaries",
+        "zh": "两组各四题的汇总"
+      },
+      "paragraphs": [
+        {
+          "en": "Standards uses source items 1, 3, 5 and 7; Discrepancy uses 2, 4, 6 and 8. There are no reversed items. Each dimension has a four-response sum from 4 to 28 and a mean from 1 to 7. Means are calculated before display rounding.",
+          "zh": "标准使用源题1、3、5、7；差距使用2、4、6、8，无反向题。每维四题总和为4至28、均值为1至7；先计算均值，再处理显示小数。"
+        },
+        {
+          "en": "All eight valid agreement responses are required. Missing or invalid answers do not become zero, a neutral answer or a shorter denominator. No combined total, percentage, percentile, universal band or assigned type is produced.",
+          "zh": "八题均有有效的同意程度回答才计算。缺答或无效值不变成0、中立回答或较短分母。不生成合并总分、百分比、百分位、通用档位或派定类型。"
+        }
+      ]
+    },
+    {
+      "id": "saps-administration",
+      "title": {
+        "en": "Administration and interpretation limits",
+        "zh": "施测与解释边界"
+      },
+      "paragraphs": [
+        {
+          "en": "The source sheet recommends distributing the eight statements among other research items with a similar response scale. This standalone web presentation and working translation are adaptations; they do not establish the same administration conditions or inherit new validation.",
+          "zh": "源页建议将八条陈述分布于研究者使用的其他相似回答量尺题目之间。独立网页呈现与工作翻译属于适配，不代表同样施测条件，也不自动获得新的验证。"
+        },
+        {
+          "en": "The guides explain responses rather than actual work quality, population standing or clinical status. Original examples and optional task reviews illustrate a reading; they are not treatment protocols or predictions of future performance.",
+          "zh": "指南解释回答，不评定实际工作质量、人群位置或临床状态。原创例子与可选任务复盘用于说明读法，不是治疗方案，也不预测未来表现。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does SAPS measure?",
+        "zh": "SAPS关注什么？"
+      },
+      "answer": {
+        "en": "It is an eight-item self-report instrument about two dimensions of perfectionism: personal Standards and Discrepancy, or self-critical evaluations of performance relative to expectations. It does not directly measure actual achievement or the quality of a task.",
+        "zh": "它是八题自报工具，关注完美主义的两个维度：个人标准，以及相对于期待的自我批判性表现评价，也就是差距。不直接测量实际成就或某项任务质量。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the two numbers calculated?",
+        "zh": "两个数字怎样计算？"
+      },
+      "answer": {
+        "en": "Each dimension uses four responses. The author FAQ allows their mean or sum. Four choices of 1 through 7 give a sum from 4 to 28 and a mean from 1 to 7; the guide shows worked examples. The two dimensions are kept separate.",
+        "zh": "每维使用四个回答，作者FAQ允许求平均或求和。四个1至7的选择，总和为4至28，均值为1至7；指南提供演算例子，两个维度保持分开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will I receive a low, medium or high type?",
+        "zh": "会得到低、中、高类型吗？"
+      },
+      "answer": {
+        "en": "No universal bands or type are assigned here. A point in the response range is not a population rank or an adaptive or maladaptive identity. Classification rules require separate evidence for their intended sample and interpretation.",
+        "zh": "本页不分配通用档位或类型。回答范围中的一个位置不是人群排名，也不是适应性或非适应性身份；分类规则需要针对所用样本和解释的独立依据。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a diagnosis or a decision about me?",
+        "zh": "这是诊断或对我的判定吗？"
+      },
+      "answer": {
+        "en": "No. The reading describes your responses and offers optional questions. It cannot determine the cause of dissatisfaction, make an employment or education decision or replace an account of persistent difficulties and appropriate support.",
+        "zh": "不是。读法描述你的回答并提供可选择的问题，不能判定不满的原因、作招聘或教育决定，也不能替代对持续困难的具体叙述与适当支持。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the Chinese and English readings calibrated as equivalent?",
+        "zh": "中英文读法已校准为等价版本吗？"
+      },
+      "answer": {
+        "en": "No cross-language equivalence or Chinese norms are claimed for this adaptation. The source English research and a working translation reviewed by FermatMind editors are different kinds of evidence. Do not compare language versions as though a shared numerical range proved equivalence.",
+        "zh": "本次适配不宣称跨语言等价或中文常模。英文源研究与经费马编辑复核的工作译稿属于不同证据；不能因为数字范围相同，就把两种语言当作已证实等价的版本比较。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read the guides without a private result?",
+        "zh": "不提交个人结果也能阅读指南吗？"
+      },
+      "answer": {
+        "en": "Both complete reading guides use fictional examples and can be read independently of a personal score. You can read them first and decide whether to answer. They do not reveal anyone’s responses.",
+        "zh": "两篇完整读法指南使用虚构例子，不依赖个人分数即可独立阅读；可以先读指南，再决定是否作答。它们不披露任何人的回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "SAPS author FAQ: use, translation and scoring",
+        "zh": "SAPS作者FAQ：使用、翻译与计分"
+      },
+      "url": "https://sites.gsu.edu/cpyricelab/almost-perfect-scale-revised-aps-r-and-short-almost-perfect-scale-saps/"
+    },
+    {
+      "title": {
+        "en": "Official eight-item English SAPS and scoring key",
+        "zh": "正式八题英文SAPS与计分键"
+      },
+      "url": "https://www.kennethwang.com/apsr/scales/SAPS.pdf"
+    },
+    {
+      "title": {
+        "en": "Rice, Richardson and Tueller (2014): original research abstract",
+        "zh": "Rice、Richardson与Tueller（2014）：原始研究摘要"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24090303/"
+    }
+  ],
+  "source": {
+    "kind": "rice_saps8_author_permission_working_zh",
+    "formCode": "saps8_rice2014_official_en_fm_zh_working_v1",
+    "itemBankVersion": "saps8_rice2014_official_en_fm_zh_working_v1",
+    "scoringVersion": "saps8_two4_complete8_unrounded_mean_v1",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "57f51067d9ccdc6a5757511b636834b6108d34ca79656a862647e150bff4665f",
+    "resultContentSha256": "dae52d464205503023252178c130bf786acbb81290dbc3f7c5de39c39664a9f0",
+    "psychometricValidationCompleted": false
+  }
+}
