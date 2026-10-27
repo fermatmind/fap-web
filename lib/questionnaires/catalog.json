@@ -4802,5 +4802,27 @@
       "response-to-change-reading",
       "shared-delivery-reading"
     ]
+  },
+  {
+    "slug": "sensory-processing-test",
+    "code": "SPQ92_TAVASSOLI2014_CC_BY",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Sensory Processing Questionnaire: Full 92-Item SPQ",
+      "zh": "感觉加工问卷：完整92项SPQ"
+    },
+    "description": {
+      "en": "Read and answer the full published 92-item SPQ, with the current official 44 reverse keys, an optional unscored choice and a complete free raw-total guide.",
+      "zh": "阅读并作答完整发表版92项SPQ，按现行官方44条反向键计分，可选不计分，并免费阅读完整原始总分指南。"
+    },
+    "minutes": 20,
+    "collection": "explore",
+    "formCode": "spq92_table4_2014_arc92key2024_fmzh_working_v1",
+    "questionCount": 92,
+    "resultSlugs": [
+      "spq92-total-reading"
+    ]
   }
 ]

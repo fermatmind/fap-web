@@ -1,0 +1,5398 @@
+{
+  "slug": "sensory-processing-test",
+  "code": "SPQ92_TAVASSOLI2014_CC_BY",
+  "kind": "spq92",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "instructions": {
+    "en": "Read each source statement and indicate agreement from your existing experience or knowledge of yourself. Do not try out the actions described. The source does not specify a recent recall window. If you cannot judge or prefer not to answer, choose the added unscored option. English follows the published 2014 bank; Chinese is a new, unvalidated FermatMind working translation.",
+    "zh": "阅读每条源陈述，按已有经验或对自己的了解选择同意程度，不现场尝试题述行为。原来源没有指定近期回忆期限。无法判断或不愿回答时，可以选择本页新增的不计分选项。英文沿用2014年发表题本；中文是费马新工作译文，尚未验证。"
+  },
+  "title": {
+    "en": "Sensory Processing Questionnaire: Full 92-Item SPQ",
+    "zh": "感觉加工问卷：完整92项SPQ"
+  },
+  "seoTitle": {
+    "en": "Sensory Processing Questionnaire: 92-Item SPQ and Full Score Guide",
+    "zh": "感觉加工问卷：92项SPQ与完整分数指南"
+  },
+  "description": {
+    "en": "Read and answer the full published 92-item SPQ, with the current official 44 reverse keys, an optional unscored choice and a complete free raw-total guide.",
+    "zh": "阅读并作答完整发表版92项SPQ，按现行官方44条反向键计分，可选不计分，并免费阅读完整原始总分指南。"
+  },
+  "resultHeading": {
+    "en": "Your SPQ raw total and complete guide",
+    "zh": "本次SPQ原始总分与完整指南"
+  },
+  "minutes": 20,
+  "introduction": {
+    "en": "This adult self-report follows the full 92 English statements published in 2014 and the current official 92-item key. Chinese is a new working translation. There are no score bands, diagnoses, sensory types or job matches. Time is an untimed estimate.",
+    "zh": "这份成人自述沿用2014年发表的完整92条英文与现行官方92项键，中文是新的工作译文。不划分分数档位、诊断、感觉类型或职位匹配。时间是不计时的阅读估计。"
+  },
+  "source": {
+    "kind": "spq92_published_table4_fmzh_working",
+    "formCode": "spq92_table4_2014_arc92key2024_fmzh_working_v1",
+    "itemBankVersion": "spq92_table4_2014_arc92key2024_fmzh_working_v1",
+    "scoringVersion": "spq92_arc44reverse_strict92_total276_no_bands_v1",
+    "resultContentVersion": "one_full_six_section_total_guide_v1",
+    "itemBankSha256": "2fed1d9c407a86caac9965ca54b83e404b646f9c29bf5416ba13cc30c5a6f6d3",
+    "resultContentSha256": "7f0251afac8801fd340436cfec35d48693c47a6ba6ca008b3e774ab7f389d97d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "spq92-total",
+      "title": {
+        "en": "SPQ 92-item total",
+        "zh": "SPQ92项总分"
+      },
+      "itemCount": 92
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPQ92_01",
+      "prompt": {
+        "en": "I would notice if someone added 5 grains of salt to my cup of water.",
+        "zh": "如果有人在我的一杯水中加了5粒盐，我会察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_02",
+      "prompt": {
+        "en": "I would be able to distinguish different people by their smell.",
+        "zh": "我能够凭气味区分不同的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_03",
+      "prompt": {
+        "en": "I wouldn’t notice if someone added a spoonful of sugar to my tea.",
+        "zh": "如果有人在我的茶中加了一勺糖，我不会察觉。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_04",
+      "prompt": {
+        "en": "I wouldn’t be afraid of hurting myself when falling off my bike at high speed.",
+        "zh": "如果高速骑自行车摔下来，我不会害怕自己受伤。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_05",
+      "prompt": {
+        "en": "I wouldn’t be able to detect the motion of the blades of a rotating fan even when it is at minimum speed.",
+        "zh": "即使风扇转速最低，我也无法看出转动叶片的运动。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_06",
+      "prompt": {
+        "en": "The sound of a piano and a violin playing the same note seems very similar to me.",
+        "zh": "对我来说，钢琴和小提琴演奏同一个音时，声音听起来非常相似。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_07",
+      "prompt": {
+        "en": "I would be able to detect if a strawberry was ripe by smell alone.",
+        "zh": "我只凭气味就能判断一颗草莓是否成熟。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_08",
+      "prompt": {
+        "en": "I would be able to distinguish milk chocolate and dark chocolate by their taste alone.",
+        "zh": "我只凭味道就能区分牛奶巧克力和黑巧克力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_09",
+      "prompt": {
+        "en": "I cannot tolerate hot showers (above 40°C /105°F).",
+        "zh": "我无法忍受热水淋浴（水温高于40°C／105°F）。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_10",
+      "prompt": {
+        "en": "I wouldn’t need an anaesthetic to cope with a dental procedure, such as a cavity-filling.",
+        "zh": "接受补牙等牙科操作时，我不需要麻醉也能应付。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_11",
+      "prompt": {
+        "en": "I would have to wait for 10 minutes for a hot drink to cool down before swallowing it, otherwise it would be too hot for me.",
+        "zh": "我必须等热饮冷却10分钟才能咽下，否则对我来说会太烫。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_12",
+      "prompt": {
+        "en": "I would be able to visually detect the change in brightness of a light each time a dimmer control moved one notch.",
+        "zh": "调光旋钮每移动一格，我都能看出灯光亮度的变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_13",
+      "prompt": {
+        "en": "I wouldn’t be able to detect large objects, such as parked cars, clearly on a dark night.",
+        "zh": "在漆黑的夜晚，我无法清楚辨认停着的汽车等大物体。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_14",
+      "prompt": {
+        "en": "I would notice if someone added 5 drops of lemon juice to my cup of water.",
+        "zh": "如果有人在我的一杯水中加了5滴柠檬汁，我会察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_15",
+      "prompt": {
+        "en": "I would be the last person to detect if something was burning.",
+        "zh": "如果有什么东西烧焦，我会是最后察觉的人。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_16",
+      "prompt": {
+        "en": "I wouldn’t be able to feel the vibrations from loud music if I was sitting next to the loud speaker (for example, at a concert).",
+        "zh": "即使坐在扬声器旁边（例如在音乐会上），我也感受不到响亮音乐造成的振动。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_17",
+      "prompt": {
+        "en": "I wouldn’t be able to feel a small volume change in music as a difference in vibration on my skin.",
+        "zh": "我无法把音乐音量的微小变化感受为皮肤振动的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_18",
+      "prompt": {
+        "en": "I can’t hear the TV when it is quiet, even when other people can.",
+        "zh": "电视声音很小时，我听不见，即使其他人能听见。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_19",
+      "prompt": {
+        "en": "I would be able to hear a leaf move if blown by the wind on a quiet street.",
+        "zh": "在安静的街道上，如果一片树叶被风吹动，我能够听见。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_20",
+      "prompt": {
+        "en": "I wouldn’t be able to taste the difference between two pieces of dark chocolate.",
+        "zh": "我无法尝出两块黑巧克力之间的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_21",
+      "prompt": {
+        "en": "I would be able to taste the difference between two brands of salty potato chips/crisps.",
+        "zh": "我能够尝出两个品牌的咸味薯片之间的差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_22",
+      "prompt": {
+        "en": "When people are talking the words seem to merge together.",
+        "zh": "人们说话时，那些词听起来似乎混在一起。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_23",
+      "prompt": {
+        "en": "I can only look at bright colours for a brief period of time.",
+        "zh": "我只能短时间看鲜亮的颜色。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_24",
+      "prompt": {
+        "en": "I would lose my balance very easily if I was standing on one foot with my eyes closed.",
+        "zh": "如果闭着眼睛单脚站立，我会很容易失去平衡。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_25",
+      "prompt": {
+        "en": "I wouldn’t be able to smell a barbecue from 60 feet (20 metres) away.",
+        "zh": "我无法从60英尺（20米）外闻到烧烤的气味。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_26",
+      "prompt": {
+        "en": "I can’t spin round and round without falling over.",
+        "zh": "我无法连续转圈而不摔倒。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_27",
+      "prompt": {
+        "en": "I wouldn’t notice a 10 degree difference in temperature of the weather.",
+        "zh": "天气温度相差10度时，我不会察觉。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_28",
+      "prompt": {
+        "en": "I can drink tea/coffee ‘straight’, without needing to add milk or sugar.",
+        "zh": "我可以喝不加奶或糖的纯茶／咖啡。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_29",
+      "prompt": {
+        "en": "I can’t hear the bass in music.",
+        "zh": "我听不见音乐中的低音部分。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_30",
+      "prompt": {
+        "en": "I would be able to smell the difference between freshly cut grass and uncut grass.",
+        "zh": "我能够闻出刚割过的草与没有割过的草之间的差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_31",
+      "prompt": {
+        "en": "I wouldn’t be able to feel the label at the back of my shirt even if I thought about it.",
+        "zh": "即使刻意去感受，我也感觉不到衬衫后面的标签。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_32",
+      "prompt": {
+        "en": "I can hear electricity humming in the walls.",
+        "zh": "我能听见墙内电流的嗡嗡声。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_33",
+      "prompt": {
+        "en": "I notice the flickering of a desktop computer even when it is working properly.",
+        "zh": "即使台式电脑工作正常，我也会察觉它的闪烁。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_34",
+      "prompt": {
+        "en": "I wouldn’t be able to tell if milk is off simply by smelling it.",
+        "zh": "我无法只凭气味判断牛奶是否变质。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_35",
+      "prompt": {
+        "en": "I would be able to notice a tiny change (for example, 1 degree) in the temperature of the weather.",
+        "zh": "我能够察觉天气温度的细小变化，例如1度。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_36",
+      "prompt": {
+        "en": "I would be able to feel a one millimetre cut in my skin.",
+        "zh": "我能够感觉到皮肤上一毫米长的伤口。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_37",
+      "prompt": {
+        "en": "I would be able to see the individual blades in a rotating fan even if it was at maximum speed.",
+        "zh": "即使风扇转速最高，我也能看清转动中每片叶片。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_38",
+      "prompt": {
+        "en": "I would be able to tell the weight difference between two different coin sizes on the palm of my hand, if my eyes were closed.",
+        "zh": "如果闭上眼睛，我能够凭掌心上的重量区分两种不同大小的硬币。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_39",
+      "prompt": {
+        "en": "I wouldn’t get dizzy on a carousel/merry-go-round, even at high speed.",
+        "zh": "即使旋转木马转得很快，我也不会头晕。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_40",
+      "prompt": {
+        "en": "I can’t see written words on a page that other people can see.",
+        "zh": "别人能看见的纸上文字，我看不见。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_41",
+      "prompt": {
+        "en": "I would be able to distinguish between two oranges purely by their taste.",
+        "zh": "我只凭味道就能区分两个橙子。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_42",
+      "prompt": {
+        "en": "I couldn’t distinguish a familiar person and a stranger by their smell.",
+        "zh": "我无法凭气味区分熟悉的人和陌生人。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_43",
+      "prompt": {
+        "en": "I couldn’t detect if bread is stale purely by its smell.",
+        "zh": "我无法只凭气味判断面包是否已经不新鲜。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_44",
+      "prompt": {
+        "en": "I can’t tell if my clothes are clean or dirty by smell alone.",
+        "zh": "我无法只凭气味判断衣服是干净还是脏了。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_45",
+      "prompt": {
+        "en": "I would be able to detect the sound of a vacuum cleaner from any room in a two-storey building.",
+        "zh": "在一栋两层建筑的任何房间里，我都能够听见吸尘器的声音。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_46",
+      "prompt": {
+        "en": "I wouldn’t notice the difference between even and uneven ground when driving over it sitting in the back seat of a car.",
+        "zh": "坐在汽车后排经过路面时，我察觉不到平坦与不平坦路面之间的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_47",
+      "prompt": {
+        "en": "I would be able to drink a cup of boiling water straight after it had been poured from the kettle.",
+        "zh": "水刚从水壶里倒出、还在沸烫时，我也能够马上喝下一杯。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_48",
+      "prompt": {
+        "en": "I couldn’t tell two types of green apples apart purely from their colour.",
+        "zh": "我无法只凭颜色区分两种青苹果。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_49",
+      "prompt": {
+        "en": "I would be able to distinguish between an old and a new book by their smell.",
+        "zh": "我能够凭气味区分一本旧书和一本新书。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_50",
+      "prompt": {
+        "en": "I would be able to read a street sign from a distance of 100 feet (30 metres).",
+        "zh": "我能够从100英尺（30米）外看清街道标志。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_51",
+      "prompt": {
+        "en": "I can’t tell if cars passing me on the street are going at different speeds.",
+        "zh": "我无法判断街上从我身边驶过的汽车速度是否不同。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_52",
+      "prompt": {
+        "en": "I would be able to notice if someone added 5 grains of sugar to my glass of water.",
+        "zh": "如果有人在我的一杯水中加了5粒糖，我会察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_53",
+      "prompt": {
+        "en": "I would have difficulty seeing a single leaf clearly even on a tree that is close up.",
+        "zh": "即使树离我很近，我也很难看清上面的一片叶子。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_54",
+      "prompt": {
+        "en": "I wouldn’t taste if someone added a whole teaspoon of salt to my glass of water.",
+        "zh": "如果有人在我的一杯水中加了整整一茶匙盐，我也尝不出来。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_55",
+      "prompt": {
+        "en": "I would be able to feel the elastic holding up my socks if I stop and thought about it.",
+        "zh": "如果停下来刻意感受，我能够感觉到支撑袜子的松紧带。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_56",
+      "prompt": {
+        "en": "I can’t taste the difference between ripe and non-ripe fruit.",
+        "zh": "我尝不出成熟和未成熟水果之间的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_57",
+      "prompt": {
+        "en": "I would be able to stand on one foot for fifteen seconds without wobbling.",
+        "zh": "我能够单脚站立15秒而不晃动。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_58",
+      "prompt": {
+        "en": "I would be able to taste the difference between apparently identical pieces of candy.",
+        "zh": "我能够尝出两块看似完全相同的糖果之间的差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_59",
+      "prompt": {
+        "en": "I notice the weight and pressure of a hat on my head.",
+        "zh": "我会察觉帽子戴在头上的重量和压力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_60",
+      "prompt": {
+        "en": "I would feel if a single hair touched the back of my hand.",
+        "zh": "如果一根头发碰到我的手背，我会感觉到。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_61",
+      "prompt": {
+        "en": "If I was walking along, I would be able to feel a passing truck’s vibrations even if my eyes were closed.",
+        "zh": "走路时，即使闭着眼睛，我也能够感觉到经过的卡车所造成的振动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_62",
+      "prompt": {
+        "en": "I would be able to smell the smallest gas leak from anywhere in the house.",
+        "zh": "无论在家中哪里，我都能够闻到极少量燃气泄漏的气味。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_63",
+      "prompt": {
+        "en": "I wouldn’t notice if someone changed their perfume, by smell alone.",
+        "zh": "如果有人换了香水，我无法只凭气味察觉。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_64",
+      "prompt": {
+        "en": "I would be able to tell when an elevator/lift started moving.",
+        "zh": "我能够感觉到电梯何时开始移动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_65",
+      "prompt": {
+        "en": "I can hear dog whistles very easily in the park.",
+        "zh": "在公园里，我很容易听见狗哨声。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_66",
+      "prompt": {
+        "en": "I wouldn’t taste the difference between different types of lettuce leaves.",
+        "zh": "我尝不出不同种类生菜叶之间的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_67",
+      "prompt": {
+        "en": "I couldn’t taste if there were two slices of lemon in my glass of water if I was drinking it with my eyes closed.",
+        "zh": "如果闭着眼睛喝水，即使杯中有两片柠檬，我也尝不出来。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_68",
+      "prompt": {
+        "en": "I can’t go out in bright sunlight without sunglasses.",
+        "zh": "没有太阳镜，我无法在明亮的阳光下外出。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_69",
+      "prompt": {
+        "en": "I would be able to read small print, such as a serial number on the back of a DVD, at 10 feet (3 metres) away.",
+        "zh": "我能够从10英尺（3米）外读出小字，例如DVD背面的序列号。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_70",
+      "prompt": {
+        "en": "I get motion sickness easily (for example, car sickness or sea sickness)",
+        "zh": "我很容易晕动，例如晕车或晕船。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_71",
+      "prompt": {
+        "en": "I would be able to feel a change in the temperature of a cup of coffee after it had sat for 1 minute.",
+        "zh": "一杯咖啡放置1分钟后，我能够感觉到它的温度变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_72",
+      "prompt": {
+        "en": "I can’t hear very low frequency sounds, such as low voices.",
+        "zh": "我听不见很低频率的声音，例如低沉的人声。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_73",
+      "prompt": {
+        "en": "I would be the first to hear if there was a fly in the room.",
+        "zh": "如果房间里有苍蝇，我会是第一个听见的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_74",
+      "prompt": {
+        "en": "If I look at a pile of blue sweaters in a shop that are meant to be identical, I would be able to see differences between them.",
+        "zh": "商店里有一堆本应完全相同的蓝色毛衣，我能够看出它们之间的差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_75",
+      "prompt": {
+        "en": "I wouldn’t detect a new smell in my house instantly before anyone else.",
+        "zh": "家里出现新气味时，我不会比任何其他人都更早、立刻察觉。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_76",
+      "prompt": {
+        "en": "I have perfect pitch: for example, I could repeat a musical tone without any cue.",
+        "zh": "我具有绝对音高：例如，没有任何提示，我也能重复一个乐音。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_77",
+      "prompt": {
+        "en": "I would be able to bite into a lemon without any problems.",
+        "zh": "我能够咬一口柠檬而没有任何问题。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_78",
+      "prompt": {
+        "en": "I wouldn’t need to wear a coat in the winter, even when it is zero degrees outside.",
+        "zh": "即使冬天室外是零度，我也不需要穿外套。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_79",
+      "prompt": {
+        "en": "I wouldn’t be able to match the colour of a sweater in the shop with the colour of my trousers at home.",
+        "zh": "我无法把商店里毛衣的颜色与家中裤子的颜色相匹配。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_80",
+      "prompt": {
+        "en": "I wouldn’t hear every single note when listening to music.",
+        "zh": "听音乐时，我无法听见每一个音。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_81",
+      "prompt": {
+        "en": "I would be able to smell the difference between most men and women.",
+        "zh": "我能够凭气味区分大多数男性和女性。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_82",
+      "prompt": {
+        "en": "I choose to wear muted colours.",
+        "zh": "我会选择穿颜色柔和的衣服。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_83",
+      "prompt": {
+        "en": "I listen to music at minimum loudness.",
+        "zh": "我听音乐时会把音量调到最低。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_84",
+      "prompt": {
+        "en": "I would be able to hear each note in a chord even if there were 10 notes.",
+        "zh": "即使一个和弦有10个音，我也能够听见其中的每个音。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_85",
+      "prompt": {
+        "en": "I close curtains to avoid bright lights.",
+        "zh": "我会拉上窗帘来避开明亮的光。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_86",
+      "prompt": {
+        "en": "I wouldn’t be able to hear differences in sound if the same instrument played the same note at different times.",
+        "zh": "同一种乐器在不同时间演奏同一个音时，我听不出声音上的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_87",
+      "prompt": {
+        "en": "I would be able to distinguish two brands of coffee by their smell, even with my eyes closed.",
+        "zh": "即使闭着眼睛，我也能够凭气味区分两个品牌的咖啡。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_88",
+      "prompt": {
+        "en": "I can see dust particles in the air in most environments.",
+        "zh": "在大多数环境中，我都能看见空气中的尘埃颗粒。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_89",
+      "prompt": {
+        "en": "I wouldn’t be able to taste the difference between two brands of tomato sauce if they had different concentrations of salt.",
+        "zh": "如果两个品牌的番茄酱含盐浓度不同，我也尝不出它们之间的差别。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_90",
+      "prompt": {
+        "en": "I would be able to smell the smallest amount of burning from anywhere in the house.",
+        "zh": "无论在家中哪里，我都能够闻到极轻微的烧焦气味。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_91",
+      "prompt": {
+        "en": "If my mobile phone was vibrating in my pocket I would be quick to sense it.",
+        "zh": "如果口袋里的手机振动，我会很快察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SPQ92_92",
+      "prompt": {
+        "en": "I find it difficult to see individual stars on a clear night.",
+        "zh": "在晴朗的夜晚，我很难看清一颗颗星星。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "spq92-total",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "spq92-total",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "spq92-total",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "spq92-total",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "spq92-total-reading",
+      "directionIds": [
+        "spq92-total"
+      ],
+      "title": {
+        "en": "SPQ 92-Item Total: Reading Sensory Self-Reports",
+        "zh": "SPQ92项总分：怎样阅读感觉自述"
+      },
+      "headline": {
+        "en": "One raw total, with source and context",
+        "zh": "一项原始总分，结合来源与情境"
+      },
+      "summary": {
+        "en": "Read what the full published SPQ total summarizes, how 44 reverse keys work, why missing information stays missing, and how to discuss a concrete sensory need without a type label.",
+        "zh": "了解完整发表版SPQ总分概括什么、44条反向键怎样使用、缺失资料为何保持缺失，以及怎样不依赖类型标签来讨论具体感觉需要。"
+      },
+      "scoreReading": {
+        "en": "The source total ranges from 0 to 276 after 44 reversals. Lower totals indicate greater self-reported sensitivity in these statements; this guide has no private score, diagnostic cutoff, percentage sensitivity or objective performance result.",
+        "zh": "44条反向计分后，源总分范围为0—276；总分越低，题述自报敏感越高。本公开指南没有私人成绩、诊断界限、敏感程度百分比或客观表现结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sensory Processing Score: Reading the Full 92-Item SPQ",
+          "zh": "感觉加工分数：完整92项SPQ怎样读"
+        },
+        "description": {
+          "en": "Read the complete guide to the published 92-item SPQ: raw total, 44 reverse keys, worked example, missing answers, source credit and everyday context.",
+          "zh": "完整阅读发表版92项SPQ总分指南：原始分、44条反向键、算例、缺答、来源署名与日常情境。"
+        }
+      },
+      "sections": [
+        {
+          "id": "raw-total",
+          "title": {
+            "en": "What the total summarizes",
+            "zh": "总分概括什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The full published SPQ contains 92 statements about sensory experiences. Some concern noticing a faint input, others distinguishing two inputs, and others discomfort or tolerance. A total combines agreement with those particular statements after the source key is applied. It does not show that your eyes, hearing, balance or pain response have been tested. Two people can have the same total and very different experiences. Keep one or two actual examples beside the number rather than using it as a complete sensory identity.",
+              "zh": "完整发表版SPQ包含92条关于感觉体验的陈述，涉及察觉微弱刺激、区分不同输入，以及不适或耐受。按源键计分后的总分，合并的是对这些具体陈述的同意程度，不表示已经检验视力、听力、平衡或疼痛反应。总分相同的人可能有很不一样的体验。可以把一两个实际例子与数字放在一起看，不用它概括完整的感觉身份。"
+            }
+          ]
+        },
+        {
+          "id": "worked-key",
+          "title": {
+            "en": "Why agreement is not always scored in the same direction",
+            "zh": "为什么同意不总朝同一方向计分"
+          },
+          "paragraphs": [
+            {
+              "en": "The four source anchors are Strongly Agree 0, Agree 1, Disagree 2 and Strongly Disagree 3. The current official 92-item key reverses 44 statements by replacing a raw response with 3 minus that response. For instance, item 1 at raw 1 contributes 1, while item 3 at raw 1 contributes 2. An invented complete pattern of Agree on every statement therefore gives 48 × 1 + 44 × 2 = 136. This is an arithmetic example, not a recommended response or a moderate-sensitivity category. The full possible raw-total range is 0–276; the source direction is lower total, greater reported sensitivity.",
+              "zh": "原四组选项依次是非常同意0、同意1、不同意2、非常不同意3。现行官方92项键将44条反向，做法是用3减去原回答值。例如第1条回答原值1，贡献1分；第3条回答原值1，贡献2分。假设所有陈述都回答同意，完整总分便是48 × 1 + 44 × 2 = 136。这只是算术例子，不是推荐答法或中等敏感档位。完整原始总分可取0—276；源计分方向为总分越低，自报敏感越高。"
+            }
+          ]
+        },
+        {
+          "id": "missing-information",
+          "title": {
+            "en": "Unscored means the total is unavailable",
+            "zh": "不计分表示暂不给总分"
+          },
+          "paragraphs": [
+            {
+              "en": "The website adds an unscored choice for uncertainty or a decision not to answer. It requires all 92 responses to be numeric before showing a personal total. An unscored response is not disagreement, zero sensitivity or a zero contribution. It is not replaced by the average of the other answers, and a partial sum is not scaled up. An all-unscored attempt can still finish and show this entire guide. The added option and strict completeness policy are website choices, not evidence that this online edition or its Chinese translation has been validated.",
+              "zh": "网页为无法判断或选择不回答的情况新增不计分选项，92项全部具有数值回答才显示个人总分。不计分不等于不同意、不敏感或贡献零分；不会用其他回答的平均值代填，也不会把局部加和按比例放大。全部不计分仍能完成，并阅读本篇完整指南。新增选项和严格齐全规则是网页约定，不证明本在线版本或中译已经验证。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-limits",
+          "title": {
+            "en": "Keep the source statements in context",
+            "zh": "把源陈述放回情境"
+          },
+          "paragraphs": [
+            {
+              "en": "The published bank includes hypothetical statements about heat, pain, movement and unusual sensory distinctions. Answer from existing experience or knowledge of yourself; do not attempt the described actions as experiments. Familiarity, the environment and the conditions under which you usually notice something can affect a response. The score does not establish a sensory threshold, perfect pitch, an autism diagnosis or a clinical cause. It does not rank people as better observers or decide whether someone needs care. Distress or difficulty in daily activities can be discussed on its own terms, regardless of whether a total is available.",
+              "zh": "发表题本包括关于热、痛、运动及特殊感觉区分的假设陈述。按已有经验或对自己的了解作答，不把题述行为当作现场实验。熟悉程度、环境以及平时察觉事物的条件，都可能影响回答。分数不确立感觉阈值、绝对音高、自闭症诊断或临床原因，不把人排成更好的观察者，也不决定是否需要照护。日常困扰或活动困难可以按实际情况讨论，不必先获得某个总分。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-conversation",
+          "title": {
+            "en": "Start with a specific need in a specific setting",
+            "zh": "从具体场景里的需要开始"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a desk lamp produces glare while you read. A useful request is “The light at this angle makes reading uncomfortable for me. Could we try turning the shade or moving the lamp?” That request does not need a low score or agreement about a sensory type. Change one reversible feature, check the actual result and ask anyone sharing the space what they need. A different person may prefer more light. The aim is a workable arrangement rather than proving who is more sensitive. This total does not select jobs, judge relationships or replace a practical discussion of access needs.",
+              "zh": "例如阅读时桌灯产生眩光，可以说：“这个角度的光让我读得不舒服，能否试着转一下灯罩或挪一下台灯？”提出需要不必先有低分，也不必让对方承认某种感觉类型。只改变一个可撤回的条件，看看实际结果，并询问共用空间的人需要什么；别人也可能希望更亮。重点是找到可用的安排，不是证明谁更敏感。总分不用于选职业、判断关系，也不替代对实际使用需要的沟通。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-edition",
+          "title": {
+            "en": "Original source, key and working translation",
+            "zh": "原来源、计分键与工作译文"
+          },
+          "paragraphs": [
+            {
+              "en": "Teresa Tavassoli, Rosa A. Hoekstra and Simon Baron-Cohen (2014), The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism, Molecular Autism, 5:29, doi:10.1186/2040-2392-5-29. © 2014 Tavassoli et al.; licensee BioMed Central Ltd. The original published Table 4 is used under CC BY 2.0. The current ARC 92-item scoring document supplies the 44 reverse keys; the printed table marks 42 items in italics, with items 6 and 53 differing. This edition follows that explicit current key and does not silently combine the separate 35-item download. FermatMind adds a new, unvalidated Simplified Chinese working translation, web presentation, unscored response and explanatory content. No original-author endorsement or additional rights warranty is implied.",
+              "zh": "Teresa Tavassoli、Rosa A. Hoekstra与Simon Baron-Cohen（2014），The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism，Molecular Autism，5:29，doi:10.1186/2040-2392-5-29。©2014 Tavassoli等；获许可出版方BioMed Central Ltd. 原正式论文表4按CC BY 2.0使用。现行ARC官方92项计分文档提供44条反向键，论文表中斜体标记为42条，差异是第6与53条；本版明确采用现行键，不暗中混用独立的35题下载版。费马新增尚未验证的简体中文工作译文、网页呈现、不计分选项与解释，不暗示原作者背书或额外权利保证。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "version",
+      "title": {
+        "en": "The full 92-item edition",
+        "zh": "完整92项版本"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition retains the 92 English statements in Table 4 of Tavassoli, Hoekstra and Baron-Cohen’s 2014 SPQ paper. It is not the separately downloaded 35-item form. Chinese is a new FermatMind working translation without established language equivalence. Questions address reported experience across hearing, vision, touch, smell and taste; this page produces one overall raw total, not five invented independent scales.",
+          "zh": "本版保留Tavassoli、Hoekstra和Baron-Cohen于2014年发表的SPQ论文表4全部92条英文，不是另行下载的35项表。中文为费马新工作译文，尚未建立语言等价性。题目涉及听觉、视觉、触觉、嗅觉和味觉的自报体验；本页只生成一个整体原始总分，不另造五个独立量表。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Four anchors and the current 44-item reverse key",
+        "zh": "四个锚点与现行44项反向键"
+      },
+      "paragraphs": [
+        {
+          "en": "Strongly agree, agree, disagree and strongly disagree have raw values 0, 1, 2 and 3. The current official 92-item key reverses 44 items using 3 minus the raw value; other items retain it. Add all 92 scored values for a 0–276 total. For example, choosing Agree throughout gives 48 × 1 + 44 × 2 = 136. This is an arithmetic example, not a midpoint category or population average.",
+          "zh": "非常同意、同意、不同意和非常不同意依次记原始值0、1、2、3。按现行官方92项键，对44项使用3减原始值，其余保留原值，92项相加得0—276总分。例如全部选“同意”，为48×1＋44×2＝136；这是运算示例，不是中间档位或人群平均值。"
+        }
+      ]
+    },
+    {
+      "id": "version-key",
+      "title": {
+        "en": "Keep the bank and key explicit",
+        "zh": "把题本与计分键说清楚"
+      },
+      "paragraphs": [
+        {
+          "en": "The printed table marks 42 reversed statements in italics, while the current official 92-item key lists 44, also including items 6 and 53. This website explicitly uses the latter key. It does not silently combine the short-form order or key, or claim why the two documents differ. This distinction matters because identical responses can yield different sums under different keys.",
+          "zh": "印刷表格以斜体标出42条反向陈述，现行官方92项键列44条，另含第6、53题。本网站明确采用后者，不混用短版题序或键，也不猜测两份文件差异的原因。同样回答在不同键下可能得到不同合计，因此版本需要说清楚。"
+        }
+      ]
+    },
+    {
+      "id": "missing-context",
+      "title": {
+        "en": "Completeness, interpretation and comfortable participation",
+        "zh": "完整度、读法与舒适作答"
+      },
+      "paragraphs": [
+        {
+          "en": "All 92 numeric responses are needed for this website’s total. An unscored response withholds the total; it never becomes zero or an estimated rating. All unscored choices can finish and leave the complete guide available. This strict rule is an editorial policy, not a validated missing-data threshold. Lower totals indicate more self-reported sensitivity under this key, without measuring an objective detection threshold, diagnosing a condition or assigning a sensory type. Answer from existing experience; never perform painful, risky or uncomfortable trials for an item.",
+          "zh": "本网站总分需要92项数值回答；任一不计分会暂不给总分，不当作零、不估算。全部不计分也可完成并保留完整指南。严格齐全是编辑政策，并非验证过的缺失阈值。按此键较低总分表示自报更敏感，不测客观检出阈值，不诊断状况、不分感觉类型。依据已有经验回答，不为题目实际进行疼痛、危险或不舒适的试验。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original publication, attribution and website changes",
+        "zh": "原始发表、署名与网页改动"
+      },
+      "paragraphs": [
+        {
+          "en": "Teresa Tavassoli, Rosa A Hoekstra and Simon Baron-Cohen (2014), The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism, Molecular Autism 5:29, doi:10.1186/2040-2392-5-29. © 2014 Tavassoli et al.; licensee BioMed Central Ltd. The published article and its table are used under CC BY 2.0. FermatMind adds a working Chinese translation, the unscored choice, strict completeness policy and original explanatory guide, and uses the separately identified current official 92-item key. These changes are not author endorsement or established validation of this website.",
+          "zh": "Teresa Tavassoli、Rosa A Hoekstra和Simon Baron-Cohen（2014），The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism，Molecular Autism 5:29，doi:10.1186/2040-2392-5-29。©2014 Tavassoli等，许可出版方BioMed Central Ltd。发表文章及其表格依CC BY 2.0使用。费马新增工作中译、不计分选项、严格齐全政策及原创解释指南，并明确采用另外注明的现行官方92项键。这些改动不代表作者背书，也不表示本网站已获验证。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the 35-item questionnaire?",
+        "zh": "这是35项问卷吗？"
+      },
+      "answer": {
+        "en": "No. It retains all 92 published English statements and applies the current official 92-item key. It does not import the separate short-form wording, order or five reverse indices.",
+        "zh": "不是。保留全部92条发表英文并采用现行官方92项键，不套用另一短版措辞、题序或五条反向序号。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does a lower total mean?",
+        "zh": "总分较低怎样读？"
+      },
+      "answer": {
+        "en": "Under this key it reflects more self-reported sensory sensitivity. There is no score band, percentile, autism or ADHD classification, occupational match or judgment of personal worth.",
+        "zh": "按此键表示自报感觉更敏感。不设分数档、百分位、自闭症或ADHD分类、职业匹配或个人价值判断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are items 6 and 53 reversed here?",
+        "zh": "为什么这里反向计第6、53题？"
+      },
+      "answer": {
+        "en": "The current official 92-item key includes them in its 44 reverse indices, whereas the printed table marks 42 items. This website identifies that choice explicitly without inventing a cause or claiming one file corrects the other.",
+        "zh": "现行官方92项键把它们列入44条反向序号，印刷表标42条。本网站明确版本选择，不杜撰差异原因，也不声称某文件在纠正另一文件。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I skip unfamiliar situations?",
+        "zh": "不熟悉的情境能跳过吗？"
+      },
+      "answer": {
+        "en": "Yes. An unscored response withholds the overall total and preserves the full guide. It does not become zero. All unscored choices still finish; you do not need to try the activity.",
+        "zh": "可以。不计分会暂不给整体总分，并保留完整指南，不转成零。全部不计分仍可完成，无需实际尝试题述活动。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it test my actual senses?",
+        "zh": "是在实测感官能力吗？"
+      },
+      "answer": {
+        "en": "No detection task is administered. Read each statement using existing experience or knowledge of yourself. Do not expose yourself to pain, loud sound, chemicals, unsafe driving or other risky trials for an answer.",
+        "zh": "没有进行检出任务。根据已有经历或对自己的了解阅读陈述，不为答题进行疼痛、大声刺激、化学品、不安全驾驶或其他风险试验。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is Chinese an officially validated translation?",
+        "zh": "中文是官方验证译本吗？"
+      },
+      "answer": {
+        "en": "No. It is a new FermatMind working translation. This website has not established its reliability, language equivalence, norms or clinical validity; original study findings are not automatically transferred to it.",
+        "zh": "不是，是费马新工作译文。本网站尚未建立其信度、语言等价性、常模或临床效度，原研究发现不自动转移到这里。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the complete questionnaire and guide free?",
+        "zh": "完整题目和指南免费吗？"
+      },
+      "answer": {
+        "en": "All 92 questions and the full public guide are free without signup. An optional tab draft expires within 24 hours and clears on completion or reset. Public sharing includes only a title and link, not answers or personal totals.",
+        "zh": "92题和完整公开指南免费，无需注册。可选标签页草稿最多保留24小时，完成或重置即清除。公开分享只带标题和链接，不带回答或个人总分。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Original 2014 SPQ article and Table 4",
+        "zh": "2014年SPQ原始论文及表4"
+      },
+      "url": "https://link.springer.com/article/10.1186/2040-2392-5-29"
+    },
+    {
+      "title": {
+        "en": "Current official SPQ record and downloads",
+        "zh": "现行官方SPQ条目与下载"
+      },
+      "url": "https://www.autismresearchcentre.com/tests/sensory-perception-quotient/"
+    },
+    {
+      "title": {
+        "en": "Official scoring mechanism: separate 92- and 35-item keys",
+        "zh": "官方计分说明：分别列92项与35项键"
+      },
+      "url": "https://www.autismresearchcentre.com/content/uploads/2024/11/SPQ-scoring.docx"
+    },
+    {
+      "title": {
+        "en": "Creative Commons Attribution 2.0",
+        "zh": "知识共享署名2.0许可"
+      },
+      "url": "https://creativecommons.org/licenses/by/2.0/"
+    }
+  ]
+}

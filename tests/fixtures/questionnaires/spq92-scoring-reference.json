@@ -1,0 +1,16 @@
+{
+  "source_sha256": "2fed1d9c407a86caac9965ca54b83e404b646f9c29bf5416ba13cc30c5a6f6d3",
+  "key": "current official92-item44reverse;notshort35orprinted42",
+  "uniform_raw": {
+    "0": 132,
+    "1": 136,
+    "2": 140,
+    "3": 144
+  },
+  "fixed_bounds": [
+    0,
+    276
+  ],
+  "missing_policy": "all92numeric;anyNAwithholds;allNAfinish",
+  "not_claimed": "No4pow92or2pow92execution"
+}

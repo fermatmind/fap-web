@@ -1,0 +1,114 @@
+[
+  {
+    "id": "spq92-total-reading",
+    "directionIds": [
+      "spq92-total"
+    ],
+    "title": {
+      "en": "SPQ 92-Item Total: Reading Sensory Self-Reports",
+      "zh": "SPQ92项总分：怎样阅读感觉自述"
+    },
+    "headline": {
+      "en": "One raw total, with source and context",
+      "zh": "一项原始总分，结合来源与情境"
+    },
+    "summary": {
+      "en": "Read what the full published SPQ total summarizes, how 44 reverse keys work, why missing information stays missing, and how to discuss a concrete sensory need without a type label.",
+      "zh": "了解完整发表版SPQ总分概括什么、44条反向键怎样使用、缺失资料为何保持缺失，以及怎样不依赖类型标签来讨论具体感觉需要。"
+    },
+    "scoreReading": {
+      "en": "The source total ranges from 0 to 276 after 44 reversals. Lower totals indicate greater self-reported sensitivity in these statements; this guide has no private score, diagnostic cutoff, percentage sensitivity or objective performance result.",
+      "zh": "44条反向计分后，源总分范围为0—276；总分越低，题述自报敏感越高。本公开指南没有私人成绩、诊断界限、敏感程度百分比或客观表现结果。"
+    },
+    "seo": {
+      "title": {
+        "en": "Sensory Processing Score: Reading the Full 92-Item SPQ",
+        "zh": "感觉加工分数：完整92项SPQ怎样读"
+      },
+      "description": {
+        "en": "Read the complete guide to the published 92-item SPQ: raw total, 44 reverse keys, worked example, missing answers, source credit and everyday context.",
+        "zh": "完整阅读发表版92项SPQ总分指南：原始分、44条反向键、算例、缺答、来源署名与日常情境。"
+      }
+    },
+    "sections": [
+      {
+        "id": "raw-total",
+        "title": {
+          "en": "What the total summarizes",
+          "zh": "总分概括什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The full published SPQ contains 92 statements about sensory experiences. Some concern noticing a faint input, others distinguishing two inputs, and others discomfort or tolerance. A total combines agreement with those particular statements after the source key is applied. It does not show that your eyes, hearing, balance or pain response have been tested. Two people can have the same total and very different experiences. Keep one or two actual examples beside the number rather than using it as a complete sensory identity.",
+            "zh": "完整发表版SPQ包含92条关于感觉体验的陈述，涉及察觉微弱刺激、区分不同输入，以及不适或耐受。按源键计分后的总分，合并的是对这些具体陈述的同意程度，不表示已经检验视力、听力、平衡或疼痛反应。总分相同的人可能有很不一样的体验。可以把一两个实际例子与数字放在一起看，不用它概括完整的感觉身份。"
+          }
+        ]
+      },
+      {
+        "id": "worked-key",
+        "title": {
+          "en": "Why agreement is not always scored in the same direction",
+          "zh": "为什么同意不总朝同一方向计分"
+        },
+        "paragraphs": [
+          {
+            "en": "The four source anchors are Strongly Agree 0, Agree 1, Disagree 2 and Strongly Disagree 3. The current official 92-item key reverses 44 statements by replacing a raw response with 3 minus that response. For instance, item 1 at raw 1 contributes 1, while item 3 at raw 1 contributes 2. An invented complete pattern of Agree on every statement therefore gives 48 × 1 + 44 × 2 = 136. This is an arithmetic example, not a recommended response or a moderate-sensitivity category. The full possible raw-total range is 0–276; the source direction is lower total, greater reported sensitivity.",
+            "zh": "原四组选项依次是非常同意0、同意1、不同意2、非常不同意3。现行官方92项键将44条反向，做法是用3减去原回答值。例如第1条回答原值1，贡献1分；第3条回答原值1，贡献2分。假设所有陈述都回答同意，完整总分便是48 × 1 + 44 × 2 = 136。这只是算术例子，不是推荐答法或中等敏感档位。完整原始总分可取0—276；源计分方向为总分越低，自报敏感越高。"
+          }
+        ]
+      },
+      {
+        "id": "missing-information",
+        "title": {
+          "en": "Unscored means the total is unavailable",
+          "zh": "不计分表示暂不给总分"
+        },
+        "paragraphs": [
+          {
+            "en": "The website adds an unscored choice for uncertainty or a decision not to answer. It requires all 92 responses to be numeric before showing a personal total. An unscored response is not disagreement, zero sensitivity or a zero contribution. It is not replaced by the average of the other answers, and a partial sum is not scaled up. An all-unscored attempt can still finish and show this entire guide. The added option and strict completeness policy are website choices, not evidence that this online edition or its Chinese translation has been validated.",
+            "zh": "网页为无法判断或选择不回答的情况新增不计分选项，92项全部具有数值回答才显示个人总分。不计分不等于不同意、不敏感或贡献零分；不会用其他回答的平均值代填，也不会把局部加和按比例放大。全部不计分仍能完成，并阅读本篇完整指南。新增选项和严格齐全规则是网页约定，不证明本在线版本或中译已经验证。"
+          }
+        ]
+      },
+      {
+        "id": "context-and-limits",
+        "title": {
+          "en": "Keep the source statements in context",
+          "zh": "把源陈述放回情境"
+        },
+        "paragraphs": [
+          {
+            "en": "The published bank includes hypothetical statements about heat, pain, movement and unusual sensory distinctions. Answer from existing experience or knowledge of yourself; do not attempt the described actions as experiments. Familiarity, the environment and the conditions under which you usually notice something can affect a response. The score does not establish a sensory threshold, perfect pitch, an autism diagnosis or a clinical cause. It does not rank people as better observers or decide whether someone needs care. Distress or difficulty in daily activities can be discussed on its own terms, regardless of whether a total is available.",
+            "zh": "发表题本包括关于热、痛、运动及特殊感觉区分的假设陈述。按已有经验或对自己的了解作答，不把题述行为当作现场实验。熟悉程度、环境以及平时察觉事物的条件，都可能影响回答。分数不确立感觉阈值、绝对音高、自闭症诊断或临床原因，不把人排成更好的观察者，也不决定是否需要照护。日常困扰或活动困难可以按实际情况讨论，不必先获得某个总分。"
+          }
+        ]
+      },
+      {
+        "id": "everyday-conversation",
+        "title": {
+          "en": "Start with a specific need in a specific setting",
+          "zh": "从具体场景里的需要开始"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a desk lamp produces glare while you read. A useful request is “The light at this angle makes reading uncomfortable for me. Could we try turning the shade or moving the lamp?” That request does not need a low score or agreement about a sensory type. Change one reversible feature, check the actual result and ask anyone sharing the space what they need. A different person may prefer more light. The aim is a workable arrangement rather than proving who is more sensitive. This total does not select jobs, judge relationships or replace a practical discussion of access needs.",
+            "zh": "例如阅读时桌灯产生眩光，可以说：“这个角度的光让我读得不舒服，能否试着转一下灯罩或挪一下台灯？”提出需要不必先有低分，也不必让对方承认某种感觉类型。只改变一个可撤回的条件，看看实际结果，并询问共用空间的人需要什么；别人也可能希望更亮。重点是找到可用的安排，不是证明谁更敏感。总分不用于选职业、判断关系，也不替代对实际使用需要的沟通。"
+          }
+        ]
+      },
+      {
+        "id": "source-and-edition",
+        "title": {
+          "en": "Original source, key and working translation",
+          "zh": "原来源、计分键与工作译文"
+        },
+        "paragraphs": [
+          {
+            "en": "Teresa Tavassoli, Rosa A. Hoekstra and Simon Baron-Cohen (2014), The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism, Molecular Autism, 5:29, doi:10.1186/2040-2392-5-29. © 2014 Tavassoli et al.; licensee BioMed Central Ltd. The original published Table 4 is used under CC BY 2.0. The current ARC 92-item scoring document supplies the 44 reverse keys; the printed table marks 42 items in italics, with items 6 and 53 differing. This edition follows that explicit current key and does not silently combine the separate 35-item download. FermatMind adds a new, unvalidated Simplified Chinese working translation, web presentation, unscored response and explanatory content. No original-author endorsement or additional rights warranty is implied.",
+            "zh": "Teresa Tavassoli、Rosa A. Hoekstra与Simon Baron-Cohen（2014），The Sensory Perception Quotient (SPQ): development and validation of a new sensory questionnaire for adults with and without autism，Molecular Autism，5:29，doi:10.1186/2040-2392-5-29。©2014 Tavassoli等；获许可出版方BioMed Central Ltd. 原正式论文表4按CC BY 2.0使用。现行ARC官方92项计分文档提供44条反向键，论文表中斜体标记为42条，差异是第6与53条；本版明确采用现行键，不暗中混用独立的35题下载版。费马新增尚未验证的简体中文工作译文、网页呈现、不计分选项与解释，不暗示原作者背书或额外权利保证。"
+          }
+        ]
+      }
+    ]
+  }
+]

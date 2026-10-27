@@ -1,0 +1,1016 @@
+{
+  "id": "T188",
+  "state": "external92EN/newZHworkingtranslationdraftonly;method/licencematerialadoptionpending;notpublished",
+  "proposed_kind": "spq92",
+  "proposed_code": "SPQ92_TAVASSOLI2014_CC_BY",
+  "English_source": "Exact2014publisherTable4parsedvisibletext,notcurrentseparate35download",
+  "raw_table_sha256": "163cada65783ea5505781fe953584c1a3f06c0924f1c2689956f462f53405043",
+  "reverse_source": "CurrentofficialARCSPQ-scoring.docx92version44key;notprinteditalic42key;6/53differenceexplicitlyretained",
+  "reverse92": [
+    3,
+    4,
+    5,
+    6,
+    10,
+    13,
+    15,
+    16,
+    17,
+    18,
+    20,
+    22,
+    25,
+    26,
+    27,
+    28,
+    29,
+    31,
+    34,
+    39,
+    40,
+    42,
+    43,
+    44,
+    46,
+    47,
+    48,
+    51,
+    53,
+    54,
+    56,
+    57,
+    63,
+    66,
+    67,
+    72,
+    75,
+    77,
+    78,
+    79,
+    80,
+    86,
+    89,
+    92
+  ],
+  "anchors": [
+    {
+      "id": "0",
+      "en": "Strongly Agree",
+      "zh": "非常同意",
+      "score": 0
+    },
+    {
+      "id": "1",
+      "en": "Agree",
+      "zh": "同意",
+      "score": 1
+    },
+    {
+      "id": "2",
+      "en": "Disagree",
+      "zh": "不同意",
+      "score": 2
+    },
+    {
+      "id": "3",
+      "en": "Strongly Disagree",
+      "zh": "非常不同意",
+      "score": 3
+    },
+    {
+      "id": "na",
+      "en": "Cannot judge / prefer not to answer — unscored",
+      "zh": "无法判断／暂不回答——不计分",
+      "score": null
+    }
+  ],
+  "instructions": {
+    "en": "Read each source statement and indicate agreement from your existing experience or knowledge of yourself. Do not try out the actions described. The source does not specify a recent recall window. If you cannot judge or prefer not to answer, choose the added unscored option. English follows the published 2014 bank; Chinese is a new, unvalidated FermatMind working translation.",
+    "zh": "阅读每条源陈述，按已有经验或对自己的了解选择同意程度，不现场尝试题述行为。原来源没有指定近期回忆期限。无法判断或不愿回答时，可以选择本页新增的不计分选项。英文沿用2014年发表题本；中文是费马新工作译文，尚未验证。"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "id": "SPQ92_01",
+      "prompt": {
+        "en": "I would notice if someone added 5 grains of salt to my cup of water.",
+        "zh": "如果有人在我的一杯水中加了5粒盐，我会察觉。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-salty"
+    },
+    {
+      "number": 2,
+      "id": "SPQ92_02",
+      "prompt": {
+        "en": "I would be able to distinguish different people by their smell.",
+        "zh": "我能够凭气味区分不同的人。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-social"
+    },
+    {
+      "number": 3,
+      "id": "SPQ92_03",
+      "prompt": {
+        "en": "I wouldn’t notice if someone added a spoonful of sugar to my tea.",
+        "zh": "如果有人在我的茶中加了一勺糖，我不会察觉。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 4,
+      "id": "SPQ92_04",
+      "prompt": {
+        "en": "I wouldn’t be afraid of hurting myself when falling off my bike at high speed.",
+        "zh": "如果高速骑自行车摔下来，我不会害怕自己受伤。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-pain"
+    },
+    {
+      "number": 5,
+      "id": "SPQ92_05",
+      "prompt": {
+        "en": "I wouldn’t be able to detect the motion of the blades of a rotating fan even when it is at minimum speed.",
+        "zh": "即使风扇转速最低，我也无法看出转动叶片的运动。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-motion"
+    },
+    {
+      "number": 6,
+      "id": "SPQ92_06",
+      "prompt": {
+        "en": "The sound of a piano and a violin playing the same note seems very similar to me.",
+        "zh": "对我来说，钢琴和小提琴演奏同一个音时，声音听起来非常相似。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-complexity"
+    },
+    {
+      "number": 7,
+      "id": "SPQ92_07",
+      "prompt": {
+        "en": "I would be able to detect if a strawberry was ripe by smell alone.",
+        "zh": "我只凭气味就能判断一颗草莓是否成熟。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-food"
+    },
+    {
+      "number": 8,
+      "id": "SPQ92_08",
+      "prompt": {
+        "en": "I would be able to distinguish milk chocolate and dark chocolate by their taste alone.",
+        "zh": "我只凭味道就能区分牛奶巧克力和黑巧克力。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 9,
+      "id": "SPQ92_09",
+      "prompt": {
+        "en": "I cannot tolerate hot showers (above 40°C /105°F).",
+        "zh": "我无法忍受热水淋浴（水温高于40°C／105°F）。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pain"
+    },
+    {
+      "number": 10,
+      "id": "SPQ92_10",
+      "prompt": {
+        "en": "I wouldn’t need an anaesthetic to cope with a dental procedure, such as a cavity-filling.",
+        "zh": "接受补牙等牙科操作时，我不需要麻醉也能应付。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-pain"
+    },
+    {
+      "number": 11,
+      "id": "SPQ92_11",
+      "prompt": {
+        "en": "I would have to wait for 10 minutes for a hot drink to cool down before swallowing it, otherwise it would be too hot for me.",
+        "zh": "我必须等热饮冷却10分钟才能咽下，否则对我来说会太烫。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-temperature"
+    },
+    {
+      "number": 12,
+      "id": "SPQ92_12",
+      "prompt": {
+        "en": "I would be able to visually detect the change in brightness of a light each time a dimmer control moved one notch.",
+        "zh": "调光旋钮每移动一格，我都能看出灯光亮度的变化。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-brightness"
+    },
+    {
+      "number": 13,
+      "id": "SPQ92_13",
+      "prompt": {
+        "en": "I wouldn’t be able to detect large objects, such as parked cars, clearly on a dark night.",
+        "zh": "在漆黑的夜晚，我无法清楚辨认停着的汽车等大物体。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-brightness"
+    },
+    {
+      "number": 14,
+      "id": "SPQ92_14",
+      "prompt": {
+        "en": "I would notice if someone added 5 drops of lemon juice to my cup of water.",
+        "zh": "如果有人在我的一杯水中加了5滴柠檬汁，我会察觉。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-sour"
+    },
+    {
+      "number": 15,
+      "id": "SPQ92_15",
+      "prompt": {
+        "en": "I would be the last person to detect if something was burning.",
+        "zh": "如果有什么东西烧焦，我会是最后察觉的人。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-danger"
+    },
+    {
+      "number": 16,
+      "id": "SPQ92_16",
+      "prompt": {
+        "en": "I wouldn’t be able to feel the vibrations from loud music if I was sitting next to the loud speaker (for example, at a concert).",
+        "zh": "即使坐在扬声器旁边（例如在音乐会上），我也感受不到响亮音乐造成的振动。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-vibration"
+    },
+    {
+      "number": 17,
+      "id": "SPQ92_17",
+      "prompt": {
+        "en": "I wouldn’t be able to feel a small volume change in music as a difference in vibration on my skin.",
+        "zh": "我无法把音乐音量的微小变化感受为皮肤振动的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-vibration"
+    },
+    {
+      "number": 18,
+      "id": "SPQ92_18",
+      "prompt": {
+        "en": "I can’t hear the TV when it is quiet, even when other people can.",
+        "zh": "电视声音很小时，我听不见，即使其他人能听见。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-loudness"
+    },
+    {
+      "number": 19,
+      "id": "SPQ92_19",
+      "prompt": {
+        "en": "I would be able to hear a leaf move if blown by the wind on a quiet street.",
+        "zh": "在安静的街道上，如果一片树叶被风吹动，我能够听见。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-loudness"
+    },
+    {
+      "number": 20,
+      "id": "SPQ92_20",
+      "prompt": {
+        "en": "I wouldn’t be able to taste the difference between two pieces of dark chocolate.",
+        "zh": "我无法尝出两块黑巧克力之间的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 21,
+      "id": "SPQ92_21",
+      "prompt": {
+        "en": "I would be able to taste the difference between two brands of salty potato chips/crisps.",
+        "zh": "我能够尝出两个品牌的咸味薯片之间的差别。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-salty"
+    },
+    {
+      "number": 22,
+      "id": "SPQ92_22",
+      "prompt": {
+        "en": "When people are talking the words seem to merge together.",
+        "zh": "人们说话时，那些词听起来似乎混在一起。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-complexity"
+    },
+    {
+      "number": 23,
+      "id": "SPQ92_23",
+      "prompt": {
+        "en": "I can only look at bright colours for a brief period of time.",
+        "zh": "我只能短时间看鲜亮的颜色。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-colour"
+    },
+    {
+      "number": 24,
+      "id": "SPQ92_24",
+      "prompt": {
+        "en": "I would lose my balance very easily if I was standing on one foot with my eyes closed.",
+        "zh": "如果闭着眼睛单脚站立，我会很容易失去平衡。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-vestibular"
+    },
+    {
+      "number": 25,
+      "id": "SPQ92_25",
+      "prompt": {
+        "en": "I wouldn’t be able to smell a barbecue from 60 feet (20 metres) away.",
+        "zh": "我无法从60英尺（20米）外闻到烧烤的气味。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-food"
+    },
+    {
+      "number": 26,
+      "id": "SPQ92_26",
+      "prompt": {
+        "en": "I can’t spin round and round without falling over.",
+        "zh": "我无法连续转圈而不摔倒。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-vestibular"
+    },
+    {
+      "number": 27,
+      "id": "SPQ92_27",
+      "prompt": {
+        "en": "I wouldn’t notice a 10 degree difference in temperature of the weather.",
+        "zh": "天气温度相差10度时，我不会察觉。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-temperature"
+    },
+    {
+      "number": 28,
+      "id": "SPQ92_28",
+      "prompt": {
+        "en": "I can drink tea/coffee ‘straight’, without needing to add milk or sugar.",
+        "zh": "我可以喝不加奶或糖的纯茶／咖啡。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-bitter"
+    },
+    {
+      "number": 29,
+      "id": "SPQ92_29",
+      "prompt": {
+        "en": "I can’t hear the bass in music.",
+        "zh": "我听不见音乐中的低音部分。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 30,
+      "id": "SPQ92_30",
+      "prompt": {
+        "en": "I would be able to smell the difference between freshly cut grass and uncut grass.",
+        "zh": "我能够闻出刚割过的草与没有割过的草之间的差别。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-neutral"
+    },
+    {
+      "number": 31,
+      "id": "SPQ92_31",
+      "prompt": {
+        "en": "I wouldn’t be able to feel the label at the back of my shirt even if I thought about it.",
+        "zh": "即使刻意去感受，我也感觉不到衬衫后面的标签。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-pressure"
+    },
+    {
+      "number": 32,
+      "id": "SPQ92_32",
+      "prompt": {
+        "en": "I can hear electricity humming in the walls.",
+        "zh": "我能听见墙内电流的嗡嗡声。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 33,
+      "id": "SPQ92_33",
+      "prompt": {
+        "en": "I notice the flickering of a desktop computer even when it is working properly.",
+        "zh": "即使台式电脑工作正常，我也会察觉它的闪烁。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-motion"
+    },
+    {
+      "number": 34,
+      "id": "SPQ92_34",
+      "prompt": {
+        "en": "I wouldn’t be able to tell if milk is off simply by smelling it.",
+        "zh": "我无法只凭气味判断牛奶是否变质。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-food"
+    },
+    {
+      "number": 35,
+      "id": "SPQ92_35",
+      "prompt": {
+        "en": "I would be able to notice a tiny change (for example, 1 degree) in the temperature of the weather.",
+        "zh": "我能够察觉天气温度的细小变化，例如1度。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-temperature"
+    },
+    {
+      "number": 36,
+      "id": "SPQ92_36",
+      "prompt": {
+        "en": "I would be able to feel a one millimetre cut in my skin.",
+        "zh": "我能够感觉到皮肤上一毫米长的伤口。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pain"
+    },
+    {
+      "number": 37,
+      "id": "SPQ92_37",
+      "prompt": {
+        "en": "I would be able to see the individual blades in a rotating fan even if it was at maximum speed.",
+        "zh": "即使风扇转速最高，我也能看清转动中每片叶片。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-motion"
+    },
+    {
+      "number": 38,
+      "id": "SPQ92_38",
+      "prompt": {
+        "en": "I would be able to tell the weight difference between two different coin sizes on the palm of my hand, if my eyes were closed.",
+        "zh": "如果闭上眼睛，我能够凭掌心上的重量区分两种不同大小的硬币。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pressure"
+    },
+    {
+      "number": 39,
+      "id": "SPQ92_39",
+      "prompt": {
+        "en": "I wouldn’t get dizzy on a carousel/merry-go-round, even at high speed.",
+        "zh": "即使旋转木马转得很快，我也不会头晕。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-vestibular"
+    },
+    {
+      "number": 40,
+      "id": "SPQ92_40",
+      "prompt": {
+        "en": "I can’t see written words on a page that other people can see.",
+        "zh": "别人能看见的纸上文字，我看不见。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-acuity"
+    },
+    {
+      "number": 41,
+      "id": "SPQ92_41",
+      "prompt": {
+        "en": "I would be able to distinguish between two oranges purely by their taste.",
+        "zh": "我只凭味道就能区分两个橙子。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-sour"
+    },
+    {
+      "number": 42,
+      "id": "SPQ92_42",
+      "prompt": {
+        "en": "I couldn’t distinguish a familiar person and a stranger by their smell.",
+        "zh": "我无法凭气味区分熟悉的人和陌生人。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-social"
+    },
+    {
+      "number": 43,
+      "id": "SPQ92_43",
+      "prompt": {
+        "en": "I couldn’t detect if bread is stale purely by its smell.",
+        "zh": "我无法只凭气味判断面包是否已经不新鲜。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-food"
+    },
+    {
+      "number": 44,
+      "id": "SPQ92_44",
+      "prompt": {
+        "en": "I can’t tell if my clothes are clean or dirty by smell alone.",
+        "zh": "我无法只凭气味判断衣服是干净还是脏了。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-neutral"
+    },
+    {
+      "number": 45,
+      "id": "SPQ92_45",
+      "prompt": {
+        "en": "I would be able to detect the sound of a vacuum cleaner from any room in a two-storey building.",
+        "zh": "在一栋两层建筑的任何房间里，我都能够听见吸尘器的声音。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 46,
+      "id": "SPQ92_46",
+      "prompt": {
+        "en": "I wouldn’t notice the difference between even and uneven ground when driving over it sitting in the back seat of a car.",
+        "zh": "坐在汽车后排经过路面时，我察觉不到平坦与不平坦路面之间的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-vibration"
+    },
+    {
+      "number": 47,
+      "id": "SPQ92_47",
+      "prompt": {
+        "en": "I would be able to drink a cup of boiling water straight after it had been poured from the kettle.",
+        "zh": "水刚从水壶里倒出、还在沸烫时，我也能够马上喝下一杯。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-pain"
+    },
+    {
+      "number": 48,
+      "id": "SPQ92_48",
+      "prompt": {
+        "en": "I couldn’t tell two types of green apples apart purely from their colour.",
+        "zh": "我无法只凭颜色区分两种青苹果。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-colour"
+    },
+    {
+      "number": 49,
+      "id": "SPQ92_49",
+      "prompt": {
+        "en": "I would be able to distinguish between an old and a new book by their smell.",
+        "zh": "我能够凭气味区分一本旧书和一本新书。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-neutral"
+    },
+    {
+      "number": 50,
+      "id": "SPQ92_50",
+      "prompt": {
+        "en": "I would be able to read a street sign from a distance of 100 feet (30 metres).",
+        "zh": "我能够从100英尺（30米）外看清街道标志。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-acuity"
+    },
+    {
+      "number": 51,
+      "id": "SPQ92_51",
+      "prompt": {
+        "en": "I can’t tell if cars passing me on the street are going at different speeds.",
+        "zh": "我无法判断街上从我身边驶过的汽车速度是否不同。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-motion"
+    },
+    {
+      "number": 52,
+      "id": "SPQ92_52",
+      "prompt": {
+        "en": "I would be able to notice if someone added 5 grains of sugar to my glass of water.",
+        "zh": "如果有人在我的一杯水中加了5粒糖，我会察觉。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 53,
+      "id": "SPQ92_53",
+      "prompt": {
+        "en": "I would have difficulty seeing a single leaf clearly even on a tree that is close up.",
+        "zh": "即使树离我很近，我也很难看清上面的一片叶子。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-acuitity"
+    },
+    {
+      "number": 54,
+      "id": "SPQ92_54",
+      "prompt": {
+        "en": "I wouldn’t taste if someone added a whole teaspoon of salt to my glass of water.",
+        "zh": "如果有人在我的一杯水中加了整整一茶匙盐，我也尝不出来。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-salty"
+    },
+    {
+      "number": 55,
+      "id": "SPQ92_55",
+      "prompt": {
+        "en": "I would be able to feel the elastic holding up my socks if I stop and thought about it.",
+        "zh": "如果停下来刻意感受，我能够感觉到支撑袜子的松紧带。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pressure"
+    },
+    {
+      "number": 56,
+      "id": "SPQ92_56",
+      "prompt": {
+        "en": "I can’t taste the difference between ripe and non-ripe fruit.",
+        "zh": "我尝不出成熟和未成熟水果之间的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 57,
+      "id": "SPQ92_57",
+      "prompt": {
+        "en": "I would be able to stand on one foot for fifteen seconds without wobbling.",
+        "zh": "我能够单脚站立15秒而不晃动。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-vestibular"
+    },
+    {
+      "number": 58,
+      "id": "SPQ92_58",
+      "prompt": {
+        "en": "I would be able to taste the difference between apparently identical pieces of candy.",
+        "zh": "我能够尝出两块看似完全相同的糖果之间的差别。"
+      },
+      "reverse": false,
+      "original_table_domain": "Taste-sweet"
+    },
+    {
+      "number": 59,
+      "id": "SPQ92_59",
+      "prompt": {
+        "en": "I notice the weight and pressure of a hat on my head.",
+        "zh": "我会察觉帽子戴在头上的重量和压力。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pressure"
+    },
+    {
+      "number": 60,
+      "id": "SPQ92_60",
+      "prompt": {
+        "en": "I would feel if a single hair touched the back of my hand.",
+        "zh": "如果一根头发碰到我的手背，我会感觉到。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-pressure"
+    },
+    {
+      "number": 61,
+      "id": "SPQ92_61",
+      "prompt": {
+        "en": "If I was walking along, I would be able to feel a passing truck’s vibrations even if my eyes were closed.",
+        "zh": "走路时，即使闭着眼睛，我也能够感觉到经过的卡车所造成的振动。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-vibration"
+    },
+    {
+      "number": 62,
+      "id": "SPQ92_62",
+      "prompt": {
+        "en": "I would be able to smell the smallest gas leak from anywhere in the house.",
+        "zh": "无论在家中哪里，我都能够闻到极少量燃气泄漏的气味。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-danger"
+    },
+    {
+      "number": 63,
+      "id": "SPQ92_63",
+      "prompt": {
+        "en": "I wouldn’t notice if someone changed their perfume, by smell alone.",
+        "zh": "如果有人换了香水，我无法只凭气味察觉。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-social"
+    },
+    {
+      "number": 64,
+      "id": "SPQ92_64",
+      "prompt": {
+        "en": "I would be able to tell when an elevator/lift started moving.",
+        "zh": "我能够感觉到电梯何时开始移动。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-vestibular"
+    },
+    {
+      "number": 65,
+      "id": "SPQ92_65",
+      "prompt": {
+        "en": "I can hear dog whistles very easily in the park.",
+        "zh": "在公园里，我很容易听见狗哨声。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 66,
+      "id": "SPQ92_66",
+      "prompt": {
+        "en": "I wouldn’t taste the difference between different types of lettuce leaves.",
+        "zh": "我尝不出不同种类生菜叶之间的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-bitter"
+    },
+    {
+      "number": 67,
+      "id": "SPQ92_67",
+      "prompt": {
+        "en": "I couldn’t taste if there were two slices of lemon in my glass of water if I was drinking it with my eyes closed.",
+        "zh": "如果闭着眼睛喝水，即使杯中有两片柠檬，我也尝不出来。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-sour"
+    },
+    {
+      "number": 68,
+      "id": "SPQ92_68",
+      "prompt": {
+        "en": "I can’t go out in bright sunlight without sunglasses.",
+        "zh": "没有太阳镜，我无法在明亮的阳光下外出。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-brightness"
+    },
+    {
+      "number": 69,
+      "id": "SPQ92_69",
+      "prompt": {
+        "en": "I would be able to read small print, such as a serial number on the back of a DVD, at 10 feet (3 metres) away.",
+        "zh": "我能够从10英尺（3米）外读出小字，例如DVD背面的序列号。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-acuity"
+    },
+    {
+      "number": 70,
+      "id": "SPQ92_70",
+      "prompt": {
+        "en": "I get motion sickness easily (for example, car sickness or sea sickness)",
+        "zh": "我很容易晕动，例如晕车或晕船。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-motion"
+    },
+    {
+      "number": 71,
+      "id": "SPQ92_71",
+      "prompt": {
+        "en": "I would be able to feel a change in the temperature of a cup of coffee after it had sat for 1 minute.",
+        "zh": "一杯咖啡放置1分钟后，我能够感觉到它的温度变化。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-temperature"
+    },
+    {
+      "number": 72,
+      "id": "SPQ92_72",
+      "prompt": {
+        "en": "I can’t hear very low frequency sounds, such as low voices.",
+        "zh": "我听不见很低频率的声音，例如低沉的人声。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 73,
+      "id": "SPQ92_73",
+      "prompt": {
+        "en": "I would be the first to hear if there was a fly in the room.",
+        "zh": "如果房间里有苍蝇，我会是第一个听见的人。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-loudness"
+    },
+    {
+      "number": 74,
+      "id": "SPQ92_74",
+      "prompt": {
+        "en": "If I look at a pile of blue sweaters in a shop that are meant to be identical, I would be able to see differences between them.",
+        "zh": "商店里有一堆本应完全相同的蓝色毛衣，我能够看出它们之间的差别。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-colour"
+    },
+    {
+      "number": 75,
+      "id": "SPQ92_75",
+      "prompt": {
+        "en": "I wouldn’t detect a new smell in my house instantly before anyone else.",
+        "zh": "家里出现新气味时，我不会比任何其他人都更早、立刻察觉。"
+      },
+      "reverse": true,
+      "original_table_domain": "Smell-neutral"
+    },
+    {
+      "number": 76,
+      "id": "SPQ92_76",
+      "prompt": {
+        "en": "I have perfect pitch: for example, I could repeat a musical tone without any cue.",
+        "zh": "我具有绝对音高：例如，没有任何提示，我也能重复一个乐音。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-complex"
+    },
+    {
+      "number": 77,
+      "id": "SPQ92_77",
+      "prompt": {
+        "en": "I would be able to bite into a lemon without any problems.",
+        "zh": "我能够咬一口柠檬而没有任何问题。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-sour"
+    },
+    {
+      "number": 78,
+      "id": "SPQ92_78",
+      "prompt": {
+        "en": "I wouldn’t need to wear a coat in the winter, even when it is zero degrees outside.",
+        "zh": "即使冬天室外是零度，我也不需要穿外套。"
+      },
+      "reverse": true,
+      "original_table_domain": "Touch-temperature"
+    },
+    {
+      "number": 79,
+      "id": "SPQ92_79",
+      "prompt": {
+        "en": "I wouldn’t be able to match the colour of a sweater in the shop with the colour of my trousers at home.",
+        "zh": "我无法把商店里毛衣的颜色与家中裤子的颜色相匹配。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-colour"
+    },
+    {
+      "number": 80,
+      "id": "SPQ92_80",
+      "prompt": {
+        "en": "I wouldn’t hear every single note when listening to music.",
+        "zh": "听音乐时，我无法听见每一个音。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-frequency"
+    },
+    {
+      "number": 81,
+      "id": "SPQ92_81",
+      "prompt": {
+        "en": "I would be able to smell the difference between most men and women.",
+        "zh": "我能够凭气味区分大多数男性和女性。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-social"
+    },
+    {
+      "number": 82,
+      "id": "SPQ92_82",
+      "prompt": {
+        "en": "I choose to wear muted colours.",
+        "zh": "我会选择穿颜色柔和的衣服。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-brightness"
+    },
+    {
+      "number": 83,
+      "id": "SPQ92_83",
+      "prompt": {
+        "en": "I listen to music at minimum loudness.",
+        "zh": "我听音乐时会把音量调到最低。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-loudness"
+    },
+    {
+      "number": 84,
+      "id": "SPQ92_84",
+      "prompt": {
+        "en": "I would be able to hear each note in a chord even if there were 10 notes.",
+        "zh": "即使一个和弦有10个音，我也能够听见其中的每个音。"
+      },
+      "reverse": false,
+      "original_table_domain": "Hearing-complexity"
+    },
+    {
+      "number": 85,
+      "id": "SPQ92_85",
+      "prompt": {
+        "en": "I close curtains to avoid bright lights.",
+        "zh": "我会拉上窗帘来避开明亮的光。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-acuity"
+    },
+    {
+      "number": 86,
+      "id": "SPQ92_86",
+      "prompt": {
+        "en": "I wouldn’t be able to hear differences in sound if the same instrument played the same note at different times.",
+        "zh": "同一种乐器在不同时间演奏同一个音时，我听不出声音上的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Hearing-complex"
+    },
+    {
+      "number": 87,
+      "id": "SPQ92_87",
+      "prompt": {
+        "en": "I would be able to distinguish two brands of coffee by their smell, even with my eyes closed.",
+        "zh": "即使闭着眼睛，我也能够凭气味区分两个品牌的咖啡。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-food"
+    },
+    {
+      "number": 88,
+      "id": "SPQ92_88",
+      "prompt": {
+        "en": "I can see dust particles in the air in most environments.",
+        "zh": "在大多数环境中，我都能看见空气中的尘埃颗粒。"
+      },
+      "reverse": false,
+      "original_table_domain": "Vision-acuity"
+    },
+    {
+      "number": 89,
+      "id": "SPQ92_89",
+      "prompt": {
+        "en": "I wouldn’t be able to taste the difference between two brands of tomato sauce if they had different concentrations of salt.",
+        "zh": "如果两个品牌的番茄酱含盐浓度不同，我也尝不出它们之间的差别。"
+      },
+      "reverse": true,
+      "original_table_domain": "Taste-salty"
+    },
+    {
+      "number": 90,
+      "id": "SPQ92_90",
+      "prompt": {
+        "en": "I would be able to smell the smallest amount of burning from anywhere in the house.",
+        "zh": "无论在家中哪里，我都能够闻到极轻微的烧焦气味。"
+      },
+      "reverse": false,
+      "original_table_domain": "Smell-danger"
+    },
+    {
+      "number": 91,
+      "id": "SPQ92_91",
+      "prompt": {
+        "en": "If my mobile phone was vibrating in my pocket I would be quick to sense it.",
+        "zh": "如果口袋里的手机振动，我会很快察觉。"
+      },
+      "reverse": false,
+      "original_table_domain": "Touch-vibration"
+    },
+    {
+      "number": 92,
+      "id": "SPQ92_92",
+      "prompt": {
+        "en": "I find it difficult to see individual stars on a clear night.",
+        "zh": "在晴朗的夜晚，我很难看清一颗颗星星。"
+      },
+      "reverse": true,
+      "original_table_domain": "Vision-acuitity"
+    }
+  ],
+  "method_proposal": "All92numeric -> original44reverse3-raw then total0..276;anyNAwithholdstotal/allNAfinish;noimputation/norms/cutoffs/objectivethreshold/medical/hiring/Dunn4/subdomainfactorclaim",
+  "limits": "DraftnewworkingZHneedsfullsemanticreview;sourceprovenance/attribution/publicwording/module/guide/font/testsnotcompleted. Descriptivehistoricalitemsdonotestablishactualability,hearingacuity,pitchrecognition,medicalneed,genderinferenceortolerance;notinstructionsforperformanceexperiments.",
+  "at": "2026-10-27T15:14:09.383317+00:00"
+}
