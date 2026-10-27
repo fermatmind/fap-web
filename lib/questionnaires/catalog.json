@@ -1,35 +1,5 @@
 [
   {
-    "slug": "nine-star-ki",
-    "code": "FM_NINE_STAR_YEAR_REFERENCE",
-    "version": "1.0.0",
-    "updated": "2026-10-28",
-    "category": "fantasy",
-    "title": {
-      "en": "Nine Star Ki Year Reference",
-      "zh": "九星气学节年参考"
-    },
-    "description": {
-      "en": "Find a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Explore nine cultural guides, with both labels retained when timing is uncertain.",
-      "zh": "按公历年份与立春界点查看有条件的九星节年标签，阅读九篇文化指南。时刻不确定时保留两个标签，不据出生年份测量人格或预测未来。"
-    },
-    "minutes": 2,
-    "formCode": "fm_nine_star_year_and_boundary_side_v1",
-    "questionCount": 0,
-    "resultSlugs": [
-      "one-white-water",
-      "two-black-earth",
-      "three-jade-wood",
-      "four-green-wood",
-      "five-yellow-earth",
-      "six-white-metal",
-      "seven-red-metal",
-      "eight-white-earth",
-      "nine-purple-fire"
-    ],
-    "collection": "explore"
-  },
-  {
     "slug": "disc",
     "code": "DISC_BEHAVIOR",
     "version": "1.0.0",
@@ -4956,5 +4926,35 @@
       "boundaries-review",
       "external-pressure-review"
     ]
+  },
+  {
+    "slug": "nine-star-ki",
+    "code": "FM_NINE_STAR_YEAR_REFERENCE",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "fantasy",
+    "title": {
+      "en": "Nine Star Ki Year Reference",
+      "zh": "九星气学节年参考"
+    },
+    "description": {
+      "en": "Find a conditional Nine Star Ki year label from a Gregorian year and its Beginning of Spring boundary. Explore nine cultural guides, with both labels retained when timing is uncertain.",
+      "zh": "按公历年份与立春界点查看有条件的九星节年标签，阅读九篇文化指南。时刻不确定时保留两个标签，不据出生年份测量人格或预测未来。"
+    },
+    "minutes": 2,
+    "formCode": "fm_nine_star_year_and_boundary_side_v1",
+    "questionCount": 0,
+    "resultSlugs": [
+      "one-white-water",
+      "two-black-earth",
+      "three-jade-wood",
+      "four-green-wood",
+      "five-yellow-earth",
+      "six-white-metal",
+      "seven-red-metal",
+      "eight-white-earth",
+      "nine-purple-fire"
+    ],
+    "collection": "explore"
   }
 ]
