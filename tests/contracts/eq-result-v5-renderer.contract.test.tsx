@@ -78,6 +78,8 @@ describe("EQ v5 pure renderer contract", () => {
       "BACKEND_COPY[en:science.non_clinical_statement]",
       "BACKEND_COPY[en:cross.claim_boundary]",
       "BACKEND_COPY[en:agent_entry.body]",
+      "BACKEND_COPY[en:depth.what_this_does_not_mean]",
+      "BACKEND_COPY[en:depth.next_read]",
     ]) expect(result).toHaveTextContent(marker);
     expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
   });
@@ -86,6 +88,8 @@ describe("EQ v5 pure renderer contract", () => {
     render(<EQResultV5 locale="zh" reportData={standardResponse("zh-CN")} />);
     const result = screen.getByTestId("eq-result-v5");
     expect(result).toHaveTextContent("BACKEND_COPY[zh-CN:route.route_headline]");
+    expect(result).toHaveTextContent("BACKEND_COPY[zh-CN:depth.what_this_does_not_mean]");
+    expect(result).toHaveTextContent("BACKEND_COPY[zh-CN:depth.next_read]");
     expect(result).toHaveTextContent("科学边界");
     expect(result).toHaveTextContent("阶段性");
     expect(result).not.toHaveTextContent("BACKEND_COPY[en:");
@@ -102,6 +106,19 @@ describe("EQ v5 pure renderer contract", () => {
     expect(result).not.toHaveTextContent("Responses were completed unusually quickly");
     expect(screen.queryByTestId("eq-evidence-snapshot")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-agent-entry-guard")).not.toBeInTheDocument();
+  });
+
+  it("keeps earlier depth modules readable without optional boundary and next-reading fields", () => {
+    const reportData = standardResponse();
+    const modules = ((reportData.report as Record<string, unknown>).assets as Record<string, unknown>).result_page_depth_modules as Record<string, unknown>[];
+    delete modules[0].what_this_does_not_mean;
+    delete modules[0].next_read;
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+    const depth = screen.getByTestId("eq-result-depth-modules");
+    expect(depth).toHaveTextContent("BACKEND_COPY[en:depth.body]");
+    expect(depth).toHaveTextContent("BACKEND_COPY[en:depth.bullet]");
+    expect(depth).not.toHaveTextContent("BACKEND_COPY[en:depth.what_this_does_not_mean]");
+    expect(depth).not.toHaveTextContent("BACKEND_COPY[en:depth.next_read]");
   });
 
   it("fails closed when a low-confidence report lacks its quality explanation", () => {

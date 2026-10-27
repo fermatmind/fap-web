@@ -342,6 +342,8 @@ export type EqResultPageDepthModuleAsset = {
   title?: string;
   body?: string;
   bullets?: string[];
+  what_this_does_not_mean?: string;
+  next_read?: string;
   claim_risk?: string;
 };
 

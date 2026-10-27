@@ -33,6 +33,12 @@ for (const locale of ["zh", "en"] as const) for (const product of ["IQ", "EQ"] a
     await resultFixture(page, product, locale);
     const practice = page.getByTestId(product === 'IQ' ? 'iq-process-practice' : 'eq-event-practice');
     await expect(practice).toBeVisible({ timeout: 30000 });
+    if (product === 'EQ') {
+      const depth = page.getByTestId('eq-result-depth-modules');
+      const backendLocale = locale === 'zh' ? 'zh-CN' : 'en';
+      await expect(depth).toContainText(`BACKEND_COPY[${backendLocale}:depth.what_this_does_not_mean]`);
+      await expect(depth).toContainText(`BACKEND_COPY[${backendLocale}:depth.next_read]`);
+    }
     for (const width of [360, 390]) {
       await page.setViewportSize({ width, height: 844 });
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width + 1);

@@ -148,7 +148,7 @@ export function buildEqRendererContractFixture(
         seven_day_plan: [marker(locale, "action.plan")],
       },
       commercial_conversion_actions: lowConfidence ? [] : [{ id: "eq.conversion.agent_entry", ...copyFields(locale, "agent_entry", ["title", "body", "cta_label", "do_not_overread"]) }],
-      result_page_depth_modules: lowConfidence ? [] : [{ id: "contract_depth", placement: "evidence snapshot", ...copyFields(locale, "depth", ["title", "body"]), bullets: [marker(locale, "depth.bullet")], claim_risk: "low" }],
+      result_page_depth_modules: lowConfidence ? [] : [{ id: "contract_depth", placement: "evidence snapshot", ...copyFields(locale, "depth", ["title", "body", "what_this_does_not_mean", "next_read"]), bullets: [marker(locale, "depth.bullet")], claim_risk: "low" }],
       psychometric_evidence_status: [{ id: "contract_evidence", status: "preliminary", ...copyFields(locale, "evidence", ["label", "user_facing_status_label", "summary", "user_meaning", "what_this_means_for_user", "validation_step", "next_validation_step", "do_not_overread"]) }],
       cross_assessment_context: lowConfidence ? [] : [{ id: "contract_cross", ...copyFields(locale, "cross", ["title", "summary", "how_to_use", "claim_boundary"]) }],
       agent_dialogue_playbooks: [],

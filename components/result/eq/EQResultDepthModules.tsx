@@ -28,6 +28,12 @@ export function EQResultDepthModules({ viewModel }: { viewModel: EqV5ViewModel }
                 ))}
               </ul>
             ) : null}
+            {typeof module.what_this_does_not_mean === "string" && module.what_this_does_not_mean.trim() ? (
+              <p className="mt-3 border-t border-slate-200 pt-3 text-sm leading-6 text-slate-600">{module.what_this_does_not_mean}</p>
+            ) : null}
+            {typeof module.next_read === "string" && module.next_read.trim() ? (
+              <p className="mt-3 text-sm leading-6 text-slate-700">{module.next_read}</p>
+            ) : null}
           </article>
         ))}
       </div>
