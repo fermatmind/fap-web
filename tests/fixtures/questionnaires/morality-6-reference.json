@@ -1,0 +1,4421 @@
+{
+  "id": "T183",
+  "formCode": "mfq2_osf_docx_36_zh_working_v1",
+  "sourceItems": [
+    {
+      "id": "MFQ2_001",
+      "sourceNumber": 1,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "Caring for people who have suffered is an important virtue.",
+        "zh": "关心受苦的人是一种重要的美德。"
+      },
+      "authorChineseReference": "关心受苦的人是一种重要的美德。"
+    },
+    {
+      "id": "MFQ2_002",
+      "sourceNumber": 2,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "The world would be a better place if everyone made the same amount of money.",
+        "zh": "如果每个人都赚同样多的钱，世界会更美好。"
+      },
+      "authorChineseReference": "如果每个人都赚同样多的钱，那么这个世界会更美好。"
+    },
+    {
+      "id": "MFQ2_003",
+      "sourceNumber": 3,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "I think people who are more hard-working should end up with more money.",
+        "zh": "我认为，更努力工作的人最终应当拥有更多的钱。"
+      },
+      "authorChineseReference": "我认为，更努力的人最终应当更有钱。"
+    },
+    {
+      "id": "MFQ2_004",
+      "sourceNumber": 4,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "I think children should be taught to be loyal to their country.",
+        "zh": "我认为，应当教育孩子忠于自己的国家。"
+      },
+      "authorChineseReference": "我认为应当教育孩子对国家忠诚。"
+    },
+    {
+      "id": "MFQ2_005",
+      "sourceNumber": 5,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "I think it is important for societies to cherish their traditional values.",
+        "zh": "我认为，社会珍视其传统价值很重要。"
+      },
+      "authorChineseReference": "我认为，珍惜传统价值对社会很重要。"
+    },
+    {
+      "id": "MFQ2_006",
+      "sourceNumber": 6,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "I think the human body should be treated like a temple, housing something sacred within.",
+        "zh": "我认为，应当把人体视为一座圣殿，其中承载着神圣的东西。"
+      },
+      "authorChineseReference": "我认为，应当把人体看成一座圣殿，里面装着神圣的东西。"
+    },
+    {
+      "id": "MFQ2_007",
+      "sourceNumber": 7,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe that compassion for those who are suffering is one of the most crucial virtues.",
+        "zh": "我相信，同情那些正在受苦的人是最重要的美德之一。"
+      },
+      "authorChineseReference": "我认为，同情受苦的人是最重要的美德之一。"
+    },
+    {
+      "id": "MFQ2_008",
+      "sourceNumber": 8,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "Our society would have fewer problems if people had the same income.",
+        "zh": "如果人们拥有相同的收入，我们的社会问题会更少。"
+      },
+      "authorChineseReference": "如果人们拥有相同的收入，我们的社会问题将更少。"
+    },
+    {
+      "id": "MFQ2_009",
+      "sourceNumber": 9,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "I think people should be rewarded in proportion to what they contribute.",
+        "zh": "我认为，人们应当获得与其贡献成比例的回报。"
+      },
+      "authorChineseReference": "我认为，人们应当得到与其贡献相称的奖励。"
+    },
+    {
+      "id": "MFQ2_010",
+      "sourceNumber": 10,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "It upsets me when people have no loyalty to their country.",
+        "zh": "当人们对自己的国家不忠时，我会感到不安。"
+      },
+      "authorChineseReference": "当人们对自己的国家不忠时，我感到沮丧。"
+    },
+    {
+      "id": "MFQ2_011",
+      "sourceNumber": 11,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "I feel that most traditions serve a valuable function in keeping society orderly.",
+        "zh": "我觉得，大多数传统对维持社会秩序发挥着有价值的作用。"
+      },
+      "authorChineseReference": "我觉得大多数传统在保持社会秩序方面发挥着重要作用。"
+    },
+    {
+      "id": "MFQ2_012",
+      "sourceNumber": 12,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe chastity is an important virtue.",
+        "zh": "我相信，贞洁是一种重要的美德。"
+      },
+      "authorChineseReference": "我相信，贞洁是一种重要的美德。"
+    },
+    {
+      "id": "MFQ2_013",
+      "sourceNumber": 13,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "We should all care for people who are in emotional pain.",
+        "zh": "我们都应当关心正在承受情感痛苦的人。"
+      },
+      "authorChineseReference": "我们都应当关心那些遭受情感痛苦的人。"
+    },
+    {
+      "id": "MFQ2_014",
+      "sourceNumber": 14,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe that everyone should be given the same quantity of resources in life.",
+        "zh": "我相信，每个人都应当在生活中获得相同数量的资源。"
+      },
+      "authorChineseReference": "我认为，每个人都应当获得相同数量的生活资源。"
+    },
+    {
+      "id": "MFQ2_015",
+      "sourceNumber": 15,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "The effort a worker puts into a job ought to be reflected in the size of a raise they receive.",
+        "zh": "劳动者在工作中付出的努力，应当体现在其获得的加薪幅度上。"
+      },
+      "authorChineseReference": "一个工人在工作当中所做的努力应当反映在他所获得的加薪中。"
+    },
+    {
+      "id": "MFQ2_016",
+      "sourceNumber": 16,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "Everyone should love their own community.",
+        "zh": "每个人都应当热爱自己所属的共同体。"
+      },
+      "authorChineseReference": "每个人都应当爱自己的国家。"
+    },
+    {
+      "id": "MFQ2_017",
+      "sourceNumber": 17,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "I think obedience to parents is an important virtue.",
+        "zh": "我认为，服从父母是一种重要的美德。"
+      },
+      "authorChineseReference": "我认为，孝顺父母是一种重要的美德。"
+    },
+    {
+      "id": "MFQ2_018",
+      "sourceNumber": 18,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "It upsets me when people use foul language like it is nothing.",
+        "zh": "当人们把说粗话当作无所谓的事时，我会感到不安。"
+      },
+      "authorChineseReference": "当人们觉得说脏话无所谓时，我会感到沮丧。"
+    },
+    {
+      "id": "MFQ2_019",
+      "sourceNumber": 19,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "I am empathetic toward those people who have suffered in their lives.",
+        "zh": "我对那些在生活中受过苦的人抱有同情。"
+      },
+      "authorChineseReference": "我很同情那些在生活中遭受痛苦的人。"
+    },
+    {
+      "id": "MFQ2_020",
+      "sourceNumber": 20,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe it would be ideal if everyone in society wound up with roughly the same amount of money.",
+        "zh": "我相信，如果社会中每个人最终都拥有大致同样多的钱，会是理想的情况。"
+      },
+      "authorChineseReference": "我认为，如果全社会每个人都能得到大致同样多的钱，那将是非常理想的。"
+    },
+    {
+      "id": "MFQ2_021",
+      "sourceNumber": 21,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "It makes me happy when people are recognized on their merits.",
+        "zh": "当人们凭自身优点获得认可时，我会感到高兴。"
+      },
+      "authorChineseReference": "当人们的优点得到认可时，我会感到很高兴。"
+    },
+    {
+      "id": "MFQ2_022",
+      "sourceNumber": 22,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "Everyone should defend their country, if called upon.",
+        "zh": "如果受到召唤，每个人都应当保卫自己的国家。"
+      },
+      "authorChineseReference": "如果有需要，每个人都应当保卫自己的国家。"
+    },
+    {
+      "id": "MFQ2_023",
+      "sourceNumber": 23,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "We all need to learn from our elders.",
+        "zh": "我们都需要向长辈学习。"
+      },
+      "authorChineseReference": "我们都需要向长辈学习。"
+    },
+    {
+      "id": "MFQ2_024",
+      "sourceNumber": 24,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "If I found out that an acquaintance had an unusual but harmless sexual fetish I would feel uneasy about them.",
+        "zh": "如果发现一位熟人有不常见但无害的性癖好，我会对这个人感到不自在。"
+      },
+      "authorChineseReference": "如果我发现熟人有不自然但无害的恋物癖，我会对他们感到不舒服。"
+    },
+    {
+      "id": "MFQ2_025",
+      "sourceNumber": 25,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "Everyone should try to comfort people who are going through something hard.",
+        "zh": "每个人都应当努力安慰那些正在经历困难的人。"
+      },
+      "authorChineseReference": "每个人都应当尽力安慰那些正在经受困难的人。"
+    },
+    {
+      "id": "MFQ2_026",
+      "sourceNumber": 26,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.",
+        "zh": "当人们为共同目标一起工作时，应当平等分享回报，即使有人付出了更多努力。"
+      },
+      "authorChineseReference": "当人们为了实现一个共同目标而一起努力时，他们应当平等地分享回报，即使 有些人为此付出了更大的努力。"
+    },
+    {
+      "id": "MFQ2_027",
+      "sourceNumber": 27,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "In a fair society, I want people who work harder than others to end up richer than others.",
+        "zh": "在公平的社会中，我希望比别人更努力工作的人最终比别人更富有。"
+      },
+      "authorChineseReference": "在公平的社会，我希望比别人努力的人最终比别人更富有。"
+    },
+    {
+      "id": "MFQ2_028",
+      "sourceNumber": 28,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "Everyone should feel proud when a person in their community wins in an international competition.",
+        "zh": "当自己所属共同体的一位成员在国际比赛中获胜时，每个人都应当感到自豪。"
+      },
+      "authorChineseReference": "当自己国家的人在国际比赛中获胜时，每个人都应当感到自豪。"
+    },
+    {
+      "id": "MFQ2_029",
+      "sourceNumber": 29,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe that one of the most important values to teach children is to have respect for authority.",
+        "zh": "我相信，教给孩子的最重要价值观之一是尊重权威。"
+      },
+      "authorChineseReference": "我认为，教给孩子的一个最重要的价值观就是尊重权威。"
+    },
+    {
+      "id": "MFQ2_030",
+      "sourceNumber": 30,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "People should try to use natural medicines rather than chemically identical human-made ones.",
+        "zh": "人们应当尽量使用天然药物，而不是化学成分相同的人造药物。"
+      },
+      "authorChineseReference": "人们应当尽量使用天然药物，而不是人造的化学药物。"
+    },
+    {
+      "id": "MFQ2_031",
+      "sourceNumber": 31,
+      "domain": "care",
+      "reverse": false,
+      "prompt": {
+        "en": "It pains me when I see someone ignoring the needs of another human being.",
+        "zh": "看到有人无视另一个人的需求时，我会感到痛苦。"
+      },
+      "authorChineseReference": "当看到有人无视另一个人的需求时，我会感到很痛苦。"
+    },
+    {
+      "id": "MFQ2_032",
+      "sourceNumber": 32,
+      "domain": "equality",
+      "reverse": false,
+      "prompt": {
+        "en": "I get upset when some people have a lot more money than others in my country.",
+        "zh": "当我们国家有些人的钱远远多于其他人时，我会感到不安。"
+      },
+      "authorChineseReference": "当我们国家有些人的钱比其他人多很多时，我会感到沮丧。"
+    },
+    {
+      "id": "MFQ2_033",
+      "sourceNumber": 33,
+      "domain": "proportionality",
+      "reverse": false,
+      "prompt": {
+        "en": "I feel good when I see cheaters get caught and punished.",
+        "zh": "看到作弊者被抓住并受到惩罚时，我感觉很好。"
+      },
+      "authorChineseReference": "当看到骗子被抓并受到惩罚时，我感觉很好。"
+    },
+    {
+      "id": "MFQ2_034",
+      "sourceNumber": 34,
+      "domain": "loyalty",
+      "reverse": false,
+      "prompt": {
+        "en": "I believe the strength of a sports team comes from the loyalty of its members to each other.",
+        "zh": "我相信，一支运动队的力量来自其成员之间彼此的忠诚。"
+      },
+      "authorChineseReference": "我认为家庭的力量来自于家庭成员之间彼此的忠诚。"
+    },
+    {
+      "id": "MFQ2_035",
+      "sourceNumber": 35,
+      "domain": "authority",
+      "reverse": false,
+      "prompt": {
+        "en": "I think having a strong leader is good for society.",
+        "zh": "我认为，拥有一位强有力的领导者对社会有好处。"
+      },
+      "authorChineseReference": "我认为，坚强、有决断力的领导对社会有好处。"
+    },
+    {
+      "id": "MFQ2_036",
+      "sourceNumber": 36,
+      "domain": "purity",
+      "reverse": false,
+      "prompt": {
+        "en": "I admire people who keep their virginity until marriage.",
+        "zh": "我钦佩那些在结婚前保持童贞的人。"
+      },
+      "authorChineseReference": "我钦佩那些在婚前保持贞操的人。"
+    }
+  ],
+  "originalItems": [
+    {
+      "id": "MFQ2_001",
+      "domain": "care",
+      "sourceNumber": 1
+    },
+    {
+      "id": "MFQ2_002",
+      "domain": "equality",
+      "sourceNumber": 2
+    },
+    {
+      "id": "MFQ2_003",
+      "domain": "proportionality",
+      "sourceNumber": 3
+    },
+    {
+      "id": "MFQ2_004",
+      "domain": "loyalty",
+      "sourceNumber": 4
+    },
+    {
+      "id": "MFQ2_005",
+      "domain": "authority",
+      "sourceNumber": 5
+    },
+    {
+      "id": "MFQ2_006",
+      "domain": "purity",
+      "sourceNumber": 6
+    },
+    {
+      "id": "MFQ2_007",
+      "domain": "care",
+      "sourceNumber": 7
+    },
+    {
+      "id": "MFQ2_008",
+      "domain": "equality",
+      "sourceNumber": 8
+    },
+    {
+      "id": "MFQ2_009",
+      "domain": "proportionality",
+      "sourceNumber": 9
+    },
+    {
+      "id": "MFQ2_010",
+      "domain": "loyalty",
+      "sourceNumber": 10
+    },
+    {
+      "id": "MFQ2_011",
+      "domain": "authority",
+      "sourceNumber": 11
+    },
+    {
+      "id": "MFQ2_012",
+      "domain": "purity",
+      "sourceNumber": 12
+    },
+    {
+      "id": "MFQ2_013",
+      "domain": "care",
+      "sourceNumber": 13
+    },
+    {
+      "id": "MFQ2_014",
+      "domain": "equality",
+      "sourceNumber": 14
+    },
+    {
+      "id": "MFQ2_015",
+      "domain": "proportionality",
+      "sourceNumber": 15
+    },
+    {
+      "id": "MFQ2_016",
+      "domain": "loyalty",
+      "sourceNumber": 16
+    },
+    {
+      "id": "MFQ2_017",
+      "domain": "authority",
+      "sourceNumber": 17
+    },
+    {
+      "id": "MFQ2_018",
+      "domain": "purity",
+      "sourceNumber": 18
+    },
+    {
+      "id": "MFQ2_019",
+      "domain": "care",
+      "sourceNumber": 19
+    },
+    {
+      "id": "MFQ2_020",
+      "domain": "equality",
+      "sourceNumber": 20
+    },
+    {
+      "id": "MFQ2_021",
+      "domain": "proportionality",
+      "sourceNumber": 21
+    },
+    {
+      "id": "MFQ2_022",
+      "domain": "loyalty",
+      "sourceNumber": 22
+    },
+    {
+      "id": "MFQ2_023",
+      "domain": "authority",
+      "sourceNumber": 23
+    },
+    {
+      "id": "MFQ2_024",
+      "domain": "purity",
+      "sourceNumber": 24
+    },
+    {
+      "id": "MFQ2_025",
+      "domain": "care",
+      "sourceNumber": 25
+    },
+    {
+      "id": "MFQ2_026",
+      "domain": "equality",
+      "sourceNumber": 26
+    },
+    {
+      "id": "MFQ2_027",
+      "domain": "proportionality",
+      "sourceNumber": 27
+    },
+    {
+      "id": "MFQ2_028",
+      "domain": "loyalty",
+      "sourceNumber": 28
+    },
+    {
+      "id": "MFQ2_029",
+      "domain": "authority",
+      "sourceNumber": 29
+    },
+    {
+      "id": "MFQ2_030",
+      "domain": "purity",
+      "sourceNumber": 30
+    },
+    {
+      "id": "MFQ2_031",
+      "domain": "care",
+      "sourceNumber": 31
+    },
+    {
+      "id": "MFQ2_032",
+      "domain": "equality",
+      "sourceNumber": 32
+    },
+    {
+      "id": "MFQ2_033",
+      "domain": "proportionality",
+      "sourceNumber": 33
+    },
+    {
+      "id": "MFQ2_034",
+      "domain": "loyalty",
+      "sourceNumber": 34
+    },
+    {
+      "id": "MFQ2_035",
+      "domain": "authority",
+      "sourceNumber": 35
+    },
+    {
+      "id": "MFQ2_036",
+      "domain": "purity",
+      "sourceNumber": 36
+    }
+  ],
+  "questions": [
+    {
+      "id": "MFQ2_001",
+      "prompt": {
+        "en": "Caring for people who have suffered is an important virtue.",
+        "zh": "关心受苦的人是一种重要的美德。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_002",
+      "prompt": {
+        "en": "The world would be a better place if everyone made the same amount of money.",
+        "zh": "如果每个人都赚同样多的钱，世界会更美好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_003",
+      "prompt": {
+        "en": "I think people who are more hard-working should end up with more money.",
+        "zh": "我认为，更努力工作的人最终应当拥有更多的钱。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_004",
+      "prompt": {
+        "en": "I think children should be taught to be loyal to their country.",
+        "zh": "我认为，应当教育孩子忠于自己的国家。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_005",
+      "prompt": {
+        "en": "I think it is important for societies to cherish their traditional values.",
+        "zh": "我认为，社会珍视其传统价值很重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_006",
+      "prompt": {
+        "en": "I think the human body should be treated like a temple, housing something sacred within.",
+        "zh": "我认为，应当把人体视为一座圣殿，其中承载着神圣的东西。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_007",
+      "prompt": {
+        "en": "I believe that compassion for those who are suffering is one of the most crucial virtues.",
+        "zh": "我相信，同情那些正在受苦的人是最重要的美德之一。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_008",
+      "prompt": {
+        "en": "Our society would have fewer problems if people had the same income.",
+        "zh": "如果人们拥有相同的收入，我们的社会问题会更少。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_009",
+      "prompt": {
+        "en": "I think people should be rewarded in proportion to what they contribute.",
+        "zh": "我认为，人们应当获得与其贡献成比例的回报。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_010",
+      "prompt": {
+        "en": "It upsets me when people have no loyalty to their country.",
+        "zh": "当人们对自己的国家不忠时，我会感到不安。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_011",
+      "prompt": {
+        "en": "I feel that most traditions serve a valuable function in keeping society orderly.",
+        "zh": "我觉得，大多数传统对维持社会秩序发挥着有价值的作用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_012",
+      "prompt": {
+        "en": "I believe chastity is an important virtue.",
+        "zh": "我相信，贞洁是一种重要的美德。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_013",
+      "prompt": {
+        "en": "We should all care for people who are in emotional pain.",
+        "zh": "我们都应当关心正在承受情感痛苦的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_014",
+      "prompt": {
+        "en": "I believe that everyone should be given the same quantity of resources in life.",
+        "zh": "我相信，每个人都应当在生活中获得相同数量的资源。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_015",
+      "prompt": {
+        "en": "The effort a worker puts into a job ought to be reflected in the size of a raise they receive.",
+        "zh": "劳动者在工作中付出的努力，应当体现在其获得的加薪幅度上。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_016",
+      "prompt": {
+        "en": "Everyone should love their own community.",
+        "zh": "每个人都应当热爱自己所属的共同体。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_017",
+      "prompt": {
+        "en": "I think obedience to parents is an important virtue.",
+        "zh": "我认为，服从父母是一种重要的美德。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_018",
+      "prompt": {
+        "en": "It upsets me when people use foul language like it is nothing.",
+        "zh": "当人们把说粗话当作无所谓的事时，我会感到不安。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_019",
+      "prompt": {
+        "en": "I am empathetic toward those people who have suffered in their lives.",
+        "zh": "我对那些在生活中受过苦的人抱有同情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_020",
+      "prompt": {
+        "en": "I believe it would be ideal if everyone in society wound up with roughly the same amount of money.",
+        "zh": "我相信，如果社会中每个人最终都拥有大致同样多的钱，会是理想的情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_021",
+      "prompt": {
+        "en": "It makes me happy when people are recognized on their merits.",
+        "zh": "当人们凭自身优点获得认可时，我会感到高兴。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_022",
+      "prompt": {
+        "en": "Everyone should defend their country, if called upon.",
+        "zh": "如果受到召唤，每个人都应当保卫自己的国家。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_023",
+      "prompt": {
+        "en": "We all need to learn from our elders.",
+        "zh": "我们都需要向长辈学习。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_024",
+      "prompt": {
+        "en": "If I found out that an acquaintance had an unusual but harmless sexual fetish I would feel uneasy about them.",
+        "zh": "如果发现一位熟人有不常见但无害的性癖好，我会对这个人感到不自在。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_025",
+      "prompt": {
+        "en": "Everyone should try to comfort people who are going through something hard.",
+        "zh": "每个人都应当努力安慰那些正在经历困难的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_026",
+      "prompt": {
+        "en": "When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.",
+        "zh": "当人们为共同目标一起工作时，应当平等分享回报，即使有人付出了更多努力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_027",
+      "prompt": {
+        "en": "In a fair society, I want people who work harder than others to end up richer than others.",
+        "zh": "在公平的社会中，我希望比别人更努力工作的人最终比别人更富有。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_028",
+      "prompt": {
+        "en": "Everyone should feel proud when a person in their community wins in an international competition.",
+        "zh": "当自己所属共同体的一位成员在国际比赛中获胜时，每个人都应当感到自豪。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_029",
+      "prompt": {
+        "en": "I believe that one of the most important values to teach children is to have respect for authority.",
+        "zh": "我相信，教给孩子的最重要价值观之一是尊重权威。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_030",
+      "prompt": {
+        "en": "People should try to use natural medicines rather than chemically identical human-made ones.",
+        "zh": "人们应当尽量使用天然药物，而不是化学成分相同的人造药物。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_031",
+      "prompt": {
+        "en": "It pains me when I see someone ignoring the needs of another human being.",
+        "zh": "看到有人无视另一个人的需求时，我会感到痛苦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_032",
+      "prompt": {
+        "en": "I get upset when some people have a lot more money than others in my country.",
+        "zh": "当我们国家有些人的钱远远多于其他人时，我会感到不安。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "equality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "equality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "equality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "equality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "equality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "equality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_033",
+      "prompt": {
+        "en": "I feel good when I see cheaters get caught and punished.",
+        "zh": "看到作弊者被抓住并受到惩罚时，我感觉很好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "proportionality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "proportionality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "proportionality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "proportionality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "proportionality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "proportionality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_034",
+      "prompt": {
+        "en": "I believe the strength of a sports team comes from the loyalty of its members to each other.",
+        "zh": "我相信，一支运动队的力量来自其成员之间彼此的忠诚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "loyalty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "loyalty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "loyalty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "loyalty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "loyalty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "loyalty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_035",
+      "prompt": {
+        "en": "I think having a strong leader is good for society.",
+        "zh": "我认为，拥有一位强有力的领导者对社会有好处。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "authority",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "authority",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "authority",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "authority",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "authority",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "authority",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MFQ2_036",
+      "prompt": {
+        "en": "I admire people who keep their virginity until marriage.",
+        "zh": "我钦佩那些在结婚前保持童贞的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "对我的描述一点也不贴切"
+          },
+          "directionId": "purity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Slightly describes me",
+            "zh": "对我的描述有点贴切"
+          },
+          "directionId": "purity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately describes me",
+            "zh": "对我的描述比较贴切"
+          },
+          "directionId": "purity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes me fairly well",
+            "zh": "对我的描述相当贴切"
+          },
+          "directionId": "purity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me extremely well",
+            "zh": "对我的描述极其贴切"
+          },
+          "directionId": "purity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot represent my position / prefer not to answer (NA)",
+            "zh": "无法表达我的观点／不愿回答（NA）"
+          },
+          "directionId": "purity",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "care",
+      "directionIds": [
+        "care"
+      ],
+      "title": {
+        "en": "Care: concern for suffering",
+        "zh": "关怀：对他人受苦的关注"
+      },
+      "headline": {
+        "en": "Read endorsement of care statements without turning it into a verdict on character.",
+        "zh": "理解对关怀命题的认同，不将它变成品格判决。"
+      },
+      "summary": {
+        "en": "The six Care items concern compassion, emotional suffering, comfort and attention to another person’s needs. Their mean summarizes how well these statements describe you or your opinions. It does not count kind acts or certify how ethically you behave.",
+        "zh": "六条关怀题涉及同情、情感痛苦、安慰及对他人需求的注意。均分汇总这些陈述在多大程度上描述你或你的观点，不统计善行次数，也不认证行为是否有道德。"
+      },
+      "scoreReading": {
+        "en": "Use items 1, 7, 13, 19, 25 and 31 in the fixed English source order. All six are directly keyed on the one-to-five describes-me scale. This presentation requires all six valid ratings; any NA withholds this foundation’s personal figures.",
+        "zh": "固定英文源题序中取第1、7、13、19、25、31题，六条均按1—5贴切程度正向计分。本呈现要求六条全部有效；任一NA只使本基础的个人数字保留不足。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "What these six statements cover",
+            "zh": "这六条陈述覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The source defines Care in terms of intuitions about avoiding emotional and physical damage to another person. The final six statements emphasize compassion, comforting people and noticing unmet needs. Those are related moral concerns, but the questions remain self-descriptions and opinions rather than observations of what you did. A response may reflect an ideal you endorse, the way you understand suffering or the examples that came to mind. Keep the item wording beside the number so that a general label does not replace those specific judgments.",
+              "zh": "源文将关怀界定为避免他人情感和身体受损的直觉，最终六条着重同情、安慰与注意未被满足的需求。题目仍是自我描述和观点，不是对实际行为的观察。回答可能反映所认同的理想、对受苦的理解，或当时想到的例子；应把具体表述与数字放在一起理解。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "When the mean is relatively higher",
+            "zh": "均分相对较高时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that the care-oriented statements describe your views more closely within this response scale. It is not evidence that you always recognize another person’s needs accurately or have enough time and resources to respond. Strong concern can coexist with uncertainty about what help is wanted or with a boundary on what you can provide. Nor does this value establish a stable difference from people with a slightly lower mean. The questionnaire supplies no personal error interval or population reference for that comparison here.",
+              "zh": "均分较高，表示这些关怀表述在本量尺中较贴近你的观点，不证明总能准确识别需求，也不证明有足够时间和资源回应。重视他人仍可能同时不确定对方需要什么，或对自己能提供什么设有边界。本站没有个人误差区间和人口参照，不能用很小的均分差距确定谁更有关怀。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "When the mean is relatively lower",
+            "zh": "均分相对较低时"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean means less endorsement of these particular statements. It does not establish cruelty, a lack of empathy, a clinical condition or approval of causing harm. You might hesitate over universal wording, distinguish emotional identification from practical help, or interpret a statement through an unusual situation. The response options cannot tell those explanations apart. Review the items on which you gave a low rating and identify what you meant before applying a broad description. The result is about the selected self-reports, not a diagnosis of motives.",
+              "zh": "较低只表示较少认同这些具体陈述，不证明残忍、缺乏同理心、存在临床问题或认可伤害。有人对普遍化措辞保留意见，有人区分情感认同与实际帮助，也有人想到特殊情境。选项不能区分这些原因；先回看哪些条目较低以及自己的含义，再考虑描述，不能由此诊断动机。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "The midpoint and missing information",
+            "zh": "中间值与资料不足"
+          },
+          "paragraphs": [
+            {
+              "en": "Six ratings of three give a mean of 3.00, but the same mean can come from several strongly contrasting responses. A middle value is therefore not a finding that you care a moderate amount. It can hide a difference between valuing comfort and identifying with another person’s feelings. NA serves a different purpose when a statement cannot represent your position or you choose not to answer. We withhold this foundation’s mean instead of substituting three, while other fully rated foundations remain available separately.",
+              "zh": "六条都选3得到3.00，但几项很高、几项很低也可能得到同样均分，所以中间值不能叫“关怀程度中等”。它可能掩盖安慰行为与情感认同之间的差别。命题无法表达观点或不愿回答时可选NA；本基础不补3，也不借用其他基础的答案，其他完整组仍分别呈现。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Recalculate a 21-point example",
+            "zh": "复算总和21的算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider fictional ratings of 4, 3, 5, 2, 4 and 3 for the six Care items in their source order. The sum is twenty-one and 21 divided by 6 is 3.50. There are no reversed items or additional weights in this group. The display uses the unrounded sum rather than repeatedly rounding an intermediate result. If the fourth response changes to NA, the five remaining ratings do not become a shorter validated scale: this presentation withholds the personal sum and mean for Care.",
+              "zh": "假设按关怀六题源顺序回答4、3、5、2、4、3，总和21，21除以6为3.50。本组没有反向题或额外权重，显示使用未舍入总和。若第四条改为NA，不能把余下五题当成另一套经验证的短量表；本站让关怀个人总和及均分保持不足。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A similar answer need not imply similar conduct",
+            "zh": "相似回答未必意味着相似行为"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional respondents can both endorse comforting someone in distress. One may offer practical help after checking what is needed, while another may offer reassurance that is not useful in that situation. This questionnaire does not observe either response. Conversely, someone who avoids a sweeping moral statement may still provide dependable care in daily life. These counterexamples explain why the score cannot rank people’s goodness or establish which person is a better friend, parent or professional. Actual conduct needs its own context and evidence.",
+              "zh": "两位虚构作答者都可能认同安慰遇到困难的人：一位先了解需求再提供实际帮助，另一位的安慰在当时却未必有用，本题没有观察这些行为。对宽泛命题保留意见的人，也可能在生活中可靠照顾他人。因此数字不排名谁更善良，也不评选更好的朋友、家长或专业人员。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Use one concrete comparison",
+            "zh": "用一个具体比较澄清理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one statement and describe a small situation in which it fits your view, then another in which you need a qualification. You could distinguish wanting to comfort someone from knowing what kind of comfort they would welcome. Keep the example private and avoid using another person’s supposed questionnaire score to judge their needs. You can read Equality and Proportionality next to consider different distribution principles, or stop here. This comparison asks for clearer interpretation, not a prescribed moral or political destination.",
+              "zh": "挑一条命题，写一个符合自己理解的小情境，再写一个需要限定条件的情境，例如希望安慰对方，与知道对方愿意接受哪种安慰并不相同。例子可以留在私人笔记，不根据他人假想分数判断需求。也可阅读平等、比例公平两份指南，或结束；比较用于澄清理解，不指定道德或政治方向。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Version and limits of this presentation",
+            "zh": "本呈现的版本与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The English items come from the authors’ public MFQ-2 document, attributed to Atari and colleagues under CC BY 4.0. Chinese wording here is a FermatMind working translation with documented changes from the authors’ separate translation. Its measurement equivalence has not been established. The complete-six NA rule and two-decimal display are our presentation choices, not new validation evidence. No party, political identity or overall moral score is assigned. All six full guides remain public; temporary drafts and copied links do not turn private answers into public results.",
+              "zh": "英文条目来自作者公开MFQ-2文档，依CC BY 4.0署名Atari等。中文为费马工作译本，与作者另行公开中译的差异另有记录，未建立测量等价。六条完整才计分的NA规则及两位小数是本站呈现选择，不是新效度证据。不指定政党、政治身份或道德总分；全部指南公开可读，临时草稿与复制链接不把私人答案变成公开结果。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Care: concern for suffering | MFQ-2 Guide",
+          "zh": "关怀：对他人受苦的关注｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "The six Care items concern compassion, emotional suffering, comfort and attention to another person’s needs. Their mean summarizes how well these statements describe you or your opinions. It does not count kind acts or certify how ethically you behave.",
+          "zh": "六条关怀题涉及同情、情感痛苦、安慰及对他人需求的注意。均分汇总这些陈述在多大程度上描述你或你的观点，不统计善行次数，也不认证行为是否有道德。"
+        }
+      }
+    },
+    {
+      "id": "equality",
+      "directionIds": [
+        "equality"
+      ],
+      "title": {
+        "en": "Equality: equal outcomes and resources",
+        "zh": "平等：相同结果与资源"
+      },
+      "headline": {
+        "en": "Distinguish equality of outcomes from proportional rewards and from a judgment about generosity.",
+        "zh": "区分结果平等、按贡献回报，以及对慷慨程度的判断。"
+      },
+      "summary": {
+        "en": "The six Equality items emphasize equal income, equal resources and equal sharing of a collective reward. This MFQ-2 foundation is distinct from Proportionality. Its mean describes endorsement of the offered statements rather than settling every question about fairness.",
+        "zh": "六条平等题着重相同收入、相同资源及平等分享共同回报。MFQ-2将其与比例公平分开；均分描述对所给表述的认同，不替所有公平争议定论。"
+      },
+      "scoreReading": {
+        "en": "Use source items 2, 8, 14, 20, 26 and 32, all directly keyed from one to five. Add six valid responses and divide the unrounded sum by six. Any NA withholds this foundation’s personal sum and mean without affecting the other complete groups.",
+        "zh": "取源第2、8、14、20、26、32题，均按1—5正向计分。六项有效回答相加，未舍入总和除6。任一NA只使本基础个人总和与均分不足，不影响其他完整组。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "Equal outcomes are the particular topic",
+            "zh": "这里具体讨论结果平等"
+          },
+          "paragraphs": [
+            {
+              "en": "In MFQ-2, Equality concerns equal treatment and equal outcomes, and its six final items give substantial attention to income and resource distribution. This is narrower than every possible meaning of fairness. A person may distinguish equal legal standing, equal opportunity, support according to need and identical rewards. These positions can be related without being interchangeable. Read each statement according to its actual wording rather than responding only to the positive sound of equality. The score does not tell you which of those wider principles explains your answer.",
+              "zh": "MFQ-2中的平等涉及相同对待与相同结果，最终六题尤其关注收入和资源分配，比日常所有“公平”含义更具体。法律地位相同、机会相同、按需要支持和报酬相同可以相关，却不互换。应回应实际措辞，而不是只回应“平等”一词的正面含义；分数不能确定采用了哪种更广泛的原则。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "More endorsement of equal-outcome statements",
+            "zh": "较多认同结果平等的表述"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that the six equal-outcome statements describe your views more closely. It does not prove that you endorse every redistribution proposal or believe that every difference in outcomes is unjust. You may have imagined a particular starting position, a common project or a minimum level of security that the items do not specify. Such assumptions matter to interpretation but are not collected by the response scale. Keep them explicit before connecting a numerical value to a broader account of justice or a real institutional decision.",
+              "zh": "均分较高，表示六条结果平等表述较贴近观点，不证明赞成一切再分配方案，也不证明认为所有结果差异都不正当。你可能想到特定起点、共同项目或最低保障，但题目没有写明。这些假设影响解释，五点选项却没有收集；关联到更广泛正义观或制度决定前，应另外说明。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less endorsement is not indifference to fairness",
+            "zh": "较少认同不等于不在意公平"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean may reflect more emphasis on contribution, different views about equal income or reservations about making one rule apply to every case. It is not evidence that you favor discrimination, disregard poverty or oppose treating people with respect. Those are different claims from the ones the six items ask you to evaluate. Nor can we infer a person’s financial situation, political affiliation or motives from this value. To understand a low response, identify the condition you questioned rather than assigning a general moral label.",
+              "zh": "较低可能表示更重视贡献、对相同收入持不同意见，或保留“一条规则适用所有情况”的限定，不证明支持歧视、无视贫困或反对尊重他人。这些都不是六题直接询问的同一主张，也不能由此推断经济状况、政治归属或动机。应先识别所质疑的条件，不能泛化为道德标签。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Equality and Proportionality can both matter",
+            "zh": "平等与比例公平可以同时重要"
+          },
+          "paragraphs": [
+            {
+              "en": "The two foundations are not opposite ends of a single slider in this questionnaire. You can endorse some statements in both groups because different situations call different principles to mind. A mean of 3.00 could reflect neutral ratings throughout, strong differences between items or a qualification about how a common reward was earned. It is not automatically a balanced or centrist position. NA remains separate from these valid response patterns. One missing rating withholds Equality’s figures, while the Proportionality group is calculated from its own answers.",
+              "zh": "这两个基础不是本题同一滑杆的两端。不同情境使人想到不同原则，因此两组部分陈述都认同是可能的。3.00可能来自全选中间、条目间强烈差异，或对共同回报来源的限定，不自动表示均衡或中间立场。NA与这些有效回答不同；平等少一项则不计个人数字，比例公平仍只根据自己的回答计算。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Follow the sum before rounding",
+            "zh": "先核总和，再看显示小数"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional Equality sequence of 2, 4, 3, 1, 2 and 5, the raw sum is seventeen. Dividing seventeen by six gives 2.833333…, displayed as 2.83. The last response is not reversed because it expresses discomfort about income differences; all six items follow the same direct source key. Displaying two decimals helps you reproduce the arithmetic, not measure fairness to hundredths. There is no further conversion to a percentile, percentage of egalitarianism or share of real policies you would support.",
+              "zh": "假设按平等题序回答2、4、3、1、2、5，原始和17，17除6得到2.833333…，显示2.83。最后一条虽然表达对收入差距的不适，也不因此反向；六题遵循同一正向键。两位小数便于复算，不表示把公平测到了百分位精度，也不再换成人口百分位、平等主义百分比或支持政策的比例。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "One distribution does not define every case",
+            "zh": "一次分配不能代表所有情况"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional teammates might both support sharing a jointly earned award equally while disagreeing about whether incomes should be equal across an entire society. Another respondent may favor equal access to essential resources but rewards that vary with contribution. These examples show why a single broad identity cannot be read from the six-item mean. They also explain why comparing two foundations should preserve the particular statements and contexts. The questionnaire is not a simulation of every distribution problem and supplies no correct allocation for a real dispute.",
+              "zh": "两位虚构队友可能都支持平分共同赢得的奖励，却对整个社会收入应否相同持不同意见；也有人支持基本资源平等可得，同时认可贡献不同、回报不同。因此六题均分不能确定单一身份，比较两个基础也应保留具体陈述与情境。本题没有模拟所有分配问题，不为真实争议指定正确方案。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Clarify which meaning of equal you used",
+            "zh": "澄清自己采用了哪种平等含义"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick an item and write down what you assumed was being distributed, who contributed and what needs or starting conditions you imagined. Then vary just one assumption in a fictional example. Notice whether your preferred principle changes without treating that change as a failure of consistency. The exercise makes the limits of a broad statement easier to see. You can compare the full Proportionality guide, retain uncertainty or stop here. Nothing in the result directs you toward a political group or a particular public policy.",
+              "zh": "挑一条题目，写清假定分配什么、谁作了贡献，以及想到哪些需要或起点。再在虚构例子中只改变一个假设，看原则是否改变，不必把变化算作不一致。这能展示宽泛表述的边界。可以比较比例公平完整指南、保留不确定或结束；结果不引导加入政治团体或支持现实政策。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Source identity and the new translation",
+            "zh": "来源身份与新的工作译本"
+          },
+          "paragraphs": [
+            {
+              "en": "This is the six-foundation MFQ-2 with Equality and Proportionality, not the earlier five-foundation MFQ or a six-scale vignette test containing Liberty. English wording is fixed to the authors’ public document under CC BY 4.0, with attribution and source links. FermatMind supplies the working Chinese translation and explanations; new measurement equivalence is not established. The complete-six NA policy is stated separately. There is no global moral score or comparison against an assumed Chinese average, and public guide links never include an individual’s answers or means.",
+              "zh": "本版是包含平等、比例公平的六基础MFQ-2，不是早期五基础MFQ，也不是包含自由维度的六组情境题。英文固定作者公开文档，依CC BY 4.0保留署名与来源链接。费马提供工作中译与解读，没有建立新测量等价；完整六题的NA政策另行说明。不合成道德总分，不与假定中国平均比较，公开指南链接不含个人答案和均分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Equality: equal outcomes and resources | MFQ-2 Guide",
+          "zh": "平等：相同结果与资源｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "The six Equality items emphasize equal income, equal resources and equal sharing of a collective reward. This MFQ-2 foundation is distinct from Proportionality. Its mean describes endorsement of the offered statements rather than settling every question about fairness.",
+          "zh": "六条平等题着重相同收入、相同资源及平等分享共同回报。MFQ-2将其与比例公平分开；均分描述对所给表述的认同，不替所有公平争议定论。"
+        }
+      }
+    },
+    {
+      "id": "proportionality",
+      "directionIds": [
+        "proportionality"
+      ],
+      "title": {
+        "en": "Proportionality: merit and contribution",
+        "zh": "比例公平：功绩与贡献"
+      },
+      "headline": {
+        "en": "Read a principle about proportional rewards without mistaking a score for proof of merit.",
+        "zh": "理解按比例回报的原则，不将数字当作实际功绩的证明。"
+      },
+      "summary": {
+        "en": "These six items concern rewarding work, recognizing merit and responding to cheating. They describe a particular account of fairness based on contribution. The mean neither measures your productivity nor establishes what anyone deserves in an actual allocation.",
+        "zh": "六条题涉及奖励努力、认可优点及回应作弊，描述以贡献为依据的一种公平观。均分既不测你的生产力，也不决定真实分配中任何人应得什么。"
+      },
+      "scoreReading": {
+        "en": "Source items 3, 9, 15, 21, 27 and 33 are directly keyed. Average all six valid one-to-five describes-me responses using the unrounded sum. The fixed English document has a known wording difference at item 27 compared with the preprint appendix; this edition follows the document.",
+        "zh": "源第3、9、15、21、27、33题均正向计分，六项有效的1—5贴切程度回答，用未舍入总和取平均。固定英文文档第27题与预印本附录存在已知措辞差异，本版遵循文档。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "A contribution-based meaning of fairness",
+            "zh": "以贡献为依据的一种公平含义"
+          },
+          "paragraphs": [
+            {
+              "en": "The source defines Proportionality through intuitions about rewards tracking merit or contribution. Its final items mention hard work, effort reflected in a raise, recognition and punishment of cheating. Those examples are not identical: effort, achievement and compliance with rules can come apart. Someone may work very hard under conditions that limit visible output, while another may achieve more with advantages not described in a question. Your responses concern the offered principles; the scale does not measure contributions or establish the facts needed to apply them.",
+              "zh": "源文将比例公平界定为奖励与功绩或贡献相称的直觉，题目涉及努力、加薪、认可和惩罚作弊。努力、成果与遵守规则并不总相同：有人很努力却受条件限制，也有人凭题目未描述的优势获得更多成果。回答针对给定原则，量尺没有测实际贡献，也没有建立应用原则所需的事实。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "A relatively higher mean",
+            "zh": "均分相对较高时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates closer identification with these statements about proportional rewards and recognition. It does not establish opposition to every equal distribution or every form of help based on need. You may distinguish rewards for a shared achievement from essential resources, or think that assessing contribution requires fair conditions. Such qualifications can coexist with strong ratings here. The program does not remove them by assigning one political or economic identity. Keep the six separate answers available when a general summary seems broader than the view you intended to express.",
+              "zh": "较高表示这些按比例回报和认可的陈述较贴近观点，不证明反对所有平等分配或按需要提供帮助。你可能区分共同成果的奖励与基本资源，也可能认为评价贡献应先有公平条件。这些限定可与较高回答并存，不会被程序归成单一政治经济身份；概括过宽时，应回看六项具体回答。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "A relatively lower mean",
+            "zh": "均分相对较低时"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates less endorsement of this particular collection of propositions. It does not demonstrate laziness, approval of cheating or a wish to take rewards from others. A respondent might worry about how merit is measured, emphasize a different distribution principle, or reject a strong statement about who should become richer. The summary cannot tell which explanation applies. In particular, disliking one form of punishment is not the same claim as approving the conduct being punished. Interpretation needs the item and the reason for the response, not just the mean.",
+              "zh": "较低只表示较少认同这组具体命题，不证明懒惰、赞成作弊或想占他人回报。可能担心功绩怎样测量，重视其他分配原则，或不接受谁应更富有的强表述。尤其不喜欢某种惩罚，不等于认可被惩罚的行为；均分无法辨认理由，解释应回到条目与自己的含义。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Keep separate principles and uncertainty visible",
+            "zh": "保留不同原则与不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "MFQ-2 reports Equality and Proportionality separately rather than subtracting one from the other. You can endorse a contribution-based reward in one context and equal sharing in another. A middle mean can also conceal strong agreement about recognizing effort but reservations about income or punishment. We do not call that pattern a contradiction. NA provides a separate way to retain an unanswered qualification or decline an item. Under this presentation’s complete-six rule, that group’s personal figures are withheld; the other foundations are not used to guess the missing response.",
+              "zh": "MFQ-2分别报告平等与比例公平，不用两者相减。一个情境按贡献奖励，另一个情境平分，是可以并存的；中间均分也可能包含支持认可努力、却对收入或惩罚保留意见的结构，不自动叫矛盾。NA用于保留未能表达的限定或拒答；本站完整六题规则下，本组不足，不用其他基础猜补。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Check the 23-point sequence",
+            "zh": "核对总和23的序列"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine the six ratings are 5, 4, 3, 4, 2 and 5. Adding them gives twenty-three; 23 divided by 6 is 3.833333…, displayed as 3.83. All six use the direct key, including the final statement about cheaters being caught and punished. Do not reverse an item merely because its wording concerns something negative. If one selection becomes NA, the personal sum and mean are withheld here rather than calculating a five-item substitute. Decimal display is arithmetic convenience, not a claim of psychological precision.",
+              "zh": "假设六条依次回答5、4、3、4、2、5，总和23，23除6为3.833333…，显示3.83。最后关于作弊者被抓并受罚的陈述也用正向键，不能因为内容提到负面行为就反向。任一选择变NA时，本站不改算五题替代分数；两位小数便于复算，不声称相同心理精度。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A high value cannot establish who contributed more",
+            "zh": "较高不能确定谁贡献更多"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional colleagues can both favor contribution-based rewards and still disagree about who contributed to a joint project. One may count visible output, while the other includes coordination, care work or risks that were less visible. Their questionnaire means cannot settle that factual or conceptual dispute. Conversely, choosing an equal split in that project does not automatically invalidate a person’s general endorsement of recognizing effort. The scale is a description of self-reported principles, not a tool for deciding pay, evaluating employees or certifying the fairness of a real organization.",
+              "zh": "两位虚构同事都支持按贡献回报，却可能对共同项目中谁贡献更多意见不同：一位算可见产出，另一位也算协调、照护劳动或不显眼的风险。均分不能解决事实与概念争议，选择某次平分也不自动推翻一般认可努力的观点。本题不决定薪酬、不评价员工，也不认证组织公平。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Specify what you meant by contribution",
+            "zh": "说明自己所说的贡献是什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an item and write a fictional example where its principle seems useful. Identify whether you mean effort, results, responsibility or rule-following, then change one of those conditions. Notice which change affects your judgment. This exercise can make a broad principle clearer without prescribing an allocation or asking you to persuade anyone. Read the full Equality guide if the distinction between identical outcomes and proportional rewards matters to you. You can retain both concerns or leave a question open; no most-consistent moral profile is required.",
+              "zh": "选择一条命题，写一个觉得有用的虚构例子，说明贡献指努力、成果、责任还是遵守规则，再只改变一个条件，看哪种变化影响判断。练习澄清原则，不指定分配，也不要求说服谁。可以比较平等完整指南，同时保留两种关切或未决问题，无须形成“最一致”的道德画像。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "The exact edition matters",
+            "zh": "精确版本会影响解释"
+          },
+          "paragraphs": [
+            {
+              "en": "The English bank is pinned to the authors’ public MFQ-2 document under CC BY 4.0. Item 27 in that file speaks of harder-working people ending up richer than others; the preprint uses different wording about higher living standards. The source bytes and difference are recorded rather than silently blended. Chinese is a FermatMind working translation, not an officially validated equivalent. Attribution, licence and changes are visible. No total moral score, party prediction or assumed population ranking follows from this presentation, and public links contain no private answer data.",
+              "zh": "英文固定作者依CC BY 4.0公开的MFQ-2文档。该文件第27题说更努力者最终比别人更富有，预印本使用较高生活水平的不同措辞；源文件与差异保留记录，不悄悄拼接。中文是费马工作译本，不是已验证的官方等价版，署名、许可与改动可见。不生成道德总分、政党预测或假定人口排名，公开链接不含私人回答。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Proportionality: merit and contribution | MFQ-2 Guide",
+          "zh": "比例公平：功绩与贡献｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "These six items concern rewarding work, recognizing merit and responding to cheating. They describe a particular account of fairness based on contribution. The mean neither measures your productivity nor establishes what anyone deserves in an actual allocation.",
+          "zh": "六条题涉及奖励努力、认可优点及回应作弊，描述以贡献为依据的一种公平观。均分既不测你的生产力，也不决定真实分配中任何人应得什么。"
+        }
+      }
+    },
+    {
+      "id": "loyalty",
+      "directionIds": [
+        "loyalty"
+      ],
+      "title": {
+        "en": "Loyalty: country community and team",
+        "zh": "忠诚：国家、共同体与团队"
+      },
+      "headline": {
+        "en": "Distinguish endorsement of group loyalty from proof of belonging or a duty to ignore harm.",
+        "zh": "区分认同群体忠诚、实际归属，以及是否忽视伤害。"
+      },
+      "summary": {
+        "en": "The six Loyalty items refer to country, community and a sports team. Their mean describes identification with the stated loyalty concerns. It does not measure citizenship, patriotism as a whole, personal faithfulness or willingness to defend every action by an ingroup.",
+        "zh": "六条忠诚题涉及国家、共同体与运动队。均分描述对所列忠诚关切的认同，不测公民资格、完整爱国观、个人守信，也不表示愿意维护群体的一切行为。"
+      },
+      "scoreReading": {
+        "en": "Use source items 4, 10, 16, 22, 28 and 34, all directly keyed on the five-point describes-me scale. The English referents community and sports team are retained in the working Chinese translation. Each group needs its own six valid ratings for a mean.",
+        "zh": "取源第4、10、16、22、28、34题，均按五点贴切程度正向计分。工作中译保留英文共同体与运动队的对象，不将它们改成国家或家庭；本组需六项独立有效回答才有均分。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "Several group referents appear in one foundation",
+            "zh": "同一基础包含几个群体对象"
+          },
+          "paragraphs": [
+            {
+              "en": "The source definition of Loyalty concerns cooperation with ingroups and competition with outgroups. The six final items refer to loyalty to country, love for community, defending country when called upon, pride in a community member’s international success and loyalty within a sports team. Those referents are not interchangeable. Someone may understand community as a local, cultural or voluntary group rather than a nation. The fixed wording matters because changing the referent changes the judgment being requested. This mean summarizes all six statements without showing which group carries the most significance for you.",
+              "zh": "源文将忠诚联系到与内群体合作、同外群体竞争的直觉。六题分别提到国家、共同体、需要时保卫国家、共同体成员国际比赛获胜的自豪，以及运动队内部忠诚。对象不互换，共同体也可能指地方、文化或自愿群体；改变对象会改变所问判断。均分汇总六条，却不能识别哪个群体对你最有意义。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "More endorsement of these loyalty statements",
+            "zh": "较多认同这些忠诚陈述"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that these statements describe your opinions more closely. It does not prove that you approve every decision made by a group or reject responsibilities to outsiders. You may see speaking up about a group’s mistake as one way of being loyal to its values. The questionnaire does not decide whether that interpretation is correct in a real situation. Nor does it establish readiness for sacrifice, military behavior or the quality of a personal relationship. Those are separate questions requiring context beyond these six self-reported opinions.",
+              "zh": "较高只表示陈述较贴近观点，不证明认可群体所有决定，或拒绝对外群体承担责任。有人把指出群体错误看作忠于其价值的一种方式；本题不裁定真实情境中这种解释是否正确，也不确定牺牲意愿、军事行为或私人关系质量，这些都需要六项观点以外的情境。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less endorsement leaves the reasons open",
+            "zh": "较少认同仍有不同理由"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean can reflect reservations about one group referent, a preference for duties that apply across groups, or disagreement with how loyalty should be taught. It is not a finding that you betray people, have no community or are a bad citizen. You might strongly value a chosen team while resisting an unconditional statement about national obligation. The average cannot distinguish that pattern from several mild reservations across all items. Review the actual statements before describing your result in broad terms, and avoid using it to assess someone else’s belonging.",
+              "zh": "较低可能来自对某个群体对象的保留、重视跨群体义务，或不同意怎样教育忠诚，不证明背叛他人、没有共同体或不是好公民。你可能很重视自选团队，却不接受无条件国家义务；均分不能区分这种结构与所有题目都有轻微保留的情况，更不能用它评定他人归属。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Mixed group commitments and NA",
+            "zh": "不同群体承诺与NA"
+          },
+          "paragraphs": [
+            {
+              "en": "Your answers about country and your answers about a voluntary team can differ without a scoring error. The program reports the source foundation rather than inventing separate country and community diagnoses from too few items. A mean near three can hide these strong differences, so it is not a label of moderate loyalty. If a statement’s referent cannot represent your position, NA keeps that limit visible. This presentation withholds Loyalty’s personal figures when any of its six ratings is missing; other foundations keep their own complete responses.",
+              "zh": "对国家与自愿团队的回答不同，并不一定是计分错误。本版报告源基础，不凭少量条目另创国家型或共同体型诊断。接近3的均分可能掩盖强烈差别，不是“忠诚中等”。某对象无法表达观点时可选NA；六项中任一缺失则本组数字不足，其他基础仍保留自己的完整回答。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate nineteen divided by six",
+            "zh": "计算19除以6"
+          },
+          "paragraphs": [
+            {
+              "en": "For fictional ratings of 3, 2, 4, 3, 5 and 2, the raw sum is nineteen. Nineteen divided by six is 3.166666…, displayed as 3.17. The final sports-team item is directly keyed, just like the statements about country. Its lower rating is not changed into a high score through reverse coding. All six contribute equally to the source mean. The two-decimal display does not establish an objective amount of loyalty, and no later step converts 3.17 into a national ranking, political identity or membership decision.",
+              "zh": "假设回答3、2、4、3、5、2，总和19，19除6为3.166666…，显示3.17。最后关于运动队的题也正向计分，较低回答不会反向变高，六项等权。两位小数不代表客观忠诚量，也不会继续把3.17换成国家排名、政治身份或成员资格。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Loyalty and criticism can coexist",
+            "zh": "忠诚与批评可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional team members may both value the team’s long-term welfare. One supports a leader’s decision, while another questions it because they think it damages the group’s stated purpose. Their broad commitment can look similar while their conduct differs. Conversely, praise for a group does not by itself prove dependable support in practice. These examples show why questionnaire endorsement cannot establish trustworthiness or decide who deserves to belong. Care for people outside the group can also coexist with strong group loyalty; the foundation means are not a forced either-or choice.",
+              "zh": "两位虚构队员都重视团队长远利益，一位支持领导决定，另一位因认为决定损害共同目标而质疑。承诺相似，行为仍不同；赞美群体也不自动证明实际支持可靠。因此问卷认同不能认证可信程度或决定谁有资格加入。关怀群体外的人也可与较强群体忠诚并存，几个均分不是强制二选一。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Name the group and the boundary",
+            "zh": "说清群体与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one item and write which group you pictured, what commitment you think members owe each other and where that commitment has limits. Use a fictional example rather than testing a real person’s allegiance. Then consider whether your answer changes for a chosen group compared with one you did not choose. The exercise clarifies interpretation without demanding one correct form of belonging. You can read Care or Authority for another angle, retain a disagreement or stop. The result recommends no organization, party, campaign or political action.",
+              "zh": "挑一条题目，写清想到哪个群体、成员互相负有什么承诺，以及承诺的边界，用虚构情境，不测试真实个人是否忠诚。再比较自选群体与并非自己选择的群体，判断会否不同。练习用于解释，不要求一种正确归属；可以读关怀、权威，保留分歧或结束，不推荐组织、政党、活动或政治行动。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Translation and privacy boundaries",
+            "zh": "翻译与隐私边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The author-hosted English MFQ-2 document is the fixed item source, used with CC BY 4.0 attribution. The authors’ separate Chinese file changes some group referents, including community and sports team. Our working translation preserves the selected English referents and identifies the adaptation rather than claiming official equivalence. Neither the new translation nor the complete-six NA display inherits validation automatically. All full guides remain available when personal figures are withheld. Saved progress is temporary tab storage; sharing copies a public title and link without revealing any country-specific answer or personal mean.",
+              "zh": "条目固定作者公开英文MFQ-2文档，依CC BY 4.0署名。作者另行公开中译改变了部分对象，包括共同体和运动队；本工作译本保留选定英文对象，注明改编，不自称官方等价。新译本及完整六题NA呈现不自动继承效度。资料不足时完整指南仍开放；保存仅是临时标签页草稿，分享复制公开标题和链接，不暴露涉及国家的私人回答或均分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Loyalty: country community and team | MFQ-2 Guide",
+          "zh": "忠诚：国家、共同体与团队｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "The six Loyalty items refer to country, community and a sports team. Their mean describes identification with the stated loyalty concerns. It does not measure citizenship, patriotism as a whole, personal faithfulness or willingness to defend every action by an ingroup.",
+          "zh": "六条忠诚题涉及国家、共同体与运动队。均分描述对所列忠诚关切的认同，不测公民资格、完整爱国观、个人守信，也不表示愿意维护群体的一切行为。"
+        }
+      }
+    },
+    {
+      "id": "authority",
+      "directionIds": [
+        "authority"
+      ],
+      "title": {
+        "en": "Authority: tradition and deference",
+        "zh": "权威：传统与尊重"
+      },
+      "headline": {
+        "en": "Read the stated concerns about order without turning a mean into a test of obedience.",
+        "zh": "理解题中关于秩序的关切，不把均分变成服从测验。"
+      },
+      "summary": {
+        "en": "The six Authority items concern tradition, parents, elders, teaching respect and a strong leader. The mean describes how well those statements fit your opinions. It does not determine whether any real authority is legitimate or whether you should obey a particular instruction.",
+        "zh": "六条权威题涉及传统、父母、长辈、尊重教育与强有力的领导者。均分描述这些表述与观点的贴切程度，不决定任何真实权威是否正当，也不指示应否服从某项要求。"
+      },
+      "scoreReading": {
+        "en": "Source items 5, 11, 17, 23, 29 and 35 are directly keyed from one to five. Six valid responses produce their own unrounded mean. This presentation does not infer a separate authority score from your answers about Loyalty or public coercion in another questionnaire.",
+        "zh": "取源第5、11、17、23、29、35题，均按1—5正向计分；六项有效回答形成所属未舍入均分。不从忠诚题或另一问卷关于公共强制的回答推算权威分。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "Tradition and authority in the source",
+            "zh": "源题中的传统与权威"
+          },
+          "paragraphs": [
+            {
+              "en": "The source definition links Authority with deference toward legitimate authorities and defense of traditions understood as providing stability. The six final items ask about several referents: societies, parents, elders, children’s education and a leader. These are not observations of one relationship. A person can regard some traditions as useful while questioning an instruction from a particular authority. The questionnaire does not establish the legitimacy of any institution, and the word strong does not specify every quality a leader might possess. Read the score as a summary of the actual statements.",
+              "zh": "源文将权威联系到尊重正当权威、维护被视作提供稳定的传统。六题分别涉及社会、父母、长辈、儿童教育和领导者，并非观察同一段关系。认可某些传统有用，同时质疑特定要求是可能的；题目不认证机构正当性，“强有力”也没有说明领导者的全部品质，均分只能汇总实际表述。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "What a higher mean indicates",
+            "zh": "较高均分说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean means these tradition- and deference-oriented statements describe your opinions more closely. It does not show unconditional obedience or approval of every existing hierarchy. You may attach conditions about competence, accountability or the scope of an authority’s role that a short item cannot collect. Those conditions remain important even when the selected rating is high. The result does not tell you which institution deserves trust, how a family should resolve a dispute or what political arrangement is best. These decisions require facts and values beyond the questionnaire.",
+              "zh": "较高表示这些传统与尊重表述较贴近观点，不证明无条件服从或认可所有现存等级。你可能还要求能力、问责或角色边界，而短题没有收集这些条件。即使选较高，这些限定仍重要；结果不决定哪个机构值得信任、家庭争议应怎样解决，或哪种政治安排最好。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "What a lower mean does not establish",
+            "zh": "较低均分不能确定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates less endorsement of these statements, not an inability to cooperate or a wish to create disorder. You might question universal wording, distinguish respect for a person from deference to their role, or believe that traditions should be evaluated individually. Someone can have a low rating on obedience to parents and still value listening carefully to older people. The average cannot identify those patterns on its own. Avoid treating it as evidence that a person is disrespectful, dangerous, politically incompetent or unsuitable for leadership.",
+              "zh": "较低表示较少认同这些陈述，不证明不能合作或想制造混乱。可能在质疑普遍化措辞、区分尊重个人与服从角色，或认为传统需逐项评价。对服从父母较低，仍可能重视倾听长辈；均分不能独立识别这种结构，也不证明不尊重人、危险、政治无能或不适合领导。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "A middle mean can combine different views",
+            "zh": "中间均分可以组合不同观点"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean of 3.00 can arise from six middle responses or from firm but contrasting positions about parents, tradition and leadership. It is not automatically a measured amount of moderate respect. The statements concern different referents, so disagreement between them is worth understanding rather than repairing into an ideal profile. NA is available when a statement cannot capture your position or you do not want to answer it. Any NA withholds Authority’s personal figures under our complete-six rule, without replacing it with a middle response or another foundation’s score.",
+              "zh": "3.00可以来自全选中间，也可来自对父母、传统和领导者的坚定但不同判断，不自动表示“尊重程度适中”。对象不同，条目差别值得理解，无须修成理想画像。命题无法表达观点或不愿回答时可选NA；本站六题完整规则下，本组数字不足，不补中间值，也不借用另一基础的分数。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Six different ratings can average three",
+            "zh": "不同回答也能平均为3"
+          },
+          "paragraphs": [
+            {
+              "en": "For fictional ratings of 4, 2, 3, 5, 1 and 3, the total is eighteen. Eighteen divided by six gives 3.00, even though the individual ratings range from one to five. None is reversed, and none receives extra weight because it mentions a leader or a parent. This example shows exactly why the mean cannot replace the item pattern. If the fifth response becomes NA, the result does not retain 3.00 or divide the remaining seventeen by five. It withholds this group’s personal mean.",
+              "zh": "假设回答4、2、3、5、1、3，总和18，除6为3.00，但单题从1到5都有。没有反向，也不因提到领导或父母而多加权，说明均分不能代替条目结构。若第五条改NA，不能保留3.00，也不把余下17除5；本组个人均分不生成。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Respect and questioning can coexist",
+            "zh": "尊重与质疑可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional learners who both value experience. One usually follows a senior person’s advice, while the other asks for reasons before accepting it. Their practical behavior can differ even if both endorse learning from elders. Conversely, someone may comply with an instruction because of a practical constraint while disagreeing with a general claim about authority. A self-report about moral opinions cannot distinguish compliance, respect and trust in every situation. That is why this mean cannot decide whether a real person has acted correctly or whether an instruction should be followed.",
+              "zh": "两位虚构学习者都重视经验，一位通常遵从前辈建议，另一位先询问理由；都赞成向长辈学习，行为仍可能不同。也有人因现实限制照做，却不认同一般权威命题。关于道德观点的自评不能在所有情境中区分遵从、尊重与信任，所以均分不裁定真实行为对错或应否遵照某项要求。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Make the condition for respect explicit",
+            "zh": "明确尊重所依赖的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one item and describe what you think makes its referent worth listening to: experience, a justified role, reliable knowledge or a contribution to shared order. Then write a fictional case in which that reason would be absent. Compare the cases without using the questionnaire to issue directions about a real institution or family member. This can clarify whether your reservation concerns a principle or an unstated assumption. You may compare Loyalty or Care next, preserve uncertainty or finish; the result prescribes no political destination.",
+              "zh": "选一道题，写清对象值得倾听的理由：经验、正当角色、可靠知识，或对共同秩序的贡献。再举一个缺少该理由的虚构例子，比较即可，不用问卷对真实机构或家人发指令。这样能区分原则保留与未写明假设；可继续比较忠诚、关怀，也可保留不确定或结束，不指定政治方向。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "The item bank is not a test of legal legitimacy",
+            "zh": "题本不检验法律正当性"
+          },
+          "paragraphs": [
+            {
+              "en": "English items are pinned to the authors’ public MFQ-2 document and used with the source, attribution and CC BY 4.0 licence made visible. FermatMind’s Chinese working translation and full explanations are identified separately; they are not an official measurement-equivalent edition. The complete-six NA rule is a presentation policy rather than a published clinical threshold. No combined score, obedience type or political-group match is generated. All full guides remain public without an individual’s ratings, while optional saved progress stays temporary in the current browser tab.",
+              "zh": "英文固定作者公开MFQ-2文档，来源、署名及CC BY 4.0许可可见。费马工作中译和完整解读分别说明，不是官方测量等价版；六条完整才计分的NA规则是呈现政策，不是临床阈值。不合成总分、服从类型或政治群体匹配，公开指南不含个人回答，自愿保存仅是当前标签页临时进度。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Authority: tradition and deference | MFQ-2 Guide",
+          "zh": "权威：传统与尊重｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "The six Authority items concern tradition, parents, elders, teaching respect and a strong leader. The mean describes how well those statements fit your opinions. It does not determine whether any real authority is legitimate or whether you should obey a particular instruction.",
+          "zh": "六条权威题涉及传统、父母、长辈、尊重教育与强有力的领导者。均分描述这些表述与观点的贴切程度，不决定任何真实权威是否正当，也不指示应否服从某项要求。"
+        }
+      }
+    },
+    {
+      "id": "purity",
+      "directionIds": [
+        "purity"
+      ],
+      "title": {
+        "en": "Purity: bodily and spiritual concerns",
+        "zh": "纯洁：身体与精神边界"
+      },
+      "headline": {
+        "en": "Read the source’s varied purity concerns without judging cleanliness health or a person’s worth.",
+        "zh": "理解源题不同的纯洁关切，不评判清洁、健康或个人价值。"
+      },
+      "summary": {
+        "en": "These six items refer to sacredness of the body, chastity, language, an unusual but harmless sexual preference, natural medicines and virginity before marriage. The mean describes responses to those statements. It is not a measure of hygiene, disease, treatment quality or moral worth.",
+        "zh": "六条涉及身体神圣性、贞洁、语言、不常见但无害的性癖好、天然药物及婚前童贞。均分描述对这些陈述的回答，不测卫生、疾病、治疗质量或道德价值。"
+      },
+      "scoreReading": {
+        "en": "Use source items 6, 12, 18, 24, 30 and 36, all directly keyed from one to five. Preserve harmless in item 24 and chemically identical in item 30. The complete-six NA rule and working Chinese translation are clearly identified presentation choices.",
+        "zh": "取源第6、12、18、24、30、36题，均按1—5正向计分。第24题保留无害、第30题保留化学成分相同；完整六题NA规则及工作中译均明确标作本站呈现选择。"
+      },
+      "sections": [
+        {
+          "id": "foundation-scope",
+          "title": {
+            "en": "Purity is a source label with several referents",
+            "zh": "纯洁是包含不同对象的源标签"
+          },
+          "paragraphs": [
+            {
+              "en": "The source defines Purity in terms of avoiding bodily and spiritual contamination or degradation. Its final items cover several quite different subjects, including sacredness, chastity, language, sexual preferences and the origin of medicines. The foundation label does not make those subjects medically equivalent or establish that any person is contaminated. These are propositions asking how well an opinion describes you. A reaction of unease, a religious commitment and a preference about naturalness can have different meanings. Keep the actual statements in view rather than interpreting the label as a general verdict about purity.",
+              "zh": "源文用避免身体和精神污染或退化来界定纯洁，最终题目却涉及神圣性、贞洁、语言、性偏好和药物来源等不同对象。基础名称不使它们在医学上等同，也不认定任何人受到污染。它们询问观点是否贴近自己，不适反应、宗教承诺和对天然性的偏好也可能含义不同，不能将标签当作纯洁与否的总判决。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "A higher mean describes greater endorsement",
+            "zh": "较高只描述较多认同"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that the six source statements describe your opinions more closely. It is not evidence of better health, superior self-control or greater moral value. It also does not establish a particular religion or imply that you hold every possible rule associated with purity. Some ratings may express a symbolic concern, while others reflect a social expectation or an immediate feeling. The response scale does not collect those reasons. Acknowledging these distinctions prevents a number from becoming an unsupported judgment about your body, another person’s identity or a way of life.",
+              "zh": "较高只表示六条源表述较贴近观点，不证明更健康、更自律或道德价值更高，也不确定某种宗教或所有与纯洁相关的规则。部分回答可能表达象征关切，其他回答可能来自社会期待或即时感受，选项没有收集这些理由。保留区别，才能避免把数字变成对身体、他人身份或生活方式的无依据评价。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "A lower mean is not impurity",
+            "zh": "较低不表示不纯洁"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean means less endorsement of these statements. It does not imply poor hygiene, recklessness, a lack of ethics or disregard for consent. You may distinguish a harmless difference from a moral wrong, reject a particular sexual norm or see no relevant difference in a claim about chemically identical medicines. Those are responses to the propositions, not signs of a disorder. The questionnaire neither evaluates anyone’s private sexual behavior nor establishes what treatment they should use. Avoid applying this foundation label to a person’s worth or health.",
+              "zh": "较低只表示较少认同，不意味着卫生差、鲁莽、没有伦理或不在意同意。你可能区分无害差异与道德错误，不接受某项性规范，或认为化学成分相同的药物命题没有相关差异。这些是对陈述的回答，不是障碍迹象；本题不评价私人性行为、不选择治疗，也不以标签判断价值或健康。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Varied responses and unanswered qualifications",
+            "zh": "不同回答与未能表达的限定"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone can strongly value treating the body with respect and disagree with a statement about foul language or virginity. Another respondent might feel uneasy about an unusual but harmless preference while judging that the feeling supplies no reason to condemn its holder. These distinctions can disappear in an average. A middle mean is not automatically a coherent midpoint across all six subjects. If a statement cannot represent your position, NA leaves the limitation visible. Our complete-six rule withholds the group’s personal figures rather than turning that qualification into a neutral rating.",
+              "zh": "有人很重视尊重身体，却不同意粗话或童贞相关表述；也有人对不常见但无害的偏好感到不自在，却认为这种感受不足以谴责对方。平均会丢失这些区别，中间值不是六个对象之间天然一致的折中。无法表达立场时可选NA，本站完整六题规则使本组不足，不把限定转成中间回答。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Reproduce a thirteen-point example",
+            "zh": "复算总和13的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For fictional responses of 1, 2, 4, 3, 2 and 1 in source order, the raw sum is thirteen. Thirteen divided by six is 2.166666…, displayed as 2.17. All six items are directly keyed; neither unease nor the reference to medicines creates a reverse-coded item. The program uses the source grouping, not a hidden judgment of which answer is morally correct. One NA removes the personal sum and mean for this foundation in our presentation. It does not change the other five complete foundation results.",
+              "zh": "假设按源顺序回答1、2、4、3、2、1，总和13，13除6为2.166666…，显示2.17。六条均正向计分，提到不自在或药物不产生反向键；程序使用源分组，不暗中评判哪个答案道德正确。一项NA使本组个人总和、均分不足，不改变其他五个完整基础。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A feeling and a moral conclusion are different",
+            "zh": "感受与道德结论不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional respondents may have the same immediate feeling about unfamiliar conduct and draw different conclusions about whether it is wrong. One may regard personal unease as a private response, while another connects it to a broader rule. The questionnaire does not observe those deliberations or establish that the conduct causes harm. Similarly, answering the item about natural medicines supplies no evidence of a treatment’s safety or effectiveness. The item records endorsement of a claim, not medical advice. These examples show why the mean cannot become a verdict on another person or a health decision.",
+              "zh": "两位虚构作答者对不熟悉行为可能有相同即时感受，却对其是否错误形成不同结论：一位把不自在视为私人反应，另一位联系到一般规则。问卷没有观察推理，也不证明行为造成伤害。同样，回答天然药物题不提供治疗安全性或有效性证据，题目记录对主张的认同，不是医疗建议。均分不能评判他人或决定健康选择。"
+            }
+          ]
+        },
+        {
+          "id": "practical-comparison",
+          "title": {
+            "en": "Separate your reaction from your claim",
+            "zh": "将自身反应与所作主张分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one statement and write two short notes: the feeling or preference it evokes, and the conclusion you think follows, if any. Check whether you have added an assumption not stated in the item. Keep the example fictional and avoid making another person’s body, identity or private life the object of a score-based judgment. You can compare Care or another full guide for a different concern, keep a question unresolved or finish. The reflection requires no change in beliefs and recommends no political or religious group.",
+              "zh": "选择一条，分两句写下引起的感受或偏好，以及自己认为能推出什么结论，也可以没有结论。检查是否添加了题目没有的假设，例子保持虚构，不以分数评判真实个人的身体、身份或私生活。可比较关怀等其他指南，保留未决或结束，无须改变信念，也不推荐政治或宗教团体。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Working translation and the licence",
+            "zh": "工作译本与使用许可"
+          },
+          "paragraphs": [
+            {
+              "en": "The selected English MFQ-2 document is used under the authors’ CC BY 4.0 project licence, with attribution, original source and modification notes. This working Chinese version preserves unusual but harmless and chemically identical, which are important to interpreting the items. It does not claim official status or established cross-language measurement equivalence. The full explanatory text is authored by FermatMind Editorial. No overall moral rank, diagnosis, political identity or purity percentage is generated. Public guide links omit answers and means; optional drafts remain temporary within the current browser tab.",
+              "zh": "选定英文MFQ-2文档依作者项目CC BY 4.0许可使用，保留署名、原始来源与修改说明。本工作中译保留“不常见但无害”“化学成分相同”等重要限定，不声称官方身份或已建立跨语言测量等价。完整解读由费马编辑部撰写，不生成道德排名、诊断、政治身份或纯洁百分比；公开指南不含答案和均分，进度仅自愿临时保存在当前标签页。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Purity: bodily and spiritual concerns | MFQ-2 Guide",
+          "zh": "纯洁：身体与精神边界｜MFQ-2完整读法"
+        },
+        "description": {
+          "en": "These six items refer to sacredness of the body, chastity, language, an unusual but harmless sexual preference, natural medicines and virginity before marriage. The mean describes responses to those statements. It is not a measure of hygiene, disease, treatment quality or moral worth.",
+          "zh": "六条涉及身体神圣性、贞洁、语言、不常见但无害的性癖好、天然药物及婚前童贞。均分描述对这些陈述的回答，不测卫生、疾病、治疗质量或道德价值。"
+        }
+      }
+    }
+  ],
+  "sourceFiles": {
+    "MFQ2-author-English.docx": {
+      "sha256": "8466472f44d59e4b020138107f7612cbaff894b2b56b8b42a44cbaa106767fc8",
+      "bytes": 9560
+    },
+    "MFQ2-author-Chinese.docx": {
+      "sha256": "cac4b8be0ac602f82fa6e85caf350857f124049282f278cb2aa4c53fd667f4ff",
+      "bytes": 9765
+    },
+    "MFQ2-author-preprint-R2.pdf": {
+      "sha256": "239da0fbaad6f6289b6e5a297907b1f147f282b3e2b13f7ec252e6a36fe84359",
+      "bytes": 1516654
+    },
+    "osf-srtxn-node.json": {
+      "sha256": "16b5688925e46da5e1f9319dc3255a25a24484e43474fc72b42689a68351e55a",
+      "bytes": 6689
+    },
+    "osf-srtxn-license.json": {
+      "sha256": "32fb3d7b32be0843803f96424fe7739f69574481211a2d323e16f8da8536c635",
+      "bytes": 13121
+    }
+  },
+  "sourceProject": "https://osf.io/srtxn/",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "key": {
+    "care": [
+      1,
+      7,
+      13,
+      19,
+      25,
+      31
+    ],
+    "equality": [
+      2,
+      8,
+      14,
+      20,
+      26,
+      32
+    ],
+    "proportionality": [
+      3,
+      9,
+      15,
+      21,
+      27,
+      33
+    ],
+    "loyalty": [
+      4,
+      10,
+      16,
+      22,
+      28,
+      34
+    ],
+    "authority": [
+      5,
+      11,
+      17,
+      23,
+      29,
+      35
+    ],
+    "purity": [
+      6,
+      12,
+      18,
+      24,
+      30,
+      36
+    ]
+  },
+  "sourceEnglishEdition": "MFQ-2authorOSFEnglishDOCXretrieved2026-10-27/SHAfixed;FermatMindworkingChinesetranslation",
+  "changes": "Normalizepresentationwhitespaceonlyin36ENpromptsfromauthorDOCX,whichdiffersfrompreprintin27. EntireZHworkingtranslationFermatMind;authorCNreferencepreservedbutnotadoptedverbatim. NotclaimofficialChinese/equivalencevalidated. Maintaincommunity16/28,sportsteam34,chemicallyidentical30,unusualbutharmless24;nohealthormoralendorsementofitemcontent.",
+  "scoring": "36directratings1..5;unroundedmeanofsixperfoundation;noreverse/combinedtotal/ideology/purityrank/empiricalpopulationnorm. Nofixednumericrecallinsource. ProposedNArequiresall6validwithineachfoundation;explicitFermatMindpresentationpolicy,notoriginalvalidation.",
+  "scoreWitnesses": {
+    "perDomainStates": [
+      {
+        "rated": 0,
+        "sum": 0,
+        "codes": "nnnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 1,
+        "codes": "1nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 2,
+        "codes": "2nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 3,
+        "codes": "3nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 4,
+        "codes": "4nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 5,
+        "codes": "5nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 2,
+        "codes": "11nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 3,
+        "codes": "21nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 4,
+        "codes": "31nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 5,
+        "codes": "41nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 6,
+        "codes": "51nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 7,
+        "codes": "52nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 8,
+        "codes": "53nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 9,
+        "codes": "54nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 10,
+        "codes": "55nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 3,
+        "codes": "111nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 4,
+        "codes": "211nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 5,
+        "codes": "311nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 6,
+        "codes": "411nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 7,
+        "codes": "511nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 8,
+        "codes": "521nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 9,
+        "codes": "531nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 10,
+        "codes": "541nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 11,
+        "codes": "551nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 12,
+        "codes": "552nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 13,
+        "codes": "553nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 14,
+        "codes": "554nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 15,
+        "codes": "555nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 4,
+        "codes": "1111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 5,
+        "codes": "2111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 6,
+        "codes": "3111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 7,
+        "codes": "4111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 8,
+        "codes": "5111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 9,
+        "codes": "5211nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 10,
+        "codes": "5311nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 11,
+        "codes": "5411nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 12,
+        "codes": "5511nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 13,
+        "codes": "5521nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 14,
+        "codes": "5531nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 15,
+        "codes": "5541nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 16,
+        "codes": "5551nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 17,
+        "codes": "5552nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 18,
+        "codes": "5553nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 19,
+        "codes": "5554nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 20,
+        "codes": "5555nn",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 5,
+        "codes": "11111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 6,
+        "codes": "21111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 7,
+        "codes": "31111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 8,
+        "codes": "41111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 9,
+        "codes": "51111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 10,
+        "codes": "52111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 11,
+        "codes": "53111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 12,
+        "codes": "54111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 13,
+        "codes": "55111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 14,
+        "codes": "55211n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 15,
+        "codes": "55311n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 16,
+        "codes": "55411n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 17,
+        "codes": "55511n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 18,
+        "codes": "55521n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 19,
+        "codes": "55531n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 20,
+        "codes": "55541n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 21,
+        "codes": "55551n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 22,
+        "codes": "55552n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 23,
+        "codes": "55553n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 24,
+        "codes": "55554n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 25,
+        "codes": "55555n",
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 6,
+        "codes": "111111",
+        "fullMean": 1.0
+      },
+      {
+        "rated": 6,
+        "sum": 7,
+        "codes": "211111",
+        "fullMean": 1.1666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 8,
+        "codes": "311111",
+        "fullMean": 1.3333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 9,
+        "codes": "411111",
+        "fullMean": 1.5
+      },
+      {
+        "rated": 6,
+        "sum": 10,
+        "codes": "511111",
+        "fullMean": 1.6666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 11,
+        "codes": "521111",
+        "fullMean": 1.8333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 12,
+        "codes": "531111",
+        "fullMean": 2.0
+      },
+      {
+        "rated": 6,
+        "sum": 13,
+        "codes": "541111",
+        "fullMean": 2.1666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 14,
+        "codes": "551111",
+        "fullMean": 2.3333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 15,
+        "codes": "552111",
+        "fullMean": 2.5
+      },
+      {
+        "rated": 6,
+        "sum": 16,
+        "codes": "553111",
+        "fullMean": 2.6666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 17,
+        "codes": "554111",
+        "fullMean": 2.8333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 18,
+        "codes": "555111",
+        "fullMean": 3.0
+      },
+      {
+        "rated": 6,
+        "sum": 19,
+        "codes": "555211",
+        "fullMean": 3.1666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 20,
+        "codes": "555311",
+        "fullMean": 3.3333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 21,
+        "codes": "555411",
+        "fullMean": 3.5
+      },
+      {
+        "rated": 6,
+        "sum": 22,
+        "codes": "555511",
+        "fullMean": 3.6666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 23,
+        "codes": "555521",
+        "fullMean": 3.8333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 24,
+        "codes": "555531",
+        "fullMean": 4.0
+      },
+      {
+        "rated": 6,
+        "sum": 25,
+        "codes": "555541",
+        "fullMean": 4.166666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 26,
+        "codes": "555551",
+        "fullMean": 4.333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 27,
+        "codes": "555552",
+        "fullMean": 4.5
+      },
+      {
+        "rated": 6,
+        "sum": 28,
+        "codes": "555553",
+        "fullMean": 4.666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 29,
+        "codes": "555554",
+        "fullMean": 4.833333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 30,
+        "codes": "555555",
+        "fullMean": 5.0
+      }
+    ],
+    "workedExamples": {
+      "care": {
+        "codes": [
+          4,
+          3,
+          5,
+          2,
+          4,
+          3
+        ],
+        "sum": 21,
+        "mean": "3.50"
+      },
+      "equality": {
+        "codes": [
+          2,
+          4,
+          3,
+          1,
+          2,
+          5
+        ],
+        "sum": 17,
+        "mean": "2.83"
+      },
+      "proportionality": {
+        "codes": [
+          5,
+          4,
+          3,
+          4,
+          2,
+          5
+        ],
+        "sum": 23,
+        "mean": "3.83"
+      },
+      "loyalty": {
+        "codes": [
+          3,
+          2,
+          4,
+          3,
+          5,
+          2
+        ],
+        "sum": 19,
+        "mean": "3.17"
+      },
+      "authority": {
+        "codes": [
+          4,
+          2,
+          3,
+          5,
+          1,
+          3
+        ],
+        "sum": 18,
+        "mean": "3.00"
+      },
+      "purity": {
+        "codes": [
+          1,
+          2,
+          4,
+          3,
+          2,
+          1
+        ],
+        "sum": 13,
+        "mean": "2.17"
+      }
+    }
+  }
+}

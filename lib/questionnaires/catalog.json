@@ -4059,5 +4059,32 @@
       "agreement-clarity",
       "protective-distance"
     ]
+  },
+  {
+    "slug": "morality-6",
+    "code": "FM_MFQ2_36_WORKING",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Moral Foundations Test (MFQ-2)",
+      "zh": "道德基础测试（MFQ-2工作中译）"
+    },
+    "description": {
+      "en": "Take the 36-item MFQ-2 with the authors’ English wording or a clearly identified working Chinese translation. Read six separate means and full guides without political labels.",
+      "zh": "使用作者英文36题或明确标注的费马工作中译完成MFQ-2，分别理解关怀、平等、比例公平、忠诚、权威、纯洁的均分及六份完整指南，不指定政治身份。"
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "mfq2_osf_docx_36_zh_working_v1",
+    "questionCount": 36,
+    "resultSlugs": [
+      "care",
+      "equality",
+      "proportionality",
+      "loyalty",
+      "authority",
+      "purity"
+    ]
   }
 ]

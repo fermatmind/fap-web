@@ -10,6 +10,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { QuestionnaireCharacterSource } from "./QuestionnaireCharacterSource";
 import { QuestionnairePpsAttribution } from "./QuestionnairePpsAttribution";
+import { QuestionnaireMfq2Attribution } from "./QuestionnaireMfq2Attribution";
 import { QuestionnaireReport } from "@/components/questionnaires/QuestionnaireReport";
 import { isTenKeyConfigurationValid } from "@/lib/questionnaires/tenKey";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
@@ -41,6 +42,7 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-8"><QuestionnaireReport profile={profile} locale={locale} headingLevel={2} /></div>
     {quiz.slug === "character-strengths" && <QuestionnaireCharacterSource locale={locale} />}
     {quiz.slug === "people-pleaser" && <QuestionnairePpsAttribution locale={locale} />}
+    {quiz.slug === "morality-6" && <QuestionnaireMfq2Attribution locale={locale} />}
     <section className="my-8" aria-labelledby="other-questionnaire-results"><h2 id="other-questionnaire-results" className="text-2xl font-semibold">{(quiz.kind === "data-entry" || quiz.kind === "ten-key" || quiz.kind === "typing") ? (zh ? "其他模式的完整复习指南" : "Full revision guides for other modes") : (zh ? "比较其他结果" : "Compare other results")}</h2><ul className="mt-4 space-y-2">{quiz.profiles.filter(p => p.id !== id).map(other => <li key={other.id}><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, slug, other.id)}>{other.title[locale]}</Link></li>)}</ul></section>
     <section className="my-8 space-y-5 leading-8"><h2 className="text-2xl font-semibold">{zh ? "计分与阅读问题" : "Scoring and reading questions"}</h2>{quiz.faq.slice(0, 3).map((faq, index) => <section key={index}><h3 className="font-semibold">{faq.question[locale]}</h3><p className="mt-2">{faq.answer[locale]}</p></section>)}</section>
     <Link prefetch={false} className="inline-block min-h-11 py-2 font-semibold underline" href={`${entry}#take-test`}>{(quiz.kind === "data-entry" || quiz.kind === "ten-key" || quiz.kind === "typing") ? (zh ? "返回练习，选择输入模式" : "Return to practice and choose an entry mode") : (zh ? "返回测试，作出自己的选择" : "Return to the test and make your own choices")}</Link>
