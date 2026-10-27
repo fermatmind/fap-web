@@ -1,0 +1,893 @@
+{
+  "slug": "self-esteem",
+  "code": "RSES_UMD_ORIGINAL10",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "rosenberg",
+  "title": {
+    "en": "Self-Esteem Test",
+    "zh": "自尊测试"
+  },
+  "seoTitle": {
+    "en": "Self-Esteem Test: Rosenberg Scale & Complete Score Guide",
+    "zh": "自尊测试：罗森伯格10题量表与完整分数说明"
+  },
+  "description": {
+    "en": "Take the 10-item Rosenberg Self-Esteem Scale. Get your 0–30 raw total and full guide, free. Original English; a clearly labelled Chinese working translation.",
+    "zh": "免费完成罗森伯格自尊量表10题，查看0—30原始总分和完整读法。采用官方英文题序，中文为明确标注的工作译文；不派正常区间或诊断标签。"
+  },
+  "minutes": 2,
+  "instructions": {
+    "en": "Rate the ten statements about your general feelings towards yourself: strongly agree, agree, disagree or strongly disagree. There is no fixed numerical recall period or timer. An optional unscored prefer-not-to-answer control is separate from those four scale anchors. All ten scale responses are needed for a total; any skip gives an insufficient-information report and the same complete guide. Two minutes is an editorial estimate. You may exit or clear at any time.",
+    "zh": "按你对自己的总体感受回答十条陈述：非常同意、同意、不同意、非常不同意。不额外规定数字回顾期，不计时。另设不计分的暂不回答选项，它与四个量表锚点分开；十题均有量表回答才给总分，任一跳过均显示资料不足并开放同样完整指南。两分钟是编辑估计，随时可以退出或清除。"
+  },
+  "introduction": {
+    "en": "This edition uses the ten public-domain English RSES statements in the exact item order displayed by the University of Maryland, with a new FermatMind Chinese working translation. Five items are reverse-keyed before summing a 0–30 total. The scale concerns reported global self-regard, not tested competence, accurate self-knowledge or a personal value judgement. There are no high/low cutoffs, population ranks, diagnostic conclusions or hiring recommendations. The original scale’s research history does not establish validity or cross-language equivalence for this website’s Chinese wording. One complete public guide covers every possible total, mixed answers and insufficient information.",
+    "zh": "本版采用马里兰大学展示题序的十条公版RSES英文陈述，并提供费马新中文工作译文，五题按反向键处理后求0—30总分。关注报告出来的总体自我评价，不是实际能力、准确自知或个人价值判定。不设高低切点、人群排名、诊断结论或招聘建议；原量表研究历史不等于已验证本站中文措辞或跨语言等值。一份完整公开指南覆盖全部可能总分、混合回答与资料不足。"
+  },
+  "resultHeading": {
+    "en": "Your RSES responses and complete reading",
+    "zh": "本次RSES作答与完整读法"
+  },
+  "directions": [
+    {
+      "id": "global-self-regard",
+      "title": {
+        "en": "Reported global self-regard",
+        "zh": "报告的总体自我评价"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "RSES_01",
+      "prompt": {
+        "en": "I feel that I'm a person of worth, at least on an equal plane with others.",
+        "zh": "我觉得自己是一个有价值的人，至少与他人处于平等地位。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_02",
+      "prompt": {
+        "en": "I feel that I have a number of good qualities.",
+        "zh": "我觉得自己有不少好的品质。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_03",
+      "prompt": {
+        "en": "All in all, I am inclined to feel that I am a failure.",
+        "zh": "总的来说，我倾向于觉得自己是个失败者。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_04",
+      "prompt": {
+        "en": "I am able to do things as well as most other people.",
+        "zh": "我做事情能和大多数其他人做得一样好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_05",
+      "prompt": {
+        "en": "I feel I do not have much to be proud of.",
+        "zh": "我觉得自己没有多少值得自豪的地方。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_06",
+      "prompt": {
+        "en": "I take a positive attitude toward myself.",
+        "zh": "我对自己持积极的态度。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_07",
+      "prompt": {
+        "en": "On the whole, I am satisfied with myself.",
+        "zh": "整体而言，我对自己感到满意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_08",
+      "prompt": {
+        "en": "I wish I could have more respect for myself.",
+        "zh": "我希望自己能更加尊重自己。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_09",
+      "prompt": {
+        "en": "I certainly feel useless at times.",
+        "zh": "有时我确实觉得自己没什么用。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RSES_10",
+      "prompt": {
+        "en": "At times I think I am no good at all.",
+        "zh": "有时我认为自己一无是处。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "sa",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 3
+        },
+        {
+          "id": "a",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 1
+        },
+        {
+          "id": "sd",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "global-self-regard",
+          "score": 0
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — no total if skipped",
+            "zh": "暂不回答——有跳过时不计算总分"
+          },
+          "directionId": "global-self-regard",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "score-reading",
+      "directionIds": [
+        "global-self-regard"
+      ],
+      "title": {
+        "en": "Rosenberg Self-Esteem Scale: Read Your Raw Score",
+        "zh": "罗森伯格自尊量表：怎样阅读原始分数"
+      },
+      "headline": {
+        "en": "One raw total, with context and without a type label",
+        "zh": "一个原始总分，连同情境阅读，不派类型标签"
+      },
+      "summary": {
+        "en": "Understand the RSES 0–30 total, reverse keys, skipped answers and interpretation limits. A complete public guide, without universal high/low bands.",
+        "zh": "完整说明RSES的0—30原始总分、反向键、跳过回答与解释限制，不采用统一高低档位。"
+      },
+      "scoreReading": {
+        "en": "This is the same complete public reading for every possible raw total and for an insufficient-information report. It is not a personal score page or a classification of human worth.",
+        "zh": "这是全部可能原始分数及资料不足报告共用的完整公开读法，不是私人分数页，也不对人的价值进行分类。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rosenberg Self-Esteem Scale Score: Full Reading Guide",
+          "zh": "罗森伯格自尊量表分数：完整读法与反向计分"
+        },
+        "description": {
+          "en": "Read every RSES total from 0 to 30 without invented cutoffs. Check item order, reverse scoring, skipped answers, translation and interpretation limits.",
+          "zh": "阅读RSES全部0—30原始分数，不用自编切点；核对题序、反向计分、跳过题、译本与解释限制。"
+        }
+      },
+      "sections": [
+        {
+          "id": "global",
+          "title": {
+            "en": "A report of global self-regard, not a verdict on worth",
+            "zh": "自我评价的报告，不是个人价值判决"
+          },
+          "paragraphs": [
+            {
+              "en": "The Rosenberg Self-Esteem Scale asks about your general feelings towards yourself. Its subject is global self-regard: an overall self-evaluation rather than a demonstrated skill, a personality type or another person’s judgement. You might be unsure about a new task while still accepting yourself as a person. You might also perform a familiar task well while reporting difficulty with self-acceptance. A single total does not tell which situation applies, and it cannot establish whether your judgement is accurate.",
+              "zh": "罗森伯格自尊量表询问你对自己的总体感受，关注整体的自我评价，不是某项技能的实际表现、人格类型或他人的评价。你可能不确定能否完成新任务，却仍接纳自己；也可能熟练完成一项工作，却对自我接纳感到困难。单一总分不能确定你属于哪种情境，也不能判断你的自我评价是否准确。"
+            },
+            {
+              "en": "This website therefore reports one raw total and one complete reading guide. It does not create separate competence, inner-critic, stability or secure-versus-fragile scores from the ten items. Neither zero nor thirty changes anyone’s dignity, rights or entitlement to respectful treatment. This version is offered for adult self-reflection, not for deciding whether someone deserves a job, a relationship or care.",
+              "zh": "因此本网站只给一个原始总分和一份完整读法，不把十题另拆成胜任力、内在批评者、稳定性或安全／脆弱自尊分数。无论零分还是三十分，都不改变一个人的尊严、权利或应受尊重的待遇。本版供成年人自我反思，不用于决定一个人是否配得到工作、关系或照顾。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Follow this item order and its exact reverse keys",
+            "zh": "按本版题序使用准确反向键"
+          },
+          "paragraphs": [
+            {
+              "en": "The four scale responses are strongly agree, agree, disagree and strongly disagree. In the University of Maryland item order used here, items 1, 2, 4, 6 and 7 contribute 3, 2, 1 and 0 respectively. Items 3, 5, 8, 9 and 10 contribute 0, 1, 2 and 3. The ten contributions are added without rounding or percentage conversion. Other websites may order the same statements differently; a reverse-key list is meaningful only alongside its actual statements and order.",
+              "zh": "四个量表选项为非常同意、同意、不同意、非常不同意。按本版采用的马里兰大学题序，第1、2、4、6、7题依次记3、2、1、0；第3、5、8、9、10题依次记0、1、2、3。十项直接求和，不舍入、不转换百分比。其他网站可能把相同陈述重新排序，反向题号必须和实际陈述及题序一起核对。"
+            },
+            {
+              "en": "For a hypothetical example, five positive-item contributions of 3, 2, 1, 3 and 2 sum to 11; five reverse-keyed contributions of 1, 2, 0, 1 and 3 sum to 7. The total is 18 out of 30. Agreeing with every statement produces 15, and strongly agreeing with every statement also produces 15 under these keys. Those patterns are different despite the identical total. Reverse wording does not prove that response bias or translation differences have disappeared.",
+              "zh": "以虚构算例说明：五个正向题贡献3、2、1、3、2，合计11；五个反向题计分后贡献1、2、0、1、3，合计7，总数为18/30。所有题都选同意会得15，所有题都选非常同意也会得15；总数相同，回答模式却不同。使用反向措辞不等于已经消除回答偏差或翻译差异。"
+            }
+          ]
+        },
+        {
+          "id": "range",
+          "title": {
+            "en": "Read every possible total without inventing bands",
+            "zh": "阅读全部分数，不自行划档"
+          },
+          "paragraphs": [
+            {
+              "en": "Every integer from 0 through 30 is possible. More points reflect more positive self-regard as reported through these particular responses. The University of Maryland FAQ states that there are no discrete cutoffs for high and low self-esteem and that norms require relevant population research. This edition has no matched population norms, so it does not label a total as normal, unhealthy, above average, a pass or a percentile. The denominator thirty is the mathematical maximum, not a measure of human value.",
+              "zh": "0到30之间的每个整数都可能出现，较多分数表示在这些回答中报告了较多正向自我评价。马里兰大学FAQ指出没有划分高低自尊的离散切点，常模应查与目标人群相关的研究。本版没有匹配人群常模，因此不把任何总数标为正常、不健康、高于平均、及格或百分位；分母30是数学上限，不是人的价值刻度。"
+            },
+            {
+              "en": "A comparatively lower total, such as 8 rather than 22 in two hypothetical complete records, warrants reading the actual answers and context instead of inferring a cause. A comparatively higher total does not establish resilience, kindness, narcissism, accurate self-knowledge or freedom from distress. Fifteen is not assigned a special type here. Mixed answers can cancel in the sum, and two people with the same number may have very different concerns. The guide stays the same at every score rather than unlocking a flattering or alarming label.",
+              "zh": "比较两份虚构完整记录时，8比22低，适合回看回答及情境，却不能据此确定原因。较高总数也不证明韧性、善意、自恋、准确自知或没有困扰。这里不为15分另派类型；不同方向的回答可能在求和时抵消，同分的人可能有完全不同的关注点。所有分数开放相同指南，不据分数解锁赞美或警告标签。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Keep genuine zero separate from skipped information",
+            "zh": "分清有效零分与跳过造成的不足"
+          },
+          "paragraphs": [
+            {
+              "en": "The original scale has four scored anchors. The website adds an explicitly labelled, unscored prefer-not-to-answer control so that you can finish without endorsing an uncomfortable statement. That control is not a fifth scale anchor. If even one item is skipped, the report gives the number rated out of ten and withholds the total. It does not replace the skipped item with zero, an average, a guessed answer or a prorated score. The same full guide remains available.",
+              "zh": "原量表只有四个计分锚点。网站另外提供明确标注、不计分的暂不回答选项，让你不必为了结束流程而认可不想回答的陈述；它不是量表的第五个锚点。只要跳过一题，报告就显示十题中有几题获得量表回答，并暂不给总分，不用零、均值、猜测或按比例放大的分数填补；完整指南仍可阅读。"
+            },
+            {
+              "en": "For example, nine scored responses and one skip are insufficient for this edition’s ten-item total, even if the nine known contributions happen to add to zero. Ten valid responses whose contributions all equal zero, by contrast, produce a real total of zero. Before submission, an item left entirely unselected is incomplete and triggers a choice prompt. You can go back, change a choice, use the unscored skip or exit and clear the attempt; a missing response is never silently treated as disagreement.",
+              "zh": "例如九题计分、一题跳过，即使已知九项恰好合计零，也不足以生成本版十题总分。相反，十题均有有效回答且贡献全部为零，会得到真实零分。提交前完全没有选项的题属于未完成，会提示选择。你可以返回修改、选不计分的暂不回答，或退出清除；缺答从不会暗中算成不同意。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Compare occasions and languages cautiously",
+            "zh": "谨慎比较不同时间与语言"
+          },
+          "paragraphs": [
+            {
+              "en": "The source asks about general feelings and does not prescribe a numerical seven-day or thirty-day recall window. Read that instruction as written rather than replacing it with a guessed period. If you repeat the scale, note the version, language and circumstances privately. A difference is a difference in reported answers on those occasions; this site has no validated threshold for meaningful individual change, no reliable-change calculation and no way to identify what caused the difference.",
+              "zh": "来源询问总体感受，没有规定七天或三十天等数字回顾期，应按原指令作答，不自行替换时间范围。重做时可以私下记下版本、语言和当时情境。分数变化只表示不同时间报告的答案有所不同；本站没有经过验证的个人重要变化阈值、可靠变化计算，也无法识别变化原因。"
+            },
+            {
+              "en": "The English statements follow the UMD source. The Chinese statements are a new FermatMind working translation, not a claim to an established Chinese validation. A translated sentence can be understood differently across people and settings; keeping the same arithmetic does not establish measurement equivalence. Published reliability figures for other languages, samples or administration formats are not evidence for this particular website edition. Do not compare two languages as if their scores were proven interchangeable.",
+              "zh": "英文陈述遵循UMD来源，中文陈述是费马新工作译文，不声称是既有已验证中文版。翻译后的句子可能在不同人和情境中有不同理解，保持同一算术规则不等于已证明测量等值。其他语言、样本或施测方式发表的信度数字，不是本网站版本的验证证据；不要把两种语言成绩当成已证明可以直接互换。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Choose a specific observation before a bigger conclusion",
+            "zh": "先选具体观察，再考虑更大的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a person receives critical comments on a proposal. The factual observation is that a particular proposal received criticism; the scale does not tell whether the criticism was fair, whether the proposal was competent or what anyone deserves. A useful optional reflection is to identify the situation that came to mind for one statement and distinguish that event from a global claim about oneself. This is an editorial suggestion for organizing a conversation, not a treatment protocol or a promise to raise a score.",
+              "zh": "假设有人收到对一份方案的批评，事实只是这份具体方案受到批评。量表不能判断批评是否公平、方案是否胜任，也不能决定任何人值得什么。可以自愿选一条陈述，想想作答时联想到的情境，区分具体事件和对整个人的评价。这是帮助组织谈话的编辑建议，不是治疗方案，也不承诺提高分数。"
+            },
+            {
+              "en": "You can stop after reading. There is no requirement to complete another personality test or disclose your answers. If answering feels upsetting, pause or leave the questionnaire. If these concerns persist or affect daily life, seeking support from an appropriately qualified professional is an option independent of the score. The linked NHS page offers general support information in its UK context; local access and services differ. A questionnaire total is not a diagnosis or a rule for who can seek help.",
+              "zh": "读完后可以直接结束，无需再做人格测试或公开答案。若作答让你不舒服，可以暂停或退出；若这些困扰持续或影响日常生活，可以独立于分数考虑向合适的专业人士寻求支持。所链接NHS页面提供其英国背景下的一般支持信息，各地服务与获取条件不同。总分不是诊断，也不是谁有资格寻求帮助的规则。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source, attribution and control of your answers",
+            "zh": "来源、署名与答卷控制"
+          },
+          "paragraphs": [
+            {
+              "en": "The English scale is attributed to Morris Rosenberg, Society and the Adolescent Self-Image (1965); the UMD FAQ also identifies the 1989 revised edition. UMD’s current notice places the scale in the public domain and expressly allows translations or adaptations with scholarly attribution. We use its displayed item order and 0–3 scoring, not an alternative website’s reordered numbering or invented thresholds. The website’s working translation, optional skip, explanatory guide and software are separate from claims about the original instrument’s research history.",
+              "zh": "英文量表署名Morris Rosenberg，Society and the Adolescent Self-Image（1965）；UMD FAQ还列出1989修订版。UMD现行声明明确量表为公有领域，允许带学术署名的翻译或改编。本版采用其展示题序与0—3计分，不混用其他网站重排后的题号或自编阈值。本站工作译文、可选跳过、解释指南与软件，要和原量表研究历史的主张分别看待。"
+            },
+            {
+              "en": "Your attempt runs in the browser. An explicit opt-in can save this edition’s progress in this tab for twenty-four hours; completion, clear or retake deletes that draft. A language switch may resume the same answers by item identifier, without proving language equivalence. Copying a result shares only the public title and page link, not the raw total, answers or a private report. This public guide is available before an attempt and never displays another person’s score.",
+              "zh": "本次作答在浏览器运行，主动勾选才在本标签页按本版保存24小时进度，完成、清空或重做会删去草稿。换语言可按题号恢复同一组回答，但这不证明语言等值。复制结果仅分享公开标题与页面链接，不含原始总分、答案或私人报告。本公开指南作答前即可阅读，从不展示别人的成绩。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "rosenberg_umd_public_domain_original10",
+    "formCode": "rses_umd_original_order_10_fm_zh_working_v1",
+    "itemBankVersion": "rses_umd_original_order_10_fm_zh_working_v1",
+    "scoringVersion": "rses_umd_0_30_full10_v1",
+    "resultContentVersion": "fm_rses_continuous_full_guide_v1",
+    "itemBankSha256": "c3d40f666979fcfa0591764ca0026e4c5ce74f1b3e4e58cf37bcca6f3253830a",
+    "resultContentSha256": "b00164c2f7ead8c494b4ae1a16d56086e2ea38aa641631aea75f5e1cfcc63297",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "University of Maryland: current public-domain notice",
+        "zh": "马里兰大学：现行公有领域使用声明"
+      },
+      "url": "https://socy.umd.edu/about-us/rosenberg-self-esteem-scale"
+    },
+    {
+      "title": {
+        "en": "University of Maryland: original item order and 0–30 scoring",
+        "zh": "马里兰大学：所展示的原题序与0—30计分"
+      },
+      "url": "https://socy.umd.edu/about-us/using-rosenberg-self-esteem-scale"
+    },
+    {
+      "title": {
+        "en": "University of Maryland FAQ: attribution, translations and no discrete cutoffs",
+        "zh": "马里兰大学FAQ：署名、译本与不设离散切点"
+      },
+      "url": "https://socy.umd.edu/rosenberg-scale-faq"
+    },
+    {
+      "title": {
+        "en": "NHS: general self-esteem information and support, UK context",
+        "zh": "NHS：自尊的一般信息与支持（英国背景）"
+      },
+      "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/raise-low-self-esteem/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "rosenberg-scoring",
+      "title": {
+        "en": "Ten contributions, with five reverse keys",
+        "zh": "十项求和，其中五题反向"
+      },
+      "paragraphs": [
+        {
+          "en": "Using UMD’s displayed order, items 1, 2, 4, 6 and 7 score strongly agree through strongly disagree as 3, 2, 1 and 0; items 3, 5, 8, 9 and 10 score 0, 1, 2 and 3. Ten valid scale responses give an integer total from 0 to 30. Optional skip is not a scale anchor; any skip withholds the total without filling or prorating.",
+          "zh": "按UMD展示题序，第1、2、4、6、7题从非常同意至非常不同意记3、2、1、0；第3、5、8、9、10题记0、1、2、3。十项量表回答均有效才给0—30整数总分。可选跳过不是量表锚点，任一跳过即不给总分，不填补或按比例换算。"
+        }
+      ]
+    },
+    {
+      "id": "rosenberg-reading",
+      "title": {
+        "en": "No universal normal range or type",
+        "zh": "不套统一正常区间或类型"
+      },
+      "paragraphs": [
+        {
+          "en": "A higher raw total reflects more positive reported self-regard on these statements. This edition has no matched population norms, high/low cutoffs, percentiles, diagnoses or hiring bands. All 31 possible integer totals and every insufficient-information report receive the same full guide; zero and missing information remain distinct.",
+          "zh": "较高总分表示在这些陈述上报告了较多正向自我评价。本版没有匹配人群常模、高低切点、百分位、诊断或招聘档。31个可能整数总分及每种资料不足报告均获得同样完整指南，零与资料不足保持区别。"
+        }
+      ]
+    },
+    {
+      "id": "rosenberg-source",
+      "title": {
+        "en": "Public-domain source, new Chinese working translation",
+        "zh": "公版来源与新的中文工作译文"
+      },
+      "paragraphs": [
+        {
+          "en": "Morris Rosenberg’s English items are reproduced under UMD’s current public-domain notice allowing attributed translations/adaptations. The Chinese wording is newly translated by FermatMind and has not been psychometrically validated. References establish the source and scoring, not this website’s cross-language equivalence.",
+          "zh": "Morris Rosenberg英文条目依据UMD现行公版声明使用，该声明允许带署名的翻译与改编。中文由费马新译，尚未经心理测量验证。参考确认来源与计分，不证明本网站跨语言等值。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Rosenberg version and scoring does this use?",
+        "zh": "使用哪种罗森伯格版本与计分？"
+      },
+      "answer": {
+        "en": "The UMD displayed ten-item order, four scored anchors and 0–3 contributions: positive items 1, 2, 4, 6 and 7; reverse items 3, 5, 8, 9 and 10; total 0–30. It is not a reordered version, 10–40 coding or an invented five-point scale.",
+        "zh": "采用UMD展示十题题序、四个计分锚点与0—3贡献值：正向1、2、4、6、7，反向3、5、8、9、10，总分0—30；不混用重排版本、10—40记分或自编五级量尺。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does my total mean?",
+        "zh": "总分表示什么？"
+      },
+      "answer": {
+        "en": "It describes reported global self-regard on these items. No universal normal range, high/low type, percentile, diagnosis or human-worth rating is assigned. Every possible total receives one full interpretation guide.",
+        "zh": "描述这些题项上的总体自我评价，不派统一正常区间、高低类型、百分位、诊断或个人价值等级，任何可能总分都得到同一份完整读法。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese version validated?",
+        "zh": "中文版经过验证了吗？"
+      },
+      "answer": {
+        "en": "No. The original English follows UMD; Chinese is a new FermatMind working translation permitted by the public-domain notice. Its psychometric performance and cross-language equivalence have not been established here.",
+        "zh": "没有。英文遵循UMD，中文是公版声明允许下的费马新工作译文；本站尚未建立其心理测量表现及跨语言等值性。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip an item?",
+        "zh": "跳过一题会怎样？"
+      },
+      "answer": {
+        "en": "Prefer not to answer is an optional website non-response, not a fifth scale anchor. Any skip withholds the total and shows how many items were rated. No imputation or prorating is used, and the complete guide stays available.",
+        "zh": "暂不回答是网站可选的非作答状态，不是第五个量表锚点；任一跳过都会暂不给总分并显示有效题数，不填补、不按比例换算，仍可阅读完整指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is everything free and can I stop?",
+        "zh": "全部免费吗，可以中途退出吗？"
+      },
+      "answer": {
+        "en": "All ten items, the raw total when complete and the full guide are free without signup or email. You may exit, clear or retake. This is adult self-reflection, not a clinical assessment or a substitute for appropriate support.",
+        "zh": "十题、完整作答后的原始总分及完整指南免费，无需注册或邮箱，可退出、清除或重做。本版是成人自我反思，不是临床评估，也不能替代合适支持。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are progress and sharing handled?",
+        "zh": "进度与分享怎样处理？"
+      },
+      "answer": {
+        "en": "An explicit opt-in saves progress in this browser tab for 24 hours using this edition; completion, clear or retake removes it. Sharing copies the public title and URL only, without answers, the raw total or a private report.",
+        "zh": "主动勾选后才在本浏览器标签页按本版保存24小时进度，完成、清除或重做会删除。分享仅复制公开标题与URL，不含答案、原始总分或私人报告。"
+      }
+    }
+  ]
+}

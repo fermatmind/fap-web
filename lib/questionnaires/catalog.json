@@ -4086,5 +4086,27 @@
       "authority",
       "purity"
     ]
+  },
+  {
+    "slug": "self-esteem",
+    "code": "RSES_UMD_ORIGINAL10",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Self-Esteem Test",
+      "zh": "自尊测试"
+    },
+    "description": {
+      "en": "Take the 10-item Rosenberg Self-Esteem Scale. Get your 0–30 raw total and full guide, free. Original English; a clearly labelled Chinese working translation.",
+      "zh": "免费完成罗森伯格自尊量表10题，查看0—30原始总分和完整读法。采用官方英文题序，中文为明确标注的工作译文；不派正常区间或诊断标签。"
+    },
+    "minutes": 2,
+    "collection": "explore",
+    "formCode": "rses_umd_original_order_10_fm_zh_working_v1",
+    "questionCount": 10,
+    "resultSlugs": [
+      "score-reading"
+    ]
   }
 ]
