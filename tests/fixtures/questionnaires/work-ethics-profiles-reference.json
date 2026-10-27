@@ -1,0 +1,450 @@
+[
+  {
+    "id": "commitments-reading",
+    "directionIds": [
+      "commitments"
+    ],
+    "title": {
+      "en": "Work Commitments: Keeping an Agreement and Renegotiating It",
+      "zh": "工作约定：履行与重新商定"
+    },
+    "headline": {
+      "en": "Make an agreement usable for the people relying on it",
+      "zh": "让约定对依赖它的人有用"
+    },
+    "summary": {
+      "en": "Six items ask how you checked, accepted, changed and handed over commitments in the past four weeks. The reading concerns your selected habits, without assigning a reliability grade.",
+      "zh": "六项询问过去四周如何核对、接下、调整与交接约定，回看所选习惯，不给可靠性等级。"
+    },
+    "seo": {
+      "title": {
+        "en": "Work Commitments: Keeping an Agreement and Renegotiating It",
+        "zh": "工作约定：履行与重新商定"
+      },
+      "description": {
+        "en": "Read six commitment-habit responses, reverse coding and missing answers. Use a fictional deadline change to plan one timely update without accepting impossible demands.",
+        "zh": "阅读六项履约习惯、反向计分与缺答，用虚构的期限变更例子准备一次及时沟通，不要求接下不可能的任务。"
+      }
+    },
+    "scoreReading": {
+      "en": "For items 1, 2, 4 and 5 keep the chosen 1–5 value. For items 3 and 6 use 6 minus that value. Add the six contributions, divide by six and round to one decimal. One unscored response withholds this mean.",
+      "zh": "第1、2、4、5项保留所选1—5值，第3、6项按6减所选值。六项贡献相加除以六，保留一位小数；任一不计分则本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What a commitment means in this form",
+          "zh": "这里的约定指什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions concern checking what is feasible, informing people of an expected change, knowing what a handover involves and considering existing promises before adding one. They can apply to paid work, study, volunteering or an ordinary shared project. The form does not know whether a deadline was reasonable, what authority you held or whether it was safe to speak. Its four-week window helps you choose examples; it is an editorial recall rule rather than a validated measure of dependability.",
+            "zh": "题目涉及核对可行性、预告安排变化、明确交接内容，以及增加承诺前查看已有约定，可用于工作、学习、志愿活动或普通共同项目。问卷不知道期限是否合理、你有什么权限，或发言是否安全。四周时间窗帮助选择实例，是编辑制定的回忆规则，不是验证过的可靠性测量。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Follow the reversal before reading the mean",
+          "zh": "先看反向处理，再读均分"
+        },
+        "paragraphs": [
+          {
+            "en": "For example, raw responses of 4, 4, 2, 3, 4 and 1 become contributions of 4, 4, 4, 3, 4 and 5. Their sum is 24, so the displayed mean is 4.0. Reversal aligns the direction of these particular statements; it does not detect lies. The mean describes the coded choices, not a probability that you will keep the next promise. Other groups remain separate, with no overall reliability band or rule that the smallest mean determines your worth.",
+            "zh": "例如原选值为4、4、2、3、4、1，计分贡献为4、4、4、3、4、5，合计24，显示4.0。反向处理只使这些陈述的方向一致，不检测说谎。均分描述处理后的选项，不是下一次守约的概率。其他题组分别保留，没有整体可靠性等级，也不按最低均分决定个人价值。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A changed deadline can still leave a useful agreement",
+          "zh": "期限改变后仍可形成有用约定"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine agreeing to send a draft on Thursday, then learning on Tuesday that an input will arrive on Friday. An update can identify the missing input, what can be sent on Thursday and which new date needs agreement. The recipient still gets a decision they can use. A counterexample is silently changing the date and assuming everyone will notice. This fictional situation illustrates information flow; it does not imply that a person must absorb the delay through unpaid work or guarantee outcomes beyond their control.",
+            "zh": "假设约好周四交草稿，周二得知一项输入要周五才到。可以说明缺什么、周四能交什么，以及需要重新商定哪个日期，让接收方获得可用的决定。反例是默默改日期，再假设别人会发现。这是信息流的虚构例子，不表示必须用无偿加班吸收延误，也不要求保证控制范围外的结果。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Give opportunity and constraints a place in the answer",
+          "zh": "把机会与限制算进理解"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger coded mean means you endorsed more of the listed commitment habits after reversal. Workload, clear agreements, access to information and your room to negotiate can influence the answers. A smaller mean therefore does not establish laziness or a stable character flaw. Never is appropriate when a relevant opportunity existed but the action did not occur. If there was no such opportunity or you cannot judge, choose unscored. That withholds this group alone and does not insert a low value.",
+            "zh": "较大均分表示反向处理后更常认可这些约定习惯。任务量、约定是否清楚、信息能否获得及协商空间都可能影响选择，较小值不能证明懒惰或稳定品格缺陷。有相关机会却没有做时才适合选从未；没有机会或无法判断时选不计分，只使本组暂不给值，不填低分。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Check one live agreement with a small update",
+          "zh": "用一条简短更新核对现有约定"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful and safe, choose one low-stakes agreement you already have. Write the deliverable, the next date and a dependency that could change the plan. Check whether the affected person has the same understanding, using a communication route you are permitted to use. The aim is a clear shared next step, not a longer promise or a higher quiz score. You can decline this exercise, renegotiate an unrealistic demand or use a support person when the communication setting is difficult.",
+            "zh": "若有用且安全，选一项已有的低影响约定，写出交付物、下个时间点及一项可能改变计划的依赖。通过获准的沟通方式核对受影响的人是否理解一致。目的是明确共同下一步，不是增加承诺或提高测验分数。可以不做、重新协商不现实要求，沟通环境困难时也可寻求合适支持。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep a specific record rather than a personal grade",
+          "zh": "保留具体记录，而非个人等级"
+        },
+        "paragraphs": [
+          {
+            "en": "A short note might say what was originally agreed, when new information appeared and what update was useful. It can support discussion of one task without branding a colleague reliable or unreliable. This original bilingual bank has no established reliability, norms or cross-language measurement equivalence. It cannot support hiring, promotion, discipline or a prediction of misconduct. The other three complete readings remain available even if this mean is missing, and no one needs to submit private workplace events or answers.",
+            "zh": "简短记录可写最初约定、何时出现新信息，以及哪条更新有用，用于讨论一次任务，不给同事贴可靠或不可靠标签。本原创双语题本没有建立信度、常模或跨语言测量等价性，不能用于录用、晋升、处分或预测不当行为。均分缺失时其余三篇完整读法仍开放，也无需提交私密工作事件或回答。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quality-reading",
+    "directionIds": [
+      "quality"
+    ],
+    "title": {
+      "en": "Checking Work Before Handover: Read the Six Habit Responses",
+      "zh": "交付前核对：六项习惯读法"
+    },
+    "headline": {
+      "en": "Define the check that makes this handover usable",
+      "zh": "明确本次交接需要哪项核对"
+    },
+    "summary": {
+      "en": "This group concerns agreed completion criteria, details a recipient needs, unresolved errors and actual checks. It does not measure technical competence or demand endless polishing.",
+      "zh": "本组涉及商定的完成条件、接收方所需细节、未解决错误与实际复核，不测技术胜任力，也不要求无休止打磨。"
+    },
+    "seo": {
+      "title": {
+        "en": "Checking Work Before Handover: Read the Six Habit Responses",
+        "zh": "交付前核对：六项习惯读法"
+      },
+      "description": {
+        "en": "Understand six handover-check ratings with a worked arithmetic example and an optional task check. Missing opportunities remain unscored rather than becoming low quality.",
+        "zh": "用计算例子与自选任务核对理解六项交付自评；缺少机会保留为不计分，不算低质量。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 7, 8, 10 and 11 keep their values; items 9 and 12 contribute 6 minus the response. Six numeric answers are required for a one-decimal mean from 1.0 to 5.0.",
+      "zh": "第7、8、10、11项保留所选值，第9、12项贡献为6减所选值。六项数值完整才显示1.0—5.0的一位小数均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "A check is tied to an agreed use",
+          "zh": "核对要联系商定用途"
+        },
+        "paragraphs": [
+          {
+            "en": "The six items ask whether you compared work with completion criteria, checked details needed for use, clarified an unclear requirement and corrected or identified a material error. A check should have a purpose for this task. The form does not inspect the work, certify expertise or decide how much checking a safety-critical process requires. Follow applicable professional procedures for consequential work; a short self-report is not a substitute. An uncertain requirement can call for clarification rather than more polishing.",
+            "zh": "六项询问是否按完成条件对照、核对使用细节、澄清含糊要求，以及修正或说明影响使用的错误。核对应服务这次任务。问卷不检查成果、不认证专业水平，也不决定关键安全流程需要多少检查。重要工作应遵循适用的专业程序，自评不能代替；要求不清时可能需要澄清，而不是继续打磨。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Separate the arithmetic from the quality of the work",
+          "zh": "分开看计算与成果质量"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose raw responses for items 7–12 are 3, 5, 1, 4, 4 and 2. After reversing the third and sixth positions, contributions are 3, 5, 5, 4, 4 and 4. The sum is 25 and 25 divided by six is about 4.1667, displayed as 4.2. This is an average of selected habit responses. It is not a defect rate, a quality certificate or evidence that one person produces better work than another with a lower mean.",
+            "zh": "假设第7—12项原值为3、5、1、4、4、2，第三和第六位置反向后贡献为3、5、5、4、4、4，合计25；除以六约4.1667，显示4.2。它是所选习惯回答的平均，不是缺陷率、质量证明，也不能证明比低均分的人交付更好。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check the detail the recipient will actually use",
+          "zh": "核对接收方实际会用的细节"
+        },
+        "paragraphs": [
+          {
+            "en": "In a fictional shared spreadsheet, a total is correct but the unit is missing. A recipient could read hours as days and make a poor plan. Checking the unit addresses a concrete use requirement; changing colours repeatedly may not. A counterexample is marking the sheet reviewed because it looks tidy while skipping the agreed calculation check. The point is to distinguish a performed check from its label. This example supplies no universal checklist, and real financial or safety work may require additional controls.",
+            "zh": "例如一份虚构的共享表格加总正确，却没写单位，接收方可能把小时当成天而错误排程。核对单位处理具体使用要求，反复调颜色未必有同等作用。反例是因为表格整齐就标成已复核，却跳过商定的计算核对。重点是区分实际检查与检查标签；例子不是通用清单，财务或安全工作可能需要更多适用控制。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "A habit response cannot settle responsibility for every error",
+          "zh": "习惯回答不能判定每次错误责任"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean reflects the selected checking habits after coding. Resources, tools, instruction quality, time and the ability to raise a problem can affect what was possible. An error can occur despite a reasonable check, and a small mean does not identify its cause. Choose unscored if no relevant opportunity occurred or you cannot judge. One such response withholds this mean while other complete groups remain. The policy avoids treating an absent opportunity as a failed check; it is not a validated missing-data threshold.",
+            "zh": "较大均分反映计分后对这些核对习惯的选择。资源、工具、说明质量、时间和提出问题的空间会影响可行性，合理检查后仍可能有错误，较小均分也不能指出原因。没有相关机会或无法判断时选不计分，只使本组暂不给均分。这个政策避免把缺机会当检查失败，不是验证过的缺失阈值。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Choose one proportionate check before a handover",
+          "zh": "交接前选一项适度核对"
+        },
+        "paragraphs": [
+          {
+            "en": "For an ordinary low-stakes task, name the recipient’s intended use and one failure that would prevent it. Choose a permitted check that can actually detect that failure, carry it out and note any unresolved limit. The check can be brief and accessible; it need not create another reporting system. If a requirement exceeds your knowledge or authority, ask the appropriate person rather than pretending to certify it. Do not perform a hazardous test or override an existing procedure for this reflection.",
+            "zh": "对普通低影响任务，写出接收方用途，以及一种会使它无法使用的问题，选能检测该问题且获准的核对，实际做完并说明剩余限制。核对可以简短并适合自身条件，不必创建新汇报系统。超出知识或权限时询问合适的人，不假装认证；不要为反思做危险试验或绕过既有程序。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Discuss a usable check, not a perfectionist identity",
+          "zh": "讨论有用核对，不贴完美主义标签"
+        },
+        "paragraphs": [
+          {
+            "en": "Keep what was checked, why it mattered and what remained outside the check. That record is more specific than calling yourself meticulous or careless. This original group does not diagnose perfectionism, estimate job competence or guarantee an error-free result. The full reading remains free when a mean is unavailable. If discussing a task with another person, use information you are allowed to share and focus on a check that both people understand, rather than requiring them to disclose their questionnaire answers.",
+            "zh": "保留核对了什么、为何重要及哪些部分不在核对范围，比把自己叫细致或粗心更具体。本原创题组不诊断完美主义、不估计工作胜任，也不保证零错误；均分暂不可用时全文仍免费。与他人讨论时使用获准分享的信息，关注双方理解的检查，不要求披露问卷回答。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "honesty-reading",
+    "directionIds": [
+      "honesty"
+    ],
+    "title": {
+      "en": "Accurate Updates and Attribution: Reading Self-Reported Habits",
+      "zh": "如实说明与署名：自报习惯读法"
+    },
+    "headline": {
+      "en": "Make the status and source of a claim clear",
+      "zh": "说清一项说法的状态与来源"
+    },
+    "summary": {
+      "en": "Six items concern completed versus ongoing work, contributions, uncertainty, permitted sharing and known limitations. The result does not establish honesty or detect deception.",
+      "zh": "六项涉及完成与进行中、他人贡献、不确定性、获准分享和已知限制，结果不证明诚实，也不检测欺骗。"
+    },
+    "seo": {
+      "title": {
+        "en": "Accurate Updates and Attribution: Reading Self-Reported Habits",
+        "zh": "如实说明与署名：自报习惯读法"
+      },
+      "description": {
+        "en": "Read six update-and-attribution responses without a moral grade. A worked example separates a self-rating from evidence, with privacy and safe communication kept in view.",
+        "zh": "不给道德等级地阅读六项说明与署名自评，用例子区分自我评价与证据，同时考虑隐私和沟通安全。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 13, 14, 16 and 17 keep their values. Reverse items 15 and 18 as 6 minus the selected value, then average all six contributions to one decimal.",
+      "zh": "第13、14、16、17项保留所选值，第15、18项按6减所选值反向，再将六项贡献平均并保留一位小数。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What these six statements cover",
+          "zh": "六项陈述覆盖什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions concern how you reported progress, attributed shared contributions, stated uncertainty, checked a sharing permission and disclosed a known limitation. They do not collect evidence of an incident or verify whether an answer is accurate. High endorsement cannot certify integrity, and reverse statements are not a hidden lie detector. The title uses ordinary work language. This original bank is not an occupational integrity test and has no established ability to predict misconduct or to judge someone’s moral character.",
+            "zh": "题目涉及如何报告进展、注明共同贡献、表达不确定、核对分享许可及说明已知限制，不收集事件证据，也不核实回答真假。高度认可不能认证诚信，反向陈述也不是隐藏测谎。标题采用普通工作语言；本原创题本不是职业诚信测验，没有建立预测不当行为或判断道德品格的能力。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read the coded choices without converting them into proof",
+          "zh": "读处理后的选项，不转换成证明"
+        },
+        "paragraphs": [
+          {
+            "en": "For raw responses 4, 4, 1, 5, 4 and 2, reversal gives contributions 4, 4, 5, 5, 4 and 4. Their sum is 26; 26 divided by six is about 4.3333 and displays as 4.3. A person can select those answers for many reasons, including memory or an interpretation of the wording. The arithmetic cannot tell which explanation is true. It is not a probability of honest conduct, an employer risk grade or a basis for accusing someone else.",
+            "zh": "原值4、4、1、5、4、2经反向处理后为4、4、5、5、4、4，合计26；除以六约4.3333，显示4.3。人可能因记忆或对措辞的理解等原因作出这些选择，计算无法判断哪种解释属实。它不是诚实行为概率、雇主风险等级，也不能作为指控他人的依据。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A progress update can distinguish three states",
+          "zh": "进展说明可以区分三种状态"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine preparing a fictional team presentation. You have drafted two slides, a colleague supplied the figures, and one figure is not yet verified. An accurate update can distinguish the draft, the colleague’s contribution and the unverified figure. A counterexample is saying everything is complete because approval is expected soon. This is an example of clarifying a statement, not an invitation to reveal restricted files. A person can state that a relevant detail cannot be shared and use an authorised route for any necessary clarification.",
+            "zh": "例如准备虚构的团队演示：你写了两页，同事提供数字，其中一个数字尚未核实。说明时可区分草稿、同事贡献与待核实数字。反例是因为预计很快获准，就说全部完成。这是澄清说法的例子，不是邀请披露受限文件；可以说明相关细节不能公开，并通过获准途径作必要核对。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Privacy and safety are part of the context",
+          "zh": "隐私与安全属于背景"
+        },
+        "paragraphs": [
+          {
+            "en": "Accurate communication does not require unlimited disclosure to any audience. Confidentiality, access permissions, coercion, role limits and safe reporting routes matter. The questionnaire cannot resolve a legal or workplace dispute about those boundaries. When no relevant opportunity existed, or you cannot make a judgment, choose unscored rather than assuming a low value. A missing response withholds this group alone. No rule treats a skip as suspicious, and complete other readings remain visible without an overall moral score.",
+            "zh": "如实沟通不要求向任何人无限披露。保密、访问许可、胁迫、角色限制和安全报告途径都重要，问卷不能裁决这些边界的法律或工作争议。没有相关机会或无法判断时选不计分，不假定低值；缺答只使本组暂不给值。跳题不被当作可疑，其他完整读数保留，也没有整体道德分。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Clarify one ordinary update you are permitted to share",
+          "zh": "澄清一条获准分享的普通更新"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, choose a harmless update already within your remit. Separate what is complete, what remains uncertain and whose contribution you are referring to. Check that the recipient and sharing method are permitted before sending anything. You can do the exercise privately without contacting anyone. The useful change is a clearer factual statement, not a confession, a public display of virtue or a higher score. For a serious concern, use an appropriate existing support or reporting route rather than relying on a quiz.",
+            "zh": "若有用，选一条在自身职责内、无风险的普通更新，区分完成部分、不确定部分及所提贡献来自谁。实际发送前核对接收方与分享方式获准，也可以私下练习而不联系任何人。有用变化是事实说明更清楚，不是忏悔、公开展示美德或提高分数。严重问题应使用合适的既有支持或报告途径，不依赖测验。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use evidence for a claim and permission for a disclosure",
+          "zh": "用证据支持说法，用许可判断披露"
+        },
+        "paragraphs": [
+          {
+            "en": "A brief record can note the claim, its source and its current verification status without storing private workplace material in the questionnaire. This supports a discussion of a specific communication choice. It does not prove a stable trait or justify screening, discipline or comparison between colleagues. There are no norms, validity findings or cross-language equivalence established for this edition. All four full guides stay available even if you decline every item; the report never requires another person’s answers or an account of a real incident.",
+            "zh": "可简记说法、来源和当前核实状态，无需把私密工作材料存进问卷。这有助讨论一次沟通选择，却不能证明稳定特质，或支持筛选、处分及同事比较。本版没有建立常模、效度或跨语言等价性。即使每题都不回答，四篇完整指南仍开放；报告不要求他人回答或真实事件叙述。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "repair-reading",
+    "directionIds": [
+      "repair"
+    ],
+    "title": {
+      "en": "Following Through on Repair: Responsibility Within Your Control",
+      "zh": "跟进修正：控制范围内的责任"
+    },
+    "headline": {
+      "en": "Identify a useful part to own and a checkable correction",
+      "zh": "确认可承担的部分与能核对的修正"
+    },
+    "summary": {
+      "en": "This group concerns your part in a setback, known impact, a feasible correction and follow-up. Taking responsibility does not mean accepting every blame or fixing what you cannot control.",
+      "zh": "本组涉及挫折中自身部分、已知影响、可行修正与后续核对；负责不等于接受全部归责或修好无法控制的事。"
+    },
+    "seo": {
+      "title": {
+        "en": "Following Through on Repair: Responsibility Within Your Control",
+        "zh": "跟进修正：控制范围内的责任"
+      },
+      "description": {
+        "en": "Understand six repair-habit ratings and the reverse-key example. Plan an optional bounded correction without turning the result into a judgment of character.",
+        "zh": "理解六项修正习惯与反向计分例子，准备一项范围明确的自选修正，不把结果当品格判断。"
+      }
+    },
+    "scoreReading": {
+      "en": "Keep values for items 19, 20, 22 and 23. Items 21 and 24 use 6 minus the response. Divide the six-contribution sum by six and round once to one decimal.",
+      "zh": "第19、20、22、23项保留所选值，第21、24项按6减所选值。六项贡献加总除以六，最后保留一位小数。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Responsibility can be specific and bounded",
+          "zh": "责任可以具体且有边界"
+        },
+        "paragraphs": [
+          {
+            "en": "The items ask whether you examined your part, communicated known impact, agreed a correction within your control, checked its effect and mentioned a blockage. They do not ask you to accept blame for another person’s actions or to repair a system beyond your authority. A four-week self-report cannot establish what happened in a dispute. It can help identify one question about a task. The group is editorially defined and is not a validated accountability scale or a measure of how much responsibility you should bear.",
+            "zh": "题目询问是否核对自身部分、说明已知影响、商定控制范围内的修正、核对效果及说明受阻，不要求替别人行为担责或修复权限外的系统。四周自报不能判定争议事实，但可帮助找出一个任务问题。本题组由编辑划定，不是验证过的问责量表，也不衡量你应该承担多少责任。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A worked example with two reversals",
+          "zh": "两道反向题的计算例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Raw responses of 3, 4, 2, 3, 3 and 2 become contributions of 3, 4, 4, 3, 3 and 4. The total is 21, divided by six to display 3.5. A larger number means greater endorsement of these coded habits, not proof that a correction worked or that you caused a problem. The four group means are never averaged into an overall ethical grade. Each complete group remains available if another has an unscored response, with no zero replacement or estimated answer.",
+            "zh": "原值3、4、2、3、3、2转换为3、4、4、3、3、4，合计21，除以六显示3.5。较大数值表示更常认可这些处理后的习惯，不证明修正有效，也不证明问题由你造成。四组均分不再平均成整体伦理等级；其他组有不计分时，完整组仍保留，不补零或估算。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Correct a duplicate without claiming the whole system",
+          "zh": "修正重复项，不等于承担整个系统"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose a fictional shared list contains a duplicate that you added. You can identify the duplicated line, explain which use might be affected and agree a permitted correction. A follow-up checks that the duplicate is gone and the intended information remains. A counterexample is blaming the whole tool before checking your own entry; another is accepting responsibility for every unrelated error. The example separates a traceable contribution from broader causes. It is not a finding about any real colleague, and serious incidents require their appropriate procedures.",
+            "zh": "假设一份虚构共享清单中有你新增的重复项，可指出重复位置、说明可能影响的用途并商定获准修正。后续核对重复项消失且所需信息仍在。反例是未检查自身输入就全怪工具；另一反例是承认所有无关错误都由自己负责。例子区分可追溯贡献与更大原因，不裁定真实同事；严重事件应走适用程序。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Separate a blockage from refusal or personal failure",
+          "zh": "区分受阻、拒绝与个人失败"
+        },
+        "paragraphs": [
+          {
+            "en": "A repair may depend on access, approval, another person’s input or a safe reporting route. The questionnaire does not know whether these were available. A smaller coded mean can reflect context, wording or recall and does not prove avoidance. If the situation did not occur or you cannot judge, choose unscored. All six numeric responses are needed for this mean, but the full guide stays readable without it. No missing response is interpreted as an admission, and an all-unscored form can still finish.",
+            "zh": "修正可能依赖访问权限、批准、他人输入或安全报告途径，问卷不知道这些是否可用。较小均分可能与背景、措辞或记忆有关，不证明逃避。没遇到或无法判断时选不计分；本组需六项数值完整才给均分，但缺值也能读全文。缺答不被当承认问题，全部不计分仍可完成。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Agree a correction with a stopping point",
+          "zh": "商定一项有结束条件的修正"
+        },
+        "paragraphs": [
+          {
+            "en": "For an ordinary low-stakes issue, state what is known, the part you can change and any permission or help needed. Name a single check that would show whether this correction addressed that issue. If blocked, communicate the constraint through an appropriate route rather than quietly promising the impossible. Stop when the agreed criterion is met or when a new decision is needed. This is an optional planning exercise, not a demand for unpaid work, unlimited responsibility or public disclosure of an incident.",
+            "zh": "对普通低影响问题，说明已知事实、自己能改的部分及所需许可或帮助，选一项能显示修正是否处理该问题的核对。受阻时通过合适途径说明限制，不默默承诺不可能做到的事。达到商定条件或需要新决定时就停止。这是自选规划，不要求无偿工作、无限责任或公开事件。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep the next step proportional to the evidence",
+          "zh": "让下一步与证据相称"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful reflection records the bounded problem, the agreed action and the observed check, without deciding that you are responsible or irresponsible as a person. The form has no established norms, reliability or predictive validity and cannot decide hiring, sanctions or trust. Use actual evidence and appropriate support for consequential disputes. All four public readings remain free and separate from your answers. When sharing, the tool copies only the public title and URL, not an incident description, private responses or personal means.",
+            "zh": "有用反思记录范围明确的问题、商定行动与实际核对，不把人定成负责型或不负责型。题本没有建立常模、信度或预测效度，不能决定录用、惩处或信任；重要争议需用实际证据及合适支持。四篇公开读法免费并与个人回答分开。分享只复制公开标题与地址，不含事件描述、私密回答或个人均分。"
+          }
+        ]
+      }
+    ]
+  }
+]

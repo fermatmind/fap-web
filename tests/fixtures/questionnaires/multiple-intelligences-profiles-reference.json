@@ -1,0 +1,898 @@
+[
+  {
+    "id": "linguistic-reading",
+    "directionIds": [
+      "linguistic"
+    ],
+    "title": {
+      "en": "Language Activities: Read Your Self-Reported Confidence",
+      "zh": "语言活动：自报把握程度读法"
+    },
+    "headline": {
+      "en": "Move from an estimate to one concrete communication task",
+      "zh": "从自我估计走向一次具体表达"
+    },
+    "summary": {
+      "en": "Four ratings concern explaining, sequencing instructions, summarising and clarifying wording. They record your confidence about those activities, without measuring linguistic intelligence.",
+      "zh": "四项涉及解释、安排说明顺序、概括和澄清措辞，记录对这些活动的把握程度，不测语言智能。"
+    },
+    "seo": {
+      "title": {
+        "en": "Language Activities: Read Your Self-Reported Confidence",
+        "zh": "语言活动：自报把握程度读法"
+      },
+      "description": {
+        "en": "Understand your four language-activity ratings, missing responses and close values. Try a short instruction example and check what the listener understood.",
+        "zh": "理解四项语言活动自评、缺答和相近数值，通过简短说明的例子核对听者理解了什么。"
+      }
+    },
+    "scoreReading": {
+      "en": "Four numeric ratings are added and divided by four, then rounded to one decimal from 1.0 to 5.0. One unscored response withholds this mean; it is not counted as low confidence.",
+      "zh": "四项数值相加除以四，保留一位小数，范围1.0—5.0。任一项不计分就暂不给本组均分，不按低把握处理。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "What the four activities actually ask",
+          "zh": "四项活动问的是什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The tasks involve explaining a familiar idea in two ways, arranging everyday instructions, summarising a short text and noticing wording that could be misunderstood. You estimate how confident you feel with your usual tools and adaptations. The questionnaire does not hear an explanation, inspect a summary or check an audience’s understanding. Gardner’s framework includes a linguistic concept, but an activity group and a confidence rating are different from a measurement of that proposed capacity. The title gives the topic, not a cognitive score.",
+            "zh": "四项分别问换两种说法解释熟悉想法、安排日常说明、概括短文和发现容易误解的措辞。你估计的是使用平常工具或调整方式时的把握程度；问卷没有听到实际解释、检查概括，也没有核对听者理解。加德纳框架包含语言概念，但活动题组和信心自评都不同于测量该理论提出的容量。标题说明话题，不提供认知分数。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read the arithmetic without turning it into ability",
+          "zh": "怎样读均分"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose your responses are 2, 3, 4 and 3. Their sum is 12 and the displayed mean is 3.0. That is an average of four chosen response numbers, not three units of language ability or a percentile. Equal means can hide different answers, such as feeling ready to summarise but unsure about giving instructions. Read the four responses as well as the average. Nearby values in other groups do not establish equally strong intelligences, and the report does not select a strongest type.",
+            "zh": "例如选择2、3、4、3，合计12，显示均分3.0。它是四个选项数字的平均，不是三单位语言能力或百分位。相同均分也可能来自不同答案，例如概括很有把握，给说明却不确定。因此应同时回看四项，而不只看平均值。与其他组接近的数字不能证明智能同样强，报告也不选最强类型。"
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": {
+          "en": "A concrete example and a counterexample",
+          "zh": "一个可核对的例子与反例"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine leaving instructions for someone to collect a parcel. “Go there tomorrow and bring it back” may feel clear to the writer while omitting the collection point or opening time. A revised version could name the place, the permitted time and what to bring. The evidence is whether the intended reader can identify the required next action, not how fluent the sentence sounds. This is a fictional example of checking communication; it is not a scored task or an intelligence test.",
+            "zh": "假设给人留一份取件说明。“明天去那儿拿回来”写起来顺口，却可能缺取件地点或营业时间。修改时可以写明地点、允许的时间和需携带的材料。可核对的证据是预定读者能否找出下一步，而不是句子听起来多流畅。这是虚构的沟通核对例子，不是计分题，也不是智能测试。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Why a larger or smaller estimate needs context",
+          "zh": "较大或较小估计都要看背景"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean means you selected more confident responses in this group. It may reflect familiarity, practice or your current self-view; the questionnaire cannot decide which. A smaller mean may reflect an unfamiliar language, an exacting standard or limited experience rather than a broad limitation. When experience is too limited to judge, the unscored option is more informative than forcing a low rating. A withheld mean leaves the complete readings available and does not change any complete group elsewhere in the report.",
+            "zh": "较大均分表示这组选择更有把握，可能与熟悉、练习或目前自我看法有关，问卷不能判定原因。较小值也可能与语言不熟、要求严格或经验有限有关，不代表整体限制。经验不足时选不计分比勉强给低分更合适。均分暂不可用时仍能读完整指南，也不影响其他完整题组。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Try one short communication check",
+          "zh": "尝试一次简短表达核对"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, choose a harmless familiar process and write three or four instructions. Check for missing information yourself, or voluntarily ask a willing reader which action they would take first. Ask about the message rather than inviting a judgment of your intelligence. You can use speech, text or an accessible communication method. Stop after one revision that addresses an actual misunderstanding; there is no requirement to make the prose impressive or to increase your quiz score.",
+            "zh": "若有需要，选一个熟悉、无风险的小流程，写三四条说明。自己检查是否漏信息，也可以自愿请愿意阅读的人说说第一步会做什么。核对的是信息，不是邀请评价智力。可以用口头、文字或适合自己的沟通方式。针对一处真实误解修改一次即可，不必追求文采，也不以提高问卷分数为目标。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use an example rather than a career label",
+          "zh": "保留实例，而非职业标签"
+        },
+        "paragraphs": [
+          {
+            "en": "Record what the message needed to accomplish, what you changed and what happened. This gives a more specific basis for discussion than calling yourself word smart. It still does not prove broad job competence: a role involving language also has domain knowledge, accessibility, training and practical requirements. This original self-report has no established reliability, norms or validation, and it cannot decide hiring, placement or the teaching method you should receive. The other seven activity readings remain available regardless of this number.",
+            "zh": "记录信息原本要完成什么、改了哪里、后来发生什么，比“我属于语言聪明型”更具体。但它仍不证明广泛工作胜任力；涉及语言的工作还需要领域知识、无障碍条件、训练和实际要求。这份原创自评没有建立信度、常模或效度，不能决定录用、分班或应该接受的教学方法。无论本组数字如何，其余七篇活动读法都保留。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "logical-reading",
+    "directionIds": [
+      "logical"
+    ],
+    "title": {
+      "en": "Logical and Numerical Activities: Confidence and Checkable Evidence",
+      "zh": "逻辑与数字活动：把握与可核对证据"
+    },
+    "headline": {
+      "en": "Distinguish feeling ready from checking a conclusion",
+      "zh": "分清感觉有把握与核对结论"
+    },
+    "summary": {
+      "en": "These ratings concern constraints, everyday calculation, alternative explanations and rules. A confident self-rating does not establish that an answer is correct.",
+      "zh": "这些自评涉及限制条件、日常计算、替代解释和规则。有把握不等于答案正确。"
+    },
+    "seo": {
+      "title": {
+        "en": "Logical and Numerical Activities: Confidence and Checkable Evidence",
+        "zh": "逻辑与数字活动：把握与可核对证据"
+      },
+      "description": {
+        "en": "Read four logic-and-number confidence ratings without an IQ claim. Use a simple scheduling example to separate a rule, its evidence and an unchecked guess.",
+        "zh": "阅读四项逻辑数字活动自评，不换算智商；用简单排程例子区分规则、证据与尚未核实的猜测。"
+      }
+    },
+    "scoreReading": {
+      "en": "Average all four numeric responses to one decimal. This gives a 1.0–5.0 confidence mean; an unscored item withholds only this group’s mean.",
+      "zh": "四项数值取平均，保留一位小数，得到1.0—5.0的把握均分；任一不计分只使本组均分暂不可用。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Four specific reasoning activities",
+          "zh": "四项具体推理活动"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions ask about identifying a constraint, checking a calculation, comparing explanations using a fact and testing a proposed rule against a new example. You estimate your confidence; the page does not supply a timed reasoning task or assess whether a rule is valid. The connection to Gardner is a broad conceptual topic, not proof that these four self-ratings measure a distinct logical-mathematical intelligence. Neither a confident response nor the use of a spreadsheet establishes correctness.",
+            "zh": "题目询问找限制、核计算、用事实比较解释，以及用新例子检验规则。这里是估计自己的把握；页面没有计时推理任务，也没有判断某条规则是否有效。与加德纳的联系是宽泛概念话题，不证明四项自评测到独立的逻辑数学智能。觉得有把握，或使用了表格，都不能单独确定结论正确。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "What the mean does and does not combine",
+          "zh": "平均值合并了什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 1, 2, 4 and 4 sum to 11; 11 divided by four is 2.75, displayed as 2.8. Rounding is a presentation rule, not additional precision about your mind. The item differences may matter more than the single number: you could be confident checking sums and less certain testing an explanation. No overall intelligence total is made from this mean and the other seven. A tie or a small difference between groups remains a difference in self-ratings, without a strength ranking.",
+            "zh": "若选择1、2、4、4，合计11，除以四为2.75，显示2.8。四舍五入是展示规则，不代表对心智测量得更精确。题间差异可能比单个数字有用：也许核加总很有把握，检验解释却不确定。不会把本均分与其余七组合成智能总值；组间并列或小差异仍只是自评差异，不排名强弱。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Test a plan against its stated conditions",
+          "zh": "用已知条件检查方案"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider a fictional meeting that must last thirty minutes, with one person available from ten to eleven and another from half past ten to noon. A proposed start at ten does not meet both stated conditions; half past ten does. The conclusion comes from the supplied constraints, not the planner’s confidence. A counterexample is selecting the time that feels convenient and assuming everyone can adjust. Real situations may have additional conditions, so a checked answer stays bound to what was actually known.",
+            "zh": "例如一个虚构会议需要三十分钟，甲十点至十一点有空，乙十点半至十二点有空。十点开始不满足两项条件，十点半则满足。结论来自题中限制，不来自安排者的信心。反例是挑自己觉得方便的时间，再假设别人都能调整。现实可能还有其他限制，因此核对过的结论仍只适用于实际已知条件。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Confidence can be calibrated in either direction",
+          "zh": "把握程度可能向两边偏"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean says you felt more confident about the listed activities. It does not establish better reasoning than someone with a smaller mean. You might know a task well, underestimate it, overlook a hidden assumption or set a stricter standard than another person. Limited mathematical exposure, language demands and tool access can affect the estimate. If you cannot judge from experience, use the unscored option. Missing evidence is not a low ability score, and complete other groups remain visible.",
+            "zh": "较大值表示对列出的活动更有把握，不证明比低自评者推理更好。可能确实熟悉，也可能低估困难、忽略假设，或者采用比别人严格的标准。数学接触经验、语言要求和工具条件都可能影响估计。无法凭经验判断时选不计分；证据缺失不是低能力分，其他完整题组仍保留。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "One small check with a known criterion",
+          "zh": "做一次有明确条件的小核对"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose an ordinary, low-stakes problem with information you can inspect. Write the conditions, suggest one answer and try to find a case that would make it fail. Then check the relevant fact rather than collecting unrelated detail. You may use a calculator, notes or another accessible tool. This is an optional way to observe a process, not a validated intelligence exercise or a promise of improvement. Do not substitute a quiz result for appropriate expertise in a consequential decision.",
+            "zh": "选一个普通、低影响且信息可查看的小问题。写出条件，提出一个答案，再找一种会使它失败的情况。随后核对相关事实，而不是收集无关细节。可以用计算器、笔记或适合自己的工具。这是自选的过程观察，不是经过验证的智能练习，也不保证提升；重要决策仍应使用合适的专业依据。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep the reasoning record, not a fixed identity",
+          "zh": "留下推理过程"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful note includes your initial prediction, the check you performed and any assumption you changed. It can support a conversation about a specific task or training need without labelling you analytical or unanalytical. Work involving numbers or systems also requires subject knowledge and evidence of actual performance. This original confidence bank supplies no IQ, percentile, aptitude threshold or hiring recommendation. A different score on another day may reflect a changed interpretation or context; it does not by itself prove cognitive growth or decline.",
+            "zh": "可记录最初判断、做了哪项核对、改变了哪个假设。这能用于讨论具体任务或训练需要，不必把自己固定成分析型或非分析型。涉及数字和系统的工作还需要专业知识及实际表现证据。本原创把握题本不提供智商、百分位、能力阈值或录用建议。另一天分数不同，也可能只是理解或背景变化，不能单独证明认知进步或退步。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spatial-reading",
+    "directionIds": [
+      "spatial"
+    ],
+    "title": {
+      "en": "Spatial Activities: Read Confidence Without a Visual-Learner Label",
+      "zh": "空间活动：把握程度与具体任务"
+    },
+    "headline": {
+      "en": "Use a layout or object to check your estimate",
+      "zh": "用布局或物品核对估计"
+    },
+    "summary": {
+      "en": "Four ratings concern a sketch, a route, a different viewpoint and fitting objects into space. They do not determine visual ability or how you must be taught.",
+      "zh": "四项涉及示意图、路线、不同视角和物品能否放入空间，不决定视觉能力或必须怎样教学。"
+    },
+    "seo": {
+      "title": {
+        "en": "Spatial Activities: Read Confidence Without a Visual-Learner Label",
+        "zh": "空间活动：把握程度与具体任务"
+      },
+      "description": {
+        "en": "Understand your spatial-activity confidence mean and skips. Use a packing example to compare a rough estimate with dimensions, without a fixed learning-style label.",
+        "zh": "理解空间活动把握均分与跳题，用收纳例子比较粗略估计和实际尺寸，不套固定学习风格。"
+      }
+    },
+    "scoreReading": {
+      "en": "A complete group displays the four-response average, rounded to one decimal within 1.0–5.0. One unscored response leaves the mean unavailable rather than treating access or experience as a deficit.",
+      "zh": "四项完整时显示1.0—5.0均分，保留一位小数；任一不计分则暂不给均分，不把接触条件或经验不足当缺陷。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "The four spatial activities",
+          "zh": "四项空间活动"
+        },
+        "paragraphs": [
+          {
+            "en": "The listed activities involve sketching positions, using a map or layout, considering another viewpoint and estimating whether objects fit. You may think about the tools and adaptations you ordinarily use; the questions do not require visual imagery in a particular form. No mental rotation, navigation accuracy or drawing performance is observed here. Gardner’s spatial concept provides a topic for reflection, while these self-ratings concern confidence about selected activities. A drawing hobby or a preference for diagrams is not itself a measured spatial intelligence.",
+            "zh": "列出的活动包括画位置示意、使用地图布局、考虑另一视角，以及估计物品能否放下。可以想到平常使用的工具和调整方式，题目不要求特定形式的脑内图像。这里没有观察心理旋转、导航准确性或绘画表现。加德纳的空间概念提供反思话题，自评记录的则是对所选活动的把握。喜欢画画或偏好图表，本身都不是测出的空间智能。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read the items alongside the average",
+          "zh": "同时阅读题目与平均值"
+        },
+        "paragraphs": [
+          {
+            "en": "Ratings of 3, 4, 2 and 3 yield a sum of 12 and a mean of 3.0. That average can conceal an important contrast between confidence reading a map and uncertainty imagining an unfamiliar object. It is not a navigation grade or a percentage of spatial potential. If another activity group also shows 3.0, the report keeps both without calling them equal abilities. The groups contain different activities, and no empirical cross-group calibration or strongest-domain rule has been established for this original bank.",
+            "zh": "3、4、2、3合计12，均分3.0，却可能掩盖读图较有把握、想象陌生物体较不确定的差别。它不是导航成绩，也不是空间潜能百分比。另一组同为3.0时，两组都保留，不称为能力相等。各组活动不同，本原创题本没有建立跨组校准或最强领域判定规则。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check whether something actually fits",
+          "zh": "核对物品是否真的放得下"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine placing two storage boxes on a shelf. A quick sketch may suggest that both fit, but the usable width can be smaller than the outside measurement because of a support or hinge. Checking the space and the boxes turns an impression into a specific test. The counterexample is calling the shelf badly designed because a first estimate failed, or concluding you lack spatial intelligence. One fitting problem can reveal a missing measurement; it cannot diagnose a general capacity or establish an occupational talent.",
+            "zh": "假设要把两个收纳盒放在一层架子上。草图看似能放下，但支撑件或合页可能使可用宽度小于外部尺寸。核对架子与盒子尺寸，就把感觉转成具体检查。反例是第一次估计没放下，就说架子设计差，或认定自己没有空间智能。一次摆放问题可能揭示漏测尺寸，不能诊断整体容量或确定职业天赋。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Account for access, familiarity and aids",
+          "zh": "考虑接触条件、熟悉程度和辅助方式"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean reflects more confident answers, not proof that an unaided mental image is better. A smaller mean may concern an unfamiliar map, a poorly presented diagram or limited experience with a task. If the activity is not accessible to you or you cannot judge it, choose the unscored response rather than inferring a deficit. The group then withholds its mean while the other complete groups remain. No score assigns an aphantasia label or compares people with different sensory access.",
+            "zh": "较大均分表示回答更有把握，不证明不借助工具的脑内图像更好。较小值可能涉及陌生地图、呈现不清的图示或经验有限。活动无法接触或无法判断时选不计分，不据此推断缺陷；本组暂不给均分，其他完整组仍保留。数字不会指定心盲症标签，也不比较感官接触条件不同的人。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Try a small layout task if it is useful",
+          "zh": "按需要试一次小型布局"
+        },
+        "paragraphs": [
+          {
+            "en": "If you wish, use familiar objects and an accessible representation to plan one arrangement. State the requirement first: for example, all items should fit while one drawer still opens. Compare the plan with the real dimensions before moving anything heavy or risky. Keep a note of one adjustment and its reason. This is a voluntary observation of an everyday process, not a training prescription. You do not need to practise imagery, choose a visual teaching method or retake the questionnaire to complete the reflection.",
+            "zh": "若有需要，可以用熟悉物品和适合自己的表示方式规划一次摆放。先说明要求，例如所有物品放得下，同时保留一个抽屉打开的空间。移动重物或有风险的东西前，先核实际尺寸。记下一处调整及原因即可。这是自愿的日常过程观察，不是训练处方，也不要求练想象、选择视觉教学或重新测验。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use the requirement to choose the representation",
+          "zh": "按任务要求选表示方式"
+        },
+        "paragraphs": [
+          {
+            "en": "A diagram can help when position matters; a written list can help when sequence matters; a real object can help when dimensions matter. The relevant question is whether the representation serves the task, not whether a score declares you a visual learner. Work involving plans or models also requires technical knowledge, accessibility and demonstrated competence. This unvalidated self-report cannot recommend architecture, design or another occupation on the basis of a number. Keep the complete readings as prompts for specific examples, not limits on future learning.",
+            "zh": "位置重要时图示可能有用，顺序重要时清单可能有用，尺寸重要时实物可能有用。应看表示方式是否服务任务，而不是分数有没有宣布自己属于视觉学习者。涉及图纸或模型的工作还需要技术知识、无障碍条件和实际胜任证据。这份未验证自评不能按数字推荐建筑、设计或其他职业。完整读法用于寻找具体实例，不限制今后的学习。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bodily-reading",
+    "directionIds": [
+      "bodily"
+    ],
+    "title": {
+      "en": "Movement and Craft Activities: Confidence With Your Usual Adaptations",
+      "zh": "动作与手作活动：结合自身条件读自评"
+    },
+    "headline": {
+      "en": "Observe one safe process without judging a body",
+      "zh": "观察安全操作，不评价身体"
+    },
+    "summary": {
+      "en": "The ratings concern a short sequence, a familiar tool, a simple object and a small movement adjustment. They do not measure physical ability, bodily worth or readiness for risky work.",
+      "zh": "四项涉及短动作顺序、熟悉工具、简单物品和小幅动作调整，不测身体能力、身体价值或高风险工作的准备程度。"
+    },
+    "seo": {
+      "title": {
+        "en": "Movement and Craft Activities: Confidence With Your Usual Adaptations",
+        "zh": "动作与手作活动：结合自身条件读自评"
+      },
+      "description": {
+        "en": "Read movement-and-craft confidence, access-related skips and task context. Try a safe everyday making example without a motor-ability or career ranking.",
+        "zh": "理解动作手作把握、接触条件相关跳题及任务背景，通过安全日常制作例子回看，不排名动作能力或职业适配。"
+      }
+    },
+    "scoreReading": {
+      "en": "Only four numeric responses produce the 1.0–5.0 mean. An inaccessible or untried activity may be unscored; it does not become a low rating.",
+      "zh": "四项数值完整才给1.0—5.0均分；无法接触或没有尝试经验的活动可以不计分，不转成低评价。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "The specific activities in this group",
+          "zh": "本组具体活动"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions concern learning a short safe movement sequence, adjusting the handling of a familiar tool, coordinating a few making steps and noticing an awkward movement. Answer in relation to your usual accessible methods or adaptations. The questionnaire does not observe coordination, strength, speed or safety technique. Its broad link to Gardner’s bodily-kinesthetic concept does not make these four confidence estimates a motor assessment. A person’s body, disability, pain or need for assistance is not a score of intelligence or personal worth.",
+            "zh": "四项涉及学习安全的短动作顺序、调整熟悉工具的操作、协调几个制作步骤，以及注意不顺手的动作。按平常适合自己的方式或调整作答。问卷没有观察协调、力量、速度或安全技术；与加德纳身体运动概念的宽泛联系，不会把四项把握估计变成动作评估。身体、残障、疼痛或是否需要协助，都不是智能或个人价值分。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A confidence average, not physical proficiency",
+          "zh": "把握均分不是动作熟练度"
+        },
+        "paragraphs": [
+          {
+            "en": "If you choose 4, 3, 3 and 2, the responses sum to 12 and the mean is 3.0. The items may differ because using a familiar tool and learning a new sequence involve different experience. The average cannot tell which method you used or how accurately an object was made. It is not a measure of athleticism, coordination or a percentage of potential. Other groups are shown alongside it without ranking them as stronger or weaker intelligences; ties and close values keep their ordinary self-report meaning.",
+            "zh": "选择4、3、3、2，合计12，均分3.0。熟悉工具和学习新顺序可能有不同经验，因此题间可以有差别。平均值不知道你用了什么方式，也没有测制作是否准确；它不代表运动水平、协调能力或潜能百分比。其余题组同时展示，不据此排名智能强弱；并列和接近数值仍只是自评。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check a making process rather than a trait",
+          "zh": "核对制作过程"
+        },
+        "paragraphs": [
+          {
+            "en": "For a fictional low-risk example, consider folding a sheet into a simple desk label. You may first watch or access a demonstration, mark where the folds should be and adjust one fold when the label will not stand. The evidence is the observable change between attempts under those conditions. A counterexample is deciding that difficulty with one fold proves poor bodily intelligence, or attempting a hazardous tool task to prove a good score. Neither conclusion follows from this questionnaire.",
+            "zh": "一个虚构的低风险例子是把纸折成简单桌牌：先接触适合自己的示范，标出折线，再在桌牌站不稳时调整一处折法。可看的证据是相同条件下两次尝试之间发生了什么。反例是一次折不好就认定身体智能差，或为了证明高分而操作危险工具。这两种结论都不是本问卷能够给出的。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Experience and access belong in the interpretation",
+          "zh": "解释中保留经验和接触条件"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean means you felt more confident about the listed activities; it may reflect practice with similar processes. A smaller mean can reflect novelty, unavailable adaptations or a different interpretation of the task. When the activity is inaccessible, unfamiliar or not something you can judge, the unscored option is appropriate. That withholds this group’s mean while retaining complete other groups. There is no requirement to attempt a movement, disclose health information or explain a skip to receive the complete public guide.",
+            "zh": "较大均分表示对列出的活动更有把握，可能与类似操作经验有关。较小值也可能来自陌生、缺合适调整或对任务理解不同。活动无法接触、不熟悉或无法判断时，可以选不计分；本组暂不给均分，其他完整组保留。阅读完整公开指南不要求尝试动作、披露健康信息或解释跳题理由。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Choose one safe and optional observation",
+          "zh": "选择安全且自愿的观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful and comfortable, choose an everyday task you already know is safe for you. Observe one step before and after a small adjustment, using the aids or assistance you normally use. A written or spoken reflection on a previous task is also enough; no demonstration is required. Stop if the activity is uncomfortable or unsafe. The purpose is to understand a specific process, not to raise a score or establish a body type. The page does not prescribe exercise or rehabilitation.",
+            "zh": "若有需要且舒适，选择一个自己已经知道安全的日常任务，使用平常的辅助工具或协助，观察某一步小调整前后有什么差别。用文字或口头回看过去一次任务也足够，不要求现场演示。不适或不安全就停止。目的是了解具体过程，不是提高分数或建立身体类型；页面不提供运动或康复处方。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep practical requirements separate from the questionnaire",
+          "zh": "实际要求与问卷分别考虑"
+        },
+        "paragraphs": [
+          {
+            "en": "A specific task record might name the material, the method, the adjustment and the result. It may help you ask for a clearer demonstration or a suitable adaptation. It cannot certify occupational competence, fitness, surgical skill or readiness to use equipment. Any real role has its own training and safety requirements. This original questionnaire has not established psychometric validation and does not identify a kinesthetic learner or tell you to avoid reading and theory. All eight activity guides remain available for reflection on your own terms.",
+            "zh": "具体记录可以包含材料、方法、调整和结果，帮助提出更清楚的示范或合适调整的需求。但它不能认证职业胜任、体能、外科技能或设备操作资格；真实工作有自己的训练和安全要求。本原创题本没有建立心理测量学效度，不指定动作型学习者，也不让人回避阅读与理论。八篇活动指南始终可读，按自己的需要使用即可。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "musical-reading",
+    "directionIds": [
+      "musical"
+    ],
+    "title": {
+      "en": "Music and Rhythm Activities: Read Your Confidence in Context",
+      "zh": "音乐与节奏活动：结合背景读把握程度"
+    },
+    "headline": {
+      "en": "A musical interest and a confident answer are different evidence",
+      "zh": "兴趣、自信与实际表现分别看"
+    },
+    "summary": {
+      "en": "The four activities involve following a rhythm, noticing pitch, comparing versions and repeating a created pattern. Your estimate does not measure an ear for music or predict learning success.",
+      "zh": "四项涉及跟随节奏、注意音高、比较版本和重复自创片段。自我估计不测音乐听辨能力，也不预测学习成功。"
+    },
+    "seo": {
+      "title": {
+        "en": "Music and Rhythm Activities: Read Your Confidence in Context",
+        "zh": "音乐与节奏活动：结合背景读把握程度"
+      },
+      "description": {
+        "en": "Understand music-and-rhythm self-ratings, unscored items and a short pattern example. Keep musical tasks separate from claims about team chemistry or a best learning style.",
+        "zh": "理解音乐节奏自评、不计分项和短片段例子，把音乐任务与团队默契、最佳学习风格等主张分开。"
+      }
+    },
+    "scoreReading": {
+      "en": "The mean is the sum of four numeric responses divided by four, rounded to one decimal. All four are required; experience or access that cannot be rated stays unscored.",
+      "zh": "四项数值相加除以四，保留一位小数；四项都需有效。无法凭经验或接触条件评价的项目保持不计分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Four activities, without a musical ability test",
+          "zh": "四项活动，不是音乐能力测验"
+        },
+        "paragraphs": [
+          {
+            "en": "You rate confidence following a simple rhythm, noticing a pitch change, describing a difference between versions of a tune and creating a repeatable pattern. Consider forms of participation accessible to you, without undertaking any activity for the questionnaire. Gardner’s musical concept concerns a proposed capacity; your answers concern your own estimate of specific activities. The page does not check pitch discrimination, timing or performance. Enjoying music, listening often and feeling confident are also different observations, so none is automatically treated as musical ability.",
+            "zh": "你评价跟随简单节奏、注意音高变化、描述旋律版本差异，以及创作可重复片段的把握。想到适合自己的参与方式即可，无需为问卷实际做活动。加德纳的音乐概念涉及理论提出的容量，答案记录的则是对具体活动的自我估计。页面没有检查音高辨别、时点或演奏表现。喜欢音乐、经常听和有把握也各不相同，不会自动被当成音乐能力。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Keep the average attached to its questions",
+          "zh": "让均分对应具体问题"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 2, 2, 4 and 4 give a sum of 12 and a mean of 3.0. That might describe uncertainty about following a rhythm alongside more confidence comparing familiar recordings, but another answer pattern can produce the same number. The result therefore keeps all four questions and all eight group readings available. It does not calculate a percentage of musical talent, compare you with musicians or identify a dominant intelligence. Equal or nearby group means are not evidence that different capacities have been measured on a common scale.",
+            "zh": "2、2、4、4合计12，均分3.0，可能是跟随节奏较不确定、比较熟悉录音较有把握；另一种答案也能得到同样数字。因此结果同时保留具体问题和八组完整读法，不换算音乐天赋百分比、不与音乐家比较、不选主导智能。各组相同或接近的均分，不证明不同容量已在共同量尺上测出。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Listen for one stated difference, if accessible",
+          "zh": "按条件核对一项差别"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine two versions of the same short tune, one played more slowly. A useful observation is “The second version takes longer to complete the phrase.” Calling one version more emotional is a different interpretation that would need its own explanation. The counterexample is concluding that noticing the tempo proves skill at reading a team’s mood. Musical timing and social coordination are different claims. This fictional example illustrates how to name an observation; it is not a validated task or an instruction to compare recordings if the activity is not accessible.",
+            "zh": "假设同一短旋律有两个版本，其中一个更慢。“第二版完成这一句花的时间更长”是一项具体观察；说某版更有感情，则是需要另外说明的解释。反例是因为听出快慢，就认定自己善于读懂团队情绪。音乐时点与社会协作是不同主张。本虚构例子说明怎样描述观察，不是验证过的任务，也不要求无法接触该活动的人比较录音。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Allow for experience, tools and interpretation",
+          "zh": "保留经验、工具和理解差异"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean reflects more confident responses in these four activities. Practice with an instrument, familiar material or a generous interpretation of the task might contribute; the mean cannot decide. A smaller value may concern unfamiliar terminology, limited access or little experience rather than a ceiling on learning. Select the unscored option when you cannot judge. It withholds only this mean, without assigning a deficit or removing the full guide. No item establishes a sensory condition or a reason for a difficulty.",
+            "zh": "较大均分表示这四项更有把握，可能与乐器经验、材料熟悉或对要求理解较宽松有关，均分无法判定原因。较小值可能涉及术语陌生、接触有限或经验少，不是学习上限。无法判断时选不计分，只使本组暂不给均分，不指定缺陷，也不移除完整指南。题目不识别感官状况或困难成因。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Try one short pattern on your own terms",
+          "zh": "按自己的条件观察一个短片段"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful and accessible, choose a brief familiar pattern and state what you want to notice: its repetitions, a pause or a change between two versions. Record one observation rather than judging whether you are musical. A written reflection on an earlier experience is enough if you prefer. There is no need to perform for anyone, buy an instrument or practise until a number rises. A result does not prescribe studying with music or imply that music will improve your learning in another subject.",
+            "zh": "若有需要且能够接触，可选一个熟悉的短片段，先说明想注意什么：重复、停顿或两个版本的变化。记录一项观察，不评价自己有没有音乐性；也可以只用文字回看以前的经历。无需向人表演、购买乐器或练到分数上升。结果不指定伴音乐学习，也不表示音乐会改善其他学科的学习。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep music evidence separate from job assumptions",
+          "zh": "音乐实例与工作推断分开"
+        },
+        "paragraphs": [
+          {
+            "en": "A note describing the material, your prediction and what you observed gives a clearer discussion point than a music-smart label. It does not establish performance standards for teaching, audio work or any other role, each of which has specific training and practical requirements. This original confidence questionnaire has no established psychometric validation, norms or predictive accuracy. Read it as an estimate that can be checked in context, while leaving the choice of future activities open regardless of the mean or any tie.",
+            "zh": "记录材料、自己的预期和实际观察，比“音乐聪明型”更便于讨论。但它不确定教学、音频工作或其他角色的表现标准，这些都有具体训练和实际要求。本原创把握问卷没有建立心理测量学效度、常模或预测准确率。把它视为可结合背景核对的估计即可；无论均分或并列如何，都不限制以后选择活动。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "interpersonal-reading",
+    "directionIds": [
+      "interpersonal"
+    ],
+    "title": {
+      "en": "Activities With Other People: Confidence Without Mind Reading",
+      "zh": "人际协作活动：自我把握与实际核对"
+    },
+    "headline": {
+      "en": "Use what people say, rather than assuming what they feel",
+      "zh": "依据已表达信息，而非猜定内心"
+    },
+    "summary": {
+      "en": "Four activities involve checking understanding, clarifying viewpoints, stating needs and adjusting a group plan. Self-confidence does not show that you accurately read another person.",
+      "zh": "四项涉及核对理解、澄清观点、表达需要和调整集体计划。自己的把握不证明准确读懂了别人。"
+    },
+    "seo": {
+      "title": {
+        "en": "Activities With Other People: Confidence Without Mind Reading",
+        "zh": "人际协作活动：自我把握与实际核对"
+      },
+      "description": {
+        "en": "Read four interpersonal-activity ratings and missing answers. Use a group-plan example to check expressed needs, without empathy rankings or personality-based career matches.",
+        "zh": "阅读四项协作活动自评与缺答，用集体计划例子核对已表达需要，不排名同理心或按人格匹配职业。"
+      }
+    },
+    "scoreReading": {
+      "en": "Four numeric responses produce a 1.0–5.0 mean rounded to one decimal. One unscored response withholds this group; it does not infer low empathy or social ability.",
+      "zh": "四项数值完整时显示1.0—5.0均分，保留一位小数；任一项不计分则暂不给本组，不推断同理心或社交能力低。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "The questions concern your estimate of actions",
+          "zh": "题目问的是对行动的自我估计"
+        },
+        "paragraphs": [
+          {
+            "en": "The activities ask about checking what another person meant, noticing different viewpoints, expressing your needs with room for a reply and revising an agreed plan after hearing concerns. They use expressed information rather than a claim that you can infer hidden feelings. Gardner’s interpersonal concept is a background topic, not a score established by these four items. The questionnaire does not observe listening, negotiation or how other people experience you. A self-rating is also not an assessment of a colleague, partner or team.",
+            "zh": "活动涉及核对对方意思、注意不同观点、表达需要并留回应空间，以及听到顾虑后修改既定计划。它们使用已表达信息，不要求声称能猜出隐藏感受。加德纳的人际概念是背景话题，不是四题确定的分数。问卷没有观察倾听、协商或他人怎样体验与你交流；自评也不是给同事、伴侣或团队做评估。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read confidence without an empathy rank",
+          "zh": "阅读把握，不排名同理心"
+        },
+        "paragraphs": [
+          {
+            "en": "If your responses are 4, 2, 3 and 3, their mean is 3.0. The difference between the items can suggest which activity you feel less familiar with, such as asking a clarifying question during disagreement. It cannot establish where you are better or worse than others. A larger number is not more kindness, emotional intelligence or social value. The report shows all eight groups without ranking them, and equal means do not create a combined people-smart type or imply equal competence across tasks.",
+            "zh": "4、2、3、3的均分为3.0。题间差异可以提示自己觉得哪项较不熟，例如分歧中提出澄清问题，却不能确定比别人好或差在哪里。较大数字不是更多善良、情商或社会价值。报告不排名八组；相同均分不会形成综合人际聪明型，也不表示各任务胜任程度相同。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check a stated need before changing the plan",
+          "zh": "调整计划前先核对需要"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a group organising a shared meal. One person says the proposed time is difficult. “Is the start time the problem, or do you need a different day?” checks what was actually said. “You are anxious about meeting new people” invents an explanation the person did not give. A plan can then be revised only after the relevant constraint is understood and the participants agree. This fictional example provides a concrete communication distinction; choosing a high confidence response does not show that you use it successfully in real life.",
+            "zh": "假设一群人商量聚餐，有人说提议的时间不方便。“是开始时间的问题，还是需要换一天？”是在核对原话；“你是害怕见生人吧”则替对方编了未表达的解释。先理解相关限制，再由参与者同意调整。这个虚构例子提供具体沟通区别，选择高把握不证明现实中已经成功做到。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Confidence depends on relationships and conditions",
+          "zh": "把握取决于关系与条件"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean may reflect familiar groups, experience or how you interpret the questions. A smaller mean may reflect language demands, a new group or an unequal situation. None establishes empathy, leadership potential or a social deficit. When you cannot judge from experience, choose the unscored response; the other complete groups stay available. No answer requires you to provide emotional support, disclose private information or tolerate an unsafe interaction. It is possible to understand a stated need and still decline a request.",
+            "zh": "较大均分可能与熟悉群体、经验或对题目理解有关；较小值也可能来自语言要求、新群体或不对等情境。任何一种都不能确定同理心、领导潜力或社交缺陷。经验不足时选不计分，其他完整组保留。答案不要求提供情绪支持、公开隐私或忍受不安全互动。理解对方明确表达的需要后，仍然可以拒绝请求。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Try one voluntary clarification",
+          "zh": "尝试一次自愿澄清"
+        },
+        "paragraphs": [
+          {
+            "en": "In a low-pressure collaboration you already want to join, identify one point you are unsure about and ask a neutral question. Repeat the answer in your own words and allow a correction. Observe whether the next action becomes clearer, rather than whether everyone likes you more. A private review of a past exchange is also enough; no contact is required. The counterexample is testing a person’s reactions without their knowledge or treating your result as permission to analyse their motives.",
+            "zh": "在自己本来愿意参与、压力不大的协作里，找一处不确定信息，问一个中性问题。用自己的话复述回答，并允许对方纠正。看下一步是否更清楚，不看大家是否更喜欢自己。私下回看过去一次交流也足够，无需联系他人。反例是背着对方测试反应，或把自己的结果当作分析对方动机的许可。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use an interaction example for a specific goal",
+          "zh": "为具体目标保留交流实例"
+        },
+        "paragraphs": [
+          {
+            "en": "A short note can record the question, the correction and the agreed next step. It may help you ask for clearer roles or a different communication arrangement. It cannot certify competence in counselling, management, sales or any other occupation, and it supplies no salary premium or relationship prediction. This unvalidated original self-report is not an EQ test or an assessment of other people. Use the complete readings to choose an optional observation, not to define who must lead or care for whom.",
+            "zh": "可以简记问了什么、哪里被纠正、下一步怎样约定，用来提出更清楚的角色分工或沟通安排。但它不能认证咨询、管理、销售等职业胜任，不提供薪资溢价或关系预测。这份未验证原创自评不是EQ测验，也不是对别人的评估。完整读法用于选择自愿观察，不规定谁必须领导或照顾谁。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "intrapersonal-reading",
+    "directionIds": [
+      "intrapersonal"
+    ],
+    "title": {
+      "en": "Self-Reflection Activities: Confidence, Feelings and Evidence",
+      "zh": "自我反思活动：把握、感受与证据"
+    },
+    "headline": {
+      "en": "Separate an observation about yourself from its explanation",
+      "zh": "分清自身观察与解释"
+    },
+    "summary": {
+      "en": "The four activities involve naming a feeling, stating a priority, noticing a habit and revising a plan. A confidence mean cannot certify self-knowledge or mental health.",
+      "zh": "四项涉及辨认感受、说出优先事项、注意习惯和调整计划。把握均分不能认证自我了解或心理健康。"
+    },
+    "seo": {
+      "title": {
+        "en": "Self-Reflection Activities: Confidence, Feelings and Evidence",
+        "zh": "自我反思活动：把握、感受与证据"
+      },
+      "description": {
+        "en": "Understand self-reflection confidence, unavailable means and close values. Use a planning example to distinguish a feeling, an explanation and a small next step.",
+        "zh": "理解反思活动把握、暂不可用均分与相近数值，通过计划例子区分感受、解释和小型下一步。"
+      }
+    },
+    "scoreReading": {
+      "en": "Add four numeric responses and divide by four, rounding to one decimal. If any item is unscored, this mean is withheld without assigning a lack of self-awareness.",
+      "zh": "四项数值相加除以四，保留一位小数；任一不计分就暂不给均分，不据此判断缺乏自我觉察。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Four activities about noticing and adjusting",
+          "zh": "四项观察与调整活动"
+        },
+        "paragraphs": [
+          {
+            "en": "The items ask about distinguishing a feeling from its proposed cause, naming a personal priority, noticing when a habit helps or hinders a goal and revising a small plan after an earlier attempt. You rate confidence in those activities; the questionnaire does not verify whether your explanation is accurate. Gardner’s intrapersonal concept is an attributed background idea, not a clinical or cognitive score generated here. Reflecting often, preferring solitude and understanding yourself are different things, so the result does not treat them as interchangeable.",
+            "zh": "题目涉及区分感受与成因解释、说出优先事项、注意习惯何时帮助或妨碍目标，以及根据之前尝试调整计划。你评价做这些事的把握，问卷没有核实解释是否准确。加德纳的内省概念是注明出处的背景想法，不是这里生成的临床或认知分数。经常反思、喜欢独处和理解自己各不相同，结果不把它们互相替代。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read four estimates rather than a self-knowledge grade",
+          "zh": "阅读四项估计"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 2, 4, 3 and 3 sum to 12 and display 3.0. You might feel ready to name a priority while less certain about distinguishing a feeling from an explanation. The average cannot show whether the priority was realistic or the interpretation complete. Larger and smaller means remain self-reported confidence, not maturity or personal worth. A nearby mean in another group is not a trade-off between understanding yourself and understanding others; all groups remain separate and no dominant intelligence is assigned.",
+            "zh": "2、4、3、3合计12，显示3.0。也许说优先事项有把握，区分感受与解释较不确定。平均值不知道优先事项是否现实、解释是否完整。较大或较小值仍是自报把握，不是成熟或个人价值。另一组数值接近，也不表示理解自己与理解别人之间存在此消彼长；各组独立，不选主导智能。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Separate a feeling from an untested explanation",
+          "zh": "把感受与未核实解释分开"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine feeling disappointed after missing a planned study session. “I feel disappointed” reports an experience. “I never finish anything because I lack discipline” adds a broad explanation that the single event cannot establish. A more useful review might note that the session overlapped with an appointment and that the next plan needs a smaller time slot. The example does not prove why any real person feels disappointed; it shows how a specific observation can lead to a checkable next step without a global judgment.",
+            "zh": "假设一次计划学习没有完成，自己感到失望。“我感到失望”是报告体验；“我没有自律，所以什么都做不成”则加入单次事件无法确定的整体解释。更具体的回看可能发现学习与预约重叠，下次需要更小的时间段。本例不证明真实个人为何失望，而是说明怎样从具体观察走向可核对的下一步，不急着做整体评判。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Keep uncertainty and privacy available",
+          "zh": "保留不确定与隐私空间"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean may reflect practice with reflection, familiarity with the examples or a confident self-view. A smaller mean may mean the activity is new, that you set a demanding standard or that you do not want to rate it. If you cannot judge, the unscored option withholds only this group’s mean. It does not indicate a diagnosis, avoidance, poor self-awareness or a need for treatment. The questionnaire does not require a journal, disclosure of personal history or explanation of private feelings.",
+            "zh": "较大均分可能与反思练习、情境熟悉或自我看法较有信心有关；较小值可能是活动陌生、标准严格，或不想评价。无法判断时选不计分，只使本组暂不给均分，不表示诊断、回避、自我觉察差或需要治疗。问卷不要求写日记、披露个人经历或解释私人感受。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Choose a small planning review",
+          "zh": "选择一次小型计划回看"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want, review one ordinary plan without recording sensitive details. Write what you intended, what happened, one explanation you are considering and one fact that could check it. Then choose a small adjustment you actually want to try. A counterexample is repeatedly analysing your personality instead of deciding whether the plan needs a different time or fewer steps. You may stop after a brief note, keep it private or take no further action. The activity is not a therapy exercise or a validated intelligence test.",
+            "zh": "若愿意，可回看一个普通计划，不记录敏感细节。写下原本打算、实际发生、正在考虑的一种解释，以及能核对它的一项事实。再选一个自己确实愿意尝试的小调整。反例是不断分析人格，却不决定是否需要换时间或减少步骤。简记后可以停止、保持私密或不采取后续行动；它不是治疗练习，也不是验证过的智能测验。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Link the reflection to a practical choice",
+          "zh": "把反思连接到实际选择"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful outcome is a concrete decision about time, support or the next task, rather than a declaration that you are self smart. A number cannot show that you should work alone, become a coach or make a major life change. Such choices need real requirements, preferences and evidence beyond this form. This original confidence questionnaire has no established reliability, norms or predictive validity. A changed answer later can reflect context or interpretation, not necessarily personal growth or decline. All eight full guides remain available.",
+            "zh": "有用的产出可以是时间、支持或下一项任务的具体决定，不必宣布自己属于自我聪明型。数字不能说明应该独立工作、成为教练或重大转向；这类选择需要实际要求、偏好与更多证据。本原创把握问卷没有建立信度、常模或预测效度。以后回答改变，也可能是背景或理解改变，不必然代表成长或退步。八篇完整指南都保留。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "naturalist-reading",
+    "directionIds": [
+      "naturalist"
+    ],
+    "title": {
+      "en": "Nature Observation Activities: Confidence and Careful Classification",
+      "zh": "自然观察活动：把握与谨慎分类"
+    },
+    "headline": {
+      "en": "Describe what you noticed before naming its cause",
+      "zh": "先描述观察，再核对名称与原因"
+    },
+    "summary": {
+      "en": "Four activities concern comparing features, grouping examples, recording change and checking an identification. They do not establish naturalist intelligence or expertise with living things.",
+      "zh": "四项涉及比较特征、分组、记录变化和核对辨认，不确定自然智能或与生物打交道的专业能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "Nature Observation Activities: Confidence and Careful Classification",
+        "zh": "自然观察活动：把握与谨慎分类"
+      },
+      "description": {
+        "en": "Read nature-observation self-ratings and skips. Use a leaf-comparison example to separate visible features, classification and a checked identification.",
+        "zh": "阅读自然观察自评与跳题，用叶片比较例子区分可见特征、分类和经过核对的辨认。"
+      }
+    },
+    "scoreReading": {
+      "en": "Four numeric ratings produce a mean between 1.0 and 5.0, rounded to one decimal. Lack of experience or access can be unscored instead of being treated as low ability.",
+      "zh": "四项数值完整时给1.0—5.0均分，保留一位小数。经验或接触条件不足可以不计分，不当作能力低。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "The four observation activities",
+          "zh": "四项观察活动"
+        },
+        "paragraphs": [
+          {
+            "en": "The questions involve comparing features of natural objects, grouping examples by an explained feature, recording a change while separating observation from a guess and checking an identification with a reliable reference. These are selected activities connected to Gardner’s naturalist topic, not a measurement of the proposed intelligence. The page does not inspect your classifications or assess biological knowledge. Access to a garden, field or suitable materials is also not distributed equally, so familiarity cannot be treated as a universal standard of capacity.",
+            "zh": "题目涉及比较自然物特征、按可说明的特征分组、记录变化并区分观察与猜测，以及用可靠资料核对辨认。这些是与加德纳自然概念相关的所选活动，不是测量理论提出的智能。页面没有检查分类或生物知识；花园、野外及合适材料的接触机会也并不相同，不能把熟悉程度当成普遍容量标准。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read the mean as four confidence estimates",
+          "zh": "把均分读成四项把握估计"
+        },
+        "paragraphs": [
+          {
+            "en": "If you select 3, 3, 2 and 4, their sum is 12 and the mean is 3.0. The average may conceal more confidence checking an identification than explaining an observed change. It does not measure how many species you know or how well you would perform in fieldwork. A larger or smaller number is not a ranking of naturalist intelligence, and equal means in different groups are not equivalent capacities. All eight groups remain visible without a winner, total, percentile or occupational match percentage.",
+            "zh": "3、3、2、4合计12，均分3.0，可能掩盖核对辨认较有把握、解释变化较不确定的差别。它不测认识多少物种，也不测野外工作表现。数值大小不是自然智能排名，不同组均分相同也不代表容量相等。八组始终展示，不选胜出者，不算总分、百分位或职业匹配百分比。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Compare features before making an identification",
+          "zh": "先比特征，再核对辨认"
+        },
+        "paragraphs": [
+          {
+            "en": "For a fictional example, compare photographs of two leaves. You might describe an edge as smooth or toothed, then group the pictures by that visible feature. Naming the species is a further claim that needs a suitable reference and possibly more features. A counterexample is assuming that leaves from the same-looking group are the same species, or treating one successful identification as proof of ecological expertise. The example distinguishes an observation from an inference; it does not require handling plants, animals or unfamiliar materials.",
+            "zh": "一个虚构例子是比较两张叶片照片。可以先描述叶缘平滑还是有齿，再按这一可见特征分组。物种名称是进一步主张，需要合适资料，也可能需要更多特征。反例是看到同组叶片相似就认定同一物种，或因一次辨认正确就认为具备生态专业能力。例子区分观察与推断，不要求接触植物、动物或陌生材料。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Consider opportunity and uncertainty",
+          "zh": "考虑接触机会与不确定"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean may reflect repeated experience with observation or confidence in a familiar setting. A smaller mean may concern unfamiliar examples, limited access or uncertainty about a reference. When you cannot rate from experience, the unscored option withholds only this mean and leaves the other complete groups intact. It does not infer disinterest, weak intelligence or poor environmental values. The questionnaire also does not identify medical, sensory or learning conditions. You may use accessible descriptions or previous experience rather than an activity unavailable to you.",
+            "zh": "较大均分可能与多次观察经验或熟悉环境有关；较小值也可能来自例子陌生、机会有限或不确定参考资料。无法凭经验评价时选不计分，只使本组暂不给均分，其他完整组不变；不会推断没兴趣、智能弱或环保价值观差。问卷也不识别医学、感官或学习状况。可以想到适合自己的描述或过去经验，不必做当前无法接触的活动。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Make one safe observation with a stated rule",
+          "zh": "按一条明确规则做安全观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, choose familiar pictures or already available, safe examples. State one feature you will compare and record what you actually notice before looking for an explanation. Check an identification only when it matters to your goal and you have an appropriate reference. Do not taste, collect or handle unfamiliar organisms to complete a reflection. A written review of an earlier observation is enough. The activity is not a validated nature-intelligence task and does not promise that practice changes a general cognitive capacity.",
+            "zh": "若有需要，选熟悉图片或已经有的安全例子。先说明要比较的一项特征，记录实际注意到什么，再考虑解释。只有辨认与目标有关、且有适当资料时才核对名称。不为了完成反思品尝、采集或处理陌生生物；用文字回看过去观察也足够。这不是验证过的自然智能任务，也不保证练习改变一般认知容量。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep observation separate from professional expertise",
+          "zh": "观察与专业能力分别看"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful note records the feature, the grouping rule, the source used for checking and what remains uncertain. It can support a specific learning question without calling you nature smart or setting a limit on future interests. Biology, environmental work and animal care require their own knowledge, methods and practical qualifications; the mean supplies none of these. This original confidence form has no established psychometric validation or career-prediction evidence. Use its complete guides to explore a task you choose, not to select or exclude a person from a role.",
+            "zh": "可以记录特征、分组规则、核对所用来源和仍不确定的部分，以支持具体学习问题，不必贴自然聪明标签，也不限制后续兴趣。生物、环境工作和动物照护都有自己的知识、方法及实际资格要求，均分不能提供这些。本原创把握题本没有建立心理测量学效度或职业预测证据。完整指南用于探索自选任务，不用于录用或排除某个人。"
+          }
+        ]
+      }
+    ]
+  }
+]

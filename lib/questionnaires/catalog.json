@@ -4364,5 +4364,59 @@
       "change-reading",
       "forgiveness-choice-reading"
     ]
+  },
+  {
+    "slug": "multiple-intelligences",
+    "code": "FM_MI_ACTIVITY_CONFIDENCE32",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Multiple Intelligences Test: Activity Reflection",
+      "zh": "多元智能测试：活动自我回看"
+    },
+    "description": {
+      "en": "Rate your confidence about 32 everyday activities connected to eight MI topics. Read all eight full guides free, with skips and no strongest-intelligence, IQ or career-fit claim.",
+      "zh": "围绕多元智能的八个话题，自评32项日常活动的把握程度，八篇完整指南免费。可跳过，不选最强智能，不换算智商或职业适配。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_mi_eight_activity_confidence32_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "linguistic-reading",
+      "logical-reading",
+      "spatial-reading",
+      "bodily-reading",
+      "musical-reading",
+      "interpersonal-reading",
+      "intrapersonal-reading",
+      "naturalist-reading"
+    ]
+  },
+  {
+    "slug": "work-ethics",
+    "code": "FM_WORK_COMMITMENT_HABITS24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Work Ethics & Reliability Test: Everyday Work Habits",
+      "zh": "工作伦理和可靠性测试：日常任务习惯"
+    },
+    "description": {
+      "en": "Reflect on 24 work-habit statements about agreements, checks, updates and repair. Read all four full guides free, with separate means and no employee reliability grade.",
+      "zh": "用24条陈述回看约定、核对、说明与修正习惯，四篇完整指南免费。各组均分分别呈现，不给员工可靠性等级。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_work_commitment_habits24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "commitments-reading",
+      "quality-reading",
+      "honesty-reading",
+      "repair-reading"
+    ]
   }
 ]

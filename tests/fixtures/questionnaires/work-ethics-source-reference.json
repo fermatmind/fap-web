@@ -1,0 +1,1865 @@
+{
+  "id": "T101",
+  "state": "external original source and full-content candidate; not integrated, accepted or published",
+  "slug": "work-ethics",
+  "code": "FM_WORK_COMMITMENT_HABITS24",
+  "kind": "likert",
+  "form": "fm_work_commitment_habits24_v1",
+  "scoring": "fm_work_four_complete6_keyed_means1dp_no_band_v1",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Think about ordinary tasks you actually took part in during the past four weeks, whether in paid work, study, volunteering or a shared project. At relevant opportunities, how often did you do what each statement describes? Use Never only when a relevant opportunity existed and you did not do it. With no opportunity, too little information or a choice not to answer, use the unscored option. The questions do not ask you to disclose an incident or prove your character. Changes in workload, resources, authority and safety matter; accepting impossible demands or responsibility outside your control is not required.",
+    "zh": "回想过去四周实际参与的普通任务，可以是有偿工作、学习、志愿活动或共同项目。在相关机会中，你多常按陈述做？只有遇到相关机会而没有这样做时才选“从未”。没有机会、信息不足或不愿回答时选不计分。题目不要求披露具体事件或证明品格。任务量、资源、权限和安全会影响选择；不要求接受不可能的任务或承担控制范围外的责任。"
+  },
+  "parts": [
+    {
+      "id": "commitments",
+      "title": {
+        "en": "Keeping and renegotiating commitments",
+        "zh": "履约与重新商定"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reverse_numbers": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": "quality",
+      "title": {
+        "en": "Checking work before handover",
+        "zh": "交付前核对"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "reverse_numbers": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "honesty",
+      "title": {
+        "en": "Accurate updates and attribution",
+        "zh": "如实说明与署名"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reverse_numbers": [
+        15,
+        18
+      ]
+    },
+    {
+      "id": "repair",
+      "title": {
+        "en": "Owning a part and following through on repair",
+        "zh": "确认自身部分与跟进修正"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "reverse_numbers": [
+        21,
+        24
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "WCH_01",
+      "prompt": {
+        "en": "Before accepting a task, I checked what I could realistically deliver and when.",
+        "zh": "接下任务前，我核对自己实际能交付什么、何时交付。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_02",
+      "prompt": {
+        "en": "When I expected an agreement to need changing, I informed the people affected before the original arrangement failed.",
+        "zh": "预计约定需要改变时，我在原安排落空前告知受影响的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_03",
+      "prompt": {
+        "en": "I accepted a commitment to end the conversation even though I could not see a realistic way to meet it.",
+        "zh": "我为了结束商量而接下承诺，即使当时看不到现实可行的履行办法。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_04",
+      "prompt": {
+        "en": "At a handover, I checked that the next person knew what they had agreed to take on.",
+        "zh": "交接时，我核对下一位是否清楚自己同意接手的内容。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_05",
+      "prompt": {
+        "en": "I checked the commitments I had already made before adding another one.",
+        "zh": "增加新的承诺前，我查看自己已经答应的事项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_06",
+      "prompt": {
+        "en": "After changing a plan that others relied on, I left them to discover the change without telling them.",
+        "zh": "改变别人依赖的计划后，我没有告知，而让他们自己发现变化。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "commitments",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "commitments",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "commitments",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "commitments",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "commitments",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "commitments",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_07",
+      "prompt": {
+        "en": "Before calling a task finished, I compared it with the completion criteria that had been agreed.",
+        "zh": "把任务称为完成前，我按已商定的完成条件核对。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_08",
+      "prompt": {
+        "en": "I checked the details that the next person needed in order to use my work.",
+        "zh": "我核对下一位使用成果所必需的细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_09",
+      "prompt": {
+        "en": "I marked a task as checked without carrying out the review that had been agreed.",
+        "zh": "我没有做已商定的复核，就把任务标成已经检查。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_10",
+      "prompt": {
+        "en": "When quality requirements were unclear, I asked which checks mattered for this task.",
+        "zh": "质量要求不清楚时，我询问这项任务需要哪些核对。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_11",
+      "prompt": {
+        "en": "When I found a material error before handover, I corrected it or clearly identified what was still unresolved.",
+        "zh": "交接前发现影响使用的错误时，我修正它，或清楚说明仍未解决的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_12",
+      "prompt": {
+        "en": "I handed work on without a usage detail I already knew the recipient needed.",
+        "zh": "我交出成果时，省去了自己已经知道接收方需要的一项使用细节。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "quality",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "quality",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "quality",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "quality",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "quality",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "quality",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_13",
+      "prompt": {
+        "en": "In progress updates, I distinguished completed work from work that was still underway.",
+        "zh": "说明进展时，我把已完成与仍在进行的工作分开。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_14",
+      "prompt": {
+        "en": "When presenting shared work, I acknowledged the contributions that were not mine.",
+        "zh": "展示共同成果时，我注明并非由自己完成的贡献。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_15",
+      "prompt": {
+        "en": "I presented someone else’s contribution as my own without acknowledging its source.",
+        "zh": "我没有注明来源，就把别人的贡献说成自己的。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_16",
+      "prompt": {
+        "en": "When I did not know a relevant fact, I said what was uncertain before presenting a conclusion.",
+        "zh": "不知道相关事实时，我在给结论前说明不确定之处。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_17",
+      "prompt": {
+        "en": "When sharing restricted material, I checked that the recipient and the way of sharing were permitted.",
+        "zh": "分享有限制的资料时，我核对接收方与分享方式是否获得允许。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_18",
+      "prompt": {
+        "en": "I left out a known limitation so that my work would receive approval.",
+        "zh": "我为了让成果获准而省略一项已知限制。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "honesty",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "honesty",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "honesty",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "honesty",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "honesty",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "honesty",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_19",
+      "prompt": {
+        "en": "After a setback, I checked which part of the situation was actually within my responsibility.",
+        "zh": "出现挫折后，我核对其中哪一部分实际属于自己的责任范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_20",
+      "prompt": {
+        "en": "When I noticed an error I had contributed to, I told the affected people what was known about its impact.",
+        "zh": "发现自己参与造成的错误时，我向受影响的人说明已知影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_21",
+      "prompt": {
+        "en": "I assigned the blame elsewhere before checking my own part in the problem.",
+        "zh": "还没核对自己的部分，我就把问题归咎于别处。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_22",
+      "prompt": {
+        "en": "I agreed on a corrective step that matched my actual control and identified any help it needed.",
+        "zh": "我商定一项符合自身实际控制范围的修正步骤，并说明所需帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_23",
+      "prompt": {
+        "en": "After an agreed correction, I checked whether it addressed the specific problem it was meant to fix.",
+        "zh": "完成商定修正后，我核对它是否处理了原本要解决的具体问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WCH_24",
+      "prompt": {
+        "en": "After becoming unable to carry out an agreed correction, I waited to be asked before mentioning the blockage.",
+        "zh": "无法执行商定修正后，我等别人询问才说出受阻情况。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_item_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "scoringPolicy": "Foureditorialhabitgroups6itemseach;tworeversepergroupcontribute6-response;all6numericwithinpartrequired;sumkeyed/6round1dp1..5. NAonlyownpartmeanNull/othercompletepartsretain;all24choicesincludingallNAfinish. No prorating/zeroimputation/overallreliabilityband/winner/weakestlink/populationnorms/lie-detection/characterworthiness/employee-screeningorjob-fitclaim. Higherkeyedmeanonlymoreendorsementoftheselectedhabitsaftercoding;notobserveddependabilityorproofhonesty. Strictcompletenessandfourweekrecallareeditorialpolicy,notvalidatedthresholds.",
+  "rightsAndProvenance": "All24EnglishandChinesestatements,grouping,scoringpolicyandprospectiveguidesareFermatMindoriginal. CurrentO*NETDependability/AttentiontoDetail/Integrity andOPMAccountability definitions are conceptualbackground only,notadoptionofanofficialpersonalscale,itembankorvalidation. JobCannon20itemsnotaccessedorcopied. MWEP65/short28notadoptedandnoitemgrantassumed. IPIPA2/C3publicdomainkeysconsideredbutnotusedinthiswork-habitform;notNEO-PI-RorofficialBigFiveassessment.",
+  "primary": [
+    {
+      "url": "https://www.onetonline.org/find/descriptor/browse/1.D",
+      "actual_read": "currentpublicbody52–74plusrelevantcategories, three currentdescriptors;nooccupationalscoreinventoryneeded",
+      "supports": "conceptualdependability/attentiondetail/integrity descriptions;O*NEToccupationImpactratingsareNOTpersonalquestionnairemeansornorms"
+    },
+    {
+      "url": "https://support-usahire.opm.gov/hc/en-us/articles/45424558675603-Occupational-Interaction-Assessment",
+      "actual_read": "actualwholepublicpage24–58updatedOct20,2026;Integrity/Honesty,Accountability,AttentiontoDetail definitions",
+      "supports": "terminologybackground only;notOPMtestitems/scoring/hiringvaliditytransferredtothisbank;practiceassessmentnotopened"
+    },
+    {
+      "url": "https://www.luisarciniega.org/other-scales.html",
+      "actual_read": "wholeauthorpage7–14",
+      "supports": "MWEPSpanish65andshort28availableonrequest;nosuchrequestsent;notitemlicencefornewpublicsite"
+    },
+    {
+      "url": "https://eric.ed.gov/?id=EJ646683",
+      "actual_read": "searchreturnedERICabstract/citationonly;directopen400timeout;not39pagepaper",
+      "supports": "MillerWoehrHudspeth2002 identity/multidimensionalworkethicbackgroundonly;fullstudyanditempermissionnotclaimed"
+    },
+    {
+      "url": "https://ipip.ori.org/",
+      "actual_read": "actualofficialhomepagepublicdomaingrant",
+      "supports": "IPIPitems/scalesfreecopy/edit/translate/anypurposeonlyforthoseactualIPIPscales;notlicenseforMWEP/NEO-PI-R"
+    },
+    {
+      "url": "https://ipip.ori.org/newNEOFacetsKey.htm",
+      "actual_read": "A2Morality212–222andC3Dutifulness289–299onlyforcandidatecomparison;nototherunrelatedfacets",
+      "supports": "thesearegenerallifeself-descriptionkeys,notworkplacespecificfourhabitform;notadopted"
+    }
+  ],
+  "competitorRead": {
+    "current_entry": "normalTLSEN/ZHentiremainbody+5FAQeachactuallyread;webopeninitialInternalErrorpreservedasnotreadthere;normalHTTP200rawreadindependently",
+    "method_results": "Aboutfullmainbody6FAQsandall4ENresultentiremainbody/strength/growth/career/6FAQeachactualsavedtextread",
+    "not_read": "private20bank/runtimeactualalgorithm/allZHresults",
+    "not_adopted": [
+      "overallreliabilitybands",
+      "fourdominantarchetypes",
+      "weakestlinkdeterminesreliability",
+      "employerclaimhandlingcash/keys/data/vulnerablepeople",
+      "reversesdetectdishonesty",
+      "selfreportvalidityborrowedfromcommercialintegritytests",
+      "hire/promotion/terminationrecommendations",
+      "scoreimprovementasobservedbehaviorchange"
+    ]
+  },
+  "future_profiles": [
+    "commitments-reading",
+    "quality-reading",
+    "honesty-reading",
+    "repair-reading"
+  ],
+  "languageEquivalence": "Newbilingualoriginalwording;noformalreliability/validity/norms/crosslanguagemeasurementequivalence.",
+  "pending": [
+    "parent source/full-content review",
+    "repository contracts/typecheck/build/browser after authorised integration",
+    "exactSHA staging/production acceptance"
+  ]
+}

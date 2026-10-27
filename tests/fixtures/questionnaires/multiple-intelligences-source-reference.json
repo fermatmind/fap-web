@@ -1,0 +1,2474 @@
+{
+  "id": "T100",
+  "state": "external original source candidate with eight FULL drafts and package; no runtime integration/publication",
+  "slug": "multiple-intelligences",
+  "code": "FM_MI_ACTIVITY_CONFIDENCE32",
+  "kind": "likert",
+  "form": "fm_mi_eight_activity_confidence32_v1",
+  "scoring": "fm_mi_activity_eight_complete4_means1dp_unranked_v1",
+  "minimumRatedItems": 4,
+  "instructions": {
+    "en": "Rate your current confidence about each activity in an ordinary, familiar context, using your usual accessible tools or adaptations. This asks for your own estimate, not a demonstration or a recent two-week frequency. If you have too little experience, cannot access the activity, cannot judge or prefer not to answer, choose the unscored option rather than rating yourself low for that reason. No activity has to be attempted to complete the questionnaire. All eight groups stay visible; they are not a test of eight intelligences, an IQ measure or a way to identify your best learning style.",
+    "zh": "按普通、熟悉情境中目前对该活动的把握程度作答，可以使用平常适合自己的工具或调整方式。这里问自己的估计，不要求现场表现，也不是最近两周的频率。经验不足、无法接触活动、无法判断或不愿回答时，选不计分项，不因此给自己低分。无需实际尝试活动即可完成。八组都保留展示；它不测八种智能，不测智商，也不识别最佳学习风格。"
+  },
+  "parts": [
+    {
+      "id": "linguistic",
+      "title": {
+        "en": "Language activities",
+        "zh": "语言活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "logical",
+      "title": {
+        "en": "Logical and numerical activities",
+        "zh": "逻辑与数字活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "spatial",
+      "title": {
+        "en": "Spatial activities",
+        "zh": "空间活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "bodily",
+      "title": {
+        "en": "Movement and craft activities",
+        "zh": "动作与手作活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "musical",
+      "title": {
+        "en": "Music and rhythm activities",
+        "zh": "音乐与节奏活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "interpersonal",
+      "title": {
+        "en": "Activities involving other people",
+        "zh": "与他人协作的活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "intrapersonal",
+      "title": {
+        "en": "Self-reflection activities",
+        "zh": "自我反思活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    },
+    {
+      "id": "naturalist",
+      "title": {
+        "en": "Nature observation activities",
+        "zh": "自然观察活动"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "framework_connection": "Gardner conceptual topic only; activity domain is not itself an intelligence and the confidence mean is not a capacity estimate"
+    }
+  ],
+  "questions": [
+    {
+      "id": "MIACT_01",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Explain a familiar idea using two different wordings.",
+        "zh": "目前对这项活动有多大把握？用两种不同说法解释一个熟悉的想法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "linguistic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "linguistic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "linguistic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "linguistic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "linguistic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "linguistic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_02",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Arrange a set of everyday instructions into an order another person could follow.",
+        "zh": "目前对这项活动有多大把握？把一组日常说明安排成别人能够跟随的顺序。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "linguistic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "linguistic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "linguistic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "linguistic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "linguistic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "linguistic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_03",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Summarise a short text in your own words while keeping its main point.",
+        "zh": "目前对这项活动有多大把握？用自己的话概括一段短文，并保留它的重点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "linguistic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "linguistic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "linguistic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "linguistic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "linguistic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "linguistic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_04",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Notice where a sentence could be misunderstood and state the intended meaning more clearly.",
+        "zh": "目前对这项活动有多大把握？注意一句话可能引起误解的地方，并更清楚地表达原意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "linguistic",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "linguistic",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "linguistic",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "linguistic",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "linguistic",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "linguistic",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_05",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Identify which stated condition prevents a simple plan from working.",
+        "zh": "目前对这项活动有多大把握？找出哪项已经说明的条件使一个简单方案行不通。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "logical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "logical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "logical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "logical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "logical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "logical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_06",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Check a short everyday calculation using the information provided.",
+        "zh": "目前对这项活动有多大把握？根据给出的信息核对一项简短的日常计算。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "logical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "logical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "logical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "logical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "logical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "logical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_07",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Compare two possible explanations for a familiar problem by checking one relevant fact.",
+        "zh": "目前对这项活动有多大把握？通过核对一项相关事实，比较熟悉问题的两种可能解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "logical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "logical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "logical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "logical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "logical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "logical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_08",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Describe a rule that accounts for a small set of examples, then check it against a new example.",
+        "zh": "目前对这项活动有多大把握？说明一条能解释少量例子的规则，再用一个新例子核对。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "logical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "logical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "logical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "logical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "logical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "logical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_09",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Sketch the positions of a few objects so another person can understand their arrangement.",
+        "zh": "目前对这项活动有多大把握？画出几个物品的位置，让别人理解它们的排列。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "spatial",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "spatial",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "spatial",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "spatial",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "spatial",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "spatial",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_10",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Use a simple map or layout to plan a route between two stated places.",
+        "zh": "目前对这项活动有多大把握？使用简单地图或布局图，规划两个给定地点之间的路线。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "spatial",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "spatial",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "spatial",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "spatial",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "spatial",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "spatial",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_11",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Consider how the same object would look from a different viewing position.",
+        "zh": "目前对这项活动有多大把握？思考同一个物体从另一观察位置看起来会怎样。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "spatial",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "spatial",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "spatial",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "spatial",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "spatial",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "spatial",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_12",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Estimate whether everyday objects will fit into a space, then check their actual dimensions.",
+        "zh": "目前对这项活动有多大把握？估计日常物品是否能放入某个空间，再核对实际尺寸。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "spatial",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "spatial",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "spatial",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "spatial",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "spatial",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "spatial",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_13",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Learn a short, safe sequence of movements using a demonstration that is accessible to you.",
+        "zh": "目前对这项活动有多大把握？通过适合自己的示范，学习一小段安全的动作顺序。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "bodily",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "bodily",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "bodily",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "bodily",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "bodily",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "bodily",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_14",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Adjust how you handle a familiar everyday tool after noticing the result of a first attempt.",
+        "zh": "目前对这项活动有多大把握？看到第一次尝试的结果后，调整使用熟悉日常工具的方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "bodily",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "bodily",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "bodily",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "bodily",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "bodily",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "bodily",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_15",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Make a simple object from safe materials by coordinating a few physical steps.",
+        "zh": "目前对这项活动有多大把握？协调几个操作步骤，用安全材料制作一个简单物品。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "bodily",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "bodily",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "bodily",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "bodily",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "bodily",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "bodily",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_16",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Notice where a familiar movement feels awkward and try a small safe adjustment.",
+        "zh": "目前对这项活动有多大把握？注意熟悉动作中不顺手的地方，并尝试一个安全的小调整。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "bodily",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "bodily",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "bodily",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "bodily",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "bodily",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "bodily",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_17",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Follow a short, simple rhythm using a form of participation accessible to you.",
+        "zh": "目前对这项活动有多大把握？用适合自己的参与方式跟随一段简短节奏。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "musical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "musical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "musical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "musical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "musical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "musical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_18",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Notice a change in pitch in a short musical phrase that you can access.",
+        "zh": "目前对这项活动有多大把握？在自己能够接触的一小段音乐中注意音高变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "musical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "musical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "musical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "musical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "musical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "musical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_19",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Compare two versions of a familiar tune and describe one difference you notice.",
+        "zh": "目前对这项活动有多大把握？比较熟悉旋律的两个版本，描述自己注意到的一项差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "musical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "musical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "musical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "musical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "musical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "musical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_20",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Create a short musical or rhythmic pattern and repeat it intentionally.",
+        "zh": "目前对这项活动有多大把握？创作一个简短的音乐或节奏片段，并有意重复。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "musical",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "musical",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "musical",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "musical",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "musical",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "musical",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_21",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Check whether you understood what another person wanted before proposing a response.",
+        "zh": "目前对这项活动有多大把握？提出回应前，核对自己是否理解对方想表达的需要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "interpersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "interpersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_22",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Notice a difference in viewpoints during an ordinary group task and ask a useful clarifying question.",
+        "zh": "目前对这项活动有多大把握？在普通小组任务中注意观点差异，并提出有帮助的澄清问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "interpersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "interpersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_23",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Explain your own needs in a collaboration while leaving room for the other person to respond.",
+        "zh": "目前对这项活动有多大把握？在协作中说明自己的需要，同时留出让对方回应的空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "interpersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "interpersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_24",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Adjust an agreed group plan after listening to the participants’ stated concerns.",
+        "zh": "目前对这项活动有多大把握？听到参与者明确说出的顾虑后，调整一个已经商量的集体计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "interpersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "interpersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "interpersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_25",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Distinguish what you felt during an ordinary event from what you think caused the feeling.",
+        "zh": "目前对这项活动有多大把握？区分一件普通事情中的自身感受，与自己对感受成因的解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "intrapersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_26",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Name a personal priority and explain how it affects a current choice.",
+        "zh": "目前对这项活动有多大把握？说出一项自己的优先事项，并说明它怎样影响当前选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "intrapersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_27",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Notice when a familiar habit helps your goal and when it gets in the way.",
+        "zh": "目前对这项活动有多大把握？注意一个熟悉习惯何时帮助目标、何时妨碍目标。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "intrapersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_28",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Revise a small personal plan after checking what you learned from an earlier attempt.",
+        "zh": "目前对这项活动有多大把握？回看之前尝试得到的信息后，修改一个小型个人计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "intrapersonal",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "intrapersonal",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_29",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Compare visible features of two plants or natural objects without needing to know their names first.",
+        "zh": "目前对这项活动有多大把握？不必事先知道名称，也能比较两种植物或自然物的可见特征。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "naturalist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "naturalist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "naturalist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "naturalist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "naturalist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "naturalist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_30",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Group a few natural examples according to a feature you can explain.",
+        "zh": "目前对这项活动有多大把握？按一项自己能够解释的特征，把几个自然样本分组。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "naturalist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "naturalist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "naturalist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "naturalist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "naturalist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "naturalist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_31",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Record one change in a familiar natural setting and distinguish the observation from a guess about its cause.",
+        "zh": "目前对这项活动有多大把握？记录熟悉自然环境中的一个变化，区分观察与对原因的猜测。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "naturalist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "naturalist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "naturalist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "naturalist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "naturalist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "naturalist",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "MIACT_32",
+      "prompt": {
+        "en": "How confident do you currently feel about this activity? Use a trustworthy reference to check an initial identification of a natural object.",
+        "zh": "目前对这项活动有多大把握？用可靠参考资料核对自己对一个自然物的初步辨认。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not at all confident",
+            "zh": "1 — 完全没有把握"
+          },
+          "directionId": "naturalist",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly confident",
+            "zh": "2 — 稍有把握"
+          },
+          "directionId": "naturalist",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately confident",
+            "zh": "3 — 中等把握"
+          },
+          "directionId": "naturalist",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very confident",
+            "zh": "4 — 很有把握"
+          },
+          "directionId": "naturalist",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely confident",
+            "zh": "5 — 非常有把握"
+          },
+          "directionId": "naturalist",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not enough experience / cannot rate / prefer not to answer — unscored",
+            "zh": "经验不足／无法评价／暂不回答——不计分"
+          },
+          "directionId": "naturalist",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_item_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "scoringPolicy": "All32choicesincludingNAfinish. A part needs all4numericresponses; display sum/4 rounded1dp1.0..5.0, with originalitemcount. Missing/NA notzero/notestimated; onlyitsownpartunavailable,othercompletepartsremain. Allpositive confidenceitems,no artificialreverse. Eightmeansdisplayedunranked;tiesandclosevaluesremainvisiblewithoutprimarytype,topstrength,overallIQ,total,percentiles,cognitiveability,brainbasedinstructionorcareerfitprediction. Complete4rule is websiteeditorialpolicy,notvalidatedthreshold.",
+  "rightsAndProvenance": "All32EnglishandChineseactivityprompts,anchorsandprospectiveguidesareFermatMindoriginal. The eight broad topic labels credit Gardner’s conceptual framework. No MIDAS/MIALS/JobCannon40/IDR45/FramesofMind item bank or prose copied. GardnerFAQsiteCCBYNCND is a background-source boundary, not an item/publiccommerciallicence or endorsement. Definitions are attributed concepts, not proof eight independent measured abilities exist.",
+  "primary": [
+    {
+      "url": "https://www.multipleintelligencesoasis.org/the-components-of-mi",
+      "actual_read": "currentfullmainbody eightdefinitions47–105 and savedprimarymainbody",
+      "supports": "Gardnerframeworktopics and provenance only; not validity of this confidence bank"
+    },
+    {
+      "url": "https://www.multipleintelligencesoasis.org/blog/2022/3/3/is-there-a-test-for-multiple-intelligences-should-there-be",
+      "actual_read": "entireauthorpost54–79 and savedmainbody",
+      "supports": "authorwarning about shortanswer and selfreport; MI not learningstyles; observations not thiswebsitevalidation"
+    },
+    {
+      "url": "https://www.multipleintelligencesoasis.org/malpractices",
+      "actual_read": "entiremainbody49–92 and savedscope",
+      "supports": "author distinctions intelligence/domain/style, no life/careerprediction; attribute theory claims rather than assert disputed neuroscience"
+    },
+    {
+      "url": "https://www.howardgardner.com/faq",
+      "actual_read": "completeFAQintro/currentfooter license and savedmainbody",
+      "supports": "noendorsedteststatement;CCBYNCNDdoesnotgrantcommercialcopyingofprose/items"
+    },
+    {
+      "url": "https://www.howardgardner.com/s/FAQ.pdf",
+      "actual_read": "webPDF0–218(pages1–7start) only;notwhole24pages;originalPDFsaved120364B",
+      "supports": "definition/domain/style distinctions andintroduction;notfullpaperlicencereviewornorms"
+    }
+  ],
+  "competitorRead": {
+    "jobcannon": "currentEN/ZHentry7FAQs each;Aboutfullweb416lines including6FAQ+8additionalFAQ;all8ENresultwebbody/strength/growth/career/6FAQ each read. SavedrawAboutcompleteaftertargetedreread;all8savedENresultmainbodies/strengths/growth/career/6FAQread. Private40itembank/scoringnotread.",
+    "idrlabs": "completecurrentENentry/source/5FAQ;45statementsclaim;onlydisplayedfirstitemread,notall45/privatealgorithm. Savedrawfirstitemdifferswebextraction,notinferredasrevision.",
+    "not_adopted": [
+      "instantcareerpercentages",
+      "salarypremiums",
+      "celebritytypeassignments",
+      "brainregionvalidatesindependenttypes",
+      "firstinstinctmoreaccurate",
+      "lowselfratingprovesdeficit",
+      "matchingteachingtopreferredstyleimproveslearning",
+      "ninthspiritualintelligenceasacceptedGardnerdomain",
+      "grouptraitsterotypes",
+      "selfconfidence=observedability"
+    ]
+  },
+  "future_profiles": [
+    "linguistic-reading",
+    "logical-reading",
+    "spatial-reading",
+    "bodily-reading",
+    "musical-reading",
+    "interpersonal-reading",
+    "intrapersonal-reading",
+    "naturalist-reading"
+  ],
+  "languageEquivalence": "Newbilingualoriginalquestionnaire;noformalmeasurementinvariance/reliability/validity/norms/authorendorsement.",
+  "pending": [
+    "RootClientownreportinterface only if existinglikertkept",
+    "font/source-equivalence",
+    "actualalgorithm/contracts/E2E/build",
+    "exactSHAdelivery/publicacceptance"
+  ]
+}
