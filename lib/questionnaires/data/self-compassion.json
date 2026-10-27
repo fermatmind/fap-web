@@ -1,0 +1,2758 @@
+{
+  "slug": "self-compassion",
+  "code": "SCS26_NEFF_2003",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "scs26",
+  "title": {
+    "en": "Self-Compassion Test",
+    "zh": "自我慈悲测试"
+  },
+  "seoTitle": {
+    "en": "Self-Compassion Test: SCS-26 Scores & Full Free Results",
+    "zh": "自我慈悲测试：SCS26题与完整免费结果"
+  },
+  "description": {
+    "en": "Take the full 26-item SCS. Read six part means, reverse scoring and the overall mean with complete free guides. Chinese is an unvalidated working translation.",
+    "zh": "完成26题完整版SCS，阅读六部分均分、反向计分与整体均分，全部指南免费。中文为未经验证的费马工作译本，供自我观察。"
+  },
+  "minutes": 7,
+  "instructions": {
+    "en": "Think about how you typically act towards yourself in difficult times. Indicate how often you behave in each stated manner, from 1 — Almost never to 5 — Almost always. Values 2, 3 and 4 are intermediate choices without extra named anchors. Answer what reflects your experience, not what you think it should be. The separate prefer-not-to-answer choice is unscored; it withholds that part and the overall mean. Other complete parts remain available. The Chinese wording is a new unvalidated FermatMind working translation. Seven minutes is an editorial estimate; there is no timer.",
+    "zh": "回想在困难时刻通常怎样对待自己，按陈述中行为出现的频率作答：1为几乎从不，5为几乎总是；2、3、4是中间数值，不另加频率名称。回答自己的实际体验，不是认为自己应该怎样。独立的暂不回答选项不计分，会暂不给所在部分及整体均分，其他完整部分仍可读。中文是费马新工作译本，尚未验证。约七分钟为编辑估计，不计时。"
+  },
+  "introduction": {
+    "en": "This uses Kristin Neff’s full 26-item Self-Compassion Scale (2003) with permission and citation. It keeps all six parts visible and follows the current official scoring key: reverse 13 items, compute six unrounded part means, then average those six. The complete report is free, without signup, personality stages, clinical norms or career predictions. The English source scale and the new working Chinese wording have different evidence: this translation has not been validated.",
+    "zh": "本版依许可注明来源，使用Kristin Neff（2003）的26题完整自我慈悲量表。保留六个部分，按当前官方计分键反向13题，先算六个未取舍的部分均值再平均。完整报告免费，无需注册，不分人格阶段，不提供临床常模或职业预测。英文原量表与新中文工作译本的证据不同，不能把英文研究验证移作本译文的验证。"
+  },
+  "resultHeading": {
+    "en": "Your SCS means and complete readings",
+    "zh": "你的SCS均分与完整读法"
+  },
+  "directions": [
+    {
+      "id": "self-kindness",
+      "title": {
+        "en": "Self-kindness",
+        "zh": "自我善待"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "self-judgment",
+      "title": {
+        "en": "Self-judgment",
+        "zh": "自我批评"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "common-humanity",
+      "title": {
+        "en": "Common humanity",
+        "zh": "共同人性"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "isolation",
+      "title": {
+        "en": "Isolation",
+        "zh": "孤立感"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "mindfulness",
+      "title": {
+        "en": "Mindfulness",
+        "zh": "正念"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "over-identification",
+      "title": {
+        "en": "Over-identification",
+        "zh": "过度认同"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SCS_01",
+      "prompt": {
+        "en": "I’m disapproving and judgmental about my own flaws and inadequacies.",
+        "zh": "面对自己的缺点和不足，我带着不满和评判。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_02",
+      "prompt": {
+        "en": "When I’m feeling down I tend to obsess and fixate on everything that’s wrong.",
+        "zh": "情绪低落时，我往往会反复纠缠于各种不顺心的事。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_03",
+      "prompt": {
+        "en": "When things are going badly for me, I see the difficulties as part of life that everyone goes through.",
+        "zh": "事情进展不顺时，我把这些困难看作生活中人人都会经历的一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_04",
+      "prompt": {
+        "en": "When I think about my inadequacies, it tends to make me feel more separate and cut off from the rest of the world.",
+        "zh": "想到自己的不足时，我往往感到更加孤立，与周围世界脱节。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_05",
+      "prompt": {
+        "en": "I try to be loving towards myself when I’m feeling emotional pain.",
+        "zh": "感到情绪上的痛苦时，我尝试关爱自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_06",
+      "prompt": {
+        "en": "When I fail at something important to me I become consumed by feelings of inadequacy.",
+        "zh": "在对自己重要的事情上失败时，我会被不足感占据。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_07",
+      "prompt": {
+        "en": "When I'm down, I remind myself that there are lots of other people in the world feeling like I am.",
+        "zh": "情绪低落时，我会提醒自己：世上还有许多人也有与我相似的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_08",
+      "prompt": {
+        "en": "When times are really difficult, I tend to be tough on myself.",
+        "zh": "处境十分艰难时，我往往对自己很苛刻。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_09",
+      "prompt": {
+        "en": "When something upsets me I try to keep my emotions in balance.",
+        "zh": "有事令我心烦时，我尝试保持情绪的平衡。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_10",
+      "prompt": {
+        "en": "When I feel inadequate in some way, I try to remind myself that feelings of inadequacy are shared by most people.",
+        "zh": "感到自己在某方面不足时，我尽量提醒自己：大多数人都会有不足感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_11",
+      "prompt": {
+        "en": "I’m intolerant and impatient towards those aspects of my personality I don't like.",
+        "zh": "对于自己性格中不喜欢的那些部分，我缺少包容和耐心。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_12",
+      "prompt": {
+        "en": "When I’m going through a very hard time, I give myself the caring and tenderness I need.",
+        "zh": "经历十分艰难的时刻，我会给予自己所需要的关怀和温柔。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_13",
+      "prompt": {
+        "en": "When I’m feeling down, I tend to feel like most other people are probably happier than I am.",
+        "zh": "情绪低落时，我往往觉得大多数其他人可能比我更快乐。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_14",
+      "prompt": {
+        "en": "When something painful happens I try to take a balanced view of the situation.",
+        "zh": "发生令人痛苦的事情时，我尽量以平衡的视角看待处境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_15",
+      "prompt": {
+        "en": "I try to see my failings as part of the human condition",
+        "zh": "我尝试把自己的不足看作人所共有的处境的一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_16",
+      "prompt": {
+        "en": "When I see aspects of myself that I don’t like, I get down on myself.",
+        "zh": "看到自己不喜欢的某些方面时，我会苛责自己。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_17",
+      "prompt": {
+        "en": "When I fail at something important to me I try to keep things in perspective.",
+        "zh": "在对自己重要的事情上失败时，我尽量把事情放回更大的背景中看待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_18",
+      "prompt": {
+        "en": "When I’m really struggling, I tend to feel like other people must be having an easier time of it.",
+        "zh": "当我感到很难熬时，我往往觉得别人想必比我轻松。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_19",
+      "prompt": {
+        "en": "I’m kind to myself when I’m experiencing suffering.",
+        "zh": "经历痛苦时，我会善待自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_20",
+      "prompt": {
+        "en": "When something upsets me I get carried away with my feelings.",
+        "zh": "有事令我心烦时，我会被自己的情绪带着走。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_21",
+      "prompt": {
+        "en": "I can be a bit cold-hearted towards myself when I'm experiencing suffering.",
+        "zh": "经历痛苦时，我可能会对自己有些冷酷。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_22",
+      "prompt": {
+        "en": "When I'm feeling down I try to approach my feelings with curiosity and openness.",
+        "zh": "情绪低落时，我尽量以好奇和开放的态度面对自己的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_23",
+      "prompt": {
+        "en": "I’m tolerant of my own flaws and inadequacies.",
+        "zh": "我能包容自己的缺点和不足。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_24",
+      "prompt": {
+        "en": "When something painful happens I tend to blow the incident out of proportion.",
+        "zh": "发生令人痛苦的事情时，我往往会放大这件事的严重程度。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_25",
+      "prompt": {
+        "en": "When I fail at something that's important to me, I tend to feel alone in my failure.",
+        "zh": "在对自己重要的事情上失败时，我往往感到自己在孤独地承受失败。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_26",
+      "prompt": {
+        "en": "I try to be understanding and patient towards those aspects of my personality I don't like.",
+        "zh": "对于自己性格中不喜欢的那些部分，我尽量保持理解和耐心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "overall-mean",
+      "directionIds": [
+        "self-kindness",
+        "self-judgment",
+        "common-humanity",
+        "isolation",
+        "mindfulness",
+        "over-identification"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Read the Overall Mean",
+        "zh": "自我慈悲量表：整体均分怎样读"
+      },
+      "headline": {
+        "en": "One mean, with six distinct parts still visible",
+        "zh": "一个均分，六部分仍需分开看"
+      },
+      "summary": {
+        "en": "The overall mean describes responses across six parts of the full 26-item SCS. Positive parts use the chosen values; self-judgment, isolation and over-identification are reversed first. A larger mean reflects more compassionate responding as defined by these items, without assigning a stage, percentile or diagnosis.",
+        "zh": "整体均分汇合26题完整版SCS的六个部分。正向部分使用所选数值，自我批评、孤立感及过度认同先反向计分。均分较大表示在这些条目定义下报告了较多自我慈悲回应，不分阶段、百分位或诊断。"
+      },
+      "scoreReading": {
+        "en": "All 26 numeric responses are needed. Average six unrounded keyed part means; display two decimals only at the end.",
+        "zh": "需要26题完整数值回答；先算六部分未经四舍五入的计分后均值，再平均，最后显示两位小数。"
+      },
+      "seo": {
+        "title": {
+          "en": "Self-Compassion Scale: Overall Score Explained",
+          "zh": "自我慈悲量表整体均分：算法与读法"
+        },
+        "description": {
+          "en": "Understand the 26-item SCS overall mean, six-part weighting, reverse scoring and skipped answers, with a worked example and a practical reflection.",
+          "zh": "理解26题SCS整体均分、六部分等权、反向计分与跳题规则，阅读完整算例和一个具体反思。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the overall mean can tell you",
+            "zh": "整体均分描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The SCS asks how you typically respond to yourself in difficult times, rather than how successful, likeable or productive you are. Self-kindness, common humanity and mindfulness contribute positively. Less reported self-judgment, isolation and over-identification also contributes after reversal. A number cannot tell you which experience to discuss first; two identical totals can contain very different six-part patterns.",
+              "zh": "SCS问的是困难时通常怎样对待自己，不问你有多成功、受欢迎或高效。自我善待、共同人性及正念是正向部分；自我批评、孤立感及过度认同报告得较少，经反向后也会增加整体均分。同样的整体数值可能包含完全不同的六部分组合，数字本身不能决定你应该先谈哪段经历。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Why six means are averaged",
+            "zh": "为什么先算六个均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Self-kindness and self-judgment each contain five items. The other four parts each contain four. After reversing the 13 negative items with 6 minus response, divide each part sum by its own item count and average those six unrounded means. This gives every part equal weight; averaging all 26 contributions would give the two five-item parts extra weight and would not follow the current linked key.",
+              "zh": "自我善待和自我批评各五题，其余四部分各四题。13道负向题按6减回答值反向，分别把每部分合计除以自己的题数，再平均六个未取舍的均值。这样每部分等权；直接平均26项会给两个五题部分额外权重，不符合所链接的当前计分键。"
+            },
+            {
+              "en": "For a checkable example, let self-kindness average 5 and every other keyed part average 1. The overall is (5+1+1+1+1+1)/6 = 1.666…, displayed as 1.67. The direct 26-item average would instead be 46/26 = 1.77. This is an arithmetic illustration, not a profile label or a description of a real person.",
+              "zh": "可复核的例子：自我善待均值为5，其他五部分的计分后均值各为1，则整体为(5+1+1+1+1+1)/6=1.666…，显示1.67。若直接平均26项，则会得到46/26=1.77。这只是算例，不是类型标签，也不代表某个真实的人。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One difficult conversation, several possible responses",
+            "zh": "一次难谈的话题，多种回应"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine you forgot an agreed task. You might acknowledge the mistake, notice disappointment, remember that mistakes happen to others too, and plan a repair without calling yourself worthless. You might also be kind in your words while privately feeling alone. The questionnaire leaves those parts separate instead of declaring that a considerate sentence proves an entirely compassionate response. It cannot establish why the mistake happened or whether the other person accepted the repair.",
+              "zh": "例如你忘了约好的任务，可以承认疏漏、留意失望、想到别人也会犯错，并安排补救，而不把整个人说成一无是处。也可能说话温和，心里却仍觉得只有自己如此糟糕。问卷保留这些不同部分，不因一句体谅的话就判定整段回应都充满自我慈悲，也无法判断失误原因或对方是否接受补救。"
+            }
+          ]
+        },
+        {
+          "id": "range",
+          "title": {
+            "en": "Larger and smaller values without stages",
+            "zh": "数值大小与读法"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger keyed overall mean means more responses in the scale’s compassionate direction. A smaller mean can arise from less reported positive responding, more reported negative responding, or both. It does not reveal a cause, a disorder or what happened in childhood. The official materials state that there are no formal norms; their informal bands are not applied here. We do not turn a decimal into four growth stages, an average-person claim or a career-fit prediction.",
+              "zh": "整体计分后均值较大，表示回答更多落在量表定义的自我慈悲方向。较小可能来自正向回应较少、负向回应较多，或两者都有；不能据此确定原因、疾病或童年经历。官方资料说明没有正式常模，本版不采用其非正式分档，也不把小数转换成四个成长阶段、人群平均判断或职业适配预测。"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "title": {
+            "en": "Missing answers, rounding and close results",
+            "zh": "缺答、取舍与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            },
+            {
+              "en": "The display uses two decimals after the full calculation. It does not average already-rounded screen values. For example, part means of 1, 1, 1.25, 1, 1 and 1 give 1.04166…, displayed as 1.04; rounding 1.25 to 1.3 first would change the calculation. More digits make the arithmetic inspectable, not the psychological interpretation more precise.",
+              "zh": "显示两位小数前先完成全部计算，不平均屏幕上已经取舍的数值。例如六部分为1、1、1.25、1、1、1时，整体为1.04166…，显示1.04；若先把1.25取成1.3，算式就变了。多显示一位是为了复核计算，不表示心理解释更精确。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "An optional next observation",
+            "zh": "一个自选观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a manageable situation and privately write three things: what happened, how you spoke to yourself, and what support or practical repair was possible. You can keep accountability and kindness in the same note. A counterexample would be using “be compassionate” to silence a complaint or ignore harm; the score does not require either. You do not need to retake the scale or make the number rise. If distress interferes with daily life, consider support suited to your circumstances rather than relying on a test.",
+              "zh": "选一件可承受的小事，私下写下发生了什么、自己怎样对自己说话，以及能获得什么支持或采取什么补救。承担责任和善待自己可以同时写在一张纸上。反例是用“要慈悲”压住合理的不满或忽略伤害，分数并不要求这样做。无需反复作答或追求数字上涨；若痛苦已影响日常生活，可以寻找适合处境的支持，不必依赖测试。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Version, permission and language limits",
+            "zh": "版本、许可与语言边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-kindness-reading",
+      "directionIds": [
+        "self-kindness"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Self-Kindness",
+        "zh": "自我慈悲量表：自我善待怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These five items concern offering yourself care, warmth, tolerance and patience while experiencing pain or noticing disliked aspects of yourself. They do not ask whether you approve of every action. Self-kindness can coexist with admitting an error and taking responsibility. The scale reads your reported frequency of these responses, without observing how you actually behave under pressure.",
+        "zh": "这五题涉及痛苦时给予自己关心与温柔，以及面对不喜欢的部分时保留包容、理解和耐心。它不问你是否赞同自己的每个行为；善待自己可以与承认失误、承担责任并存。量表读取你报告的回应频率，没有观察你在压力中的实际表现。"
+      },
+      "scoreReading": {
+        "en": "All 5 numeric responses are required. Raw and keyed means are the same. No bands or population ranks.",
+        "zh": "需要5题完整数值回答。原始与计分后均值相同，不分档、不做人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Self-Kindness: Score & Examples",
+          "zh": "自我善待分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS self-kindness component, its item-based mean, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS自我善待部分的题目范围、均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These five items concern offering yourself care, warmth, tolerance and patience while experiencing pain or noticing disliked aspects of yourself. They do not ask whether you approve of every action. Self-kindness can coexist with admitting an error and taking responsibility. The scale reads your reported frequency of these responses, without observing how you actually behave under pressure.",
+              "zh": "这五题涉及痛苦时给予自己关心与温柔，以及面对不喜欢的部分时保留包容、理解和耐心。它不问你是否赞同自己的每个行为；善待自己可以与承认失误、承担责任并存。量表读取你报告的回应频率，没有观察你在压力中的实际表现。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean reflects more reported self-kindness on these items; a smaller mean reflects less. Neither establishes generosity toward other people, emotional strength or moral character. Someone might use gentle words but lack a quiet place to recover. Another person may want care but find this wording unfamiliar. The result cannot distinguish those possibilities or explain their causes.",
+              "zh": "原始均分较大表示在这些题目上报告了较多自我善待，较小表示较少；不能据此确定待人是否慷慨、情绪是否强大或品格好坏。有人能温和对自己说话，却没有安静恢复的空间；也有人需要关怀，却不习惯这些措辞。结果不能区分这些可能性，更不能确定原因。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A correction without an insult",
+            "zh": "纠正失误，不辱骂自己"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you sent a document with an error. “I missed this detail; I will correct it and tell the recipient” names the problem. “I am useless and should never try” adds a judgement of the whole person. A kinder alternative need not deny the inconvenience caused. This example illustrates a response to a mistake; it is not evidence that a given score predicts better performance or faster recovery.",
+              "zh": "比如发出的文档有一处错误，“这个细节漏看了，我会修正并告知对方”是在说具体问题，“我什么都做不好，干脆别尝试”则把整个人一起否定。更温和的说法不必否认给别人带来的麻烦。这只是示范怎样回应一次失误，不证明某个分数会预测更好的表现或更快恢复。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one accurate, supportive sentence",
+            "zh": "试一句准确又支持自己的话"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary setback, write a sentence you could realistically offer a friend, then adapt it to yourself: “This is disappointing, and I can take one next step.” Use words you can accept; forced affection or praise is not required. A counterexample is declaring “nothing matters” and avoiding a necessary repair. Notice whether the sentence describes reality while leaving room for care, rather than grading yourself on whether it worked.",
+              "zh": "针对一次普通挫折，写一句你真能对朋友说的话，再换成对自己说，例如“这事让人失望，但我可以先处理下一步”。用自己能接受的措辞，不强迫温柔或赞美。反例是说“都无所谓”而回避必要补救。只观察它有没有既照顾事实、又留出关怀的位置，不必评价自己是否“练成功”。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 5, 12, 19, 23, 26 form this 5-item part. All are positive-keyed. Add the original responses and divide by 5. The raw and keyed means are identical; for example, a sum of 15 gives 3.00. This part is one of six equally weighted means in the overall calculation.",
+              "zh": "第5, 12, 19, 23, 26题构成这一部分，共5题。全部为正向题：所选数值相加再除以5，原始与计分后均值相同。例如合计15，均分为3.00。它是整体计算中六个等权均值之一。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-judgment-reading",
+      "directionIds": [
+        "self-judgment"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Self-Judgment",
+        "zh": "自我慈悲量表：自我批评怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These five items ask about disapproval, impatience, harshness, putting yourself down and emotional coldness toward yourself. They concern responses to perceived flaws or suffering, rather than the usefulness of a specific piece of feedback. Noticing an error is different from condemning yourself for having one. The items cannot establish a history of mistreatment or diagnose a problem.",
+        "zh": "这五题询问面对不足或痛苦时，对自己不满、缺少耐心、苛刻、贬低或冷酷的回应。它关注怎样对待自己，不是在评价某条反馈是否有用。看见失误与因为失误而谴责整个人并不相同；这些条目不能确定曾受伤害的经历，也不能诊断问题。"
+      },
+      "scoreReading": {
+        "en": "All 5 numeric responses are required. Raw and reversed means have opposite meanings; read both labels.",
+        "zh": "需要5题完整数值回答。原始与反向均值方向相反，先看清两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Self-Judgment: Score & Examples",
+          "zh": "自我批评分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS self-judgment component, raw versus reversed means, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS自我批评部分的题目范围、原始与反向均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These five items ask about disapproval, impatience, harshness, putting yourself down and emotional coldness toward yourself. They concern responses to perceived flaws or suffering, rather than the usefulness of a specific piece of feedback. Noticing an error is different from condemning yourself for having one. The items cannot establish a history of mistreatment or diagnose a problem.",
+              "zh": "这五题询问面对不足或痛苦时，对自己不满、缺少耐心、苛刻、贬低或冷酷的回应。它关注怎样对待自己，不是在评价某条反馈是否有用。看见失误与因为失误而谴责整个人并不相同；这些条目不能确定曾受伤害的经历，也不能诊断问题。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean means more reported self-judgment. Its keyed mean runs in the opposite direction: a larger keyed value means less reported self-judgment and contributes more to the overall SCS mean. Read the label before comparing numbers. A small raw value does not prove that you ignore mistakes, and a large raw value does not prove discipline, conscientiousness or a particular childhood experience.",
+              "zh": "原始均分较大表示报告的自我批评较多；计分后均分方向相反，较大表示报告的自我批评较少，对整体SCS均分的贡献较大。比较数字前先看标签。原始值较小不证明忽略错误，较大也不证明自律、尽责或某种童年经历。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Feedback about a task or a verdict about you",
+            "zh": "任务反馈，还是对整个人下结论"
+          },
+          "paragraphs": [
+            {
+              "en": "After receiving requested revisions, a person might think “The argument needs clearer evidence” or “I am an embarrassment.” Both can accompany the same factual feedback, but they treat the self differently. The scale does not know how fair the feedback was or whether there was enough time to revise. A result is a prompt to inspect your own words, without diagnosing a supervisor or deciding that criticism was deserved.",
+              "zh": "收到返工意见后，可能想到“这段论证需要更明确的证据”，也可能想到“我真丢人”。相同事实反馈可以伴随不同的自我对待。量表不知道意见是否公平、时间是否充足；结果适合让你回看自己当时用了哪些词，而不是给主管诊断，或断定苛责是应得的。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Separate a fact from a personal accusation",
+            "zh": "把事实与自我指责分开"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, divide a note into “what needs attention” and “what I said about myself.” Keep a concrete correction from the first column, and consider replacing a global accusation with a limited description. “One section is unfinished” is more specific than “I always fail.” A counterexample is using a kinder sentence to deny responsibility or excuse harm. You can preserve responsibility without making self-condemnation a requirement.",
+              "zh": "如果有帮助，把纸分成“需要处理的事”和“我对自己说的话”。保留前一栏中的具体修正，再看看能否把后一栏的整体指责换成有限描述，例如“这一节没完成”，比“我永远失败”更具体。反例是拿温和说法否认责任或给伤害找借口；承担责任不必以谴责自己为条件。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 1, 8, 11, 16, 21 form this 5-item part. All are negative-keyed: the raw mean is the original response sum divided by 5. For the overall score each response becomes 6 minus response; the keyed mean is 6 minus the unrounded raw mean. For example, raw 4.00 becomes keyed 2.00. Both are labelled in the report.",
+              "zh": "第1, 8, 11, 16, 21题构成这一部分，共5题。全部为负向题：原始合计除以5得到原始均值；进入整体分前，每项改为6减回答值，计分后均值也等于6减未取舍的原始均值。例如原始4.00对应计分后2.00，报告明确标出两者。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common-humanity-reading",
+      "directionIds": [
+        "common-humanity"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Common Humanity",
+        "zh": "自我慈悲量表：共同人性怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These four items ask whether, during difficulty, you can place inadequacy and failure within a broader human experience. They concern remembering that other people also struggle, without claiming that everyone has the same resources, risks or history. This is a way of relating to a difficult experience; it does not measure social popularity, the size of a support network or whether your circumstances are fair.",
+        "zh": "这四题询问遇到困难、感到不足或失败时，能否把体验放在人共同会经历的范围内，想到别人也会挣扎。这不表示人人的资源、风险或经历相同。它描述怎样理解困难，不测社交受欢迎程度、支持网络大小，也不判断你的处境是否公平。"
+      },
+      "scoreReading": {
+        "en": "All 4 numeric responses are required. Raw and keyed means are the same. No bands or population ranks.",
+        "zh": "需要4题完整数值回答。原始与计分后均值相同，不分档、不做人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Common Humanity: Score & Examples",
+          "zh": "共同人性分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS common humanity component, its item-based mean, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS共同人性部分的题目范围、均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items ask whether, during difficulty, you can place inadequacy and failure within a broader human experience. They concern remembering that other people also struggle, without claiming that everyone has the same resources, risks or history. This is a way of relating to a difficult experience; it does not measure social popularity, the size of a support network or whether your circumstances are fair.",
+              "zh": "这四题询问遇到困难、感到不足或失败时，能否把体验放在人共同会经历的范围内，想到别人也会挣扎。这不表示人人的资源、风险或经历相同。它描述怎样理解困难，不测社交受欢迎程度、支持网络大小，也不判断你的处境是否公平。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean reflects more reported recognition of shared human difficulty. A smaller mean reflects less of that recognition in these statements, without proving selfishness or actual social isolation. You may recognise common experience and still need practical help or a boundary. Common humanity is not a demand to compare whose suffering is worse or to dismiss an experience because someone else also suffers.",
+              "zh": "原始均分较大，表示在这些陈述上报告了较多共同处境的认识；较小表示较少，不证明自私或现实中无人陪伴。即使知道别人也会遇到困难，仍可能需要具体帮助或界限。共同人性不要求比较谁更痛苦，也不应因为别人同样受苦就忽略你的经历。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A rejected application without a universal story",
+            "zh": "申请被拒，不等于所有人都一样"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an application is rejected. “Other people also face rejection” can keep the event from becoming evidence that you alone are inadequate. It does not mean everyone encounters the same barriers or that the rejection was justified. “Everyone gets rejected, so stop being upset” dismisses the person rather than acknowledging common humanity. The questionnaire cannot tell which external barriers existed in that situation.",
+              "zh": "例如申请被拒，“别人也会遇到拒绝”可以让你不把这件事当成只有自己不够好的证明。但这不表示大家遇到的门槛相同，也不说明拒绝一定合理。“谁没被拒过，别难过了”是在打发感受，而不是理解共同处境。问卷不能告诉你那次申请有哪些外部障碍。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Add a connecting sentence without erasing detail",
+            "zh": "添一句联结，同时保留具体处境"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately name one difficult feeling and add a modest connecting statement, such as “I am not the only person who finds rejection painful.” Then name one fact specific to your circumstances and any support you need. A counterexample is forcing gratitude, comparing hardships or telling yourself that needing help is unreasonable. The exercise is optional and does not promise relief, belonging or a particular score change.",
+              "zh": "私下说出一种难受的感受，再加一句不过度的联结，例如“并不是只有我会因被拒而痛苦”。然后补上属于自己处境的一项事实，以及需要的支持。反例是强迫感恩、比惨，或因此告诉自己不该求助。这只是自选观察，不承诺减轻感受、获得归属或让分数改变。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 3, 7, 10, 15 form this 4-item part. All are positive-keyed. Add the original responses and divide by 4. The raw and keyed means are identical; for example, a sum of 12 gives 3.00. This part is one of six equally weighted means in the overall calculation.",
+              "zh": "第3, 7, 10, 15题构成这一部分，共4题。全部为正向题：所选数值相加再除以4，原始与计分后均值相同。例如合计12，均分为3.00。它是整体计算中六个等权均值之一。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "isolation-reading",
+      "directionIds": [
+        "isolation"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Isolation",
+        "zh": "自我慈悲量表：孤立感怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These four items concern feeling separate, imagining others are happier or have an easier time, and feeling alone in failure. They describe an internal response during difficulty. They do not count friends, measure the time spent alone or establish whether real social exclusion is occurring. A person with many contacts can feel isolated, while being physically alone does not by itself imply the responses described here.",
+        "zh": "这四题涉及困难时感到脱节、觉得别人更快乐或过得更轻松，以及认为自己孤独地承受失败。它描述内在回应，不统计朋友人数、不测独处时间，也不确定现实中是否存在排斥。联系人很多的人也可能有这种体验，身体独处本身也不等于题中所说的感受。"
+      },
+      "scoreReading": {
+        "en": "All 4 numeric responses are required. Raw and reversed means have opposite meanings; read both labels.",
+        "zh": "需要4题完整数值回答。原始与反向均值方向相反，先看清两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Isolation: Score & Examples",
+          "zh": "孤立感分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS isolation component, raw versus reversed means, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS孤立感部分的题目范围、原始与反向均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items concern feeling separate, imagining others are happier or have an easier time, and feeling alone in failure. They describe an internal response during difficulty. They do not count friends, measure the time spent alone or establish whether real social exclusion is occurring. A person with many contacts can feel isolated, while being physically alone does not by itself imply the responses described here.",
+              "zh": "这四题涉及困难时感到脱节、觉得别人更快乐或过得更轻松，以及认为自己孤独地承受失败。它描述内在回应，不统计朋友人数、不测独处时间，也不确定现实中是否存在排斥。联系人很多的人也可能有这种体验，身体独处本身也不等于题中所说的感受。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean reflects more reported isolation on these items. Reversal makes a larger keyed mean mean less reported isolation for the overall calculation. Neither value proves the availability or quality of support. Actual exclusion, unequal demands and lack of safe contacts are not repaired by changing a thought alone; this measure cannot determine which circumstances apply to you.",
+              "zh": "原始均分较大表示这些条目上的孤立感报告较多；反向之后，较大的计分后均分表示报告的孤立感较少，用于整体计算。两种数值都不能证明支持是否存在、质量怎样。真实排斥、不平等要求或缺少安全联系人，不是单靠改一个念头就能解决，量表也不能判断哪种处境适用于你。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Everyone else seems to be managing",
+            "zh": "好像只有别人都能应付"
+          },
+          "paragraphs": [
+            {
+              "en": "A student sees classmates announce completed projects while their own work is delayed. They may conclude, “Everyone is coping except me.” Public updates reveal only part of other people’s lives; they also do not prove that the student has the same constraints. This example distinguishes an inference from what is known. It is not a reason to distrust every comparison or to assume that a particular friend is available to help.",
+              "zh": "学生看到同学陆续发布项目完成的消息，自己却延期了，可能想到“就我一个人应付不来”。公开动态只呈现别人生活的一部分，也不能证明自己与别人面临同样限制。这个例子用来区分已知情况和推断，不是要求不信任何比较，也不假设某位朋友一定有能力提供帮助。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Check one comparison and one safe source of contact",
+            "zh": "核对一次比较与一条安全联结"
+          },
+          "paragraphs": [
+            {
+              "en": "If appropriate, write what you actually know about one comparison, what you are guessing, and whether there is a safe person or service you would like to contact. You may choose not to share details. A counterexample is pressuring yourself to disclose to someone unsafe or insisting that company will remove every difficult feeling. This score does not prescribe contact or replace practical support when circumstances are excluding you.",
+              "zh": "如果适合，写下某次比较中自己实际知道什么、推测什么，以及是否有安全的人或服务值得联系。可以保留细节不说。反例是强迫自己向不安全的人披露，或要求有人陪伴后所有难受都必须消失。分数不规定你必须联系谁，现实中被排除在外时，也不能代替实际支持。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 4, 13, 18, 25 form this 4-item part. All are negative-keyed: the raw mean is the original response sum divided by 4. For the overall score each response becomes 6 minus response; the keyed mean is 6 minus the unrounded raw mean. For example, raw 4.00 becomes keyed 2.00. Both are labelled in the report.",
+              "zh": "第4, 13, 18, 25题构成这一部分，共4题。全部为负向题：原始合计除以4得到原始均值；进入整体分前，每项改为6减回答值，计分后均值也等于6减未取舍的原始均值。例如原始4.00对应计分后2.00，报告明确标出两者。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mindfulness-reading",
+      "directionIds": [
+        "mindfulness"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Mindfulness",
+        "zh": "自我慈悲量表：正念怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These four SCS items concern balanced awareness, keeping perspective and approaching feelings with curiosity and openness during difficulty. Here mindfulness is this specific self-report part, not a test of meditation skill, concentration span or a complete measure of mindfulness in daily life. Keeping perspective does not require feeling calm, suppressing emotion or denying the seriousness of an event.",
+        "zh": "这四道SCS题涉及困难时保持平衡觉察、把事情放回背景，以及以好奇和开放面对感受。这里的正念是本量表的特定自报部分，不是冥想技能、注意力时长或日常正念的完整测量。保留视角不要求平静、不压抑情绪，也不否认事件本身的严重性。"
+      },
+      "scoreReading": {
+        "en": "All 4 numeric responses are required. Raw and keyed means are the same. No bands or population ranks.",
+        "zh": "需要4题完整数值回答。原始与计分后均值相同，不分档、不做人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Mindfulness: Score & Examples",
+          "zh": "正念分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS mindfulness component, its item-based mean, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS正念部分的题目范围、均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These four SCS items concern balanced awareness, keeping perspective and approaching feelings with curiosity and openness during difficulty. Here mindfulness is this specific self-report part, not a test of meditation skill, concentration span or a complete measure of mindfulness in daily life. Keeping perspective does not require feeling calm, suppressing emotion or denying the seriousness of an event.",
+              "zh": "这四道SCS题涉及困难时保持平衡觉察、把事情放回背景，以及以好奇和开放面对感受。这里的正念是本量表的特定自报部分，不是冥想技能、注意力时长或日常正念的完整测量。保留视角不要求平静、不压抑情绪，也不否认事件本身的严重性。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean reflects more reported balanced awareness on the stated items, while a smaller mean reflects less. It does not prove stronger emotional regulation, better decisions or freedom from distress. An urgent situation may demand action rather than extended reflection. The result cannot determine whether taking time to observe was feasible, safe or useful in a particular moment.",
+              "zh": "原始均分较大表示在这些条目上报告了较多平衡觉察，较小表示较少。不证明情绪调节更强、决策更好或没有痛苦。紧急情况可能需要先行动，而不是长时间反思；结果无法判断在具体时刻停下来观察是否可行、安全或有用。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Feeling disappointment without making it the whole picture",
+            "zh": "承认失望，同时保留事情的其他部分"
+          },
+          "paragraphs": [
+            {
+              "en": "After a disagreement, someone might notice “I am hurt and angry; I do not yet know what the other person intended.” This acknowledges the feeling while keeping an uncertainty visible. “I should feel nothing” suppresses experience, while “This feeling proves every relationship is unsafe” expands it beyond the available facts. These are illustrative statements, not diagnoses or instructions to stay in an unsafe relationship.",
+              "zh": "争执后，可以注意到“我受伤也生气，现在还不知道对方当时怎么想”。这既承认感受，也保留未知。“我不该有任何感觉”是在压住体验；“这种感觉证明所有关系都不安全”则把结论扩展到现有事实之外。这些只是说法示例，不是诊断，也不是要求留在不安全的关系中。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Name a feeling and a fact",
+            "zh": "说出一种感受与一项事实"
+          },
+          "paragraphs": [
+            {
+              "en": "For a manageable event, you may pause briefly and name a feeling, one observable fact and one thing you do not know. No special breathing method, meditation session or closed eyes are required. A counterexample is using “be mindful” to delay a needed response or tell yourself that anger is forbidden. If reflection increases discomfort, stop and choose practical support or a different activity. A higher number is not the task.",
+              "zh": "遇到可承受的小事，可以短暂停一下，说出一种感受、一项可观察事实，以及一件还不知道的事。不要求特定呼吸、冥想或闭眼。反例是用“要正念”拖延必要行动，或告诉自己不许生气。如果观察让你更不舒服，可以停止，转向具体支持或别的活动；任务不是把数值提高。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 9, 14, 17, 22 form this 4-item part. All are positive-keyed. Add the original responses and divide by 4. The raw and keyed means are identical; for example, a sum of 12 gives 3.00. This part is one of six equally weighted means in the overall calculation.",
+              "zh": "第9, 14, 17, 22题构成这一部分，共4题。全部为正向题：所选数值相加再除以4，原始与计分后均值相同。例如合计12，均分为3.00。它是整体计算中六个等权均值之一。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "over-identification-reading",
+      "directionIds": [
+        "over-identification"
+      ],
+      "title": {
+        "en": "Self-Compassion Scale: Over-Identification",
+        "zh": "自我慈悲量表：过度认同怎样读"
+      },
+      "headline": {
+        "en": "Read the component without turning it into a personal label",
+        "zh": "读一个组成部分，不把它变成个人标签"
+      },
+      "summary": {
+        "en": "These four items ask about fixation on what is wrong, being consumed by inadequacy, getting carried away by feelings and magnifying a painful event. The term names a component of the SCS, not a diagnosis or proof that your reaction is unreasonable. The scale has no independent view of how serious the event was and does not measure the objective size of the problem.",
+        "zh": "这四题询问纠缠不顺心的事、被不足感占据、被情绪带着走，以及放大痛苦事件。过度认同是SCS中的组成部分名称，不是诊断，也不证明你的反应不合理。量表没有独立了解事件的严重程度，更没有测量问题客观上有多大。"
+      },
+      "scoreReading": {
+        "en": "All 4 numeric responses are required. Raw and reversed means have opposite meanings; read both labels.",
+        "zh": "需要4题完整数值回答。原始与反向均值方向相反，先看清两个标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "SCS Over-Identification: Score & Examples",
+          "zh": "过度认同分量表：SCS均分与具体例子"
+        },
+        "description": {
+          "en": "Read the SCS over-identification component, raw versus reversed means, skipped-answer rules and a concrete example, with one optional reflection.",
+          "zh": "理解SCS过度认同部分的题目范围、原始与反向均分、跳题和相近结果；阅读完整例子与一个自选观察，不用于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this component asks",
+            "zh": "这一部分问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items ask about fixation on what is wrong, being consumed by inadequacy, getting carried away by feelings and magnifying a painful event. The term names a component of the SCS, not a diagnosis or proof that your reaction is unreasonable. The scale has no independent view of how serious the event was and does not measure the objective size of the problem.",
+              "zh": "这四题询问纠缠不顺心的事、被不足感占据、被情绪带着走，以及放大痛苦事件。过度认同是SCS中的组成部分名称，不是诊断，也不证明你的反应不合理。量表没有独立了解事件的严重程度，更没有测量问题客观上有多大。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read frequency and direction",
+            "zh": "频率与方向怎样读"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger raw mean reflects more reported absorption in painful thoughts or feelings as worded here. A larger keyed mean reflects less after reversal and contributes in that direction to the overall score. A lower raw mean does not prove indifference, avoidance or emotional superiority. These responses cannot identify a rumination disorder, explain why thoughts repeat or establish how quickly you should move on.",
+              "zh": "原始均分较大表示依这些措辞报告了较多被痛苦思绪或情绪占据的体验；反向后的计分后均分较大，则表示报告得较少，并按此方向进入整体分。原始值较低不证明冷漠、回避或情绪更高级。回答不能确定反刍障碍、解释反复思考的原因，也不能规定你多快就该走出来。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A missed message becomes a much larger conclusion",
+            "zh": "一条未回消息，变成更大的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "A message has not been answered. One possible thought is “I do not know why there is no reply”; another is “This proves I ruin every relationship.” The second adds a broad conclusion to a limited observation. There may nevertheless be a real pattern of disrespect needing attention. The questionnaire cannot decide which account is true, and a score is not evidence that another person is trustworthy or that your concern should be ignored.",
+              "zh": "消息暂时没回，可以想到“我还不知道为什么没回复”，也可能想到“这证明我会搞砸所有关系”。后一种在有限观察之外加了很宽的结论，但现实中也可能确有需要处理的不尊重。问卷无法裁定哪种情况成立，分数不能证明另一个人可信，也不能成为忽略你担忧的理由。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Separate an event from an expanded conclusion",
+            "zh": "把事件与扩大的结论分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You may write the event in one sentence, then put any wider prediction in a second sentence beginning “I am having the thought that…”. Check whether there is a concrete next action or more information needed. A counterexample is demanding that a painful feeling disappear before you deserve support. Do not force distance from an overwhelming experience; you can stop and seek help suited to the situation without waiting for a test result.",
+              "zh": "可以用一句话写事件，再把更大的预言另写一句，以“我现在有一个念头……”开头。看看是否需要一项具体行动或更多信息。反例是要求痛苦消失后才允许自己获得支持。面对难以承受的体验，不必强迫自己拉开距离；可以停止，寻找适合处境的帮助，不用等测试给出结论。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and close values",
+            "zh": "算式、缺答与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 2, 6, 20, 24 form this 4-item part. All are negative-keyed: the raw mean is the original response sum divided by 4. For the overall score each response becomes 6 minus response; the keyed mean is 6 minus the unrounded raw mean. For example, raw 4.00 becomes keyed 2.00. Both are labelled in the report.",
+              "zh": "第2, 6, 20, 24题构成这一部分，共4题。全部为负向题：原始合计除以4得到原始均值；进入整体分前，每项改为6减回答值，计分后均值也等于6减未取舍的原始均值。例如原始4.00对应计分后2.00，报告明确标出两者。"
+            },
+            {
+              "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+              "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+              "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+            },
+            {
+              "en": "The full guide is free and public before answering, including when this part has no personal mean. You may finish here. A separate self-esteem assessment asks a different question about reported global self-regard; this SCS mean does not convert into that score. Optional drafts remain in this tab for at most 24 hours. Copying shares only a public title and link, never these answers or personal numbers.",
+              "zh": "无论这一部分有没有个人均分，完整指南在作答前都免费公开。读到这里可以结束。另行自选的自尊测评询问整体自我评价，与本题不同，SCS均分不能换算自尊分。可选草稿最多在标签页保留24小时，复制仅分享公开标题和链接，不含这些回答或个人数字。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "neff_scs26_permission_working_zh",
+    "formCode": "scs26_neff2003_official_en_fm_zh_working_v1",
+    "itemBankVersion": "scs26_neff2003_official_en_fm_zh_working_v1",
+    "scoringVersion": "scs26_equal6_unrounded_complete26_rational120_v1",
+    "resultContentVersion": "fm_scs26_seven_full_readings_v1",
+    "itemBankSha256": "9dfd5214c7e3c5826f5fd5b62da1b440af3cce9afcc4c1f692eac636d912d216",
+    "resultContentSha256": "2097a5f29dbed8fd9ee1abee5f6cb5bfd438ea8ea2d70b7364f16ecd8fa8b152",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Neff, K. D. (2003). Development and validation of a scale to measure self-compassion. Self and Identity, 2, 223–250. Official instrument, permission and scoring key.",
+        "zh": "Neff, K. D.（2003）Development and validation of a scale to measure self-compassion. Self and Identity, 2, 223–250。官方题本、许可与计分键。"
+      },
+      "url": "https://self-compassion.org/wp-content/uploads/2021/03/SCS-information.pdf"
+    },
+    {
+      "title": {
+        "en": "Official researcher FAQ: translation and absence of formal norms",
+        "zh": "官方研究者问答：翻译许可与无正式常模"
+      },
+      "url": "https://self-compassion.org/faqs-for-researchers/"
+    },
+    {
+      "title": {
+        "en": "Official introduction to self-compassion",
+        "zh": "自我慈悲的官方概念说明"
+      },
+      "url": "https://self-compassion.org/what-is-self-compassion/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scs-version",
+      "title": {
+        "en": "Full form, permission and working Chinese",
+        "zh": "完整版本、许可与中文工作译本"
+      },
+      "paragraphs": [
+        {
+          "en": "This uses the 26-item Self-Compassion Scale, with attribution to Neff (2003), and the current official mean-of-six-means scoring key. The permission letter allows use for any purpose with citation; the official FAQ permits translation. This is copyrighted work used under that permission, not public-domain material. The Chinese items are a new FermatMind working translation, without empirical validation or established cross-language equivalence. Results are for voluntary adult self-reflection, without diagnosis, employment selection or a claim to measure personal worth.",
+          "zh": "本版使用Neff（2003）的26题完整自我慈悲量表，按当前官方六分量表均值再平均的计分键计算。许可函允许注明来源后用于任何目的，官方问答允许翻译；这是依许可使用的有版权作品，并非公版。中文题目是费马新工作译本，尚无实证验证或跨语言等值证据。结果供成年人自愿自我观察，不用于诊断、人员选拔或评判个人价值。"
+        }
+      ]
+    },
+    {
+      "id": "scs-method",
+      "title": {
+        "en": "Six means first, one overall mean second",
+        "zh": "先算六部分，再算整体"
+      },
+      "paragraphs": [
+        {
+          "en": "Five items each assess self-kindness and self-judgment; the other four parts have four each. Reverse the 13 items in the three negative parts as 6 minus response, calculate the six unrounded means and average them. This is not the direct mean of 26 responses. Negative parts show both raw means and reversed means with explicit labels. The final display rounds to two decimals, not before averaging.",
+          "zh": "自我善待和自我批评各五题，另四部分各四题。三个负向部分共13题，先按6减回答值反向，求六个未取舍的均值，再平均；不是直接平均26项。负向部分同时标出原始和反向均分，最后显示两位小数，不提前取舍。"
+        }
+      ]
+    },
+    {
+      "id": "scs-missing",
+      "title": {
+        "en": "Skipped answers and similar numbers",
+        "zh": "跳题与相近数字"
+      },
+      "paragraphs": [
+        {
+          "en": "Equal or nearby means do not identify a winning trait, prove that two experiences are equivalent or establish a meaningful change. Compare the situations behind your own answers privately, without ranking people. One skipped answer withholds that part and the overall mean; other fully answered parts still have means. No skipped item is zero, and no missing answer is estimated. This strict completeness rule is a website policy, not a validated missing-data threshold.",
+          "zh": "相同或接近的均分不产生赢家，不证明两种体验等同，也不代表有意义的变化。可私下回看自己作答时想到的情境，不给人排名。一题跳过会暂不给该部分及整体均分，其他完整部分仍有均分；跳题不是零，不估算缺答。这是网站的严格完整度规则，并非经过验证的缺失数据阈值。"
+        }
+      ]
+    },
+    {
+      "id": "scs-boundary",
+      "title": {
+        "en": "Choose a reflection, without a new label",
+        "zh": "自选反思，不新增标签"
+      },
+      "paragraphs": [
+        {
+          "en": "Read the overall guide and all six component guides at any score, including insufficient information. They contain examples and voluntary observations, not a treatment plan or a promise of improvement. No informal cutoffs, percentiles, person-worth grades or hiring recommendations are applied. You may finish here, or separately choose a different assessment for a different question.",
+          "zh": "任何分数及资料不足状态都能阅读整体与六部分完整指南，包含具体例子与自选观察，不是治疗方案，也不承诺改善。不套用非正式切点、百分位、个人价值等级或录用建议。读完可以结束，也可为另一个问题另选测评。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Self-Compassion Scale is this?",
+        "zh": "这是哪个版本的自我慈悲量表？"
+      },
+      "answer": {
+        "en": "The full 26-item SCS attributed to Neff (2003), using the current linked official scoring key. It is not the short form or a state scale. Chinese is a new unvalidated working translation.",
+        "zh": "这是Neff（2003）的26题完整SCS，使用所链接的当前官方计分键，不是简版或状态量表。中文是未经验证的新工作译本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why not average all 26 answers?",
+        "zh": "为什么不直接平均26题？"
+      },
+      "answer": {
+        "en": "The current source key averages the six unrounded part means after reversal. The parts have different item counts, so averaging 26 items would give them unequal weight.",
+        "zh": "当前来源要求反向后平均六个未取舍的部分均值。各部分题数不同，直接平均26题会使部分权重不同。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are two means shown for negative parts?",
+        "zh": "负向部分为什么显示两个均分？"
+      },
+      "answer": {
+        "en": "A larger raw mean means more of the named negative response. The reversed mean equals 6 minus the raw mean and goes into the overall calculation. Larger reversed values therefore mean less of that response.",
+        "zh": "原始均分较大，表示该负向回应报告较多；反向均值为6减原始均值，进入整体计算。因此反向值较大表示该回应报告较少。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip an item?",
+        "zh": "跳过一题会怎样？"
+      },
+      "answer": {
+        "en": "That part and the overall mean are withheld; other fully answered parts keep their means. Missing is not zero and is not imputed. This is the website’s strict completeness policy, not a validated missing-data threshold.",
+        "zh": "暂不给所在部分及整体均分，其他完整部分保留。缺答不是零，不填补。这是网站的严格完整度规则，不是经验证的缺失阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a score tell me whether I am normal?",
+        "zh": "分数能判断我是否正常吗？"
+      },
+      "answer": {
+        "en": "The official FAQ states that there are no formal norms. This edition does not adopt informal high/low bands, diagnoses, percentiles or labels about personal worth.",
+        "zh": "官方问答说明没有正式常模，本版不采用非正式高低分档，不做诊断、百分位或个人价值标签。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the full report free and private?",
+        "zh": "完整报告免费吗？回答怎样保存？"
+      },
+      "answer": {
+        "en": "All 26 items and seven complete public guides are free, without signup. Optional progress stays in this tab for at most 24 hours and clears on completion or reset. Copying shares only a public title and link.",
+        "zh": "26题与七份完整公开指南免费，无需注册。主动勾选才在标签页保存最多24小时进度，完成或重置即清除；复制仅分享公开标题和链接。"
+      }
+    }
+  ]
+}

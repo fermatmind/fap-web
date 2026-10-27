@@ -1,0 +1,1981 @@
+{
+  "id": "T192",
+  "state": "external_licensed_source_and_working_translation_candidate;not_runtime_not_accepted",
+  "form": "scs26_neff2003_official_en_fm_zh_working_v1",
+  "scale": "Self-Compassion Scale (Neff, 2003), 26-item full form; not short or state form",
+  "citation": "Neff, K. D. (2003). Development and validation of a scale to measure self-compassion. Self and Identity, 2, 223–250.",
+  "official_current_link_verified": "Researchers page actual link56 resolves2021/03/SCS-information.pdf on2026-10-27",
+  "source_url": "https://self-compassion.org/wp-content/uploads/2021/03/SCS-information.pdf",
+  "permission_pages": [
+    "https://self-compassion.org/self-compassion-scales-for-researchers/",
+    "https://self-compassion.org/faqs-for-researchers/"
+  ],
+  "permission_facts": "Officialletter grants any-purpose use with citation;officialFAQ explicitly answers yes to translation;PDF stronglyrecommends ESEM and says free to create new translation. Copyrightretained,notpublicdomain. No empiricalvalidationperformed for thisnewChinese wording.",
+  "permission_reading_inference": "Anewclearlyunvalidatedworkingtranslationis supported byFAQyes and recommendation wording; this is not permission to claimvalidatedChinese/ESEMdone. Preserve sourcewording and grant beforefinalpublicationreview.",
+  "Chinese_provenance": "New FermatMind working translation from the official English, not copied from Chen/Yan/Zhou2011 hostPDF and not claimed to be its validated version.",
+  "instruction": {
+    "en": "How I typically act towards myself in difficult times. Indicate how often you behave in each stated manner; answer what reflects your experience rather than what you think it should be.",
+    "zh": "在困难时刻，我通常怎样对待自己。请按陈述中的行为出现得有多频繁作答，回答自己的实际体验，而不是你认为自己应该怎样。"
+  },
+  "source_scored_anchors": {
+    "min": 1,
+    "min_label": {
+      "en": "Almost never",
+      "zh": "几乎从不"
+    },
+    "max": 5,
+    "max_label": {
+      "en": "Almost always",
+      "zh": "几乎总是"
+    },
+    "middle_2_3_4": "numeric only;no invented named frequency anchors"
+  },
+  "website_nonresponse": "Separate unscored NA control,notanoriginalsixthscaleanchor;missingnotzero",
+  "website_missing_policy": "Require all sourceitems withinapartforboth raw/keyedmean;requireall26foroverall;otherscompletepartsremainavailable;noimputation. Editorialstrictcompletepolicy,notsourcedempiricalmissingthreshold.",
+  "scoring": "Source: compute six unrounded means after reversing13 negative items as6-response, then mean the six means;NOTmean26keyedresponses. Equivalentintegernumerator4*(two5itemkeyedsums)+5*(four4itemkeyedsums)over120.",
+  "display": "Proposedroundhalfup2dpfromintegerrational;do not averageone-decimalpartdisplays;noclinicalnorms/adhocthresholdlabels/percentiles/competence/diagnosis",
+  "facets": [
+    {
+      "id": "self-kindness",
+      "title": {
+        "en": "Self-kindness",
+        "zh": "自我善待"
+      },
+      "item_numbers": [
+        5,
+        12,
+        19,
+        23,
+        26
+      ],
+      "itemCount": 5,
+      "reverse": false
+    },
+    {
+      "id": "self-judgment",
+      "title": {
+        "en": "Self-judgment",
+        "zh": "自我批评"
+      },
+      "item_numbers": [
+        1,
+        8,
+        11,
+        16,
+        21
+      ],
+      "itemCount": 5,
+      "reverse": true
+    },
+    {
+      "id": "common-humanity",
+      "title": {
+        "en": "Common humanity",
+        "zh": "共同人性"
+      },
+      "item_numbers": [
+        3,
+        7,
+        10,
+        15
+      ],
+      "itemCount": 4,
+      "reverse": false
+    },
+    {
+      "id": "isolation",
+      "title": {
+        "en": "Isolation",
+        "zh": "孤立感"
+      },
+      "item_numbers": [
+        4,
+        13,
+        18,
+        25
+      ],
+      "itemCount": 4,
+      "reverse": true
+    },
+    {
+      "id": "mindfulness",
+      "title": {
+        "en": "Mindfulness",
+        "zh": "正念"
+      },
+      "item_numbers": [
+        9,
+        14,
+        17,
+        22
+      ],
+      "itemCount": 4,
+      "reverse": false
+    },
+    {
+      "id": "over-identification",
+      "title": {
+        "en": "Over-identification",
+        "zh": "过度认同"
+      },
+      "item_numbers": [
+        2,
+        6,
+        20,
+        24
+      ],
+      "itemCount": 4,
+      "reverse": true
+    }
+  ],
+  "questions": [
+    {
+      "id": "SCS_01",
+      "prompt": {
+        "en": "I’m disapproving and judgmental about my own flaws and inadequacies.",
+        "zh": "面对自己的缺点和不足，我带着不满和评判。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_02",
+      "prompt": {
+        "en": "When I’m feeling down I tend to obsess and fixate on everything that’s wrong.",
+        "zh": "情绪低落时，我往往会反复纠缠于各种不顺心的事。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_03",
+      "prompt": {
+        "en": "When things are going badly for me, I see the difficulties as part of life that everyone goes through.",
+        "zh": "事情进展不顺时，我把这些困难看作生活中人人都会经历的一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_04",
+      "prompt": {
+        "en": "When I think about my inadequacies, it tends to make me feel more separate and cut off from the rest of the world.",
+        "zh": "想到自己的不足时，我往往感到更加孤立，与周围世界脱节。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_05",
+      "prompt": {
+        "en": "I try to be loving towards myself when I’m feeling emotional pain.",
+        "zh": "感到情绪上的痛苦时，我尝试关爱自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_06",
+      "prompt": {
+        "en": "When I fail at something important to me I become consumed by feelings of inadequacy.",
+        "zh": "在对自己重要的事情上失败时，我会被不足感占据。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_07",
+      "prompt": {
+        "en": "When I'm down, I remind myself that there are lots of other people in the world feeling like I am.",
+        "zh": "情绪低落时，我会提醒自己：世上还有许多人也有与我相似的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_08",
+      "prompt": {
+        "en": "When times are really difficult, I tend to be tough on myself.",
+        "zh": "处境十分艰难时，我往往对自己很苛刻。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_09",
+      "prompt": {
+        "en": "When something upsets me I try to keep my emotions in balance.",
+        "zh": "有事令我心烦时，我尝试保持情绪的平衡。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_10",
+      "prompt": {
+        "en": "When I feel inadequate in some way, I try to remind myself that feelings of inadequacy are shared by most people.",
+        "zh": "感到自己在某方面不足时，我尽量提醒自己：大多数人都会有不足感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_11",
+      "prompt": {
+        "en": "I’m intolerant and impatient towards those aspects of my personality I don't like.",
+        "zh": "对于自己性格中不喜欢的那些部分，我缺少包容和耐心。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_12",
+      "prompt": {
+        "en": "When I’m going through a very hard time, I give myself the caring and tenderness I need.",
+        "zh": "经历十分艰难的时刻，我会给予自己所需要的关怀和温柔。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_13",
+      "prompt": {
+        "en": "When I’m feeling down, I tend to feel like most other people are probably happier than I am.",
+        "zh": "情绪低落时，我往往觉得大多数其他人可能比我更快乐。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_14",
+      "prompt": {
+        "en": "When something painful happens I try to take a balanced view of the situation.",
+        "zh": "发生令人痛苦的事情时，我尽量以平衡的视角看待处境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_15",
+      "prompt": {
+        "en": "I try to see my failings as part of the human condition",
+        "zh": "我尝试把自己的不足看作人所共有的处境的一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "common-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "common-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "common-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "common-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "common-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "common-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_16",
+      "prompt": {
+        "en": "When I see aspects of myself that I don’t like, I get down on myself.",
+        "zh": "看到自己不喜欢的某些方面时，我会苛责自己。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_17",
+      "prompt": {
+        "en": "When I fail at something important to me I try to keep things in perspective.",
+        "zh": "在对自己重要的事情上失败时，我尽量把事情放回更大的背景中看待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_18",
+      "prompt": {
+        "en": "When I’m really struggling, I tend to feel like other people must be having an easier time of it.",
+        "zh": "当我感到很难熬时，我往往觉得别人想必比我轻松。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_19",
+      "prompt": {
+        "en": "I’m kind to myself when I’m experiencing suffering.",
+        "zh": "经历痛苦时，我会善待自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_20",
+      "prompt": {
+        "en": "When something upsets me I get carried away with my feelings.",
+        "zh": "有事令我心烦时，我会被自己的情绪带着走。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_21",
+      "prompt": {
+        "en": "I can be a bit cold-hearted towards myself when I'm experiencing suffering.",
+        "zh": "经历痛苦时，我可能会对自己有些冷酷。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-judgment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-judgment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-judgment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-judgment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-judgment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-judgment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_22",
+      "prompt": {
+        "en": "When I'm feeling down I try to approach my feelings with curiosity and openness.",
+        "zh": "情绪低落时，我尽量以好奇和开放的态度面对自己的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "mindfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mindfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mindfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mindfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "mindfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "mindfulness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_23",
+      "prompt": {
+        "en": "I’m tolerant of my own flaws and inadequacies.",
+        "zh": "我能包容自己的缺点和不足。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_24",
+      "prompt": {
+        "en": "When something painful happens I tend to blow the incident out of proportion.",
+        "zh": "发生令人痛苦的事情时，我往往会放大这件事的严重程度。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "over-identification",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "over-identification",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "over-identification",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "over-identification",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "over-identification",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "over-identification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_25",
+      "prompt": {
+        "en": "When I fail at something that's important to me, I tend to feel alone in my failure.",
+        "zh": "在对自己重要的事情上失败时，我往往感到自己在孤独地承受失败。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "isolation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "isolation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "isolation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "isolation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "isolation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "isolation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SCS_26",
+      "prompt": {
+        "en": "I try to be understanding and patient towards those aspects of my personality I don't like.",
+        "zh": "对于自己性格中不喜欢的那些部分，我尽量保持理解和耐心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Almost never",
+            "zh": "1 — 几乎从不"
+          },
+          "directionId": "self-kindness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "self-kindness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "self-kindness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "self-kindness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-kindness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "self-kindness",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_keyed_contributions_1_to_5": [
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ]
+}
