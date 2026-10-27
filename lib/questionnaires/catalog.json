@@ -3649,5 +3649,32 @@
       "chinese"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "hexaco",
+    "code": "IPIP_HEXACO_PRELIMINARY_240",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "HEXACO Personality Test",
+      "zh": "HEXACO人格测试"
+    },
+    "description": {
+      "en": "Take the free 240-item preliminary IPIP HEXACO test. Read six domain means, reverse scoring, missing information and full bilingual guides. No fixed types.",
+      "zh": "免费HEXACO人格测试：完整preliminary IPIP240条，六个连续领域分别显示原始和、均分或资料不足；含反向计分、具体例子、完整双语指南，不派六种人格。"
+    },
+    "minutes": 35,
+    "collection": "explore",
+    "formCode": "fm_ipip_hexaco_preliminary240_accuracy_v1",
+    "questionCount": 240,
+    "resultSlugs": [
+      "honesty-humility",
+      "emotionality",
+      "extraversion",
+      "agreeableness",
+      "conscientiousness",
+      "openness-to-experience"
+    ]
   }
 ]
