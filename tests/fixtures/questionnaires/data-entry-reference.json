@@ -1,0 +1,663 @@
+{
+  "form": "fermatmind_original_structured_entry_64_records_v1",
+  "durationMs": 60000,
+  "rounds": [
+    {
+      "id": "assets",
+      "title": {
+        "en": "Asset label records",
+        "zh": "物品标签记录"
+      },
+      "profileId": "assets",
+      "fields": [
+        {
+          "id": "code",
+          "title": {
+            "en": "Asset code",
+            "zh": "物品代码"
+          }
+        },
+        {
+          "id": "label",
+          "title": {
+            "en": "Label",
+            "zh": "标签名称"
+          }
+        },
+        {
+          "id": "quantity",
+          "title": {
+            "en": "Quantity text",
+            "zh": "数量文本"
+          }
+        },
+        {
+          "id": "shelf",
+          "title": {
+            "en": "Shelf code",
+            "zh": "货架代码"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "ASSET_01",
+          "values": [
+            "FM-A0071",
+            "Amber Clip",
+            "009",
+            "A-01"
+          ]
+        },
+        {
+          "id": "ASSET_02",
+          "values": [
+            "FM-A0084",
+            "Blue Folder",
+            "026",
+            "B-01"
+          ]
+        },
+        {
+          "id": "ASSET_03",
+          "values": [
+            "FM-A0097",
+            "Cedar Tray",
+            "043",
+            "C-01"
+          ]
+        },
+        {
+          "id": "ASSET_04",
+          "values": [
+            "FM-A0110",
+            "Delta Tag",
+            "060",
+            "D-01"
+          ]
+        },
+        {
+          "id": "ASSET_05",
+          "values": [
+            "FM-A0123",
+            "Echo Sleeve",
+            "077",
+            "E-01"
+          ]
+        },
+        {
+          "id": "ASSET_06",
+          "values": [
+            "FM-A0136",
+            "Fern Box",
+            "011",
+            "F-01"
+          ]
+        },
+        {
+          "id": "ASSET_07",
+          "values": [
+            "FM-A0149",
+            "Garnet Pen",
+            "028",
+            "G-01"
+          ]
+        },
+        {
+          "id": "ASSET_08",
+          "values": [
+            "FM-A0162",
+            "Hazel Card",
+            "045",
+            "H-01"
+          ]
+        },
+        {
+          "id": "ASSET_09",
+          "values": [
+            "FM-A0175",
+            "Indigo Roll",
+            "062",
+            "A-02"
+          ]
+        },
+        {
+          "id": "ASSET_10",
+          "values": [
+            "FM-A0188",
+            "Jade Pouch",
+            "079",
+            "B-02"
+          ]
+        },
+        {
+          "id": "ASSET_11",
+          "values": [
+            "FM-A0201",
+            "Kite Frame",
+            "013",
+            "C-02"
+          ]
+        },
+        {
+          "id": "ASSET_12",
+          "values": [
+            "FM-A0214",
+            "Lime Pad",
+            "030",
+            "D-02"
+          ]
+        },
+        {
+          "id": "ASSET_13",
+          "values": [
+            "FM-A0227",
+            "Maple Case",
+            "047",
+            "E-02"
+          ]
+        },
+        {
+          "id": "ASSET_14",
+          "values": [
+            "FM-A0240",
+            "Navy Strip",
+            "064",
+            "F-02"
+          ]
+        },
+        {
+          "id": "ASSET_15",
+          "values": [
+            "FM-A0253",
+            "Olive Ring",
+            "081",
+            "G-02"
+          ]
+        },
+        {
+          "id": "ASSET_16",
+          "values": [
+            "FM-A0266",
+            "Pearl Tab",
+            "015",
+            "H-02"
+          ]
+        },
+        {
+          "id": "ASSET_17",
+          "values": [
+            "FM-A0279",
+            "Quartz Pin",
+            "032",
+            "A-03"
+          ]
+        },
+        {
+          "id": "ASSET_18",
+          "values": [
+            "FM-A0292",
+            "Reed Tube",
+            "049",
+            "B-03"
+          ]
+        },
+        {
+          "id": "ASSET_19",
+          "values": [
+            "FM-A0305",
+            "Silver Seal",
+            "066",
+            "C-03"
+          ]
+        },
+        {
+          "id": "ASSET_20",
+          "values": [
+            "FM-A0318",
+            "Teal Pack",
+            "000",
+            "D-03"
+          ]
+        },
+        {
+          "id": "ASSET_21",
+          "values": [
+            "FM-A0331",
+            "Umber Sheet",
+            "017",
+            "E-03"
+          ]
+        },
+        {
+          "id": "ASSET_22",
+          "values": [
+            "FM-A0344",
+            "Violet Tie",
+            "034",
+            "F-03"
+          ]
+        },
+        {
+          "id": "ASSET_23",
+          "values": [
+            "FM-A0357",
+            "Willow Disk",
+            "051",
+            "G-03"
+          ]
+        },
+        {
+          "id": "ASSET_24",
+          "values": [
+            "FM-A0370",
+            "Xenon Cap",
+            "068",
+            "H-03"
+          ]
+        },
+        {
+          "id": "ASSET_25",
+          "values": [
+            "FM-A0383",
+            "Yellow Mat",
+            "002",
+            "A-04"
+          ]
+        },
+        {
+          "id": "ASSET_26",
+          "values": [
+            "FM-A0396",
+            "Zinc Rail",
+            "019",
+            "B-04"
+          ]
+        },
+        {
+          "id": "ASSET_27",
+          "values": [
+            "FM-A0409",
+            "Acorn Stand",
+            "036",
+            "C-04"
+          ]
+        },
+        {
+          "id": "ASSET_28",
+          "values": [
+            "FM-A0422",
+            "Birch Board",
+            "053",
+            "D-04"
+          ]
+        },
+        {
+          "id": "ASSET_29",
+          "values": [
+            "FM-A0435",
+            "Coral Wrap",
+            "070",
+            "E-04"
+          ]
+        },
+        {
+          "id": "ASSET_30",
+          "values": [
+            "FM-A0448",
+            "Dune Block",
+            "004",
+            "F-04"
+          ]
+        },
+        {
+          "id": "ASSET_31",
+          "values": [
+            "FM-A0461",
+            "Elm Marker",
+            "021",
+            "G-04"
+          ]
+        },
+        {
+          "id": "ASSET_32",
+          "values": [
+            "FM-A0474",
+            "Flint Cover",
+            "038",
+            "H-04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dispatch",
+      "title": {
+        "en": "Dispatch form records",
+        "zh": "发运表单记录"
+      },
+      "profileId": "dispatch",
+      "fields": [
+        {
+          "id": "parcel",
+          "title": {
+            "en": "Parcel code",
+            "zh": "包裹代码"
+          }
+        },
+        {
+          "id": "date",
+          "title": {
+            "en": "Date text YYYY-MM-DD",
+            "zh": "日期文本 YYYY-MM-DD"
+          }
+        },
+        {
+          "id": "mass",
+          "title": {
+            "en": "Mass text (kg)",
+            "zh": "重量文本（kg）"
+          }
+        },
+        {
+          "id": "route",
+          "title": {
+            "en": "Route code",
+            "zh": "路线代码"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "DISPATCH_01",
+          "values": [
+            "DP-04051-Q0",
+            "2026-01-02",
+            "1.00",
+            "NORTH-01"
+          ]
+        },
+        {
+          "id": "DISPATCH_02",
+          "values": [
+            "DP-04088-Q7",
+            "2026-02-05",
+            "8.13",
+            "SOUTH-02"
+          ]
+        },
+        {
+          "id": "DISPATCH_03",
+          "values": [
+            "DP-04125-Q4",
+            "2026-03-08",
+            "15.26",
+            "EAST-03"
+          ]
+        },
+        {
+          "id": "DISPATCH_04",
+          "values": [
+            "DP-04162-Q1",
+            "2026-04-11",
+            "22.39",
+            "WEST-04"
+          ]
+        },
+        {
+          "id": "DISPATCH_05",
+          "values": [
+            "DP-04199-Q8",
+            "2026-05-14",
+            "1.52",
+            "NORTH-05"
+          ]
+        },
+        {
+          "id": "DISPATCH_06",
+          "values": [
+            "DP-04236-Q5",
+            "2026-06-17",
+            "8.65",
+            "SOUTH-06"
+          ]
+        },
+        {
+          "id": "DISPATCH_07",
+          "values": [
+            "DP-04273-Q2",
+            "2026-07-20",
+            "15.78",
+            "EAST-07"
+          ]
+        },
+        {
+          "id": "DISPATCH_08",
+          "values": [
+            "DP-04310-Q9",
+            "2026-08-23",
+            "22.91",
+            "WEST-08"
+          ]
+        },
+        {
+          "id": "DISPATCH_09",
+          "values": [
+            "DP-04347-Q6",
+            "2026-09-26",
+            "1.04",
+            "NORTH-09"
+          ]
+        },
+        {
+          "id": "DISPATCH_10",
+          "values": [
+            "DP-04384-Q3",
+            "2026-10-03",
+            "8.17",
+            "SOUTH-01"
+          ]
+        },
+        {
+          "id": "DISPATCH_11",
+          "values": [
+            "DP-04421-Q0",
+            "2026-11-06",
+            "15.30",
+            "EAST-02"
+          ]
+        },
+        {
+          "id": "DISPATCH_12",
+          "values": [
+            "DP-04458-Q7",
+            "2026-12-09",
+            "22.43",
+            "WEST-03"
+          ]
+        },
+        {
+          "id": "DISPATCH_13",
+          "values": [
+            "DP-04495-Q4",
+            "2026-01-12",
+            "1.56",
+            "NORTH-04"
+          ]
+        },
+        {
+          "id": "DISPATCH_14",
+          "values": [
+            "DP-04532-Q1",
+            "2026-02-15",
+            "8.69",
+            "SOUTH-05"
+          ]
+        },
+        {
+          "id": "DISPATCH_15",
+          "values": [
+            "DP-04569-Q8",
+            "2026-03-18",
+            "15.82",
+            "EAST-06"
+          ]
+        },
+        {
+          "id": "DISPATCH_16",
+          "values": [
+            "DP-04606-Q5",
+            "2026-04-21",
+            "22.95",
+            "WEST-07"
+          ]
+        },
+        {
+          "id": "DISPATCH_17",
+          "values": [
+            "DP-04643-Q2",
+            "2026-05-24",
+            "1.08",
+            "NORTH-08"
+          ]
+        },
+        {
+          "id": "DISPATCH_18",
+          "values": [
+            "DP-04680-Q9",
+            "2026-06-27",
+            "8.21",
+            "SOUTH-09"
+          ]
+        },
+        {
+          "id": "DISPATCH_19",
+          "values": [
+            "DP-04717-Q6",
+            "2026-07-04",
+            "15.34",
+            "EAST-01"
+          ]
+        },
+        {
+          "id": "DISPATCH_20",
+          "values": [
+            "DP-04754-Q3",
+            "2026-08-07",
+            "22.47",
+            "WEST-02"
+          ]
+        },
+        {
+          "id": "DISPATCH_21",
+          "values": [
+            "DP-04791-Q0",
+            "2026-09-10",
+            "1.60",
+            "NORTH-03"
+          ]
+        },
+        {
+          "id": "DISPATCH_22",
+          "values": [
+            "DP-04828-Q7",
+            "2026-10-13",
+            "8.73",
+            "SOUTH-04"
+          ]
+        },
+        {
+          "id": "DISPATCH_23",
+          "values": [
+            "DP-04865-Q4",
+            "2026-11-16",
+            "15.86",
+            "EAST-05"
+          ]
+        },
+        {
+          "id": "DISPATCH_24",
+          "values": [
+            "DP-04902-Q1",
+            "2026-12-19",
+            "22.99",
+            "WEST-06"
+          ]
+        },
+        {
+          "id": "DISPATCH_25",
+          "values": [
+            "DP-04939-Q8",
+            "2026-01-22",
+            "1.12",
+            "NORTH-07"
+          ]
+        },
+        {
+          "id": "DISPATCH_26",
+          "values": [
+            "DP-04976-Q5",
+            "2026-02-25",
+            "8.25",
+            "SOUTH-08"
+          ]
+        },
+        {
+          "id": "DISPATCH_27",
+          "values": [
+            "DP-05013-Q2",
+            "2026-03-02",
+            "15.38",
+            "EAST-09"
+          ]
+        },
+        {
+          "id": "DISPATCH_28",
+          "values": [
+            "DP-05050-Q9",
+            "2026-04-05",
+            "22.51",
+            "WEST-01"
+          ]
+        },
+        {
+          "id": "DISPATCH_29",
+          "values": [
+            "DP-05087-Q6",
+            "2026-05-08",
+            "1.64",
+            "NORTH-02"
+          ]
+        },
+        {
+          "id": "DISPATCH_30",
+          "values": [
+            "DP-05124-Q3",
+            "2026-06-11",
+            "8.77",
+            "SOUTH-03"
+          ]
+        },
+        {
+          "id": "DISPATCH_31",
+          "values": [
+            "DP-05161-Q0",
+            "2026-07-14",
+            "15.90",
+            "EAST-04"
+          ]
+        },
+        {
+          "id": "DISPATCH_32",
+          "values": [
+            "DP-05198-Q7",
+            "2026-08-17",
+            "22.03",
+            "WEST-05"
+          ]
+        }
+      ]
+    }
+  ],
+  "provenance": "64entirelyfictionaloriginalrecords;nopeople/emails/accounts/financialtransactions/realshipments;ASCIIvaluesidenticalinEN/ZHinterfaces;physicalkeystrokesnotmeasured"
+}

@@ -1,4 +1,5 @@
 import type { PairedDimensionConfiguration } from "./pairedDimensions";
+import type { DataEntryConfiguration } from "./dataEntry";
 import type { TypingConfiguration } from "./typing";
 import type { EightValuesConfiguration } from "./eightValues";
 import type { TenKeyConfiguration } from "./tenKey";
@@ -23,9 +24,10 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   pairedDimensions?: PairedDimensionConfiguration[];
   typing?: TypingConfiguration;
+  dataEntry?: DataEntryConfiguration;
   eightValues?: EightValuesConfiguration;
   tenKey?: TenKeyConfiguration;
   references?: { title: Text; url: string }[];

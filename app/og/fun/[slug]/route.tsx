@@ -1,3 +1,4 @@
+import { isDataEntryConfigurationValid } from "@/lib/questionnaires/dataEntry";
 import { isSecsConfigurationValid } from "@/lib/questionnaires/secs";
 import { isPairedDimensionsConfigurationValid } from "@/lib/questionnaires/pairedDimensions";
 import { isTypingConfigurationValid } from "@/lib/questionnaires/typing";
@@ -32,6 +33,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const questionnaire = await loadQuestionnaire(slug);
+  if (questionnaire?.kind === "data-entry" && !isDataEntryConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "secs" && !isSecsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "typing" && !isTypingConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
@@ -44,7 +46,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
-  const questionnaireLabel = questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "typing" ? (result ? (zh ? "公开打字练习复习指南" : "Public typing practice revision guide") : (zh ? "原创计时打字练习" : "Original timed typing practice")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
+  const questionnaireLabel = questionnaire?.kind === "data-entry" ? (result ? (zh ? "公开结构化录入复习指南" : "Public structured-entry revision guide") : (zh ? "原创60秒结构化录入" : "Original 60-second structured entry")) : questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "typing" ? (result ? (zh ? "公开打字练习复习指南" : "Public typing practice revision guide") : (zh ? "原创计时打字练习" : "Original timed typing practice")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
     : questionnaire?.kind === "secs" ? (zh ? "SECS2013美国议题" : "SECS 2013 U.S. issues")
     : questionnaire?.slug === "hexaco" ? (zh ? "preliminary IPIP240条" : "Preliminary IPIP 240 items")
     : questionnaire?.kind === "paired-dimensions" ? (zh ? "原创关系安排偏好" : "Original relationship arrangements")
@@ -88,6 +90,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
       <div style={{ display: "flex", fontSize: title.length > 65 ? 48 : 60, lineHeight: 1.25 }}>{title}</div>
       {questionnaire?.slug === "color-season" ? <div style={{ display: "flex", gap: 12 }}>{(questionnaire.profiles.find(p => p.id === portrait)?.paletteSwatches ?? questionnaire.profiles.flatMap(p => p.paletteSwatches?.slice(0, 1) ?? [])).map(swatch => <div key={swatch.hex} style={{ width: 110, height: 56, background: swatch.hex, border: "1px solid #cbd5e1", borderRadius: 4 }} />)}</div> : <div style={{ display: "flex", gap: 12 }}><div style={{ width: 110, height: 8, background: color, borderRadius: 4 }} /><div style={{ width: 36, height: 8, background: "#cbd5e1", borderRadius: 4 }} /><div style={{ width: 16, height: 8, background: "#cbd5e1", borderRadius: 4 }} /></div>}
     </div>
-    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 25, color: "#475569" }}><span>fermatmind.com</span><span>{(questionnaire?.kind === "ten-key" || questionnaire?.kind === "typing") ? (zh ? "计时结果与完整复习免费" : "Timed results and full revision free") : questionnaire?.kind === "practice" ? (zh ? "逐题解析与复习免费" : "Answer explanations and revision free") : questionnaire ? (zh ? "完整报告免费 · 自我探索" : "Full report free · Self-exploration") : (zh ? "完整内容免费 · 仅供娱乐" : "Full content free · Just for fun")}</span></div>
+    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 25, color: "#475569" }}><span>fermatmind.com</span><span>{(questionnaire?.kind === "data-entry" || questionnaire?.kind === "ten-key" || questionnaire?.kind === "typing") ? (zh ? "计时结果与完整复习免费" : "Timed results and full revision free") : questionnaire?.kind === "practice" ? (zh ? "逐题解析与复习免费" : "Answer explanations and revision free") : questionnaire ? (zh ? "完整报告免费 · 自我探索" : "Full report free · Self-exploration") : (zh ? "完整内容免费 · 仅供娱乐" : "Full content free · Just for fun")}</span></div>
   </div>, { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(quiz?.slug ?? questionnaire!.slug), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } });
 }

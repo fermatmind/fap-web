@@ -1,0 +1,1114 @@
+{
+  "slug": "data-entry",
+  "code": "FM_DATA_ENTRY_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "data-entry",
+  "title": {
+    "en": "Data Entry Test",
+    "zh": "数据录入测试"
+  },
+  "seoTitle": {
+    "en": "Data Entry Test: 60-Second Forms, Accuracy & Character KPH",
+    "zh": "数据录入测试：60秒表单练习、字段准确率与字符KPH"
+  },
+  "description": {
+    "en": "Copy fictional records into real fields for 60 seconds. Get exact field accuracy, clearly defined character KPH and two free full guides. No signup or norm.",
+    "zh": "真实输入框录入虚构记录，每轮60秒，分别查看字段精确准确率和定义清楚的字符KPH，免费读两份完整指南。无需注册，不对照招聘常模。"
+  },
+  "minutes": 3,
+  "instructions": {
+    "en": "Choose asset labels or dispatch forms; each mode has 32 fictional four-field records. A start button opens a fixed 60-second interval. Committing any field edit or choosing Next includes that whole record’s four fields, including blanks; merely viewing and untouched later records are excluded. Return to earlier records and correct within the same clock. Only final committed text counts. Case, spaces, leading zeros and punctuation must match exactly after NFC normalization. No timer shortening, partial field credit or employer band. Three minutes is an editorial estimate for reading and one round, not observed completion data.",
+    "zh": "选择物品标签或发运表单，每模式32条虚构四字段记录；开始按钮开启固定60秒。任一字段提交过改动或点下一条，把该记录全部四字段含空白纳入；仅显示和后续未触及记录排除。同一计时内可返回修改，只计最终提交文字，NFC后大小写、空格、前导零、标点须精确相同。不缩短计时、不给字段部分分或雇主等级。三分钟是读说明加一轮的编辑估计，不是实测完成数据。"
+  },
+  "introduction": {
+    "en": "This is a real structured-input practice, not a knowledge or preference questionnaire. All 64 source records and both full guides are original and fictional, without contacts, customer accounts or actual shipments. Both interface languages preserve identical source values. Character KPH is final committed grapheme characters per minute × 60, not physical key presses. Exact-field character KPH separately counts characters only in wholly correct fields; field accuracy counts exact fields divided by all four fields in each attempted record. These quantities are not multiplied into one score or converted to a norm, percentile, job fit, certification or hour-long performance claim. Input stays in page memory and is cleared on completion, cancellation or leaving; no draft, server submission, input analytics payload or answer-sharing URL is created.",
+    "zh": "这是实际结构输入练习，不是知识或偏好问卷。64条源记录和两份完整指南全部原创虚构，不含联系人、客户账户或真实发运；两语界面保持同一源值。字符KPH是每分钟最终提交字素字符数乘60，不是物理按键。精确字段字符KPH另计整字段全对部分的字符，字段准确率为精确字段数除以尝试记录全部四字段。它们不合成单一分、不换算常模、百分位、岗位适合度、认证或持续一小时表现。输入只在页面内存，完成、取消或离开时清空，不建草稿、不发送服务端、不含输入分析载荷或答卷分享URL。"
+  },
+  "resultHeading": {
+    "en": "Your record counts, exact fields and separate rates",
+    "zh": "记录计数、精确字段与独立字符速率"
+  },
+  "directions": [
+    {
+      "id": "assets",
+      "title": {
+        "en": "Asset label records",
+        "zh": "物品标签记录"
+      },
+      "itemCount": 32
+    },
+    {
+      "id": "dispatch",
+      "title": {
+        "en": "Dispatch form records",
+        "zh": "发运表单记录"
+      },
+      "itemCount": 32
+    }
+  ],
+  "questions": [],
+  "profiles": [
+    {
+      "id": "assets",
+      "directionIds": [
+        "assets"
+      ],
+      "title": {
+        "en": "Asset records: accuracy and character KPH",
+        "zh": "物品记录：字段准确率与字符KPH"
+      },
+      "headline": {
+        "en": "Copy the whole field, including its zeros and case.",
+        "zh": "整字段核对，保留前导零与大小写。"
+      },
+      "summary": {
+        "en": "Review a 60-second asset-record exercise: exact fields, separate character rates, worked examples, editing and device limits. No hiring band or certificate.",
+        "zh": "完整说明60秒物品记录练习的精确字段、独立字符速率、算例、改错和设备限制，不给招聘等级或证书。"
+      },
+      "scoreReading": {
+        "en": "This is a public guide to one 60-second record mode, not a score band or private input record. Actual results separately show final-character KPH, exact-field character KPH and field accuracy, without a hiring norm or a combined ability label.",
+        "zh": "这是某种60秒记录模式的公开指南，不是分数档或私人输入记录。实际结果分别给最终字符KPH、精确字段字符KPH和字段准确率，不对照招聘常模或合成能力标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Asset records: accuracy and character KPH | Data Entry",
+          "zh": "物品记录：字段准确率与字符KPH｜数据录入"
+        },
+        "description": {
+          "en": "Review a 60-second asset-record exercise: exact fields, separate character rates, worked examples, editing and device limits. No hiring band or certificate.",
+          "zh": "完整说明60秒物品记录练习的精确字段、独立字符速率、算例、改错和设备限制，不给招聘等级或证书。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-scope",
+          "title": {
+            "en": "Fictional structured records, not a preference quiz",
+            "zh": "虚构结构化记录，不是偏好问卷"
+          },
+          "paragraphs": [
+            {
+              "en": "This mode asks you to copy four source fields: an asset code, a label, a quantity written as text and a shelf code. Its 32 records are entirely fictional and remain identical when you switch the interface language. Use the displayed source rather than your own name, workplace data or real inventory. Reading a code, changing fields and checking a label are part of the timed task. The result does not assess a live inventory system or claim equivalence with a commercial employer assessment.",
+              "zh": "本模式抄录物品代码、标签名称、数量文本、货架代码四字段，共32条全虚构记录，两语界面源值相同。对照显示内容，不填本人、工作单位或真实库存资料。读代码、换字段、核标签都在计时内；结果不评估真实库存系统，也不声称等价商业雇主测评。"
+            }
+          ]
+        },
+        {
+          "id": "2-denominator",
+          "title": {
+            "en": "Attempting a record includes all four fields",
+            "zh": "尝试一条即纳入四个字段"
+          },
+          "paragraphs": [
+            {
+              "en": "Committing an edit in any field or explicitly choosing Next marks that record as attempted. All four fields then enter the accuracy denominator, including blanks. A record merely displayed without an edit or Next does not count, and later untouched records are excluded. If you type one correct code and leave its other three fields blank, field accuracy is 1/4, or 25%. If you start the clock and attempt nothing, accuracy is not applicable rather than zero percent. This rule prevents one completed field from representing a completed record.",
+              "zh": "任一字段提交过文本改动或明确点下一条，会把该记录视为已尝试，四字段全部进分母，空白也算。仅显示而未改动、未点下一条不算，后续未触及记录也排除。只填对代码、余三字段空白时准确率1/4=25%；开始计时却没尝试则不适用，不写零。"
+            }
+          ]
+        },
+        {
+          "id": "3-units",
+          "title": {
+            "en": "A fresh example separates the rates",
+            "zh": "用新例子分开两种字符速率"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a fresh fictional record with AX-0042, Blue Tray, 007 and B-02. Its fields contain 7, 9, 3 and 4 characters, totalling 23. If all four are copied exactly within the fixed minute, the character-KPH figure is 23 × 60 = 1380 and field accuracy is 100%. Now suppose only Blue Tray becomes blue Tray. The final character count remains 23, but only 14 characters belong to wholly exact fields. Exact-field character KPH becomes 14 × 60 = 840 and field accuracy is 75%.",
+              "zh": "另例AX-0042、Blue Tray、007、B-02各有7、9、3、4字符，合计23。固定一分钟内四字段全对，字符KPH=23×60=1380、字段准确率100%。若仅把Blue Tray写成blue Tray，最终仍23字符，但只有14字符属于整字段精确匹配，精确字段字符KPH=840，字段准确率75%。"
+            }
+          ]
+        },
+        {
+          "id": "4-exact",
+          "title": {
+            "en": "Text identity differs from numeric equivalence",
+            "zh": "文本一致不等于数值相等"
+          },
+          "paragraphs": [
+            {
+              "en": "The quantity 007 must stay 007; converting it to the number 7 changes the field. Codes preserve hyphens, spaces and case. Normalization to Unicode NFC handles equivalent character composition, but does not trim spaces, lowercase labels or remove punctuation. Whole-field matching gives no partial accuracy credit for a nearly correct code. The separate character rates must not be multiplied by field accuracy and presented as a hiring score: fields have different lengths, so that product is not the count of characters in exact fields.",
+              "zh": "数量007须保留007，转成数值7已改字段。代码保留连字符、空格、大小写。NFC只统一等价字符组合，不去首尾空格、不统一大小写、不删标点。整字段近似匹配不给准确率部分分；字段长短不同，速度乘字段准确率并不等于精确字段字符数，不能当招聘分。"
+            }
+          ]
+        },
+        {
+          "id": "5-errors",
+          "title": {
+            "en": "Difference labels describe final strings",
+            "zh": "差异标签描述最终文本"
+          },
+          "paragraphs": [
+            {
+              "en": "Incorrect fields use the first applicable description: blank, case or whitespace, one adjacent transposition, omission only, addition only, then other differences. For AX-0042, AX-0024 swaps the final two characters; AX-042 omits a character. BlueTray versus Blue Tray is classified as whitespace before the omission check. These categories are mutually exclusive reporting conventions, not observations of which key you pressed or why you made a mistake. Multiple edits can leave the same final string, and the tool does not reconstruct their history.",
+              "zh": "错误字段按首个符合者分类：空白、大小写或空白、一对相邻颠倒、仅漏字、仅多字、其他。AX-0042写AX-0024为末两字颠倒，AX-042为漏字；BlueTray少空格先归空白差异，再不计漏字。它们是互斥报告约定，不记录实际按键或失误原因，不重建修改历史。"
+            }
+          ]
+        },
+        {
+          "id": "6-time",
+          "title": {
+            "en": "Corrections use the same minute",
+            "zh": "改错使用同一分钟"
+          },
+          "paragraphs": [
+            {
+              "en": "Backspace, replacement and returning to earlier records are allowed until the clock ends. Only final committed text contributes to output; deleted characters are not accumulated, while their editing time remains inside the minute. Paste and drop are blocked, but this is no proctored or fraud-proof assessment. Unfinished IME composition is excluded at the boundary. Leaving or backgrounding the page, or a large clock divergence, cancels the attempt. Completing all 32 records still requires waiting for the full minute, and the finite source can cap output.",
+              "zh": "计时结束前可退格、替换和回前记录修改，只计最终提交文字，被删字符不累计、改错时间仍在分钟内。禁止粘贴拖入不等于监考或防作弊认证；截止时未完成输入法组合文字不算。离开、后台或时钟明显偏差取消本轮；全部32条填完仍须等完整分钟，有限来源可能限制产量。"
+            }
+          ]
+        },
+        {
+          "id": "7-use",
+          "title": {
+            "en": "Use a local practice record, not a certificate",
+            "zh": "作为本地练习记录，不作证书"
+          },
+          "paragraphs": [
+            {
+              "en": "The report gives no norm, percentile, employer pass line or certification. Character KPH extrapolates a minute to an hour and does not establish sustained performance or count physical keystrokes. A phone keyboard, a hardware keyboard and assisted input are different conditions; record those conditions when comparing your own attempts. Input stays in page memory, with no draft or server submission, and completion clears raw fields. Public-link sharing contains only the title and URL. Every result includes both complete guides, and repeating the fixed source may involve memory.",
+              "zh": "报告无常模、百分位、雇主线或认证。字符KPH是一分钟折算小时，不证明持续表现，也不数物理按键。手机、实体键盘和辅助输入条件不同，自比时记录条件。输入只在页面内存，无草稿或服务端提交，完成清空原字段；分享只有标题链接。所有结果给两份完整指南，固定来源重做可能含记忆。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dispatch",
+      "directionIds": [
+        "dispatch"
+      ],
+      "title": {
+        "en": "Dispatch forms: codes, dates and exact fields",
+        "zh": "发运表单：代码、日期与精确字段"
+      },
+      "headline": {
+        "en": "Transcribe the displayed value before interpreting it.",
+        "zh": "先原样抄录，再区分含义与文本。"
+      },
+      "summary": {
+        "en": "Review 60-second dispatch-form transcription, leading zeros, exact date and mass text, field denominators, corrections and separate character rates. No norm.",
+        "zh": "完整说明60秒发运表单的前导零、日期重量文本、字段分母、改错与独立字符速率，不对照常模。"
+      },
+      "scoreReading": {
+        "en": "This is a public guide to one 60-second record mode, not a score band or private input record. Actual results separately show final-character KPH, exact-field character KPH and field accuracy, without a hiring norm or a combined ability label.",
+        "zh": "这是某种60秒记录模式的公开指南，不是分数档或私人输入记录。实际结果分别给最终字符KPH、精确字段字符KPH和字段准确率，不对照招聘常模或合成能力标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Dispatch forms: codes, dates and exact fields | Data Entry",
+          "zh": "发运表单：代码、日期与精确字段｜数据录入"
+        },
+        "description": {
+          "en": "Review 60-second dispatch-form transcription, leading zeros, exact date and mass text, field denominators, corrections and separate character rates. No norm.",
+          "zh": "完整说明60秒发运表单的前导零、日期重量文本、字段分母、改错与独立字符速率，不对照常模。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-scope",
+          "title": {
+            "en": "The dispatch forms are fictional source material",
+            "zh": "发运表单全部为虚构来源"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 records each contain a parcel code, a date written YYYY-MM-DD, a mass value written with two decimal places and a route code. They describe no real shipment or customer. Copy the source values rather than generating a tracking number or entering a private address. The same ASCII strings appear in both interface languages, so changing the language does not change the task. This mode practises document-to-field transcription; it does not execute a shipment, validate a carrier database or establish professional logistics competence.",
+              "zh": "32条记录各含包裹代码、YYYY-MM-DD日期、两位小数重量文本和路线代码，不对应真实货件或客户。抄源值，不自己生成单号或填私人地址；两语用相同ASCII源串。本模式练文档到字段的抄录，不发货、不核承运数据库、不认证物流专业胜任。"
+            }
+          ]
+        },
+        {
+          "id": "2-format",
+          "title": {
+            "en": "Preserve the written representation",
+            "zh": "保留原显示形式"
+          },
+          "paragraphs": [
+            {
+              "en": "A source date 2026-04-09 must not become 09/04/2026, even if you intend the same day. A mass written 6.20 must not become 6.2, and a route code EAST-03 must preserve its leading zero and uppercase letters. These are text-matching rules rather than universal rules for every database. A different system might accept equivalent representations after validation; this exercise deliberately requires exact transcription. No actual shipping, accounting or legal requirement is inferred from a mismatch in a fictional practice field.",
+              "zh": "源日期2026-04-09不能改为09/04/2026，即使意指同一天；重量6.20不能改6.2，EAST-03保留前导零和大写。这是本练习文本匹配规则，不是所有数据库通则；别的系统可能验证后接受等价表示，本练习要求原样，不从虚构错项推真实发运、账务或法律后果。"
+            }
+          ]
+        },
+        {
+          "id": "3-example",
+          "title": {
+            "en": "A fresh complete-record calculation",
+            "zh": "另算一次完整记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Take the fictional fields DP-02718-R4, 2026-04-09, 6.20 and EAST-03. Their lengths are 11, 10, 4 and 7, giving 32 final characters. If all four fields are exact in a fixed 60-second round, character KPH and exact-field character KPH both equal 1920. Exact field accuracy is 4/4, or 100%, while the complete-record count is one. Those units remain distinct: one record is not one character, and four exact fields are not four complete records.",
+              "zh": "另设DP-02718-R4、2026-04-09、6.20、EAST-03，长度11、10、4、7，合计32。固定60秒内全对，两种字符KPH均为1920，字段准确率4/4=100%，完整记录数1。记录、字段、字符是不同单位，不能把四个字段说成四条记录。"
+            }
+          ]
+        },
+        {
+          "id": "4-partial",
+          "title": {
+            "en": "One unfinished record affects four fields",
+            "zh": "未填完的记录仍按四字段计"
+          },
+          "paragraphs": [
+            {
+              "en": "If you enter only the exact parcel code from that example and leave the other three fields blank, the attempted record contributes four fields and only one is exact. Accuracy is 25%, final entered characters are 11, and character KPH is 660. Exact-field character KPH also equals 660 because the only entered field is wholly correct. If you then explicitly advance through an empty record, its four blank fields join the denominator. Untouched later records remain outside it; merely viewing a record does not mark it attempted.",
+              "zh": "只录对该包裹代码、其余三字段空白时，纳入四字段、精确一字段，准确率25%，最终11字符、字符KPH660；唯一输入字段完全正确，精确字段字符KPH也为660。再明确跳过一条空记录，其四空字段加入分母；仅显示及之后未触及记录不算。"
+            }
+          ]
+        },
+        {
+          "id": "5-correction",
+          "title": {
+            "en": "Inspect the source before changing a field",
+            "zh": "修正时回看对应源字段"
+          },
+          "paragraphs": [
+            {
+              "en": "Returning to earlier records lets you revise them inside the same clock. Check a code against its own source rather than copying a nearby value into the wrong field. Final exact matching includes case, spacing and punctuation; it does not calculate edit distance or award partial field accuracy. A field of 6.2 against 6.20 is an omission, while east-03 against EAST-03 is a case difference. The report assigns one first-matching description per incorrect field and does not diagnose an underlying attention problem.",
+              "zh": "同一计时内可回到前记录修改，核该字段自己的源值，避免把附近内容抄错栏。精确匹配含大小写空格标点，不算编辑距离、不按近似给字段分。6.2对6.20是漏字，east-03对EAST-03是大小写差；每错字段归首个符合描述，不诊断注意问题。"
+            }
+          ]
+        },
+        {
+          "id": "6-devices",
+          "title": {
+            "en": "Keyboard and timing conditions matter",
+            "zh": "设备和计时条件会改变体验"
+          },
+          "paragraphs": [
+            {
+              "en": "All fields use text inputs so leading zeros, hyphens and decimal points remain available. A mobile keyboard hint is not a guarantee of a particular keyboard layout or an input-validity rule. Hardware keys, touchscreen corrections, suggestions and input methods affect the attempt; no cross-device conversion is established. The start button opens a real 60-second interval. Corrections count against its time, pending IME composition is excluded, and backgrounding or a clock divergence cancels rather than producing a misleading shortened-round rate.",
+              "zh": "使用文本输入框以保留前导零、连字符和小数点；手机键盘提示不保证具体布局，也不负责验证。实体键盘、触屏改错、建议和输入法均会影响条件，未建跨设备换算。开始按钮开启真实60秒，修正耗时算入，未完成组合文字不算，后台或时钟偏差取消而非产出缩短轮次的误导速率。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "Read separate metrics and protect private data",
+            "zh": "分开读指标并保护私人资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Character KPH is final committed characters times 60, not a log of keydown events. Exact-field character KPH counts only characters in fields that wholly match. Neither quantity is a population rank, employment judgment or certificate, and a one-minute extrapolation cannot prove hour-long endurance. Use the aggregate counts to choose a specific transcription check, not a fixed personal label. No raw field input is saved as a draft or sent to a server; completion clears it. Sharing uses only the public title and link, and both complete guides remain free.",
+              "zh": "字符KPH为最终提交字符乘60，不是keydown日志；精确字段字符KPH只计整字段全对的字符。两者都非人群排名、就业判定或证书，一分钟也不证明一小时耐力。用汇总选具体核对方法，不贴固定标签。原始输入不存草稿、不送服务端，完成清空；分享只有公开标题链接，两份完整指南免费。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dataEntry": {
+    "durationMs": 60000,
+    "rounds": [
+      {
+        "id": "assets",
+        "title": {
+          "en": "Asset label records",
+          "zh": "物品标签记录"
+        },
+        "profileId": "assets",
+        "fields": [
+          {
+            "id": "code",
+            "title": {
+              "en": "Asset code",
+              "zh": "物品代码"
+            }
+          },
+          {
+            "id": "label",
+            "title": {
+              "en": "Label",
+              "zh": "标签名称"
+            }
+          },
+          {
+            "id": "quantity",
+            "title": {
+              "en": "Quantity text",
+              "zh": "数量文本"
+            }
+          },
+          {
+            "id": "shelf",
+            "title": {
+              "en": "Shelf code",
+              "zh": "货架代码"
+            }
+          }
+        ],
+        "records": [
+          {
+            "id": "ASSET_01",
+            "values": [
+              "FM-A0071",
+              "Amber Clip",
+              "009",
+              "A-01"
+            ]
+          },
+          {
+            "id": "ASSET_02",
+            "values": [
+              "FM-A0084",
+              "Blue Folder",
+              "026",
+              "B-01"
+            ]
+          },
+          {
+            "id": "ASSET_03",
+            "values": [
+              "FM-A0097",
+              "Cedar Tray",
+              "043",
+              "C-01"
+            ]
+          },
+          {
+            "id": "ASSET_04",
+            "values": [
+              "FM-A0110",
+              "Delta Tag",
+              "060",
+              "D-01"
+            ]
+          },
+          {
+            "id": "ASSET_05",
+            "values": [
+              "FM-A0123",
+              "Echo Sleeve",
+              "077",
+              "E-01"
+            ]
+          },
+          {
+            "id": "ASSET_06",
+            "values": [
+              "FM-A0136",
+              "Fern Box",
+              "011",
+              "F-01"
+            ]
+          },
+          {
+            "id": "ASSET_07",
+            "values": [
+              "FM-A0149",
+              "Garnet Pen",
+              "028",
+              "G-01"
+            ]
+          },
+          {
+            "id": "ASSET_08",
+            "values": [
+              "FM-A0162",
+              "Hazel Card",
+              "045",
+              "H-01"
+            ]
+          },
+          {
+            "id": "ASSET_09",
+            "values": [
+              "FM-A0175",
+              "Indigo Roll",
+              "062",
+              "A-02"
+            ]
+          },
+          {
+            "id": "ASSET_10",
+            "values": [
+              "FM-A0188",
+              "Jade Pouch",
+              "079",
+              "B-02"
+            ]
+          },
+          {
+            "id": "ASSET_11",
+            "values": [
+              "FM-A0201",
+              "Kite Frame",
+              "013",
+              "C-02"
+            ]
+          },
+          {
+            "id": "ASSET_12",
+            "values": [
+              "FM-A0214",
+              "Lime Pad",
+              "030",
+              "D-02"
+            ]
+          },
+          {
+            "id": "ASSET_13",
+            "values": [
+              "FM-A0227",
+              "Maple Case",
+              "047",
+              "E-02"
+            ]
+          },
+          {
+            "id": "ASSET_14",
+            "values": [
+              "FM-A0240",
+              "Navy Strip",
+              "064",
+              "F-02"
+            ]
+          },
+          {
+            "id": "ASSET_15",
+            "values": [
+              "FM-A0253",
+              "Olive Ring",
+              "081",
+              "G-02"
+            ]
+          },
+          {
+            "id": "ASSET_16",
+            "values": [
+              "FM-A0266",
+              "Pearl Tab",
+              "015",
+              "H-02"
+            ]
+          },
+          {
+            "id": "ASSET_17",
+            "values": [
+              "FM-A0279",
+              "Quartz Pin",
+              "032",
+              "A-03"
+            ]
+          },
+          {
+            "id": "ASSET_18",
+            "values": [
+              "FM-A0292",
+              "Reed Tube",
+              "049",
+              "B-03"
+            ]
+          },
+          {
+            "id": "ASSET_19",
+            "values": [
+              "FM-A0305",
+              "Silver Seal",
+              "066",
+              "C-03"
+            ]
+          },
+          {
+            "id": "ASSET_20",
+            "values": [
+              "FM-A0318",
+              "Teal Pack",
+              "000",
+              "D-03"
+            ]
+          },
+          {
+            "id": "ASSET_21",
+            "values": [
+              "FM-A0331",
+              "Umber Sheet",
+              "017",
+              "E-03"
+            ]
+          },
+          {
+            "id": "ASSET_22",
+            "values": [
+              "FM-A0344",
+              "Violet Tie",
+              "034",
+              "F-03"
+            ]
+          },
+          {
+            "id": "ASSET_23",
+            "values": [
+              "FM-A0357",
+              "Willow Disk",
+              "051",
+              "G-03"
+            ]
+          },
+          {
+            "id": "ASSET_24",
+            "values": [
+              "FM-A0370",
+              "Xenon Cap",
+              "068",
+              "H-03"
+            ]
+          },
+          {
+            "id": "ASSET_25",
+            "values": [
+              "FM-A0383",
+              "Yellow Mat",
+              "002",
+              "A-04"
+            ]
+          },
+          {
+            "id": "ASSET_26",
+            "values": [
+              "FM-A0396",
+              "Zinc Rail",
+              "019",
+              "B-04"
+            ]
+          },
+          {
+            "id": "ASSET_27",
+            "values": [
+              "FM-A0409",
+              "Acorn Stand",
+              "036",
+              "C-04"
+            ]
+          },
+          {
+            "id": "ASSET_28",
+            "values": [
+              "FM-A0422",
+              "Birch Board",
+              "053",
+              "D-04"
+            ]
+          },
+          {
+            "id": "ASSET_29",
+            "values": [
+              "FM-A0435",
+              "Coral Wrap",
+              "070",
+              "E-04"
+            ]
+          },
+          {
+            "id": "ASSET_30",
+            "values": [
+              "FM-A0448",
+              "Dune Block",
+              "004",
+              "F-04"
+            ]
+          },
+          {
+            "id": "ASSET_31",
+            "values": [
+              "FM-A0461",
+              "Elm Marker",
+              "021",
+              "G-04"
+            ]
+          },
+          {
+            "id": "ASSET_32",
+            "values": [
+              "FM-A0474",
+              "Flint Cover",
+              "038",
+              "H-04"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dispatch",
+        "title": {
+          "en": "Dispatch form records",
+          "zh": "发运表单记录"
+        },
+        "profileId": "dispatch",
+        "fields": [
+          {
+            "id": "parcel",
+            "title": {
+              "en": "Parcel code",
+              "zh": "包裹代码"
+            }
+          },
+          {
+            "id": "date",
+            "title": {
+              "en": "Date text YYYY-MM-DD",
+              "zh": "日期文本 YYYY-MM-DD"
+            }
+          },
+          {
+            "id": "mass",
+            "title": {
+              "en": "Mass text (kg)",
+              "zh": "重量文本（kg）"
+            }
+          },
+          {
+            "id": "route",
+            "title": {
+              "en": "Route code",
+              "zh": "路线代码"
+            }
+          }
+        ],
+        "records": [
+          {
+            "id": "DISPATCH_01",
+            "values": [
+              "DP-04051-Q0",
+              "2026-01-02",
+              "1.00",
+              "NORTH-01"
+            ]
+          },
+          {
+            "id": "DISPATCH_02",
+            "values": [
+              "DP-04088-Q7",
+              "2026-02-05",
+              "8.13",
+              "SOUTH-02"
+            ]
+          },
+          {
+            "id": "DISPATCH_03",
+            "values": [
+              "DP-04125-Q4",
+              "2026-03-08",
+              "15.26",
+              "EAST-03"
+            ]
+          },
+          {
+            "id": "DISPATCH_04",
+            "values": [
+              "DP-04162-Q1",
+              "2026-04-11",
+              "22.39",
+              "WEST-04"
+            ]
+          },
+          {
+            "id": "DISPATCH_05",
+            "values": [
+              "DP-04199-Q8",
+              "2026-05-14",
+              "1.52",
+              "NORTH-05"
+            ]
+          },
+          {
+            "id": "DISPATCH_06",
+            "values": [
+              "DP-04236-Q5",
+              "2026-06-17",
+              "8.65",
+              "SOUTH-06"
+            ]
+          },
+          {
+            "id": "DISPATCH_07",
+            "values": [
+              "DP-04273-Q2",
+              "2026-07-20",
+              "15.78",
+              "EAST-07"
+            ]
+          },
+          {
+            "id": "DISPATCH_08",
+            "values": [
+              "DP-04310-Q9",
+              "2026-08-23",
+              "22.91",
+              "WEST-08"
+            ]
+          },
+          {
+            "id": "DISPATCH_09",
+            "values": [
+              "DP-04347-Q6",
+              "2026-09-26",
+              "1.04",
+              "NORTH-09"
+            ]
+          },
+          {
+            "id": "DISPATCH_10",
+            "values": [
+              "DP-04384-Q3",
+              "2026-10-03",
+              "8.17",
+              "SOUTH-01"
+            ]
+          },
+          {
+            "id": "DISPATCH_11",
+            "values": [
+              "DP-04421-Q0",
+              "2026-11-06",
+              "15.30",
+              "EAST-02"
+            ]
+          },
+          {
+            "id": "DISPATCH_12",
+            "values": [
+              "DP-04458-Q7",
+              "2026-12-09",
+              "22.43",
+              "WEST-03"
+            ]
+          },
+          {
+            "id": "DISPATCH_13",
+            "values": [
+              "DP-04495-Q4",
+              "2026-01-12",
+              "1.56",
+              "NORTH-04"
+            ]
+          },
+          {
+            "id": "DISPATCH_14",
+            "values": [
+              "DP-04532-Q1",
+              "2026-02-15",
+              "8.69",
+              "SOUTH-05"
+            ]
+          },
+          {
+            "id": "DISPATCH_15",
+            "values": [
+              "DP-04569-Q8",
+              "2026-03-18",
+              "15.82",
+              "EAST-06"
+            ]
+          },
+          {
+            "id": "DISPATCH_16",
+            "values": [
+              "DP-04606-Q5",
+              "2026-04-21",
+              "22.95",
+              "WEST-07"
+            ]
+          },
+          {
+            "id": "DISPATCH_17",
+            "values": [
+              "DP-04643-Q2",
+              "2026-05-24",
+              "1.08",
+              "NORTH-08"
+            ]
+          },
+          {
+            "id": "DISPATCH_18",
+            "values": [
+              "DP-04680-Q9",
+              "2026-06-27",
+              "8.21",
+              "SOUTH-09"
+            ]
+          },
+          {
+            "id": "DISPATCH_19",
+            "values": [
+              "DP-04717-Q6",
+              "2026-07-04",
+              "15.34",
+              "EAST-01"
+            ]
+          },
+          {
+            "id": "DISPATCH_20",
+            "values": [
+              "DP-04754-Q3",
+              "2026-08-07",
+              "22.47",
+              "WEST-02"
+            ]
+          },
+          {
+            "id": "DISPATCH_21",
+            "values": [
+              "DP-04791-Q0",
+              "2026-09-10",
+              "1.60",
+              "NORTH-03"
+            ]
+          },
+          {
+            "id": "DISPATCH_22",
+            "values": [
+              "DP-04828-Q7",
+              "2026-10-13",
+              "8.73",
+              "SOUTH-04"
+            ]
+          },
+          {
+            "id": "DISPATCH_23",
+            "values": [
+              "DP-04865-Q4",
+              "2026-11-16",
+              "15.86",
+              "EAST-05"
+            ]
+          },
+          {
+            "id": "DISPATCH_24",
+            "values": [
+              "DP-04902-Q1",
+              "2026-12-19",
+              "22.99",
+              "WEST-06"
+            ]
+          },
+          {
+            "id": "DISPATCH_25",
+            "values": [
+              "DP-04939-Q8",
+              "2026-01-22",
+              "1.12",
+              "NORTH-07"
+            ]
+          },
+          {
+            "id": "DISPATCH_26",
+            "values": [
+              "DP-04976-Q5",
+              "2026-02-25",
+              "8.25",
+              "SOUTH-08"
+            ]
+          },
+          {
+            "id": "DISPATCH_27",
+            "values": [
+              "DP-05013-Q2",
+              "2026-03-02",
+              "15.38",
+              "EAST-09"
+            ]
+          },
+          {
+            "id": "DISPATCH_28",
+            "values": [
+              "DP-05050-Q9",
+              "2026-04-05",
+              "22.51",
+              "WEST-01"
+            ]
+          },
+          {
+            "id": "DISPATCH_29",
+            "values": [
+              "DP-05087-Q6",
+              "2026-05-08",
+              "1.64",
+              "NORTH-02"
+            ]
+          },
+          {
+            "id": "DISPATCH_30",
+            "values": [
+              "DP-05124-Q3",
+              "2026-06-11",
+              "8.77",
+              "SOUTH-03"
+            ]
+          },
+          {
+            "id": "DISPATCH_31",
+            "values": [
+              "DP-05161-Q0",
+              "2026-07-14",
+              "15.90",
+              "EAST-04"
+            ]
+          },
+          {
+            "id": "DISPATCH_32",
+            "values": [
+              "DP-05198-Q7",
+              "2026-08-17",
+              "22.03",
+              "WEST-05"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "source": {
+    "kind": "fermatmind_original_structured_entry_practice",
+    "formCode": "fermatmind_original_structured_entry_64_records_v1",
+    "itemBankVersion": "fermatmind_original_structured_entry_64_records_v1",
+    "scoringVersion": "fm_final_fields_exact_nfc_char_kph_60s_v1",
+    "resultContentVersion": "fm_data_entry_two_record_guides_v1",
+    "itemBankSha256": "2b200a0649591fe79cfde8681ff2b729661a8a0ff6214f22ccc106a0296a5667",
+    "resultContentSha256": "6a0e891b793543a15a7a324ac044a08f2acd650f560b79b8b944708b2426119c",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "O*NET: data-entry source comparison and verification tasks",
+        "zh": "O*NET：数据录入的源文档比对与核查任务"
+      },
+      "url": "https://www.onetonline.org/link/details/43-9021.00"
+    },
+    {
+      "title": {
+        "en": "MDN: inputmode is a keyboard hint, not validation",
+        "zh": "MDN：inputmode为键盘提示，不是输入验证"
+      },
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode"
+    },
+    {
+      "title": {
+        "en": "Criteria: its own numerical-entry speed and field accuracy description",
+        "zh": "Criteria：其自有数字录入速度与字段准确率说明"
+      },
+      "url": "https://www.criteriacorp.com/assess/skills/ten-key-test"
+    }
+  ],
+  "guide": [
+    {
+      "id": "metrics",
+      "title": {
+        "en": "Separate fields, records and characters",
+        "zh": "分开字段、记录与字符"
+      },
+      "paragraphs": [
+        {
+          "en": "For a fresh fictional record QX-081, Red Box, 005 and C-07, field lengths are 6 + 7 + 3 + 4 = 20 characters. A fixed-minute exact copy gives 1200 character KPH, four exact fields and one complete record. If only QX-081 is committed and the rest blank, the count is six characters, character KPH 360 and field accuracy 25%. Empty attempted records count four blanks; no attempted records yields accuracy not applicable.",
+          "zh": "另例QX-081、Red Box、005、C-07，字段长6+7+3+4=20。固定一分钟全对，字符KPH1200、精确字段四、完整记录一。只提交QX-081其余空，六字符、字符KPH360、字段准确率25%。已尝试空记录算四空，完全未尝试则准确率不适用。"
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "title": {
+        "en": "Exact text and descriptive differences",
+        "zh": "精确文本与差异描述"
+      },
+      "paragraphs": [
+        {
+          "en": "Fields are compared after NFC normalization, without trimming, number conversion or lowercasing. Each incorrect field receives the first matching description: blank, case/whitespace, one adjacent transposition, omission-only, addition-only or other. This is a convention for final strings, not a cause-of-error diagnosis. An unfinished IME composition alone creates no committed field edit; if another committed edit already attempted the record, that record’s remaining blank fields still count.",
+          "zh": "NFC后比较字段，不去空格、不转数字、不统一大小写。每错字段归首个符合描述：空白、大小写/空白、相邻颠倒、仅漏字、仅多字、其他。这是最终文本描述，不诊断错因。仅未完成输入法组合不产生已提交改动；若其他改动已让该记录进入尝试，余下空字段仍算。"
+        }
+      ]
+    },
+    {
+      "id": "clock",
+      "title": {
+        "en": "A full minute and a finite source",
+        "zh": "完整一分钟与有限来源"
+      },
+      "paragraphs": [
+        {
+          "en": "Corrections and moving between fields remain inside the fixed 60 seconds. The timer must expire even if all 32 records are complete; the finite source may cap output. Leaving or backgrounding cancels, and a clock divergence clears the round. Rates extrapolate this one minute rather than proving sustained hourly performance. Device, layout, input suggestions and repeated exposure to this fixed source affect conditions; no cross-device norm or anti-cheating certification is claimed.",
+          "zh": "改错和换字段都用固定60秒，即使32条全填仍等计时结束，有限来源可能限制产量。离开、后台取消，时钟偏差清空。本次一分钟折算不证明持续小时表现。设备、布局、建议与反复熟悉来源会影响条件，未建立跨设备常模或防作弊认证。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Fictional data and ephemeral input",
+        "zh": "虚构数据与临时输入"
+      },
+      "paragraphs": [
+        {
+          "en": "Use only the displayed fictional values, never private client, account, medical or work records. There is no draft, server submission or raw-input analytics event. Completion discards field text and keeps aggregate numbers in this page’s memory; retake and leaving clear the attempt. Copying the public link shares only its title and URL. This does not control browser extensions, screenshots or software outside the application.",
+          "zh": "只录显示的虚构值，不填私有客户、账户、医疗或工作资料。不存草稿、不送服务端、不发原始输入分析事件。完成丢弃字段文本，只在本页内存留汇总；重做、离开清空。复制链接只分享标题URL，不控制浏览器扩展、截图或应用之外软件。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a real input test and is everything free?",
+        "zh": "是真实录入测试吗，全部免费吗？"
+      },
+      "answer": {
+        "en": "Yes. You type into real four-field forms against a 60-second clock. Both fictional modes, all metrics, error descriptions and both full guides are free, with no account, email or payment.",
+        "zh": "是，在真实四字段表单中按60秒计时输入，两种虚构模式、全部指标、差异描述及两份完整指南均免费，无需账户、邮箱或付款。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does KPH count my physical key presses?",
+        "zh": "KPH数的是物理按键吗？"
+      },
+      "answer": {
+        "en": "No. This edition labels it character KPH: final committed grapheme characters in the minute times 60. Backspace, deleted text, Tab and navigation keys are not accumulated. Correction time remains inside the clock.",
+        "zh": "不是。本版明确叫字符KPH，为本分钟最终提交字素字符数乘60，不累计退格、被删文字、Tab或导航按键；改错耗时仍在计时内。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are blanks and unfinished records counted?",
+        "zh": "空白和未完成记录怎么算？"
+      },
+      "answer": {
+        "en": "A committed edit or explicit Next marks a record attempted, and all four fields count, including blanks. Merely displayed and later untouched records are excluded. With no attempted records, accuracy is not applicable. Pending IME text is not committed.",
+        "zh": "已提交改动或明确点下一条让记录进入尝试，四字段含空白都算。仅显示和后续未触及记录排除；完全无尝试则准确率不适用，未完成输入法文字未提交。"
+      }
+    },
+    {
+      "question": {
+        "en": "May I correct, paste or save a draft?",
+        "zh": "可改错、粘贴或存草稿吗？"
+      },
+      "answer": {
+        "en": "Return and correct within the minute. Paste and drop are blocked, but the exercise is not proctored. There is no draft or server save. Refresh, leaving, backgrounding or clock divergence clears the attempt.",
+        "zh": "一分钟内可返回改错，禁止粘贴拖入，但并非监考测评。不保存草稿或服务端记录；刷新、离开、后台或时钟偏差清空本轮。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it establish a hiring pass or a mobile-equivalent score?",
+        "zh": "能证明招聘通过或手机成绩等价吗？"
+      },
+      "answer": {
+        "en": "No. There is no calibrated norm, employer threshold, percentile, certificate or cross-device conversion. A phone keyboard and hardware keyboard create different conditions, and one minute cannot establish hour-long endurance.",
+        "zh": "不能。无校准常模、雇主线、百分位、证书或跨设备换算，手机与实体键盘条件不同，一分钟也不证明一小时耐力。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does sharing reveal?",
+        "zh": "分享会显示什么？"
+      },
+      "answer": {
+        "en": "Only the public practice title and URL. No fields, counts, accuracy, rates, private identifiers or raw input are included. The report remains local to this page.",
+        "zh": "只有公开练习标题和URL，不含字段、计数、准确率、速率、私有标识或原始输入；报告只在本页保留。"
+      }
+    }
+  ]
+}

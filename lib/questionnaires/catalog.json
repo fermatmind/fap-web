@@ -3855,5 +3855,28 @@
       "all-three-tied"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "data-entry",
+    "code": "FM_DATA_ENTRY_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Data Entry Test",
+      "zh": "数据录入测试"
+    },
+    "description": {
+      "en": "Copy fictional records into real fields for 60 seconds. Get exact field accuracy, clearly defined character KPH and two free full guides. No signup or norm.",
+      "zh": "真实输入框录入虚构记录，每轮60秒，分别查看字段精确准确率和定义清楚的字符KPH，免费读两份完整指南。无需注册，不对照招聘常模。"
+    },
+    "minutes": 3,
+    "formCode": "fermatmind_original_structured_entry_64_records_v1",
+    "questionCount": 2,
+    "resultSlugs": [
+      "assets",
+      "dispatch"
+    ],
+    "collection": "explore"
   }
 ]

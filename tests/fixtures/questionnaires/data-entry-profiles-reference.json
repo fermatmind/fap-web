@@ -1,0 +1,252 @@
+[
+  {
+    "id": "assets",
+    "directionIds": [
+      "assets"
+    ],
+    "title": {
+      "en": "Asset records: accuracy and character KPH",
+      "zh": "物品记录：字段准确率与字符KPH"
+    },
+    "headline": {
+      "en": "Copy the whole field, including its zeros and case.",
+      "zh": "整字段核对，保留前导零与大小写。"
+    },
+    "summary": {
+      "en": "Review a 60-second asset-record exercise: exact fields, separate character rates, worked examples, editing and device limits. No hiring band or certificate.",
+      "zh": "完整说明60秒物品记录练习的精确字段、独立字符速率、算例、改错和设备限制，不给招聘等级或证书。"
+    },
+    "scoreReading": {
+      "en": "This is a public guide to one 60-second record mode, not a score band or private input record. Actual results separately show final-character KPH, exact-field character KPH and field accuracy, without a hiring norm or a combined ability label.",
+      "zh": "这是某种60秒记录模式的公开指南，不是分数档或私人输入记录。实际结果分别给最终字符KPH、精确字段字符KPH和字段准确率，不对照招聘常模或合成能力标签。"
+    },
+    "seo": {
+      "title": {
+        "en": "Asset records: accuracy and character KPH | Data Entry",
+        "zh": "物品记录：字段准确率与字符KPH｜数据录入"
+      },
+      "description": {
+        "en": "Review a 60-second asset-record exercise: exact fields, separate character rates, worked examples, editing and device limits. No hiring band or certificate.",
+        "zh": "完整说明60秒物品记录练习的精确字段、独立字符速率、算例、改错和设备限制，不给招聘等级或证书。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Fictional structured records, not a preference quiz",
+          "zh": "虚构结构化记录，不是偏好问卷"
+        },
+        "paragraphs": [
+          {
+            "en": "This mode asks you to copy four source fields: an asset code, a label, a quantity written as text and a shelf code. Its 32 records are entirely fictional and remain identical when you switch the interface language. Use the displayed source rather than your own name, workplace data or real inventory. Reading a code, changing fields and checking a label are part of the timed task. The result does not assess a live inventory system or claim equivalence with a commercial employer assessment.",
+            "zh": "本模式抄录物品代码、标签名称、数量文本、货架代码四字段，共32条全虚构记录，两语界面源值相同。对照显示内容，不填本人、工作单位或真实库存资料。读代码、换字段、核标签都在计时内；结果不评估真实库存系统，也不声称等价商业雇主测评。"
+          }
+        ]
+      },
+      {
+        "id": "2-denominator",
+        "title": {
+          "en": "Attempting a record includes all four fields",
+          "zh": "尝试一条即纳入四个字段"
+        },
+        "paragraphs": [
+          {
+            "en": "Committing an edit in any field or explicitly choosing Next marks that record as attempted. All four fields then enter the accuracy denominator, including blanks. A record merely displayed without an edit or Next does not count, and later untouched records are excluded. If you type one correct code and leave its other three fields blank, field accuracy is 1/4, or 25%. If you start the clock and attempt nothing, accuracy is not applicable rather than zero percent. This rule prevents one completed field from representing a completed record.",
+            "zh": "任一字段提交过文本改动或明确点下一条，会把该记录视为已尝试，四字段全部进分母，空白也算。仅显示而未改动、未点下一条不算，后续未触及记录也排除。只填对代码、余三字段空白时准确率1/4=25%；开始计时却没尝试则不适用，不写零。"
+          }
+        ]
+      },
+      {
+        "id": "3-units",
+        "title": {
+          "en": "A fresh example separates the rates",
+          "zh": "用新例子分开两种字符速率"
+        },
+        "paragraphs": [
+          {
+            "en": "Use a fresh fictional record with AX-0042, Blue Tray, 007 and B-02. Its fields contain 7, 9, 3 and 4 characters, totalling 23. If all four are copied exactly within the fixed minute, the character-KPH figure is 23 × 60 = 1380 and field accuracy is 100%. Now suppose only Blue Tray becomes blue Tray. The final character count remains 23, but only 14 characters belong to wholly exact fields. Exact-field character KPH becomes 14 × 60 = 840 and field accuracy is 75%.",
+            "zh": "另例AX-0042、Blue Tray、007、B-02各有7、9、3、4字符，合计23。固定一分钟内四字段全对，字符KPH=23×60=1380、字段准确率100%。若仅把Blue Tray写成blue Tray，最终仍23字符，但只有14字符属于整字段精确匹配，精确字段字符KPH=840，字段准确率75%。"
+          }
+        ]
+      },
+      {
+        "id": "4-exact",
+        "title": {
+          "en": "Text identity differs from numeric equivalence",
+          "zh": "文本一致不等于数值相等"
+        },
+        "paragraphs": [
+          {
+            "en": "The quantity 007 must stay 007; converting it to the number 7 changes the field. Codes preserve hyphens, spaces and case. Normalization to Unicode NFC handles equivalent character composition, but does not trim spaces, lowercase labels or remove punctuation. Whole-field matching gives no partial accuracy credit for a nearly correct code. The separate character rates must not be multiplied by field accuracy and presented as a hiring score: fields have different lengths, so that product is not the count of characters in exact fields.",
+            "zh": "数量007须保留007，转成数值7已改字段。代码保留连字符、空格、大小写。NFC只统一等价字符组合，不去首尾空格、不统一大小写、不删标点。整字段近似匹配不给准确率部分分；字段长短不同，速度乘字段准确率并不等于精确字段字符数，不能当招聘分。"
+          }
+        ]
+      },
+      {
+        "id": "5-errors",
+        "title": {
+          "en": "Difference labels describe final strings",
+          "zh": "差异标签描述最终文本"
+        },
+        "paragraphs": [
+          {
+            "en": "Incorrect fields use the first applicable description: blank, case or whitespace, one adjacent transposition, omission only, addition only, then other differences. For AX-0042, AX-0024 swaps the final two characters; AX-042 omits a character. BlueTray versus Blue Tray is classified as whitespace before the omission check. These categories are mutually exclusive reporting conventions, not observations of which key you pressed or why you made a mistake. Multiple edits can leave the same final string, and the tool does not reconstruct their history.",
+            "zh": "错误字段按首个符合者分类：空白、大小写或空白、一对相邻颠倒、仅漏字、仅多字、其他。AX-0042写AX-0024为末两字颠倒，AX-042为漏字；BlueTray少空格先归空白差异，再不计漏字。它们是互斥报告约定，不记录实际按键或失误原因，不重建修改历史。"
+          }
+        ]
+      },
+      {
+        "id": "6-time",
+        "title": {
+          "en": "Corrections use the same minute",
+          "zh": "改错使用同一分钟"
+        },
+        "paragraphs": [
+          {
+            "en": "Backspace, replacement and returning to earlier records are allowed until the clock ends. Only final committed text contributes to output; deleted characters are not accumulated, while their editing time remains inside the minute. Paste and drop are blocked, but this is no proctored or fraud-proof assessment. Unfinished IME composition is excluded at the boundary. Leaving or backgrounding the page, or a large clock divergence, cancels the attempt. Completing all 32 records still requires waiting for the full minute, and the finite source can cap output.",
+            "zh": "计时结束前可退格、替换和回前记录修改，只计最终提交文字，被删字符不累计、改错时间仍在分钟内。禁止粘贴拖入不等于监考或防作弊认证；截止时未完成输入法组合文字不算。离开、后台或时钟明显偏差取消本轮；全部32条填完仍须等完整分钟，有限来源可能限制产量。"
+          }
+        ]
+      },
+      {
+        "id": "7-use",
+        "title": {
+          "en": "Use a local practice record, not a certificate",
+          "zh": "作为本地练习记录，不作证书"
+        },
+        "paragraphs": [
+          {
+            "en": "The report gives no norm, percentile, employer pass line or certification. Character KPH extrapolates a minute to an hour and does not establish sustained performance or count physical keystrokes. A phone keyboard, a hardware keyboard and assisted input are different conditions; record those conditions when comparing your own attempts. Input stays in page memory, with no draft or server submission, and completion clears raw fields. Public-link sharing contains only the title and URL. Every result includes both complete guides, and repeating the fixed source may involve memory.",
+            "zh": "报告无常模、百分位、雇主线或认证。字符KPH是一分钟折算小时，不证明持续表现，也不数物理按键。手机、实体键盘和辅助输入条件不同，自比时记录条件。输入只在页面内存，无草稿或服务端提交，完成清空原字段；分享只有标题链接。所有结果给两份完整指南，固定来源重做可能含记忆。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dispatch",
+    "directionIds": [
+      "dispatch"
+    ],
+    "title": {
+      "en": "Dispatch forms: codes, dates and exact fields",
+      "zh": "发运表单：代码、日期与精确字段"
+    },
+    "headline": {
+      "en": "Transcribe the displayed value before interpreting it.",
+      "zh": "先原样抄录，再区分含义与文本。"
+    },
+    "summary": {
+      "en": "Review 60-second dispatch-form transcription, leading zeros, exact date and mass text, field denominators, corrections and separate character rates. No norm.",
+      "zh": "完整说明60秒发运表单的前导零、日期重量文本、字段分母、改错与独立字符速率，不对照常模。"
+    },
+    "scoreReading": {
+      "en": "This is a public guide to one 60-second record mode, not a score band or private input record. Actual results separately show final-character KPH, exact-field character KPH and field accuracy, without a hiring norm or a combined ability label.",
+      "zh": "这是某种60秒记录模式的公开指南，不是分数档或私人输入记录。实际结果分别给最终字符KPH、精确字段字符KPH和字段准确率，不对照招聘常模或合成能力标签。"
+    },
+    "seo": {
+      "title": {
+        "en": "Dispatch forms: codes, dates and exact fields | Data Entry",
+        "zh": "发运表单：代码、日期与精确字段｜数据录入"
+      },
+      "description": {
+        "en": "Review 60-second dispatch-form transcription, leading zeros, exact date and mass text, field denominators, corrections and separate character rates. No norm.",
+        "zh": "完整说明60秒发运表单的前导零、日期重量文本、字段分母、改错与独立字符速率，不对照常模。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "The dispatch forms are fictional source material",
+          "zh": "发运表单全部为虚构来源"
+        },
+        "paragraphs": [
+          {
+            "en": "The 32 records each contain a parcel code, a date written YYYY-MM-DD, a mass value written with two decimal places and a route code. They describe no real shipment or customer. Copy the source values rather than generating a tracking number or entering a private address. The same ASCII strings appear in both interface languages, so changing the language does not change the task. This mode practises document-to-field transcription; it does not execute a shipment, validate a carrier database or establish professional logistics competence.",
+            "zh": "32条记录各含包裹代码、YYYY-MM-DD日期、两位小数重量文本和路线代码，不对应真实货件或客户。抄源值，不自己生成单号或填私人地址；两语用相同ASCII源串。本模式练文档到字段的抄录，不发货、不核承运数据库、不认证物流专业胜任。"
+          }
+        ]
+      },
+      {
+        "id": "2-format",
+        "title": {
+          "en": "Preserve the written representation",
+          "zh": "保留原显示形式"
+        },
+        "paragraphs": [
+          {
+            "en": "A source date 2026-04-09 must not become 09/04/2026, even if you intend the same day. A mass written 6.20 must not become 6.2, and a route code EAST-03 must preserve its leading zero and uppercase letters. These are text-matching rules rather than universal rules for every database. A different system might accept equivalent representations after validation; this exercise deliberately requires exact transcription. No actual shipping, accounting or legal requirement is inferred from a mismatch in a fictional practice field.",
+            "zh": "源日期2026-04-09不能改为09/04/2026，即使意指同一天；重量6.20不能改6.2，EAST-03保留前导零和大写。这是本练习文本匹配规则，不是所有数据库通则；别的系统可能验证后接受等价表示，本练习要求原样，不从虚构错项推真实发运、账务或法律后果。"
+          }
+        ]
+      },
+      {
+        "id": "3-example",
+        "title": {
+          "en": "A fresh complete-record calculation",
+          "zh": "另算一次完整记录"
+        },
+        "paragraphs": [
+          {
+            "en": "Take the fictional fields DP-02718-R4, 2026-04-09, 6.20 and EAST-03. Their lengths are 11, 10, 4 and 7, giving 32 final characters. If all four fields are exact in a fixed 60-second round, character KPH and exact-field character KPH both equal 1920. Exact field accuracy is 4/4, or 100%, while the complete-record count is one. Those units remain distinct: one record is not one character, and four exact fields are not four complete records.",
+            "zh": "另设DP-02718-R4、2026-04-09、6.20、EAST-03，长度11、10、4、7，合计32。固定60秒内全对，两种字符KPH均为1920，字段准确率4/4=100%，完整记录数1。记录、字段、字符是不同单位，不能把四个字段说成四条记录。"
+          }
+        ]
+      },
+      {
+        "id": "4-partial",
+        "title": {
+          "en": "One unfinished record affects four fields",
+          "zh": "未填完的记录仍按四字段计"
+        },
+        "paragraphs": [
+          {
+            "en": "If you enter only the exact parcel code from that example and leave the other three fields blank, the attempted record contributes four fields and only one is exact. Accuracy is 25%, final entered characters are 11, and character KPH is 660. Exact-field character KPH also equals 660 because the only entered field is wholly correct. If you then explicitly advance through an empty record, its four blank fields join the denominator. Untouched later records remain outside it; merely viewing a record does not mark it attempted.",
+            "zh": "只录对该包裹代码、其余三字段空白时，纳入四字段、精确一字段，准确率25%，最终11字符、字符KPH660；唯一输入字段完全正确，精确字段字符KPH也为660。再明确跳过一条空记录，其四空字段加入分母；仅显示及之后未触及记录不算。"
+          }
+        ]
+      },
+      {
+        "id": "5-correction",
+        "title": {
+          "en": "Inspect the source before changing a field",
+          "zh": "修正时回看对应源字段"
+        },
+        "paragraphs": [
+          {
+            "en": "Returning to earlier records lets you revise them inside the same clock. Check a code against its own source rather than copying a nearby value into the wrong field. Final exact matching includes case, spacing and punctuation; it does not calculate edit distance or award partial field accuracy. A field of 6.2 against 6.20 is an omission, while east-03 against EAST-03 is a case difference. The report assigns one first-matching description per incorrect field and does not diagnose an underlying attention problem.",
+            "zh": "同一计时内可回到前记录修改，核该字段自己的源值，避免把附近内容抄错栏。精确匹配含大小写空格标点，不算编辑距离、不按近似给字段分。6.2对6.20是漏字，east-03对EAST-03是大小写差；每错字段归首个符合描述，不诊断注意问题。"
+          }
+        ]
+      },
+      {
+        "id": "6-devices",
+        "title": {
+          "en": "Keyboard and timing conditions matter",
+          "zh": "设备和计时条件会改变体验"
+        },
+        "paragraphs": [
+          {
+            "en": "All fields use text inputs so leading zeros, hyphens and decimal points remain available. A mobile keyboard hint is not a guarantee of a particular keyboard layout or an input-validity rule. Hardware keys, touchscreen corrections, suggestions and input methods affect the attempt; no cross-device conversion is established. The start button opens a real 60-second interval. Corrections count against its time, pending IME composition is excluded, and backgrounding or a clock divergence cancels rather than producing a misleading shortened-round rate.",
+            "zh": "使用文本输入框以保留前导零、连字符和小数点；手机键盘提示不保证具体布局，也不负责验证。实体键盘、触屏改错、建议和输入法均会影响条件，未建跨设备换算。开始按钮开启真实60秒，修正耗时算入，未完成组合文字不算，后台或时钟偏差取消而非产出缩短轮次的误导速率。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Read separate metrics and protect private data",
+          "zh": "分开读指标并保护私人资料"
+        },
+        "paragraphs": [
+          {
+            "en": "Character KPH is final committed characters times 60, not a log of keydown events. Exact-field character KPH counts only characters in fields that wholly match. Neither quantity is a population rank, employment judgment or certificate, and a one-minute extrapolation cannot prove hour-long endurance. Use the aggregate counts to choose a specific transcription check, not a fixed personal label. No raw field input is saved as a draft or sent to a server; completion clears it. Sharing uses only the public title and link, and both complete guides remain free.",
+            "zh": "字符KPH为最终提交字符乘60，不是keydown日志；精确字段字符KPH只计整字段全对的字符。两者都非人群排名、就业判定或证书，一分钟也不证明一小时耐力。用汇总选具体核对方法，不贴固定标签。原始输入不存草稿、不送服务端，完成清空；分享只有公开标题链接，两份完整指南免费。"
+          }
+        ]
+      }
+    ]
+  }
+]
