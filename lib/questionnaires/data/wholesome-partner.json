@@ -1,0 +1,3379 @@
+{
+  "slug": "wholesome-partner",
+  "code": "FM_WHOLESOME_PARTNER_PRACTICES_ORIGINAL32",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "健康伴侣相处测试",
+    "en": "Wholesome Partner Test"
+  },
+  "resultHeading": {
+    "zh": "八组伴侣相处行动的完整读法",
+    "en": "Eight complete partner-behavior readings"
+  },
+  "description": {
+    "zh": "免费完成32道原创题，分别读守约、选择空间、回应、求助、真实偏好、理解立场、期待协商与分歧修复。八组均分和完整说明全部免费，不给伴侣判好坏。",
+    "en": "Reflect on 32 original questions about partner interactions. Read eight separate keyed means and all full guides, free. No healthy or toxic-person verdict."
+  },
+  "seoTitle": {
+    "zh": "健康伴侣相处测试：32题与8组完整结果",
+    "en": "Wholesome Partner Test: 32 Questions & Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "“健康伴侣”描述这份测试关心的话题，不是任何人的认证称号。费马原创32题回顾过去四周自己在一段亲密关系中的行动，八组分别看，不生成健康／有毒标签、总分或关系成功概率。每组完整读法作答前即可读。",
+    "en": "“Wholesome partner” names the topic, not a certificate about anyone. These 32 FermatMind original items reflect on your actions in one close relationship during the past four weeks. Read eight groups separately, without a healthy/toxic label, combined total or relationship-success probability. Every full guide is public before answering."
+  },
+  "instructions": {
+    "zh": "请选择过去四周的一段亲密关系，只回顾自己的行动；有机会时，这类行动发生得多频繁？没有伴侣、没有对应机会或无法判断时请选择未经历／无法判断。无需提供姓名或经历详情，也不要替伴侣作答、测试别人或进入不安全的互动来完成题目。",
+    "en": "Choose one close relationship from the past four weeks and describe only your own actions. How often did this happen when an opportunity arose? Without a partner, a relevant opportunity or a clear recollection, select not experienced / cannot judge. No names or event details are needed. Do not answer for a partner, test someone else or enter an unsafe interaction to complete the items."
+  },
+  "source": {
+    "kind": "FermatMind-original-partner-behavior-reflection-not-published-scale",
+    "formCode": "fm_original_wholesome_partner_32_v1",
+    "itemBankVersion": "1.0.0-original-not-validated",
+    "scoringVersion": "1.0.0-eight-separate-keyed-means",
+    "resultContentVersion": "1.0.0-original-eight-full-guides",
+    "itemBankSha256": "df8bd5602a3b7199c7329fa8132cb11de9b05fb9b435483490cb3a745a84cf50",
+    "resultContentSha256": "b2e3988972b5515fce925ede84c2d21094328a7fb4725e6d1a74512e8268e91a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "realistic-follow-through",
+      "title": {
+        "zh": "守住可行约定",
+        "en": "Following Through Within Real Limits"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "respecting-autonomy",
+      "title": {
+        "zh": "给彼此选择空间",
+        "en": "Respecting Each Other’s Choices"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "responsive-checking-in",
+      "title": {
+        "zh": "先确认需要再回应",
+        "en": "Checking What Response Is Wanted"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "requesting-support",
+      "title": {
+        "zh": "具体地请求支持",
+        "en": "Asking for Bounded Support"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "honest-preferences",
+      "title": {
+        "zh": "温和地表达真实偏好",
+        "en": "Expressing Preferences Honestly"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "understanding-perspectives",
+      "title": {
+        "zh": "核对对方的感受与立场",
+        "en": "Checking the Other Person’s Perspective"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "negotiating-expectations",
+      "title": {
+        "zh": "把期待谈成可行安排",
+        "en": "Negotiating Realistic Expectations"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "clear-repair-talk",
+      "title": {
+        "zh": "把分歧转成具体修复",
+        "en": "Talking Through Disagreement and Repair"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "WHOLESOME_01",
+      "prompt": {
+        "zh": "答应一件小事前，我先核对了自己的时间或精力。",
+        "en": "Before agreeing to a small task, I checked the time or energy I had available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "realistic-follow-through"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_07",
+      "prompt": {
+        "zh": "对方想单独安排一段时间时，我用内疚或冷淡让对方改变主意。",
+        "en": "When the other person wanted some time alone, I used guilt or coldness to change their mind."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "respecting-autonomy"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_09",
+      "prompt": {
+        "zh": "听到对方说最近不顺时，我先问希望被倾听还是一起想办法。",
+        "en": "When the other person described a difficult time, I asked whether they wanted listening or help with ideas."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "responsive-checking-in"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_15",
+      "prompt": {
+        "zh": "我不说明需要什么，却期待对方猜中，并因没猜中而生气。",
+        "en": "I left a need unspoken, expected the other person to guess it, and became angry when they did not."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "requesting-support"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_17",
+      "prompt": {
+        "zh": "面对一个普通选择，我说出了自己的真实偏好，也听取对方的想法。",
+        "en": "For an everyday choice, I stated my real preference and listened to the other person’s view."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "honest-preferences"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_23",
+      "prompt": {
+        "zh": "我把对方的烦恼与别人的经历比较，并说这不值得难过。",
+        "en": "I compared the other person’s concern with someone else’s experience and said it was not worth being upset about."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "understanding-perspectives"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_25",
+      "prompt": {
+        "zh": "讨论联系频率或见面安排时，我说清了自己的期待，也询问对方能做到什么。",
+        "en": "When discussing contact or meeting plans, I explained my expectation and asked what the other person could manage."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "negotiating-expectations"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_31",
+      "prompt": {
+        "zh": "发生小分歧时，我翻出无关的旧事，让对方一起认错。",
+        "en": "During a minor disagreement, I brought in unrelated past events and demanded an apology for all of them."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "clear-repair-talk"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_03",
+      "prompt": {
+        "zh": "为了让当时的气氛好一点，我答应了自己很可能做不到的事。",
+        "en": "To make the moment feel better, I agreed to something I was unlikely to manage."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "realistic-follow-through"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_05",
+      "prompt": {
+        "zh": "对方拒绝一项非必要的邀请后，我接受了这个决定。",
+        "en": "After the other person declined an optional invitation, I accepted that decision."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "respecting-autonomy"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_11",
+      "prompt": {
+        "zh": "对方正在说一件在意的事时，我没有说明就把话题转回自己。",
+        "en": "While the other person was discussing something important to them, I redirected the conversation to myself without acknowledging it."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "responsive-checking-in"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_13",
+      "prompt": {
+        "zh": "需要一点帮助时，我说明了希望对方具体做什么。",
+        "en": "When I needed a little help, I explained the specific action I was asking for."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "requesting-support"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_19",
+      "prompt": {
+        "zh": "我口头说都可以，之后却因对方没有选中自己的偏好而责怪对方。",
+        "en": "I said any option was fine, then blamed the other person for not choosing my unstated preference."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "honest-preferences"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_21",
+      "prompt": {
+        "zh": "与对方意见不同时，我先复述自己听到的意思，再问理解得对不对。",
+        "en": "When we disagreed, I summarized what I had heard and checked whether I had understood correctly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "understanding-perspectives"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_27",
+      "prompt": {
+        "zh": "我把没有事先商量的关系规则，当作对方本来就该遵守的标准。",
+        "en": "I treated an unspoken relationship rule as a standard the other person should already have known to follow."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "negotiating-expectations"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_29",
+      "prompt": {
+        "zh": "讨论一件不满时，我指出具体发生了什么，以及希望接下来怎样做。",
+        "en": "When raising a concern, I described what had happened and what I wanted us to do next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "clear-repair-talk"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_02",
+      "prompt": {
+        "zh": "发现原来的安排做不到时，我及时说明并一起重订计划。",
+        "en": "When I could not keep an arrangement, I explained this in time and helped revise it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "realistic-follow-through"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_08",
+      "prompt": {
+        "zh": "即使对方已经说不，我仍反复劝说，直到得到想要的答复。",
+        "en": "Even after the other person had said no, I kept pressing until I got the answer I wanted."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "respecting-autonomy"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_10",
+      "prompt": {
+        "zh": "对方明确提出一个小请求后，我给了清楚的答复，包括自己做不到的部分。",
+        "en": "After a clear, small request, I gave a definite response, including what I could not do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "responsive-checking-in"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_16",
+      "prompt": {
+        "zh": "我把一项普通的求助说成对方必须立刻完成的义务。",
+        "en": "I presented an ordinary request for help as an obligation the other person had to meet immediately."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "requesting-support"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_18",
+      "prompt": {
+        "zh": "发现自己的想法改变时，我主动说明变化，而不让对方继续照旧猜测。",
+        "en": "When my view changed, I explained the change rather than leaving the other person to assume it was unchanged."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "honest-preferences"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_24",
+      "prompt": {
+        "zh": "我只凭自己的感受，就断定对方一定也有同样的感受。",
+        "en": "I assumed the other person must feel the same way simply because that was how I felt."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "understanding-perspectives"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_26",
+      "prompt": {
+        "zh": "遇到工作、学习或照顾事务带来的变化时，我与对方重新商量了安排。",
+        "en": "When work, study or caring responsibilities changed, I renegotiated the arrangement with the other person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "negotiating-expectations"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_32",
+      "prompt": {
+        "zh": "我用持续不回应来让对方让步，却不说明是否需要暂停或何时会回来沟通。",
+        "en": "I kept withholding a response to make the other person give in, without explaining a pause or when I would return to the conversation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "clear-repair-talk"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_04",
+      "prompt": {
+        "zh": "原先答应的事情没完成时，我让对方自己来追问进展。",
+        "en": "When I had not completed something I had agreed to do, I left the other person to chase an update."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "realistic-follow-through"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "realistic-follow-through"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_06",
+      "prompt": {
+        "zh": "涉及两人共同的时间或物品时，我先商量再安排。",
+        "en": "Before making plans involving shared time or belongings, I discussed them with the other person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "respecting-autonomy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "respecting-autonomy"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_12",
+      "prompt": {
+        "zh": "对方说我的回应没有帮上忙时，我坚持说对方应该接受我的好意。",
+        "en": "When the other person said my response had not helped, I insisted they should accept my good intentions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "responsive-checking-in"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "responsive-checking-in"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_14",
+      "prompt": {
+        "zh": "提出请求时，我给对方留出了说明是否方便的空间。",
+        "en": "When making a request, I left room for the other person to say whether they were available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "requesting-support"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "requesting-support"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_20",
+      "prompt": {
+        "zh": "为了赢得一场小争论，我歪曲了先前说过的话。",
+        "en": "To win a minor disagreement, I distorted what I had previously said."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "honest-preferences"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "honest-preferences"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_22",
+      "prompt": {
+        "zh": "对方的情绪与我预期不同时，我询问了背景，而不是替对方下结论。",
+        "en": "When the other person reacted differently from what I expected, I asked about the context instead of deciding what their reaction meant."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "understanding-perspectives"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "understanding-perspectives"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_28",
+      "prompt": {
+        "zh": "即使对方解释了现实限制，我仍要求保持原先设想的相处节奏。",
+        "en": "Even after the other person explained practical limits, I demanded the pace of contact I had originally imagined."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "negotiating-expectations"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "negotiating-expectations"
+        }
+      ]
+    },
+    {
+      "id": "WHOLESOME_30",
+      "prompt": {
+        "zh": "谈话太激动需要暂停时，我说明了暂停的原因，并约定何时再联系。",
+        "en": "When a conversation became too heated, I explained a pause and agreed on when to reconnect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "clear-repair-talk"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "clear-repair-talk"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "realistic-follow-through",
+      "directionIds": [
+        "realistic-follow-through"
+      ],
+      "title": {
+        "zh": "守住可行约定：让行动跟上答应的事",
+        "en": "Following Through: Making Agreements You Can Keep"
+      },
+      "headline": {
+        "zh": "把关心放进可兑现的安排",
+        "en": "Put care into arrangements you can actually keep"
+      },
+      "summary": {
+        "zh": "核对承诺前的余量、安排变化时的说明及实际跟进；分清一次失约、资源限制与反复让人追问。",
+        "en": "Review capacity before agreeing, updates when plans change, and practical follow-through. Distinguish a missed arrangement from resource limits and a repeated need for chasing."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：守住可行约定与跟进",
+          "en": "Wholesome Partner Result: Following Through"
+        },
+        "description": {
+          "zh": "阅读守约与跟进这一组的完整结果：四题正反向计分、跳过时的不足、具体对话、反例及可选择的一次小练习。不评判伴侣价值或关系结局。",
+          "en": "Read four follow-through items, reverse scoring, missing answers, realistic examples and a small optional exercise. No verdict on a person or relationship."
+        }
+      },
+      "scoreReading": {
+        "zh": "核对余量、及时说明为正向；勉强答应、等待追问为反向。四题全部有频率作答才求均分：正向保留1—5，反向用6减原值，四题和4—20，除以4后显示一位小数。任一跳过则这组资料不足；八组不相加或排序。",
+        "en": "Capacity checks and timely updates keep their 1–5 values; overpromising and leaving updates to be chased use 6 minus the response. All four frequency responses give a sum of 4–20 and a mean shown to one decimal. Any skip leaves this group insufficient. The eight groups are not combined or ranked."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这四题观察什么",
+            "en": "What these four items observe"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组关注关心如何落进普通约定：答应之前有没有查看时间和精力，计划行不通时有没有及时说明，以及是否需要另一人反复追问。对象是过去四周你在一个自选关系中的行动，并不考查是否从不犯错，也不要求你承担对方的一切需要。可靠可以包含说做不到，因为一个清楚、及时的拒绝，比没有把握却先答应更便于双方安排。",
+              "en": "This group concerns what happens around ordinary agreements: checking your capacity before saying yes, giving a useful update when a plan becomes impractical, and avoiding a situation in which the other person must repeatedly chase you. It describes actions you recall in one chosen relationship during the past four weeks. It does not require perfect performance or unlimited availability. A clear, timely refusal can be dependable: it gives both people information they can use."
+            },
+            {
+              "zh": "请同时记住现实条件。突发照顾任务、疾病、工作变动或交通问题都可能影响原安排。结果不能区分每次变化的原因，也不能证明谁更在乎。你可以回看一件具体的小事：当时答应了什么、后来知道了什么、双方实际怎样调整。不要用回忆中的总体印象替代这些细节。",
+              "en": "Circumstances matter. Unexpected caring responsibilities, illness, changes at work or disrupted travel can affect a plan. These answers cannot identify the cause of each change or show who cares more. For a useful reading, return to one small event: what was agreed, what became known later, and how the arrangement was revised. Those details are more informative than a general impression that you are always reliable or always disappointing."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "把均分还原成四个作答",
+            "en": "Reconstruct the mean from four responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "按核对余量、说明变化、勉强答应、等待追问的顺序，例如四题选择5、4、2、1，前两题保留5和4，后两题反向得到4和5，原始评分和为18，18÷4＝4.5。两道反向题不是惩罚：它们描述先答应或让对方追问这类相反方向的行动。显示值只是这四项经过编码的作答平均，不是人口百分位、关系成功率或道德成绩。",
+              "en": "In the order capacity check, update, overpromising and leaving an update to be chased, responses of 5, 4, 2 and 1 become 5, 4, 4 and 5 after reversing the last two items. Their sum is 18, so the displayed mean is 18 ÷ 4 = 4.5. Reversal is not a punishment. It aligns statements about overpromising or leaving someone to chase an update with statements about checking and following through. The resulting mean is a summary of coded responses, not a population percentile, success probability or moral grade."
+            },
+            {
+              "zh": "四题任何一题选择未经历／无法判断，这一组便显示资料不足，不以3补入，也不把其余题缩放成完整结果。其他有四题有效作答的组仍可独立阅读。若出现例如13÷4＝3.25，会显示3.3；这属于一位小数的取整，不代表能精确测出人与人之间0.1的差异。不要按八组的最高值给自己派型。",
+              "en": "If any of the four items is marked not experienced or cannot judge, this group remains insufficient. A skipped item is not replaced by 3, and the remaining answers are not rescaled into a complete result. Other fully answered groups remain readable. A mean such as 13 ÷ 4 = 3.25 displays as 3.3. That rounding does not establish that a difference of 0.1 between two people is meaningful. Do not use the highest of the eight means to assign a personality type."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "在日常安排里怎样辨认",
+            "en": "Recognize the pattern in everyday arrangements"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的作答组合，可能对应这样的经历：答应周末一起买东西前查看了日程，后来临时加班便提早告知，并询问能否换到另一天。比较靠近1的组合，可能对应为了结束当下讨论而先答应，之后不说明变化，直到对方来追问。中间的均分可能包含两类行动并存，也可能只是某两题与另外两题不同；必须回看题目，不能从一个数字推断全部经历。",
+              "en": "Responses nearer 5 might fit an occasion when you checked your diary before agreeing to shop together, then gave an early update about unexpected work and asked whether another day would work. Responses nearer 1 might fit agreeing mainly to end a conversation, then providing no update until the other person asked. A middle mean may reflect a mixture of those actions, or a split between particular items. Read the individual statements before deciding what the number describes."
+            },
+            {
+              "zh": "反例同样重要：有人答应很少，但每件都清楚落实；也有人因为资源紧张经常改约，却每次都有及时说明与协商。两种人都不应仅因完成数量少而被判成不可靠。相反，一个人可以按时出现，却在其他方面不尊重界限。守约这一组不能代替对尊重、回应或安全的独立观察。",
+              "en": "Counterexamples matter. Someone may make few commitments and handle each clearly. Another person may need frequent changes because resources are tight, while still communicating promptly and negotiating respectfully. Neither should be called unreliable merely because fewer plans were completed. Conversely, arriving on time does not demonstrate respect for boundaries in other situations. This group cannot replace separate attention to autonomy, responsiveness or safety."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "可靠与可用之间要有边界",
+            "en": "Distinguish dependability from constant availability"
+          },
+          "paragraphs": [
+            {
+              "zh": "为了提高分数而拒绝所有新安排，并不会使关系自动变好；为了表现可靠而牺牲休息、钱或重要责任，也不是本题的目标。可持续的承诺需要双方知道哪些事情已经确定、哪些仍需确认。你可以把“我希望能帮忙”与“我已经答应这件事”分开说，避免好意被误认为保证。",
+              "en": "Declining every new arrangement to protect a score would not automatically improve a relationship. Neither would sacrificing rest, money or important responsibilities to appear dependable. Sustainable commitments require both people to know what is settled and what still needs checking. It can help to distinguish wanting to help from having made a definite agreement. Good intentions are easier to act on when they are not mistaken for guarantees."
+            },
+            {
+              "zh": "如果对方把任何合理改约都当成背叛，问题不能只靠你更努力守约来解决。可以在安全、双方愿意的前提下澄清怎样通知、何时重订以及哪些紧急情形难以预告。结果不要求你证明忠诚，也不要求展示通讯记录、行踪或私人日程来换取信任。",
+              "en": "If every reasonable change is treated as a betrayal, trying harder to keep plans cannot address the whole problem. Where it is safe and mutually wanted, discuss how updates should be given, when to reschedule, and which emergencies are difficult to predict. This result does not ask you to prove loyalty by showing messages, movements or a private calendar. Dependability is not a reason to surrender control over personal information."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "只选一件低风险的小约定",
+            "en": "Try one low-stakes agreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以试一句具体的话：“这周我能一起处理半小时，但不能负责全部；我明晚确认时间，做不到会提前告诉你。”对方可以接受、拒绝或提出别的安排。留意这句话是否把事项、范围和下一次确认说清楚，而不是是否让对方立即满意。这里的句子是可调整的示例，不是必须照做的沟通处方。",
+              "en": "One optional example is: “I can help for half an hour this week, but I cannot take on the whole task. I will confirm a time tomorrow evening and let you know early if it will not work.” The other person can accept, decline or suggest another arrangement. Notice whether the task, limit and next update are clear, rather than whether the sentence produces instant approval. Adapt the wording to your circumstances; it is an example, not a prescribed script."
+            },
+            {
+              "zh": "若想做私人观察，只记下一件普通约定、自己当时掌握的信息和是否及时更新，不记录对方的秘密，也不把清单当作追责证据。下一次回看时问：安排是否更容易理解？哪项资源限制需要更早说明？你也可以不记录、不重测，直接在这里结束。",
+              "en": "For a private observation, note one ordinary agreement, what you knew at the time, and whether an update was timely. Do not record the other person’s secrets or turn the note into a case against them. On a later review, ask whether the arrangement became easier to understand and which limitation could have been mentioned earlier. Keeping a record and retaking the questionnaire are optional. You may simply finish here."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "这份读法不能保证什么",
+            "en": "What this reading cannot guarantee"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自我观察内容，不是IDRlabs题库的译文或已验证心理量表。四道题没有覆盖可靠性的所有含义，近期机会、记忆和自我呈现都会影响作答。高均分不能认证好伴侣，低均分也不说明一个人有毒、不值得爱或一定会分手。八组解释可以并存，不合成一份关系健康结论。",
+              "en": "This is FermatMind original reflection content, not a translation of the IDRlabs bank or a validated psychological scale. Four items cannot cover every meaning of dependability, and recent opportunities, memory and self-presentation can affect responses. A higher mean does not certify a good partner. A lower mean does not show that a person is toxic, unlovable or headed for a breakup. The eight readings coexist without becoming an overall relationship-health verdict."
+            },
+            {
+              "zh": "若相处包含威胁、强迫、跟踪或暴力，不要把这些当成普通改约或双方沟通技巧不足，也不必为了完成练习而发起可能不安全的对话。优先考虑自己的安全与可信任的支持。可另读本产品的界限与修复说明，或查阅公开的健康关系资源；这些资源提供一般背景，不是本题计分已经通过验证的证据。",
+              "en": "If an interaction includes threats, coercion, stalking or violence, do not reduce it to a scheduling problem or a shared lack of communication skills. You do not need to start a potentially unsafe conversation in order to complete an exercise. Prioritize safety and trusted support. You may read the other boundary and repair guides or consult public relationship resources. Those resources offer general background; they do not validate this questionnaire’s scoring."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "respecting-autonomy",
+      "directionIds": [
+        "respecting-autonomy"
+      ],
+      "title": {
+        "zh": "给彼此选择空间：听见拒绝与共同商量",
+        "en": "Respecting Choices: Hearing No and Making Shared Decisions"
+      },
+      "headline": {
+        "zh": "亲近也容得下不同意",
+        "en": "Closeness can leave room for disagreement"
+      },
+      "summary": {
+        "zh": "回看邀请被拒、个人时间及共同安排时自己的回应，辨别商量与持续施压。拒绝不是一道需要攻克的题。",
+        "en": "Look at your responses to declined invitations, personal time and shared arrangements. Distinguish a discussion from sustained pressure; a refusal is not an obstacle to overcome."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：选择空间与尊重界限",
+          "en": "Wholesome Partner Result: Respecting Choices"
+        },
+        "description": {
+          "zh": "完整理解选择与界限这一组：四题均分、反向计分、跳过、尊重与施压的具体反例，以及可选择的共同安排练习。不替任何人认证关系安全。",
+          "en": "Understand four autonomy items, reverse scoring, skipped answers and the difference between discussion and pressure. Includes examples and an optional exercise."
+        }
+      },
+      "scoreReading": {
+        "zh": "接受拒绝、共同商量为正向；用内疚或冷淡施压、反复劝说为反向。正向保留1—5，反向用6减原值。四题全有频率作答才求和4—20，除以4显示一位小数。任一跳过，这组资料不足；八组不相加或排序。",
+        "en": "Accepting refusals and discussing shared plans keep their 1–5 values. Using guilt or coldness and persisting after a refusal use 6 minus the response. All four frequency answers give a sum of 4–20 and a mean shown to one decimal. Any skip leaves this group insufficient. The eight groups are not combined or ranked."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "尊重选择不等于凡事同意",
+            "en": "Respecting a choice does not require agreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "这四题观察你怎样回应对方的自主选择：一项非必要邀请被拒后能否停止施压，涉及共同时间或物品时是否先讨论，以及会不会用内疚、冷淡或反复劝说迫使对方让步。尊重并不意味着没有自己的想法。你可以失望、提出一个替代方案，也可以说明共同安排对自己的影响；关键是另一人是否仍有真正拒绝或协商的空间。",
+              "en": "These four items concern how you respond to another person’s choices: whether pressure stops after an optional invitation is declined, whether shared time or belongings are discussed before plans are made, and whether guilt, coldness or repeated persuasion is used to obtain agreement. Respect does not mean having no preference. You can feel disappointed, suggest an alternative or explain how a shared decision affects you. The question is whether the other person retains a real opportunity to decline or negotiate."
+            },
+            {
+              "zh": "个人选择与共同责任需要分开。对方独自参加一项活动，不等于共同照顾任务可以无人处理；共同承担的事务则需要明确分工，而不是谁声音大谁决定。回忆一个具体事件时，先辨认是哪一种问题。结果只记录你的自报行为，不能据此推断对方是否尊重你，也不能替关系中的任何一方划定所有合理界限。",
+              "en": "Distinguish personal choices from shared responsibilities. Someone’s independent activity does not make a jointly agreed caring task disappear. Shared responsibilities need an explicit arrangement rather than a decision made by whoever presses harder. When recalling an event, identify which issue was involved. The result records your reported actions. It does not reveal whether the other person respects you or settle every question about what boundaries should be reasonable in your relationship."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "四题怎样形成这一组读数",
+            "en": "How four responses produce this reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "按接受拒绝、共同商量、以冷淡施压、反复劝说的顺序，例如四题选择4、3、3、2，正向两题为4、3，反向两题为3、4，总和14，14÷4＝3.5。它表示这四个编码作答的平均，不代表尊重了70%的边界，也不是比另外一个人更尊重别人。反向题回顾的是施压行为；较少报告这类行为，会得到较高的反向编码值。",
+              "en": "In the order accepting a refusal, discussing a shared plan, using guilt or coldness, and pressing again, responses of 4, 3, 3 and 2, the first two values stay 4 and 3. The last two become 3 and 4 after reversal, giving a sum of 14 and a mean of 14 ÷ 4 = 3.5. This does not mean you respected 70% of someone’s boundaries or were more respectful than another person. The reverse items describe pressure: reporting it less often produces a higher recoded value."
+            },
+            {
+              "zh": "这里没有及格线、低中高人群档位或关系安全阈值。四题任何一题选择未经历／无法判断，这组显示资料不足；不把跳过当作从未施压，也不补成中间值。均分显示一位小数，原始和也一起保留，方便你自己复算。八组都可以阅读，即使多个均分相同也不需要强行选一个主导类型。",
+              "en": "There is no pass mark, population-based low or high band, or relationship-safety threshold. Any not experienced or cannot judge answer leaves this group insufficient. A skip is not interpreted as never having applied pressure and is not filled with a midpoint. The mean displays one decimal, alongside the raw sum so you can reconstruct it. All eight guides remain readable. Equal means do not require selecting a dominant type."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "商量与施压可能只差一步",
+            "en": "Distinguish discussion from pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如对方周日想自己休息，你可以说明自己希望一起吃饭，再问是否愿意改到下周。若对方仍拒绝，停止劝说并安排自己的时间，是一种可能的尊重方式。相反，反复说“你在乎我就会答应”，或用持续冷淡让对方收回决定，就把选择变成了关系证明。这些是行为示例，不是用来给某个人贴标签的判断清单。",
+              "en": "Suppose the other person wants to rest alone on Sunday. You can explain that you hoped to share a meal and ask whether next week would suit them. If they still decline, stopping the persuasion and making your own plans is one possible respectful response. Repeatedly presenting agreement as proof of care, or maintaining coldness until the decision changes, makes the choice a relationship test. These are behavioral examples, not a checklist for labeling a person."
+            },
+            {
+              "zh": "反例是共同事务中的正常追问：“周日你需要独处我明白，但我们约好的接送谁来负责？”这不必然是控制，而可能是在补齐分工。另一个反例是你拒绝开放手机、身体接触或不想做的活动。保留自己的界限并不因为令对方失望，就成为低分行为。题目不是要求你把自主权让出去。",
+              "en": "A counterexample is a practical question about a shared task: “I understand you need Sunday alone; who will handle the pickup we agreed on?” That may clarify responsibility rather than control a personal choice. Another counterexample is declining access to your phone, physical contact or an activity you do not want. Keeping your own boundary is not a lower-scoring behavior simply because it disappoints someone. The items do not ask you to give up your autonomy."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "别把一方沉默误读成双方同意",
+            "en": "Do not mistake silence for a shared decision"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合，可能反映较常先商量、较少使用所列施压方式；但它没有测出每次交流中的权力差异。一个人不再反对，可能是同意，也可能是不想继续承受压力。与其把最终答应当作唯一证据，不如留意双方是否可以提出不同想法、改变主意或推迟决定，而不用承担羞辱或报复。",
+              "en": "Responses nearer 5 may reflect more frequent discussion and less frequent use of the listed pressure behaviors. They do not measure the power differences in each exchange. Someone who stops objecting may agree, or may want the pressure to end. Rather than treating the final yes as the only evidence, consider whether both people could offer alternatives, change their minds or postpone a decision without humiliation or retaliation."
+            },
+            {
+              "zh": "较靠近1或居中的组合，值得回看具体是哪道题拉低或拉高读数，不必把整个关系推翻。也不建议把自己的答案交给对方，要求对方证明你没有施压。若你注意到自己反复逼迫别人，可从停止追问、承认影响和允许对方不回应开始；对方没有义务立即原谅，也不需要配合完成这个练习。",
+              "en": "For a mean nearer 1 or in the middle, examine which statements contributed rather than drawing a conclusion about the whole relationship. Do not give the answers to the other person as a demand that they confirm you were not pressuring them. If you notice repeated pressure in your own behavior, a starting point may be to stop pressing, acknowledge the impact and allow no response. The other person is not obliged to forgive immediately or participate in your exercise."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "练习提出一个可拒绝的邀请",
+            "en": "Make one invitation that can genuinely be declined"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以在一次低风险安排里说：“我想周六一起走走；如果你想自己待着也可以，我们再看别的时间。”只有当自己愿意接受拒绝时才使用这句话，不把“可以拒绝”当成试探。若涉及共同任务，再单独商量任务如何处理，不把个人时间和已经承担的责任混在一起。",
+              "en": "For a low-stakes plan, you might say: “I would enjoy a walk together on Saturday. If you want time alone, that is okay; we can consider another day.” Use this only if you are prepared to accept a refusal, not as a test of whether the person chooses you anyway. If a shared task is involved, discuss how that task will be handled separately. Keep personal time distinct from responsibilities that have already been agreed."
+            },
+            {
+              "zh": "私人回看可以只写：自己提出了什么、对方有哪些可选回应、自己听到不同意见后做了什么。不记录对方的私人信息，也不让对方为你的分数打证明。下一次只调整一个动作，例如第一次拒绝后停止重复邀请。观察的是你能否把选择留给对方，不是能否更有效地说服对方。",
+              "en": "A private review can be limited to what you asked, which responses were genuinely available, and what you did after hearing a different preference. Do not record private information or ask the other person to certify your score. Next time, change just one action, such as stopping repeated invitations after an initial refusal. The observation concerns whether you leave the choice with the other person, not whether you become more effective at persuasion."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "界限需要独立看待安全",
+            "en": "Consider safety separately from this mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份费马原创四题读法未经心理测量验证，也没有获得IDRlabs或其他机构的量表授权背书。一次自报不能认证你尊重所有界限，更不能替对方说明感受。高分不是没有伤害的证明，低分也不是人格诊断。若想继续，可另读具体请求支持或清楚修复的完整指南；各组都不相互抵销。",
+              "en": "This FermatMind original four-item reading has not undergone psychometric validation and is not endorsed as a scale by IDRlabs or another organization. One self-report cannot certify respect for every boundary or speak for the other person’s experience. A higher value is not proof that no harm occurred; a lower value is not a personality diagnosis. If useful, read the full guides on requesting support or repair talk. Values in one group do not cancel those in another."
+            },
+            {
+              "zh": "威胁、强迫、跟踪与暴力不能用其他方面的体贴来抵销，也不应当被解释成彼此不够会沟通。若拒绝可能带来危险，不必为了实践这份指南而当面争辩或披露自己的计划。先考虑安全和可信任的支持，按自己的情况选择一般关系资源或其他帮助。停止作答或关闭页面也是可以的。",
+              "en": "Threats, coercion, stalking and violence are not canceled by consideration in other areas and should not be explained away as a shared communication problem. If refusing could create danger, you do not need to confront someone or disclose your plans to practice this guide. Consider safety and trusted support first, and choose general relationship resources or other assistance appropriate to your circumstances. You may also stop the questionnaire or close the page."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsive-checking-in",
+      "directionIds": [
+        "responsive-checking-in"
+      ],
+      "title": {
+        "zh": "先确认需要再回应：让支持对得上当下",
+        "en": "Responsive Checking-In: Match Support to the Moment"
+      },
+      "headline": {
+        "zh": "先听见需要，再决定怎样帮忙",
+        "en": "Find out what is needed before deciding how to help"
+      },
+      "summary": {
+        "zh": "回看倾听、建议和明确答复的四种行动，区分支持的好意与实际回应。不把快速回复等同关心。",
+        "en": "Review four actions around listening, suggestions and clear replies. Distinguish good intentions from a response that fits; a quick message is not a measure of care."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：回应需要与倾听",
+          "en": "Wholesome Partner Result: Responsive Checking-In"
+        },
+        "description": {
+          "zh": "完整阅读回应需要这一组：倾听与建议的区别、四题反向计分、跳过与均分、具体对话及一次可选的小尝试。无需持续在线或替伴侣读心。",
+          "en": "Read four self-reported response habits, scoring and missing answers. Compare listening with advice and try one check-in. Full free guide, no mind reading."
+        }
+      },
+      "scoreReading": {
+        "zh": "询问需要、清楚答复为正向；话题转回自己、坚持好意已足够为反向。正向保留1—5，反向用6减原值。四题全有频率作答时合计4—20，除以4显示一位小数；任一跳过则这组资料不足。它不是回复速度、共情能力或爱意强度。",
+        "en": "Checking what is wanted and giving a clear reply keep their 1–5 values. Redirecting to yourself and insisting on good intentions use 6 minus the response. All four frequency answers give a sum of 4–20 and a mean shown to one decimal. Any skip leaves this group insufficient. It does not measure reply speed, empathy ability or strength of love."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "回应需要与替人决定不同",
+            "en": "Responding differs from deciding for someone"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组关注一种很具体的转换：先弄清对方此刻希望得到倾听、建议还是一项实际帮助，再说明自己能否回应。它也回看你有没有把话题直接转向自己，或在对方说没得到帮助时坚持好意已经足够。四题没有检查你猜得准不准，更不要求你预先知道对方所有需要。",
+              "en": "This group concerns a particular sequence: finding out whether the other person wants listening, ideas or a practical action, then being clear about whether you can respond. It also asks about redirecting the conversation to yourself and insisting that good intentions should be enough after someone says the response did not help. The four items do not test how accurately you read emotions or require you to anticipate every need."
+            },
+            {
+              "zh": "回顾时请选择过去四周中的真实相处，而不是理想中你想怎样支持人。一次明确的“我现在没法认真听，晚饭后有二十分钟可以吗”，也可以比一边忙别的事一边仓促给建议更贴近需要。这里不是比较谁更温暖，而是观察是否确认过需要、说清过可提供的回应，并允许对方解释什么没有帮上忙。",
+              "en": "Use actual interactions from the past four weeks rather than how you ideally want to support someone. A clear offer to listen for twenty minutes after dinner may fit better than hurried advice given while doing something else. The purpose is not to compare who is warmer. It is to consider whether you checked what was wanted, explained what you could offer, and allowed the other person to say what had not been helpful."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "用原始作答核对这一组",
+            "en": "Check this reading against the responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "按询问需要、清楚答复、转回自己、坚持好意的顺序，例如四题为3、4、4、2，前两题保留3、4，后两题反向为2、4，评分和为13。13÷4＝3.25，显示3.3。3.3不是“回应合格”，也不是支持成功的33%或66%；它只是四项编码作答在一位小数下的显示。请同时回看是哪项经常发生、哪项少有机会。",
+              "en": "In the order checking what is wanted, replying clearly, redirecting to yourself and insisting on good intentions, responses of 3, 4, 4 and 2 contribute 3, 4, 2 and 4 after reversing the last two items. The sum is 13; 13 ÷ 4 = 3.25 displays as 3.3. That is not a pass mark or a 33% or 66% rate of successful support. It is a one-decimal display of four coded responses. Read it alongside the individual actions and whether opportunities to practice them actually arose."
+            },
+            {
+              "zh": "任一题选择未经历／无法判断，这组便没有完整均分。跳过不是不关心，也不以中间值代填；其他组有完整作答时仍可读。即使八组均分刚好相同，也不会生成一个新的性格标签。各组涉及不同情境，分数相近不证明行为相同，分数不同也不证明一项能力强于另一项。",
+              "en": "Any not experienced or cannot judge response leaves the group without a complete mean. A skip does not mean you did not care and is not replaced with a midpoint. Fully answered groups remain readable. Even if all eight means match, no new personality label is generated. The groups concern different situations: similar values do not establish identical behavior, and different values do not show that one ability is stronger than another."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "同一件事可能需要不同回应",
+            "en": "The same event can call for different responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如对方说开会被打断后很烦，一次可行回应是先问：“你想先说完，还是想一起想下次怎么办？”如果想倾诉，就听完并核对自己听到的重点；如果希望找办法，再讨论一个具体选择。直接说“你就应该强硬一点”，未必回应了当时的需要，即使建议有时可能有用。",
+              "en": "Suppose the other person is upset after being interrupted in a meeting. You might first ask whether they want to talk it through or consider what to do next time. If they want to be heard, listen and check the main point you understood. If they want ideas, discuss one concrete option. Immediately telling them to be more assertive may miss what they wanted, even if that suggestion could be useful in a different moment."
+            },
+            {
+              "zh": "反例是紧急的实际事项：如果对方明确说需要把门打开，直接完成这件事可能就足够，不必每次都进行情绪讨论。另一个反例是你因照护、值班或休息不能即时回复。较慢回复本身不是本组的低分标准，全天候在线也不自动等于高质量支持。要看实际情境与双方已经说清的安排。",
+              "en": "A counterexample is an urgent practical request. If someone clearly needs a door opened, opening it may be enough; every exchange does not need an emotional discussion. Another is being unavailable because of caring duties, a shift or rest. A slower reply is not itself a lower-scoring action, and constant availability does not establish useful support. Consider the actual situation and the arrangements both people have explicitly made."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "支持也需要容量与反馈",
+            "en": "Support needs capacity and feedback"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能反映较常确认需要、答复清楚，较少把谈话中心立刻移走；它不能证明每次都帮对了。较靠近1的组合可能提示一些回应经常错位，却无法区分疲惫、紧张、机会少、表达习惯或当时的困难。可以先核对一件事，不把原因归为不爱、冷漠或缺乏共情。",
+              "en": "Responses nearer 5 may reflect more checking and clearer replies, with less immediate redirection of the conversation. They cannot show that every response helped. Responses nearer 1 may suggest mismatches worth examining, but cannot distinguish fatigue, anxiety, limited opportunity, habitual expression or difficulty in that moment. Start with one event rather than explaining the pattern as lack of love, coldness or an absence of empathy."
+            },
+            {
+              "zh": "也不需要为了让对方满意而接受所有求助，或反复追问直到对方说你帮上了忙。对方可以不想谈，你也可以说明暂时没有精力。有效的边界可以与关心同时存在。若你们对支持方式有持续分歧，可在安全且双方愿意时商量可提供什么、何时再联系，而不是用问卷分数争论谁做得够多。",
+              "en": "You do not have to accept every request or keep asking until the other person confirms you helped. They may not want to talk, and you may lack the energy to listen at that time. A useful boundary can coexist with care. If support preferences repeatedly differ, discuss what can be offered and when to reconnect, where safe and mutually wanted. Do not use questionnaire means to argue about who has done enough."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "试一次先问再回应",
+            "en": "Try one check before responding"
+          },
+          "paragraphs": [
+            {
+              "zh": "可在一次普通、双方愿意的谈话里说：“你希望我先听，还是一起想一个办法？我现在可以专心聊十分钟。”听清答复后，只尝试对应的一件小事，不把对方的拒绝解释成你的支持失败。谈话结束时若气氛合适，可以问哪一部分有帮助；对方不需要给分、解释全部感受或配合复盘。",
+              "en": "In an ordinary conversation that both people want, you could ask whether they would prefer listening or help with one idea, then state the time you can genuinely give. After hearing the answer, try only the corresponding small action. A refusal is not evidence that your support failed. If appropriate afterwards, ask which part was useful. The other person does not need to give a rating, explain every feeling or take part in a review."
+            },
+            {
+              "zh": "私人记录只需保留你问了什么、答应了什么，以及有没有按照所说的方式回应。不录音、不保存对方的秘密，也不需要把谈话上传。若这项尝试让人更有压力，可以停止。下一次换一个更适合的时机，比要求自己每次都用同一句“正确话术”更贴近日常关系。",
+              "en": "A private note need only cover what you asked, what you offered, and whether your response matched that offer. Do not record the conversation, preserve the other person’s secrets or upload the exchange. Stop if the exercise creates more pressure. Choosing a better moment next time may be more useful than requiring yourself to use the same supposedly correct phrase in every interaction."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "别用回应均分代替安全判断",
+            "en": "Do not use a response mean to judge safety"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些题目、例子和算式为费马原创，未经心理测量验证。它们不是IDRlabs的四十题版本，也没有测出双方的整体互动。高均分不能保证一个关系健康，低均分不能诊断共情障碍。持续关系困难若明显影响生活，可以按自己的需要寻求合适支持；问卷结果不是判断是否有资格求助的门槛。",
+              "en": "The items, examples and arithmetic are FermatMind original content without psychometric validation. They are not the IDRlabs forty-item version and do not observe the whole interaction between two people. A higher mean cannot establish a healthy relationship, and a lower one cannot diagnose an empathy disorder. If ongoing relationship difficulties substantially affect daily life, choose appropriate support according to your needs. This result is not a threshold for deciding whether you deserve help."
+            },
+            {
+              "zh": "遇到威胁、强迫、跟踪或暴力时，不要用更耐心倾听或更快回复作为解决危险的责任。无需为了练习而向可能伤害你的人展示脆弱或提供私人信息。可结束阅读、回看自主选择的指南，或选择可信任的支持与一般安全资源；是否继续由你决定，不以再做一套人格测评换取完整说明。",
+              "en": "Where there are threats, coercion, stalking or violence, more patient listening or faster replies are not your responsibility for resolving danger. Do not disclose vulnerabilities or private information to someone who may harm you in order to practice. You can stop reading, consult the guide on autonomy, or choose trusted support and general safety resources. Continuing is optional; another personality questionnaire is not required to access this complete reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "requesting-support",
+      "directionIds": [
+        "requesting-support"
+      ],
+      "title": {
+        "zh": "具体地请求支持：说清需要，也保留选择",
+        "en": "Requesting Support: Make the Need Clear and Leave a Choice"
+      },
+      "headline": {
+        "zh": "求助可以具体，也可以被拒绝",
+        "en": "A clear request can still be declined"
+      },
+      "summary": {
+        "zh": "回看你怎样提出普通求助、表达需要，以及能否让对方说明可用时间。它不要求你向任何人暴露私人经历或证明脆弱。",
+        "en": "Review how you make ordinary requests and leave room to discuss availability. You are not asked to disclose private experiences or demonstrate vulnerability."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：具体求助与支持边界",
+          "en": "Wholesome Partner Result: Requesting Support"
+        },
+        "description": {
+          "zh": "阅读具体求助的四题完整读法：请求与命令的区别、反向计分、跳过与均分、可拒绝的对话及私人小练习。不要求披露秘密或证明亲密。",
+          "en": "Read four support-request habits, scoring and missing answers. Compare requests with demands and try a clear, optional example. No private disclosure required."
+        }
+      },
+      "scoreReading": {
+        "zh": "明确请求、保留可用空间为正向，未说需求却等人猜中、把普通求助当即时义务为反向。正向保留1—5，反向用6减原值；四题完整时合计4—20，除以4显示一位小数。任一跳过则这组资料不足，不与其他组加总。",
+        "en": "Specific requests and room to discuss availability keep their 1–5 values. Expecting an unspoken need to be guessed and treating an ordinary request as an immediate obligation use 6 minus the response. All four frequency answers give a 4–20 sum and one-decimal mean. Any skip leaves this group insufficient; groups are not combined."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把需要说清，不等于交出全部隐私",
+            "en": "Making a need clear does not require full disclosure"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组关心你怎样提出一项可以说明的小请求：有没有说出希望对方做什么，有没有留下讨论是否方便的空间，以及是否用未说出口的期待或即时命令替代请求。它不检查你是否足够依赖伴侣，也不要求你讲述创伤、秘密或仍未准备分享的感受。可以只说出完成这件小事所必需的信息。",
+              "en": "This group concerns how you make a request that can be described: whether you name the action you would like, leave room to discuss availability, and avoid replacing a request with an unspoken expectation or an immediate demand. It does not test whether you depend on a partner enough. You are not asked to discuss trauma, secrets or feelings you are not ready to share. Explain only the information needed for the ordinary request."
+            },
+            {
+              "zh": "例如你需要有人陪你去办一件事，可以说明时间和希望得到的帮助；你也可以选择自己处理，或找其他适当支持。求助次数多不自动代表高分，独立完成事情也不是低分。请按过去四周发生过的机会作答；如果没有合适机会，选择未经历，而不是为了填完问卷而勉强制造一次求助。",
+              "en": "If you would like company for an errand, you can state the timing and the help you are asking for. You may instead handle it yourself or seek another appropriate source of support. Making more requests does not automatically produce a higher value, and acting independently is not a lower-scoring behavior. Use opportunities from the past four weeks. If none fits, choose not experienced rather than creating a request just to complete the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "先看请求方式，再看均分",
+            "en": "Read the request behaviors before the mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "按说明具体请求、留出可用空间、期待未说需求被猜中、把普通求助当即时义务的顺序，若作答为2、3、4、5，编码为2、3、2、1，和为8，8÷4＝2.0。这个数字不表示你只能得到两成支持，也没有判断伴侣是否愿意帮助。它只汇总你自报的四种请求行为，不能确定形成这些行为的原因。",
+              "en": "In the order making a specific request, leaving room for availability, expecting an unspoken need to be guessed, and demanding immediate help with an ordinary matter, answers of 2, 3, 4 and 5 become 2, 3, 2 and 1. The sum is 8 and the mean is 8 ÷ 4 = 2.0. This is not a percentage of support you can obtain. It summarizes four reported request behaviors without explaining why they occurred."
+            },
+            {
+              "zh": "四题都需要1—5的有效频率作答；任一跳过，这组就显示资料不足，不把跳过视为拒绝求助，也不补成3。其他完整组仍然可以阅读。均分保留一位小数，所以13÷4＝3.25会显示3.3；小数变化没有已验证的临床或现实重要性，不应被用来比较谁更成熟或更值得得到照顾。",
+              "en": "All four items require a 1–5 frequency response. Any skip leaves the group insufficient; it is not interpreted as refusing help and is not replaced with 3. Other complete groups remain readable. The mean uses one decimal, so 13 ÷ 4 = 3.25 displays as 3.3. Small changes have no established clinical or practical significance and should not be used to compare maturity or decide who deserves care."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "请求、猜测与命令的区别",
+            "en": "Distinguish a request, a guess and a demand"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个普通请求可能是：“周三我需要去取东西，想请你帮我拿一袋；你那天下午方便吗？”对方能听见事项、需要的行动和可以协商的时间。相反，完全不说明需要，却因对方没有主动安排而生气，可能让双方围绕猜测争执。先把需要说清，并不意味着对方一定能答应，也不保证事情立刻解决。",
+              "en": "An ordinary request might name an errand, ask for help carrying one bag and check whether Wednesday afternoon is convenient. The other person can hear the task, the action requested and the timing that can be discussed. Leaving the need entirely unstated and becoming angry when no arrangement appears may create an argument about guessing. Making the request clear does not mean the person can agree or guarantee an immediate solution."
+            },
+            {
+              "zh": "反例是已经共同约定的责任或紧急安全问题。提醒对方履行已同意的照护任务，与随时命令对方替自己处理普通事情不同；有危险时，也不必为了显得可协商而弱化求助的紧迫性。问卷不能判断每项责任或紧急情况，回看这些题时应保留背景，不把一个通用算式凌驾于现实需要之上。",
+              "en": "Shared responsibilities and urgent safety needs are counterexamples. Reminding someone of a caring task they already agreed to is different from treating them as permanently available for ordinary requests. In danger, you do not need to soften the urgency of asking for help to appear negotiable. The questionnaire cannot determine every responsibility or emergency. Keep that context when reading the items rather than allowing a general calculation to overrule actual needs."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "清楚求助也需要合适对象与时机",
+            "en": "A clear request still needs a suitable person and moment"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能表示较常说明请求、较少用题目所列的猜测或命令方式；它不证明你总能选对求助对象。较靠近1的组合也不意味着你不肯成长。过去被拒绝、当时的疲惫或对回应的担心，都可能影响表达，但仅凭本题不能确认这些原因。你可以把原因暂时留空，先理解某一次请求发生了什么。",
+              "en": "Responses nearer 5 may reflect more specific requests and less use of the listed guessing or demanding behaviors. They do not establish that you always chose a suitable person to ask. Responses nearer 1 do not mean you refuse to grow. Previous refusals, fatigue or concern about a response could affect expression, but this questionnaire cannot confirm those explanations. You can leave the cause open and examine what happened in one particular request."
+            },
+            {
+              "zh": "你不需要用更详细的私人解释换取帮助，也不必把“可以拒绝”说成自己没有真实需要。请求可以真诚且有边界：说清需要，允许对方说明资源，同时保留寻找别的可行办法。若对方拒绝，就不把拒绝立即换算成不爱；若求助长期得不到回应，也不必只归咎于自己不够会说。",
+              "en": "You do not owe increasingly private explanations in exchange for help, and leaving room for refusal does not make your need unreal. A request can be sincere and bounded: state what is needed, allow the person to explain their resources, and keep other workable options available. A refusal is not automatically evidence of lack of love. Repeatedly unmet requests should not automatically be blamed on your wording either."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "试一个小而清楚的请求",
+            "en": "Try one small, explicit request"
+          },
+          "paragraphs": [
+            {
+              "zh": "若安全且有合适机会，可以试：“今晚我想把这件小事处理完，能否请你帮我核对一项信息？如果现在没空，我们约另一个时间。”不必照抄这句话，重要的是请求的内容与范围清楚。听到答复后，再决定自己接下来怎样安排；不要追加一次忠诚测试，也不要求对方为拒绝提供足够令你满意的理由。",
+              "en": "Where it is safe and a suitable opportunity exists, try a bounded request such as help checking one piece of information, with another time available if the person is busy. The wording is optional; clarity about the action and its scope matters more than repeating a script. After the reply, decide your own next arrangement. Do not add a test of loyalty or require the other person to justify a refusal until you are satisfied."
+            },
+            {
+              "zh": "若想私下回看，只记自己是否说清一件事、是否留出回答空间，以及有没有可行的下一步。不必记录对方的理由或把谈话上传。若暂时不想求助，可以只读完整指南，或选择结束；这里不把是否继续练习当作新的评分题，也不规定需要通过依赖他人才能改善关系。",
+              "en": "For a private review, note whether you named one action, left room for an answer, and had a workable next step. Do not preserve the other person’s reasons or upload the exchange. If you do not want to make a request, simply read the full guide or finish. Continuing the exercise is not another scored item, and depending more on someone is not presented as a necessary route to a better relationship."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "不需要证明自己值得被帮助",
+            "en": "You do not need to prove you deserve help"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创自报内容，不是正式依恋诊断、情绪成熟度量表或IDRlabs授权中文版。它没有测量真实支持网络，也没有观察双方互动。一个均分不能证明你难以相处、太依赖或不够独立，更不能决定你是否值得得到帮助。其他七组内容用于不同话题的反思，不会与本组抵销或合成总分。",
+              "en": "This is FermatMind original self-report content, not an attachment diagnosis, emotional-maturity scale or licensed Chinese version of IDRlabs. It does not measure your actual support network or observe both people interacting. A mean cannot show that you are difficult, too dependent or insufficiently independent, and cannot determine whether you deserve assistance. The other seven readings address different topics. They neither cancel this reading nor combine into a total."
+            },
+            {
+              "zh": "如果向某个人提出需求可能招来威胁、控制或伤害，不必为练习而向其求助或披露更多。可以优先寻找可信任的支持、一般关系与安全资源，按自己的情况决定怎样行动。这里不要求对危险进行双方沟通练习，也不以作答完整或分数高低作为寻求帮助的条件。",
+              "en": "If asking a particular person could bring threats, control or harm, you do not need to ask them or disclose more in order to practice. Consider trusted support and general relationship or safety resources, then decide according to your circumstances. This guide does not require a mutual communication exercise in a dangerous situation. Complete answers and a particular score are not conditions for seeking help."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "honest-preferences",
+      "directionIds": [
+        "honest-preferences"
+      ],
+      "title": {
+        "zh": "温和地表达真实偏好：让选择有信息可用",
+        "en": "Honest Preferences: Give Everyday Choices Clear Information"
+      },
+      "headline": {
+        "zh": "说出偏好，也允许别人不同意",
+        "en": "State a preference while allowing a different view"
+      },
+      "summary": {
+        "zh": "回看普通选择、想法改变和小分歧中的四种表达方式。真诚不等于无条件披露，也不意味着说出口就必须得到满足。",
+        "en": "Review four ways of communicating in ordinary choices, changes of mind and minor disagreements. Honesty is not compulsory disclosure or a right to have every preference met."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：真实偏好与温和表达",
+          "en": "Wholesome Partner Result: Honest Preferences"
+        },
+        "description": {
+          "zh": "完整理解真实偏好这组的四题计分、反向题与跳过，辨别坦诚、隐私、暗示和争输赢，读具体对话及一个可选的小练习。",
+          "en": "Read four preference-expression habits, reverse scoring and skipped answers. Distinguish honesty, privacy and guessing; try one optional conversation example."
+        }
+      },
+      "scoreReading": {
+        "zh": "说明真实偏好、主动更新想法为正向；口头说都可以后责怪、歪曲原话争输赢为反向。正向保留1—5，反向用6减原值，四题完整时合计4—20再除以4显示一位小数。任一跳过则这组资料不足，不判定诚实程度。",
+        "en": "Stating a preference and updating a changed view keep their 1–5 values. Blaming someone after saying any option is fine and distorting earlier words to win use 6 minus the response. All four frequency answers give a 4–20 sum and one-decimal mean. Any skip leaves this group insufficient. It is not a measure of honesty."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把真实偏好放到普通选择里",
+            "en": "Express a real preference in an ordinary choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "这四题回看的是日常选择中有没有可用的信息：你说出了什么偏好，改变想法后有没有更新，以及是否用没有说出的期待或改写旧话来争取自己想要的结果。它不测是否从来没有说谎，也不要求把内心所有想法都即时告诉伴侣。一次吃什么、怎样安排周末或选哪件小物品，就可以是合适的观察场景。",
+              "en": "These four items concern the information available during an everyday choice: what preference you expressed, whether you updated a changed view, and whether unstated expectations or distorted earlier words were used to obtain your preferred outcome. They do not test whether you have ever lied or require you to immediately tell a partner every thought. A choice about a meal, a weekend arrangement or a small shared purchase can be a suitable event to consider."
+            },
+            {
+              "zh": "说出偏好不是下命令。你可以说明更想选什么，并听取对方的不同想法；双方仍然可能需要轮流、折中、另找安排或暂缓决定。若你确实没有偏好，说都可以也可以是真实表达。重要的是不要在事后要求对方为没有猜中一个从未说出的答案负责。",
+              "en": "Stating a preference is not issuing an instruction. You can explain which option you favor and listen to another view. You may still need to take turns, compromise, make separate arrangements or postpone a decision. If you genuinely have no preference, saying any option is fine can be accurate. The concern is not asking the other person to be responsible afterwards for failing to guess an answer that was never expressed."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "四种表达行为的编码",
+            "en": "How the four expression behaviors are coded"
+          },
+          "paragraphs": [
+            {
+              "zh": "按说明偏好、更新想法、口头随意后责怪、歪曲旧话的顺序，若回答为4、2、2、4，编码为4、2、4、2，和为12，12÷4＝3.0。3.0只表示这四项作答的平均：可能前两项一高一低，也可能另一些回答同样得到12。相同均分不代表同一种表达模式，最好私下回看具体题目。",
+              "en": "In the order stating a preference, updating a changed view, blaming after saying any option is fine, and distorting earlier words, responses of 4, 2, 2 and 4 contribute 4, 2, 4 and 2. The sum is 12 and the mean is 12 ÷ 4 = 3.0. Different response combinations can produce the same sum. A matching mean does not establish the same pattern of expression, so privately review the individual statements rather than treating the number as a type."
+            },
+            {
+              "zh": "四题都需要频率回答，任一题未经历／无法判断，这组就暂不给均分；不把缺少争论机会等同从不歪曲，也不按其他题补算。完整时原始和4—20，均分1—5显示一位小数。它不是说真话的概率、关系信任百分比或识谎结果。其余七组不与这组相加，也不能用来抵销某次伤害。",
+              "en": "Each item needs a frequency answer. Any not experienced or cannot judge response withholds the mean; having no occasion for disagreement is not counted as never distorting words, and other answers are not used to fill the gap. For complete responses the sum is 4–20 and the mean is 1–5, shown to one decimal. It is not a probability of telling the truth, a trust percentage or a lie-detection result. Other groups do not cancel a particular harmful action."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "偏好、隐私与暗示要分开",
+            "en": "Distinguish preferences, privacy and hints"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如选晚饭时，你可能说：“我今天更想吃清淡一点，你呢？”这给了对方实际可回应的信息。若先说随便，选好后又责怪对方不懂自己，双方可能会围绕猜测争执。另一个例子是原本愿意周末出门，后来需要休息；主动说明改变，比仍假装同意、到时再发火更有利于讨论新的安排。",
+              "en": "When choosing dinner, you might say that you would prefer something lighter and ask what the other person wants. This supplies information they can actually respond to. Saying anything is fine and then blaming them for not understanding you can turn a choice into an argument about guessing. Another example is initially wanting a weekend outing and later needing rest. Explaining the change gives you a chance to revise the plan, rather than continuing to imply agreement and becoming angry later."
+            },
+            {
+              "zh": "反例是你不想谈一件私人经历，或不愿提供手机、密码与别人托付的秘密。保护这些信息不是本题所说的歪曲旧话。你也不需要在不安全的情境中证明坦诚。这里关注普通选择的信息是否清楚，不是赋予任何人无限查看你内心、设备或过去经历的权利。",
+              "en": "A counterexample is not wanting to discuss a private experience or provide access to a phone, passwords or someone else’s confidence. Protecting that information is not the behavior described by distorting earlier words in a minor disagreement. Nor do you need to prove openness in an unsafe setting. The focus is clear information for ordinary choices, not an unlimited right to inspect your thoughts, devices or personal history."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "真诚需要分寸，不需要锋利",
+            "en": "Honesty needs care rather than bluntness"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能反映较常直接表达与更新、较少题目所列的事后责怪和歪曲；但它不证明表达方式一定体贴或内容总是准确。较靠近1的组合也不能诊断操控人格。担心冲突、习惯迁就、当时没有想清楚等都可能影响回答，仅凭本题不能确定是哪一种。可以从一次普通选择开始，把原因暂时保留为问题。",
+              "en": "Responses nearer 5 may reflect more stated preferences and updates, with less of the listed blaming or distortion. They do not establish that the delivery was considerate or the information always accurate. Responses nearer 1 cannot diagnose a manipulative personality. Worry about conflict, habitual accommodation or not yet knowing your view could affect responses, but the items cannot identify which explanation applies. Begin with one ordinary choice and keep the cause open as a question."
+            },
+            {
+              "zh": "也不要把“我很真实”当作贬低、羞辱或强迫别人的理由。真实偏好可以用具体、有限的语言表达，而不是把一场选择升级为对整个人的评价。改变主意并不天然等于不守信；它可能需要承认影响、重新协商或承担已造成的实际成本，但不要求你假装从未改变。",
+              "en": "Being authentic is not a justification for belittling, humiliating or coercing someone. A preference can be expressed in specific, bounded language without turning a choice into a judgment of the whole person. Changing your mind is not automatically a broken promise. It may call for acknowledging the impact, renegotiating or handling practical costs already created, but does not require pretending that your view never changed."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "只把一个小选择说清楚",
+            "en": "Make one small choice clearer"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以试一句：“刚才我说都可以，后来发现自己其实更想选这个；我想更新一下，不是说你应该早就知道。你现在有什么想法？”它同时说明新信息和对原表达的责任。对方可以不同意，也可以指出改变带来的影响。目标不是让别人配合新偏好，而是让双方在真实信息下讨论。",
+              "en": "One optional example is to acknowledge having said any option was fine, explain that you now realize you prefer a particular choice, and ask for the other person’s view. This offers new information and takes responsibility for the earlier wording. They can disagree or explain the impact of changing the plan. The aim is not to make them accommodate the new preference, but to discuss the choice using information that is actually available."
+            },
+            {
+              "zh": "若想私人回看，可以记下一次自己用了什么词、何时发现偏好改变，以及有没有及时说明。无需录下争论、展示聊天记录或让对方证明谁说过什么。若发现自己记不清，可以承认不确定，再讨论当前需要怎样安排。你不必把每次沟通都变成一份审讯记录。",
+              "en": "For a private review, note the words you used, when you noticed a change of preference, and whether you explained it in time. Do not record arguments, display message histories or ask the other person to prove who said what. If your memory is uncertain, acknowledge that uncertainty and discuss the arrangement needed now. Everyday communication does not need to become an interrogation record."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "表达分数不判定一个人是否可信",
+            "en": "An expression mean does not certify trustworthiness"
+          },
+          "paragraphs": [
+            {
+              "zh": "费马原创题目和读法未经心理测量验证，也不是IDRlabs或Gibson著作的官方量表。它只覆盖四种近期自报行为，没有检验真实事件、对方感受或你的全部动机。高分不保证从不伤害人，低分不说明你不值得被信任或被爱，更不能用于录用、伴侣筛选或代替专业判断。",
+              "en": "These FermatMind original items and readings have not undergone psychometric validation and are not an official instrument from IDRlabs or Gibson’s work. They cover four recent self-reported behaviors without verifying events, the other person’s experience or all your motives. A higher mean does not guarantee that no harm occurred. A lower one does not show that you are unworthy of trust or love, and is unsuitable for hiring or selecting a partner."
+            },
+            {
+              "zh": "若说出偏好可能招来威胁、报复、跟踪或暴力，不必为了完成练习而披露想法或改变安排。优先考虑安全、可信任的支持与适合自己的帮助。可以另读尊重选择和清楚修复的指南，也可以结束；问卷不要求你用“绝对坦诚”来承担危险，其他组的高分也不能抵销威胁或强迫。",
+              "en": "If expressing a preference could bring threats, retaliation, stalking or violence, you do not need to disclose your view or change an arrangement to complete an exercise. Prioritize safety, trusted support and assistance appropriate to your situation. You may read the guides on autonomy or repair, or finish here. Absolute disclosure is not required at the cost of danger, and higher values elsewhere cannot cancel threats or coercion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "understanding-perspectives",
+      "directionIds": [
+        "understanding-perspectives"
+      ],
+      "title": {
+        "zh": "核对感受与立场：理解之前先别替人下结论",
+        "en": "Understanding Perspectives: Check Before Assuming"
+      },
+      "headline": {
+        "zh": "理解对方，可以从承认还不知道开始",
+        "en": "Understanding can start with acknowledging what you do not know"
+      },
+      "summary": {
+        "zh": "回看复述核对、询问背景、比较烦恼和假定同感这四种行动。它不测读心能力，也不要求你认可所有观点。",
+        "en": "Review summarizing, checking context, minimizing by comparison and assuming shared feelings. This does not test mind reading or require agreement with every viewpoint."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：核对感受与理解立场",
+          "en": "Wholesome Partner Result: Understanding Perspectives"
+        },
+        "description": {
+          "zh": "完整阅读理解立场的四题结果：怎样核对而不读心、反向计分与跳过、相同均分的不同来源，以及可自选的倾听练习。",
+          "en": "Explore four habits for checking another perspective: scoring, skipped answers, examples and one listening exercise. Understanding does not require agreement."
+        }
+      },
+      "scoreReading": {
+        "zh": "复述后核对、询问反应背景为正向；比较烦恼后否定、用自己感受推定对方为反向。正向保留1—5，反向用6减原值；四题都有频率回答时和4—20，除以4显示一位小数。任一跳过则这组资料不足，不诊断共情。",
+        "en": "Summarizing and checking context keep their 1–5 values. Dismissing a concern by comparison and assuming shared feelings use 6 minus the response. All four frequency answers give a 4–20 sum and a mean displayed to one decimal. Any skip leaves this group insufficient. It does not diagnose empathy."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把理解当作可以核对的过程",
+            "en": "Treat understanding as something you can check"
+          },
+          "paragraphs": [
+            {
+              "zh": "这四题关注你有没有确认自己听见的意思，或把自己的解释当成已经知道的事实。它包括意见不同后复述核对、对出乎预期的反应询问背景，以及两种可能跳过理解的做法：拿别人的经历比较烦恼，或认为对方必然与自己同感。它只回看行动频率，并没有实测你对情绪的辨认准确率。",
+              "en": "These four items ask whether you checked what you understood or treated your own interpretation as an established fact. They cover summarizing during disagreement, asking about an unexpected reaction, and two ways of bypassing a check: comparing concerns dismissively and assuming that another person must share your feelings. The result concerns reported actions. It does not test the accuracy with which you identify emotions or determine whether your interpretation was correct."
+            },
+            {
+              "zh": "你可以理解一个人为什么失望，而仍不同意对方提出的要求；也可以承认自己没有听懂，请对方在愿意的范围内补充。理解不是替对方找出隐藏的真实动机。对于不想谈的经历，对方有权不解释，你也不需要通过更深的追问来证明自己足够关心。",
+              "en": "You can understand why someone feels disappointed while disagreeing with a request. You can also acknowledge that you have not understood and invite only the clarification they want to provide. Understanding does not mean uncovering a supposed hidden motive. Someone may choose not to explain an experience. You do not need to keep probing more deeply in order to demonstrate that you care."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "这一组的四题怎样复算",
+            "en": "Reconstruct the four-item reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "按复述核对、询问背景、比较后否定、假定同感的顺序，若作答为3、5、1、3，编码为3、5、5、3，总和16，16÷4＝4.0。反向编码把否定或未经核对的推定放到同一描述方向，不是给某次感受贴对错标签。4.0没有证明你比均分3.0的人更懂伴侣，也不能预测谈话效果。",
+              "en": "In the order summarizing, checking context, dismissing by comparison and assuming shared feelings, responses of 3, 5, 1 and 3 become 3, 5, 5 and 3. The sum is 16, giving 16 ÷ 4 = 4.0. Reversal aligns dismissal and unchecked assumptions with the descriptive direction of the other items. It does not label an emotion right or wrong. A mean of 4.0 does not show that you understand a partner better than someone with 3.0 or predict a conversation’s outcome."
+            },
+            {
+              "zh": "四题全部有1—5频率回答时才给完整均分，任一题未经历／无法判断，这组便资料不足，不用其他组代填。完整评分和4—20，均分1—5显示一位小数，13÷4＝3.25显示3.3。请保留不同作答可能得到相同均分这一点，不按数字给自己或对方分成懂事、不懂事等类型。",
+              "en": "A complete mean requires a 1–5 frequency answer for every item. Any not experienced or cannot judge answer leaves this group insufficient, with no substitution from another group. Complete sums run from 4 to 20 and means from 1 to 5, shown to one decimal; 13 ÷ 4 = 3.25 displays as 3.3. Different answers can produce the same mean. Do not turn a number into a label about whether you or someone else is considerate."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "同一件小事，意义可能不同",
+            "en": "One event may mean different things to each person"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如一次约好的活动临时取消，你觉得改天就好，对方却很失落。可以先说：“我听到你在意的是提前留出的时间，不只是活动没去成，我理解得对吗？”这给对方纠正的机会。若直接说别人遇到的事更严重，可能越过了对方正在表达的内容；即使比较中的事实没错，也不等于已经理解这次失落。",
+              "en": "Suppose a planned activity is canceled. You see it as easy to reschedule, while the other person is disappointed. You could check whether the disappointment concerns time deliberately kept free rather than only the missed activity. That leaves room for correction. Pointing out that someone else has a more serious problem may bypass what is being expressed. The comparison might be factually true without demonstrating understanding of this particular disappointment."
+            },
+            {
+              "zh": "反例是你已经听懂，却需要为自己的边界作决定。对方因为你不愿交出密码而失望，你可以听见这种感受，同时保持拒绝。另一反例是对方只想安静，并不需要继续复述和讨论。不断确认也可能成为负担；问一句是否愿意继续，比把整场谈话做成理解能力展示更合适。",
+              "en": "A counterexample is understanding a feeling while keeping your own boundary. Someone may be disappointed that you will not share a password; hearing that feeling does not require changing your refusal. Another is someone wanting quiet rather than repeated summaries and discussion. Checking can itself become burdensome. Asking whether they want to continue may fit better than turning an entire conversation into a demonstration of understanding."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "核对不是要求对方解释到你满意",
+            "en": "Checking does not require an exhaustive explanation"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能表示较常核对、较少题目所列的否定或推定；它仍然可能包含误解。较靠近1或居中的组合，可以回看是不是某些情境特别难听进去，但不能据此诊断冷漠、人格问题或缺少共情。疲惫、语言差异和当时的信息都可能影响交流，本题没有确认这些原因。",
+              "en": "Responses nearer 5 may reflect more checking and less of the listed dismissal or assumption, while still including misunderstandings. A lower or middle mean can prompt a question about which situations were difficult to take in, but cannot diagnose coldness, a personality problem or lack of empathy. Fatigue, language differences and the information available at the time may affect an exchange. The items do not establish those causes."
+            },
+            {
+              "zh": "理解也不意味着认同伤害行为，或为了给对方找理由而忽略自己的体验。你可以同时保留两件事：对方如何解释当时的行动，以及这些行动实际给你带来什么影响。需要进一步支持时，可以寻找合适的人或一般关系资源，而不是仅靠再听一次就要求自己接受所有事情。",
+              "en": "Understanding does not require approving harmful behavior or setting aside your own experience to supply an explanation for someone else. You can retain both their account of an action and its actual impact on you. If further support would help, choose an appropriate person or general relationship resource. Another attempt to listen is not a requirement to accept everything that happened."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "做一次可以被纠正的复述",
+            "en": "Offer one summary that can be corrected"
+          },
+          "paragraphs": [
+            {
+              "zh": "在安全、双方愿意的一次普通谈话中，可以试：“我目前理解的是……，如果不准确你可以纠正，也可以先不谈。”只复述你真正听到的内容，不添加对方没有说过的诊断或动机。若被纠正，先接收这条新信息，再决定是否继续询问；你不需要马上证明自己的初衷正确。",
+              "en": "In a safe, mutually wanted conversation, try one brief summary and explicitly leave room for correction or for stopping. Summarize only what you actually heard, without adding a diagnosis or motive the person did not describe. If corrected, receive the new information before deciding whether another question is needed. You do not have to immediately defend the good intention behind your original interpretation."
+            },
+            {
+              "zh": "私人回看可以只记录一个自己原先的假设、对方愿意说明的新信息，以及自己有没有因此调整理解。不要保存对方的秘密、录音或用这些记录推断性格。若没有发生适合的谈话，就不必安排一场；可以在下次自然出现机会时再试，也可以读完就结束。",
+              "en": "A private review can contain one assumption you initially made, new information the person willingly provided, and whether your understanding changed. Do not preserve secrets, record the conversation or infer a personality from the notes. If no suitable exchange occurs, do not manufacture one. You can wait for a natural opportunity or simply finish after reading."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "理解立场不替代安全与责任",
+            "en": "Understanding does not replace safety or responsibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创、未经心理测量验证的四题反思，不是共情测验、识谎工具或IDRlabs量表。它无法代替对方反馈，更不能凭自报确认谁理解谁。所有八组是可以同时阅读的不同话题，不合成成熟度、伴侣价值或关系成败分数。均分不改变任何人应为自己行为承担的责任。",
+              "en": "This is a FermatMind original, unvalidated four-item reflection, not an empathy test, a lie detector or an IDRlabs instrument. It cannot substitute for the other person’s feedback or establish from self-report who understands whom. The eight groups are different topics available together, not a combined score of maturity, partner value or relationship success. A mean does not change responsibility for one’s own actions."
+            },
+            {
+              "zh": "若涉及威胁、强迫、跟踪或暴力，不要把“理解对方”变成忍受危险的义务，也不需要为练习而继续面对面谈话。先考虑自己的安全与可信任的支持。你可以选择结束，或另读尊重选择、清楚修复的指南；任何进一步行动都不以取得某个分数为条件。",
+              "en": "When there are threats, coercion, stalking or violence, understanding someone is not an obligation to endure danger or continue a face-to-face exchange for an exercise. Consider your safety and trusted support first. You may finish or consult the guides on autonomy and repair. A particular score is never a condition for choosing further assistance or action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "negotiating-expectations",
+      "directionIds": [
+        "negotiating-expectations"
+      ],
+      "title": {
+        "zh": "把期待谈成可行安排：说明希望，也听见限制",
+        "en": "Negotiating Expectations: Turn a Hope into a Workable Arrangement"
+      },
+      "headline": {
+        "zh": "期待可以重要，也可以需要重新商量",
+        "en": "An expectation can matter and still need discussion"
+      },
+      "summary": {
+        "zh": "回看联系频率、见面与现实变化中的期待，区分说清的约定和从未讨论的规则。它不决定怎样的相处节奏才正常。",
+        "en": "Review expectations about contact, meetings and changing circumstances. Distinguish an explicit agreement from an unspoken rule; no single pace is declared normal."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：期待协商与可行安排",
+          "en": "Wholesome Partner Result: Negotiating Expectations"
+        },
+        "description": {
+          "zh": "完整理解期待协商的四题结果：联系与见面如何说清、现实限制、反向计分、跳过及具体对话。不设统一亲密频率或相处标准。",
+          "en": "Read four expectation-negotiation habits, scoring and skipped answers. Explore contact, practical limits and a dialogue. No universal relationship pace."
+        }
+      },
+      "scoreReading": {
+        "zh": "说明期待并询问可行性、条件改变后重订为正向；把未说规则当义务、忽略现实限制坚持原节奏为反向。正向保留1—5，反向用6减原值；四题完整时和4—20，除以4显示一位小数。任一跳过则这组资料不足。",
+        "en": "Explaining expectations and renegotiating changed conditions keep their 1–5 values. Treating unspoken rules as obligations and demanding an unchanged pace despite practical limits use 6 minus the response. All four frequency answers give a 4–20 sum and one-decimal mean. Any skip leaves this group insufficient."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "期待要先被看见，才有机会协商",
+            "en": "Make an expectation visible before negotiating it"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组不问你希望多联系还是少联系，而是回看期待有没有被说清、现实条件改变后有没有重新讨论。四题涉及表达希望、询问对方能做到什么、按未说出口的规则要求对方，以及忽略现实限制坚持原安排。它不设每天几条消息、每周见几次才算亲密，也不把某一种节奏定为更成熟的方式。",
+              "en": "This group does not ask whether you prefer more contact or less. It concerns whether an expectation was made explicit and whether changes in circumstances were discussed again. The four items cover explaining a wish, checking what is workable, imposing an unspoken rule, and insisting on an unchanged arrangement despite practical limits. There is no required number of messages or meetings, and no pace is declared more mature."
+            },
+            {
+              "zh": "请以过去四周的一段自选亲密关系为背景。你可能有很重要的陪伴需要，对方也可能有工作、学习、照顾或休息的限制。说出需要，不等于保证双方必能找到同一个方案；未能达成一致也不自动代表一方有错。结果只能帮助你看自己的讨论方式，不能替双方决定什么安排可以接受。",
+              "en": "Use one chosen close relationship during the past four weeks. A need for companionship can matter alongside work, study, caring duties or rest. Expressing that need does not guarantee a shared solution, and failing to reach agreement does not automatically make one person wrong. The result can help you consider your reported approach to discussion. It cannot decide which arrangement either of you must accept."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "分数描述讨论方式，不描述需要大小",
+            "en": "The mean describes discussion, not the size of a need"
+          },
+          "paragraphs": [
+            {
+              "zh": "按说清期待、重订变化、把未说规则当标准、忽略限制坚持原节奏的顺序，若回答为5、3、3、2，编码为5、3、3、4，和为15，15÷4＝3.75，显示3.8。它不是期待合理性的38%或76%，也不说明你想要的联系太多或太少。均分来自四项编码作答，而不是对关系需要的裁决。",
+              "en": "In the order explaining an expectation, renegotiating a change, imposing an unspoken rule and insisting on an unchanged pace despite limits, answers of 5, 3, 3 and 2 contribute 5, 3, 3 and 4. The sum is 15; 15 ÷ 4 = 3.75 displays as 3.8. That is not a 38% or 76% rating of reasonable expectations. It does not show that you want too much or too little contact."
+            },
+            {
+              "zh": "四题均有频率作答时才给均分。任一题未经历／无法判断，这组资料不足，不把未经历变化当作已经处理得很好，也不补成中间值。其他完整组仍可以读；八组不相加或排序。相近均分可能来自完全不同的具体回答，不能据此判断双方是否相配或哪一个人的需要更应该优先。",
+              "en": "A mean is available only when all four items have frequency responses. Any not experienced or cannot judge answer leaves this group insufficient. Not experiencing a change is not counted as handling it well and is not replaced with a midpoint. Other complete readings remain available, without combining or ranking the eight groups. Similar means can come from different answers and cannot decide compatibility or whose needs should take priority."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "让具体安排替代默认规则",
+            "en": "Replace an assumed rule with a specific arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如你希望工作日也能有一段专心通话，可以说清大致时长与时间范围，再询问对方这一周能安排什么。若对方临时值班，双方可以讨论改期、缩短或本周暂停。相比之下，默认“在乎就应该随时回”，却没有商量具体情况，容易把节奏差异变成猜测。这里不要求你接受任何方案，只让实际差异更清楚。",
+              "en": "Suppose you would like an uninterrupted call during the working week. Explain the approximate duration and timing, then ask what the other person can arrange that week. An unexpected shift might call for rescheduling, a shorter call or a pause for the week. Assuming that care means always replying immediately can turn a difference in pace into guesswork. Discussion makes the difference clearer; it does not require accepting every proposed solution."
+            },
+            {
+              "zh": "反例是对方反复不遵守已经说清且同意的约定。此时不需要无限降低期待，假装每次都只是你没说清。另一个反例是临时有紧急照顾任务，未能维持原联系频率不必然是不重视你。请区分未曾讨论、已经约定、发生变化，以及反复不回应这几种情境，不能只靠一个均分把它们归为同一种问题。",
+              "en": "A counterexample is repeated disregard of an explicit agreement already accepted by both people. You do not have to keep lowering expectations as though the problem were always unclear wording. Another is an urgent caring responsibility that disrupts contact without necessarily indicating lack of care. Distinguish an undiscussed preference, an existing agreement, changed circumstances and repeated nonresponse. A single mean cannot make those situations equivalent."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "协商不等于不断退让",
+            "en": "Negotiation is different from endless accommodation"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能反映较常说清与重订、较少使用题目所列的默认要求；它没有验证方案是否公平或能持续。较靠近1或居中的组合，可以回看某项默认规则何时形成，但不能直接解释成不讲理、太黏人或不够独立。疲惫、文化习惯和此前的约定都可能影响理解，本问卷不能确定原因。",
+              "en": "Responses nearer 5 may reflect more explicit discussion and revision, with less of the listed assumed demands. They do not verify that an arrangement is fair or sustainable. A lower or middle mean can prompt a question about how an assumed rule developed, but does not establish that you are unreasonable, clingy or insufficiently independent. Fatigue, cultural habits and earlier agreements may matter. The questionnaire cannot determine those causes."
+            },
+            {
+              "zh": "现实限制值得听见，个人底线也可以保留。如果可提供的相处方式长期不能回应你看重的需要，可以认真考虑这种差异，而不必强迫双方以某个类型或分数解释。协商应包括双方的选择：改变安排、保持某个界限、寻找其他支持，或决定这段关系接下来怎样继续。问卷不替你作这个决定。",
+              "en": "Practical limits deserve attention, and you can retain personal limits of your own. If an available way of relating repeatedly does not meet an important need, consider that difference directly rather than forcing an explanation through a type or score. Discussion may include changing an arrangement, keeping a boundary, seeking other support or deciding how the relationship continues. This questionnaire cannot make that decision for you."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "把一个期待拆成可讨论的小安排",
+            "en": "Turn one expectation into a discussable arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "在安全且双方愿意时，可以试：“这周我希望有一次半小时不看手机的聊天。你哪天有余量？如果没有，我们能不能先说明下次何时再商量？”把抽象的“多关心我”拆成可以接受、拒绝或修改的一件事。对方也可以说明自己的需要；不是由一个人负责不断猜测与让步。",
+              "en": "Where safe and mutually wanted, identify one specific period of focused time you would appreciate and ask what is workable that week. If no time is available, you might agree when to discuss the question again. This turns an abstract request for more care into an arrangement that can be accepted, declined or changed. The other person can explain a need as well. Neither person is assigned the job of endless guessing and accommodation."
+            },
+            {
+              "zh": "私人回看只需记：自己的期待是否明确、现实限制是什么、有没有真正同意的下一步。别把没有达成一致记录成某个人失败，也不需要监控回复时间证明分数。若讨论使人明显不舒服，可以暂停；若涉及危险，不必实施这项练习。读完完整说明后，你可以选择不做任何后续测评。",
+              "en": "For a private review, note whether the expectation was clear, which practical limits were discussed, and whether a next step was genuinely agreed. Do not record disagreement as someone’s failure or monitor reply times to justify a score. Pause if the discussion becomes unwelcome; do not attempt the exercise where it may create danger. After reading the full explanation, you may choose no further assessment."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "来源、适用范围与安全",
+            "en": "Source, scope and safety"
+          },
+          "paragraphs": [
+            {
+              "zh": "这些题目、分组与算式是费马原创编辑方案，未经心理测量验证，不是IDRlabs量表或官方伴侣适配模型。它不测理想联系频率，没有人口常模、离散切点或关系成功概率。高分不能证明要求都合理，低分不能证明你是有毒伴侣；全部八组都不能用来替别人决定应该满足谁。",
+              "en": "The items, grouping and arithmetic are a FermatMind original editorial design without psychometric validation, not an IDRlabs instrument or an official compatibility model. They do not measure an ideal contact frequency and contain no population norms, category cutoffs or relationship-success probabilities. A higher mean cannot show that every expectation is reasonable; a lower one cannot certify a toxic partner. None of the eight groups can decide whose wishes another person must meet."
+            },
+            {
+              "zh": "威胁、强迫、跟踪与暴力不是普通节奏差异，也不能通过更细的联系安排来抵销。若说明期待可能带来危险，优先考虑安全与可信任的支持，而不是完成共同协商任务。你可以结束，或按需要查阅一般关系与安全资源；寻求帮助不以问卷分数为前提。",
+              "en": "Threats, coercion, stalking and violence are not ordinary differences in pace and are not canceled by a more detailed contact schedule. If expressing an expectation could bring danger, prioritize safety and trusted support rather than completing a joint negotiation task. You can finish or consult general relationship and safety resources as needed. Seeking assistance does not depend on a questionnaire value."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clear-repair-talk",
+      "directionIds": [
+        "clear-repair-talk"
+      ],
+      "title": {
+        "zh": "把分歧转成具体修复：说清事情与下一步",
+        "en": "Clear Repair Talk: Name the Event and a Possible Next Step"
+      },
+      "headline": {
+        "zh": "讨论一个问题，不给整个人定罪",
+        "en": "Discuss one problem without judging the whole person"
+      },
+      "summary": {
+        "zh": "回看提出不满、需要暂停及发生小分歧时的四种行动。分清有说明的暂停与持续不回应施压，不保证一次谈话就能修复关系。",
+        "en": "Review four actions around concerns, pauses and minor disagreements. Distinguish an explained pause from withholding a response to pressure someone; repair is not guaranteed."
+      },
+      "seo": {
+        "title": {
+          "zh": "健康伴侣测试结果：分歧沟通与具体修复",
+          "en": "Wholesome Partner Result: Clear Repair Talk"
+        },
+        "description": {
+          "zh": "阅读分歧修复的完整结果：四题计分、跳过与均分，区分暂停和不回应施压，练习具体请求。不要求在危险情境中继续沟通。",
+          "en": "Read four repair-talk habits, scoring and skipped answers. Distinguish a pause from pressure, try one specific request, and keep safety separate from the mean."
+        }
+      },
+      "scoreReading": {
+        "zh": "说明具体事件与希望、解释暂停并约定再联系为正向；翻无关旧事追责、持续不回应让人让步为反向。正向保留1—5，反向用6减原值。四题完整时和4—20，除以4显示一位小数；任一跳过则这组资料不足，不预测能否修复。",
+        "en": "Describing an event and explaining a pause keep their 1–5 values. Bringing unrelated past events into a dispute and withholding a response to obtain agreement use 6 minus the response. All four frequency answers give a 4–20 sum and one-decimal mean. Any skip leaves this group insufficient. Repair is not predicted."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把分歧留在可以讨论的事情上",
+            "en": "Keep a disagreement connected to the event"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组关注提出不满时是否说清具体发生了什么、希望接下来怎样做，以及需要暂停时是否说明。它也回看两种可能让小分歧扩大或停住的行为：把无关旧事一起拿来追责，或持续不回应以取得让步。四题不测谁在争论中正确，也不保证用某种句式就能让关系恢复。",
+              "en": "This group concerns whether a concern is connected to a specific event and a desired next step, and whether a needed pause is explained. It also asks about bringing unrelated past events into a minor dispute and withholding a response to obtain agreement. These four items do not establish who is right. They do not promise that using a particular sentence structure will restore a relationship."
+            },
+            {
+              "zh": "请回看过去四周的实际机会。没有发生合适的小分歧，可以选择未经历，不必找一场争论来完成题目。正在争执时记不清自己做过什么，也可以选择无法判断。这个结果不是沟通考试，承认缺少资料，比为了看见一个完整均分而猜测更符合它的用途。",
+              "en": "Use actual opportunities from the past four weeks. If no suitable minor disagreement occurred, choose not experienced rather than arranging an argument to complete the items. If you cannot reliably recall what you did during a dispute, cannot judge is also available. This is not a communication examination. Acknowledging limited information fits its purpose better than guessing in order to obtain a complete mean."
+            }
+          ]
+        },
+        {
+          "id": "score-reading",
+          "title": {
+            "zh": "按具体行为复算四题",
+            "en": "Reconstruct the value from the specific actions"
+          },
+          "paragraphs": [
+            {
+              "zh": "按描述事情与希望、说明暂停、翻无关旧事、用不回应施压的顺序，若作答为2、4、3、5，编码为2、4、3、1，总和10，10÷4＝2.5。2.5不是修复成功率，也不表示你只能做到一半的有效沟通。它只表示这四项编码后的平均，具体哪一道题贡献了什么，仍需要分别回看。",
+              "en": "In the order describing an event, explaining a pause, adding unrelated past events and withholding a response to pressure someone, answers of 2, 4, 3 and 5 contribute 2, 4, 3 and 1. Their sum is 10 and the mean is 10 ÷ 4 = 2.5. This is not a repair-success rate or a claim that half your communication is effective. It is the average of four coded responses; the contribution of each action still matters."
+            },
+            {
+              "zh": "四题全部有1—5频率回答时，评分和4—20，均分1—5显示一位小数；例如15÷4＝3.75显示3.8。任一题未经历／无法判断，这组资料不足，不把没有争吵的机会视为高分，也不让其他组来补齐。八组没有合成总分、主导类型或共同及格线，数值相同不证明两人的争执方式一样。",
+              "en": "With four 1–5 frequency answers, sums range from 4 to 20 and means from 1 to 5, displayed to one decimal; for example, 15 ÷ 4 = 3.75 displays as 3.8. Any not experienced or cannot judge answer leaves the group insufficient. No opportunity for disagreement is not treated as a higher value, and other groups do not fill a gap. There is no combined total, dominant type or shared pass mark."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "暂停可以保护谈话，也可能被用来施压",
+            "en": "A pause can protect a discussion or become pressure"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如讨论家务分配时开始激动，你可以说明：“我现在很难继续好好说，想先暂停，晚饭后再确认要不要接着谈。”重点是说明自己的状态与一个双方可以讨论的再联系安排，而不是承诺一定按时解决一切。若只是消失，直到对方同意你的意见才回应，就与这种暂停不同。",
+              "en": "Suppose a discussion about household tasks becomes heated. You might explain that you are finding it difficult to continue constructively and suggest checking after dinner whether you both want to resume. The point is an explanation and a reconnecting arrangement that can be discussed, not a promise to solve everything by a deadline. Disappearing until the other person agrees with your view is different from an explained pause."
+            },
+            {
+              "zh": "反例是你为保护安全而离开，或需要停止一段不愿继续的互动。你没有义务为了显得会沟通而持续回应可能伤害你的人。另一个反例是以前的事情与当前问题确有同一个持续模式；讨论它不必然是无关翻旧账，但仍需说明联系与具体影响，而不是把全部不满混成对整个人的审判。",
+              "en": "A counterexample is leaving to protect your safety or ending an interaction you do not want to continue. You are not obliged to keep responding to someone who may harm you in order to appear skilled at communication. Another is a past event that genuinely connects to a continuing pattern. Discussing it is not necessarily unrelated scorekeeping, but the connection and impact need explaining rather than combining every concern into a judgment of the whole person."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "修复不能只由一句话负责",
+            "en": "One sentence cannot carry the whole repair"
+          },
+          "paragraphs": [
+            {
+              "zh": "较靠近5的组合可能表示较常说明问题与暂停、较少使用所列施压行为；它不能证明道歉被接受、改变已经发生或对方感到安全。较靠近1或居中的组合，可以帮助你选一个具体行动回看，却不能诊断攻击性、操控人格或关系必然失败。问卷没有记录双方的全部行为和背景。",
+              "en": "Responses nearer 5 may reflect more explanation of concerns and pauses, with less of the listed pressure. They cannot establish that an apology was accepted, change occurred or the other person felt safe. A lower or middle mean may help you select one action to examine, but cannot diagnose aggression, a manipulative personality or inevitable relationship failure. The questionnaire does not record both people’s full behavior and circumstances."
+            },
+            {
+              "zh": "表达清楚，也可能需要之后兑现改变、重新分工或承认某个界限；只把话说得温和，并不能抹掉实际影响。对方可以不愿继续谈，修复也不等于必须和好。你可以为自己的行动负责，同时不替对方承担其威胁、羞辱或强迫行为的责任。结果不要求双方对伤害各负一半。",
+              "en": "Clear expression may need to be followed by an actual change, a revised responsibility or respect for a boundary. Gentle wording does not erase impact. The other person can decline further discussion, and repair does not require reconciliation. You can take responsibility for your actions without taking responsibility for another person’s threats, humiliation or coercion. The result does not assign equal responsibility for harm."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "只练习一个具体而可拒绝的下一步",
+            "en": "Practice one specific next step that can be declined"
+          },
+          "paragraphs": [
+            {
+              "zh": "在安全、双方愿意的普通情境里，可以试：“昨天临时改时间时我没有及时说明，给你安排添了麻烦。我想下次先发一句确认，你愿意听听这个办法吗？”例子承认一件行为与影响，再提出有限的下一步，不要求对方立即原谅或保证以后不生气。请按实际经历改写，也可以选择不说。",
+              "en": "In a safe, mutually wanted ordinary interaction, you might acknowledge one missed update, its effect on someone’s arrangements, and a limited change you want to try next time. Ask whether they want to hear the suggestion. The example concerns one action and its impact, rather than demanding immediate forgiveness or a promise that the person will not be upset again. Adapt it to an actual event, or choose not to use it."
+            },
+            {
+              "zh": "私人回看只需记录自己能负责的一步：有没有说清事件、有没有听见不愿继续，以及之后有没有做所说的改变。不录下争执、不收集对方的错误，也不以分数要求和好。若讨论反复升级，可以停下来，按自己的需要寻找合适支持，而不是机械增加更多谈话或重测。",
+              "en": "For a private review, note one step within your responsibility: whether the event was clear, whether a wish to stop was heard, and whether you followed through on the stated change. Do not record disputes, collect the other person’s mistakes or use a value to demand reconciliation. If discussions repeatedly escalate, pause and choose appropriate support rather than mechanically adding more conversations or retaking the test."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "来源、适用范围与安全",
+            "en": "Source, scope and safety"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是费马原创的四题行为反思，未经心理测量验证，不是IDRlabs授权量表、伴侣治疗或专业沟通评估。它没有人口常模、疗效证明或分手预测。高均分不能保证没有伤害，低均分不能证明谁不值得被爱。完整读法已公开，不需要再完成MBTI或任何其他测评来得到这些说明。",
+              "en": "This is FermatMind original four-item behavioral reflection without psychometric validation, not a licensed IDRlabs scale, couples therapy or a professional communication assessment. It has no population norms, demonstrated treatment effect or breakup prediction. A higher mean cannot establish that no harm occurred, and a lower one cannot decide who deserves love. The full reading is public; another assessment is not required to obtain this explanation."
+            },
+            {
+              "zh": "威胁、强迫、跟踪与暴力不是普通争执，也不应被减轻为双方都需要练习话术。遇到可能不安全的情况，不必承诺再次见面、解释自己的离开计划或继续回应。优先考虑安全与可信任的支持，按情况选择一般安全资源或合适帮助。你可以在这里结束，任何均分都不限制这个选择。",
+              "en": "Threats, coercion, stalking and violence are not ordinary disagreements or a shared need to practice better wording. In a potentially unsafe situation, you do not need to promise another meeting, explain plans for leaving or continue responding. Prioritize safety and trusted support, and choose general safety resources or appropriate assistance for your circumstances. You can finish here. No mean limits that choice."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "32题怎样分别计算？",
+        "en": "How are the 32 items scored?"
+      },
+      "paragraphs": [
+        {
+          "zh": "八组各四题，1—5表示有机会时的行动频率。每组两道正向题保留原值，两道反向题按6减原值计分；各组指南写明对应的行动。四题全部有效才显示4—20评分和与1—5均分，均分一位小数；任一跳过使所属组资料不足，不补零或中间值。全部32题作出选择后显示八组结果。",
+          "en": "Eight groups contain four items each. Ratings 1–5 describe frequency when an opportunity arose. Two direct items keep their values and two reverse items use 6 minus the response; each full guide names the corresponding actions. All four valid ratings are needed for a 4–20 sum and 1–5 mean, displayed to one decimal. Any skip withholds only its own group, without zero or midpoint filling. Results follow all 32 selections."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "为什么没有好伴侣总分？",
+        "en": "Why is there no good-partner total?"
+      },
+      "paragraphs": [
+        {
+          "zh": "八组是原创话题分组，不是已经验证的心理因子。它们分别阅读，不相加、不相减、不跨组排名或按最高值派型。相同均分可能来自不同作答，全部八份连续读法始终提供。均分不表示人口排名、能力、诚实程度、伴侣价值或关系安全；没有健康／有毒切点。",
+          "en": "These are original topic groups, not established psychological factors. They are read separately, without a combined total, subtraction, cross-group ranking or highest-mean type. Different responses can produce equal means, and all eight full readings remain available. Values are not population ranks, abilities, honesty ratings, partner worth or safety assessments. There is no healthy/toxic cutoff."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "先分清八组各自的问题",
+        "en": "Distinguish the eight questions being explored"
+      },
+      "paragraphs": [
+        {
+          "zh": "守约关注已答应的行动，期待协商关注未来怎样安排；回应关注此刻需要什么支持，理解立场关注自己的解释有没有核对；求助关注如何提出请求，真实偏好关注普通选择是否有明确信息；选择空间与分歧修复则分别关注拒绝、共同商量以及不满和暂停。它们可以并存，任何一组都不能抵销威胁、强迫、跟踪或暴力。",
+          "en": "Follow-through concerns agreed actions; expectation negotiation concerns future arrangements. Responsiveness checks the support wanted now; perspective-taking checks an interpretation. Requests concern how help is sought; preference expression supplies information for ordinary choices. Autonomy concerns refusals and shared decisions; repair concerns how a concern or pause is explained. These topics can coexist. No value in one group cancels threats, coercion, stalking or violence."
+        }
+      ]
+    },
+    {
+      "id": "original-edition-and-theory",
+      "title": {
+        "zh": "本版原创与背景资源的边界",
+        "en": "This original edition and its background resources"
+      },
+      "paragraphs": [
+        {
+          "zh": "题目、八组分法、频率回顾期和均分规则由费马原创，未经心理测量验证，不是IDRlabs四十题版本、Gibson官方量表或授权中文版。公开健康关系资源提供关于尊重、界限与沟通的一般背景，并不验证本问卷或其跨语言等值。没有继承其他测试的信效度、临床审阅或认证。",
+          "en": "FermatMind wrote the items, eight topic groups, recall period and mean rules. This edition is unvalidated and is not the IDRlabs forty-item version, an official Gibson instrument or a licensed Chinese translation. Public relationship resources provide general context about respect, boundaries and communication; they do not validate this questionnaire or cross-language equivalence. No clinical review, certification or validity is inherited from another test."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "love is respect：健康关系的一般背景，非本问卷验证",
+        "en": "love is respect: general healthy-relationship context, not validation of this questionnaire"
+      },
+      "url": "https://www.loveisrespect.org/everyone-deserves-a-healthy-relationship/"
+    },
+    {
+      "title": {
+        "zh": "love is respect：界限与选择的一般说明",
+        "en": "love is respect: general guidance on boundaries and choices"
+      },
+      "url": "https://www.loveisrespect.org/everyone-deserves-a-healthy-relationship/how-to-set-boundaries/"
+    },
+    {
+      "title": {
+        "zh": "love is respect：普通分歧与沟通的一般说明",
+        "en": "love is respect: general context on ordinary disagreements and communication"
+      },
+      "url": "https://www.loveisrespect.org/resources/conflict-resolution/"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是IDRlabs的四十题测试吗？",
+        "en": "Is this the IDRlabs forty-question test?"
+      },
+      "answer": {
+        "zh": "不是。本版是费马原创32题与八组描述读法，不复用其题库、计分、健康／有毒标签或临床效度主张，也不声称已获其授权或背书。名称表达相处主题，不能给任何人颁发好伴侣认证。",
+        "en": "No. This is FermatMind original content with 32 items and eight descriptive readings. It does not reuse that bank, scoring, healthy/toxic labels or clinical-validity claims, and claims no authorization or endorsement. The name describes the topic; it does not certify anyone as a good partner."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么没有总分或最强类型？",
+        "en": "Why is there no total or strongest type?"
+      },
+      "answer": {
+        "zh": "八组观察不同情境的自报行为，没有建立合成总分或跨组比较的依据。相近或相同均分不强行派型，所有八组完整说明都提供。一次守约也不能抵销其他情境中的控制或伤害。",
+        "en": "The groups describe reported actions in different situations, without a basis for combining or ranking them. Close or equal means do not produce a type, and all eight full guides are provided. Keeping an agreement cannot cancel controlling or harmful behavior elsewhere."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有伴侣或没有相关经历怎样答？",
+        "en": "What if I have no partner or relevant opportunity?"
+      },
+      "answer": {
+        "zh": "选未经历／无法判断，也可以不作答直接读全部指南。任一跳过只让所属组资料不足，不补低分或中间值。不要为了填满题目找人测试、披露私人信息或勉强进入一段关系。",
+        "en": "Choose not experienced / cannot judge, or read all guides without answering. Any skip withholds only its own group rather than becoming a low or middle score. Do not test someone, disclose private information or enter a relationship to fill the items."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以用结果判断伴侣是否有毒吗？",
+        "en": "Can I use this result to decide whether a partner is toxic?"
+      },
+      "answer": {
+        "zh": "不能。请只回顾自己的行动；问卷没有观察对方，也不诊断任何人的人格、创伤或能力。涉及威胁、强迫、跟踪或暴力时，应独立考虑安全与可信任的支持，不用某个高均分证明没有危险。",
+        "en": "No. Reflect only on your own actions. The questionnaire does not observe the other person or diagnose personality, trauma or ability. Consider safety and trusted support separately where threats, coercion, stalking or violence are involved. A higher mean cannot establish an absence of danger."
+      }
+    },
+    {
+      "question": {
+        "zh": "我的答案、分数会通过分享公开吗？",
+        "en": "Will sharing publish my answers or scores?"
+      },
+      "answer": {
+        "zh": "分享只复制公开标题和一般指南链接，不带答案、均分或伴侣资料。可选进度仅存在当前标签页，最长24小时，完成、清除或重测时删除；无需填写姓名、联系信息或相处经历。",
+        "en": "Sharing copies only a public title and general guide link, without answers, means or partner information. Optional progress stays in this tab for up to 24 hours and clears on completion, clearing or retake. No names, contact details or relationship narratives are requested."
+      }
+    }
+  ]
+}

@@ -4156,5 +4156,34 @@
       "personal",
       "work"
     ]
+  },
+  {
+    "slug": "wholesome-partner",
+    "code": "FM_WHOLESOME_PARTNER_PRACTICES_ORIGINAL32",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "zh": "健康伴侣相处测试",
+      "en": "Wholesome Partner Test"
+    },
+    "description": {
+      "zh": "免费完成32道原创题，分别读守约、选择空间、回应、求助、真实偏好、理解立场、期待协商与分歧修复。八组均分和完整说明全部免费，不给伴侣判好坏。",
+      "en": "Reflect on 32 original questions about partner interactions. Read eight separate keyed means and all full guides, free. No healthy or toxic-person verdict."
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_original_wholesome_partner_32_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "realistic-follow-through",
+      "respecting-autonomy",
+      "responsive-checking-in",
+      "requesting-support",
+      "honest-preferences",
+      "understanding-perspectives",
+      "negotiating-expectations",
+      "clear-repair-talk"
+    ]
   }
 ]
