@@ -788,13 +788,25 @@ function renderProjectionBulletsSection(section: MbtiResultProjectionSectionView
   return renderBulletItems(fallbackItems);
 }
 
-function renderProjectionRichTextBlocks(section: MbtiResultProjectionSectionViewModel) {
+function renderProjectionRichTextBlocks(section: MbtiResultProjectionSectionViewModel, locale: Locale) {
   const blocks = renderProjectionDynamicBlocks(section);
-  if (!blocks) {
-    return renderPlainMarkdown(section.bodyMd);
+  if (section.authoritySource !== "content_promotion_w1_mbti_results_v2") {
+    return blocks ?? renderPlainMarkdown(section.bodyMd);
   }
 
-  return blocks;
+  const prompts = normalizeStringArray(
+    asArray(asRecord(section.payload)?.reflection_prompts).filter((prompt) => typeof prompt === "string")
+  );
+  return <div className="space-y-4">
+    {renderPlainMarkdown(section.bodyMd)}
+    {blocks}
+    {prompts.length > 0 ? <section aria-label={locale === "zh" ? "反思问题" : "Reflection questions"} className="space-y-3">
+      <h4 className="m-0 text-sm font-semibold text-slate-900">{locale === "zh" ? "反思问题" : "Reflection questions"}</h4>
+      <ul className="m-0 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700">
+        {prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}
+      </ul>
+    </section> : null}
+  </div>;
 }
 
 function renderLettersIntroSection(section: MbtiResultProjectionSectionViewModel) {
@@ -1433,7 +1445,7 @@ export function renderMbtiProjectionSection(
       break;
     case "rich_text":
     default:
-      content = renderProjectionRichTextBlocks(section);
+      content = renderProjectionRichTextBlocks(section, locale);
       break;
   }
 

@@ -138,6 +138,7 @@ export type MbtiResultProjectionSectionViewModel = {
   payload: Record<string, unknown> | null;
   isPremiumTeaser: boolean;
   source: string;
+  authoritySource?: string;
   variantKey: string;
   sectionSelectionKey: string;
   selectedBlocks: string[];
@@ -2225,6 +2226,9 @@ function normalizeResultProjectionSections(rawSections: unknown): MbtiResultProj
       payload: asRecord(section.payload),
       isPremiumTeaser: render === "premium_teaser",
       source: normalizeText(section.source, "projection"),
+      ...(getNestedValue(section, ["_meta", "authority_source"]) === "content_promotion_w1_mbti_results_v2"
+        ? { authoritySource: "content_promotion_w1_mbti_results_v2" }
+        : {}),
       variantKey: normalizeText(
         getNestedValue(section, ["_meta", "variant_key"]),
         getNestedValue(section, ["payload", "personalization", "variant_key"])

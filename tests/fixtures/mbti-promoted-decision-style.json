@@ -1,0 +1,12 @@
+{
+  "title": "Decision style",
+  "summary_template": "{{type_code}} may narrow options by combining its preferred sides of the four axes in a recognizable but adaptable sequence.",
+  "body_template": [
+    "A preference describes what may feel easier to consult first; it does not prevent you from using the opposite approach. High-stakes decisions often benefit from deliberately adding the perspective that receives less attention.",
+    "Before committing, separate reversible choices from expensive ones. For reversible choices, define a small test. For expensive choices, record the evidence, people affected, and the condition that would change your mind."
+  ],
+  "reflection_prompts": [
+    "What information do you consult first?",
+    "What missing perspective would make this decision more balanced?"
+  ]
+}
