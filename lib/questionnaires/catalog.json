@@ -3626,5 +3626,28 @@
       "four-values-tied"
     ],
     "collection": "play"
+  },
+  {
+    "slug": "typing-speed",
+    "code": "FM_TYPING_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Typing Speed Test",
+      "zh": "打字速度测试"
+    },
+    "description": {
+      "en": "Type original English or Chinese for 60 seconds. Get WPM or CPM, positional accuracy and two free guides. Corrections allowed; no signup or speed bands.",
+      "zh": "真实计时60秒抄录原创英文或中文，分别查看WPM或CPM、逐位置准确率和两份免费完整指南。允许改错，无需注册，不分速度等级或颁证。"
+    },
+    "minutes": 2,
+    "formCode": "fermatmind_original_typing_en_zh_60s_v1",
+    "questionCount": 2,
+    "resultSlugs": [
+      "english",
+      "chinese"
+    ],
+    "collection": "explore"
   }
 ]

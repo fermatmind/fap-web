@@ -1,0 +1,30 @@
+{
+  "id": "T147",
+  "form": "fermatmind_original_typing_en_zh_60s_v1",
+  "authorship": "Original FermatMind fictional English and Chinese passages, independently written; not translated stimuli or copied competitor text.",
+  "typing": {
+    "durationMs": 60000,
+    "rounds": [
+      {
+        "id": "english",
+        "language": "en",
+        "title": {
+          "en": "English passage · WPM",
+          "zh": "英文原文 · WPM"
+        },
+        "passage": "On a quiet morning, the community workshop opened its doors for a small repair event. A volunteer placed a blue notebook beside a clean tray and wrote down the tools needed for the first table. The room had no music, so people could explain each step without raising their voices. One visitor brought a wooden box with a loose handle; another carried a lamp that needed a new shade. They agreed to check the instructions before choosing a method. Nothing had to be finished in a rush. At 10:30, the group paused to compare two sketches. Plan A used 12 short pieces, while Plan B used 8 longer pieces and a spare bracket. They set the sketches beside the spare parts and checked each label before making a choice. After discussing the options, the volunteer recorded the decision in a short note: keep the original shape, label the spare parts, and ask before changing the agreed design. A pair of clear photographs would help the next person understand what remained to be done. In the afternoon, the tables were cleared in a different order. Small brushes went into one basket, folded cloths into another, and the unused paper returned to its shelf. The team left a simple message for the next session. It named the unfinished task, the person who had accepted it, and the materials still available. Before closing the room, a volunteer read the note again and corrected a missing comma. The final sentence was short enough to understand at a glance.",
+        "profileId": "english"
+      },
+      {
+        "id": "chinese",
+        "language": "zh",
+        "title": {
+          "en": "Chinese passage · CPM",
+          "zh": "中文原文 · CPM"
+        },
+        "passage": "清晨，社区阅览室的窗边摆着一盆绿植。值班志愿者把几本新到的图册放在长桌上，又把空白便签整理成一小叠。今天准备的是一次虚构的手工展示活动，大家先看样品，再讨论怎样把制作过程解释清楚。一位参与者希望留下完整照片，另一位更喜欢附有步骤的文字说明。他们没有急着决定，而是先写下每种方式适合表达什么。九点半，桌上出现了两张草图。第一张用较大的图形说明整体顺序，第二张把细节分成几个小框。志愿者把它们并排放好，提醒大家先核对标题，再看每个编号是否对应。有人发现一句说明漏了标点，便在草稿中补上，并保留原来的修改记录。志愿者又核了一遍数量，确认准备的材料能对应图上的每个步骤。午后，几位参与者尝试用另一种材料做同样的形状。他们先记录已经完成的部分，再标出尚待确认的地方。关于颜色的选择，大家保留了两个不同意见，没有把暂时的决定写成全体一致。整理笔记的人在末尾添了一行：下次活动开始前，先检查纸张和夹子是否够用。临近结束，窗外的光线慢慢变柔，桌面也重新变得整洁。图册放回书架，便签留在指定盒子里，未完成的小作品各自附上标签。一位志愿者把活动说明从头读了一遍，确认读者不需要知道当天的讨论，也能看懂下一步要做什么。最后留下的是一份简洁的记录。活动结束后，几个人沿着楼梯走到门外，约好下一次见面时各带一本喜欢的画册。安静的阅览室又恢复了平常的样子。",
+        "profileId": "chinese"
+      }
+    ]
+  }
+}

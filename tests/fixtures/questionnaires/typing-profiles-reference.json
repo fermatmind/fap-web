@@ -1,0 +1,252 @@
+[
+  {
+    "id": "english",
+    "directionIds": [
+      "english"
+    ],
+    "title": {
+      "en": "English Typing: WPM, Accuracy and Corrections",
+      "zh": "英文打字：WPM、准确率与改错说明"
+    },
+    "headline": {
+      "en": "Read speed and positional accuracy together.",
+      "zh": "把速度与最终文本逐位置准确率一起看。"
+    },
+    "summary": {
+      "en": "Understand the fixed 60-second English round, five-character WPM, final-text corrections and positional accuracy. Full examples, without norms or certificates.",
+      "zh": "读懂固定60秒英文练习、5字符折算WPM、最终文本改错及逐位置准确率。完整算例，不分常模档位或颁证。"
+    },
+    "scoreReading": {
+      "en": "These are mode instructions, not a speed band. Every complete guide is available before and after any round, including a zero-input round. A 60-second copy sample does not establish an employer qualification, population percentile or language ability.",
+      "zh": "这是语言模式指南，不是速度分档。开始前及任何一轮后均可查看全部指南，空输入轮次也不例外。60秒抄录样本不建立雇主资格、人群百分位或语言能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "English Typing: WPM, Accuracy and Corrections",
+        "zh": "英文打字：WPM、准确率与改错说明"
+      },
+      "description": {
+        "en": "Understand the fixed 60-second English round, five-character WPM, final-text corrections and positional accuracy. Full examples, without norms or certificates.",
+        "zh": "读懂固定60秒英文练习、5字符折算WPM、最终文本改错及逐位置准确率。完整算例，不分常模档位或颁证。"
+      }
+    },
+    "sections": [
+      {
+        "id": "units",
+        "title": {
+          "en": "Five characters form one WPM unit",
+          "zh": "五个字符折算一个WPM单位"
+        },
+        "paragraphs": [
+          {
+            "en": "In the English mode, gross WPM is final committed characters divided by five over the fixed one-minute window. Letters, digits, spaces and punctuation count. This is a conventional five-character unit, not a count of dictionary words. Position-correct WPM uses only the characters that match the source at the same position, again divided by five. It is labelled explicitly rather than presented as a universal net-WPM formula. Other tools may count mistakes or apply penalties differently.",
+            "zh": "英文模式的总WPM按固定一分钟内最终已提交字符数除以5。字母、数字、空格和标点都计入，这是五字符单位，不是数词典单词。“同位置正确WPM”则只把与原文同位置一致的字符数除以5。本站明确写这个名称，不把它称为通用净WPM；其他工具可能采用不同的错字计法或罚分。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A complete worked result",
+          "zh": "一个完整结果算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose the final buffer contains 250 characters after 60 seconds, of which 240 match their source positions. Gross speed is 250/5 = 50 WPM. Position-correct speed is 240/5 = 48 WPM. Ten positions mismatch, and final-text accuracy is 240/250 × 100 = 96%. The untyped remainder of the source does not enter that denominator. Read the entered/source count as coverage of this passage, not a second accuracy score or a measure of reading comprehension.",
+            "zh": "例如60秒结束时最终文本有250字符，其中240个与原文同位置一致。总速度为250/5=50 WPM，同位置正确速度为240/5=48 WPM，不匹配10处，最终文本准确率为240/250×100=96%。原文未输入的余量不进入这个分母。“已输入/原文”说明本段覆盖多少，不是第二个准确率，也不测阅读理解。"
+          }
+        ]
+      },
+      {
+        "id": "corrections",
+        "title": {
+          "en": "Corrections change the final buffer",
+          "zh": "改错改变最终文本"
+        },
+        "paragraphs": [
+          {
+            "en": "Backspace, selection and replacement are allowed during the timed round. If you enter 270 characters in total but delete or replace some and finish with 250, the speed calculation uses the final 250, not a cumulative key-event count. A corrected error is not penalized twice. Time spent making the correction still belongs to the same 60 seconds. This supports a copy-and-correct practice task; it is not a measure of physical keystroke rate or a comparison with a no-backspace test.",
+            "zh": "计时内允许退格、选择和替换。假设过程累计输入270字符，但删改后最终剩250，速度用最终250算，不累计键盘事件；已修正错误不重复罚。改错耗时仍属于同一60秒。这适合抄录并修正的练习，不测物理按键频率，也不与禁止退格的测试等价比较。"
+          }
+        ]
+      },
+      {
+        "id": "position",
+        "title": {
+          "en": "An omission can shift later positions",
+          "zh": "漏字会影响后续位置"
+        },
+        "paragraphs": [
+          {
+            "en": "This edition compares positions, not edit distance. For a short illustration, source “cat sat” and final input “catsat” match only the first three positions: the missing space shifts the rest. Accuracy is therefore 3/6 = 50%, although an editing tool could repair the string with one insertion. The rule is deliberately transparent. Use the source highlight to locate where alignment first changed, correct the buffer if time remains and avoid treating the mismatch count as a count of separate motor slips.",
+            "zh": "本版逐位置比较，不算编辑距离。短例原文“cat sat”与输入“catsat”只有前三位置一致，缺失空格让后面错位，所以准确率是3/6=50%；编辑工具虽可插一个空格修好，两种计法仍不同。请用原文高亮找首次错位，尚有时间时修正；不要把不匹配位置数理解为独立手误次数。"
+          }
+        ]
+      },
+      {
+        "id": "timing",
+        "title": {
+          "en": "The button starts the entire minute",
+          "zh": "按开始就进入完整一分钟"
+        },
+        "paragraphs": [
+          {
+            "en": "You may inspect the original passage before starting. Pressing start begins the clock immediately, including the time needed to focus, read or correct; the first letter does not start a new clock. If the passage is exhausted, you may correct it and wait for the minute to end. The source length then limits the count. Moving the page to the background, a large clock divergence or a refresh clears the attempt instead of pausing a score for later resumption.",
+            "zh": "开始前可看原文，按开始后立即计时，聚焦、阅读和改错时间都包含在内，不从首个字重新计时。若原文录完，可改错并等满一分钟，此时原文长度会限制可得字符数。页面切到后台、时钟明显偏差或刷新会清空本轮，不暂停成绩供以后续做。"
+          }
+        ]
+      },
+      {
+        "id": "device",
+        "title": {
+          "en": "Compare practice conditions before numbers",
+          "zh": "先比练习条件，再比数值"
+        },
+        "paragraphs": [
+          {
+            "en": "Keyboard layout, screen size, familiarity with the fixed passage and editing habits can change the round. Browser spelling and prediction requests are disabled where supported, but the tool cannot certify how an operating-system input method assists you. Paste and drop are blocked in the interface, without claiming proctoring or cheating detection. Keep your own device and conditions consistent when reviewing attempts. This one-minute sample does not measure a sustained work shift, composition quality or a role-specific typing requirement.",
+            "zh": "键盘布局、屏幕、对固定原文的熟悉度及改错习惯都可能改变表现。浏览器拼写与预测功能在支持时关闭，但本站不能认证操作系统输入法如何辅助。界面阻止粘贴和拖入，不宣称监考或作弊侦测。回看几次练习时留意设备与条件一致；一分钟样本不测整班持续工作、写作质量或岗位特定门槛。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use a specific next practice step",
+          "zh": "选一个具体的下一步"
+        },
+        "paragraphs": [
+          {
+            "en": "Review whether your main obstacle was finding keys, preserving spaces and punctuation, or losing alignment after an omission. Practise one of those operations slowly with a new short fictional sentence, then use the timed passage again if helpful. Repetition can improve familiarity without proving a general skill change. The guide remains available at every result, including no input, for which accuracy is not applicable. No percentile, fast/slow label, certificate purchase or further personality test is required.",
+            "zh": "先看主要卡在找键、保留空格标点，还是漏字后的错位。用新编的短句慢练其中一项，需要时再回计时原文。重复可能提升熟悉度，不证明一般技能变化。任何结果都可读本指南；未输入时准确率不适用。无需百分位、快慢标签、购买证书或继续人格测试。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chinese",
+    "directionIds": [
+      "chinese"
+    ],
+    "title": {
+      "en": "Chinese Typing: CPM, IME and Accuracy",
+      "zh": "中文打字：CPM、输入法与准确率说明"
+    },
+    "headline": {
+      "en": "Count committed characters, not pinyin keystrokes.",
+      "zh": "计已提交字符，不把拼音按键当汉字。"
+    },
+    "summary": {
+      "en": "Read Chinese characters per minute separately from English WPM. Worked counts explain IME composition, punctuation, corrections and a fixed 60-second round.",
+      "zh": "中文字符/分钟与英文WPM分开。用完整算例说明输入法组字、标点、改错及固定60秒口径。"
+    },
+    "scoreReading": {
+      "en": "These are mode instructions, not a speed band. Every complete guide is available before and after any round, including a zero-input round. A 60-second copy sample does not establish an employer qualification, population percentile or language ability.",
+      "zh": "这是语言模式指南，不是速度分档。开始前及任何一轮后均可查看全部指南，空输入轮次也不例外。60秒抄录样本不建立雇主资格、人群百分位或语言能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "Chinese Typing: CPM, IME and Accuracy",
+        "zh": "中文打字：CPM、输入法与准确率说明"
+      },
+      "description": {
+        "en": "Read Chinese characters per minute separately from English WPM. Worked counts explain IME composition, punctuation, corrections and a fixed 60-second round.",
+        "zh": "中文字符/分钟与英文WPM分开。用完整算例说明输入法组字、标点、改错及固定60秒口径。"
+      }
+    },
+    "sections": [
+      {
+        "id": "units",
+        "title": {
+          "en": "Chinese mode reports CPM",
+          "zh": "中文模式报告字符/分钟"
+        },
+        "paragraphs": [
+          {
+            "en": "Chinese mode reports final committed characters per minute, including punctuation, digits, Latin letters and any spaces actually entered. It does not divide the result by five or report an English-WPM equivalent. A character here is a grapheme segment after canonical normalization, not a physical key or the number of pinyin letters used to select a word. The source passage stays Chinese in either interface. Changing the interface language changes the instructions and guide, not the material being copied.",
+            "zh": "中文模式报告最终已提交字符/分钟，包含实际输入的标点、数字、拉丁字母和空格，不除以5，也不给等价英文WPM。字符按规范归一后的字素分段计，不是物理按键，也不是选一个词所敲的拼音字母数。两种界面中的原文始终是中文；切换界面只换操作说明和指南，不翻译被抄录材料。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A full CPM and accuracy example",
+          "zh": "完整CPM及准确率算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose 120 characters are committed at the end of 60 seconds and 114 match the source at their respective positions. Final CPM is 120, position-correct CPM is 114, six positions mismatch and positional accuracy is 114/120 × 100 = 95%. There is no English-WPM figure for this round. If a different input method needed more or fewer keystrokes to produce those characters, the final-buffer formula still uses 120; it does not measure that input method’s key efficiency.",
+            "zh": "例如60秒结束时已提交120字符，其中114个与原文相同位置一致：最终CPM为120，同位置正确CPM为114，不匹配6处，准确率114/120×100=95%。本轮不显示英文WPM。若另一输入法用了更多或更少按键才输出这些字，公式仍用最终120字符，不测该输入法的按键效率。"
+          }
+        ]
+      },
+      {
+        "id": "composition",
+        "title": {
+          "en": "Wait for text to be committed",
+          "zh": "组字完成并提交后才计数"
+        },
+        "paragraphs": [
+          {
+            "en": "An input method may display a temporary pinyin string or candidate while composition is active. This edition keeps the last committed buffer separately. Only text committed before the deadline enters the result; unfinished composition at the boundary is excluded. For example, a visible candidate for a new word is not added to an already committed 118-character buffer merely because its letters are on screen. If the word is committed in time, its resulting characters become part of the buffer instead.",
+            "zh": "输入法组字时可能显示临时拼音串或候选词。本版单独保留上一次已提交文本，只让截止前已提交内容进入结果，边界时尚未完成的组字排除。譬如先有118个已提交字符，屏幕上又出现新词候选，不能仅因候选字母可见就把它加进去；若词在时限内提交，才按其实际输出字符纳入。"
+          }
+        ]
+      },
+      {
+        "id": "punctuation",
+        "title": {
+          "en": "Copy punctuation and visual line wraps carefully",
+          "zh": "区分原文标点与屏幕折行"
+        },
+        "paragraphs": [
+          {
+            "en": "The source “春天。” contains three grapheme characters: two Han characters and a full stop. Replacing the full stop with a comma changes the third position. A fullwidth punctuation mark and a visually related ASCII mark are not automatically made equal. Screen wrapping is layout, not a newline to type. If you insert or omit a character, later positions can shift, because the accuracy comparison is positional rather than edit distance. Correct the buffer if time remains and inspect where the alignment first changed.",
+            "zh": "原文“春天。”含三个字素字符：两个汉字和一个句号，换成逗号会让第三位置不同。全角标点与相似ASCII标点不会自动视为相同。屏幕折行是排版，不代表要输入换行。多字或漏字可能使后续位置错开，因为准确率逐位置比较而非编辑距离。尚有时间可修正，并查首次错位在哪里。"
+          }
+        ]
+      },
+      {
+        "id": "editing",
+        "title": {
+          "en": "Corrections are allowed within one minute",
+          "zh": "一分钟内允许改错"
+        },
+        "paragraphs": [
+          {
+            "en": "You may backspace, select and replace text during the round. Deleted or corrected characters are not accumulated as extra output or separately penalized mistakes. Only the final committed buffer is counted, while the time spent correcting remains in the same minute. The untyped remainder of the source is not part of the accuracy denominator. An empty round has zero CPM and no applicable accuracy percentage, rather than an invented 100%. These rules make the correction policy visible rather than treating unlike typing tests as comparable.",
+            "zh": "计时内可以退格、选择和替换，删去或修正的旧字符不累加成输出，也不另重复罚错；只计最终已提交文本，改错耗时仍在同一分钟。未抄录的原文余量不进准确率分母。空输入轮次为0 CPM，准确率不适用，不虚构100%。这些口径让改错规则可见，避免把不同打字测试当作可直接比较。"
+          }
+        ]
+      },
+      {
+        "id": "conditions",
+        "title": {
+          "en": "Keep the input method and timing conditions visible",
+          "zh": "留意输入法及计时条件"
+        },
+        "paragraphs": [
+          {
+            "en": "Timing starts on the start button, not on the first Chinese character. Pinyin, shape-based methods, prediction, keyboard layout and screen size can change the experience; the page cannot certify how the operating system assisted you. Paste and drop are blocked, but this is not a proctored test or an input-method benchmark. Leaving the page visible is part of the round: backgrounding or a large clock mismatch cancels it, and refresh loses progress. Record consistent conditions for your own practice instead of comparing CPM across unrelated settings.",
+            "zh": "按开始按钮便计时，不等首个汉字。拼音、形码、预测、键盘布局和屏幕都可能改变体验，页面不能认证操作系统提供了何种辅助。虽阻止粘贴和拖入，也不是监考测试或输入法基准。计时要求页面保持可见；转后台、明显时钟偏差会取消，刷新丢进度。自身练习应留意条件一致，不跨无关条件直接比较CPM。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose a small new copy exercise",
+          "zh": "选择一个小型新抄录练习"
+        },
+        "paragraphs": [
+          {
+            "en": "Look for a concrete issue: selecting an unintended homophone, changing punctuation, omitting a space or losing alignment after a missing character. Make a new short fictional sentence that isolates that issue and copy it carefully before returning to timing. A repeat improvement on a fixed passage may reflect familiarity. Neither CPM nor positional accuracy establishes Chinese proficiency, concentration, an employer cutoff or a job recommendation. Both full language guides remain available without payment, a certificate purchase or another personality test.",
+            "zh": "先找具体问题：选了同音错字、换错标点、漏空格，或漏字后错位。另编短句单独练这一点，仔细抄完再回计时。同一固定原文重做提高可能来自熟悉度。CPM和逐位置准确率都不建立中文水平、注意力、雇主门槛或求职推荐。两份语言指南始终可读，无需付款、购买证书或另做人格测试。"
+          }
+        ]
+      }
+    ]
+  }
+]

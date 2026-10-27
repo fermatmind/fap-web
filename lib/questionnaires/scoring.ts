@@ -1,3 +1,4 @@
+import { isTypingConfigurationValid } from "./typing";
 import { isEightValuesConfigurationValid, scoreEightValuesQuestionnaire } from "./eightValues";
 import { isPracticeConfigurationValid, scorePracticeQuestionnaire } from "./practice";
 import { isTenKeyConfigurationValid } from "./tenKey";
@@ -156,13 +157,13 @@ export function scoreArchetypeQuestionnaire(quiz: Questionnaire, answers: unknow
   return { status: "complete", answered, counts, profileIds: quiz.profiles.filter(p => counts[p.directionIds[0]] === highest).map(p => p.id) };
 }
 
-export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "eight-values" ? isEightValuesConfigurationValid(quiz) : quiz.kind === "ten-key" ? isTenKeyConfigurationValid(quiz) : quiz.kind === "practice" ? isPracticeConfigurationValid(quiz) : quiz.kind === "compass" ? isCompassConfigurationValid(quiz) : quiz.kind === "optimism" ? isOptimismConfigurationValid(quiz) : quiz.kind === "attachment" ? isAttachmentConfigurationValid(quiz) : quiz.kind === "affection" ? isAffectionConfigurationValid(quiz) : quiz.kind === "extraversion" ? isExtraversionConfigurationValid(quiz) : quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
+export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "typing" ? isTypingConfigurationValid(quiz) : quiz.kind === "eight-values" ? isEightValuesConfigurationValid(quiz) : quiz.kind === "ten-key" ? isTenKeyConfigurationValid(quiz) : quiz.kind === "practice" ? isPracticeConfigurationValid(quiz) : quiz.kind === "compass" ? isCompassConfigurationValid(quiz) : quiz.kind === "optimism" ? isOptimismConfigurationValid(quiz) : quiz.kind === "attachment" ? isAttachmentConfigurationValid(quiz) : quiz.kind === "affection" ? isAffectionConfigurationValid(quiz) : quiz.kind === "extraversion" ? isExtraversionConfigurationValid(quiz) : quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
   ? isLikertConfigurationValid(quiz) : quiz.kind === "archetype" ? isArchetypeConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
-export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "eight-values" ? scoreEightValuesQuestionnaire(quiz, answers) : quiz.kind === "ten-key" ? { status: "unavailable", answered: 0 } as const : quiz.kind === "practice" ? scorePracticeQuestionnaire(quiz, answers) : quiz.kind === "compass" ? scoreCompassQuestionnaire(quiz, answers) : quiz.kind === "optimism" ? scoreOptimismQuestionnaire(quiz, answers) : quiz.kind === "attachment" ? scoreAttachmentQuestionnaire(quiz, answers) : quiz.kind === "affection" ? scoreAffectionQuestionnaire(quiz, answers) : quiz.kind === "extraversion" ? scoreExtraversionQuestionnaire(quiz, answers) : quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
+export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "typing" ? { status: "unavailable", answered: 0 } as const : quiz.kind === "eight-values" ? scoreEightValuesQuestionnaire(quiz, answers) : quiz.kind === "ten-key" ? { status: "unavailable", answered: 0 } as const : quiz.kind === "practice" ? scorePracticeQuestionnaire(quiz, answers) : quiz.kind === "compass" ? scoreCompassQuestionnaire(quiz, answers) : quiz.kind === "optimism" ? scoreOptimismQuestionnaire(quiz, answers) : quiz.kind === "attachment" ? scoreAttachmentQuestionnaire(quiz, answers) : quiz.kind === "affection" ? scoreAffectionQuestionnaire(quiz, answers) : quiz.kind === "extraversion" ? scoreExtraversionQuestionnaire(quiz, answers) : quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
   ? scoreLikertQuestionnaire(quiz, answers) : quiz.kind === "archetype" ? scoreArchetypeQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
 
 export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, now = Date.now()): QuestionnaireAnswers | null {
-  if (!raw) return null;
+  if (!raw || quiz.kind === "typing") return null;
   try {
     const draft: unknown = JSON.parse(raw);
     if (!object(draft) || draft.version !== quiz.version || typeof draft.savedAt !== "number" || !Number.isFinite(draft.savedAt)) return null;
