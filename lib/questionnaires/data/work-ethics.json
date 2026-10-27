@@ -2081,7 +2081,7 @@
   ],
   "guide": [
     {
-      "id": "scope",
+      "id": "facet-comparison",
       "title": {
         "en": "Original statements about specific task habits",
         "zh": "针对具体任务习惯的原创陈述"
@@ -2094,7 +2094,7 @@
       ]
     },
     {
-      "id": "arithmetic",
+      "id": "facet-scoring",
       "title": {
         "en": "Four means without an overall grade",
         "zh": "四个均分，不合成整体等级"
@@ -2107,7 +2107,7 @@
       ]
     },
     {
-      "id": "missing",
+      "id": "facet-reading",
       "title": {
         "en": "Distinguish never from no relevant opportunity",
         "zh": "区分从未与没有相关机会"

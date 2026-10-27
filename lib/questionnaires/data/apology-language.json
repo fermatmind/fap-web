@@ -1965,7 +1965,7 @@
       ]
     },
     {
-      "id": "arithmetic",
+      "id": "facet-scoring",
       "title": {
         "en": "Five separate means, with no forced primary language",
         "zh": "五个独立均分，不强派主要语言"
@@ -1978,7 +1978,7 @@
       ]
     },
     {
-      "id": "missing",
+      "id": "facet-reading",
       "title": {
         "en": "Keep missing information and equal values visible",
         "zh": "保留资料不足与相同数值"
@@ -1991,7 +1991,7 @@
       ]
     },
     {
-      "id": "scope",
+      "id": "facet-comparison",
       "title": {
         "en": "A preference does not require forgiveness",
         "zh": "偏好不要求原谅"

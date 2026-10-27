@@ -3087,7 +3087,7 @@
   ],
   "guide": [
     {
-      "id": "scope",
+      "id": "facet-comparison",
       "title": {
         "en": "An original activity-confidence reflection",
         "zh": "原创活动把握程度反思"
@@ -3100,7 +3100,7 @@
       ]
     },
     {
-      "id": "arithmetic",
+      "id": "facet-scoring",
       "title": {
         "en": "Eight separate means, with no winner",
         "zh": "八个独立均分，不选胜出型"
@@ -3113,7 +3113,7 @@
       ]
     },
     {
-      "id": "missing",
+      "id": "facet-reading",
       "title": {
         "en": "Experience and access can remain unscored",
         "zh": "经验与接触条件可以不计分"
