@@ -1,0 +1,2592 @@
+{
+  "slug": "deep-desire",
+  "code": "DEEP_DESIRE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Deep Desires Test: Current Motivation Themes",
+    "zh": "深层欲望测试：当下动机主题"
+  },
+  "seoTitle": {
+    "en": "Deep Desires Test: 24 Questions & Six Motivation Themes",
+    "zh": "深层欲望测试：24题与六种当下动机完整解读"
+  },
+  "description": {
+    "en": "Rate 24 original FermatMind statements and read six complete motivation guides free. See each theme’s raw sum and exact mean, without a hidden-desire or personality verdict.",
+    "zh": "免费完成费马24项原创自评，阅读六种动机的完整指南。分别查看原始和、准确均分与具体情境，不推断潜意识、最深欲望或固定人格。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Think about recent ordinary arrangements you can recall. There is no fixed number of weeks to use. Rate how well each statement fits your experience; the original midpoint means uncertain or depends on the situation. If you cannot give a numeric response or prefer not to answer, the clearly unscored choice is a website addition. All four numeric responses are needed for a theme; one unscored answer withholds only that theme. All-unscored can finish and read every full guide.",
+    "zh": "结合近期能想起的日常安排作答，不限定必须回顾多少周。评价陈述与体验的符合程度，原中点表示不确定或视情况。无法给数值或不愿答时，可选网页明示新增的不计分。每主题四项数值完整才计算，一项不计分只使该主题暂缺；全部不计分也能完成并读全部指南。"
+  },
+  "introduction": {
+    "en": "This is FermatMind’s original 24-item reflection from its mini-program. Six separate themes cover autonomy, connection, mastery, security, recognition and exploration. The original Chinese items and five response labels are retained with a new English translation. Read your four-item sums and exact quarter-step means separately, alongside six complete guides. These editorial groups have not been validated as independent psychological factors. The test does not read the subconscious, identify one deepest desire or measure ability, diagnosis or future choices.",
+    "zh": "本版迁移费马小程序原创24题，分别回看自主选择、连接归属、掌握进步、稳定可预期、贡献认可及探索变化六主题。原中文题目和五级选项保留，新增英文译文。四题原始和与准确四分之一步长均分分别呈现，六篇全文对所有人开放。这些编辑分组未验证为独立心理因子；测试不读取潜意识、不指定最深欲望，也不测能力、诊断或未来决定。"
+  },
+  "resultHeading": {
+    "en": "Six current motivation themes and full readings",
+    "zh": "六种当下动机主题与完整读法"
+  },
+  "directions": [
+    {
+      "id": "autonomy",
+      "title": {
+        "en": "Autonomy and choice",
+        "zh": "自主选择"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "connection",
+      "title": {
+        "en": "Connection and belonging",
+        "zh": "连接与归属"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "mastery",
+      "title": {
+        "en": "Practice and mastery",
+        "zh": "能力与掌握"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "security",
+      "title": {
+        "en": "Stability and predictability",
+        "zh": "稳定与可预期"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "recognition",
+      "title": {
+        "en": "Recognition of contribution",
+        "zh": "被看见与贡献反馈"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "exploration",
+      "title": {
+        "en": "Exploration and variety",
+        "zh": "探索、变化与新鲜感"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "DESIRE_LK_001",
+      "prompt": {
+        "zh": "重要安排由我参与决定时，我更愿意投入。",
+        "en": "I am more willing to get involved when I have a say in important arrangements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_002",
+      "prompt": {
+        "zh": "做事方式可以自己选择时，我会感到更有动力。",
+        "en": "I feel more motivated when I can choose how to do something."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_003",
+      "prompt": {
+        "zh": "被直接替我决定时，我会想重新争取选择空间。",
+        "en": "When decisions are made for me, I want to regain some room to choose."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_004",
+      "prompt": {
+        "zh": "规划一周时，我重视保留能由自己安排的时间。",
+        "en": "When planning a week, I value keeping some time that I can arrange myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_005",
+      "prompt": {
+        "zh": "经历重要事情后，我希望能和信任的人分享。",
+        "en": "After something important happens, I want to share it with someone I trust."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_006",
+      "prompt": {
+        "zh": "在一个群体中感到被接纳，会明显影响我的投入。",
+        "en": "Feeling accepted in a group noticeably affects how involved I become."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_007",
+      "prompt": {
+        "zh": "遇到困难时，我会在意是否有人可以一起面对。",
+        "en": "When facing a difficulty, I care about whether someone can face it with me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_008",
+      "prompt": {
+        "zh": "长期独自推进事情时，我会想寻找稳定的连接。",
+        "en": "After working on something alone for a long time, I want a steady connection with others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_009",
+      "prompt": {
+        "zh": "看见自己比上次更熟练，会让我愿意继续。",
+        "en": "Seeing that I am more skilled than last time makes me want to continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "mastery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "mastery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "mastery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "mastery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "mastery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mastery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_010",
+      "prompt": {
+        "zh": "我愿意为掌握一项重要技能重复练习。",
+        "en": "I am willing to practice repeatedly to master an important skill."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "mastery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "mastery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "mastery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "mastery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "mastery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mastery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_011",
+      "prompt": {
+        "zh": "遇到有难度但可推进的任务时，我容易集中注意。",
+        "en": "I find it easier to focus on a task that is challenging but possible to make progress on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "mastery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "mastery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "mastery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "mastery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "mastery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mastery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_012",
+      "prompt": {
+        "zh": "具体反馈能帮助我决定下一步怎样改进。",
+        "en": "Specific feedback helps me decide what to improve next."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "mastery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "mastery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "mastery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "mastery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "mastery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mastery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_013",
+      "prompt": {
+        "zh": "重要安排有清楚范围时，我更容易放松。",
+        "en": "I find it easier to relax when important arrangements have a clear scope."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_014",
+      "prompt": {
+        "zh": "面对变化前，我会想先确认基本资源是否足够。",
+        "en": "Before facing a change, I want to check whether basic resources are sufficient."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_015",
+      "prompt": {
+        "zh": "知道接下来大致会发生什么，会增加我的行动余量。",
+        "en": "Having a general idea of what will happen next gives me more room to act."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_016",
+      "prompt": {
+        "zh": "风险不明确时，我会优先收集能提高可预期性的信息。",
+        "en": "When risks are unclear, I first gather information that can make things more predictable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_017",
+      "prompt": {
+        "zh": "自己的贡献被具体指出时，我会更确认投入的意义。",
+        "en": "When someone identifies my contribution specifically, I feel clearer about why my effort matters."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "recognition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "recognition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "recognition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "recognition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "recognition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "recognition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_018",
+      "prompt": {
+        "zh": "完成共同任务后，我希望知道自己的部分产生了什么影响。",
+        "en": "After a shared task, I want to know what effect my part had."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "recognition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "recognition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "recognition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "recognition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "recognition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "recognition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_019",
+      "prompt": {
+        "zh": "长期没有反馈时，我会想确认自己的努力是否被看见。",
+        "en": "After a long period without feedback, I want to check whether my effort has been noticed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "recognition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "recognition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "recognition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "recognition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "recognition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "recognition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_020",
+      "prompt": {
+        "zh": "获得与实际贡献对应的认可，会增强我继续参与的意愿。",
+        "en": "Recognition that reflects my actual contribution strengthens my willingness to keep participating."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "recognition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "recognition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "recognition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "recognition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "recognition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "recognition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_021",
+      "prompt": {
+        "zh": "接触新的观点或做法会让我产生继续了解的兴趣。",
+        "en": "Encountering a new idea or approach makes me interested in learning more."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "exploration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "exploration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "exploration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "exploration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "exploration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "exploration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_022",
+      "prompt": {
+        "zh": "长期重复同一种安排时，我会想加入一些变化。",
+        "en": "After repeating the same arrangement for a long time, I want to introduce some change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "exploration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "exploration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "exploration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "exploration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "exploration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "exploration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_023",
+      "prompt": {
+        "zh": "有机会试验不同路径时，我愿意先做小范围尝试。",
+        "en": "When I can try a different route, I am willing to start with a small experiment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "exploration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "exploration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "exploration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "exploration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "exploration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "exploration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DESIRE_LK_024",
+      "prompt": {
+        "zh": "未知中存在可控空间时，我容易被新的可能吸引。",
+        "en": "When there is some manageable room within the unknown, new possibilities easily attract me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "exploration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "exploration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "exploration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "exploration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "exploration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "exploration",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "autonomy",
+      "directionIds": [
+        "autonomy"
+      ],
+      "title": {
+        "en": "Autonomy Motivation: Choice, Participation and Shared Limits",
+        "zh": "自主选择动机：参与决定与共同限制"
+      },
+      "headline": {
+        "en": "Autonomy Motivation: Choice, Participation and Shared Limits",
+        "zh": "自主选择动机：参与决定与共同限制"
+      },
+      "summary": {
+        "en": "Explore how having a say, choosing an approach and keeping some self-directed time relate to your current involvement. This is a reflection on four responses, without a hidden-desire verdict.",
+        "zh": "回看参与决定、选择做法与自主安排时间怎样影响本次投入。这里解释四项回答，不裁定潜意识或最深欲望。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "autonomy-1",
+          "title": {
+            "en": "What these four questions bring together",
+            "zh": "四题合起来在观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern having a say in important arrangements, choosing how to work, seeking room to choose after others decide, and reserving some self-directed time. Agreement can help you name the part of an arrangement you want to influence. It does not show that you prefer independence in every setting. You may welcome a trusted person’s guidance while still wanting a voice in decisions that affect you.",
+              "zh": "四题分别涉及参与重要决定、自选做法、被代为决定后争取空间，以及保留自主时间。认同这些陈述，可以帮助你指出想参与安排的哪一部分，不表示所有场景都偏好独立。你可以欢迎可信之人的指导，同时希望影响自己的事情有表达机会。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-2",
+          "title": {
+            "en": "Recalculate a concrete response pattern",
+            "zh": "沿着具体回答复算"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional set of responses 4, 3, 5 and 2, the raw sum is 14 and the mean is 14 ÷ 4 = 3.50. A pattern of 5, 5, 2 and 2 also gives 3.50, although the two people answered the statements differently. The mean does not locate a threshold or identify a dominant need. Look back at the actual statements before deciding what you want to discuss.",
+              "zh": "虚构回答4、3、5、2合计14，均分14÷4＝3.50。5、5、2、2也得到3.50，题项组合却不同。均分没有给出阈值，也没有选出主导需要；在讨论想改变什么前，先回看具体是哪项回答。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-3",
+          "title": {
+            "en": "Separate participation from having every decision your way",
+            "zh": "参与决定不等于事事按自己的来"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a shared trip with a fixed budget. Wanting to choose between two feasible schedules can coexist with respecting the budget and other people’s time. Insisting that everyone accept one plan is a different behavior, which these questions do not measure. A smaller mean also does not establish passivity: the available choices may already feel appropriate, or someone else may have the expertise you want to rely on.",
+              "zh": "假设共同出行的预算已定，希望在两个可行日程中参与选择，可以与尊重预算和他人时间并存。要求所有人接受自己的唯一方案，是四题没有测量的另一种行为。较小均分也不证明没有主见：现有选择也许已经合适，或你愿意采用他人的专长。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-4",
+          "title": {
+            "en": "Ask for a bounded area of choice",
+            "zh": "把选择请求说具体"
+          },
+          "paragraphs": [
+            {
+              "en": "An example request is, “I understand that the deadline is fixed. Could I choose whether to start with the outline or the examples?” It names a shared constraint and one negotiable part. A counterexample is, “My result says I need autonomy, so the whole plan must change.” The other person can decline or propose another option. The aim is a conversation about a real arrangement, rather than using a score to win it.",
+              "zh": "可以说：“我理解截止时间已经确定，能否让我选择先做提纲还是例子？”这同时说明共同限制和一个可协商部分。反例是“结果说我需要自主，所以整套计划必须改”。对方可以拒绝或另提方案；目标是讨论真实安排，而非用分数取得优先权。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-5",
+          "title": {
+            "en": "Consider pressure and resources before judging the pattern",
+            "zh": "先看压力与资源"
+          },
+          "paragraphs": [
+            {
+              "en": "A heavily scheduled week, unfamiliar task or unequal decision-making role can change how much choice you want. Sometimes a clear instruction reduces effort; at another time, being consulted matters more. The questionnaire cannot determine which explanation applies. Compare more than one situation, including an occasion when you willingly followed someone else’s lead. That comparison can make the interpretation more specific without turning it into a fixed identity.",
+              "zh": "排得很满的一周、陌生任务或不对等的决定权，都可能改变你想要的选择空间。有时明确指示能减少负担，有时被征询更重要。问卷无法判断是哪种原因。可以比较不止一个情境，也包括一次你自愿跟随他人安排的经历，让解释更具体，而不把它固定成身份。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-6",
+          "title": {
+            "en": "Choice can coexist with connection and stability",
+            "zh": "自主可以与连接、稳定并存"
+          },
+          "paragraphs": [
+            {
+              "en": "You can want to make a choice and also want help, reliable information or companionship. These six themes are editorial groups scored separately, without evidence that their numbers are calibrated for a ranking. Do not pick the largest mean as your deepest desire or treat two equal means as two equally strong needs. Instead, ask which concrete conditions would make the present activity workable, and which conditions matter to the other people involved.",
+              "zh": "想自己选择，也可以同时希望有人协助、有可靠信息或有人陪伴。六主题是分别计分的编辑分组，没有证据支持用它们的数字排需要强弱。不要把最大均分定为最深欲望，也不把同分当需要同样强。可讨论哪些具体条件让眼前活动可行，以及其他参与者在意什么。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-7",
+          "title": {
+            "en": "Try one small, reversible choice",
+            "zh": "试一个可调整的小选择"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want, identify one upcoming arrangement and two options that fit its actual limits. Ask whether you can choose between them, then note whether the option changed your willingness to participate. This is an optional observation, not a task you must complete to improve the score. A choice that adds too much coordination may be unhelpful; simplifying or accepting guidance can be reasonable outcomes too.",
+              "zh": "愿意的话，找一项即将发生的安排，在真实限制内列两个选项，询问能否自己选择，再观察投入意愿是否改变。这是可选观察，不是为了提高分数必须完成的任务。增加过多协调的选择未必有用，简化安排或接受指导也可以是合适结果。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-8",
+          "title": {
+            "en": "Read this edition with its limits",
+            "zh": "本版本怎么使用"
+          },
+          "paragraphs": [
+            {
+              "en": "This guide expands FermatMind’s original mini-program content and uses a new English translation. The source is an unvalidated self-observation framework, with no norms, diagnostic accuracy or prediction of future decisions. The website adds a clearly unscored option; it keeps uncertainty or context dependence at the original numeric midpoint. Public links identify only the test or guide. Use the reading for a voluntary discussion, rather than decisions about hiring, relationships or someone’s value.",
+              "zh": "本指南扩充费马原小程序内容，并提供新的英文译文。来源是未经验证的自我观察框架，没有常模、诊断准确率或未来决定预测。网页另加明示不计分选项，原中间数值仍表示不确定或视情境。公开链接只有测试或指南身份。读法用于自愿讨论，不用于录用、关系去留或评价人的价值。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Autonomy Motivation: Choice, Participation and Shared Limits",
+          "zh": "自主选择动机：参与决定与共同限制"
+        },
+        "description": {
+          "en": "Read four autonomy-motivation responses about having a say, choosing an approach and time you can arrange. Recalculate the exact mean and explore a bounded request.",
+          "zh": "阅读参与决定、自选做法与自主时间四项回答，复算准确均分，用具体请求讨论可协商的选择空间。"
+        }
+      }
+    },
+    {
+      "id": "connection",
+      "directionIds": [
+        "connection"
+      ],
+      "title": {
+        "en": "Connection Motivation: Sharing, Acceptance and Support",
+        "zh": "连接动机：分享、接纳与共同面对"
+      },
+      "headline": {
+        "en": "Connection Motivation: Sharing, Acceptance and Support",
+        "zh": "连接动机：分享、接纳与共同面对"
+      },
+      "summary": {
+        "en": "Read four responses about sharing important experiences, feeling accepted and wanting dependable company. Name the kind of connection you want without assigning an attachment type.",
+        "zh": "阅读重要经历的分享、被接纳及稳定连接四项回答，区分想要怎样的联系，不划依恋类型。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "connection-1",
+          "title": {
+            "en": "Four ways connection appears in the questions",
+            "zh": "四题里的连接有什么不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The statements cover sharing an important experience, feeling accepted in a group, having someone face a difficulty with you, and seeking connection after a long period of working alone. These can point toward different requests: listening, company or joint action. Agreement does not establish dependence, and disagreement does not establish coldness. The questionnaire does not observe your relationships or know whether a particular person is willing or able to help.",
+              "zh": "四题涉及重要经历后想分享、群体中的接纳、遇难题时有人共同面对，以及独自推进很久后想建立联系。它们可能对应倾听、陪伴或一起行动等不同请求。认同不证明依赖，不认同也不证明冷漠；问卷没有观察关系，也不知道某个人是否愿意或能够帮助。"
+            }
+          ]
+        },
+        {
+          "id": "connection-2",
+          "title": {
+            "en": "A shared mean can hide different requests",
+            "zh": "同一均分可能对应不同请求"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional response pattern of 4, 2, 3 and 3 gives a sum of 12 and a mean of 3.00. Four answers of 3 also give 3.00, but the source midpoint explicitly means uncertainty or depending on the situation. Neither pattern is a moderate-connection category. If an answer is unscored, no mean is shown for this theme; the general guide remains available and does not become a personal verdict.",
+              "zh": "虚构回答4、2、3、3合计12，均分3.00；四个3也为3.00，但原中间选项明确表示不确定或视情况。两种组合都不是“中等连接需要”类别。有不计分时，本主题暂不给均分，通用指南仍可阅读，却不成为个人判定。"
+            }
+          ]
+        },
+        {
+          "id": "connection-3",
+          "title": {
+            "en": "A difficult task may call for different kinds of company",
+            "zh": "困难任务可能需要不同陪伴"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine preparing for a demanding appointment. One person wants a friend to listen beforehand; another wants help checking the logistics; another prefers to attend alone and talk afterward. All can involve a valued connection. These questions cannot choose the right arrangement or tell you that more contact would be better. An unmet practical need should not be replaced with a personality explanation.",
+              "zh": "假设要准备一次费力的约见，有人希望事前被倾听，有人想一起核对安排，也有人愿意独自参加、之后再聊。几种方式都可能包含珍视的连接。四题无法选出正确安排，也不说明联系越多越好；具体未满足的需要，不应被人格解释替代。"
+            }
+          ]
+        },
+        {
+          "id": "connection-4",
+          "title": {
+            "en": "Make a request that leaves room for an answer",
+            "zh": "请求要给对方回答空间"
+          },
+          "paragraphs": [
+            {
+              "en": "You might say, “Would you have ten minutes to listen this evening? I do not need advice yet.” A different request is, “Could we check the two practical steps together?” Both define a manageable kind of support. “My score says you must be available whenever I need you” is a counterexample. Another person’s limit is not proof that you lack value, and a test result does not create an obligation to provide emotional support.",
+              "zh": "可以说：“今晚方便听我说十分钟吗？我暂时不需要建议。”另一种请求是“一起核对两个实际步骤可以吗？”两者都限定了支持范围。反例是“分数说明我需要你，所以你必须随时在”。对方的限度不证明你没有价值，结果也不产生提供情绪支持的义务。"
+            }
+          ]
+        },
+        {
+          "id": "connection-5",
+          "title": {
+            "en": "A quieter period needs context",
+            "zh": "安静的时期也要看情境"
+          },
+          "paragraphs": [
+            {
+              "en": "After unusually frequent contact, solitude may feel welcome. After a long isolated task, a small exchange may matter more. Availability, trust, time and the nature of the problem can all affect a response. A lower mean cannot distinguish contented solitude from lack of a suitable connection, and a higher mean cannot establish that every relationship is supportive. Use your own observations to separate these possibilities.",
+              "zh": "频繁联系之后，独处可能很受欢迎；长时间孤立处理任务之后，小小交流可能更重要。对象是否可信、时间是否合适、问题性质等都会影响回答。较小均分不能区分自在独处与缺少合适联系，较大均分也不证明所有关系都有支持。需要结合自己的观察区分。"
+            }
+          ]
+        },
+        {
+          "id": "connection-6",
+          "title": {
+            "en": "Keep connection separate from being judged",
+            "zh": "连接不同于被评价"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting someone to share an experience with can differ from wanting recognition for a contribution. You may want both, neither or different things in different contexts. The six theme means do not establish a hierarchy, statistical independence or a complete map of motivation. A useful question is what you would like the other person to do in this specific moment, rather than which label fits you best.",
+              "zh": "想找人分享经历，可能不同于希望贡献得到具体认可。你可以两者都需要，也可以此刻都不需要。六主题均分不建立需要层级、统计独立性或完整动机地图。更有用的问题是此刻希望对方具体做什么，而不是哪个标签最适合自己。"
+            }
+          ]
+        },
+        {
+          "id": "connection-7",
+          "title": {
+            "en": "Observe one bounded exchange",
+            "zh": "观察一次范围清楚的交流"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want, make one small request to a person you trust and who can freely decline. Afterwards, note whether listening, shared activity or practical help was the part that mattered. You do not need to disclose the content publicly or track another person’s response as a score. If a connection feels unsafe or unwelcome, choosing distance is also a valid option; the exercise does not require contact or reconciliation.",
+              "zh": "愿意的话，向可信且可以自由拒绝的人提出一个小请求。之后留意真正有帮助的是倾听、共同活动还是实际协助，无需公开内容，也不把对方回应记成绩。关系让人不安全或不愿接触时，选择距离也成立，练习不要求联系或和解。"
+            }
+          ]
+        },
+        {
+          "id": "connection-8",
+          "title": {
+            "en": "Use a current reading, not a relationship diagnosis",
+            "zh": "用作当前读法，不诊断关系"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a FermatMind original reflection adapted from the mini-program, with a new English translation and an explicitly added unscored choice. It has not been validated to identify attachment style, mental health or other people’s feelings. Four numeric answers are needed for this theme, while all full readings remain public. A retake can reflect a changed context or a different interpretation of a statement; it does not by itself show relationship improvement or decline.",
+              "zh": "这是从费马原小程序改编的原创反思，含新英文译文及明示新增不计分选项，未验证用于识别依恋、心理健康或他人感受。本主题需要四项数值完整，全部全文始终公开。重测差异可能来自情境或理解改变，不能独自证明关系改善或恶化。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Connection Motivation: Sharing, Acceptance and Support",
+          "zh": "连接动机：分享、接纳与共同面对"
+        },
+        "description": {
+          "en": "Read four connection-motivation responses about sharing, group acceptance and support. Follow the exact calculation and distinguish listening, company and joint action.",
+          "zh": "阅读分享、群体接纳与支持四项连接动机回答，复算均分，区分倾听、陪伴与共同处理事情的实际需要。"
+        }
+      }
+    },
+    {
+      "id": "mastery",
+      "directionIds": [
+        "mastery"
+      ],
+      "title": {
+        "en": "Mastery Motivation: Practice, Feedback and Visible Progress",
+        "zh": "掌握动机：练习、反馈与看得见的进展"
+      },
+      "headline": {
+        "en": "Mastery Motivation: Practice, Feedback and Visible Progress",
+        "zh": "掌握动机：练习、反馈与看得见的进展"
+      },
+      "summary": {
+        "en": "Explore what practice, manageable challenge and specific feedback mean in your current responses. The four-item theme concerns motivation rather than tested skill or future achievement.",
+        "zh": "回看练习、可推进的挑战与具体反馈在本次回答中的意义。四题涉及动机，不测技能水平或未来成就。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "mastery-1",
+          "title": {
+            "en": "Wanting to improve is different from demonstrated ability",
+            "zh": "想进步与实测能力分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern noticing progress, repeating practice, focusing on a difficult but workable task, and using specific feedback. They ask what can draw your attention or sustain effort, rather than how accurately you perform a skill. Someone beginning a new activity can agree strongly; someone highly experienced can agree less because a different part of the activity currently matters. Neither pattern establishes competence, intelligence or achievement.",
+              "zh": "四题涉及看见进步、重复练习、在有难度但可推进的任务上集中，以及利用具体反馈。它们询问什么可能带动注意或持续投入，不检验技能正确率。初学者可以很认同，熟练者也可能较少认同，因为此刻重视活动的其他部分。两种情况都不建立能力、智力或成就判断。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-2",
+          "title": {
+            "en": "Recalculate the four values without a skill grade",
+            "zh": "复算四个数，不派能力等级"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional set of 5, 4, 3 and 4, the sum is 16 and the exact mean is 4.00. That is greater agreement with these four statements, not eighty percent mastery. No cutoff separates a motivated person from an unmotivated one. One unscored response leaves this theme without a mean; it is not replaced by the midpoint or averaged out. Other complete themes can still be read separately.",
+              "zh": "虚构回答5、4、3、4合计16，准确均分4.00。这表示对四陈述的认同较多，不是掌握程度80%。本版没有区分有无动力的阈值。一项不计分使本主题暂缺均分，不用中点补齐或忽略该项；其他完整主题仍可分别阅读。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-3",
+          "title": {
+            "en": "Look for progress on the actual task",
+            "zh": "进展要落在真实任务上"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine learning to prepare a short presentation. Rehearsing the opening three times and noticing where the explanation becomes clearer gives a specific observation. Collecting general praise about being talented gives different information. The form cannot verify either observation or promise that repetition will improve every task. Check whether the feedback concerns something you can change, and whether the task is feasible with the time and resources available.",
+              "zh": "假设学习做简短展示，练习三次开场、观察哪里讲得更清楚，是具体观察；收集“你很有天赋”的泛泛赞美，则是另一类信息。问卷无法核实其中任何一种，也不保证重复就能改善每项任务。可看反馈是否涉及能调整的部分，以及时间资源是否允许推进。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-4",
+          "title": {
+            "en": "Ask for feedback you can use",
+            "zh": "请求能用得上的反馈"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is, “Which part of this example was hardest to follow, and what information would help?” It gives the other person a bounded question. “My result says I must keep improving, so you must review everything immediately” is a counterexample. Feedback can be unavailable, contradictory or outside someone’s expertise. You can decide whether a suggestion fits the goal instead of treating every comment as a requirement.",
+              "zh": "可以问：“这个例子哪部分最难跟上，补什么信息会有帮助？”这给对方一个范围清楚的问题。反例是“结果说明我必须进步，所以你现在得检查所有内容”。反馈可能无法获得、互相矛盾或超出对方专长；你可以判断建议是否符合目标，无需把每条评论都当任务。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-5",
+          "title": {
+            "en": "Consider workload and room to practice",
+            "zh": "留意任务负担与练习空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Fatigue, unclear instructions or a task that is too large can make repeated practice unattractive. A smaller mean does not establish laziness or low ability. Strong agreement does not mean that additional practice is always the best use of your time. The questionnaire cannot observe these conditions. Compare an activity where progress felt possible with one where the available resources made progress difficult.",
+              "zh": "疲劳、指示含糊或任务过大，都可能让重复练习缺乏吸引力。较小均分不证明懒惰或能力不足，强烈认同也不说明继续练习永远最合适。问卷没有观察这些条件，可比较一项感到能够进步的活动，以及一项资源限制让推进困难的活动。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-6",
+          "title": {
+            "en": "Distinguish useful feedback from recognition",
+            "zh": "有用反馈与认可可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might want detailed correction on one task while wanting simple acknowledgment on another. Recognition can help you understand an effect; mastery-related feedback can help you choose a next step. There is no need to select one as the stronger or more worthwhile desire. The six groups are editorial observations, and equal means do not establish equal needs. Discuss the actual purpose of feedback in the situation.",
+              "zh": "你可能在一项任务上想要详细纠正，在另一项上只希望贡献被回应。认可可以帮助了解影响，掌握相关反馈可以帮助选择下一步。不必选出哪个愿望更强或更有价值；六组是编辑性观察，同分不证明需要相等。可讨论当前反馈究竟用来做什么。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-7",
+          "title": {
+            "en": "Choose an optional practice you can repeat",
+            "zh": "选一个可以重复的小练习"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one small part of an activity and repeat it three times under reasonably similar conditions. Record what changed and what remained difficult, without turning the observation into a promise or a public performance score. You may need an explanation, a different resource or a pause rather than more repetition. Stopping is acceptable when the practice is no longer useful or its cost is too high.",
+              "zh": "有用时可选活动的一小部分，在大致相似条件下重复三次，记录变化和仍困难的地方，不把观察写成保证或公开表现分。你可能需要解释、不同资源或暂停，而非更多重复；练习不再有用或成本过高时可以停止。"
+            }
+          ]
+        },
+        {
+          "id": "mastery-8",
+          "title": {
+            "en": "Keep the result in its original scope",
+            "zh": "保留原本的测量范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The mini-program describes this theme as valuing progress, practice and concrete feedback, not a test of ability. This website preserves the four original Chinese statements and adds an English translation and an unscored response. The framework has no validated norms, achievement forecasts or career-fit interpretation. Public guides contain general examples, not a personal development prescription. Use your own task evidence to decide whether an interpretation is useful.",
+              "zh": "原小程序把本主题定义为重视进展、练习与具体反馈，不是能力测验。网页保留四条原中文，新增英文译文与不计分选项。框架没有经过验证的常模、成就预测或职业适配解释。公开指南给通用例子，不是个人发展处方；是否有用要结合真实任务证据判断。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Mastery Motivation: Practice, Feedback and Visible Progress",
+          "zh": "掌握动机：练习、反馈与看得见的进展"
+        },
+        "description": {
+          "en": "Explore practice, manageable challenge and useful feedback through four original motivation responses. See the calculation and a concrete practice example, without a skill grade.",
+          "zh": "通过四项原创回答回看练习、可推进挑战与具体反馈，查看均分计算和小练习例子，不把动机当技能等级。"
+        }
+      }
+    },
+    {
+      "id": "security",
+      "directionIds": [
+        "security"
+      ],
+      "title": {
+        "en": "Security Motivation: Predictability, Resources and Room to Act",
+        "zh": "稳定动机：可预期、资源与行动余量"
+      },
+      "headline": {
+        "en": "Security Motivation: Predictability, Resources and Room to Act",
+        "zh": "稳定动机：可预期、资源与行动余量"
+      },
+      "summary": {
+        "en": "Read four responses about clear scope, basic resources and reducing uncertainty. They do not measure financial security, courage or an objective tolerance for risk.",
+        "zh": "回看范围是否清楚、基本资源与降低不确定性的四项回答，不测财务安全、勇气或客观风险承受力。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "security-1",
+          "title": {
+            "en": "What makes an arrangement feel more workable",
+            "zh": "什么条件让安排更可行"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern clear boundaries for an important arrangement, checking basic resources before a change, knowing roughly what happens next, and gathering information when risks are unclear. They can help you name a specific unknown, rather than declare that you dislike change. The questions do not inspect actual resources or calculate whether a decision is safe. Wanting predictability can coexist with curiosity and willingness to try something unfamiliar.",
+              "zh": "四题涉及重要安排的清楚范围、变化前核对基本资源、大致了解接下来发生什么，以及风险不明时搜集信息。它们帮助指出某项未知，不直接宣布你讨厌变化。问卷没有检查真实资源或计算决定是否安全；希望可预期，也可以同时好奇并愿意尝试陌生事物。"
+            }
+          ]
+        },
+        {
+          "id": "security-2",
+          "title": {
+            "en": "Read a quarter-step mean accurately",
+            "zh": "准确读出四分之一步长"
+          },
+          "paragraphs": [
+            {
+              "en": "Fictional answers of 2, 4, 3 and 4 sum to 13. Dividing by four gives 3.25, which this report preserves rather than converting to a percentage or a risk category. No value identifies a cautious, conservative or reckless person. One added unscored choice withholds the theme; it is not treated as low concern. Equal means elsewhere in the report do not establish equal needs or trade-offs.",
+              "zh": "虚构回答2、4、3、4合计13，除以4为3.25；本报告保留这个值，不换成百分比或风险类别。没有哪个数值识别谨慎、保守或鲁莽的人。一项新增不计分使本主题暂缺，不算较少关注。同分也不证明需要或取舍相等。"
+            }
+          ]
+        },
+        {
+          "id": "security-3",
+          "title": {
+            "en": "Separate a useful check from a search for certainty",
+            "zh": "有用核对不同于寻找绝对确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a short course whose dates, materials and cancellation terms are unclear. Checking those details can answer a bounded question. Rechecking every possibility may not supply certainty about the experience itself. This example does not tell you how much checking is appropriate in your situation. Consider whether the information could change the decision and whether the time spent obtaining it is reasonable for the actual stakes.",
+              "zh": "假设短期课程的日期、材料和取消条件尚不清楚，核对这些细节能回答有限问题；反复检查所有可能，也未必能确定上课的实际体验。例子不替你规定该检查多少，可看信息是否可能改变决定，以及获取信息的时间是否符合事情的实际重要性。"
+            }
+          ]
+        },
+        {
+          "id": "security-4",
+          "title": {
+            "en": "Ask which unknown needs an answer",
+            "zh": "把需要回答的未知说出来"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is, “Before I agree, could we confirm the time limit and what equipment is provided?” It identifies information that someone may be able to supply. “My result says I need stability, so nothing can change” is a counterexample. Some conditions remain uncertain despite a reasonable request. You can then choose whether to proceed, reduce the scope, postpone or decline without treating the score as a decision rule.",
+              "zh": "可以说：“在我同意前，能否确认时间上限以及会提供哪些设备？”这指出对方可能回答的信息。反例是“结果说我需要稳定，所以什么都不能变”。合理询问之后有些条件仍会不确定，之后可选择继续、缩小范围、推迟或拒绝，不让分数代替决定。"
+            }
+          ]
+        },
+        {
+          "id": "security-5",
+          "title": {
+            "en": "Resources and recent experience can change the response",
+            "zh": "资源与近期经历会改变回答"
+          },
+          "paragraphs": [
+            {
+              "en": "A sudden change may feel different when you have time, accessible information and practical support. The same change may be difficult when those conditions are absent. A lower mean does not prove greater courage, and a higher one does not prove an inability to adapt. The form cannot separate every contextual influence. Look at one specific arrangement and the conditions around it before explaining your response as a stable trait.",
+              "zh": "有时间、可获取信息和实际支持时，突然变化可能是另一种体验；缺少这些条件时，同样变化可能很费力。较小均分不证明更勇敢，较大均分也不证明无法适应。问卷无法分开所有情境影响，先看一项真实安排及周围条件，再考虑是否是稳定特征。"
+            }
+          ]
+        },
+        {
+          "id": "security-6",
+          "title": {
+            "en": "Predictability and exploration need not compete",
+            "zh": "可预期与探索不必二选一"
+          },
+          "paragraphs": [
+            {
+              "en": "You can protect a basic condition while experimenting with a small part of an activity. For example, keeping a fixed end time can make an unfamiliar activity more feasible. The report does not subtract exploration from security or define a balance point between them. The groups are separate editorial themes, not a validated model of risk-taking. A useful discussion names which condition needs protection and which part can remain open.",
+              "zh": "可以保护基本条件，同时在活动的一小部分试验。例如保留明确结束时间，可能让陌生活动更可行。报告不把探索从稳定中扣除，也不划二者平衡点。各组是分开的编辑主题，不是经过验证的冒险模型。讨论可具体到需要保护什么条件、哪部分可以开放。"
+            }
+          ]
+        },
+        {
+          "id": "security-7",
+          "title": {
+            "en": "Prepare a minimum workable plan",
+            "zh": "准备一个最低可行方案"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want, choose one upcoming change and write the minimum conditions under which it would be workable. Identify one unknown you can check and one you may have to leave open. This optional exercise does not guarantee safety or require you to take a risk. It can also lead to postponing the activity. For consequential financial, legal or health choices, use the relevant information and qualified advice rather than this motivation score.",
+              "zh": "愿意的话，为一次即将出现的变化写下最低可行条件，找出一项可核实未知和一项也许必须保留的未知。可选练习不保证安全，也不要求冒险，结果也可以是推迟。涉及重要财务、法律或健康决定时，要依据对应信息与合格意见，而非本动机分。"
+            }
+          ]
+        },
+        {
+          "id": "security-8",
+          "title": {
+            "en": "Keep a current observation within its limits",
+            "zh": "把当前观察留在适当范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This guide expands the original FermatMind mini-program theme about clear scope, resources and uncertainty. Its four original Chinese items are retained with a new English translation. The framework has no validated risk forecasts, norms or diagnostic thresholds. The web edition adds an unscored option and shows only complete theme calculations. Public links contain a test or guide identity, without your answers or personal resource details.",
+              "zh": "指南扩充原小程序关于范围、资源和不确定性的主题，保留四条原中文并新增英文译文。框架没有经过验证的风险预测、常模或诊断阈值。网页版新增不计分，只展示完整主题的计算；公开链接只有测试或指南身份，不含回答及个人资源细节。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Security Motivation: Predictability, Resources and Room to Act",
+          "zh": "稳定动机：可预期、资源与行动余量"
+        },
+        "description": {
+          "en": "Read four responses about clear scope, resources and uncertainty. Recalculate the exact mean and try a minimum workable plan without a risk-tolerance label.",
+          "zh": "阅读范围、资源和不确定性四项回答，复算准确均分，讨论最低可行条件，不划风险承受或保守程度。"
+        }
+      }
+    },
+    {
+      "id": "recognition",
+      "directionIds": [
+        "recognition"
+      ],
+      "title": {
+        "en": "Recognition Motivation: Contribution, Impact and Specific Feedback",
+        "zh": "认可动机：贡献、影响与具体反馈"
+      },
+      "headline": {
+        "en": "Recognition Motivation: Contribution, Impact and Specific Feedback",
+        "zh": "认可动机：贡献、影响与具体反馈"
+      },
+      "summary": {
+        "en": "Explore what being specifically acknowledged and understanding a contribution’s effect mean in your current responses. The theme does not determine status, self-worth or another person’s opinion.",
+        "zh": "回看贡献被具体回应、了解自己的部分产生什么影响的四项回答，不判断地位、自我价值或他人的真实评价。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "recognition-1",
+          "title": {
+            "en": "Recognition has several concrete meanings",
+            "zh": "认可可以具体指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern having a contribution named, understanding the effect of your part in a shared task, checking whether effort has been noticed after a long silence, and receiving acknowledgment that corresponds to what you did. They do not ask whether you want fame or admiration. Agreement can help you clarify what feedback you need. A smaller mean does not show that recognition is irrelevant or that you are naturally free from others’ opinions.",
+              "zh": "四题涉及贡献被指出、了解共同任务中自己部分的影响、长期没反馈后确认努力是否被看见，以及获得与实际贡献相称的回应。它们不询问是否想成名或受崇拜。认同可以帮助说清需要怎样的反馈；较小均分也不证明认可无关紧要，或天生不受他人评价影响。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-2",
+          "title": {
+            "en": "Calculate the response without a value judgment",
+            "zh": "复算回答，不评价价值"
+          },
+          "paragraphs": [
+            {
+              "en": "For fictional answers of 3, 5, 2 and 4, the raw sum is 14 and the mean is 3.50. That calculation describes the four selected responses, not the amount of respect you deserve. No threshold identifies vanity, insecurity or social importance. A response of 3 retains the original meaning of uncertainty or context dependence. An added unscored response is different and withholds this theme’s calculation.",
+              "zh": "虚构回答3、5、2、4合计14，均分3.50。计算描述四项所选回答，不表示你值得获得多少尊重。没有识别虚荣、不安全感或社会重要性的阈值。3保留原来不确定或视情况的意思；新增不计分与它不同，会使本主题暂缺计算。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-3",
+          "title": {
+            "en": "Distinguish information about impact from praise",
+            "zh": "区分影响信息与赞美"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine contributing a reference table to a group project. “The table helped us find two missing entries” supplies specific information about its effect. “You are amazing” gives a different kind of response. You may value either, both or neither in that moment. The questionnaire cannot tell which response is accurate or whether the group has fairly assigned credit. Missing acknowledgment is not proof that your work had no effect.",
+              "zh": "假设给小组项目提供一张参考表，“表格帮我们找到两条遗漏”提供具体影响信息；“你太厉害了”则是另一种回应。当下可以重视其中一种、两种或都不需要。问卷无法判断回应真假或贡献归属是否公平；没有被回应，不证明工作没有影响。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-4",
+          "title": {
+            "en": "Ask about a behavior and its effect",
+            "zh": "针对行为与影响提问"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is, “Could you tell me whether the summary helped, and which part was useful?” It asks for information the other person may have. “My score says I need recognition, so you must praise me” is a counterexample. You can also describe your contribution factually when roles are unclear. A reflection result does not settle credit disputes or require another person to give a favorable evaluation.",
+              "zh": "可以问：“能告诉我这份摘要是否有帮助，哪部分有用吗？”这询问对方可能掌握的信息。反例是“分数说明我需要认可，所以你必须夸我”。职责不清时也可以陈述自己实际做了什么；反思结果不裁定贡献纠纷，也不要求他人给好评。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-5",
+          "title": {
+            "en": "Silence can have more than one explanation",
+            "zh": "沉默可能有不止一种原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may not have seen the work, may be busy, may not know that feedback would help, or may disagree about its effect. These are possibilities to check, not explanations established by the test. A larger mean cannot reveal what others think of you. A smaller one cannot establish that you have enough feedback. Compare the specific situation with an occasion when the effect of your work was already clear.",
+              "zh": "对方可能没看到工作、正忙、不知道反馈有用，或对影响有不同判断。这些是可核实的可能，不是问卷确定的解释。较大均分不能揭示别人怎样看你，较小均分也不能证明反馈已经足够。可比较当前情境与一次工作影响已经很清楚的经历。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-6",
+          "title": {
+            "en": "Keep feedback, belonging and learning distinct",
+            "zh": "反馈、归属与学习分别理解"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want acknowledgment of a completed contribution, companionship during the task, or detailed guidance for a next attempt. Those are different requests, even when they occur together. The theme means do not decide which is your deepest need or how much another person should provide. Use the six groups to organize a discussion of real conditions, without treating their numbers as a hierarchy or a complete explanation of motivation.",
+              "zh": "完成贡献后想被回应、做任务时想有人陪伴、下一次想得到详细指导，是不同请求，也可以同时出现。主题均分不决定哪个是最深需要，或他人该提供多少。六组用于组织对真实条件的讨论，不把数字当层级或完整动机解释。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-7",
+          "title": {
+            "en": "Try one specific feedback question",
+            "zh": "试一个具体反馈问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one completed action and ask once about its effect. Keep your own evidence too: what was delivered, what changed and what remains uncertain. This optional observation is not a campaign to secure approval or a requirement to disclose your result. You can leave a question unanswered, seek feedback from a different suitable source, or decide that further checking is not useful.",
+              "zh": "有用时可选一个已完成行为，询问一次实际影响，也保留自己的证据：交付了什么、发生什么改变、什么仍不清楚。可选观察不是争取认可的行动计划，也不要求公开结果。可以保留未回答的问题、找另一合适来源反馈，或决定不再核对。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-8",
+          "title": {
+            "en": "Read a self-report rather than a social ranking",
+            "zh": "读自报，不读社会排名"
+          },
+          "paragraphs": [
+            {
+              "en": "The original FermatMind mini-program describes contribution feedback as a current motivation clue. The website retains its four Chinese items, adds an English translation and an explicitly unscored choice, and shows complete calculations separately. No validation establishes social rank, other people’s views or a fixed identity. Public links omit answers and scores. Decisions about opportunities, responsibility or relationships need evidence beyond this voluntary reflection.",
+              "zh": "原小程序把贡献反馈描述为当前动机线索。网页保留四条中文，新增英文译文与明示不计分，分别呈现完整计算。没有验证支持社会排名、他人看法或固定身份判断；公开链接不含回答与分数。机会、责任或关系决定需要本自愿反思之外的证据。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Recognition Motivation: Contribution, Impact and Specific Feedback",
+          "zh": "认可动机：贡献、影响与具体反馈"
+        },
+        "description": {
+          "en": "Read four responses about contribution and specific feedback. Compare acknowledgment with praise and use a concrete question, without ranking worth or status.",
+          "zh": "阅读贡献与具体反馈四项回答，区分影响信息与泛泛赞美，借一个实际问题沟通，不评价价值或地位。"
+        }
+      }
+    },
+    {
+      "id": "exploration",
+      "directionIds": [
+        "exploration"
+      ],
+      "title": {
+        "en": "Exploration Motivation: New Ideas, Small Trials and Limits",
+        "zh": "探索动机：新想法、小试验与停止条件"
+      },
+      "headline": {
+        "en": "Exploration Motivation: New Ideas, Small Trials and Limits",
+        "zh": "探索动机：新想法、小试验与停止条件"
+      },
+      "summary": {
+        "en": "Read four responses about unfamiliar ideas, adding variety and trying another route. This theme does not predict risk-taking, creativity or your capacity for long-term commitment.",
+        "zh": "阅读新观点、增加变化与试另一条路径的四项回答，不预测冒险、创造力或长期承诺能力。"
+      },
+      "scoreReading": {
+        "en": "Read the four original responses separately from the other themes. Add their 1–5 values for a raw sum of 4–20, then divide by four. The exact quarter-step mean is displayed with two decimals. All four numeric answers are required; an added unscored answer withholds this theme without replacing it with zero. A smaller value does not establish that you lack this quality or need.",
+        "zh": "本主题保留四道原题，与其他主题分别阅读。将1—5值加总，范围4—20，再除以4；保留四分之一步长，显示两位小数。四项数值齐全才呈现；新增不计分使本主题暂缺，不补成零。 数值较小也不证明缺少这种品质或需要。"
+      },
+      "sections": [
+        {
+          "id": "exploration-1",
+          "title": {
+            "en": "What the exploration questions cover",
+            "zh": "探索四题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The statements concern interest in new ideas, wanting variation after repetition, trying a different route on a small scale, and being drawn to possibilities when some uncertainty is manageable. They describe reasons an activity may attract your attention. They do not show that a new option is better or that you should act on it. Interest, access, available time and permission to experiment can differ considerably across situations.",
+              "zh": "四题涉及接触新观点的兴趣、重复后想加变化、小范围尝试不同路径，以及未知中有可控空间时被新可能吸引。它们描述活动为什么可能吸引注意，不说明新选项更好或应该行动。兴趣、机会、时间与是否可以试验，在不同情境中可能差别很大。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-2",
+          "title": {
+            "en": "Keep the arithmetic separate from a curiosity label",
+            "zh": "运算与好奇标签分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Fictional responses of 4, 3, 2 and 2 give a sum of 11 and a mean of 2.75. No threshold makes that person incurious or adventurous. The source midpoint retains uncertainty or depending on the situation; it is not silently changed to a frequency category. An added unscored answer withholds this theme’s mean. Other complete themes remain separate, and all six full guides can be read without a personal score.",
+              "zh": "虚构回答4、3、2、2合计11，均分2.75；没有阈值把人判为缺少好奇或爱冒险。原中点保留不确定或视情况，不悄悄改成频率类别。新增不计分使本主题暂缺，其他完整部分分别保留，全部六篇也可不凭个人分数阅读。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-3",
+          "title": {
+            "en": "A new approach needs a real comparison",
+            "zh": "新办法需要真实比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine trying a different note-taking layout for one short session. You can compare whether it makes a task easier to follow without replacing a whole system. Buying an expensive tool before checking the need is a different choice, and the questionnaire does not endorse it. The example is about a bounded trial, not a promise that novelty improves performance. Keeping an existing approach can be the more useful outcome.",
+              "zh": "假设一节短课试一种不同笔记排版，可以比较是否更容易跟上，而不必更换整套系统。没核对需要就买昂贵工具，是另一种选择，问卷没有为它背书。例子讨论有范围的小试验，不保证新鲜感能提高表现；保留旧办法也可能更有用。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-4",
+          "title": {
+            "en": "Describe what you want to try and what will stay fixed",
+            "zh": "说明想试什么、什么保持不动"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible proposal is, “Could we test this layout on one page and compare it with the current version?” It identifies the scope and comparison. “My result says I need change, so we should abandon the whole plan” is a counterexample. Shared work may have costs, rules or dependencies you cannot change alone. Another person can decline a trial without denying your curiosity or requiring you to defend a personality label.",
+              "zh": "可以提议：“能否只用一页试这个排版，与现版比较？”这说明范围和比较方式。反例是“结果说我需要变化，所以应该放弃整套计划”。共同任务可能有成本、规则或依赖，不能单独更改；对方拒绝试验，不等于否定好奇，也无需你维护人格标签。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-5",
+          "title": {
+            "en": "Separate interest from a wish to escape the current task",
+            "zh": "区分兴趣与想离开当前负担"
+          },
+          "paragraphs": [
+            {
+              "en": "A new possibility can be appealing because its subject interests you, because the existing task is repetitive, or because the present workload feels difficult. More than one reason can be present. The score cannot determine which applies or diagnose avoidance. Ask what is new, what you hope would change, and whether the original problem would still need attention. You do not have to settle on a single explanation.",
+              "zh": "新可能有吸引力，可能因为内容有趣、当前任务重复，或眼前负担很重，也可能几种原因并存。分数无法确定是哪种，更不诊断逃避。可问新在哪里、希望什么改变，以及原问题是否仍需处理，无需硬选唯一解释。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-6",
+          "title": {
+            "en": "Exploration can have stable boundaries",
+            "zh": "探索也可以有稳定边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A fixed budget or end time can create room for a small experiment. Wanting those limits does not contradict interest in a new idea. Conversely, choosing an established routine does not prove a lack of imagination. These six editorial themes are not calibrated opposites, and their means should not be subtracted or ranked. Discuss the actual conditions under which an unfamiliar activity would be worth considering.",
+              "zh": "固定预算或结束时间，可以为小试验提供空间；希望有这些限制，不与新想法的兴趣冲突。选择既有惯例也不证明没有想象力。六编辑主题不是经过校准的对立维度，均分不应相减或排名。可讨论什么实际条件让陌生活动值得考虑。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-7",
+          "title": {
+            "en": "Give an optional experiment a stopping condition",
+            "zh": "给可选试验一个停止条件"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want, choose a small trial with a clear limit on time, cost and who is affected. Write what you hope to observe and when you will stop or return to the existing method. An inconclusive trial is still an observation, and you can decide not to continue. This is not a score-improvement exercise or a recommendation to take financial, physical or relationship risks. No public record of your trial is needed.",
+              "zh": "愿意的话，可选一个时间、成本与影响对象都有明确范围的小试验，写下希望观察什么、何时停止或返回原办法。没有结论也仍是观察，可以不继续。它不是提高分数的任务，也不建议承担财务、身体或关系风险，无需公开记录。"
+            }
+          ]
+        },
+        {
+          "id": "exploration-8",
+          "title": {
+            "en": "Read the source as a current reflection",
+            "zh": "把来源读作当前反思"
+          },
+          "paragraphs": [
+            {
+              "en": "The original mini-program theme concerns manageable novelty and alternative routes, without predicting risky behavior or long-term commitment. The web edition retains the four Chinese statements, adds an English translation and a clearly unscored option, and provides these original examples. The framework has not been validated as a creativity or personality assessment. Public links identify the test or guide, while your answers and trial details remain outside them.",
+              "zh": "原小程序主题涉及可控新鲜感与替代路径，不预测冒险行为或长期承诺。网页保留四条中文，新增英文译文、明示不计分与本篇原创例子。框架未验证为创造力或人格评估；公开链接只有测试或指南身份，不放回答或试验细节。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Exploration Motivation: New Ideas, Small Trials and Limits",
+          "zh": "探索动机：新想法、小试验与停止条件"
+        },
+        "description": {
+          "en": "Explore new ideas, manageable variety and small trials through four original responses. Follow the calculation and choose clear stopping conditions without predicting risk-taking.",
+          "zh": "通过四项回答回看新观点、可控变化与小试验，查看均分计算和停止条件，不预测冒险或长期承诺。"
+        }
+      }
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_mini_deep_desire_24",
+    "formCode": "deep_desire_likert_24",
+    "itemBankVersion": "deep_desire_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "deep_desire_six_complete4_sum_exact_quarter_mean_v1",
+    "resultContentVersion": "deep_desire_mini_six_full_readings_v1",
+    "itemBankSha256": "bc7cfdb20c2004011bfd631ffafb99248b0973e72eb6f0a02bd21965b7db1b5a",
+    "resultContentSha256": "a3ea190bcaed6e96c0a42b2e16c377e1cf1eeb45da87d63af77dcb1fb6802bca",
+    "psychometricValidationCompleted": false
+  },
+  "references": [],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Four responses, a sum and an exact mean",
+        "zh": "四项回答、一个原始和与准确均分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme has four original statements, all scored forward from 1 to 5. Add the four numeric values for a sum of 4–20, then divide by four. For example, 2 + 4 + 3 + 4 = 13 and 13 ÷ 4 = 3.25. Quarter-step means are displayed with two decimals. There is no overall total, ranking, winning theme or severity band.",
+          "zh": "每主题四道原题均按1—5正向贡献，四项相加范围4—20，再除以4。例如2＋4＋3＋4＝13，13÷4＝3.25；四分之一步长均分显示两位小数。不合总分、不排名、不选获胜主题或划严重程度档。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Keep uncertainty separate from an unscored answer",
+        "zh": "区分不确定与不计分"
+      },
+      "paragraphs": [
+        {
+          "en": "The original numeric midpoint means uncertain or depends on the situation. The added unscored choice means no numeric answer. A theme needs all four numeric responses; one unscored choice withholds its sum and mean without changing other complete themes. All twenty-four selections can be unscored and still finish, with all six general guides open.",
+          "zh": "原数值中点表示不确定或视情境，新增不计分表示没有数值回答。每主题需要四项数值齐全；一项不计分使本主题原始和与均分暂缺，不改变其他完整部分。二十四项都选不计分仍可完成，并阅读全部六篇通用指南。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Read themes separately, with the situation in view",
+        "zh": "结合情境分别阅读主题"
+      },
+      "paragraphs": [
+        {
+          "en": "These are six editorial groups, not calibrated competing needs or verified independent factors. Do not select the largest mean as your deepest desire or treat equal means as equal needs. A smaller value does not establish that a quality or need is absent. Context, pressure, the people involved and available resources can change a response. Use the detailed examples to discuss a real arrangement.",
+          "zh": "六组是编辑主题，不是校准过的竞争需要或已验证独立因子。不把最大均分当最深欲望，不把同分当需要相等；较小数值也不证明品质或需要缺失。情境、压力、参与者与资源都会影响回答，可借具体例子讨论一项真实安排。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original mini-program content and disclosed web changes",
+        "zh": "原小程序内容与网页改动说明"
+      },
+      "paragraphs": [
+        {
+          "en": "The Chinese statements and six themes come from FermatMind’s original mini-program. This edition adds an English translation, expanded original guides and an unscored response. Its partial-theme handling is a disclosed web adaptation; original complete numeric calculations remain reproducible. No reliability, validity, norm, fairness or predictive-accuracy study has validated this framework. It does not support diagnosis, moral judgments, hiring, admissions or decisions about ending relationships.",
+          "zh": "中文陈述与六主题来自费马原创小程序。本版新增英文译文、扩充的原创指南和不计分选项；部分主题暂缺的处理属于明示网页改编，原完整数值计算可复算。框架没有经过信度、效度、常模、公平性或预测准确率研究验证，不支持诊断、道德评价、录用、升学或关系去留决定。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Choose whether to save this tab’s progress",
+        "zh": "自行决定是否保存本标签页进度"
+      },
+      "paragraphs": [
+        {
+          "en": "Progress saving is optional. If enabled, a draft stays in this browser tab for up to twenty-four hours and clears on completion, reset or explicit exit. The website does not keep a completed-result cache. Copying includes a public test identity and link, without answers, personal means or the situations you considered. Storage denial does not prevent finishing the test.",
+          "zh": "保存进度可自行选择。开启后，草稿最多留在本浏览器标签页24小时，完成、重置或明确退出时清除；网页不保留完成结果缓存。复制只有公开测试身份与链接，不包含回答、个人均分或所想情境。无法使用存储也不妨碍完成测试。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this test find my deepest desire?",
+        "zh": "能找出我最深的欲望吗？"
+      },
+      "answer": {
+        "en": "It organizes your responses to six current motivation themes. It does not inspect the subconscious, select one hidden motive or establish a fixed identity.",
+        "zh": "这里只整理六种当前动机主题的回答，不检查潜意识、不选唯一隐藏动机，也不建立固定身份。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a validated motivation scale?",
+        "zh": "这是经过验证的动机量表吗？"
+      },
+      "answer": {
+        "en": "No. This is an original FermatMind self-observation framework migrated from its mini-program, with a new English translation. The six groups are editorial themes rather than validated independent factors.",
+        "zh": "不是。这是迁移自小程序的费马原创自我观察框架，含新英文译文；六组是编辑主题，不是已验证独立因子。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why can several themes have the same mean?",
+        "zh": "几个主题为什么会同分？"
+      },
+      "answer": {
+        "en": "Different groups or response patterns can produce equal arithmetic means. That does not establish equally strong needs or a combined type. Read the individual statements and the relevant situation.",
+        "zh": "不同分组或回答组合可以产生相同算术均分，不表示需要同样强，也不产生联合类型。需要分别回看题项与实际情境。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does a response of 3 mean?",
+        "zh": "选3代表什么？"
+      },
+      "answer": {
+        "en": "It retains the original option: uncertain or depends on the situation. It is a numeric response. The separate added unscored option withholds a theme rather than filling it with a midpoint.",
+        "zh": "保留原选项“不确定或视情况”，属于数值回答。另加的不计分会使主题暂缺，不用中点补齐。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a mastery or security mean measure my ability?",
+        "zh": "掌握或稳定均分会测能力吗？"
+      },
+      "answer": {
+        "en": "No. Mastery concerns reported motivation around practice and feedback, while security concerns reported responses to scope, resources and uncertainty. Neither is an ability test, risk forecast or career-fit score.",
+        "zh": "不会。掌握涉及练习和反馈相关的自报动机，稳定涉及范围、资源和不确定性的回答；都不是能力测验、风险预测或职业适配分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read everything without signup?",
+        "zh": "不注册也能读全部结果吗？"
+      },
+      "answer": {
+        "en": "Yes. All six complete guides are public and free. You may finish with unscored choices, decline progress saving, read a guide without answering or stop here.",
+        "zh": "可以。六篇完整指南公开免费；可以不计分完成、不开启进度保存、不答题先读指南，或在这里结束。"
+      }
+    }
+  ]
+}

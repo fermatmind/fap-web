@@ -4621,5 +4621,32 @@
       "thirty-three"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "deep-desire",
+    "code": "DEEP_DESIRE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Deep Desires Test: Current Motivation Themes",
+      "zh": "深层欲望测试：当下动机主题"
+    },
+    "description": {
+      "en": "Rate 24 original FermatMind statements and read six complete motivation guides free. See each theme’s raw sum and exact mean, without a hidden-desire or personality verdict.",
+      "zh": "免费完成费马24项原创自评，阅读六种动机的完整指南。分别查看原始和、准确均分与具体情境，不推断潜意识、最深欲望或固定人格。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "deep_desire_likert_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "autonomy",
+      "connection",
+      "mastery",
+      "security",
+      "recognition",
+      "exploration"
+    ]
   }
 ]

@@ -1,0 +1,281 @@
+{
+  "scale_code": "DEEP_DESIRE",
+  "form": "deep_desire_likert_24",
+  "source_snapshot_sha256": "50241b223b5167f6c881009e694eea4d5eca3927b4f14c515af9f4be40bd2d81",
+  "items": [
+    {
+      "id": "DESIRE_LK_001",
+      "factor": "AUTONOMY",
+      "prompt": {
+        "zh": "重要安排由我参与决定时，我更愿意投入。",
+        "en": "I am more willing to get involved when I have a say in important arrangements."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_002",
+      "factor": "AUTONOMY",
+      "prompt": {
+        "zh": "做事方式可以自己选择时，我会感到更有动力。",
+        "en": "I feel more motivated when I can choose how to do something."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_003",
+      "factor": "AUTONOMY",
+      "prompt": {
+        "zh": "被直接替我决定时，我会想重新争取选择空间。",
+        "en": "When decisions are made for me, I want to regain some room to choose."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_004",
+      "factor": "AUTONOMY",
+      "prompt": {
+        "zh": "规划一周时，我重视保留能由自己安排的时间。",
+        "en": "When planning a week, I value keeping some time that I can arrange myself."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_005",
+      "factor": "CONNECTION",
+      "prompt": {
+        "zh": "经历重要事情后，我希望能和信任的人分享。",
+        "en": "After something important happens, I want to share it with someone I trust."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_006",
+      "factor": "CONNECTION",
+      "prompt": {
+        "zh": "在一个群体中感到被接纳，会明显影响我的投入。",
+        "en": "Feeling accepted in a group noticeably affects how involved I become."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_007",
+      "factor": "CONNECTION",
+      "prompt": {
+        "zh": "遇到困难时，我会在意是否有人可以一起面对。",
+        "en": "When facing a difficulty, I care about whether someone can face it with me."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_008",
+      "factor": "CONNECTION",
+      "prompt": {
+        "zh": "长期独自推进事情时，我会想寻找稳定的连接。",
+        "en": "After working on something alone for a long time, I want a steady connection with others."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_009",
+      "factor": "MASTERY",
+      "prompt": {
+        "zh": "看见自己比上次更熟练，会让我愿意继续。",
+        "en": "Seeing that I am more skilled than last time makes me want to continue."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_010",
+      "factor": "MASTERY",
+      "prompt": {
+        "zh": "我愿意为掌握一项重要技能重复练习。",
+        "en": "I am willing to practice repeatedly to master an important skill."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_011",
+      "factor": "MASTERY",
+      "prompt": {
+        "zh": "遇到有难度但可推进的任务时，我容易集中注意。",
+        "en": "I find it easier to focus on a task that is challenging but possible to make progress on."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_012",
+      "factor": "MASTERY",
+      "prompt": {
+        "zh": "具体反馈能帮助我决定下一步怎样改进。",
+        "en": "Specific feedback helps me decide what to improve next."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_013",
+      "factor": "SECURITY",
+      "prompt": {
+        "zh": "重要安排有清楚范围时，我更容易放松。",
+        "en": "I find it easier to relax when important arrangements have a clear scope."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_014",
+      "factor": "SECURITY",
+      "prompt": {
+        "zh": "面对变化前，我会想先确认基本资源是否足够。",
+        "en": "Before facing a change, I want to check whether basic resources are sufficient."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_015",
+      "factor": "SECURITY",
+      "prompt": {
+        "zh": "知道接下来大致会发生什么，会增加我的行动余量。",
+        "en": "Having a general idea of what will happen next gives me more room to act."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_016",
+      "factor": "SECURITY",
+      "prompt": {
+        "zh": "风险不明确时，我会优先收集能提高可预期性的信息。",
+        "en": "When risks are unclear, I first gather information that can make things more predictable."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_017",
+      "factor": "RECOGNITION",
+      "prompt": {
+        "zh": "自己的贡献被具体指出时，我会更确认投入的意义。",
+        "en": "When someone identifies my contribution specifically, I feel clearer about why my effort matters."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_018",
+      "factor": "RECOGNITION",
+      "prompt": {
+        "zh": "完成共同任务后，我希望知道自己的部分产生了什么影响。",
+        "en": "After a shared task, I want to know what effect my part had."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_019",
+      "factor": "RECOGNITION",
+      "prompt": {
+        "zh": "长期没有反馈时，我会想确认自己的努力是否被看见。",
+        "en": "After a long period without feedback, I want to check whether my effort has been noticed."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_020",
+      "factor": "RECOGNITION",
+      "prompt": {
+        "zh": "获得与实际贡献对应的认可，会增强我继续参与的意愿。",
+        "en": "Recognition that reflects my actual contribution strengthens my willingness to keep participating."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_021",
+      "factor": "EXPLORATION",
+      "prompt": {
+        "zh": "接触新的观点或做法会让我产生继续了解的兴趣。",
+        "en": "Encountering a new idea or approach makes me interested in learning more."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_022",
+      "factor": "EXPLORATION",
+      "prompt": {
+        "zh": "长期重复同一种安排时，我会想加入一些变化。",
+        "en": "After repeating the same arrangement for a long time, I want to introduce some change."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_023",
+      "factor": "EXPLORATION",
+      "prompt": {
+        "zh": "有机会试验不同路径时，我愿意先做小范围尝试。",
+        "en": "When I can try a different route, I am willing to start with a small experiment."
+      },
+      "reverse": false
+    },
+    {
+      "id": "DESIRE_LK_024",
+      "factor": "EXPLORATION",
+      "prompt": {
+        "zh": "未知中存在可控空间时，我容易被新的可能吸引。",
+        "en": "When there is some manageable room within the unknown, new possibilities easily attract me."
+      },
+      "reverse": false
+    }
+  ],
+  "anchors": [
+    {
+      "id": "1",
+      "score": 1,
+      "label": {
+        "zh": "完全不符合",
+        "en": "Does not fit at all"
+      }
+    },
+    {
+      "id": "2",
+      "score": 2,
+      "label": {
+        "zh": "比较不符合",
+        "en": "Mostly does not fit"
+      }
+    },
+    {
+      "id": "3",
+      "score": 3,
+      "label": {
+        "zh": "不确定或视情况",
+        "en": "Uncertain or depends on the situation"
+      }
+    },
+    {
+      "id": "4",
+      "score": 4,
+      "label": {
+        "zh": "比较符合",
+        "en": "Mostly fits"
+      }
+    },
+    {
+      "id": "5",
+      "score": 5,
+      "label": {
+        "zh": "非常符合",
+        "en": "Fits very well"
+      }
+    }
+  ],
+  "added_unscored": {
+    "id": "na",
+    "score": null,
+    "label": {
+      "en": "Cannot judge / prefer not to answer — unscored",
+      "zh": "无法判断／暂不回答——不计分"
+    }
+  },
+  "translation_notes": [
+    "Source3 explicitlyuncertain/context,notneutralfrequency;webretainsitanddistinguishesaddedNA.",
+    "No fixedpast4weeks added;sourcecurrent/recentmotivationframe retained.",
+    "Masterynameisvaluingpractice/progress,notabilityassessment;Securitynotfinancialadvice;Recognitionnotnarcissism;Connectionnotattachmenttyping."
+  ],
+  "numeric_plan": "all4numericpertheme;rawsum4..20/exactquartermean1..5display2decimal using sum/4,notgenericroundedFacetScore.mean;sourceallnumeric mappingunchanged;anyaddedNAwithholdsownpart;all24selectionsfinishinclallNA,otherscompletepartsretainedasexplicitwebadaptation",
+  "state": "externaltranslationsonly;no runtime/accepted increment",
+  "at_epoch": 1793112192.405638
+}
