@@ -1,0 +1,158 @@
+{
+  "source_item_bank_sha256": "6b0ac2a9f22b78a654eebfc47c5e8a64fe32403a6ccda901c836b043785eea26",
+  "source_form": "habit_tendency_likert_20",
+  "source_minimum_numeric_per_four": 3,
+  "original_skip_code": "PREFER_NOT_TO_ANSWER",
+  "source_factors": [
+    {
+      "source_code": "CUE_URGE",
+      "id": "cues-and-urges"
+    },
+    {
+      "source_code": "AUTOMATICITY",
+      "id": "automatic-starts"
+    },
+    {
+      "source_code": "PRIORITY_DISPLACEMENT",
+      "id": "displaced-plans"
+    },
+    {
+      "source_code": "CONTINUATION_DESPITE_COST",
+      "id": "continuing-after-inconvenience"
+    },
+    {
+      "source_code": "DAILY_FUNCTION_IMPACT",
+      "id": "everyday-effects"
+    }
+  ],
+  "items": [
+    {
+      "id": "HABIT_LK_001",
+      "factor": "CUE_URGE",
+      "prompt": "过去 30 天，某些时间、地点或情绪出现时，我会很快想到这个习惯。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_002",
+      "factor": "CUE_URGE",
+      "prompt": "过去 30 天，开始这个习惯前，我能感到明显的想要去做的冲动。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_003",
+      "factor": "CUE_URGE",
+      "prompt": "过去 30 天，即使没有事先计划，相关线索也会让我想开始。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_004",
+      "factor": "CUE_URGE",
+      "prompt": "过去 30 天，等待、无聊或压力增加时，这个习惯更容易被触发。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_005",
+      "factor": "AUTOMATICITY",
+      "prompt": "过去 30 天，我有时在意识到之前已经开始了这个习惯。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_006",
+      "factor": "AUTOMATICITY",
+      "prompt": "过去 30 天，这个习惯会自然接在某个日常动作之后。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_007",
+      "factor": "AUTOMATICITY",
+      "prompt": "过去 30 天，我不需要明确作出决定，就会重复这个习惯。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_008",
+      "factor": "AUTOMATICITY",
+      "prompt": "过去 30 天，做其他事情时，我也会不知不觉转向这个习惯。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_009",
+      "factor": "PRIORITY_DISPLACEMENT",
+      "prompt": "过去 30 天，这个习惯让我推迟过原本计划的任务。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_010",
+      "factor": "PRIORITY_DISPLACEMENT",
+      "prompt": "过去 30 天，我花在这个习惯上的时间有时超过了原来打算。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_011",
+      "factor": "PRIORITY_DISPLACEMENT",
+      "prompt": "过去 30 天，这个习惯减少了我用于休息或其他重要活动的时间。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_012",
+      "factor": "PRIORITY_DISPLACEMENT",
+      "prompt": "过去 30 天，我曾为了继续这个习惯而改动当天的其他安排。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_013",
+      "factor": "CONTINUATION_DESPITE_COST",
+      "prompt": "过去 30 天，注意到这个习惯影响睡眠或专注后，我仍有继续的情况。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_014",
+      "factor": "CONTINUATION_DESPITE_COST",
+      "prompt": "过去 30 天，我曾打算缩短这个习惯的时间，但当次没有做到。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_015",
+      "factor": "CONTINUATION_DESPITE_COST",
+      "prompt": "过去 30 天，这个习惯带来不便后，类似情境中我仍会重复它。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_016",
+      "factor": "CONTINUATION_DESPITE_COST",
+      "prompt": "过去 30 天，我想过调整这个习惯，但准备的做法并没有稳定用起来。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_017",
+      "factor": "DAILY_FUNCTION_IMPACT",
+      "prompt": "过去 30 天，这个习惯影响过我的入睡、起床或休息安排。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_018",
+      "factor": "DAILY_FUNCTION_IMPACT",
+      "prompt": "过去 30 天，这个习惯影响过我完成学习、工作或日常任务。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_019",
+      "factor": "DAILY_FUNCTION_IMPACT",
+      "prompt": "过去 30 天，这个习惯影响过我与他人的约定、联系或共同安排。",
+      "reverse_scored": false
+    },
+    {
+      "id": "HABIT_LK_020",
+      "factor": "DAILY_FUNCTION_IMPACT",
+      "prompt": "过去 30 天，这个习惯让我需要额外调整当天的正常安排。",
+      "reverse_scored": false
+    }
+  ],
+  "numeric_labels": {
+    "1": "完全不符合",
+    "2": "比较不符合",
+    "3": "不确定或视情况",
+    "4": "比较符合",
+    "5": "非常符合"
+  },
+  "skip_zh": "我不想回答这题"
+}

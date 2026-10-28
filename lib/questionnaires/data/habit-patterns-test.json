@@ -1,0 +1,2236 @@
+{
+  "slug": "habit-patterns-test",
+  "code": "ADDICTION_TENDENCY",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "mini-habit",
+  "title": {
+    "en": "Habit Patterns Test",
+    "zh": "习惯模式测试"
+  },
+  "description": {
+    "en": "Reflect on one everyday habit over the past 30 days. Answer 20 optional statements and read five full guides, without naming the habit or receiving a risk grade.",
+    "zh": "围绕过去30天同一个非紧急日常习惯，完成20条可跳过的陈述，分别查看五组回答记录和全文指南。不询问习惯名称，不计算总分或成瘾风险等级。"
+  },
+  "seoTitle": {
+    "en": "Habit Patterns Test: 20 Questions and Five Free Guides",
+    "zh": "习惯模式测试：20道原题、五组记录与完整免费指南"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Look back over the past 30 days with one common, nonurgent everyday habit in mind. This original preview organizes five sets of responses rather than diagnosing addiction. You never need to enter the habit’s name.",
+    "zh": "围绕心中同一个普通、非紧急的日常习惯，回看过去30天。原创预览整理五组回答，不诊断成瘾，也不需要输入习惯名称。"
+  },
+  "instructions": {
+    "en": "Choose how each statement fits, from 1 to 5, or explicitly prefer not to answer. The option 3 means uncertain or depends. Use the same habit throughout; any statement can be skipped without a reason.",
+    "zh": "选择每条陈述与经历的符合程度1至5，或明确选择“我不想回答这题”。3表示不确定或视情况。始终围绕同一个习惯，任何题都可跳过，无需理由。"
+  },
+  "resultHeading": {
+    "en": "This Habit Response Record",
+    "zh": "本次习惯回答记录"
+  },
+  "minimumRatedItems": 3,
+  "source": {
+    "kind": "fermatmind_original_mini_habit_patterns_20",
+    "formCode": "habit_tendency_likert_20",
+    "itemBankVersion": "habit_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "five4_min3_skip_sum_mean4dp_no_ranking_v1",
+    "resultContentVersion": "habit_mini_five_full6_v1",
+    "itemBankSha256": "6b0ac2a9f22b78a654eebfc47c5e8a64fe32403a6ccda901c836b043785eea26",
+    "resultContentSha256": "6fbd3b706fdbf8e470d152194b61b69f39daaa0ab26448204f0a091235a1668a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "cues-and-urges",
+      "title": {
+        "en": "Cues and urges",
+        "zh": "触发与冲动"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "automatic-starts",
+      "title": {
+        "en": "Automatic starting",
+        "zh": "行为自动化"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "displaced-plans",
+      "title": {
+        "en": "Displaced plans",
+        "zh": "对其他活动的挤占"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "continuing-after-inconvenience",
+      "title": {
+        "en": "Continuing after inconvenience",
+        "zh": "发现代价后仍继续"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "everyday-effects",
+      "title": {
+        "en": "Everyday effects",
+        "zh": "日常功能影响"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "HABIT_LK_001",
+      "prompt": {
+        "zh": "过去 30 天，某些时间、地点或情绪出现时，我会很快想到这个习惯。",
+        "en": "Over the past 30 days, certain times, places or feelings have quickly brought this habit to mind."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "cues-and-urges",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "cues-and-urges",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_002",
+      "prompt": {
+        "zh": "过去 30 天，开始这个习惯前，我能感到明显的想要去做的冲动。",
+        "en": "Over the past 30 days, I have felt a noticeable urge to engage in this habit before starting it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "cues-and-urges",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "cues-and-urges",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_003",
+      "prompt": {
+        "zh": "过去 30 天，即使没有事先计划，相关线索也会让我想开始。",
+        "en": "Over the past 30 days, related cues have made me want to start even when I had not planned to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "cues-and-urges",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "cues-and-urges",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_004",
+      "prompt": {
+        "zh": "过去 30 天，等待、无聊或压力增加时，这个习惯更容易被触发。",
+        "en": "Over the past 30 days, waiting, boredom or increased stress has made this habit easier to trigger."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "cues-and-urges",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "cues-and-urges",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "cues-and-urges",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_005",
+      "prompt": {
+        "zh": "过去 30 天，我有时在意识到之前已经开始了这个习惯。",
+        "en": "Over the past 30 days, I have sometimes started this habit before becoming aware of it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "automatic-starts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "automatic-starts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_006",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯会自然接在某个日常动作之后。",
+        "en": "Over the past 30 days, this habit has naturally followed another everyday action."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "automatic-starts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "automatic-starts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_007",
+      "prompt": {
+        "zh": "过去 30 天，我不需要明确作出决定，就会重复这个习惯。",
+        "en": "Over the past 30 days, I have repeated this habit without explicitly deciding to do so."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "automatic-starts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "automatic-starts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_008",
+      "prompt": {
+        "zh": "过去 30 天，做其他事情时，我也会不知不觉转向这个习惯。",
+        "en": "Over the past 30 days, I have drifted into this habit without noticing while doing something else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "automatic-starts",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "automatic-starts",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "automatic-starts",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_009",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯让我推迟过原本计划的任务。",
+        "en": "Over the past 30 days, this habit has led me to postpone a task I had planned."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "displaced-plans",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "displaced-plans",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_010",
+      "prompt": {
+        "zh": "过去 30 天，我花在这个习惯上的时间有时超过了原来打算。",
+        "en": "Over the past 30 days, I have sometimes spent longer on this habit than I intended."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "displaced-plans",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "displaced-plans",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_011",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯减少了我用于休息或其他重要活动的时间。",
+        "en": "Over the past 30 days, this habit has reduced the time I spend resting or on other important activities."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "displaced-plans",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "displaced-plans",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_012",
+      "prompt": {
+        "zh": "过去 30 天，我曾为了继续这个习惯而改动当天的其他安排。",
+        "en": "Over the past 30 days, I have changed other plans for the day so that I could continue this habit."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "displaced-plans",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "displaced-plans",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "displaced-plans",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_013",
+      "prompt": {
+        "zh": "过去 30 天，注意到这个习惯影响睡眠或专注后，我仍有继续的情况。",
+        "en": "Over the past 30 days, there have been times when I continued this habit after noticing an effect on sleep or concentration."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_014",
+      "prompt": {
+        "zh": "过去 30 天，我曾打算缩短这个习惯的时间，但当次没有做到。",
+        "en": "Over the past 30 days, I have intended to spend less time on this habit but did not manage to on that occasion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_015",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯带来不便后，类似情境中我仍会重复它。",
+        "en": "Over the past 30 days, I have repeated this habit in similar situations after it had caused inconvenience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_016",
+      "prompt": {
+        "zh": "过去 30 天，我想过调整这个习惯，但准备的做法并没有稳定用起来。",
+        "en": "Over the past 30 days, I have thought about adjusting this habit, but the approach I prepared has not been used consistently."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "continuing-after-inconvenience",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_017",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯影响过我的入睡、起床或休息安排。",
+        "en": "Over the past 30 days, this habit has affected when I go to sleep, get up or rest."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "everyday-effects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "everyday-effects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_018",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯影响过我完成学习、工作或日常任务。",
+        "en": "Over the past 30 days, this habit has affected my completion of study, work or everyday tasks."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "everyday-effects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "everyday-effects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_019",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯影响过我与他人的约定、联系或共同安排。",
+        "en": "Over the past 30 days, this habit has affected agreements, contact or shared plans with other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "everyday-effects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "everyday-effects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "HABIT_LK_020",
+      "prompt": {
+        "zh": "过去 30 天，这个习惯让我需要额外调整当天的正常安排。",
+        "en": "Over the past 30 days, this habit has required extra changes to my usual plans for the day."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not fit at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not fit",
+            "zh": "比较不符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "everyday-effects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly fits",
+            "zh": "比较符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Fits very well",
+            "zh": "非常符合"
+          },
+          "directionId": "everyday-effects",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this statement"
+          },
+          "directionId": "everyday-effects",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "cues-and-urges",
+      "directionIds": [
+        "cues-and-urges"
+      ],
+      "title": {
+        "en": "Habit Cues and Urges",
+        "zh": "习惯的触发与冲动"
+      },
+      "headline": {
+        "en": "Notice what comes before a start",
+        "zh": "先观察开始之前出现了什么"
+      },
+      "summary": {
+        "en": "A full reading of four statements about cues and wanting to begin one everyday habit, with examples, descriptive arithmetic and room to skip.",
+        "zh": "完整解读围绕同一个日常习惯的四条触发与想开始的陈述，附具体例子、描述性计算和跳过边界。"
+      },
+      "scoreReading": {
+        "en": "Three or four numeric responses make this part available. Their mean describes these answers; it does not measure urge intensity, frequency or addiction risk.",
+        "zh": "这组有三个或四个数字回答时可显示记录。均值描述本次回答，不测量冲动强度、行为频率或成瘾风险。"
+      },
+      "seo": {
+        "title": {
+          "en": "Habit Cues and Urges: A Free Full Reading Guide",
+          "zh": "触发与冲动：如何读懂这组习惯回答"
+        },
+        "description": {
+          "en": "Read four habit-cue statements in context, compare wanting with automatic starting, and see examples, skip rules and one optional observation exercise.",
+          "zh": "把四条习惯触发陈述放回具体情境，区分想开始与自动启动，阅读算例、反例、跳过规则和一个可选观察办法。"
+        }
+      },
+      "sections": [
+        {
+          "id": "cues-and-urges-scope",
+          "title": {
+            "en": "What these statements cover",
+            "zh": "这四条陈述在观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns what happens before an everyday habit begins: a familiar time or place, a feeling, an unplanned reminder, or a period of waiting, boredom or pressure. Keep the same habit in mind throughout all twenty statements and use the past thirty days as the reference window. You do not need to name it on the website.",
+              "zh": "这一组关注日常习惯开始之前的线索：熟悉的时间或地点、某种感受、没有事先计划的提醒，以及等待、无聊或压力增加的情境。全部二十条陈述都围绕心中同一个习惯，回看过去三十天；网站不需要你说出它的名称。"
+            },
+            {
+              "en": "Wanting to begin and actually beginning are different observations. Remembering a cue does not establish that it caused an action, that the urge was irresistible, or that you wanted the same thing every time. These four self-report statements organize what you recall; they do not observe the habit directly.",
+              "zh": "想开始与实际开始是不同的观察。记起某条线索，不代表它造成了行动，也不表示冲动无法抵抗，或每次想做的事都相同。这四条自报陈述整理的是你的回忆，不能直接观测习惯。"
+            }
+          ]
+        },
+        {
+          "id": "cues-and-urges-example",
+          "title": {
+            "en": "A small everyday example",
+            "zh": "一个具体的日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary, nonurgent habit of opening a photo folder while waiting for a short task to finish. On one occasion, the waiting screen brings the folder to mind; on another, you feel like browsing before you touch the device. These are hypothetical examples of noticing a cue and noticing an urge, rather than an explanation of any particular reader.",
+              "zh": "假设有个普通、非紧急的习惯：等待一个短任务完成时打开相册。一次是等待画面让人想到相册，另一次是还没有碰设备就想浏览。这些是假设的线索与冲动例子，不是在解释某位读者。"
+            },
+            {
+              "en": "An important counterexample is a planned pause. You may notice the same screen and choose a brief break that fits your plans. Recognizing a cue does not, by itself, make the action unwanted or harmful. Conversely, not recalling a cue cannot prove that there was none; attention and memory can leave details unclear.",
+              "zh": "一个重要反例是事先计划的休息。你可能看到相同画面，主动选择一段符合安排的短暂停顿。辨认出线索本身，不会使行动变成不想要或有害的事。反过来，没有记起线索，也不能证明没有线索；注意和回忆可能使细节不够清楚。"
+            }
+          ]
+        },
+        {
+          "id": "cues-and-urges-responses",
+          "title": {
+            "en": "Read the response record",
+            "zh": "怎样读本次回答记录"
+          },
+          "paragraphs": [
+            {
+              "en": "For a worked example, numeric choices 3, 4, 3 and 2 have a raw sum of 12 and a mean of 3.0000. If the last statement is explicitly skipped, the remaining choices sum to 10 and their mean is 3.3333. Both meet the original minimum of three numeric responses. The skip is excluded; it is never replaced with zero or the middle option.",
+              "zh": "例如，四个数字回答为3、4、3、2，原始和为12，均值为3.0000。若最后一题明确选择跳过，剩下三个回答合计10，均值为3.3333。两种情况都达到原规则至少三个数字回答的条件。跳过不计入计算，不会被替换成0或中间选项。"
+            },
+            {
+              "en": "The middle option means uncertain or dependent on the situation, and it is still a numeric answer. A mean therefore cannot say how often the habit occurred or how intense an urge felt. With fewer than three numeric answers, this part stays insufficient; an unfinished form and a completed form containing skips are different states. Neither calls for a personal conclusion.",
+              "zh": "中间选项表示不确定或视情况，但仍属于数字回答。因此，均值不能说明习惯发生过多少次，或冲动有多强。数字回答不足三个时，这部分保持信息不足；整份表单尚未处理完与已完成但含跳过，是不同状态，都不应因此产生个人结论。"
+            }
+          ]
+        },
+        {
+          "id": "cues-and-urges-contrast",
+          "title": {
+            "en": "Compare the question, not the size of the number",
+            "zh": "比较问题内容，不按数字排轻重"
+          },
+          "paragraphs": [
+            {
+              "en": "Cues and urges concern the lead-up to a start. The automatic-starting part asks whether an action begins before an explicit decision or awareness. You could notice a strong wish to begin and still decide deliberately; you could also start routinely without remembering a distinct urge. These are useful contrasts, not two diagnoses or opposite personality types.",
+              "zh": "触发与冲动关注开始之前，行为自动化那一组则询问行动是否先于明确决定或意识。一个人可以清楚地想开始，却仍经过主动决定；也可能顺着惯例开始，而没有记起明显冲动。这些是观察角度的区别，不是两种诊断或相反人格。"
+            },
+            {
+              "en": "One episode may fit statements in several parts of the questionnaire. The five parts have not been established as statistically independent measures, and a larger mean in this part does not make it your main problem. Ask which wording fits a specific event and which details remain unknown, rather than ranking the five records.",
+              "zh": "同一次经历可能符合问卷几个部分的陈述。五部分尚未被确立为统计上独立的测量，这组均值较大也不意味着它是主要问题。更有用的问题是：哪种表述符合某次具体事件，哪些细节还不知道，而不是给五组记录排名。"
+            }
+          ]
+        },
+        {
+          "id": "cues-and-urges-observation",
+          "title": {
+            "en": "One optional observation",
+            "zh": "一个可选的小观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to observe further, choose a few ordinary occasions and privately note what was happening immediately beforehand, what you had planned, and whether you noticed wanting to start. An incomplete note is acceptable. You can stop without gathering enough observations, and the website does not ask you to upload these notes.",
+              "zh": "如果愿意继续观察，可以选几次普通情境，私下记下紧接着发生在前面的事、原本的安排，以及有没有注意到想开始的感觉。记录不完整也可以，无需凑够次数，网站也不要求上传这些笔记。"
+            },
+            {
+              "en": "Keep the exercise separate from a demand to change the habit. A clearer description may simply help you ask a more specific question next time. You can retain an enjoyable routine, decide that the exercise is not useful, or seek appropriate support when an ongoing real-world effect concerns you. No answer here requires a particular action.",
+              "zh": "把观察与必须改变习惯的要求分开。更清楚的描述，也许只是帮助下次提出一个更具体的问题。你可以保留喜欢的日常安排，认为练习没有用，或在持续的现实影响令人担心时寻找合适支持；这里没有哪个回答要求采取特定行动。"
+            }
+          ]
+        },
+        {
+          "id": "cues-and-urges-limits",
+          "title": {
+            "en": "Scope, privacy and source",
+            "zh": "适用范围、隐私与来源"
+          },
+          "paragraphs": [
+            {
+              "en": "This guide accompanies FermatMind’s original twenty-statement preview and its five descriptive parts. It is not a validated addiction screen, an impulse-control assessment or a clinical interview. Published habit questionnaires use different items and models; their research results do not validate this original form or the English working translation.",
+              "zh": "本指南配套费马原创二十条陈述的公开预览及五组描述性记录。它不是经验证的成瘾筛查、冲动控制评估或临床访谈。已发表的习惯问卷使用不同题目与模型，其研究结果不能验证这份原创题本或当前英文工作译文。"
+            },
+            {
+              "en": "Use the form only for a common, nonurgent everyday habit. It does not guide substance use, prescription changes, withdrawal or dangerous behavior. Answers stay in current-page memory and clear when you leave, reload or change language. No habit name, saved personal result, analytics event or result-sharing control belongs to this form. Public guides can be read without answering.",
+              "zh": "表单仅适用于普通、非紧急的日常习惯，不指导物质使用、处方调整、戒断或危险行为。回答仅在当前页面内存中，离开、刷新或换语会清除。表单不收习惯名称，不保存个人结果，不发送分析事件，也不提供结果分享控件；公开指南无需作答即可阅读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automatic-starts",
+      "directionIds": [
+        "automatic-starts"
+      ],
+      "title": {
+        "en": "Automatic Habit Starts",
+        "zh": "日常习惯的自动启动"
+      },
+      "headline": {
+        "en": "Separate an unnoticed start from a deliberate choice",
+        "zh": "把未察觉的启动与主动决定分开观察"
+      },
+      "summary": {
+        "en": "A full guide to four statements about beginning before noticing, following another action and drifting away from a task, with descriptive calculations and concrete contrasts.",
+        "zh": "完整解释四条有关察觉前开始、接在前置动作之后及做别的事时转向的陈述，提供描述性计算和具体对照。"
+      },
+      "scoreReading": {
+        "en": "This part shows a raw sum and mean only when at least three of its four statements have numeric answers. Those values describe endorsement, not an automaticity level.",
+        "zh": "这组四题至少有三个数字回答时才显示原始和与均值；数值描述回答的符合程度，不是自动化等级。"
+      },
+      "seo": {
+        "title": {
+          "en": "Automatic Habit Starts: A Free Full Explanation",
+          "zh": "行为自动化：从启动前后观察日常习惯"
+        },
+        "description": {
+          "en": "Explore automatic habit starts with everyday examples, raw-sum and mean calculations, explicit skips and a practical way to compare one routine in context.",
+          "zh": "用日常例子区分自动启动、主动重复与走神，了解原始和及均值怎么算、跳过如何处理，并在具体情境里比较一次习惯。"
+        }
+      },
+      "sections": [
+        {
+          "id": "automatic-starts-scope",
+          "title": {
+            "en": "What counts as a start here",
+            "zh": "这里怎样观察“开始”"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements ask about starting before noticing, naturally following another daily action, repeating without an explicit decision, and drifting into the habit while doing something else. They concern your recollection of one habit over the past thirty days. A familiar action is not automatically a problem simply because it needs little thought.",
+              "zh": "四条陈述分别询问：意识到前已经开始、自然接在另一个日常动作之后、没有明确决定便重复，以及做其他事时不知不觉转向。它们围绕过去三十天同一个习惯的回忆。熟悉的行动不会仅因不需要太多思考就成为问题。"
+            },
+            {
+              "en": "Distinguish how an action begins from whether you approve of it or want to continue it. You might welcome an easy transition, or notice that it has interrupted a different task. The questionnaire does not directly observe either situation and cannot establish a level of automaticity from these responses.",
+              "zh": "区分行动如何开始，与自己是否认可它、愿不愿意继续。顺畅衔接可能正合心意，也可能打断了另一项任务。问卷不能直接观测这两种情境，也不能由这些回答确立自动化程度。"
+            }
+          ]
+        },
+        {
+          "id": "automatic-starts-example",
+          "title": {
+            "en": "An unnoticed sequence and a counterexample",
+            "zh": "一个未察觉的衔接，以及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine putting a bag on a desk and opening a familiar browser page before noticing the sequence. The action that came first gives you a concrete event to consider alongside the statement about one daily action following another. This hypothetical example does not establish why the sequence occurred or whether the person wants to change it.",
+              "zh": "假设放下包后，还没有注意到这一连串动作，就打开了熟悉的浏览器页面。前一个动作提供了一件具体事件，可与“自然接在日常动作之后”的陈述对照。这是假设例子，不能确立顺序为何出现，也不能说明当事人想不想改变。"
+            },
+            {
+              "en": "Now compare someone who opens the same page at the same time after deliberately choosing to check a document. Repetition alone does not make those two starts identical. Likewise, being interrupted midway through an ordinary task could explain a change of activity without proving that the habit began outside awareness. The context belongs in the reading.",
+              "zh": "再比较另一种情况：有人在同样时间主动决定查看一份资料，然后打开相同页面。重复出现，不会使两种启动方式相同。日常任务中途受到打断，也可能解释活动变化，并不能证明习惯是在意识之外开始；解读时需要保留情境。"
+            }
+          ]
+        },
+        {
+          "id": "automatic-starts-responses",
+          "title": {
+            "en": "The arithmetic and its boundary",
+            "zh": "计算方法及边界"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, choices 2, 3, 4 and 3 sum to 12 and average 3.0000. With one explicit skip, choices 2, 3 and 4 sum to 9 and still average 3.0000. The same displayed mean can describe different amounts and patterns of available information. Read the numeric-answer and skip counts alongside the value.",
+              "zh": "例如，2、3、4、3合计12，均值3.0000。若有一题明确跳过，只剩2、3、4，合计9，均值仍是3.0000。相同显示均值可能对应不同数量和组合的信息；应连同数字回答数、跳过数一起看。"
+            },
+            {
+              "en": "The option 3 means uncertain or dependent on the situation; it is counted numerically and is not evidence of being halfway automatic. At least three numeric answers are required for this part. With two or fewer, no mean or personalized explanation is supplied. Skips remain valid choices, and the form does not require you to replace them.",
+              "zh": "选项3表示不确定或视情况，会参与数字计算，不表示处于“一半自动化”的程度。这部分至少需要三个数字回答；两个或更少时，不提供均值或个人解释。跳过仍是有效选择，表单不会要求把它们换成数字。"
+            }
+          ]
+        },
+        {
+          "id": "automatic-starts-contrast",
+          "title": {
+            "en": "Starting, wanting and consequences",
+            "zh": "启动、想做与后续影响"
+          },
+          "paragraphs": [
+            {
+              "en": "The cues-and-urges part concerns reminders and wanting before the start. This part concerns the transition into action. The parts about displaced plans and everyday effects ask what happened afterward. A single episode can be relevant to more than one part without establishing a chain of causes between them.",
+              "zh": "触发与冲动关注开始前的提醒与想做，这部分关注进入行动的过程；挤占安排与日常影响则询问后续发生了什么。一次经历可能与几个部分有关，但这不确立它们之间的因果链。"
+            },
+            {
+              "en": "Do not compare the five means as if they were measurements on one shared scale of seriousness. An easy routine may have little noticeable cost, while a deliberate action may still affect an important plan. Ask what was observed in that particular situation, rather than deciding that automatic starting must be the cause of an unwanted outcome.",
+              "zh": "不要把五组均值当作同一条严重性刻度来比较。顺手的惯例可能没有明显代价，主动决定的行动也可能影响重要安排。应询问具体情境里观察到了什么，而不是认定自动启动必然造成了不想要的结果。"
+            }
+          ]
+        },
+        {
+          "id": "automatic-starts-observation",
+          "title": {
+            "en": "An optional way to notice the transition",
+            "zh": "一个可选的启动观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If it feels useful, choose one ordinary transition and note the action immediately before it. On another occasion, you could insert a brief pause and notice whether you now make an explicit choice. There is no required duration or success target, and noticing no change is an acceptable observation.",
+              "zh": "如果觉得有用，可以选一个普通的衔接过程，记下紧接着发生在前面的动作。另一次可以加入短暂停顿，观察是否注意到了主动选择。没有必须持续多久或达到什么效果的目标；没有发现变化，也是可以保留的观察。"
+            },
+            {
+              "en": "This is a comparison of situations, not a treatment protocol or a test of willpower. You can keep the familiar routine, stop the exercise or discuss an ongoing concern with appropriate support. A single successful pause does not prove control, and a repeated unnoticed start does not prove that choice is impossible.",
+              "zh": "这是情境比较，不是治疗方案或意志力考验。你可以保留熟悉安排、停止练习，或在持续困扰时寻找合适支持。一次成功停顿不证明已经能够控制；再次未察觉便开始，也不证明无法选择。"
+            }
+          ]
+        },
+        {
+          "id": "automatic-starts-limits",
+          "title": {
+            "en": "Original form and privacy",
+            "zh": "原创题本与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind’s original twenty-statement preview provides five descriptive records and no overall score, ranking, population comparison or risk classification. This guide is not the COHS, DHS or another published habit measure. It does not inherit their validation, and the English text is a working translation rather than a validated language edition.",
+              "zh": "费马原创二十条陈述的公开预览提供五组描述性记录，不提供总分、排名、人群比较或风险分级。本指南不是COHS、DHS或其他已发表习惯量表，不继承其验证证据；英文为工作译文，不是经验证的语言版本。"
+            },
+            {
+              "en": "Keep the form to common, nonurgent habits. It cannot guide medication, substance use or withdrawal, and it does not assess a person for employment, school or a relationship. No habit name is requested. The form uses current-page memory, clears on leaving, reloading or changing language, and provides no analytics or personal-result sharing. The general guides remain free to read separately.",
+              "zh": "仅就普通、非紧急的习惯使用表单。它不指导用药、物质使用或戒断，也不用于招聘、学校或关系筛选。不询问习惯名称；回答仅保留在当前页面内存，离开、刷新或换语清除，不接分析事件或个人结果分享。一般性指南始终可以单独免费阅读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "displaced-plans",
+      "directionIds": [
+        "displaced-plans"
+      ],
+      "title": {
+        "en": "A Habit and Displaced Plans",
+        "zh": "习惯与被挤占的安排"
+      },
+      "headline": {
+        "en": "Ask what changed in the original plan",
+        "zh": "回看原本的安排改变了什么"
+      },
+      "summary": {
+        "en": "Read four statements about postponed tasks, extra time, reduced rest and rearranged plans without turning them into a reliability or risk grade.",
+        "zh": "完整阅读关于任务推迟、超出预期的时间、休息减少和安排变动的四条陈述，不把它们变成可靠性或风险等级。"
+      },
+      "scoreReading": {
+        "en": "A numeric response describes how a statement fits this thirty-day recall. The group mean is not minutes lost, a productivity score or the importance of the displaced activity.",
+        "zh": "数字回答描述陈述与这段三十天回忆的符合程度；组均值不是损失的分钟数、效率分数或被挤占活动的重要程度。"
+      },
+      "seo": {
+        "title": {
+          "en": "When a Habit Crowds Other Plans: A Free Full Guide",
+          "zh": "习惯挤占其他安排：读懂时间与任务变化"
+        },
+        "description": {
+          "en": "Compare a postponed task with a chosen change of plan. Read worked sums and means, the three-answer rule and practical questions about one everyday habit.",
+          "zh": "区分任务被推迟与主动改变安排，阅读原始和及均值算例、至少三个数字回答的规则，以及围绕一个日常习惯的具体问题。"
+        }
+      },
+      "sections": [
+        {
+          "id": "displaced-plans-scope",
+          "title": {
+            "en": "Which changes belong here",
+            "zh": "这组在问哪些安排变化"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern postponing a planned task, spending longer than intended, reducing time for rest or another important activity, and rearranging the day to continue a habit. Use the same nonurgent habit and the same past-thirty-day window. A change in a plan is the starting point for reflection, not proof of a disorder.",
+              "zh": "这组陈述涉及推迟原定任务、花费时间超出打算、减少休息或其他重要活动的时间，以及为了继续习惯而改动当天安排。仍围绕同一个非紧急习惯、同一段过去三十天；安排变化是反思起点，不是疾病证据。"
+            },
+            {
+              "en": "A response does not record the length of a delay, the importance of a task or whether the change was acceptable to the people involved. You may care about one brief interruption more than several longer ones. The questionnaire cannot supply those missing details or decide the priority of your activities.",
+              "zh": "一个回答不会记录推迟了多久、任务多重要，或相关人员是否接受变动。一次短暂打断可能比几次较长停顿更值得在意。问卷不能补出这些细节，也不能替你决定各项活动的优先级。"
+            }
+          ]
+        },
+        {
+          "id": "displaced-plans-example",
+          "title": {
+            "en": "A concrete plan and a counterexample",
+            "zh": "具体安排与反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine browsing a familiar collection of photos before a short household task. You intended to stop after a few minutes but began the task later than planned. If you choose to reflect on this hypothetical scene, separate the original plan, the time spent and the resulting change. Do not combine them into a judgment about character.",
+              "zh": "假设在一项简短家务之前浏览熟悉的照片，原本打算几分钟后停止，却比计划更晚开始家务。若用这个假设情境反思，可以分别描述原安排、实际花费的时间和最后的变化，不把它们合成对品格的判断。"
+            },
+            {
+              "en": "Compare a freely chosen reschedule: the task was not time-sensitive, everyone affected agreed, and the new arrangement worked. The clock changed in both examples, but their practical meanings may differ. Another delay could result from an unexpected interruption rather than the habit, so a sequence in time alone cannot settle the cause.",
+              "zh": "与之对照的是主动调整：事情不赶时间，受影响的人都同意，新安排也可行。两种情况下时间都变了，实际意义却可能不同。另一次推迟还可能来自意外打断；仅凭先后顺序，不能确定习惯就是原因。"
+            }
+          ]
+        },
+        {
+          "id": "displaced-plans-responses",
+          "title": {
+            "en": "Read values alongside available answers",
+            "zh": "把数值与回答数量一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "A hypothetical set of 4, 2, 3 and 5 sums to 14 and averages 3.5000. If the 5 is skipped, the other three answers sum to 9 and average 3.0000. That difference partly reflects which statement was answered. It is not evidence that a person suddenly became better at managing time.",
+              "zh": "假设回答为4、2、3、5，原始和为14，均值3.5000。若5对应的那题跳过，另外三个回答合计9，均值3.0000。变化部分来自回答了哪条陈述，不是一个人突然更会管理时间的证据。"
+            },
+            {
+              "en": "The original rule requires at least three numeric answers in this group. Skips are excluded rather than scored as zero, and 3 remains the legitimate uncertain-or-depends option. With fewer than three numeric answers, no mean or personal factor interpretation appears. No response set produces an overall score, percentile or time-loss estimate.",
+              "zh": "原规则要求这组至少有三个数字回答。跳过不算0，而是排除；3仍表示合法的不确定或视情况。数字回答不足三个时，不显示均值或个人因素解释。任何回答组合都不会产生总分、百分位或时间损失估计。"
+            }
+          ]
+        },
+        {
+          "id": "displaced-plans-contrast",
+          "title": {
+            "en": "Distinguish a displaced plan from an everyday effect",
+            "zh": "区分安排被挤占与日常影响"
+          },
+          "paragraphs": [
+            {
+              "en": "Displacement asks about changing the use of time and plans. The everyday-effects part asks about reported effects on sleep, tasks, contact and usual arrangements. The wording overlaps in places, so the same episode may inform both records. Two similar means are not two separate confirmations of severity.",
+              "zh": "挤占安排关注时间用途与计划的变化，日常影响关注对睡眠、任务、人际联系和通常安排的自报影响。表述有部分交叠，同一次经历可能进入两组记录；两个相近均值不构成两次独立的严重性确认。"
+            },
+            {
+              "en": "Likewise, the cues and automatic-starting records ask different questions from how time was used afterward. You cannot infer why a plan changed by selecting the largest of the five means. A more useful comparison keeps the event fixed and asks what each statement adds, including what it leaves unexplained.",
+              "zh": "同样，触发与自动启动询问的问题，不同于后续时间如何被使用。选出五组里最大的均值，不能推断安排为什么改变。更有用的比较是固定某件事，再看每条陈述补充了什么、还有什么解释不了。"
+            }
+          ]
+        },
+        {
+          "id": "displaced-plans-observation",
+          "title": {
+            "en": "An optional plan comparison",
+            "zh": "一个可选的安排对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary plan if you want to look more closely. Privately note what you intended, what happened and whether anyone else was affected. You might decide to protect a short period for the original activity, or decide that rescheduling is acceptable. Neither choice needs to satisfy a result label.",
+              "zh": "如果想进一步看清，可以选一个普通安排，私下记下原打算、实际发生的事和是否影响别人。你可能决定为原活动留一段时间，也可能认为改期可以接受；两种选择都不需要符合某个结果标签。"
+            },
+            {
+              "en": "Review whether the arrangement worked in that situation rather than measuring your worth by uninterrupted productivity. An observation can end with uncertainty or no change. The exercise promises no improvement, and ongoing effects that concern you can be discussed with appropriate professional support instead of relying on this questionnaire.",
+              "zh": "复查的是安排在该情境是否可行，不是用持续高效来衡量个人价值。观察可以以不确定或保持原样结束；练习不承诺改善。若持续影响让你担心，可以寻找合适的专业支持，而不是仅凭问卷判断。"
+            }
+          ]
+        },
+        {
+          "id": "displaced-plans-limits",
+          "title": {
+            "en": "Scope and private use",
+            "zh": "适用范围与私下使用"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a general guide to one part of FermatMind’s original twenty-statement preview. It has no validated cutoff for disrupted plans and cannot assess employment reliability, school performance or suitability for a relationship. Published habit scales concern different item sets; their evidence does not establish the validity of this form or its working English translation.",
+              "zh": "这是费马原创二十条陈述公开预览中一部分的一般指南，没有经验证的安排受扰界值，不能评估招聘可靠性、学业表现或关系适配。已发表习惯量表使用不同题目，其证据不能确立这份题本及英文工作译文的效度。"
+            },
+            {
+              "en": "Use only an everyday, nonurgent habit. The form cannot guide medication, substance use, withdrawal or other dangerous situations. It never asks for the habit’s name, keeps answers only in current-page memory, clears them on leaving, reload or language change, and provides no analytics or personal-result sharing. Reading a public guide requires no answers.",
+              "zh": "只就日常、非紧急的习惯使用表单；它不指导用药、物质使用、戒断或其他危险情境。不询问习惯名称，回答只在当前页面内存中，离开、刷新或换语会清除，不接分析事件或个人结果分享。阅读公开指南无需先回答问题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "continuing-after-inconvenience",
+      "directionIds": [
+        "continuing-after-inconvenience"
+      ],
+      "title": {
+        "en": "Continuing After Noticing Inconvenience",
+        "zh": "发现不便后仍继续"
+      },
+      "headline": {
+        "en": "Look at what was tried on a particular occasion",
+        "zh": "回看某次具体情境里尝试过什么"
+      },
+      "summary": {
+        "en": "A full guide to four statements about continuing, intended limits and adjustments that did not become consistent, with examples and descriptive calculation boundaries.",
+        "zh": "完整解释关于继续、原本打算缩短时间，以及调整做法没有稳定使用的四条陈述，附例子和描述性计算边界。"
+      },
+      "scoreReading": {
+        "en": "At least three numeric answers allow a descriptive sum and mean. They do not measure willpower, treatment need, readiness to change or addiction severity.",
+        "zh": "至少三个数字回答才显示描述性原始和与均值；数值不测量意志力、治疗需要、改变准备度或成瘾严重性。"
+      },
+      "seo": {
+        "title": {
+          "en": "Repeating a Habit After Inconvenience: A Full Guide",
+          "zh": "发现不便后仍继续：回看习惯调整的具体情境"
+        },
+        "description": {
+          "en": "Read everyday examples, separate noticing a cost from using an adjustment, and understand sums, means and valid skips without a willpower or risk verdict.",
+          "zh": "阅读日常例子，区分注意到不便与实际用上调整办法，理解原始和、均值和合法跳过，不给意志力或风险判词。"
+        }
+      },
+      "sections": [
+        {
+          "id": "continuing-after-inconvenience-scope",
+          "title": {
+            "en": "What the four statements compare",
+            "zh": "这四条陈述在比较什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about continuing after noticing an effect on sleep or concentration, not shortening a particular occasion as intended, repeating after inconvenience, and preparing an adjustment that was not used consistently. Keep one ordinary habit and the past thirty days in mind. Each statement concerns a reported situation rather than a fixed personal trait.",
+              "zh": "这一组询问注意到睡眠或专注受影响后仍继续、某次没有按打算缩短时间、出现不便后仍重复，以及准备的调整办法没有稳定用起来。仍围绕一个普通习惯和过去三十天；每条陈述描述的是自报情境，不是固定个人特征。"
+            },
+            {
+              "en": "Noticing an inconvenience, deciding to adjust and being able to use a particular plan are different steps. An answer cannot tell which resources, interruptions or competing needs were present. It also cannot establish that the habit caused every difficulty mentioned in the recollection. These missing details matter to any practical discussion.",
+              "zh": "注意到不便、决定调整，以及能不能用上某个计划，是不同环节。一个回答不能说明当时有哪些资源、打断或相互竞争的需要，也不能确立回忆里的每种困难都由习惯造成。这些缺失细节会影响实际讨论。"
+            }
+          ]
+        },
+        {
+          "id": "continuing-after-inconvenience-example",
+          "title": {
+            "en": "One attempt and its counterexample",
+            "zh": "一次尝试与反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine intending to stop browsing a familiar hobby page before beginning a short task. On that occasion, you continue longer than intended and later notice less time for the task. The example helps distinguish the intended limit, the actual sequence and the reported inconvenience. It does not explain the reason or identify a clinical condition.",
+              "zh": "假设原本打算在一项短任务之前停止浏览熟悉的兴趣页面，当次却继续得更久，后来发现留给任务的时间少了。例子用于区分原定限度、实际顺序和自报的不便，不解释原因，也不识别临床状况。"
+            },
+            {
+              "en": "A counterexample is a plan that was never workable that day: an urgent interruption changed the schedule before the browsing began. Another is an occasional adjustment that worked on a later occasion. Neither one failed attempt nor one successful attempt settles whether the person has control, motivation or a problem needing treatment.",
+              "zh": "反例之一是当天的计划本就难以落实：浏览开始前，一次紧急打断已经改变了安排。另一种是后来某次调整确实可行。一次尝试没做到或一次做到，都不能判定一个人的控制能力、动机，或是否需要治疗。"
+            }
+          ]
+        },
+        {
+          "id": "continuing-after-inconvenience-responses",
+          "title": {
+            "en": "Understand the response calculation",
+            "zh": "理解本组回答计算"
+          },
+          "paragraphs": [
+            {
+              "en": "For a worked example, choices 5, 3, 2 and 4 have a raw sum of 14 and mean 3.5000. With one skip and numeric answers 5, 3 and 2, the sum is 10 and mean 3.3333. The decimal places express arithmetic, not precision about a person, and the skip is not replaced with a guessed response.",
+              "zh": "例如，5、3、2、4合计14，均值3.5000。若有一题跳过，只留下5、3、2，合计10，均值3.3333。小数位表达的是算术，不是对一个人的精确测量；跳过也不会被猜测的回答替代。"
+            },
+            {
+              "en": "Three numeric answers are the minimum for this part. The uncertain-or-depends response remains numeric, so the mean is not the number of times an adjustment failed. Two or fewer numeric answers leave this part insufficient. Skipping every statement is allowed and does not indicate avoidance, resistance or unwillingness to change.",
+              "zh": "这一组至少需要三个数字回答。不确定或视情况仍是数字选项，所以均值不是调整失败的次数。数字回答两个或更少时，这部分保持信息不足。每题都跳过也可以，不表示回避、抗拒或不愿改变。"
+            }
+          ]
+        },
+        {
+          "id": "continuing-after-inconvenience-contrast",
+          "title": {
+            "en": "A different question from starting automatically",
+            "zh": "它与自动开始在问不同的事"
+          },
+          "paragraphs": [
+            {
+              "en": "A habit might begin automatically but be easy to stop on a particular occasion. Another action may begin deliberately and still continue after an inconvenience is noticed. The two records therefore should not be read as interchangeable labels, and their means cannot establish a cause-and-effect explanation for the same event.",
+              "zh": "某个习惯可能自动开始，却在某次情境很容易停止；另一个行动可能经过主动决定，仍在注意到不便后继续。两组记录不应被当作可互换标签，其均值也不能为同一事件建立因果解释。"
+            },
+            {
+              "en": "The everyday-effects part concerns reported changes to usual activities. This part focuses on continuing and attempts to adjust. An event can fit both, so counting agreement in two groups as two independent signs of severity would overstate the information. Keep the distinction between what happened and what you hoped to do.",
+              "zh": "日常影响关注通常活动出现了哪些自报变化，这组关注继续和尝试调整的过程。同一事件可能符合两组，因此把两组符合回答算作两条独立严重性信号，会夸大信息。应保留实际发生了什么与原本希望怎样做的区别。"
+            }
+          ]
+        },
+        {
+          "id": "continuing-after-inconvenience-observation",
+          "title": {
+            "en": "One optional review of an adjustment",
+            "zh": "一次可选的调整回看"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to review an ordinary, low-stakes attempt, describe one intended change concretely: what you planned to do differently, when you expected to do it and what made the plan easier or harder to use. You do not need to promise to change the habit or create a public record of the attempt.",
+              "zh": "如果愿意回看一次普通、低风险的尝试，可以具体描述一个原定调整：本想怎样做、预计何时做，以及哪些条件让办法更容易或更难用上。无需承诺改变习惯，也不需要公开记录尝试。"
+            },
+            {
+              "en": "A next step could be making that small plan more practical, keeping what already works, or deciding not to continue the exercise. Do not use a questionnaire value to force a larger change. For persistent real-world concerns, appropriate support can address circumstances this form does not assess; the form does not replace professional evaluation.",
+              "zh": "下一步可以是让小计划更实际、保留已经有用的部分，或决定不继续练习。不要用问卷数值强迫更大改变。持续的现实困扰，可以由合适支持帮助处理表单没有评估的情境；表单不替代专业评估。"
+            }
+          ]
+        },
+        {
+          "id": "continuing-after-inconvenience-limits",
+          "title": {
+            "en": "Boundaries and private use",
+            "zh": "边界与私下使用"
+          },
+          "paragraphs": [
+            {
+              "en": "This original preview has no validated measure of failed control, motivation, addiction or clinical risk. It does not recommend treatment or establish a need to stop an activity. A larger mean is greater endorsement of these statements in this response set, not a more serious diagnosis. A smaller mean cannot rule out a real concern.",
+              "zh": "这份原创预览没有经验证的失控、动机、成瘾或临床风险测量，不推荐治疗，也不确立必须停止某项活动。均值较大只表示这组回答更符合这些陈述，不是更严重的诊断；均值较小也不能排除现实困扰。"
+            },
+            {
+              "en": "The form is limited to nonurgent everyday habits and cannot guide medication changes, withdrawal or dangerous behavior. It asks for no habit name, uses current-page memory and clears responses on leaving, reload or a language change. There is no analytics or personal-result sharing. The full general guide is available independently of completing the form.",
+              "zh": "表单限于非紧急日常习惯，不指导处方调整、戒断或危险行为。不询问习惯名称，只用当前页面内存，离开、刷新或换语时清除回答，不接分析事件或个人结果分享。完整的一般性指南无需完成表单即可阅读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "everyday-effects",
+      "directionIds": [
+        "everyday-effects"
+      ],
+      "title": {
+        "en": "Everyday Effects of a Habit",
+        "zh": "习惯对日常安排的影响"
+      },
+      "headline": {
+        "en": "Describe the effect before deciding what it means",
+        "zh": "先描述影响，再讨论它意味着什么"
+      },
+      "summary": {
+        "en": "A full reading of four statements about rest, tasks, contact and changes to usual plans, keeping descriptive responses separate from severity and clinical conclusions.",
+        "zh": "完整阅读涉及休息、任务、人际联系和通常安排变化的四条陈述，把描述性回答与严重性、临床结论分开。"
+      },
+      "scoreReading": {
+        "en": "A group mean records how the four statements fit your recall when at least three numeric answers are available. It cannot measure impairment or establish what caused an effect.",
+        "zh": "这组至少有三个数字回答时，均值记录四条陈述与回忆的符合程度；它不能测量功能损害，也不能确立影响的原因。"
+      },
+      "seo": {
+        "title": {
+          "en": "Everyday Effects of a Habit: A Free Full Reading Guide",
+          "zh": "习惯对日常安排的影响：情境、记录与下一步"
+        },
+        "description": {
+          "en": "Read practical examples about rest, tasks and shared plans; understand the three-answer rule and separate descriptive habit records from a severity judgment.",
+          "zh": "阅读休息、任务和共同安排的具体例子，理解至少三个数字回答的规则，把描述性习惯记录与严重性判断分开。"
+        }
+      },
+      "sections": [
+        {
+          "id": "everyday-effects-scope",
+          "title": {
+            "en": "What everyday effects mean in this form",
+            "zh": "表单里的“日常影响”指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern reported effects on going to sleep, getting up or resting; completing study, work or ordinary tasks; contact or shared arrangements; and making extra changes to a usual day. Think about the same everyday habit over the past thirty days. The form does not observe these effects or measure their seriousness.",
+              "zh": "四条陈述涉及自报的入睡、起床或休息安排变化，学习、工作或日常任务完成情况，人际联系或共同安排，以及为通常的一天作额外调整。仍回看过去三十天同一个日常习惯。表单不能观测这些影响，也不测量严重程度。"
+            },
+            {
+              "en": "An effect needs context: what changed, how long it lasted, whether others were affected and what else was happening. A response cannot provide all those details. Several factors may contribute to a difficult day, and agreement with a statement does not prove that the habit was its sole or main cause.",
+              "zh": "理解影响需要情境：什么变了、持续多久、是否影响别人，以及当时还有什么事。一个回答无法提供全部细节。难熬的一天可能由多种因素共同造成，符合某条陈述不证明习惯是唯一或主要原因。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-effects-example",
+          "title": {
+            "en": "An ordinary effect and a counterexample",
+            "zh": "一个日常影响及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine browsing a familiar hobby collection later than intended and starting a planned call late. The useful description concerns the sequence, the missed arrangement and the other person’s response. It need not include a judgment about personality, and this hypothetical scene is not an account of what any reader has done.",
+              "zh": "假设浏览熟悉的兴趣收藏比原打算更久，因而比计划更晚开始一通电话。有用的描述关注事情顺序、没有按时落实的约定，以及对方的反应，不必加上人格判断；这个假设情境不代表任何读者实际做过这些事。"
+            },
+            {
+              "en": "Compare a call that was rescheduled by agreement before the browsing began. The day looks different, but the change is not necessarily an unwanted effect of the habit. Or another obligation may explain a late start. The questionnaire cannot resolve these alternatives, even when a numeric answer feels straightforward.",
+              "zh": "与之对照的是：浏览之前，双方已经商量好改约。当天安排虽不同，变化却未必是习惯造成的不想要的影响。另一项责任也可能解释延迟。即使某个数字选项看似明确，问卷也不能在这些解释之间作出裁决。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-effects-responses",
+          "title": {
+            "en": "Read the sum and mean without a severity label",
+            "zh": "不加严重性标签地读原始和与均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, four choices of 3 sum to 12 and average 3.0000. They all mean uncertain or dependent on the situation, not four confirmed effects of moderate severity. Choices 1, 2, 4 and 5 also average 3.0000 but contain a different pattern. The mean summarizes numeric answers and does not replace their wording.",
+              "zh": "例如，四题都选3，合计12，均值3.0000。它们都表示不确定或视情况，不是四项已确认、严重性中等的影响。1、2、4、5的均值也为3.0000，却是另一种回答组合。均值概括数字回答，不能替代具体表述。"
+            },
+            {
+              "en": "At least three numeric responses make this part available. A skipped statement is excluded, and two or fewer numeric responses leave the part insufficient. Completing all twenty statements with skips is allowed; if every part is insufficient, the personal result shows scope and privacy boundaries rather than an inferred pattern or a demand to answer again.",
+              "zh": "至少三个数字回答才使本组记录可用。明确跳过的陈述排除计算，数字回答两个或更少则信息不足。全部二十题都选择跳过也可以；如果五组都不足，个人结果仅显示适用范围与隐私边界，不推断个人模式，也不要求重新作答。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-effects-contrast",
+          "title": {
+            "en": "Keep effects separate from timing and intention",
+            "zh": "把影响与时间、意图分别看"
+          },
+          "paragraphs": [
+            {
+              "en": "The displaced-plans part asks about time and intended arrangements. This part covers reported effects on several everyday activities. There is overlap, but they are not identical questions. A change in time may be acceptable, while an effect on an important commitment may merit a conversation regardless of the numeric mean.",
+              "zh": "挤占安排那一组询问时间与原定安排，这组涉及几类日常活动的自报影响。二者有交叠，却不是相同问题。时间变化可能被接受，而一项重要约定受到影响，无论均值多少，都可能值得沟通。"
+            },
+            {
+              "en": "Nor can this record establish whether an action began automatically or continued despite a noticed inconvenience. The five means do not create a chain of cause, a ranking of problems or a threshold for seeking support. Real-world circumstances can matter even when one part has few numeric responses or a low mean.",
+              "zh": "这组记录同样不能确立行动是否自动开始，或是否在注意到不便后仍继续。五组均值不构成因果链、问题排名或寻求支持的阈值。即使某组数字回答较少、均值较低，现实情境仍可能重要。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-effects-observation",
+          "title": {
+            "en": "One optional description of an effect",
+            "zh": "一份可选的影响描述"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to observe further, write down one concrete effect privately: what was planned, what changed and what would count as a workable arrangement next time. Where another person is involved, you can ask about their experience without using a test value as a verdict. You do not need to upload or share this description.",
+              "zh": "如果愿意继续观察，可以私下写下一项具体影响：原来怎样安排、什么改变了，以及下次怎样算可行。涉及别人时，可以询问对方的体验，不把测试数值当作判词。无需上传或分享这份描述。"
+            },
+            {
+              "en": "You can stop the exercise or decide that a different kind of support is more useful. Ongoing effects on rest, study, work, relationships, finances or safety deserve attention on their own terms, regardless of questionnaire values. This guide offers no treatment plan; appropriate professional services can assess concerns the form does not evaluate.",
+              "zh": "你可以停止练习，或认为其他支持更有用。对休息、学习、工作、关系、财务或安全的持续影响，应按现实情况看待，而不是由问卷数值决定是否重要。指南不提供治疗方案；合适的专业服务可以评估表单没有评价的困扰。"
+            }
+          ]
+        },
+        {
+          "id": "everyday-effects-limits",
+          "title": {
+            "en": "No diagnosis and no stored personal record",
+            "zh": "不作诊断，也不保存个人记录"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind’s original preview has not completed psychometric, clinical or fairness validation. It produces no overall score, risk level, diagnosis or population comparison. The English text is a working translation. A larger or smaller response mean cannot establish or rule out addiction, impairment or a need for professional care.",
+              "zh": "费马原创预览尚未完成真人样本研究、心理测量、临床或公平性验证，不产生总分、风险等级、诊断或人群比较。英文为工作译文；均值较大或较小，都不能确立或排除成瘾、功能损害或专业照护需要。"
+            },
+            {
+              "en": "The form is for common, nonurgent daily habits, not substance use, prescription adjustment, withdrawal or dangerous behavior. No habit name is requested; current-page memory clears on leaving, reload or language change, with no analytics or personal-result sharing. These full public reference guides do not depend on making or saving a personal result.",
+              "zh": "表单仅用于普通、非紧急的日常习惯，不用于物质使用、处方调整、戒断或危险行为。不询问习惯名称；当前页面内存会在离开、刷新或换语时清除，不接分析事件或个人结果分享。完整公开参考指南不以产生或保存个人结果为前提。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "en": "Original form and evidence",
+        "zh": "原创题本与证据边界"
+      },
+      "paragraphs": [
+        {
+          "en": "This is FermatMind’s original twenty-statement habit preview, adapted from the complete local Mini program form. Its five groups each contain four statements with equal numeric weight. The Chinese prompts and original skip choice are retained; the English text is a working translation.",
+          "zh": "本页迁移费马小程序的完整原创二十条习惯陈述。五组各四条、数字回答等权，保留原中文题目与原有跳过选项；英文为工作译文。"
+        },
+        {
+          "en": "This form has not completed psychometric, clinical or fairness validation. It is not the published COHS or DHS habit scale, and their studies do not establish validity for these twenty statements. The five descriptive groups are not a validated causal model or five independently established psychological traits.",
+          "zh": "本题本尚未完成心理测量、临床或公平性验证，不是已发表的COHS或DHS习惯量表；它们的研究不能验证这二十条陈述。五组描述性记录不是经验证的因果模型，也不是五种已确立相互独立的心理特质。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "One ordinary habit, thirty days",
+        "zh": "一个普通习惯，回看三十天"
+      },
+      "paragraphs": [
+        {
+          "en": "Keep the same common, nonurgent everyday habit in mind for all twenty statements and recall the past thirty days. The website never asks you to enter the habit’s name. Choose how each statement fits your experience rather than counting how often the behavior occurred.",
+          "zh": "全部二十条都围绕心中同一个普通、非紧急的日常习惯，回看过去三十天。网站不要求输入习惯名称。回答陈述与经历是否符合，而不是统计行为发生过多少次。"
+        },
+        {
+          "en": "This form is not for alcohol or drug use, prescription changes, gambling, self-harm, dangerous behavior, eating-disorder-related behavior, withdrawal management or an urgent safety problem. It supplies neither diagnosis nor clinical guidance. Real-world safety concerns take priority over completing a questionnaire.",
+          "zh": "表单不适用于酒精或药物使用、处方调整、赌博、自伤、危险行为、进食障碍相关行为、戒断管理或现实紧急安全问题，不提供诊断或临床指导。现实安全需要优先于完成问卷。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Descriptive sums and means",
+        "zh": "描述性的原始和与均值"
+      },
+      "paragraphs": [
+        {
+          "en": "Each part uses the numeric answers to its four statements. At least three numeric answers are required: add those values and divide by their count, then round the mean to four decimal places. The raw sum and numeric-answer count are displayed with the mean; skips are excluded. For 2, 4 and 5 plus one skip, the sum is 11 and the mean is 3.6667.",
+          "zh": "每部分使用对应四条陈述的数字回答，至少三个数字回答才计算：先求和，再除以数字回答数，均值四舍五入到四位小数。原始和、数字回答数与均值一起呈现，跳过排除。例如2、4、5加一次跳过，原始和11，均值3.6667。"
+        },
+        {
+          "en": "The option 3 means uncertain or dependent on the situation and still enters the calculation. A mean is a description of the answers, not frequency, a measure of habit strength, impairment or addiction probability. Decimal places express arithmetic; they do not establish psychological precision. There is no overall score, ranking, high/medium/low band or population percentile.",
+          "zh": "选项3表示不确定或视情况，仍参与计算。均值描述回答，不是频率、习惯强度、功能损害或成瘾概率。小数位表达算术，不确立心理测量精度；不计算总分、排名、高中低分段或人群百分位。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Skips, unfinished forms and insufficient parts",
+        "zh": "跳过、尚未完成与信息不足"
+      },
+      "paragraphs": [
+        {
+          "en": "Every statement offers an explicit prefer-not-to-answer choice. To finish, each of the twenty statements must have a numeric choice or that skip choice; an untouched blank is different. Skips are valid and never guessed, scored as zero or replaced with 3. Fewer than three numeric answers withholds the part’s personal interpretation and numeric values.",
+          "zh": "每条都有明确的“我不想回答这题”。结束表单前，二十条都需有数字或明确跳过，尚未触碰的空白与之不同。跳过合法，不补猜、不算0、不替换成3。某组数字回答不足三个时，不提供该组个人解释或数值。"
+        },
+        {
+          "en": "Choosing skips for all twenty statements can finish the form. If all five parts are insufficient, the personal result shows scope, privacy and support boundaries rather than inferred patterns or a demand to try again. The five complete public reference guides remain available separately and do not require any personal responses.",
+          "zh": "二十条都跳过也能结束。如果五组均不足，个人结果仅显示适用范围、隐私和支持边界，不推断个人模式，不要求重答。五份完整公开参考指南可以单独阅读，无需提供个人回答。"
+        }
+      ]
+    },
+    {
+      "id": "boundaries",
+      "title": {
+        "en": "What the records cannot decide",
+        "zh": "这些记录不能决定什么"
+      },
+      "paragraphs": [
+        {
+          "en": "A larger mean does not establish addiction or a need to stop an activity; a smaller mean cannot rule out a real concern. The records do not assess willpower, moral character, motivation or suitability for a job, school or relationship. Do not use them for medical, judicial or security screening. Several statements can refer to one episode, so the five means are not independent confirmations of severity.",
+          "zh": "均值较大不确立成瘾或必须停止活动，较小也不能排除现实困扰。记录不评估意志力、品德、动机或招聘、学校、关系适配，也不能用于医疗、司法或安保筛选。同一次经历可能进入多组，五组均值不是独立的严重性确认。"
+        },
+        {
+          "en": "Do not use the form to change prescriptions or attempt dangerous withdrawal. Persistent effects on sleep, tasks, relationships, finances or safety can be discussed with qualified professional services regardless of questionnaire values. Optional everyday observation ideas are not a treatment plan and promise no improvement. For an urgent safety problem, prioritize local emergency services or a trusted person.",
+          "zh": "不要根据表单调整处方或实施危险戒断。对睡眠、任务、关系、财务或安全的持续影响，无论问卷数值多少，都可以向具备资质的专业服务咨询。可选的日常观察建议不是治疗方案，不承诺改善。现实紧急安全问题应优先联系当地紧急服务或可信任的人。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private memory, no analytics or result sharing",
+        "zh": "仅用内存，不接分析或结果分享"
+      },
+      "paragraphs": [
+        {
+          "en": "The form requests no habit name or free text and uses only current-page memory. It saves no draft or result, transmits no choices and supplies no personal-result sharing or copying control. Reloading, changing language, leaving or restoring a page from browser history clears the response state.",
+          "zh": "表单不收习惯名称或自由文本，只使用当前页面内存。不保存草稿或结果，不发送逐题选择，不提供个人结果分享或复制控件。刷新、换语、离开或从浏览器历史恢复页面，会清除回答状态。"
+        },
+        {
+          "en": "Analytics are disabled for this form and its public reference guides, including consented page-arrival events. You can read the guides without taking the form, leave without explaining and repeat only if you want to. No saved record is compared across visits, and a later different response set does not by itself establish improvement or deterioration.",
+          "zh": "本表单及其公开参考指南停用分析埋点，包括已同意分析时的页面到达事件。无需作答也可读指南，可以直接离开，只在自己愿意时重做。不跨次保存或比较记录；后来回答不同，本身不证明改善或恶化。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an addiction test?",
+        "zh": "这是成瘾测试吗？"
+      },
+      "answer": {
+        "en": "No. It organizes self-reported answers about one nonurgent everyday habit. There is no overall score, risk grade or diagnostic cutoff, and the original form has not completed clinical validation.",
+        "zh": "不是。它整理同一个非紧急日常习惯的自报回答，没有总分、风险等级或诊断界值，原创题本尚未完成临床验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I name the habit?",
+        "zh": "需要说出习惯名称吗？"
+      },
+      "answer": {
+        "en": "No. Keep it in mind while answering. There is no habit-name field or free-text response, and the website does not ask you to upload private observation notes.",
+        "zh": "不需要。回答时在心中保持同一个习惯即可，没有名称字段或自由文本，也不要求上传私下观察笔记。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does each part get a mean?",
+        "zh": "每组均值怎样计算？"
+      },
+      "answer": {
+        "en": "At least three of four statements need numeric answers. Their sum is divided by their numeric count and rounded to four decimal places. Skips are excluded and the five means are not added or ranked.",
+        "zh": "四条中至少三条有数字回答，求和后除以数字回答数，四舍五入到四位小数；跳过排除，五组均值不相加或排名。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is 3 the same as skipping?",
+        "zh": "3和跳过一样吗？"
+      },
+      "answer": {
+        "en": "No. The source option 3 means uncertain or dependent on the situation and is numeric. Prefer not to answer is an explicit skip that does not enter the sum or mean.",
+        "zh": "不同。原选项3表示不确定或视情况，是数字回答；“我不想回答这题”是明确跳过，不进入原始和或均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I skip every statement?",
+        "zh": "可以每题都跳过吗？"
+      },
+      "answer": {
+        "en": "Yes. Process each statement with the skip choice to finish. If all parts have fewer than three numeric answers, no personal factor interpretation appears and you are not asked to answer again.",
+        "zh": "可以。每题明确选择跳过即可结束。如果所有组都不足三个数字回答，不生成个人因素解释，也不要求重答。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I have to answer before reading the guides?",
+        "zh": "必须先作答才能看全文吗？"
+      },
+      "answer": {
+        "en": "No. All five general reference guides are free and open separately. They explain the statements and their limits without supplying anyone with an inferred personal result.",
+        "zh": "不需要。五份一般性参考指南均可单独免费阅读，解释题目及边界，不据此为任何人推断个人结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are responses or results saved or shared?",
+        "zh": "回答或结果会保存、分享吗？"
+      },
+      "answer": {
+        "en": "No. This form uses current-page memory, clears responses on reload, language change or leaving, disables analytics and has no personal-result sharing. It cannot restore a previous record.",
+        "zh": "不会。仅使用当前页面内存，刷新、换语或离开会清除，停用分析埋点，不提供个人结果分享，无法恢复上次记录。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this use a published habit scale?",
+        "zh": "使用的是已发表习惯量表吗？"
+      },
+      "answer": {
+        "en": "No. These twenty Chinese statements are FermatMind originals with a working English translation. COHS and DHS are different research scales; their evidence does not validate this form.",
+        "zh": "不是。二十条中文陈述为费马原创，英文是工作译文。COHS和DHS是不同研究量表，其证据不能验证本题本。"
+      }
+    }
+  ]
+}

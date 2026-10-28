@@ -1,0 +1,155 @@
+{
+  "provenance": "Independent Python Decimal ROUND_HALF_UP;all30possibleavailable sum/countpairs;not population data",
+  "rows": [
+    {
+      "rated": 3,
+      "sum": 3,
+      "mean": 1.0
+    },
+    {
+      "rated": 3,
+      "sum": 4,
+      "mean": 1.3333
+    },
+    {
+      "rated": 3,
+      "sum": 5,
+      "mean": 1.6667
+    },
+    {
+      "rated": 3,
+      "sum": 6,
+      "mean": 2.0
+    },
+    {
+      "rated": 3,
+      "sum": 7,
+      "mean": 2.3333
+    },
+    {
+      "rated": 3,
+      "sum": 8,
+      "mean": 2.6667
+    },
+    {
+      "rated": 3,
+      "sum": 9,
+      "mean": 3.0
+    },
+    {
+      "rated": 3,
+      "sum": 10,
+      "mean": 3.3333
+    },
+    {
+      "rated": 3,
+      "sum": 11,
+      "mean": 3.6667
+    },
+    {
+      "rated": 3,
+      "sum": 12,
+      "mean": 4.0
+    },
+    {
+      "rated": 3,
+      "sum": 13,
+      "mean": 4.3333
+    },
+    {
+      "rated": 3,
+      "sum": 14,
+      "mean": 4.6667
+    },
+    {
+      "rated": 3,
+      "sum": 15,
+      "mean": 5.0
+    },
+    {
+      "rated": 4,
+      "sum": 4,
+      "mean": 1.0
+    },
+    {
+      "rated": 4,
+      "sum": 5,
+      "mean": 1.25
+    },
+    {
+      "rated": 4,
+      "sum": 6,
+      "mean": 1.5
+    },
+    {
+      "rated": 4,
+      "sum": 7,
+      "mean": 1.75
+    },
+    {
+      "rated": 4,
+      "sum": 8,
+      "mean": 2.0
+    },
+    {
+      "rated": 4,
+      "sum": 9,
+      "mean": 2.25
+    },
+    {
+      "rated": 4,
+      "sum": 10,
+      "mean": 2.5
+    },
+    {
+      "rated": 4,
+      "sum": 11,
+      "mean": 2.75
+    },
+    {
+      "rated": 4,
+      "sum": 12,
+      "mean": 3.0
+    },
+    {
+      "rated": 4,
+      "sum": 13,
+      "mean": 3.25
+    },
+    {
+      "rated": 4,
+      "sum": 14,
+      "mean": 3.5
+    },
+    {
+      "rated": 4,
+      "sum": 15,
+      "mean": 3.75
+    },
+    {
+      "rated": 4,
+      "sum": 16,
+      "mean": 4.0
+    },
+    {
+      "rated": 4,
+      "sum": 17,
+      "mean": 4.25
+    },
+    {
+      "rated": 4,
+      "sum": 18,
+      "mean": 4.5
+    },
+    {
+      "rated": 4,
+      "sum": 19,
+      "mean": 4.75
+    },
+    {
+      "rated": 4,
+      "sum": 20,
+      "mean": 5.0
+    }
+  ]
+}

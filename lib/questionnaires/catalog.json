@@ -5014,5 +5014,31 @@
       "time-together-personal-space",
       "relationship-visibility-privacy"
     ]
+  },
+  {
+    "slug": "habit-patterns-test",
+    "code": "ADDICTION_TENDENCY",
+    "version": "1.0.0",
+    "category": "everyday",
+    "title": {
+      "en": "Habit Patterns Test",
+      "zh": "习惯模式测试"
+    },
+    "description": {
+      "en": "Reflect on one everyday habit over the past 30 days. Answer 20 optional statements and read five full guides, without naming the habit or receiving a risk grade.",
+      "zh": "围绕过去30天同一个非紧急日常习惯，完成20条可跳过的陈述，分别查看五组回答记录和全文指南。不询问习惯名称，不计算总分或成瘾风险等级。"
+    },
+    "minutes": 5,
+    "updated": "2026-10-28",
+    "collection": "explore",
+    "formCode": "habit_tendency_likert_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "cues-and-urges",
+      "automatic-starts",
+      "displaced-plans",
+      "continuing-after-inconvenience",
+      "everyday-effects"
+    ]
   }
 ]
