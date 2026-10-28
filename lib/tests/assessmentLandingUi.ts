@@ -44,8 +44,8 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 
 const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
-    zh: "30道原创图形与矩阵推理题，预计约20分钟，测试与结果均免费。完成后了解自己在本次推理任务中的表现；这是推理练习，不替代专业智力评估。",
-    en: "30 original visual matrix reasoning questions, about 20 minutes, with free results. Explore your performance on this form. This reasoning exercise does not replace a professional intelligence assessment.",
+    zh: "30道原创图形与矩阵推理题，预计约20分钟，测试与结果均免费。查看答对题数、正确率和题组表现，并保存TXT或Markdown摘要。这是推理练习，不替代专业智力评估。",
+    en: "30 original visual matrix reasoning questions, estimated at about 20 minutes. The test and results are free. Review correct-answer count, accuracy and performance by item group, then save a TXT or Markdown summary. This reasoning exercise does not replace a professional intelligence assessment.",
   },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题情商自评，测试与结果免费。了解自我觉察、情绪调节、共情理解和关系管理，再选择一个沟通习惯练习。结果反映本次自我描述，应结合具体事件和他人反馈阅读。", en: "Take a free 60-question emotional intelligence self-report in about 10 minutes. Explore self-awareness, emotion regulation, empathy and relationship management, then choose one communication habit to practice. Your results describe this session’s answers; read them alongside real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
