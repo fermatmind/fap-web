@@ -5514,5 +5514,32 @@
       "fape"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "cultural-dimensions",
+    "code": "FM_CULTURAL_DIMENSIONS36",
+    "version": "fm_cultural_dimensions_original36_v1",
+    "updated": "2026-10-28",
+    "category": "framework",
+    "title": {
+      "en": "Cultural Dimensions Test",
+      "zh": "文化维度测试"
+    },
+    "description": {
+      "en": "Reflect on six culture-related themes through 36 original statements. Read separate response means, reverse keys and six full free guides. No country match or national score.",
+      "zh": "用36道原创陈述反思六组文化相关主题，分别看作答均值、反向键与六份免费完整指南；不匹配国家，不计算国别分数。"
+    },
+    "minutes": 8,
+    "formCode": "fm_cultural_dimensions_original36_v1",
+    "questionCount": 36,
+    "resultSlugs": [
+      "authority",
+      "autonomy",
+      "achievement",
+      "certainty",
+      "adaptation",
+      "enjoyment"
+    ],
+    "collection": "explore"
   }
 ]

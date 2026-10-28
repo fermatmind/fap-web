@@ -1,0 +1,3445 @@
+{
+  "slug": "cultural-dimensions",
+  "code": "FM_CULTURAL_DIMENSIONS36",
+  "version": "fm_cultural_dimensions_original36_v1",
+  "updated": "2026-10-28",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Cultural Dimensions Test",
+    "zh": "文化维度测试"
+  },
+  "description": {
+    "en": "Reflect on six culture-related themes through 36 original statements. Read separate response means, reverse keys and six full free guides. No country match or national score.",
+    "zh": "用36道原创陈述反思六组文化相关主题，分别看作答均值、反向键与六份免费完整指南；不匹配国家，不计算国别分数。"
+  },
+  "seoTitle": {
+    "en": "Cultural Dimensions Test: Six Themes & Free Full Results",
+    "zh": "文化维度测试：六组主题与免费完整结果"
+  },
+  "minutes": 8,
+  "introduction": {
+    "en": "Explore how you would prefer one ordinary voluntary group to arrange decisions, personal choice, achievement and care, uncertainty, changing practices, and enjoyment. This is an original individual reflection using cultural themes as background; it does not measure your culture or reproduce a national-culture instrument.",
+    "zh": "探索自己希望一个普通自愿小组怎样安排决定、个人选择、成就与照顾、不确定、做法调整及享受。本版用文化主题作背景开展原创个人反思，不测量你的文化，也不复刻国别文化工具。"
+  },
+  "instructions": {
+    "en": "Privately choose one ordinary voluntary group, real or imagined, and keep the same setting for all 36 statements. Rate how much you agree with the arrangement you would prefer now: 1 strongly disagree to 5 strongly agree. Choose not applicable/cannot judge when needed; it is not zero. The first three statements in each six-item topic are direct, the last three use 6 minus your response. A topic needs four numeric responses for a descriptive mean. No group name, country or demographic information is requested.",
+    "zh": "私下选一个真实或假设的普通自愿小组，36条始终使用同一背景。评价你目前希望的安排，从1很不同意到5很同意；需要时可选不适用／无法判断，这不等于零分。每组六条，前三条直接计入，后三条为6减作答；至少四条数字回答才显示描述均值。不收集小组名称、国家或人口信息。"
+  },
+  "resultHeading": {
+    "en": "Your six separate cultural-theme readings",
+    "zh": "你的六组文化主题独立读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_cultural_theme_reflection",
+    "formCode": "fm_cultural_dimensions_original36_v1",
+    "itemBankVersion": "fm_cultural_dimensions_original36_v1",
+    "scoringVersion": "fm_cultural_dimensions_keyed_1to5_min4of6_v1",
+    "resultContentVersion": "fm_cultural_dimensions_original6_full_v1",
+    "itemBankSha256": "456b919bc694e5919368d8a326f68dec3d36710a2b31499d310290aa5c90be61",
+    "resultContentSha256": "e06e1c5572dc37773bcd80f0eadc1a146f5edc524168746c55afb840e7c9e6ec",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "authority",
+      "title": {
+        "en": "Power Distance Theme",
+        "zh": "权力距离主题"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "autonomy",
+      "title": {
+        "en": "Individualism and Collectivism Theme",
+        "zh": "个人主义与集体主义主题"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "achievement",
+      "title": {
+        "en": "Achievement and Social Role Expectations Theme",
+        "zh": "成就与社会角色期待主题"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "certainty",
+      "title": {
+        "en": "Uncertainty Avoidance Theme",
+        "zh": "不确定性规避主题"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "adaptation",
+      "title": {
+        "en": "Long-Term and Normative Orientation Theme",
+        "zh": "长期与规范取向主题"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "enjoyment",
+      "title": {
+        "en": "Indulgence and Restraint Theme",
+        "zh": "享乐与克制主题"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "CD_AUTHORITY_01",
+      "prompt": {
+        "en": "I would prefer the group’s main coordinator to have a stronger final say than other members in ordinary decisions.",
+        "zh": "处理普通决定时，我更希望小组主要协调者比其他成员拥有更大的最终决定权。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTHORITY_02",
+      "prompt": {
+        "en": "When members disagree, I would usually favor the coordinator deciding rather than everyone having equal decision power.",
+        "zh": "成员意见不同的时候，我通常更赞成由协调者决定，而非每个人拥有相同决定权。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTHORITY_03",
+      "prompt": {
+        "en": "I think a clear difference in decision authority between senior and newer members can be an appropriate ordinary arrangement.",
+        "zh": "我认为资深成员与新成员拥有明显不同的决定权限，可以是一种合适的日常安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTHORITY_04",
+      "prompt": {
+        "en": "I would prefer newer members to be able to question an ordinary decision without needing permission from a higher-ranking member.",
+        "zh": "我更希望新成员可以质疑普通决定，而不必先获得地位较高成员的许可。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTHORITY_05",
+      "prompt": {
+        "en": "For a shared choice that affects everyone, I would prefer members to have an equal opportunity to influence the decision.",
+        "zh": "共同选择影响所有成员时，我更希望大家都有同等机会影响决定。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTHORITY_06",
+      "prompt": {
+        "en": "I would favor asking a coordinator to explain a decision rather than treating their position as enough reason to accept it.",
+        "zh": "我更赞成请协调者解释决定，而非仅凭其职位便接受。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "authority",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "authority",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "authority",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "authority",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "authority",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_01",
+      "prompt": {
+        "en": "When a group decision affects a member’s own activity, I would give that person’s choice priority over keeping everyone on the same path.",
+        "zh": "小组决定涉及某人自己的活动时，相比让大家走同一路线，我更愿优先考虑本人选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_02",
+      "prompt": {
+        "en": "I would prefer members to take responsibility for their own agreed tasks rather than assume the group must manage each person’s choices.",
+        "zh": "我更希望成员负责各自约定的任务，而非认为小组必须管理每个人的选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_03",
+      "prompt": {
+        "en": "I think members should be able to choose a different personal approach even when their usual circle prefers a common way.",
+        "zh": "即使熟悉的圈子偏好共同做法，我也认为成员可以选择不同的个人方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_04",
+      "prompt": {
+        "en": "I would give a long-standing group obligation priority over a member’s optional individual preference.",
+        "zh": "长期形成的小组义务与个人可选偏好发生冲突时，我更愿优先考虑前者。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_05",
+      "prompt": {
+        "en": "I would prefer important choices to be coordinated with the group a person belongs to, even when the choice mainly concerns that person.",
+        "zh": "即使重要选择主要关系本人，我也更希望其与所属小组协调后再作决定。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_AUTONOMY_06",
+      "prompt": {
+        "en": "I think membership can reasonably bring continuing duties to the group, beyond completing a person’s own individual tasks.",
+        "zh": "我认为成员身份可以合理地带来持续的集体义务，而不只是完成自己的个人任务。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_01",
+      "prompt": {
+        "en": "I would prefer the group to give visible achievement and winning a prominent place in how it recognizes members.",
+        "zh": "在认可成员的方式上，我更希望小组把可见成就和获胜放在突出位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_02",
+      "prompt": {
+        "en": "I think different expectations for men’s and women’s emotional roles can be an appropriate norm in this group.",
+        "zh": "在这个小组里，我认为对男性与女性的情绪角色抱有不同期待，可以是一种合适的规范。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_03",
+      "prompt": {
+        "en": "I would favor a group atmosphere that openly emphasizes outperforming others over protecting a comfortable pace for everyone.",
+        "zh": "相比照顾所有人舒服的节奏，我更赞成公开强调超越他人的小组氛围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_04",
+      "prompt": {
+        "en": "I would prefer people of any gender to have the same room to be assertive, caring, or emotionally open.",
+        "zh": "我更希望任何性别的人都同样可以坚定表达、关心别人或坦诚流露情绪。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_05",
+      "prompt": {
+        "en": "I would put care for members and quality of everyday life ahead of making competitive success the group’s main ideal.",
+        "zh": "相比把竞争成功作为小组主要理想，我更愿优先考虑成员照顾与日常生活质量。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ACHIEVEMENT_06",
+      "prompt": {
+        "en": "I do not think a member’s gender should determine whether the group expects toughness or tenderness from them.",
+        "zh": "我不认为应由成员的性别决定小组期待其坚强强硬，还是温柔细腻。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "achievement",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "achievement",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "achievement",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "achievement",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "achievement",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_01",
+      "prompt": {
+        "en": "I would prefer an ordinary group discussion to end with one definite interpretation rather than leave several possible meanings open.",
+        "zh": "普通小组讨论结束时，我更希望有一个确定解释，而非保留多种可能含义。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_02",
+      "prompt": {
+        "en": "When an unfamiliar situation has no clear answer, I would want the group to reduce that ambiguity before moving on.",
+        "zh": "遇到没有明确答案的陌生情境时，我更希望小组先减少模糊之处，再继续。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_03",
+      "prompt": {
+        "en": "Even when the practical stakes are small, I would feel more comfortable if the group could settle what an uncertain situation means.",
+        "zh": "即使实际影响很小，如果小组能把不确定情境的含义定下来，我也会更自在。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_04",
+      "prompt": {
+        "en": "I would be comfortable leaving an ordinary question unresolved while the group learns more about it.",
+        "zh": "在小组进一步了解情况时，我可以自在地让一个普通问题暂时没有答案。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_05",
+      "prompt": {
+        "en": "I would allow more than one interpretation of a new situation to remain in discussion without needing an immediate shared truth.",
+        "zh": "新情境可以在讨论中保留多个解释，我不一定需要立刻形成共同定论。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_CERTAINTY_06",
+      "prompt": {
+        "en": "When the stakes are ordinary, I can accept not knowing exactly how a group situation will develop.",
+        "zh": "影响属于日常范围时，我可以接受暂时不清楚小组情境会怎样发展。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "certainty",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "certainty",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "certainty",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "certainty",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "certainty",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_01",
+      "prompt": {
+        "en": "I would prefer to revise an inherited group practice when changing circumstances call for a different approach.",
+        "zh": "情况变化、需要不同方式时，我更希望修改沿用下来的小组做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_02",
+      "prompt": {
+        "en": "I would favor preparing the group for a changed future even when that means rethinking a familiar convention.",
+        "zh": "即使需要重新考虑熟悉惯例，我也更赞成为小组适应变化后的未来作准备。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_03",
+      "prompt": {
+        "en": "I would judge a long-standing practice partly by whether it still serves the situation, rather than by its age alone.",
+        "zh": "判断长期做法时，我会考虑它是否仍适合当前情况，而非只看它沿用了多久。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_04",
+      "prompt": {
+        "en": "I would treat inherited group standards as a firmer guide than adapting them to each new circumstance.",
+        "zh": "相比随新情况调整，我更愿把传承下来的小组标准当作更固定的指引。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_05",
+      "prompt": {
+        "en": "I would favor continuing a familiar custom because preserving that continuity matters, even when a new approach looks useful.",
+        "zh": "即使新方式看起来有用，我也更赞成保留熟悉习惯，因为延续本身很重要。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ADAPTATION_06",
+      "prompt": {
+        "en": "When the group faces change, I would first look to established principles from the past rather than revise them for future conditions.",
+        "zh": "小组面对变化时，我更愿先依据过去确立的原则，而非为未来条件修改这些原则。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "adaptation",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_01",
+      "prompt": {
+        "en": "When agreed responsibilities are met, I think members should feel free to enjoy ordinary leisure without having to justify it.",
+        "zh": "约定责任已完成时，我认为成员可以自在享受普通休闲，而不必专门为此找理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_02",
+      "prompt": {
+        "en": "I would welcome a group norm that treats small pleasures and enjoyment as worthwhile parts of life.",
+        "zh": "我欢迎把小乐趣和享受当作生活中值得重视部分的小组规范。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_03",
+      "prompt": {
+        "en": "I think making room for ordinary fun can be a legitimate shared priority, not merely a reward that must be earned through more duty.",
+        "zh": "我认为给普通乐趣留空间可以是合理共同考虑，而不只是必须靠更多尽责换来的奖励。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_04",
+      "prompt": {
+        "en": "Even after responsibilities are met, I would prefer the group to encourage restraint rather than free enjoyment of leisure.",
+        "zh": "即使责任已完成，相比自在享受休闲，我仍更希望小组鼓励克制。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_05",
+      "prompt": {
+        "en": "I think members should normally limit pleasure for its own sake because duty ought to remain the main guide.",
+        "zh": "我认为成员通常应限制单纯为了快乐的享受，因为尽责应继续成为主要指引。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CD_ENJOYMENT_06",
+      "prompt": {
+        "en": "I would feel more at home with a group norm that gives obligation priority over allowing people to enjoy themselves freely.",
+        "zh": "相比允许人们自在享受，我更适应把义务放在优先位置的小组规范。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "很不同意"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "很同意"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "enjoyment",
+          "label": {
+            "en": "Not applicable / cannot judge",
+            "zh": "不适用／无法判断"
+          },
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "authority",
+      "directionIds": [
+        "authority"
+      ],
+      "title": {
+        "en": "Power Distance Theme — Full Cultural Dimensions Test Guide",
+        "zh": "权力距离主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Describe which decision arrangements you prefer",
+        "zh": "描述自己偏好怎样分配决定权限"
+      },
+      "summary": {
+        "en": "This reading concerns your responses about decision authority in one ordinary group setting. It does not assign a culture to you or establish how that group actually distributes power. Read the six statements and the circumstances behind them before drawing a practical conclusion.",
+        "zh": "这份读法关注你对一个普通小组中决定权限安排的回答，不给你分配某种文化，也不证明小组实际怎样分权。请先看六条题文和背后情境，再考虑实际意义。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Power Distance Theme: Cultural Dimensions Test Result",
+          "zh": "权力距离主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore power distance theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "权力距离主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "In the national-culture framework, power distance concerns the acceptance of unequal power by less powerful members. Here the original prompts ask what ordinary decision arrangements you would prefer. An individual response mean is not a national index, an observation of other members, or a measure of leadership ability.",
+              "zh": "在国别文化框架中，权力距离关注权力较少成员对不平等分配的接受。本版原创题询问你希望怎样安排普通决定。个人作答均值不是国别指数、对其他成员的观察结果或领导能力分。"
+            },
+            {
+              "en": "Keep one voluntary group in mind, such as a small club or study group. You do not need to name it or tell the website anything about its members. A preference in that setting may differ from what you would choose in an emergency, a regulated job, or a family arrangement.",
+              "zh": "请始终想着一个自愿参与的小组，例如小社团或学习小组。不必说出名称，也不用向网站提供成员资料。在这个情境里的偏好，可能不同于应急任务、受规则约束的工作或家庭安排。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three statements favor stronger final authority for a coordinator or a distinction between senior and newer members. Agreement contributes toward that end of this original topic. The other three favor questioning a decision, an equal opportunity to influence it, or asking for reasons; their response codes are reversed.",
+              "zh": "前三条偏向协调者拥有更大最终决定权，或资深与新成员权限不同；同意会向本主题的这一端贡献。后三条偏向质疑决定、同等影响机会及要求解释，其作答编码反向换算。"
+            },
+            {
+              "en": "These details need not move together. You might want one person to finalize a timetable while also wanting every member to question the reasons. Review the individual answers rather than using the mean to claim that you always accept hierarchy, never challenge authority, or belong to a particular national culture.",
+              "zh": "这些细节未必一起变化。你可能希望由一人敲定时间表，同时希望每位成员都能问清理由。应逐条回看，不用均值声称自己总接受等级、从不质疑权威或属于某种国别文化。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a reading group choosing its next book. In one arrangement, the coordinator hears suggestions but makes the final decision. Someone may prefer this because the coordinator knows the schedule and can resolve a stalled discussion. That preference alone does not tell us whether other voices were heard or whether the decision was fair.",
+              "zh": "设想读书小组选下一本书。一种安排由协调者听建议后最终决定；有人可能因为协调者熟悉日程、能结束僵持而喜欢它。仅凭这种偏好，无法知道其他声音是否被听见，也无法判断决定是否公平。"
+            },
+            {
+              "en": "In another arrangement, each member has an equal opportunity to shape the choice and the coordinator explains how it was reached. Someone may prefer this even when discussion takes longer. It does not establish that the group has no structure or that the person dislikes expertise; the question concerns decision arrangements in this example.",
+              "zh": "另一种安排给每位成员同等机会影响选书，并由协调者说明过程。即使讨论更久，也有人更喜欢这种方式。它不证明小组没有结构，也不证明本人不尊重专业；例子讨论的只是决定权限。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "A keyed mean of 3.0 could come from six middle responses, or from alternating contributions of 5 and 1. The arithmetic is the same, while the second pattern contains strong differences between statements. The result does not label either pattern balanced, moderate, obedient, or rebellious.",
+              "zh": "换算后均值3.0，既可能来自六个中间选项，也可能来自5与1交替贡献。算术相同，后一种却包含条目之间的明显差别。结果不会把它们自动叫作平衡、温和、顺从或叛逆。"
+            },
+            {
+              "en": "Authority is also different from individualism and uncertainty. A group can give people personal freedom while reserving one shared decision for a coordinator. You may tolerate an unanswered question while still preferring a clear decision-maker. Neither neighboring topic can be inferred from this mean.",
+              "zh": "权限也不同于个人选择或不确定感。小组可以允许个人自由，同时把一项共同决定交给协调者；你也可以接受问题暂时无解，却仍希望有明确决策者。不能由本组均值推断其他主题。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately choose one ordinary decision you have actually encountered. Write down who could suggest, who could question, who decided, and whose circumstances were affected. Then separate the arrangement you observed from the arrangement you would have preferred. A questionnaire preference does not establish what happened.",
+              "zh": "可以私下选一次遇到过的普通决定，记下谁能提议、谁能质疑、谁最终决定、影响了谁。再分开实际观察到的安排与自己希望的安排。问卷偏好不能证明现实发生了什么。"
+            },
+            {
+              "en": "If useful, draft one small question such as asking how the group will choose a meeting time or how someone can request an explanation. You do not have to send it or challenge anyone. Keep safety, consent and actual constraints in view; the score is not an instruction to accept or overturn authority.",
+              "zh": "如有帮助，可拟一个小问题，例如怎样决定见面时间，或成员如何请求解释。无需真的发出或质疑任何人。请留意安全、自愿和实际约束；分数不是要求服从或推翻权威的指令。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autonomy",
+      "directionIds": [
+        "autonomy"
+      ],
+      "title": {
+        "en": "Individualism and Collectivism Theme — Full Cultural Dimensions Test Guide",
+        "zh": "个人主义与集体主义主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Read personal choice and membership duties separately",
+        "zh": "分别看个人选择与成员义务"
+      },
+      "summary": {
+        "en": "This original topic asks how you would weigh individual choice and group obligations in one chosen setting. It does not measure sociability, selfishness, kindness, belonging, or the culture of your country. The details of a real obligation cannot be decided by six answers.",
+        "zh": "本原创主题询问你在一个选定情境里怎样考虑个人选择和集体义务，不衡量社交性、自私、善良、归属或所在国家的文化。六条回答无法判定一项真实义务的细节。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Individualism and Collectivism Theme: Cultural Dimensions Test Result",
+          "zh": "个人主义与集体主义主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore individualism and collectivism theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "个人主义与集体主义主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The framework distinguishes expected individual independence from interdependence within larger groups. This edition asks about your present preferences, not a society’s shared expectations. It does not place you on a national scale or assume that people from one country should answer alike.",
+              "zh": "框架区分对个人独立与更大群体内相互依存的期待。本版询问你当前的偏好，不测量整个社会的共同期待；不把你放入国别量尺，也不假定同国的人应作相同回答。"
+            },
+            {
+              "en": "Use the same ordinary voluntary group for all six topics. You may want a different arrangement for a personal hobby than for a task you have already promised to complete together. That variation is context to describe, not an error to correct so that a cultural label remains consistent.",
+              "zh": "六个主题请始终围绕同一个普通自愿小组。面对个人爱好和已经答应共同完成的任务，你可能希望不同安排。这种差别是需要描述的情境，不是为了维持文化标签而应修正的错误。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The direct statements emphasize a member’s own choice, responsibility for agreed tasks, and room to depart from the usual circle’s approach. The reversed statements emphasize continuing membership duties, coordinating important choices, and giving a group obligation priority over an optional personal preference.",
+              "zh": "直接条目强调本人选择、对约定任务负责，以及可以采用不同于熟悉圈子的方式；反向条目强调持续成员义务、协调重要选择，以及集体义务优先于可选个人偏好。"
+            },
+            {
+              "en": "These are trade-offs within this bank. A larger keyed contribution does not mean that you reject every group or refuse help; a smaller one does not mean you cannot choose for yourself. Supporting friends, liking company and valuing privacy are not interchangeable with the questions asked here.",
+              "zh": "这些是本题本里的取舍。换算贡献较大，不意味着拒绝一切集体或帮助；较小，也不意味着无法自主。支持朋友、喜欢陪伴和重视隐私，都不能直接等同于这里询问的内容。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a hobby club where each member makes a small project. One person prefers choosing their own topic while still completing the shared setup they agreed to do. This combines individual choice with a real contribution. It would be inaccurate to infer selfishness merely because the project is personally chosen.",
+              "zh": "设想兴趣社团里每人做一个小项目。有人希望自主选题，同时完成自己答应的共同布置；个人选择和真实贡献在这里可以并存。不能仅因项目由本人选择，就推断其自私。"
+            },
+            {
+              "en": "Another person prefers choosing a topic together because the project represents the club and membership carries ongoing duties. This does not prove warmth, closeness, or an inability to act independently. The practical question is what was agreed, what the common task requires, and whether each person has room to state a view.",
+              "zh": "另有人希望共同选题，因为项目代表社团，成员身份也带来持续义务。这不证明其更温暖、亲近或缺乏独立能力。实际需要看约定内容、共同任务要求，以及每人是否能表达意见。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "You might strongly prefer personal choice for an optional activity and strongly endorse duties that were freely agreed earlier. A middle mean could reflect that distinction rather than a weak preference. Read which statements received which responses; the mean cannot distinguish commitment to a promise from general pressure to conform.",
+              "zh": "你可能强烈希望自主选择可选活动，也强烈认可先前自愿约定的义务。中间均值可能反映这一区分，而非偏好不强。应看每条具体回答；均值分不清履行承诺与普遍从众压力。"
+            },
+            {
+              "en": "This topic is not the same as power distance. A group can share decisions equally while expecting strong mutual obligations, or give a coordinator final authority while allowing considerable personal choice. It is also different from the enjoyment topic: choosing independently does not imply wanting more leisure or less duty.",
+              "zh": "本主题不等同于权力距离。小组可以平等决策又期待较强互助义务，也可以由协调者最终决定但允许很多个人选择。它也不等同于享乐主题：自主选择不必意味着更想休闲或更少尽责。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private note, divide one situation into three parts: what is individually chosen, what was explicitly promised, and what is only assumed because someone belongs to the group. Do not use the result to decide which category a real dispute belongs in; write down what you know and what needs clarification.",
+              "zh": "可以私下把一个情境分成三部分：由个人选择什么、明确答应了什么、哪些只是因成员身份而被默认。不要靠结果判定真实争议属于哪类；只记已知信息和仍需说清的问题。"
+            },
+            {
+              "en": "If an optional next step appeals, draft a sentence that names both your contribution and your preference, such as completing the shared setup while choosing your own project topic. You can leave it unsent. No score requires you to withdraw from a group, surrender a choice, or prove loyalty.",
+              "zh": "如想选一个小行动，可拟一句同时说明贡献与偏好的话，例如完成共同布置、但自主选择项目主题。可以不发出。任何分数都不要求退出集体、放弃选择或证明忠诚。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "achievement",
+      "directionIds": [
+        "achievement"
+      ],
+      "title": {
+        "en": "Achievement and Social Role Expectations Theme — Full Cultural Dimensions Test Guide",
+        "zh": "成就与社会角色期待主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Keep competition, care and role expectations visible",
+        "zh": "把竞争、照顾和角色期待分开看清"
+      },
+      "summary": {
+        "en": "This topic contains two related discussion areas: how a group recognizes competitive achievement, and whether emotional roles are expected to differ by gender. Its mean is only a summary of six original response codes. It does not describe your sex, gender identity, kindness, competence, or personal masculinity or femininity.",
+        "zh": "本主题包含两个讨论面向：小组怎样认可竞争成就，以及是否期待不同性别承担不同情绪角色。均值只汇总六条原创作答编码，不描述你的性别、性别认同、善良、能力或个人男性气质、女性气质。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Achievement and Social Role Expectations Theme: Cultural Dimensions Test Result",
+          "zh": "成就与社会角色期待主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore achievement and social role expectations theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "成就与社会角色期待主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The older framework label masculinity/femininity concerns socially expected roles, not an individual’s biological characteristics. This edition names its narrower discussion areas directly: achievement, care and differentiated role expectations. It does not administer a national MAS index or treat gender as a personality score.",
+              "zh": "框架旧名称“男性气质／女性气质”涉及社会期待的角色，不是个人生物特征。本版直接说明更窄的讨论内容：成就、照顾及差异化角色期待。不施测国别MAS指数，也不把性别当人格分数。"
+            },
+            {
+              "en": "Answer about the ordinary group arrangement you would prefer now. Do not answer for an entire country or assume that a real person feels a certain way because of their gender. You may be uncertain about a statement or find it inapplicable; that is a reason to use the unscored option, not to guess another person’s identity.",
+              "zh": "请回答自己目前希望普通小组怎样安排，不代表整个国家作答，也不因真实人物的性别而猜测其感受。题目不适用或无法判断时，可选不计分选项，无需猜别人的身份。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Three statements concern visible achievement, outperforming others, or giving care and everyday quality of life priority. Three concern whether emotional roles should differ by gender or whether people should have the same room to be assertive, caring and open. Read these two sets separately as well as seeing the overall response mean.",
+              "zh": "三条涉及可见成就、超越他人，或优先照顾成员与日常生活质量；三条涉及情绪角色是否应按性别区分，或人人是否同样可以坚定、体贴和坦诚。除了看汇总均值，也请把两组分别读。"
+            },
+            {
+              "en": "The first three are directly keyed; the last three are reversed. A higher keyed mean reflects more endorsement of the competitive and differentiated-role statements in this bank. It does not establish a coherent personal trait, imply that you lack care, or make the two discussion areas interchangeable.",
+              "zh": "前三条直接计入，后三条反向换算。较高换算均值表示本题组中更认可竞争和差异化角色相关陈述，不证明这构成一致个人特质，不意味着缺少关心，也不让两个面向可以互换。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a small club deciding how to recognize contributions. One member wants a visible prize for the best project, while also believing people of every gender should be equally free to express uncertainty. This person could endorse competition and reject differentiated emotional roles. A single summary cannot preserve that distinction on its own.",
+              "zh": "设想小社团决定怎样认可贡献。有人希望给最佳项目一个显眼奖项，同时认为任何性别都应同样可以表达拿不准。此人可以支持竞争、又反对差异化情绪角色，单一汇总无法独自保留这种区别。"
+            },
+            {
+              "en": "Another member wants the club to emphasize helping someone who fell behind and protecting an ordinary sustainable pace. They might still enjoy a contest in a different setting. The response concerns the arrangement under discussion, not whether they are ambitious, skilled, generous, or likely to succeed at a job.",
+              "zh": "另有人希望小组重视帮助暂时落后的成员，并保留可持续的日常节奏；其在另一情境里仍可能喜欢比赛。回答只涉及本次安排，不判定其是否有抱负、能干、慷慨或职业成功。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean near 3.0 might represent neutral responses throughout, or strong endorsement in one set and strong disagreement in the other. It must not be called an androgyny score, a balance of male and female qualities, or a measure of fairness. Review the individual answers before deciding which aspect is relevant to your reflection.",
+              "zh": "接近3.0可能是全部中立，也可能是一组强烈赞同、另一组强烈不同意。不能叫作双性化分数、男女特质平衡或公平程度。请逐题看，再决定哪一面向与自己的反思有关。"
+            },
+            {
+              "en": "Competitive recognition is different from having the final decision, which belongs to the authority topic. Caring for someone is also different from expecting ongoing membership duties, which appears in the autonomy topic. The six groups are not substitutes for one another, and the highest mean is not a dominant cultural identity.",
+              "zh": "认可竞争成就不同于拥有最终决定权，后者属于权限主题；关心一个人也不同于期待持续成员义务，后者出现在个人选择主题。六组不能相互代替，最大均值也不是主导文化身份。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately separate one group situation into recognition and role expectations. What action was praised, and who was expected to be tough, gentle, decisive or emotionally open? Record only what you actually know. Do not infer someone’s beliefs from their appearance, identity, or a result from this questionnaire.",
+              "zh": "可以私下把一个小组情境拆成贡献认可与角色期待：什么行动被赞扬，谁被期待强硬、温和、果断或坦诚？只记实际知道的内容，不凭外表、身份或问卷结果推断别人的信念。"
+            },
+            {
+              "en": "If useful, draft a small question about the arrangement itself, such as what the group wishes to recognize or how every member can ask for support. You can keep the draft private. The mean does not authorize judging a person’s worth, assigning roles by gender, or deciding that one style must fit every setting.",
+              "zh": "如有帮助，可以拟一个关于安排本身的小问题，例如小组想认可什么，或每位成员如何寻求支持。草稿可私留。均值不授权评定人的价值、按性别指定角色，或断言一种风格适合所有情境。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "certainty",
+      "directionIds": [
+        "certainty"
+      ],
+      "title": {
+        "en": "Uncertainty Avoidance Theme — Full Cultural Dimensions Test Guide",
+        "zh": "不确定性规避主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Read your wish for a definite interpretation",
+        "zh": "阅读自己希望获得明确解释的程度"
+      },
+      "summary": {
+        "en": "This reading concerns your responses about ambiguity in ordinary group situations. It does not measure clinical anxiety, courage, carefulness, obedience, or willingness to take a dangerous risk. The prompts ask about wanting a definite interpretation when the practical stakes are ordinary.",
+        "zh": "这份读法关注普通小组情境中的模糊与不确定，不测量临床焦虑、勇气、谨慎、服从或危险冒险意愿。题目询问的是实际影响属于日常范围时，是否希望获得明确解释。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Uncertainty Avoidance Theme: Cultural Dimensions Test Result",
+          "zh": "不确定性规避主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore uncertainty avoidance theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "不确定性规避主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The framework’s uncertainty-avoidance theme concerns ambiguity and the unknown; it is not simply risk avoidance or rule-following. This edition uses original statements about your present comfort with unresolved meanings. Their mean is not a societal UAI index, a diagnosis, or a measure of emotional regulation.",
+              "zh": "框架中的不确定性规避关注模糊与未知，不等同于避险或守规则。本版原创题询问你目前对含义暂未确定的接受程度；均值不是社会UAI指数、诊断或情绪调节能力分。"
+            },
+            {
+              "en": "Keep the same ordinary group context in mind, without imagining a medical emergency or a dangerous situation. A desire for clarity can be useful, and an ability to leave a question open can also be useful. The questionnaire does not decide how much certainty a real situation actually requires.",
+              "zh": "请继续围绕同一普通小组，不必设想医疗急症或危险情境。希望澄清可以有用，允许问题暂时开放也可以有用；问卷不能决定真实情境究竟需要多少确定性。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The directly keyed statements favor one definite interpretation, reducing ambiguity before continuing, or feeling more comfortable once an uncertain meaning is settled. The reversed statements favor leaving a question unresolved, allowing several interpretations, or accepting that the situation’s development is not yet known.",
+              "zh": "直接条目偏向一个确定解释、继续之前先减少模糊，或在含义定下来后更自在；反向条目偏向问题暂不解决、允许多个解释，或接受暂时不知道情境怎样发展。"
+            },
+            {
+              "en": "Responses can depend on what information you have and how others communicate. Wanting an explanation after receiving a vague message does not establish a general inability to tolerate uncertainty. Likewise, leaving one question open does not prove adaptability or mean you would disregard an important safety requirement.",
+              "zh": "回答可能受信息多少、别人怎样沟通影响。收到含糊消息后想问清，不证明普遍无法承受不确定；允许一个问题开放，也不证明适应力，更不意味着忽略重要安全要求。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a club receiving a short message that could mean either changing the meeting topic or postponing it. One person would prefer to ask for a definite explanation before continuing the discussion. The wish concerns an uncertain meaning, not necessarily fear of the activity, distrust of the sender, or a preference for strict rules.",
+              "zh": "设想小组收到一句短消息，既可能指换讨论主题，也可能指推迟。有人想先问清再继续讨论；这是希望明确含义，不必等同于害怕活动、不信任发送者或偏爱严格规则。"
+            },
+            {
+              "en": "Another person would be comfortable keeping both interpretations open briefly while more information arrives. They could still check the confirmed meeting time and follow an actual agreement. Tolerating an unresolved meaning does not require ignoring details or taking a risk; it describes one response to this particular ambiguity.",
+              "zh": "另有人愿意短暂保留两种解释，等待更多信息，同时仍会核对已定时间、遵守实际约定。接受含义暂未确定，不要求忽略细节或冒险，只描述对这次模糊的一种回应。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want one answer when arranging a meeting but welcome several interpretations in a creative discussion. A middle mean can hide that difference. It can also come from six neutral responses or two unscored answers plus four numeric ones. Check coverage and the actual statements before giving the mean a personal story.",
+              "zh": "你可能安排见面时想要一个答案，在创作讨论中却欢迎多个解释。中间均值可能藏着这种差别，也可能来自全部中立，或两条不计分与四条数字回答。请先看覆盖和题文，再赋予个人解释。"
+            },
+            {
+              "en": "This topic should not be substituted for future orientation. Someone may prepare for future change while accepting that its details are unknown. Nor is it a measure of hierarchy: a definite interpretation can be reached through equal discussion or through a coordinator. The other five means need their own answers and explanations.",
+              "zh": "本主题不能代替未来取向。一个人可以为未来变化做准备，也接受细节未知；它也不衡量等级，因为定论可以通过平等讨论或协调者形成。其他五组仍需各自的回答和解释。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "In a private note, separate what is actually unknown from what needs a decision now. For the message example, you could list the meaning of the message, the confirmed time, and the point at which an answer would be useful. This may show that only one small clarification is needed.",
+              "zh": "可以私下分开真正未知的内容与眼下必须决定的内容。以消息为例，列出消息含义、已确认时间，以及何时知道答案才有用。这样可能发现，只需澄清一个小点。"
+            },
+            {
+              "en": "You may draft a bounded question or decide to wait for information, without treating either choice as a test of courage. No real conversation is required. If uncertainty is causing distress that interferes with daily life, this reflection cannot assess the cause or replace appropriate personal support.",
+              "zh": "可以拟一个范围明确的问题，也可以决定等信息；两者都不是勇气测试，无需真的谈话。如果不确定带来的困扰已影响日常生活，这份反思不能评估原因，也不能替代适合个人情况的支持。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adaptation",
+      "directionIds": [
+        "adaptation"
+      ],
+      "title": {
+        "en": "Long-Term and Normative Orientation Theme — Full Cultural Dimensions Test Guide",
+        "zh": "长期与规范取向主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Read adaptation, inherited practices and future conditions",
+        "zh": "阅读调整、沿用做法与未来条件"
+      },
+      "summary": {
+        "en": "This original topic asks how you would weigh changing circumstances and inherited group practices. It does not measure planning skill, patience, intelligence, productivity or the culture of a nation. A preference for continuity or adaptation needs the specific situation behind it.",
+        "zh": "本原创主题询问你怎样考虑变化中的条件与沿用的小组做法，不测量规划能力、耐心、智力、生产力或国别文化。偏向延续或调整，都需要结合具体情境。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Long-Term and Normative Orientation Theme: Cultural Dimensions Test Result",
+          "zh": "长期与规范取向主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore long-term and normative orientation theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "长期与规范取向主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The framework contrasts adapting to a changing future with looking to inherited normative reference points. This edition asks about present preferences in one ordinary group. Its response mean is not a national long-term-orientation index, a forecast of educational achievement, or a measure of how far ahead you can plan.",
+              "zh": "框架涉及适应变化中的未来与依据传承规范参照的区别。本版只询问一个普通小组中的当前偏好；均值不是国别长期取向指数、教育成就预测，也不衡量你能规划多远。"
+            },
+            {
+              "en": "Choose a situation where there is genuine room to discuss an ordinary practice. Do not treat a legal obligation, a safety requirement, or a promise to another person as something this score can waive. Preferences about a voluntary club routine do not settle what should happen in a different setting.",
+              "zh": "请选择对普通做法确有讨论空间的情境，不把法律义务、安全要求或对他人的承诺当作分数可以免除的事项。对自愿社团惯例的偏好，不能决定另一情境该怎样做。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The direct statements favor revising inherited practices when circumstances change, preparing for changed future conditions, and checking whether an old practice still serves the situation. The reversed statements favor inherited standards, continuity itself, and using established principles before revising them.",
+              "zh": "直接条目偏向随情况修改沿用做法、为变化后的未来准备，以及核对旧做法是否仍适用；反向条目偏向传承标准、延续本身，以及修改之前先依据既有原则。"
+            },
+            {
+              "en": "These statements do not ask whether you can meet a deadline or control impulses. Someone could be well organized while preferring continuity, or willing to revise a custom while struggling with a schedule. Read the responses as preferences about practices and reference points, not evidence for a broad virtue or weakness.",
+              "zh": "题目不询问能否赶上期限或控制冲动。一个人可以很有条理却偏向延续，也可以愿意改惯例却不擅长日程。请把回答看成对做法与参照的偏好，不当作广泛美德或弱点证据。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a club that always meets at the same time, but members’ circumstances have changed. One person favors trying a new arrangement because the old routine no longer serves the group well. That choice could reflect the present constraint rather than a permanent preference for innovation or a rejection of the club’s history.",
+              "zh": "设想社团一直固定时间见面，但成员情况变了。有人赞成试新安排，因为旧惯例已不适用；这可能只反映当下约束，不是永久追新或否定社团历史。"
+            },
+            {
+              "en": "Another person wants to understand why the routine was established before replacing it. They may value the continuity and obligations attached to it, while still accepting a later change. A preference for an inherited reference does not establish resistance to every new idea, just as adapting this routine does not prove superior foresight.",
+              "zh": "另有人想先弄清惯例为何建立，再决定是否替换；其可能重视延续和相关义务，也仍接受后续改变。重视既有参照不等于抗拒一切新想法，调整这次惯例也不证明更有远见。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "You might favor revising a meeting time while wanting to preserve a shared ritual that gives the group meaning. The resulting mean can hide that distinction. Check whether your answers concern usefulness, a freely made promise, a symbolic practice, or unfamiliarity with the proposed alternative; the six codes cannot identify the reason.",
+              "zh": "你可能赞成改见面时间，又想保留让小组有共同意义的仪式。均值可能藏起这种差别。请分清回答涉及实用性、自愿承诺、象征做法，还是不熟悉替代方案；六个编码识别不出原因。"
+            },
+            {
+              "en": "Adaptation is not the same as uncertainty tolerance. You may want change and also want a definite explanation of what comes next. It is not the same as individual choice either: a group can collectively decide to revise a tradition. The other topics need separate readings rather than being inferred from this one.",
+              "zh": "调整不等同于承受不确定：你可以希望改变，也希望明确知道接下来怎样。它也不等同于个人选择，小组完全可以共同决定修改传统。其他主题需要分别阅读，不能由本组推断。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private exercise, name one ordinary practice, the purpose you think it serves, and the circumstance that has changed. Separate the purpose from the exact method. You may discover that the purpose can remain while the method changes, or that you do not yet know enough to prefer a replacement.",
+              "zh": "可以私下写一个普通做法、你认为它服务的目的，以及已经变化的情况。把目的和具体方法分开：可能目的一样、方法可改，也可能信息还不够，暂不能偏向替代方案。"
+            },
+            {
+              "en": "If useful, draft a small reversible trial with an end point and a chance to review, while keeping any actual commitments explicit. You can stop at the draft. The result does not require changing a tradition, defending it, or describing yourself as a future-oriented person.",
+              "zh": "如有帮助，可拟一个范围小、可撤回、到时可复盘的试行，同时说清实际承诺。写完即可结束。结果不要求改变传统、捍卫传统，或把自己定义成面向未来的人。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enjoyment",
+      "directionIds": [
+        "enjoyment"
+      ],
+      "title": {
+        "en": "Indulgence and Restraint Theme — Full Cultural Dimensions Test Guide",
+        "zh": "享乐与克制主题：文化维度测试完整读法"
+      },
+      "headline": {
+        "en": "Read the social permission you prefer for ordinary enjoyment",
+        "zh": "阅读自己希望普通享受获得怎样的社会空间"
+      },
+      "summary": {
+        "en": "This reading concerns your preferences about ordinary leisure and duty in one group context. It does not measure addiction, self-control, spending habits, sexual behavior, health or the amount of happiness in your life. Wanting permission to enjoy something is different from having the opportunity to do it.",
+        "zh": "这份读法关注一个小组情境中普通休闲与尽责的偏好，不衡量成瘾、自控、花费、性行为、健康或生活幸福多少。希望享受得到空间，与现实是否有机会享受，是不同问题。"
+      },
+      "scoreReading": {
+        "en": "Read the raw sum, numeric coverage and original keyed-response mean for these six statements. More endorsement is not a country score, a fixed identity or a better result; equal means remain separate readings.",
+        "zh": "请分别看这六条的原始和、数字覆盖和原创换算均值。更高认可不是国别分数、固定身份或更好结果；均值相同仍分别阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Indulgence and Restraint Theme: Cultural Dimensions Test Result",
+          "zh": "享乐与克制主题：文化维度测试结果解读"
+        },
+        "description": {
+          "en": "Explore indulgence and restraint theme: original prompts, reverse coding, contrasting situations, hidden differences and an optional private next step. No national classification.",
+          "zh": "享乐与克制主题完整读法：原创题文、反向换算、对照情境、相同均值的差别与可选私人下一步；不做国别分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The theme and this edition’s narrower question",
+            "zh": "框架主题与本版更窄的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The framework’s indulgence/restraint theme concerns social permission for enjoyment relative to restrictive norms. This edition asks about what you would prefer now, with agreed responsibilities met. It does not compute a national IVR index or classify your personality as pleasure-seeking, disciplined, healthy or unhealthy.",
+              "zh": "框架中的享乐／克制涉及享受的社会空间与限制性规范。本版询问在约定责任已完成时，你当前更希望怎样；不计算国别IVR指数，也不把人格分成寻欢、自律、健康或不健康。"
+            },
+            {
+              "en": "The ordinary setting matters. A quiet shared break, a hobby or an unhurried afternoon may be what enjoyment means in your example. The questionnaire does not define pleasure for you or assume that everyone has the same resources, time, access, obligations or preferred way of resting.",
+              "zh": "普通情境很重要。你想到的享受可能是一起安静休息、做爱好，或一个不赶时间的下午。问卷不替你定义快乐，也不假定人人有相同资源、时间、机会、义务或休息方式。"
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "title": {
+            "en": "What your six responses contribute",
+            "zh": "六条回答各在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The direct statements favor ordinary leisure without an extra justification, treating small pleasures as worthwhile, and giving enjoyment legitimate room alongside fulfilled responsibilities. The reversed statements favor restraint after duties are met, limiting pleasure for its own sake, or keeping obligation as the main social guide.",
+              "zh": "直接条目偏向普通休闲无需额外辩解、小乐趣值得重视，以及尽责后享受仍可有合理空间；反向条目偏向完成责任后继续克制、限制单纯快乐，或让义务持续作为主要规范。"
+            },
+            {
+              "en": "A larger keyed contribution does not mean neglecting responsibilities; the statements explicitly distinguish agreed duties from optional further restraint. A smaller contribution does not prove that you feel less joy or cannot relax. Read what social expectation you endorsed rather than treating the mean as a report of your actual lifestyle.",
+              "zh": "换算贡献较大不意味着不尽责，题文已区分约定责任与额外克制；较小也不证明更少快乐或不能放松。请看自己认可的社会期待，不把均值当作实际生活方式报告。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Two fictional arrangements to compare",
+            "zh": "比较两种虚构安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group finishing the task it agreed to do. One member welcomes a short, optional shared break without requiring everyone to justify why they deserve it. This says nothing about expensive entertainment, impulsive spending or ignoring another obligation. The preference concerns whether ordinary enjoyment needs an additional social defense.",
+              "zh": "设想小组做完约定任务后，有人欢迎一段自愿短休息，不要求人人解释为何值得享受。这不涉及昂贵娱乐、冲动花费或忽视另一义务，只关注普通享受是否还需额外证明合理。"
+            },
+            {
+              "en": "Another member feels more at home with a norm that continues to emphasize duty and restraint even after the immediate task is done. They may still enjoy the break personally. Their answer could concern the group’s ideal rather than their current feeling, and the questionnaire cannot determine why they prefer that ideal.",
+              "zh": "另有人在眼前任务完成后，仍更适应继续重视尽责与克制的规范，其本人也可能享受休息。回答可能涉及对小组理想的期待，而非当下感受；问卷无法知道其偏好这一理想的原因。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A mean can hide different answers",
+            "zh": "相同均值可能藏着不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may strongly endorse permission for other members to enjoy leisure but feel uncomfortable granting it to themselves. Another may enjoy a break while believing the group should publicly emphasize restraint. The prompts do not disentangle those possibilities; a mean near the middle should not be called a perfect work–life balance.",
+              "zh": "有人可能强烈赞同其他成员自在休闲，却不容易允许自己这样；另有人本人享受休息，却认为小组应公开重视克制。题目不能拆清这些可能，中间均值不应被叫作完美工作生活平衡。"
+            },
+            {
+              "en": "This topic differs from individualism: a group can enjoy leisure together and still expect strong mutual duties. It also differs from future adaptation: valuing rest does not establish a short time horizon. The six descriptive means are not opposing pieces of a fixed total, and they need not add to any percentage.",
+              "zh": "本主题不同于个人主义：小组可以共同享受休闲，也期待较强互助义务。它也不同于未来调整：重视休息不证明眼光短。六个描述均值不是固定总量里相互挤占的部分，也不需要合为某个百分比。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一个可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately separate three questions: what responsibilities are actually agreed, what ordinary enjoyment you would welcome, and what social rule makes you feel that it needs justification. Do not use the result to assume that a real obligation has ended or that another person has the same permission and resources you do.",
+              "zh": "可以私下分开三个问题：实际约定了什么责任、自己欢迎哪种普通享受、哪条社会期待使你觉得还需为它辩解。不能据结果认定义务已经结束，或别人有与你相同的空间和资源。"
+            },
+            {
+              "en": "If useful, note a small optional break that fits your actual circumstances, or simply record that the topic does not apply now. No purchase, lifestyle change or disclosure is required. The aim is to describe a preference more clearly, not to prescribe how much pleasure, restraint or duty a person should have.",
+              "zh": "如有帮助，可记一种适合实际情况的小休息，也可以只记录本主题眼下不适用。无需购买、改变生活或披露；目的是把偏好说清，不是规定一个人应有多少享乐、克制或义务。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Recompute the six contributions and coverage",
+            "zh": "复算六条贡献与覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses codes 1–5 from strongly disagree to strongly agree; not applicable/cannot judge is unscored. The first three contributions equal the selected code. For the last three, contribution = 6 minus the code. Add only numeric contributions, and divide by their count; display one decimal only when at least four of the six are numeric.",
+              "zh": "每条使用1～5表示从很不同意到很同意；不适用／无法判断不计分。前三条贡献等于所选编码，后三条为6减所选编码。只加数字贡献，再除以数字条数；六条至少四条为数字时，才显示一位小数均值。"
+            },
+            {
+              "en": "All 36 prompts need a response before the attempt is interpreted, but six unscored answers are not a zero. With fewer than four numeric answers on this topic, its mean is unavailable and the full guide remains readable. The four-of-six rule is this website’s disclosure policy, not a validated psychometric threshold. No overall score, dominant topic, cross-topic rank or winner is calculated.",
+              "zh": "整份36条均需回应后才整理结果，但六条不计分不是零分。本组数字少于四条时不显示均值，完整指南仍可读。四条下限是本站公开的呈现规则，不是已验证的心理测量阈值。不算总分、主导主题、跨组排名或赢家。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the result cannot establish",
+            "zh": "结果不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions, examples and readings are original FermatMind reflection content. They do not reproduce VSM or CVSCALE item text, formulas or validation. Reliability, validity, norms, equal-interval measurement and English–Chinese equivalence are not established for this bank. A mean summarizes response codes; it cannot identify nationality, ethnicity, an individual’s culture, a group’s culture, ability or moral worth.",
+              "zh": "题文、情境与读法均为费马原创反思内容，不复用VSM或CVSCALE题文、公式或效度。本题本尚无已确立的信度、效度、常模、等距测量或中英文等值。均值只汇总作答编码，不能识别国籍、族群、个人文化、小组文化、能力或道德价值。"
+            },
+            {
+              "en": "Keep the group context and the individual statements visible when revisiting a result. Different settings, interpretations or unavailable experiences can change the arithmetic without showing cultural change. All six complete guides are free and public; sharing copies only the entry title and link, without personal answers or means. No email, purchase or disclosure is required.",
+              "zh": "重看结果时，请保留所选小组情境与具体条目。环境、理解或不适用经历不同，都可能改变算术，不能据此证明文化改变。六份完整指南免费公开；分享仅复制入口标题与链接，不含个人答案或均值。无需邮箱、购买或披露。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Original statement keying and missing answers",
+        "zh": "原创条目键向与未评分回答"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic has six original statements: three direct and three reversed. Numeric options are 1–5; a reversed contribution is 6 minus the selected code. Not applicable/cannot judge is excluded. Sum the numeric contributions and divide by their count, rounding to one decimal only with at least four of six numeric responses. All 36 need a response before any result is shown; an unavailable mean is not zero. This four-response display rule is not a validated psychometric threshold.",
+          "zh": "每组六道原创陈述，三条直接、三条反向。数字选项为1～5，反向贡献为6减所选编码；不适用／无法判断排除。数字贡献相加，再除以数字条数；至少四条数字时显示一位小数均值。36条全部回应后才显示结果，不可用均值不是零分。四条下限是呈现规则，不是已验证的心理测量阈值。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "A personal reflection, not a cultural classification",
+        "zh": "个人反思，不作文化分类"
+      },
+      "paragraphs": [
+        {
+          "en": "The six national-culture framework themes are background; these new statements ask about your own preferred arrangements in one chosen setting. They are not VSM or CVSCALE items, formulas, indices or validation. The achievement/role-expectations group contains both competitive-recognition and social-role statements: review them separately, because its mean can hide a difference between those aspects. No result identifies nationality, ethnicity, an individual’s culture or a group’s culture.",
+          "zh": "六个国别文化框架主题只作背景；新题询问你在一个选定情境里希望怎样安排，不是VSM或CVSCALE题文、公式、指数或效度。“成就与角色期待”组同时包含竞争认可与社会角色陈述，请分别回看，均值可能藏起两个面向的差别。结果不识别国籍、族群、个人文化或小组文化。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Read all six themes without a winner",
+        "zh": "六组分别读，不选赢家"
+      },
+      "paragraphs": [
+        {
+          "en": "All six complete guides remain readable, including when a mean is unavailable or several means are equal. There is no total, dominant cultural type, cross-topic ranking, country match, population percentile or better/worse cutoff. A mean describes these response codes, not the strength of a latent trait; equal-interval measurement and comparability across topics are not established. Concrete examples and counterexamples help you compare the individual statements instead.",
+          "zh": "六份完整指南始终可读，均值不可用或相同时也一样。不合总分，不选主导文化类型，不跨组排名，不匹配国家，不算人群百分位或好坏阈值。均值只描述这些作答编码，不代表潜在特质强度；尚未建立等距测量或跨组可比性。请借具体情境和反例比较各条陈述。"
+        }
+      ]
+    },
+    {
+      "id": "original-edition",
+      "title": {
+        "en": "Source and edition boundaries",
+        "zh": "来源与版本边界"
+      },
+      "paragraphs": [
+        {
+          "en": "The national-culture model was developed for a different level of analysis; its country-level findings do not validate these individual questions. This edition has no established reliability, validity, norms or English–Chinese equivalence. All wording, scenarios and calculation rules here are independently authored. The references explain the framework and its limits, without endorsing this bank or granting it the status of a standard instrument.",
+          "zh": "国别文化模型属于不同分析层级，其国家层面研究不验证这些个人题目。本版本尚无已确立的信度、效度、常模或中英文等值；这里的题文、情境与计算规则独立编写。参考说明框架及边界，不代表来源背书，也不使本题本成为标准工具。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private attempt and optional next step",
+        "zh": "私人作答与可选下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "You can answer without saving or opt into a session draft that expires after 24 hours. Completion, clear or retake removes that draft. Sharing copies only the public title and entry link, excluding answers, means and the group you privately imagined. All six full guides are free without signup, email or purchase. You can write one private context note, return to the test list, or finish here.",
+          "zh": "可以不保存作答，也可选24小时后失效的会话草稿；完成、清除或重测会删除草稿。分享只复制公开标题与入口链接，不含答案、均值或你私下想到的小组。六份全文无需注册、邮箱或购买。可以记一条私人情境笔记、返回测试列表或就此结束。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Geert Hofstede: six national-culture themes and level of analysis",
+        "zh": "Geert Hofstede：六个国别文化主题及分析层级"
+      },
+      "url": "https://geerthofstede.com/culture-geert-hofstede-gert-jan-hofstede/6d-model-of-national-culture/"
+    },
+    {
+      "title": {
+        "en": "VSM research scope: not a personality questionnaire",
+        "zh": "VSM研究范围：不是人格问卷"
+      },
+      "url": "https://geerthofstede.com/research-and-vsm/"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Hofstede VSM or CVSCALE?",
+        "zh": "这是Hofstede VSM或CVSCALE吗？"
+      },
+      "answer": {
+        "en": "No. It is a FermatMind original 36-statement reflection about preferred arrangements in one chosen group context. It does not reproduce their items, formulas or validation, and it does not compute personal or national Hofstede indices. National-level findings cannot establish this bank’s individual-level validity.",
+        "zh": "不是。这是费马原创36条反思，询问一个选定小组情境里的安排偏好。不复用这些工具的题文、公式或效度，不计算个人或国别Hofstede指数。国家层面研究不能建立本题本的个人层面效度。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are reverse statements and unavailable answers handled?",
+        "zh": "反向条目和未评分回答怎样处理？"
+      },
+      "answer": {
+        "en": "Within each six-statement topic, the first three are direct and the last three use 6 minus the selected 1–5 code. Unscored answers are excluded. At least four numeric responses are required for a one-decimal descriptive mean; fewer responses leave that mean unavailable. All full guides remain readable.",
+        "zh": "每组六条，前三条直接计入，后三条用6减所选1～5编码。未评分回答排除；至少四条数字才显示一位小数描述均值，不足则不计算。全部完整指南仍可阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the result match me to a country or reveal my culture?",
+        "zh": "结果会匹配国家或揭示我的文化吗？"
+      },
+      "answer": {
+        "en": "No. Means summarize your responses to these original statements in a chosen context. They cannot identify nationality, ethnicity, individual or group culture, ability or moral worth. There is no total, ranked cultural type, country match, population percentile, or established English–Chinese measurement equivalence.",
+        "zh": "不会。均值只汇总你在所选情境里对原创陈述的回答，不能识别国籍、族群、个人或群体文化、能力或道德价值。不提供总分、文化类型排名、国家匹配、人群百分位，也没有已确立的中英文测量等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the full reading free, and what is shared?",
+        "zh": "完整读法免费吗，分享包含什么？"
+      },
+      "answer": {
+        "en": "All six complete guides are free and public before and after answering, without an email or purchase wall. Sharing copies only the public test title and entry link. Answers, means and your privately chosen setting are excluded. Saving a 24-hour browser session draft is optional.",
+        "zh": "六份完整指南在作答前后均免费公开，无邮箱或购买门槛。分享仅复制公开测试标题与入口链接，不含答案、均值和私下选定的背景。24小时浏览器会话草稿可选保存。"
+      }
+    }
+  ]
+}
