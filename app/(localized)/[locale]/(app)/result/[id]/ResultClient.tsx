@@ -1769,14 +1769,16 @@ export default function ResultClient({
     || Boolean(reportData?.mbti_access_hub_v1)
     || (hasReadyResultPayload(resultData) && normalizeText(resultData.meta?.scale_code).toUpperCase() === "MBTI")
     || resolveScaleCodeForTelemetry(reportData, resultData) === "MBTI";
-  const renderEmailRecoveryCard = (title?: string) => (
+  const renderEmailRecoveryCard = () => (
     <section
       className="min-w-0 [overflow-wrap:anywhere] rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] sm:p-6"
       data-testid="result-email-recovery-card"
     >
       <div className="space-y-2">
         <h2 className="text-xl font-semibold text-[var(--fm-text)]">
-          {title ?? (locale === "zh" ? "保存邮箱，随时找回这份结果" : "Save an email to recover this result")}
+          {isIqScaleCode(resolvedScaleCode)
+            ? locale === "zh" ? "可选：保存邮箱以找回结果" : "Optional: save an email to recover this result"
+            : locale === "zh" ? "保存邮箱，随时找回这份结果" : "Save an email to recover this result"}
         </h2>
       </div>
 
@@ -1829,7 +1831,7 @@ export default function ResultClient({
       ) : null}
     </section>
   );
-  const renderOptionalEmailRecoveryCard = (title?: string) => (printMode ? null : renderEmailRecoveryCard(title));
+  const renderOptionalEmailRecoveryCard = () => (printMode ? null : renderEmailRecoveryCard());
   const handleResultRecheck = () => {
     if (manualRecheckInFlightRef.current) return;
     manualRecheckInFlightRef.current = true;
@@ -2161,9 +2163,7 @@ export default function ResultClient({
           resultData={hasReadyResultPayload(resultData) ? resultData : null}
           accessView={accessView}
         />
-        {renderOptionalEmailRecoveryCard(locale === "zh"
-          ? "可选：保存邮箱以找回结果"
-          : "Optional: save an email to recover this result")}
+        {renderOptionalEmailRecoveryCard()}
       </div>
     );
   }
