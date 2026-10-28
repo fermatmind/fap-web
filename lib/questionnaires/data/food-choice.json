@@ -1,0 +1,1590 @@
+{
+  "slug": "food-choice",
+  "code": "FM_FOOD_CHOICE12",
+  "version": "fm_food_choice_original12_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "directional",
+  "title": {
+    "en": "Food Choice Test",
+    "zh": "食物选择测试"
+  },
+  "description": {
+    "en": "Compare menu presentation in 12 original pairs. See all choice counts and seven full free result guides, including every tie. No class or income estimate.",
+    "zh": "用12组原创二选一比较菜单呈现，查看完整次数与七份免费结果指南，保留全部并列；不推断社会阶层或收入。"
+  },
+  "seoTitle": {
+    "en": "Food Choice Test: 12 Menu Choices & Full Free Results",
+    "zh": "食物选择测试：12组菜单选择与免费完整结果"
+  },
+  "minutes": 3,
+  "introduction": {
+    "en": "What might the way a dish is introduced mean to you? This original menu-cue edition compares familiar and direct presentation, consistently formal presentation, and a deliberate contrast of everyday and precise elements. Some food-choice quizzes assign a social class. Here, you read your actual presentation selections and why those selections cannot identify your background. Twelve independently written comparisons lead to seven complete single or tied readings, all open before you start. This is not the cited research questionnaire, a nutrition assessment or a validated food-class test.",
+    "zh": "一道菜怎样介绍，对你有什么吸引力？本原创菜单线索版比较熟悉直白、统一精整，以及日常与精细元素刻意混搭的呈现。有些食物选择测验会给人派社会阶层；这里回看实际呈现选择，并说明为什么这些选择无法识别个人背景。十二组独立编写的比较对应七份单项或并列全文，开测前全部可读。本版不是所引研究问卷、营养评估或已验证的食物阶层测试。"
+  },
+  "instructions": {
+    "en": "Imagine one ordinary, optional meal context you would choose now. Within each pair, assume the food suits you and that ingredients, flavour, portion, price and availability are the same: only the described presentation changes. No purchase or tasting is needed. Pick the closer of two descriptions, even if neither is perfect; you can stop if the task does not fit. There are no correct answers or reverse-keyed ratings. Finish all 12 pairs before any count or reading appears.",
+    "zh": "设想一个现在愿意选择的普通自愿用餐场景。每一对都假设食物适合自己，食材、味道、份量、价格和可获得性相同，只比较文字中的呈现方式；无需购买或试吃。选两条描述中较接近的一条，即使都不完美；若不适合自己，也可以退出。没有正确答案或反向量表题。十二组全部完成后才显示次数与解读。"
+  },
+  "source": {
+    "kind": "original_menu_presentation_reflection",
+    "formCode": "fm_food_choice_original12_v1",
+    "itemBankVersion": "fm_food_choice_original12_v1",
+    "scoringVersion": "fm_food_choice_equal_exposure_all_top_ties_v1",
+    "resultContentVersion": "fm_food_choice_original7_full_v1",
+    "itemBankSha256": "6913c8ce2bd766d39edd0e12c36606d775d24acdf8001cc25e6aa00717d8b17c",
+    "resultContentSha256": "aad259d67fa9d23d2361596ad7e66a7b60d604dacc6a6fc5d6b7cd707c1c343f",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "familiar",
+      "title": {
+        "en": "Familiar & direct",
+        "zh": "熟悉直白"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "formal",
+      "title": {
+        "en": "Formal & composed",
+        "zh": "正式精整"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "mix",
+      "title": {
+        "en": "Deliberate contrast",
+        "zh": "刻意混搭"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "FC_01",
+      "prompt": {
+        "en": "For an imagined vegetable rice bowl, which presentation would you choose?",
+        "zh": "设想点一份蔬菜饭，你会选哪种呈现？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "familiar",
+          "label": {
+            "en": "The rice and vegetables in an ordinary bowl, with a plain dish name.",
+            "zh": "米饭和蔬菜盛在普通碗里，菜名直接说明是什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal",
+          "label": {
+            "en": "The same rice and vegetables arranged in a neat pattern on a plate, with a carefully composed menu description.",
+            "zh": "同样的米饭和蔬菜在盘中整齐摆放，菜单介绍经过仔细组织。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_02",
+      "prompt": {
+        "en": "You are choosing how a soup you already like is presented. Which appeals more?",
+        "zh": "一份你本来就喜欢的汤，你更想选哪种呈现？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal",
+          "label": {
+            "en": "A matching bowl and saucer, an even garnish and a consistently formal menu description.",
+            "zh": "碗碟成套、点缀均匀，菜单介绍也保持正式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mix",
+          "label": {
+            "en": "An everyday soup mug with a precisely arranged small garnish and a playful contrast in its menu description.",
+            "zh": "日常汤杯配上一小处精细摆放的点缀，菜单文字也保留这种反差。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_03",
+      "prompt": {
+        "en": "Imagine a cooked pumpkin dish with a flavour you enjoy. How would you like it introduced?",
+        "zh": "设想一份味道合你心意的熟南瓜，你更喜欢怎样介绍？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "familiar",
+          "label": {
+            "en": "A simple serving dish and the straightforward name “cooked pumpkin”.",
+            "zh": "用简单的餐具盛装，直接写“熟南瓜”。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mix",
+          "label": {
+            "en": "A home-style serving dish paired with a small, precise arrangement and a menu name that draws attention to that contrast.",
+            "zh": "家常餐具配一小处精细摆放，菜名点出两种风格的反差。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_04",
+      "prompt": {
+        "en": "For a tomato-and-cucumber side dish, which look would you pick?",
+        "zh": "一份番茄黄瓜配菜，你会选哪种样子？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal",
+          "label": {
+            "en": "The same pieces aligned in a deliberate pattern, on matching tableware.",
+            "zh": "同样的食材在成套餐具上按规整图案摆放。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "familiar",
+          "label": {
+            "en": "An everyday bowl with the pieces served together as they usually are.",
+            "zh": "装进日常碗中，按平时熟悉的方式放在一起。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_05",
+      "prompt": {
+        "en": "Choose a presentation for an imagined pear dessert.",
+        "zh": "为设想中的梨甜点选一种呈现。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mix",
+          "label": {
+            "en": "The same dessert in an ordinary small dish, with one deliberately precise detail and a light, contrasting introduction.",
+            "zh": "同样的甜点放在普通小碟中，保留一处刻意精细的细节，介绍也带一点反差。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal",
+          "label": {
+            "en": "An evenly arranged dessert on a matching plate, introduced in a restrained, polished style.",
+            "zh": "甜点均匀摆在配套餐盘上，介绍文字简洁而精整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_06",
+      "prompt": {
+        "en": "For a plate of vegetable dumplings, which presentation sounds more inviting?",
+        "zh": "一盘蔬菜饺子，哪种呈现更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mix",
+          "label": {
+            "en": "A familiar dumpling plate paired with a carefully arranged serving detail and a description that highlights the combination.",
+            "zh": "熟悉的饺子餐盘配上精整的上桌细节，介绍强调两者的组合。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "familiar",
+          "label": {
+            "en": "Dumplings together on a familiar plate, with a direct description of the filling.",
+            "zh": "饺子放在熟悉的盘子里，直接说明馅料。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_07",
+      "prompt": {
+        "en": "Imagine choosing the presentation of breakfast oats. Which would you select?",
+        "zh": "设想为早餐燕麦选择呈现方式，你会选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "familiar",
+          "label": {
+            "en": "The oats in a familiar breakfast bowl, named just as you would name them at home.",
+            "zh": "盛在熟悉的早餐碗里，按家里平时的叫法介绍。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal",
+          "label": {
+            "en": "The same oats in coordinated tableware, with an orderly surface and an occasion-style description.",
+            "zh": "同样的燕麦配统一餐具，表面规整，介绍文字带有正式用餐的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_08",
+      "prompt": {
+        "en": "A filled flatbread can be presented in either of these ways. Which would you choose?",
+        "zh": "一份有馅面饼可以这样呈现，你会选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal",
+          "label": {
+            "en": "Even portions on matching plates, with a consistently composed introduction.",
+            "zh": "分成整齐的份量放在配套餐盘上，介绍风格始终精整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mix",
+          "label": {
+            "en": "The familiar whole flatbread on an everyday board, alongside one carefully organised serving detail that makes a contrast.",
+            "zh": "熟悉的完整面饼放在日常托板上，旁边配一处精心安排的上桌细节，形成反差。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_09",
+      "prompt": {
+        "en": "Consider a mushroom-and-vegetable dish you would enjoy. Which version would you pick?",
+        "zh": "设想一份你愿意吃的蘑菇蔬菜菜肴，你会选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "familiar",
+          "label": {
+            "en": "A familiar bowl and an ordinary name that tells you what is in it.",
+            "zh": "熟悉的碗配普通菜名，直接告诉你有哪些食材。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mix",
+          "label": {
+            "en": "The same familiar bowl and food, with a precise display detail and wording that playfully contrasts everyday and occasion styles.",
+            "zh": "同样熟悉的碗和食物，加一处精细陈列，文字轻轻点出日常与正式风格的对比。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_10",
+      "prompt": {
+        "en": "For an imagined serving of cooked corn, which arrangement would you choose?",
+        "zh": "设想点一份熟玉米，你会选哪种摆放？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal",
+          "label": {
+            "en": "The same corn arranged evenly on coordinated tableware, described with careful attention to presentation.",
+            "zh": "同样的玉米在统一餐具上均匀摆放，介绍文字细致说明呈现方式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "familiar",
+          "label": {
+            "en": "An ordinary plate, with the corn served in the way you already recognise.",
+            "zh": "普通餐盘，按你本来就熟悉的方式盛装。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_11",
+      "prompt": {
+        "en": "For a fruit plate at an optional gathering, which presentation appeals more?",
+        "zh": "自愿参加的聚会有一份水果，你更喜欢哪种呈现？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mix",
+          "label": {
+            "en": "An everyday fruit dish with one neatly structured part, introduced as a deliberate meeting of casual and formal styles.",
+            "zh": "日常果盘里保留一处规整摆放，介绍点出随意与正式风格的相遇。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal",
+          "label": {
+            "en": "An entirely coordinated plate, with evenly repeated shapes and a formal description.",
+            "zh": "整盘风格统一，形状整齐重复，介绍文字也比较正式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "FC_12",
+      "prompt": {
+        "en": "Imagine choosing a tea-and-snack presentation, without buying or tasting anything. Which would you pick?",
+        "zh": "只在脑中选择一份茶点的呈现，不购买也不试吃，你会选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mix",
+          "label": {
+            "en": "The same everyday tea and snack paired with a carefully arranged detail, with the contrast left visible rather than made uniform.",
+            "zh": "同样的日常茶点配上一处精细摆放，保留反差，而不把所有风格统一。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "familiar",
+          "label": {
+            "en": "An everyday cup and dish, with a plain explanation of the tea and snack.",
+            "zh": "日常杯碟，直接说明是什么茶和点心。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "familiar",
+      "directionIds": [
+        "familiar"
+      ],
+      "title": {
+        "en": "Familiar & Direct",
+        "zh": "熟悉直白"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Familiar, direct presentations received the most selections in this attempt. The reference is an ordinary serving and a name that tells you what the food is. It does not place you in a social class or establish what you can afford.",
+        "zh": "本次选择中，熟悉直白的呈现得到最多次数：普通盛装方式，菜名直接说明是什么食物。这个结果不把你归入任何社会阶层，也无法说明你买得起什么。"
+      },
+      "scoreReading": {
+        "en": "For example, familiar 8, formal 2 and mixed 2 makes familiar the sole leader. Each style appeared eight times and all twelve selections contribute one count. Your actual counts, rather than this example, determine the result.",
+        "zh": "例如熟悉8次、正式2次、混搭2次，熟悉是唯一最高方向。每种呈现均参加八次比较，十二次选择各计一次；结果依据你的实际次数，而不是这组示例。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Familiar & Direct — Full Result",
+          "zh": "食物选择测试：熟悉直白完整解读"
+        },
+        "description": {
+          "en": "Read the full familiar & direct result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“熟悉直白”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What led in these comparisons",
+            "zh": "这组比较中什么领先"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading means that ordinary vessels, recognisable arrangements and plain naming were selected more often than the two alternatives in these particular pairs. The count records an observable choice between descriptions. It does not reveal whether comfort, haste, familiarity with the dish or dislike of elaborate wording mattered most.",
+              "zh": "这个读法表示，在本题组的成对描述里，你更常选普通餐具、熟悉的摆放和直白菜名。次数只记录你选了哪种描述，无法进一步确定主要原因是舒适、省事、熟悉这道菜，还是不喜欢繁复措辞。"
+            },
+            {
+              "en": "The prompts hold the imagined ingredients, portion, flavour, price and availability equal within each pair. That convention makes presentation the stated comparison, but it does not turn a written quiz into an experiment. No food has been tasted, no spending observed, and no preference has been tested in a real restaurant.",
+              "zh": "题目约定每一对设想中的食材、份量、味道、价格和可获得性相同，让呈现成为明示比较对象。但文字作答不是实验：你没有实际试吃，也没有被观察消费，更没有在真实餐厅中验证偏好。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A bowl at an ordinary lunch",
+            "zh": "普通午餐里的一只碗"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Ren choosing between two descriptions of the same vegetable rice. One names the ingredients plainly and shows an everyday bowl; the other describes a deliberately aligned plate. Ren chooses the bowl because the description is easy to recognise. This supports a preference for that introduction on that occasion, without explaining Ren’s background.",
+              "zh": "设想小任在两种相同蔬菜饭的介绍中选择。一种直接写食材，配日常碗；另一种强调盘中规整的摆放。小任选碗，因为介绍容易认出来。这只支持他在该情境下喜欢这种介绍，不能据此解释他的家庭背景。"
+            },
+            {
+              "en": "On another day Ren might choose an occasion-style plate for a celebration. Both choices can make sense. The useful distinction is between the ordinary lunch and the celebration, not between a true and a false personality. A quiz completed without specifying an occasion may mix several such imagined settings.",
+              "zh": "换一天庆祝时，小任也可能选正式餐盘，两次选择都可以成立。值得区分的是普通午餐和庆祝场景，而不是真人格与假人格。作答时若没有固定一个场景，计数本来就可能混入几种不同设想。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "Familiar does not mean lower class",
+            "zh": "熟悉不等于低阶层"
+          },
+          "paragraphs": [
+            {
+              "en": "An everyday serving can be inexpensive, costly, customary, newly learned or chosen for practical reasons. A polished description can be written for an ordinary dish. Without knowing the setting, neither appearance establishes the resources, education or occupation of the person choosing it. No such personal data is collected here.",
+              "zh": "日常盛装可能便宜、昂贵、源于习惯、刚刚学会，也可能只为方便。普通菜肴同样可以配精整文案。缺少情境时，外观不能证明选择者的资源、教育或职业；本测试也不采集这些个人资料。"
+            },
+            {
+              "en": "The cited food-and-status research studied specific menus and contexts, with social status measured separately. It supplies a question about how cues acquire meanings, rather than a conversion from your twelve answers to class. This original edition uses its own presentation categories and has no validated population comparisons or cultural equivalence.",
+              "zh": "所引食物与地位研究使用特定菜单和情境，并另外测量社会地位。它帮助提出“线索如何获得意义”的问题，不提供把这十二个答案换算为阶层的公式。本原创版自行定义呈现类别，没有已验证的人群比较或文化等价证据。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Compare formal and mixed presentations",
+            "zh": "与正式、混搭呈现比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Formal presentation keeps vessels, arrangement and language consistently composed. Mixed presentation deliberately leaves an ordinary element beside a precise detail. Choosing familiar more often does not mean you reject either approach everywhere. Check the questions on which you selected them before describing yourself as someone who always wants simplicity.",
+              "zh": "正式呈现让餐具、摆放和文字保持统一精整；混搭则刻意让日常元素与精细细节并置。更常选熟悉，不代表你处处拒绝另外两种。先看选过它们的题目，再决定是否适合用“总喜欢简单”描述自己。"
+            },
+            {
+              "en": "The familiar–formal tie guide is relevant if both counts lead together; the familiar–mixed guide describes a different shared lead. Those are different arithmetic outcomes, not hidden subtypes of this result. You can read every guide now, without answering again or paying to unlock a more flattering interpretation.",
+              "zh": "如果熟悉与正式共同最高，可对照两者并列的指南；熟悉与混搭共同最高则是另一种计数组合。它们不是本结果里隐藏的子类型。所有指南都可直接阅读，无需再答题，也不必付费才能得到更好听的解释。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "Read the gap before making a label",
+            "zh": "先读差距，再决定如何描述"
+          },
+          "paragraphs": [
+            {
+              "en": "A result of 5 familiar, 4 formal and 3 mixed has a one-choice lead. Changing one familiar-versus-formal answer can make the counts 4, 5 and 3. A result of 8, 2 and 2 keeps the same leader after one edit. These examples show arithmetic sensitivity, not statistical confidence or test–retest reliability.",
+              "zh": "熟悉5、正式4、混搭3只领先一次；把一题熟悉对正式的答案改选正式，就可能变成4、5、3。而8、2、2改一题仍会保留原先最高方向。这说明算术对答案的敏感程度，不是统计置信度或重测信度。"
+            },
+            {
+              "en": "Several different answer patterns can produce the same totals. A person may choose plain wording for one food and an ordinary plate for another. Read the individual descriptions you selected if the summary feels too broad. A lower count is a relative count in this set, not a dislike score or a refusal of the food itself.",
+              "zh": "不同答案组合可以得到相同次数：有人这道菜在意直白菜名，另一道菜在意普通餐盘。如果摘要太宽泛，可回看自己选中的描述。较低次数只是本组内相对较少，既不是厌恶分，也不是拒绝吃这道食物。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Keep one small, optional comparison",
+            "zh": "保留一个可选的小比较"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to explore further, choose two ordinary occasions you can actually describe, such as a usual lunch and a voluntary meal with friends. Note which presentation you preferred on each and what else differed. You do not need to order anything, taste unfamiliar ingredients or change your diet to complete this reflection.",
+              "zh": "想继续观察时，可选两个确实能描述的普通场景，例如平日午餐和自愿与朋友用餐。分别记下偏好的呈现以及其他差异。无需为此点餐、试吃陌生食材或改变饮食；只做文字回顾也可以。"
+            },
+            {
+              "en": "A difference between occasions may suggest a narrower description, such as preferring plain introductions at a routine lunch. It does not prove why the preference changed. If you have no comparable second occasion, keep the explanation open. You can also stop here; the result does not require an improvement plan.",
+              "zh": "场景不同的记录可能支持更窄的描述，例如平日午餐时偏好直白介绍，但不能证明变化的原因。若没有可比的第二种情境，就先保留解释。也可以到这里结束，结果不要求你制定改进计划。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Method, privacy and limits",
+            "zh": "方法、隐私与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the twelve pairs contributes one count to the chosen style; each style is offered eight times, four in each position. All highest-count ties are retained. There are no reverse-keyed ratings, random labels, overall quality scores, class percentages or population ranks. An unfinished set produces no interpretation.",
+              "zh": "十二组成对选择每题给选中的呈现记一次；每种呈现出现八次，在两个位置各四次。所有最高并列都会保留，没有反向量表题、随机标签、总体品味分、阶层百分数或人群排名；未完成整组不生成解释。"
+            },
+            {
+              "en": "This is an original self-reflection, separate from the research questionnaires and other websites’ food-class quizzes. It has no established psychometric validity or nutrition purpose. Sharing copies only the public title and entry link; answers and counts stay out of that link. Every public result guide is free to read before taking the test.",
+              "zh": "这是原创自我观察，与研究问卷及其他网站的食物阶层测验分别存在，没有已建立的心理测量效度，也不用于营养判断。分享只复制公开标题和入口，链接不带答案与次数；开测前即可免费阅读所有公开结果全文。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal",
+      "directionIds": [
+        "formal"
+      ],
+      "title": {
+        "en": "Formal & Composed",
+        "zh": "正式精整"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Consistently composed presentations led this set: coordinated serving, deliberate arrangement and careful wording. This describes your selections here, not sophistication, wealth, education or a higher level of taste.",
+        "zh": "这组选择里，统一精整的呈现次数最高，包括协调的盛装、规整摆放和仔细组织的文字。它描述本次选择，不代表高级、财富、教育或更好的品味。"
+      },
+      "scoreReading": {
+        "en": "Formal 8, familiar 2 and mixed 2 is one possible sole-lead example. Every style has eight opportunities. A close lead or a tie has a different reading; no fixed cutoff turns these counts into a social category.",
+        "zh": "正式8、熟悉2、混搭2是一种唯一最高的示例，每种呈现都有八次机会。接近领先与并列须另作理解，没有固定阈值把次数变成社会类别。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Formal & Composed — Full Result",
+          "zh": "食物选择测试：正式精整完整解读"
+        },
+        "description": {
+          "en": "Read the full formal & composed result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“正式精整”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A preference for a consistent introduction",
+            "zh": "偏好一致的介绍方式"
+          },
+          "paragraphs": [
+            {
+              "en": "Formal choices in this edition keep the plate, arrangement and menu language aligned with one another. You selected that description more often than the familiar or deliberately mixed alternatives. This may concern visual order, an occasion, readability or another reason. The questionnaire does not separate those explanations into measured motives.",
+              "zh": "本版的正式选择，让餐盘、摆放和菜单语言相互协调。你比起熟悉或刻意混搭的描述，更常选这种呈现。原因可能涉及视觉秩序、用餐场合、阅读体验或别的因素；本题组没有把这些原因分别测成动机分量表。"
+            },
+            {
+              "en": "The imagined food, flavour, portion, price and availability stay equal within each pair. Formal therefore does not mean the more expensive option. Real restaurants rarely hold all those features constant, so a written preference cannot forecast what you would buy when waiting time, access or budget also matter.",
+              "zh": "每一对设想中的食物、味道、份量、价格和可获得性相同，所以正式不等于更贵。真实餐厅很少把这些条件全部保持一致；当等待、可获得性和预算也参与选择时，文字偏好无法预测你会买哪份。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An occasion-style fruit plate",
+            "zh": "一份有场合感的水果"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Jo choosing a fruit presentation for a small gathering. Both descriptions contain the same fruit and amount. Jo picks the coordinated plate because it fits the table they pictured. That supports this particular presentation choice, without establishing that Jo seeks status or that the guests would read the plate that way.",
+              "zh": "设想小乔为小聚会选水果呈现，两种描述的水果和份量相同。她选统一餐盘，因为符合自己设想的桌面。这支持本次呈现偏好，但不能证明她在追求地位，也不能证明来宾会作同样的理解。"
+            },
+            {
+              "en": "When eating alone later, Jo might happily use an ordinary bowl. This does not cancel the earlier choice. A useful account keeps both occasions and asks whether the formal preference was specific to hosting. The result cannot fill in an unobserved everyday setting just because the current count is highest.",
+              "zh": "之后独自吃水果时，小乔也可能乐意用普通碗，这不会取消先前的选择。更有用的记录会保留两个场景，再看正式偏好是否主要出现在招待时。即使本次计数最高，也不能据此补写未观察过的日常情境。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "Orderly is not an income bracket",
+            "zh": "规整不是收入档位"
+          },
+          "paragraphs": [
+            {
+              "en": "A carefully arranged dish can be made with ordinary materials, and a modest-looking serving may involve considerable expense. People learn presentation conventions in different households and settings. A formal description in this quiz is an editorial cue, not a universal marker of education, refinement, social worth or financial security.",
+              "zh": "精细摆放可以使用普通材料，看起来朴素的盛装也可能成本不低。人们在不同家庭和场景里学到不同呈现惯例。本题的正式描述是编辑定义的线索，不是教育、修养、人的价值或财务安全的普遍标志。"
+            },
+            {
+              "en": "The referenced study measured social position separately and examined associations in particular samples and menus. Its evidence does not identify your class from a preference for a neat plate. These new pairs are not its stimuli, and the study’s findings do not supply this edition with norms, prediction accuracy or cross-language validation.",
+              "zh": "参考研究另外测量社会位置，再在特定样本和菜单里考察关联。其证据不能凭喜欢整齐餐盘就识别你的阶层。这些新题不是研究刺激材料，研究结论也不会自动给本版带来常模、预测准确率或跨语言验证。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Consistency and deliberate contrast",
+            "zh": "统一与刻意反差"
+          },
+          "paragraphs": [
+            {
+              "en": "Mixed presentation also includes a precise detail, but leaves an everyday component visibly beside it. Formal presentation keeps the whole introduction consistent. If both sounded attractive, look at which distinction mattered in each pair: a unified setting, or the meeting of two styles. Neither answer demonstrates greater creativity or better judgement.",
+              "zh": "混搭也包含精细细节，但会把日常元素明显留在旁边；正式则让整个介绍保持一致。如果两者都吸引你，可看每题更在意的是统一场景，还是两种风格相遇。两种答案都不证明更有创造力或更会判断。"
+            },
+            {
+              "en": "The formal–familiar and formal–mixed tie guides cover different shared leads. They preserve the other direction instead of hiding it under a single attractive label. If familiar or mixed received fewer selections here, that is not a ban on those presentations. Every full guide remains available without a purchase or another assessment.",
+              "zh": "正式与熟悉并列、正式与混搭并列，分别描述不同的共同领先；它们保留另一方向，不把它藏在一个悦耳标签下。熟悉或混搭本次较少，也不代表你以后不能选它们。全部指南直接开放，无需购买或先做别的测评。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "A lead can depend on one description",
+            "zh": "领先可能取决于一道描述"
+          },
+          "paragraphs": [
+            {
+              "en": "Formal 5, familiar 4 and mixed 3 is a narrow lead. One formal-versus-familiar choice changed in the other direction can give familiar the lead. Formal 8 with the others at 2 is less sensitive to one edit, but still describes only this set. Neither gap is a confidence level or a validated threshold.",
+              "zh": "正式5、熟悉4、混搭3只小幅领先；把一题正式对熟悉的选择改向另一边，就可能由熟悉领先。正式8、其余各2，对一次修改较不敏感，但依然只描述本组。差距都不是置信水平或经验证的阈值。"
+            },
+            {
+              "en": "Identical counts can arise from choosing careful language in one item and coordinated vessels in another. The quiz has not measured a separate need for order or need for approval. If those explanations interest you, treat them as questions for your own reflection and retain ordinary alternatives, rather than reading them as hidden scores.",
+              "zh": "相同次数可以来自这题选仔细措辞、另一题选协调餐具。本测试没有另外测秩序需求或寻求认可。如果你关心这些解释，可以把它们作为自己的观察问题，并保留普通替代原因，不把它们当隐藏分数。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Describe where consistency helps you",
+            "zh": "描述一致性在哪种场景有用"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next step is to recall two meals or menu choices you can describe accurately. Write down whether coordinated presentation mattered and what the occasion was. Recollection is enough; there is no need to buy a special meal, ignore dietary needs or choose a food just because the description sounds formal.",
+              "zh": "可选的下一步，是回想两次能准确描述的用餐或菜单选择，记下协调呈现是否重要，以及当时是什么场合。回忆就够了，不必购买特别的一餐，不必忽略饮食需要，也不必因为描述正式就选择某种食物。"
+            },
+            {
+              "en": "If you only recall a celebration, do not generalise to routine lunches. If both settings are available and your preferences differ, keep the difference rather than averaging it into a permanent identity. You may conclude that consistency helps with hosting, that the wording was the main attraction, or that the evidence is too limited.",
+              "zh": "若只想得起庆祝场景，就不要推广到日常午餐。如果两种场景都有记录且偏好不同，保留差异，不必平均成永久身份。你可以暂时认为统一呈现对招待有用，或主要被文字吸引，也可以认为证据仍太少。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "What the calculation does",
+            "zh": "计算实际做了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve original two-choice prompts each add one count; three styles each appear eight times, four in either position. The highest count selects a single or tied full guide. No answer is a reverse-keyed rating. There is no overall taste score, random tie-break, spending estimate, class probability or comparison with other people.",
+              "zh": "十二道原创二选一各记一次，三种呈现各出现八次，在两种位置各四次。最高次数决定单项或并列完整指南。没有反向量表题、总体品味分、随机破并列、消费估算、阶层概率或与别人比较的排名。"
+            },
+            {
+              "en": "This edition is a transparent presentation reflection, with no established psychometric validity, nutrition assessment or affiliation with the cited researchers. Incomplete answers produce no result. The public guides contain no private attempts; optional sharing copies only the title and entry link. You can finish here without starting another test or providing an email.",
+              "zh": "本版是规则公开的呈现观察，没有已建立的心理测量效度，不作营养评估，也未与所引研究者合作。未完成不出结果；公开指南没有私人答卷，可选分享只复制标题和入口。到这里即可结束，无需开启另一测评或提供邮箱。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mix",
+      "directionIds": [
+        "mix"
+      ],
+      "title": {
+        "en": "Deliberate Contrast",
+        "zh": "刻意混搭"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Presentations that deliberately place an everyday element beside a precise detail led this attempt. This is a preference among the descriptions offered, not evidence of an elite identity, cultural capital or greater originality.",
+        "zh": "日常元素与精细细节刻意并置的呈现，在本次计数中领先。这只是所提供描述中的选择，不证明精英身份、文化资本或更强的原创性。"
+      },
+      "scoreReading": {
+        "en": "Mixed 8, familiar 2 and formal 2 is a possible single-lead example. Mixed means a contrast inside the chosen presentation. It is different from two separate styles merely tying in the totals.",
+        "zh": "混搭8、熟悉2、正式2是一种唯一最高的示例。“混搭”指同一种呈现内部保留反差，与两种分开的呈现刚好次数并列不同。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Deliberate Contrast — Full Result",
+          "zh": "食物选择测试：刻意混搭完整解读"
+        },
+        "description": {
+          "en": "Read the full deliberate contrast result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“刻意混搭”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A contrast inside one presentation",
+            "zh": "一种呈现内部的反差"
+          },
+          "paragraphs": [
+            {
+              "en": "The mixed options pair an ordinary vessel or familiar food form with a precisely arranged detail or contrasting menu language. You selected those descriptions most often in this set. This records interest in the offered contrast; it does not measure an ability to combine ingredients, knowledge of restaurant culture or comfort with every kind of novelty.",
+              "zh": "混搭选项把日常餐具或熟悉食物形态，与精细摆放或反差式菜单语言配在一起。你在本组里最常选这些描述。这记录对题中反差的选择，不测搭配食材的能力、餐厅文化知识或对所有新奇事物的接受程度。"
+            },
+            {
+              "en": "Ingredients, flavour, portion, price and availability are assumed equal within a pair. The mixed detail therefore adds no luxury ingredient or larger serving. These are written alternatives, not photographs or tasted dishes. The wording may itself attract attention, so the result cannot isolate an independent psychological motive behind the preference.",
+              "zh": "题目假设每一对的食材、味道、份量、价格和可获得性相同，混搭细节不增加奢华食材或额外份量。这些是文字选项，不是照片或实际试吃；措辞本身也可能吸引人，结果无法分离出独立的心理动机。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An everyday mug with a precise detail",
+            "zh": "日常汤杯与一处细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Sam choosing how a favourite soup is introduced. Sam picks the everyday mug with one carefully arranged detail over an entirely coordinated bowl and saucer. Perhaps the contrast makes the description memorable. That is a possible account of this choice, but the answer alone cannot confirm Sam’s reason or the effect on guests.",
+              "zh": "设想小山为喜欢的汤选介绍，偏好日常汤杯加一处精细细节，而没有选全套协调碗碟。可能是反差让介绍更好记，但这只是一种解释，单个答案不能确认小山的原因，也不能确认来宾会如何反应。"
+            },
+            {
+              "en": "For a different dish Sam might want an entirely plain description. A repeated preference for contrast would require comparable occasions rather than a dramatic label from one sitting. If the contrast only appealed in the imagined soup scene, retain that smaller observation. You are not obliged to make every meal into a design statement.",
+              "zh": "换一道菜，小山可能更想要完全直白的介绍。要说反复偏好混搭，需要可比场景，不能靠一次测验的鲜明标签。若只是设想汤杯时喜欢这种反差，就保留这个较小观察；没有必要把每顿饭变成设计表达。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "Mixing cues cannot identify class",
+            "zh": "混搭线索不能识别阶层"
+          },
+          "paragraphs": [
+            {
+              "en": "Food-and-status research examines how combinations can acquire meanings in particular contexts. It does not establish that every person choosing a contrast is high status, seeking distinction or financially secure. Similar choices can come from playfulness, habit, available tableware, an occasion or a preference for the words used here.",
+              "zh": "食物与地位研究考察某些组合如何在特定情境里获得意义，不能证明每个选择反差的人都地位高、追求区隔或财务稳定。相似选择也可能来自趣味、习惯、现成餐具、场合，或只是喜欢这里的措辞。"
+            },
+            {
+              "en": "This edition does not reproduce the research menus, classify dishes into universally high or low classes, or convert your answers into income or education. The paper measured social position separately. Its findings are background for questioning cues, while these three categories and twelve pairs are independently written and have no population validation.",
+              "zh": "本版不复现研究菜单，不把菜肴分成普遍成立的高低阶层，也不把答案换算成收入或教育。原研究另外测量社会位置；它为追问线索提供背景，而这里的三类别、十二组比较均独立编写，没有人群验证。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Contrast is not the same as a tie",
+            "zh": "混搭不等于次数并列"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar–formal tie means two separate kinds of presentation received equal highest counts. A mixed lead means the options explicitly combining everyday and precise elements received the most counts. Someone can score high on either pattern without the other. The calculation keeps these outcomes distinct rather than treating every balance as the mixed style.",
+              "zh": "熟悉与正式并列，表示两种分开的呈现得到相同最高次数；混搭领先，则是明确把日常与精细元素并置的选项次数最多。一个人可以出现其中一种而没有另一种，计算不会把所有“平衡”都当成混搭。"
+            },
+            {
+              "en": "Compare the formal guide if a consistently coordinated setting also appealed, and the familiar guide if plain naming mattered. A lower count for either does not establish dislike or an absence of that preference. All seven full guides stay readable, including both kinds of tie that include mixed and the three-way equality.",
+              "zh": "若统一协调的场景也吸引你，可看正式指南；若直白菜名重要，可看熟悉指南。某项次数较少，不证明厌恶或完全没有这种偏好。七份全文始终开放，包括含混搭的两种双向并列，以及三向相同。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "Check how much separates the counts",
+            "zh": "看看次数相差多少"
+          },
+          "paragraphs": [
+            {
+              "en": "Mixed 5, formal 4 and familiar 3 is only a one-choice lead. One mixed-versus-formal answer reversed can put formal ahead instead. With mixed at 8 and the others at 2, one edit keeps mixed ahead. These are reproducible count examples, not estimates of stability, accuracy or how strongly you would enjoy the actual food.",
+              "zh": "混搭5、正式4、熟悉3只领先一次；把一题混搭对正式的答案换向另一边，就可能由正式领先。混搭8、其余各2时，一次修改仍会保留混搭最高。这些只是可复算的计数示例，不估计稳定性、准确率或真实吃到食物时的喜欢程度。"
+            },
+            {
+              "en": "The same mixed total can include several kinds of detail. You might like the ordinary mug in one description and the playful introduction in another. The quiz has not scored those separately. If they point in different directions, a more specific sentence about the selected items is more useful than assuming one hidden taste identity.",
+              "zh": "相同混搭次数可以包含不同细节：这题可能喜欢普通杯，另一题可能喜欢轻松介绍。本测验没有分别给这些原因打分。若它们并不一致，用一句更具体的话描述所选题目，比假定存在一个隐藏口味身份更有用。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Compare the details without buying anything",
+            "zh": "无需购买也能比较细节"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional exercise, pick one selected mixed description and write which part attracted you: the everyday base, the precise detail or their contrast. Then compare it with another description you actually considered. This is reflection on the text, so it requires no unfamiliar ingredients, spending or changes to your dietary choices.",
+              "zh": "可选练习是挑一条选中的混搭描述，写下吸引你的是日常底色、精细细节，还是两者反差；再与另一条确实考虑过的描述比较。这只是回看文字，不需要陌生食材、消费或改变饮食选择。"
+            },
+            {
+              "en": "If only the wording differed in your mind, keep a wording preference rather than claiming you prefer mixed food in every setting. If you do not know what mattered, leave the explanation open. Neither a changed answer nor the same answer after a second look establishes a cause or validates a personality description.",
+              "zh": "若你脑中真正不同的只是措辞，就保留“偏好这种措辞”，不要推广成在所有场景都喜欢混搭食物。若不知道什么更重要，也可以先不解释。改选或再看后仍选原项，都不能证明因果或验证人格描述。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "A count-based, original edition",
+            "zh": "按次数阅读的原创版本"
+          },
+          "paragraphs": [
+            {
+              "en": "The twelve pairs give each style eight appearances, four in each answer position. Each complete selection adds one count; all highest ties keep their own full guide. There are no reverse-keyed ratings, random outcomes, hidden bonus points, class thresholds, rarity figures or population ranks. Partial answers do not produce a match.",
+              "zh": "十二组成对选择让每种呈现出现八次，在两个答案位置各四次。每次选择记一次，所有最高并列保留对应全文；没有反向量表题、随机结果、隐藏加分、阶层阈值、稀有度或人群排名。未答完不生成匹配。"
+            },
+            {
+              "en": "This is not the original study or a validated food-class scale. It is an original menu-presentation reflection with no nutrition or diagnostic purpose. Public explanations are free before and after answering. Sharing copies the title and public entry only, without your counts or answers, and you can finish without opening another assessment.",
+              "zh": "这不是原研究，也不是经验证的食物阶层量表，而是原创菜单呈现观察，不用于营养或诊断。开测前后都能免费读公开解释；分享只复制标题和公开入口，不带次数或答案，结束时也无需开启另一项测评。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "familiar-formal",
+      "directionIds": [
+        "familiar",
+        "formal"
+      ],
+      "title": {
+        "en": "Familiar–Formal Tie",
+        "zh": "熟悉与正式并列"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Familiar and formal presentations share the highest count; mixed presentations have fewer selections. The result preserves both leaders instead of forcing a class, a single taste identity or a preference for contrast.",
+        "zh": "熟悉和正式呈现共同最高，混搭次数较少。结果保留两个领先方向，不强行推断阶层、单一口味身份，也不把这等同于偏好反差。"
+      },
+      "scoreReading": {
+        "en": "Familiar 5, formal 5 and mixed 2 is one reachable example. A tie refers to equal highest totals, not choosing both answers in one question or assigning half a point to each.",
+        "zh": "熟悉5、正式5、混搭2是一种可达示例。并列指最高总次数相同，不是同一题选两个答案，也不是给两边各记半分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Familiar–Formal Tie — Full Result",
+          "zh": "食物选择测试：熟悉与正式并列完整解读"
+        },
+        "description": {
+          "en": "Read the full familiar–formal tie result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“熟悉与正式并列”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Two separate presentations led together",
+            "zh": "两种分开的呈现共同领先"
+          },
+          "paragraphs": [
+            {
+              "en": "The familiar options use ordinary serving and direct names; formal options use a consistently coordinated arrangement and introduction. You selected these two styles equally often at the top. This says nothing about whether you consciously alternate them, feel torn between them or consider them equally good in every situation.",
+              "zh": "熟悉选项使用普通盛装和直白菜名，正式选项强调统一协调的摆放与介绍。你选择这两种呈现的次数相同且最高，但不能据此判断你是否有意识地轮换、是否纠结，或是否在所有场景都觉得两者一样好。"
+            },
+            {
+              "en": "Mixed is a third, explicit option style: an everyday element remains beside a precise detail inside the same presentation. A tie between familiar and formal is not automatically that mixed style. The arithmetic keeps the distinction visible, so your result does not invent a blended trait from two equal counts.",
+              "zh": "混搭是第三种明确的选项风格：同一呈现里，日常元素与精细细节并置。熟悉和正式次数并列，并不自动等于混搭；计算会保留这个区别，不从两个相同计数发明一种混合人格特质。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A plain lunch and a composed gathering",
+            "zh": "直白午餐与精整聚会"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Lee choosing an ordinary rice bowl in one prompt and a coordinated fruit plate in another. Perhaps the first was pictured as lunch alone and the second as hosting friends. This is a possible context difference worth asking about. The answers themselves do not confirm that Lee imagined either occasion.",
+              "zh": "设想小李在一题选普通饭碗，另一题选统一水果盘。也许前者让他想到独自午餐，后者让他想到招待朋友；这是值得问的情境差异，但答案本身不能确认小李确实设想了这两个场景。"
+            },
+            {
+              "en": "Lee might instead have chosen the clearest wording in both descriptions, without any change of occasion. The same totals can fit that account too. A useful reflection distinguishes what was selected from the proposed reason, and leaves the reason unresolved if the individual descriptions do not support a more specific explanation.",
+              "zh": "小李也可能没有换场景，只是在两条描述中都选了自己觉得更清楚的措辞；相同计数也容得下这种解释。观察时要把选了什么与推测原因分开，若题文不能支持更具体的解释，就先保留未确定。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "No middle-class interpretation follows",
+            "zh": "不能由此推出中产身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not put you between social classes. An everyday bowl and a formal plate can occur at many price levels, and their meanings depend on local conventions and the occasion. No income, education, occupation or family-background information is collected, inferred or assigned from this result.",
+              "zh": "次数相同不会让你处在两个阶层之间。日常碗和正式餐盘都可能出现在不同价格范围，意义取决于当地惯例与场合。本结果不采集、推断或赋予收入、教育、职业或家庭背景信息。"
+            },
+            {
+              "en": "The cited research used particular menus and measured social position separately; it did not validate these twelve new pairs. Its discussion of food cues cannot provide a class label for this tie. These categories describe independently written presentations, and the result has no norms, status probabilities or established cross-cultural measurement equivalence.",
+              "zh": "所引研究采用特定菜单，并另行测量社会位置，没有验证这十二组新题。研究对食物线索的讨论不能给本次并列提供阶层标签。这些类别描述独立写作的呈现，没有常模、地位概率或已建立的跨文化测量等价性。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Read both leaders without erasing either",
+            "zh": "保留两个方向再作比较"
+          },
+          "paragraphs": [
+            {
+              "en": "The familiar guide helps you examine the role of recognisable serving and plain naming. The formal guide considers coordinated detail and occasion-style language. Read both if they seem relevant, while keeping the actual descriptions in view. Neither guide establishes a need for comfort, approval, order or social distinction as a measured motive.",
+              "zh": "熟悉指南帮助看容易辨认的盛装和直白菜名；正式指南讨论协调细节和有场合感的语言。若都相关，可以一起读，同时保留实际题文。两份指南都没有把舒适、认可、秩序或社会区隔测成个人动机。"
+            },
+            {
+              "en": "A familiar–mixed tie and a formal–mixed tie contain a different second leader. Three-way equality has no lower third count. Those results have their own full explanations rather than being folded into this one. You can compare all seven outcomes for free before deciding whether any short label helps describe the choices.",
+              "zh": "熟悉与混搭并列、正式与混搭并列，分别包含不同的另一方向；三向相同则没有次数较低的第三项。它们各有全文，不会被合并到这一页。七种结果都可免费比较，再决定短标签是否有助描述本次选择。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "How an equal lead can change",
+            "zh": "共同领先怎样改变"
+          },
+          "paragraphs": [
+            {
+              "en": "Starting with 5 familiar, 5 formal and 2 mixed, changing one familiar-versus-formal choice from familiar to formal gives 4, 6 and 2. Changing a familiar choice against mixed can instead give 4, 5 and 3. The same tie can therefore lead to different next totals depending on which actual item is edited.",
+              "zh": "从熟悉5、正式5、混搭2出发，把一题熟悉对正式改选正式，会变成4、6、2；把熟悉对混搭改选混搭，则可能是4、5、3。同一种并列会因实际修改的题目不同而得到不同新次数。"
+            },
+            {
+              "en": "These examples are arithmetic, not evidence that your preference is unstable or that a small difference is meaningful. Two people with the same tie may have selected different dishes and descriptions. A lower mixed count means fewer selections among the offered pairs; it is not a measured aversion to mixed food or creative presentation.",
+              "zh": "这些只是算术，不证明偏好不稳定，也不证明小差距有意义。同样并列的两个人可能选择了不同菜肴和描述。混搭次数较低，只表示在提供的比较中较少选中，不是对混搭食物或创意呈现的厌恶测量。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Ask about the occasion, not the class",
+            "zh": "追问场景，而不是阶层"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional exercise is to choose one familiar answer and one formal answer from this attempt. For each, note the occasion you imagined and the part of the description that mattered. You do not need to buy or taste anything. The exercise is a way to make your account more specific, not a test of taste quality.",
+              "zh": "可选练习是各挑一条熟悉和正式答案，分别记下设想的场景，以及描述中什么地方重要。无需购买或试吃；这只是让叙述更具体，不是检验品味好坏。"
+            },
+            {
+              "en": "If the occasions differ, a context-specific account may fit better than a permanent style. If both were pictured in the same setting, keep that fact too. One imagined comparison cannot prove a causal effect of presentation. If you cannot tell what drove the selections, it is reasonable to retain the tie without an additional explanation.",
+              "zh": "若场景不同，情境性的叙述可能比永久风格更合适；若都发生在同一设想里，也保留这个事实。一次想象比较不能证明呈现的因果作用。若分不清选择原因，直接保留并列而不追加解释也很合理。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Equal counts stay equal",
+            "zh": "相同次数保持相同"
+          },
+          "paragraphs": [
+            {
+              "en": "Each complete two-choice answer contributes one count, with eight appearances, four in each answer position, for each style. All twelve answers are required. The result retains every highest leader without a random tie-break. There are no reverse-keyed ratings, combined quality scores, class thresholds, population ranks or estimates of spending power.",
+              "zh": "每道二选一给选中的呈现记一次，每种出现八次、在两侧各四次；须完成全部十二题。结果保留所有最高方向，不随机破并列，没有反向量表题、总体品质分、阶层阈值、人群排名或消费能力估计。"
+            },
+            {
+              "en": "This original self-reflection has no established psychometric or nutritional validity and is separate from the study and other food-class quizzes. All guides are openly readable. Optional sharing copies only the public title and entry link, without private choices or totals. You can end here, without another assessment, account or email gate.",
+              "zh": "这项原创自我观察没有已建立的心理测量或营养评估效度，与研究及其他食物阶层测验分开存在。全部指南公开可读；可选分享只带公开标题和入口，不含私人选择和次数。可以到这里结束，没有额外测评、账号或邮箱门槛。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "familiar-mix",
+      "directionIds": [
+        "familiar",
+        "mix"
+      ],
+      "title": {
+        "en": "Familiar–Contrast Tie",
+        "zh": "熟悉与混搭并列"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Familiar and deliberately mixed presentations share the lead. Both can retain an everyday element, while the mixed choices add an explicit precise detail. The equal count does not assign a social identity or establish why either style appealed.",
+        "zh": "熟悉与刻意混搭的呈现共同领先，两者都可以保留日常元素，混搭则另加明确的精细细节。次数相同不赋予社会身份，也不能确定两种呈现为什么吸引你。"
+      },
+      "scoreReading": {
+        "en": "Familiar 5, mixed 5 and formal 2 is one possible result. Both highest counts are retained. The lower formal count describes fewer selections in these pairs, not a dislike of every formal meal.",
+        "zh": "熟悉5、混搭5、正式2是一种可能结果，两个最高计数都会保留。正式较少只描述本题组的选择，不能说你讨厌所有正式用餐。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Familiar–Contrast Tie — Full Result",
+          "zh": "食物选择测试：熟悉与混搭并列完整解读"
+        },
+        "description": {
+          "en": "Read the full familiar–contrast tie result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“熟悉与混搭并列”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "An everyday base, with or without contrast",
+            "zh": "日常底色与是否加入反差"
+          },
+          "paragraphs": [
+            {
+              "en": "Familiar descriptions keep an ordinary vessel and direct naming. Mixed descriptions retain an everyday component but put it beside a precise arrangement or contrasting introduction. These two styles tied at the top for you. The count cannot determine whether the shared everyday element mattered more than the differences between the descriptions.",
+              "zh": "熟悉描述保留普通餐具和直白命名；混搭保留日常元素，同时与精细摆放或反差式介绍并置。本次这两种计数共同最高，但无法确定共有的日常元素，是否比两者的区别更让你在意。"
+            },
+            {
+              "en": "The pairs assume equal ingredients, flavour, portion, price and availability. Choosing mixed does not add more food or an expensive ingredient, and choosing familiar does not save money in this imagined task. These are limits of the comparison, not claims that serving details never affect a real meal or its cost.",
+              "zh": "每一对假设食材、味道、份量、价格与可获得性相同。选混搭不会增加食物或昂贵食材，选熟悉也不会在这项设想中省钱。这是比较的约定，不是在说真实用餐的细节永远不影响体验或成本。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Two ways to introduce dumplings",
+            "zh": "介绍饺子的两种方式"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Asha choosing an ordinary dumpling plate with a plain filling description in one context, and the same familiar plate with a precise detail in another. Perhaps the everyday base mattered in both, while the extra detail was welcome only at a gathering. That is an interpretation to check against the actual choices, not a measured finding.",
+              "zh": "设想小夏一次选普通饺子盘配直接的馅料说明，另一次选同样熟悉餐盘加精细细节。也许两次都在意日常底色，只在聚会时欢迎额外细节。这是应对照实际答案核对的解释，不是已经测出的事实。"
+            },
+            {
+              "en": "Asha might instead have followed the wording that was easiest to picture, regardless of occasion. Both routes can produce the same totals. Before calling yourself someone who prefers casual food with a twist, look at whether that phrase fits the selected descriptions or merely sounds appealing as a summary.",
+              "zh": "小夏也可能不分场合，只是选了更容易想象的措辞，两条路径都能产生相同次数。在用“喜欢日常食物加点变化”概括自己前，可先看它是否符合选中的描述，还是仅仅作为一句总结听起来不错。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "An everyday base has no fixed class",
+            "zh": "日常底色没有固定阶层"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar vessel can be inherited, newly bought, costly, inexpensive or simply convenient. A precise addition can be made in a home kitchen or absent from an expensive restaurant. Neither cue identifies your class, background, education or financial situation. This result collects no such information and makes no substitute estimate.",
+              "zh": "熟悉餐具可能来自继承、新购，可能贵、便宜，或只是方便；精细细节可以出现在家中，也可能不出现在昂贵餐厅。这些线索都不能识别阶层、背景、教育或财务状况；本结果不采集这些资料，也不以别的数字代替估计。"
+            },
+            {
+              "en": "The reference study asked about food and status in particular settings while measuring social position separately. Its menus and measures are not administered here. These independently written descriptions explore how presentations appeal to you in an imagined setting; the study cannot supply a valid personal-class interpretation for a familiar–mixed tie.",
+              "zh": "参考研究在特定环境里询问食物与地位，并另外测量社会位置；这里没有施测其菜单或量表。这些独立写作的描述观察你在设想场景里偏好哪种呈现，研究不能为“熟悉与混搭并列”提供有效的个人阶层解释。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Keep the precise detail distinct",
+            "zh": "保留精细细节的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "The familiar guide examines recognisable introductions without an added contrast. The mixed guide examines a deliberate contrast inside one presentation. Reading both lets you keep that difference. It does not require choosing a permanent winner, and an equal highest count does not mean that the two styles are interchangeable for every dish.",
+              "zh": "熟悉指南观察不额外加反差、容易辨认的介绍；混搭指南观察同一种呈现内部的刻意反差。一起阅读可以保留区别，无需选出永久赢家。最高次数相同，也不表示两种呈现对所有菜肴都可互换。"
+            },
+            {
+              "en": "Formal presentation coordinates the whole setting instead of leaving a casual element visibly beside a precise one. Its lower count here is relative to the alternatives offered. You may still select it for some items or occasions. The formal–mixed and familiar–formal tie guides explain other shared leads without quietly converting this result into them.",
+              "zh": "正式呈现会协调整个场景，而不是明显保留随意元素与精细元素相邻。它本次较低，只是相对于题中其他选项；你仍可能在一些题目或场合选它。另两种并列指南各自解释对应组合，不会悄悄把本结果换成别的结果。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "One edit may separate the leaders",
+            "zh": "修改一题可能分出先后"
+          },
+          "paragraphs": [
+            {
+              "en": "With familiar 5, mixed 5 and formal 2, changing a familiar-versus-mixed answer from familiar to mixed yields 4, 6 and 2. Changing familiar to formal in a different pair may give 4, 5 and 3. Which description changes matters; a tie alone does not say which next outcome is more likely.",
+              "zh": "熟悉5、混搭5、正式2时，把一题熟悉对混搭改选混搭，会得到4、6、2；在另一题中把熟悉改成正式，则可能得到4、5、3。具体修改哪条描述很重要，并列本身不能说明下一种结果更可能是什么。"
+            },
+            {
+              "en": "No probability or confidence estimate accompanies these counts. The same totals can come from liking different food scenes, vessels or words. If the label misses an important distinction, describe the relevant items directly. You can change answers and retake, but repeating a quiz does not by itself establish psychological stability or measurement quality.",
+              "zh": "这些次数没有附带概率或置信估计。相同总数可以来自不同食物场景、餐具或文字。若标签漏掉重要区别，可直接描述相关题目。你可以改答或重测，但重复作答本身不能建立心理稳定性或测量品质。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Try a more specific sentence",
+            "zh": "尝试更具体的一句话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next step is to write, “In the dish I pictured, I preferred…” and name one detail from a familiar choice and one from a mixed choice. Add the actual occasion if you had one in mind. No purchase or tasting is needed, and the exercise gives no reason to set aside dietary needs.",
+              "zh": "可选的下一步，是写一句“在我设想的这道菜里，我更喜欢……”，各指出一条熟悉和混搭选择中的具体细节；若确有场景，也写上。无需购买或试吃，这个练习也不构成忽略饮食需要的理由。"
+            },
+            {
+              "en": "If the details fit different situations, retain separate observations. If you cannot identify a reason, leave it unspecified rather than adopting a story about your social background. A small text comparison can clarify what you meant by an answer; it cannot prove a causal effect, assess nutrition or validate an enduring taste category.",
+              "zh": "若细节对应不同情况，就保留分开的观察；若找不到原因，也可以不解释，不必接受关于社会背景的故事。小小的文字比较可以澄清答题时的想法，但不能证明因果作用、评价营养或验证持久口味类别。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "A shared lead without a forced identity",
+            "zh": "共同领先，不强派身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of twelve completed pairs contributes one count. Familiar, formal and mixed each appear eight times, four on each side, and all equal highest counts are retained. There are no reverse-keyed ratings, random tie-breaks, class percentages, population ranks or general food-quality scores. A partial set receives no interpretation.",
+              "zh": "十二组全部作答后每题记一次，熟悉、正式、混搭各出现八次、在两侧各四次，所有相同最高计数都保留。没有反向量表题、随机破并列、阶层百分比、人群排名或总体食物品质分；部分作答不生成解释。"
+            },
+            {
+              "en": "This original menu-presentation self-reflection has no established psychometric validity or nutrition purpose. It does not reproduce a research or competitor questionnaire. Full public guides are free; optional sharing includes only the title and entry link, without answers or counts. You can finish now, with no account, email or further-test requirement.",
+              "zh": "本原创菜单呈现观察没有已建立的心理测量效度，不用于营养判断，也不复现研究或竞品问卷。全部公开指南免费；可选分享仅含标题和入口，不含答案与次数。现在即可结束，没有账号、邮箱或继续测评的要求。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal-mix",
+      "directionIds": [
+        "formal",
+        "mix"
+      ],
+      "title": {
+        "en": "Formal–Contrast Tie",
+        "zh": "正式与混搭并列"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "Formal and mixed presentations share the highest count. Both include deliberate detail, but only the mixed descriptions leave an everyday element visibly beside it. The tie does not establish greater refinement, class position or creative ability.",
+        "zh": "正式与混搭呈现共同最高，两者都有刻意安排的细节，但混搭会把日常元素明显留在旁边。并列不证明修养更好、阶层位置或创造能力。"
+      },
+      "scoreReading": {
+        "en": "Formal 5, mixed 5 and familiar 2 is a reachable example. Both leaders remain visible. Equal totals do not mean the same underlying reasons, and the lower familiar count does not measure rejection of ordinary food.",
+        "zh": "正式5、混搭5、熟悉2是一种可达示例，两个领先方向都会保留。相同总数不代表原因相同，熟悉次数较低也不测量对普通食物的拒绝。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: Formal–Contrast Tie — Full Result",
+          "zh": "食物选择测试：正式与混搭并列完整解读"
+        },
+        "description": {
+          "en": "Read the full formal–contrast tie result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“正式与混搭并列”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Deliberate detail in two arrangements",
+            "zh": "两种安排中的刻意细节"
+          },
+          "paragraphs": [
+            {
+              "en": "The formal descriptions coordinate serving, arrangement and wording throughout. Mixed descriptions put a precise detail beside an ordinary element and leave the contrast visible. You selected them equally often at the top. This does not determine whether the detail itself, the occasion or the words were the most important part of your choice.",
+              "zh": "正式描述让盛装、摆放和措辞从头到尾协调；混搭把精细细节放在普通元素旁，明显保留反差。你选择它们的次数相同且最高，但不能由此确定最重要的是细节本身、场合还是文字。"
+            },
+            {
+              "en": "Within each pair, food, flavour, amount, price and availability are assumed equal. You are choosing an introduction to an imagined meal, not demonstrating cooking skill or making a purchase. The result therefore concerns the descriptions offered here and does not establish your behaviour when real costs, time or access also differ.",
+              "zh": "每一对约定食物、味道、份量、价格与可获得性相同。你在为设想的一餐选介绍，不是在展示厨艺或实际购买。因此结果只涉及这里提供的描述，无法确定真实成本、时间和可获得性不同的时候你会怎样行动。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A coordinated plate or a visible contrast",
+            "zh": "统一餐盘或可见反差"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Morgan choosing a fully coordinated pear dessert in one prompt and an everyday fruit dish with a precise section in another. Perhaps each description seemed suitable for a different gathering. That is one possible account. The tie alone does not show that Morgan consciously planned a style or hoped to impress anyone.",
+              "zh": "设想小莫一题选全套协调的梨甜点，另一题选日常果盘中有一处精细摆放。也许两条描述分别适合不同聚会，但这只是一种解释；并列不能证明小莫有意识地策划风格，或希望给别人留下某种印象。"
+            },
+            {
+              "en": "Morgan might simply prefer the clearest visual image in each text. Because there is no photograph or tasted dish, that explanation remains possible. Look at what you pictured before turning the shared lead into a story about how others see you. The questionnaire has not observed an audience or measured its response.",
+              "zh": "小莫也可能只是更喜欢每条文字里容易想象的画面；没有照片或实际试吃，这种解释同样保留。在把共同领先写成“别人如何看我”的故事前，先看自己想象了什么。本题组没有观察受众，也没有测量他人的反应。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "Detail is not a status certificate",
+            "zh": "细节不是地位证明"
+          },
+          "paragraphs": [
+            {
+              "en": "A carefully composed introduction is available at many price levels. A contrast may be familiar in one setting and novel in another. Neither preference proves wealth, cultural capital, education or social ambition. No demographic or financial information is collected here, and no class category is estimated from the answers.",
+              "zh": "精整介绍可以出现在不同价格范围；某种反差在一个环境里可能常见，在另一个环境里却新奇。任何一种偏好都不证明财富、文化资本、教育或社会野心。这里不采集人口或财务资料，也不从答案估计阶层。"
+            },
+            {
+              "en": "The food-and-status paper examined specific menu choices alongside separately measured social position. This edition administers none of those measures or menus. It uses independently written presentation descriptions as a self-reflection, so no study validity, population norm, status probability or cross-cultural equivalence transfers to this tied result.",
+              "zh": "食物与地位论文把特定菜单选择，与另外测量的社会位置一起研究。本版没有施测这些量表或菜单，而用独立写作的呈现描述做自我观察，因此研究效度、人群常模、地位概率或跨文化等价性都不会转移到本次并列。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Consistency differs from contrast",
+            "zh": "统一与反差有区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the formal guide for a consistently coordinated presentation and the mixed guide for an ordinary element beside precise detail. A tie preserves both possibilities without calling them one superior style. You may prefer each for different dishes, or the same situation; the counts do not identify which account applies.",
+              "zh": "正式指南讨论统一协调的呈现，混搭指南讨论日常元素与精细细节并置。并列保留两者，不把它们称为某种更优越的统一风格。你可能对不同菜肴各有偏好，也可能在同一场景喜欢两种，次数无法区分哪种解释适用。"
+            },
+            {
+              "en": "Familiar presentation has fewer selections in this outcome but remains a valid option. A clear name or ordinary bowl can still matter on a particular item. Other tie guides cover outcomes where familiar shares the lead, and three-way equality keeps all styles equal. Every guide is available without buying a report or completing another quiz.",
+              "zh": "本结果里熟悉呈现较少，但仍是合理选项；某一题的清楚菜名或普通碗仍可能重要。另两种并列指南讨论熟悉也领先的情况，三向相同则保留全部相等。无需购买报告或完成另一测验就能阅读每份指南。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "Follow the answer that changes",
+            "zh": "看修改了哪一道答案"
+          },
+          "paragraphs": [
+            {
+              "en": "At formal 5, mixed 5 and familiar 2, changing a formal-versus-mixed answer from formal to mixed gives 4, 6 and 2. Editing a formal-versus-familiar choice can instead give 4, 5 and 3. These examples show why a shared total does not hide one predetermined next result or imply a psychological halfway point.",
+              "zh": "正式5、混搭5、熟悉2时，把一题正式对混搭改选混搭，会变成4、6、2；修改正式对熟悉，则可能变为4、5、3。这说明共同总数并没有藏着预定的下一结果，也不表示某种心理上的中间点。"
+            },
+            {
+              "en": "The size of a gap is not a confidence interval. Several answer patterns produce the same totals, and one unfamiliar description can matter to a short set. If a label seems too broad, keep the selected details and the actual numbers. Neither a narrow difference nor a large one establishes real-world taste, spending or status.",
+              "zh": "差距大小不是置信区间。不同答题组合可以产生相同总数，短题组里一条陌生描述也可能有影响。若标签太宽，可保留具体所选细节与实际数字；小差距或大差距都不能确立真实口味、消费或地位。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Name what made a detail welcome",
+            "zh": "说清为什么欢迎某个细节"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional reflection, pick a formal choice and a mixed choice you actually made. Write which serving or wording detail mattered and what occasion you imagined. Describing the text is sufficient. No tasting, special purchase, dietary change or display for other people is required, and there is no preferred answer to reach.",
+              "zh": "可选观察是各挑一条自己实际作出的正式和混搭选择，写下哪处盛装或文字细节重要，以及设想什么场合。描述文字就足够，不要求试吃、特别购买、改饮食或向别人展示，也没有应当达到的标准答案。"
+            },
+            {
+              "en": "If the preferred detail changes with the occasion, retain that contextual difference. If both choices rested on readability, keep that simpler account. A second imagined choice does not prove a cause or validate a trait. When you cannot identify the reason, leaving it open is more accurate than assuming a story about social aspiration.",
+              "zh": "若喜欢的细节随场合变化，就保留情境差异；若两次都只是因为更好读，就保留更简单的解释。第二次设想选择不能证明因果或验证特质。找不到原因时，先留空比假定一段社会上进心的故事更准确。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "All highest counts are retained",
+            "zh": "保留所有最高计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original two-choice prompt adds one count, and all twelve are required. Every style appears eight times, four on either side. All highest ties have complete reports; no random draw resolves them. There are no reverse-keyed ratings, quality totals, class probabilities, income estimates, rarity values or comparisons with a population.",
+              "zh": "每道原创二选一记一次，须完成十二题。每种呈现出现八次、两侧各四次；所有最高并列都有完整报告，不用随机抽取来解决。没有反向量表题、品质总分、阶层概率、收入估计、稀有度或人群比较。"
+            },
+            {
+              "en": "This is an original menu-presentation self-reflection, separate from the cited research and other food-class tests, with no established psychometric or nutrition validity. Full guides are free before answering. Optional sharing includes only the title and public entry link, not your answers or counts. You can stop here without an account or another assessment.",
+              "zh": "这是原创菜单呈现自我观察，与参考研究及其他食物阶层测试分开存在，没有已建立的心理测量或营养评估效度。开测前可免费读全文；可选分享只含标题和公开入口，没有答案或次数。到这里即可结束，无需账号或另一测评。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "all-three",
+      "directionIds": [
+        "familiar",
+        "formal",
+        "mix"
+      ],
+      "title": {
+        "en": "All Three Equal",
+        "zh": "三种呈现次数相同"
+      },
+      "headline": {
+        "en": "A reading of this set of menu choices",
+        "zh": "读懂本组菜单选择"
+      },
+      "summary": {
+        "en": "All three presentations received four selections each. There is no sole leader in this attempt. Equal totals can contain very different choices and do not demonstrate perfect balance, indecision or the absence of preferences.",
+        "zh": "三种呈现各得到四次，本次没有唯一最高方向。相同总数可以包含很不同的选择，不证明完美平衡、犹豫不决或没有偏好。"
+      },
+      "scoreReading": {
+        "en": "With twelve one-count choices, a three-way highest tie is exactly 4–4–4. Each style was offered eight times. This is equality of totals, not equality on every individual comparison or a ranking among other people.",
+        "zh": "十二次选择各记一次时，三向最高并列只能是4—4—4；每种呈现参加八次比较。这是总次数相同，不是每一次比较都相同，也不是相对别人的排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Food Choice Test: All Three Equal — Full Result",
+          "zh": "食物选择测试：三种呈现次数相同完整解读"
+        },
+        "description": {
+          "en": "Read the full all three equal result: menu cues, examples, close counts and limits. Original food reflection; no social-class or income estimate.",
+          "zh": "阅读“三种呈现次数相同”的完整结果：菜单线索、例子、接近计数与边界。原创食物选择观察，不推断阶层或收入。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "No sole leader in this question set",
+            "zh": "本题组没有唯一领先方向"
+          },
+          "paragraphs": [
+            {
+              "en": "Familiar uses ordinary serving and direct naming, formal keeps the introduction consistently composed, and mixed deliberately puts everyday and precise elements together. Four selections for each leaves no highest-only style. The result does not choose one at random or invent a fourth “balanced taste” personality from this arithmetic equality.",
+              "zh": "熟悉使用普通盛装与直白菜名，正式让介绍保持统一精整，混搭刻意把日常与精细元素放在一起。各四次没有唯一最高方向，结果不会随机选一个，也不从算术相等发明第四种“平衡口味人格”。"
+            },
+            {
+              "en": "Every pair assumes equal food, flavour, portion, price and availability. Different dishes and descriptions can still prompt different imagined occasions. Equality at the total level cannot tell whether you followed context, wording, a visual detail or another consideration. It also does not say that all real menus would appeal to you equally.",
+              "zh": "每一对假设食物、味道、份量、价格和可获得性相同，但不同菜肴和描述仍可能唤起不同用餐场景。总数相同无法说明你依据的是情境、措辞、视觉细节还是其他因素，也不能说所有真实菜单都同样吸引你。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Three foods, three different choices",
+            "zh": "三道食物里的不同选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Wei choosing a plain bowl for rice, a coordinated introduction for fruit and a visible contrast for soup. Each choice may be clear at the time. Repeating such differences across the twelve pairs can produce equal totals without a single moment of hesitation. The quiz has not measured how difficult any choice felt.",
+              "zh": "设想小微给饭选直白碗装，给水果选协调介绍，给汤选明显反差；每次当下都可能很明确。十二组里这样交替，就能得到相同次数，并不需要有任何犹豫。本测试没有测量每次选择有多困难。"
+            },
+            {
+              "en": "Someone else could reach the same 4–4–4 through entirely different answers. Shared totals therefore do not establish shared taste, shared social background or the same reason for choosing. The most useful comparison may be between two specific items rather than between two people who happen to receive the same public guide.",
+              "zh": "另一个人可以用完全不同的答案得到4—4—4，所以总数相同不证明口味、社会背景或选择原因相同。最有用的比较，可能是两道具体题目之间，而不是恰好收到同一份公开指南的两个人之间。"
+            }
+          ]
+        },
+        {
+          "id": "social-cues",
+          "title": {
+            "en": "Equality is not a class position",
+            "zh": "相同次数不是阶层位置"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no middle or unclassifiable social category hidden in these equal counts. Food presentation can acquire meanings in a particular place or occasion, but these meanings are not universal. No personal income, occupation, family background or education is collected, assigned or estimated from any of the three styles.",
+              "zh": "相同次数里没有藏着“中间阶层”或“无法归类阶层”。食物呈现会在特定地点和场合获得意义，但这些意义并不普遍。本测试不从三种呈现中采集、赋予或估计个人收入、职业、家庭背景或教育。"
+            },
+            {
+              "en": "The cited research measured social position separately while examining particular menus. It does not validate this original presentation questionnaire or turn a tie into a finding about status. These new descriptions have no established psychometric validity, norms or cross-language equivalence; their purpose is a bounded reflection on the choices you actually made here.",
+              "zh": "参考研究在考察特定菜单时，另外测量社会位置；它没有验证这份原创呈现问卷，也不会把并列变成地位结论。这些新描述没有已建立的心理测量效度、常模或跨语言等价证据，只用于有边界地回看这里实际作出的选择。"
+            }
+          ]
+        },
+        {
+          "id": "neighbours",
+          "title": {
+            "en": "Read the three styles separately",
+            "zh": "分别看三种呈现"
+          },
+          "paragraphs": [
+            {
+              "en": "The familiar, formal and mixed guides each explain a different presentation cue. Reading them separately may help you name why a particular item appealed, without needing one to win. Mixed is the specific option style combining everyday and precise elements; it is not another name for this three-way equality.",
+              "zh": "熟悉、正式和混搭指南分别解释不同呈现线索。分开阅读有助于说清某一题为何吸引你，无需让某一项胜出。“混搭”指明确把日常与精细元素组合的选项，不是三向次数相同的另一个名字。"
+            },
+            {
+              "en": "Two-way tie guides preserve two highest counts and a lower third; that is different from your current equality. Single-lead guides discuss an actual gap. All seven full explanations remain open before and after answering. There is no hidden preferred result, premium interpretation or requirement to retake until you receive a more distinctive label.",
+              "zh": "双向并列保留两个最高和一个较低计数，与本次相同不同；单向指南则讨论确有差距的情况。七份全文在作答前后都开放，没有隐藏的理想结果、付费解释，也不要求你重测到获得更特别的标签。"
+            }
+          ]
+        },
+        {
+          "id": "close-counts",
+          "title": {
+            "en": "Why one edit changes equality",
+            "zh": "为何改一题就会改变相同状态"
+          },
+          "paragraphs": [
+            {
+              "en": "Starting from 4–4–4, changing one answer moves one count away from its original style and adds it to the alternative. The result becomes 3–5–4 in the corresponding order. A sole leader then appears, but this is the expected arithmetic of twelve choices, not proof that the new style is your true identity.",
+              "zh": "从4—4—4出发，改选一题会从原方向减一次，再给另一方向加一次，对应顺序就变成3—5—4。此时出现唯一最高，但这是十二次选择的正常算术，不证明新的方向才是你的真实身份。"
+            },
+            {
+              "en": "The tie does not mean that information is missing: all twelve answers were completed. Nor does it establish equal enjoyment of actual foods, because no tasting occurred. If your imagined setting was inconsistent, you can note that limitation or retake with one ordinary occasion in mind, while keeping the new attempt separate from this one.",
+              "zh": "并列也不表示资料缺失，因为十二题已经答完；没有实际试吃，它同样不能证明对真实食物的喜欢程度相同。若设想场景前后不一致，可记录这一限制，或固定一个普通场景后重测，同时把新一次与本次分开。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Keep the specific choices if the label adds little",
+            "zh": "若标签无帮助，就保留具体选择"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional exercise is to select one answer from each style and write the detail that mattered. You may notice three context-specific preferences, a common concern about wording, or no clear reason at all. Text reflection is sufficient: no purchasing, tasting, dietary change or performance for other people is required.",
+              "zh": "可选练习是从三种呈现各挑一条答案，写下重要细节。你可能发现三种情境偏好、共同在意的措辞，也可能仍然没有清楚原因。回看文字就足够，无需购买、试吃、改变饮食或向别人展示。"
+            },
+            {
+              "en": "If the result label adds nothing, you can simply keep those concrete choices and finish. A later difference could reflect context, memory, wording or preference, and the quiz cannot identify the cause. Equal counts are an acceptable completed outcome, rather than an error you must repair or a reason to begin another personality assessment.",
+              "zh": "若结果标签没有增益，直接保留具体选择并结束也可以。之后不同可能涉及情境、记忆、文字或偏好，本测验不能确定原因。相同次数是合理的完成结果，不是必须修复的错误，也不是必须再做人格测评的理由。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "A complete tie, with full access",
+            "zh": "完整并列与全文开放"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve original pairs each award one count. Every style appears eight times, with four first and four second positions. All highest ties are retained; incomplete answers receive no interpretation. There are no reverse-keyed ratings, random outcomes, overall quality scores, class percentages, rarity values, spending estimates or population ranks.",
+              "zh": "十二组原创二选一各记一次，每种出现八次，在第一和第二位置各四次。所有最高并列均保留，未完成不出解释。没有反向量表题、随机结果、总体品质分、阶层百分比、稀有度、消费估计或人群排名。"
+            },
+            {
+              "en": "This is an original menu-presentation self-reflection, not a research or competitor questionnaire, nutrition assessment or diagnosis. All seven public guides are free without an account or email. Optional sharing copies only the public title and entry link, leaving private answers and counts out. No further assessment is needed to complete the experience.",
+              "zh": "这是原创菜单呈现自我观察，不是研究或竞品问卷，也不做营养评估或诊断。七份公开指南无需账号或邮箱即可免费阅读；可选分享只复制公开标题和入口，不带私人答案和次数。无需再做测评即可完成体验。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original-scope",
+      "title": {
+        "en": "Menu cues, without classifying the diner",
+        "zh": "看菜单线索，不给用餐者派阶层"
+      },
+      "paragraphs": [
+        {
+          "en": "These original pairs compare serving arrangements and menu language, not health, price sensitivity or nine food-choice motives. Familiar is an ordinary introduction, formal is consistent coordination, and mixed leaves everyday and precise elements together. The three are editorial descriptions, not universal high-, middle- or low-class foods. Equal imagined ingredients and prices do not establish equal real-world meaning.",
+          "zh": "这些原创题比较盛装安排和菜单语言，不测健康、价格敏感度或九种食物动机。熟悉指日常直白的介绍，正式指统一协调，混搭指日常与精细元素并置；三者是编辑定义，不是普遍成立的高、中、低阶层食物。设想中的食材与价格相同，也不能证明现实意义相同。"
+        }
+      ]
+    },
+    {
+      "id": "counting",
+      "title": {
+        "en": "Equal opportunities and every highest tie",
+        "zh": "相同机会与全部最高并列"
+      },
+      "paragraphs": [
+        {
+          "en": "Every pair of styles meets four times. Each style appears eight times, four first and four second. A selected option adds one count to its style, for 12 counts in total. Compare the three counts and retain every highest direction: three single leads, three two-way ties and one three-way tie. A tie is not randomly resolved. There are no reverse keys, percentages, population ranks, class thresholds or hidden bonus items.",
+          "zh": "每两种呈现比较四次，每种共出现八次，在两个位置各四次。选中一项就给该呈现记一次，全部共十二次。比较三种次数并保留所有最高方向：三种单项、三种双向并列、一种三向相同。不随机破并列，没有反向键、百分比、人群排名、阶层阈值或隐藏加分题。"
+        }
+      ]
+    },
+    {
+      "id": "food-and-status",
+      "title": {
+        "en": "What the food-and-status reference supports",
+        "zh": "食物与地位参考研究支持到哪里"
+      },
+      "paragraphs": [
+        {
+          "en": "Bellezza and Berger’s food study used particular menus with American samples and measured social position separately; its restaurant pilot examined menus and restaurant price tiers. It motivates asking how cues gain contextual meanings. It does not validate these twelve new pairs or provide an individual class classifier. No paper stimuli, figures, scoring formulas or competitor bank are used here. The same serving can have different meanings across occasions and cultures.",
+          "zh": "Bellezza与Berger的食物研究对美国样本使用特定菜单，并另外测量社会位置；餐厅先导研究考察菜单与餐厅价格档位。它帮助追问线索如何获得情境意义，没有验证这十二组新题，也不提供个人阶层分类器。本版不采用论文刺激材料、图片、计分公式或竞品题库；相同盛装在不同场景和文化中也可能意义不同。"
+        }
+      ]
+    },
+    {
+      "id": "close-results",
+      "title": {
+        "en": "Close totals and missing answers",
+        "zh": "接近次数与未完成回答"
+      },
+      "paragraphs": [
+        {
+          "en": "Counts of 5, 4 and 3 have a one-choice lead; one answer edit can reverse it. Counts of 8, 2 and 2 keep the same leader after one edit. Equal 4–4–4 is a complete outcome with no sole leader, not missing data. Different answers can create identical totals, so a count gap is not confidence or reliability. Partial or invalid answers produce no interpretation.",
+          "zh": "5、4、3只领先一次，改一题就可能换最高方向；8、2、2改一题仍保持原方向最高。4—4—4是没有唯一最高的完成结果，不是资料缺失。不同答案可以得到相同总数，所以次数差距不是置信度或信度；未完成或无效答案不生成解释。"
+        }
+      ]
+    },
+    {
+      "id": "use-and-privacy",
+      "title": {
+        "en": "Full access and a private stopping point",
+        "zh": "全文开放与私人结束点"
+      },
+      "paragraphs": [
+        {
+          "en": "All seven complete guides are free and public before you answer. A personal result shows the relevant complete guide and raw counts without an email, account, purchase or another-test gate. Answers stay in this page’s state unless you opt into temporary tab storage, and optional sharing copies only the public title and entry. Reflect on a selected detail or finish here; there is no diet change or spending task.",
+          "zh": "七份完整指南在开测前就免费公开。个人结果直接显示对应全文与原始次数，没有邮箱、账号、购买或另一测评门槛。答案留在页面状态，除非你主动选择临时标签页存储；可选分享只复制公开标题和入口。可以回看一处细节，也可以直接结束，没有改变饮食或消费的任务。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this Food Choice Test identify my social class?",
+        "zh": "这个食物选择测试能识别我的社会阶层吗？"
+      },
+      "answer": {
+        "en": "No. It records selections among three independently written menu-presentation styles. It does not estimate income, education, occupation or family background. The cited research does not validate these new pairs as an individual classifier.",
+        "zh": "不能。它记录三种独立编写的菜单呈现选择，不估计收入、教育、职业或家庭背景；参考研究也没有把这些新题验证为个人分类器。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is the deliberate-contrast result?",
+        "zh": "“刻意混搭”结果是什么？"
+      },
+      "answer": {
+        "en": "It means the options putting an everyday element beside a precise detail received the highest count. It is different from familiar and formal options tying as separate selections. Neither result establishes social status or creative ability.",
+        "zh": "表示把日常元素与精细细节并置的选项次数最高；它与熟悉、正式两类分开选择刚好次数并列不同，两种结果都不证明社会地位或创造能力。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the twelve comparisons from the research paper?",
+        "zh": "十二组比较来自论文吗？"
+      },
+      "answer": {
+        "en": "No. The prompts and all seven full readings are original. The paper is linked as background on contextual food cues; its menus, measures, scoring and validation are not administered or inherited.",
+        "zh": "不是。题目和七份全文均为原创；论文只作为食物线索与情境的背景参考，不施测或继承其菜单、量表、计分和验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are ties and reverse keys handled?",
+        "zh": "并列和反向题怎样处理？"
+      },
+      "answer": {
+        "en": "Every selected option adds one count. Equal exposure and position balance are built into all twelve pairs. All highest ties are retained, including 4–4–4. There are no reverse-keyed ratings, random tie-breaks or hidden bonuses.",
+        "zh": "每选一项记一次，十二组已平衡出现机会和答案位置。全部最高并列均保留，包括4—4—4；没有反向量表题、随机破并列或隐藏加分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to eat or buy the dishes?",
+        "zh": "需要实际吃或购买这些菜吗？"
+      },
+      "answer": {
+        "en": "No. This is a written, imagined presentation comparison, not tasting or nutrition advice. Assume equal food, flavour, amount, price and availability within each pair. You may stop if the task does not fit.",
+        "zh": "不需要。这是文字中的设想呈现比较，不是试吃或营养建议。每对假设食物、味道、份量、价格与可获得性相同；如果任务不适合自己，可以退出。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the full results free, and what is shared?",
+        "zh": "完整结果免费吗？分享会带什么？"
+      },
+      "answer": {
+        "en": "All seven full guides are free before and after answering. No account or email is required. Optional sharing includes only the public title and entry link; it excludes answers, private counts and a personal-result identifier.",
+        "zh": "七份全文在作答前后都免费，无需账号或邮箱。可选分享只含公开标题与入口，不含答案、私人次数或个人结果标识。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Bellezza & Berger: Trickle-Round Signals — primary paper, food methods and limits",
+        "zh": "Bellezza与Berger：Trickle-Round Signals原论文、食物方法及边界"
+      },
+      "url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2020/09/Trickle-Round-JCR.pdf"
+    },
+    {
+      "title": {
+        "en": "Columbia Business School: research identity and abstract",
+        "zh": "哥伦比亚商学院：研究身份与摘要"
+      },
+      "url": "https://business.columbia.edu/faculty/research/trickle-round-signals-when-low-status-mixed-high"
+    }
+  ]
+}

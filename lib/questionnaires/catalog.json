@@ -5541,5 +5541,33 @@
       "enjoyment"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "food-choice",
+    "code": "FM_FOOD_CHOICE12",
+    "version": "fm_food_choice_original12_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Food Choice Test",
+      "zh": "食物选择测试"
+    },
+    "description": {
+      "en": "Compare menu presentation in 12 original pairs. See all choice counts and seven full free result guides, including every tie. No class or income estimate.",
+      "zh": "用12组原创二选一比较菜单呈现，查看完整次数与七份免费结果指南，保留全部并列；不推断社会阶层或收入。"
+    },
+    "minutes": 3,
+    "formCode": "fm_food_choice_original12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "familiar",
+      "formal",
+      "mix",
+      "familiar-formal",
+      "familiar-mix",
+      "formal-mix",
+      "all-three"
+    ],
+    "collection": "explore"
   }
 ]
