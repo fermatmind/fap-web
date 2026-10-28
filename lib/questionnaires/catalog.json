@@ -5117,5 +5117,31 @@
       "help-and-coordination-reading",
       "boundaries-and-recovery-reading"
     ]
+  },
+  {
+    "slug": "stress-response-patterns-test",
+    "code": "PERSONALITY_SHADOW",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Stress Response Patterns Test",
+      "zh": "压力反应观察测试"
+    },
+    "description": {
+      "en": "Look back over three months with 20 original statements, five separate sums and means, and complete free guides. No hidden-personality or diagnostic verdict.",
+      "zh": "回看近三个月的五类自报压力反应，完成20道原创题，分别阅读原始和、均值与五份完整免费指南；不揭露隐藏人格或作心理诊断。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "personality_shadow_likert_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "stepping-back-and-delaying",
+      "tightening-plans-and-checks",
+      "agreeing-first-and-maintaining-harmony",
+      "explaining-and-protecting-a-position",
+      "speaking-less-and-holding-back"
+    ]
   }
 ]

@@ -1,0 +1,271 @@
+{
+  "at": "2026-10-28T02:41:33.050Z",
+  "code": "PERSONALITY_SHADOW",
+  "sourceBankSHA256": "9bc82d171025065363b22e3a98a5723915fe1335d0c66be31850b131b8e005a6",
+  "items": [
+    {
+      "id": "SHADOW_LK_001",
+      "factor": "WITHDRAWAL_AVOIDANCE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "收到否定反馈后，我会先把需要回应的事搁到第二天以后。",
+        "en": "After receiving negative feedback, I put off what needs a response until the next day or later."
+      }
+    },
+    {
+      "id": "SHADOW_LK_002",
+      "factor": "WITHDRAWAL_AVOIDANCE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "一项任务受挫时，我会转去处理不相关的小事，暂时不碰原问题。",
+        "en": "When a task encounters a setback, I turn to unrelated small tasks and leave the original issue alone for a while."
+      }
+    },
+    {
+      "id": "SHADOW_LK_003",
+      "factor": "WITHDRAWAL_AVOIDANCE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "对话开始让我紧张时，我会缩短回应或提前结束交流。",
+        "en": "When a conversation starts making me tense, I shorten my responses or end the exchange early."
+      }
+    },
+    {
+      "id": "SHADOW_LK_004",
+      "factor": "WITHDRAWAL_AVOIDANCE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "边界突然变化时，我会先取消原安排，等自己缓过来再决定。",
+        "en": "When a boundary changes unexpectedly, I cancel the original arrangement and decide again after I have had time to settle."
+      }
+    },
+    {
+      "id": "SHADOW_LK_005",
+      "factor": "CONTROL_TIGHTENING",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "计划被临时打乱时，我会反复确认步骤并要求尽快按新安排执行。",
+        "en": "When plans are disrupted at short notice, I repeatedly confirm the steps and ask for the new arrangement to be followed promptly."
+      }
+    },
+    {
+      "id": "SHADOW_LK_006",
+      "factor": "CONTROL_TIGHTENING",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "团队进度失控时，我会把本可协商的细节也逐项指定。",
+        "en": "When the team's progress goes off track, I specify even details that could otherwise be discussed."
+      }
+    },
+    {
+      "id": "SHADOW_LK_007",
+      "factor": "CONTROL_TIGHTENING",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "对结果没有把握时，我会增加检查频率，不愿先交出阶段版本。",
+        "en": "When I am uncertain about an outcome, I check more often and am reluctant to share an interim version."
+      }
+    },
+    {
+      "id": "SHADOW_LK_008",
+      "factor": "CONTROL_TIGHTENING",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "别人改变约定时，我会马上收紧时间或权限范围。",
+        "en": "When someone changes an agreement, I immediately narrow the time or access allowed."
+      }
+    },
+    {
+      "id": "SHADOW_LK_009",
+      "factor": "APPEASEMENT_RESPONSE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "察觉对方不高兴时，我会先同意一个自己还没想清的安排。",
+        "en": "When I sense that someone is unhappy, I first agree to an arrangement I have not fully thought through."
+      }
+    },
+    {
+      "id": "SHADOW_LK_010",
+      "factor": "APPEASEMENT_RESPONSE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "讨论出现分歧时，我会先说“都可以”，把自己的偏好留到以后。",
+        "en": "When a disagreement arises, I first say that anything is fine and leave my own preference for later."
+      }
+    },
+    {
+      "id": "SHADOW_LK_011",
+      "factor": "APPEASEMENT_RESPONSE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "拒绝可能让气氛尴尬时，我会先答应，再想办法调整。",
+        "en": "When refusing might make the atmosphere awkward, I agree first and then look for a way to adjust."
+      }
+    },
+    {
+      "id": "SHADOW_LK_012",
+      "factor": "APPEASEMENT_RESPONSE",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "被指出问题时，我会先安抚对方情绪，暂时不说明自己的限制。",
+        "en": "When someone points out a problem, I first try to settle their feelings and leave my own limits unmentioned for the moment."
+      }
+    },
+    {
+      "id": "SHADOW_LK_013",
+      "factor": "DEFENSIVE_PROTECTION",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "收到批评时，我会立刻解释背景，之后才听具体影响。",
+        "en": "When I receive criticism, I immediately explain the background and only then hear about the specific impact."
+      }
+    },
+    {
+      "id": "SHADOW_LK_014",
+      "factor": "DEFENSIVE_PROTECTION",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "自己的决定被质疑时，我会连续补充理由来保护原立场。",
+        "en": "When my decision is questioned, I keep adding reasons to protect my original position."
+      }
+    },
+    {
+      "id": "SHADOW_LK_015",
+      "factor": "DEFENSIVE_PROTECTION",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "别人指出遗漏时，我会先强调我已经做过的部分。",
+        "en": "When someone points out an omission, I first emphasize what I have already done."
+      }
+    },
+    {
+      "id": "SHADOW_LK_016",
+      "factor": "DEFENSIVE_PROTECTION",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "误会发生时，我会急着证明本意，不太能先停下来核对结果。",
+        "en": "When a misunderstanding occurs, I rush to establish what I intended and find it hard to pause and check the outcome first."
+      }
+    },
+    {
+      "id": "SHADOW_LK_017",
+      "factor": "EMOTIONAL_SHUTDOWN",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "冲突升温时，我会暂时不说话，即使对方正在等明确回应。",
+        "en": "When a conflict heats up, I temporarily stop speaking even when the other person is waiting for a clear response."
+      }
+    },
+    {
+      "id": "SHADOW_LK_018",
+      "factor": "EMOTIONAL_SHUTDOWN",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "情绪很强时，我会把表情和语气压住，等独处后再处理。",
+        "en": "When my feelings are strong, I hold back my expression and tone and wait until I am alone to process them."
+      }
+    },
+    {
+      "id": "SHADOW_LK_019",
+      "factor": "EMOTIONAL_SHUTDOWN",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "被否定后，我会只回复必要信息，暂时不谈感受。",
+        "en": "After receiving criticism or disapproval, I reply only with essential information and leave feelings unspoken for a while."
+      }
+    },
+    {
+      "id": "SHADOW_LK_020",
+      "factor": "EMOTIONAL_SHUTDOWN",
+      "timeframe": {
+        "zh": "过去三个月",
+        "en": "the past three months"
+      },
+      "prompt": {
+        "zh": "事情超出掌控时，我会进入机械完成状态，不表达需要或不同意。",
+        "en": "When a situation is beyond my control, I carry on mechanically without expressing a need or disagreement."
+      }
+    }
+  ],
+  "responseLabels": {
+    "1": {
+      "zh": "完全不符合",
+      "en": "Does not fit at all"
+    },
+    "2": {
+      "zh": "比较不符合",
+      "en": "Mostly does not fit"
+    },
+    "3": {
+      "zh": "不确定或视情况",
+      "en": "Uncertain or depends on the situation"
+    },
+    "4": {
+      "zh": "比较符合",
+      "en": "Mostly fits"
+    },
+    "5": {
+      "zh": "非常符合",
+      "en": "Fits very well"
+    }
+  },
+  "noNAaddition": true,
+  "status": "OriginalZHpreserved;manualworkingENnotvalidated;no nativecandidate"
+}
