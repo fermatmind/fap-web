@@ -106,8 +106,8 @@ export function IqLandingPreview({ locale, scoringHref, limitsHref }: {
         </dl>
         <p className="text-sm">{zh ? "26.7%描述答对的比例；106和65.54%来自设计参考模型，不是人口排名、正式IQ或门萨资格。这些指标不能互换。" : "26.7% is the proportion of items answered correctly. The 106 and 65.54% come from a designed reference model, not population rankings, formal IQ or Mensa eligibility. These measures are not interchangeable."}</p>
         <p className="text-sm">{zh ? "实际结果还可查看本次题组表现，并保存TXT或Markdown摘要；参考分仅在合格数据可用时显示。" : "Your actual result also lets you review performance by item group and save a TXT or Markdown summary. Reference scores appear only when eligible data is available."}</p>
-        {scoringHref ? <a className="inline-flex min-h-11 items-center text-sm underline underline-offset-4" href={scoringHref}>{zh ? "阅读计分与结果解释" : "Read the scoring and interpretation details"}</a> : null}
-        <a className="mt-3 inline-flex min-h-11 items-center text-sm underline underline-offset-4" href="#choose-version">{zh ? "返回30题免费测试入口" : "Go to the free 30-question test"}</a>
+        {scoringHref ? <a className="flex min-h-11 w-fit items-center text-sm underline underline-offset-4" href={scoringHref}>{zh ? "阅读计分与结果解释" : "Read the scoring and interpretation details"}</a> : null}
+        <a className="mt-3 flex min-h-11 w-fit items-center text-sm underline underline-offset-4" href="#choose-version">{zh ? "返回30题免费测试入口" : "Go to the free 30-question test"}</a>
       </section>
     </div>
   </section>;
