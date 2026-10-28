@@ -10,12 +10,12 @@
     "zh": "你是哪个动漫角色测试"
   },
   "description": {
-    "en": "Choose your part in 18 original anime-style story situations. Explore the Lead, Challenger, Pathfinder, Guide, Improviser and Keeper, with all highest ties and six complete bilingual guides free. Original story roles, without licensed characters.",
-    "zh": "在18道原创动漫风故事情境中选自己的部分，探索启程主角、友好挑战者、绘路者、引路导师、即兴巧匠、约定守护者。所有最高并列与六份双语全文免费。原创故事角色，不匹配授权人物。"
+    "en": "Choose among 18 original anime-style festival scenes and explore six story roles. Every highest tie and full bilingual guide is free; no licensed character match.",
+    "zh": "在18道原创种灯节情境中，探索启程、比较、绘路、示范、道具即兴与守约六种故事贡献。所有最高并列和完整双语说明免费；本版不匹配具体作品人物。"
   },
   "seoTitle": {
-    "en": "Which Anime Character Are You? Free Quiz & 6 Complete Story Roles",
-    "zh": "你是哪个动漫角色测试：免费作答与6种完整故事角色"
+    "en": "Anime Character Quiz: 6 Original Story Roles",
+    "zh": "动漫角色原型测试：6种原创故事角色"
   },
   "resultHeading": {
     "en": "Your original anime-story role readings",
@@ -46,7 +46,7 @@
     "scoringVersion": "anime_story_roles_all_highest_counts_v1",
     "resultContentVersion": "anime_story_roles_full_guides_v1",
     "itemBankSha256": "cad0770ae19a404ab9f11bd07930a689ac8f6ebfb844680e04420d3b37ead428",
-    "resultContentSha256": "944b48392d5ffe56998a75f5fd1e2f9f07d619ebf43708a37221e1ba29c71978",
+    "resultContentSha256": "785dfdf307bc8b67f363d68597b2360f6098aa2c6f999812f36b3f8b48ea215c",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -854,17 +854,17 @@
         "zh": "开始一个约好的小步"
       },
       "summary": {
-        "en": "Explore The Lead through begin one agreed small step: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "The Lead starts an agreed first step at an original anime-style festival. Read a paper-folding scene, compare five other roles and explore the tradeoff between opening a story and taking it over, with a small creative experiment and clear counts.",
         "zh": "从“开始一个约好的小步”探索启程主角：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Lead Test Result: Begin one agreed small step | Anime Story Roles",
-          "zh": "启程主角测试结果：开始一个约好的小步｜动漫故事角色"
+          "en": "The Lead Test Result: Opening an Anime Story",
+          "zh": "启程主角测试结果：给故事一个可回应的开头"
         },
         "description": {
-          "en": "Explore The Lead through begin one agreed small step: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“开始一个约好的小步”探索启程主角：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "Begin the seed-lantern festival with one agreed paper fold, then leave room for another character’s reply. Read the Lead’s full original anime-story guide free.",
+          "zh": "从种灯节的首个纸折理解启程主角：自愿开始约好的小步，也给别人回应和改方向的空间。阅读完整说明，比较六种原创故事贡献。"
         }
       },
       "scoreReading": {
@@ -979,17 +979,17 @@
         "zh": "让替代值得比较"
       },
       "summary": {
-        "en": "Explore The Challenger through make an alternative worth comparing: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "Two lantern designs give the Challenger a friendly alternative to compare. This original anime-story guide contrasts five other roles, shows when comparison becomes a burden and offers a small experiment with transparent choice counts.",
         "zh": "从“让替代值得比较”探索友好挑战者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Challenger Test Result: Make an alternative worth comparing | Anime Story Roles",
-          "zh": "友好挑战者测试结果：让替代值得比较｜动漫故事角色"
+          "en": "The Challenger Test Result: Anime Story Alternatives",
+          "zh": "友好挑战者测试结果：比较点子，不给作者排输赢"
         },
         "description": {
-          "en": "Explore The Challenger through make an alternative worth comparing: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“让替代值得比较”探索友好挑战者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "Compare two paper lantern designs without making their creators rivals. Explore the Challenger’s role in our original anime story and read the full guide free.",
+          "zh": "两队各做一版纸灯，比较各自为故事带来什么。友好挑战者的完整说明谈替代点子、比较的停止点，以及不把设计偏好变成人的输赢。"
         }
       },
       "scoreReading": {
@@ -1104,17 +1104,17 @@
         "zh": "让故事连接好读"
       },
       "summary": {
-        "en": "Explore The Pathfinder through make the story’s connections readable: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "A new terrace needs readable connections and a way back. Follow the Pathfinder’s original anime-story scene, compare five other contributions and try a small map while keeping room to wander; counts describe choices in this bank.",
         "zh": "从“让故事连接好读”探索绘路者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Pathfinder Test Result: Make the story’s connections readable | Anime Story Roles",
-          "zh": "绘路者测试结果：让故事连接好读｜动漫故事角色"
+          "en": "The Pathfinder Test Result: Mapping an Anime Story",
+          "zh": "绘路者测试结果：让人物的去路与回程好读"
         },
         "description": {
-          "en": "Explore The Pathfinder through make the story’s connections readable: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“让故事连接好读”探索绘路者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "A new terrace changes the garden map. Explore the Pathfinder’s readable routes, room to wander and small map-making experiment in this original anime-story guide.",
+          "zh": "浮空花园添了新台地，怎样让去路和回程更清楚？绘路者说明从一张可修改的小地图谈故事易读，也给漫游和未知角落留空间。"
         }
       },
       "scoreReading": {
@@ -1229,17 +1229,17 @@
         "zh": "需要时提供一个示例"
       },
       "summary": {
-        "en": "Explore The Guide through offer an example when it is wanted: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "One requested paper-fold example leaves a newcomer room to choose another shape. This original anime-story guide compares five other roles, asks when helping should stop and offers a small shared experiment with transparent counts.",
         "zh": "从“需要时提供一个示例”探索引路导师：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Guide Test Result: Offer an example when it is wanted | Anime Story Roles",
-          "zh": "引路导师测试结果：需要时提供一个示例｜动漫故事角色"
+          "en": "The Guide Test Result: Examples in an Anime Story",
+          "zh": "引路导师测试结果：示范一折，再让别人自己试"
         },
         "description": {
-          "en": "Explore The Guide through offer an example when it is wanted: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“需要时提供一个示例”探索引路导师：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "Show one paper fold when asked, then let the newcomer try another shape. Read the Guide’s full story-role result on useful examples and knowing when to stop helping.",
+          "zh": "新人想学种灯纸折，示范一例之后，也让对方试自己的形状。引路导师的完整说明谈应请求的帮助、示例怎样增加选择，以及何时结束指导。"
         }
       },
       "scoreReading": {
@@ -1354,17 +1354,17 @@
         "zh": "给道具意外用途"
       },
       "summary": {
-        "en": "Explore The Improviser through give a prop an unexpected use: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "A leftover paper shape might become a path marker. The Improviser’s original anime-story guide compares five other roles and explores playful, reversible prop changes, the option to save an idea for later, and transparent counts.",
         "zh": "从“给道具意外用途”探索即兴巧匠：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Improviser Test Result: Give a prop an unexpected use | Anime Story Roles",
-          "zh": "即兴巧匠测试结果：给道具意外用途｜动漫故事角色"
+          "en": "The Improviser Test Result: Anime Props, New Uses",
+          "zh": "即兴巧匠测试结果：给剩余道具一个新用途"
         },
         "description": {
-          "en": "Explore The Improviser through give a prop an unexpected use: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“给道具意外用途”探索即兴巧匠：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "A spare paper shape becomes a garden-path marker. Read the Improviser’s original story guide on playful prop changes, shared choice and ideas that can wait.",
+          "zh": "一块剩余折纸也许能成为花园路标。即兴巧匠的说明探索道具的新用途、可改回的小尝试，以及点子不适合当前场景时怎样留到下次。"
         }
       },
       "scoreReading": {
@@ -1479,17 +1479,17 @@
         "zh": "守住人人可再选择的约定"
       },
       "summary": {
-        "en": "Explore The Keeper through keep a promise people can renew: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "en": "The Keeper makes a meeting-point promise clear, voluntary and revisable. This original anime-story guide contrasts five other roles and follows a small agreement with an exit, without turning a story preference into an unlimited duty.",
         "zh": "从“守住人人可再选择的约定”探索约定守护者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
       },
       "seo": {
         "title": {
-          "en": "The Keeper Test Result: Keep a promise people can renew | Anime Story Roles",
-          "zh": "约定守护者测试结果：守住人人可再选择的约定｜动漫故事角色"
+          "en": "The Keeper Test Result: Promises in an Anime Story",
+          "zh": "约定守护者测试结果：让会合约定清楚，也能修改"
         },
         "description": {
-          "en": "Explore The Keeper through keep a promise people can renew: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
-          "zh": "从“守住人人可再选择的约定”探索约定守护者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+          "en": "A clear meeting point helps the cast explore different terraces. Read the Keeper’s original story guide on voluntary promises, changed plans and room to step back.",
+          "zh": "人物分头探索台地，约好在哪里会合，也说清怎样改计划或退出。约定守护者的完整说明谈清楚、自愿、可以修改的小承诺，不把守约变成无限义务。"
         }
       },
       "scoreReading": {

@@ -10,12 +10,12 @@
     "zh": "《NANA》角色测试"
   },
   "description": {
-    "en": "Answer 21 original everyday creative questions and compare Nana Osaki, Hachi, Ren, Takumi, Nobu, Shin and Yasu. Every highest tie and all seven complete bilingual guides are free, without signup. Unofficial fan edition.",
-    "zh": "完成21道原创日常创作情境题，比较大崎娜娜、阿八、莲、巧、伸夫、真一与泰士。最高并列全部保留，七份完整双语说明免费，无需注册。非官方同人版，不推断剧情经历或关系命运。"
+    "en": "Answer 21 original questions about creative work and shared time. Compare seven Nana characters, keep every highest tie and read full fan guides free.",
+    "zh": "从21道普通创作与相处情境，比较大崎娜娜、阿八、莲等七位角色的有限角度。最高并列全部保留，完整双语说明免费；不预测恋爱适配或关系命运。"
   },
   "seoTitle": {
-    "en": "Nana Character Test: Free Quiz & All 7 Result Guides",
-    "zh": "《NANA》角色测试：免费作答与7种完整结果"
+    "en": "Nana Character Test: 7 Free, Complete Fan Guides",
+    "zh": "《NANA》角色测试：21题与7份免费完整说明"
   },
   "resultHeading": {
     "en": "Your Nana character readings",
@@ -74,7 +74,7 @@
     "scoringVersion": "nana_all_highest_counts_v1",
     "resultContentVersion": "nana_full_guides_v1",
     "itemBankSha256": "e41f47ac288d15912b17d25f4c29bb18e44dc955836765cf3ecc290a7d97ef09",
-    "resultContentSha256": "bed1c8c85261ff9ddd9ea6d242f09fd5ee58bbfe8267c3cb1714475575c43798",
+    "resultContentSha256": "6df29c183e233015fd0b9ad7678137a5f4b51e7e39ca0bb351e07c777f9e1a34",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1013,17 +1013,17 @@
         "zh": "守住别人能认出的创作声音"
       },
       "summary": {
-        "en": "Read Nana Osaki through keep a creative voice people can recognise: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "An original shared-zine example gives Nana Osaki’s limited angle a practical question: what central idea should remain when the pages shrink? This unofficial guide compares six other characters, offers a small communication experiment and explains the choice counts.",
         "zh": "从“守住别人能认出的创作声音”阅读大崎娜娜（Nana Osaki）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Nana Osaki Test Result: Keep a creative voice people can recognise | Nana",
-          "zh": "大崎娜娜（Nana Osaki）测试结果：守住别人能认出的创作声音｜NANA"
+          "en": "Nana Osaki Test Result: Keeping a Creative Voice",
+          "zh": "大崎娜娜测试结果：计划缩小，也留住创作声音"
         },
         "description": {
-          "en": "Read Nana Osaki through keep a creative voice people can recognise: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“守住别人能认出的创作声音”阅读大崎娜娜（Nana Osaki）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "A shared zine needs fewer pages. Read Nana Osaki’s fan guide on keeping its central idea visible while giving collaborators room to change how it is expressed.",
+          "zh": "小刊需要减少页数，怎样留下最初吸引大家的想法？大崎娜娜的同人说明谈守住表达与邀请伙伴修改，不把鲜明声音变成控制共同作品。"
         }
       },
       "scoreReading": {
@@ -1138,17 +1138,17 @@
         "zh": "让平常相处装下一点心意"
       },
       "summary": {
-        "en": "Read Nana Komatsu (Hachi) through let ordinary shared time carry a little care: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "A familiar drink or a short shared break gives Hachi’s limited angle an everyday setting. Compare six other characters and try an invitation that can be adapted or declined. This complete unofficial guide keeps its counts separate from real relationship judgments.",
         "zh": "从“让平常相处装下一点心意”阅读小松奈奈／阿八（Hachi）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Nana Komatsu (Hachi) Test Result: Let ordinary shared time carry a little care | Nana",
-          "zh": "小松奈奈／阿八（Hachi）测试结果：让平常相处装下一点心意｜NANA"
+          "en": "Nana Komatsu (Hachi) Test Result: Everyday Connection",
+          "zh": "阿八测试结果：让普通相处装下一点心意"
         },
         "description": {
-          "en": "Read Nana Komatsu (Hachi) through let ordinary shared time carry a little care: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“让平常相处装下一点心意”阅读小松奈奈／阿八（Hachi）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "A familiar drink or short break can make an ordinary evening feel shared. Hachi’s fan guide explores welcome gestures, clear invitations and space to decline.",
+          "zh": "一杯熟悉饮品或一次短休息，能让普通晚上多一点相处感。阿八的同人说明谈被欢迎的小心意、容易回答的邀请，也给自己和对方留出谢绝的空间。"
         }
       },
       "scoreReading": {
@@ -1263,17 +1263,17 @@
         "zh": "为了打磨本身的乐趣再回到细节"
       },
       "summary": {
-        "en": "Read Ren Honjo through return to a detail for the pleasure of working on it: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "Ren’s limited creative angle stays with a passage or visual detail for the pleasure of working on it. This unofficial guide compares six other characters, considers a shared handover and offers a small focus experiment without treating counts as talent.",
         "zh": "从“为了打磨本身的乐趣再回到细节”阅读本城莲（Ren Honjo）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Ren Honjo Test Result: Return to a detail for the pleasure of working on it | Nana",
-          "zh": "本城莲（Ren Honjo）测试结果：为了打磨本身的乐趣再回到细节｜NANA"
+          "en": "Ren Honjo Test Result: Enjoying a Creative Detail",
+          "zh": "本城莲测试结果：享受打磨，也约一个收尾点"
         },
         "description": {
-          "en": "Read Ren Honjo through return to a detail for the pleasure of working on it: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“为了打磨本身的乐趣再回到细节”阅读本城莲（Ren Honjo）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "Stay with one passage or visual detail because the process is enjoyable. Ren Honjo’s fan guide explores chosen focus, shared handovers and knowing when to stop.",
+          "zh": "选一个自己真想打磨的段落、过渡或视觉细节，也约好何时分享当前版本。本城莲的同人说明谈过程的乐趣与共同任务的边界，不评天分或完美主义。"
         }
       },
       "scoreReading": {
@@ -1388,17 +1388,17 @@
         "zh": "让共同同意的目标配上现实资源"
       },
       "summary": {
-        "en": "Read Takumi Ichinose through fit an agreed aim to real time and resources: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "One room, one short evening and too many ideas set up Takumi’s limited resource-planning angle. Compare six other characters and try a plan people can edit or decline. This unofficial guide explains its counts without endorsing control or fictional harm.",
         "zh": "从“让共同同意的目标配上现实资源”阅读一之濑巧（Takumi Ichinose）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Takumi Ichinose Test Result: Fit an agreed aim to real time and resources | Nana",
-          "zh": "一之濑巧（Takumi Ichinose）测试结果：让共同同意的目标配上现实资源｜NANA"
+          "en": "Takumi Ichinose Test Result: A Plan People Can Edit",
+          "zh": "一之濑巧测试结果：让目标、资源与参与意愿相配"
         },
         "description": {
-          "en": "Read Takumi Ichinose through fit an agreed aim to real time and resources: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“让共同同意的目标配上现实资源”阅读一之濑巧（Takumi Ichinose）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "One room and a short evening cannot fit every idea. Takumi’s fan guide explores manageable aims, available resources and plans people can revise or decline.",
+          "zh": "一间房和一个短晚上装不下全部点子，怎样约出能实现的目标？一之濑巧的同人说明谈资源与可修改计划，安排依靠共同同意，不为控制或伤害免责。"
         }
       },
       "scoreReading": {
@@ -1513,17 +1513,17 @@
         "zh": "把欣赏说成对方听得到的话"
       },
       "summary": {
-        "en": "Read Nobuo Terashima (Nobu) through say what you appreciate in words someone can hear: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "An unfinished sketch invites Nobu’s limited angle: say exactly what you appreciate and understood. This unofficial guide compares six other characters, tries one specific response and clarifies what support can promise, with transparent scoring limits.",
         "zh": "从“把欣赏说成对方听得到的话”阅读寺岛伸夫（Nobu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Nobuo Terashima (Nobu) Test Result: Say what you appreciate in words someone can hear | Nana",
-          "zh": "寺岛伸夫（Nobu）测试结果：把欣赏说成对方听得到的话｜NANA"
+          "en": "Nobu (NANA) Test Result: Specific Appreciation",
+          "zh": "寺岛伸夫测试结果：把欣赏说成一句具体回应"
         },
         "description": {
-          "en": "Read Nobuo Terashima (Nobu) through say what you appreciate in words someone can hear: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“把欣赏说成对方听得到的话”阅读寺岛伸夫（Nobu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "Respond to an unfinished sketch with a detail you appreciate and what you understood. Nobu’s fan guide explores useful feedback without unwanted advice or promises.",
+          "zh": "面对一张未完成草图，说清喜欢哪一笔、实际读懂了什么。寺岛伸夫的同人说明谈具体欣赏、是否需要建议，以及支持话语怎样避免变成无意的承诺。"
         }
       },
       "scoreReading": {
@@ -1638,17 +1638,17 @@
         "zh": "试一个新角色，也保留自己的选择"
       },
       "summary": {
-        "en": "Read Shinichi Okazaki (Shin) through try a new role while keeping the choice yours: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "A small unfamiliar task gives Shin’s limited newcomer angle room to unfold. Compare six other characters, ask what support is available and set a review point for the role. This unofficial guide explains counts without assigning a private history or fixed identity.",
         "zh": "从“试一个新角色，也保留自己的选择”阅读冈崎真一（Shin）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Shinichi Okazaki (Shin) Test Result: Try a new role while keeping the choice yours | Nana",
-          "zh": "冈崎真一（Shin）测试结果：试一个新角色，也保留自己的选择｜NANA"
+          "en": "Shin (NANA) Test Result: Trying an Adjustable Role",
+          "zh": "冈崎真一测试结果：先试新分工，再决定怎样参与"
         },
         "description": {
-          "en": "Read Shinichi Okazaki (Shin) through try a new role while keeping the choice yours: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“试一个新角色，也保留自己的选择”阅读冈崎真一（Shin）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "Try a small unfamiliar task, ask what support is available and set a review point. Shin’s fan guide leaves room to adjust a role without having to fit every group.",
+          "zh": "新任务可以先试一个小版本，问清支持，再约时间决定是否继续。冈崎真一的同人说明谈可调整的参与方式与清楚沟通，不要求到哪里都适应或透露私事。"
         }
       },
       "scoreReading": {
@@ -1763,17 +1763,17 @@
         "zh": "把共同责任说得清楚、用得起来"
       },
       "summary": {
-        "en": "Read Yasushi Takagi (Yasu) through make shared responsibility clear enough to use: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "en": "Two different expectations for one task make Yasu’s limited coordination angle concrete. This unofficial guide compares six other characters and tries an explicit agreement with room to step back, keeping responsibility and choice counts within clear boundaries.",
         "zh": "从“把共同责任说得清楚、用得起来”阅读高木泰士（Yasu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
       },
       "seo": {
         "title": {
-          "en": "Yasushi Takagi (Yasu) Test Result: Make shared responsibility clear enough to use | Nana",
-          "zh": "高木泰士（Yasu）测试结果：把共同责任说得清楚、用得起来｜NANA"
+          "en": "Yasu (NANA) Test Result: Shared Responsibilities",
+          "zh": "高木泰士测试结果：把共同责任说清，也留自己的边界"
         },
         "description": {
-          "en": "Read Yasushi Takagi (Yasu) through make shared responsibility clear enough to use: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
-          "zh": "从“把共同责任说得清楚、用得起来”阅读高木泰士（Yasu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+          "en": "Two people expect different things from one task. Yasu’s fan guide explores explicit agreements, shared responsibility and a clear option to step back.",
+          "zh": "同一任务遇到两份不同期待，怎样把能做什么放进一次讨论？高木泰士的同人说明谈明确约定、共担责任和退出方式，不派永久调解或保护别人的义务。"
         }
       },
       "scoreReading": {

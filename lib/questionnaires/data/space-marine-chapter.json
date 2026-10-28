@@ -10,12 +10,12 @@
     "zh": "星际战士战团测试"
   },
   "description": {
-    "en": "Try 18 original peaceful model-display situations. Compare Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars, with all highest ties and six complete bilingual guides free. Unofficial fan edition, not game rules.",
-    "zh": "完成18道原创和平模型展示情境，比较极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤。所有最高并列与六份双语全文免费。非官方同人版，不是游戏规则。"
+    "en": "Explore six Space Marine Chapters through 18 peaceful paper-model choices. Read every tied result and full bilingual guide free in this unofficial fan quiz.",
+    "zh": "完成18道和平纸模型情境，比较极限战士等六支战团的有限爱好角度。最高并列及六份双语完整说明免费；非官方同人测试，不提供游戏规则或配军建议。"
   },
   "seoTitle": {
-    "en": "Space Marine Chapter Test: Free Quiz & 6 Complete Results",
-    "zh": "星际战士战团测试：免费作答与6种完整结果"
+    "en": "Space Marine Chapter Test: 6 Free Fan Result Guides",
+    "zh": "星际战士战团测试：6份免费同人结果说明"
   },
   "resultHeading": {
     "en": "Your Space Marine Chapter readings",
@@ -53,7 +53,7 @@
     "scoringVersion": "space_marine_chapters_all_highest_counts_v1",
     "resultContentVersion": "space_marine_chapters_full_guides_v1",
     "itemBankSha256": "3bd00157bcad3e3780c323282ed010fdab842e6d8af08d79524cfb1082bab132",
-    "resultContentSha256": "b9ea2041aa7c63d0bbdcad3ad0d85d19e0c6fd571827501fd17e324698cb32ee",
+    "resultContentSha256": "d70fd4de146177073eb8a7870ac3ff43049a8b81f9e8d00b182702c1f0e8d1f8",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -861,17 +861,17 @@
         "zh": "给展示一个共同计划"
       },
       "summary": {
-        "en": "Explore Ultramarines through give the display a shared plan: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "This unofficial Ultramarines guide uses a shared paper-display plan as its limited hobby angle. Compare five other Chapters, consider when a plan becomes rigid and try an editable three-task sequence, with transparent counts rather than game advice.",
         "zh": "从“给展示一个共同计划”探索极限战士（Ultramarines）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "Ultramarines Test Result: Give the display a shared plan | Space Marine Chapters",
-          "zh": "极限战士（Ultramarines）测试结果：给展示一个共同计划｜星际战士战团"
+          "en": "Ultramarines Test Result: A Shared Display Plan",
+          "zh": "极限战士测试结果：约一份大家能改的展示计划"
         },
         "description": {
-          "en": "Explore Ultramarines through give the display a shared plan: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“给展示一个共同计划”探索极限战士（Ultramarines）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "Plan three parts of a peaceful paper display, with room for contributors to change the order. Read the Ultramarines fan guide on coordination without rigid rules.",
+          "zh": "为纸模型的底座、结构与路线约好组装顺序，也容许伙伴修改。极限战士的同人说明谈共同计划怎样减少困惑，以及计划太硬时如何简化。"
         }
       },
       "scoreReading": {
@@ -986,17 +986,17 @@
         "zh": "让小展示底座可靠"
       },
       "summary": {
-        "en": "Explore Imperial Fists through make a small display base dependable: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "A shifting paper platform gives the Imperial Fists guide a concrete hobby question: how much support is enough? This unofficial reading compares five other Chapters, explores overbuilding and suggests a small support trial with clear scoring limits.",
         "zh": "从“让小展示底座可靠”探索帝国之拳（Imperial Fists）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "Imperial Fists Test Result: Make a small display base dependable | Space Marine Chapters",
-          "zh": "帝国之拳（Imperial Fists）测试结果：让小展示底座可靠｜星际战士战团"
+          "en": "Imperial Fists Test Result: A Dependable Display Base",
+          "zh": "帝国之拳测试结果：做一个够用的稳固底座"
         },
         "description": {
-          "en": "Explore Imperial Fists through make a small display base dependable: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“让小展示底座可靠”探索帝国之拳（Imperial Fists）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "A shifting paper platform prompts a simple, dependable base. Read the Imperial Fists fan guide on enough support, overbuilding and six hobby comparisons.",
+          "zh": "纸平台在重排时容易移动，怎样给它一个够用的支撑？帝国之拳的同人说明比较简单底座与过度加固，讨论稳当怎样服务这次小展示。"
         }
       },
       "scoreReading": {
@@ -1111,17 +1111,17 @@
         "zh": "从小测试改进一个连接"
       },
       "summary": {
-        "en": "Explore Iron Hands through improve one connection from a small test: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "A reversible change to one paper joint makes the Iron Hands hobby angle visible. This unofficial guide contrasts five other Chapters, compares a small before-and-after trial and a stopping point, and explains what the counts cannot say about a person.",
         "zh": "从“从小测试改进一个连接”探索钢铁之手（Iron Hands）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "Iron Hands Test Result: Improve one connection from a small test | Space Marine Chapters",
-          "zh": "钢铁之手（Iron Hands）测试结果：从小测试改进一个连接｜星际战士战团"
+          "en": "Iron Hands Test Result: Testing One Paper Connection",
+          "zh": "钢铁之手测试结果：用一次小测试改进纸连接"
         },
         "description": {
-          "en": "Explore Iron Hands through improve one connection from a small test: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“从小测试改进一个连接”探索钢铁之手（Iron Hands）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "Compare a paper joint before and after one reversible change. The Iron Hands fan guide explores visible improvements and a stopping point, without body-value claims.",
+          "zh": "比较纸接合调整前后的实际变化，再决定留、改或停。钢铁之手的同人说明聚焦可改回的小测试和收尾点，不把效率换算成人的身体价值。"
         }
       },
       "scoreReading": {
@@ -1236,17 +1236,17 @@
         "zh": "仔细对待一项手作细节"
       },
       "summary": {
-        "en": "Explore Salamanders through give one handmade detail careful attention: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "A small paper texture gives the Salamanders guide its handmade focus. Compare five other Chapter angles and try two simple finishes, with room to stop before care turns into a standard nobody agreed to. This unofficial reading explains its choice counts.",
         "zh": "从“仔细对待一项手作细节”探索火蜥蜴（Salamanders）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "Salamanders Test Result: Give one handmade detail careful attention | Space Marine Chapters",
-          "zh": "火蜥蜴（Salamanders）测试结果：仔细对待一项手作细节｜星际战士战团"
+          "en": "Salamanders Test Result: Enjoying a Handmade Detail",
+          "zh": "火蜥蜴测试结果：用现有材料做一处手作细节"
         },
         "description": {
-          "en": "Explore Salamanders through give one handmade detail careful attention: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“仔细对待一项手作细节”探索火蜥蜴（Salamanders）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "Try a small paper texture with materials already available. Read the Salamanders fan guide on craft enjoyment, simple finishes and leaving perfection aside.",
+          "zh": "用手边材料给展示角落添一点纸质地，粗糙首版也可以有趣。火蜥蜴的同人说明谈手作乐趣、愿意花的时间与简单收尾，不把用心等同无瑕。"
         }
       },
       "scoreReading": {
@@ -1361,17 +1361,17 @@
         "zh": "改变之前观察可见之处"
       },
       "summary": {
-        "en": "Explore Raven Guard through observe what is visible before changing it: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "Observe where a paper model moves, then ask its maker before changing it. The unofficial Raven Guard guide compares five other Chapters and tries one visible observation with an open question, keeping interpretations and raw counts within their limits.",
         "zh": "从“改变之前观察可见之处”探索暗鸦守卫（Raven Guard）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "Raven Guard Test Result: Observe what is visible before changing it | Space Marine Chapters",
-          "zh": "暗鸦守卫（Raven Guard）测试结果：改变之前观察可见之处｜星际战士战团"
+          "en": "Raven Guard Test Result: Observe Before Changing",
+          "zh": "暗鸦守卫测试结果：先描述看见的，再问是否修改"
         },
         "description": {
-          "en": "Explore Raven Guard through observe what is visible before changing it: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“改变之前观察可见之处”探索暗鸦守卫（Raven Guard）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "Notice where a paper model shifts, then ask its maker before changing it. Read the Raven Guard fan guide on visible observations, open questions and uncertainty.",
+          "zh": "重排后纸模型在哪里移动了？暗鸦守卫的同人说明从可见细节谈开放提问，分开观察与解释，修改别人的作品前先询问，不猜私人动机。"
         }
       },
       "scoreReading": {
@@ -1486,17 +1486,17 @@
         "zh": "探索另一条虚构路线"
       },
       "summary": {
-        "en": "Explore White Scars through explore a different fictional route: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "en": "The same paper pieces can suggest another imagined route. This unofficial White Scars guide compares five other hobby angles, explores the cost of changing a shared layout and offers a reversible route experiment, without treating counts as speed or tactical skill.",
         "zh": "从“探索另一条虚构路线”探索白疤（White Scars）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
       },
       "seo": {
         "title": {
-          "en": "White Scars Test Result: Explore a different fictional route | Space Marine Chapters",
-          "zh": "白疤（White Scars）测试结果：探索另一条虚构路线｜星际战士战团"
+          "en": "White Scars Test Result: Another Route, No Race",
+          "zh": "白疤测试结果：同样的部件，另一条想象路线"
         },
         "description": {
-          "en": "Explore White Scars through explore a different fictional route: an original peaceful model-display scene, five Chapter comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
-          "zh": "从“探索另一条虚构路线”探索白疤（White Scars）：原创和平模型展示场景、五战团比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+          "en": "Imagine another route through the same paper landscape. The White Scars fan guide explores reversible alternatives, shared choices and keeping the familiar path.",
+          "zh": "同样的纸结构，从另一方向走会看到什么？白疤的同人说明探索可改回的想象路线，也容许保留熟悉安排；不计速度，不作现实战术或配军建议。"
         }
       },
       "scoreReading": {
