@@ -137,6 +137,14 @@ describe("IQ three-module result presentation", () => {
     expect(screen.queryByTestId("iq-radar-values")).not.toBeInTheDocument();
   });
 
+  it.each(["en", "zh"] as const)("distinguishes missing measured dimensions from unmeasured axes in %s", (locale) => {
+    show(fixture({ dimensions: { visual_spatial_insight: { correct_count: 7, item_count: 13 } } }), locale);
+    const chart = within(screen.getByTestId("iq-five-axis-chart"));
+    expect(chart.getAllByText(locale === "zh" ? "未测" : "Unmeasured")).toHaveLength(4);
+    expect(chart.getAllByText(locale === "zh" ? "数据暂缺" : "Not available")).toHaveLength(2);
+    expect(screen.queryByTestId("iq-radar-values")).not.toBeInTheDocument();
+  });
+
   it("shows genuine zero correct answers but never treats blocked_unscored as a zero score", () => {
     expect(presentation(fixture({ summary: { raw_score: 0, question_count: 30 } })).percentCorrect).toBe(0);
     const blocked = fixture({ scoring: { status: "blocked_unscored" }, summary: { raw_score: 0, question_count: 30 }, normative_reasoning: syntheticNorm() });

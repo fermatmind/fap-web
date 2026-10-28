@@ -36,7 +36,7 @@ export function IqAbilityRadar({ axes, locale }: { axes: IqRadarAxis[]; locale: 
         return <g key={axis.code}>
           <line x1={CENTER[0]} y1={CENTER[1]} x2={end[0]} y2={end[1]} stroke="#2b3851" />
           <text x={label[0]} y={label[1] - 4} textAnchor="middle" fill="#edbe4b" fontSize="13" fontWeight="650">
-            {values[index] !== null ? `${Math.round(values[index]! * 100)}%` : zh ? "未测" : "Unmeasured"}
+            {axis.unmeasured ? zh ? "未测" : "Unmeasured" : values[index] !== null ? `${Math.round(values[index]! * 100)}%` : zh ? "数据暂缺" : "Not available"}
           </text>
           <text x={label[0]} y={label[1] + 13} textAnchor="middle" fill="#aab7ca" fontSize="12">{axis.label}</text>
         </g>;

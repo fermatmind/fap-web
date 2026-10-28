@@ -8,6 +8,7 @@ import QuizTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/QuizTak
 import { IQ_OWNER_ORIGINAL_30_BANK_ID } from "@/lib/iq/constants";
 
 const hoisted = vi.hoisted(() => ({
+  imageLoad: vi.fn(),
   realFlowController: false,
   pathname: "/en/tests/iq-test-intelligence-quotient-assessment/take",
   search: "",
@@ -29,6 +30,11 @@ const hoisted = vi.hoisted(() => ({
     errorCode: "TEST_ERROR",
   })),
   ensureFmTokenReady: vi.fn(async () => "existing" as const),
+}));
+
+vi.mock("@/components/quiz/iq/IqImageCache", () => ({
+  IqImageCacheProvider: ({ children }: { children: ReactNode }) => <>{children}</>,
+  useIqImageCache: () => ({ load: hoisted.imageLoad, getUrl: () => "blob:synthetic-iq" }),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -298,6 +304,7 @@ function deferredPromise<T>() {
 describe("IQ take lifecycle contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.imageLoad.mockResolvedValue("blob:synthetic-iq");
     hoisted.recoverAcceptedSubmission.mockResolvedValue(false);
     hoisted.realFlowController = false;
     window.localStorage.clear();
@@ -346,6 +353,118 @@ describe("IQ take lifecycle contract", () => {
     await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
     expect(hoisted.submitIqAttempt.mock.calls[0][0].answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["A", "B"]);
     expect(hoisted.getIqAttemptQuestion).toHaveBeenCalledWith(expect.objectContaining({ attemptId: "iq-attempt-start-001", index: 0 }));
+  });
+
+  it.each(["en", "zh"])("submits a fully answered %s owner draft after refresh without reselecting", async (locale) => {
+    hoisted.pathname = `/${locale}/tests/iq-test-intelligence-quotient-assessment/take`;
+    const store = createQuizStore({ slug: "iq-test-intelligence-quotient-assessment", anonId: "anon_iq_take_test", formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    store.getState().setAttemptMeta("saved-iq-original", "IQ_INTELLIGENCE_QUOTIENT", IQ_OWNER_ORIGINAL_30_BANK_ID);
+    store.getState().setAnswer("IQ_ITEM_01", "A");
+    store.getState().setAnswer("IQ_Q_02", "B");
+    store.getState().setAnswer("old-unrelated-question", "C");
+    store.getState().jump(1, 2);
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    await screen.findByText("Choose the best continuation.");
+    const submit = screen.getByRole("button", { name: "Submit" });
+    expect(submit).toBeEnabled();
+    fireEvent.click(submit);
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.startIqAttempt).not.toHaveBeenCalled();
+    expect(hoisted.submitIqAttempt.mock.calls[0][0].answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["A", "B"]);
+  });
+
+  it.each([false, true])("restores a missing item safely and permits completed retry (image fails: %s)", async (failImage) => {
+    const pending = deferredPromise<string>();
+    hoisted.imageLoad.mockReturnValue(pending.promise);
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) => {
+      const response = buildIqAttemptQuestionResponse(index);
+      if (index === 0) response.questions.items[0] = {
+        ...response.questions.items[0],
+        stem: { image: { src: "/api/v0.3/iq-owner-original-30/assets/synthetic.webp?attempt_id=synthetic", alt: "Synthetic stem" } },
+      } as unknown as typeof response.questions.items[0];
+      return Promise.resolve(response);
+    });
+    const store = createQuizStore({ slug: "iq-test-intelligence-quotient-assessment", anonId: "anon_iq_take_test", formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    store.getState().setAttemptMeta("saved-iq-original", "IQ_INTELLIGENCE_QUOTIENT", IQ_OWNER_ORIGINAL_30_BANK_ID);
+    store.getState().setAnswer("unrelated-question", "A");
+    store.getState().setAnswer("IQ_Q_02", "B");
+    store.getState().jump(1, 2);
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    await waitFor(() => expect(hoisted.imageLoad).toHaveBeenCalled());
+    expect(screen.getByText("Choose the best continuation.")).toBeInTheDocument();
+    expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
+    if (failImage) {
+      pending.reject(new Error("Synthetic restoration image failure"));
+      const retry = await screen.findByRole("button", { name: "Retry submit" });
+      expect(screen.getByText("Choose the best continuation.")).toBeInTheDocument();
+      expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
+      hoisted.imageLoad.mockResolvedValue("blob:synthetic-iq");
+      fireEvent.click(retry);
+    } else pending.resolve("blob:synthetic-iq");
+    await screen.findByRole("img", { name: "Synthetic stem" });
+    expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
+    fireEvent.keyDown(within(screen.getByTestId("iq-option-board-desktop")).getAllByRole("radio")[0], { key: "Home" });
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.submitIqAttempt.mock.calls[0][0].answers).toHaveLength(2);
+  });
+
+  it.each(["en", "zh"])("keeps %s keyboard option navigation on the same question until confirmation", async (locale) => {
+    hoisted.pathname = `/${locale}/tests/iq-test-intelligence-quotient-assessment/take`;
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    const first = within(await screen.findByTestId("iq-option-board-desktop")).getAllByRole("radio");
+    fireEvent.keyDown(first[0], { key: "ArrowRight" });
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    expect(first[1]).toBeInTheDocument();
+    expect(first[1]).toHaveFocus();
+    expect(first[1]).toHaveAttribute("aria-checked", "true");
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.keyDown(within(screen.getByTestId("iq-option-board-desktop")).getAllByRole("radio")[0], { key: "End" });
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+  });
+
+  it("waits for decoded initial images before making owner options selectable", async () => {
+    const pending = deferredPromise<string>();
+    hoisted.imageLoad.mockReturnValue(pending.promise);
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) => {
+      const response = buildIqAttemptQuestionResponse(index);
+      if (index === 0) response.questions.items[0] = {
+        ...response.questions.items[0],
+        stem: { image: { src: "/api/v0.3/iq-owner-original-30/assets/synthetic.webp?attempt_id=synthetic", alt: "Synthetic stem" } },
+      } as unknown as typeof response.questions.items[0];
+      return Promise.resolve(response);
+    });
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    await waitFor(() => expect(hoisted.imageLoad).toHaveBeenCalled());
+    expect(screen.queryByRole("radio")).not.toBeInTheDocument();
+    pending.resolve("blob:synthetic-iq");
+    expect(await screen.findByTestId("iq-option-board-desktop")).toBeInTheDocument();
+    expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
+  });
+
+  it("keeps failed initial owner images in a retryable state without recording answers", async () => {
+    hoisted.imageLoad.mockRejectedValue(new Error("Synthetic image failure"));
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) => {
+      const response = buildIqAttemptQuestionResponse(index);
+      response.questions.items[0] = {
+        ...response.questions.items[0],
+        stem: { image: { src: "/api/v0.3/iq-owner-original-30/assets/synthetic.webp?attempt_id=synthetic", alt: "Synthetic stem" } },
+      } as unknown as typeof response.questions.items[0];
+      return Promise.resolve(response);
+    });
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    expect(await screen.findByTestId("iq-take-error-state")).toBeInTheDocument();
+    expect(screen.queryByRole("radio")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /retry/i })).toBeEnabled();
+    expect(hoisted.submitIqAttempt).not.toHaveBeenCalled();
   });
 
   it("hydrates a saved owner IQ draft before deciding to create another attempt", async () => {

@@ -1548,7 +1548,8 @@ describe("ResultClient view-state contract", () => {
     });
   });
 
-  it("routes IQ result payloads through the dedicated IQ shell without exposing the rich-report branch", async () => {
+  it.each(["en", "zh"])("shows the %s IQ result before optional email recovery", async (locale) => {
+    hoisted.pathname = `/${locale}/result/attempt-123`;
     hoisted.fetchAttemptReport.mockResolvedValue({
       ok: true,
       locked: false,
@@ -1578,6 +1579,11 @@ describe("ResultClient view-state contract", () => {
 
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+    const shell = screen.getByTestId("iq-result-shell");
+    const recovery = screen.getByTestId("result-email-recovery-card");
+    expect(shell.compareDocumentPosition(recovery) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(recovery).toHaveTextContent(locale === "zh" ? "可选：保存邮箱以找回结果" : "Optional: save an email to recover this result");
+    expect(hoisted.bindAttemptEmail).not.toHaveBeenCalled();
   });
 
   it("retains a canonical iq.report.v1 response even when the legacy rich renderer cannot render it", async () => {

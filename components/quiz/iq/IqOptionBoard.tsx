@@ -52,6 +52,7 @@ export function IqOptionBoard({
   layoutMode = "responsive",
   disabled = false,
   onChange,
+  onKeyboardSelect,
 }: {
   questionId: string;
   options: IqOptionItem[];
@@ -61,40 +62,23 @@ export function IqOptionBoard({
   layoutMode?: LayoutMode;
   disabled?: boolean;
   onChange: (code: string) => void;
+  onKeyboardSelect?: (code: string) => void;
 }) {
   const normalized = useMemo(() => normalizeOptions(options), [options]);
   const optionCount = normalized.length;
   const columns = getDesktopColumns(optionCount);
 
   const moveByArrow = (index: number, event: KeyboardEvent<HTMLElement>) => {
-    if (optionCount === 0) return;
-
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      event.preventDefault();
-      const next = normalized[Math.min(index + 1, optionCount - 1)];
-      if (next && !disabled) onChange(next.code);
-      return;
-    }
-
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      event.preventDefault();
-      const prev = normalized[Math.max(index - 1, 0)];
-      if (prev && !disabled) onChange(prev.code);
-      return;
-    }
-
-    if (event.key === "Home") {
-      event.preventDefault();
-      const first = normalized[0];
-      if (first && !disabled) onChange(first.code);
-      return;
-    }
-
-    if (event.key === "End") {
-      event.preventDefault();
-      const last = normalized[optionCount - 1];
-      if (last && !disabled) onChange(last.code);
-    }
+    const targetIndex = event.key === "ArrowRight" || event.key === "ArrowDown" ? Math.min(index + 1, optionCount - 1)
+      : event.key === "ArrowLeft" || event.key === "ArrowUp" ? Math.max(index - 1, 0)
+        : event.key === "Home" ? 0 : event.key === "End" ? optionCount - 1 : null;
+    if (targetIndex === null || optionCount === 0) return;
+    event.preventDefault();
+    if (disabled) return;
+    // Radio navigation selects within this question; Enter/Space confirms the click.
+    (onKeyboardSelect ?? onChange)(normalized[targetIndex].code);
+    event.currentTarget.closest('[role="radiogroup"]')
+      ?.querySelectorAll<HTMLButtonElement>('[role="radio"]')[targetIndex]?.focus();
   };
 
   if (optionCount === 0) {

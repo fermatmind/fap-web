@@ -794,17 +794,9 @@ function QuizTakeInner({
             return;
           }
 
-          const deliveredQuestion = normalizedQuestions[0];
-          if (deliveredQuestion) {
-            setQuestions((currentQuestions) => {
-              if (currentQuestions[currentIndex]) {
-                return currentQuestions;
-              }
-
-              const nextQuestions = currentQuestions.slice();
-              nextQuestions[currentIndex] = deliveredQuestion;
-              return nextQuestions;
-            });
+          if (normalizedQuestions[0]) {
+            // Initial load and refresh need the same decoded images as navigation.
+            await prepareOwnerQuestion(activeAttemptId, currentIndex);
           }
         } else if (isIqScale) {
           const response = await getIqQuestions({
@@ -915,6 +907,7 @@ function QuizTakeInner({
     matchesSavedAttempt,
     ownerCurrentQuestionLoaded,
     questions.length,
+    prepareOwnerQuestion,
     requestOwnerQuestion,
     draftReady,
     runWithAuthRetry,
@@ -1088,8 +1081,12 @@ function QuizTakeInner({
   const selectedOptionId = question ? answers[question.id] : undefined;
   const loadError = authBlockError ?? questionsError;
   const answeredCount = useMemo(
-    () => questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
-    [answers, questions]
+    // Owner delivery loads one item at a time; the draft retains earlier answers.
+    // Submission restores and validates the full question inventory before sending.
+    () => isOwnerOriginalIq && loadedQuestionCount < total
+      ? Math.min(total, Object.values(answers).filter(Boolean).length)
+      : questions.reduce((count, item) => count + (answers[item.id] ? 1 : 0), 0),
+    [answers, isOwnerOriginalIq, loadedQuestionCount, questions, total]
   );
 
   useEffect(() => {
@@ -1161,7 +1158,6 @@ function QuizTakeInner({
   const iqCanSubmit = isIqScale
     && isLastQuestion
     && answeredCount === total
-    && (!isOwnerOriginalIq || loadedQuestionCount === total)
     && Boolean(selectedOptionId)
     && !submitting
     && !submitOverlayVisible;
@@ -1371,6 +1367,15 @@ function QuizTakeInner({
           const delivered = normalizeIqQuestionsForTake({ items: response.questions.items, locale })[0];
           if (!delivered) throw new Error(resolveUnsupportedQuestionCopy(locale));
           questionSnapshot[index] = delivered;
+        }
+        const missingIndex = questionSnapshot.findIndex((item) => !answersSnapshot[item.id]);
+        if (missingIndex >= 0) {
+          // A repaired draft can return to an earlier item; decode it before navigation.
+          await prepareOwnerQuestion(activeAttemptId, missingIndex);
+          if (!isFlowActive(activeRunId)) {
+            submitInFlightRef.current = false;
+            return null;
+          }
         }
         setQuestions(questionSnapshot);
       } catch (error) {
@@ -1757,6 +1762,7 @@ function QuizTakeInner({
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 disabled={iqTransitioning || submitting || submitOverlayVisible}
+                onKeyboardSelect={(code) => handleAnswerSelection(question.id, code)}
                 onChange={(code) => selectAndAdvance(() => {
                   handleAnswerSelection(question.id, code);
                 }, { questionId: question.id, code })}
@@ -1889,6 +1895,7 @@ function QuizTakeInner({
             locale={locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}
             disabled={iqTransitioning || submitting || submitOverlayVisible}
+            onKeyboardSelect={(code) => handleAnswerSelection(question.id, code)}
             onChange={(code) => selectAndAdvance(() => {
               handleAnswerSelection(question.id, code);
             }, { questionId: question.id, code })}

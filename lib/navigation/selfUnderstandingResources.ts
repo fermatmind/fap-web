@@ -47,9 +47,9 @@ export function getSelfUnderstandingResources(locale: Locale): SelfUnderstanding
     {
       id: "iq", title: zh ? "IQ与认知" : "IQ & cognition",
       paths: [
-        { label: zh ? "IQ 测试通常在测什么" : "What this reasoning assessment measures", href: "/articles/iq-test-score-and-limits-explained#article-body-markdown-block-21" },
+        { label: zh ? "IQ是什么，怎样测量" : "What is IQ and how is it measured?", href: "/articles/what-is-iq-and-how-it-is-measured" },
         { label: zh ? "分数、正确率与结果边界" : "Understand scoring and its limits", href: "/articles/iq-test-score-and-limits-explained#article-body-markdown-block-35" },
-        { label: zh ? "图形推理练习：旋转与镜像" : "Read the method boundaries", href: zh ? "/articles/matrix-reasoning-rotation-vs-reflection" : "/method-boundaries" },
+        { label: zh ? "图形推理练习：旋转与镜像" : "Matrix reasoning: rotation and reflection", href: "/articles/matrix-reasoning-rotation-vs-reflection" },
       ], testHref: "/tests/iq-test-intelligence-quotient-assessment",
     },
     {
