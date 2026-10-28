@@ -25,9 +25,28 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.locator('[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${entry}`);
     await expect(page.locator("#natal-date")).toHaveValue(""); await expect(page.locator("#natal-zone")).toHaveValue("");
     for (const profile of quiz.profiles) await expect(page.getByRole("link", { name: profile.title[locale], exact: true })).toBeVisible();
+    for (const reading of quiz.natalChart.aspects.readings) {
+      const definition = page.locator(`[data-natal-aspect-definition="${reading.id}"]`);
+      for (const p of reading.paragraphs) await expect(definition.getByText(p[locale], { exact: true })).toBeVisible();
+    }
+    await expect(page.locator("#natal-date")).toHaveValue("");
     await enter(page); await page.locator("#natal-confirm").uncheck(); await page.locator("#natal-confirm").focus(); await page.keyboard.press("Space"); await expect(page.locator("#natal-confirm")).toBeChecked();
     await complete(page, zh);
     const result = box(page).locator("[data-natal-result]");
+    await expect(result.locator("[data-natal-aspect-pair]")).toHaveCount(17);
+    const extra = result.locator('[data-natal-aspect-pair="neptune:pluto"]');
+    await expect(extra).toContainText(zh ? "六分相" : "Sextile");
+    await expect(extra.locator('a[href="#natal-body-role-neptune"]')).toBeVisible();
+    await expect(extra.locator('a[href="/' + locale + '/tests/explore/natal-chart/results/aquarius"]')).toBeVisible();
+    await extra.locator('a[href="#natal-aspect-sextile"]').click();
+    await expect(page.locator('[data-natal-aspect-definition="sextile"]')).toBeInViewport();
+    const definitionHeading = await page.locator('[data-natal-aspect-definition="sextile"] h3').boundingBox();
+    expect(definitionHeading!.y).toBeGreaterThanOrEqual(64);
+    await extra.locator('a[href="#natal-body-role-neptune"]').click();
+    const bodyHeading = await result.locator('[data-natal-body-reading="neptune"] h3').boundingBox();
+    expect(bodyHeading!.y).toBeGreaterThanOrEqual(64);
+    await page.evaluate(() => history.replaceState(null, "", location.pathname));
+    await extra.scrollIntoViewIfNeeded(); await info.attach(`Natal-chart-${locale}-aspects-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await expect(result.locator("[data-natal-body]")).toHaveCount(10); await expect(result.locator("[data-natal-body-reading]")).toHaveCount(10);
     await expect(result.locator('[data-natal-body="sun"]')).toContainText(zh ? "双子座" : "Gemini"); await expect(result.locator('[data-natal-body="moon"]')).toContainText(zh ? "白羊座" : "Aries");
     await expect(result.locator("[data-natal-ascendant]")).toContainText(zh ? "狮子座" : "Leo");
@@ -102,6 +121,7 @@ test("@release Natal chart: all26 public pages visibly render their complete tex
         await expect(reference.getByRole("heading", { level: 3 })).toContainText(house.topic[locale as "en" | "zh"]);
         await expect(reference.getByText(house.reading[locale as "en" | "zh"], { exact: true })).toBeVisible();
       }
+      for (const reading of quiz.natalChart.aspects.readings) for (const p of reading.paragraphs) await expect(page.locator(`[data-natal-aspect-definition="${reading.id}"]`).getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
       await expect(page.locator("#natal-date")).toHaveValue(""); await expect(page.locator("[data-natal-result]")).toHaveCount(0);
     }
     const sections = profile ? profile.sections : quiz.guide;

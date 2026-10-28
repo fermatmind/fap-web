@@ -1,0 +1,309 @@
+{
+  "state": "One fictional numerical/source witness for proposedFermatMind inclusive8degree rule;not competitor method equivalence or range-wide astronomical validation",
+  "utc": "2001-06-15T07:30:00Z",
+  "reference": "Offline SwissEphemeris2.10.03/Moshier;numeric outputs only,library/code not distributed;all45 separations independently projected with Python acos(cos(delta))",
+  "referenceRawSHA256": "03b4a7e423d0832726788a05fb1111f4e9b7ea3c1c6dd742d2e67425934d693d",
+  "sourceObservedRawSHA256": "08cad9ec6e1d468f1f5b198fef83b02e873b355285155a6bd39d1e11aa3f13b1",
+  "positions": [
+    {
+      "body": "sun",
+      "longitude": 84.26494555556027
+    },
+    {
+      "body": "moon",
+      "longitude": 7.369167268100219
+    },
+    {
+      "body": "mercury",
+      "longitude": 86.1621296025074
+    },
+    {
+      "body": "venus",
+      "longitude": 38.6575345815285
+    },
+    {
+      "body": "mars",
+      "longitude": 262.25279532734777
+    },
+    {
+      "body": "jupiter",
+      "longitude": 83.69519722348932
+    },
+    {
+      "body": "saturn",
+      "longitude": 67.02750247449978
+    },
+    {
+      "body": "uranus",
+      "longitude": 324.7269419473687
+    },
+    {
+      "body": "neptune",
+      "longitude": 308.4561346798927
+    },
+    {
+      "body": "pluto",
+      "longitude": 253.63218649989236
+    }
+  ],
+  "observedSourcePairs": [
+    {
+      "id": "moon:saturn",
+      "first": "moon",
+      "second": "saturn",
+      "type": "sextile",
+      "displayedSeparationWholeDegrees": 60,
+      "displayedOrbDegrees": 0.3
+    },
+    {
+      "id": "moon:neptune",
+      "first": "moon",
+      "second": "neptune",
+      "type": "sextile",
+      "displayedSeparationWholeDegrees": 59,
+      "displayedOrbDegrees": 1.1
+    },
+    {
+      "id": "moon:pluto",
+      "first": "moon",
+      "second": "pluto",
+      "type": "trine",
+      "displayedSeparationWholeDegrees": 114,
+      "displayedOrbDegrees": 6.3
+    },
+    {
+      "id": "sun:mercury",
+      "first": "sun",
+      "second": "mercury",
+      "type": "conjunction",
+      "displayedSeparationWholeDegrees": 2,
+      "displayedOrbDegrees": 1.9
+    },
+    {
+      "id": "mercury:mars",
+      "first": "mercury",
+      "second": "mars",
+      "type": "opposition",
+      "displayedSeparationWholeDegrees": 176,
+      "displayedOrbDegrees": 3.9
+    },
+    {
+      "id": "mercury:jupiter",
+      "first": "mercury",
+      "second": "jupiter",
+      "type": "conjunction",
+      "displayedSeparationWholeDegrees": 2,
+      "displayedOrbDegrees": 2.5
+    },
+    {
+      "id": "mercury:uranus",
+      "first": "mercury",
+      "second": "uranus",
+      "type": "trine",
+      "displayedSeparationWholeDegrees": 121,
+      "displayedOrbDegrees": 1.4
+    },
+    {
+      "id": "venus:neptune",
+      "first": "venus",
+      "second": "neptune",
+      "type": "square",
+      "displayedSeparationWholeDegrees": 90,
+      "displayedOrbDegrees": 0.2
+    },
+    {
+      "id": "sun:mars",
+      "first": "sun",
+      "second": "mars",
+      "type": "opposition",
+      "displayedSeparationWholeDegrees": 178,
+      "displayedOrbDegrees": 2.0
+    },
+    {
+      "id": "mars:jupiter",
+      "first": "mars",
+      "second": "jupiter",
+      "type": "opposition",
+      "displayedSeparationWholeDegrees": 179,
+      "displayedOrbDegrees": 1.4
+    },
+    {
+      "id": "mars:uranus",
+      "first": "mars",
+      "second": "uranus",
+      "type": "sextile",
+      "displayedSeparationWholeDegrees": 62,
+      "displayedOrbDegrees": 2.5
+    },
+    {
+      "id": "sun:jupiter",
+      "first": "sun",
+      "second": "jupiter",
+      "type": "conjunction",
+      "displayedSeparationWholeDegrees": 1,
+      "displayedOrbDegrees": 0.6
+    },
+    {
+      "id": "jupiter:uranus",
+      "first": "jupiter",
+      "second": "uranus",
+      "type": "trine",
+      "displayedSeparationWholeDegrees": 119,
+      "displayedOrbDegrees": 1.0
+    },
+    {
+      "id": "saturn:neptune",
+      "first": "saturn",
+      "second": "neptune",
+      "type": "trine",
+      "displayedSeparationWholeDegrees": 119,
+      "displayedOrbDegrees": 1.4
+    },
+    {
+      "id": "saturn:pluto",
+      "first": "saturn",
+      "second": "pluto",
+      "type": "opposition",
+      "displayedSeparationWholeDegrees": 173,
+      "displayedOrbDegrees": 6.6
+    },
+    {
+      "id": "sun:uranus",
+      "first": "sun",
+      "second": "uranus",
+      "type": "trine",
+      "displayedSeparationWholeDegrees": 120,
+      "displayedOrbDegrees": 0.5
+    }
+  ],
+  "expectedOwn8DegreePairs": [
+    {
+      "id": "sun:mercury",
+      "type": "conjunction",
+      "targetDegrees": 0,
+      "separationDegrees": 1.8971840469471417,
+      "orbDegrees": 1.8971840469471417
+    },
+    {
+      "id": "sun:mars",
+      "type": "opposition",
+      "targetDegrees": 180,
+      "separationDegrees": 177.9878497717874,
+      "orbDegrees": 2.0121502282125903
+    },
+    {
+      "id": "sun:jupiter",
+      "type": "conjunction",
+      "targetDegrees": 0,
+      "separationDegrees": 0.5697483320712331,
+      "orbDegrees": 0.5697483320712331
+    },
+    {
+      "id": "sun:uranus",
+      "type": "trine",
+      "targetDegrees": 120,
+      "separationDegrees": 119.5380036081916,
+      "orbDegrees": 0.46199639180839824
+    },
+    {
+      "id": "moon:saturn",
+      "type": "sextile",
+      "targetDegrees": 60,
+      "separationDegrees": 59.65833520639956,
+      "orbDegrees": 0.34166479360043667
+    },
+    {
+      "id": "moon:neptune",
+      "type": "sextile",
+      "targetDegrees": 60,
+      "separationDegrees": 58.9130325882075,
+      "orbDegrees": 1.0869674117925001
+    },
+    {
+      "id": "moon:pluto",
+      "type": "trine",
+      "targetDegrees": 120,
+      "separationDegrees": 113.7369807682079,
+      "orbDegrees": 6.2630192317921
+    },
+    {
+      "id": "mercury:mars",
+      "type": "opposition",
+      "targetDegrees": 180,
+      "separationDegrees": 176.0906657248404,
+      "orbDegrees": 3.9093342751596083
+    },
+    {
+      "id": "mercury:jupiter",
+      "type": "conjunction",
+      "targetDegrees": 0,
+      "separationDegrees": 2.466932379018132,
+      "orbDegrees": 2.466932379018132
+    },
+    {
+      "id": "mercury:uranus",
+      "type": "trine",
+      "targetDegrees": 120,
+      "separationDegrees": 121.4351876551387,
+      "orbDegrees": 1.435187655138705
+    },
+    {
+      "id": "venus:neptune",
+      "type": "square",
+      "targetDegrees": 90,
+      "separationDegrees": 90.20139990163581,
+      "orbDegrees": 0.2013999016358099
+    },
+    {
+      "id": "mars:jupiter",
+      "type": "opposition",
+      "targetDegrees": 180,
+      "separationDegrees": 178.55759810385848,
+      "orbDegrees": 1.4424018961415186
+    },
+    {
+      "id": "mars:uranus",
+      "type": "sextile",
+      "targetDegrees": 60,
+      "separationDegrees": 62.47414662002092,
+      "orbDegrees": 2.4741466200209175
+    },
+    {
+      "id": "jupiter:uranus",
+      "type": "trine",
+      "targetDegrees": 120,
+      "separationDegrees": 118.96825527612064,
+      "orbDegrees": 1.0317447238793562
+    },
+    {
+      "id": "saturn:neptune",
+      "type": "trine",
+      "targetDegrees": 120,
+      "separationDegrees": 118.5713677946071,
+      "orbDegrees": 1.4286322053929013
+    },
+    {
+      "id": "saturn:pluto",
+      "type": "opposition",
+      "targetDegrees": 180,
+      "separationDegrees": 173.39531597460746,
+      "orbDegrees": 6.604684025392544
+    },
+    {
+      "id": "neptune:pluto",
+      "type": "sextile",
+      "targetDegrees": 60,
+      "separationDegrees": 54.82394818000037,
+      "orbDegrees": 5.176051819999628
+    }
+  ],
+  "ownAdditionalPairsVersusObservedSource": [
+    "neptune:pluto"
+  ],
+  "notes": [
+    "Ten-body pairs only;four sensitive-pointInspectors have no planetary connected-aspect list in the fixed raw sample",
+    "Own8degree convention includes observedMoon-Pluto6.3 andSaturn-Pluto6.6,also addsNeptune-Pluto notinobservedsource;no hidden source policy inferred",
+    "Earlier5degree exploratory output stays unchanged;this8degree proposal has not been adopted into public app",
+    "Source whole-degree/one-decimal displays are comparison-level evidence,not exactlongitudes or physicalaccuracyguarantees"
+  ]
+}

@@ -14,6 +14,8 @@ const quiz = JSON.parse(readFileSync("lib/questionnaires/data/natal-chart.json",
 describe("T199 real public callers and fixed editorial identity", () => {
   it("registers the calculator without routing birth inputs through questionnaire scoring or storage", async () => {
     expect(await loadQuestionnaire(quiz.slug)).toEqual(quiz);
+    const catalog = JSON.parse(readFileSync("lib/questionnaires/catalog.json", "utf8"));
+    expect(catalog.find((row: { slug: string }) => row.slug === quiz.slug).version).toBe(quiz.version);
     const registered = quiz as unknown as Questionnaire;
     expect(isQuestionnaireConfigurationValid(registered)).toBe(true);
     expect(scoreQuestionnaire(registered, {})).toEqual({ status: "unavailable", answered: 0 });
@@ -64,6 +66,7 @@ describe("T199 real public callers and fixed editorial identity", () => {
   it("fails closed at actual page, guide, metadata and image callers when core identity or content is damaged", async () => {
     for (const mutate of [
       (q: NatalChartQuestionnaire) => { q.natalChart.engine = "other" as never; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.aspects.maximumOrbDegrees = 5 as never; },
       (q: NatalChartQuestionnaire) => { delete q.natalChart.bodyRoles[0]; },
       (q: NatalChartQuestionnaire) => { q.profiles[0].sections[2].paragraphs[0].zh = ""; },
     ]) {

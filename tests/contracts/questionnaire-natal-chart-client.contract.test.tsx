@@ -37,6 +37,13 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     for (const locale of ["en", "zh"] as const) {
       const entry = renderToStaticMarkup(<NatalChartPage quiz={quiz} locale={locale} />);
       expect(entry).toContain(quiz.title[locale]);
+      const dom = document.createElement("div"); dom.innerHTML = entry;
+      expect(dom.querySelectorAll("[data-natal-aspect-definition]")).toHaveLength(5);
+      expect(dom.querySelector("[data-natal-aspect-convention]")?.textContent).toBe(quiz.natalChart.aspects.convention[locale]);
+      for (const reading of quiz.natalChart.aspects.readings) {
+        const definition = dom.querySelector(`[data-natal-aspect-definition="${reading.id}"]`);
+        for (const p of reading.paragraphs) expect(definition?.textContent).toContain(p[locale]);
+      }
       for (const p of quiz.profiles) {
         const body = renderToStaticMarkup(<NatalChartGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(body).not.toContain("data-natal-result");
@@ -49,8 +56,35 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     }
   });
 
+  it("connects every computed pair to its actual body roles, signs and full public definition in both locales", () => {
+    const reference = JSON.parse(readFileSync("tests/fixtures/questionnaires/natal-chart-aspects-reference.json", "utf8"));
+    const result = calculateNatalChart({ date: "2001-06-15", time: "08:30", zone: "Europe/London", latitude: "51.5", longitude: "-0.1", coordinatesConfirmed: true, knownTime: true }, Date.parse("2026-10-28T00:00Z"));
+    if (result.status !== "complete") throw new Error("Fixed fictional sample unavailable");
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={result.chart} locale={locale} />);
+      expect(dom.querySelectorAll("[data-natal-aspect-pair]")).toHaveLength(17);
+      for (const expected of reference.expectedOwn8DegreePairs) {
+        const pair = dom.querySelector(`[data-natal-aspect-pair="${expected.id}"]`)!;
+        expect(pair).not.toBeNull();
+        expect(pair.querySelector(`a[href="#natal-aspect-${expected.type}"]`)).not.toBeNull();
+        for (const body of expected.id.split(":")) {
+          expect(pair.querySelector(`a[href="#natal-body-role-${body}"]`)).not.toBeNull();
+          const placement = result.chart.placements.find(p => p.body === body)!;
+          expect(pair.querySelector(`a[href="/${locale}/tests/explore/natal-chart/results/${placement.coordinate.sign}"]`)).not.toBeNull();
+        }
+        // Independent Swiss longitudes + acos(cos Δ) witness, allowing the recorded engine difference and display truncation.
+        const separation = Number(pair.querySelector("[data-natal-aspect-separation]")?.textContent?.replace("°", ""));
+        expect(Math.abs(separation - expected.separationDegrees)).toBeLessThan(0.11);
+        const orb = Number(pair.querySelector("[data-natal-aspect-orb]")?.textContent?.replace("°", ""));
+        expect(Math.abs(orb - expected.orbDegrees)).toBeLessThan(0.11);
+      }
+    }
+  });
+
   it("uses the actual selected signs and shows every body-role paragraph in the computed result", async () => {
     const view = render(<NatalChartClient quiz={quiz} locale="en" />); enter(); await calculate();
+    expect(document.querySelectorAll("[data-natal-aspect-pair]")).toHaveLength(17);
+    expect(document.querySelector('[data-natal-aspect-pair="neptune:pluto"]')).toHaveTextContent("Sextile");
     expect(document.querySelectorAll("[data-natal-body]")).toHaveLength(10);
     expect(document.querySelectorAll("[data-natal-body-reading]")).toHaveLength(10);
     expect(document.querySelector("[data-natal-rising-reading]")).not.toBeNull();

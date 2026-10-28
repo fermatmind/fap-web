@@ -4,6 +4,7 @@ import type { NatalChartQuestionnaire, NatalSignProfile } from "@/lib/questionna
 import type { NatalChartReadout } from "@/lib/questionnaires/natalChartCalculation";
 import type { NatalCoordinate } from "@/lib/questionnaires/natalChartCoordinates";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
+import { calculateNatalAspects } from "@/lib/questionnaires/natalChartAspects";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 
 function coordinateLabel(quiz: NatalChartQuestionnaire, coordinate: NatalCoordinate, locale: Locale) {
@@ -49,7 +50,7 @@ export function NatalChartAttribution({ quiz, locale }: { quiz: NatalChartQuesti
     <h2 id="natal-attribution" className="text-xl font-semibold text-slate-950">{zh ? "计算、符号与来源" : "Computation, symbols and sources"}</h2>
     <p>{zh ? "计算采用Astronomy Engine2.1.19（MIT）默认时标模型，民用时间解析采用Temporal polyfill0.5.1（ISC）；参考点来自IANA2026e公有领域表，浏览器时区规则可能使用不同版本的数据。天体采用视地心回归黄道位置，上升点通过真赤道与地平坐标变换求东方交点，宫位为整宫制。" : "Computation uses Astronomy Engine2.1.19 (MIT), with its default time-scale model, and Temporal polyfill0.5.1 (ISC) for civil time. Reference points come from IANA's public-domain2026e table; the browser may use a different time-zone data version. Positions are apparent geocentric tropical longitudes. The Ascendant is the eastern horizon intersection using true-equator/horizon rotations, with whole-sign houses."}</p>
     <p>{quiz.natalChart.boundaries.calculationVsMeaning[locale]}</p>
-    <p>{zh ? "星座与天体资料只用于说明出版方的符号约定。正文、例子与反思问题由费马原创，不复制竞品报告，也不继承心理测量效度或作者背书。本版展示十天体落点、上升点、整宫制宫位和符号读法；暂不计算相位、视逆行、天顶／天底／下降点或敏感点。" : "Sign and body references explain publisher conventions. FermatMind wrote the prose, scenes and reflection questions without copying a competitor report or claiming psychometric validation or author endorsement. This edition shows ten body placements, the Ascendant, whole-sign houses and symbolic readings. It does not currently calculate aspects, apparent retrograde, the Midheaven, IC, Descendant or sensitive points."}</p>
+    <p>{zh ? "星座与天体资料只用于说明出版方的符号约定。正文、例子与反思问题由费马原创，不复制竞品报告，也不继承心理测量效度或作者背书。本版展示十天体落点、上升点、整宫制宫位、五类主要相位和符号读法；暂不计算视逆行、天顶／天底／下降点或敏感点。" : "Sign and body references explain publisher conventions. FermatMind wrote the prose, scenes and reflection questions without copying a competitor report or claiming psychometric validation or author endorsement. This edition shows ten body placements, the Ascendant, whole-sign houses, five major aspects and symbolic readings. It does not currently calculate apparent retrograde, the Midheaven, IC, Descendant or sensitive points."}</p>
     <details><summary className="cursor-pointer font-semibold">{zh ? "展开原始参考来源" : "Open original references"}</summary><ul className="mt-3 list-disc space-y-2 pl-5">{quiz.references.map(reference => <li key={reference.url}><a href={reference.url} className="underline">{reference.title[locale]}</a></li>)}</ul></details>
     <p><a className="underline" href="/licenses/natal-chart-third-party.txt">{zh ? "计算组件的版权与软件许可原文" : "Calculation software copyright and license notices"}</a></p>
   </section>;
@@ -59,15 +60,29 @@ export function NatalSignGuideBody({ profile, locale, idPrefix = "natal-sign" }:
   return <QuestionnaireReport profile={profile} locale={locale} headingLevel={2} idPrefix={idPrefix} />;
 }
 
+export function NatalAspectGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
+  const zh = locale === "zh", aspects = quiz.natalChart.aspects;
+  return <section data-natal-aspect-guide aria-labelledby="natal-aspect-guide-title" className="my-8 space-y-5 leading-8">
+    <h2 id="natal-aspect-guide-title" className="text-2xl font-semibold">{zh ? "五类主要相位完整读法（无需出生资料）" : "Complete five-aspect reference, without birth information"}</h2>
+    <p>{aspects.introduction[locale]}</p><p>{aspects.orbExplanation[locale]}</p><p data-natal-aspect-convention>{aspects.convention[locale]}</p>
+    {aspects.readings.map(reading => <section key={reading.id} id={`natal-aspect-${reading.id}`} data-natal-aspect-definition={reading.id} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5">
+      <h3 className="text-xl font-semibold">{reading.name[locale]} · {reading.targetDegrees}°</h3><p className="mt-3 font-semibold">{reading.theme[locale]}</p>
+      {reading.paragraphs.map((p, index) => <p key={index} className="mt-3">{p[locale]}</p>)}
+    </section>)}
+  </section>;
+}
+
 export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQuestionnaire; chart: NatalChartReadout; locale: Locale }) {
   const zh = locale === "zh", c = quiz.natalChart;
+  const aspects = calculateNatalAspects(chart.placements);
+  const degrees = (value: number) => `${(Math.floor(value * 10) / 10).toFixed(1)}°`;
   const bodyName = (id: string) => c.bodyRoles.find(role => role.id === id)!.name[locale];
   const signContext = (coordinate: NatalCoordinate, role: string) => quiz.profiles[coordinate.signIndex].sections.find(section => section.id === role)!;
   const roleCard = (placement: NatalChartReadout["placements"][number], primary: boolean) => {
     const role = c.bodyRoles.find(item => item.id === placement.body)!, profile = quiz.profiles[placement.coordinate.signIndex];
     const context = signContext(placement.coordinate, primary ? placement.body : "symbol");
     const house = placement.house === null ? null : c.houseContexts[placement.house - 1];
-    return <section key={placement.body} data-natal-body-reading={placement.body} className="rounded-lg border border-slate-200 bg-white p-5 leading-8">
+    return <section key={placement.body} id={`natal-body-role-${placement.body}`} data-natal-body-reading={placement.body} className="scroll-mt-24 rounded-lg border border-slate-200 bg-white p-5 leading-8">
       <h3 className="text-xl font-semibold">{role.name[locale]} · {coordinateLabel(quiz, placement.coordinate, locale)}</h3>
       <p className="my-3 font-semibold">{role.topic[locale]}</p>
       {role.paragraphs.map((p, index) => <p key={index} className="mt-3">{p[locale]}</p>)}
@@ -87,6 +102,24 @@ export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQues
       <tbody>{chart.placements.map((p, index) => <tr key={p.body} data-natal-body={p.body}><th scope="row" className="border-b border-slate-200 p-3">{index + 1}. {bodyName(p.body)}</th><td className="border-b border-slate-200 p-3">{coordinateLabel(quiz, p.coordinate, locale)}{p.coordinate.nearDisplayBoundary && <span className="block text-xs">{zh ? "距星座边界小于一个显示步长" : "Within one display step of a sign boundary"}</span>}</td><td className="border-b border-slate-200 p-3">{p.house ?? (zh ? "不可用" : "Unavailable")}</td></tr>)}
         <tr data-natal-ascendant><th scope="row" className="p-3">{zh ? "上升点 ASC" : "Ascendant ASC"}</th><td className="p-3">{chart.ascendant.status === "computed" ? coordinateLabel(quiz, chart.ascendant.coordinate, locale) : (zh ? "不可用" : "Unavailable")}</td><td className="p-3">{chart.ascendant.status === "computed" ? "1" : (zh ? "不可用" : "Unavailable")}</td></tr>
       </tbody></table></div>
+    <section aria-labelledby="natal-aspects-title" data-natal-aspects className="space-y-4 leading-8">
+      <h3 id="natal-aspects-title" className="text-2xl font-semibold">{zh ? "本次十天体主要相位" : "This chart’s major ten-body aspects"}</h3>
+      <p>{c.aspects.convention[locale]}</p>
+      {aspects.status === "unavailable" ? <p role="status" data-natal-aspects-unavailable>{zh ? "完整十天体黄经不可用，无法计算相位；不显示部分列表。" : "The complete ten-body longitudes are unavailable, so aspects cannot be calculated. No partial list is shown."}</p> : <>
+        <p data-natal-aspects-summary>{zh ? `已比较${aspects.comparisons}个无序对，按本页规则纳入${aspects.aspects.length}对。` : `Compared ${aspects.comparisons} unordered pairs; ${aspects.aspects.length} meet this page’s rule.`}</p>
+        {aspects.aspects.length === 0 ? <p data-natal-aspects-empty>{zh ? "没有天体对符合这项角度与容许度约定。这不表示某种能力、关系或经历缺失。" : "No pair meets these angle and orb conventions. This does not mean an ability, relationship or experience is missing."}</p> : <ol className="space-y-4">{aspects.aspects.map(aspect => {
+          const reading = c.aspects.readings.find(item => item.id === aspect.type)!;
+          return <li key={aspect.id} data-natal-aspect-pair={aspect.id} className="rounded-lg border border-slate-200 bg-white p-5">
+            <h4 className="font-semibold"><a className="underline" href={`#natal-aspect-${aspect.type}`}>{reading.name[locale]} · {aspect.targetDegrees}°</a></h4>
+            <ul className="mt-2 space-y-2">{[aspect.first, aspect.second].map(body => {
+              const placement = chart.placements.find(item => item.body === body)!;
+              return <li key={body}><a className="inline-block min-h-11 py-2 underline" href={`#natal-body-role-${body}`}>{bodyName(body)}</a>{" · "}<Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={questionnaireGuidePath(locale, quiz.slug, placement.coordinate.sign)}>{coordinateLabel(quiz, placement.coordinate, locale)}</Link></li>;
+            })}</ul>
+            <dl className="mt-2"><div><dt className="inline">{zh ? "实际黄经间距：" : "Longitude separation: "}</dt><dd data-natal-aspect-separation className="inline">{degrees(aspect.separationDegrees)}</dd></div><div><dt className="inline">{zh ? "容许度：" : "Orb: "}</dt><dd data-natal-aspect-orb className="inline">{degrees(aspect.orbDegrees)}</dd></div></dl>
+          </li>;
+        })}</ol>}
+      </>}
+    </section>
     <section aria-labelledby="natal-inventory" className="space-y-4 leading-8"><h3 id="natal-inventory" className="text-xl font-semibold">{zh ? "十天体元素与性质计数" : "Ten-body element and modality counts"}</h3><p>{c.inventoryReading.definition[locale]}</p>
       <div className="grid gap-5 sm:grid-cols-2"><dl className="rounded-lg bg-slate-50 p-4">{([ ["fire", "Fire", "火"], ["earth", "Earth", "土"], ["air", "Air", "风"], ["water", "Water", "水"] ] as const).map(([key, en, cn]) => <div key={key} className="flex justify-between"><dt>{zh ? cn : en}</dt><dd data-natal-element={key}>{chart.inventory.elements[key]}</dd></div>)}</dl><dl className="rounded-lg bg-slate-50 p-4">{([ ["cardinal", "Cardinal", "基本"], ["fixed", "Fixed", "固定"], ["mutable", "Mutable", "变动"] ] as const).map(([key, en, cn]) => <div key={key} className="flex justify-between"><dt>{zh ? cn : en}</dt><dd data-natal-modality={key}>{chart.inventory.modalities[key]}</dd></div>)}</dl></div><p>{c.inventoryReading.zero[locale]}</p>
     </section>

@@ -1,7 +1,7 @@
 {
   "slug": "natal-chart",
   "code": "FM_NATAL_CHART_CORE",
-  "version": "2026-10-28.1",
+  "version": "2026-10-28.2",
   "updated": "2026-10-28",
   "category": "fantasy",
   "kind": "natal-chart",
@@ -34,10 +34,10 @@
     "kind": "fermatmind_original_natal_symbolic_reading",
     "formCode": "fm_natal_known_time_core_v1",
     "itemBankVersion": "fm_natal_known_time_core_v1",
-    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_v1",
-    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_v1",
-    "itemBankSha256": "2314e11f62c6655341f7871dcb7b632114800554f7e798c42666aa68ae44d6e8",
-    "resultContentSha256": "1cb599644ec17ad1933be7c830666aa3a647ac1fcb1c5e919b832104d455106b",
+    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_v2",
+    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_v2",
+    "itemBankSha256": "633f73f5e394b66b17e28843049bc55a628a8755732521ea3bc82373c830e716",
+    "resultContentSha256": "30cfb982d459c97a6a4a62338344b18089e0dcddbe76b38b9d05149b5a981091",
     "psychometricValidationCompleted": false
   },
   "natalChart": {
@@ -606,7 +606,134 @@
         "latitude": 34.05222222222222,
         "longitude": -118.24277777777777
       }
-    ]
+    ],
+    "aspects": {
+      "maximumOrbDegrees": 8,
+      "introduction": {
+        "en": "An aspect compares two bodies' longitudes with a chosen reference angle. The angle is a geometric description; its interpretation belongs to astrology's symbolic vocabulary. Read both body roles alongside the aspect label. A line in a chart is not evidence of talent, conflict, compatibility or a coming event.",
+        "zh": "相位把两个天体的黄经关系与选定参考角比较。角度是几何描述，解释则属于占星的符号语言。阅读相位标签时，也看两个天体各自的问题主题。星盘中的一条线不是天赋、冲突、匹配或未来事件的证据。"
+      },
+      "orbExplanation": {
+        "en": "An orb is the difference between the measured longitude separation and the chosen reference angle. A rule for which differences to include must be stated before displaying a list. Different calculators may choose different limits. A smaller orb describes a closer geometric match within that rule; it is not a stronger personality effect or a more certain prediction.",
+        "zh": "容许度表示测得的黄经间距，与所选参考角之间差多少。显示列表前，应说明纳入多大差距的规则。不同计算器可以选择不同上限。容许度更小，只表示按该规则几何上更接近，不表示人格影响更强或预测更确定。"
+      },
+      "convention": {
+        "en": "This calculator compares all 45 unordered pairs of the ten bodies with 0°, 60°, 90°, 120° and 180°. It includes a pair when the unrounded difference from a reference angle is at most 8°, including exactly 8°. This uniform limit is FermatMind’s stated convention, not a universal standard. Displayed separation and orb are truncated to 0.1° after inclusion; a displayed 8.0° alone does not decide inclusion. Examples in the definitions are hypothetical, not statements about your chart.",
+        "zh": "计算器将十天体的全部45个无序对，与0°、60°、90°、120°和180°比较。未舍入的间距与某个参考角之差不超过8°时纳入，恰好8°也纳入。统一上限是费马在此明示的约定，并非通用标准。先判定纳入，再将间距与容许度截取至0.1°显示；仅凭显示的8.0°不能判断是否纳入。定义中的例子均为假设，不是在描述本次星盘。"
+      },
+      "readings": [
+        {
+          "id": "conjunction",
+          "targetDegrees": 0,
+          "name": {
+            "en": "Conjunction",
+            "zh": "合相"
+          },
+          "theme": {
+            "en": "Topics brought together",
+            "zh": "把两个主题放在一起"
+          },
+          "paragraphs": [
+            {
+              "en": "The conventional image of conjunction is combination. Two body topics can be read side by side as one question. For Sun and Mercury, that might mean asking how a message expresses an intention. It does not mean the two bodies are physically joined or that your thoughts and identity must always agree.",
+              "zh": "合相的传统意象是组合。可以把两个天体主题并排，组成一个问题。太阳与水星的例子是，一条消息怎样表达意图。它不表示两个天体在物理上相连，也不表示想法与认同必须始终一致。"
+            },
+            {
+              "en": "For a concrete reflection, write a short message and underline what you most wanted it to convey. Then ask whether the words actually convey that intention. A mismatch can lead to editing; it does not reveal a defect in a conjunction or in the person reading it.",
+              "zh": "具体反思可以是写一条短消息，划出最想传达的内容，再核对文字是否表达了原意。不一致可以成为修改的理由，却不揭示合相或读者本人的缺陷。"
+            }
+          ]
+        },
+        {
+          "id": "sextile",
+          "targetDegrees": 60,
+          "name": {
+            "en": "Sextile",
+            "zh": "六分相"
+          },
+          "theme": {
+            "en": "A possible connection to explore",
+            "zh": "探索一个可能的连接"
+          },
+          "paragraphs": [
+            {
+              "en": "Sextile traditionally offers an image of an opening or opportunity between topics. Treat that as an invitation to ask a question, not a promise that an opportunity exists. For Moon and Saturn, an example is whether a small arrangement could support comfort. The geometric relation itself does not provide support or make an action beneficial.",
+              "zh": "六分相传统上提供主题之间存在开口或机会的意象。把它当作提问邀请，不要当作机会确实存在的承诺。月亮与土星的例子是，一个小安排是否有助于自在。几何关系本身不会提供支持，也不会让某项行动自动有益。"
+            },
+            {
+              "en": "You might compare an unplanned hour with one containing a single optional task. Notice which arrangement worked in that setting. There is no obligation to act on an apparent opportunity, and a different preference is not a missed chance written in the chart.",
+              "zh": "可以比较完全不作安排的一小时，与只放入一项可选任务的一小时，观察当时哪种更好用。没有义务抓住看起来像机会的东西；偏好不同，也不是错过了星盘写定的机会。"
+            }
+          ]
+        },
+        {
+          "id": "square",
+          "targetDegrees": 90,
+          "name": {
+            "en": "Square",
+            "zh": "四分相"
+          },
+          "theme": {
+            "en": "A difference to examine",
+            "zh": "检视一处差异"
+          },
+          "paragraphs": [
+            {
+              "en": "Square is conventionally read through friction or tension. Here it can simply place two questions in contrast. With Venus and Neptune, compare what you actually enjoy with what you imagine an experience will be like. The label does not establish disappointment, deception or a difficult relationship; those would require evidence about a real situation.",
+              "zh": "四分相传统上通过摩擦或张力理解。这里可以只是对照两个问题。金星与海王星的例子是，比较实际享受什么，与想象某次体验会怎样。标签不能确立失望、欺骗或关系困难；这些需要真实情境的证据。"
+            },
+            {
+              "en": "Choose an ordinary activity and write one expectation before trying it. Afterward, note one thing that matched and one that differed. You may revise the expectation without turning the mismatch into a personal lesson or assuming the chart caused it.",
+              "zh": "选一个日常活动，尝试前写下一条期待，之后记下一个吻合处与一个不同处。可以调整期待，无需把差别上升为人生功课，也无需假设它由星盘造成。"
+            }
+          ]
+        },
+        {
+          "id": "trine",
+          "targetDegrees": 120,
+          "name": {
+            "en": "Trine",
+            "zh": "三分相"
+          },
+          "theme": {
+            "en": "Topics imagined in an easy exchange",
+            "zh": "设想主题之间的顺畅交流"
+          },
+          "paragraphs": [
+            {
+              "en": "The traditional trine image is ease or flow between topics. It is a reading convention, not a measurement of natural talent. For Sun and Uranus, you could ask whether trying a different format makes an intended expression clearer. A particular experiment may feel easy or difficult regardless of the aspect label.",
+              "zh": "三分相的传统意象是主题之间的轻松或流动。这是一种读法，不是天赋测量。太阳与天王星的例子是，换一种形式是否让想表达的内容更清楚。具体尝试可以轻松，也可以困难，与相位标签并没有必然关系。"
+            },
+            {
+              "en": "Try explaining a small idea in two formats, such as a sentence and a sketch. Compare their usefulness for the intended reader. Whichever works better in this instance is information about the task, not proof of an innate gift or an effort-free path.",
+              "zh": "试着用两种形式说明一个小想法，例如一句话与一幅草图，再比较哪种对目标读者有用。这次哪种更好，是关于任务的信息，不证明天生禀赋，也不保证有一条无需投入的路。"
+            }
+          ]
+        },
+        {
+          "id": "opposition",
+          "targetDegrees": 180,
+          "name": {
+            "en": "Opposition",
+            "zh": "对分相"
+          },
+          "theme": {
+            "en": "Two sides of a question",
+            "zh": "同一问题的两端"
+          },
+          "paragraphs": [
+            {
+              "en": "Opposition conventionally sets two topics across from one another. That image can help you state both sides of a question without assuming there is a real conflict. For Sun and Mars, compare what you intend to express with the action you are considering. Their topics need not be enemies, and neither side automatically deserves priority.",
+              "zh": "对分相传统上把两个主题放在相对位置。这个意象可以帮助说清问题两端，而不用预设现实中一定存在冲突。太阳与火星的例子是，比较想表达什么与准备采取什么行动。两种主题不必彼此为敌，也没有哪端自动更优先。"
+            },
+            {
+              "en": "Write the intention in one sentence and the proposed action in another. Ask what connects them and whether a different action would serve the same intention. The comparison is optional; the aspect does not predict confrontation, a partner or a need to find a perfect balance.",
+              "zh": "用一句话写意图，再用一句话写拟采取的行动，问两者靠什么连接、换一种行动是否也能服务原意。这个比较可做可不做；相位不预测对抗、伴侣或必须达到的完美平衡。"
+            }
+          ]
+        }
+      ]
+    }
   },
   "directions": [],
   "questions": [],
@@ -2116,8 +2243,8 @@
       },
       "paragraphs": [
         {
-          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts. It does not yet calculate other angles, aspects, retrograde flags or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
-          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质。其他角点、相位、视逆行标记与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
+          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. It does not yet calculate other angles, retrograde flags or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
+          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位。其他角点、视逆行标记与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
         }
       ]
     }
@@ -2333,8 +2460,8 @@
     },
     {
       "title": {
-        "en": "Astrology.com: conventional house topics",
-        "zh": "Astrology.com：宫位传统主题"
+        "en": "Astrology.com: conventional house topics and five major aspect angles",
+        "zh": "Astrology.com：宫位传统主题与五类主要相位角"
       },
       "url": "https://www.astrology.com/amp/article/birth-chart-astrology-houses-planets-signs-aspects/"
     },
