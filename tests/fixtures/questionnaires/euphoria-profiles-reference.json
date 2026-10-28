@@ -1,0 +1,965 @@
+{
+  "edition": "fm_euphoria_eight_full6_s1s2_v1",
+  "profiles": [
+    {
+      "id": "rue-bennett",
+      "directionIds": [
+        "RUE"
+      ],
+      "title": {
+        "en": "Rue Bennett",
+        "zh": "鲁·贝内特"
+      },
+      "headline": {
+        "en": "Sideways storytelling",
+        "zh": "从旁叙述"
+      },
+      "summary": {
+        "en": "An original reading of the sideways storytelling options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“从旁叙述”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rue Bennett Euphoria quiz result: sideways storytelling",
+          "zh": "《亢奋》鲁·贝内特角色结果：从旁叙述"
+        },
+        "description": {
+          "en": "Explore Rue’s storytelling route: humour before a direct request, a planning-meeting example and comparisons with Lexi and Jules. Unofficial Euphoria guide.",
+          "zh": "鲁·贝内特完整角色指南：从玩笑走向直接请求，阅读日程讨论示例，并比较莱克西与朱尔斯路线。解释本题本次数，不把虚构成瘾经历转移到答题者身上。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Rue narrates the series. Here, that small story anchor becomes an original editorial route: approaching a feeling through a joke, an odd detail or an indirect account before naming it plainly. The quiz counts the options we assigned to that route; it cannot tell why you selected them. Humour can make an uncertain moment easier to enter, but the same choice could simply reflect what sounded enjoyable today.",
+              "zh": "鲁是剧集的叙述者。这里把这条简短剧情线索改编为原创编辑路线：先借玩笑、奇特细节或间接叙述靠近感受，再直接说出来。题目只累计我们分配给这条路线的选项，无法知道你的选择原因。幽默可能让不确定的场面容易进入，也可能只是今天觉得这个选项有趣。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary planning meeting where nobody wants to admit the schedule is unrealistic. You make a light observation about how many afternoons the plan seems to contain, then ask which task can move. This invented scene captures a possible use of the route: giving a tense room an opening. It works only if the actual concern eventually becomes audible; the joke alone does not settle the workload or anyone’s consent.",
+              "zh": "设想一次普通安排会：大家都不愿承认日程不现实。你轻轻打趣这份计划好像需要好几个下午，再问哪项任务能挪动。这个虚构场景展示了路线的一种用法：给紧绷的房间一个开口。实际担忧最终仍须被听见；玩笑本身不能解决工作量或替别人作出同意。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Lexi when the emphasis is on watching and recording, rather than on finding a sideways entry into conversation. Compare Jules when the attraction lies in a new possibility rather than a particular way of telling the current experience. A one-count lead is just one selection in this bank. Equal leading counts keep all corresponding guides open; neither closeness nor a tie establishes a hidden blend of characters.",
+              "zh": "如果重点在观察和记录，可比较莱克西；如果吸引你的是新可能，而非讲述当下经历的方式，可比较朱尔斯。领先一次只表示本题本多选了一次。最高次数相同时保留所有对应指南；接近或并列都不能证明某种隐藏角色混合。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, try an original everyday line: “The joke is my opening; what I really need is a smaller plan.” You can also choose a direct sentence without a joke. Privately notice whether another person understood the request, rather than judging how entertaining you were. No one needs to accept teasing or disclose a difficult experience for this exercise to count as finished.",
+              "zh": "如果适合，可试一句原创日常表达：“玩笑只是开头，我真正需要的是缩小计划。”也可以直接说，不必开玩笑。私下留意对方是否听懂请求，而非评价自己是否足够有趣。无需接受取笑，也无需披露艰难经历，这项体验仍可在此结束。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: choosing the humorous option during a relaxed afternoon does not show avoidance, distress or a need to hide anything. Equally, a witty account does not make a real difficulty less important. Rue’s fictional addiction and personal history are outside the scoring model and must never be transferred to the person taking this quiz.",
+              "zh": "反例：在轻松下午选择幽默选项，不能说明你在回避、痛苦或需要隐瞒什么。反过来，一段机智叙述也不会让真实困难变得不重要。鲁在虚构剧情中的成瘾及个人经历完全不在计分模型内，不能转移到答题者身上。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jules-vaughn",
+      "directionIds": [
+        "JULES"
+      ],
+      "title": {
+        "en": "Jules Vaughn",
+        "zh": "朱尔斯·沃恩"
+      },
+      "headline": {
+        "en": "Exploring possibilities",
+        "zh": "探索可能"
+      },
+      "summary": {
+        "en": "An original reading of the exploring possibilities options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“探索可能”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Jules Vaughn Euphoria quiz result: exploring possibilities",
+          "zh": "《亢奋》朱尔斯·沃恩角色结果：探索可能"
+        },
+        "description": {
+          "en": "Read Jules’s possibilities route through a small, reversible colour experiment. Compare Kat and Rue, without inferring identity or risk-taking. Unofficial guide.",
+          "zh": "朱尔斯完整角色指南：以可逆的小配色尝试理解探索可能，比较凯特的自我呈现与鲁的叙述路线。选择次数不推断性别认同、性取向或冒险倾向。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Jules develops a relationship with Rue. This quiz does not measure that relationship or reproduce her identity. Its original Jules route concerns curiosity about an unfamiliar option, image or experience. Choosing those options can make this route lead within the bank, but the count cannot distinguish lasting preference from a particular mood, a recent opportunity or the wording you happened to like.",
+              "zh": "朱尔斯与鲁发展出一段关系。本测试不测量那段关系，也不复刻她的身份。原创的朱尔斯路线关注对陌生选项、图像或体验的好奇。选择这些选项会增加本题本中该路线的次数，但无法区分长期偏好、某种心情、近期机会或你恰好喜欢的措辞。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Picture a shared room that needs a small refresh. You suggest trying one unfamiliar colour on a movable card before anyone changes the wall. This is an invented everyday example, not an episode scene. Exploration here can be small and reversible: the group can look, disagree, keep the old version or stop. The interesting possibility does not automatically outrank another person’s practical needs.",
+              "zh": "设想公共房间需要稍作更新。你建议先在可移动卡片上试一种陌生颜色，再决定是否动墙面。这是虚构日常例子，并非剧集场景。探索可以小而可逆：大家可以看看、不同意、保留旧样或停止。有趣的可能性不会自动优先于别人的实际需要。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Kat if your interest is chiefly in choosing how you present yourself to an audience. Compare Rue if an unexpected idea is mainly a way to describe a current feeling. The distinctions are editorial choices for these questions, not established psychological dimensions. Read the actual alternatives you considered; two people with the same leading route may have arrived through quite different selections.",
+              "zh": "如果重点在选择如何向别人呈现自己，可比较凯特；如果意外点子主要用于表达当下感受，可比较鲁。这些区别是本题本的编辑安排，不是已确立的心理维度。可以回看实际考虑过的选项；同一路线领先的两个人，具体选择可能很不一样。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional line is: “Could we try a small version first, with room to say no?” Decide what would make the experiment affordable in time, money or effort, without turning it into a test of bravery. You may discover that you prefer the familiar option after all. Changing your mind supplies information about this situation; it does not invalidate a character result or require another attempt.",
+              "zh": "一句可选表达是：“能否先试一个小版本，也留出说不的余地？”可以确认时间、金钱或精力上怎样才负担得起，不必把尝试变成勇敢考试。最后更喜欢熟悉选项也可以。改主意只提供当前情境的信息，不会推翻角色结果，也不要求重做。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: wanting a new colour, place or format says nothing about gender identity, sexuality, risk-taking or relationship stability. Being unable to try it may reflect access or resources rather than lack of curiosity. The character’s story is a fictional reference, never evidence about those private aspects of your life.",
+              "zh": "反例：想试一种新颜色、地点或形式，无法说明性别认同、性取向、冒险倾向或关系稳定性。无法尝试也可能来自资源或条件，而非缺少好奇心。角色故事只是虚构参照，不能作为你这些私人生活方面的证据。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cassie-howard",
+      "directionIds": [
+        "CASSIE"
+      ],
+      "title": {
+        "en": "Cassie Howard",
+        "zh": "卡西·霍华德"
+      },
+      "headline": {
+        "en": "Seeking connection",
+        "zh": "寻求连接"
+      },
+      "summary": {
+        "en": "An original reading of the seeking connection options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“寻求连接”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cassie Howard Euphoria quiz result: seeking connection",
+          "zh": "《亢奋》卡西·霍华德角色结果：寻求连接"
+        },
+        "description": {
+          "en": "Explore Cassie’s connection route with a cancelled-plan example. Compare company, practical help and clear limits, without treating counts as attachment evidence.",
+          "zh": "卡西完整角色指南：从朋友取消安排的日常示例理解陪伴与连接，比较费兹的实际帮助、麦迪的清楚界限；次数不证明依恋类型或对认可的依赖。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Cassie is Lexi’s older sister. Beyond that brief story anchor, this original route describes options that put wanted company, warmth and reassurance near the front of a decision. It does not establish dependence or explain a relationship. A leading count means you selected more of these authored alternatives than the other routes in this attempt; it does not mean you need approval more than most people.",
+              "zh": "卡西是莱克西的姐姐。除这条简短剧情线索外，本原创路线描述的是在决定中优先考虑陪伴、温暖与确认的选项。它不证明依赖，也不解释关系。次数领先只表示本次在这些原创选项中，该路线被选得更多，不代表你比大多数人更需要认可。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a friend cancels a plan because their day has become too full. You first check whether they still want to spend a little time together later. This invented situation shows how attention to connection might operate. A useful reply leaves room for an honest no and does not require the friend to prove affection through availability. The cancelled plan and the relationship’s meaning are separate questions.",
+              "zh": "设想朋友因当天太忙取消安排。你先问晚些时候是否还想短暂相处。这个虚构情境展示关注连接的一种方式。有用的回应应允许诚实拒绝，不要求对方用随时有空来证明感情。安排被取消，与关系意味着什么，是两个不同问题。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Fezco when a specific practical favour is the first offer, even if neither person wants much conversation. Compare Maddy when the first move is to state a preference or limit explicitly. These options can coexist in ordinary life, while each question asks you to select just one. That forced choice loses nuance; the resulting count should be read with the alternatives in mind.",
+              "zh": "如果首先提出的是具体帮助，即使双方不太想聊天，可比较费兹；如果首先明确表达偏好或界限，可比较麦迪。这些做法在生活中能够共存，但每题要求只选一个，必然损失细节。阅读次数时也应记得那些没被选中的可行选项。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If it suits the relationship, you might say: “I would like some time together; would another day work?” You can keep the request small and accept a different answer. Privately separate what was said from what you guessed about being wanted. This is an optional conversation prompt, not relationship treatment, a requirement to seek reassurance or a reason to stay where you feel unsafe.",
+              "zh": "如果适合这段关系，可以说：“我想和你待一会儿，换一天可以吗？”请求可以很小，也允许不同答案。私下区分对方实际说的话，与自己对是否被重视的猜测。这只是可选对话提示，不是关系治疗、必须寻求确认的要求，也不是留在不安全关系中的理由。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: asking for company after a difficult day does not establish an attachment style, insecurity or poor boundaries. Declining company does not establish emotional strength. Cassie’s choices and conflicts in the fiction are not your history, and this result supplies no grounds for a partner or friend to label you.",
+              "zh": "反例：在艰难一天后想有人陪，不能确认依恋类型、不安全感或边界不佳。拒绝陪伴也不能证明情绪强大。卡西在剧情中的选择和冲突并非你的经历，结果不为伴侣或朋友给你贴标签提供依据。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maddy-perez",
+      "directionIds": [
+        "MADDY"
+      ],
+      "title": {
+        "en": "Maddy Perez",
+        "zh": "麦迪·佩雷斯"
+      },
+      "headline": {
+        "en": "Making a position clear",
+        "zh": "明确表达立场"
+      },
+      "summary": {
+        "en": "An original reading of the making a position clear options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“明确表达立场”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Maddy Perez Euphoria quiz result: making a position clear",
+          "zh": "《亢奋》麦迪·佩雷斯角色结果：明确表达立场"
+        },
+        "description": {
+          "en": "Read Maddy’s clear-position route: stating a leaving time, comparing closeness with planning, and keeping refusals safe. No prediction of victimisation.",
+          "zh": "麦迪完整角色指南：以说明离场时间的日常示例理解明确立场，比较亲近与计划路线；不要求危险对抗，不把角色故事当成受害预测或责任归因。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Maddy’s story includes an abusive relationship with Nate. That is a boundary on interpretation, not a fate attached to this result. The original quiz route uses everyday options about saying a preference aloud, choosing on your own terms and making room for a clear limit. Those selections cannot establish confidence in all settings, nor can they describe what happens when someone else ignores a refusal.",
+              "zh": "麦迪的故事包含与内特的受虐关系。这是解释必须守住的边界，不是结果附带的命运。本原创路线使用的是日常表达偏好、按自己的意愿选择和明确界限的选项。这些选择不能证明你在所有场合都自信，也不能描述他人无视拒绝时发生的事。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine friends are arranging an evening that would run later than you want. You say when you need to leave and ask them to plan without assuming you will stay. This invented example concerns making information available. It does not require a dramatic confrontation, a sharp tone or unanimous agreement. A quiet message can be equally clear, and leaving a conversation can sometimes be the available choice.",
+              "zh": "设想朋友安排的夜间活动会比你希望的更晚。你说明需要何时离开，请大家不要默认你会一直在场。这个虚构例子关注让信息明确，不要求戏剧化对抗、强硬语气或一致同意。一条安静的信息也能清楚，离开对话有时也是可用选择。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Cassie when your first concern is whether the plan preserves closeness. Compare Nate when you first build a schedule or allocate tasks. Stating a limit and organising a plan are not opposites, and the quiz cannot tell whether either action was respected. Close counts invite comparison of the actual option themes rather than a verdict about which character you are underneath.",
+              "zh": "如果首先在意安排能否维持亲近，可比较卡西；如果首先制定日程或分工，可比较内特。表达界限和组织计划并不相反，题目也无法知道这些做法是否受到尊重。接近的次数适合比较实际选项主题，无法裁定你内在究竟是哪位角色。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional line is: “That part does not work for me; this is what I can offer.” You need not give a polished explanation or persuade everybody. In an unsafe situation, a quiz prompt is not a reason to confront someone, disclose plans or prove assertiveness. Choose support and distance according to the real circumstances, and leave this exercise unused if it does not fit.",
+              "zh": "一句可选表达是：“这一部分我不方便，这是我能提供的。”无需解释得完美，也无需说服所有人。在不安全情境中，测验提示不构成当面对抗、披露计划或证明果断的理由。根据实际情况选择支持与距离；不适合时可以完全不用这个练习。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: a person who cannot safely speak up has not failed at confidence. Choosing a direct option does not establish aggression, popularity or relationship health. Abuse is the responsibility of the person using it; a fictional match cannot make it deserved, romantic or an expected part of someone’s personality.",
+              "zh": "反例：无法安全发声的人，并没有在自信上失败。选择直接选项不能证明攻击性、人缘或关系健康。施虐者应为虐待负责；虚构角色匹配不能让虐待变得应得、浪漫，或成为某种人格理应经历的部分。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lexi-howard",
+      "directionIds": [
+        "LEXI"
+      ],
+      "title": {
+        "en": "Lexi Howard",
+        "zh": "莱克西·霍华德"
+      },
+      "headline": {
+        "en": "Observing and shaping a story",
+        "zh": "观察并组织故事"
+      },
+      "summary": {
+        "en": "An original reading of the observing and shaping a story options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“观察并组织故事”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Lexi Howard Euphoria quiz result: observing and shaping a story",
+          "zh": "《亢奋》莱克西·霍华德角色结果：观察并组织故事"
+        },
+        "description": {
+          "en": "Explore Lexi’s observation route: separate meeting decisions from suggestions, compare Rue and Nate, and protect privacy when shaping an account. Full free guide.",
+          "zh": "莱克西完整角色指南：区分会议决定与建议，把观察组织成记录，比较鲁与内特路线，并保留纠错和隐私边界；细致叙述不等于准确洞察他人。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "In season two, Lexi makes a play from events around her. The original route here draws only on the idea of noticing details and shaping them into an account. It counts options about observing, writing, summarising and checking what was actually said. It does not identify an introvert, an artist or an especially accurate observer; those conclusions would require different evidence.",
+              "zh": "第二季中，莱克西把身边事件写成一出戏。本原创路线只借用留意细节、把它们组织成叙述这一点，累计观察、写作、概括和核对原话的选项。它无法确认内向者、艺术家或特别准确的观察者；这些结论需要其他证据。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Picture a group that remembers the same meeting differently. You gather the notes and write a short account separating decisions from suggestions. This invented scene shows one possible use of the route. The account remains a perspective rather than ownership of everyone’s experience. Before making it public, people may need a chance to correct facts or decline having a private moment included.",
+              "zh": "设想大家对同一场会议记忆不同。你收集记录，写一份区分决定与建议的短说明。这个虚构场景展示路线的一种用途。但叙述仍是一种视角，不代表拥有他人的经历。公开前，相关的人可能需要机会纠正事实，或拒绝把私人片段放进去。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Rue when you mainly want an indirect or humorous way into a feeling. Compare Nate when you primarily want a decision and a next action rather than a careful account. Both may be useful at different moments. The bank gives only ten opportunities for each route, so the count cannot describe everything you notice, create or do outside these selected situations.",
+              "zh": "如果主要想间接或幽默地靠近感受，可比较鲁；如果首要目标是决定和行动，而非细致记录，可比较内特。两种做法可能在不同时间都有用。每条路线只有十次被选择机会，次数无法描述你在这些情境之外观察、创作或采取行动的全部方式。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, ask: “This is what I wrote down; what have I missed, and what should remain private?” You may keep the account entirely to yourself. Consider changing one sentence from a claim about someone’s motive to a description of what you saw. This is an optional editing exercise, not a demand to document every interaction or become the group’s permanent narrator.",
+              "zh": "如果有用，可问：“这是我的记录，我漏掉了什么，哪些内容应保持私密？”也可以全部留给自己。试着把一句关于别人动机的断言，改成自己实际看到的事。这只是可选编辑练习，不要求记录每次互动，也不要求成为集体永久的叙述者。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: taking time before speaking may reflect language, access, uncertainty or fatigue rather than an observing personality. A detailed story can still be mistaken or expose another person’s privacy. The route is not a certificate of empathy or insight, and it gives no permission to turn someone else’s experience into content.",
+              "zh": "反例：发言前多花时间，可能来自语言、条件、不确定或疲劳，而非某种观察型人格。细致故事仍可能出错或暴露他人隐私。这条路线不是共情或洞察证书，也不授权把别人的经历变成内容。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fezco",
+      "directionIds": [
+        "FEZCO"
+      ],
+      "title": {
+        "en": "Fezco",
+        "zh": "费兹"
+      },
+      "headline": {
+        "en": "Offering practical care",
+        "zh": "提供实际照顾"
+      },
+      "summary": {
+        "en": "An original reading of the offering practical care options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“提供实际照顾”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fezco Euphoria quiz result: offering practical care",
+          "zh": "《亢奋》费兹角色结果：提供实际照顾"
+        },
+        "description": {
+          "en": "Read Fezco’s practical-care route through a bounded moving-day favour. Compare company and planning, with room to decline help. No kindness score or crime excuse.",
+          "zh": "费兹完整角色指南：以限定时间搬两只箱子的示例理解实际照顾，比较陪伴与组织计划，也允许拒绝帮助；次数不证明善良，更不开脱虚构犯罪。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Fezco cares for his grandmother. This limited story anchor informs an original route about showing up with useful help, noticing a concrete need and doing a manageable task. The fictional character’s other actions are not part of a favourable score. A leading count does not prove kindness, reliability or a duty to care for others; it records selections among these particular alternatives.",
+              "zh": "费兹照顾祖母。这条有限的剧情线索用于本原创路线：带来有用的帮助、留意具体需要、完成可承担的任务。角色的其他行为不因得分而获得肯定。次数领先不能证明善良、可靠或照顾他人的义务，只记录在这些特定选项中的选择。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a friend is moving house and seems overwhelmed by the logistics. You offer to carry two boxes during a time you can actually spare, rather than promising the whole day. This invented scene illustrates care with a defined size. The offer can be declined, shared or changed. Practical help is most useful when it responds to the recipient’s real request instead of assuming what they need.",
+              "zh": "设想朋友搬家，被各种安排弄得有些应接不暇。你提出在确实有空的一段时间搬两个箱子，而非承诺一整天。这个虚构场景展示有明确范围的帮助。提议可以被拒绝、共同承担或调整。实际帮助应回应接受者真实的请求，而非自认知道对方需要什么。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Cassie if the central offer is company and reassurance, even when no task needs doing. Compare Nate if your first contribution is a plan with owners and deadlines. A person can use all three approaches, and the forced choice does not show which they would actually use when tired or constrained. A tie keeps the relevant guides separate rather than combining them into a new type.",
+              "zh": "如果重点是陪伴和确认，即使没有任务要做，可比较卡西；如果首先提供的是带有负责人和期限的计划，可比较内特。一个人能使用三种方式，单选题也无法说明疲惫或受限时的实际做法。并列时分别保留相关指南，不组合成新类型。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional line is: “I can help with this part until this time; would that be useful?” Check your own capacity before agreeing, and let another person answer for themselves. You may offer nothing on a day when you have no room. Finishing the exercise does not require taking responsibility for another adult, solving an unsafe situation or concealing a serious problem to protect someone.",
+              "zh": "一句可选表达是：“到这个时间前，我能帮这一部分，你需要吗？”答应前先核对自己的容量，也让对方自己回答。没有余力的一天可以什么都不提供。完成这项体验不要求替另一位成年人负责、独自处理危险情境，或为保护某人而隐瞒严重问题。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: being unable to lend time, transport or money does not mean a lack of care. Doing many favours does not establish healthy boundaries. Fezco’s involvement in crime belongs to the fiction and is neither inferred about the user nor excused by this route’s practical-care theme.",
+              "zh": "反例：无法提供时间、接送或金钱，不能说明缺少关心。帮忙很多也不能证明边界健康。费兹涉及犯罪的情节属于虚构故事，既不能据此推断用户，也不因本路线的实际照顾主题而被开脱。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nate-jacobs",
+      "directionIds": [
+        "NATE"
+      ],
+      "title": {
+        "en": "Nate Jacobs",
+        "zh": "内特·雅各布斯"
+      },
+      "headline": {
+        "en": "Structuring the next move",
+        "zh": "组织下一步"
+      },
+      "summary": {
+        "en": "An original reading of the structuring the next move options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“组织下一步”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nate Jacobs Euphoria quiz result: structuring the next move",
+          "zh": "《亢奋》内特·雅各布斯角色结果：组织下一步"
+        },
+        "description": {
+          "en": "Read Nate’s planning route: voluntary task ownership, clear next steps and comparisons with Maddy and Lexi. Planning counts neither diagnose nor excuse abuse.",
+          "zh": "内特完整角色指南：用自愿分工与具体下一步理解本题本的计划路线，比较麦迪和莱克西；次数不能诊断控制、认证领导力，也不为伤害行为开脱。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Nate’s story includes violence toward Maddy. The quiz neither rewards nor excuses that harm. Its original Nate route is narrower: everyday choices about a defined goal, schedule, responsibility or visible outcome. These authored choices use a planning motif without claiming it explains the character or the user. A leading count cannot diagnose control, establish leadership or predict how you treat a partner.",
+              "zh": "内特的故事包含对麦迪的暴力。本测试不奖励也不开脱这种伤害。原创内特路线的范围更窄：围绕明确目标、日程、责任或可见结果的日常选择。编辑借用组织计划这一主题，不声称它解释角色或用户。次数领先不能诊断控制、确认领导力或预测对伴侣的行为。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group deadline is approaching and several tasks have no owner. You propose a short list and ask who can freely take each part. This invented scene describes coordination only if others can disagree, change commitments or decline. A neat plan does not grant authority over people. If someone is being pressured, the relevant fact is that pressure, regardless of whose character count is higher.",
+              "zh": "设想集体截止日期临近，还有任务无人负责。你列出短清单，询问谁能自愿承担各部分。这个虚构场景只有在他人可不同意、调整约定或拒绝时，才是在描述协调。整齐计划不会赋予支配他人的权力。若有人受到逼迫，应关注逼迫本身，而非谁的角色次数更高。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Maddy when the first concern is communicating your own preference or boundary rather than arranging the group’s next step. Compare Lexi when you need to understand and record what happened before deciding. None is a higher-status role. Equal exposure makes the opportunity counts comparable inside this bank; it does not validate the labels or make the routes equivalent psychological quantities.",
+              "zh": "如果首先关注表达自己的偏好或边界，而非安排集体下一步，可比较麦迪；如果需要先理解和记录发生了什么，可比较莱克西。没有哪条路线地位更高。相同出现次数让本题本的选择机会可比，却不验证标签，也不让这些路线成为等价心理量。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful optional question is: “Does this plan work for everyone, and what can each person decline?” Let the answer change the plan. You may choose a smaller task or no organising role at all. Do not use this result to claim that another person needs managing, to demand access to their messages or to frame intimidation as competence. Actual consent matters more than a tidy outcome.",
+              "zh": "一个可选问题是：“这个安排对大家都可行吗？每个人能拒绝什么？”让答案真正改变计划。也可以选择较小任务，或不承担组织角色。不能用结果宣称别人需要被管理、要求查看其消息，或把恐吓包装成能力。实际同意比整齐结果更重要。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: enjoying a checklist is not evidence of abusiveness, and refusing a checklist is not evidence of irresponsibility. Conversely, a planning preference cannot explain away harmful conduct. If the character label feels unwelcome, ignore it and read the concrete question choices instead; no personality verdict follows from this recreational bank.",
+              "zh": "反例：喜欢清单不构成施虐证据，拒绝清单也不构成不负责证据。反过来，偏爱计划不能解释掉伤害行为。如果不喜欢这个角色标签，可以忽略它，只看具体选项；这份娱乐题本不会产生人格裁决。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kat-hernandez",
+      "directionIds": [
+        "KAT"
+      ],
+      "title": {
+        "en": "Kat Hernandez",
+        "zh": "凯特·埃尔南德斯"
+      },
+      "headline": {
+        "en": "Choosing a public voice",
+        "zh": "选择呈现自己的声音"
+      },
+      "summary": {
+        "en": "An original reading of the choosing a public voice options, with a concrete example, nearby-route comparison and limits.",
+        "zh": "阅读“选择呈现自己的声音”这组原创选项，含具体情境、相近路线比较与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Your count records selected options in this twenty-question bank; all highest-count routes remain visible.",
+        "zh": "次数只记录本二十题题本中所选选项；所有最高次数路线一并保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Kat Hernandez Euphoria quiz result: choosing a public voice",
+          "zh": "《亢奋》凯特·埃尔南德斯角色结果：选择呈现自己的声音"
+        },
+        "description": {
+          "en": "Explore Kat’s public-voice route with a private newsletter draft. Compare Jules and Maddy, choose what stays private, and avoid body or sexuality inferences.",
+          "zh": "凯特完整角色指南：从兴趣简报的私人介绍草稿理解表达与呈现，比较朱尔斯和麦迪路线，决定哪些内容保持私密；不推断身体自信、性行为或私人身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "route",
+          "title": {
+            "en": "What this route counts",
+            "zh": "这条路线累计什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Kat changes her public presentation in the first two seasons. The original route here uses a limited theme of choosing a voice, style or introduction that feels deliberately your own. It does not measure attractiveness, body confidence or sexual behaviour. Selecting these options may reflect an interest in expression on this particular day; it cannot establish that your public and private selves are divided.",
+              "zh": "凯特在前两季改变了公开呈现自己的方式。本原创路线只使用一个有限主题：有意识地选择属于自己的声音、风格或介绍。它不测量吸引力、身体自信或性行为。选择这些选项可能只反映当天的表达兴趣，无法证明你的公开与私人自我存在分裂。"
+            },
+            {
+              "en": "Each answer adds one count to its assigned route. There are twenty questions, with four different routes offered in each; each of the eight routes appears ten times. All routes at the highest count are returned together. Counts are not percentages, probabilities, population ranks or a measure of resemblance across a whole life. No plot knowledge is tested, and changing one answer may change the leading set.",
+              "zh": "每个答案为对应路线增加一次。共二十题，每题提供四条不同路线，八条路线各出现十次。所有最高次数路线一起返回。次数不是百分比、概率、常模排名，也不衡量整个人生的相似度。不考剧情知识，改动一个答案可能改变领先集合。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An original everyday example",
+            "zh": "原创日常情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine you are writing a short introduction for a hobby newsletter. You try one version that sounds more playful than your usual work email, then decide whether it still feels comfortable. This invented example involves a small choice of audience and tone. You can keep the draft private, use your familiar wording or withdraw it. A public voice need not disclose more personal information to be authentic.",
+              "zh": "设想为兴趣简报写一段短介绍。你试用比工作邮件更活泼的版本，再决定是否舒服。这个虚构例子只涉及受众和语气的小选择。可以把草稿保密、用熟悉措辞，或撤回。公开表达不必披露更多私人信息，才算真实。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare nearby routes",
+            "zh": "比较相近路线"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Jules when the main attraction is an unfamiliar experience rather than the way you are seen in it. Compare Maddy when you chiefly want a preference or limit to be unmistakable. These editorial routes overlap in ordinary life. With just one choice per question, another reasonable option is always left uncounted; a leading route is not a complete account of your identity.",
+              "zh": "如果主要吸引力是陌生体验，而非体验中如何被看见，可比较朱尔斯；如果主要希望偏好或界限清楚无误，可比较麦迪。这些编辑路线在日常生活中相互重叠。每题只能选一个，其他合理选项没有计入，领先路线因此不是身份的完整说明。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional observation or conversation",
+            "zh": "可选观察或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional line is: “This version expresses what I want to share, and the rest can stay private.” Before posting, check audience, permanence and whose information appears. You may decide to share nothing. The exercise does not ask you to become bolder, change your appearance or prove that your online presence matches a character. A private draft is enough if you want to explore the idea at all.",
+              "zh": "一句可选表达是：“这个版本表达了我想分享的部分，其他内容可以保持私密。”发布前可看看受众、留存时间，以及是否包含别人的信息。也可以什么都不分享。这项练习不要求变大胆、改变外表，或证明线上形象与角色相符；想探索时，一份私人草稿已经足够。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Where the label stops",
+            "zh": "标签的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Counterexample: editing an introduction does not establish deception or low self-esteem. Keeping the same style does not establish confidence either. Kat’s fictional sexual and relationship experiences are outside this bank. They must not be inferred about a user, used to judge a body or turned into advice to expose more online.",
+              "zh": "反例：修改自我介绍不能证明欺骗或自尊低；维持同样风格也不能证明自信。凯特虚构的性与关系经历不在本题本范围内，不能推断到用户身上、用于评价身体，或变成要求更多线上暴露的建议。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, sources and sharing",
+            "zh": "版本、来源与分享"
+          },
+          "paragraphs": [
+            {
+              "en": "This is FermatMind’s unofficial, original fan-authored edition using eight characters from seasons one and two as cultural references. It is not affiliated with HBO or the creators, and it does not cover later-season developments. The situations and suggested lines above are newly invented, not quotations from the series. The bank has no psychometric validation and supplies no diagnosis, moral judgement, gender inference or prediction.",
+              "zh": "这是费马测试非官方、原创同人编辑版，以第一、二季八位角色作文化参照，与 HBO 或创作者无关联，也不涵盖后续季剧情。上面的情境与表达均为新创示例，并非剧集台词。题本未经心理测量验证，不提供诊断、道德判断、性别推断或预测。"
+            },
+            {
+              "en": "The public references establish the series and brief story anchors, not this scoring model. You can read every character guide without answering. Sharing copies the public title and entry link only; your local answers and personal counts are not included. It is equally valid to keep the experience private or stop here.",
+              "zh": "公开参考资料用于确认剧集和简短剧情线索，不为本计分模型背书。不答题也能阅读全部角色指南。分享只复制公开标题和入口链接，不包含本地答案和个人次数。保留私密或在此结束同样可以。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

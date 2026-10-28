@@ -1,0 +1,3174 @@
+{
+  "slug": "seven-sins-virtues-test",
+  "code": "VIRTUES_EXPLORATION",
+  "kind": "mini-virtues",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "metaphor",
+  "title": {
+    "en": "Seven Sins and Virtues Test: Everyday Reflections",
+    "zh": "七宗罪与七美德测试：日常张力观察"
+  },
+  "seoTitle": {
+    "en": "Seven Sins and Virtues Test: Seven Full Guides",
+    "zh": "七宗罪与七美德测试：七组完整读法免费"
+  },
+  "description": {
+    "en": "Use FermatMind's original 28-item reflection with new working English. Read seven full guides free, with separate sums and means and no moral ranking, good-or-evil total or assigned virtue type.",
+    "zh": "使用费马原创28题与新工作英文，七份完整指南免费。七组分别呈现和与均值，不作道德排名、善恶总分或美德类型判断。"
+  },
+  "minutes": 8,
+  "introduction": {
+    "en": "What becomes noticeable when recognition, resources, attraction, comparison, immediate rewards, anger or getting started enter an everyday choice? These 28 original statements provide seven separate reading prompts. Cultural names open the discussion; they do not judge faith, character, a soul or a person's worth. Each group may combine a reaction with a way of responding, so an average is never the whole explanation.",
+    "zh": "当认可、资源、吸引、比较、即时回报、愤怒或行动启动进入日常选择时，你会注意到什么？这28条原创陈述提供七组分别阅读的线索。文化名称只是讨论入口，不评判信仰、人品、灵魂或个人价值；每组可能同时包含反应与回应方式，因此均值从不是完整解释。"
+  },
+  "instructions": {
+    "en": "For each original statement, choose the 1–5 option that best describes what you can currently confirm. 3 means uncertain or depends on the situation and remains numeric. All 28 responses must be valid before any personal interpretation; there is no NA option. You may leave or read all seven full guides without answering. No response is a virtuous answer, and no particular mean is a goal.",
+    "zh": "按目前能确认的情况，为每条原陈述选择最符合的1—5选项。3“不确定或视情况”仍是有效数值；28题全部有效后才给任何个人解释，没有NA选项。可以退出，或先不作答阅读全部七份完整指南。没有哪个选项是美德答案，也没有需要追求的均值。"
+  },
+  "source": {
+    "kind": "fermatmind_original_mini_reuse",
+    "formCode": "virtues_exploration_likert_28",
+    "itemBankVersion": "0.1.0-preview",
+    "scoringVersion": "0.1.0-preview",
+    "resultContentVersion": "0.2.0-editorial-candidate",
+    "itemBankSha256": "157c2a23712f1e20b6302f4e9574c870395e9195f93ec304a43ab29cd404c8b1",
+    "resultContentSha256": "ac328fd45b5547717459921980b5ba79e2b59cb8b93ee033adf192d644d6b059",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "RECOGNITION_SELF_VIEW",
+      "title": {
+        "en": "Recognition and self-view",
+        "zh": "认可需要与自我定位"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "RESOURCE_SECURITY_SHARING",
+      "title": {
+        "en": "Resource security and sharing",
+        "zh": "资源安全感与分享"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "DESIRE_BOUNDARY",
+      "title": {
+        "en": "Desire, attraction and boundaries",
+        "zh": "欲望、吸引与边界"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "COMPARISON_APPRECIATION",
+      "title": {
+        "en": "Comparison and appreciation",
+        "zh": "比较敏感与欣赏"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "REWARD_MODERATION",
+      "title": {
+        "en": "Immediate rewards and pausing",
+        "zh": "即时满足与节制"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ANGER_PATIENCE",
+      "title": {
+        "en": "Anger signals and patient responses",
+        "zh": "愤怒信号与耐心回应"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ACTIVATION_REST",
+      "title": {
+        "en": "Starting tasks and returning from rest",
+        "zh": "行动启动与休息回避"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "VIRTUES_LK_001",
+      "prompt": {
+        "en": "When my effort goes unnoticed, I keep thinking about it.",
+        "zh": "付出没有被留意时，这件事会持续占据我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_002",
+      "prompt": {
+        "en": "After completing an important task, I expect fairly clear feedback.",
+        "zh": "完成一项重要任务后，我会期待获得较明确的反馈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_003",
+      "prompt": {
+        "en": "When judging how I have done, I tend to refer to other people's responses.",
+        "zh": "判断自己做得怎样时，我容易参考别人给出的回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_004",
+      "prompt": {
+        "en": "When I feel overlooked, I check again whether my contribution has been seen.",
+        "zh": "感到被忽略时，我会重新确认自己的贡献是否被看见。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_005",
+      "prompt": {
+        "en": "When future resources are uncertain, I first keep a margin for myself.",
+        "zh": "未来资源不确定时，我会优先为自己保留余量。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_006",
+      "prompt": {
+        "en": "Before deciding whether to share time or possessions, I check whether I have enough for my own needs.",
+        "zh": "决定是否分享时间或物品前，我会先确认自己是否够用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_007",
+      "prompt": {
+        "en": "After lending an important resource, I pay attention to when it can be restored.",
+        "zh": "借出重要资源后，我会留意它何时能够恢复。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_008",
+      "prompt": {
+        "en": "When facing extra spending, I tend first to think about needs that may arise later.",
+        "zh": "面对额外支出时，我容易先想到之后可能出现的需要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_009",
+      "prompt": {
+        "en": "When I encounter a very appealing person or opportunity, I noticeably feel my attention being pulled toward them.",
+        "zh": "遇到很有吸引力的人或机会时，我会明显感到注意力被拉动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_010",
+      "prompt": {
+        "en": "When I want to move closer to a person or something, I check whether both sides' boundaries are clear.",
+        "zh": "想靠近某个人或事物时，我会留意双方边界是否清楚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_011",
+      "prompt": {
+        "en": "When I strongly want something, I need some time to distinguish an impulse from a longer-term choice.",
+        "zh": "强烈想要一件事时，我需要花些时间区分冲动与长期选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_012",
+      "prompt": {
+        "en": "After an attraction arises, I check present willingness and practical circumstances.",
+        "zh": "吸引出现后，我会确认当下的意愿和现实条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_013",
+      "prompt": {
+        "en": "When someone in a similar position makes progress, I naturally compare where I stand.",
+        "zh": "看到处境相近的人取得进展时，我会自然比较自己的位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_014",
+      "prompt": {
+        "en": "When others receive recognition, I tend to notice whether I have similar opportunities.",
+        "zh": "别人获得认可时，我容易留意自己是否也得到相似机会。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_015",
+      "prompt": {
+        "en": "When appreciating other people's abilities, I also think of parts of myself I still want to develop.",
+        "zh": "欣赏他人的能力时，我也会想到自己仍想发展的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_016",
+      "prompt": {
+        "en": "When clear differences appear within a group, I notice them relatively quickly.",
+        "zh": "群体中出现明显差距时，我会较快注意到这种差距。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_017",
+      "prompt": {
+        "en": "When an easy reward is within reach, I find it hard to ignore.",
+        "zh": "眼前有轻松回报时，我会感到它很难被忽略。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_018",
+      "prompt": {
+        "en": "Under greater pressure, I am more likely to choose something that helps me feel a little better immediately.",
+        "zh": "压力较大时，我更容易选择能立刻让我舒服一点的做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_019",
+      "prompt": {
+        "en": "While waiting for a reward that will come later, I repeatedly notice my impatience in the present.",
+        "zh": "等待较晚才出现的回报时，我会反复注意当下的不耐烦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_020",
+      "prompt": {
+        "en": "With an experience I enjoy, I need to actively decide when to pause.",
+        "zh": "面对喜欢的体验时，我需要主动决定什么时候暂停。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_021",
+      "prompt": {
+        "en": "When something feels unfair, I quickly notice tension in my body or emotions.",
+        "zh": "觉得不公平时，我会很快注意到身体或情绪变紧。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_022",
+      "prompt": {
+        "en": "After a disagreement has ended, I sometimes keep thinking about things I did not finish saying.",
+        "zh": "分歧结束后，我有时仍会继续想着当时没有说完的话。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_023",
+      "prompt": {
+        "en": "When interrupted or misunderstood, I feel an urge to respond immediately.",
+        "zh": "被打断或误解时，我会出现立刻回应的冲动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_024",
+      "prompt": {
+        "en": "When my emotions intensify, I need to leave some time before I can respond more patiently.",
+        "zh": "情绪升高时，我需要先留出时间才能更耐心地回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_025",
+      "prompt": {
+        "en": "When a task's first step is unclear, I delay starting.",
+        "zh": "任务的第一步不清楚时，我会推迟开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_026",
+      "prompt": {
+        "en": "After becoming exhausted, I need a longer time to get back into action.",
+        "zh": "疲惫之后，我需要较长时间才能重新进入行动状态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_027",
+      "prompt": {
+        "en": "Once I have rested enough, I sometimes still find it hard to end the break.",
+        "zh": "休息已经足够时，我有时仍不容易结束休息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_028",
+      "prompt": {
+        "en": "When facing something important but demanding, I first look for a way to make starting easier.",
+        "zh": "面对重要但费力的事情，我会先寻找降低启动难度的方法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "recognition-reading",
+      "directionIds": [
+        "RECOGNITION_SELF_VIEW"
+      ],
+      "title": {
+        "en": "Recognition and self-view: Full Reflection Guide",
+        "zh": "认可需要与自我定位：完整读法"
+      },
+      "headline": {
+        "en": "Notice how outside feedback enters your view of yourself",
+        "zh": "回看外部反馈怎样进入自我定位"
+      },
+      "summary": {
+        "en": "Four statements consider outside feedback, self-evaluation and the wish to be seen.",
+        "zh": "这四道题关心外部反馈、自我评价和被看见的需要。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Recognition and self-view",
+          "zh": "七宗罪与七美德：认可需要与自我定位"
+        },
+        "description": {
+          "en": "Separate completed work, its use and explicit recognition in a meeting example. Read four-item sums and means without turning missing feedback into a verdict on worth.",
+          "zh": "认可需要与自我定位完整读法：从会议资料未被提及的情境，区分完成、被使用与明确认可；含四题算例，不把缺少反馈解释为贡献无价值或自恋。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional pride is often described as excessive concern for one's standing. The source uses that metaphor only as a doorway, not a measure of pride or humility.",
+              "zh": "传统七宗罪中的骄傲常被描述为过分看重自身地位；本测试只用这一隐喻作为入口，不测量骄傲或谦逊本身。"
+            },
+            {
+              "en": "Observe how being overlooked, being noticed and receiving feedback enter self-evaluation.",
+              "zh": "观察被忽略、被看见和外部反馈在自我定位中的作用。"
+            },
+            {
+              "en": "The items cover lingering attention when effort is unnoticed, expecting clear feedback, using others' responses to judge your work, and checking whether an overlooked contribution was seen.",
+              "zh": "题目覆盖：付出未被留意时注意持续、期待明确反馈、参考他人回应判断自己、被忽略后确认贡献是否被看见。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 1, 2, 4, 5 add to 12; 12 / 4 = 3.00. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：1、2、4、5相加为12，12÷4＝3.00。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider which kinds of feedback matter to you and what other evidence you use when nobody responds. Recall one recent occasion when you expected feedback, and how you judged whether the effort was worthwhile when no response arrived. Was your attention held by the event itself or by uncertainty about whether the effort mattered? Only you can check that distinction.",
+              "zh": "可以回看：你更在意哪类反馈；没有回应时你还用什么事实评价自己。 最近一次期待反馈的场景；那次没有回应时你怎样判断投入是否值得。 被忽略时占据注意的是事件本身，还是对投入是否值得的怀疑？这只能由你自己确认。"
+            },
+            {
+              "en": "Imagine contributing notes before a meeting. Nobody mentions them, and you keep revisiting the silence. A colleague later says they used the notes without realizing you needed feedback. That sequence contains several facts: the work was completed, it was used, and recognition was not explicit. Feeling overlooked does not establish that the contribution was worthless or that the colleague deliberately excluded you. The four-item mean cannot choose among those explanations.",
+              "zh": "假设你会前整理了资料，会上却没人提到，你之后一直想着那段沉默。后来同事说，自己使用了那些资料，只是没有意识到你期待明确反馈。这里至少有三件可核对的事：资料确实完成了、有人用过、认可没有被清楚表达。感到被忽略，不等于贡献没有价值，也不能直接证明对方故意排除你。四题均值不能替这些解释作选择。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "A reaction to being overlooked and a way of checking whether a contribution was noticed are different things. Their combined mean is not a single intensity.",
+              "zh": "这组题同时包含反应线索（被忽略时的注意）与核对方式（确认贡献是否被看见），因此不能解释成单一强度。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, record one completed piece of work that you can verify without praise, and place outside feedback beside your own criteria.",
+              "zh": "写下一项不依赖赞美也能确认的完成证据；把外部反馈与自己的标准并排记录。"
+            },
+            {
+              "en": "An optional next conversation might be: “I prepared the comparison notes. Could you tell me which part helped and what needs changing?” Another option is to record your own completion criteria and leave the conversation there. You need not bargain for praise, repeatedly seek reassurance, or publish the result to prove that recognition matters. Keep the decision about whether feedback is useful separate from a judgment about your worth.",
+              "zh": "如果愿意，可以说：“那份对照资料是我整理的，你能告诉我哪部分有用、哪部分还需修改吗？”也可以先记下自己的完成标准，到这里结束。你不需要靠争取赞美、反复确认或公开测试结果，来证明被看见的需要合理。是否需要反馈，是一次具体选择，不是个人价值的裁决。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish vanity, arrogance, narcissism, self-esteem, personal worth or a concern only with other people's opinions.",
+              "zh": "它不能说明虚荣、傲慢、自恋、自尊水平、人格价值，也不能说你只在乎别人的评价。"
+            },
+            {
+              "en": "It does not assess humility as a virtue. A larger number does not mean more of a problem. A smaller number does not mean a more admirable person.",
+              "zh": "不判断谦逊美德；较高数值不表示更有问题；较低数值不表示更值得欣赏。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A quiet work setting may offer little visible feedback even when work is valued. A highly public setting may invite frequent checking. Neither context turns a larger number into vanity or a smaller number into humility. Looking for the conditions around one response is more informative than trying to earn a better-looking mean.",
+              "zh": "安静的工作环境可能很少提供可见反馈，即使工作被重视；公开竞争的环境也可能让人更常核对外部回应。两种情境都不能把较大数值变成虚荣，或把较小数值变成谦逊。核对一次反应发生的条件，比追求更好看的均值更有信息。"
+            },
+            {
+              "en": "Wanting recognition is a common human need, not a moral defect. This reflection does not condemn or shame.",
+              "zh": "认可需要是常见的心理需要，不是道德缺陷；本测试不定罪、不羞辱。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resources-reading",
+      "directionIds": [
+        "RESOURCE_SECURITY_SHARING"
+      ],
+      "title": {
+        "en": "Resource security and sharing: Full Reflection Guide",
+        "zh": "资源安全感与分享：完整读法"
+      },
+      "headline": {
+        "en": "Look at how uncertainty shapes decisions to keep and share",
+        "zh": "回看资源不确定时怎样决定保留与分享"
+      },
+      "summary": {
+        "en": "Four statements consider keeping resources, maintaining a margin and deciding whether to share.",
+        "zh": "这四道题关心资源不确定时的保留、余量和分享判断。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Resource security and sharing",
+          "zh": "七宗罪与七美德：资源安全感与分享"
+        },
+        "description": {
+          "en": "Explore a camera-loan example to separate a real resource margin from a sharing decision. Four-item means do not measure generosity, wealth or selfishness.",
+          "zh": "资源安全感与分享完整读法：用借相机与归还日期的示例核对现实余量、基本需要和自愿分享；含四题算例，均值不衡量慷慨、财富或自私。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional greed is described as excessive attachment to possessions. The source borrows that doorway to look at keeping a margin and sharing under uncertainty, without measuring greed.",
+              "zh": "传统七宗罪中的贪婪指对占有物的过度执取；本测试只借用这一入口观察资源不确定时的保留与分享判断。"
+            },
+            {
+              "en": "Observe arrangements for keeping and sharing time, possessions or a practical margin when their future availability is uncertain.",
+              "zh": "观察时间、物品或现实余量不确定时的保留与分享安排。"
+            },
+            {
+              "en": "The items cover keeping a margin under uncertainty, checking personal sufficiency before sharing, noticing when a loaned resource returns, and considering future needs before extra spending.",
+              "zh": "题目覆盖：资源不确定时优先保留余量、分享前确认自己是否够用、借出后留意恢复、额外支出前先想未来需要。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 4, 2, 5, 2 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：4、2、5、2相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask which particular resource you are concerned about losing, how certain the risk is, and how the scope of sharing was set. Check the margin you actually had when recently agreeing or declining to share, including whether sharing affected basic needs. Was keeping more related to a practical risk or a familiar worry? The mean cannot decide that for you.",
+              "zh": "可以回看：你担心失去的具体资源是什么；风险有多确定；分享范围是怎样设定的。 最近一次拒绝或同意分享时的余量；那次分享是否影响你的基本需要。 保留更多是出于现实风险，还是习惯性担心？这个判断只能由你自己核对。"
+            },
+            {
+              "en": "Suppose a friend asks to borrow a camera before you need it for your own project. You consider the return date, the spare equipment and what happens if plans change. Keeping a margin could reflect a real deadline rather than reluctance to help. Agreeing to lend the camera might coexist with careful checking. The same mean cannot establish which resource is scarce, who has an alternative, or how freely a person agreed.",
+              "zh": "假设朋友想借你的相机，而你不久后也要用它完成自己的项目。你会考虑归还日期、备用器材，以及计划变动时怎么办。保留余量可能来自真实截止日期，不是“不肯帮忙”；同意借出，也可能同时伴随仔细核对。相同均值不能确认究竟缺少什么资源、谁还有替代方案，或同意是否出于自愿。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping a margin and making a sharing decision are not one generosity-or-stinginess dimension. The group contains both.",
+              "zh": "这组题同时包含保留倾向与分享判断，不能解释成慷慨或吝啬的单一强度。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, set a clear, revisable limit for one act of sharing. Protect basic needs before deciding what is available to share.",
+              "zh": "为一次分享设定清楚范围和可撤回条件；先保护基本需要，再决定可分享范围。"
+            },
+            {
+              "en": "If useful, try a bounded reply: “I can lend it until Thursday; if my project moves earlier I will need it back.” A clear no is also an available choice. You may revise an arrangement when circumstances change, without giving another person a personality score. Compare the agreement with actual availability, not with an imagined standard that a generous person must always share.",
+              "zh": "如果愿意，可以给出有范围的回应：“我可以借到周四；如果我的项目提前，需要把它取回来。”清楚拒绝也始终是可选项。情况改变时，可以重新协商安排，不必给任何人打人格分。值得比较的是约定与实际余量，而不是想象中“慷慨的人总该分享”的标准。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish greed, selfishness, stinginess, generosity, financial capacity, moral character or an unwillingness to help.",
+              "zh": "它不能说明贪婪、自私、吝啬、慷慨程度、经济能力或道德品质，也不能说你不愿意帮助别人。"
+            },
+            {
+              "en": "It does not define a greedy or selfish personality. Keeping resources is not a character judgment. Caution and willingness to share are not moral ranks. A larger number does not mean more selfishness. A smaller number does not mean more generosity.",
+              "zh": "不定义贪婪或自私人格；资源保留不等于人品判断；谨慎与愿意分享不是道德高下；数值较高不表示更自私；数值较低不表示更慷慨。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking a return date is not proof of distrust, and declining a loan does not identify selfishness. Equally, saying yes does not prove that basic needs are protected. Those conclusions require direct facts about the arrangement; adding four agreement responses does not supply them.",
+              "zh": "核对归还日期不能证明不信任，拒绝借出不能认定自私；同样，同意也不能证明基本需要已得到保护。这些判断需要关于安排的直接事实，四个符合程度数值相加并不会自动提供那些事实。"
+            },
+            {
+              "en": "Resource concerns have practical functions. Time, possessions and a practical margin should not be stretched into a claim about a person's wealth or character.",
+              "zh": "资源顾虑是现实功能，不是品格缺陷；资源包括时间、物品或现实余量，不擅自扩展成财富人格。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desire-boundaries-reading",
+      "directionIds": [
+        "DESIRE_BOUNDARY"
+      ],
+      "title": {
+        "en": "Desire, attraction and boundaries: Full Reflection Guide",
+        "zh": "欲望、吸引与边界：完整读法"
+      },
+      "headline": {
+        "en": "Notice how attraction and boundary checks occur together",
+        "zh": "回看吸引出现时怎样核对意愿与边界"
+      },
+      "summary": {
+        "en": "Four statements consider attention being drawn, checking willingness and clarifying boundaries.",
+        "zh": "这四道题关心吸引出现时的注意力、意愿确认和边界核对。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Desire, attraction and boundaries",
+          "zh": "七宗罪与七美德：欲望、吸引与边界"
+        },
+        "description": {
+          "en": "Use a creative-collaboration example to separate attraction, willingness and agreement. Read the mixed four-item mean without treating it as desire or self-control.",
+          "zh": "欲望、吸引与边界完整读法：从创作合作示例区分被吸引、想参与与具体同意；四题均值混合反应和边界核对，不代表欲望强度或自控能力。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional lust evokes desire running out of control. The source borrows that doorway only to observe attention, willingness and boundaries when attraction arises, without measuring lust.",
+              "zh": "传统七宗罪中的淫欲指欲望失控的想象；本测试只借用这一入口观察吸引出现时的注意力、意愿与边界。"
+            },
+            {
+              "en": "Observe attention to an appealing person or opportunity alongside ways of checking willingness and boundaries.",
+              "zh": "观察吸引出现时的注意力投入、意愿确认与边界核对方式。"
+            },
+            {
+              "en": "The items cover attention being pulled, noticing both sides' boundaries, taking time to separate an impulse from a longer-term choice, and checking present willingness and practical conditions.",
+              "zh": "题目覆盖：注意力被吸引、留意双方边界、区分冲动与长期选择、确认当下意愿和现实条件。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 5, 1, 4, 3 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：5、1、4、3相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask what you usually confirm when attraction arises, whether boundaries are clear, and how you distinguish an impulse from a longer-term choice. Recall what willingness and practical conditions you actually checked on a recent occasion when attraction arose. Having your attention drawn does not itself require action. At which point do you stop to check? Only you can establish that sequence.",
+              "zh": "可以回看：吸引出现时你通常会确认什么；边界是否清楚；冲动与长期选择怎样区分。 最近一次吸引出现时你确认了哪些意愿和条件。 注意力被拉动本身不等于要行动；你通常在哪一步停下来核对？这个节奏只能由你自己确认。"
+            },
+            {
+              "en": "Imagine being drawn to a new creative collaboration. The idea is exciting, but the proposed schedule, permission to share unfinished work and each person's willingness are still unclear. Attention, wanting to join and agreeing to a specific arrangement are three separate events. You can notice attraction without acting on it, or ask for clarification without promising participation. A group mean cannot establish consent, desire for one particular person or what anyone will do.",
+              "zh": "假设一个新的创作合作很吸引你，但时间安排、未完成作品能否公开、各方是否愿意参与都还没有说清。注意被吸引、想要加入、同意某一项具体安排，是三件不同的事。你可以感到吸引但不行动，也可以先问清楚而不承诺参与。分组均值不能确定任何同意、对某个人的欲望，或任何人接下来会做什么。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Attention being drawn and actively checking a boundary are different things. Combining them does not produce one measure of desire intensity.",
+              "zh": "注意被拉动与主动核对边界不是同一含义；这组题同时包含两者，不能解释成欲望强度的单一读数。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, identify a point at which explicit consent is needed before acting. Attraction may be present while you check consent, boundaries and consequences.",
+              "zh": "在行动前写下一个必须获得明确同意的节点；允许吸引存在，同时确认同意、边界与后果。"
+            },
+            {
+              "en": "An optional question is: “Before we continue, what are we each agreeing to, and what can either of us change later?” Give a different answer to a changed proposal if needed. A pause or a refusal requires no explanation from a test. Where another person is involved, their explicit and revocable willingness must be checked directly; your result cannot stand in for it.",
+              "zh": "如果愿意，可以问：“继续之前，我们各自同意的具体是什么？之后哪些安排可以改变？”提议变化时，也可以改变自己的回答。暂停或拒绝不需要测试替你提供理由。涉及他人时，应直接确认对方明确且可撤回的意愿，自己的结果不能代替它。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish lust, libido, sexual preferences, sexual orientation, fidelity, self-control or whether someone will cross a boundary.",
+              "zh": "它不能说明淫欲、性欲水平、性行为偏好、性取向、忠诚程度、自制力，也不能说你会不会越界。"
+            },
+            {
+              "en": "Consent and boundaries are not high-score abilities. Desire does not mean loss of control. Setting a boundary does not mean repression. A larger number does not predict losing control. A smaller number does not establish stronger self-control.",
+              "zh": "同意和边界不是高分能力；有欲望不等于失控；设边界也不等于压抑；数值较高不表示更容易失控；数值较低不表示自制力更强。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Stronger agreement with noticing attraction may coexist with less agreement with a boundary-checking item, or the reverse. Even an identical sum can hide that difference. It would therefore be incorrect to call the mean either sexual intensity or a certificate of safe boundaries.",
+              "zh": "对“注意被拉动”更符合，可能与对“主动核对边界”较少符合同时出现，也可能相反。即使原始和相同，这种区别也会被合在一起。因此不能把均值解释成性欲强度，或把它当作边界安全证书。"
+            },
+            {
+              "en": "Attraction and desire are common experiences, not moral stains. Any person's consent must be explicit, voluntary and revocable.",
+              "zh": "吸引和欲望是常见体验，不是道德污点；任何人的意愿都必须明确、自愿且可撤回。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comparison-reading",
+      "directionIds": [
+        "COMPARISON_APPRECIATION"
+      ],
+      "title": {
+        "en": "Comparison and appreciation: Full Reflection Guide",
+        "zh": "比较敏感与欣赏：完整读法"
+      },
+      "headline": {
+        "en": "Look at comparison and appreciation without forcing a choice",
+        "zh": "回看比较与欣赏怎样同时出现"
+      },
+      "summary": {
+        "en": "Four statements consider comparison, differences in opportunity, disappointment and appreciation.",
+        "zh": "这四道题关心比较反应、机会差异、失落与欣赏的线索。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Comparison and appreciation",
+          "zh": "七宗罪与七美德：比较敏感与欣赏"
+        },
+        "description": {
+          "en": "Read a peer-opportunity example where appreciation and disappointment coexist. Check four-item sums without inferring envy, unfairness or insincere congratulations.",
+          "zh": "比较敏感与欣赏完整读法：从同伴获得机会的示例理解欣赏与失落可以并存；含四题算例，不凭均值认定嫉妒、不公或祝贺不真诚。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional envy concerns resentment at another person's good fortune. The source borrows that doorway only to observe comparison, disappointment and appreciation occurring together, without identifying an envious character.",
+              "zh": "传统七宗罪中的嫉妒指因他人好处而生怨；本测试只借用这一入口观察比较、失落与欣赏如何共同出现。"
+            },
+            {
+              "en": "Observe comparison, attention to opportunities and appreciation of another person appearing in the same situation.",
+              "zh": "观察比较、机会留意与欣赏他人如何共同出现。"
+            },
+            {
+              "en": "The items cover comparing your position, noticing access to similar opportunities, recognizing parts of yourself you want to develop while appreciating others, and noticing gaps within a group.",
+              "zh": "题目覆盖：自然比较自己的位置、留意相似机会、欣赏时想到自己仍想发展的部分、较快注意到群体差距。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 2, 3, 3, 5 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：2、3、3、5相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "When comparing, ask whether the concern is opportunity or position; when appreciating, notice whether your own development also comes to mind. Recall one specific comparison and whether disappointment and appreciation were both present. What information did the comparison offer: a wanted opportunity, or only a difference in position? The score cannot identify the answer.",
+              "zh": "可以回看：比较发生时你更在意机会还是位置；欣赏他人时是否也想到自己的发展。 最近一次比较的具体情境；那次比较里失落与欣赏是否同时存在。 比较反应带给你的信息是什么？它指向你想要的机会，还是只是位置的落差感？"
+            },
+            {
+              "en": "Suppose a peer's project is selected for an opportunity you also wanted. You appreciate one part of their work and also notice disappointment about access to the opportunity. Both experiences can be true without canceling one another. There may be useful information about selection criteria, but there may also be uncertainty you cannot resolve. The mean cannot identify resentment, unfairness or whether congratulations were sincere.",
+              "zh": "假设一位同伴的项目获得了你也想争取的机会。你欣赏对方作品的某一部分，也注意到自己因机会落差而失落。这两种体验可以同时成立，不需要互相抵消。事情也许包含可了解的选择标准，也可能有暂时无法确认的因素。均值不能认定怨恨、不公，或一次祝贺是否真诚。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Comparison is not hostility. Appreciation does not require denying disappointment. A mean combining those cues is not a single measure of envy or appreciation.",
+              "zh": "这组题同时包含比较反应与欣赏线索，比较不等于敌意，欣赏也不要求否认失落；不能解释成嫉妒或欣赏的单一强度。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, take one learnable action from a comparison and record both disappointment and appreciation without having to choose only one.",
+              "zh": "从一次比较中提取一个可学习动作；同时记录失落和欣赏，不要求二选一。"
+            },
+            {
+              "en": "If useful, separate two notes: “I liked how that example was explained” and “I still want to understand the selection process.” You could identify one skill to practice, ask an appropriate person about the criteria, or leave the question open. The other person does not owe you private details. You do not have to suppress disappointment to demonstrate kindness or turn every comparison into a competition.",
+              "zh": "如果愿意，可以分别记下：“我喜欢那个例子被解释的方式”和“我仍想了解选择流程”。接着可以选一项想练习的动作，向合适的人询问标准，也可以保留未知。对方没有义务披露私人细节。你不需要压下失落来证明善良，也不必把每一次比较变成竞争。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish an envious personality, malice, sincerity in congratulating others, kindness, gratitude or interpersonal competitiveness.",
+              "zh": "它不能说明嫉妒人格、恶意、是否真诚祝福他人、是否善良、是否缺乏感恩或人际竞争力。"
+            },
+            {
+              "en": "Comparison does not imply an intention to hurt another person. It does not define an envious personality. Appreciation is not a moral obligation. A larger number does not mean more envy. A smaller number does not mean greater sincerity.",
+              "zh": "比较反应不等于伤害他人的意图；不定义嫉妒人格；欣赏不是道德义务；数值较高不表示更嫉妒；数值较低不表示更真诚。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may readily notice unequal opportunities and still appreciate a peer. Another person may compare less because a particular setting feels irrelevant. A larger number does not expose bad intentions, while a smaller number does not verify gratitude. Ask what the comparison concerned before assigning meaning.",
+              "zh": "一个人可能很快注意机会不相同，同时仍然欣赏同伴；另一个人比较较少，也可能只是因为这个场景对自己不重要。较大的数值不能揭示恶意，较小的数值也不能验证感恩。赋予意义之前，先核对究竟在比较什么。"
+            },
+            {
+              "en": "Comparison is a common psychological response, not a verdict of evil. This reflection does not condemn.",
+              "zh": "比较是普遍的心理反应，不是恶；本测试不给人定罪。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rewards-reading",
+      "directionIds": [
+        "REWARD_MODERATION"
+      ],
+      "title": {
+        "en": "Immediate rewards and pausing: Full Reflection Guide",
+        "zh": "即时满足与节制：完整读法"
+      },
+      "headline": {
+        "en": "Notice what immediate rewards do with your attention",
+        "zh": "回看即时回报怎样吸引注意"
+      },
+      "summary": {
+        "en": "Four statements consider attention to immediate rewards under pressure or while waiting, and decisions about pausing.",
+        "zh": "这四道题关心压力和等待中即时回报的注意力与暂停选择。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Immediate rewards and pausing",
+          "zh": "七宗罪与七美德：即时满足与节制"
+        },
+        "description": {
+          "en": "Use a short-video break to distinguish immediate relief from deciding when to pause. Four-item means are not willpower, eating or addiction assessments.",
+          "zh": "即时满足与节制完整读法：用普通短视频休息的示例区分眼前轻松、实际需要与暂停选择；含四题算例，不评判意志力，不用于饮食或成瘾评估。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional gluttony is described as excessive reliance on sensory gratification. The source borrows that doorway only to observe attention to immediate rewards and decisions to pause, without judging eating or virtue.",
+              "zh": "传统七宗罪中的贪食指对感官满足的过度依赖；本测试只借用这一入口观察即时回报的注意力与暂停选择。"
+            },
+            {
+              "en": "Observe the appeal of an immediate reward alongside ways of actively deciding when to pause.",
+              "zh": "观察即时回报的吸引力与主动暂停的选择方式。"
+            },
+            {
+              "en": "The items cover finding easy rewards hard to ignore, seeking immediate comfort under pressure, noticing impatience while waiting, and deciding when to pause an enjoyable experience.",
+              "zh": "题目覆盖：轻松回报难以忽略、压力下选择立刻舒服的做法、等待时反复注意不耐烦、面对喜欢体验时主动决定暂停。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 1, 2, 2, 3 add to 8; 8 / 4 = 2.00. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：1、2、2、3相加为8，8÷4＝2.00。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask what need immediate comfort is responding to under pressure and how a pause was decided. Recall how waiting felt on a recent occasion and how you decided whether to pause or continue. Was immediate comfort addressing fatigue, boredom or another need? Only you can investigate that distinction.",
+              "zh": "可以回看：压力下你选择即时满足是在回应什么需要；暂停是怎样被决定的。 最近一次等待回报时的感受；那次你怎样决定暂停或继续。 即时满足解决的是疲惫、无聊还是其他需要？这个原因只能由你自己分辨。"
+            },
+            {
+              "en": "Imagine finishing a demanding but ordinary task and opening a short video for a break. The video offers immediate relief; deciding when to stop is a different question. Fatigue, available time and what you intended the break to do may all matter. This example concerns an everyday, non-dangerous choice. It is not an example for substances, gambling, self-harm, eating problems or withdrawal, and the mean cannot establish an addiction.",
+              "zh": "假设完成一项费力但普通的任务后，你打开短视频休息。视频提供眼前的轻松，而什么时候停下来，是另一个问题。疲惫程度、可用时间，以及原本希望休息起什么作用，都可能需要核对。这个例子只讨论普通、非危险的日常选择，不用于物质使用、赌博、自伤、进食问题或戒断；均值也不能认定成瘾。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Finding a reward appealing and actively deciding to pause have different meanings. Their combined mean is not a measure of willpower.",
+              "zh": "即时回报有吸引力与主动决定何时暂停不是同一含义；这组题同时包含两者，不能解释成意志力强弱。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, pause to record the need and the proposed action, then choose whether to act; no exercise is required. This suggestion is not for alcohol, drugs, gambling, self-harm, eating disorders, dangerous behaviour or withdrawal management.",
+              "zh": "可暂停，写下需求和行动，再决定是否行动；也可不练习。本建议不用于酒精、药物、赌博、自伤、进食障碍、危险行为或戒断管理。"
+            },
+            {
+              "en": "If useful, try asking yourself: “What did I need from this break, and do I want to continue, pause or do something else?” No particular answer earns virtue points. You may choose rest without making it a training exercise. A written observation is optional and stays private; neither a time limit nor another test is required to make the experience legitimate.",
+              "zh": "如果愿意，可以问自己：“这段休息原本想回应什么需要？现在想继续、暂停，还是换一种做法？”没有哪个答案能获得美德分。你可以选择休息，而不把它变成训练；是否写下观察也由自己决定，并且可以保持私密。体验不需要靠时间限制或另一份测试才变得合理。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish gluttony, indulgence, willpower, discipline, an eating problem, addiction or an impulse-control disorder.",
+              "zh": "它不能说明贪食、放纵、意志力、自律水平、饮食问题、成瘾或冲动控制障碍。"
+            },
+            {
+              "en": "Preferring an immediate reward does not mean indulgence. Delaying gratification is not inherently the right choice. This provides no dietary or medical advice. A larger number does not mean more indulgence. A smaller number does not mean greater moderation.",
+              "zh": "偏好即时回报不等于放纵；延迟满足也不天然更正确；不提供饮食或医疗建议；数值较高不表示更放纵；数值较低不表示更有节制。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Enjoying quick comfort and making deliberate pauses can both be present. Less agreement with waiting-related impatience does not prove willpower. Nor does agreement with seeking relief show a disorder. Keep the need, the appeal of the reward and the choice about pausing distinguishable.",
+              "zh": "喜欢即时的舒服与主动决定暂停，可以同时存在。对等待时的不耐烦较少符合，并不能证明意志力；对寻求轻松较符合，也不能说明存在障碍。把需要、回报的吸引力与暂停选择分开核对，才不会让均值替你编写原因。"
+            },
+            {
+              "en": "Immediate rewards have ordinary appeal, not moral guilt. This reflection does not offer dietary, medical or addiction diagnosis advice.",
+              "zh": "即时满足倾向是常见体验，不是罪；本测试不提供饮食、医疗或成瘾诊断建议。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anger-reading",
+      "directionIds": [
+        "ANGER_PATIENCE"
+      ],
+      "title": {
+        "en": "Anger signals and patient responses: Full Reflection Guide",
+        "zh": "愤怒信号与耐心回应：完整读法"
+      },
+      "headline": {
+        "en": "Distinguish an anger signal from the response that follows",
+        "zh": "回看愤怒信号与回应节奏"
+      },
+      "summary": {
+        "en": "Four statements consider bodily or emotional signals and response timing when something feels unfair, blocked or misunderstood.",
+        "zh": "这四道题关心不公平、受阻或误解时身体和情绪信号及回应节奏。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Anger signals and patient responses",
+          "zh": "七宗罪与七美德：愤怒信号与耐心回应"
+        },
+        "description": {
+          "en": "Separate tension after an interruption from the timing of a reply. Read four-item sums with an optional pause, without predicting violence or requiring reconciliation.",
+          "zh": "愤怒信号与耐心回应完整读法：从被打断的情境区分紧绷信号、未说完的话与回应时间；含四题算例，不预测暴力，也不要求忍受伤害或和解。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional wrath is described as an excessive reaction after being angered. The source borrows that doorway only to observe anger signals and response timing, without identifying a wrathful person.",
+              "zh": "传统七宗罪中的愤怒指被激怒后的过度反应；本测试只借用这一入口观察愤怒信号与回应节奏。"
+            },
+            {
+              "en": "Observe how anger signals appear alongside whether time is left before responding.",
+              "zh": "观察愤怒信号的出现方式与是否留出回应时间。"
+            },
+            {
+              "en": "The items cover noticing tension at unfairness, replaying words left unsaid after a disagreement, wanting to respond immediately to interruption, and leaving time before a more patient reply.",
+              "zh": "题目覆盖：不公平时注意身体或情绪变紧、分歧后继续回想没说完的话、被打断时出现立刻回应冲动、情绪升高时留时间再回应。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 4, 5, 2, 4 add to 15; 15 / 4 = 3.75. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：4、5、2、4相加为15，15÷4＝3.75。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask what you usually do after an anger signal and what the unfinished words after a disagreement concerned. Recall a recent rise in emotion and whether you left time before replying. Was the signal connected to a boundary being touched or to not being heard? Only the concrete situation can help you check.",
+              "zh": "可以回看：愤怒信号出现后你通常会做什么；分歧后反复回想的内容是什么。 最近一次情绪升高的情境；那次你是否留出了时间再回应。 愤怒信号指向的是边界被触碰，还是未被听见？这个判断只能由你结合具体情境核对。"
+            },
+            {
+              "en": "Suppose you are interrupted while explaining a plan. You notice tension and later keep returning to an unfinished sentence. That does not tell you whether the interruption was deliberate, whether you were heard or what response is safest. Bodily signals and a choice to leave time before replying are different observations. Nothing in this group makes enduring harm a requirement or predicts that someone will become violent.",
+              "zh": "假设你解释计划时被打断，随后注意到身体变紧，后来又反复想着那句没有说完的话。这些线索不能直接说明打断是否故意、自己是否被听见，或怎样回应最安全。身体信号与是否留时间再说，是不同的观察。本组没有要求忍受伤害，也不预测任何人会变得暴力。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Having an anger signal and leaving time before a response are different things. Their combined mean is not a reading of someone's temper.",
+              "zh": "愤怒信号出现与能否留时间回应不是同一含义；这组题同时包含两者，不能解释成脾气大小。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful and safe, identify the signal and your aim before acting. Pause when needed and speak later. Anger is not violence, and patience does not require enduring harm.",
+              "zh": "在行动前辨认信号与目标；需要时先暂停，稍后再表达；愤怒不等于暴力，耐心也不要求忍受伤害。"
+            },
+            {
+              "en": "In an ordinary safe conversation, an optional reply is: “I have not finished the point. I would like a pause, then a chance to explain it.” You may instead end the conversation or seek space. If the real situation involves harm, safety takes priority over completing a patient dialogue. A test result neither authorizes confrontation nor requires reconciliation.",
+              "zh": "在普通而安全的对话中，如果愿意，可以说：“这个意思我还没有表达完。我想先暂停一下，之后再有机会把它说清。”也可以结束对话或留出空间。现实情境涉及伤害时，安全优先于完成一段“耐心”的对话。测试结果既不授权对质，也不要求和解。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish a wrathful personality, aggression, violence risk, dangerousness, an emotional disorder, moral cultivation or a likelihood of hurting someone.",
+              "zh": "它不能说明暴怒人格、攻击性、暴力风险、危险性、情绪障碍、道德修养，也不能说你可能会伤害别人。"
+            },
+            {
+              "en": "Anger is not violence. Patience does not require enduring harm or boundary violations. It does not define a wrathful personality. A larger number does not mean a worse temper. A smaller number does not mean more patience.",
+              "zh": "愤怒不等于暴力；耐心不要求忍受伤害或边界侵犯；不定义暴怒人格；数值较高不表示脾气更大；数值较低不表示更有耐心。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people with the same mean may differ in agreement with noticing tension and with leaving time before responding. A person reporting strong signals might also pause deliberately. Neither a larger nor a smaller number supplies a violence-risk assessment or a moral ranking.",
+              "zh": "相同均值的两个人，在对“注意到紧绷”与“留时间再回应”两类陈述的符合程度上，可能并不相同。报告信号明显的人，也可能会主动暂停。无论数值较大还是较小，都不提供暴力风险评估或道德排名。"
+            },
+            {
+              "en": "Anger is a signal, not a conviction. If a real situation involves possible harm, safety comes first; this reflection does not suggest confrontation.",
+              "zh": "愤怒是信号不是罪；如果现实中存在伤害风险，安全优先，本测试不提供对质建议。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "starting-rest-reading",
+      "directionIds": [
+        "ACTIVATION_REST"
+      ],
+      "title": {
+        "en": "Starting tasks and returning from rest: Full Reflection Guide",
+        "zh": "行动启动与休息回避：完整读法"
+      },
+      "headline": {
+        "en": "Separate starting difficulty, recovery and ways back into action",
+        "zh": "回看启动、疲惫与休息的节奏"
+      },
+      "summary": {
+        "en": "Four statements consider starting a task, recovery from fatigue, ending a break and lowering the threshold for action.",
+        "zh": "这四道题关心任务启动、疲惫恢复、结束休息和降低行动门槛。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seven Sins & Virtues: Starting tasks and returning from rest",
+          "zh": "七宗罪与七美德：行动启动与休息回避"
+        },
+        "description": {
+          "en": "Explore an unclear folder task to separate starting difficulty, fatigue and an easier first step. Read four-item means without labelling rest or delay as laziness.",
+          "zh": "行动启动与休息回避完整读法：以整理项目文件夹的示例区分第一步不清楚、疲惫恢复与降低启动门槛；含四题算例，不把休息或延后贴成懒惰标签。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the four statements cover",
+            "zh": "这四道陈述观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Traditional sloth is described as not acting when action is expected. The source borrows that doorway only to observe starting a task, fatigue and the rhythm of rest, without measuring a sin of laziness.",
+              "zh": "传统七宗罪中的懒惰指该做时不做；本测试只借用这一入口观察任务启动、疲惫与休息节奏，不测量懒惰罪。"
+            },
+            {
+              "en": "Observe difficulty getting started, time needed to recover, and how a period of rest ends.",
+              "zh": "观察任务启动困难、疲惫恢复时间与休息结束方式。"
+            },
+            {
+              "en": "The items cover postponing an unclear first step, needing more recovery after fatigue, difficulty ending a sufficient break, and first making a demanding task easier to begin.",
+              "zh": "题目覆盖：第一步不清楚时推迟开始、疲惫后需要较长时间恢复、休息足够时不易结束、重要费力的事先降低启动难度。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A four-response worked example",
+            "zh": "一个四题算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Worked example, not your responses: 3, 4, 1, 5 add to 13; 13 / 4 = 3.25. All four responses retain their original 1–5 direction, without reverse scoring. Midpoint 3 is a numeric response, not an unanswered item. A sum ranges 4–20, and a mean 1–5. These are agreement summaries, with no threshold, percentile or progress target. A later attempt is not a before-and-after test of moral improvement.",
+              "zh": "算例，不是你的答案：3、4、1、5相加为13，13÷4＝3.25。四项都保留原1—5方向，不作反向计分；中点3是有效数值，不是未答。原始和范围4—20，均值范围1—5，只是整体符合程度摘要，没有阈值、百分位或进步目标。之后重测，也不构成道德进步的前后评估。"
+            },
+            {
+              "en": "The mean describes overall agreement with these four statements. It does not mark a good or bad level.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Return to one concrete situation",
+            "zh": "回到一个具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask where the first step becomes stuck and how long recovery from fatigue actually takes. Recall one task you postponed and why its first step was unclear. Could fatigue, an unclear task, attention or the environment be involved? These remain open questions; a mean cannot determine the cause.",
+              "zh": "可以回看：启动困难时第一步卡在哪里；疲惫恢复需要多久。 最近一次推迟开始的任务；那次的第一步为什么不清楚。 启动困难与疲劳、任务模糊、注意力或环境有关吗？这些原因只能作为开放核对，不能由分数确定。"
+            },
+            {
+              "en": "Imagine needing to organize a project folder after a tiring week. “Organize everything” leaves the first action unclear, while recovery may still be needed. Opening one document, asking what the folder is for, or postponing the task to rest are different possible choices. The mean cannot decide which condition caused a delay, whether rest was sufficient or whether a person has a health or attention problem.",
+              "zh": "假设疲惫的一周之后，你需要整理一个项目文件夹。“把所有东西整理好”没有指出第一步，而身体也可能仍需恢复。打开一份文件、先确认文件夹的用途，或暂时推迟任务去休息，是不同的可选做法。均值不能决定延后由什么条件引起、休息是否足够，或一个人是否有健康与注意方面的问题。"
+            }
+          ]
+        },
+        {
+          "id": "mixed",
+          "title": {
+            "en": "Keep different meanings separate",
+            "zh": "把不同含义分开核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Difficulty starting and actively making a first step easier have different meanings. Their combined mean is not one diligence-or-laziness dimension.",
+              "zh": "启动困难与主动降低启动门槛不是同一含义；这组题同时包含两者，不能解释成勤奋或懒惰的单一强度。"
+            },
+            {
+              "en": "For example, 1,1,5,5 and 3,3,3,3 both sum to 12 and average 3.00, despite different individual responses. The displayed mean cannot reveal which statement you agreed with. Read the exact statements privately before proposing an explanation, and leave reasons unknown when they cannot be checked. The example is arithmetic, not a validated pattern or a profile assigned to you.",
+              "zh": "例如，1、1、5、5与3、3、3、3都相加为12、均值为3.00，但逐题回答不同。显示的均值不能揭示你更符合哪一句。提出解释前，可以私下回看确切陈述；无法核对的原因仍保留未知。这只是算术例子，不是经过验证的作答模式，也不是给你派出的画像。"
+            }
+          ]
+        },
+        {
+          "id": "choice",
+          "title": {
+            "en": "One optional step or conversation",
+            "zh": "一项自选行动或对话"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, make the first step small enough to begin. Allow needed rest, then consider one small action for returning when ready.",
+              "zh": "把第一步拆到足够小再开始；需要休息时允许休息，结束后用一个小动作重新启动。"
+            },
+            {
+              "en": "If useful, change the invitation to action: “For now I will identify the first document; I can decide about the rest afterward.” Another valid option is to rest and return when ready. The aim is to make a situation clearer, not to manufacture productivity or prove diligence. You may stop the reflection without explaining why you did not follow a suggested step.",
+              "zh": "如果愿意，可以把行动邀请改成：“现在先确认第一份要处理的文件，剩下的之后再决定。”另一个始终可行的选项，是先休息，准备好再回来。目的在于把情境看清，而不是制造产出或证明勤勉。即使没有采用建议的步骤，也可以直接结束反思，无需解释。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this number cannot establish",
+            "zh": "这个数值不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish laziness, sloth as a sin, diligence, work ability, an executive-function diagnosis, ADHD, depression, health status or job performance.",
+              "zh": "它不能说明懒惰、怠惰罪、勤奋程度、工作能力、执行功能诊断、ADHD、抑郁、健康状态或职业表现。"
+            },
+            {
+              "en": "Starting difficulty is not laziness. Needing rest is not avoidance. It does not define a lazy personality. A larger number does not mean more laziness. A smaller number does not mean greater diligence.",
+              "zh": "启动困难不等于懒惰；休息需要不是回避；不定义懒惰人格；数值较高不表示更懒；数值较低不表示更勤勉。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A counterexample and a boundary",
+            "zh": "一个反例与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreement with making a first step easier can raise this group's mean, just as agreement with delaying an unclear task can. Calling the resulting number laziness would confuse unlike statements. A clear task in one environment may produce different responses from an ambiguous task elsewhere; that does not demonstrate a change in character.",
+              "zh": "“先降低启动难度”更符合，和“第一步不清楚时推迟”更符合，都可能增加本组均值。把这个数字叫作懒惰，会混淆不同陈述。一个环境里任务清楚、另一个环境里任务模糊，可能引出不同回答，并不能据此证明人品发生变化。"
+            },
+            {
+              "en": "Many conditions may affect starting a task. That is not a character defect, and no one factor in this reflection judges a personality.",
+              "zh": "启动困难可能受多种因素影响，不是道德缺陷；本测试不以任何单一因素评判你的人格。"
+            }
+          ]
+        },
+        {
+          "id": "edition",
+          "title": {
+            "en": "Edition, source and validation limits",
+            "zh": "版本、来源与验证范围"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-created framework for self-observation, without established reliability, validity, norms or fairness evidence.",
+              "zh": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。"
+            },
+            {
+              "en": "This guide preserves the scope of FermatMind's original twenty-eight-item Mini form and its seven separate four-item groups. The English prompts and this web presentation are new working adaptations, without independent validation. The source's cultural reference is not scientific support for a score. All seven complete public guides can be read before answering; they contain no private attempt or individual result.",
+              "zh": "本页保留费马原创小程序28题与七组各四题的观察范围。英文题文及网页呈现是新的工作改编，没有独立验证；文化参照不是分数的科学依据。七份公开完整指南均可在作答前阅读，其中不含私人答卷或个人成绩。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "virtues-scoring",
+      "title": {
+        "en": "Original choices, four-item sums and means",
+        "zh": "原选项、四题和与均值"
+      },
+      "paragraphs": [
+        {
+          "en": "All twenty-eight original statements use 1–5 agreement choices. Midpoint 3 means uncertain or depends on the situation and is numeric. Each four-item group is added separately (4–20) and divided by four (1–5), with no reverse key. The display retains quarter steps such as 1.25. There is no total, cross-group ranking or high/low band. The mean summarizes unlike statements and cannot identify any individual answer.",
+          "zh": "28条原始陈述使用1—5符合程度选项，中点3“不确定或视情况”是有效数值。各组四题分别相加（4—20），再除以四（1—5），不作反向计分；显示保留1.25等四分之一步长。不合总分、不跨组排名，也不派高低档位；均值汇合了含义不同的陈述，不能确认任何单题答案。"
+        }
+      ]
+    },
+    {
+      "id": "virtues-complete",
+      "title": {
+        "en": "Complete responses or free reading",
+        "zh": "完整作答或无分阅读"
+      },
+      "paragraphs": [
+        {
+          "en": "All twenty-eight responses must be valid before any personal interpretation appears. There is no NA option. A missing or invalid response withholds every group, rather than filling gaps or publishing partial meanings. You can leave without a score and read all seven full guides free. Equal sums remain equal; they do not mean a balance between sins and virtues or equivalent psychological meaning.",
+          "zh": "28题全部有效后才显示任何个人解释，本题本没有NA选项。缺答或非法回答会暂停全部分组，不填补答案、不先给部分含义。可以不带分数退出，七份完整指南都免费可读。相同和保留为相同数字，不表示罪德平衡，也不表示心理意义相同。"
+        }
+      ]
+    },
+    {
+      "id": "virtues-source",
+      "title": {
+        "en": "Original Mini form and new working English",
+        "zh": "原创小程序题本与新工作英文"
+      },
+      "paragraphs": [
+        {
+          "en": "This is FermatMind's original seven-group Mini form, adapted for the web with unchanged Chinese statements and new working English. These groups can combine reactions with ways of responding. Sins and virtues are cultural metaphors only; neither the original nor the translation is a validated moral, religious, ability or diagnostic scale. Complete personal results and all full public guides are free, without registration.",
+          "zh": "本页由费马原创小程序七组题本改编，中文原陈述不变，英文为新工作译文。各组可能同时包含反应线索与调节方式。七宗罪与七美德只作文化隐喻，原题本及译文都不是经过验证的道德、宗教、能力或诊断量表。个人完整结果与全部公开完整指南免费，无需注册。"
+        }
+      ]
+    },
+    {
+      "id": "culture",
+      "title": {
+        "en": "Cultural names and different traditions",
+        "zh": "文化名称与不同传统"
+      },
+      "paragraphs": [
+        {
+          "en": "The early lineage of the seven capital sins is associated with Christian monastic and ascetic traditions. Frameworks called seven virtues also include theological and cardinal traditions, while other discussions contrast virtues with sins. Different traditions cannot be merged into one exclusive list. The product borrows cultural metaphors only: its seven observation groups do not claim a one-to-one historical correspondence or religious endorsement.",
+          "zh": "七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七个产品因素不声称与任何历史传统一一对应，也不声称得到宗教传统认可。"
+        },
+        {
+          "en": "These seven groups are a product-created everyday observation framework. Historical cultural concepts are not modern measured psychological constructs; religious language is not scientific evidence for this questionnaire.",
+          "zh": "七个产品因素是本测试自建的通俗化观察框架，历史文化概念不等于现代心理测量构念；古代传统未经本测试验证，也不得把宗教语言包装成科学证据。"
+        },
+        {
+          "en": "This is not a doctrine examination or a judgment of faith. It does not preach or condemn and respects believers and nonbelievers.",
+          "zh": "这不是宗教教义测验，不评价信仰者的信仰，也不传教或定罪；内容尊重信仰者与非信仰者。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Read seven groups without a moral league table",
+        "zh": "七组分别读，不作道德排行榜"
+      },
+      "paragraphs": [
+        {
+          "en": "First note five things: sins and virtues are cultural metaphors here; there is no good-or-evil score, moral level or ranking of people; seven groups are read separately without a total, ranking or bands; a result concerns agreement with this set of statements in this attempt; groups may combine reactions and ways of responding, so a mean is not a single intensity.",
+          "zh": "请先了解五件事：七宗罪与七美德在这里仅作为文化隐喻；结果不计算善恶分、道德等级或人格优劣；七个因素独立阅读，不计算总分、不排名、不划分高低；结果只反映本次对这些题目的整体符合程度；因素中可能同时包含反应线索和调节方式，不能解释成单一强度。"
+        },
+        {
+          "en": "Seven separate groups each have a sum of four responses and a mean on the 1–5 scale. There is no total.",
+          "zh": "本次结果由七个独立因素组成，每个因素单独计算四道题的原始总和与 1–5 平均值，没有总分。"
+        },
+        {
+          "en": "A raw sum adds four response numbers and ranges 4–20. It concerns this attempt, without establishing a level.",
+          "zh": "原始总和是四道题回答数值之和，范围 4–20；它只在本次回答内有意义，不代表任何等级。"
+        },
+        {
+          "en": "The mean divides the sum by four and ranges 1–5. A mean nearer 5 indicates more overall agreement with those statements; a mean nearer 1 indicates less agreement.",
+          "zh": "平均值是把总和除以四，范围 1–5。平均值越接近 5，只表示总体上更同意这四个陈述；越接近 1，只表示总体上较少同意。"
+        },
+        {
+          "en": "Read the groups separately. Do not combine, subtract or rank them as more important than one another.",
+          "zh": "七个因素各自独立阅读，不合并、不加减、不比较谁更重要。"
+        },
+        {
+          "en": "There is no overall score, good-or-evil score, sin index or virtue index.",
+          "zh": "本测试不计算总分，也不计算善恶分、罪恶指数或美德指数。"
+        },
+        {
+          "en": "No group is selected as a greatest weakness, leading sin or first virtue. There is no winner.",
+          "zh": "七个因素不能互相排名，不产生最大弱点、主要罪或第一美德，不选冠军。"
+        },
+        {
+          "en": "There are no high, medium or low bands, normality labels, red alerts or moral-risk levels.",
+          "zh": "本测试没有高、中、低标签，不划分正常与异常，不设置红色预警或道德风险等级。"
+        },
+        {
+          "en": "A number describes agreement across four statements. It cannot identify any particular response or establish an item as a fact about your behaviour.",
+          "zh": "分数只表示你对每组四道陈述的整体符合程度，不能确认你在任一道具体题目中的回答；也不能把某一题当成你的行为事实。"
+        },
+        {
+          "en": "Some groups combine reactions with ways of responding: attraction with checking boundaries, reward appeal with deciding to pause, anger signals with leaving time to respond, and starting difficulty with making a first step easier. No group is one underlying intensity.",
+          "zh": "多个因素中可能同时包含反应线索与调节方式，例如注意力被吸引与主动核对边界、即时回报的吸引力与主动暂停、愤怒信号与留时间回应、启动困难与降低启动门槛；因此任何因素都不能解释成单一强度。"
+        }
+      ]
+    },
+    {
+      "id": "use-boundaries",
+      "title": {
+        "en": "Limits, consent and consequential decisions",
+        "zh": "使用边界、同意与重要决定"
+      },
+      "paragraphs": [
+        {
+          "en": "Results do not judge good and evil, character or a soul. They are not for shame, punishment, reward or evaluating another person.",
+          "zh": "结果不判断一个人的善恶、人品或灵魂，不划分道德高低，不用于羞辱、奖惩或评判。"
+        },
+        {
+          "en": "Results do not assign a sins personality, virtues personality, original-sin type, dark personality or fixed identity.",
+          "zh": "结果不产生七宗罪人格、七美德人格、原罪类型或黑暗人格，也不是固定身份。"
+        },
+        {
+          "en": "This is not a medical, psychological or psychiatric diagnosis and does not assess mental health or personality disorders.",
+          "zh": "本测试不是医疗、心理或精神科诊断，也不测量心理健康或人格障碍。"
+        },
+        {
+          "en": "Results do not judge willpower, discipline, self-control, work ability or moral cultivation, and do not predict addiction, violence or dangerousness.",
+          "zh": "结果不判断意志力、自律、自控能力、工作能力或道德修养，也不预测成瘾、暴力或危险。"
+        },
+        {
+          "en": "Do not use results to decide hiring, admissions, a relationship, responsibility or other consequential matters.",
+          "zh": "不要用结果决定录用、升学、关系去留、责任归属或其他高风险事项。"
+        },
+        {
+          "en": "Choices involving another person require their explicit, voluntary and revocable consent. This reflection supplies no permission or exemption.",
+          "zh": "任何涉及他人意愿的选择都需要对方明确、自愿且可撤回的同意；本测试不提供任何授权或免责。"
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-context",
+      "title": {
+        "en": "Your tab, another attempt and uncertain context",
+        "zh": "本标签页、重测与未知情境"
+      },
+      "paragraphs": [
+        {
+          "en": "This web edition keeps an active attempt in memory. Only choosing Save progress places individual responses in sessionStorage for this tab, for at most 24 hours. Refreshing or changing language offers recovery only for a saved, compatible draft. Completing, clearing or retaking removes it; closing the tab may end the session. No final-result cache is stored here. Raw answers and these personal sums are not sent by this local scoring flow, and copying uses only the public entry title and URL.",
+          "zh": "本网页当前作答保留在内存。只有主动“保存进度”才会把逐题选择写入本标签页sessionStorage，最多24小时；刷新或换语言只恢复已保存且版本兼容的草稿。完成、清除或重测会移除草稿，关闭标签页也可能结束会话；本页不保存最终结果缓存。本地计分流程不发送原始答案或个人分组和，复制只包含公开入口标题和URL。"
+        },
+        {
+          "en": "This is for entertainment and self-exploration, without established reliability, validity, norms, fairness, percentiles or accuracy evidence.",
+          "zh": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模、公平性、百分位或准确率验证。"
+        },
+        {
+          "en": "Psychometric validation is incomplete. These statements are not themselves evidence of validity, diagnosis, assessment or moral judgment.",
+          "zh": "本测试未完成心理测量验证，不能当作诊断、评估或道德判断依据；现有题目本身不能作为效度证据。"
+        },
+        {
+          "en": "On a later attempt, answer from what you can confirm then. A different result may reflect context, pressure or interpretation; it does not automatically establish a change in personality or morality.",
+          "zh": "如果以后重新作答，应按当时能确认的状态选择；两次结果不同可能与情境、压力或理解变化有关，不能自动解释为你的人格或道德已经改变。"
+        }
+      ]
+    },
+    {
+      "id": "states",
+      "title": {
+        "en": "Missing responses, unavailable editions and equal numbers",
+        "zh": "缺答、版本不可用与数值相同"
+      },
+      "paragraphs": [
+        {
+          "en": "Insufficient responses: missing or invalid answers mean no personal factor interpretation. You may continue or leave. Only a draft you actively saved in this web tab is recoverable; an incomplete attempt makes no final result cache. No result is not avoidance of flaws and does not require an explanation about your character.",
+          "zh": "作答不足：缺答或非法回答时，不提供个人因素解释。可以补全，也可以直接退出；只有本网页中主动保存过的标签页草稿才可恢复，不完整作答不生成最终结果缓存。没有结果不等于逃避缺点，也不需要为自己的品质作解释。"
+        },
+        {
+          "en": "Unavailable edition: incompatible item, scoring or content versions stop interpretation. Old results and partial meanings are not substituted. This is a version problem, not a judgment of your responses; no repeated immediate attempt is required.",
+          "zh": "版本不可用：题本、计分或内容版本不兼容时停止解释，不替换旧结果或给部分含义。这是版本问题，不是对作答的评判，无需立即反复重做。"
+        },
+        {
+          "en": "Equal numbers: two or more identical raw sums establish identical numbers only. There is no tie-break, combined personality, sin–virtue balance or equal seriousness. Statements differ across groups, so read each complete guide separately.",
+          "zh": "数值相同：两个或更多原始和相同，只表示数字相同。不打破相同值、不生成组合人格，不表示罪德平衡或同样严重；各组陈述不同，应分别阅读每份完整指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will I receive a sin or virtue type?",
+        "zh": "会派出某一种七宗罪或七美德类型吗？"
+      },
+      "answer": {
+        "en": "No. You receive seven separate observations and their full guides, not a leading sin, first virtue, good-or-evil total or fixed identity.",
+        "zh": "不会。结果分别呈现七组观察与全部完整读法，不派首要罪、第一美德、善恶总分或固定身份。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the twenty-eight responses scored?",
+        "zh": "28题如何计分？"
+      },
+      "answer": {
+        "en": "All items are forward agreement choices 1–5. Each group's four response numbers are added (4–20), then divided by four (1–5). Sums and means stay separate across seven groups.",
+        "zh": "各题均为正向1—5符合程度选项。每组四项数值相加（4—20），再除以四（1—5），七组的和与均值分别保留。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is uncertain at 3 an unscored answer?",
+        "zh": "中点3“不确定或视情况”是否不计分？"
+      },
+      "answer": {
+        "en": "No. It is the source's numeric midpoint. There is no NA option; you can leave without a score and still read every full guide.",
+        "zh": "不是。它是原题本的有效数值中点。本题本没有NA选项，可以无分退出，仍能阅读全部完整指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I rank the seven means?",
+        "zh": "可以把七组均值排出名次吗？"
+      },
+      "answer": {
+        "en": "No. The statements and their mixtures differ. A larger mean is not a more important weakness, a stronger trait or a worse moral standing.",
+        "zh": "不可以。各组陈述与混合含义不同；均值较大不表示更重要的弱点、更强的特质或更差的道德。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do equal sums mean?",
+        "zh": "相同的原始和表示什么？"
+      },
+      "answer": {
+        "en": "Only equal arithmetic in this attempt. It is not a balance of sins and virtues, equivalent meaning, a combined personality or equal seriousness.",
+        "zh": "只表示本次数值相同，不表示罪德平衡、意义相同、组合人格或同样严重。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a religious or scientific assessment?",
+        "zh": "这是宗教测验或科学人格测评吗？"
+      },
+      "answer": {
+        "en": "It is a culturally framed, original reflection, without psychometric validation. Religious references explain names, not a scoring key, endorsement or evidence of validity.",
+        "zh": "这是借用文化名称的原创反思，尚无心理测量验证。宗教来源只解释名称，不是计分钥匙、背书或效度证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved after a refresh or language change?",
+        "zh": "刷新或换语言后保存什么？"
+      },
+      "answer": {
+        "en": "Only an actively saved, compatible tab draft can be resumed, for at most 24 hours. Completion, clearing or retaking removes it. This web edition stores no final-result cache.",
+        "zh": "只有主动保存且版本兼容的标签页草稿可以恢复，最多24小时；完成、清除或重测会移除。本网页不保存最终结果缓存。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which original edition and language does this use?",
+        "zh": "采用哪个原题本和语言版本？"
+      },
+      "answer": {
+        "en": "Chinese keeps all 28 original Mini statements. English is a new working translation; expanded guides and the web display have no independent validation.",
+        "zh": "中文保留小程序全部28条原陈述；英文为新工作译文，扩展指南和网页呈现没有独立验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why might a personal result be withheld?",
+        "zh": "为什么可能暂时不提供个人结果？"
+      },
+      "answer": {
+        "en": "Any missing or invalid response withholds all seven groups. Incompatible source or content versions make the edition unavailable; they do not cause a fallback personality.",
+        "zh": "任一缺答或非法回答都会暂停全部七组；题本或内容版本不兼容时，当前版本不可用，不生成替代人格。"
+      }
+    },
+    {
+      "question": {
+        "en": "May I use this to judge someone else?",
+        "zh": "可以用来评判别人吗？"
+      },
+      "answer": {
+        "en": "No. These are your responses to a small original item set, not evidence about someone else, permission to ignore consent, or a basis for consequential decisions.",
+        "zh": "不可以。这是对一小组原创陈述的自报，不是关于他人的证据，不授权忽视同意，也不用于重要决定。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Cultural reference: Catechism 1866, capital sins",
+        "zh": "文化名称参照：《天主教教理》1866，首罪"
+      },
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_one/article_8/v_the_proliferation_of_sin.html"
+    },
+    {
+      "title": {
+        "en": "Cultural reference: Catechism 1805, cardinal virtues",
+        "zh": "文化名称参照：《天主教教理》1805，枢德"
+      },
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_one/article_7/i_the_human_virtues.html"
+    },
+    {
+      "title": {
+        "en": "Cultural reference: Catechism 1813, theological virtues",
+        "zh": "文化名称参照：《天主教教理》1813，神学美德"
+      },
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_one/chapter_one/article_7/ii_the_theological_virtues.html"
+    }
+  ]
+}

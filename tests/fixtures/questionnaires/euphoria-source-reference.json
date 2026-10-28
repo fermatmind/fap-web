@@ -1,0 +1,954 @@
+{
+  "edition": "fm_euphoria_everyday20_v1",
+  "status": "original_unofficial_editorial_not_validated",
+  "questions": [
+    {
+      "id": "EUPHORIA_ORIGINAL_01",
+      "prompt": {
+        "en": "A group chat is deciding how to spend a free afternoon. Your first contribution is…",
+        "zh": "群聊在讨论一个空闲下午怎么过，你首先会……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Make a sideways joke before saying what I actually feel like doing.",
+            "zh": "先绕着开个玩笑，再说自己真正想做什么。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Suggest an unfamiliar place and imagine what we could discover there.",
+            "zh": "提议去没去过的地方，想象能发现什么。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Ask which option lets us spend more time together.",
+            "zh": "问哪种安排能让大家多待在一起。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "State my preference plainly, including what I am not up for.",
+            "zh": "明确说出偏好，也说清自己不愿参与什么。"
+          },
+          "directionId": "MADDY"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_02",
+      "prompt": {
+        "en": "A small event needs a volunteer. Which role would you pick first?",
+        "zh": "一个小活动需要志愿者，你会优先选哪种工作？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Set the target, deadline and responsibility for the main task.",
+            "zh": "确定主要任务的目标、截止时间和分工。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Observe the moving parts and write a running order.",
+            "zh": "观察各个环节，写一份流程。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Handle the practical job that makes somebody’s evening easier.",
+            "zh": "接手能让别人当晚轻松一点的实际工作。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Give the invitation a voice and look that feel like mine.",
+            "zh": "让邀请函的语气和样子更像自己的风格。"
+          },
+          "directionId": "KAT"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_03",
+      "prompt": {
+        "en": "A shared project has stalled. You are most likely to…",
+        "zh": "合作项目停住了，你更可能……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Read the notes and find the detail everyone passed over.",
+            "zh": "翻看记录，找出大家略过的细节。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Ask who needs a hand and complete one concrete piece.",
+            "zh": "问谁需要帮忙，先完成一个具体部分。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Make a short plan with one owner for each next step.",
+            "zh": "列一份短计划，让下一步各有负责人。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Name the awkward mood with humour before returning to the issue.",
+            "zh": "用幽默点出尴尬，再回到问题。"
+          },
+          "directionId": "RUE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_04",
+      "prompt": {
+        "en": "Someone invites you to something outside your usual routine. Your first thought is…",
+        "zh": "有人邀请你做一件日常范围之外的事，你首先想到……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "There may be a new experience I want to try for myself.",
+            "zh": "也许有一种值得自己试试的新体验。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "I will decide after checking whether it suits my boundaries.",
+            "zh": "先看是否符合自己的边界，再决定。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "I could show a different side of myself in that setting.",
+            "zh": "可以在那个场合展现自己不同的一面。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "I want to know whether they especially want me there.",
+            "zh": "想知道对方是否特别希望我去。"
+          },
+          "directionId": "CASSIE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_05",
+      "prompt": {
+        "en": "You can redesign one corner of a shared room. What interests you most?",
+        "zh": "可以重新布置公共房间的一个角落，你最感兴趣的是……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Making the space express a style I have been wanting to claim.",
+            "zh": "让空间呈现自己一直想尝试的风格。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "An unexpected detail that makes people laugh when they notice it.",
+            "zh": "一个被人发现时会让人发笑的意外细节。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Trying a colour or material I have never used before.",
+            "zh": "尝试没用过的颜色或材料。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Arranging objects so they quietly tell a coherent story.",
+            "zh": "让物件的安排安静地讲出一个完整故事。"
+          },
+          "directionId": "LEXI"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_06",
+      "prompt": {
+        "en": "A friend’s plans fall through. You offer support by…",
+        "zh": "朋友的安排落空了，你会怎样支持对方？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Offering a ride, a meal or another specific practical favour.",
+            "zh": "提出接送、吃饭等一项具体帮助。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Checking whether they would like company for the evening.",
+            "zh": "问对方当晚是否想有人陪。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Helping them say clearly what treatment they will accept.",
+            "zh": "帮对方说清愿意接受怎样的对待。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Working out a replacement plan and its immediate steps.",
+            "zh": "一起拟定替代安排和眼下步骤。"
+          },
+          "directionId": "NATE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_07",
+      "prompt": {
+        "en": "You are introducing yourself to a new hobby group. You would rather…",
+        "zh": "向一个新的兴趣小组介绍自己时，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Find a friendly person and build a warm exchange with them.",
+            "zh": "先找到友善的人，聊出一点亲近感。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Choose a short introduction that presents the side I want to show.",
+            "zh": "用一段简短介绍呈现自己想展示的一面。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Start with a self-aware joke and keep the introduction informal.",
+            "zh": "用一个自知的玩笑开头，让介绍轻松些。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Help set things up and let the conversation happen alongside it.",
+            "zh": "一边帮忙准备，一边自然聊天。"
+          },
+          "directionId": "FEZCO"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_08",
+      "prompt": {
+        "en": "A group discussion is going in circles. Your preferred contribution is…",
+        "zh": "集体讨论反复兜圈，你更想提供哪种帮助？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Say the uncomfortable point directly without apologising for having a view.",
+            "zh": "直接说出难以启齿的要点，不为有自己的看法而道歉。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Ask for a decision, a deadline and a clear next action.",
+            "zh": "推动确定决定、期限和下一步行动。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Summarise what each person actually said before adding a suggestion.",
+            "zh": "先概括每个人实际说过什么，再给建议。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Open an alternative that changes how we see the problem.",
+            "zh": "提出一个能改变看问题方式的新选项。"
+          },
+          "directionId": "JULES"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_09",
+      "prompt": {
+        "en": "You have an unexpected hour alone. What sounds most appealing?",
+        "zh": "突然有一小时独处时间，哪件事最吸引你？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Follow a thought into music, humour or an unplanned detour.",
+            "zh": "跟着一个念头听音乐、找笑点或随意转转。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Finish a defined task and see a clear result.",
+            "zh": "完成一项明确任务，看到具体结果。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Do something I have chosen without explaining it to anyone.",
+            "zh": "做一件自己选的事，不必向别人解释。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Write or organise something I have been quietly noticing.",
+            "zh": "写下或整理最近默默留意的事。"
+          },
+          "directionId": "LEXI"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_10",
+      "prompt": {
+        "en": "A friend asks for ideas for a personal celebration. You focus first on…",
+        "zh": "朋友请你为一个私人庆祝活动出主意，你首先关注……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "An imaginative experience neither of us has tried.",
+            "zh": "一种彼此都没试过的有想象力的体验。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "What would make them feel especially wanted and included.",
+            "zh": "怎样让对方感到自己被重视、被欢迎。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "What would make the day easier to organise and enjoy.",
+            "zh": "怎样让当天更好安排、更省心。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A theme or presentation that says something distinctive about them.",
+            "zh": "一种能表达对方独特之处的主题或呈现方式。"
+          },
+          "directionId": "KAT"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_11",
+      "prompt": {
+        "en": "You disagree with feedback on something you made. Your first useful move would be…",
+        "zh": "你不同意别人对作品的反馈，首先会采取哪种做法？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Ask which concrete change would help the thing work better.",
+            "zh": "问哪一项具体调整能让作品更好用。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Try another version to see whether the idea opens up.",
+            "zh": "试做另一个版本，看看想法能否展开。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Read their exact comments and separate observation from inference.",
+            "zh": "细读原话，区分观察和推断。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Ask what they did appreciate so I understand where we still connect.",
+            "zh": "问对方欣赏了哪些部分，理解彼此仍能连接之处。"
+          },
+          "directionId": "CASSIE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_12",
+      "prompt": {
+        "en": "A minor mix-up has made a meeting awkward. You tend to…",
+        "zh": "一个小误会让聚会有点尴尬，你通常会……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Reset the arrangement so the same mix-up is less likely.",
+            "zh": "重新安排，减少同样误会再次发生。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Use a light aside to acknowledge that the moment feels strange.",
+            "zh": "用一句轻松的话承认当下有点别扭。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Choose a different tone and reintroduce myself on my own terms.",
+            "zh": "换一种语气，按自己的方式重新打开对话。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Say what happened and what I want to happen next.",
+            "zh": "说清发生了什么，以及自己接下来希望怎样。"
+          },
+          "directionId": "MADDY"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_13",
+      "prompt": {
+        "en": "An idea board has room for one more contribution. You add…",
+        "zh": "创意板还能再放一条内容，你会加上……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A striking example of a voice or style we could try.",
+            "zh": "一个可以尝试的鲜明语气或风格样例。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A clear statement of what I want this project to stand for.",
+            "zh": "一句清楚表达自己希望项目体现什么的话。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A surprising possibility that stretches the original idea.",
+            "zh": "一个能拓宽原构想的意外可能性。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A note about a practical need somebody may have overlooked.",
+            "zh": "一条关于可能被忽略的实际需要的备注。"
+          },
+          "directionId": "FEZCO"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_14",
+      "prompt": {
+        "en": "A friend asks how your week has been. You are more likely to begin with…",
+        "zh": "朋友问这一周过得怎样，你更可能从什么说起？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "How connected or distant I felt from the people I care about.",
+            "zh": "自己与在意的人之间感到多近或多远。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A pattern I noticed after watching several small moments.",
+            "zh": "从几个小片段中观察到的一种模式。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "An odd little story that conveys my mood indirectly.",
+            "zh": "一个间接表达心情的奇怪小故事。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "What I managed to complete and what remains on the list.",
+            "zh": "完成了什么，以及清单上还剩什么。"
+          },
+          "directionId": "NATE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_15",
+      "prompt": {
+        "en": "You are choosing how to contribute to a shared newsletter. You pick…",
+        "zh": "为一份共同制作的简报供稿，你会选……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "An observed scene shaped into a careful short piece.",
+            "zh": "把观察到的一个场景整理成细致短文。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A personal column with a deliberately chosen voice.",
+            "zh": "一篇用自己选定语气写的个人专栏。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "An organised update with outcomes and next commitments.",
+            "zh": "一份条理清晰、列出成果和后续约定的进展。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "An experimental image or idea that changes the usual format.",
+            "zh": "一张实验性的图或一个改变惯常格式的点子。"
+          },
+          "directionId": "JULES"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_16",
+      "prompt": {
+        "en": "Someone you know seems left out at a gathering. Your first response is…",
+        "zh": "聚会中一位认识的人像是被冷落了，你首先会……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Make an explicit space for them in the conversation.",
+            "zh": "在对话中明确给对方留出位置。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Bring something they need and stay nearby if they want.",
+            "zh": "送去对方需要的东西，并在对方愿意时待在附近。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Invite them to sit with me and check whether they want company.",
+            "zh": "邀请对方坐过来，问是否想有人陪。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Offer an easy joke that lets them join without a formal introduction.",
+            "zh": "用一个容易接上的玩笑，让对方自然加入。"
+          },
+          "directionId": "RUE"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_17",
+      "prompt": {
+        "en": "A weekend plan has several equally workable options. You decide by…",
+        "zh": "周末有几个都可行的安排，你会怎样决定？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Comparing the details we have actually heard about each option.",
+            "zh": "比较自己实际听到的各项细节。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Picking the experience that fits the version of myself I want to try today.",
+            "zh": "选一种符合今天想尝试的自我表达的体验。"
+          },
+          "directionId": "KAT"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Checking which option gives us the connection we want.",
+            "zh": "看哪种安排能提供彼此想要的相处。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Naming my choice clearly and hearing other people’s limits.",
+            "zh": "明确说出自己的选择，也听其他人的限制。"
+          },
+          "directionId": "MADDY"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_18",
+      "prompt": {
+        "en": "You can make one small change to a routine. What draws you?",
+        "zh": "可以对日常习惯做一个小调整，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Set a specific result and a way to see whether it happened.",
+            "zh": "确定一个具体结果，以及确认它是否发生的方法。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Leave room for an unplanned moment instead of scripting everything.",
+            "zh": "留一点没写进安排的余地。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Replace one familiar part with something curious and new.",
+            "zh": "用一件好奇的新事物替换一个熟悉环节。"
+          },
+          "directionId": "JULES"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Remove a small practical burden for myself or someone close.",
+            "zh": "减轻自己或亲近的人一项实际负担。"
+          },
+          "directionId": "FEZCO"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_19",
+      "prompt": {
+        "en": "A collaboration needs a restart after a break. You prefer to…",
+        "zh": "合作暂停后需要重新开始，你更愿意……"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Show up with the materials or assistance that are needed.",
+            "zh": "带来所需材料或实际协助。"
+          },
+          "directionId": "FEZCO"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Reconnect personally before returning to the work.",
+            "zh": "先在人与人之间重新联系，再回到任务。"
+          },
+          "directionId": "CASSIE"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Confirm the goal and the next commitment with everyone.",
+            "zh": "与大家确认目标和下一项约定。"
+          },
+          "directionId": "NATE"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Refresh the way we present the work so it feels alive again.",
+            "zh": "更新作品的呈现方式，让它重新有生气。"
+          },
+          "directionId": "KAT"
+        }
+      ]
+    },
+    {
+      "id": "EUPHORIA_ORIGINAL_20",
+      "prompt": {
+        "en": "At the end of a shared experience, what would you most like to keep?",
+        "zh": "共同经历结束时，你最想留下什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A funny, honest account of how it felt from the inside.",
+            "zh": "一段有趣又坦诚、写出内心感受的叙述。"
+          },
+          "directionId": "RUE"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A small record that helps me understand what happened.",
+            "zh": "一份帮助自己理解发生了什么的小记录。"
+          },
+          "directionId": "LEXI"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A clear sense that my voice and boundaries had room.",
+            "zh": "自己的声音和边界得到容纳的明确感受。"
+          },
+          "directionId": "MADDY"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A new possibility I would like to explore further.",
+            "zh": "一种还想继续探索的新可能。"
+          },
+          "directionId": "JULES"
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "RUE",
+      "profileId": "rue-bennett",
+      "exposures": 10
+    },
+    {
+      "id": "JULES",
+      "profileId": "jules-vaughn",
+      "exposures": 10
+    },
+    {
+      "id": "CASSIE",
+      "profileId": "cassie-howard",
+      "exposures": 10
+    },
+    {
+      "id": "MADDY",
+      "profileId": "maddy-perez",
+      "exposures": 10
+    },
+    {
+      "id": "LEXI",
+      "profileId": "lexi-howard",
+      "exposures": 10
+    },
+    {
+      "id": "FEZCO",
+      "profileId": "fezco",
+      "exposures": 10
+    },
+    {
+      "id": "NATE",
+      "profileId": "nate-jacobs",
+      "exposures": 10
+    },
+    {
+      "id": "KAT",
+      "profileId": "kat-hernandez",
+      "exposures": 10
+    }
+  ],
+  "positionExposure": {
+    "JULES": [
+      2,
+      2,
+      3,
+      3
+    ],
+    "MADDY": [
+      2,
+      2,
+      3,
+      3
+    ],
+    "CASSIE": [
+      2,
+      3,
+      3,
+      2
+    ],
+    "RUE": [
+      3,
+      3,
+      2,
+      2
+    ],
+    "KAT": [
+      2,
+      3,
+      2,
+      3
+    ],
+    "LEXI": [
+      3,
+      3,
+      2,
+      2
+    ],
+    "FEZCO": [
+      3,
+      2,
+      2,
+      3
+    ],
+    "NATE": [
+      3,
+      2,
+      3,
+      2
+    ]
+  },
+  "sourceScope": "Seasons one and two only. Brief story anchors are separated from the original question-to-route mapping.",
+  "references": [
+    {
+      "title": {
+        "en": "HBO: Euphoria series announcement and cast (2018)",
+        "zh": "HBO：《亢奋》剧集与演员公告（2018）"
+      },
+      "url": "https://www.hbomaxlapress.com/news/441"
+    },
+    {
+      "title": {
+        "en": "Warner Bros. Discovery: season two announcement",
+        "zh": "华纳兄弟探索：第二季公告"
+      },
+      "url": "https://press.wbd.com/us/ca/media-release/hbo-0/euphoria/emmy-award-winning-hbo-drama-series-euphoria-returns-january-9"
+    },
+    {
+      "title": {
+        "en": "List of Euphoria characters: story reference, limited here to seasons one and two",
+        "zh": "《亢奋》角色列表：本页仅采用第一、二季故事参照"
+      },
+      "url": "https://en.wikipedia.org/wiki/List_of_Euphoria_characters"
+    }
+  ],
+  "sourceAccess": {
+    "officialAnnouncements": "Official indexed metadata read; direct access unavailable during research, not represented as a fresh full-page HTTP success.",
+    "characterList": "Public body read; only the brief S1/S2 anchors reproduced in the profiles.",
+    "competitors": "JobCannon public entry/FAQ read only because an existing authenticated session was present. IDRlabs public35question flow completed once using synthetic midpoint2on0..4 sliders; actual result showed seven50percent values and a tied generic description without personalised interpretation. Sign-in remained optional; no account creation, payment or sharing. Original questions and reports were authored before this completion and do not reuse competitor prose."
+  },
+  "unknowns": [
+    "Search volume",
+    "Keyword difficulty",
+    "Search traffic",
+    "Psychometric validity",
+    "JobCannon completed result flow"
+  ]
+}

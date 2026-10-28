@@ -5143,5 +5143,62 @@
       "explaining-and-protecting-a-position",
       "speaking-less-and-holding-back"
     ]
+  },
+  {
+    "slug": "euphoria-character-quiz",
+    "code": "FM_EUPHORIA_EVERYDAY20",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "fantasy",
+    "title": {
+      "en": "Euphoria character quiz",
+      "zh": "《亢奋》角色测试"
+    },
+    "description": {
+      "en": "Try 20 original everyday questions inspired by eight Euphoria characters. Read full bilingual guides, all leading ties and clear limits. Unofficial seasons 1–2 edition.",
+      "zh": "用二十道原创日常题探索八位《亢奋》角色路线，阅读双语完整指南、所有最高次数并列与解释边界。非官方第一、二季编辑版。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_euphoria_everyday20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "rue-bennett",
+      "jules-vaughn",
+      "cassie-howard",
+      "maddy-perez",
+      "lexi-howard",
+      "fezco",
+      "nate-jacobs",
+      "kat-hernandez"
+    ]
+  },
+  {
+    "slug": "seven-sins-virtues-test",
+    "code": "VIRTUES_EXPLORATION",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "metaphor",
+    "title": {
+      "en": "Seven Sins and Virtues Test: Everyday Reflections",
+      "zh": "七宗罪与七美德测试：日常张力观察"
+    },
+    "description": {
+      "en": "Use FermatMind's original 28-item reflection with new working English. Read seven full guides free, with separate sums and means and no moral ranking, good-or-evil total or assigned virtue type.",
+      "zh": "使用费马原创28题与新工作英文，七份完整指南免费。七组分别呈现和与均值，不作道德排名、善恶总分或美德类型判断。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "virtues_exploration_likert_28",
+    "questionCount": 28,
+    "resultSlugs": [
+      "recognition-reading",
+      "resources-reading",
+      "desire-boundaries-reading",
+      "comparison-reading",
+      "rewards-reading",
+      "anger-reading",
+      "starting-rest-reading"
+    ]
   }
 ]

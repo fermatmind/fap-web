@@ -1,0 +1,2626 @@
+{
+  "originalModuleHashes": [
+    {
+      "module": "virtues_exploration/item_bank.js",
+      "sha256": "110688037c8c801555227f7c28f6fdf3e9386a839ae64ad9cd7c400cef0fcc46"
+    },
+    {
+      "module": "virtues_exploration/item_review.js",
+      "sha256": "8201b00f38c8c3d3847b06499fb47bdfd25dc584e74ba0cb33f5904c304e0990"
+    },
+    {
+      "module": "virtues_exploration/product.js",
+      "sha256": "7d99aeebb85a6382ffe838deda404d9bd6e9c59b98b915c0905c715b8f48e5e1"
+    },
+    {
+      "module": "virtues_exploration/result_content.js",
+      "sha256": "c82f1010556db7f415bdf0ca010b21c2fe6594216adbd4438d7282b8672f6e7f"
+    },
+    {
+      "module": "virtues_exploration/scoring_spec.js",
+      "sha256": "b1b0719cb47e0656b30af8b0b25b1a65c961c833e298da0630da7f5c5e4f7fb9"
+    },
+    {
+      "module": "local/independent_factor_likert_scorer.js",
+      "sha256": "9e71ef2a416e6f4a4312a38757a62b2b6cdd3d3c4bf00e0778a1ce877de9b8cf"
+    },
+    {
+      "module": "local/scorer_helpers.js",
+      "sha256": "4fbf9a4bc5f6d66bcec588880a2f34ee239b887264b72396e1cd8118f174e0fb"
+    },
+    {
+      "module": "local/result_presenter.js",
+      "sha256": "eb1e9cea47a24bc653a822c1a2be0dbb18ccfb705ef8903d8d74f4754608227a"
+    },
+    {
+      "module": "local/result_store.js",
+      "sha256": "f3584ad5506b987cae7ba2ecfcafd9ba9a2f8046bee17a9379672e59f9d68642"
+    }
+  ],
+  "originalItemBank": {
+    "test_id": "VIRTUES_EXPLORATION",
+    "form_code": "virtues_exploration_likert_28",
+    "renderer": "likert",
+    "construct_version": "0.1.0-preview",
+    "item_bank_version": "0.1.0-preview",
+    "status": "content_reviewed_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "copyright_origin": "original",
+    "review_provenance": "role_based_model_review",
+    "items": [
+      {
+        "question_id": "VIRTUES_LK_001",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "prompt": "付出没有被留意时，这件事会持续占据我的注意。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_002",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "prompt": "完成一项重要任务后，我会期待获得较明确的反馈。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_003",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "prompt": "判断自己做得怎样时，我容易参考别人给出的回应。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_004",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "prompt": "感到被忽略时，我会重新确认自己的贡献是否被看见。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_005",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "prompt": "未来资源不确定时，我会优先为自己保留余量。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_006",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "prompt": "决定是否分享时间或物品前，我会先确认自己是否够用。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_007",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "prompt": "借出重要资源后，我会留意它何时能够恢复。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_008",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "prompt": "面对额外支出时，我容易先想到之后可能出现的需要。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_009",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "DESIRE_BOUNDARY",
+        "prompt": "遇到很有吸引力的人或机会时，我会明显感到注意力被拉动。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_010",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "DESIRE_BOUNDARY",
+        "prompt": "想靠近某个人或事物时，我会留意双方边界是否清楚。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_011",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "DESIRE_BOUNDARY",
+        "prompt": "强烈想要一件事时，我需要花些时间区分冲动与长期选择。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_012",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "DESIRE_BOUNDARY",
+        "prompt": "吸引出现后，我会确认当下的意愿和现实条件。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_013",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "COMPARISON_APPRECIATION",
+        "prompt": "看到处境相近的人取得进展时，我会自然比较自己的位置。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_014",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "COMPARISON_APPRECIATION",
+        "prompt": "别人获得认可时，我容易留意自己是否也得到相似机会。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_015",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "COMPARISON_APPRECIATION",
+        "prompt": "欣赏他人的能力时，我也会想到自己仍想发展的部分。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_016",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "COMPARISON_APPRECIATION",
+        "prompt": "群体中出现明显差距时，我会较快注意到这种差距。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_017",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "REWARD_MODERATION",
+        "prompt": "眼前有轻松回报时，我会感到它很难被忽略。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_018",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "REWARD_MODERATION",
+        "prompt": "压力较大时，我更容易选择能立刻让我舒服一点的做法。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_019",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "REWARD_MODERATION",
+        "prompt": "等待较晚才出现的回报时，我会反复注意当下的不耐烦。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_020",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "REWARD_MODERATION",
+        "prompt": "面对喜欢的体验时，我需要主动决定什么时候暂停。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_021",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ANGER_PATIENCE",
+        "prompt": "觉得不公平时，我会很快注意到身体或情绪变紧。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_022",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ANGER_PATIENCE",
+        "prompt": "分歧结束后，我有时仍会继续想着当时没有说完的话。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_023",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ANGER_PATIENCE",
+        "prompt": "被打断或误解时，我会出现立刻回应的冲动。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_024",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ANGER_PATIENCE",
+        "prompt": "情绪升高时，我需要先留出时间才能更耐心地回应。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_025",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ACTIVATION_REST",
+        "prompt": "任务的第一步不清楚时，我会推迟开始。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_026",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ACTIVATION_REST",
+        "prompt": "疲惫之后，我需要较长时间才能重新进入行动状态。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_027",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ACTIVATION_REST",
+        "prompt": "休息已经足够时，我有时仍不容易结束休息。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "VIRTUES_LK_028",
+        "test_id": "VIRTUES_EXPLORATION",
+        "form_code": "virtues_exploration_likert_28",
+        "renderer": "likert",
+        "factor_code": "ACTIVATION_REST",
+        "prompt": "面对重要但费力的事情，我会先寻找降低启动难度的方法。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      }
+    ]
+  },
+  "originalScoringSpec": {
+    "test_id": "VIRTUES_EXPLORATION",
+    "scoring_version": "0.1.0-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_form_code": "virtues_exploration_likert_28",
+    "status": "product_construct_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "factors": [
+      {
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "display_name": "认可需要与自我定位",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "display_name": "资源安全感与分享",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "DESIRE_BOUNDARY",
+        "display_name": "欲望、吸引与边界",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "COMPARISON_APPRECIATION",
+        "display_name": "比较敏感与欣赏",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "REWARD_MODERATION",
+        "display_name": "即时满足与节制",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "ANGER_PATIENCE",
+        "display_name": "愤怒信号与耐心回应",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "ACTIVATION_REST",
+        "display_name": "行动启动与休息回避",
+        "scheduled_items": 4
+      }
+    ],
+    "scoring_model": {
+      "name": "independent_factor_likert_raw_mean",
+      "formula": "raw_sum = Σ(valid integer responses); mean_1_to_5 = raw_sum / valid_answer_count",
+      "response_min": 1,
+      "response_max": 5,
+      "integer_only": true,
+      "items_per_factor": 4,
+      "total_score_enabled": false,
+      "ranking_enabled": false,
+      "thresholds_enabled": false,
+      "norming_enabled": false,
+      "interpretation_requires_complete": true
+    }
+  },
+  "originalResultContent": {
+    "schema_version": "2.0",
+    "assembled_version": "0.2.0-editorial-candidate",
+    "test_id": "VIRTUES_EXPLORATION",
+    "form_code": "virtues_exploration_likert_28",
+    "construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_scoring_version": "0.1.0-preview",
+    "result_content_version": "0.2.0-editorial-candidate",
+    "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "runtime_integration": true,
+    "presenter_mode": "factor_profile",
+    "factors": [
+      {
+        "factor_code": "RECOGNITION_SELF_VIEW",
+        "display_name": "认可需要与自我定位",
+        "cultural_metaphor_context": "传统七宗罪中的骄傲常被描述为过分看重自身地位；本测试只用这一隐喻作为入口，不测量骄傲或谦逊本身。",
+        "result_headline": "回看外部反馈怎样进入自我定位",
+        "one_sentence_summary": "这四道题关心外部反馈、自我评价和被看见的需要。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察被忽略、被看见和外部反馈在自我定位中的作用。",
+        "item_scope": "题目覆盖：付出未被留意时注意持续、期待明确反馈、参考他人回应判断自己、被忽略后确认贡献是否被看见。",
+        "mixed_construct_boundary": "这组题同时包含反应线索（被忽略时的注意）与核对方式（确认贡献是否被看见），因此不能解释成单一强度。",
+        "review_angles": "可以回看：你更在意哪类反馈；没有回应时你还用什么事实评价自己。",
+        "facts_to_check": "最近一次期待反馈的场景；那次没有回应时你怎样判断投入是否值得。",
+        "context_questions": "被忽略时占据注意的是事件本身，还是对投入是否值得的怀疑？这只能由你自己确认。",
+        "low_risk_actions": "写下一项不依赖赞美也能确认的完成证据；把外部反馈与自己的标准并排记录。",
+        "what_this_score_cannot_support": "它不能说明虚荣、傲慢、自恋、自尊水平、人格价值，也不能说你只在乎别人的评价。",
+        "does_not_mean": [
+          "不判断谦逊美德",
+          "较高数值不表示更有问题",
+          "较低数值不表示更值得欣赏"
+        ],
+        "moral_boundary": "认可需要是常见的心理需要，不是道德缺陷；本测试不定罪、不羞辱。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "RESOURCE_SECURITY_SHARING",
+        "display_name": "资源安全感与分享",
+        "cultural_metaphor_context": "传统七宗罪中的贪婪指对占有物的过度执取；本测试只借用这一入口观察资源不确定时的保留与分享判断。",
+        "result_headline": "回看资源不确定时怎样决定保留与分享",
+        "one_sentence_summary": "这四道题关心资源不确定时的保留、余量和分享判断。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察时间、物品或现实余量不确定时的保留与分享安排。",
+        "item_scope": "题目覆盖：资源不确定时优先保留余量、分享前确认自己是否够用、借出后留意恢复、额外支出前先想未来需要。",
+        "mixed_construct_boundary": "这组题同时包含保留倾向与分享判断，不能解释成慷慨或吝啬的单一强度。",
+        "review_angles": "可以回看：你担心失去的具体资源是什么；风险有多确定；分享范围是怎样设定的。",
+        "facts_to_check": "最近一次拒绝或同意分享时的余量；那次分享是否影响你的基本需要。",
+        "context_questions": "保留更多是出于现实风险，还是习惯性担心？这个判断只能由你自己核对。",
+        "low_risk_actions": "为一次分享设定清楚范围和可撤回条件；先保护基本需要，再决定可分享范围。",
+        "what_this_score_cannot_support": "它不能说明贪婪、自私、吝啬、慷慨程度、经济能力或道德品质，也不能说你不愿意帮助别人。",
+        "does_not_mean": [
+          "不定义贪婪或自私人格",
+          "资源保留不等于人品判断",
+          "谨慎与愿意分享不是道德高下",
+          "数值较高不表示更自私",
+          "数值较低不表示更慷慨"
+        ],
+        "moral_boundary": "资源顾虑是现实功能，不是品格缺陷；资源包括时间、物品或现实余量，不擅自扩展成财富人格。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "DESIRE_BOUNDARY",
+        "display_name": "欲望、吸引与边界",
+        "cultural_metaphor_context": "传统七宗罪中的淫欲指欲望失控的想象；本测试只借用这一入口观察吸引出现时的注意力、意愿与边界。",
+        "result_headline": "回看吸引出现时怎样核对意愿与边界",
+        "one_sentence_summary": "这四道题关心吸引出现时的注意力、意愿确认和边界核对。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察吸引出现时的注意力投入、意愿确认与边界核对方式。",
+        "item_scope": "题目覆盖：注意力被吸引、留意双方边界、区分冲动与长期选择、确认当下意愿和现实条件。",
+        "mixed_construct_boundary": "注意被拉动与主动核对边界不是同一含义；这组题同时包含两者，不能解释成欲望强度的单一读数。",
+        "review_angles": "可以回看：吸引出现时你通常会确认什么；边界是否清楚；冲动与长期选择怎样区分。",
+        "facts_to_check": "最近一次吸引出现时你确认了哪些意愿和条件。",
+        "context_questions": "注意力被拉动本身不等于要行动；你通常在哪一步停下来核对？这个节奏只能由你自己确认。",
+        "low_risk_actions": "在行动前写下一个必须获得明确同意的节点；允许吸引存在，同时确认同意、边界与后果。",
+        "what_this_score_cannot_support": "它不能说明淫欲、性欲水平、性行为偏好、性取向、忠诚程度、自制力，也不能说你会不会越界。",
+        "does_not_mean": [
+          "同意和边界不是高分能力",
+          "有欲望不等于失控",
+          "设边界也不等于压抑",
+          "数值较高不表示更容易失控",
+          "数值较低不表示自制力更强"
+        ],
+        "moral_boundary": "吸引和欲望是常见体验，不是道德污点；任何人的意愿都必须明确、自愿且可撤回。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "COMPARISON_APPRECIATION",
+        "display_name": "比较敏感与欣赏",
+        "cultural_metaphor_context": "传统七宗罪中的嫉妒指因他人好处而生怨；本测试只借用这一入口观察比较、失落与欣赏如何共同出现。",
+        "result_headline": "回看比较与欣赏怎样同时出现",
+        "one_sentence_summary": "这四道题关心比较反应、机会差异、失落与欣赏的线索。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察比较、机会留意与欣赏他人如何共同出现。",
+        "item_scope": "题目覆盖：自然比较自己的位置、留意相似机会、欣赏时想到自己仍想发展的部分、较快注意到群体差距。",
+        "mixed_construct_boundary": "这组题同时包含比较反应与欣赏线索，比较不等于敌意，欣赏也不要求否认失落；不能解释成嫉妒或欣赏的单一强度。",
+        "review_angles": "可以回看：比较发生时你更在意机会还是位置；欣赏他人时是否也想到自己的发展。",
+        "facts_to_check": "最近一次比较的具体情境；那次比较里失落与欣赏是否同时存在。",
+        "context_questions": "比较反应带给你的信息是什么？它指向你想要的机会，还是只是位置的落差感？",
+        "low_risk_actions": "从一次比较中提取一个可学习动作；同时记录失落和欣赏，不要求二选一。",
+        "what_this_score_cannot_support": "它不能说明嫉妒人格、恶意、是否真诚祝福他人、是否善良、是否缺乏感恩或人际竞争力。",
+        "does_not_mean": [
+          "比较反应不等于伤害他人的意图",
+          "不定义嫉妒人格",
+          "欣赏不是道德义务",
+          "数值较高不表示更嫉妒",
+          "数值较低不表示更真诚"
+        ],
+        "moral_boundary": "比较是普遍的心理反应，不是恶；本测试不给人定罪。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "REWARD_MODERATION",
+        "display_name": "即时满足与节制",
+        "cultural_metaphor_context": "传统七宗罪中的贪食指对感官满足的过度依赖；本测试只借用这一入口观察即时回报的注意力与暂停选择。",
+        "result_headline": "回看即时回报怎样吸引注意",
+        "one_sentence_summary": "这四道题关心压力和等待中即时回报的注意力与暂停选择。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察即时回报的吸引力与主动暂停的选择方式。",
+        "item_scope": "题目覆盖：轻松回报难以忽略、压力下选择立刻舒服的做法、等待时反复注意不耐烦、面对喜欢体验时主动决定暂停。",
+        "mixed_construct_boundary": "即时回报有吸引力与主动决定何时暂停不是同一含义；这组题同时包含两者，不能解释成意志力强弱。",
+        "review_angles": "可以回看：压力下你选择即时满足是在回应什么需要；暂停是怎样被决定的。",
+        "facts_to_check": "最近一次等待回报时的感受；那次你怎样决定暂停或继续。",
+        "context_questions": "即时满足解决的是疲惫、无聊还是其他需要？这个原因只能由你自己分辨。",
+        "low_risk_actions": "可暂停，写下需求和行动，再决定是否行动；也可不练习。本建议不用于酒精、药物、赌博、自伤、进食障碍、危险行为或戒断管理。",
+        "what_this_score_cannot_support": "它不能说明贪食、放纵、意志力、自律水平、饮食问题、成瘾或冲动控制障碍。",
+        "does_not_mean": [
+          "偏好即时回报不等于放纵",
+          "延迟满足也不天然更正确",
+          "不提供饮食或医疗建议",
+          "数值较高不表示更放纵",
+          "数值较低不表示更有节制"
+        ],
+        "moral_boundary": "即时满足倾向是常见体验，不是罪；本测试不提供饮食、医疗或成瘾诊断建议。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "ANGER_PATIENCE",
+        "display_name": "愤怒信号与耐心回应",
+        "cultural_metaphor_context": "传统七宗罪中的愤怒指被激怒后的过度反应；本测试只借用这一入口观察愤怒信号与回应节奏。",
+        "result_headline": "回看愤怒信号与回应节奏",
+        "one_sentence_summary": "这四道题关心不公平、受阻或误解时身体和情绪信号及回应节奏。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察愤怒信号的出现方式与是否留出回应时间。",
+        "item_scope": "题目覆盖：不公平时注意身体或情绪变紧、分歧后继续回想没说完的话、被打断时出现立刻回应冲动、情绪升高时留时间再回应。",
+        "mixed_construct_boundary": "愤怒信号出现与能否留时间回应不是同一含义；这组题同时包含两者，不能解释成脾气大小。",
+        "review_angles": "可以回看：愤怒信号出现后你通常会做什么；分歧后反复回想的内容是什么。",
+        "facts_to_check": "最近一次情绪升高的情境；那次你是否留出了时间再回应。",
+        "context_questions": "愤怒信号指向的是边界被触碰，还是未被听见？这个判断只能由你结合具体情境核对。",
+        "low_risk_actions": "在行动前辨认信号与目标；需要时先暂停，稍后再表达；愤怒不等于暴力，耐心也不要求忍受伤害。",
+        "what_this_score_cannot_support": "它不能说明暴怒人格、攻击性、暴力风险、危险性、情绪障碍、道德修养，也不能说你可能会伤害别人。",
+        "does_not_mean": [
+          "愤怒不等于暴力",
+          "耐心不要求忍受伤害或边界侵犯",
+          "不定义暴怒人格",
+          "数值较高不表示脾气更大",
+          "数值较低不表示更有耐心"
+        ],
+        "moral_boundary": "愤怒是信号不是罪；如果现实中存在伤害风险，安全优先，本测试不提供对质建议。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "ACTIVATION_REST",
+        "display_name": "行动启动与休息回避",
+        "cultural_metaphor_context": "传统七宗罪中的懒惰指该做时不做；本测试只借用这一入口观察任务启动、疲惫与休息节奏，不测量懒惰罪。",
+        "result_headline": "回看启动、疲惫与休息的节奏",
+        "one_sentence_summary": "这四道题关心任务启动、疲惫恢复、结束休息和降低行动门槛。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察任务启动困难、疲惫恢复时间与休息结束方式。",
+        "item_scope": "题目覆盖：第一步不清楚时推迟开始、疲惫后需要较长时间恢复、休息足够时不易结束、重要费力的事先降低启动难度。",
+        "mixed_construct_boundary": "启动困难与主动降低启动门槛不是同一含义；这组题同时包含两者，不能解释成勤奋或懒惰的单一强度。",
+        "review_angles": "可以回看：启动困难时第一步卡在哪里；疲惫恢复需要多久。",
+        "facts_to_check": "最近一次推迟开始的任务；那次的第一步为什么不清楚。",
+        "context_questions": "启动困难与疲劳、任务模糊、注意力或环境有关吗？这些原因只能作为开放核对，不能由分数确定。",
+        "low_risk_actions": "把第一步拆到足够小再开始；需要休息时允许休息，结束后用一个小动作重新启动。",
+        "what_this_score_cannot_support": "它不能说明懒惰、怠惰罪、勤奋程度、工作能力、执行功能诊断、ADHD、抑郁、健康状态或职业表现。",
+        "does_not_mean": [
+          "启动困难不等于懒惰",
+          "休息需要不是回避",
+          "不定义懒惰人格",
+          "数值较高不表示更懒",
+          "数值较低不表示更勤勉"
+        ],
+        "moral_boundary": "启动困难可能受多种因素影响，不是道德缺陷；本测试不以任何单一因素评判你的人格。",
+        "science_boundary": "这是用于自我观察的产品化概念，未经信度、效度、常模或公平性验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      }
+    ],
+    "states": [
+      {
+        "state_code": "INSUFFICIENT_DATA",
+        "title": "这次没有足够的作答",
+        "summary": "未完整作答时不提供任何因素解释。",
+        "what_happened": "本次提交缺少部分题目的答案，因此不计算因素分数。",
+        "what_user_can_do": "可以继续作答补全，也可以直接退出。退出前，当前设备上已有的逐题选择仍会保存在本地草稿中并支持恢复；未完整提交不会生成最终结果缓存。",
+        "interpretation_suppression": "不猜测未回答的题目，不推测未答选项，也不根据已有答案先给判断。",
+        "moral_boundary": "未完成作答不是逃避面对缺点，也不需要向任何人解释；这次没有结果不说明任何品质问题。",
+        "science_boundary": "没有结果不构成任何道德或心理结论。"
+      },
+      {
+        "state_code": "RESULT_UNAVAILABLE",
+        "title": "结果暂不可用",
+        "summary": "题库、评分或内容版本不匹配时停止解释。",
+        "what_happened": "本题库、评分或内容版本之间存在不匹配，无法按当前规则生成结果。",
+        "what_user_can_do": "这是版本层面的问题，不是你的作答问题。无需重做或反复尝试，可以在版本更新后重新查看。",
+        "interpretation_suppression": "不显示旧版本结果，不做部分解释，不把工程错误解释成用户问题。",
+        "moral_boundary": "该状态不涉及任何道德判断；版本问题与你的品质无关。",
+        "science_boundary": "该状态不影响任何现实中的判断；如有实际困扰，仍按现实情况处理。"
+      },
+      {
+        "state_code": "EQUAL_FACTOR_SCORES",
+        "title": "有几个因素分数相同",
+        "summary": "因素均值相同只表示本次回答中的数值相同，不表示罪与美德平衡，也不产生混合人格。",
+        "what_happened": "本次计算后，两个或更多因素的原始总和相同。",
+        "what_user_can_do": "可以按原样分别阅读每个因素，不需要为它们排出先后。",
+        "interpretation_suppression": "不打破并列，不生成组合人格，不表示罪与美德平衡，不表示多个问题同样严重，也不表示测试失效；因素题目不同，数值不能跨因素比较心理意义。",
+        "moral_boundary": "并列不表示某种平衡更值得追求，也不表示某项更接近罪或美德。",
+        "science_boundary": "相同数值不构成任何道德或心理结论。"
+      }
+    ],
+    "common": {
+      "result_title": "日常张力观察",
+      "first_screen_boundary": "请先了解五件事：七宗罪与七美德在这里仅作为文化隐喻；结果不计算善恶分、道德等级或人格优劣；七个因素独立阅读，不计算总分、不排名、不划分高低；结果只反映本次对这些题目的整体符合程度；因素中可能同时包含反应线索和调节方式，不能解释成单一强度。",
+      "cultural_metaphor_explanation": "七宗罪的早期谱系与古代基督教修道和苦修传统相关；常被称作七美德的框架另有神学美德与枢德等传统，后世也出现与七罪逐项对应的版本。不同传统不能合并成唯一清单。本测试只借用这些文化隐喻作为内容入口，七个产品因素不声称与任何历史传统一一对应，也不声称得到宗教传统认可。",
+      "product_construct_boundary": "七个产品因素是本测试自建的通俗化观察框架，历史文化概念不等于现代心理测量构念；古代传统未经本测试验证，也不得把宗教语言包装成科学证据。",
+      "measurement_theme": "本次结果由七个独立因素组成，每个因素单独计算四道题的原始总和与 1–5 平均值，没有总分。",
+      "how_to_read_raw_sum": "原始总和是四道题回答数值之和，范围 4–20；它只在本次回答内有意义，不代表任何等级。",
+      "how_to_read_mean": "平均值是把总和除以四，范围 1–5。平均值越接近 5，只表示总体上更同意这四个陈述；越接近 1，只表示总体上较少同意。",
+      "independent_factor_boundary": "七个因素各自独立阅读，不合并、不加减、不比较谁更重要。",
+      "no_total_score": "本测试不计算总分，也不计算善恶分、罪恶指数或美德指数。",
+      "no_ranking": "七个因素不能互相排名，不产生最大弱点、主要罪或第一美德，不选冠军。",
+      "no_threshold": "本测试没有高、中、低标签，不划分正常与异常，不设置红色预警或道德风险等级。",
+      "aggregate_not_item_level_boundary": "分数只表示你对每组四道陈述的整体符合程度，不能确认你在任一道具体题目中的回答；也不能把某一题当成你的行为事实。",
+      "mixed_construct_boundary": "多个因素中可能同时包含反应线索与调节方式，例如注意力被吸引与主动核对边界、即时回报的吸引力与主动暂停、愤怒信号与留时间回应、启动困难与降低启动门槛；因此任何因素都不能解释成单一强度。",
+      "no_moral_judgment": "结果不判断一个人的善恶、人品或灵魂，不划分道德高低，不用于羞辱、奖惩或评判。",
+      "no_religious_judgment": "这不是宗教教义测验，不评价信仰者的信仰，也不传教或定罪；内容尊重信仰者与非信仰者。",
+      "no_fixed_identity": "结果不产生七宗罪人格、七美德人格、原罪类型或黑暗人格，也不是固定身份。",
+      "no_diagnosis": "本测试不是医疗、心理或精神科诊断，也不测量心理健康或人格障碍。",
+      "no_ability_judgment": "结果不判断意志力、自律、自控能力、工作能力或道德修养，也不预测成瘾、暴力或危险。",
+      "no_high_stakes_use": "不要用结果决定录用、升学、关系去留、责任归属或其他高风险事项。",
+      "consent_boundary": "任何涉及他人意愿的选择都需要对方明确、自愿且可撤回的同意；本测试不提供任何授权或免责。",
+      "privacy_boundary": "答题过程中，包含逐题选择的本地草稿会保存在当前设备并支持恢复。完成后的最终结果缓存保存因素分数等结果；最终结果缓存不包含原始逐题答案。本地测评流程不会上传这些内容；可以在结果页清除本次草稿和最终结果缓存。不需要向任何人公开结果，也不要用它向他人证明品质。",
+      "public_preview_notice": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模、公平性、百分位或准确率验证。",
+      "psychometric_boundary": "本测试未完成心理测量验证，不能当作诊断、评估或道德判断依据；现有题目本身不能作为效度证据。",
+      "retest_boundary": "如果以后重新作答，应按当时能确认的状态选择；两次结果不同可能与情境、压力或理解变化有关，不能自动解释为你的人格或道德已经改变。"
+    }
+  },
+  "sourceFlags": {
+    "network_mode": "local_only",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "human_expert_review_completed": false
+  },
+  "questions": [
+    {
+      "id": "VIRTUES_LK_001",
+      "prompt": {
+        "en": "When my effort goes unnoticed, I keep thinking about it.",
+        "zh": "付出没有被留意时，这件事会持续占据我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_002",
+      "prompt": {
+        "en": "After completing an important task, I expect fairly clear feedback.",
+        "zh": "完成一项重要任务后，我会期待获得较明确的反馈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_003",
+      "prompt": {
+        "en": "When judging how I have done, I tend to refer to other people's responses.",
+        "zh": "判断自己做得怎样时，我容易参考别人给出的回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_004",
+      "prompt": {
+        "en": "When I feel overlooked, I check again whether my contribution has been seen.",
+        "zh": "感到被忽略时，我会重新确认自己的贡献是否被看见。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RECOGNITION_SELF_VIEW",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_005",
+      "prompt": {
+        "en": "When future resources are uncertain, I first keep a margin for myself.",
+        "zh": "未来资源不确定时，我会优先为自己保留余量。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_006",
+      "prompt": {
+        "en": "Before deciding whether to share time or possessions, I check whether I have enough for my own needs.",
+        "zh": "决定是否分享时间或物品前，我会先确认自己是否够用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_007",
+      "prompt": {
+        "en": "After lending an important resource, I pay attention to when it can be restored.",
+        "zh": "借出重要资源后，我会留意它何时能够恢复。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_008",
+      "prompt": {
+        "en": "When facing extra spending, I tend first to think about needs that may arise later.",
+        "zh": "面对额外支出时，我容易先想到之后可能出现的需要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "RESOURCE_SECURITY_SHARING",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_009",
+      "prompt": {
+        "en": "When I encounter a very appealing person or opportunity, I noticeably feel my attention being pulled toward them.",
+        "zh": "遇到很有吸引力的人或机会时，我会明显感到注意力被拉动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_010",
+      "prompt": {
+        "en": "When I want to move closer to a person or something, I check whether both sides' boundaries are clear.",
+        "zh": "想靠近某个人或事物时，我会留意双方边界是否清楚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_011",
+      "prompt": {
+        "en": "When I strongly want something, I need some time to distinguish an impulse from a longer-term choice.",
+        "zh": "强烈想要一件事时，我需要花些时间区分冲动与长期选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_012",
+      "prompt": {
+        "en": "After an attraction arises, I check present willingness and practical circumstances.",
+        "zh": "吸引出现后，我会确认当下的意愿和现实条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "DESIRE_BOUNDARY",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_013",
+      "prompt": {
+        "en": "When someone in a similar position makes progress, I naturally compare where I stand.",
+        "zh": "看到处境相近的人取得进展时，我会自然比较自己的位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_014",
+      "prompt": {
+        "en": "When others receive recognition, I tend to notice whether I have similar opportunities.",
+        "zh": "别人获得认可时，我容易留意自己是否也得到相似机会。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_015",
+      "prompt": {
+        "en": "When appreciating other people's abilities, I also think of parts of myself I still want to develop.",
+        "zh": "欣赏他人的能力时，我也会想到自己仍想发展的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_016",
+      "prompt": {
+        "en": "When clear differences appear within a group, I notice them relatively quickly.",
+        "zh": "群体中出现明显差距时，我会较快注意到这种差距。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "COMPARISON_APPRECIATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_017",
+      "prompt": {
+        "en": "When an easy reward is within reach, I find it hard to ignore.",
+        "zh": "眼前有轻松回报时，我会感到它很难被忽略。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_018",
+      "prompt": {
+        "en": "Under greater pressure, I am more likely to choose something that helps me feel a little better immediately.",
+        "zh": "压力较大时，我更容易选择能立刻让我舒服一点的做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_019",
+      "prompt": {
+        "en": "While waiting for a reward that will come later, I repeatedly notice my impatience in the present.",
+        "zh": "等待较晚才出现的回报时，我会反复注意当下的不耐烦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_020",
+      "prompt": {
+        "en": "With an experience I enjoy, I need to actively decide when to pause.",
+        "zh": "面对喜欢的体验时，我需要主动决定什么时候暂停。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "REWARD_MODERATION",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_021",
+      "prompt": {
+        "en": "When something feels unfair, I quickly notice tension in my body or emotions.",
+        "zh": "觉得不公平时，我会很快注意到身体或情绪变紧。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_022",
+      "prompt": {
+        "en": "After a disagreement has ended, I sometimes keep thinking about things I did not finish saying.",
+        "zh": "分歧结束后，我有时仍会继续想着当时没有说完的话。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_023",
+      "prompt": {
+        "en": "When interrupted or misunderstood, I feel an urge to respond immediately.",
+        "zh": "被打断或误解时，我会出现立刻回应的冲动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_024",
+      "prompt": {
+        "en": "When my emotions intensify, I need to leave some time before I can respond more patiently.",
+        "zh": "情绪升高时，我需要先留出时间才能更耐心地回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ANGER_PATIENCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_025",
+      "prompt": {
+        "en": "When a task's first step is unclear, I delay starting.",
+        "zh": "任务的第一步不清楚时，我会推迟开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_026",
+      "prompt": {
+        "en": "After becoming exhausted, I need a longer time to get back into action.",
+        "zh": "疲惫之后，我需要较长时间才能重新进入行动状态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_027",
+      "prompt": {
+        "en": "Once I have rested enough, I sometimes still find it hard to end the break.",
+        "zh": "休息已经足够时，我有时仍不容易结束休息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "VIRTUES_LK_028",
+      "prompt": {
+        "en": "When facing something important but demanding, I first look for a way to make starting easier.",
+        "zh": "面对重要但费力的事情，我会先寻找降低启动难度的方法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe me at all",
+            "zh": "完全不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Mostly does not describe me",
+            "zh": "比较不符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Uncertain or depends on the situation",
+            "zh": "不确定或视情况"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Mostly describes me",
+            "zh": "比较符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes me very well",
+            "zh": "非常符合"
+          },
+          "directionId": "ACTIVATION_REST",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "directions": [
+    {
+      "id": "RECOGNITION_SELF_VIEW",
+      "title": {
+        "en": "Recognition and self-view",
+        "zh": "认可需要与自我定位"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "RESOURCE_SECURITY_SHARING",
+      "title": {
+        "en": "Resource security and sharing",
+        "zh": "资源安全感与分享"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "DESIRE_BOUNDARY",
+      "title": {
+        "en": "Desire, attraction and boundaries",
+        "zh": "欲望、吸引与边界"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "COMPARISON_APPRECIATION",
+      "title": {
+        "en": "Comparison and appreciation",
+        "zh": "比较敏感与欣赏"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "REWARD_MODERATION",
+      "title": {
+        "en": "Immediate rewards and pausing",
+        "zh": "即时满足与节制"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ANGER_PATIENCE",
+      "title": {
+        "en": "Anger signals and patient responses",
+        "zh": "愤怒信号与耐心回应"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ACTIVATION_REST",
+      "title": {
+        "en": "Starting tasks and returning from rest",
+        "zh": "行动启动与休息回避"
+      },
+      "itemCount": 4
+    }
+  ],
+  "webDifferences": [
+    "New English working translation and expanded full web guides.",
+    "Only optional sessionStorage tab drafts, max24h;no final result cache.Original Mini draft/final-store promises are not copied as web behaviour.",
+    "Web string answers1..5 correspond to original integer responses.",
+    "Unknown answer IDs fail closed instead of the original flag-only handling;valid known-response arithmetic is unchanged."
+  ],
+  "sourceInterpretation": "All28 valid before every personal interpretation;seven separate sums/means,original midpoint3,noNA,ranking,total,threshold,norm or fixed moral identity."
+}
