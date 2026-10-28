@@ -5419,5 +5419,34 @@
       "focus-conditions",
       "pause-noticing"
     ]
+  },
+  {
+    "slug": "food-disgust",
+    "code": "FDS32_CC_EN_WORKING_ZH",
+    "version": "fds32_table2_en_working_zh_v1",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Food Disgust Test (FDS)",
+      "zh": "食物厌恶测试（FDS）"
+    },
+    "description": {
+      "en": "Rate 32 published FDS situations from 1 to 6. Read eight separate means, complete free guides and source limits. No signup or food exposure.",
+      "zh": "用1至6评价32道发表FDS食物情境，查看八组独立均值、完整免费读法与来源边界。无需注册或实际接触食物；中文为新工作译文。"
+    },
+    "minutes": 9,
+    "formCode": "fds32_table2_en_working_zh_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "animal-flesh",
+      "poor-hygiene",
+      "human-contamination",
+      "mold",
+      "decaying-fruit",
+      "fish",
+      "decaying-vegetables",
+      "living-contaminants"
+    ],
+    "collection": "explore"
   }
 ]

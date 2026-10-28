@@ -1,0 +1,10 @@
+import type { Locale } from "@/lib/i18n/locales";
+
+export function QuestionnaireFds32Attribution({ locale }: { locale: Locale }) {
+  const zh = locale === "zh";
+  return <aside data-fds-attribution="" className="my-6 rounded-lg border border-slate-200 bg-white p-5 text-sm leading-7">
+    <p>{zh ? "源题文：García-Gómez L、Romero-Rebollar C、Hartmann C、Siegrist M、Ferreira G、Gutierrez-Aguilar R、Villalpando S、Pacheco-Lopez G（2020），Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165。补充表二完整32道英文按CC BY 4.0署名复用，文件由NLM的PMC开放获取集合提供。" : "Source items: García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020). Food Disgust Scale: Spanish Version. Frontiers in Psychology 11:165. DOI 10.3389/fpsyg.2020.00165. All 32 English items from Supplementary Table 2 are reused under CC BY 4.0, from the document supplied through NLM’s PMC open-access collection."}</p>
+    <p className="mt-3">{zh ? "版本与改编：选择英文题本及论文1至6端点，不采用西文表印出的1至5格式；英文仅去布局空白。费马新增中文工作译文、不评分选项、完整分组缺项处理、一位小数展示与完整读法。本版不是已验证西文施测或已验证中译；不暗示原作者背书，不套来源人群常模。" : "Edition and changes: the English bank and article’s 1–6 endpoints are selected; the Spanish table’s printed 1–5 format is not used. Only layout whitespace is removed from English. FermatMind adds a Chinese working translation, unscored responses, complete-part missingness handling, one-decimal display and full readings. This is not the validated Spanish administration or a validated Chinese version. No original-author endorsement or source-population norms are implied."}</p>
+    <p className="mt-3"><a className="underline" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00165/full">{zh ? "原论文与补充材料" : "Original article and supplement"}</a>{" · "}<a className="underline" href="https://pmc-oa-opendata.s3.amazonaws.com/PMC7020908.1/Table_1.DOCX">{zh ? "发表补充表（NLM PMC）" : "Published tables (NLM PMC)"}</a>{" · "}<a className="underline" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </aside>;
+}

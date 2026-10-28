@@ -1,0 +1,4020 @@
+{
+  "slug": "food-disgust",
+  "code": "FDS32_CC_EN_WORKING_ZH",
+  "version": "fds32_table2_en_working_zh_v1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "fds32",
+  "title": {
+    "en": "Food Disgust Test (FDS)",
+    "zh": "食物厌恶测试（FDS）"
+  },
+  "seoTitle": {
+    "en": "Food Disgust Test: 32 Questions, Eight Full FDS Readings",
+    "zh": "食物厌恶测试：32题FDS与八组完整免费读法"
+  },
+  "description": {
+    "en": "Rate 32 published FDS situations from 1 to 6. Read eight separate means, complete free guides and source limits. No signup or food exposure.",
+    "zh": "用1至6评价32道发表FDS食物情境，查看八组独立均值、完整免费读法与来源边界。无需注册或实际接触食物；中文为新工作译文。"
+  },
+  "minutes": 9,
+  "instructions": {
+    "en": "Imagine each stated situation and rate how disgusting it feels from 1 (not disgusting at all) to 6 (very disgusting). Values 2–5 remain numeric. You can choose unscored, stop, or read all guides without answering. All 32 prompts need a response to finish; each part needs all its own items numeric for a mean. No real food task is required. Nine minutes is an editorial estimate.",
+    "zh": "想象各个所述情境，从1（完全不恶心）至6（非常恶心）评价感受；2至5保留数字。可不评分、停止，或不答题直接读全部指南。32题都需回应才能完成；每个部分所有题都为数字才给该组均值。无需实际食物任务。九分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "Explore your reported reactions to eight sets of hypothetical food situations using the complete published 32-item English FDS bank and a new Chinese working translation. See each raw mean and all eight complete readings without signup. These are imagined disgust ratings, not a diet, food-safety test or diagnosis.",
+    "zh": "用完整发表的32道英文FDS与新中文工作译文，探索八组假设食物情境的自报反应。无需注册即可看原始均值与八份完整读法。内容是想象恶心评分，不是食谱、食品安全测试或诊断。"
+  },
+  "resultHeading": {
+    "en": "Your eight separate FDS readings",
+    "zh": "八组独立的FDS读法"
+  },
+  "source": {
+    "kind": "fds32_published_ccby_table2_en_working_zh",
+    "formCode": "fds32_table2_en_working_zh_v1",
+    "itemBankVersion": "fds32_table2_en_working_zh_v1",
+    "scoringVersion": "fds32_eight_completepart_mean1to6_round1_v1",
+    "resultContentVersion": "fds32_eight_full8_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "758e70ac42ae94fbb9f14a13254b9133082719b2fd484575ec5b2d9720c969ef",
+    "resultContentSha256": "668d755f47d129fe37d9eb120017c9c5fc2107af08d0aa5d95b7a853287a7d56"
+  },
+  "directions": [
+    {
+      "id": "animal-flesh",
+      "title": {
+        "en": "Animal flesh",
+        "zh": "动物肉类"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "poor-hygiene",
+      "title": {
+        "en": "Poor hygiene",
+        "zh": "卫生状况"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "human-contamination",
+      "title": {
+        "en": "Human contact with food",
+        "zh": "他人接触食物"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "mold",
+      "title": {
+        "en": "Mold",
+        "zh": "霉斑相关情境"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "decaying-fruit",
+      "title": {
+        "en": "Decaying fruit",
+        "zh": "水果过熟与变化"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fish",
+      "title": {
+        "en": "Fish",
+        "zh": "鱼类相关情境"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "decaying-vegetables",
+      "title": {
+        "en": "Decaying vegetables",
+        "zh": "蔬菜变质相关情境"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "living-contaminants",
+      "title": {
+        "en": "Living contaminants",
+        "zh": "活体污染物相关情境"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "FDS_MEAT1",
+      "prompt": {
+        "en": "To put animal cartilage into my mouth",
+        "zh": "把动物软骨放进我的嘴里"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "animal-flesh",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "animal-flesh",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "animal-flesh",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "animal-flesh",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "animal-flesh",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MEAT2",
+      "prompt": {
+        "en": "To see raw meat",
+        "zh": "看见生肉"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "animal-flesh",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "animal-flesh",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "animal-flesh",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "animal-flesh",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "animal-flesh",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MEAT3",
+      "prompt": {
+        "en": "To eat a steak that is still bloody inside",
+        "zh": "吃内部仍带血的牛排"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "animal-flesh",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "animal-flesh",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "animal-flesh",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "animal-flesh",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "animal-flesh",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MEAT4",
+      "prompt": {
+        "en": "To see a whole pig en brochette",
+        "zh": "看见整头猪串烤"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "animal-flesh",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "animal-flesh",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "animal-flesh",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "animal-flesh",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "animal-flesh",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "animal-flesh",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HYG1",
+      "prompt": {
+        "en": "To eat with dirty silverware in a restaurant",
+        "zh": "在餐馆用脏餐具吃饭"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "poor-hygiene",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "poor-hygiene",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "poor-hygiene",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "poor-hygiene",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "poor-hygiene",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HYG2",
+      "prompt": {
+        "en": "A meal prepared by a cook who has greasy hair and dirty fingernails",
+        "zh": "由头发油腻、指甲脏的厨师准备的一餐"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "poor-hygiene",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "poor-hygiene",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "poor-hygiene",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "poor-hygiene",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "poor-hygiene",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HYG3",
+      "prompt": {
+        "en": "If the cook in a restaurant has an open cut",
+        "zh": "餐馆厨师有一处开放性伤口"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "poor-hygiene",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "poor-hygiene",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "poor-hygiene",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "poor-hygiene",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "poor-hygiene",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HYG4",
+      "prompt": {
+        "en": "If people blow their nose before they serve my meal",
+        "zh": "别人在给我上菜前擤鼻子"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "poor-hygiene",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "poor-hygiene",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "poor-hygiene",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "poor-hygiene",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "poor-hygiene",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HYG5",
+      "prompt": {
+        "en": "Another person’s hair in my soup",
+        "zh": "我的汤里有别人的头发"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "poor-hygiene",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "poor-hygiene",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "poor-hygiene",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "poor-hygiene",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "poor-hygiene",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "poor-hygiene",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HUCON1",
+      "prompt": {
+        "en": "Food donated from a neighbor whom I barely know",
+        "zh": "几乎不认识的邻居送来的食物"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "human-contamination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "human-contamination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "human-contamination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "human-contamination",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "human-contamination",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HUCON2",
+      "prompt": {
+        "en": "If a friend bites into my bread",
+        "zh": "朋友咬了一口我的面包"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "human-contamination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "human-contamination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "human-contamination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "human-contamination",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "human-contamination",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HUCON3",
+      "prompt": {
+        "en": "To drink from the same drinking glass a friend has already drunk from",
+        "zh": "用朋友已经喝过的同一个杯子喝水"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "human-contamination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "human-contamination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "human-contamination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "human-contamination",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "human-contamination",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_HUCON4",
+      "prompt": {
+        "en": "If friends or acquaintance have touched my food",
+        "zh": "朋友或熟人碰过我的食物"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "human-contamination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "human-contamination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "human-contamination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "human-contamination",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "human-contamination",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "human-contamination",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MOLD1",
+      "prompt": {
+        "en": "To eat the mold-free part of a moldy tomato",
+        "zh": "吃发霉番茄中没有霉斑的部分"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "mold",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mold",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mold",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mold",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "mold",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "mold",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "mold",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MOLD2",
+      "prompt": {
+        "en": "To eat bread from which mold was cut away",
+        "zh": "吃切掉霉斑后的面包"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "mold",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mold",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mold",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mold",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "mold",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "mold",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "mold",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MOLD3",
+      "prompt": {
+        "en": "To eat hard cheese from which mold was cut off",
+        "zh": "吃切掉霉斑后的硬质奶酪"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "mold",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mold",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mold",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mold",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "mold",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "mold",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "mold",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_MOLD4",
+      "prompt": {
+        "en": "To eat marmalade from which mold was removed from the surface",
+        "zh": "吃去掉表面霉斑后的果酱"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "mold",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "mold",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "mold",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "mold",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "mold",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "mold",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "mold",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FRUIT1",
+      "prompt": {
+        "en": "To eat overripe fruits",
+        "zh": "吃过熟的水果"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-fruit",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-fruit",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-fruit",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-fruit",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-fruit",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FRUIT2",
+      "prompt": {
+        "en": "To eat a banana that has black spots",
+        "zh": "吃有黑斑的香蕉"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-fruit",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-fruit",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-fruit",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-fruit",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-fruit",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FRUIT3",
+      "prompt": {
+        "en": "To eat fruits (e.g., apple and peach) with pressure marks",
+        "zh": "吃有压痕的水果，例如苹果或桃子"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-fruit",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-fruit",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-fruit",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-fruit",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-fruit",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FRUIT4",
+      "prompt": {
+        "en": "To eat apple slices that turned brown when exposed to air",
+        "zh": "吃暴露于空气后变成褐色的苹果片"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-fruit",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-fruit",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-fruit",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-fruit",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-fruit",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-fruit",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FISH1",
+      "prompt": {
+        "en": "To have a whole fish with its head on the plate",
+        "zh": "盘中放着一整条带头的鱼"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "fish",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "fish",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "fish",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "fish",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "fish",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "fish",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "fish",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FISH2",
+      "prompt": {
+        "en": "To eat raw fish like sushi",
+        "zh": "吃寿司之类的生鱼"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "fish",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "fish",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "fish",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "fish",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "fish",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "fish",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "fish",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FISH3",
+      "prompt": {
+        "en": "The smell in a fish shop or in fish sections with fresh fish",
+        "zh": "鱼店或鲜鱼区的气味"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "fish",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "fish",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "fish",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "fish",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "fish",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "fish",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "fish",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_FISH4",
+      "prompt": {
+        "en": "The texture of some kinds of fish in the mouth",
+        "zh": "某些鱼肉在嘴里的口感"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "fish",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "fish",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "fish",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "fish",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "fish",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "fish",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "fish",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_VEGI1",
+      "prompt": {
+        "en": "To eat brown-colored avocado pulp",
+        "zh": "吃变成褐色的牛油果果肉"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-vegetables",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_VEGI2",
+      "prompt": {
+        "en": "To eat an overripe cucumber that can already be bent",
+        "zh": "吃熟过头、已经软到能弯曲的黄瓜"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-vegetables",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_VEGI3",
+      "prompt": {
+        "en": "To eat shrunken radishes",
+        "zh": "吃缩皱的萝卜"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-vegetables",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_VEGI4",
+      "prompt": {
+        "en": "To eat salad that is not crispy anymore",
+        "zh": "吃已经不爽脆的生菜沙拉"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "decaying-vegetables",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "decaying-vegetables",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_LCON1",
+      "prompt": {
+        "en": "There is a maggot in the cherry that I wanted to eat",
+        "zh": "我原本想吃的樱桃里有一只蛆"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "living-contaminants",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "living-contaminants",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "living-contaminants",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "living-contaminants",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "living-contaminants",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_LCON2",
+      "prompt": {
+        "en": "There is a little snail in the salad that I wanted to eat",
+        "zh": "我原本想吃的沙拉里有一只小蜗牛"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "living-contaminants",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "living-contaminants",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "living-contaminants",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "living-contaminants",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "living-contaminants",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "FDS_LCON3",
+      "prompt": {
+        "en": "There is a worm in my apple",
+        "zh": "我的苹果里有一条虫"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not disgusting at all",
+            "zh": "完全不恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "living-contaminants",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "living-contaminants",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "living-contaminants",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "living-contaminants",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Very disgusting",
+            "zh": "非常恶心"
+          },
+          "directionId": "living-contaminants",
+          "score": 6
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate this situation / prefer not to answer",
+            "zh": "无法评价此情境／不想回答"
+          },
+          "directionId": "living-contaminants",
+          "score": null
+        }
+      ],
+      "reverse": false
+    }
+  ],
+  "profiles": [
+    {
+      "id": "animal-flesh",
+      "directionIds": [
+        "animal-flesh"
+      ],
+      "title": {
+        "en": "Animal flesh — Full FDS Reading",
+        "zh": "动物肉类：FDS完整读法"
+      },
+      "headline": {
+        "en": "Animal flesh",
+        "zh": "动物肉类"
+      },
+      "summary": {
+        "en": "Read the 4 animal flesh items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道动物肉类题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Animal flesh: Food Disgust Scale Results Explained",
+          "zh": "动物肉类：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 animal flesh items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道动物肉类题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "animal-flesh-meaning",
+          "title": {
+            "en": "What the animal-flesh items cover",
+            "zh": "动物肉类题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This FDS part contains four source items about animal cartilage, seeing raw meat, a steak that is still bloody inside and seeing a whole pig en brochette. Rate the disgust the imagined situations evoke, rather than whether you actually eat those foods. The source wording names specific scenes; it does not provide a general measure of your attitude toward animals.",
+              "zh": "本FDS部分包含四道源题：动物软骨、看见生肉、内部带血的牛排与看见整头猪串烤。评分描述想象这些情境时的恶心感，不是问你是否真的吃这些食物。源题指具体场景，不概括你对动物的一般态度。"
+            },
+            {
+              "en": "A response may involve appearance, texture, familiarity, dietary practices or other personal context. The four-item mean does not separate those possible contributions. If a situation is difficult to imagine or you do not want to consider it, the unscored option is available; you do not need to try, touch or view anything.",
+              "zh": "回答可能涉及外观、质地、熟悉程度、饮食实践或其他个人背景；四题均值分不清这些影响。不易想象或不想考虑某个情境时可以不评分，无需实际尝试、触碰或观看任何东西。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-arithmetic",
+          "title": {
+            "en": "The four-item raw mean",
+            "zh": "四题原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "All four ratings must be numeric from 1 to 6 for this part’s mean. Ratings of 1, 2, 3 and 6 sum to 12, so the mean is 12 ÷ 4 = 3.0. Four ratings of 3 also give 3.0 with a different response pattern. Your result shows both the chosen options and numeric coverage so the single value does not stand alone.",
+              "zh": "本部分四题都为1至6数字才计算均值。例如1、2、3、6合计12，12÷4＝3.0；四个3也得3.0，但回答组合不同。结果同时显示所选选项与数字覆盖，不让单一数值独自代表全部回答。"
+            },
+            {
+              "en": "One unscored answer leaves this part at fewer than four numeric items, and its mean is not calculated. It is not filled with zero or a midpoint. Other fully rated FDS parts remain available. There is no conversion into an animal-flesh disgust type, a percentage of disgust or a population percentile.",
+              "zh": "一题不评分，本部分就不足四项数字，暂不计算均值；不补0，也不填中点。其他完整评分的FDS部分仍可显示。均值不转换成肉类厌恶类型、恶心百分比或人群百分位。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-reading",
+          "title": {
+            "en": "How to read greater or lesser ratings",
+            "zh": "怎样读较高或较低评分"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater raw mean indicates greater reported disgust for these four scenes on this response scale. It does not establish that meat in general is more unpleasant to you, or that a person with a lower mean is less sensitive in every food context. The result is limited to these stated items.",
+              "zh": "较高原始均值表示在这套选项上，对四个所述场景报告了较多恶心感。不证明你觉得所有肉类都更难接受，也不表示均值较低者在所有食物情境中都不敏感。解释范围限于这些题目。"
+            },
+            {
+              "en": "The scale supplies no universal normal interval or clinical cutoff here. A mean of 3.0 is an arithmetic average, not a population norm or proof that your reactions are balanced. One person may rate seeing meat differently from imagining its texture, which is worth retaining instead of reducing everything to a label.",
+              "zh": "此处不提供通用正常区间或临床截点。3.0只是算术均值，不是人群常模，也不证明反应平衡。一个人对看见肉与想象其质地的评分可以不同，保留差异比概括成标签更有用。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-scenario",
+          "title": {
+            "en": "A specific contrast within the part",
+            "zh": "本部分内部的具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "You might find seeing raw meat unremarkable while the idea of cartilage in your mouth evokes substantial disgust. That difference can coexist with the same overall mean as another person who gives moderate ratings to all four scenes. Neither pattern permits an inference about culinary knowledge, courage or the quality of a person’s diet.",
+              "zh": "你可能觉得看见生肉没什么，却对软骨放入口中的想象有较强恶心感。这种差别与另一位四场景都给中等评分的人，仍可能均值相同。两种组合都不能推断烹饪知识、勇气或饮食质量。"
+            },
+            {
+              "en": "Another person may never encounter one of the named foods. A numeric guess could hide that lack of experience; an unscored choice states it more clearly. The guide remains complete when a personal mean is unavailable. Availability of a number is not a requirement to justify or explain a food practice.",
+              "zh": "另一个人可能从不接触其中某种食物，猜一个数字可能遮住经验缺口，不评分则更明确。个人均值暂不可用时，指南仍完整；你不需要为了得到数字而解释或证明自己的饮食实践。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-comparison",
+          "title": {
+            "en": "Keep related food parts separate",
+            "zh": "相关食物部分仍要分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The fish part includes a whole fish with its head, raw fish, a fresh-fish smell and texture. Those are separate source items from the four animal-flesh scenes. Different responses across the two parts are possible. A mean is not transferred from one to the other, and the two parts are not merged into a meat-avoidance score.",
+              "zh": "鱼类部分另有带头整鱼、生鱼、鲜鱼气味与口感，和这四道动物肉类题是不同源题。两部分评分可以不同，均值不互相补用，也不合成肉食回避分。"
+            },
+            {
+              "en": "Poor-hygiene scenes involve other details, such as utensils or food preparation, that need not be part of an animal-flesh reaction. Comparing a concrete pair of items may help you notice a difference, but ranking the eight means does not identify a dominant personality or a food rule to follow.",
+              "zh": "卫生情境涉及餐具或准备过程等其他细节，不必属于动物肉类反应的一部分。对照两道具体题可以帮助看见差别，但把八组均值排名不能识别主导人格，也不会生成应遵守的食物规则。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-counterexample",
+          "title": {
+            "en": "A counterexample to diet inferences",
+            "zh": "饮食推断的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone can avoid a food for ethical, religious, practical or personal reasons while reporting little disgust at the imagined scene. Another person can feel disgust and still eat related foods in other settings. Thus a raw mean cannot establish vegetarian identity, nutritional adequacy, an allergy or an eating disorder.",
+              "zh": "一个人可能出于伦理、宗教、实际条件或个人理由不吃某种食物，却对想象场景不太恶心；另一个人感觉恶心，也可能在其他情境吃相关食物。原始均值因此不能确认素食身份、营养是否充足、过敏或进食障碍。"
+            },
+            {
+              "en": "The questions also do not determine whether any real food is safe. Disgust and food safety are different issues, and a low rating is not permission to consume a source-item food. No tasting or exposure exercise is part of this test or needed to understand the result.",
+              "zh": "题目也不判断任何真实食物是否安全。恶心感与食品安全是不同问题，较低评分不是食用题中食物的许可。本测试及结果理解都不包含品尝或暴露练习。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-action",
+          "title": {
+            "en": "An optional way to reflect",
+            "zh": "可选的回看方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, look back at one pair of responses and privately note which part of the imagined situation mattered: the sight, texture, familiarity or something else. You may leave the reason open. The exercise is about understanding a stated reaction, not reducing it or proving tolerance.",
+              "zh": "觉得有用时，可以回看一对回答，私下留意想象中哪一点较有影响：所见、质地、熟悉程度，或其他因素。原因也可以暂不确定。回看旨在理解所述反应，不是降低反应或证明耐受。"
+            },
+            {
+              "en": "You can finish after reading the guide. There is no requirement to compare with others, disclose a diet or complete another test. If you want to discuss a real difficulty, describe that difficulty directly rather than presenting an FDS mean as an explanation or diagnosis.",
+              "zh": "读完指南就可以结束，无需和他人比较、公开饮食方式或完成其他测试。若想讨论真实困难，可以直接描述困难，不把FDS均值当作解释或诊断。"
+            }
+          ]
+        },
+        {
+          "id": "animal-flesh-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poor-hygiene",
+      "directionIds": [
+        "poor-hygiene"
+      ],
+      "title": {
+        "en": "Poor hygiene — Full FDS Reading",
+        "zh": "卫生状况：FDS完整读法"
+      },
+      "headline": {
+        "en": "Poor hygiene",
+        "zh": "卫生状况"
+      },
+      "summary": {
+        "en": "Read the 5 poor hygiene items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读5道卫生状况题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 5 numeric 1–6 ratings and divide by 5, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "5项1至6数字相加再除以5，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Poor hygiene: Food Disgust Scale Results Explained",
+          "zh": "卫生状况：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 5 poor hygiene items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读5道卫生状况题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "poor-hygiene-meaning",
+          "title": {
+            "en": "The five hygiene situations",
+            "zh": "五种卫生情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains five published situations concerning dirty restaurant cutlery, a cook with greasy hair and dirty fingernails, a cook with an open cut, nose-blowing before serving and another person’s hair in soup. The statements are prompts for imagined disgust ratings. They do not inspect a real kitchen or establish the safety of a meal.",
+              "zh": "本部分五个发表情境涉及餐馆脏餐具、头发油腻且指甲脏的厨师、厨师开放性伤口、上菜前擤鼻子及汤中他人的头发。这些题文供你评价想象的恶心感，不检查真实厨房，也不判断一餐是否安全。"
+            },
+            {
+              "en": "The source uses concrete wording that can evoke different associations. Rate your own reaction to the scene rather than making a judgment about a real person from their appearance. The questionnaire cannot evaluate a food handler’s competence, a person’s character or the circumstances behind an observation.",
+              "zh": "源文的具体用词可能唤起不同联想。请评价自己对场景的反应，不根据真实人的外观作判断。问卷无法评估食物处理能力、人的品格或观察背后的情况。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-arithmetic",
+          "title": {
+            "en": "Five ratings and an unequal-length part",
+            "zh": "五题评分与不等长分量表"
+          },
+          "paragraphs": [
+            {
+              "en": "This is the only five-item part. With ratings of 2, 3, 4, 5 and 6, the sum is 20 and the mean is 20 ÷ 5 = 4.0. The denominator is five, not the four used by most other parts. The result displays the sum and coverage explicitly to keep that distinction visible.",
+              "zh": "这是唯一的五题部分。例如2、3、4、5、6合计20，20÷5＝4.0。分母是5，不是多数其他部分的4。结果明确显示原始和与覆盖，让这个差别保持可见。"
+            },
+            {
+              "en": "All five must have a 1–6 numeric response to calculate the mean. Four numeric ratings and one unscored choice do not produce a partial mean in this website edition. This complete-part rule is a conservative missing-data policy, not a newly validated FDS cutoff or a claim of greater accuracy.",
+              "zh": "五项都为1至6数字才计算均值。四项数字加一项不评分，在本网站版本中也不给部分均值。这是保守的缺失资料规则，不是新验证的FDS截点，也不表示准确性更高。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-reading",
+          "title": {
+            "en": "What a raw hygiene mean describes",
+            "zh": "卫生原始均值描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean reports greater disgust across these five imagined scenes. It does not mean that a person is more hygienic, more responsible or safer to share food with. The questions ask for feelings toward situations, not an observation of actual cleaning or food-handling behavior.",
+              "zh": "均值较高表示对五种想象情境报告了较多恶心感，不表示本人更卫生、更负责或与其共享食物更安全。题目问情境引起的感受，不是观察真实清洁或食物处理行为。"
+            },
+            {
+              "en": "A lesser mean does not imply poor standards, indifference to other people or unsafe behavior. It is possible to take a practical concern seriously while experiencing little disgust. Read differences as descriptive responses within this bank, without a good-versus-bad hygiene classification.",
+              "zh": "均值较低不表示标准差、不关心他人或行为不安全。人可以认真对待实际问题，同时没有太多恶心感。请把差异读作本题本中的描述性回答，不分卫生好坏类型。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-scenario",
+          "title": {
+            "en": "Not every item has to feel the same",
+            "zh": "每道题不必有同样感受"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may respond strongly to a hair in soup but less strongly to the wording about an open cut. Another may give the opposite pattern. Averaging five ratings compresses those differences. Reviewing the individual choices can be more informative than trying to interpret one rounded mean as a complete story.",
+              "zh": "一位可能对汤里有头发反应强，对伤口题反应弱；另一位则相反。五项取均值会压缩差别，回看具体选择可能比用一个取一位小数的均值概括全部更有信息。"
+            },
+            {
+              "en": "Familiarity with a situation, the detail you imagined and whether you have encountered it recently can matter. The test does not ask you to supply private examples. You can use the unscored option if the prompt does not support a rating you want to give.",
+              "zh": "熟悉程度、想象中的细节与近期是否遇到过都可能影响反应。测试不要求填写私人事例；题文不足以让你给出愿意给的评分时，可选不评分。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-comparison",
+          "title": {
+            "en": "Hygiene and contact are different source parts",
+            "zh": "卫生与他人接触是不同源部分"
+          },
+          "paragraphs": [
+            {
+              "en": "The human-contact part concerns shared utensils, bitten bread, touched food and food from a barely known neighbor. Those scenes are not the same as the five hygiene prompts. A person may respond differently to a familiar friend’s contact and to a dirty utensil; the two means remain separate.",
+              "zh": "他人接触部分问共用杯子、被咬过的面包、被碰过的食物与不太熟悉邻居送的食物，和这五道卫生题不同。对熟悉朋友接触与脏餐具可以有不同反应，两组均值始终分开。"
+            },
+            {
+              "en": "The source part names are organizational labels for the questionnaire, not judgments that every named scene is equally concerning. They do not replace practical information about a real situation. None of the eight means is used to create a food-safety profile or a dominant personality.",
+              "zh": "分量表名称用于组织题目，不判断所列情境是否同样值得担心，也不能替代现实情境中的具体信息。八组均值都不用于生成食品安全画像或主导人格。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-counterexample",
+          "title": {
+            "en": "Disgust does not certify safety",
+            "zh": "恶心感不认证安全"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may notice a practical problem calmly and respond appropriately without a strong feeling of disgust. Someone else may feel intense disgust at a harmless association. These examples show why the mean cannot certify safety, hygiene knowledge or whether a feeling is justified in a particular case.",
+              "zh": "有人发现实际问题后可以平静处理，没有很强恶心感；另一个人可能因无害联想感到强烈恶心。这说明均值无法认证安全、卫生知识，也不能判断某次感受是否有充分理由。"
+            },
+            {
+              "en": "The scale does not diagnose obsessive-compulsive disorder, contamination anxiety or any other condition. No clinical or population threshold is applied. A concern in everyday life should be understood from its actual context and effects, without confirming or dismissing it through this number.",
+              "zh": "量表不诊断强迫症、污染焦虑或其他状况，本版不套临床或人群阈值。日常困扰应从真实情境和影响理解，不用这个数字来确认或排除。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-action",
+          "title": {
+            "en": "Review a statement without an exposure task",
+            "zh": "回看题文，不做暴露任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You may privately compare two statements and notice whether the response concerns a visible object, a preparation detail or a social context. There is no need to recreate a scene, inspect someone’s body or ask another person to demonstrate anything. Simply reading the explanation is sufficient.",
+              "zh": "可私下比较两句话，留意反应涉及所见物品、准备细节还是社交背景。无需重现场景、检查他人的身体，也不用请任何人示范；只读解释就足够。"
+            },
+            {
+              "en": "If discussing the result, focus on your stated reaction rather than labeling people as clean or dirty. Sharing is optional and includes only a public test link. A personal mean is neither a request for others to change nor evidence about anyone else’s behavior.",
+              "zh": "讨论结果时可聚焦自己所述反应，不给人贴干净或脏的标签。分享自愿，且只带公开测试链接。个人均值不是要求他人改变，也不是关于他人行为的证据。"
+            }
+          ]
+        },
+        {
+          "id": "poor-hygiene-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "human-contamination",
+      "directionIds": [
+        "human-contamination"
+      ],
+      "title": {
+        "en": "Human contact with food — Full FDS Reading",
+        "zh": "他人接触食物：FDS完整读法"
+      },
+      "headline": {
+        "en": "Human contact with food",
+        "zh": "他人接触食物"
+      },
+      "summary": {
+        "en": "Read the 4 human contact with food items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道他人接触食物题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Human contact with food: Food Disgust Scale Results Explained",
+          "zh": "他人接触食物：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 human contact with food items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道他人接触食物题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "human-contamination-meaning",
+          "title": {
+            "en": "The source human-contamination part",
+            "zh": "源“他人接触”部分"
+          },
+          "paragraphs": [
+            {
+              "en": "The source calls this part Human contamination. Its four scenes concern food from a barely known neighbor, a friend biting your bread, a shared drinking glass and friends or acquaintances touching food. Here the label identifies those contact situations. It does not mean that a person is contaminated or that a relationship is unsafe.",
+              "zh": "源文把本部分称为Human contamination。四个场景涉及不太熟悉的邻居送食物、朋友咬面包、共用喝过的杯子及熟人碰食物。这里的名称用于指这些接触情境，不表示某个人被污染，也不判定一段关系不安全。"
+            },
+            {
+              "en": "Rate the disgust you imagine, without having to accept or refuse any real food. Your reaction may depend on the person and circumstances you picture, but the questionnaire does not collect those details. If the scene cannot support a rating you wish to give, choose the unscored option and continue or stop.",
+              "zh": "评分描述你想象中的恶心感，无需接受或拒绝任何真实食物。你想到的人与情况可能影响反应，但问卷不收集这些细节。场景不足以让你给出愿意给的评分时，可以不评分，再继续或停止。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-arithmetic",
+          "title": {
+            "en": "All four contact ratings are required",
+            "zh": "四项接触评分都需有效"
+          },
+          "paragraphs": [
+            {
+              "en": "With ratings of 1, 1, 5 and 5, the sum is 12 and the raw mean is 3.0. Four ratings of 3 give the same mean but do not describe the same pattern. The source items remain separate in your response review, where you can see which scene received which rating.",
+              "zh": "例如1、1、5、5合计12，原始均值3.0；四个3也得3.0，却不是同样的回答模式。回看会分开保留源题，让你核对哪种场景得了哪项评分。"
+            },
+            {
+              "en": "Each item accepts a numeric value from 1 to 6 or an unscored response. All four must be numeric for this part’s mean; one unscored choice withholds this part only. The website does not fill a missing rating from your answers to poor-hygiene items or from another person’s average.",
+              "zh": "每题可选1至6数字或不评分。本部分四题都为数字才给均值；一题不评分仅使本部分暂不给均值。网站不从卫生题的回答或他人的平均数来补缺项。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-reading",
+          "title": {
+            "en": "Describe a reaction, not social trust",
+            "zh": "描述反应，不测社交信任"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean indicates greater stated disgust across the four contact scenes. It does not measure trust, generosity, friendliness or how much you value other people. Accepting food and imagining contact with it involve many considerations that these four disgust ratings cannot separate.",
+              "zh": "较高均值表示四种接触情境合起来有较多所报恶心感，不测信任、慷慨、友善或你多重视别人。接受食物与想象接触可能涉及多种考虑，四个恶心评分分不清。"
+            },
+            {
+              "en": "A lower mean is not evidence of weaker boundaries or that every contact situation feels acceptable. One particular item may still evoke a strong reaction. There are no social-personality types or relationship recommendations attached to the mean, and no population norm is applied to call a response normal or abnormal.",
+              "zh": "较低均值不证明边界弱，也不表示所有接触都让你接受；某道题仍可能引起强反应。均值不附带社交人格类型或关系建议，也不套人群常模判正常或异常。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-scenario",
+          "title": {
+            "en": "A familiar friend and a barely known neighbor",
+            "zh": "熟悉朋友与不太熟悉的邻居"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may give a lower rating to a friend sharing a glass and a higher rating to receiving food from a neighbor they barely know. Another person may react more strongly to the shared glass. Either pattern can arise from the specific imagined scenes; the average does not explain the reason.",
+              "zh": "一位可能对朋友共用杯子的评分较低，对不太熟悉的邻居送食物评分较高；另一位可能更在意杯子。两种组合都可能来自想象中的具体场景，平均数不会解释原因。"
+            },
+            {
+              "en": "You do not need to enter a friend’s name, a neighbor’s identity or a private event. Keep any real example to yourself if you use one to understand the wording. The result cannot assess whether someone else has respected an agreement or violated a boundary.",
+              "zh": "无需填写朋友姓名、邻居身份或私人事件。用真实事例帮助理解题意时，可以只留给自己。结果不能评估他人是否尊重约定或越过边界。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-comparison",
+          "title": {
+            "en": "Contact differs from a named hygiene scene",
+            "zh": "接触与卫生场景不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Poor-hygiene items name preparation or utensil details; these contact items name another person’s involvement. The two parts may have different means for the same respondent. That does not make the response inconsistent, and one part cannot supply a missing rating in the other.",
+              "zh": "卫生题指出准备过程或餐具细节，接触题指出另一人的参与。同一人的两组均值可能不同，不表示回答矛盾；一组也不能替另一组补缺项。"
+            },
+            {
+              "en": "Animal flesh and fish items concern different objects and sensory details again. Do not combine the eight means into a general avoidance identity. The published framework distinguishes food-related situations, while the website reports the eight complete-part means independently.",
+              "zh": "动物肉类与鱼类题又指向不同对象及感官细节。不要把八组均值合成一般回避身份。发表框架区分食物相关情境，网站相应独立报告八组完整分量表均值。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-counterexample",
+          "title": {
+            "en": "A counterexample about boundaries",
+            "zh": "关于边界的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "You can experience little disgust and still decline shared food for a practical reason. You can also feel disgust while choosing not to discuss it. Thus neither accepting nor declining is determined by the score. The questionnaire gives no rule about what you owe someone or how you should handle a social invitation.",
+              "zh": "你可以没有多少恶心感，却因实际理由婉拒共食；也可以感觉恶心，但选择不讨论。因此，分数不决定接受或拒绝，也不规定你欠别人什么、该怎样处理邀请。"
+            },
+            {
+              "en": "An imagined response is not a food-safety assessment, an infection estimate or a diagnosis of contamination-related distress. The test offers no assurance that a low-rated scene is safe and no conclusion that a high-rated scene reveals a condition. Real concerns require their own context.",
+              "zh": "想象中的回答不是食品安全评估、感染概率或与污染相关困扰的诊断。测试不保证低评分场景安全，也不认为高评分揭示某种状况。真实问题需要结合真实背景理解。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-action",
+          "title": {
+            "en": "Reflect without involving another person",
+            "zh": "回看不需要让他人参与"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, compare two of your own ratings and notice whether the imagined familiarity, contact or food detail differs. Leaving the reason uncertain is acceptable. You do not need to ask anyone to share utensils or recreate a contact scene to understand the result.",
+              "zh": "觉得有用时，可比较自己的两个评分，留意想象中的熟悉程度、接触或食物细节是否不同；原因暂不确定也可以。理解结果不需要请别人共用餐具或重现接触。"
+            },
+            {
+              "en": "You can finish here. Sharing a public title and link is optional and carries no private mean or answer record. If you choose to talk about a personal reaction, describe it as your own experience rather than using a scale label to characterize another person.",
+              "zh": "读到这里即可结束。公开标题与链接可自愿分享，不带私人均值或答案记录。若选择聊个人反应，可表述为自己的经验，不用量表名称来给别人定性。"
+            }
+          ]
+        },
+        {
+          "id": "human-contamination-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mold",
+      "directionIds": [
+        "mold"
+      ],
+      "title": {
+        "en": "Mold — Full FDS Reading",
+        "zh": "霉斑相关情境：FDS完整读法"
+      },
+      "headline": {
+        "en": "Mold",
+        "zh": "霉斑相关情境"
+      },
+      "summary": {
+        "en": "Read the 4 mold items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道霉斑相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mold: Food Disgust Scale Results Explained",
+          "zh": "霉斑相关情境：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 mold items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道霉斑相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "mold-meaning",
+          "title": {
+            "en": "The four mold-related source situations",
+            "zh": "四种霉斑相关源情境"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items ask about eating the mold-free part of a moldy tomato, bread after mold was cut away, hard cheese after mold was cut off and marmalade after surface mold was removed. They are hypothetical prompts from the published scale. Their appearance in a questionnaire is not advice to prepare or consume any such food.",
+              "zh": "四题涉及吃发霉番茄中无霉部分、切掉霉斑的面包、切掉霉斑的硬质奶酪及去掉表面霉斑的果酱。它们是发表量表中的假设情境，出现在问卷里不表示建议处理或食用这些食物。"
+            },
+            {
+              "en": "Rate the imagined disgust the stated scene evokes, if you wish to do so. The item does not test what you know about mold, how you handle food or whether a particular food is safe. No image, tasting, handling or real-world demonstration is required.",
+              "zh": "愿意时可评价所述场景唤起的想象恶心感；题目不测霉菌知识、食物处理方式或特定食物是否安全。无需图片、品尝、触碰或现实示范。"
+            }
+          ]
+        },
+        {
+          "id": "mold-arithmetic",
+          "title": {
+            "en": "Four complete numeric ratings",
+            "zh": "四项完整数字评分"
+          },
+          "paragraphs": [
+            {
+              "en": "For ratings of 2, 4, 5 and 6, the raw sum is 17. Dividing by four gives 4.25, displayed as 4.3 after rounding to one decimal. The unrounded arithmetic is not a probability, and the rounded mean is not a percentage of contamination or a measure of food safety.",
+              "zh": "例如2、4、5、6相加为17，除以4得4.25，保留一位小数显示4.3。未取一位小数的结果也不是概率；展示均值不是污染百分比或食品安全测量。"
+            },
+            {
+              "en": "All four must have numeric 1–6 responses. If one is unscored, the mean is not calculated even when the other three are identical. This avoids presenting an incomplete part as the full four-item result. Other complete parts remain visible and this entire guide stays accessible.",
+              "zh": "四项都需1至6数字。一项不评分，即使另三项完全相同也不给均值，避免把不完整部分当作完整四题结果。其他完整部分仍可显示，本指南始终全部可读。"
+            }
+          ]
+        },
+        {
+          "id": "mold-reading",
+          "title": {
+            "en": "Read reported disgust without a safety inference",
+            "zh": "读恶心感，不推断安全"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean indicates greater reported disgust at these four named hypothetical situations. It does not establish the amount of mold present, what happens beyond a visible surface or the consequences of consuming anything. A feeling rating and a practical food-safety judgment are different kinds of information.",
+              "zh": "均值较大表示对四个所述假设场景报告了较多恶心感，不确定霉菌多少、可见表面以外有什么或食用后会怎样。感受评分与实际食品安全判断是不同信息。"
+            },
+            {
+              "en": "A smaller mean does not demonstrate tolerance, knowledge or a willingness to eat a named food. It also does not give permission to do so. The guide offers no normal range, clinical cutoff or recommendation based on where your mean falls.",
+              "zh": "均值较小不证明耐受、知识或愿意吃题中的食物，也不提供食用许可。本指南不提供正常范围、临床截点，或按均值落点给建议。"
+            }
+          ]
+        },
+        {
+          "id": "mold-scenario",
+          "title": {
+            "en": "Different objects can evoke different reactions",
+            "zh": "不同对象可能引起不同反应"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may imagine the bread scene vividly but find the marmalade scene difficult to picture. Another may give numeric ratings to both but respond differently because of the image they have in mind. The mean does not decide which imagined detail is most important.",
+              "zh": "一位可能对面包场景想象鲜明，却不易想象果酱场景；另一位可能两题都评分，但因脑中画面不同而反应不同。均值不决定哪个想象细节最重要。"
+            },
+            {
+              "en": "The response review keeps the four choices available on this device, including unscored answers. You may use it to check that an option was selected as intended, rather than treating the mean as evidence that the same reaction occurs every time you encounter a food.",
+              "zh": "回答回看在本设备保留四项选择，包括不评分项。可据此核对是否选了本来想选的项，而不是把均值当成每次遇到食物都同样反应的证据。"
+            }
+          ]
+        },
+        {
+          "id": "mold-comparison",
+          "title": {
+            "en": "Mold is separate from fruit or vegetable changes",
+            "zh": "霉斑与水果、蔬菜变化分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The fruit part includes overripe fruit, black spots on a banana, pressure marks and apple browning. The vegetable part includes brown avocado pulp, a bendable overripe cucumber, shrunken radishes and less-crisp salad. Those wording-defined parts are not merged into the mold part or assumed to represent the same process.",
+              "zh": "水果部分包括过熟、香蕉黑斑、压痕与苹果褐变；蔬菜部分包括褐色牛油果果肉、软到可弯的过熟黄瓜、缩皱萝卜与不爽脆沙拉。按源文区分的部分不并入霉斑部分，也不假设代表同一种过程。"
+            },
+            {
+              "en": "A person can give different means to these parts without contradiction. The source categories organize reactions to named situations; they do not create a guide to identify spoilage. None of the three means can replace practical information about an actual food item.",
+              "zh": "三组均值不同并不矛盾。源类别组织的是对指定情境的反应，不构成辨认变质的指南；三组中的任何均值都不能替代某件真实食物的实际信息。"
+            }
+          ]
+        },
+        {
+          "id": "mold-counterexample",
+          "title": {
+            "en": "A counterexample about the same mean",
+            "zh": "同一均值的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Four ratings of 4 produce 4.0, as do ratings of 2, 4, 4 and 6. The second pattern contains a strong contrast that the first does not. A shared average therefore does not establish the same experience, and comparing two people solely by that average loses relevant details.",
+              "zh": "四个4的均值为4.0，2、4、4、6也为4.0。后者含有前者没有的明显对比，因此同一平均数不证明同样经验，只靠平均数比较两个人会丢掉相关细节。"
+            },
+            {
+              "en": "A strong reaction to one scene is not a diagnosis or proof of an excessive response. Likewise, a mild reaction is not evidence that a practical concern can be dismissed. The questionnaire does not collect the information needed to reach either conclusion.",
+              "zh": "对某一场景反应强，不是诊断，也不证明反应过度；反应轻也不表示可以忽略实际问题。问卷没有收集足以得出这些结论的信息。"
+            }
+          ]
+        },
+        {
+          "id": "mold-action",
+          "title": {
+            "en": "A reading-only comparison is enough",
+            "zh": "只读对照就足够"
+          },
+          "paragraphs": [
+            {
+              "en": "You may simply note which item wording felt clear and which felt difficult to imagine. If a response was not what you intended, you can retake and choose differently. No attempt to reduce a reaction, handle a moldy object or test yourself with food is part of this activity.",
+              "zh": "可以只留意哪道题的措辞清楚、哪道不易想象。若某个选项不是本意，可以重测改选。本活动不要求降低反应、触碰发霉物品或用食物考验自己。"
+            },
+            {
+              "en": "You can end after reading this guide, without another test or a discussion with others. Public sharing contains only the test title and entry link. It does not reveal which mold scene you rated or whether your personal mean was available.",
+              "zh": "读完指南就可结束，无需另做测试或与他人讨论。公开分享仅含测试标题和入口，不透露你评了哪种霉斑情境，也不透露个人均值是否可计算。"
+            }
+          ]
+        },
+        {
+          "id": "mold-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decaying-fruit",
+      "directionIds": [
+        "decaying-fruit"
+      ],
+      "title": {
+        "en": "Decaying fruit — Full FDS Reading",
+        "zh": "水果过熟与变化：FDS完整读法"
+      },
+      "headline": {
+        "en": "Decaying fruit",
+        "zh": "水果过熟与变化"
+      },
+      "summary": {
+        "en": "Read the 4 decaying fruit items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道水果过熟与变化题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Decaying fruit: Food Disgust Scale Results Explained",
+          "zh": "水果过熟与变化：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 decaying fruit items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道水果过熟与变化题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "decaying-fruit-meaning",
+          "title": {
+            "en": "What the four fruit situations ask",
+            "zh": "四种水果情境问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These source items concern overripe fruit, black spots on a banana, pressure marks on fruit such as apples or peaches, and apple slices that have turned brown after exposure to air. They ask about the disgust you imagine, rather than requiring a decision about buying, preparing or eating any actual fruit.",
+              "zh": "四道源题涉及过熟水果、香蕉黑斑、苹果或桃子等水果的压痕，以及暴露于空气后变褐的苹果片。题目问想象中的恶心感，不要求决定是否购买、处理或吃任何真实水果。"
+            },
+            {
+              "en": "The published factor is called decaying fruit. That is the source category name, not a statement that every described change has the same cause or practical significance. This website retains the four named situations and does not use your response as a test of freshness, risk or knowledge.",
+              "zh": "发表分组名称为decaying fruit，即腐变水果；这是源量表类别名，不表示所述变化原因相同或实际意义相同。网站保留四种指定情境，不以回答检验新鲜度、风险或知识。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-arithmetic",
+          "title": {
+            "en": "A mean of four numeric ratings",
+            "zh": "四项数字的均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Four ratings of 1, 2, 4 and 6 sum to 13. The raw mean is 13 ÷ 4 = 3.25, displayed as 3.3 after rounding to one decimal. Every item has equal weight within this part. There is no reverse-keyed fruit item and no extra weight for a particular kind of fruit.",
+              "zh": "例如1、2、4、6合计13，原始均值13÷4＝3.25，保留一位小数显示3.3。本部分每题等权，没有反向计分题，也不因某种水果而加权。"
+            },
+            {
+              "en": "All four must be rated from 1 to 6. An unscored choice withholds this part’s mean instead of counting as zero, three or the average of the remaining items. The other seven parts are processed separately; one missing fruit rating does not erase a complete fish or hygiene result.",
+              "zh": "四题都需1至6评分。不评分会暂不给本部分均值，不计作0、3或其余题均值。另外七部分独立处理，缺一项水果评分不抹掉完整鱼类或卫生结果。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-reading",
+          "title": {
+            "en": "Stay with the stated fruit reactions",
+            "zh": "解释限于所述水果反应"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean describes greater reported disgust for these four scenes on the offered scale. It does not establish that you dislike fruit in general, eat less fruit or have an unbalanced diet. The questionnaire asks for reactions to wording, not quantities eaten or nutritional information.",
+              "zh": "较高均值描述在给定选项上对这四个场景报告较多恶心感，不证明你普遍不爱水果、吃水果较少或饮食失衡。问卷询问对文字情境的反应，不收集摄入量或营养信息。"
+            },
+            {
+              "en": "A lesser mean does not mean you ignore changes in food or ought to accept a particular fruit. Likewise, no threshold here divides reasonable reactions from unreasonable ones. A value such as 3.3 is a raw item average, not a normal range, percentile or recommendation.",
+              "zh": "较低均值不表示忽视食物变化，也不表示应接受某个水果。这里没有把反应分成合理与不合理的阈值。3.3之类的数字是原始题均值，不是正常区间、百分位或建议。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-scenario",
+          "title": {
+            "en": "Appearance and imagined texture may differ",
+            "zh": "外观与想象口感可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may react little to the appearance of apple browning but strongly to imagining the texture of overripe fruit. Another person may give the reverse pattern. Both can produce the same mean. Retaining the individual responses helps avoid treating the average as a single dislike of all changed fruit.",
+              "zh": "一位可能对苹果褐变外观反应轻，却对想象过熟水果口感反应强；另一位可能相反。两者仍可能同均值。保留单题回答有助于避免把平均数当成对所有变化水果的单一厌恶。"
+            },
+            {
+              "en": "The item does not ask you to explain why you chose a number. Familiarity, a remembered experience or how vividly you picture the wording may matter, but the test does not identify the cause. You can choose unscored whenever you cannot form a rating you wish to give.",
+              "zh": "题目不要求说明选数字的原因。熟悉度、记忆经验或想象的鲜明程度可能相关，但测试不能识别原因。无法形成愿意给的评分时，可以选不评分。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-comparison",
+          "title": {
+            "en": "Fruit changes and mold have separate items",
+            "zh": "水果变化与霉斑分别设题"
+          },
+          "paragraphs": [
+            {
+              "en": "The mold part explicitly names mold on a tomato, bread, hard cheese and marmalade. None of the four fruit prompts supplies those same details. Its mean cannot replace the mold mean, and a person’s ratings may differ across the two parts without any contradiction.",
+              "zh": "霉斑部分明确指出番茄、面包、硬质奶酪及果酱上的霉斑，四道水果题没有给出同样细节。水果均值不能替代霉斑均值，两部分评分不同也不矛盾。"
+            },
+            {
+              "en": "The vegetable part names avocado pulp, cucumber, radishes and salad. The published organization distinguishes these situations rather than combining them into a freshness score. Any comparison is about your responses to the specified scenes, not a classification of real foods into safe and unsafe groups.",
+              "zh": "蔬菜部分指定牛油果果肉、黄瓜、萝卜及沙拉。发表框架区分这些场景，不把它们合成新鲜度分数。对照仅涉及你对指定场景的回答，不把真实食物分成安全与危险。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-counterexample",
+          "title": {
+            "en": "One average can conceal a sharp contrast",
+            "zh": "同一均值可能藏着明显差别"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 1, 6 and 6 average 3.5. Four more similar ratings of 3, 3, 4 and 4 also average 3.5. The first pattern contains strong differences between items; the second is more even. Neither pattern by itself reveals food waste, eating habits or a psychological condition.",
+              "zh": "1、1、6、6均值3.5，较接近的3、3、4、4也为3.5。前者题间差别明显，后者较均匀；任一种组合本身都不能揭示食物浪费、饮食习惯或心理状况。"
+            },
+            {
+              "en": "A practical choice can differ from an imagined emotional reaction. Someone can feel little disgust and still decide not to use a food for other reasons, or report a strong reaction to a scene they never encounter. The questionnaire supplies no rule about what a respondent should consume.",
+              "zh": "实际选择可以不同于想象情绪。一个人可感觉恶心很少，却因其他理由不用某种食物；也可对从未遇到的场景反应强。问卷不规定填写者该吃什么。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-action",
+          "title": {
+            "en": "Use the words for optional reflection",
+            "zh": "可自愿围绕题意回看"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, compare two fruit responses and note which stated detail differs. You can leave the explanation open. There is no need to buy fruit, wait for it to change, inspect an actual item or eat anything to validate your answer. Imagined rating is the entire task.",
+              "zh": "觉得有用时，可比较两个水果回答，留意所述细节哪里不同，也可暂不解释。无需购买水果、等它发生变化、检查实物或吃任何东西来验证答案；想象评分就是全部任务。"
+            },
+            {
+              "en": "You may finish after reading or return to review the choices saved on this device. Public sharing uses the title and entry link only. It does not include your fruit mean, the individual answers or a claim about your eating behavior.",
+              "zh": "读完就可结束，也可回看本设备保存的选择。公开分享仅用标题和入口链接，不包括水果均值、单题答案或关于饮食行为的判断。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-fruit-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fish",
+      "directionIds": [
+        "fish"
+      ],
+      "title": {
+        "en": "Fish — Full FDS Reading",
+        "zh": "鱼类相关情境：FDS完整读法"
+      },
+      "headline": {
+        "en": "Fish",
+        "zh": "鱼类相关情境"
+      },
+      "summary": {
+        "en": "Read the 4 fish items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道鱼类相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fish: Food Disgust Scale Results Explained",
+          "zh": "鱼类相关情境：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 fish items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道鱼类相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "fish-meaning",
+          "title": {
+            "en": "Four different fish-related details",
+            "zh": "四种不同的鱼类细节"
+          },
+          "paragraphs": [
+            {
+              "en": "The fish part asks about a whole fish with its head on the plate, raw fish such as sushi, the smell in a fish shop or fresh-fish section, and the texture of some fish in the mouth. These are the four published English items, kept as distinct prompts.",
+              "zh": "鱼类部分询问盘中带头整鱼、寿司之类的生鱼、鱼店或鲜鱼区气味，以及某些鱼肉在口中的口感。这是发表英文表的四道题，分别保留。"
+            },
+            {
+              "en": "Rate the disgust each imagined detail evokes if you wish. The task does not require seeing a photograph, smelling a shop, eating fish or recalling a private event. If a scene is outside your experience or too hard to imagine, an unscored answer is available without explanation.",
+              "zh": "愿意时可评价各个想象细节引起的恶心感。无需看照片、闻鱼店、吃鱼或回忆私人事件。场景超出经验或不易想象时，可以不评分，无需解释。"
+            }
+          ]
+        },
+        {
+          "id": "fish-arithmetic",
+          "title": {
+            "en": "The complete four-item fish mean",
+            "zh": "完整四题鱼类均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Numeric responses range from 1 to 6. For example, 2, 3, 4 and 6 sum to 15; dividing by four gives 3.75, displayed as 3.8. The four items have equal weight. A response of 6 contributes six scale points, not a 60 percent chance of a reaction.",
+              "zh": "数字回答为1至6。例如2、3、4、6合计15，除以4得3.75，显示3.8。四题等权；6贡献六个量尺点，不是发生反应的60%概率。"
+            },
+            {
+              "en": "Every item must have a numeric answer to show this part’s mean. A single unscored answer leaves the mean unavailable, with numeric coverage shown. No value is borrowed from the animal-flesh part, no zero is inserted, and fully rated parts elsewhere in the result remain available.",
+              "zh": "每题都为数字才显示本部分均值。一题不评分，均值就暂不可用，并显示数字覆盖。不借动物肉类分数、不补0，其他完整评分部分仍然可用。"
+            }
+          ]
+        },
+        {
+          "id": "fish-reading",
+          "title": {
+            "en": "Describe fish-scene disgust precisely",
+            "zh": "准确描述鱼类场景恶心感"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean means greater reported disgust for this particular set of four scenes. It does not measure taste preferences, fishing knowledge, seafood intake or a nutritional need. A lower mean likewise does not establish that every fish-related detail is comfortable or that any actual preparation is suitable.",
+              "zh": "较高均值表示对这四个特定场景报告了较多恶心感，不测口味偏好、鱼类知识、海鲜摄入或营养需求。较低均值也不证明所有鱼类细节都舒适，或任何实际处理方式都适合。"
+            },
+            {
+              "en": "No clinical cutoff or population percentile is applied. The mean cannot show an allergy, an intolerance or whether a food is safe for an individual. These questions collect an imagined emotional response; they do not collect the information needed to answer practical dietary or health questions.",
+              "zh": "不应用临床截点或人群百分位。均值不能显示过敏、不耐受或某种食物对个人是否安全。题目收集想象中的情绪反应，没有收集足以回答实际饮食或健康问题的信息。"
+            }
+          ]
+        },
+        {
+          "id": "fish-scenario",
+          "title": {
+            "en": "Appearance, smell and texture can diverge",
+            "zh": "外观、气味与口感可以分离"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may rate the sight of a whole fish mildly and the imagined mouth texture strongly. Another may find the shop smell most evocative. The source groups the scenes together, but your average does not show which detail led the response; the individual choices retain that information.",
+              "zh": "一个人可对整鱼外观评分轻，对想象口感评分强；另一个人可能对店内气味最有反应。源量表把场景同组，但平均数不显示哪个细节引起反应，单题选择保留这些信息。"
+            },
+            {
+              "en": "You may picture a familiar preparation or a scene you have only heard described. The wording cannot standardize every detail in that image. Your rating is therefore a report on the situation as you understood it, not a controlled sensory experiment or an objective comparison with another respondent.",
+              "zh": "你可能想到熟悉做法，也可能想到只听说过的情景。题意无法统一脑中画面的所有细节；评分因而是对自己所理解情境的报告，不是受控感官实验或与他人的客观比较。"
+            }
+          ]
+        },
+        {
+          "id": "fish-comparison",
+          "title": {
+            "en": "The fish and animal-flesh parts stay separate",
+            "zh": "鱼类与动物肉类部分分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Animal-flesh items name cartilage, raw meat, a bloody steak and a whole pig en brochette. They are not duplicates of the four fish items. Different means across the parts do not imply inconsistent answers, and the website does not merge them into one general meat-disgust or dietary-identity score.",
+              "zh": "动物肉类题指定软骨、生肉、带血牛排及整头猪串烤，不是这四道鱼类题的重复。两组均值不同不表示回答矛盾，网站不把它们合成一般肉类厌恶或饮食身份分。"
+            },
+            {
+              "en": "Poor-hygiene and living-contaminant scenes also provide different details. A greater fish mean does not explain how you would respond to those situations. Each complete part retains its own arithmetic, and the eight means have no overall total, ranking-based type or recommended diet attached.",
+              "zh": "卫生与活体污染物场景也含不同细节。鱼类均值较高不能解释对那些场景会怎样回答。各完整部分保留独立算术，八组均值不附总分、按排名分型或推荐食谱。"
+            }
+          ]
+        },
+        {
+          "id": "fish-counterexample",
+          "title": {
+            "en": "The same mean is not the same fish reaction",
+            "zh": "同一均值不等于同样反应"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 1, 5 and 5 average 3.0, as do four ratings of 3. The first person reports a sharper distinction between scenes. Neither average identifies the exact item they would accept or avoid in daily life, and the questionnaire cannot infer a reason from the number alone.",
+              "zh": "1、1、5、5和四个3的均值都为3.0，前者报告更明显的场景差别。任一均值都不能识别日常会接受或回避的具体食物，问卷也不能只凭数字推断原因。"
+            },
+            {
+              "en": "Someone may avoid fish for a reason unrelated to disgust, while someone who eats it may still report a strong reaction to one scene. The score cannot adjudicate either practice. It also cannot establish that another person should share the same reaction or change a food preference.",
+              "zh": "有人可因与恶心无关的理由不吃鱼，吃鱼的人也可对某个场景反应强。分数不能裁决这些实践，也不能要求别人应有同样反应或改变口味。"
+            }
+          ]
+        },
+        {
+          "id": "fish-action",
+          "title": {
+            "en": "A comparison without sensory testing",
+            "zh": "无需感官尝试的对照"
+          },
+          "paragraphs": [
+            {
+              "en": "You can compare the wording of two fish items and notice whether they involve sight, smell, texture or another imagined detail. This is optional reflection. Do not recreate a scene or seek out a food to prove your score; no exposure activity is part of this questionnaire.",
+              "zh": "可比较两道鱼类题措辞，留意它们涉及视觉、气味、质地或其他想象细节。这是自愿回看。无需重现场景或寻找某种食物来证明分数；问卷不含暴露练习。"
+            },
+            {
+              "en": "It is also fine to stop with an unavailable mean. This full guide does not depend on giving every item a number. Sharing the public entry is optional and contains no personal fish score, answers or private response pattern.",
+              "zh": "均值暂不可用时也可就此结束。读完整指南不以每题给数字为前提。公开入口可自愿分享，不含个人鱼类分数、答案或私人回答组合。"
+            }
+          ]
+        },
+        {
+          "id": "fish-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decaying-vegetables",
+      "directionIds": [
+        "decaying-vegetables"
+      ],
+      "title": {
+        "en": "Decaying vegetables — Full FDS Reading",
+        "zh": "蔬菜变质相关情境：FDS完整读法"
+      },
+      "headline": {
+        "en": "Decaying vegetables",
+        "zh": "蔬菜变质相关情境"
+      },
+      "summary": {
+        "en": "Read the 4 decaying vegetables items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读4道蔬菜变质相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 4 numeric 1–6 ratings and divide by 4, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "4项1至6数字相加再除以4，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Decaying vegetables: Food Disgust Scale Results Explained",
+          "zh": "蔬菜变质相关情境：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 4 decaying vegetables items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读4道蔬菜变质相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "decaying-vegetables-meaning",
+          "title": {
+            "en": "The four vegetable-related source items",
+            "zh": "四道蔬菜相关源题"
+          },
+          "paragraphs": [
+            {
+              "en": "This part names brown-colored avocado pulp, an overripe cucumber that can already be bent, shrunken radishes and salad that is no longer crispy. The source label is decaying vegetables. The prompts are reproduced as hypothetical situations, not as instructions for inspecting or deciding whether to eat real food.",
+              "zh": "本部分指定变褐牛油果果肉、熟过头而能弯曲的黄瓜、缩皱萝卜及不再爽脆的沙拉。源类别名为decaying vegetables，即腐变蔬菜。题目是复现的假设情境，不是检查或决定食用真实食物的指引。"
+            },
+            {
+              "en": "You are rating imagined disgust rather than the frequency of eating vegetables. A respondent may picture appearance, texture, a remembered meal or something unfamiliar. The questionnaire does not collect those details or establish a cause for the reaction. An unscored option is available whenever you cannot or prefer not to rate.",
+              "zh": "你评的是想象恶心感，不是吃蔬菜频率。可能想到外观、口感、某餐记忆或不熟悉事物；问卷不收集这些细节，也不确立反应原因。无法评价或不想评时可以不评分。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-arithmetic",
+          "title": {
+            "en": "Four equal-weight numeric choices",
+            "zh": "四项等权数字选择"
+          },
+          "paragraphs": [
+            {
+              "en": "For ratings of 2, 2, 5 and 6, the sum is 15 and the mean is 3.75, displayed as 3.8. Each source item contributes one rating between 1 and 6. No vegetable item is reversed, and the raw mean is not rescaled into a percentage or adjusted against a population average.",
+              "zh": "例如2、2、5、6相加15，均值3.75，显示3.8。每道源题贡献一个1至6评分，没有反向蔬菜题；原始均值不改成百分比，也不按人群平均数调整。"
+            },
+            {
+              "en": "All four must be numeric for this part’s mean. Three numeric choices plus one unscored choice do not form the complete four-item result, even if the three values agree. The website shows numeric coverage and keeps the mean unavailable, while calculating any other fully rated part independently.",
+              "zh": "本部分四项都为数字才给均值。三项数字加一项不评分，即使三个数字相同，也不是完整四题结果。网站显示数字覆盖，暂不给均值；其他完整部分则独立计算。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-reading",
+          "title": {
+            "en": "Read the scene ratings without a diet label",
+            "zh": "读场景评分，不贴饮食标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean indicates greater stated disgust across the four named scenes. It does not show a dislike of all vegetables, a nutritional deficiency, food selectivity or how often a person eats a balanced meal. None of those facts is collected by these four hypothetical ratings.",
+              "zh": "较高均值表示四个指定场景合起来报告较多恶心感，不显示厌恶所有蔬菜、营养缺乏、挑食或均衡进餐频率。这些事实都不是四个假设评分收集的内容。"
+            },
+            {
+              "en": "A lower mean gives no assurance about an actual food and no instruction to accept it. There is no normal-versus-abnormal threshold in this result. The number describes a response to a particular set of words, rather than certifying knowledge, resilience or the correctness of a food choice.",
+              "zh": "较低均值不保证真实食物如何，也不指示应接受它。本结果没有正常与异常阈值。数字描述对特定措辞的回答，不认证知识、承受力或食物选择是否正确。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-scenario",
+          "title": {
+            "en": "Texture changes may not feel alike",
+            "zh": "质地变化不一定感受相同"
+          },
+          "paragraphs": [
+            {
+              "en": "One person may give a greater rating to the bendable cucumber than to salad losing its crispness. Another may find the avocado color change more evocative. These item differences are retained in the response review. A single mean cannot identify the detail each person pictured or why they responded.",
+              "zh": "一位可能对能弯曲的黄瓜评分高于不爽脆沙拉；另一位可能对牛油果颜色变化更有反应。回答回看保留这些题间差别，单一均值不能识别各人想象的细节或作答原因。"
+            },
+            {
+              "en": "You do not need to know a named food well to finish the questionnaire, because unscored responses are allowed. Guessing a number only to obtain every mean may obscure that uncertainty. This full guide stays available whether the vegetable part has four numeric answers or none.",
+              "zh": "不熟悉指定食物也可完成问卷，因为允许不评分。只是为拿全均值而猜数字，可能遮住不确定性。蔬菜部分有四项数字或一项也没有，完整指南都可读。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-comparison",
+          "title": {
+            "en": "Vegetable, fruit and mold parts differ",
+            "zh": "蔬菜、水果与霉斑部分不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Fruit prompts concern overripe fruit, a spotted banana, pressure marks and apple browning. Mold prompts explicitly add mold and its removal. The three source parts remain distinct here. A vegetable response does not supply missing data for either of the other parts or create a general spoilage-detection score.",
+              "zh": "水果题涉及过熟水果、香蕉斑点、压痕及苹果褐变；霉斑题明确增加发霉与去霉情境。三组源部分在此仍分开。蔬菜回答不替另两组补缺，也不形成一般识别变质分数。"
+            },
+            {
+              "en": "Different raw means can reflect the different situations you were asked to imagine. Comparing two items can be more informative than naming the largest mean as a dominant trait. The website does not award such a trait and does not combine all eight parts into one food-avoidance identity.",
+              "zh": "原始均值不同可与被要求想象的场景不同有关。对照两道题，可能比把最大均值叫作主导特质更有信息。网站不分配这种特质，也不将八部分合成食物回避身份。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-counterexample",
+          "title": {
+            "en": "Equal means can hide unequal responses",
+            "zh": "相同均值可隐藏不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 2, 5 and 6 average 3.5. Ratings of 3, 3, 4 and 4 also average 3.5. The sharper contrast in the first pattern remains real within the response record, even though the display means match. The number alone cannot describe every vegetable-related experience.",
+              "zh": "1、2、5、6与3、3、4、4均值都为3.5。即使展示均值一致，第一种组合更鲜明的题间反差仍保留在回答记录中。数字本身不能描述所有蔬菜相关经验。"
+            },
+            {
+              "en": "A person might make the same practical food decision as another person while reporting a different imagined reaction. Conversely, the same reported reaction need not lead to the same choice. These possibilities show why a disgust mean cannot be used as a menu, a safety test or a judgment about another person.",
+              "zh": "两个人可作相同实际饮食决定，却报告不同想象反应；同样反应也不必导致同样选择。这说明恶心均值不能用作菜单、安全测试或对别人的评判。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-action",
+          "title": {
+            "en": "Reflect on wording without recreating scenes",
+            "zh": "围绕措辞回看，无需重现情境"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to reflect, pick two items and notice the details already stated in the wording. You can stop at noticing a difference without explaining it. Do not leave food to change, taste it or handle it to check a response; this activity contains no real-food task.",
+              "zh": "想回看时可选两题，留意措辞已给出的细节。只注意差别、暂不解释也可以。无需让食物发生变化、品尝或触碰来核对回答；本活动没有真实食物任务。"
+            },
+            {
+              "en": "Ending here is a complete outcome. You can review or clear device-local responses through the test controls. Optional public sharing contains the test title and entry link, with no vegetable mean or individual answer added to the public message.",
+              "zh": "就此结束也是完整结果。可通过测试控件回看或清除本设备回答。可选的公开分享含测试标题与入口链接，不向公开信息加入蔬菜均值或单题答案。"
+            }
+          ]
+        },
+        {
+          "id": "decaying-vegetables-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "living-contaminants",
+      "directionIds": [
+        "living-contaminants"
+      ],
+      "title": {
+        "en": "Living contaminants — Full FDS Reading",
+        "zh": "活体污染物相关情境：FDS完整读法"
+      },
+      "headline": {
+        "en": "Living contaminants",
+        "zh": "活体污染物相关情境"
+      },
+      "summary": {
+        "en": "Read the 3 living contaminants items: raw mean, concrete examples, missing responses and interpretation limits.",
+        "zh": "阅读3道活体污染物相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+      },
+      "scoreReading": {
+        "en": "Add the 3 numeric 1–6 ratings and divide by 3, rounding to one decimal. Any unscored response withholds this part’s mean. The eight means are separate; no total, norm or cutoff is calculated.",
+        "zh": "3项1至6数字相加再除以3，保留一位小数。任何不评分使本组暂不给均值。八组独立，不算总分、常模或截点。"
+      },
+      "seo": {
+        "title": {
+          "en": "Living contaminants: Food Disgust Scale Results Explained",
+          "zh": "活体污染物相关情境：食物厌恶量表结果解释"
+        },
+        "description": {
+          "en": "Read the 3 living contaminants items: raw mean, concrete examples, missing responses and interpretation limits.",
+          "zh": "阅读3道活体污染物相关情境题的原始均值、具体情境、缺项处理与解释边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "living-contaminants-meaning",
+          "title": {
+            "en": "Three named living-contaminant situations",
+            "zh": "三种指定活体污染物情境"
+          },
+          "paragraphs": [
+            {
+              "en": "The published English items describe a maggot in a cherry you wanted to eat, a small snail in salad you wanted to eat, and a worm in an apple. These three prompts form the living-contaminants part. They are imagined wording-defined situations; no picture, handling, tasting or contact with an animal is requested.",
+              "zh": "发表英文题描述原本想吃的樱桃里有蛆、原本想吃的沙拉里有小蜗牛，以及苹果里有虫。三题组成活体污染物部分，均为文字指定的想象情境，不要求图片、触碰、品尝或接触动物。"
+            },
+            {
+              "en": "You may rate the disgust each scene evokes or select an unscored answer. The wording does not ask whether you have actually experienced the event, what you did afterward or whether a food was safe. A reaction to imagining the scene is the only information being requested.",
+              "zh": "可评价各场景引起的恶心感，也可不评分。措辞不问是否亲历、后来怎样处理或食物是否安全；只收集想象场景时的反应。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-arithmetic",
+          "title": {
+            "en": "Three items, rather than four or five",
+            "zh": "本部分是三题"
+          },
+          "paragraphs": [
+            {
+              "en": "This is the only three-item part in the selected 32-item bank. Ratings of 2, 4 and 6 sum to 12, giving 12 ÷ 3 = 4.0. The denominator is three, not the four used by several other parts or the five used by hygiene. The website uses the published grouping without inventing an extra item.",
+              "zh": "这是所选32题中唯一的三题部分。2、4、6合计12，12÷3＝4.0。分母为3，不是其他若干组的4，也不是卫生组的5。网站使用发表分组，不自造额外题。"
+            },
+            {
+              "en": "All three must be numeric from 1 to 6. Two numeric responses and one unscored response leave this mean unavailable, while complete parts elsewhere still calculate. No midpoint is inserted and no mean is calculated from just the remaining two items. Numeric coverage makes this distinction visible.",
+              "zh": "三项都需1至6数字。两项数字加一项不评分，本组暂不给均值，其他完整组仍计算。不补中点，也不只用剩下两项算均值；数字覆盖会明确显示区别。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-reading",
+          "title": {
+            "en": "Reported disgust is the measured response",
+            "zh": "所报恶心感才是回答内容"
+          },
+          "paragraphs": [
+            {
+              "en": "A greater mean describes greater stated disgust for the three named scenarios. It does not measure bravery, cleanliness, infestation risk or the ability to notice an actual contaminant. A lower mean does not establish comfort with every animal or imply that a respondent should eat any particular food.",
+              "zh": "较高均值描述对三种指定情境报告更多恶心感，不测勇敢、清洁程度、虫害风险或发现实际污染物的能力。较低均值也不证明面对所有动物都舒适，或意味着应吃某种食物。"
+            },
+            {
+              "en": "There is no universal normal interval or clinical cutoff in this page. The result cannot diagnose a phobia or another condition and cannot estimate the likelihood of getting ill. It also gives no advice on consuming or treating a food mentioned in the source item.",
+              "zh": "本页没有通用正常区间或临床截点。结果不能诊断恐惧症或其他状况，也不能估计生病可能性；还不提供食用或处理源题食物的建议。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-scenario",
+          "title": {
+            "en": "The three scenes can evoke different images",
+            "zh": "三个场景可引起不同画面"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone might imagine the cherry scene clearly but find the snail-in-salad scene unfamiliar. Another might rate the apple scene most strongly because the wording is more vivid to them. The average does not resolve those reasons, and the questionnaire does not require the respondent to provide an explanation.",
+              "zh": "一位可能很容易想象樱桃场景，却不熟悉沙拉里有蜗牛；另一位可能因苹果措辞更鲜明而评分最强。平均数分不清原因，问卷也不要求解释。"
+            },
+            {
+              "en": "If you select unscored, that is a recorded response rather than a low-disgust rating. You may finish with this mean unavailable and still read every section of the guide. No attempt to find a real example is needed to turn an uncertain or unwanted response into a number.",
+              "zh": "不评分是一种记录的回答，不是低恶心评分。本均值暂不可用也可完成并读完指南。无需寻找真实例子，把不确定或不愿回答的情境变成数字。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-comparison",
+          "title": {
+            "en": "Living contaminants differ from other source details",
+            "zh": "活体污染物与其他源细节不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The hygiene part includes a hair in soup, which is not one of these three living-contaminant prompts. The source groups them separately. The questionnaire therefore does not copy a hygiene rating into this part, even when both situations seem related in your own interpretation.",
+              "zh": "卫生组包括汤中头发，它不是这三道活体污染物题之一。源量表分组不同，所以即使你认为两者相关，网站也不会把卫生评分复制到本组。"
+            },
+            {
+              "en": "The mold and fruit parts also have their own named scenes. A larger or smaller mean across parts is a comparison of stated reactions, not a hazard ranking. The eight means are reported independently with no total, dominant category or personality type inferred from which one is greatest.",
+              "zh": "霉斑和水果组也有各自场景。跨组均值大小是所报反应对照，不是危害排名。八组独立报告，不生成总分，也不按最大值推断主导类别或人格。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-counterexample",
+          "title": {
+            "en": "Three ratings can share an average in different ways",
+            "zh": "三个评分可用不同组合得到同一均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 5 and 6 average 4.0, just as 4, 4 and 4 do. The first pattern has one mild and two stronger reactions; the second is even. Equal averages do not mean identical experiences, and a three-item mean cannot establish how someone reacts in every food situation.",
+              "zh": "1、5、6与4、4、4均值都为4.0。前者一项较轻、两项较强，后者均匀。平均数相同不表示经验一致，三题均值也不概括所有食物情境。"
+            },
+            {
+              "en": "A person may report strong imagined disgust without having encountered any of the events. Someone who has encountered one may give a different rating today. Neither pattern proves a lasting trait or a particular history; the task records only the response you chose on this occasion.",
+              "zh": "一个人可能从未亲历这些事情，却报告强烈想象恶心感；亲历过的人今天也可给不同评分。两种组合都不证明持久特质或特定经历，任务只记录本次所选回答。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-action",
+          "title": {
+            "en": "Keep reflection at the level of the written scenes",
+            "zh": "回看停留在文字情境即可"
+          },
+          "paragraphs": [
+            {
+              "en": "You can compare the three recorded choices and notice where they differ, without taking any further action. There is no need to seek out insects, examine food or test yourself through exposure. This is a questionnaire reading activity, and ending after the guide is a valid choice.",
+              "zh": "可比较三项记录并留意差别，无需进一步行动。不必寻找昆虫、检查食物或用暴露来考验自己；这是问卷阅读活动，读完指南就结束完全可以。"
+            },
+            {
+              "en": "If you retake it, use the same stated situations and answer as you wish rather than trying to reach a target mean. Optional public sharing contains no personal mean, answer record or claim about a reaction to any named animal.",
+              "zh": "重测时仍按所述情境自由回答，无需争取目标均值。可选公开分享不含个人均值、答案记录或对指定动物反应的判断。"
+            }
+          ]
+        },
+        {
+          "id": "living-contaminants-source",
+          "title": {
+            "en": "Source, edition and attribution",
+            "zh": "来源、版本与署名"
+          },
+          "paragraphs": [
+            {
+              "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+              "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+            },
+            {
+              "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+              "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "en": "Published items and permission",
+        "zh": "发表题文与许可"
+      },
+      "paragraphs": [
+        {
+          "en": "The 32 English prompts come from Supplementary Table 2 of García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G (2020), Food Disgust Scale: Spanish Version, Frontiers in Psychology 11:165, DOI 10.3389/fpsyg.2020.00165, reused under CC BY 4.0. The document was supplied through NLM’s PMC open-access collection. This page selects the complete English bank and the article’s 1–6 endpoints; the Spanish table’s printed 1–5 format is not used.",
+          "zh": "32道英文题来自García-Gómez L, Romero-Rebollar C, Hartmann C, Siegrist M, Ferreira G, Gutierrez-Aguilar R, Villalpando S and Pacheco-Lopez G（2020）Food Disgust Scale: Spanish Version，Frontiers in Psychology 11:165，DOI 10.3389/fpsyg.2020.00165，按CC BY 4.0署名复用，原补充文件由NLM的PMC开放获取集合提供。本页选择完整英文题与论文1至6端点，不采用西文表印出的1至5格式。"
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "en": "A declared edition choice",
+        "zh": "明确的版本选择"
+      },
+      "paragraphs": [
+        {
+          "en": "We use Supplementary Table 2’s complete English 32 items with the article’s stated six-point endpoints. Supplementary Table 1’s Spanish display prints five points and differs in two living-contaminant items. We do not combine the Spanish wording with the English bank or claim this is a validated Spanish or Chinese administration.",
+          "zh": "本版使用补充表二完整32道英文与论文所述六点端点。补充表一西文印为五点，且两道活体污染物题不同。本版不拼接西文措辞与英文题本，也不声称是已验证西文或中文施测。"
+        }
+      ]
+    },
+    {
+      "id": "response",
+      "title": {
+        "en": "Imagine and rate, without exposure",
+        "zh": "想象评分，无需接触"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose 1 for not disgusting at all or 6 for very disgusting; 2, 3, 4 and 5 are unlabeled intermediate numbers. Unscored is available without explanation. Do not taste, handle, smell or recreate any situation for this questionnaire.",
+          "zh": "1为完全不恶心，6为非常恶心，2、3、4、5为未加文字标签的中间数字。可不评分，无需解释。本问卷无需品尝、触碰、闻嗅或重现任何情境。"
+        }
+      ]
+    },
+    {
+      "id": "calculation",
+      "title": {
+        "en": "Eight unequal-length parts",
+        "zh": "八组题数不同"
+      },
+      "paragraphs": [
+        {
+          "en": "The published parts contain 4 animal-flesh, 5 hygiene, 4 human-contamination, 4 mold, 4 fruit, 4 fish, 4 vegetable and 3 living-contaminant items. Each complete part’s raw sum is divided by its own item count, rounded to one decimal. No item is reversed; no overall or short-form score is calculated.",
+          "zh": "发表分组含动物肉类4题、卫生5题、他人接触4题、霉斑4题、水果4题、鱼类4题、蔬菜4题、活体污染物3题。各完整部分原始和除以自己的题数，保留一位小数。无反向题，不算总体或短版分数。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Unscored withholds only the affected part",
+        "zh": "不评分仅影响所在部分"
+      },
+      "paragraphs": [
+        {
+          "en": "All 32 prompts require a response before the record is shown. Unscored counts as a response but not a number. Every item within a part must be numeric for its mean; no imputation or partial-part averaging is used. All eight full guides remain available even when every response is unscored.",
+          "zh": "32题全部回应后才显示记录。不评分算回应，不算数字。各组所有题都需数字才给均值，不补值、不对残缺组取平均。即使全部不评分，八份完整指南仍可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Raw means without norms or types",
+        "zh": "原始均值，不套常模或分型"
+      },
+      "paragraphs": [
+        {
+          "en": "Greater means describe greater stated disgust for the named scenes, not a better or worse person. Different answer patterns can have the same mean. There are no percentiles, diagnostic cutoffs, personality types, dietary prescriptions or assessments of actual food safety.",
+          "zh": "均值较大描述对指定场景报告较多恶心感，不表示人更好或更差。不同回答组合可以同均值。不提供百分位、诊断截点、人格类型、饮食处方或真实食品安全评估。"
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "title": {
+        "en": "Working translation and online changes",
+        "zh": "工作译文与线上改编"
+      },
+      "paragraphs": [
+        {
+          "en": "Changes comprise a fresh Chinese working translation from English, optional unscored responses, complete-part missingness handling, one-decimal display and original explanatory readings. This is not the validated Spanish administration or a validated Chinese version, and source research does not validate this website. No original-author endorsement, norm, diagnosis or food-safety judgment is implied.",
+          "zh": "改编包括从英文新译的中文工作译文、可选不评分、完整分量表缺项处理、一位小数展示与原创解释。本版不是已验证的西文施测或已验证中译，来源研究也不验证本网站；不暗示原作者背书、常模、诊断或食品安全判断。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Optional progress and public sharing",
+        "zh": "可选进度与公开分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses and means remain in this browser. Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Sharing contains only the public title and entry link, not answers or means. No account or email is requested.",
+          "zh": "回答与均值留在本浏览器。可选进度在当前标签页最多保存24小时，完成、退出并清除或重测即删除。分享仅含公开标题与入口，不含答案或均值，无需账户或邮箱。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the Food Disgust Test free?",
+        "zh": "食物厌恶测试免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 32 questions, eight separate readings and every full guide are free without signup.",
+        "zh": "免费。32题、八组独立读法与全部完整指南均可使用，无需注册。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which FDS edition is used?",
+        "zh": "使用哪个FDS版本？"
+      },
+      "answer": {
+        "en": "The complete English bank in the 2020 published Supplementary Table 2, with the article’s 1–6 endpoints and a fresh Chinese working translation. The Spanish table’s printed 1–5 format is not adopted.",
+        "zh": "2020发表补充表二完整英文题，采用论文1至6端点，并新译中文工作译文。不采用西文表印出的1至5格式。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the means calculated?",
+        "zh": "均值怎么算？"
+      },
+      "answer": {
+        "en": "Each part needs all its own items rated 1–6. Divide its raw sum by its item count and round to one decimal. The eight means are not combined.",
+        "zh": "各组所有题都需1至6数字，原始和除以该组题数，保留一位小数。八组均值不合成。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot rate a scene?",
+        "zh": "无法评价场景怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored. It withholds only that part’s mean, without filling a value; other complete parts remain. All eight full guides are still readable.",
+        "zh": "可选不评分，只使所在组暂不给均值，不填补数值；其他完整组保留。八份完整指南仍可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it diagnose a condition or judge food safety?",
+        "zh": "能诊断或判断食品安全吗？"
+      },
+      "answer": {
+        "en": "No. These imagined disgust ratings do not diagnose, identify allergies, assess nutrition or judge whether an actual food is safe.",
+        "zh": "不能。想象恶心评分不诊断、不识别过敏、不评营养，也不判断真实食物安全。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I try any food?",
+        "zh": "必须尝试食物吗？"
+      },
+      "answer": {
+        "en": "No. Rate only the imagined wording if you wish. No tasting, smelling, handling, photographs or real-food exposure is needed. You can stop at any point.",
+        "zh": "不需要。愿意时只评价文字想象，无需品尝、闻嗅、触碰、照片或食物暴露；可随时停止。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a validated Chinese version?",
+        "zh": "这是已验证的中文版吗？"
+      },
+      "answer": {
+        "en": "No. Chinese is a fresh working translation from the English supplement. Source research does not establish this online edition’s validity or cross-language equivalence.",
+        "zh": "不是。中文从英文补充题文新译，原研究不确立本线上版本效度或跨语言等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I save progress and share privately?",
+        "zh": "可以保存进度、保护私人回答吗？"
+      },
+      "answer": {
+        "en": "Optional tab-local progress lasts up to 24 hours and clears on completion, exit-and-clear or retake. Public sharing contains the title and entry link only, without personal means or answers.",
+        "zh": "可选标签页进度最多24小时，完成、退出并清除或重测删除。公开分享仅含标题和入口，不含个人均值或答案。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "García-Gómez et al. (2020): article and supplement",
+        "zh": "García-Gómez等（2020）：原论文与补充材料"
+      },
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00165/full"
+    },
+    {
+      "title": {
+        "en": "Published supplement from NLM PMC (Table 2 English)",
+        "zh": "NLM PMC提供的发表补充材料（表二英文）"
+      },
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7020908.1/Table_1.DOCX"
+    },
+    {
+      "title": {
+        "en": "CC BY 4.0 license",
+        "zh": "CC BY 4.0许可"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}
