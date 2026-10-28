@@ -26,6 +26,7 @@ import {
   listBackendSitemapMbtiPersonalityPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import { listEnneagramLlmsFullEntries } from "@/lib/seo/enneagramLlmsSource";
 import {
@@ -956,10 +957,12 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     .filter((entry) => shouldKeep(entry.path));
   const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
+  const nativeTestEntries = listNativeTestLlmsEntries().filter((entry) => shouldKeep(entry.path));
   const allowedCitationPaths = buildAllowedCitationPaths([
     ...canonicalEntrypoints,
     ...personalityEntries,
     ...tests,
+    ...nativeTestEntries,
     ...careers,
   ]);
 
@@ -987,6 +990,9 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     "",
     "## Tests",
     ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    "",
+    "## Native Tests and Public Result Guides",
+    ...nativeTestEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Career",
     ...careers.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
@@ -1574,6 +1580,7 @@ async function buildLlmsFullTextInternal(
     .filter((entry) => shouldKeep(entry.path));
 
   const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
+  const nativeTestEntries = listNativeTestLlmsEntries().filter((entry) => shouldKeep(entry.path));
   const limitedTopicEntries = limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics);
   const limitedArticleEntries = [
     ...limitLlmsRouteEntries(
@@ -1594,6 +1601,7 @@ async function buildLlmsFullTextInternal(
     ...contentPageEntries,
     ...dailyGivingEntries,
     ...tests,
+    ...nativeTestEntries,
     ...limitedArticleEntries,
     ...careers,
   ]);
@@ -1679,6 +1687,9 @@ async function buildLlmsFullTextInternal(
     "",
     "## Tests",
     ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
+    "",
+    "## Native Tests and Public Result Guides",
+    ...nativeTestEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Articles",
     ...enrichedArticles.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),

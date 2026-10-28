@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { CmsArticleLlmsEntry } from "@/lib/cms/articles";
+import catalog from "@/lib/questionnaires/catalog.json";
+import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
@@ -404,6 +406,32 @@ describe("llms parity governance", () => {
     expect(text).not.toContain("/articles/held");
   });
 
+  it("includes every code-owned test and public guide without loading question banks or replacing backend authority", async () => {
+    mockLlmsDependencies();
+    const [{ GET }, { buildLlmsFullText, buildDegradedLlmsFullText }] = await Promise.all([
+      import("@/app/llms.txt/route"),
+      import("@/lib/seo/llmsFullRoute"),
+    ]);
+    const entries = listNativeTestLlmsEntries();
+    const paths = entries.map((entry) => entry.path);
+    expect(new Set(paths).size).toBe(2 * catalog.reduce((sum, test) => sum + 1 + test.resultSlugs.length, 0));
+    expect(entries.filter((entry) => entry.type === "native_test")).toHaveLength(2 * catalog.length);
+    expect(entries.every((entry) => !/\?|#|\/(?:take|result|share|api|pay|payment)(?:\/|$)/.test(entry.path))).toBe(true);
+    expect(entries.every((entry) => Object.keys(entry).sort().join(",") === "locale,path,summary,title,type,updatedAt")).toBe(true);
+    const [short, full, degraded] = await Promise.all([
+      GET().then((response) => response.text()),
+      buildLlmsFullText(SITE_URL, { buildProfile: "artifact" }),
+      buildDegradedLlmsFullText(SITE_URL),
+    ]);
+    for (const body of [short, full, degraded]) {
+      const urls = new Set(extractCanonicalUrls(body));
+      expect(paths.every((entry) => urls.has(`${SITE_URL}${entry}`))).toBe(true);
+      expect(SIX_ASSESSMENT_TEST_PATHS.every((entry) => urls.has(`${SITE_URL}${entry}`))).toBe(true);
+    }
+    expect(full).not.toContain("Mode: degraded");
+    expect(degraded).toContain("Mode: degraded");
+  });
+
   it("includes eligible CMS articles beyond the first article list page in both llms surfaces", async () => {
     const { articleEnumerationCalls } = mockLlmsDependencies();
 
@@ -449,8 +477,8 @@ describe("llms parity governance", () => {
       expect(text).not.toContain("/orders/");
       expect(text).not.toContain("/share/");
       expect(text).not.toContain("/api/");
-      expect(text).not.toContain("/pay");
-      expect(text).not.toContain("/payment");
+      expect(text).not.toMatch(/\/(?:pay|payment)(?:\/|$)/);
+      expect(text).toContain("/results/pay-and-benefits");
       expect(text).not.toContain("/history");
       expect(text).not.toContain("/career/jobs");
       expect(text).not.toContain("/career/industries");

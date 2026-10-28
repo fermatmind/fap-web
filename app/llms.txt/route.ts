@@ -18,6 +18,7 @@ import {
   listBackendSitemapMbtiPersonalityPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
+import { listNativeTestLlmsEntries } from "@/lib/seo/nativeTestLlmsSource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import { listEnneagramLlmsPaths } from "@/lib/seo/enneagramLlmsSource";
 import {
@@ -337,6 +338,7 @@ export async function GET() {
       .map(({ page, locale }) => localizedContentPagePath(page, locale))
   );
   const testEntries = dedupePaths(backendTestEntries.map((entry) => entry.path));
+  const nativeTestEntries = dedupePaths(listNativeTestLlmsEntries().map((entry) => entry.path));
 
   // Apply eligibility and deduplication before sharing the fixed budget, so a
   // larger English inventory cannot permanently crowd out Chinese articles.
@@ -412,6 +414,9 @@ export async function GET() {
     "",
     "Indexable Tests:",
     ...testEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
+    "",
+    "Native Tests and Public Result Guides:",
+    ...nativeTestEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
     "",
     "Indexable Articles:",
     ...articleEntries.map((path) => `- ${toCanonical(siteUrl, path)}`),
