@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { buildCareerPageFixture } from "./careerPage.fixture";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
@@ -66,6 +67,10 @@ function mockCareerJobBundle({
 }
 
 function mockLlmsFullDependencies() {
+  const networkFetch = vi.fn(async (input: RequestInfo | URL) => {
+    throw new Error(`Unexpected HTTP request in offline contract: ${new URL(String(input)).pathname}`);
+  });
+  vi.stubGlobal("fetch", networkFetch);
   const fillerSlugs = Array.from(
     { length: 1046 - TARGET_SLUGS.length },
     (_, index) => `metadata-stability-career-${index + 1}`
@@ -124,8 +129,11 @@ function mockLlmsFullDependencies() {
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
     listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
   }));
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsFullEntries: vi.fn(async () => []),
+  }));
 
-  return { listBackendSitemapCareerJobPaths, validPaths, excludedPaths };
+  return { listBackendSitemapCareerJobPaths, validPaths, excludedPaths, networkFetch };
 }
 
 afterEach(() => {
@@ -164,7 +172,7 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
   });
 
   it("serves llms-full only from an offline artifact on repeat reads while preserving approved career URLs and excluded slug safety", async () => {
-    const { listBackendSitemapCareerJobPaths, validPaths, excludedPaths } = mockLlmsFullDependencies();
+    const { listBackendSitemapCareerJobPaths, validPaths, excludedPaths, networkFetch } = mockLlmsFullDependencies();
     const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
@@ -189,5 +197,6 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
     }
     expect(firstText).not.toMatch(/\/(?:take|result|share|orders|pay|payment)(?:\/|$)/i);
     expect(firstText).not.toContain("staging.fermatmind.com");
+    expect(networkFetch.mock.calls.map(([input]) => new URL(String(input)).pathname)).toEqual([]);
   });
 });
