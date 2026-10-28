@@ -1,7 +1,7 @@
 {
   "slug": "natal-chart",
   "code": "FM_NATAL_CHART_CORE",
-  "version": "2026-10-28.4",
+  "version": "2026-10-28.5",
   "updated": "2026-10-28",
   "category": "fantasy",
   "kind": "natal-chart",
@@ -34,10 +34,10 @@
     "kind": "fermatmind_original_natal_symbolic_reading",
     "formCode": "fm_natal_known_time_core_v1",
     "itemBankVersion": "fm_natal_known_time_core_v1",
-    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_angles_v4",
-    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_motion_angles_v4",
-    "itemBankSha256": "ddae3fbe95415458c0269cf9fe2013ab6a3557ab1e4573ca38cd7e59f76eb781",
-    "resultContentSha256": "71868782517fd835a6ba6910776abc649398c6e02ec8cc0b363d231f059e3781",
+    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_angles_points_v5",
+    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_motion_angles_points_v5",
+    "itemBankSha256": "5d743a10067295acbfa3c1ebfda837f18731a6c7800ff92197247c92710dcb09",
+    "resultContentSha256": "e0eb254d72114f2fdd36fcd49d3ff2a81b1358a30dc8c89ca0d555ab58a132f1",
     "psychometricValidationCompleted": false
   },
   "natalChart": {
@@ -822,6 +822,121 @@
             {
               "en": "For a hypothetical shared errand, write down who is doing which part and when you will check in. Ask the other person whether the arrangement works for them. An adjustment reflects the actual task and conversation. It does not show that either person is behaving correctly or incorrectly for a Descendant sign.",
               "zh": "假设两人一起办一件小事，写清谁负责哪部分、何时再沟通，并询问对方是否觉得安排可行。调整反映的是实际任务与交谈，不表示任何一方符合或违背了下降星座的要求。"
+            }
+          ]
+        }
+      ]
+    },
+    "points": {
+      "method": "instantaneous-lunar-plane-two-body-apogee-geocentric-fortune-v1",
+      "projectionTolerance": 1e-10,
+      "minimumEccentricity": 1e-10,
+      "maximumEccentricity": 1,
+      "sunHorizonTolerance": 1e-12,
+      "name": {
+        "en": "Four mathematical points: named models and availability",
+        "zh": "四个数学点：模型约定与可用性"
+      },
+      "paragraphs": [
+        {
+          "en": "North and South Node use the instantaneous, osculating lunar-plane convention: the geometric geocentric Moon position and velocity define an orbital-plane normal, which is transformed to the tropical ecliptic of date. The ascending direction gives the North Node; the South Node is opposite it. Black Moon Lilith here means the two-body osculating lunar apogee derived from the same state and the Earth-plus-Moon gravitational parameter. It is neither a mean nor a natural apogee, and does not name a physical second Moon. Different point models can give different coordinates.",
+          "zh": "北交点与南交点采用瞬时密切月球轨道平面约定：月球的几何地心位置与速度定义轨道平面法向，再转到当日回归黄道。升交方向给出北交点，南交点与之相对。这里的黑月莉莉丝，是以同一状态及地球与月球引力参数之和求得的二体密切月球远地点，既不是平均远地点，也不是自然远地点，更不是实体的第二颗月亮。不同数学点模型可能给出不同坐标。"
+        },
+        {
+          "en": "The Lot of Fortune reuses the unrounded Ascendant, Sun and Moon longitudes. This calculator uses an unrefracted geocentric apparent Sun-center horizon convention at the entered location, with observer height set to zero. A normalized solar zenith component above 1e-12 selects day: Ascendant + Moon − Sun. A component below −1e-12 selects night: Ascendant + Sun − Moon. At or within those limits, or when the horizon calculation or Ascendant is unavailable, Fortune is withheld. This is a numerical day/night convention, rather than a topocentric physical sunrise, solar-disk or twilight calculation, and the limit is not a calibrated uncertainty in minutes.",
+          "zh": "福点沿用未经显示截断的上升点、太阳与月亮黄经。计算器在输入地点采用未折射、地心视太阳中心的地平面数值约定，观测者高度设为零。太阳的归一化天顶分量大于1e-12时按昼间公式：上升点＋月亮－太阳；小于−1e-12时按夜间公式：上升点＋太阳－月亮。分量处在两个界限之间或等于界限、地平计算失败或上升点不可用时，不给出福点。这是数值昼夜约定，不是站心物理日出、太阳圆面或曙暮光计算，界限也不是经过校准的分钟误差。"
+        },
+        {
+          "en": "Zero or nonfinite radius, angular momentum or gravitational parameter withholds the lunar points; the gravitational parameter must be positive. Nodes are withheld when the unit orbit-normal projection onto the ecliptic is at most 1e-10. Lilith is withheld when eccentricity is at most 1e-10 or at least 1, or when the unit apogee-direction projection onto the ecliptic is at most 1e-10. These thresholds are numerical safeguards, not certified physical accuracy. A lunar-state failure does not discard an independently available Fortune. A horizon failure withholds only Fortune. An unavailable Ascendant withholds Fortune and all point house assignments while retaining usable lunar coordinates.",
+          "zh": "半径、角动量或引力参数为零或非有限数时，不给出月球数学点；引力参数还必须为正。单位轨道法向在黄道平面上的投影不大于1e-10时，不给出交点。偏心率不大于1e-10、不小于1，或单位远地点方向在黄道平面上的投影不大于1e-10时，不给出莉莉丝。这些阈值是数值保护，不是经过认证的物理精度。月球状态计算失败，不会丢弃独立可用的福点；地平计算失败，仅使福点不可用。上升点不可用时，福点及全部数学点的宫位不可用，但保留仍可用的月球坐标。"
+        },
+        {
+          "en": "These four points do not add to the ten-body element or modality counts, the 45 body-pair aspect comparisons or the apparent-motion labels. Their coordinates use the same sector-before-display rule as the bodies. The original known-time, date and future-input limits remain in force. Astronomy Engine internally samples the Moon state velocity at neighboring times up to 0.864 seconds away; those internal samples do not allow a future birth input. The symbolic readings below are optional editorial prompts and do not measure personality or predict events.",
+          "zh": "这四个点不计入十天体的元素与模式数量，不参与45个天体配对相位比较，也不加视运动标签。坐标沿用先定星座区间、再处理显示的规则。原有已知时间、日期及未来输入限制保持有效。Astronomy Engine内部求月球状态速度时，会使用前后最多0.864秒的邻近时刻；内部采样不允许输入未来的出生时间。下方符号读法是可选的编辑提示，不测量人格，也不预测事件。"
+        }
+      ],
+      "roles": [
+        {
+          "id": "north-node",
+          "name": {
+            "en": "North Node",
+            "zh": "北交点"
+          },
+          "topic": {
+            "en": "Considering another approach",
+            "zh": "考虑另一种做法"
+          },
+          "paragraphs": [
+            {
+              "en": "A lunar node is a geometric point associated with the Moon’s orbital plane crossing the ecliptic, not a planet. North refers to the ascending crossing rather than a place north of your birthplace. Node models can give different longitudes, so read the stated model before comparing calculators. Here trying another approach is an optional editorial prompt, not evidence of destiny, a soul mission or an unfinished obligation.",
+              "zh": "月交点是与月球轨道平面和黄道相交有关的几何点，不是行星。“北”指升交的方向，不是出生地以北的地点。不同交点模型可能给出不同黄经，对比计算器前应先看所用模型。这里把尝试另一种做法作为可选的编辑提示，不把它当作命运、灵魂任务或未竟责任的证据。"
+            },
+            {
+              "en": "Imagine explaining a simple route to someone. After writing your usual instructions, try a sketch or a different starting landmark. Compare which version helps that person find the way. You can keep the original. The exercise concerns a particular explanation and reader; it does not reveal a more evolved version of you.",
+              "zh": "假设要向别人说明一条简单路线，先写下惯用说明，再试一幅草图或另一个起点地标，比较哪种让对方更容易找到路。也可以保留原版。练习针对某次说明与某位读者，不揭示一个更进化的自己。"
+            }
+          ]
+        },
+        {
+          "id": "south-node",
+          "name": {
+            "en": "South Node",
+            "zh": "南交点"
+          },
+          "topic": {
+            "en": "Reviewing a familiar approach",
+            "zh": "回看熟悉的做法"
+          },
+          "paragraphs": [
+            {
+              "en": "The South Node is opposite the North Node under the paired-node convention. The two labels describe related geometry rather than a good side and a bad side. A familiar approach supplies a useful reflection question here, but the point does not reveal past lives, inherited faults or something you must release. Familiarity may help in one setting and be less useful in another.",
+              "zh": "在成对交点约定下，南交点与北交点相对。两种标签描述相关的几何关系，不是在划分好的一端与坏的一端。熟悉的做法在这里提供反思问题，但这个点不揭示前世、继承的缺陷或必须放下的东西。熟悉感在某种情境有用，在另一种情境可能不够适用。"
+            },
+            {
+              "en": "Take a reusable checklist for an ordinary activity and review it against today’s task. Keep a step that still helps, and change one only if the task calls for it. That decision can rest on current evidence. You do not need to abandon a working habit to satisfy a chart or turn an inconvenient habit into a story about karma.",
+              "zh": "拿一张日常活动用的清单，对照今天的任务检查。仍有用的步骤可以保留；只有任务需要时，才修改其中一项。决定可以依据眼前证据，无需为了符合星盘而放弃有效习惯，也无需把不合用的习惯解释成业力故事。"
+            }
+          ]
+        },
+        {
+          "id": "lilith",
+          "name": {
+            "en": "Black Moon Lilith",
+            "zh": "黑月莉莉丝"
+          },
+          "topic": {
+            "en": "Room for a choice",
+            "zh": "给选择留出空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Black Moon Lilith names a mathematical lunar-orbit point, not the similarly named asteroid or an unseen second Moon. Mean and osculating variants are different models; the displayed method must identify which one is used. Modern astrological writing often associates this symbol with autonomy. Here it opens a question about having a choice, without diagnosing repression, trauma, sexuality or a hidden authentic self.",
+              "zh": "黑月莉莉丝指月球轨道的一个数学点，不是同名小行星，也不是看不见的第二颗月亮。平均与密切轨道变体属于不同模型，显示方法必须明确采用哪一种。现代占星写作常把这个符号与自主性相连。这里用它提出是否留有选择的问题，不诊断压抑、创伤、性特征或隐藏的真实自我。"
+            },
+            {
+              "en": "For a hypothetical invitation, draft one reply accepting it and another declining it politely. You need not send either. Compare whether both replies leave room for your actual preference. A decision can depend on time, interest and circumstances; no point in a chart requires disclosure, defiance or revisiting a painful experience.",
+              "zh": "假设收到一份邀请，可以分别拟一条接受与一条礼貌谢绝的回复，两条都无需发出。比较它们是否给真实偏好留下空间。决定可以取决于时间、兴趣和现实条件；星盘中的点不要求披露私事、反抗，或重访痛苦经历。"
+            }
+          ]
+        },
+        {
+          "id": "fortune",
+          "name": {
+            "en": "Lot of Fortune",
+            "zh": "福点"
+          },
+          "topic": {
+            "en": "Conditions that help an activity fit",
+            "zh": "哪些条件让活动更合适"
+          },
+          "paragraphs": [
+            {
+              "en": "The Lot of Fortune is calculated from the Ascendant, Sun and Moon under a stated arithmetic convention. It is not another celestial body, a probability or a measure of how fortunate someone is. Day and night formulas differ in a common tradition, so the chosen formula and horizon rule matter when comparing results. Here the symbol supports a practical question about the conditions surrounding an activity, without predicting money, health or success.",
+              "zh": "福点按明示的算术约定，由上升点、太阳和月亮计算。它不是另一个天体，不是概率，也不衡量一个人有多幸运。一种常见传统使用不同的昼夜公式，因此对比结果时，要看所选公式与地平判定。这里用符号提出活动周围具备哪些条件的实际问题，不预测金钱、健康或成功。"
+            },
+            {
+              "en": "Imagine choosing between two times for the same small activity. Compare the available light, materials, time and help, then choose what fits today. You may learn that neither option works. The useful information comes from those conditions and your experience, rather than a promise that following the chart will improve an outcome.",
+              "zh": "假设同一件小事有两个可选时间，可以比较光线、材料、可用时间与帮助，再选择今天更合适的一项，也可能发现两项都不合适。有用信息来自具体条件与实际体验，不是遵循星盘就能改善结果的承诺。"
             }
           ]
         }
@@ -2336,8 +2451,8 @@
       },
       "paragraphs": [
         {
-          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. Each body also has a numerical apparent-motion label. MC, IC and DSC are calculated with separate availability states. Sensitive points are not yet calculated. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
-          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位，并为每个天体提供数值视运动标签。MC、IC 与 DSC 也按各自可用性计算，敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
+          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. Each body also has a numerical apparent-motion label. MC, IC and DSC are calculated with separate availability states. North and South Nodes, two-body osculating Black Moon Lilith and the Lot of Fortune are calculated under the named methods and availability rules. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
+          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位，并为每个天体提供数值视运动标签。MC、IC 与 DSC 也按各自可用性计算，北交点、南交点、二体密切黑月莉莉丝与福点，按明示模型及可用性规则计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
         }
       ]
     }
@@ -2592,6 +2707,34 @@
         "zh": "CHANI：星盘角点与整宫制"
       },
       "url": "https://www.chani.com/astro-education/new-mc-ic-and-dc-are-now-in-the-chani-app"
+    },
+    {
+      "title": {
+        "en": "CHANI: lunar-node models and symbols",
+        "zh": "CHANI：月交点模型与符号"
+      },
+      "url": "https://www.chani.com/astro-education/north-node-and-south-node-placements-in-chani-app"
+    },
+    {
+      "title": {
+        "en": "CHANI: Black Moon Lilith variants and symbol",
+        "zh": "CHANI：黑月莉莉丝变体与符号"
+      },
+      "url": "https://www.chani.com/astro-education/all-about-lilith"
+    },
+    {
+      "title": {
+        "en": "Swiss Ephemeris: lunar nodes and apogee variants",
+        "zh": "Swiss Ephemeris：月交点与远地点变体"
+      },
+      "url": "https://www.astro.com/swisseph/swisseph.htm"
+    },
+    {
+      "title": {
+        "en": "Cafe Astrology: named day and night Fortune arithmetic",
+        "zh": "Cafe Astrology：福点昼夜计算约定"
+      },
+      "url": "https://cafeastrology.com/partoffortune.html"
     }
   ]
 }

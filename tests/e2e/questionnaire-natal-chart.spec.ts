@@ -31,6 +31,8 @@ for (const locale of ["en", "zh"] as const) {
     }
     await expect(page.locator("#natal-date")).toHaveValue("");
     for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) await expect(page.locator(`[data-natal-angle-reference="${role.id}"]`).getByText(p[locale], { exact: true })).toBeVisible();
+    for (const p of quiz.natalChart.points.paragraphs) await expect(page.locator("[data-natal-points-guide]").getByText(p[locale], { exact: true })).toBeVisible();
+    for (const role of quiz.natalChart.points.roles) for (const p of role.paragraphs) await expect(page.locator(`[data-natal-point-reference="${role.id}"]`).getByText(p[locale], { exact: true })).toBeVisible();
     await enter(page); await page.locator("#natal-confirm").uncheck(); await page.locator("#natal-confirm").focus(); await page.keyboard.press("Space"); await expect(page.locator("#natal-confirm")).toBeChecked();
     await complete(page, zh);
     const result = box(page).locator("[data-natal-result]");
@@ -60,6 +62,17 @@ for (const locale of ["en", "zh"] as const) {
     await info.attach(`Natal-chart-${locale}-MC-reading-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await result.locator('[data-natal-angle="mc"] [data-natal-angle-house]').scrollIntoViewIfNeeded();
     await info.attach(`Natal-chart-${locale}-MC-house9-mobile`, { body: await page.screenshot(), contentType: "image/png" });
+    await expect(result.locator("[data-natal-point]")).toHaveCount(4); await expect(result.locator("[data-natal-point-reading]")).toHaveCount(4);
+    for (const [id, sign, house] of [["north-node", zh ? "巨蟹座" : "Cancer", "12"], ["south-node", zh ? "摩羯座" : "Capricorn", "6"], ["lilith", zh ? "水瓶座" : "Aquarius", "7"], ["fortune", zh ? "金牛座" : "Taurus", "10"]]) {
+      await expect(result.locator(`[data-natal-point="${id}"]`)).toContainText(sign);
+      await expect(result.locator(`[data-natal-point="${id}"] [data-natal-point-house]`)).toHaveText(house);
+    }
+    for (const role of quiz.natalChart.points.roles) for (const p of role.paragraphs) await expect(result.locator(`[data-natal-point-reading="${role.id}"]`)).toContainText(p[locale]);
+    await expect(result.locator('[data-natal-fortune-period="day"]')).toBeVisible();
+    await result.locator('[data-natal-point-reading="lilith"] h4').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-Lilith-model-mobile`, { body: await page.screenshot(), contentType: "image/png" });
+    await result.locator('[data-natal-point="fortune"] [data-natal-point-house]').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-four-point-houses-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     expect(await result.locator('[data-natal-motion-state="retrograde"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("data-natal-motion")))).toEqual(["mercury", "mars", "uranus", "neptune", "pluto"]);
     await expect(result.locator('[data-natal-motion="sun"]')).toHaveText(zh ? "顺行" : "Direct");
     const tableRegion = result.getByRole("region", { name: zh ? "天体位置、视运动与宫位表" : "Body positions, apparent motion and houses table", exact: true });
@@ -82,6 +95,12 @@ for (const locale of ["en", "zh"] as const) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.locator("#natal-result-title").scrollIntoViewIfNeeded(); await page.evaluate(() => document.fonts.ready);
     await info.attach(`Natal-chart-${locale}-mobile-readout-consent-declined`, { body: await page.screenshot(), contentType: "image/png" });
+    // Dedicated functional night branch; no new ephemeris precision reference or old numeric grid.
+    await page.locator("#natal-time").fill("00:30"); await complete(page, zh);
+    await expect(result.locator('[data-natal-fortune-period="night"]')).toBeVisible();
+    await expect(result.locator("[data-natal-body]")).toHaveCount(10); await expect(result.locator("[data-natal-motion]")).toHaveCount(10);
+    await result.locator('[data-natal-point-reading="fortune"] h4').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-Fortune-night-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await result.locator('[data-natal-body-reading="sun"] a').click();
     const profile = quiz.profiles.find(p => p.id === "gemini")!; await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
     for (const s of profile.sections) for (const p of s.paragraphs) await expect(page.locator("main")).toContainText(p[locale]);

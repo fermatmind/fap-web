@@ -40,7 +40,7 @@ describe("T199 adopted known-time core, separate from the remaining full-compari
     expect(provenance.psychometricValidationCompleted).toBe(false);
     const scope = quiz.guide.find(s => s.id === "core-scope")!.paragraphs[0].en;
     expect(scope).toContain("MC, IC and DSC are calculated");
-    expect(scope).toContain("Sensitive points are not yet calculated");
+    expect(scope).toContain("North and South Nodes, two-body osculating Black Moon Lilith and the Lot of Fortune are calculated");
   });
 
   it("rejects identity, method, source and sparse-content drift before a renderer lookup", () => {
@@ -61,6 +61,11 @@ describe("T199 adopted known-time core, separate from the remaining full-compari
       (q: NatalChartQuestionnaire) => { q.natalChart.angles.meridianNormTolerance = 1e-8 as never; },
       (q: NatalChartQuestionnaire) => { delete q.natalChart.angles.roles[0]; },
       (q: NatalChartQuestionnaire) => { q.natalChart.angles.roles[2].paragraphs[0].zh = ""; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.points.method = "other" as never; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.points.sunHorizonTolerance = 0 as never; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.points.maximumEccentricity = 2 as never; },
+      (q: NatalChartQuestionnaire) => { delete q.natalChart.points.roles[0]; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.points.paragraphs[2].zh = ""; },
       (q: NatalChartQuestionnaire) => { delete q.profiles[0]; },
       (q: NatalChartQuestionnaire) => { delete q.profiles[0].sections[1]; },
       (q: NatalChartQuestionnaire) => { delete q.natalChart.bodyRoles[0]; },

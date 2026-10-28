@@ -1,0 +1,33 @@
+{
+  "state": "One original fixed fictional witness;not a range accuracy certificate",
+  "input": {
+    "utc": "2001-06-15T07:30:00.000Z",
+    "latitude": 51.5,
+    "longitude": -0.1
+  },
+  "independentRoot": {
+    "north": 96.43537196724753,
+    "south": 276.43537196724753,
+    "lilith": 322.57944517514215,
+    "fortune": 51.211290124032416
+  },
+  "swiss": {
+    "osculatingNorthNode": 96.43242820924249,
+    "osculatingLunarApogee": 322.5146006254027,
+    "fortune": 51.211271614448194
+  },
+  "observedDifferencesArcsec": {
+    "node": 10.597528818163937,
+    "apogee": 233.44037906206268,
+    "fortune": 0.06663450320161246
+  },
+  "rootWitnessSHA256": "1d3abbefb1d4152eae088d0dd9f99ba50e482d03e3023176ed1d67a00ff615cb",
+  "rawSwissSHA256": "03b4a7e423d0832726788a05fb1111f4e9b7ea3c1c6dd742d2e67425934d693d",
+  "limitations": [
+    "Instantaneous/osculating lunar-plane nodes and two-body osculating apogee;not mean/natural variants",
+    "Apogee difference about233arcsec retained;no uniform60arcsec accuracy assertion",
+    "Unrefracted geocentric apparent Sun-center horizon convention;not topocentric physical sunrise/disk/twilight",
+    "Competitor LilithLeo22 cause unknown;not flipped to match",
+    "No new old50positions/45ASC/213geometry grid"
+  ]
+}

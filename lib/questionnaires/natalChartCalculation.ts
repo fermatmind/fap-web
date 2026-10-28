@@ -3,6 +3,7 @@ import { NATAL_BODIES, natalInventory, natalWholeSignHouse, readNatalCoordinate,
 import { readNatalGeography, resolveNatalTime, type NatalTimeResult } from "./natalChartTime";
 import { calculateNatalMotion, type NatalMotionReadout } from "./natalChartMotion";
 import { calculateNatalAdditionalAngles, type NatalAdditionalAngles } from "./natalChartAngles";
+import { calculateNatalSensitivePoints, type NatalSensitivePoints } from "./natalChartPoints";
 
 export type NatalChartInput = { date: string; time: string; zone: string; latitude: string; longitude: string; knownTime: boolean; coordinatesConfirmed: boolean; occurrence?: "" | "earlier" | "later" };
 export type NatalAscendant = { status: "computed"; coordinate: NatalCoordinate }
@@ -13,6 +14,7 @@ export type NatalChartReadout = {
   ascendant: NatalAscendant;
   motion: NatalMotionReadout;
   angles: NatalAdditionalAngles;
+  points: NatalSensitivePoints;
   inventory: NonNullable<ReturnType<typeof natalInventory>>;
 };
 export type NatalChartResult = Exclude<NatalTimeResult, { status: "resolved" }>
@@ -86,6 +88,7 @@ export function calculateNatalChart(input: unknown, now: number): NatalChartResu
     if (!inventory) return { status: "unavailable", reason: "ephemeris" };
     const motion = calculateNatalMotion(time.epochMilliseconds);
     const angles = calculateNatalAdditionalAngles(time.epochMilliseconds, geography.latitude, geography.longitude, ascendant);
-    return { status: "complete", chart: { utc: time.utc, offset: time.offset, before1970: time.before1970, placements, ascendant, inventory, motion, angles } };
+    const points = calculateNatalSensitivePoints(time.epochMilliseconds, geography.latitude, geography.longitude, ascendant, placements);
+    return { status: "complete", chart: { utc: time.utc, offset: time.offset, before1970: time.before1970, placements, ascendant, inventory, motion, angles, points } };
   } catch { return { status: "unavailable", reason: "ephemeris" }; }
 }

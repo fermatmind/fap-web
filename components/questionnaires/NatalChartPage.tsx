@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
 import { NatalChartClient } from "./NatalChartClient";
-import { NatalAnglesGuide, NatalAspectGuide, NatalChartAttribution, NatalMotionGuide, NatalSignGuideBody } from "./NatalChartReport";
+import { NatalAnglesGuide, NatalAspectGuide, NatalChartAttribution, NatalMotionGuide, NatalPointsGuide, NatalSignGuideBody } from "./NatalChartReport";
 
 export function NatalChartPage({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
   const zh = locale === "zh", path = questionnairePath(locale, quiz.slug);
@@ -21,6 +21,7 @@ export function NatalChartPage({ quiz, locale }: { quiz: NatalChartQuestionnaire
     <NatalAspectGuide quiz={quiz} locale={locale} />
     <NatalMotionGuide quiz={quiz} locale={locale} />
     <NatalAnglesGuide quiz={quiz} locale={locale} />
+    <NatalPointsGuide quiz={quiz} locale={locale} />
     <section aria-labelledby="natal-method" className="my-8 space-y-5 leading-8"><h2 id="natal-method" className="text-2xl font-semibold">{zh ? "计算、读法与使用范围" : "Calculation, reading and scope"}</h2>{quiz.guide.map(section => <section key={section.id}><h3 className="font-semibold">{section.title[locale]}</h3>{section.paragraphs.map((p, index) => <p key={index} className="mt-2">{p[locale]}</p>)}</section>)}
       <details data-natal-house-guide className="rounded-lg border border-slate-200 bg-white p-5">
         <summary className="cursor-pointer font-semibold">{zh ? "十二宫完整符号参考（无需出生资料）" : "Complete twelve-house reference, without birth information"}</summary>

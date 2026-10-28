@@ -7,6 +7,7 @@ import { NatalChartGuidePage, NatalChartPage } from "@/components/questionnaires
 import { NatalChartReport } from "@/components/questionnaires/NatalChartReport";
 import { calculateNatalChart } from "@/lib/questionnaires/natalChartCalculation";
 import { calculateNatalAdditionalAngles } from "@/lib/questionnaires/natalChartAngles";
+import { calculateNatalSensitivePoints } from "@/lib/questionnaires/natalChartPoints";
 import type { NatalChartQuestionnaire } from "@/lib/questionnaires/natalChart";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/natal-chart.json", "utf8")) as NatalChartQuestionnaire;
@@ -45,6 +46,9 @@ describe("T199 memory-only native chart client and complete public prose", () =>
       expect(dom.querySelectorAll("[data-natal-angle-reference]")).toHaveLength(3);
       for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) expect(dom.querySelector(`[data-natal-angle-reference="${role.id}"]`)?.textContent).toContain(p[locale]);
       expect(dom.querySelector("[data-natal-angles-guide]")?.textContent).toContain(quiz.natalChart.angles.methodReading[locale]);
+      expect(dom.querySelectorAll("[data-natal-point-reference]")).toHaveLength(4);
+      for (const role of quiz.natalChart.points.roles) for (const p of role.paragraphs) expect(dom.querySelector(`[data-natal-point-reference="${role.id}"]`)?.textContent).toContain(p[locale]);
+      for (const p of quiz.natalChart.points.paragraphs) expect(dom.querySelector("[data-natal-points-guide]")?.textContent).toContain(p[locale]);
       expect(dom.querySelectorAll("[data-natal-aspect-definition]")).toHaveLength(5);
       expect(dom.querySelector("[data-natal-aspect-convention]")?.textContent).toBe(quiz.natalChart.aspects.convention[locale]);
       for (const reading of quiz.natalChart.aspects.readings) {
@@ -99,6 +103,10 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     expect(document.querySelector('[data-natal-angle="mc"]')).toHaveTextContent("Aries");
     expect(document.querySelector('[data-natal-angle="mc"] [data-natal-angle-house]')).toHaveTextContent("9");
     expect(document.querySelector('[data-natal-aspect-pair="neptune:pluto"]')).toHaveTextContent("Sextile");
+    expect(document.querySelectorAll("[data-natal-point]")).toHaveLength(4); expect(document.querySelectorAll("[data-natal-point-reading]")).toHaveLength(4);
+    for (const role of quiz.natalChart.points.roles) for (const p of role.paragraphs) expect(document.querySelector(`[data-natal-point-reading="${role.id}"]`)).toHaveTextContent(p.en);
+    expect(document.querySelector('[data-natal-point="lilith"]')).toHaveTextContent("Aquarius"); expect(document.querySelector('[data-natal-point="lilith"] [data-natal-point-house]')).toHaveTextContent("7");
+    expect(document.querySelector('[data-natal-fortune-period="day"]')).not.toBeNull();
     expect(document.querySelectorAll("[data-natal-body]")).toHaveLength(10);
     expect(document.querySelectorAll("[data-natal-body-reading]")).toHaveLength(10);
     expect(document.querySelector("[data-natal-rising-reading]")).not.toBeNull();
@@ -112,13 +120,33 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     view.unmount();
   });
 
+  it("renders independently available Fortune and explicit lunar unavailability in both locales", () => {
+    const result = calculateNatalChart({ date: "2001-06-15", time: "08:30", zone: "Europe/London", latitude: "51.5", longitude: "-0.1", knownTime: true, coordinatesConfirmed: true }, Date.parse("2026-10-28T00:00Z"));
+    if (result.status !== "complete") throw new Error("Fixed chart unavailable");
+    const points = { ...result.chart.points, "north-node": { status: "unavailable", reason: "geometry" } as const, "south-node": { status: "unavailable", reason: "geometry" } as const, lilith: { status: "unavailable", reason: "geometry" } as const };
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={{ ...result.chart, points }} locale={locale} />);
+      expect(dom.querySelectorAll("[data-natal-point-reading]")).toHaveLength(1); expect(dom.querySelector('[data-natal-point-reading="fortune"]')).not.toBeNull();
+      expect(dom.querySelectorAll("[data-natal-body]")).toHaveLength(10); expect(dom.querySelectorAll("[data-natal-angle-reading]")).toHaveLength(3);
+      expect(dom.querySelector('[data-natal-point="lilith"]')?.textContent).toContain(locale === "zh" ? "不可用" : "Unavailable"); expect(dom.querySelector("[data-natal-point-unavailable]")).not.toBeNull();
+      const allUnavailable = { ...points, fortune: { status: "unavailable", reason: "horizon" } as const };
+      dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={{ ...result.chart, points: allUnavailable }} locale={locale} />);
+      expect(dom.querySelectorAll("[data-natal-point-reading]")).toHaveLength(0); expect(dom.querySelectorAll("[data-natal-point]")).toHaveLength(4);
+      expect(dom.querySelector("[data-natal-point-unavailable]")?.textContent).toContain(locale === "zh" ? "不生成个人读法" : "do not receive a personal reading");
+      expect(dom.querySelectorAll("[data-natal-body-reading]")).toHaveLength(10);
+
+    }
+  });
+
   it("shows independent MC/IC with unavailable houses and DSC in both locales when ASC fails", () => {
     const result = calculateNatalChart({ date: "2001-06-15", time: "08:30", zone: "Europe/London", latitude: "51.5", longitude: "-0.1", knownTime: true, coordinatesConfirmed: true }, Date.parse("2026-10-28T00:00Z"));
     if (result.status !== "complete") throw new Error("Original body chart unavailable");
     const ascendant = { status: "unavailable", reason: "geometry" } as const;
-    const chart = { ...result.chart, ascendant, placements: result.chart.placements.map(p => ({ ...p, house: null })), angles: calculateNatalAdditionalAngles(Date.parse(result.chart.utc), 51.5, -0.1, ascendant) };
+    const chart = { ...result.chart, ascendant, placements: result.chart.placements.map(p => ({ ...p, house: null })), angles: calculateNatalAdditionalAngles(Date.parse(result.chart.utc), 51.5, -0.1, ascendant), points: calculateNatalSensitivePoints(Date.parse(result.chart.utc), 51.5, -0.1, ascendant, result.chart.placements) };
     for (const locale of ["en", "zh"] as const) {
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={chart} locale={locale} />);
+      expect(dom.querySelectorAll("[data-natal-point-reading]")).toHaveLength(3); expect(dom.querySelector('[data-natal-point-reading="fortune"]')).toBeNull();
+      for (const id of ["north-node", "south-node", "lilith"]) expect(dom.querySelector(`[data-natal-point="${id}"] [data-natal-point-house]`)?.textContent).toBe(locale === "zh" ? "不可用" : "Unavailable");
       expect(dom.querySelectorAll("[data-natal-angle-reading]")).toHaveLength(2);
       expect(dom.querySelector('[data-natal-angle-reading="mc"]')).not.toBeNull(); expect(dom.querySelector('[data-natal-angle-reading="descendant"]')).toBeNull();
       expect(dom.querySelector('[data-natal-angle="mc"]')?.textContent).toContain(locale === "zh" ? "白羊座 17.4°" : "Aries 17.4°");

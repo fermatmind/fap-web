@@ -69,6 +69,7 @@ describe("T199 real public callers and fixed editorial identity", () => {
       (q: NatalChartQuestionnaire) => { q.natalChart.aspects.maximumOrbDegrees = 5 as never; },
       (q: NatalChartQuestionnaire) => { q.natalChart.motion.method = "other" as never; },
       (q: NatalChartQuestionnaire) => { q.natalChart.angles.upperProjectionTolerance = 0 as never; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.points.sunHorizonTolerance = 0 as never; },
       (q: NatalChartQuestionnaire) => { delete q.natalChart.bodyRoles[0]; },
       (q: NatalChartQuestionnaire) => { q.profiles[0].sections[2].paragraphs[0].zh = ""; },
     ]) {
