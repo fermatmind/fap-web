@@ -14,7 +14,7 @@ describe("friendship search intent and one canonical tool", () => {
     expect(screen.getAllByTestId("live-game")).toHaveLength(1);
     expect(screen.getByTestId("live-game")).toHaveAttribute("data-locale", locale);
     expect(container.querySelectorAll('#create')).toHaveLength(1);
-    expect(container.querySelectorAll('a[href="#create"]')).toHaveLength(2);
+    expect(container.querySelectorAll('a[href="#create"]')).toHaveLength(3);
     const links = Array.from(container.querySelectorAll('a[href]'), a => a.getAttribute("href"));
     for (const path of ["questions", "how-to-play", "scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz/${path}`);
     expect(links.some(path => /\/bff-test|\/who-knows-me-best|\/friendship-quiz-maker/.test(path ?? ""))).toBe(false);
@@ -51,7 +51,8 @@ describe("friendship search intent and one canonical tool", () => {
     expect(comparison.textContent).toContain(locale === "en" ? "no import" : "不能直接导入");
     expect(comparison.textContent).toContain(locale === "en" ? "Another device may still repeat" : "换设备仍可能重复");
     const links = Array.from(comparison.querySelectorAll("a"), a => a.getAttribute("href"));
-    for (const path of ["#create", "/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz${path}`);
+    expect(comparison.querySelector('a.fq-primary')).toHaveAttribute("href", "#create");
+    for (const path of ["/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz${path}`);
     expect(links).toContain("https://rikaido.me/en/guide.html");
     expect(links).toContain("https://rikaido.me/en/lab/read-results/");
     expect(container.querySelectorAll('a[href="#rikaido-alternative"]')).toHaveLength(1);

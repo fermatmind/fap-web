@@ -42,7 +42,7 @@ export default function RikaidoComparison({ locale }: { locale: Locale }) {
         ? "不能直接导入Rikaido的邀请、答案或榜单。请用费马自己的题库创建一份新挑战，再把新邀请发给朋友。创建后保存私人管理文件，分享时只发好友邀请；管理文件里的密钥不能发给参与者。"
         : "There is no import for Rikaido invites, answers or rankings. Make a new quiz from FermatMind's own question bank, then send its new invitation to friends. Save your private management file after creating. Share the friend invite, and keep the management key in that file to yourself."}</p>
     </details>
-    <p><Link className="fq-primary" href={`/${locale}${PUBLIC_PATH}#create`}>{zh ? "用费马创建一份新挑战" : "Make a new quiz on FermatMind"} →</Link></p>
+    <p><a className="fq-primary" href="#create">{zh ? "用费马创建一份新挑战" : "Make a new quiz on FermatMind"} →</a></p>
     <p className="fq-muted">{zh ? "核对日期：2026年10月28日。Rikaido规则来源：" : "Checked October 28, 2026. Rikaido rule sources: "}
       <a href="https://rikaido.me/en/guide.html" target="_blank" rel="noopener noreferrer">{zh ? "官方玩法说明" : "official how-to guide"}</a>{" · "}
       <a href="https://rikaido.me/en/lab/read-results/" target="_blank" rel="noopener noreferrer">{zh ? "官方结果说明" : "official results guide"}</a>{zh ? "。费马规则与当前工具一致，详见" : ". For FermatMind's current rules, see "}
