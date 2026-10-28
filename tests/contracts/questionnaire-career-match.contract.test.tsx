@@ -9,16 +9,16 @@ import { isQuestionnaireConfigurationValid, scoreQuestionnaire } from "@/lib/que
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { careerMatchDirectoryFixture, careerMatchRoleFixture } from "@/tests/fixtures/questionnaires/careerMatch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
-import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { fetchCareerInterestComparisonRole } from "@/lib/career/api/fetchCareerInterestComparisonRole";
 import { entertainmentActivityCatalog } from "@/lib/entertainment/activityCatalog";
 
 vi.mock("@/lib/career/api/fetchCareerJobIndex", () => ({ fetchCareerJobIndex: vi.fn() }));
-vi.mock("@/lib/career/api/fetchCareerJobBundle", () => ({ fetchCareerJobBundle: vi.fn() }));
+vi.mock("@/lib/career/api/fetchCareerInterestComparisonRole", () => ({ fetchCareerInterestComparisonRole: vi.fn() }));
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/career-match.json", "utf8")) as Questionnaire;
 const H = (x: unknown) => createHash("sha256").update(JSON.stringify(x)).digest("hex");
 function responses(locale: "en" | "zh") {
   vi.mocked(fetchCareerJobIndex).mockResolvedValue(careerMatchDirectoryFixture(locale));
-  vi.mocked(fetchCareerJobBundle).mockImplementation(async ({ slug }) => careerMatchRoleFixture(locale, slug, slug.endsWith("a") ? "ASE" : "RIC"));
+  vi.mocked(fetchCareerInterestComparisonRole).mockImplementation(async ({ slug }) => careerMatchRoleFixture(locale, slug, slug.endsWith("a") ? "ASE" : "RIC"));
 }
 async function start(locale: "en" | "zh") {
   fireEvent.click(screen.getByRole("button", { name: locale === "en" ? "Start comparison" : "开始比较" }));
@@ -62,9 +62,9 @@ describe("original Career Match tool, reusing the interest construct and publish
     fireEvent.change(document.getElementById("career-match-role-2")!, { target: { value: "contract-role-c" } });
     compare(); await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='available']")).toHaveLength(3));
     expect(container.querySelectorAll("[data-interest-theme]:checked")).toHaveLength(6);
-    const calls = vi.mocked(fetchCareerJobBundle).mock.calls.length;
+    const calls = vi.mocked(fetchCareerInterestComparisonRole).mock.calls.length;
     fireEvent.change(document.getElementById("career-match-filter")!, { target: { value: "PRIVATE_TITLE_FILTER" } });
-    expect(vi.mocked(fetchCareerJobBundle).mock.calls.length).toBe(calls);
+    expect(vi.mocked(fetchCareerInterestComparisonRole).mock.calls.length).toBe(calls);
     expect(window.location.search + window.location.hash).toBe("");
     fireEvent.click(screen.getByRole("button", { name: locale === "en" ? "Clear and compare again" : "清除并重新比较" }));
     expect(container.querySelector("[data-career-match-result]")).toBeNull(); expect(container.querySelector("#career-match-filter")).toBeNull();
@@ -80,15 +80,15 @@ describe("original Career Match tool, reusing the interest construct and publish
     // A locale remount clears the whole memory-only attempt, including a pending public read.
     rerender(<CareerMatchClient quiz={quiz} locale="zh" />); expect(screen.getByRole("button", { name: "开始比较" })).toBeInTheDocument();
     responses("zh"); await start("zh"); pick(); fireEvent.click(container.querySelector("[data-interest-theme='A']")!);
-    vi.mocked(fetchCareerJobBundle).mockImplementation(async ({ slug }) => { if (slug.endsWith("b")) throw new Error("transport"); return null; });
+    vi.mocked(fetchCareerInterestComparisonRole).mockImplementation(async ({ slug }) => { if (slug.endsWith("b")) throw new Error("transport"); return null; });
     fireEvent.click(screen.getByRole("button", { name: "查看主题比较" })); await screen.findByText(/比较尚不完整/);
     expect(container.querySelectorAll("[data-career-read-status='missing']")).toHaveLength(1); expect(container.querySelectorAll("[data-career-read-status='error']")).toHaveLength(1);
     expect(container.querySelectorAll("[data-career-shared-themes]")).toHaveLength(0);
-    vi.mocked(fetchCareerJobBundle).mockResolvedValue({ bundle_kind: "legacy" } as never);
+    vi.mocked(fetchCareerInterestComparisonRole).mockResolvedValue({ bundle_kind: "legacy" } as never);
     fireEvent.click(screen.getByRole("button", { name: "查看主题比较" }));
     await waitFor(() => expect(container.querySelectorAll("[data-career-read-status='invalid']")).toHaveLength(2));
     let resolve!: (value: ReturnType<typeof careerMatchRoleFixture>) => void;
-    vi.mocked(fetchCareerJobBundle).mockImplementation(({ slug }) => slug.endsWith("a") ? new Promise(r => { resolve = r; }) : Promise.resolve(careerMatchRoleFixture("zh", slug)));
+    vi.mocked(fetchCareerInterestComparisonRole).mockImplementation(({ slug }) => slug.endsWith("a") ? new Promise(r => { resolve = r; }) : Promise.resolve(careerMatchRoleFixture("zh", slug)));
     fireEvent.click(screen.getByRole("button", { name: "查看主题比较" }));
     fireEvent.click(container.querySelector("[data-interest-theme='S']")!);
     await act(async () => { resolve(careerMatchRoleFixture("zh")); });

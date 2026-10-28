@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import { isCareerMatchConfigurationValid } from "@/lib/questionnaires/careerMatch";
 import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex";
-import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { fetchCareerInterestComparisonRole } from "@/lib/career/api/fetchCareerInterestComparisonRole";
 import {
   compareCareerInterestThemes, readCareerInterestDirectory, readCareerInterestRole,
   type CareerInterestOption, type CareerInterestRole, type CareerInterestTheme,
@@ -69,7 +69,7 @@ function ValidCareerMatchClient({ quiz, locale }: { quiz: Questionnaire; locale:
     setBusy(true);
     const roles = await Promise.all(chosen.map(async option => {
       try {
-        const raw = await fetchCareerJobBundle({ locale, slug: option!.slug });
+        const raw = await fetchCareerInterestComparisonRole({ locale, slug: option!.slug });
         if (raw === null) return { status: "missing", option: option! } as const;
         const role = readCareerInterestRole(raw, locale, option!.slug);
         return role ? { status: "available", role } as const : { status: "invalid", option: option! } as const;
