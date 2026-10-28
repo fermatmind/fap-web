@@ -1,0 +1,682 @@
+[
+  {
+    "id": "pressure-during-disagreements",
+    "title": {
+      "en": "Pressure during disagreements",
+      "zh": "冲突中的推进与加压行为"
+    },
+    "headline": {
+      "en": "Notice how a disagreement gathers pressure",
+      "zh": "看清分歧中压力如何增加"
+    },
+    "summary": {
+      "en": "Read six conflict-pressure statements, a worked mean, repeated-contact and pause examples, and optional fact checks. No danger labels or predictions.",
+      "zh": "理解六项冲突加压陈述、均值算例、重复联系与暂停情境，以及可选事实核对。不贴危险标签，不预测行为。"
+    },
+    "scoreReading": {
+      "en": "At least four of six numeric responses are required. Sum the values and divide by their count; skips are excluded, and a 3 is uncertain or depends. Read this part separately, without a risk grade.",
+      "zh": "六题中至少四个数字回答才显示原始和与均值。数字相加后除以数字回答数；跳过排除，3为不确定或视情况。独立阅读，不转成风险等级。"
+    },
+    "directionIds": [
+      "CONFLICT_ESCALATION"
+    ],
+    "seo": {
+      "title": {
+        "en": "Pressure during disagreements: Full Conflict and Boundary Guide",
+        "zh": "冲突中的推进与加压行为：完整解释与事实观察"
+      },
+      "description": {
+        "en": "Read six conflict-pressure statements, a worked mean, repeated-contact and pause examples, and optional fact checks. No danger labels or predictions.",
+        "zh": "理解六项冲突加压陈述、均值算例、重复联系与暂停情境，以及可选事实核对。不贴危险标签，不预测行为。"
+      }
+    },
+    "sections": [
+      {
+        "id": "pressure-during-disagreements-scope",
+        "title": {
+          "en": "What this part observes",
+          "zh": "这一组在观察什么"
+        },
+        "paragraphs": [
+          {
+            "en": "This part gathers your own reports about adding pressure during disagreements in the past three months. It concerns words, contact, topics and timing rather than a hidden aggressive personality.",
+            "zh": "这一组整理你本人过去三个月在分歧中增加压力的自报，关注措辞、联系、议题和时间，不把这些回答解释为隐藏的攻击型人格。"
+          },
+          {
+            "en": "A stronger statement rating means that its wording fits your recollection more closely. It does not tell us how often an event occurred, how serious it was or how another person experienced it.",
+            "zh": "某条符合度更高，只表示它更贴近你的回忆，不能据此读出发生次数、严重程度，或对方实际经历了什么。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-items",
+        "title": {
+          "en": "The six statements and their limits",
+          "zh": "六道题的范围"
+        },
+        "paragraphs": [
+          {
+            "en": "The six statements cover a stronger tone, repeated contact, unrelated past issues, demands for an immediate answer, successive challenges and restarting before an agreed pause ends.",
+            "zh": "六题分别涉及加重语气、短时间重复联系、加入无关旧事、要求立即给答案、连续补充质问，以及在约定暂停结束前重新争论。"
+          },
+          {
+            "en": "They leave out many details that matter: the exact words, whether contact was welcome, what was urgent and whether a pause was clearly agreed. A questionnaire cannot reconstruct those facts.",
+            "zh": "题目无法还原具体说了什么、联系是否受欢迎、事情是否紧急，以及暂停是否明确约定。这些事实需要分别核对，不能由问卷补齐。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-counts",
+        "title": {
+          "en": "Read the arithmetic with the response count",
+          "zh": "连同回答数理解计算"
+        },
+        "paragraphs": [
+          {
+            "en": "With at least four numeric choices among the six statements, add the chosen values and divide by their count. For 2, 3, 4, 3 and two skips, the raw sum is 12 and mean is 3.0000.",
+            "zh": "六题中至少四个数字回答时，将数字相加后除以数字回答数。例如2、3、4、3和两个跳过，原始和为12，均值为3.0000。"
+          },
+          {
+            "en": "The two skips contribute neither zero nor an assumed midpoint. Three means uncertain or depends, not moderate conflict. Four available answers meet an editorial display rule, not a scientifically validated safety threshold.",
+            "zh": "两个跳过既不补零，也不补中间值。3表示不确定或视情况，并非“中度冲突”。四个数字的要求是展示规则，不是经过科学验证的安全阈值。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-context",
+        "title": {
+          "en": "An ordinary situation to examine",
+          "zh": "可以回看的具体情境"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a shared task is late and you send three follow-up messages before the other person can reply. Separate the task deadline from what you actually said and whether more messages were requested.",
+            "zh": "例如共同任务迟迟未完成，你在对方回复前连续发了三条追问。可以把任务期限、实际措辞和对方是否希望继续联系分开看。"
+          },
+          {
+            "en": "Urgency may explain why a reply mattered to you; it does not establish that repeated pressure was welcome. If a pause was agreed, its terms matter more than whether a general score seems small.",
+            "zh": "紧急性可以解释你为什么重视回复，却不能证明连续施压受到欢迎。若双方已经约定暂停，应核对约定本身，不能因总体现象的数字较小就忽略它。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-response",
+        "title": {
+          "en": "A response does not settle another person’s experience",
+          "zh": "回答不能替别人下结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Your report cannot establish whether someone felt threatened, ignored or free to stop the conversation. Avoid using it as proof that they overreacted or that your intentions settled the impact.",
+            "zh": "你的自报不能确认对方是否感到受威胁、被忽视，或是否能自由结束谈话。不要用结果证明对方反应过度，也不要用意图替代实际影响。"
+          },
+          {
+            "en": "More contact alone cannot establish or rule out harassment or stalking. Real conduct, consent and circumstances require their own assessment; this page provides no legal classification or permission to continue contact.",
+            "zh": "联系次数本身不能确立或排除骚扰、跟踪等情况。现实行为、意愿和情境需要独立判断，本页不提供法律定性，也不构成继续联系的许可。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-differences",
+        "title": {
+          "en": "Similar numbers can describe different situations",
+          "zh": "相似数值不等于相同经历"
+        },
+        "paragraphs": [
+          {
+            "en": "A mean of three can come from several uncertain answers or from a mixture of stronger and weaker agreement. Read the original statements as well as the summary instead of inventing a single conflict style.",
+            "zh": "均值3可能来自多个“不确定或视情况”，也可能来自高低不同的符合度。应连同原题阅读，不凭摘要数值编出一个固定冲突风格。"
+          },
+          {
+            "en": "Do not rank this part against the other three or compare sums with different response counts. A lower response record cannot certify safety, while a higher one cannot diagnose violence or a personality disorder.",
+            "zh": "不把这一组与另外三组排名，也不比较回答数不同的原始和。较低数值不能认证安全，较高数值也不能诊断暴力倾向或人格障碍。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-observation",
+        "title": {
+          "en": "One optional, observable next step",
+          "zh": "一个可选的事实观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want and it is safe, privately recall one nonurgent disagreement: what messages were sent, what topics were added and whether a pause was honored. No names or incident details belong in this page.",
+            "zh": "若你愿意且安全，可以私下回看一次非紧急分歧：发了哪些信息、加入了哪些议题、是否遵守暂停。本页不需要输入姓名或事件细节。"
+          },
+          {
+            "en": "You may notice one action to change, such as keeping to the agreed topic or respecting a pause. Nobody else is obliged to discuss the record, resume contact or confirm that you have improved.",
+            "zh": "可以留意一个具体行动，例如围绕约定议题交流或遵守暂停。别人没有义务讨论这份记录、恢复联系，或为你的改变作证明。"
+          }
+        ]
+      },
+      {
+        "id": "pressure-during-disagreements-limits",
+        "title": {
+          "en": "Limits, privacy and safety",
+          "zh": "解释、隐私与安全边界"
+        },
+        "paragraphs": [
+          {
+            "en": "This original preview has not established reliability, validity, norms or predictive accuracy. Its descriptions support limited self-observation and cannot decide employment, school discipline, relationships or clinical care.",
+            "zh": "这一原创预览尚未建立信度、效度、常模或预测准确性。内容仅支持有限的自我观察，不能用来决定录用、学校处分、关系去留或临床处理。"
+          },
+          {
+            "en": "Answers stay in page memory, without analytics or personal-result sharing. For actual threats, violence, coercion, stalking or an urgent safety problem, prioritize appropriate local support rather than waiting for a test result.",
+            "zh": "回答只留在页面内存，不接分析事件或个人结果分享。现实中若已有威胁、暴力、强迫、跟踪或紧急安全问题，应优先寻求适当的当地支持，不等待测试结论。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "responding-to-no-and-pauses",
+    "title": {
+      "en": "Responding to no and pauses",
+      "zh": "面对拒绝与暂停时的反应"
+    },
+    "headline": {
+      "en": "Keep an expressed choice visible",
+      "zh": "让已经表达的选择保持清楚"
+    },
+    "summary": {
+      "en": "Explore responses to no, pauses, silence and contact boundaries. Read the six-item arithmetic and consent limits without rating another person.",
+      "zh": "理解拒绝、暂停、沉默与联系边界的六项自报，查看计算例子和同意边界，不替别人评分。"
+    },
+    "scoreReading": {
+      "en": "At least four of six numeric responses are required. Sum the values and divide by their count; skips are excluded, and a 3 is uncertain or depends. Read this part separately, without a risk grade.",
+      "zh": "六题中至少四个数字回答才显示原始和与均值。数字相加后除以数字回答数；跳过排除，3为不确定或视情况。独立阅读，不转成风险等级。"
+    },
+    "directionIds": [
+      "BOUNDARY_OVERRIDE"
+    ],
+    "seo": {
+      "title": {
+        "en": "Responding to no and pauses: Full Conflict and Boundary Guide",
+        "zh": "面对拒绝与暂停时的反应：完整解释与事实观察"
+      },
+      "description": {
+        "en": "Explore responses to no, pauses, silence and contact boundaries. Read the six-item arithmetic and consent limits without rating another person.",
+        "zh": "理解拒绝、暂停、沉默与联系边界的六项自报，查看计算例子和同意边界，不替别人评分。"
+      }
+    },
+    "sections": [
+      {
+        "id": "responding-to-no-and-pauses-scope",
+        "title": {
+          "en": "What this part observes",
+          "zh": "这一组在观察什么"
+        },
+        "paragraphs": [
+          {
+            "en": "This part concerns your reports of what you did after someone said no, requested a pause or expressed a boundary. The focus is the response to an expressed choice, not whether you consider yourself caring.",
+            "zh": "这一组关注你在别人说“不”、要求暂停或表达边界之后做了什么。重点是如何回应已经表达的选择，并非你是否认为自己出于关心。"
+          },
+          {
+            "en": "Only answer about your own past three months. Do not fill the statements in for a partner, colleague or family member, or use a result to certify that someone respects every boundary.",
+            "zh": "只回答你本人过去三个月的经历，不替伴侣、同事或家人作答，也不凭结果认证某个人在所有情境下都尊重边界。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-items",
+        "title": {
+          "en": "The six statements and their limits",
+          "zh": "六道题的范围"
+        },
+        "paragraphs": [
+          {
+            "en": "The six statements concern continued persuasion, pressing for a conclusion, demanding explanations, citing obligations or past effort, proceeding through hesitation and switching contact channels after a pause.",
+            "zh": "六题涉及继续说服、追问结论、要求解释、引用关系职责或以往付出、在沉默犹豫时继续，以及一种联系方式暂停后改用另一种。"
+          },
+          {
+            "en": "They do not measure all forms of consent or determine whether a particular act was consensual. Silence and hesitation do not supply permission; a previous agreement does not settle a later choice.",
+            "zh": "这些题没有覆盖全部同意情境，也不能判定某次行为是否获得同意。沉默和犹豫不提供许可，以往同意也不能代替此刻的选择。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-counts",
+        "title": {
+          "en": "Read the arithmetic with the response count",
+          "zh": "连同回答数理解计算"
+        },
+        "paragraphs": [
+          {
+            "en": "At least four of the six answers must be numeric for this part’s sum and mean to appear. Values 1, 2, 3, 5 with two skips produce sum 11 and mean 2.7500.",
+            "zh": "六个回答中至少四个为数字，才显示这一组的原始和与均值。例如1、2、3、5和两个跳过，原始和为11，均值为2.7500。"
+          },
+          {
+            "en": "A three remains a valid uncertain or situation-dependent response. Skips stay outside the calculation. Fewer than four numeric answers withholds this part; it does not infer avoidance or ask you to justify the skips.",
+            "zh": "3仍是有效的“不确定或视情况”，跳过不参与计算。数字少于四个就保留信息不足，不推断回避，也不要求解释跳过的理由。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-context",
+        "title": {
+          "en": "An ordinary situation to examine",
+          "zh": "可以回看的具体情境"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose someone asks to pause a conversation until tomorrow, and you send the same question through another app. Look at the pause they expressed and your next action, rather than treating the new channel as a fresh invitation.",
+            "zh": "例如对方要求把谈话暂停到明天，你却改用另一个应用追问同一件事。应看清对方表达的暂停和你的后续行动，不能把新渠道自动当作新邀请。"
+          },
+          {
+            "en": "Practical arrangements may sometimes need discussion, but a questionnaire cannot authorize overriding a refusal. If communication is unsafe, no one needs to stay in contact to complete an exercise from this guide.",
+            "zh": "实际事务有时需要协商，但问卷不能授权越过拒绝。若沟通不安全，任何人都不必为完成本指南的练习而维持联系。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-response",
+        "title": {
+          "en": "A response does not settle another person’s experience",
+          "zh": "回答不能替别人下结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Wanting an explanation does not create an entitlement to one. A relationship, a role or previous effort cannot by itself turn a clearly expressed no into agreement.",
+            "zh": "想知道理由，并不自动产生要求解释的权利。关系、角色或以往付出本身，不能把已经清楚表达的“不”变成同意。"
+          },
+          {
+            "en": "Continued persuasion cannot be classified or dismissed as coercion from this score. Consider real words, pressure, available choices and conduct separately; the result neither establishes nor rules out harm.",
+            "zh": "不能凭这一数值认定继续说服就是强迫，也不能据此排除强迫。实际措辞、压力、可选择空间和行为要分别核对，结果既不确立也不排除伤害。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-differences",
+        "title": {
+          "en": "Similar numbers can describe different situations",
+          "zh": "相似数值不等于相同经历"
+        },
+        "paragraphs": [
+          {
+            "en": "The same mean might describe pressing for explanations in one setting or changing channels after a pause in another. The item details matter; a shared average does not make the situations equivalent.",
+            "zh": "同一个均值，可能涉及一个场合中的反复要求解释，也可能涉及另一个场合中的换渠道追问。原题细节很重要，相同平均数不代表情境相同。"
+          },
+          {
+            "en": "Read this part on its own, without an overall dangerousness score or a best-to-worst ranking. Neither low nor high agreement tells us someone’s motives, legal responsibility or future behavior.",
+            "zh": "这一组单独阅读，不合成危险程度总分，也不进行好坏排名。无论符合度高低，都不能说明动机、法律责任或未来行为。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-observation",
+        "title": {
+          "en": "One optional, observable next step",
+          "zh": "一个可选的事实观察"
+        },
+        "paragraphs": [
+          {
+            "en": "An optional private check is to recall one clearly stated boundary and the next action you took. Keep the wording of the request separate from what you wished it meant.",
+            "zh": "一个可选的私下核对是：回想一次清楚表达的边界，以及你接下来做了什么。把请求原本的意思和你希望它代表的意思分开。"
+          },
+          {
+            "en": "A concrete next step might be honoring an existing pause without asking for another explanation. This requires no new contact, disclosure, reconciliation or proof from the other person. You may also decline the exercise.",
+            "zh": "一个具体行动可以是遵守已有暂停，不再要求额外解释。这不需要重新联系、披露隐私、和解或索取对方证明，你也可以不做这项观察。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-no-and-pauses-limits",
+        "title": {
+          "en": "Limits, privacy and safety",
+          "zh": "解释、隐私与安全边界"
+        },
+        "paragraphs": [
+          {
+            "en": "This is an unvalidated original self-observation preview, not an assessment of abuse, criminality or a personality disorder. It cannot decide whether a relationship should continue or whether another person should trust you.",
+            "zh": "这是尚未验证的原创自我观察预览，不是虐待、犯罪或人格障碍评估，不能决定一段关系是否继续，也不能要求别人应当信任你。"
+          },
+          {
+            "en": "The page stores no draft or result and offers no personal-result sharing or analytics. Actual coercion, threats or immediate danger should be addressed through appropriate real-world support, regardless of the numbers here.",
+            "zh": "页面不保存草稿或结果，不提供个人结果分享，也不接分析事件。现实中的强迫、威胁或即时危险，应通过适当的现实支持处理，不取决于这里的数字。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "responding-to-behavioral-impact",
+    "title": {
+      "en": "Responding to behavioral impact",
+      "zh": "回应行为影响时的方式"
+    },
+    "headline": {
+      "en": "Separate intention from the impact to check",
+      "zh": "把意图与待核对的影响分开"
+    },
+    "summary": {
+      "en": "Separate intention, concrete actions and reported impact. Read six self-report statements, count-aware arithmetic and one optional fact check.",
+      "zh": "区分意图、具体行动和报告的影响，阅读六项自报、连同回答数的计算例子，以及一个可选事实核对。"
+    },
+    "scoreReading": {
+      "en": "At least four of six numeric responses are required. Sum the values and divide by their count; skips are excluded, and a 3 is uncertain or depends. Read this part separately, without a risk grade.",
+      "zh": "六题中至少四个数字回答才显示原始和与均值。数字相加后除以数字回答数；跳过排除，3为不确定或视情况。独立阅读，不转成风险等级。"
+    },
+    "directionIds": [
+      "RESPONSIBILITY_DEFLECTION"
+    ],
+    "seo": {
+      "title": {
+        "en": "Responding to behavioral impact: Full Conflict and Boundary Guide",
+        "zh": "回应行为影响时的方式：完整解释与事实观察"
+      },
+      "description": {
+        "en": "Separate intention, concrete actions and reported impact. Read six self-report statements, count-aware arithmetic and one optional fact check.",
+        "zh": "区分意图、具体行动和报告的影响，阅读六项自报、连同回答数的计算例子，以及一个可选事实核对。"
+      }
+    },
+    "sections": [
+      {
+        "id": "responding-to-behavioral-impact-scope",
+        "title": {
+          "en": "What this part observes",
+          "zh": "这一组在观察什么"
+        },
+        "paragraphs": [
+          {
+            "en": "This part gathers your reports of how you responded when someone described an impact of your behavior. It concerns checking facts, discussing intention and naming your own actions rather than judging your moral worth.",
+            "zh": "这一组整理别人提到你的行为影响时，你如何回应的自报，关注核对事实、谈论意图和指出自己的具体行动，不判断一个人的道德价值。"
+          },
+          {
+            "en": "It does not settle who was right in a conflict. Your report is one limited perspective; another person’s account cannot be inferred from your selected numbers.",
+            "zh": "它不裁定冲突中谁对谁错。你的自报只是有限视角，不能从你选择的数字推算对方的陈述。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-items",
+        "title": {
+          "en": "The six statements and their limits",
+          "zh": "六道题的范围"
+        },
+        "paragraphs": [
+          {
+            "en": "The six statements cover denying an impact, using harmless intentions to deny consequences, first blaming the other reaction, adding \"but you also\" to an apology, demanding proof of feelings and describing only your own difficulties.",
+            "zh": "六题包括否定影响、用无伤害意图否定后果、先归因对方反应、道歉后紧接“但是你也”、要求证明感受合理，以及只详细讲自己的不利。"
+          },
+          {
+            "en": "The statements do not replace fact-finding about a specific event. Checking what happened and acknowledging an impact are distinguishable from accepting every explanation or abandoning a legitimate disagreement.",
+            "zh": "这些陈述不能替代对具体事件的事实核查。核对发生了什么、承认实际影响，与接受所有解释或放弃合理分歧，是可以区分的事情。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-counts",
+        "title": {
+          "en": "Read the arithmetic with the response count",
+          "zh": "连同回答数理解计算"
+        },
+        "paragraphs": [
+          {
+            "en": "Four or more numeric answers make the descriptive mean available. For 2, 2, 3, 4, 4 and a skip, the sum is 15 and the mean is 3.0000 across five answers.",
+            "zh": "至少四个数字回答时可以显示描述性均值。例如2、2、3、4、4和一个跳过，五个数字的原始和为15，均值为3.0000。"
+          },
+          {
+            "en": "The value does not count apologies, establish honesty or grade accountability. Three means uncertainty or dependence on context. A skip is excluded, and four-decimal rounding is arithmetic rather than measurement precision.",
+            "zh": "这个数值不统计道歉次数，不鉴定诚实程度，也不给责任感打等级。3表示不确定或视情况；跳过排除，四位小数只表达计算，不代表测量精度。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-context",
+        "title": {
+          "en": "An ordinary situation to examine",
+          "zh": "可以回看的具体情境"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a colleague says a last-minute change caused extra work. You might explain that you were trying to help; separately, check which change you made and what extra work actually followed.",
+            "zh": "例如同事说临时改动让他增加了工作。你可以说明自己本想帮忙，同时分别核对改了什么、之后实际多出了哪些工作。"
+          },
+          {
+            "en": "Intention and consequence answer different questions. Listening to a reported impact does not require guessing every feeling, and explaining an intention does not erase an already established consequence.",
+            "zh": "意图和后果回答不同问题。听取对方报告的影响不要求猜中所有感受；解释意图，也不能抹去已经核实的后果。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-response",
+        "title": {
+          "en": "A response does not settle another person’s experience",
+          "zh": "回答不能替别人下结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Someone does not have to prove that a feeling is sufficient before it can be heard. Where facts are disputed, stay with specific actions and evidence instead of using a questionnaire to decide whose experience counts.",
+            "zh": "别人不必先证明感受“足够合理”才有被听取的资格。事实有分歧时，应回到具体行动与证据，不能用问卷决定谁的经历才算数。"
+          },
+          {
+            "en": "An initially defensive response neither establishes nor rules out actual responsibility. This score cannot absolve conduct, diagnose manipulation or assign blame to the other person.",
+            "zh": "最初的防御反应既不能确立，也不能排除实际责任。本分数不能为行为免责、诊断操控，或把责任判给对方。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-differences",
+        "title": {
+          "en": "Similar numbers can describe different situations",
+          "zh": "相似数值不等于相同经历"
+        },
+        "paragraphs": [
+          {
+            "en": "A common mean can hide different answers: one person may emphasize intention while another repeatedly asks for proof of feelings. Revisit the statements rather than naming one fixed responsibility style.",
+            "zh": "相同均值可能掩盖不同回答：有人强调意图，有人反复要求证明感受。应回看陈述，不据此命名一个固定的责任风格。"
+          },
+          {
+            "en": "Do not compare this sum with another group’s sum or infer progress from a later lower mean. Changes in recollection, context or willingness to answer can also change a result.",
+            "zh": "不把这一组的原始和与别组比较，也不凭下次均值下降认定进步。回忆、情境或作答意愿变化，都可能改变结果。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-observation",
+        "title": {
+          "en": "One optional, observable next step",
+          "zh": "一个可选的事实观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful and safe, privately write one concrete action you took and one consequence that can be checked. Leave uncertain details uncertain; you do not need to put them into this website.",
+            "zh": "若有用且安全，可以私下写下一个自己做过的具体行动，以及一个可核对的后果。不确定的细节继续保留不确定，也无需输入网站。"
+          },
+          {
+            "en": "A possible next step is to acknowledge that specific action without immediately adding a counter-accusation. This does not require unsafe contact, accepting unsupported claims or asking anyone to forgive you.",
+            "zh": "一个可能的行动是承认这项具体行为，而不立即接上对对方的指责。这不要求不安全的联系、接受无根据的说法，也不要求别人原谅。"
+          }
+        ]
+      },
+      {
+        "id": "responding-to-behavioral-impact-limits",
+        "title": {
+          "en": "Limits, privacy and safety",
+          "zh": "解释、隐私与安全边界"
+        },
+        "paragraphs": [
+          {
+            "en": "The original preview has no validated norms, clinical interpretation or prediction model. It is not evidence for disciplinary, legal, hiring or relationship decisions and does not rate another person’s account.",
+            "zh": "这一原创预览没有经过验证的常模、临床解释或预测模型，不能作为处分、法律、招聘或关系决定的证据，也不评价对方陈述的可信程度。"
+          },
+          {
+            "en": "Responses remain only in page memory and are cleared on reload, language change or departure. If actual harm or urgent safety concerns exist, seek appropriate real-world support without waiting for a result or a discussion of it.",
+            "zh": "回答只保留在页面内存，刷新、换语或离开会清除。现实中若已有伤害或紧急安全问题，应及时寻求适当支持，不等待结果，也不必先讨论结果。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "following-through-after-repair",
+    "title": {
+      "en": "Following through after repair",
+      "zh": "修复后的跟进行为"
+    },
+    "headline": {
+      "en": "Look at what followed the promise",
+      "zh": "看承诺之后实际跟进了什么"
+    },
+    "summary": {
+      "en": "Examine plans, promised updates and changes after a repeated issue. Read six-item scoring and repair boundaries without grading sincerity or predicting recurrence.",
+      "zh": "回看计划、承诺反馈和同类问题后的方法调整，理解六题计分与修复边界，不给真诚度打分，不预测再次发生。"
+    },
+    "scoreReading": {
+      "en": "At least four of six numeric responses are required. Sum the values and divide by their count; skips are excluded, and a 3 is uncertain or depends. Read this part separately, without a risk grade.",
+      "zh": "六题中至少四个数字回答才显示原始和与均值。数字相加后除以数字回答数；跳过排除，3为不确定或视情况。独立阅读，不转成风险等级。"
+    },
+    "directionIds": [
+      "REPAIR_INCONSISTENCY"
+    ],
+    "seo": {
+      "title": {
+        "en": "Following through after repair: Full Conflict and Boundary Guide",
+        "zh": "修复后的跟进行为：完整解释与事实观察"
+      },
+      "description": {
+        "en": "Examine plans, promised updates and changes after a repeated issue. Read six-item scoring and repair boundaries without grading sincerity or predicting recurrence.",
+        "zh": "回看计划、承诺反馈和同类问题后的方法调整，理解六题计分与修复边界，不给真诚度打分，不预测再次发生。"
+      }
+    },
+    "sections": [
+      {
+        "id": "following-through-after-repair-scope",
+        "title": {
+          "en": "What this part observes",
+          "zh": "这一组在观察什么"
+        },
+        "paragraphs": [
+          {
+            "en": "This part concerns your reports of follow-through after an apology or a promise to adjust. It looks at specific actions, agreed timing, updates and changes after a repeated issue.",
+            "zh": "这一组关注道歉或承诺调整之后的跟进自报，包括具体行动、约定时间、进度反馈，以及同类问题再次出现后有没有更新方法。"
+          },
+          {
+            "en": "The subject is what you recall doing in the past three months. A result cannot establish sincerity, prove that trust has been restored or tell another person when to move on.",
+            "zh": "对象是你回忆的过去三个月行为。结果不能鉴定真心、证明信任已经恢复，也不能要求别人何时就该释怀。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-items",
+        "title": {
+          "en": "The six statements and their limits",
+          "zh": "六道题的范围"
+        },
+        "paragraphs": [
+          {
+            "en": "The six statements cover promises without a plan or time, not reviewing an earlier promise, early effort fading, missed updates, using an apology to end discussion and leaving an unsuccessful approach unchanged.",
+            "zh": "六题涉及承诺没有行动或时间、未主动复盘旧承诺、前期修复随后减少、错过反馈时间、用“已经道歉”结束话题，以及未更新失效方法。"
+          },
+          {
+            "en": "They do not tell us whether an agreement was feasible, mutually wanted or safe. Repeated access to another person is not a requirement for showing follow-through; a boundary against contact still matters.",
+            "zh": "题目不能说明约定是否可行、是否双方愿意，或是否安全。持续接近对方并不是证明跟进的必要条件，停止联系的边界仍需尊重。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-counts",
+        "title": {
+          "en": "Read the arithmetic with the response count",
+          "zh": "连同回答数理解计算"
+        },
+        "paragraphs": [
+          {
+            "en": "This part needs four numeric answers out of six. For 1, 2, 2, 3 with two skips, sum 8 divided by four gives 2.0000. With only three numbers, no sum, mean or personal interpretation is shown.",
+            "zh": "这一组也需要六题中的四个数字。例如1、2、2、3和两个跳过，原始和8除以4，均值为2.0000。只有三个数字时，不显示原始和、均值或个人解释。"
+          },
+          {
+            "en": "Skipping is a valid response and does not imply avoiding responsibility. Three is uncertain or depends. The display threshold is a product rule, without validated cutoffs for sincerity, repair quality or recurrence.",
+            "zh": "跳过是有效选择，不表示回避责任。3是“不确定或视情况”。展示门槛只是产品规则，没有经过验证的真诚、修复质量或再次发生阈值。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-context",
+        "title": {
+          "en": "An ordinary situation to examine",
+          "zh": "可以回看的具体情境"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose you promised to send a task update on Friday but did not. Distinguish the missed update, any practical obstacle and whether your plan changed; an apology alone does not record what happened next.",
+            "zh": "例如你承诺周五反馈任务调整，却没有反馈。可以分别看错过的更新、实际障碍和后来是否调整了方案；仅有道歉，并不能说明后续发生了什么。"
+          },
+          {
+            "en": "An obstacle may call for a more workable plan, but it cannot prove that an unmet promise had no effect. Equally, one missed update does not establish a permanent inability to change.",
+            "zh": "障碍可能提示需要更可行的方案，却不能证明未履行承诺没有影响。同样，一次没有反馈，也不能证明一个人永远不能改变。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-response",
+        "title": {
+          "en": "A response does not settle another person’s experience",
+          "zh": "回答不能替别人下结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Repair is not a transaction that obliges forgiveness, renewed trust or restored contact. Another person may keep a boundary even when you can identify concrete changes in your own behavior.",
+            "zh": "修复不是交换，不自动要求原谅、重新信任或恢复联系。即使你能指出自己的具体改变，对方仍然可以保留边界。"
+          },
+          {
+            "en": "A low mean cannot erase a repeated harmful event, and a high mean cannot prove a deliberate false promise. Motive, responsibility and future behavior cannot be established or excluded by this summary.",
+            "zh": "较低均值不能抹去反复发生的有害事件，较高均值也不能证明故意虚假承诺。摘要不能确立或排除动机、责任或未来行为。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-differences",
+        "title": {
+          "en": "Similar numbers can describe different situations",
+          "zh": "相似数值不等于相同经历"
+        },
+        "paragraphs": [
+          {
+            "en": "Two equal means may reflect different gaps: a plan without a date, an agreed date without an update, or an unchanged approach after repetition. The useful detail is the specific commitment, not a type label.",
+            "zh": "两个相同均值可能来自不同缺口：有计划没日期、有日期没反馈，或问题重复后方法未变。有用的是具体承诺，而非一个类型标签。"
+          },
+          {
+            "en": "Read the four parts separately. A later change in your answer record is not proof that repair succeeded or recurrence became less likely; direct observations and the other person’s choices remain separate.",
+            "zh": "四组应分开读。下次回答记录改变，不证明修复成功或再次发生的可能性降低；实际观察与对方的选择仍需单独看待。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-observation",
+        "title": {
+          "en": "One optional, observable next step",
+          "zh": "一个可选的事实观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If you choose and it is safe, review one commitment: its action, timing, what happened and any change to the plan. Keep this private and leave any details you cannot verify unresolved.",
+            "zh": "若你愿意且安全，可以回看一个承诺：行动、时间、实际发生的事，以及方案后来有没有调整。记录留在私下，无法核实的细节不要补成事实。"
+          },
+          {
+            "en": "One possible step is making your own next action specific and realistic without requesting reassurance. Do not contact someone who asked for no contact to complete this exercise; doing nothing here is also an option.",
+            "zh": "一个可能的行动是让自己的下一步更具体可行，而不索取安慰或肯定。不要为了完成练习联系已要求停止联系的人，也可以不采取这里的行动。"
+          }
+        ]
+      },
+      {
+        "id": "following-through-after-repair-limits",
+        "title": {
+          "en": "Limits, privacy and safety",
+          "zh": "解释、隐私与安全边界"
+        },
+        "paragraphs": [
+          {
+            "en": "This original preview remains unvalidated for psychometric or clinical use. It cannot judge character, diagnose a disorder, predict violence or decide whether someone owes continued participation in a relationship.",
+            "zh": "这一原创预览尚未完成心理测量或临床验证，不能评判人品、诊断障碍、预测暴力，也不能决定别人是否有义务继续参与一段关系。"
+          },
+          {
+            "en": "No draft, result, analytics or personal-result sharing is used. Real threats, coercion, stalking, violence or urgent safety concerns take priority over promises, scores or retesting and should be met with appropriate support.",
+            "zh": "页面不使用草稿保存、结果保存、分析事件或个人结果分享。现实中的威胁、强迫、跟踪、暴力或紧急安全问题，应优先寻求适当支持，不等待承诺、分数或重测。"
+          }
+        ]
+      }
+    ]
+  }
+]

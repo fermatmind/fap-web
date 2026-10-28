@@ -1,0 +1,190 @@
+{
+  "source_test_id": "RISKY_PERSONALITY",
+  "source_form": "conflict_boundary_signals_likert_24",
+  "source_item_bank_sha256": "9fc6c7395a83bf7ed35ffd33d5ac05534e3837ed24dc938247d9ee21f6e0d220",
+  "source_result_content_sha256": "6be697fcf280049ffe34fd483a2e2e79aa17d0788e63eb21b21cabbd5f7f2477",
+  "source_minimum_numeric_per_six": 4,
+  "numeric_labels": {
+    "1": "完全不符合",
+    "2": "比较不符合",
+    "3": "不确定或视情况",
+    "4": "比较符合",
+    "5": "非常符合"
+  },
+  "skip_zh": "我不想回答这题",
+  "source_factors": [
+    {
+      "source_code": "CONFLICT_ESCALATION",
+      "id": "CONFLICT_ESCALATION",
+      "profile_id": "pressure-during-disagreements"
+    },
+    {
+      "source_code": "BOUNDARY_OVERRIDE",
+      "id": "BOUNDARY_OVERRIDE",
+      "profile_id": "responding-to-no-and-pauses"
+    },
+    {
+      "source_code": "RESPONSIBILITY_DEFLECTION",
+      "id": "RESPONSIBILITY_DEFLECTION",
+      "profile_id": "responding-to-behavioral-impact"
+    },
+    {
+      "source_code": "REPAIR_INCONSISTENCY",
+      "id": "REPAIR_INCONSISTENCY",
+      "profile_id": "following-through-after-repair"
+    }
+  ],
+  "items": [
+    {
+      "id": "CBS_001",
+      "prompt": "过去三个月，出现分歧时，我会继续加重语气或措辞，想让对方尽快回应。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_002",
+      "prompt": "过去三个月，对方没有立即回复时，我会在短时间内重复发送信息或发起联系。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_003",
+      "prompt": "过去三个月，争论当前问题时，我会把无关的过往事件也加入冲突。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_004",
+      "prompt": "过去三个月，谈话陷入僵局时，我会把“现在必须给出答案”当作继续沟通的条件。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_005",
+      "prompt": "过去三个月，感到被忽视时，我会连续补充新的质问，让谈话压力继续增加。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_006",
+      "prompt": "过去三个月，双方约定暂停后，我会在约定时间之前重新开始争论。",
+      "factor": "CONFLICT_ESCALATION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_007",
+      "prompt": "过去三个月，对方已经说“不”时，我仍会继续说服，希望对方改变答案。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_008",
+      "prompt": "过去三个月，对方要求暂停谈话时，我会继续追问当下的结论。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_009",
+      "prompt": "过去三个月，对方表示不想解释时，我会要求对方继续说明理由。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_010",
+      "prompt": "过去三个月，我会引用关系、职责或以往付出，让对方重新考虑已经表达的边界。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_011",
+      "prompt": "过去三个月，对方沉默或犹豫时，我会先按自己希望的方式继续，而不是确认其选择。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_012",
+      "prompt": "过去三个月，一种联系方式被明确暂停后，我会换用另一种方式继续同一话题。",
+      "factor": "BOUNDARY_OVERRIDE",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_013",
+      "prompt": "过去三个月，别人提到我的行为造成影响时，我的第一反应是否定影响，而不是核对事实。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_014",
+      "prompt": "过去三个月，当我的意图并非伤害他人时，我会用这一点来否定已经发生的后果。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_015",
+      "prompt": "过去三个月，冲突后我会先把问题归因于对方的反应方式。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_016",
+      "prompt": "过去三个月，我道歉时会紧接着补充“但是你也……”来转移责任。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_017",
+      "prompt": "过去三个月，别人说受到影响时，我会先要求对方证明其感受足够合理。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_018",
+      "prompt": "过去三个月，复盘冲突时，我会详细描述自己的不利，却少提自己做过的具体行为。",
+      "factor": "RESPONSIBILITY_DEFLECTION",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_019",
+      "prompt": "过去三个月，我在冲突后承诺调整，但没有约定具体行动或时间。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_020",
+      "prompt": "过去三个月，道歉后相似行为再次发生时，我没有主动复盘上次承诺。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_021",
+      "prompt": "过去三个月，冲突刚结束时我会积极修复，但之后很快减少跟进。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_022",
+      "prompt": "过去三个月，我没有在自己承诺的时间点反馈调整进度。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_023",
+      "prompt": "过去三个月，别人再次提到影响时，我会用“我已经道过歉”来结束话题。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    },
+    {
+      "id": "CBS_024",
+      "prompt": "过去三个月，我看到同类问题重复后，仍没有更新自己的调整方法。",
+      "factor": "REPAIR_INCONSISTENCY",
+      "reverse_scored": false
+    }
+  ],
+  "adaptations": [
+    "Chinese item wording, factors, anchors and original arithmetic retained.",
+    "English working translations and expanded general guides are new content.",
+    "Original blanket non-equivalence phrases clarified: score neither establishes nor rules out actual harm or legal responsibility.",
+    "Original unknown answer keys flagged while web rejects them.",
+    "Current-page memory clears on web navigation/reload; no wx storage, analytics, persisted draft/result or personal-result sharing."
+  ]
+}

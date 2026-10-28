@@ -5225,5 +5225,30 @@
       "lifestyle",
       "political"
     ]
+  },
+  {
+    "slug": "conflict-boundary-behaviors-test",
+    "code": "RISKY_PERSONALITY",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Conflict and Boundary Behaviors Test",
+      "zh": "冲突与边界行为观察测试"
+    },
+    "description": {
+      "en": "Reflect on your own past three months with 24 original statements and four free full guides. Separate behavior records, skipped answers and safety limits without danger labels.",
+      "zh": "用24道原创陈述回看本人过去三个月，分别阅读冲突加压、面对边界、回应影响和修复跟进的四篇完整免费指南。不贴危险标签，可逐题跳过。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "conflict_boundary_signals_likert_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "pressure-during-disagreements",
+      "responding-to-no-and-pauses",
+      "responding-to-behavioral-impact",
+      "following-through-after-repair"
+    ]
   }
 ]
