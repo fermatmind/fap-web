@@ -5477,5 +5477,42 @@
       "fi",
       "fe"
     ]
+  },
+  {
+    "slug": "love-type-16",
+    "code": "FM_LOVE_TYPE16_32",
+    "version": "fm_love_type16_original32_v1",
+    "updated": "2026-10-28",
+    "category": "relationships",
+    "title": {
+      "en": "Love Type Test",
+      "zh": "爱情类型测试"
+    },
+    "description": {
+      "en": "Take 32 original paired choices across four relationship preferences. Keep every tie and read all 16 complete combination guides free. No signup or compatibility prediction.",
+      "zh": "免费完成32道原创关系偏好二选一，分别看四轴次数，保留全部并列，阅读16份完整组合指南；无需注册，不预测伴侣适配。"
+    },
+    "minutes": 7,
+    "formCode": "fm_love_type16_original32_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "lcro",
+      "lcre",
+      "lcpo",
+      "lcpe",
+      "laro",
+      "lare",
+      "lapo",
+      "lape",
+      "fcro",
+      "fcre",
+      "fcpo",
+      "fcpe",
+      "faro",
+      "fare",
+      "fapo",
+      "fape"
+    ],
+    "collection": "explore"
   }
 ]
