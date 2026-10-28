@@ -1,0 +1,169 @@
+{
+  "source_test_id": "ORIENTATION_EXPLORATION",
+  "source_form": "orientation_exploration_reflection_20",
+  "source_item_bank_sha256": "c6174f498c5caa1324e58c3d2cf57639530554e366ef0555255d0c44d5bd78db",
+  "source_result_content_sha256": "e3e6bb9904bd8fe2c2e155790cb75a95bab8e79be8a7e513fd8e7418966c3f6d",
+  "numeric_labels": {
+    "1": "完全不符合",
+    "2": "比较不符合",
+    "3": "暂时不确定或说不清",
+    "4": "比较符合",
+    "5": "非常符合"
+  },
+  "skip_zh": "我不想回答这题",
+  "source_domains": [
+    {
+      "domain_code": "ATTRACTION_AWARENESS",
+      "display_name": "吸引感受觉察",
+      "scheduled_items": 4
+    },
+    {
+      "domain_code": "ATTRACTION_DIFFERENTIATION",
+      "display_name": "不同形式的吸引",
+      "scheduled_items": 4
+    },
+    {
+      "domain_code": "PATTERN_CLARITY",
+      "display_name": "当前模式清晰度",
+      "scheduled_items": 4
+    },
+    {
+      "domain_code": "LABEL_COMFORT",
+      "display_name": "标签使用舒适度",
+      "scheduled_items": 4
+    },
+    {
+      "domain_code": "PRIVACY_SUPPORT",
+      "display_name": "隐私边界与支持环境",
+      "scheduled_items": 4
+    }
+  ],
+  "items": [
+    {
+      "id": "ORIENT_REF_001",
+      "domain": "ATTRACTION_AWARENESS",
+      "prompt": "我能留意自己在与人相处时出现的不同吸引感受。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_002",
+      "domain": "ATTRACTION_AWARENESS",
+      "prompt": "当某种吸引出现时，我能先观察感受而不急着命名。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_003",
+      "domain": "ATTRACTION_AWARENESS",
+      "prompt": "我能分辨自己是否对某些互动产生靠近的兴趣。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_004",
+      "domain": "ATTRACTION_AWARENESS",
+      "prompt": "我的吸引感受不清楚时，我能够允许它暂时保持不确定。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_005",
+      "domain": "ATTRACTION_DIFFERENTIATION",
+      "prompt": "我能区分想了解一个人与想建立浪漫关系的感受。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_006",
+      "domain": "ATTRACTION_DIFFERENTIATION",
+      "prompt": "我能区分情感亲近、浪漫想象与身体吸引带来的不同体验。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_007",
+      "domain": "ATTRACTION_DIFFERENTIATION",
+      "prompt": "当几种感受同时出现时，我会分别记录而不是把它们当成同一件事。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_008",
+      "domain": "ATTRACTION_DIFFERENTIATION",
+      "prompt": "我能注意到欣赏一个人与希望进一步靠近并不总是相同。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_009",
+      "domain": "PATTERN_CLARITY",
+      "prompt": "回看一段时间时，我能说出哪些感受较稳定、哪些会变化。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_010",
+      "domain": "PATTERN_CLARITY",
+      "prompt": "不同情境下感受变化时，我能把变化当作信息继续观察。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_011",
+      "domain": "PATTERN_CLARITY",
+      "prompt": "目前，我对自己反复出现的吸引感受有一些可描述的线索。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_012",
+      "domain": "PATTERN_CLARITY",
+      "prompt": "当感受难以命名时，我能承认当前还没有清楚答案。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_013",
+      "domain": "LABEL_COMFORT",
+      "prompt": "我能觉察某个身份标签带给我的理解或压力。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_014",
+      "domain": "LABEL_COMFORT",
+      "prompt": "我知道自己可以选择使用标签，也可以不使用。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_015",
+      "domain": "LABEL_COMFORT",
+      "prompt": "遇到别人期待我尽快定义自己时，我能保留自己的节奏。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_016",
+      "domain": "LABEL_COMFORT",
+      "prompt": "即使我曾使用某个标签，我也允许自己继续观察感受。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_017",
+      "domain": "PRIVACY_SUPPORT",
+      "prompt": "我能分辨哪些感受只想留给自己、哪些愿意分享。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_018",
+      "domain": "PRIVACY_SUPPORT",
+      "prompt": "决定是否谈起这些体验时，我会先考虑现实环境是否安全和支持。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_019",
+      "domain": "PRIVACY_SUPPORT",
+      "prompt": "我知道是否、何时以及向谁公开都应由我自己决定。",
+      "reverse": false
+    },
+    {
+      "id": "ORIENT_REF_020",
+      "domain": "PRIVACY_SUPPORT",
+      "prompt": "当我需要支持时，我能考虑寻找尊重隐私且不催促我定性的对象。",
+      "reverse": false
+    }
+  ],
+  "adaptations": [
+    "New working English for20statements/anchors",
+    "Expanded five non-classifying full guides",
+    "Current-page memory/clear-on-navigation/no paid flow replaces platform-specific cache/order wording",
+    "Original one context phrase clarified: no inference of identity change OR stability"
+  ]
+}

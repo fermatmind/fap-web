@@ -1,0 +1,682 @@
+[
+  {
+    "id": "noticing-attraction",
+    "directionIds": [
+      "ATTRACTION_AWARENESS"
+    ],
+    "title": {
+      "en": "Noticing attraction",
+      "zh": "吸引感受觉察"
+    },
+    "headline": {
+      "en": "Notice an experience without having to name it",
+      "zh": "看见一段体验，不必立刻命名"
+    },
+    "summary": {
+      "en": "Explore noticing attraction, interest in closeness and room for uncertainty. Read four-statement response counts, everyday examples and optional private observations without assigning an orientation.",
+      "zh": "理解留意吸引、靠近兴趣与允许不确定这四题的回答分布，阅读具体例子和可选的私人观察；不判定取向，也不要求命名或公开。"
+    },
+    "scoreReading": {
+      "en": "Read the counts for all five response choices and the explicit skip separately. A 3 is uncertainty about the statement, included among numeric answers; no sum, average, ranking or identity follows.",
+      "zh": "分别阅读五个数字选项与明确跳过的数量。3表示对题目暂时不确定，计入数字回答数；不产生合计分、均值、排名或身份结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Noticing attraction: Orientation Exploration Guide",
+        "zh": "吸引感受觉察：取向探索完整指南"
+      },
+      "description": {
+        "en": "Explore noticing attraction, interest in closeness and room for uncertainty. Read four-statement response counts, everyday examples and optional private observations without assigning an orientation.",
+        "zh": "理解留意吸引、靠近兴趣与允许不确定这四题的回答分布，阅读具体例子和可选的私人观察；不判定取向，也不要求命名或公开。"
+      }
+    },
+    "sections": [
+      {
+        "id": "noticing-attraction-scope",
+        "title": {
+          "en": "What these four statements cover",
+          "zh": "这四题在记录什么"
+        },
+        "paragraphs": [
+          {
+            "en": "This topic brings together noticing different feelings in interactions, observing before naming them, recognizing an interest in getting closer and allowing an experience to remain uncertain. It records how those descriptions fit you now. It does not ask whom you are attracted to or collect another person’s name, gender or private history.",
+            "zh": "本主题把相处中留意不同感受、先观察再命名、分辨靠近兴趣和允许暂时不确定放在一起，只记录这些描述目前与你的符合程度。不询问你被谁吸引，也不收集他人的姓名、性别或私人经历。"
+          },
+          {
+            "en": "An attraction, a wish for a conversation, admiration and a relationship decision are different things. Noticing one does not oblige you to explain it or act on it. You may have language for an experience already, prefer your own words or have nothing you want to name. The questionnaire does not decide which response is more developed.",
+            "zh": "吸引、想聊一聊、欣赏与是否建立关系是不同的事。留意其中一项，不产生解释或行动的义务。你可能已有合适的表达、偏好自己的说法，或目前没有想命名的东西；问卷不判断哪一种更成熟。"
+          }
+        ]
+      },
+      {
+        "id": "noticing-attraction-counts",
+        "title": {
+          "en": "Read the distribution without making a score",
+          "zh": "阅读分布，不把它变成分数"
+        },
+        "paragraphs": [
+          {
+            "en": "Each of the four statements has five numbered choices and an explicit prefer-not-to-answer choice. For responses 4, 3, 1 and skip, the counts are one each at 1, 3 and 4, zero at 2 and 5, and one skip. There are three numeric answers, including one uncertain answer. These are counts of choices, not amounts of attraction.",
+            "zh": "四题各有五个数字选项和明确的不想回答。若回答为4、3、1、跳过，则1、3、4各一次，2、5各零次，跳过一次；数字回答三题，其中一题暂不确定。这是选项次数，不是吸引有多少。"
+          },
+          {
+            "en": "No values are added or averaged. Four answers of 5 do not establish excellent awareness, and four answers of 1 do not show a deficit. An uncertain response concerns the wording of that statement; it does not declare uncertainty about your identity. A skipped statement provides no evidence about its answer or your reason for withholding it.",
+            "zh": "数字不相加、不平均。全选5不能证明觉察优秀，全选1不能说明能力不足。暂不确定是对该条描述的回答，不代表身份不确定；跳过既不提供该题答案，也不能说明不回答的原因。"
+          }
+        ]
+      },
+      {
+        "id": "noticing-attraction-context",
+        "title": {
+          "en": "An everyday moment, with several possible meanings",
+          "zh": "同一时刻，可以有多种含义"
+        },
+        "paragraphs": [
+          {
+            "en": "After an absorbing conversation, someone might want to hear more from that person but be unsure whether the interest is friendship, attraction, curiosity or something they do not want to define. A useful description can stop at what happened: the conversation stayed on their mind. The guide does not turn that observation into a type.",
+            "zh": "一次聊得投入之后，有人想继续听对方说话，却不确定那是友谊、吸引、好奇，还是不想定义的感受。记录可以停在发生的事情：这段谈话留在了脑海里。指南不会把这条观察转成人格或取向类型。"
+          },
+          {
+            "en": "The same person may find an interaction easy to notice in a relaxed setting and difficult to reflect on when tired, watched or rushed. That difference alone does not reveal a hidden orientation or show suppression. Other people’s interpretations of the interaction also cannot replace your own account, and you need not produce an explanation for them.",
+            "zh": "同一个人在放松环境中也许容易留意互动，疲惫、被注视或被催促时却难以回看。仅凭差异不能揭示隐藏取向或认定压抑；旁人的解释也不能代替你的描述，你无须为了他们交出一个解释。"
+          }
+        ]
+      },
+      {
+        "id": "noticing-attraction-differences",
+        "title": {
+          "en": "How it differs from the other topics",
+          "zh": "与其他主题有何区别"
+        },
+        "paragraphs": [
+          {
+            "en": "Noticing is about giving an experience attention. Different forms of attraction is about whether several experiences can be described separately. You can notice something clearly without separating its components, or distinguish several words without finding any of them useful for a particular moment. Neither topic is a test of whether your experience is real.",
+            "zh": "觉察关注有没有留意一段体验；不同形式的吸引关注能否把几种体验分开描述。可以清楚留意某件事，却不想拆分成分；也可以知道几种说法，却觉得都不适合某个时刻。两者都不检验体验是真是假。"
+          },
+          {
+            "en": "Current patterns concerns what you can describe across occasions, while labels concern optional language and privacy concerns your conditions for talking. These five records remain separate. There is no highest topic, weakest area or combined readiness level, and one topic cannot certify that another has been answered correctly.",
+            "zh": "当前模式关注跨情境可描述的线索，标签关注可选的表达，隐私关注谈起这些事情的条件。五份记录始终分开，没有最高主题、最弱领域或综合准备等级，一份记录也不能认证另一份答得正确。"
+          }
+        ]
+      },
+      {
+        "id": "noticing-attraction-observation",
+        "title": {
+          "en": "An optional observation that can stay private",
+          "zh": "可以完全不做的私人观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If helpful, privately recall one interaction and distinguish a fact from a tentative description: what was said, what you noticed and what you do not know. You can use an ordinary word such as curious, leave the description unfinished or do no recording at all. This page offers no free-text field and does not collect those reflections.",
+            "zh": "如果有帮助，可以私下回看一次互动，把事实与暂时的描述分开：说了什么、留意到什么、还有什么不知道。可以只写好奇这样的日常词，写到一半，或完全不记录。本页没有自由输入框，不收集这些想法。"
+          },
+          {
+            "en": "You do not need to repeat an interaction, initiate contact, date anyone or test a physical response to make the record legitimate. You may stop whenever the exercise feels unhelpful or unsafe. Another attempt has no required schedule, and a changed answer cannot by itself explain whether an identity has changed or stayed the same.",
+            "zh": "不必重复互动、主动联系、约会或检验身体反应来证明记录成立。觉得无益或不安全时可以随时停下，重测没有规定周期；回答改变本身不能说明身份改变了或保持不变。"
+          }
+        ]
+      },
+      {
+        "id": "noticing-attraction-limits",
+        "title": {
+          "en": "Limits, privacy and the right to stop",
+          "zh": "边界、隐私与停止的权利"
+        },
+        "paragraphs": [
+          {
+            "en": "This is an original, unvalidated reflection record, not an orientation measure, diagnosis or certificate. It cannot identify a target gender, estimate a probability or tell you to change or suppress attraction. The public guide is the same for everyone and contains no personal answers. All twenty choices, including skips, must be made before any personal record appears.",
+            "zh": "这是未经心理测量验证的原创观察记录，不是取向测量、诊断或认证，不能识别吸引对象性别、估算概率，或要求改变与压抑吸引。公开指南人人相同，不含个人回答；二十题都作选择，包括明确跳过，才展示个人记录。"
+          },
+          {
+            "en": "Responses and the personal record stay in current-page memory, with no draft or result storage, answer uploads, analytics or personal-result sharing. Reloading, changing language, leaving or retaking clears them. Every statement may be skipped, including all of them. For actual threats or coercion, prioritize appropriate real-world support rather than completing an exercise.",
+            "zh": "回答与个人记录仅在当前页面内存，不存草稿或结果、不上传逐题选择、不接分析事件、不分享个人结果；刷新、换语、离开或重测会清除。可以逐题或全部跳过。现实存在威胁、胁迫时，优先寻求适当支持，不必完成练习。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "different-forms-of-attraction",
+    "directionIds": [
+      "ATTRACTION_DIFFERENTIATION"
+    ],
+    "title": {
+      "en": "Different forms of attraction",
+      "zh": "不同形式的吸引"
+    },
+    "headline": {
+      "en": "Several feelings may coexist without one final explanation",
+      "zh": "几种感受可以并存，不必归成一个答案"
+    },
+    "summary": {
+      "en": "Read about admiration, emotional closeness, romantic imagination and physical attraction. Explore the four original statements and mixed experiences without a differentiation score or identity inference.",
+      "zh": "分别理解欣赏、情感亲近、浪漫想象与身体吸引，阅读四条原题的分布和混合体验示例；不评区分能力，不据此推断身份或要求实践验证。"
+    },
+    "scoreReading": {
+      "en": "Read the counts for all five response choices and the explicit skip separately. A 3 is uncertainty about the statement, included among numeric answers; no sum, average, ranking or identity follows.",
+      "zh": "分别阅读五个数字选项与明确跳过的数量。3表示对题目暂时不确定，计入数字回答数；不产生合计分、均值、排名或身份结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Different forms of attraction: Orientation Exploration Guide",
+        "zh": "不同形式的吸引：取向探索完整指南"
+      },
+      "description": {
+        "en": "Read about admiration, emotional closeness, romantic imagination and physical attraction. Explore the four original statements and mixed experiences without a differentiation score or identity inference.",
+        "zh": "分别理解欣赏、情感亲近、浪漫想象与身体吸引，阅读四条原题的分布和混合体验示例；不评区分能力，不据此推断身份或要求实践验证。"
+      }
+    },
+    "sections": [
+      {
+        "id": "different-forms-of-attraction-scope",
+        "title": {
+          "en": "The four distinctions in this topic",
+          "zh": "本主题的四条观察线索"
+        },
+        "paragraphs": [
+          {
+            "en": "The statements concern wanting to know someone versus wanting a romantic relationship; emotional closeness, romantic imagination and physical attraction; separately describing feelings that occur together; and admiration versus a wish to get closer. These are prompts for your own descriptions, not a checklist of experiences everyone must have. No category has to fit.",
+            "zh": "四题涉及想了解一个人与想建立浪漫关系、情感亲近与浪漫想象及身体吸引、分别记录同时出现的感受，以及欣赏与靠近愿望。它们供你描述自己的体验，不是人人必须经历的清单；也可以没有任何一种分类合适。"
+          },
+          {
+            "en": "The guide uses these words to make room for distinctions, not to set universal definitions for every person. One experience can fit more than one description, and different words can overlap for you. Feeling little or no attraction also does not create an obligation to select an identity label or supply an explanation through this questionnaire.",
+            "zh": "这些词用于容纳差异，不替所有人制定统一定义。一次体验可以有多种描述，不同说法也可能对你相互重叠。吸引很少或没有吸引，同样不产生在本问卷中选定身份或给出解释的义务。"
+          }
+        ]
+      },
+      {
+        "id": "different-forms-of-attraction-counts",
+        "title": {
+          "en": "What the six choice counts mean",
+          "zh": "六种选项次数表示什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The personal record retains separate counts for 1 through 5 and prefer not to answer. If the four responses are 5, 2, 3 and 3, there are four numeric answers, two of them uncertain; the counts at 2 and 5 are one each and the count at 3 is two. The uncertain count is part of four, not an additional two answers.",
+            "zh": "个人记录分别保留1至5和不想回答的次数。若四题为5、2、3、3，则数字回答四题，其中两题暂不确定；2和5各一次，3两次。暂不确定包含在四题之内，不是额外多出两份回答。"
+          },
+          {
+            "en": "The record does not add those values to rank your ability to distinguish feelings. A 3 concerns whether a statement currently fits, not how much attraction you feel. Skips are not replaced with a middle choice or a zero. Even if all four statements are skipped, no absence of attraction, avoidance or identity can be inferred.",
+            "zh": "不把这些数字相加后排名区分能力。3关注当前是否符合某条描述，不是有多少吸引；跳过不补成中间选项或零。即使四题都跳过，也不能据此认定缺乏吸引、回避或某种身份。"
+          }
+        ]
+      },
+      {
+        "id": "different-forms-of-attraction-context",
+        "title": {
+          "en": "Examples of overlapping experiences",
+          "zh": "重叠体验的日常例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Someone might admire a musician’s style, enjoy talking with a friend and imagine a romantic relationship with another person. Those observations need not have one common meaning. Admiring a performance alone does not establish physical attraction; enjoying closeness alone does not establish a wish to date. Only you can decide what words are useful, including none.",
+            "zh": "有人欣赏一位音乐人的风格、享受与朋友聊天，又想象与另一人建立浪漫关系。这些观察无须归成同一种含义。欣赏表演本身不确立身体吸引，享受亲近本身也不确立约会愿望；用哪些词，包括不用词，由你决定。"
+          },
+          {
+            "en": "Another person might experience closeness, romantic imagination and physical attraction together and see no reason to divide them. The questionnaire does not require division as an achievement. It also does not ask you to test a feeling through touch, intimacy or a relationship, and no score could establish another person’s consent or wishes.",
+            "zh": "另一个人可能同时体验亲近、浪漫想象与身体吸引，觉得无须拆开。问卷不会把拆分当作应完成的成就，也不要求通过接触、亲密行为或关系验证感受；任何数字都不能确立他人的同意或意愿。"
+          }
+        ]
+      },
+      {
+        "id": "different-forms-of-attraction-differences",
+        "title": {
+          "en": "Distinguishing words is different from choosing a label",
+          "zh": "分辨说法与选择身份标签不同"
+        },
+        "paragraphs": [
+          {
+            "en": "This topic concerns the language you use for an experience. Noticing attraction concerns attending to that experience, and current patterns concerns descriptions across time or settings. You do not have to master one before reading another. There is no progression from confused to mature, and the five topics are not developmental stages.",
+            "zh": "本主题关注描述体验的语言，觉察关注留意体验，当前模式关注跨时间或情境的描述。不必先掌握一个再读下一个；五个主题不是从混乱走向成熟的阶梯，也不是发展阶段。"
+          },
+          {
+            "en": "Being able to name several feelings does not determine an orientation label, and using a label does not require separating every feeling. A distinction can be useful for one conversation yet irrelevant for another. Privacy remains a separate choice: understanding your own words never creates an obligation to explain them to a partner, friend, school or employer.",
+            "zh": "能说出几种感受不能确定取向标签，使用标签也不要求把每种感受拆清。同一个区分在一次谈话中有用，在另一次可能无关；隐私另行决定，理解自己的表达不产生向伴侣、朋友、学校或雇主说明的义务。"
+          }
+        ]
+      },
+      {
+        "id": "different-forms-of-attraction-observation",
+        "title": {
+          "en": "A small optional comparison",
+          "zh": "一个可以跳过的小比较"
+        },
+        "paragraphs": [
+          {
+            "en": "If it helps, privately choose one word you already use and ask what it describes in a particular moment. You might separate liking a conversation from wanting it to continue, without deciding anything beyond that. Leave unknowns as unknowns. The purpose is an optional description, not a demand for certainty or a diary that must be completed.",
+            "zh": "如果有帮助，可以私下选一个原本就在用的词，问它在某个时刻描述什么。例如把喜欢这段谈话与希望继续谈分开，其他都暂不决定。未知可以仍是未知，目的只是可选的描述，不是要求确定或完成日记。"
+          },
+          {
+            "en": "Do not arrange an encounter or disclose sensitive information just to obtain a clearer answer. You can abandon the comparison if it increases pressure or fails to fit your experience. The page collects no free text. A later record may differ, but that difference alone cannot establish a change in orientation, behavior or identity.",
+            "zh": "不必为了更清楚而安排接触或披露敏感信息。比较带来压力或不适合你的体验时，可以直接放下。本页不收集自由文本；以后记录不同，单凭差异也不能确立取向、行为或身份发生变化。"
+          }
+        ]
+      },
+      {
+        "id": "different-forms-of-attraction-limits",
+        "title": {
+          "en": "No ability grade or identity conclusion",
+          "zh": "不评能力，不给身份结论"
+        },
+        "paragraphs": [
+          {
+            "en": "These four original statements have not been validated as a measure of attraction differentiation, identity or maturity. There is no score, probability, norm or recommended label. Complete records and partial skips use the same general guide; when all twenty statements are skipped, the personal view contains only rights, privacy and safety information, without domain explanations.",
+            "zh": "这四条原创陈述未经吸引区分能力、身份或成熟度测量验证，没有分数、概率、常模或推荐标签。完整记录与部分跳过使用同一通用指南；二十题全部跳过时，个人页只保留权利、隐私和安全说明，不生成领域解释。"
+          },
+          {
+            "en": "Your responses remain in current-page memory and are cleared by reload, language changes, leaving or retaking. No answer storage, analytics or personal-result share is provided. This public page contains no personal choices. If real threats, coercion or pressure to disclose arise, prioritize safety and suitable support; no exercise requires proving a feeling.",
+            "zh": "回答只在当前页面内存，刷新、换语、离开或重测清除；不存回答、不接分析、不分享个人结果。本公开页不含个人选择。现实发生威胁、胁迫或被迫披露时，安全与适当支持优先，任何练习都不要求证明感受。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "current-patterns-and-uncertainty",
+    "directionIds": [
+      "PATTERN_CLARITY"
+    ],
+    "title": {
+      "en": "Current patterns and uncertainty",
+      "zh": "当前模式与不确定"
+    },
+    "headline": {
+      "en": "Describe what you notice without proving a stable pattern",
+      "zh": "描述当前线索，不必证明模式稳定"
+    },
+    "summary": {
+      "en": "Explore recurring feelings, changing contexts and unanswered questions. Read four-statement distributions and examples without a clarity grade, fixed identity claim or prediction of change.",
+      "zh": "理解反复感受、情境变化与暂未回答的问题，阅读四题分布和具体例子；不评清晰度，不宣布稳定身份，也不预测未来变化。"
+    },
+    "scoreReading": {
+      "en": "Read the counts for all five response choices and the explicit skip separately. A 3 is uncertainty about the statement, included among numeric answers; no sum, average, ranking or identity follows.",
+      "zh": "分别阅读五个数字选项与明确跳过的数量。3表示对题目暂时不确定，计入数字回答数；不产生合计分、均值、排名或身份结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Current patterns and uncertainty: Orientation Exploration Guide",
+        "zh": "当前模式与不确定：取向探索完整指南"
+      },
+      "description": {
+        "en": "Explore recurring feelings, changing contexts and unanswered questions. Read four-statement distributions and examples without a clarity grade, fixed identity claim or prediction of change.",
+        "zh": "理解反复感受、情境变化与暂未回答的问题，阅读四题分布和具体例子；不评清晰度，不宣布稳定身份，也不预测未来变化。"
+      }
+    },
+    "sections": [
+      {
+        "id": "current-patterns-and-uncertainty-scope",
+        "title": {
+          "en": "What current patterns means here",
+          "zh": "这里的当前模式指什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The four statements concern describing what seems stable or changes when looking back, treating contextual changes as information, identifying some recurring clues and acknowledging that an answer may remain unclear. Current pattern is a topic title, not a finding about you. This form sets no fixed month-long or three-month recall window.",
+            "zh": "四题涉及回看时描述哪些感受较稳定或有变化、把情境差异当作信息、说出一些重复线索，以及承认暂时没有清楚答案。当前模式是主题名称，不是已经对你得出的发现；本题本没有规定一个月或三个月的固定回顾期。"
+          },
+          {
+            "en": "You can respond using the wording of each statement and the experience you choose to consider, without creating a complete personal history. A remembered example is not proof of a lifelong pattern. Not having a description available also does not establish that you have no pattern, lack self-knowledge or need to find an answer before leaving.",
+            "zh": "可以按各条措辞与自己愿意考虑的体验作答，无须整理完整人生史。记得的例子不是终生模式的证明，暂时无法描述也不代表没有模式、不够了解自己，或必须找到答案才能离开。"
+          }
+        ]
+      },
+      {
+        "id": "current-patterns-and-uncertainty-counts",
+        "title": {
+          "en": "Counts do not measure clarity",
+          "zh": "选项次数不测量清晰度"
+        },
+        "paragraphs": [
+          {
+            "en": "The record shows the number of choices at 1, 2, 3, 4 and 5 plus explicit skips. For 3, 3, 3 and skip, there are three numeric responses, all three uncertain, and one skip. Those three uncertain choices are already included among numeric responses. They refer to whether the statements fit, not a declaration about identity.",
+            "zh": "记录分别显示1、2、3、4、5和明确跳过的次数。若为3、3、3、跳过，则数字回答三题，其中三题暂不确定，跳过一题；暂不确定已经包含在数字回答之中，关注题文是否符合，不是对身份的宣告。"
+          },
+          {
+            "en": "There is no total, average, clarity percentage or comparison with other people. Four choices at 5 do not establish a stable orientation, and four at 1 do not imply confusion or immaturity. If one topic is entirely skipped while others contain numeric answers, its four skips remain visible without replacement or inferred meaning.",
+            "zh": "没有总分、均值、清晰度百分比或人群比较。全选5不能确立稳定取向，全选1不表示混乱或不成熟。一个主题全跳过、其他主题有数字回答时，本组保留四个跳过，不补值也不解释原因。"
+          }
+        ]
+      },
+      {
+        "id": "current-patterns-and-uncertainty-context",
+        "title": {
+          "en": "A change in context is not a diagnosis",
+          "zh": "情境差异不是诊断"
+        },
+        "paragraphs": [
+          {
+            "en": "Someone may remember feeling interested in closeness during an unhurried conversation and having little space to notice feelings during a demanding week. They can describe the difference without deciding its cause. The questionnaire cannot separate changes in attention, circumstances, memory or attraction from this record, and it cannot explain what any difference means for identity.",
+            "zh": "有人记得在从容谈话中有靠近兴趣，忙碌的一周却几乎没有余地留意感受。可以描述差异，不决定原因。本记录不能分辨那来自注意、处境、记忆还是吸引的变化，也不能解释差异对身份意味着什么。"
+          },
+          {
+            "en": "Another person may describe a recurring experience in clear language while preferring no identity term. Someone else may use an identity term confidently while finding these particular statements difficult to answer. Neither situation is contradictory on the basis of this form. Your own description need not satisfy a consistency test set by a questionnaire or another person.",
+            "zh": "另一个人也许清楚描述反复体验，却不想用身份词；也有人确定自己的表达，却觉得这些题难答。本题本不能把任一种情况判为矛盾，你的描述无须通过问卷或旁人设定的一致性考试。"
+          }
+        ]
+      },
+      {
+        "id": "current-patterns-and-uncertainty-differences",
+        "title": {
+          "en": "Patterns, labels and privacy are different questions",
+          "zh": "模式、标签和隐私是不同问题"
+        },
+        "paragraphs": [
+          {
+            "en": "Noticing attraction concerns attention to a moment, and different forms of attraction concerns words for potentially overlapping experiences. This topic adds the possibility of looking across occasions. It does not turn several memories into verified evidence of permanence, and no number of matching answers makes the questionnaire an identity assessment.",
+            "zh": "觉察关注对某个时刻的留意，不同形式关注如何描述可能重叠的体验；本主题加入跨情境回看的可能。但几段记忆不因此成为永久性的核实证据，再多相同回答也不会使本问卷成为身份测评。"
+          },
+          {
+            "en": "Label comfort concerns whether particular language is useful or pressuring, while privacy concerns whether talking is safe and wanted. A clear private description does not require a public announcement. Uncertainty does not remove your right to make decisions about relationships, boundaries or whom to trust, and the record cannot decide those matters for you.",
+            "zh": "标签舒适度关注语言是否有帮助或带来压力，隐私关注是否安全且愿意谈起。私下描述清楚不要求公开宣布；暂不确定也不会取消你决定关系、边界或信任对象的权利，本记录不能替你决定。"
+          }
+        ]
+      },
+      {
+        "id": "current-patterns-and-uncertainty-observation",
+        "title": {
+          "en": "An optional note with room for unknowns",
+          "zh": "容纳未知的可选记录"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately name one thing you noticed more than once and one thing you do not know. For example, the same sort of conversation may have stayed with you on two occasions, while its meaning remains open. Stop at that description. No names, timeline, evidence file or explanation of another person’s feelings is required.",
+            "zh": "如有帮助，可私下写一条不止一次注意到的事情，以及一条不知道的事情。例如两次同类谈话都留在心里，含义仍然开放；可以就停在描述。不需要姓名、时间线、证据文件，或解释他人感受。"
+          },
+          {
+            "en": "You may skip the exercise, avoid writing anything on a shared device or decide not to look back again. There is no required retest interval. If two records differ, the difference alone establishes neither identity change nor identity stability. The site offers no method to change or suppress orientation and sets no preferred outcome for exploration.",
+            "zh": "可以跳过练习，不在共用设备记任何东西，或决定不再回看。重测没有固定周期；两次记录不同，单凭差异既不能确立身份改变，也不能确立身份不变。本网站不提供改变或压抑取向的方法，也不为探索指定理想结局。"
+          }
+        ]
+      },
+      {
+        "id": "current-patterns-and-uncertainty-limits",
+        "title": {
+          "en": "No certainty requirement",
+          "zh": "没有必须确定的要求"
+        },
+        "paragraphs": [
+          {
+            "en": "These original statements have no validated accuracy, reliability, norms or fairness evidence as a measure of pattern clarity. They cannot predict future feelings, prove a stable orientation or diagnose a problem. All twenty choices must be handled before a personal view is shown; explicit skips count as handled choices, without being treated as numeric answers.",
+            "zh": "这些原创陈述没有作为模式清晰度测量的准确率、信度、常模或公平性证据，不能预测未来感受、证明稳定取向或诊断问题。二十题都作选择后才展示个人页；明确跳过算已处理该题，但不算数字回答。"
+          },
+          {
+            "en": "All-skipped attempts show only rights, privacy, safety and an exit, without personal domain explanations. Other records remain in current-page memory with no saved draft, analytics or personal sharing, and clear on reload, language change, leaving or retaking. The public guide contains no personal record. If real safety concerns arise, you can leave immediately and seek suitable support.",
+            "zh": "全部跳过只显示权利、隐私、安全和退出，不生成个人领域解释。其他记录也仅在页面内存，不存草稿、不分析、不分享，刷新、换语、离开或重测即清除。公开指南不含个人记录；现实安全受威胁时，可直接离开并寻求适当支持。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "choosing-or-not-using-labels",
+    "directionIds": [
+      "LABEL_COMFORT"
+    ],
+    "title": {
+      "en": "Choosing or not using labels",
+      "zh": "选择使用或暂不使用标签"
+    },
+    "headline": {
+      "en": "A label can be useful language without becoming an obligation",
+      "zh": "标签可以是有用的语言，不必成为义务"
+    },
+    "summary": {
+      "en": "Explore labels as optional language: understanding, pressure, personal pace and continued observation. Read four-item response counts without recommending, validating or rejecting an identity.",
+      "zh": "把标签作为可选语言，理解它带来的帮助、压力、自主节奏与继续观察的空间；阅读四题回答次数，不替你推荐、认证或否定身份。"
+    },
+    "scoreReading": {
+      "en": "Read the counts for all five response choices and the explicit skip separately. A 3 is uncertainty about the statement, included among numeric answers; no sum, average, ranking or identity follows.",
+      "zh": "分别阅读五个数字选项与明确跳过的数量。3表示对题目暂时不确定，计入数字回答数；不产生合计分、均值、排名或身份结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Choosing or not using labels: Orientation Exploration Guide",
+        "zh": "选择使用或暂不使用标签：取向探索完整指南"
+      },
+      "description": {
+        "en": "Explore labels as optional language: understanding, pressure, personal pace and continued observation. Read four-item response counts without recommending, validating or rejecting an identity.",
+        "zh": "把标签作为可选语言，理解它带来的帮助、压力、自主节奏与继续观察的空间；阅读四题回答次数，不替你推荐、认证或否定身份。"
+      }
+    },
+    "sections": [
+      {
+        "id": "choosing-or-not-using-labels-scope",
+        "title": {
+          "en": "What label comfort covers",
+          "zh": "标签舒适度在记录什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The four statements concern noticing understanding or pressure from a label, knowing that using one is optional, keeping your own pace when others ask for a definition, and allowing continued observation after using a label. They ask whether descriptions fit now, rather than asking you to select or reveal the label itself.",
+            "zh": "四题关注觉察标签带来的理解或压力、知道使用与否可以选择、别人催促定义时保留自己的节奏，以及使用过标签后仍允许继续观察。题目问的是这些描述目前是否符合，不要求选择或透露标签本身。"
+          },
+          {
+            "en": "A term can make a conversation easier, connect an experience with language you value or feel too narrow in a particular setting. You may use it privately, publicly, provisionally or not at all. The questionnaire has no preferred label and no preferred choice between naming yourself and leaving the topic undescribed.",
+            "zh": "一个词可能让谈话更容易、连接你重视的体验，也可能在某个环境中显得太窄。可以私下、公开、暂时使用，或完全不用；问卷没有偏好的标签，也不偏好命名或不描述其中任何一种选择。"
+          }
+        ]
+      },
+      {
+        "id": "choosing-or-not-using-labels-counts",
+        "title": {
+          "en": "What is counted and what is not",
+          "zh": "哪些被计数，哪些不会推断"
+        },
+        "paragraphs": [
+          {
+            "en": "Each topic retains four choices, with five numeric categories and a separate skip category. If they are 2, 4, skip and 3, there are three numeric responses including one uncertain response, and one skip. The distribution does not reveal which label, if any, you use; it records only the categories you selected for these statements.",
+            "zh": "每个主题记录四个选择，分为五个数字类别与单独跳过。若为2、4、跳过、3，则数字三题，其中一题暂不确定，跳过一题。分布不能揭示你用了哪种标签或有没有使用，只记录对这些陈述所选的类别。"
+          },
+          {
+            "en": "No sum or average turns the answers into a label-fit score, openness grade or readiness level. Strong agreement with knowing you have a choice does not mean you should disclose anything. Disagreement does not establish shame, denial or a problem with identity. The form also does not interpret a skipped item as resistance.",
+            "zh": "不把答案相加或平均成标签匹配分、开放程度或准备等级。非常符合自己知道可以选择，不表示应该披露；不符合也不能确立羞耻、否认或身份问题。问卷同样不把跳过解读为抗拒。"
+          }
+        ]
+      },
+      {
+        "id": "choosing-or-not-using-labels-context",
+        "title": {
+          "en": "When words help and when they add pressure",
+          "zh": "语言有帮助或增添压力的情境"
+        },
+        "paragraphs": [
+          {
+            "en": "Someone might value a term in a private conversation while deciding that a work or family setting is not suitable for discussing it. Another person may prefer a broad description, their own phrase or no label. The same privacy decision can occur for many reasons. This record cannot explain those reasons or decide whether anyone is authentic.",
+            "zh": "有人在私人谈话中重视某个词，却觉得工作或家庭环境不适合讨论；也有人偏好宽泛描述、自己的说法或不用标签。相同的隐私选择可能有许多原因，本记录不能解释原因，也不鉴定谁是否真实。"
+          },
+          {
+            "en": "A friend might ask for a quick answer because they find labels familiar. You can still choose your own pace, decline the question or use only the wording you want to use. A respectful interaction leaves that choice with you. No exercise requires testing a label through dating, contact, disclosure or a relationship decision.",
+            "zh": "朋友可能因为熟悉标签而想要一个快速答案，你仍可按自己的节奏、拒绝这个问题，或只用愿意使用的表达。尊重边界的互动把选择留给你；练习不要求通过约会、接触、披露或关系决定验证标签。"
+          }
+        ]
+      },
+      {
+        "id": "choosing-or-not-using-labels-differences",
+        "title": {
+          "en": "A label is not the same as an experience or an announcement",
+          "zh": "标签、体验与公开不是一回事"
+        },
+        "paragraphs": [
+          {
+            "en": "Different forms of attraction concerns descriptions of experiences; current patterns concerns what you notice across occasions. This topic concerns optional language. A label need not summarize every feeling, and describing a feeling need not produce a label. These relationships cannot be converted into an identity classification from twenty general reflection statements.",
+            "zh": "不同形式关注体验的描述，当前模式关注跨情境留意到的线索，本主题关注可选的语言。标签不必总结所有感受，描述感受也不必产生标签；二十条通用观察题不能把这些关系转换成身份分类。"
+          },
+          {
+            "en": "Privacy and support concerns conditions for talking, which remain separate from how useful a word feels. Using a label does not authorize another person to publish it or request proof. Not using a label does not invalidate an experience. The guide also does not infer that a later change in wording must mean either a change or no change in identity.",
+            "zh": "隐私与支持关注谈起的条件，始终与一个词有多有用分开。使用标签不授权别人公开或索要证明，不使用也不否定体验。以后表达不同，本指南也不推断身份必然改变或必然不变。"
+          }
+        ]
+      },
+      {
+        "id": "choosing-or-not-using-labels-observation",
+        "title": {
+          "en": "A choice you can keep to yourself",
+          "zh": "可以只留给自己的选择"
+        },
+        "paragraphs": [
+          {
+            "en": "If it is useful and safe, privately consider whether a particular word helps you understand something, adds pressure or does both. You do not have to write the word down. You might simply note that you want time, that a term is useful in one setting or that you do not want to discuss the question.",
+            "zh": "在有帮助且安全的前提下，可以私下想想某个词是否帮助理解、带来压力，或两者都有。无须把词写下来；也许只需记得自己想要时间、某词在一个场合有用，或不想讨论这个问题。"
+          },
+          {
+            "en": "You can do nothing further. The page offers no text field, recommended list of identities or prompt to announce a conclusion. If someone is pressuring you, an optional exercise does not require a confrontation or explanation. Your practical safety can take priority over completing the questionnaire, discussing a label or making a record.",
+            "zh": "也可以不做后续。本页没有文本框、推荐身份列表或宣布结论的提示。有人施压时，可选练习不要求你与之对峙或解释；现实安全可以优先于完成问卷、讨论标签或留下记录。"
+          }
+        ]
+      },
+      {
+        "id": "choosing-or-not-using-labels-limits",
+        "title": {
+          "en": "No label recommendation or authenticity test",
+          "zh": "不推荐标签，不检验真实性"
+        },
+        "paragraphs": [
+          {
+            "en": "This original reflection form is not a validated measure of identity, acceptance or label fit. It provides no probability, norm, diagnosis or certificate and cannot determine or change orientation. You may skip individual statements or all twenty. All skips preserve your choice without replacing answers, assigning motives or creating personal domain interpretations.",
+            "zh": "本原创记录不是经验证的身份、接纳程度或标签匹配测量，不提供概率、常模、诊断或认证，也不能确定或改变取向。可逐题或二十题全部跳过；全部跳过保留选择，不补答案、不判动机、不生成个人领域解释。"
+          },
+          {
+            "en": "Answers and the personal record stay in current-page memory, without drafts, uploads of choices, analytics or personal-result sharing. Reload, language change, leaving and retaking clear them. This public guide contains no individual information. Real threats, forced disclosure or violence warrant suitable safety support, without waiting for any result or providing a label to this site.",
+            "zh": "回答与个人记录仅在页面内存，不存草稿、不上传逐题选择、不接分析、不分享个人结果；刷新、换语、离开或重测清除。公开指南不含个人信息。真实威胁、被迫公开或暴力应优先寻求适当安全支持，无须等结果或向本站提供标签。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "privacy-and-support",
+    "directionIds": [
+      "PRIVACY_SUPPORT"
+    ],
+    "title": {
+      "en": "Privacy and support",
+      "zh": "隐私边界与支持环境"
+    },
+    "headline": {
+      "en": "Your conditions for talking belong to you",
+      "zh": "是否谈起，以及在什么条件下谈，由你决定"
+    },
+    "summary": {
+      "en": "Explore privacy choices, safe conditions for talking and support that respects your pace. Read the four original statements without grading safety skills or encouraging disclosure.",
+      "zh": "理解保留隐私、谈起体验前的现实条件，以及尊重个人节奏的支持；阅读四条原题的分布，不评安全能力，不鼓励或要求公开。"
+    },
+    "scoreReading": {
+      "en": "Read the counts for all five response choices and the explicit skip separately. A 3 is uncertainty about the statement, included among numeric answers; no sum, average, ranking or identity follows.",
+      "zh": "分别阅读五个数字选项与明确跳过的数量。3表示对题目暂时不确定，计入数字回答数；不产生合计分、均值、排名或身份结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Privacy and support: Orientation Exploration Guide",
+        "zh": "隐私边界与支持环境：取向探索完整指南"
+      },
+      "description": {
+        "en": "Explore privacy choices, safe conditions for talking and support that respects your pace. Read the four original statements without grading safety skills or encouraging disclosure.",
+        "zh": "理解保留隐私、谈起体验前的现实条件，以及尊重个人节奏的支持；阅读四条原题的分布，不评安全能力，不鼓励或要求公开。"
+      }
+    },
+    "sections": [
+      {
+        "id": "privacy-and-support-scope",
+        "title": {
+          "en": "Four questions about choice and conditions",
+          "zh": "四条关于选择与条件的描述"
+        },
+        "paragraphs": [
+          {
+            "en": "This topic concerns distinguishing what to keep private from what you might share, considering safety and support before talking, deciding whether and when to disclose and to whom, and considering people who respect privacy without demanding a label. These are reflection prompts about conditions, not a test that can certify a person or environment as safe.",
+            "zh": "本主题涉及分辨哪些想留给自己、哪些愿意分享，谈起前考虑安全与支持，自己决定是否、何时、向谁公开，以及考虑尊重隐私且不催促定性的对象。题目用于回看条件，不能认证某个人或环境安全。"
+          },
+          {
+            "en": "Wanting support does not require revealing attraction, identity or questionnaire responses. Keeping something private does not require a justification. You can decide that one topic is suitable to discuss and another is not, or change a boundary later. None of those choices can be inferred from a distribution of four general statements.",
+            "zh": "想获得支持不要求透露吸引、身份或问卷回答，保留隐私也无须给理由。可以决定一个话题适合谈、另一个不适合，或以后调整边界；四条通用陈述的分布不能推断这些具体选择。"
+          }
+        ]
+      },
+      {
+        "id": "privacy-and-support-counts",
+        "title": {
+          "en": "The record is not a safety assessment",
+          "zh": "记录不是安全评估"
+        },
+        "paragraphs": [
+          {
+            "en": "Counts show how many of the four choices fall in each numbered category or the skip category. For 1, skip, 4 and 3, there are three numeric answers including one uncertain answer and one skip. A 3 refers to whether the statement currently fits. It does not certify that a situation is safe or describe a probability of harm.",
+            "zh": "次数表示四个选择分别落在哪个数字类别或跳过类别。若为1、跳过、4、3，则数字回答三题，其中一题暂不确定，跳过一题。3关注当前是否符合题文，不认证处境安全，也不描述伤害概率。"
+          },
+          {
+            "en": "No total or average is computed, and responses are not converted into a self-protection score, support level or readiness to disclose. Low agreement does not establish poor judgment, and high agreement does not guarantee protection. Skipped statements stay skipped without guessing why. Your real circumstances take priority over anything shown in a questionnaire.",
+            "zh": "不计算总分或均值，不转换为自我保护分、支持等级或公开准备度。不符合不能确立判断力差，非常符合也不保证安全。跳过原样保留，不猜原因；现实处境始终优先于问卷显示。"
+          }
+        ]
+      },
+      {
+        "id": "privacy-and-support-context",
+        "title": {
+          "en": "An example of keeping control of information",
+          "zh": "保留信息控制权的例子"
+        },
+        "paragraphs": [
+          {
+            "en": "A person may want to talk with a friend but prefer not to have messages forwarded, names repeated or screenshots taken. That is a practical boundary they can consider if talking is wanted and safe; it is not an instruction to start a conversation. The friend’s past behavior and the present circumstances cannot be verified by this test.",
+            "zh": "有人想与朋友聊聊，却不希望消息被转发、姓名被提起或画面被截图。若愿意且安全，这可以是一条现实边界，不是要求主动谈话的指令。朋友过往行为和眼下处境，本测试都无法核实。"
+          },
+          {
+            "en": "Someone else may use a shared device or live in a setting where a visible page title itself feels sensitive. The test is optional, and you can leave rather than answer. The site’s memory-only policy concerns its own response handling; it does not promise to erase browser history, operating-system captures, screenshots or another person’s observations of the screen.",
+            "zh": "另一个人可能使用共用设备，或处于连页面标题都显得敏感的环境。测试完全可选，可以离开而不作答。本网站的仅内存政策只涉及自身处理回答，不承诺清除浏览历史、系统截屏、截图或旁人对屏幕的观察。"
+          }
+        ]
+      },
+      {
+        "id": "privacy-and-support-differences",
+        "title": {
+          "en": "Privacy is separate from identity and certainty",
+          "zh": "隐私与身份、确定程度分开"
+        },
+        "paragraphs": [
+          {
+            "en": "The other four topics concern noticing, distinguishing experiences, describing patterns and choosing language. Understanding any of them does not remove your privacy rights. Neither a label nor a complete record gives a partner, family member, employer or school permission to demand your answers, and this form is unsuitable for screening or evaluating someone else.",
+            "zh": "其余四主题关注觉察、区分体验、描述模式和选择语言，理解其中任何一项都不会减少隐私权利。标签或完整记录不授权伴侣、家人、雇主或学校索要答案；本题本不适合筛选、考核或替他人作答。"
+          },
+          {
+            "en": "Support can concern an immediate practical need without discussing orientation at all. Conversely, talking about identity does not establish that support is trustworthy or available. The record cannot recommend a disclosure decision, certify confidentiality or tell you to confront someone. Those questions depend on circumstances that twenty general statements do not establish.",
+            "zh": "支持可以只针对眼前现实需要，完全不谈取向；谈起身份也不能证明支持可靠或可获得。本记录不能推荐是否公开、认证保密或要求与人对峙，这些问题所依赖的现实条件，不是二十条通用题能确立的。"
+          }
+        ]
+      },
+      {
+        "id": "privacy-and-support-observation",
+        "title": {
+          "en": "An optional consideration, without a disclosure task",
+          "zh": "可选的考虑，不设置公开任务"
+        },
+        "paragraphs": [
+          {
+            "en": "If helpful, privately consider what respectful support would need to avoid: pressure to name yourself, unwanted disclosure or demands for proof. You can consider a type of support rather than identify a person. No contact, written plan, message or conversation is required, and the page collects no free-text information about your circumstances.",
+            "zh": "如有帮助，可以私下想想尊重边界的支持应避免什么：催促定义、未经同意公开或索要证明。可以只考虑一类支持，不指定某个人；不要求联系、书面计划、消息或谈话，本页不收集现实处境的自由文本。"
+          },
+          {
+            "en": "You may skip that consideration entirely. If violence, threats, coercion, forced disclosure or immediate danger is already occurring, prioritize real-world safety and appropriate local emergency or qualified support services as circumstances allow. You do not need a test result first, and this general guide cannot guarantee a particular person, service or environment will be safe for you.",
+            "zh": "也可以完全跳过考虑。暴力、威胁、胁迫、被迫公开或紧迫危险已经发生时，应按现实条件优先保护安全，寻求适当的当地紧急或专业支持；无须先得到测试结果，本通用指南不能保证某人、服务或环境一定对你安全。"
+          }
+        ]
+      },
+      {
+        "id": "privacy-and-support-limits",
+        "title": {
+          "en": "What the page protects and what it cannot promise",
+          "zh": "页面实际处理范围与不能承诺之处"
+        },
+        "paragraphs": [
+          {
+            "en": "This original form has not been validated as a safety, support, identity or clinical measure. It cannot establish an orientation, grade coping or decide whether disclosure is advisable. All twenty choices, numeric or explicit skip, are required before any personal record; all-skipped attempts produce only rights, privacy and safety information, without domain interpretations.",
+            "zh": "本原创题本未经安全、支持、身份或临床测量验证，不能确立取向、评定应对或决定公开是否合适。二十题均作数字或明确跳过选择后才生成个人记录；全部跳过只显示权利、隐私和安全，不生成领域解释。"
+          },
+          {
+            "en": "The page keeps answers and results in memory only, with no drafts, answer uploads, analytics or personal-result share. They clear on reload, language change, leaving or retaking, while browser history and your own screenshots remain outside that promise. Public guides contain no responses. There is no obligation to continue, explain a skip or prove anything about yourself.",
+            "zh": "页面仅在内存保留回答和结果，不存草稿、不上传回答、不接分析、不分享个人结果；刷新、换语、离开或重测清除，浏览历史及自己的截图不在此承诺内。公开指南不含回答；无义务继续、解释跳过或证明自己。"
+          }
+        ]
+      }
+    ]
+  }
+]

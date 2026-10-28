@@ -5297,5 +5297,31 @@
       "whisky",
       "sake"
     ]
+  },
+  {
+    "slug": "orientation-exploration-test",
+    "code": "ORIENTATION_EXPLORATION",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Orientation Exploration Test",
+      "zh": "取向探索测试"
+    },
+    "description": {
+      "en": "Reflect privately with 20 original statements and five full free guides about attraction, patterns, labels and support. No orientation score or identity inference; every item can be skipped.",
+      "zh": "用20道原创题私下回看吸引、模式、标签与支持，阅读五篇完整免费指南。不产生取向分数或身份结论，每题可跳过，回答仅留当前页面内存。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "orientation_exploration_reflection_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "noticing-attraction",
+      "different-forms-of-attraction",
+      "current-patterns-and-uncertainty",
+      "choosing-or-not-using-labels",
+      "privacy-and-support"
+    ]
   }
 ]
