@@ -38,6 +38,25 @@ describe("friendship search intent and one canonical tool", () => {
     const { container } = render(await Page({ params: Promise.resolve({ locale: "zh" }) }));
     for (const phrase of ["你有多了解我", "谁更了解我", "同分共享名次", "六类混合题组", "当前不支持自行添加问题", "挑战90天到期", "最多保留1000条记录", "24道原创", "无需注册"]) expect(container.textContent).toContain(phrase);
   });
+  it.each(["en", "zh"] as const)("serves %s competitor comparison intent on the existing playable tool", async locale => {
+    const { container } = render(await Page({ params: Promise.resolve({ locale }) }));
+    const comparison = container.querySelector("#rikaido-alternative")!;
+    expect(comparison).not.toBeNull();
+    expect(comparison.querySelector("h2")).toHaveTextContent(locale === "en" ? "Rikaido alternative" : "Rikaido 的朋友默契替代玩法");
+    expect(comparison.querySelectorAll('th[scope="col"]')).toHaveLength(3);
+    expect(comparison.querySelectorAll('th[scope="row"]')).toHaveLength(4);
+    expect(comparison.textContent).toContain(locale === "en" ? "no affiliation" : "没有隶属或合作关系");
+    expect(comparison.textContent).toContain(locale === "en" ? "single-topic Love" : "单主题版本");
+    expect(comparison.textContent).toContain(locale === "en" ? "90 days" : "90天");
+    expect(comparison.textContent).toContain(locale === "en" ? "no import" : "不能直接导入");
+    expect(comparison.textContent).toContain(locale === "en" ? "Another device may still repeat" : "换设备仍可能重复");
+    const links = Array.from(comparison.querySelectorAll("a"), a => a.getAttribute("href"));
+    for (const path of ["#create", "/questions", "/how-to-play", "/scores"]) expect(links).toContain(`/${locale}/tests/play/friendship-quiz${path}`);
+    expect(links).toContain("https://rikaido.me/en/guide.html");
+    expect(links).toContain("https://rikaido.me/en/lab/read-results/");
+    expect(container.querySelectorAll('a[href="#rikaido-alternative"]')).toHaveLength(1);
+    if (locale === "en") expect(comparison.textContent).not.toMatch(/[\u4e00-\u9fff]/);
+  });
   it.each(["en", "zh"] as const)("keeps the %s public sharing instructions aligned with QR and Story behavior", locale => {
     const { container } = render(<PublicResource locale={locale} kind="how-to-play" />);
     const text = container.textContent!;

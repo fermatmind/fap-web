@@ -2,6 +2,7 @@ import Link from "next/link";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { JsonLd } from "@/components/seo/JsonLd";
 import FriendshipClient from "@/components/friendship/FriendshipClient";
+import RikaidoComparison from "@/components/friendship/RikaidoComparison";
 import { FriendshipNav, resourceMetadata } from "@/components/friendship/PublicContent";
 import "@/components/friendship/friendship.css";
 
@@ -33,6 +34,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <p className="fq-muted">{zh ? "免注册 · 30–150题 · 六种生活侧面" : "No signup · 30–150 questions · Full results free"}</p>
     </div><svg className="fq-art" viewBox="0 0 400 350" role="img" aria-label={zh ? "合成示例：猜中22/30，73%" : "Illustrative example: 22 of 30 matches, 73%"}><rect x="35" y="15" width="330" height="320" rx="30" fill="white" /><circle cx="200" cy="156" r="92" fill="none" stroke="#ede6fa" strokeWidth="14" /><circle cx="200" cy="156" r="92" fill="none" stroke="#7c3aed" strokeWidth="14" strokeDasharray="422 578" transform="rotate(-90 200 156)" strokeLinecap="round" /><text x="200" y="155" textAnchor="middle" fill="#312e81" fontWeight="750" fontSize="48">22/30</text><text x="200" y="195" textAnchor="middle" fill="#7c3aed" fontWeight="650" fontSize="30">73%</text><text x="200" y="285" textAnchor="middle" fill="#554666" fontSize="18">{zh ? "示例 · 每个答案都是个话题" : "Example · Every answer has a story"}</text></svg></section>
     <FriendshipNav locale={locale} />
+    <p className="fq-body"><a href="#rikaido-alternative">{zh ? "Rikaido 与费马的玩法规则比较" : "Compare Rikaido and FermatMind's game rules"} ↓</a></p>
     <div className="fq-body">
       <section id="create" className="scroll-mt-24"><FriendshipClient locale={locale} /></section>
       <section className="fq-section"><h2 className="text-3xl font-semibold">{zh ? "一份你来出题的朋友默契挑战" : "A friendship quiz you make, and your friends take"}</h2>
@@ -62,6 +64,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <p><Link href={`/${locale}/tests/play/friendship-quiz/questions`}>{zh ? "朋友二选一问题与打印活动" : "This or that questions for friends + printable quiz"} →</Link></p>
         <p><Link href={`/${locale}/tests/play/friendship-quiz/how-to-play`}>{zh ? "出题、分享与私人管理说明" : "How to create, share and manage your quiz"} →</Link></p>
       </section>
+      <RikaidoComparison locale={locale} />
       <section className="fq-section"><h2 className="text-2xl font-semibold">{zh ? "开始之前，你可能还想知道" : "Your friendship quiz questions, answered"}</h2>
         {faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}
       </section>
