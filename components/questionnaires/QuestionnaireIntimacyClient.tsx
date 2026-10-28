@@ -22,7 +22,7 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [result, setResult] = useState<Complete | null>(null);
   const [message, setMessage] = useState(""), [manual, setManual] = useState("");
-  const heading = useRef<HTMLHeadingElement>(null), revision = useRef(0);
+  const heading = useRef<HTMLHeadingElement>(null), progress = useRef<HTMLParagraphElement>(null), revision = useRef(0);
   const clear = useCallback(() => {
     revision.current += 1; setAnswers({}); setStage("welcome"); setPosition(0); setResult(null); setMessage(""); setManual("");
   }, []);
@@ -31,7 +31,7 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
     window.addEventListener("pagehide", leave); window.addEventListener("pageshow", restore);
     return () => { revision.current += 1; window.removeEventListener("pagehide", leave); window.removeEventListener("pageshow", restore); };
   }, [clear]);
-  useEffect(() => { if (stage !== "welcome") { heading.current?.focus(); heading.current?.scrollIntoView({ block: "start" }); } }, [stage, position]);
+  useEffect(() => { if (stage !== "welcome") { heading.current?.focus({ preventScroll: true }); (stage === "answer" ? progress.current : heading.current)?.scrollIntoView({ block: "start" }); } }, [stage, position]);
   function next() {
     const checked = scoreMiniIntimacyQuestionnaire(quiz, answers);
     if (checked.status === "invalid" || checked.status === "unavailable") { setMessage(zh ? "当前回答无法读取，请清除后重新开始。" : "These responses cannot be read. Clear and start again."); return; }
@@ -59,8 +59,8 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
         <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
-        <p data-intimacy-progress className="text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 条` : `Statement ${position + 1} of 24`}</p>
-        <h2 ref={heading} tabIndex={-1} id="intimacy-question" className="scroll-mt-40 text-2xl font-semibold leading-relaxed">{quiz.questions[position].prompt[locale]}</h2>
+        <p ref={progress} data-intimacy-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 条` : `Statement ${position + 1} of 24`}</p>
+        <h2 ref={heading} tabIndex={-1} id="intimacy-question" className="scroll-mt-24 text-2xl font-semibold leading-relaxed">{quiz.questions[position].prompt[locale]}</h2>
         <div role="radiogroup" aria-labelledby="intimacy-question" className="space-y-3">{quiz.questions[position].options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3">
           <input type="radio" name={quiz.questions[position].id} value={option.id} checked={answers[quiz.questions[position].id] === option.id} className="mt-1 size-5 shrink-0 accent-violet-700" onChange={() => { revision.current += 1; setAnswers({ ...answers, [quiz.questions[position].id]: option.id }); setMessage(""); setManual(""); setResult(null); }} />
           <span className="leading-7">{option.id === "na" ? "" : `${option.id} — `}{option.label[locale]}</span>
