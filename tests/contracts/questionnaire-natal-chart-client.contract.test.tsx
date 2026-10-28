@@ -38,6 +38,9 @@ describe("T199 memory-only native chart client and complete public prose", () =>
       const entry = renderToStaticMarkup(<NatalChartPage quiz={quiz} locale={locale} />);
       expect(entry).toContain(quiz.title[locale]);
       const dom = document.createElement("div"); dom.innerHTML = entry;
+      const motion = dom.querySelector("[data-natal-motion-guide]");
+      expect(motion?.querySelector("h2")?.textContent).toBe(quiz.natalChart.motion.name[locale]);
+      expect(Array.from(motion?.querySelectorAll("p") ?? []).map(p => p.textContent)).toEqual(quiz.natalChart.motion.paragraphs.map(p => p[locale]));
       expect(dom.querySelectorAll("[data-natal-aspect-definition]")).toHaveLength(5);
       expect(dom.querySelector("[data-natal-aspect-convention]")?.textContent).toBe(quiz.natalChart.aspects.convention[locale]);
       for (const reading of quiz.natalChart.aspects.readings) {
@@ -84,6 +87,9 @@ describe("T199 memory-only native chart client and complete public prose", () =>
   it("uses the actual selected signs and shows every body-role paragraph in the computed result", async () => {
     const view = render(<NatalChartClient quiz={quiz} locale="en" />); enter(); await calculate();
     expect(document.querySelectorAll("[data-natal-aspect-pair]")).toHaveLength(17);
+    expect(document.querySelectorAll("[data-natal-motion]")).toHaveLength(10);
+    expect(Array.from(document.querySelectorAll('[data-natal-motion-state="retrograde"]')).map(n => n.getAttribute("data-natal-motion"))).toEqual(["mercury", "mars", "uranus", "neptune", "pluto"]);
+    expect(document.querySelector('[data-natal-motion="sun"]')).toHaveTextContent("Direct");
     expect(document.querySelector('[data-natal-aspect-pair="neptune:pluto"]')).toHaveTextContent("Sextile");
     expect(document.querySelectorAll("[data-natal-body]")).toHaveLength(10);
     expect(document.querySelectorAll("[data-natal-body-reading]")).toHaveLength(10);
@@ -96,6 +102,18 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     expect(document.querySelector('[data-natal-element="water"]')).toHaveTextContent("0");
     change("natal-time", "09:00"); expect(document.querySelector("[data-natal-result]")).toBeNull();
     view.unmount();
+  });
+
+  it("renders the actual supported near-station minute without presenting it as an exact station time", () => {
+    const result = calculateNatalChart({ date: "2024-04-01", time: "22:14", zone: "UTC", latitude: "51.5", longitude: "-0.1", knownTime: true, coordinatesConfirmed: true }, Date.parse("2026-10-28T00:00Z"));
+    if (result.status !== "complete") throw new Error("Known station minute unavailable");
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={result.chart} locale={locale} />);
+      const motion = dom.querySelector('[data-natal-motion="mercury"]');
+      expect(motion?.getAttribute("data-natal-motion-state")).toBe("near-stationary");
+      expect(motion?.textContent).toBe(locale === "zh" ? "接近停滞" : "Near-stationary");
+      expect(dom.querySelectorAll("[data-natal-body]")).toHaveLength(10);
+    }
   });
 
   it("exposes an ambiguous minute with two unselected offsets and requires an explicit choice", async () => {
@@ -132,6 +150,7 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     const html = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={result.chart} locale="en" />);
     expect(html).toContain("data-natal-angle-unavailable"); expect(html).not.toContain("data-natal-rising-reading");
     expect(html.match(/data-natal-body-reading=/g)).toHaveLength(10);
+    expect(html.match(/data-natal-motion=/g)).toHaveLength(10);
     expect(html).not.toContain("Whole-sign house1");
   });
 

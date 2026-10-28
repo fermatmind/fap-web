@@ -24,6 +24,7 @@ export type NatalChartConfiguration = {
   ascendantRole: { topic: Text; paragraphs: Text[] };
   inventoryReading: { definition: Text; zero: Text };
   aspects: { maximumOrbDegrees: 8; introduction: Text; orbExplanation: Text; convention: Text; readings: NatalAspectReading[] };
+  motion: { method: "apparent-ect-central-60-30-v1"; stationToleranceDegreesPerDay: 0.0001; name: Text; paragraphs: Text[] };
   referencePoints: NatalReferencePoint[];
 };
 export type NatalChartQuestionnaire = Omit<Questionnaire, "kind" | "profiles"> & {
@@ -50,8 +51,8 @@ export function isNatalChartConfigurationValid(input: unknown): input is NatalCh
     || !Array.isArray(input.questions) || input.questions.length !== 0 || !Array.isArray(input.directions) || input.directions.length !== 0
     || !plain(input.source) || input.source.kind !== "fermatmind_original_natal_symbolic_reading"
     || input.source.formCode !== "fm_natal_known_time_core_v1" || input.source.itemBankVersion !== "fm_natal_known_time_core_v1"
-    || input.source.scoringVersion !== "fm_natal_ae2119_temporal051_whole_sign_aspects8_v2"
-    || input.source.resultContentVersion !== "fm_natal_twelve_signs_ten_roles_five_aspects_v2" || input.source.psychometricValidationCompleted !== false
+    || input.source.scoringVersion !== "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_v3"
+    || input.source.resultContentVersion !== "fm_natal_twelve_signs_ten_roles_five_aspects_motion_v3" || input.source.psychometricValidationCompleted !== false
     || typeof input.source.itemBankSha256 !== "string" || !/^[0-9a-f]{64}$/.test(input.source.itemBankSha256)
     || typeof input.source.resultContentSha256 !== "string" || !/^[0-9a-f]{64}$/.test(input.source.resultContentSha256)
     || !plain(input.natalChart)) return false;
@@ -75,6 +76,8 @@ export function isNatalChartConfigurationValid(input: unknown): input is NatalCh
     || !Array.from(c.aspects.readings).every((reading, index) => plain(reading)
       && reading.id === NATAL_MAJOR_ASPECTS[index].type && reading.targetDegrees === NATAL_MAJOR_ASPECTS[index].targetDegrees
       && text(reading.name) && text(reading.theme) && texts(reading.paragraphs, 2))
+    || !plain(c.motion) || c.motion.method !== "apparent-ect-central-60-30-v1" || c.motion.stationToleranceDegreesPerDay !== 0.0001
+    || !text(c.motion.name) || !texts(c.motion.paragraphs, 2)
     || !Array.isArray(c.referencePoints) || c.referencePoints.length !== 12 || !Array.from(c.referencePoints).every(point => plain(point)
       && typeof point.id === "string" && Boolean(point.id) && text(point.name) && typeof point.zone === "string" && point.zone.includes("/")
       && typeof point.latitude === "number" && Number.isFinite(point.latitude) && Math.abs(point.latitude) <= 90

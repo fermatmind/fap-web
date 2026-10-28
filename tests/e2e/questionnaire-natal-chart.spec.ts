@@ -48,6 +48,18 @@ for (const locale of ["en", "zh"] as const) {
     await page.evaluate(() => history.replaceState(null, "", location.pathname));
     await extra.scrollIntoViewIfNeeded(); await info.attach(`Natal-chart-${locale}-aspects-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await expect(result.locator("[data-natal-body]")).toHaveCount(10); await expect(result.locator("[data-natal-body-reading]")).toHaveCount(10);
+    await expect(result.locator("[data-natal-motion]")).toHaveCount(10);
+    expect(await result.locator('[data-natal-motion-state="retrograde"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("data-natal-motion")))).toEqual(["mercury", "mars", "uranus", "neptune", "pluto"]);
+    await expect(result.locator('[data-natal-motion="sun"]')).toHaveText(zh ? "顺行" : "Direct");
+    const tableRegion = result.getByRole("region", { name: zh ? "天体位置、视运动与宫位表" : "Body positions, apparent motion and houses table", exact: true });
+    if (await tableRegion.evaluate(el => el.scrollWidth > el.clientWidth)) {
+      await tableRegion.focus(); await page.keyboard.press("ArrowRight");
+      await expect.poll(() => tableRegion.evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
+    }
+    await result.locator('[data-natal-motion="mercury"]').scrollIntoViewIfNeeded();
+    const bodyLabel = await result.locator('[data-natal-body="mercury"] th').boundingBox(), regionBox = await tableRegion.boundingBox();
+    expect(bodyLabel!.x).toBeGreaterThanOrEqual(regionBox!.x);
+    await info.attach(`Natal-chart-${locale}-motion-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await expect(result.locator('[data-natal-body="sun"]')).toContainText(zh ? "双子座" : "Gemini"); await expect(result.locator('[data-natal-body="moon"]')).toContainText(zh ? "白羊座" : "Aries");
     await expect(result.locator("[data-natal-ascendant]")).toContainText(zh ? "狮子座" : "Leo");
     for (const role of quiz.natalChart.bodyRoles) for (const p of role.paragraphs) await expect(result.locator(`[data-natal-body-reading="${role.id}"]`)).toContainText(p[locale]);
@@ -67,7 +79,10 @@ for (const locale of ["en", "zh"] as const) {
   });
 
   test(`@release Natal chart ${locale}: unknown/gap/fold, actual future instant and polar downgrade`, async ({ page }, info) => {
-    await page.goto(entry); await page.locator("#natal-unknown-time").check();
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(entry);
+    const decline = page.getByRole("button", { name: zh ? "拒绝" : "Decline", exact: true }); if (await decline.count()) await decline.click();
+    await page.locator("#natal-unknown-time").check();
     await expect(box(page).getByRole("button", { name: zh ? "计算本次星盘" : "Calculate this chart", exact: true })).toBeDisabled();
     await expect(page.locator("#natal-time")).toHaveValue(""); await expect(box(page).locator("[data-natal-known-time-notice]")).toBeVisible();
     await page.locator("#natal-unknown-time").uncheck(); await enter(page, "2024-03-10", "02:30", "america-new-york"); await calculate(page, zh);
@@ -82,6 +97,13 @@ for (const locale of ["en", "zh"] as const) {
     await expect(box(page).locator("[data-natal-angle-unavailable]")).toBeVisible(); await expect(box(page).locator("[data-natal-body-reading]")).toHaveCount(10); await expect(box(page).locator("[data-natal-rising-reading]")).toHaveCount(0);
     for (const row of await box(page).locator("[data-natal-body]").all()) await expect(row).toContainText(zh ? "不可用" : "Unavailable");
     await page.locator("#natal-result-title").scrollIntoViewIfNeeded(); await info.attach(`Natal-chart-${locale}-polar-planets-retained`, { body: await page.screenshot(), contentType: "image/png" });
+    await expect(box(page).locator("[data-natal-motion]")).toHaveCount(10);
+    await enter(page, "2024-04-01", "22:14"); await page.locator("#natal-zone").fill("UTC"); await page.locator("#natal-confirm").check(); await complete(page, zh);
+    await expect(box(page).locator('[data-natal-motion="mercury"]')).toHaveAttribute("data-natal-motion-state", "near-stationary");
+    await expect(box(page).locator('[data-natal-motion="mercury"]')).toHaveText(zh ? "接近停滞" : "Near-stationary");
+    await expect(box(page).locator("[data-natal-result]")).toContainText("2024-04-01T22:14:00Z");
+    await box(page).locator('[data-natal-motion="mercury"]').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-near-station-minute`, { body: await page.screenshot(), contentType: "image/png" });
   });
 
   test(`@release Natal chart ${locale}: denied storage/clipboard, public links and clear/reload/locale/BFCache resets`, async ({ page }) => {
@@ -122,6 +144,7 @@ test("@release Natal chart: all26 public pages visibly render their complete tex
         await expect(reference.getByText(house.reading[locale as "en" | "zh"], { exact: true })).toBeVisible();
       }
       for (const reading of quiz.natalChart.aspects.readings) for (const p of reading.paragraphs) await expect(page.locator(`[data-natal-aspect-definition="${reading.id}"]`).getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
+      for (const p of quiz.natalChart.motion.paragraphs) await expect(page.locator("[data-natal-motion-guide]").getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
       await expect(page.locator("#natal-date")).toHaveValue(""); await expect(page.locator("[data-natal-result]")).toHaveCount(0);
     }
     const sections = profile ? profile.sections : quiz.guide;

@@ -1,6 +1,7 @@
 import * as Astronomy from "astronomy-engine";
 import { NATAL_BODIES, natalInventory, natalWholeSignHouse, readNatalCoordinate, type NatalBody, type NatalCoordinate } from "./natalChartCoordinates";
 import { readNatalGeography, resolveNatalTime, type NatalTimeResult } from "./natalChartTime";
+import { calculateNatalMotion, type NatalMotionReadout } from "./natalChartMotion";
 
 export type NatalChartInput = { date: string; time: string; zone: string; latitude: string; longitude: string; knownTime: boolean; coordinatesConfirmed: boolean; occurrence?: "" | "earlier" | "later" };
 export type NatalAscendant = { status: "computed"; coordinate: NatalCoordinate }
@@ -9,6 +10,7 @@ export type NatalChartReadout = {
   utc: string; offset: string; before1970: boolean;
   placements: { body: NatalBody; coordinate: NatalCoordinate; house: number | null }[];
   ascendant: NatalAscendant;
+  motion: NatalMotionReadout;
   inventory: NonNullable<ReturnType<typeof natalInventory>>;
 };
 export type NatalChartResult = Exclude<NatalTimeResult, { status: "resolved" }>
@@ -80,6 +82,7 @@ export function calculateNatalChart(input: unknown, now: number): NatalChartResu
     if (ascendant.status === "computed") for (const placement of placements) placement.house = natalWholeSignHouse(placement.coordinate.longitude, ascendant.coordinate.longitude);
     const inventory = natalInventory(placements);
     if (!inventory) return { status: "unavailable", reason: "ephemeris" };
-    return { status: "complete", chart: { utc: time.utc, offset: time.offset, before1970: time.before1970, placements, ascendant, inventory } };
+    const motion = calculateNatalMotion(time.epochMilliseconds);
+    return { status: "complete", chart: { utc: time.utc, offset: time.offset, before1970: time.before1970, placements, ascendant, inventory, motion } };
   } catch { return { status: "unavailable", reason: "ephemeris" }; }
 }

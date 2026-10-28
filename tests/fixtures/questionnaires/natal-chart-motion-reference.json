@@ -1,0 +1,70 @@
+{
+  "state": "Offline numerical outputs only for original fixed10flags and ONE newMercury station event;no library/code distribution or universal precision claim",
+  "reference": "SwissEphemeris2.10.03/Moshier FLG_MOSEPH|FLG_SPEED",
+  "fixedUTC": "2001-06-15T07:30:00Z",
+  "fixedFlags": [
+    {
+      "body": "sun",
+      "retrograde": false
+    },
+    {
+      "body": "moon",
+      "retrograde": false
+    },
+    {
+      "body": "mercury",
+      "retrograde": true
+    },
+    {
+      "body": "venus",
+      "retrograde": false
+    },
+    {
+      "body": "mars",
+      "retrograde": true
+    },
+    {
+      "body": "jupiter",
+      "retrograde": false
+    },
+    {
+      "body": "saturn",
+      "retrograde": false
+    },
+    {
+      "body": "uranus",
+      "retrograde": true
+    },
+    {
+      "body": "neptune",
+      "retrograde": true
+    },
+    {
+      "body": "pluto",
+      "retrograde": true
+    }
+  ],
+  "stationRows": [
+    {
+      "utc": "2024-04-01T22:04:00Z",
+      "longitude": 27.21861469416669,
+      "speedDegreesPerDay": 0.0008673962793913422,
+      "classAtAdoptedNumericalTolerance": "direct"
+    },
+    {
+      "utc": "2024-04-01T22:14:00Z",
+      "longitude": 27.218617826277747,
+      "speedDegreesPerDay": 4.651357834375881e-05,
+      "classAtAdoptedNumericalTolerance": "near-stationary"
+    },
+    {
+      "utc": "2024-04-01T22:24:00Z",
+      "longitude": 27.218615258553296,
+      "speedDegreesPerDay": -0.0007741567096542506,
+      "classAtAdoptedNumericalTolerance": "retrograde"
+    }
+  ],
+  "originalFixedSHA256": "03b4a7e423d0832726788a05fb1111f4e9b7ea3c1c6dd742d2e67425934d693d",
+  "stationRawSHA256": "c8582de8ed4acb7d3c959b80420a9b31bd257ac34410223c503437d76d5b1151",
+  "limitation": "At2024-04-01T22:14 both models fallwithin1e-4 numerical band while speed signs differ;not sameexactstationtimes or accuracy threshold."
+}

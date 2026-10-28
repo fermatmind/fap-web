@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { NatalChartQuestionnaire, NatalSignProfile } from "@/lib/questionnaires/natalChart";
 import type { NatalChartReadout } from "@/lib/questionnaires/natalChartCalculation";
-import type { NatalCoordinate } from "@/lib/questionnaires/natalChartCoordinates";
+import type { NatalBody, NatalCoordinate } from "@/lib/questionnaires/natalChartCoordinates";
 import { questionnaireGuidePath } from "@/lib/questionnaires/paths";
 import { calculateNatalAspects } from "@/lib/questionnaires/natalChartAspects";
 import { QuestionnaireReport } from "./QuestionnaireReport";
@@ -50,7 +50,7 @@ export function NatalChartAttribution({ quiz, locale }: { quiz: NatalChartQuesti
     <h2 id="natal-attribution" className="text-xl font-semibold text-slate-950">{zh ? "计算、符号与来源" : "Computation, symbols and sources"}</h2>
     <p>{zh ? "计算采用Astronomy Engine2.1.19（MIT）默认时标模型，民用时间解析采用Temporal polyfill0.5.1（ISC）；参考点来自IANA2026e公有领域表，浏览器时区规则可能使用不同版本的数据。天体采用视地心回归黄道位置，上升点通过真赤道与地平坐标变换求东方交点，宫位为整宫制。" : "Computation uses Astronomy Engine2.1.19 (MIT), with its default time-scale model, and Temporal polyfill0.5.1 (ISC) for civil time. Reference points come from IANA's public-domain2026e table; the browser may use a different time-zone data version. Positions are apparent geocentric tropical longitudes. The Ascendant is the eastern horizon intersection using true-equator/horizon rotations, with whole-sign houses."}</p>
     <p>{quiz.natalChart.boundaries.calculationVsMeaning[locale]}</p>
-    <p>{zh ? "星座与天体资料只用于说明出版方的符号约定。正文、例子与反思问题由费马原创，不复制竞品报告，也不继承心理测量效度或作者背书。本版展示十天体落点、上升点、整宫制宫位、五类主要相位和符号读法；暂不计算视逆行、天顶／天底／下降点或敏感点。" : "Sign and body references explain publisher conventions. FermatMind wrote the prose, scenes and reflection questions without copying a competitor report or claiming psychometric validation or author endorsement. This edition shows ten body placements, the Ascendant, whole-sign houses, five major aspects and symbolic readings. It does not currently calculate apparent retrograde, the Midheaven, IC, Descendant or sensitive points."}</p>
+    <p>{zh ? "星座与天体资料只用于说明出版方的符号约定。正文、例子与反思问题由费马原创，不复制竞品报告，也不继承心理测量效度或作者背书。本版展示十天体落点、上升点、整宫制宫位、五类主要相位、视运动标签和符号读法；暂不计算天顶／天底／下降点或敏感点。" : "Sign and body references explain publisher conventions. FermatMind wrote the prose, scenes and reflection questions without copying a competitor report or claiming psychometric validation or author endorsement. This edition shows ten body placements, the Ascendant, whole-sign houses, five major aspects, apparent motion labels and symbolic readings. It does not currently calculate the Midheaven, IC, Descendant or sensitive points."}</p>
     <details><summary className="cursor-pointer font-semibold">{zh ? "展开原始参考来源" : "Open original references"}</summary><ul className="mt-3 list-disc space-y-2 pl-5">{quiz.references.map(reference => <li key={reference.url}><a href={reference.url} className="underline">{reference.title[locale]}</a></li>)}</ul></details>
     <p><a className="underline" href="/licenses/natal-chart-third-party.txt">{zh ? "计算组件的版权与软件许可原文" : "Calculation software copyright and license notices"}</a></p>
   </section>;
@@ -72,11 +72,23 @@ export function NatalAspectGuide({ quiz, locale }: { quiz: NatalChartQuestionnai
   </section>;
 }
 
+export function NatalMotionGuide({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
+  return <section data-natal-motion-guide aria-labelledby="natal-motion-guide-title" className="my-8 space-y-4 leading-8">
+    <h2 id="natal-motion-guide-title" className="text-2xl font-semibold">{quiz.natalChart.motion.name[locale]}</h2>
+    {quiz.natalChart.motion.paragraphs.map((p, index) => <p key={index}>{p[locale]}</p>)}
+  </section>;
+}
+
 export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQuestionnaire; chart: NatalChartReadout; locale: Locale }) {
   const zh = locale === "zh", c = quiz.natalChart;
   const aspects = calculateNatalAspects(chart.placements);
   const degrees = (value: number) => `${(Math.floor(value * 10) / 10).toFixed(1)}°`;
   const bodyName = (id: string) => c.bodyRoles.find(role => role.id === id)!.name[locale];
+  const motionCell = (body: NatalBody) => {
+    const value = chart.motion[body], state = value.status === "computed" ? value.motion : "unavailable";
+    const labels = { direct: zh ? "顺行" : "Direct", retrograde: zh ? "Rx · 视逆行" : "Rx · Apparent retrograde", "near-stationary": zh ? "接近停滞" : "Near-stationary", unavailable: zh ? "不可用" : "Unavailable" };
+    return <td data-natal-motion={body} data-natal-motion-state={state} className="border-b border-slate-200 p-3">{labels[state]}</td>;
+  };
   const signContext = (coordinate: NatalCoordinate, role: string) => quiz.profiles[coordinate.signIndex].sections.find(section => section.id === role)!;
   const roleCard = (placement: NatalChartReadout["placements"][number], primary: boolean) => {
     const role = c.bodyRoles.find(item => item.id === placement.body)!, profile = quiz.profiles[placement.coordinate.signIndex];
@@ -97,10 +109,12 @@ export function NatalChartReport({ quiz, chart, locale }: { quiz: NatalChartQues
     <p className="leading-8">{c.boundaries.rounding[locale]}</p>
     {chart.ascendant.status === "unavailable" && <p data-natal-angle-unavailable role="status" className="rounded-lg border border-amber-300 bg-amber-50 p-4 leading-8">{zh ? "该坐标与时刻无法确定本版本要求的唯一东方上升点。十天体位置和计数保留，上升点与全部宫位不可用，不补造角度。" : "This time and location do not provide a unique eastern rising point under this version's method. The ten body positions and counts remain available; the Ascendant and all houses are unavailable, without a substituted angle."}</p>}
     <NatalWheel quiz={quiz} chart={chart} locale={locale} />
-    <div className="overflow-x-auto"><table className="w-full border-collapse text-left text-sm leading-7" data-natal-table><caption className="mb-3 text-left text-lg font-semibold">{zh ? "十天体位置与上升点" : "Ten body positions and the Ascendant"}</caption>
-      <thead><tr>{[zh ? "天体／点" : "Body / point", zh ? "星座内度数" : "Degrees within sign", zh ? "整宫制宫位" : "Whole-sign house"].map(label => <th key={label} scope="col" className="border-b border-slate-300 p-3">{label}</th>)}</tr></thead>
-      <tbody>{chart.placements.map((p, index) => <tr key={p.body} data-natal-body={p.body}><th scope="row" className="border-b border-slate-200 p-3">{index + 1}. {bodyName(p.body)}</th><td className="border-b border-slate-200 p-3">{coordinateLabel(quiz, p.coordinate, locale)}{p.coordinate.nearDisplayBoundary && <span className="block text-xs">{zh ? "距星座边界小于一个显示步长" : "Within one display step of a sign boundary"}</span>}</td><td className="border-b border-slate-200 p-3">{p.house ?? (zh ? "不可用" : "Unavailable")}</td></tr>)}
-        <tr data-natal-ascendant><th scope="row" className="p-3">{zh ? "上升点 ASC" : "Ascendant ASC"}</th><td className="p-3">{chart.ascendant.status === "computed" ? coordinateLabel(quiz, chart.ascendant.coordinate, locale) : (zh ? "不可用" : "Unavailable")}</td><td className="p-3">{chart.ascendant.status === "computed" ? "1" : (zh ? "不可用" : "Unavailable")}</td></tr>
+    <h3 id="natal-placements-title" className="text-xl font-semibold">{zh ? "十天体位置、视运动与上升点" : "Ten body positions, apparent motion and the Ascendant"}</h3>
+    <p className="text-sm leading-7">{zh ? "窄屏可横向滚动表格，查看全部列。视运动的数值约定见下方公开方法说明。" : "On narrow screens, scroll the table horizontally to see every column. The numerical motion convention is explained in the public method below."}</p>
+    <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={zh ? "天体位置、视运动与宫位表" : "Body positions, apparent motion and houses table"}><table aria-labelledby="natal-placements-title" className="min-w-max w-full border-collapse text-left text-sm leading-7" data-natal-table>
+      <thead><tr>{[zh ? "天体／点" : "Body / point", zh ? "星座内度数" : "Degrees within sign", zh ? "视运动" : "Apparent motion", zh ? "整宫制宫位" : "Whole-sign house"].map((label, index) => <th key={label} scope="col" className={`border-b border-slate-300 p-3${index === 0 ? " sticky left-0 z-20 bg-white" : ""}`}>{label}</th>)}</tr></thead>
+      <tbody>{chart.placements.map((p, index) => <tr key={p.body} data-natal-body={p.body}><th scope="row" className="sticky left-0 z-10 border-b border-slate-200 bg-white p-3">{index + 1}. {bodyName(p.body)}</th><td className="border-b border-slate-200 p-3">{coordinateLabel(quiz, p.coordinate, locale)}{p.coordinate.nearDisplayBoundary && <span className="block text-xs">{zh ? "距星座边界小于一个显示步长" : "Within one display step of a sign boundary"}</span>}</td>{motionCell(p.body)}<td className="border-b border-slate-200 p-3">{p.house ?? (zh ? "不可用" : "Unavailable")}</td></tr>)}
+        <tr data-natal-ascendant><th scope="row" className="sticky left-0 z-10 bg-white p-3">{zh ? "上升点 ASC" : "Ascendant ASC"}</th><td className="p-3">{chart.ascendant.status === "computed" ? coordinateLabel(quiz, chart.ascendant.coordinate, locale) : (zh ? "不可用" : "Unavailable")}</td><td className="p-3">{zh ? "不适用" : "Not applicable"}</td><td className="p-3">{chart.ascendant.status === "computed" ? "1" : (zh ? "不可用" : "Unavailable")}</td></tr>
       </tbody></table></div>
     <section aria-labelledby="natal-aspects-title" data-natal-aspects className="space-y-4 leading-8">
       <h3 id="natal-aspects-title" className="text-2xl font-semibold">{zh ? "本次十天体主要相位" : "This chart’s major ten-body aspects"}</h3>

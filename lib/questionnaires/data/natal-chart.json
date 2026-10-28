@@ -1,7 +1,7 @@
 {
   "slug": "natal-chart",
   "code": "FM_NATAL_CHART_CORE",
-  "version": "2026-10-28.2",
+  "version": "2026-10-28.3",
   "updated": "2026-10-28",
   "category": "fantasy",
   "kind": "natal-chart",
@@ -34,10 +34,10 @@
     "kind": "fermatmind_original_natal_symbolic_reading",
     "formCode": "fm_natal_known_time_core_v1",
     "itemBankVersion": "fm_natal_known_time_core_v1",
-    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_v2",
-    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_v2",
-    "itemBankSha256": "633f73f5e394b66b17e28843049bc55a628a8755732521ea3bc82373c830e716",
-    "resultContentSha256": "30cfb982d459c97a6a4a62338344b18089e0dcddbe76b38b9d05149b5a981091",
+    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_v3",
+    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_motion_v3",
+    "itemBankSha256": "6ebed7709080c93cccb7f44d64270362ddef9a3a2b44d44d4ab0213b3bfc64bf",
+    "resultContentSha256": "a0b51e5c55fb1816c859ae904c62bf3d17395ce1a1177daca614b5263026a1d0",
     "psychometricValidationCompleted": false
   },
   "natalChart": {
@@ -731,6 +731,24 @@
               "zh": "用一句话写意图，再用一句话写拟采取的行动，问两者靠什么连接、换一种行动是否也能服务原意。这个比较可做可不做；相位不预测对抗、伴侣或必须达到的完美平衡。"
             }
           ]
+        }
+      ]
+    },
+    "motion": {
+      "method": "apparent-ect-central-60-30-v1",
+      "stationToleranceDegreesPerDay": 0.0001,
+      "name": {
+        "en": "Apparent retrograde motion",
+        "zh": "视逆行"
+      },
+      "paragraphs": [
+        {
+          "en": "Apparent retrograde motion means a body seems to move backward against the sky from Earth's perspective. It arises from relative motion and does not mean the planet reverses its physical orbit. An Rx mark is therefore a motion label. It does not establish that a person turns energy inward, matures late or should avoid an activity.",
+          "zh": "视逆行指从地球视角看，天体似乎在天空背景中向后移动。这来自相对运动，不表示行星把实际轨道方向反转。因此，Rx 是运动标签，不证明一个人把能量转向内在、晚熟，或应避开某项活动。"
+        },
+        {
+          "en": "Motion is estimated from unrounded apparent longitudes 60 seconds before and after the chosen instant, then checked with 30-second neighbors. A rate with absolute value at most 0.0001° per day is labeled near-stationary under this website’s numerical convention; this does not certify an exact astronomical station. If calculations fail or the two estimates give different labels, that body’s motion is unavailable while its placement remains. The internal neighbors do not expand the allowed birth dates or permit a future birth time.",
+          "zh": "运动用所选时刻前后各60秒的未舍入视黄经估计，再用前后各30秒的邻点核对。速率绝对值不超过每天0.0001°时，按本网站的数值约定标为接近停滞；这不认证精确的天文停滞时刻。计算失败或两次估计给出不同类别时，该天体的运动不可用，原落点仍保留。内部邻点计算不扩大允许的出生日期，也不允许未来出生时间。"
         }
       ]
     }
@@ -2243,8 +2261,8 @@
       },
       "paragraphs": [
         {
-          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. It does not yet calculate other angles, retrograde flags or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
-          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位。其他角点、视逆行标记与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
+          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. Each body also has a numerical apparent-motion label. It does not yet calculate other angles or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
+          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位，并为每个天体提供数值视运动标签。其他角点与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
         }
       ]
     }
@@ -2485,6 +2503,13 @@
         "zh": "NASA：冥王星分类"
       },
       "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/"
+    },
+    {
+      "title": {
+        "en": "NASA: why apparent retrograde motion occurs",
+        "zh": "NASA：视逆行为什么发生"
+      },
+      "url": "https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question46.html"
     }
   ]
 }
