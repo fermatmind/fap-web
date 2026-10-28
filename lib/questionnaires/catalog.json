@@ -5065,5 +5065,57 @@
       "adapting-and-keeping-structure",
       "present-needs-and-future-plans"
     ]
+  },
+  {
+    "slug": "freelance-ready",
+    "code": "FM_FREELANCE_PREPARATION_ACTIONS20",
+    "version": "fm_freelance_ready20_preparation_v1",
+    "category": "everyday",
+    "title": {
+      "en": "Freelance Readiness Test",
+      "zh": "自由职业者准备程度测试"
+    },
+    "description": {
+      "en": "Review 20 preparation actions across service, agreements, resources, delivery and boundaries. Read all five complete guides for free, without a pass mark or success prediction.",
+      "zh": "按服务、约定、资源、交付与边界回看20项准备行动，免费阅读五份完整指南；不设合格线，也不预测职业成功。"
+    },
+    "minutes": 5,
+    "updated": "2026-10-28",
+    "collection": "explore",
+    "formCode": "fm_freelance_ready20_preparation_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "service-and-enquiries-reading",
+      "project-agreement-reading",
+      "operating-plan-reading",
+      "delivery-routine-reading",
+      "boundaries-and-review-reading"
+    ]
+  },
+  {
+    "slug": "remote-work",
+    "code": "FM_REMOTE_PREPARATION_ACTIONS20",
+    "version": "fm_remote_work20_preparation_v1",
+    "category": "everyday",
+    "title": {
+      "en": "Remote Work Readiness Test",
+      "zh": "远程工作准备程度测试"
+    },
+    "description": {
+      "en": "Review 20 actions for working conditions, planning, handover, help and boundaries. Explore five full guides without a personality ranking or remote-job pass mark.",
+      "zh": "回看工作条件、计划、交接、求助与边界的20项准备行动，免费阅读五份完整指南；不按人格排名，也不设远程岗位合格线。"
+    },
+    "minutes": 5,
+    "updated": "2026-10-28",
+    "collection": "explore",
+    "formCode": "fm_remote_work20_preparation_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "setup-and-access-reading",
+      "work-planning-reading",
+      "handover-and-decisions-reading",
+      "help-and-coordination-reading",
+      "boundaries-and-recovery-reading"
+    ]
   }
 ]

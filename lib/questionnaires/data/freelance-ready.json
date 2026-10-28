@@ -1,0 +1,1907 @@
+{
+  "slug": "freelance-ready",
+  "code": "FM_FREELANCE_PREPARATION_ACTIONS20",
+  "version": "fm_freelance_ready20_preparation_v1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "preparation-actions20",
+  "references": [
+    {
+      "title": {
+        "en": "JRC: EntreComp — entrepreneurship as a lifelong competence",
+        "zh": "JRC：EntreComp创业能力框架背景"
+      },
+      "url": "https://joint-research-centre.ec.europa.eu/scientific-activities/key-competences-lifelong-learning/entrecomp-entrepreneurship-competence-framework_en"
+    },
+    {
+      "title": {
+        "en": "JRC: competence areas and learning progress",
+        "zh": "JRC：能力领域与学习进程"
+      },
+      "url": "https://joint-research-centre.ec.europa.eu/scientific-activities/key-competences-lifelong-learning/entrecomp-entrepreneurship-competence-framework/competence-areas-and-learning-progress_en"
+    }
+  ],
+  "instructions": {
+    "en": "Choose one freelance project you are considering or currently arranging. Rate the preparation that still applies to it today. A real or fictional rehearsal can count as a trial; no paying client is required. Choose the stage you actually reached, not how confident you feel. Select the non-rating option when an item does not apply, cannot be assessed or is private. Every question needs a choice.",
+    "zh": "以一项你正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备。真实或虚构演练都可算试跑，不要求已有付费客户。按实际做到的阶段选择，不按信心高低选择。不适用、无法判断或不愿回答时可选非数值项；每题都需要作出选择。"
+  },
+  "title": {
+    "en": "Freelance Readiness Test",
+    "zh": "自由职业者准备程度测试"
+  },
+  "description": {
+    "en": "Review 20 preparation actions across service, agreements, resources, delivery and boundaries. Read all five complete guides for free, without a pass mark or success prediction.",
+    "zh": "按服务、约定、资源、交付与边界回看20项准备行动，免费阅读五份完整指南；不设合格线，也不预测职业成功。"
+  },
+  "resultHeading": {
+    "en": "Your current preparation actions",
+    "zh": "你当前的准备行动回顾"
+  },
+  "seoTitle": {
+    "en": "Freelance Readiness Test: 20 Actions and Full Results",
+    "zh": "自由职业者准备程度测试：20项行动与完整结果"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Choose one concrete arrangement and report what you have actually prepared so far. See five separate action-stage summaries, the individual choices and every complete public reading. The questions, method and explanations are original and are not a validated prediction of readiness.",
+    "zh": "选择一项具体安排，按目前实际做过的准备作答。查看五组独立阶段概括、逐题选择和全部完整公开指南。题目、方法与解释均为原创，不是已经验证的准备度预测。"
+  },
+  "source": {
+    "kind": "fermatmind_original_preparation_action_self_report",
+    "formCode": "fm_freelance_ready20_preparation_v1",
+    "itemBankVersion": "fm_freelance_ready20_preparation_v1",
+    "scoringVersion": "fm_preparation20_five_strict4_stage_means_1dp_v1",
+    "resultContentVersion": "fm_freelance_preparation_five_full_readings_v1",
+    "itemBankSha256": "5559a1561c9734bbfe8633e93cdbee00683fbece6ef992224e778509853bc61c",
+    "resultContentSha256": "6107089880978236585a1b090dee5a4bea69e70b5988a57cf7223c290c68fa0b",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "service-and-enquiries",
+      "title": {
+        "en": "Service and client enquiries",
+        "zh": "服务说明与客户了解"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "project-agreement",
+      "title": {
+        "en": "Project scope and agreements",
+        "zh": "项目范围与约定"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "operating-plan",
+      "title": {
+        "en": "Resources and operating plans",
+        "zh": "资源与经营安排"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "delivery-routine",
+      "title": {
+        "en": "Delivery routines",
+        "zh": "交付过程与跟进"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "boundaries-and-review",
+      "title": {
+        "en": "Boundaries, support and review",
+        "zh": "边界、支持与复盘"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FRA_01",
+      "prompt": {
+        "en": "Write down one concrete deliverable and who would use it.",
+        "zh": "写清一项具体交付物，以及谁会使用它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "service-and-enquiries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_02",
+      "prompt": {
+        "en": "Check a prospective client’s problem before proposing a solution.",
+        "zh": "先核对潜在客户要解决的问题，再提出方案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "service-and-enquiries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_03",
+      "prompt": {
+        "en": "Prepare a sample that can be shown without disclosing another client’s information.",
+        "zh": "准备一份可展示的样例，并排除其他客户的信息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "service-and-enquiries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_04",
+      "prompt": {
+        "en": "Rehearse one realistic way to explain your service to a potential client.",
+        "zh": "试演一种向潜在客户说明服务的实际方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "service-and-enquiries",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "service-and-enquiries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_05",
+      "prompt": {
+        "en": "Record what a proposed project includes and what it leaves out.",
+        "zh": "写明拟接项目包含什么、不包含什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "project-agreement",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "project-agreement",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "project-agreement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_06",
+      "prompt": {
+        "en": "Agree how a client would check and accept a deliverable.",
+        "zh": "就客户如何检查并确认交付物作出约定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "project-agreement",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "project-agreement",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "project-agreement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_07",
+      "prompt": {
+        "en": "Plan how an extra request would be discussed before more work begins.",
+        "zh": "安排新增要求在额外工作开始前如何讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "project-agreement",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "project-agreement",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "project-agreement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_08",
+      "prompt": {
+        "en": "Map milestones to the information and decisions each party must supply.",
+        "zh": "把里程碑与双方需提供的信息和决定对应起来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "project-agreement",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "project-agreement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "project-agreement",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "project-agreement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_09",
+      "prompt": {
+        "en": "Rehearse a simple cash-flow worksheet with hypothetical amounts and a late-payment scenario.",
+        "zh": "用虚拟金额和延期收款情境试做一份简单现金流表。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "operating-plan",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "operating-plan",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "operating-plan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_10",
+      "prompt": {
+        "en": "Allow time for administration and finding work as well as delivery.",
+        "zh": "在时间安排中计入行政和寻找项目，而不只计入交付。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "operating-plan",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "operating-plan",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "operating-plan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_11",
+      "prompt": {
+        "en": "Identify which local official requirements or record-keeping rules need checking for your arrangement.",
+        "zh": "标出当前安排需要向当地官方渠道核查的手续或记录要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "operating-plan",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "operating-plan",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "operating-plan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_12",
+      "prompt": {
+        "en": "Prepare a fallback for an essential resource becoming unavailable.",
+        "zh": "为一项关键资源临时不可用准备后备办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "operating-plan",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "operating-plan",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "operating-plan",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "operating-plan",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_13",
+      "prompt": {
+        "en": "Break a small deliverable into observable next actions.",
+        "zh": "把一项小交付物拆成看得见的下一步行动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "delivery-routine",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "delivery-routine",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "delivery-routine",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_14",
+      "prompt": {
+        "en": "Try a bounded work block and check what was actually completed.",
+        "zh": "试行一个有起止的工作时段，并核对实际完成内容。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "delivery-routine",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "delivery-routine",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "delivery-routine",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_15",
+      "prompt": {
+        "en": "Prepare a progress update that makes a delay or dependency clear.",
+        "zh": "准备一份能说明延迟或依赖条件的进度更新。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "delivery-routine",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "delivery-routine",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "delivery-routine",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_16",
+      "prompt": {
+        "en": "Rehearse a handover that lets the recipient find and use the final files.",
+        "zh": "试演一次让接收方能找到并使用最终文件的交接。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "delivery-routine",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "delivery-routine",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "delivery-routine",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "delivery-routine",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_17",
+      "prompt": {
+        "en": "Make your contact hours and response expectations explicit.",
+        "zh": "把可联系时段和回应预期说明白。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "boundaries-and-review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_18",
+      "prompt": {
+        "en": "Rehearse declining or renegotiating a request you cannot responsibly fulfil.",
+        "zh": "试演如何拒绝或重谈当前无法负责完成的要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "boundaries-and-review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_19",
+      "prompt": {
+        "en": "Identify an appropriate person or official resource for a question outside your expertise.",
+        "zh": "为超出自己专业范围的问题找到合适人员或官方资源。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "boundaries-and-review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRA_20",
+      "prompt": {
+        "en": "Review a trial project and record one change for the next attempt.",
+        "zh": "复盘一次试做项目，并写下下次要调整的一点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not started for this arrangement",
+            "zh": "针对当前安排尚未开始"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Drafted a plan, not yet tried it",
+            "zh": "已写出草案，尚未试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Tried it in a real or simulated task",
+            "zh": "已在真实或模拟任务中试跑"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Reviewed the trial and adjusted the plan",
+            "zh": "试跑后已复盘并调整"
+          },
+          "directionId": "boundaries-and-review",
+          "score": 3
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not applicable / cannot assess / prefer not to answer",
+            "zh": "不适用／无法判断／不愿回答"
+          },
+          "directionId": "boundaries-and-review",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "service-and-enquiries-reading",
+      "directionIds": [
+        "service-and-enquiries"
+      ],
+      "title": {
+        "en": "Service and Client Enquiries",
+        "zh": "服务说明与客户了解"
+      },
+      "headline": {
+        "en": "Turn a broad skill into an offer someone can understand.",
+        "zh": "把宽泛的技能，变成对方能理解的一项服务。"
+      },
+      "summary": {
+        "en": "Explore what you have prepared to explain an offer, ask useful client questions and show an appropriate sample.",
+        "zh": "回看你为说明服务、了解客户问题和展示适当样例做过哪些准备。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freelance Service Preparation: Clarify an Offer Before You Pitch",
+          "zh": "自由职业服务准备：先说清交付，再了解客户需求"
+        },
+        "description": {
+          "en": "Read four preparation actions for a freelance offer, client enquiries and safe samples. Use a small rehearsal without predicting sales or career success.",
+          "zh": "阅读自由职业服务说明、客户了解和样例展示的四项准备行动，用一次小演练核对问题，不据此预测成交或职业成功。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read the four action stages and their individual examples. A 0–3 mean is shown only when all four answers are numeric; a non-rating answer is not a zero.",
+        "zh": "先看四项行动各自做到哪一步。仅四项都为数值时显示0至3的均值；无法判断或不适用不等于零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Start with a usable offer",
+            "zh": "先把服务说到可讨论"
+          },
+          "paragraphs": [
+            {
+              "en": "A profession is broader than an offer. “I am a designer” leaves a prospective client guessing about the task, recipient and useful output. This area records preparation for making one offer understandable: describing a deliverable, checking the problem, preparing a suitable sample and rehearsing an explanation. It does not assess the quality of your design, the size of a market or whether somebody will buy.",
+              "zh": "“我会设计”还不能让合作方知道具体要买什么。可以先选一个小项目，说明要交付什么、由谁使用、解决哪件事。这一部分回看服务说明、需求了解、样例准备和沟通演练的进度。它没有检查作品质量、市场需求或客户是否会购买，也不把擅长某项技能直接等同于已具备经营条件。"
+            }
+          ]
+        },
+        {
+          "id": "distinctions",
+          "title": {
+            "en": "An enquiry is information, not a sales result",
+            "zh": "了解问题，不等于已经成交"
+          },
+          "paragraphs": [
+            {
+              "en": "A conversation can be useful even when it ends without a project. You might discover that the requested brochure is meant to support an event, while the real bottleneck is missing product information. Conversely, several friendly conversations may leave the intended user unclear. Record what you learned and what remains untested. Confidence, an existing network and an attractive portfolio are different pieces of evidence, rather than interchangeable signs of readiness.",
+              "zh": "例如，对方想做展会物料，先问清使用者、使用场景和已有信息，可能发现问题在于产品说明还没整理。一次沟通即使没有成交，也可能让你更清楚下一步；几次热情交谈也可能仍未弄清需求。把了解到的事实和待验证的假设分开，不能只凭“聊得很好”判断准备充分。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "A sample can miss the brief in two ways",
+            "zh": "样例与客户问题怎样错开"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an independent editor offering a sample rewrite for a small charity’s newsletter. A polished rewrite may still miss the brief if nobody clarified the readers or review process. Another editor may have a clear brief but only confidential client material to show. These situations call for different next steps: clarify the intended use in the first case, and make a fictional, shareable demonstration in the second. Neither situation establishes superior talent.",
+              "zh": "一位准备做培训课件的自由职业者，样例很好看，却还没问学员需要解决什么问题；另一位已经理解目标，却只能拿出包含前客户信息的材料。前者适合先补一次需求核对，后者可改用虚构内容制作可展示样例。两个缺口不能用同一个“提高自信”来解决，更不表示谁的专业能力更差。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Rehearse one enquiry before expanding the offer",
+            "zh": "先演练一次服务说明"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes example and write a short offer: the deliverable, its intended use and one question you still need answered. Ask a willing peer to play the client and explain what they think you are offering. Note one mismatch and revise the description. A private rehearsal counts as a trial here; it need not involve a paying client. Use invented details and obtain permission before showing anybody else’s work.",
+              "zh": "可以用一个虚构项目写下交付物、用途和一个仍需回答的问题，请愿意协助的人复述他理解的服务。比较双方理解，记录一个偏差，再调整说明。这是低成本演练，不要求立刻联系真实客户或收款。展示他人作品前应先取得相应许可，也不要把客户资料上传到本测试。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Access to clients is not evenly shared",
+            "zh": "机会和资源会影响演练条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Contacts, language access, available time and procurement rules affect whether you can practise these actions. A missing opportunity is not a character flaw. You can rehearse an enquiry without claiming that it proves demand, and ask someone familiar with the intended market what you have overlooked. If a task does not fit the arrangement you are considering, select the non-rating option rather than inventing experience to make the summary look complete.",
+              "zh": "能否接触客户，还受人脉、可用时间、语言环境和对方采购方式影响。暂时没有机会不等于个人不努力。你可以先做模拟了解流程，但不能把模拟反馈当成真实市场需求。某项行动确实不适用或暂时无法判断时，选择相应选项，不必为得到一个完整分数而编造经历。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Use the stage to choose a question to test",
+            "zh": "用阶段记录找下一件可核对的事"
+          },
+          "paragraphs": [
+            {
+              "en": "The four answers describe self-reported preparation stages, not selling ability. The same mean can hide a different unfinished action, so return to the item rows before choosing a next step. EntreComp supplies background ideas about opportunities and value creation; this original four-action grouping is not an EntreComp assessment or an independently validated sales measure. Revisit the answers when the offer, intended client or available evidence changes.",
+              "zh": "均值只概括你自报的准备阶段。两个人均值相同，未开始的具体行动可能完全不同，应回到逐题记录选择下一步。EntreComp提供机会与价值创造方面的背景思路；本组四项行动并非官方EntreComp量表，也没有验证销售能力。服务、目标客户或已有材料变化后，可以重新核对，而不是把一次结果当成固定标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "project-agreement-reading",
+      "directionIds": [
+        "project-agreement"
+      ],
+      "title": {
+        "en": "Project Scope and Agreements",
+        "zh": "项目范围与约定"
+      },
+      "headline": {
+        "en": "Make the work discussable before assumptions become extra work.",
+        "zh": "在默认理解变成额外工作之前，先把约定说清。"
+      },
+      "summary": {
+        "en": "Review your preparation for scope, acceptance, changes and the decisions a project depends on.",
+        "zh": "回看项目范围、验收方式、变更处理和决策依赖的准备进度。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freelance Project Agreements: Scope, Acceptance and Changes",
+          "zh": "自由职业项目约定：范围、验收与变更怎样准备"
+        },
+        "description": {
+          "en": "Explore four practical preparation actions for freelance project agreements, with a change-request rehearsal and clear limits on what a self-report can prove.",
+          "zh": "通过四项准备行动和一次变更请求演练，核对自由职业项目约定；了解自报记录能说明什么、不能证明什么。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read the four action stages and their individual examples. A 0–3 mean is shown only when all four answers are numeric; a non-rating answer is not a zero.",
+        "zh": "先看四项行动各自做到哪一步。仅四项都为数值时显示0至3的均值；无法判断或不适用不等于零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Separate promised work from assumptions",
+            "zh": "区分已约定工作和默认理解"
+          },
+          "paragraphs": [
+            {
+              "en": "A project becomes easier to discuss when both parties can identify the promised output and the decisions still needed. This area covers four preparations: stating the scope, discussing acceptance, planning a change conversation and mapping milestones to required inputs. It records whether you have drafted, tried or revised these actions. It does not determine whether a contract is legally valid, complete or suitable for a particular jurisdiction.",
+              "zh": "项目约定不仅是写一句“按时完成”。这一组关注范围、验收、变更和里程碑所依赖的信息，回看你是否已经写出、试行和调整这些安排。它没有审查合同条款，也不能判断某份约定在具体地区是否有效、完整或适用。遇到法律问题，仍需核查相应规则和合适的专业意见。"
+            }
+          ]
+        },
+        {
+          "id": "distinctions",
+          "title": {
+            "en": "Acceptance belongs in conversation",
+            "zh": "验收标准需要共同理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Your own checklist and the client’s acceptance process may be different. “Final files delivered” could mean editable files to you and a checked publication-ready package to someone else. A deadline also depends on timely feedback, access and decisions. Asking about these conditions is not the same as guaranteeing that everything will go to plan. The useful evidence is an agreed understanding, together with a way to revisit it when conditions change.",
+              "zh": "你认为“已交文件”，对方可能理解为还应包含可编辑源文件、使用说明或一次检查。截止日期也可能依赖对方及时反馈和提供资料。准备的重点是把这些依赖拿出来讨论，而不是承诺流程永远不会变化。即使双方已经沟通过，也要知道条件改变后由谁重新确认。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "The extra page that changes the job",
+            "zh": "一项追加要求怎样改变项目"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a freelance web developer asked to add a payment page near the end of a simple information-site project. The request may introduce new dependencies and responsibilities rather than “one more page.” A useful response distinguishes the original agreement from the new request, identifies what needs checking and discusses options before committing. A high self-reported preparation stage does not give the developer authority or expertise they do not possess.",
+              "zh": "例如，原来约定的是整理一份活动手册，临近交付时又提出同步制作报名页面。“多做一个页面”可能增加资料收集、协作和维护责任。可以先说明新增部分与原约定的区别，列出需核对的条件，再讨论处理方式。准备阶段较高，也不表示自己具备新增工作所需的全部专业能力或权限。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Rehearse one change request",
+            "zh": "试演一次变更沟通"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a fictional request that falls outside a small project’s stated scope. Practise a reply that acknowledges the need, explains the difference and offers a next conversation about timing or revised work. Ask the other person what they understood you to promise. Revise any ambiguous wording. Keep the exercise separate from sending a binding agreement or making a commitment to a real client.",
+              "zh": "给一个模拟项目加上一项超出范围的要求，试写回应：先确认对方的需要，再说明与原安排不同之处，最后提出下一步讨论。请协助者复述他认为你承诺了什么，找出容易误解的句子再修改。演练不等于发送合同，也不要求向真实客户作出新的承诺。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "A written plan cannot supply missing authority",
+            "zh": "写下计划并不能补足权限"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear document cannot substitute for approval from the person entitled to decide, access to required materials or an appropriate review process. Differences in bargaining power may also limit what you can negotiate alone. Identify who needs to join the discussion and what you cannot responsibly promise. Preparation can include seeking support or pausing a commitment; it need not mean accepting every request to keep the project moving.",
+              "zh": "清楚的文字不能代替有权决定的人确认，也不能自动获得资料、预算或审查支持。双方议价地位不同，还可能使个人难以单独协商。可以标出需要谁参与、哪些事情暂时不能负责承诺。准备行动有时是请求支持或暂缓确认，而不是为了继续推进就接受全部要求。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read all four answers together",
+            "zh": "把四项记录放在一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "This group’s mean appears only when all four actions have numeric answers. A non-rating answer withholds the mean rather than reducing the denominator or treating an unresolved condition as poor performance. Review the separate rows even when the number looks familiar. The grouping is an original planning aid informed by general planning and collaboration themes; it is not a contract review, negotiation certification or forecast of a dispute’s outcome.",
+              "zh": "只有四项都是数值选择时，这一组才显示均值；不适用或无法判断不会被当成表现差，也不会缩小分母后重新算一个分数。即使均值看起来相近，也应逐项查看。本组是围绕计划与协作主题原创的准备辅助，不是合同审查、谈判认证或争议结果预测。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operating-plan-reading",
+      "directionIds": [
+        "operating-plan"
+      ],
+      "title": {
+        "en": "Resources and Operating Plans",
+        "zh": "资源与经营安排"
+      },
+      "headline": {
+        "en": "Make resource assumptions visible before relying on them.",
+        "zh": "先看见资源假设，再决定怎样核对。"
+      },
+      "summary": {
+        "en": "Review how you have prepared for resource gaps, administration, record requirements and disrupted plans.",
+        "zh": "回看资源缺口、行政时间、记录要求和计划中断的准备行动。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freelance Operating Preparation: Resources and Contingency Plans",
+          "zh": "自由职业经营准备：资源、记录与后备安排"
+        },
+        "description": {
+          "en": "Explore a hypothetical cash-flow exercise, non-delivery time and fallback plans. No savings amount, tax advice or financial go-ahead is produced.",
+          "zh": "了解虚拟现金流演练、非交付时间和后备安排；不要求提供存款金额，也不输出税务意见或财务准入结论。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read the four action stages and their individual examples. A 0–3 mean is shown only when all four answers are numeric; a non-rating answer is not a zero.",
+        "zh": "先看四项行动各自做到哪一步。仅四项都为数值时显示0至3的均值；无法判断或不适用不等于零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A resource plan is more than confidence",
+            "zh": "资源安排不只是信心"
+          },
+          "paragraphs": [
+            {
+              "en": "Doing the work and sustaining the arrangement involve different questions. A delivery may require equipment, administrative time, a way to track expected payments and awareness of requirements that need local checking. This area records preparation for examining those questions. It does not inspect your finances or determine whether available resources are sufficient. You do not need to enter income, savings, account details or a client’s payment information.",
+              "zh": "能完成专业任务，与能持续安排项目，是不同的问题。设备、行政时间、预计收款和需要核查的当地要求，都可能影响实际安排。本组只回看你为了解这些条件做过什么，不检查真实财务，也不判断资源是否足够。作答不需要填写收入、存款、账户或客户付款信息。"
+            }
+          ]
+        },
+        {
+          "id": "distinctions",
+          "title": {
+            "en": "Forecasts, available resources and records differ",
+            "zh": "预测、现有资源和记录是三回事"
+          },
+          "paragraphs": [
+            {
+              "en": "A worksheet can show when a hypothetical payment might arrive; it cannot make that payment arrive. An estimate of delivery hours may also omit correspondence, finding work and correcting mistakes. Separately, identifying an official question to investigate is not the same as receiving a professional answer. Keep these distinctions visible. Otherwise, completing a planning exercise can create more certainty than the underlying information supports.",
+              "zh": "一张表能帮助看清“如果晚收到一笔款会怎样”，却不能让款项按时到账。时间估算还可能遗漏沟通、寻找项目和返工。找到一个应向官方渠道核查的问题，也不等于已经获得专业结论。把这些层次分开，避免因为表格已经填完，就以为真实条件全部落实。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "A late payment changes a plausible plan",
+            "zh": "一笔延迟怎样暴露计划假设"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a translator using invented figures to rehearse a small project’s timing. The first worksheet assumes immediate payment and uninterrupted access to a laptop. A second version moves payment later and adds a period without the device. The point is to locate the assumptions that drive the plan and the decisions that would need revisiting. The exercise does not establish a recommended financial buffer or tell the translator to leave employment.",
+              "zh": "例如，一位准备接短视频剪辑的人，用虚拟数字演练项目安排。第一版假设立即结款、设备始终可用；第二版把结款往后移，并加入设备需要维修的情境。比较两版，是为了找到影响安排的假设和需要重谈的决定，而不是计算统一的存款门槛，更不是决定是否辞职。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Change one assumption on paper",
+            "zh": "先在纸面改变一个条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one small, fictional project and list delivery time, administrative time, essential resources and expected payment timing. Change one condition and note which part of the plan no longer works. Write a question for an appropriate official or qualified resource if the change exposes an issue outside your knowledge. Keep this a paper rehearsal; no transfer, purchase, registration or financial commitment is required to complete it.",
+              "zh": "可以先列出一个虚构小项目的交付时间、行政时间、关键资源和预计结款顺序，再改变一个条件，看看哪部分安排需要重做。若发现自己不懂的手续或记录问题，写下要向合适官方渠道或专业人员核查的事项。这只是纸面演练，不要求转账、购买设备、注册业务或作出财务承诺。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Resource gaps may need support",
+            "zh": "有些缺口需要外部支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A resource constraint is not necessarily solved by greater discipline. Access to equipment, affordable services, advice and time may depend on circumstances beyond your control. A fallback should also be realistic and permitted, rather than borrowed resources you have not actually arranged. Mark uncertainty honestly. When a requirement depends on location or the type of work, consult an applicable current source instead of importing another country’s checklist unchanged.",
+              "zh": "资源不足不一定能靠更自律解决。设备、服务、建议和时间的获得，可能受个人难以控制的条件影响。后备办法也应是现实可用且获准的安排，不能默认可以借用尚未确认的资源。涉及地区或业务类型的事项，应查适用的当前信息，不能把其他地区的清单原样套用。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the process, not a financial verdict",
+            "zh": "读准备过程，不读财务结论"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean summarizes four self-reported action stages and cannot verify the resources behind them. Missing or non-applicable information withholds this group’s mean; it does not create a negative financial label. EntreComp includes resource and financial-literacy themes, but it supplies no validation for this original index. Keep the question rows and your separate private planning materials together when deciding which assumption needs checking next.",
+              "zh": "均值概括的是四项自报行动，不能验证背后的真实资源。不适用或无法判断会撤下本组均值，不会产生负面的财务标签。EntreComp包含资源与财务素养主题，但没有验证本工具的原创指数。下一步应结合逐题记录和你自己保管的计划材料，找出最需要核查的假设。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delivery-routine-reading",
+      "directionIds": [
+        "delivery-routine"
+      ],
+      "title": {
+        "en": "Delivery Routines",
+        "zh": "交付过程与跟进"
+      },
+      "headline": {
+        "en": "See whether a plan survives a small attempt.",
+        "zh": "通过一次小试行，看看计划怎样落到行动。"
+      },
+      "summary": {
+        "en": "Explore the preparation behind task breakdown, work blocks, progress updates and a usable handover.",
+        "zh": "回看任务拆解、工作时段、进度更新和可使用的交接怎样准备。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freelance Delivery Preparation: From Task Plan to Handover",
+          "zh": "自由职业交付准备：从任务计划到可使用的交接"
+        },
+        "description": {
+          "en": "Review four delivery actions, compare equal means with different gaps and try a small handover rehearsal without a performance rating.",
+          "zh": "回看四项交付行动，理解相同均值背后的不同缺口，用小交接演练改进安排，不据此评定工作表现。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read the four action stages and their individual examples. A 0–3 mean is shown only when all four answers are numeric; a non-rating answer is not a zero.",
+        "zh": "先看四项行动各自做到哪一步。仅四项都为数值时显示0至3的均值；无法判断或不适用不等于零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Make progress observable",
+            "zh": "让推进过程可以被核对"
+          },
+          "paragraphs": [
+            {
+              "en": "A delivery routine connects an intended output to the next action, a bounded attempt, an understandable update and a handover somebody can use. These are preparations for coordinating work, rather than a test of how fast you perform it. A person can have substantial professional experience while still needing to adapt the routine for a new kind of project, recipient or communication arrangement.",
+              "zh": "交付过程可以从下一步行动、一次有起止的试行、可理解的更新和对方能使用的交接来核对。本组关心这些准备，不测试你做得多快。即使已经有专业经验，换了项目类型、接收人或沟通安排，也可能需要重新试行流程，不能只凭过去习惯判断已经适用。"
+            }
+          ]
+        },
+        {
+          "id": "distinctions",
+          "title": {
+            "en": "Equal means can conceal different gaps",
+            "zh": "相同均值也可能有不同缺口"
+          },
+          "paragraphs": [
+            {
+              "en": "Four stages of 3, 3, 0 and 0 have the same mean, 1.5, as stages of 2, 2, 1 and 1. The first pattern leaves two actions unstarted; the second has drafts or trials for every action. Neither number alone says which arrangement will work. Inspect the item rows, especially an unfinished action that another person depends on, before deciding what to rehearse next.",
+              "zh": "四项为3、3、0、0，与2、2、1、1的均值都是1.5。前者有两项尚未开始，后者每项都有草案或试行。单看均值看不出这些差别，也不能据此判断哪种安排一定可行。先回到具体题目，特别留意别人需要依赖、却还没有开始准备的那一项。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "The files exist, but the handover does not",
+            "zh": "文件做完了，交接却没有完成"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a freelance analyst finishes a sample report but stores several versions with unclear filenames. A colleague acting as the recipient cannot tell which version to use or what still needs review. The useful discovery is a handover problem, not proof that the analysis is weak. A second trial can use a single final-file location, a short status note and an explicit remaining question.",
+              "zh": "例如，一位做品牌文案的自由职业者已经写好样稿，却留下多个难以区分的版本。请同伴扮演接收人后，才发现对方不知道哪份可用、哪里还待确认。这暴露的是交接问题，不直接证明文案能力不足。下一次可试用一个明确的文件位置、一条状态说明和一个待确认问题。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Run one small delivery loop",
+            "zh": "跑完一个小交付回路"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a fictional deliverable that can be attempted without a client commitment. Write three next actions, try a short work block and record what actually happened. Then prepare a progress update and ask a willing peer to locate the intended final output. Note where they needed clarification and revise the handover. The goal is a more inspectable routine, not proving uninterrupted productivity or an ideal workday.",
+              "zh": "选一个不涉及真实客户承诺的虚构交付物，写三步行动，试行一小段工作并记录实际过程，再准备进度说明，请愿意协助的人找到你要交的最终材料。记下他在哪一步需要追问，然后修改交接。练习目标是让流程更容易核对，不是证明自己能持续高效或拥有理想工作日。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Some dependencies belong to the project",
+            "zh": "有些依赖来自项目本身"
+          },
+          "paragraphs": [
+            {
+              "en": "Missing feedback, inaccessible materials and changing requirements can interrupt even a careful routine. Record those dependencies separately from the action you control. A useful update names the effect and requests a decision without pretending that a personal habit can resolve somebody else’s authority or availability. If the rehearsal exposes an unrealistic commitment, revisiting the agreement may be more useful than compressing the same work into less time.",
+              "zh": "反馈延迟、资料无法访问和要求变化，都可能打断认真安排的流程。可以把这些依赖与自己能控制的行动分开记录。有效更新应说清影响并请求相应决定，而不是假装改进个人习惯就能解决别人的权限或时间问题。如果承诺本身不现实，重新讨论约定可能比继续压缩工作时间更有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Use the record to improve one repeatable step",
+            "zh": "从记录中选择一个可重复改进的步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The four-action mean is an original reflection index, with equal weights declared for transparency. It is not a productivity norm, a client rating or evidence of consistent quality. A non-rating answer withholds this group’s mean while leaving other groups unchanged. Keep a small example of the revised routine privately if it helps you revisit the answers; the test does not need the document, recipient’s name or work files.",
+              "zh": "这四项采用等权均值，是为了让原创回顾方法可复算，不是生产力常模、客户评价或稳定质量的证明。不适用等选项只撤下本组均值，其他组不受影响。若有帮助，你可以自己保留一个改进后的流程例子供日后复盘；本测试不需要收取文档、接收人姓名或工作文件。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boundaries-and-review-reading",
+      "directionIds": [
+        "boundaries-and-review"
+      ],
+      "title": {
+        "en": "Boundaries, Support and Review",
+        "zh": "边界、支持与复盘"
+      },
+      "headline": {
+        "en": "Prepare a way to pause, ask and adjust.",
+        "zh": "给暂缓、求助和调整留出实际办法。"
+      },
+      "summary": {
+        "en": "Review contact expectations, difficult requests, suitable support and what you change after a trial.",
+        "zh": "回看联系预期、难以承接的要求、合适支持及试行后的调整。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freelance Boundaries and Review: Prepare a Sustainable Arrangement",
+          "zh": "自由职业边界与复盘：准备可以持续调整的安排"
+        },
+        "description": {
+          "en": "Explore four preparation actions for availability, renegotiation, support and review. A self-report does not certify resilience or predict freelance success.",
+          "zh": "探索联系边界、重新协商、求助和复盘四项准备行动；自报记录不能认证韧性，也不预测自由职业成功。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read the four action stages and their individual examples. A 0–3 mean is shown only when all four answers are numeric; a non-rating answer is not a zero.",
+        "zh": "先看四项行动各自做到哪一步。仅四项都为数值时显示0至3的均值；无法判断或不适用不等于零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A boundary needs a usable response",
+            "zh": "边界需要对应的回应办法"
+          },
+          "paragraphs": [
+            {
+              "en": "Knowing that you need limits is different from having a workable way to communicate them. This area records preparation for contact expectations, requests you cannot responsibly fulfil, questions outside your expertise and a review after a trial. It does not measure how resilient, agreeable or committed you are. A sustainable arrangement may involve support, a revised promise or a decision to postpone a particular project.",
+              "zh": "知道需要边界，与准备好怎样表达边界，是两回事。本组回看联系预期、暂时无法负责完成的请求、超出专业范围的问题和试行后的复盘。它不测量你是否坚强、好相处或投入。可持续的安排，有时来自外部支持、重谈承诺，或暂缓某个具体项目。"
+            }
+          ]
+        },
+        {
+          "id": "distinctions",
+          "title": {
+            "en": "Declining a request is not failing a test",
+            "zh": "拒绝一项要求，不是测试失败"
+          },
+          "paragraphs": [
+            {
+              "en": "A prepared response can be a clear “not under the current arrangement.” That is different from avoiding a conversation or agreeing first and hoping the problem disappears. Likewise, asking an appropriate person for help is not the opposite of independence. It can be part of acting responsibly when the work, a local requirement or the client’s situation calls for expertise you do not have.",
+              "zh": "一句“按目前条件还不能承接”，可能比先答应再设法补救更负责。它与回避沟通不同，也不意味着不够独立。遇到业务、适用要求或客户情境需要自己尚不具备的专业知识时，知道向谁求助，本身就是一种准备；不能把“凡事自己解决”设为更高的人格标准。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "An evening request reveals an unstated expectation",
+            "zh": "一条晚间消息怎样暴露默认预期"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an illustrator receiving an evening request for next-morning revisions. The difficulty may be an unclear response expectation rather than poor motivation. A rehearsal might distinguish acknowledgement from a delivery promise, explain the next available discussion point and ask which requirement is genuinely time-sensitive. If the client’s need cannot fit the arrangement, the next conversation concerns scope or alternatives, rather than a universal rule about working harder.",
+              "zh": "例如，对方晚上发来消息，希望第二天一早得到修改。问题可能在于回应预期从未说清，而不是自由职业者不够积极。演练时可以区分“已收到”与“承诺交付”，说明下次能讨论的时间，并核对真正紧急的部分。若双方条件确实不匹配，应讨论范围或替代办法，而不是默认只有加班这一种答案。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Practise a pause and a follow-up",
+            "zh": "练习一次暂缓与后续跟进"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a fictional request you cannot safely promise to complete. Draft a brief reply that states the constraint, names what needs clarification and proposes a next step you can actually offer. Ask a willing peer whether the reply sounds like a commitment you intended to make. After the rehearsal, record one change to your wording or process. You do not need to send the message to a real client.",
+              "zh": "给自己写一项当前无法负责承诺的虚构要求，试写简短回应，说明限制、待核对的信息和自己确实能提供的下一步。请愿意协助的人判断，他是否从中听到了你本来没打算作出的承诺。演练后修改一句话或一个流程即可，不需要把消息发给真实客户。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Support and negotiating room matter",
+            "zh": "支持和协商空间也很重要"
+          },
+          "paragraphs": [
+            {
+              "en": "Bargaining power, caring commitments, disability access and available professional support affect how a boundary can be negotiated. These conditions should not be converted into a personal deficiency. A small rehearsal may help clarify a request, but it cannot guarantee that another party will respect it. Where the issue involves rights, safety or a specialist obligation, seek an applicable official or qualified source rather than treating the test result as authority.",
+              "zh": "议价空间、照护安排、无障碍条件和专业支持，会影响边界怎样协商。它们不应被换算成个人不足。一次小演练可以帮助说清问题，却不能保证对方一定尊重约定。涉及权利、安全或专业责任的事项，应核查适用的官方或合格来源，不能把测试结果当作相应权威。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Review the arrangement when conditions change",
+            "zh": "条件改变时，重新回看安排"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean of four numeric stages describes the preparation you reported today. A non-rating answer withholds this group’s mean, and equal means do not imply identical needs for support. The original grouping draws on general themes of collaboration and learning through experience; it is not a resilience scale or a forecast of income. Return to one concrete example when the project or your circumstances change, rather than trying to maintain a particular score.",
+              "zh": "四项数值的均值描述今天自报的准备过程；不适用等选项会撤下本组均值，相同均值也不代表需要相同支持。本组参考协作与从经验中学习的一般主题，原创内容不是韧性量表，也不预测收入。项目或个人条件改变后，可以回到一个具体例子重新核对，不必为了维持某个分数而作答。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "reference-arrangement",
+      "title": {
+        "en": "Choose one current arrangement",
+        "zh": "选择一项当前安排"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose one freelance project you are considering or currently arranging. Rate the preparation that still applies to it today. A real or fictional rehearsal can count as a trial; no paying client is required. Choose the stage you actually reached, not how confident you feel. Select the non-rating option when an item does not apply, cannot be assessed or is private. Every question needs a choice.",
+          "zh": "以一项你正在考虑或安排的自由职业项目为参照，回看截至今天仍适用的准备。真实或虚构演练都可算试跑，不要求已有付费客户。按实际做到的阶段选择，不按信心高低选择。不适用、无法判断或不愿回答时可选非数值项；每题都需要作出选择。"
+        }
+      ]
+    },
+    {
+      "id": "action-stages",
+      "title": {
+        "en": "Four stages, plus a non-rating choice",
+        "zh": "四个行动阶段与非数值选择"
+      },
+      "paragraphs": [
+        {
+          "en": "The original response stages are 0: not started; 1: a draft not yet tried; 2: tried in a real or simulated task; 3: reviewed the trial and adjusted the plan. They describe reported actions, not competence levels or a validated learning scale. “Not applicable / cannot assess / prefer not to answer” is a valid separate choice, not a zero.",
+          "zh": "原创选项为0：尚未开始；1：已有草案但尚未试跑；2：已在真实或模拟任务中试跑；3：试跑后已复盘并调整。它们描述自报行动，不是能力等级或已验证的学习量表。“不适用／无法判断／不愿回答”是独立的有效选项，不算零。"
+        }
+      ]
+    },
+    {
+      "id": "calculation",
+      "title": {
+        "en": "Calculate each four-item group separately",
+        "zh": "每组四项分别计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group has four equally weighted actions. Only when all four answers are numeric do we add them and divide by four, rounding the displayed mean to one decimal place. For example, 0 + 1 + 2 + 3 = 6; 6 ÷ 4 = 1.5. A non-rating choice withholds that group’s sum and mean. We do not rescale three answers, fill missing information or let one group replace another. All twenty non-rating choices still lead to all five complete readings.",
+          "zh": "每组四项等权。只有四项均为数值时，才把它们相加、除以四，显示保留一位小数的均值。例如0＋1＋2＋3＝6，6÷4＝1.5。出现非数值选择时，该组不显示和或均值；不会把三项重新缩放，不补缺失信息，也不用别组抵消。本表二十项全部选非数值，仍可读五份完整指南。"
+        }
+      ]
+    },
+    {
+      "id": "close-values",
+      "title": {
+        "en": "Read close values through the individual actions",
+        "zh": "从具体行动理解相近数值"
+      },
+      "paragraphs": [
+        {
+          "en": "There is no overall score, ranked type, pass mark or readiness percentage. All five groups stay in a fixed order. Equal or close means can hide different unfinished actions and different resources; read the four rows and their stage counts before choosing a next step. The result cannot decide whether to quit a job, accept work, hire someone or make a financial commitment.",
+          "zh": "不计算总分，不排列主类型，不设合格线或准备度百分比。五组始终按固定顺序展示。相同或相近均值可能对应不同未完成行动和资源条件，应先看四项记录及阶段计数，再选择下一步。结果不能替你决定辞职、接项目、招聘或作出财务承诺。"
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-use",
+      "title": {
+        "en": "Keep work details out of the test",
+        "zh": "把工作细节留在测试之外"
+      },
+      "paragraphs": [
+        {
+          "en": "Only the selected stage is needed for each item. If you choose to save progress and session storage is available, this tab can keep a draft for resuming. It expires after 24 hours and clears on completion, retake or exit-and-clear. The result is calculated in the page, and public guide URLs do not contain your answers or values. Copying guide links shares the general readings. No project files, client names, credentials, income or savings figures are requested.",
+          "zh": "每题只需所选阶段。只有自愿开启进度保存、且会话存储可用时，本标签页才保存可恢复的草稿；24小时后失效，完成、重测或退出并清除时删除。结果在页面内计算，公开指南网址不含个人答案或数值；复制指南链接只分享通用说明。不要求提交项目文件、客户姓名、凭据、收入或存款数字。"
+        }
+      ]
+    },
+    {
+      "id": "source-boundary",
+      "title": {
+        "en": "Original questions and readings, with a clear source boundary",
+        "zh": "原创题目与指南的来源边界"
+      },
+      "paragraphs": [
+        {
+          "en": "JRC’s EntreComp framework supplies background themes such as opportunities, resources, planning, collaboration and learning through experience. Its fifteen competences and eight progression levels are not this test’s five groups or four response stages. FermatMind authored the questions, stage summary and complete readings independently. The tool has not been psychometrically validated and is not an official EntreComp assessment, business certification, legal review or financial recommendation.",
+          "zh": "JRC的EntreComp为机会、资源、计划、协作和从经验中学习等主题提供背景。它的十五项能力、八级学习进程，并不等于本表的五组和四个选项阶段。费马独立创作题目、阶段回顾和完整指南。本工具尚未完成心理测量验证，不是官方EntreComp测评、经营认证、法律审查或财务建议。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this freelance readiness test actually summarize?",
+        "zh": "这个自由职业者准备程度测试实际概括什么？"
+      },
+      "answer": {
+        "en": "It summarizes twenty self-reported preparation actions for one current arrangement, in five separate groups. It does not test craft skill, market demand, employability or the likelihood of business success.",
+        "zh": "它按五组概括针对一项当前安排的二十项自报准备行动，不测试专业技能、市场需求、录用条件或经营成功概率。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need real clients before taking it?",
+        "zh": "没有真实客户也能作答吗？"
+      },
+      "answer": {
+        "en": "No. You can choose a proposed project and use fictional materials for a rehearsal. A trial is not proof of demand or a reason to make a real commitment before checking the relevant conditions.",
+        "zh": "可以。选择拟议项目，用虚构材料演练即可。试跑不证明市场需求，也不构成在核对条件前向真实客户作出承诺的理由。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if something is not applicable or private?",
+        "zh": "有些内容不适用或不愿回答怎么办？"
+      },
+      "answer": {
+        "en": "Choose the non-rating option. It counts as an answered question, withholds only that group’s numeric summary and keeps all five complete readings available. It is never treated as zero.",
+        "zh": "可选非数值项。它算已作答，只撤下所在组的数字概括，五份完整指南仍可阅读，绝不补零。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can a higher mean tell me to leave employment?",
+        "zh": "均值更高，是否说明可以辞职？"
+      },
+      "answer": {
+        "en": "No. It records reported action stages, without verifying resources, rights, obligations, income or the quality of actual work. A job or financial decision needs separate evidence and judgment.",
+        "zh": "不能。它只记录自报阶段，没有核实资源、权利、义务、收入或实际工作质量。职业与财务决定需要另外的证据和判断。"
+      }
+    },
+    {
+      "question": {
+        "en": "How should I compare equal or close group values?",
+        "zh": "相同或相近的组数值怎样读？"
+      },
+      "answer": {
+        "en": "Read the individual actions and counts. Stages 3, 3, 0, 0 and 2, 2, 1, 1 both average 1.5 but leave different next steps. The groups are not ranked and cannot compensate for one another.",
+        "zh": "先看具体行动和计数。3、3、0、0与2、2、1、1的均值都是1.5，却对应不同下一步。各组不排名，也不能相互抵消。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I take another personality test afterwards?",
+        "zh": "做完是否必须继续人格测试？"
+      },
+      "answer": {
+        "en": "No. You can finish with one small preparation action. Career information or an interest assessment may help with a different question, but their results are not calculated from this checklist.",
+        "zh": "不必。可以选择一项小准备行动后结束。职业资料或兴趣测评可能帮助回答其他问题，但不能由这份清单换算出其结果。"
+      }
+    }
+  ]
+}
