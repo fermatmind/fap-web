@@ -4,6 +4,7 @@ import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialS
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { IqLandingPreview } from "@/components/tests/IqLandingPreview";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
+import { MbtiResultExamples } from "@/components/tests/MbtiResultExamples";
 import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
 import { applyTestDetailMetadataTitleTemplateGuard } from "@/lib/tests/metadataTitleTemplateGuard";
@@ -1535,6 +1536,8 @@ export default async function TestLandingPage({
             ) : null}
           </section>
           )}
+
+          {showsMbtiActions && locale === "en" ? <MbtiResultExamples /> : null}
 
           {showsIqActions ? <IqLandingPreview
             locale={locale}
