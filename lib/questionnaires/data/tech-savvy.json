@@ -1,0 +1,720 @@
+{
+  "slug": "tech-savvy",
+  "code": "FM_TECH_CONFIDENCE6",
+  "version": "fm_tech_confidence6_v1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Tech Savvy Test",
+    "zh": "技术素养自评测试"
+  },
+  "seoTitle": {
+    "en": "Tech Savvy Test: 6 Confidence Ratings, Full Guide Free",
+    "zh": "技术素养自评测试：6项工具信心与免费完整读法"
+  },
+  "description": {
+    "en": "Rate confidence with six tool-learning tasks. See your sum, rated count and continuous mean, plus the full guide free. No skill level or job ranking.",
+    "zh": "自评六种日常工具学习情境的信心，查看原始和、数字项数与连续均值，免费读完整说明；不判技能等级，不作职场排名。"
+  },
+  "minutes": 3,
+  "instructions": {
+    "en": "Think about the past month and rate your confidence in each of six small digital-tool tasks, from 1 (not at all confident) to 5 (very confident). Choose “No recent opportunity / prefer not to rate” when appropriate; it is unscored. All six prompts need a response before the result, with at least four numeric ratings for a mean. This is your confidence, not a demonstration of skill. Do not enter passwords, files or real account information. You can stop or read the full public guide without answering. Three minutes is an editorial estimate.",
+    "zh": "回想过去一个月，对六种小型数字工具任务的信心分别评价：1为完全没把握，5为很有把握；适当时可选不计分的“近期没有机会／不想评价”。六题都回应后才显示结果，至少四项数字才计算均值。这是你的信心自评，不是技能演示；不要输入密码、文件或真实账户信息。可以停止，或不答题直接读完整公开指南。三分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "Explore how confident you feel about getting started, checking a step, choosing features, repeating a demonstration, explaining a sticking point and trying a reversible example. Six original prompts produce one continuous self-rating, with no right answers or proficiency types. The full guide explains arithmetic, missing responses, contrasting examples and one optional harmless task. It records perceived confidence, without a skills audit, computer-literacy examination, workplace benchmark or hiring decision. Psychometric validation, population norms and cross-language equivalence have not been established.",
+    "zh": "探索你对开始操作、核对步骤、选择功能、重复演示、说明卡点和尝试可撤销示例有多大把握。六道原创题形成一个连续自评，没有正确答案，也不派熟练度类型。完整指南解释算式、未评分回答、对照例子和可选的小任务。本版记录主观信心，不实施技能审计、计算机知识考试、职场基准比较或招聘决策；尚未建立心理测量验证、人群常模和跨语言等值。"
+  },
+  "resultHeading": {
+    "en": "Your six tool-confidence ratings and full reading",
+    "zh": "六项工具信心自评与完整读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_tool_learning_confidence",
+    "formCode": "fm_tech_confidence6_v1",
+    "itemBankVersion": "fm_tech_confidence6_v1",
+    "scoringVersion": "fm_tech6_equalmean_min4_round1_v1",
+    "resultContentVersion": "fm_tech6_continuous_full_reading_v1",
+    "itemBankSha256": "2177447cb1f44eb304b930470867e3c5e6283e29332ae0470bcac5e755628814",
+    "resultContentSha256": "27b041842c90c630cc8875ac117ea0217eab38143024de79710bb0f8f8022e25",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "tool-confidence",
+      "title": {
+        "en": "Confidence with small tool-learning tasks",
+        "zh": "小型工具学习任务的信心"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "TSC_01",
+      "prompt": {
+        "en": "When I try an unfamiliar app using harmless sample data, I feel able to find the controls needed for a small first task.",
+        "zh": "用无敏感信息的示例数据尝试陌生应用时，我有把握找到完成一个小任务所需的基本控件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TSC_02",
+      "prompt": {
+        "en": "If a simple tool behaves differently from its instructions, I feel able to compare one setting or step at a time.",
+        "zh": "简单工具的表现与说明不同时，我有把握一次核对一个设置或步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TSC_03",
+      "prompt": {
+        "en": "When choosing between two tools for a small personal task, I feel able to state which features I actually need.",
+        "zh": "为一项小型个人任务比较两款工具时，我有把握说清自己实际需要哪些功能。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TSC_04",
+      "prompt": {
+        "en": "After a short demonstration, I feel able to repeat a new digital task using my own brief notes.",
+        "zh": "看过简短演示后，我有把握借助自己的简要笔记，重复完成一项新的数字操作。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TSC_05",
+      "prompt": {
+        "en": "If I cannot finish a tool-based task, I feel able to explain the goal, the step I reached and the help I need without sharing private data.",
+        "zh": "工具操作卡住时，我有把握在不分享隐私数据的前提下，说明目标、当前步骤和所需帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TSC_06",
+      "prompt": {
+        "en": "Before using an unfamiliar tool for something important, I feel able to try a small reversible example and check its output.",
+        "zh": "把陌生工具用于重要事情之前，我有把握先做一个可撤销的小示例，并核对输出。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all confident",
+            "zh": "完全没把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little confident",
+            "zh": "有一点把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat confident",
+            "zh": "有一定把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Quite confident",
+            "zh": "比较有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very confident",
+            "zh": "很有把握"
+          },
+          "directionId": "tool-confidence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No recent opportunity / prefer not to rate",
+            "zh": "近期没有机会／不想评价"
+          },
+          "directionId": "tool-confidence",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reading-your-confidence",
+      "directionIds": [
+        "tool-confidence"
+      ],
+      "title": {
+        "en": "Tech Confidence: Read Your Six Ratings",
+        "zh": "技术工具信心：六项自评的完整读法"
+      },
+      "headline": {
+        "en": "A continuous self-rating, with the task and support kept in view",
+        "zh": "连续的信心自评，需要连同任务和支持条件一起理解"
+      },
+      "summary": {
+        "en": "Read the six confidence prompts, their arithmetic, missing-answer policy, contrasting examples and an optional small experiment. No proficiency type or workplace comparison.",
+        "zh": "了解六种信心情境、算式、缺答政策、对照例子与可选小实验；不派熟练度类型，不作职场比较。"
+      },
+      "scoreReading": {
+        "en": "The mean describes only the numeric answers in this attempt. It needs at least four ratings after all six prompts are answered; insufficient coverage never becomes zero or a type.",
+        "zh": "均值只描述本次的数字回答。六题全部回应后仍需至少四项数字；资料不足不会变成零分或一种类型。"
+      },
+      "seo": {
+        "title": {
+          "en": "Tech Savvy Result: Your Confidence Ratings Explained",
+          "zh": "技术素养自评结果：六项工具信心的完整读法"
+        },
+        "description": {
+          "en": "Understand six tool-confidence ratings, raw arithmetic and missing answers, with worked examples and one optional sample task. No skill level or job-fit claim.",
+          "zh": "读懂六项工具信心自评、原始算式和未评分回答，查看具体算例与一个可选示例任务；不判技能等级，不推断职业适合度。"
+        }
+      },
+      "sections": [
+        {
+          "id": "confidence",
+          "title": {
+            "en": "A rating of confidence, not a skills demonstration",
+            "zh": "这是信心自评，不是技能演示"
+          },
+          "paragraphs": [
+            {
+              "en": "These six statements ask how confident you feel about starting, checking, choosing, repeating and discussing small digital tasks. They do not watch you complete those tasks. A confident answer can reflect familiarity, an accessible interface, a useful demonstration or available support. A hesitant answer can reflect an unfamiliar situation rather than inability. Neither answer establishes how accurately or quickly you would perform.",
+              "zh": "六句话询问你对开始、核对、选择、重复和讨论小型数字任务有多大把握，并没有观察你实际完成任务。有把握可能来自熟悉、界面容易使用、演示清楚或有人支持；犹豫也可能只是情境陌生，不等于做不到。无论怎样回答，都不能证明操作的准确度或速度。"
+            },
+            {
+              "en": "The prompts deliberately avoid a catalogue of fashionable apps. Knowing a product name, owning a device or enjoying new features is not required. Your rating belongs to these particular tasks and the recent situations you considered; it is not a universal identity such as beginner, expert or digital native.",
+              "zh": "题目刻意不罗列流行应用。你不需要认得产品名、拥有某种设备，也不需要喜欢新功能。数值只对应这些具体任务和你想到的近期情境，不赋予“新手”“专家”或“数字原住民”等普遍身份。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "How the six answers become one continuous mean",
+            "zh": "六项回答怎样形成连续均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each numeric choice contributes its displayed value from 1 to 5. All six prompts need either a number or the explicit no-opportunity / prefer-not-to-rate choice before an attempt finishes. The latter is excluded from the sum and denominator; it is never zero or a presumed low rating. There are no reverse items or hidden weights.",
+              "zh": "每个数字选项按显示的1至5计入。六题都需要选择数字或明确的“近期没有机会／不想评价”，本次作答才结束。后一种选择不进入和与分母，既不是零分，也不被假定为较低评价。本版没有反向题或隐藏权重。"
+            },
+            {
+              "en": "With at least four numeric responses, divide their sum by their count and round to one decimal. Ratings 2, 3, 4, 4 and 5 plus one unscored response give a sum of 18, five ratings and a mean of 3.6. With only three numeric responses, the page reports insufficient information and shows this general guide. The four-response rule is an editorial completeness policy, not a validated threshold.",
+              "zh": "至少四项有数字时，用原始和除以数字项数，再四舍五入保留一位小数。例如2、3、4、4、5及一个不计分回答，原始和为18，数字项数为5，均值为3.6。只有三项数字时，页面显示资料不足，并保留这份通用完整指南。“至少四项”是本版的编辑完整度政策，不是经过验证的阈值。"
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": {
+            "en": "Keep the six task contexts in view",
+            "zh": "把六种任务情境留在视野内"
+          },
+          "paragraphs": [
+            {
+              "en": "Finding a first control and repeating a demonstrated task concern different moments of learning. Checking one step when output is unexpected asks about a bounded comparison. Stating necessary features asks whether you can describe a local need. Explaining a sticking point concerns asking for useful help. Testing a reversible example concerns the confidence to check before relying on a tool.",
+              "zh": "找到第一个控件与重复演示任务，对应学习的不同阶段。输出出乎预期时一次核对一步，是有边界的比较；说清必要功能，是描述眼前需要；解释卡点，涉及怎样提出有用的求助；先试可撤销示例，则涉及依赖工具之前是否有把握进行核对。"
+            },
+            {
+              "en": "An average does not show which of these situations was easiest to imagine. Revisit your own selected options if the distinction matters. Do not read one overall number as six proven strengths, or treat an unscored task as a weakness. Limited access, a poor demonstration, language and accessibility conditions can change what you have had a chance to try.",
+              "zh": "平均数不会说明哪种情境最容易想象。若这些区别与你有关，可以回看自己的具体选项；不要把一个均值读成六种已经证实的长处，也不要把未评分任务当作弱点。接触机会有限、演示不清、语言或可访问性条件，都可能影响你有机会尝试什么。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Equal means can come from different stories",
+            "zh": "相同均值可以来自不同经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose one person rates four familiar tasks as 4 and leaves two unfamiliar tasks unscored. Another rates all six tasks as 4. Both means are 4.0, while their coverage differs. Or compare 1, 2, 3, 4, 4, 4 with six 3s: both sums are 18 and both means 3.0, yet the individual patterns differ. The page keeps the numeric-response count visible for this reason.",
+              "zh": "假设一人把四项熟悉任务都评为4，另外两项因陌生而不评分；另一人六项都评为4。两者均值都是4.0，覆盖范围却不同。再比较1、2、3、4、4、4与六个3：两组和均为18、均值均为3.0，逐项模式仍不同。因此页面会同时保留数字项数。"
+            },
+            {
+              "en": "There is no workplace benchmark, percentile or meaningful-change cutoff here. A later difference may follow a new task, different support or a changed interpretation of an anchor. You may record that context privately if useful; the quiz cannot separate those possibilities or certify progress from a number alone.",
+              "zh": "这里没有职场基准、百分位或有意义变化的界线。以后数值不同，可能因为换了任务、支持条件变了，或对选项的理解不同。若有用，你可以私下记下情境；本测试无法区分这些原因，也不能只凭数值认证进步。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "One optional experiment with a harmless example",
+            "zh": "可选：用无敏感信息的小例子试一次"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one task you actually want to do, such as arranging three invented appointments in a sample calendar. Write the intended result in one sentence, try it with dummy entries, then compare the visible output with that sentence. If you get stuck, note the exact step rather than concluding that you are bad at technology. Asking someone to explain one control is an equally valid next step.",
+              "zh": "选一项你确实想做的小任务，例如在示例日历中排列三个虚构约会。先用一句话写下预期结果，用虚构条目尝试，再对照屏幕输出与那句话。若卡住，记下具体步骤，不必据此认定自己“不擅长技术”。请人解释一个控件，也是同样有效的下一步。"
+            },
+            {
+              "en": "This is a suggestion for comparison, not homework, a performance test or a reason to buy software. Keep private files, credentials and real account changes out of the example. A high rating does not make an unfamiliar tool safe; a low rating does not oblige you to practise. You can finish with the reading alone.",
+              "zh": "这只是可选的比较办法，不是作业、表现测试或购买软件的理由。示例不应包含私密文件、凭据或真实账户变更。较高自评不能证明陌生工具安全，较低自评也不要求你练习。只读完这份说明就结束，也完全可以。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Privacy, choice and the limits of this reading",
+            "zh": "隐私、选择与本篇读法的界限"
+          },
+          "paragraphs": [
+            {
+              "en": "The website calculates the result in the page. Optional progress saving uses this tab’s session storage, expires after 24 hours and clears on completion, retake or exit-and-clear. Copying contains the test title, a general reading label and a public link, without your six answers, sum or mean. The public guide can be read before taking the quiz.",
+              "zh": "网站在页面中计算结果。可选进度保存使用本标签页的会话存储，24小时后失效，完成、重测或退出清除后删除。复制内容只有测试标题、通用读法名称和公开链接，不含六项回答、原始和或均值。无需答题，也能先读这份完整公开指南。"
+            },
+            {
+              "en": "This original short self-report has no established psychometric validation, cross-language equivalence or population norms. It does not measure general digital competence, anxiety, intelligence, job readiness, salary potential or suitability for recruitment. If you need evidence of a particular skill, a clearly defined task and its checked output answer a different question; this confidence mean cannot substitute for that evidence.",
+              "zh": "这份原创简短自评尚未建立心理测量验证、跨语言等值或人群常模。它不测量一般数字能力、焦虑、智力、工作就绪度、薪资潜力或招聘适合度。若你需要某项具体技能的证据，定义明确的任务及经核对的输出回答的是另一个问题；本篇的信心均值不能替代这类证据。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "One continuous mean",
+        "zh": "一个连续均值"
+      },
+      "paragraphs": [
+        {
+          "en": "All six original prompts need a numeric 1–5 choice or an explicit unscored response. Add numeric values only and divide by their count, with at least four numeric answers; round to one decimal. There are no reverse items, hidden weights, percentages or low/medium/high cutoffs.",
+          "zh": "六道原创题都需选择1至5或明确不计分回答。只把数字相加，除以数字项数；至少四项数字，均值四舍五入保留一位小数。没有反向题、隐藏权重、百分比或低中高阈值。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "What the number describes",
+        "zh": "数值描述什么"
+      },
+      "paragraphs": [
+        {
+          "en": "This mean summarises self-rated confidence about the six stated situations in the past month. It does not show observed success, speed, correct knowledge, digital fluency, security habits, job fit or earning potential. No ranking or type is assigned, and all valid means use the same complete continuous guide.",
+          "zh": "均值概括过去一个月对六种指定情境的自报信心，不证明实际成功、速度、正确知识、数字能力、安全习惯、职业适合度或收入潜力。不排名、不派类型；所有有效均值都使用同一份完整连续读法。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Coverage and equal values",
+        "zh": "覆盖范围与相同数值"
+      },
+      "paragraphs": [
+        {
+          "en": "A mean of 4.0 from four ratings and 4.0 from six ratings have different coverage. A missing opportunity is excluded, not treated as zero. Read the raw sum and numeric-response count beside the mean; the full guide includes worked examples of equal means from different answer patterns.",
+          "zh": "四项数字得出4.0与六项数字得出4.0，覆盖范围不同。没有机会的回答被排除，不当作零分。请把原始和、数字项数与均值一起看；完整指南提供不同逐项模式得到相同均值的算例。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Unfinished and insufficient responses",
+        "zh": "未完成与资料不足"
+      },
+      "paragraphs": [
+        {
+          "en": "An unfinished attempt gives no result. Once all six prompts are answered, fewer than four numeric ratings produce an explicit insufficient-information message and no personal mean. The full general guide stays available, including when every response is unscored. Unknown choices or item IDs are invalid, not imputed.",
+          "zh": "未完成作答不生成结果。六题全部回应后，若少于四项数字，明确显示资料不足，不计算个人均值；完整通用指南仍开放，全部选不计分也是如此。未知选项或题号无效，不作推算补值。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Originality and scope",
+        "zh": "原创与使用范围"
+      },
+      "paragraphs": [
+        {
+          "en": "Items, equal-weight arithmetic, minimum-response rule and full reading were written for this original edition. The six tasks concern confidence in learning and checking tools; objectively keyed computer questions and task-evidence inventories answer different questions. No psychometric or cross-language validation is claimed.",
+          "zh": "题目、等权算式、最低回答规则及完整读法均为本版原创编辑选择。六种任务关注学习和核对工具时的信心；有参考答案的计算机题与任务证据盘点回答不同问题。不声称心理测量或跨语言验证。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Local result and optional progress",
+        "zh": "本地结果与可选进度"
+      },
+      "paragraphs": [
+        {
+          "en": "Computation stays in the page. Optional tab-session drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Copying contains a test title, general reading label and public link, without answers, sum or mean. No registration, payment, private file or account action is needed.",
+          "zh": "在页面内计算。可选标签页会话草稿24小时后失效，完成、重测或退出清除后删除。复制内容只有标题、通用读法名称和公开链接，不含回答、原始和或均值。无需注册、付款、私密文件或账户操作。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a digital-skills examination?",
+        "zh": "这是数字技能考试吗？"
+      },
+      "answer": {
+        "en": "No. It asks how confident you feel in six stated task situations, without observing performance or testing correct answers.",
+        "zh": "不是。它询问你对六种指定任务情境的信心，没有观察实际表现，也不考查正确答案。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is the mean calculated?",
+        "zh": "均值怎样计算？"
+      },
+      "answer": {
+        "en": "After all six responses, sum only numeric 1–5 ratings and divide by their count. At least four are required; the mean is rounded to one decimal. Unscored responses are excluded.",
+        "zh": "六题都回应后，只将1至5数字相加并除以数字项数；至少四项数字，保留一位小数。不计分回答被排除。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I have not tried a task?",
+        "zh": "没试过某种任务怎么办？"
+      },
+      "answer": {
+        "en": "Use the unscored no-opportunity / prefer-not-to-rate option, or stop. It is never converted to zero. With fewer than four numeric answers, no personal mean is produced.",
+        "zh": "可选不计分的“近期没有机会／不想评价”，也可以停止；不会换成零分。少于四项数字时不生成个人均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are there beginner or expert types?",
+        "zh": "有新手或专家类型吗？"
+      },
+      "answer": {
+        "en": "No. This original edition has one continuous reading and no proficiency thresholds, norms or career ranking. A mean is not a skills certificate.",
+        "zh": "没有。本原创版采用连续读法，没有熟练度阈值、常模或职业排名；均值不是技能证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the complete guide free?",
+        "zh": "完整指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. The entire six-section guide is public before answering, and the full personal arithmetic is shown after an eligible complete attempt. No upgrade or registration is required.",
+        "zh": "免费。六节完整指南答题前即可读，符合完整度条件的作答会显示全部个人算式；无需升级或注册。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does sharing expose my answers?",
+        "zh": "分享会暴露回答吗？"
+      },
+      "answer": {
+        "en": "The copy control uses only the title, a general reading label and a public link. It includes no personal answers, sum or mean. Optional progress is stored in this tab only and can be cleared.",
+        "zh": "复制按钮只使用标题、通用读法名称和公开链接，不含个人回答、原始和或均值。可选进度只存于本标签页，能够清除。"
+      }
+    }
+  ]
+}

@@ -5323,5 +5323,27 @@
       "choosing-or-not-using-labels",
       "privacy-and-support"
     ]
+  },
+  {
+    "slug": "tech-savvy",
+    "code": "FM_TECH_CONFIDENCE6",
+    "version": "fm_tech_confidence6_v1",
+    "category": "everyday",
+    "title": {
+      "en": "Tech Savvy Test",
+      "zh": "技术素养自评测试"
+    },
+    "description": {
+      "en": "Rate confidence with six tool-learning tasks. See your sum, rated count and continuous mean, plus the full guide free. No skill level or job ranking.",
+      "zh": "自评六种日常工具学习情境的信心，查看原始和、数字项数与连续均值，免费读完整说明；不判技能等级，不作职场排名。"
+    },
+    "minutes": 3,
+    "updated": "2026-10-28",
+    "collection": "explore",
+    "formCode": "fm_tech_confidence6_v1",
+    "questionCount": 6,
+    "resultSlugs": [
+      "reading-your-confidence"
+    ]
   }
 ]
