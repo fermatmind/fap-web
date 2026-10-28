@@ -5394,5 +5394,30 @@
       "understanding-your-playful-age"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "energy-flow",
+    "code": "FM_ENERGY_FLOW20",
+    "version": "fm_energy_flow20_v1",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Energy & Flow Profile",
+      "zh": "精力与专注节奏自评"
+    },
+    "description": {
+      "en": "Explore timing, effort blocks, focus conditions and pauses with 20 original ratings. Four full readings free; no chronotype or productivity score.",
+      "zh": "用20道原创评分，回看时间偏好、分段投入、专注条件与暂停后的感受。四组完整读法免费，不测生理作息型、不评产出或恢复能力。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_energy_flow20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "earlier-day",
+      "effort-blocks",
+      "focus-conditions",
+      "pause-noticing"
+    ]
   }
 ]

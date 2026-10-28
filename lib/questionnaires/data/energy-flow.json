@@ -1,0 +1,2230 @@
+{
+  "slug": "energy-flow",
+  "code": "FM_ENERGY_FLOW20",
+  "version": "fm_energy_flow20_v1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Energy & Flow Profile",
+    "zh": "精力与专注节奏自评"
+  },
+  "seoTitle": {
+    "en": "Energy & Flow Profile: 20 Questions, Four Full Readings",
+    "zh": "精力与专注节奏自评：20题与四组完整免费读法"
+  },
+  "description": {
+    "en": "Explore timing, effort blocks, focus conditions and pauses with 20 original ratings. Four full readings free; no chronotype or productivity score.",
+    "zh": "用20道原创评分，回看时间偏好、分段投入、专注条件与暂停后的感受。四组完整读法免费，不测生理作息型、不评产出或恢复能力。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Think about the past two weeks. Rate how well each statement describes your experience from 1 to 5; 3 includes partly / depends. Choose “No suitable opportunity / prefer not to rate” when appropriate. Respond to all twenty prompts; each five-item topic needs at least three numeric ratings for a mean. The four topics are independent, without a total or type. You can stop and read every full guide without answering. Six minutes is an editorial estimate.",
+    "zh": "回想过去两周，从1至5评价题文多符合经验，3包含部分符合／视情况。适当时可选“没有合适机会／不想评价”。二十题都需回应，每个五题主题至少三项数字才给均值；四组独立，不合总分、不派型。可以停止，也可不答题直接读全部完整指南。六分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "When does an activity feel easier to start, and what conditions feel inviting? Explore four separate recent-experience topics through twenty original statements. See raw sums, numeric coverage and means alongside specific complete readings, examples and optional observations. This profile does not measure biological timing, flow, performance or health.",
+    "zh": "什么时候更愿意开始活动，哪些条件让人想投入？用二十句原创题文探索四组独立近期经验，结合原始和、数字覆盖与均值，读完整解释、具体算例与可选观察。本自评不测生理作息、心流、表现或健康。"
+  },
+  "resultHeading": {
+    "en": "Your four separate Energy & Flow readings",
+    "zh": "四组独立的精力与专注节奏读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_energy_flow_self_report",
+    "formCode": "fm_energy_flow20_v1",
+    "itemBankVersion": "fm_energy_flow20_v1",
+    "scoringVersion": "fm_energy_flow20_four5_equalmeans_min3_round1_v1",
+    "resultContentVersion": "fm_energy_flow20_four_full8_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "2fa6dbf591746319a3a145ee489d8659d1e5afa961f0f75af53c363940d91069",
+    "resultContentSha256": "29f16593583aaea11bcdfafb29d2ebcbb92188b0c6eaf933dd2855358aaf5532"
+  },
+  "directions": [
+    {
+      "id": "earlier-day",
+      "title": {
+        "en": "Earlier in your waking day",
+        "zh": "清醒时段较早的投入偏好"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "effort-blocks",
+      "title": {
+        "en": "Bounded periods of effort",
+        "zh": "有边界的分段投入"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "focus-conditions",
+      "title": {
+        "en": "Low-interruption focus conditions",
+        "zh": "低干扰的专注条件"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "pause-noticing",
+      "title": {
+        "en": "Readiness noticed after a pause",
+        "zh": "暂停后愿意投入的感受"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "EFR_1_01",
+      "prompt": {
+        "en": "On days when I can choose, I feel more ready to start a demanding personal task earlier rather than later in my waking day.",
+        "zh": "可以自行选择的日子里，我感觉在清醒时段较早的时候，比晚些时候更愿意开始费心的个人任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "earlier-day",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "earlier-day",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "earlier-day",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "earlier-day",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "earlier-day",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "earlier-day",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_1_02",
+      "prompt": {
+        "en": "When comparing two ordinary days with similar demands, the earlier part of my waking day feels like an easier starting point.",
+        "zh": "比较任务负担相近的两个普通日子，我感觉清醒时段较早的部分更容易进入状态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "earlier-day",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "earlier-day",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "earlier-day",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "earlier-day",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "earlier-day",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "earlier-day",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_1_03",
+      "prompt": {
+        "en": "For a freely scheduled creative activity, an earlier slot usually appeals to me more than a later one.",
+        "zh": "能自由安排创意活动时，较早的时段通常比晚些的时段更吸引我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "earlier-day",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "earlier-day",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "earlier-day",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "earlier-day",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "earlier-day",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "earlier-day",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_1_04",
+      "prompt": {
+        "en": "When no appointment fixes the timing, I prefer putting a concentration-heavy task before several lighter activities.",
+        "zh": "没有预约限定时间时，我更想把需要专注的任务放在几项轻松活动之前。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "earlier-day",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "earlier-day",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "earlier-day",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "earlier-day",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "earlier-day",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "earlier-day",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_1_05",
+      "prompt": {
+        "en": "Looking back at comparable recent opportunities, I felt more willing to begin before much of my waking day had passed.",
+        "zh": "回顾近期条件相近的机会，我感觉清醒时段尚未过半时，更愿意开始投入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "earlier-day",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "earlier-day",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "earlier-day",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "earlier-day",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "earlier-day",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "earlier-day",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_2_01",
+      "prompt": {
+        "en": "A task feels more approachable when I can work on one small piece and then reconsider whether to continue.",
+        "zh": "能先做一小块，再决定是否继续时，一项任务让我感觉更容易开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "effort-blocks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "effort-blocks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "effort-blocks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_2_02",
+      "prompt": {
+        "en": "I prefer an effort period with a visible stopping point over an open-ended stretch.",
+        "zh": "比起没有明确终点的一段投入，我更喜欢能看见停顿点的安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "effort-blocks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "effort-blocks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "effort-blocks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_2_03",
+      "prompt": {
+        "en": "When trying a personally chosen project, shorter bounded attempts feel more inviting than committing to a long uninterrupted session.",
+        "zh": "尝试自己选的项目时，较短且有边界的尝试，比承诺一大段不间断投入更吸引我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "effort-blocks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "effort-blocks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "effort-blocks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_2_04",
+      "prompt": {
+        "en": "Breaking an ordinary demanding task into separate passes feels more comfortable than trying to stay with it in one long pass.",
+        "zh": "把普通但费心的任务分几轮进行，比一次长时间做完，让我感觉更自在。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "effort-blocks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "effort-blocks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "effort-blocks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_2_05",
+      "prompt": {
+        "en": "Even when I enjoy an activity, I like having a small checkpoint where I can choose a fresh block of effort.",
+        "zh": "即使喜欢某项活动，我也愿意留一个小检查点，再选择是否开始下一段投入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "effort-blocks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "effort-blocks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "effort-blocks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "effort-blocks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_3_01",
+      "prompt": {
+        "en": "For a task I want to concentrate on, fewer incoming notifications make the setting feel easier to work in.",
+        "zh": "做自己想专注的任务时，传入通知少一些，会让我感觉环境更容易投入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "focus-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "focus-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "focus-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_3_02",
+      "prompt": {
+        "en": "Keeping only the materials for the current task in view makes it feel easier to stay with that task.",
+        "zh": "眼前只保留当前任务的材料时，我感觉更容易继续做这件事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "focus-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "focus-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "focus-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_3_03",
+      "prompt": {
+        "en": "An agreed period without casual interruptions makes a concentration-heavy activity feel more inviting.",
+        "zh": "事先约定一段不被随意打断的时间，会让需要专注的活动更吸引我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "focus-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "focus-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "focus-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_3_04",
+      "prompt": {
+        "en": "A predictable workspace or activity setup helps me feel settled enough to begin.",
+        "zh": "工作区或活动安排比较可预期时，我更容易感觉安定下来，愿意开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "focus-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "focus-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "focus-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_3_05",
+      "prompt": {
+        "en": "When background changes are limited, I feel less pulled toward starting something unrelated.",
+        "zh": "周围变化较少时，我感觉自己不那么容易被带去开始无关的事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "focus-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "focus-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "focus-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "focus-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_4_01",
+      "prompt": {
+        "en": "After an ordinary short pause that I chose, I sometimes notice more willingness to return to what I was doing.",
+        "zh": "自己选择一次普通短暂停顿后，我会注意到自己更愿意回到原来的事情上。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "pause-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "pause-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "pause-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_4_02",
+      "prompt": {
+        "en": "A brief change away from the current task can leave me feeling readier for another small attempt.",
+        "zh": "短暂离开当前任务、换个活动后，我会感觉更愿意再做一次小尝试。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "pause-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "pause-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "pause-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_4_03",
+      "prompt": {
+        "en": "When I pause between demanding activities, the next activity can feel less crowded by the previous one.",
+        "zh": "在两项费心活动之间停一停，下一项活动会让我感觉不那么受上一项占据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "pause-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "pause-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "pause-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_4_04",
+      "prompt": {
+        "en": "Looking back at recent ordinary days, a pause that fit the situation sometimes helped my attention feel available again.",
+        "zh": "回想近期普通日子，一次符合当时情境的停顿，有时让我感觉注意力又能转回来了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "pause-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "pause-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "pause-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "EFR_4_05",
+      "prompt": {
+        "en": "After a suitable break, I can notice a difference in how ready I feel, even when the task itself is unchanged.",
+        "zh": "合适的休息后，即使任务本身没变，我也会注意到自己愿意投入的感觉有所不同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent experience",
+            "zh": "不符合近期经验"
+          },
+          "directionId": "pause-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "pause-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "pause-noticing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "pause-noticing",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "earlier-day",
+      "directionIds": [
+        "earlier-day"
+      ],
+      "title": {
+        "en": "Earlier in your waking day — Full Energy & Flow Reading",
+        "zh": "清醒时段较早的投入偏好：完整读法"
+      },
+      "headline": {
+        "en": "Earlier in your waking day",
+        "zh": "清醒时段较早的投入偏好"
+      },
+      "summary": {
+        "en": "How your recent preferences describe an earlier start, without clock-hour or biological-type claims.",
+        "zh": "近期偏好怎样描述较早开始，不指定钟点或生理作息型。"
+      },
+      "scoreReading": {
+        "en": "Sum numeric 1–5 ratings in this five-item topic. Divide by the numeric count only when at least three items are rated; round to one decimal. Unscored is not zero, and the four means are not combined or ranked.",
+        "zh": "本五题主题只加总1至5数字，至少三项数字才除以数字项数，保留一位小数。不评分不等于0，四组均值不相加、不排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Earlier in your waking day: Energy & Flow Results Explained",
+          "zh": "清醒时段较早的投入偏好：精力与专注自评结果解释"
+        },
+        "description": {
+          "en": "How your recent preferences describe an earlier start, without clock-hour or biological-type claims. Examples and limits.",
+          "zh": "近期偏好怎样描述较早开始，不指定钟点或生理作息型。阅读完整算式、情境、反例与可选观察，不派类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "earlier-day-meaning",
+          "title": {
+            "en": "What earlier means here",
+            "zh": "这里的“较早”指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic asks whether starting a demanding or creative personal activity earlier in your waking day felt appealing during the past two weeks, when you could choose. Earlier is relative to when you wake, not a fixed hour. The five prompts do not record sleep, body temperature, alertness tests or completed work. They cannot identify a biological morning or evening type.",
+              "zh": "这组题问的是：过去两周有选择余地时，在清醒时段较早的部分开始费心或创意活动，是否更吸引你。“较早”相对于你醒来的时间，不是固定钟点。五题没有记录睡眠、体温、警觉性任务或完成的工作，不能识别生理晨型或晚型。"
+            },
+            {
+              "en": "The result is a summary of endorsement, not a prediction of your best hours. Someone who wakes at different times on different days may understand the same statement differently. Use comparable recent opportunities where possible. If there were no suitable opportunities, an unscored response is a more faithful record than guessing about an ideal day.",
+              "zh": "结果概括的是你对题意的认同，不预测最佳工作时间。不同日子醒来时间不同，同一句话的参照也可能不同。尽量回想条件相近的近期机会；没有合适机会时，不评分比猜测理想日子更贴近现状。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-arithmetic",
+          "title": {
+            "en": "Five items and their arithmetic",
+            "zh": "五题算式"
+          },
+          "paragraphs": [
+            {
+              "en": "Add only the numeric responses to these five prompts, then divide by their count if at least three are numeric. For 2, 3, 4, 4 and an unscored answer, the sum is 13, the count is 4 and the displayed mean is 3.3 after rounding 3.25 to one decimal. The unscored item contributes neither a point nor a place in the denominator.",
+              "zh": "只加本组五题中的数字回答，至少三题数字才除以数字题数。例如2、3、4、4和一项不评分，原始和为13，数字项数为4，3.25保留一位小数显示3.3。不评分项既不加点，也不占均值分母。"
+            },
+            {
+              "en": "With two numeric responses there is no mean, even if both are 5. You still see two of five rated and can read this whole guide. Three fives give a mean of 5.0, as do five fives, but the coverage differs. This minimum is an editorial completeness convention, not a reliability threshold or a measure of how certain the result is.",
+              "zh": "只有两项数字时，即使都是5也不给均值；仍会显示五题中评分两题，并提供完整指南。三个5和五个5均值都是5.0，但覆盖不同。至少三项是编辑的资料完整约定，不是信度门槛，也不表示结果有多确定。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-reading",
+          "title": {
+            "en": "Read greater or lesser endorsement",
+            "zh": "理解认同程度"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 means the earlier-start statements described more of your reported experience. It does not mean that an early start improved output or that you should wake sooner. A mean nearer 1 means those particular statements described less of your experience. It does not automatically establish a preference for late nights.",
+              "zh": "均值接近5，表示“较早开始”的题文更符合你所报经验，不表示早开始提高了产出，也不建议你提前起床。接近1，只表示这些具体题文较不符合经验，不能自动证明你偏爱深夜。"
+            },
+            {
+              "en": "The middle response includes “partly describes it / depends.” A mean near 3 can come from several dependent answers or from a mix of strong and weak endorsements. There are no early-bird, neutral or night-owl cutoffs. Read the chosen responses and the situations they refer to before drawing even a small scheduling idea.",
+              "zh": "中间选项含“部分符合／视情况”。均值接近3，可能是多项视情况，也可能是强弱认同混合。这里没有晨鸟、中间型或夜猫子的截点；先结合具体选项和情境，再考虑一点小的安排想法。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-mixed",
+          "title": {
+            "en": "Same mean, different weeks",
+            "zh": "相同均值，不同的一周"
+          },
+          "paragraphs": [
+            {
+              "en": "Five ratings of 3 and the pattern 1, 2, 3, 4, 5 both give 3.0. In the first, each statement partly fits. In the second, enthusiasm varies considerably by the kind of activity. A single mean cannot preserve that difference. The response review keeps the individual ratings available on this device.",
+              "zh": "五项都评3，与1、2、3、4、5的均值都是3.0。前者每句都部分符合，后者对不同活动的偏好差异很大；单一均值留不住这种差别。回答回看会在本设备保留逐题选择。"
+            },
+            {
+              "en": "An earlier personal project might be attractive on a free day and impossible on a day with care responsibilities. That difference is not an inconsistency that needs correcting. The questions describe opportunities you could choose, so do not treat unavailable time as unwillingness or use the score to evaluate someone else’s discipline.",
+              "zh": "空闲日较早做个人项目可能很吸引你，承担照顾事务的一天却可能不现实。这不是需要纠正的矛盾。题目指有选择余地的机会，不要把没有可用时间解释成不愿意，更不要据此评价他人的自律。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-scenario",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you enjoy sketching before other optional activities but prefer reading later. Your creative-activity response may differ from your general starting-point response. Keep both. The useful observation is which activity and condition made an earlier start appealing, rather than a claim that every demanding task belongs in the morning.",
+              "zh": "例如你愿意先画画再做其他可选活动，却喜欢晚些读书。创意活动题可能和一般开始时段题不同，两项都可以保留。可用观察是：哪种活动、什么条件让较早开始更吸引你，而不是宣布所有费心任务都该放早上。"
+            },
+            {
+              "en": "Another person might report the same mean while their waking day begins much later. Their “earlier” is a different clock time. Comparing the means would not justify giving the two people the same appointment schedule. The profile does not record enough context to infer suitable work shifts or sleep arrangements.",
+              "zh": "另一个人可能均值相同，但清醒时段开始得晚得多，他的“较早”对应不同钟点。均值相同并不能支持给两人同一预约时间表；本自评也没有足够信息推断适合的班次或睡眠安排。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-contrast",
+          "title": {
+            "en": "A counterexample to a productivity claim",
+            "zh": "对产出推断的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "You can prefer an earlier start and still finish less because the task is unfamiliar. You can prefer later and complete a task well at an earlier required time. Preference and observed performance are different data. Neither a high mean nor a low mean demonstrates a better or worse worker, student or creator.",
+              "zh": "你可能喜欢较早开始，却因任务陌生而完成较少；也可能偏爱晚些，却能在规定的较早时间做好。偏好与实测表现是不同资料，无论均值高低，都不能证明谁是更好或更差的工作者、学生或创作者。"
+            },
+            {
+              "en": "This is also distinct from time-management skills and social battery. It asks about preferred timing within the waking day, not planning competence or how social interaction depletes you. Similar answers across those separate questionnaires do not turn them into equivalent measures or justify converting one score into another.",
+              "zh": "这也不同于时间管理技能与社交电量。此处问清醒时段内的偏好时间，不问计划能力或社交怎样消耗你。在其他问卷中选得相似，不表示它们测量等价，也不支持分数互换。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-action",
+          "title": {
+            "en": "An optional observation",
+            "zh": "可选观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If your schedule permits, try the same small, low-stakes activity in two already available parts of your waking day. Record only whether you wanted to begin and what constraints were present. No earlier waking, missed rest or schedule overhaul is needed. You may stop at the guide if comparison is inconvenient.",
+              "zh": "如果时间允许，可在清醒时段内两个本来就空闲的时段，尝试同一种轻松小活动；只留意愿不愿开始、当时有什么约束。无需提前醒来、压缩休息或重排整个日程。不方便比较，读完指南就可以结束。"
+            },
+            {
+              "en": "The observation will still be a personal example, not validation of this questionnaire. Avoid treating a single good session as proof of a permanent peak window. If preferences change next week, update your understanding of the situation rather than trying to preserve a score.",
+              "zh": "这种观察仍是个人例子，不是对问卷的验证。不要把一次顺利投入当作永久黄金时段的证明。下周偏好变了，可以更新对情境的理解，无需努力维持某个分数。"
+            }
+          ]
+        },
+        {
+          "id": "earlier-day-limits",
+          "title": {
+            "en": "Limits and privacy",
+            "zh": "限制与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "All twenty prompts need a response before the four-topic record is shown. An unscored choice affects only the numeric coverage of its own topic. This original five-item topic has no population norm, biological calibration, diagnostic threshold or established bilingual measurement equivalence.",
+              "zh": "四主题记录须在二十题全部回应后显示。不评分选项只影响所属主题的数字覆盖。这组原创五题没有人群常模、生理校准、诊断阈值或已经建立的双语测量等值。"
+            },
+            {
+              "en": "Your selected responses stay in this browser. Optional tab progress expires after 24 hours and clears on completion, exit-and-clear or retake. The public guide is identical for everyone; sharing its title and link does not reveal a personal mean or retrieve an attempt.",
+              "zh": "所选回答留在本浏览器。可选标签页进度24小时后过期，完成、退出并清除或重测即删除。公开指南对所有人相同；分享标题与链接不会透露个人均值，也不会调取答卷。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "effort-blocks",
+      "directionIds": [
+        "effort-blocks"
+      ],
+      "title": {
+        "en": "Bounded periods of effort — Full Energy & Flow Reading",
+        "zh": "有边界的分段投入：完整读法"
+      },
+      "headline": {
+        "en": "Bounded periods of effort",
+        "zh": "有边界的分段投入"
+      },
+      "summary": {
+        "en": "Understand a preference for small stopping points, without a stamina, diligence or productivity ranking.",
+        "zh": "理解对小停顿点的偏好，不排名耐力、勤奋或产出。"
+      },
+      "scoreReading": {
+        "en": "Sum numeric 1–5 ratings in this five-item topic. Divide by the numeric count only when at least three items are rated; round to one decimal. Unscored is not zero, and the four means are not combined or ranked.",
+        "zh": "本五题主题只加总1至5数字，至少三项数字才除以数字项数，保留一位小数。不评分不等于0，四组均值不相加、不排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Bounded periods of effort: Energy & Flow Results Explained",
+          "zh": "有边界的分段投入：精力与专注自评结果解释"
+        },
+        "description": {
+          "en": "Understand a preference for small stopping points, without a stamina, diligence or productivity ranking. Examples and limits.",
+          "zh": "理解对小停顿点的偏好，不排名耐力、勤奋或产出。阅读完整算式、情境、反例与可选观察，不派类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "effort-blocks-meaning",
+          "title": {
+            "en": "What a bounded effort preference means",
+            "zh": "分段投入偏好是什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic describes whether small pieces, visible stopping points, shorter attempts, separate passes and checkpoints felt inviting in your recent personal activities. It does not prescribe a fixed work-rest interval. A preference for a boundary can concern the freedom to reconsider, even when you ultimately choose to continue for a long time.",
+              "zh": "这组题描述近期个人活动中，小块任务、可见停顿点、较短尝试、分轮进行和检查点是否吸引你。它不规定固定工作休息间隔。有边界的偏好可能在于能重新选择，即使你最后还是决定长时间继续。"
+            },
+            {
+              "en": "The five prompts do not time your sessions or assess stamina. They ask how approachable or comfortable different arrangements felt. Actual periods can vary with the task and what else is happening. Wanting a stopping point is not evidence of weak concentration, and enjoying a long session is not proof of greater capacity.",
+              "zh": "五题没有给投入计时，也不测耐力，而是问不同安排让你感觉多容易接近、多自在。实际时长会随任务和其他事务变化。想留停顿点不证明专注力弱，喜欢长时间投入也不证明能力更强。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-arithmetic",
+          "title": {
+            "en": "Sum and mean for these five items",
+            "zh": "这五题的总和与均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Rate each statement from 1 to 5 or leave it unscored with the provided option. Numeric values are added only within this topic. If three ratings are 2, 4 and 5 and two are unscored, the sum is 11, coverage is 3 / 5 and the mean is 3.7. No reverse-keying is used in this original bank.",
+              "zh": "每句选1至5，或使用所提供的不评分项。数字只在本主题内相加。例如三项为2、4、5，另两项不评分，则和为11，覆盖3／5，均值为3.7。本原创题本没有反向题。"
+            },
+            {
+              "en": "Fewer than three numeric ratings withholds this topic’s mean, while other sufficiently rated topics remain. A sum of 10 across two ratings and a sum of 10 across five ratings mean different things; the count must accompany the sum. No combined Energy & Flow score is calculated.",
+              "zh": "少于三项数字时暂不给本主题均值，其他有足够评分的主题照常显示。两项数字合计10，与五项数字合计10含义不同，因此总和必须和项数一起读。本版不计算精力与专注总分。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-reading",
+          "title": {
+            "en": "What greater endorsement describes",
+            "zh": "较多认同描述了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean closer to 5 reflects greater endorsement of bounded attempts and opportunities to choose whether to continue. It does not mean you need more breaks than other people or that short sessions will improve performance. The result provides no personalised timer length.",
+              "zh": "均值较接近5，反映更认同有边界的尝试、以及选择是否继续的机会，不表示你比别人更需要休息，也不证明短时段能改善表现。结果不会给个人定制计时长度。"
+            },
+            {
+              "en": "A mean closer to 1 means these statements described less of your recent experience. You might prefer continuity, dislike repeated setup or have had little freedom to pause. The numerical result cannot tell those explanations apart. A middle response can explicitly mean that the situation mattered.",
+              "zh": "较接近1，表示这些题文较不符合近期经验。你可能偏爱连续、觉得反复准备麻烦，或没有多少暂停自由；数字分不清这些解释。中间选项也明确可以表示因情境而异。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-mixed",
+          "title": {
+            "en": "Mixed preferences are informative",
+            "zh": "混合偏好值得保留"
+          },
+          "paragraphs": [
+            {
+              "en": "You could like a visible checkpoint but dislike short sessions. That is possible when you want the option to stop while usually deciding to continue. Those two responses should not be forced into agreement. The response review retains the actual choices instead of replacing them with a sprint or steady-burn identity.",
+              "zh": "你可以喜欢明确检查点，却不喜欢短时段。这可能因为你想保留停止的选择，但通常仍决定继续。两题不必强求一致。回答回看会保留实际选择，不把你替换成冲刺型或匀速型身份。"
+            },
+            {
+              "en": "The same mean can represent different combinations, and rounding can conceal small differences. Three ratings of 3 average 3.0; ratings of 1, 3 and 5 also average 3.0. Different rated counts and different activities make cross-person comparisons especially limited.",
+              "zh": "同一均值可能对应不同组合，取一位小数也可能遮住细小差别。三个3的均值为3.0，1、3、5也为3.0。评分项数与活动不同，更限制了人与人的直接比较。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-scenario",
+          "title": {
+            "en": "A familiar task example",
+            "zh": "熟悉任务中的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "When arranging personal photographs, one person may prefer sorting one small set and then deciding whether to continue. Another may prefer setting everything up once and finishing a larger set. If both arrangements fit their circumstances, neither is the better personality. The topic records the perceived appeal of the first arrangement.",
+              "zh": "整理个人照片时，一位可能喜欢先分一小组，再决定是否继续；另一位想一次摆好，连续整理较大一组。只要安排适合各自情况，就不是谁的人格更好。本主题记录的是前一种安排让你感觉多有吸引力。"
+            },
+            {
+              "en": "For a creative activity, a small checkpoint could mean deciding whether to revise one paragraph. For another activity it might mean ending after a clearly defined piece. The questionnaire does not assume the two boundaries take equal time or require equal effort.",
+              "zh": "创意活动中的小检查点，可能是决定要不要再改一段文字；另一项活动则可能是做完一个明确小块就结束。问卷并不假设两种边界耗时相同或投入相等。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-contrast",
+          "title": {
+            "en": "Preference is not productivity",
+            "zh": "偏好不等于产出"
+          },
+          "paragraphs": [
+            {
+              "en": "A person can prefer small blocks and still postpone starting. Another can prefer a long stretch yet produce little because the task is unclear. Neither example contradicts the preference report; it shows why this result cannot certify time-management competence, persistence or efficiency.",
+              "zh": "一个人可能偏爱小段投入，仍会推迟开始；另一个人偏爱长时段，却因任务不清而产出很少。这不推翻偏好报告，只说明它不能认证时间管理能力、坚持程度或效率。"
+            },
+            {
+              "en": "This topic differs from the pause-noticing topic. Wanting a stopping point is an arrangement preference; feeling readier after a pause is a reported experience after a pause. One can occur without the other. Their means are kept separate and are not ranked to select a dominant style.",
+              "zh": "它也不同于“暂停后感受”：想要停顿点是安排偏好，暂停后更愿投入是暂停之后的自报经验。两者可以单独出现，因此均值分开保留，不排名选主导风格。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-action",
+          "title": {
+            "en": "Try a visible stopping point if useful",
+            "zh": "可选地留一个可见停顿点"
+          },
+          "paragraphs": [
+            {
+              "en": "For a harmless personal task, define one small piece you could finish, then leave yourself free to decide what follows. It can be a short paragraph, a small pile or a single reversible edit. You do not need to force a pause if continuing feels appropriate and your circumstances allow it.",
+              "zh": "做一项轻松个人任务时，可先定一小块能完成的内容，再留出选择后续的自由，例如一段短文、一小叠物品或一次可撤销修改。如果适合继续、现实条件也允许，不必强迫自己停下。"
+            },
+            {
+              "en": "Notice whether having that choice made the task more approachable. Do not use the experiment to chase a higher mean or to impose your preferred boundaries on someone else. The guide alone is a complete stopping point if experimenting is unnecessary.",
+              "zh": "只留意保留选择是否让任务更容易接近。不必为提高均值做实验，也不要把自己的停顿偏好强加给别人。无需尝试时，读完指南本身就是完整结束点。"
+            }
+          ]
+        },
+        {
+          "id": "effort-blocks-limits",
+          "title": {
+            "en": "Method and privacy boundaries",
+            "zh": "方法与隐私边界"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original recent-experience ratings have no validated thresholds, norms or prescribed work-rest ratio. They do not assess a health condition, attention disorder or fitness for a job. Both languages use the same arithmetic, without established measurement equivalence.",
+              "zh": "五道原创近期经验评分没有经验证的阈值、常模或规定工作休息比例，不评估健康状况、注意力障碍或岗位适任。两种语言沿用同一算式，但尚未建立测量等值。"
+            },
+            {
+              "en": "All twenty responses are required to finish, including unscored choices where appropriate. Responses stay in this browser. Optional progress expires within 24 hours and clears on completion, exit-and-clear or retake; public sharing includes no personal values or answer table.",
+              "zh": "完成需回应全部二十题，适当时可以选不评分。回答留在本浏览器；可选进度24小时内过期，完成、退出并清除或重测即删除。公开分享不带个人数值或回答表。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "focus-conditions",
+      "directionIds": [
+        "focus-conditions"
+      ],
+      "title": {
+        "en": "Low-interruption focus conditions — Full Energy & Flow Reading",
+        "zh": "低干扰的专注条件：完整读法"
+      },
+      "headline": {
+        "en": "Low-interruption focus conditions",
+        "zh": "低干扰的专注条件"
+      },
+      "summary": {
+        "en": "Read how fewer interruptions and a predictable setup felt, without claiming measured flow or attention ability.",
+        "zh": "理解低干扰与可预期安排的自报感受，不宣称测得心流或注意能力。"
+      },
+      "scoreReading": {
+        "en": "Sum numeric 1–5 ratings in this five-item topic. Divide by the numeric count only when at least three items are rated; round to one decimal. Unscored is not zero, and the four means are not combined or ranked.",
+        "zh": "本五题主题只加总1至5数字，至少三项数字才除以数字项数，保留一位小数。不评分不等于0，四组均值不相加、不排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Low-interruption focus conditions: Energy & Flow Results Explained",
+          "zh": "低干扰的专注条件：精力与专注自评结果解释"
+        },
+        "description": {
+          "en": "Read how fewer interruptions and a predictable setup felt, without claiming measured flow or attention ability. Examples and limits.",
+          "zh": "理解低干扰与可预期安排的自报感受，不宣称测得心流或注意能力。阅读完整算式、情境、反例与可选观察，不派类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "focus-conditions-meaning",
+          "title": {
+            "en": "Conditions that felt inviting",
+            "zh": "让你愿意投入的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "These five statements ask about fewer incoming notifications, materials for the current task, an agreed uninterrupted period, a predictable setup and limited background changes. They describe how those conditions felt in recent experience. They do not test attention or establish that you entered flow, a psychological concept that would require different evidence.",
+              "zh": "五句话涉及传入通知较少、眼前只留当前材料、约定不被打断的时间、可预期的安排和较少的背景变化，描述这些条件在近期经验中给你的感受。它们不测试注意能力，也不证明你进入了心流；对心流的判断需要不同证据。"
+            },
+            {
+              "en": "Low interruption does not necessarily mean silence or solitude. A predictable background can include other people or ordinary sound. The topic does not choose your ideal office, diagnose distractibility or require control over a shared space. Rate the stated experience, including an unscored choice when an appropriate setting was unavailable.",
+              "zh": "低干扰不必等于安静或独处，可预期的背景也可以包含其他人和普通声响。本主题不替你选理想办公室、不诊断易分心，也不要求你控制共享空间。按题目所述经验评分，缺少合适环境时可以不评分。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-arithmetic",
+          "title": {
+            "en": "Read coverage before the mean",
+            "zh": "先看覆盖，再看均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Numeric ratings are 1–5 and have equal weight within this five-item topic. For ratings of 1, 2, 3, 4 and 5, the sum is 15 and the mean is 3.0. The five-item count matters because ratings of 1, 3 and 5 plus two unscored choices also give 3.0 with less numeric coverage.",
+              "zh": "本组五题的数字评分为1至5，组内等权。1、2、3、4、5的总和15，均值3.0。项数同样重要：1、3、5加两项不评分也为3.0，但数字覆盖较少。"
+            },
+            {
+              "en": "At least three numeric ratings are needed. An unscored answer is excluded from both sum and denominator, while an unanswered prompt prevents completion of the whole attempt. The mean is rounded to one decimal. It is not a percentage of focus, an attention score or a probability of entering flow.",
+              "zh": "至少三项数字才给均值。不评分项不进入和与分母，而完全未回应的题会使整次作答尚未完成。均值保留一位小数；它不是专注百分比、注意能力分数或进入心流的概率。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-reading",
+          "title": {
+            "en": "What endorsement can and cannot say",
+            "zh": "认同能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 means these low-interruption statements described more of your reported experience. It does not demonstrate that removing notifications caused better work. A mean nearer 1 can mean the settings made little perceived difference, or simply did not describe how you approached the stated tasks.",
+              "zh": "均值接近5，表示低干扰题文更符合你所报经验，不证明关通知造成了更好的工作表现。接近1，可能是这些安排在感觉上差别不大，也可能只是没有描述你处理所述任务的方式。"
+            },
+            {
+              "en": "Do not interpret a low mean as resistance to structure or a high mean as sensitivity that must be fixed. Both claims add meaning the questions did not measure. There are no labels such as deep worker, scattered thinker or optimal focus environment attached to any value.",
+              "zh": "不要把较低均值解释成抗拒结构，也不要把较高均值解释成必须纠正的敏感；这些都加入了题目没测的含义。任何数值都不附带深度工作者、思维散乱或最优专注环境标签。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-mixed",
+          "title": {
+            "en": "A useful mixed pattern",
+            "zh": "一种有用的混合回答"
+          },
+          "paragraphs": [
+            {
+              "en": "You might endorse fewer notifications strongly while finding the amount of visible material unimportant. That pattern gives a more specific starting point than a general claim that you need a distraction-free room. Read each chosen response in the review; the mean deliberately compresses details and cannot replace them.",
+              "zh": "你可能很认同少些通知，却不在意眼前材料多少。这个组合比“我需要完全无干扰房间”更具体。可在回看里逐项读选择：均值本来就压缩了细节，不能替代细节。"
+            },
+            {
+              "en": "The same arrangement can feel different when you are waiting for an important message. Background changes may also be part of a collaborative task rather than irrelevant distraction. The topic cannot judge which interruption is necessary, so do not use it as a reason to ignore responsibilities or other people’s needs.",
+              "zh": "等一条重要消息时，相同安排也可能感觉不同。背景变化可能本就是合作任务的一部分，而非无关干扰。本主题无法判断哪次打断有必要，不应用它来忽略责任或他人需求。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-scenario",
+          "title": {
+            "en": "Two ordinary examples",
+            "zh": "两个普通例子"
+          },
+          "paragraphs": [
+            {
+              "en": "When editing a private document, keeping only the current material visible might make starting feel easier. In a different activity, several references may need to remain in view. The first response does not establish that a clear desk is always best or that a visible reference counts as a failure of focus.",
+              "zh": "编辑一份私人文档时，眼前只留当前材料可能更容易开始；另一项活动则可能需要同时看几份参考。前者不证明桌面永远越空越好，也不表示看得见参考资料就是不专注。"
+            },
+            {
+              "en": "In a shared room, an agreed short period without casual questions may feel inviting, while ordinary background conversation remains comfortable. That is a social arrangement, not proof that you need isolation. Any experiment should respect consent, shared responsibilities and the practical limits of the setting.",
+              "zh": "共享房间里，双方约定短时间不随意提问可能让人更愿投入，同时普通背景交谈仍然舒适。这是一种协商安排，不证明你需要隔离。任何尝试都应尊重双方意愿、共同事务与环境限制。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-contrast",
+          "title": {
+            "en": "A counterexample about flow",
+            "zh": "关于心流的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "A quiet, predictable setting can still contain a task that is dull, confusing or too difficult. You may endorse all five conditions without experiencing absorption. Conversely, an engaging activity may feel absorbing with ordinary background noise. These possibilities show why an environment-preference mean is not a flow-state measurement.",
+              "zh": "安静可预期的环境里，任务仍可能无聊、含糊或过难。你可以五题都很认同，却没有沉浸感；反过来，有吸引力的活动也可能在普通背景声中让人投入。这正说明环境偏好均值不是心流状态测量。"
+            },
+            {
+              "en": "The topic is also narrower than a remote-work assessment. It concerns a few perceived conditions wherever you do an activity, without assessing equipment, home space, teamwork, independence or suitability for working remotely. A similar theme does not make the two products interchangeable.",
+              "zh": "本主题也比远程工作自评窄：无论活动在哪做，只涉及几种主观条件，不评设备、家庭空间、协作、独立工作能力或是否适合远程。同有相关主题不表示两种产品可以互换。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-action",
+          "title": {
+            "en": "Change one reversible condition",
+            "zh": "只改变一个可撤销条件"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, try one harmless change for a small personal activity: put an irrelevant notification aside, keep one current reference visible or agree on a brief protected period. Choose a change you can reverse and that does not interfere with an obligation. Notice the perceived experience rather than aiming for a particular score.",
+              "zh": "觉得有用时，可在轻松个人活动里试一种小变化：暂时收起一条无关通知、保留一份当前参考，或协商一小段不随意打断的时间。变化应可撤销、不影响责任；留意主观感受即可，不必追求某个分数。"
+            },
+            {
+              "en": "A better-feeling session would be a personal observation with many possible causes. It would not validate the questionnaire or identify your ideal environment. You can keep the arrangement, abandon it or simply finish with this complete guide.",
+              "zh": "感觉更好的一次活动仍只是个人观察，可能有多种原因，不验证本问卷，也不锁定理想环境。你可以保留安排、放弃安排，或读完完整指南就在这里结束。"
+            }
+          ]
+        },
+        {
+          "id": "focus-conditions-limits",
+          "title": {
+            "en": "Evidence and privacy limits",
+            "zh": "证据与隐私限制"
+          },
+          "paragraphs": [
+            {
+              "en": "This original five-item self-report has no performance test, observer rating, diagnostic threshold or population norm. It is neither a screening tool nor a requirement to change a shared environment. English and Chinese use the same scoring convention without established measurement equivalence.",
+              "zh": "本组原创五题没有表现任务、他人观察、诊断阈值或人群常模，既不是筛查，也不要求改变共享环境。中英文使用同一计分约定，但尚未建立测量等值。"
+            },
+            {
+              "en": "Responses and means stay in this browser. Optional progress in the current tab lasts up to 24 hours and is cleared on completion, exit-and-clear or retake. Public guides contain general explanations; shared titles and links carry no personal rating, mean or answer record.",
+              "zh": "回答与均值留在本浏览器。当前标签页可选进度最多24小时，完成、退出并清除或重测即删除。公开指南提供通用解释；分享标题与链接不带个人评分、均值或答案记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pause-noticing",
+      "directionIds": [
+        "pause-noticing"
+      ],
+      "title": {
+        "en": "Readiness noticed after a pause — Full Energy & Flow Reading",
+        "zh": "暂停后愿意投入的感受：完整读法"
+      },
+      "headline": {
+        "en": "Readiness noticed after a pause",
+        "zh": "暂停后愿意投入的感受"
+      },
+      "summary": {
+        "en": "Interpret changes you noticed after ordinary pauses, without a recovery-capacity score or a prescription.",
+        "zh": "解释普通暂停后注意到的投入感变化，不测恢复能力，也不开休息处方。"
+      },
+      "scoreReading": {
+        "en": "Sum numeric 1–5 ratings in this five-item topic. Divide by the numeric count only when at least three items are rated; round to one decimal. Unscored is not zero, and the four means are not combined or ranked.",
+        "zh": "本五题主题只加总1至5数字，至少三项数字才除以数字项数，保留一位小数。不评分不等于0，四组均值不相加、不排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Readiness noticed after a pause: Energy & Flow Results Explained",
+          "zh": "暂停后愿意投入的感受：精力与专注自评结果解释"
+        },
+        "description": {
+          "en": "Interpret changes you noticed after ordinary pauses, without a recovery-capacity score or a prescription. Examples and limits.",
+          "zh": "解释普通暂停后注意到的投入感变化，不测恢复能力，也不开休息处方。阅读完整算式、情境、反例与可选观察，不派类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "pause-noticing-meaning",
+          "title": {
+            "en": "What you noticed after ordinary pauses",
+            "zh": "普通暂停之后注意到了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These five prompts ask whether a suitable ordinary pause or brief change of activity sometimes left you feeling readier to return, try another small step or begin the next activity. The topic records your description of that experience. It does not measure physical recovery, restored attention, sleep quality or the amount of energy you have.",
+              "zh": "这五题问的是：合适的普通停顿或短暂换个活动，是否有时让你更愿意回去、再试一小步，或开始下一项活动。它记录你对经验的描述，不测身体恢复、注意力恢复、睡眠质量或精力存量。"
+            },
+            {
+              "en": "The word suitable leaves room for context. A pause may be welcome in one situation and disruptive in another. We do not prescribe a particular activity, duration or frequency. If there was no comparable opportunity in the past two weeks, choose the unscored option rather than constructing a result from an imagined ideal break.",
+              "zh": "“合适”给情境留出空间。同一次暂停，在一处可能受欢迎，在另一处可能打断进程。本版不规定活动、时长或频率。过去两周没有可比较机会时，可选不评分，不必从想象的理想休息拼出结果。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-arithmetic",
+          "title": {
+            "en": "A five-item descriptive mean",
+            "zh": "五题描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this topic alone, sum the numeric 1–5 ratings and divide by their count if at least three are numeric. Ratings of 4, 4, 5 and two unscored choices give a sum of 13 and a mean of 4.3. This indicates endorsement of these statements in three rated items, not 86% recovery or a measured improvement.",
+              "zh": "仅在本主题内，加总1至5数字，至少三项数字才除以数字项数。例如4、4、5加两项不评分，和为13、均值4.3；这表示三项已评分题文的认同，不表示恢复了86%或测得改善。"
+            },
+            {
+              "en": "With zero, one or two numeric responses, the mean is explicitly not calculated. No zero is substituted for an unscored answer. Other sufficiently rated topics remain visible, and this entire guide is available regardless of numerical coverage. All four topics stay separate without a combined vitality score.",
+              "zh": "零、一、两项数字时，会明确显示不计算均值，不评分不会补成0。其他评分足够的主题仍可显示，数字覆盖多少都能读本完整指南。四组始终分开，不合成活力总分。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-reading",
+          "title": {
+            "en": "Read endorsement without prescribing rest",
+            "zh": "理解认同，不据此开休息方案"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 means these descriptions of feeling readier after a pause fitted more of your reported recent experience. It does not establish that the pause caused the change. Finishing a difficult step, receiving helpful information or a change in circumstances could also affect how ready you felt.",
+              "zh": "均值接近5，表示“暂停后更愿投入”的描述较符合近期自报经验，不证明暂停导致了变化。刚完成难点、收到有用信息或处境改变，也可能影响愿意投入的感觉。"
+            },
+            {
+              "en": "A mean nearer 1 does not mean poor recovery or that breaks are useless. These particular statements may not fit, your pauses may have been interrupted or you may have preferred continuity. The result cannot choose among those explanations. A middle response can honestly express that the effect depended on circumstances.",
+              "zh": "接近1不表示恢复差，也不表示休息没用。可能是这些题文不合适、暂停时仍被打断，或当时偏爱连续投入；数字无法在这些解释之间选择。中间项也可以真实表达因情境而异。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-mixed",
+          "title": {
+            "en": "Mixed answers and changing contexts",
+            "zh": "混合回答与环境变化"
+          },
+          "paragraphs": [
+            {
+              "en": "You might feel readier after a pause between two different activities but not when returning to the same unfinished one. Those experiences can coexist. A mean summarises them, while the response review keeps their differences visible. Do not force all answers to match a single recovery identity.",
+              "zh": "你可能在两项不同活动之间暂停后更愿开始，却不想回到同一件没做完的事。两种经验可以共存。均值概括它们，回答回看保留差异；不必把所有选择凑成单一恢复身份。"
+            },
+            {
+              "en": "Three ratings of 5 and five ratings of 5 share a mean of 5.0 but have different numeric coverage. A pattern of 1, 1, 3, 5, 5 averages 3.0, just like five threes. These examples explain why both coverage and actual responses matter more than interpreting a rounded number alone.",
+              "zh": "三个5和五个5都是5.0，但数字覆盖不同。1、1、3、5、5平均为3.0，五个3也一样。算例说明应结合覆盖与具体回答，而不是只解释一个取整后的数字。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-scenario",
+          "title": {
+            "en": "A concrete ordinary pause",
+            "zh": "一次普通停顿的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "After revising a personal document, you step away briefly and return more willing to try one paragraph. You might endorse that statement even if the paragraph is still difficult. Willingness to resume does not show that your skill, speed or accuracy improved. The topic keeps those different ideas apart.",
+              "zh": "改一份私人文档后，短暂离开，再回来更愿意试一段。即使那段仍然很难，你也可能认同题文。愿意继续并不证明技能、速度或准确性改善；本主题保留这些区别。"
+            },
+            {
+              "en": "On another day, pausing before an optional activity may help it feel less crowded by the previous one. Someone else may prefer a direct transition. The same ordinary pause can mean different things depending on choice, interruptions and what comes next; no universal best break is inferred.",
+              "zh": "另一天，在可选活动前停一停，可能让上一件事不那么占据当下；另一个人却可能喜欢直接过渡。同样的普通停顿，会因是否自愿、是否被打断及下一件事而不同；本版不推断通用最佳休息。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-contrast",
+          "title": {
+            "en": "Readiness is not recovery capacity",
+            "zh": "愿意投入不等于恢复能力"
+          },
+          "paragraphs": [
+            {
+              "en": "You can feel readier to continue without having restored physical energy. You can also benefit from rest without immediately wanting to return to a task. The questionnaire cannot assess those processes or explain persistent fatigue. Treat an actual concern as its own issue rather than using a mean to confirm or dismiss it.",
+              "zh": "你可以更愿意继续，却没有恢复身体精力；也可以从休息中受益，却并不马上想回到任务。问卷无法评估这些过程，也不能解释持续疲倦。真实困扰应按具体问题理解，不用均值确认或排除。"
+            },
+            {
+              "en": "This is distinct from a social-battery or burnout questionnaire: it does not ask for social depletion or assess exhaustion symptoms. It also differs from preferring effort blocks. You may want a stopping point without noticing any later change, or notice a change even though you prefer longer stretches.",
+              "zh": "它不同于社交电量或倦怠问卷：不问社交消耗，也不评耗竭症状。它也不同于分段投入偏好；你可能想要停顿点却没注意到后续变化，也可能偏爱长时段但仍注意到暂停后的变化。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-action",
+          "title": {
+            "en": "Observe one optional transition",
+            "zh": "可选地观察一次过渡"
+          },
+          "paragraphs": [
+            {
+              "en": "If it is comfortable and practical, notice one ordinary pause you would have taken anyway. Ask whether you feel more, less or equally willing to begin the next small activity. No timer, exercise routine or personal disclosure is needed. The observation can remain private or be skipped entirely.",
+              "zh": "舒适、方便时，可留意一次本来就会发生的普通暂停，问自己之后对下一项小活动是更愿意、较不愿意，还是相同。无需计时、运动计划或公开个人信息；观察可只留给自己，也可完全不做。"
+            },
+            {
+              "en": "Use the example to understand that situation rather than to raise a result. You do not need to keep repeating a pause that feels unhelpful, nor to conclude that one helpful pause establishes a lasting rule. Reading the full guide without further action is a complete option.",
+              "zh": "用这个例子理解当时情境即可，不必提高结果。感觉没帮助的停顿无需反复做，一次有帮助也不建立长期规律。读完完整指南而不采取行动，是完整可选的结束方式。"
+            }
+          ]
+        },
+        {
+          "id": "pause-noticing-limits",
+          "title": {
+            "en": "Method limits and private responses",
+            "zh": "方法限制与私人回答"
+          },
+          "paragraphs": [
+            {
+              "en": "This original self-report does not provide a recovery-capacity test, health screen, optimal break schedule or performance prediction. The three-of-five minimum is an editorial data-completeness rule. Population norms, diagnostic cutoffs and bilingual measurement equivalence have not been established.",
+              "zh": "本原创自报不是恢复能力测试、健康筛查、最优休息表或表现预测。五题至少三项的要求只是编辑资料完整规则，尚未建立人群常模、诊断截点和双语测量等值。"
+            },
+            {
+              "en": "All twenty prompts require a response, including an unscored choice where appropriate. Answers remain in this browser. Optional tab progress expires after 24 hours and clears on completion, exit-and-clear or retake. Public sharing carries a title and link without personal means or answers.",
+              "zh": "二十题均需回应，适当时可选不评分。回答留在本浏览器；可选标签页进度24小时后过期，完成、退出并清除或重测即删除。公开分享只含标题与链接，不带个人均值或答案。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "en": "Original recent-experience self-report",
+        "zh": "原创近期经验自报"
+      },
+      "paragraphs": [
+        {
+          "en": "This original 20-item Energy & Flow Profile describes four topics from the past two weeks: earlier waking-day preference, bounded effort, low-interruption conditions and readiness noticed after ordinary pauses. It does not administer a standard chronotype or flow scale.",
+          "zh": "本原创20题精力与专注节奏自评，回看过去两周四种主题：清醒时段较早的偏好、分段投入、低干扰条件与普通暂停后的投入感。不施测标准作息型或心流量表。"
+        }
+      ]
+    },
+    {
+      "id": "response",
+      "title": {
+        "en": "What the response options mean",
+        "zh": "选项表示什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Rate how well each statement describes your recent experience from 1 to 5. Three means partly describes it / depends. Choose the unscored option if there was no suitable opportunity or you prefer not to rate. These are endorsement ratings, not observed frequencies or performance scores.",
+          "zh": "从1至5评价题文多符合近期经验；3表示部分符合／视情况。没有合适机会或不想评价时可选不评分。这是认同程度，不是实测频率或表现分。"
+        }
+      ]
+    },
+    {
+      "id": "calculation",
+      "title": {
+        "en": "Four separate five-item means",
+        "zh": "四组独立的五题均值"
+      },
+      "paragraphs": [
+        {
+          "en": "Within each topic, add numeric ratings and divide by their count if at least three of five are numeric. Round to one decimal. For 2, 3, 4, 4 and an unscored response, the sum is 13 and the mean is 3.3. There are no reverse items, total score, rankings or type cutoffs.",
+          "zh": "每主题单独加总数字，五题至少三项数字才除以数字项数，保留一位小数。2、3、4、4与一项不评分，和为13、均值3.3。没有反向题、总分、排名或分型截点。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Unscored and missing are different",
+        "zh": "不评分与未回应不同"
+      },
+      "paragraphs": [
+        {
+          "en": "All twenty prompts need a response before the record is shown. An unscored answer counts as a response but not a number. Fewer than three numeric ratings withholds only that topic’s mean. All four complete guides remain available even if every answer is unscored.",
+          "zh": "二十题都回应后才显示记录。不评分算回应，但不算数字；某组不足三项数字只使该组暂不给均值。即使全选不评分，也可阅读四份完整指南。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Means summarise, they do not rank",
+        "zh": "均值概括，不给人排名"
+      },
+      "paragraphs": [
+        {
+          "en": "A greater mean means more endorsement of the stated topic, not better energy, focus or recovery. A lower mean does not establish the opposite type. Equal means can contain different answers; the response review preserves the chosen options. Read count and context alongside each mean.",
+          "zh": "均值较大只表示更认同所述主题，不表示精力、专注或恢复更好；较小也不确立相反类型。相同均值可含不同回答，回看保留所选选项；请结合项数与情境阅读。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Scope and evidence limits",
+        "zh": "范围与证据限制"
+      },
+      "paragraphs": [
+        {
+          "en": "This is a descriptive self-report, without biological timing, clock-hour recommendations, flow-state measurement, health screening, job-fit ranking or population norms. Psychometric validation and cross-language measurement equivalence have not been established.",
+          "zh": "本版是描述性自报，不给生理作息型、钟点建议、心流状态测量、健康筛查、岗位适配排名或人群常模；尚未建立心理测量验证与跨语言测量等值。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Optional draft and public sharing",
+        "zh": "可选草稿与公开分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses and means stay in this browser. Optional progress is saved in this tab for up to 24 hours and clears on completion, exit-and-clear or retake. Sharing contains only the public title and entry link, without answers or means. No account or email is needed.",
+          "zh": "回答与均值留在本浏览器。可自愿在当前标签页保存进度，最多24小时，完成、退出并清除或重测即删除。分享只含公开标题与入口链接，不含答案或均值，无需账户或邮箱。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "An optional observation, or stop here",
+        "zh": "可选观察，也可在这里结束"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose one small reversible change if useful, and notice the experience without treating it as a controlled experiment. You can also finish after reading. Separate personality or interest tests require their own complete answers and cannot be inferred from these means.",
+          "zh": "觉得有用时，可选一种可撤销的小变化，留意经验即可，不当作控制实验。读完就结束也完全可以。其他人格或兴趣测试需要另行完整回答，不能从这四组均值推导。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the Energy & Flow Profile free?",
+        "zh": "精力与专注节奏自评免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All twenty questions, four separate readings and all complete guides are free without signup.",
+        "zh": "免费。二十题、四组独立读法与四份完整指南均可直接使用，无需注册。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it determine my chronotype?",
+        "zh": "能确定我的生理作息型吗？"
+      },
+      "answer": {
+        "en": "No. Earlier waking-day preference is self-reported, without sleep timing, biological measures or a validated chronotype instrument.",
+        "zh": "不能。较早清醒时段偏好是自报，没有睡眠时点、生理测量或经过验证的作息型工具。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it measure flow?",
+        "zh": "它能测到心流吗？"
+      },
+      "answer": {
+        "en": "No. One topic describes perceived low-interruption conditions. That does not establish absorption or measure a flow state.",
+        "zh": "不能。其中一组描述低干扰条件的主观感受，不证明沉浸，也不测量心流状态。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the four means calculated?",
+        "zh": "四组均值怎么算？"
+      },
+      "answer": {
+        "en": "Each topic has five 1–5 ratings. At least three numeric responses are needed to divide their sum by their count; the mean is rounded to one decimal. Unscored answers are excluded.",
+        "zh": "每组五项1至5评分，至少三项数字才把原始和除以数字项数，保留一位小数；不评分项不进入计算。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I choose not to rate?",
+        "zh": "选择不评分会怎样？"
+      },
+      "answer": {
+        "en": "It counts as a response but not a number. With fewer than three numeric ratings, that topic has no mean; sufficiently rated topics remain. All four guides are still complete.",
+        "zh": "算已回应，但不算数字。某组不足三项数字时不给该组均值，其他足够评分的主题保留；四份指南仍然完整可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is there a total or best energy type?",
+        "zh": "有总分或最佳精力类型吗？"
+      },
+      "answer": {
+        "en": "No. The four means are not combined, ranked or used to assign a type. Greater endorsement is not better performance or recovery.",
+        "zh": "没有。四组均值不合成、不排名、不派型；较多认同不表示表现或恢复更好。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the same as social battery or burnout?",
+        "zh": "这与社交电量或倦怠一样吗？"
+      },
+      "answer": {
+        "en": "No. It concerns timing, effort arrangements, focus conditions and experiences after pauses. It does not assess social depletion, exhaustion symptoms or health.",
+        "zh": "不同。这里关注时间、投入安排、专注条件和暂停后的经验，不评社交消耗、耗竭症状或健康。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I restore progress or share?",
+        "zh": "可以恢复进度或分享吗？"
+      },
+      "answer": {
+        "en": "Optional progress lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Share the public title and entry link without personal responses or means.",
+        "zh": "可选进度在本标签页最多保存24小时，完成、退出并清除或重测即删除；可分享不含个人回答或均值的公开标题与入口链接。"
+      }
+    }
+  ]
+}
