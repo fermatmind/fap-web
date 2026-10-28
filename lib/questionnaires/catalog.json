@@ -5345,5 +5345,32 @@
     "resultSlugs": [
       "reading-your-confidence"
     ]
+  },
+  {
+    "slug": "stupidity-test",
+    "code": "FM_EVERYDAY_MIXUPS12",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Stupidity Test: Everyday Mix-ups",
+      "zh": "犯蠢测试：日常乌龙方式"
+    },
+    "description": {
+      "en": "Which small mix-up feels familiar? Explore six original mistake themes through 12 playful choices. All ties and full guides are free; no IQ or error-rate score.",
+      "zh": "哪种小乌龙让你有印象？用12道原创趣味选择探索六类日常失误主题，所有最高并列和完整双语说明免费；不测智商、失误率或人的价值。"
+    },
+    "minutes": 3,
+    "collection": "explore",
+    "formCode": "fm_everyday_mixups_choice12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "wrong-target",
+      "wrong-version",
+      "missing-step",
+      "duplicate-step",
+      "mixed-amount",
+      "unspoken-handoff"
+    ]
   }
 ]

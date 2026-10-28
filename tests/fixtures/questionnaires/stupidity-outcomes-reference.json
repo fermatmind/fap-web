@@ -1,0 +1,1695 @@
+{
+  "method": "Dynamic programming of reachable six-count vectors using frozen source choices;one answer witness per highest set;not all4^12individual answer paths",
+  "reachableCountStates": 5678,
+  "highestSets": 57,
+  "impossibleHighestSets": [
+    [
+      "wrong-target",
+      "wrong-version",
+      "missing-step",
+      "duplicate-step",
+      "mixed-amount"
+    ],
+    [
+      "wrong-target",
+      "wrong-version",
+      "missing-step",
+      "duplicate-step",
+      "unspoken-handoff"
+    ],
+    [
+      "wrong-target",
+      "wrong-version",
+      "missing-step",
+      "mixed-amount",
+      "unspoken-handoff"
+    ],
+    [
+      "wrong-target",
+      "wrong-version",
+      "duplicate-step",
+      "mixed-amount",
+      "unspoken-handoff"
+    ],
+    [
+      "wrong-target",
+      "missing-step",
+      "duplicate-step",
+      "mixed-amount",
+      "unspoken-handoff"
+    ],
+    [
+      "wrong-version",
+      "missing-step",
+      "duplicate-step",
+      "mixed-amount",
+      "unspoken-handoff"
+    ]
+  ],
+  "witnesses": [
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "missing-step",
+        "duplicate-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 2,
+        "mixed-amount": 2,
+        "unspoken-handoff": 2
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "A",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 2,
+        "mixed-amount": 2,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "B",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 3,
+        "missing-step": 2,
+        "duplicate-step": 2,
+        "mixed-amount": 2,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "B",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 3,
+        "mixed-amount": 2,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 2,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 2,
+        "duplicate-step": 2,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "A",
+        "MIX_04": "A",
+        "MIX_05": "C",
+        "MIX_06": "B",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "B",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 3,
+        "duplicate-step": 2,
+        "mixed-amount": 1,
+        "unspoken-handoff": 2
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 2,
+        "missing-step": 3,
+        "duplicate-step": 2,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "A",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 2,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "A",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "A",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 2
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "A",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "B",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "A",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "B",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 3,
+        "missing-step": 2,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "B",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "B",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 2,
+        "missing-step": 2,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "A",
+        "MIX_03": "A",
+        "MIX_04": "D",
+        "MIX_05": "B",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 3,
+        "missing-step": 2,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "A",
+        "MIX_03": "A",
+        "MIX_04": "D",
+        "MIX_05": "D",
+        "MIX_06": "A",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "A",
+        "MIX_03": "A",
+        "MIX_04": "D",
+        "MIX_05": "D",
+        "MIX_06": "A",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "missing-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "A",
+        "MIX_03": "A",
+        "MIX_04": "D",
+        "MIX_05": "D",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 2,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "B",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "C",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "C",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "C",
+        "MIX_03": "B",
+        "MIX_04": "A",
+        "MIX_05": "C",
+        "MIX_06": "C",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "B",
+        "MIX_11": "D",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "D",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 2,
+        "missing-step": 1,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "D",
+        "MIX_05": "B",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "D",
+        "MIX_09": "C",
+        "MIX_10": "B",
+        "MIX_11": "D",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "A",
+        "MIX_03": "D",
+        "MIX_04": "D",
+        "MIX_05": "C",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "D",
+        "MIX_09": "C",
+        "MIX_10": "B",
+        "MIX_11": "D",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "A",
+        "MIX_03": "D",
+        "MIX_04": "D",
+        "MIX_05": "B",
+        "MIX_06": "A",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "D",
+        "MIX_10": "B",
+        "MIX_11": "D",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "B",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "B",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 2,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 2
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "A",
+        "MIX_07": "C",
+        "MIX_08": "B",
+        "MIX_09": "D",
+        "MIX_10": "A",
+        "MIX_11": "C",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "A",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "C",
+        "MIX_05": "C",
+        "MIX_06": "A",
+        "MIX_07": "C",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "A",
+        "MIX_11": "A",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "A",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "C",
+        "MIX_09": "B",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "C",
+        "MIX_05": "C",
+        "MIX_06": "A",
+        "MIX_07": "D",
+        "MIX_08": "C",
+        "MIX_09": "B",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 1,
+        "missing-step": 1,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "C",
+        "MIX_06": "A",
+        "MIX_07": "D",
+        "MIX_08": "D",
+        "MIX_09": "C",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "B",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "C",
+        "MIX_11": "A",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "D",
+        "MIX_03": "A",
+        "MIX_04": "C",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "B",
+        "MIX_08": "D",
+        "MIX_09": "A",
+        "MIX_10": "A",
+        "MIX_11": "A",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "C",
+        "MIX_09": "C",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "C",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "B",
+        "MIX_10": "C",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 1,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "C",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "C",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "B",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "B",
+        "MIX_10": "D",
+        "MIX_11": "B",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 1,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "C",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 1
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "B",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 1,
+        "missing-step": 3,
+        "duplicate-step": 1,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "D",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "duplicate-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 1,
+        "wrong-version": 1,
+        "missing-step": 1,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "D",
+        "MIX_08": "C",
+        "MIX_09": "B",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "missing-step",
+        "duplicate-step"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 0,
+        "unspoken-handoff": 0
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "C",
+        "MIX_03": "A",
+        "MIX_04": "A",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "missing-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 0,
+        "mixed-amount": 3,
+        "unspoken-handoff": 0
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "B",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "C",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "missing-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 0,
+        "mixed-amount": 0,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "A",
+        "MIX_03": "A",
+        "MIX_04": "D",
+        "MIX_05": "D",
+        "MIX_06": "B",
+        "MIX_07": "A",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "C",
+        "MIX_11": "B",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 0,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 0
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "A",
+        "MIX_09": "D",
+        "MIX_10": "D",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 0,
+        "duplicate-step": 3,
+        "mixed-amount": 0,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "A",
+        "MIX_03": "D",
+        "MIX_04": "D",
+        "MIX_05": "B",
+        "MIX_06": "A",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "B",
+        "MIX_10": "A",
+        "MIX_11": "C",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "wrong-version",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 3,
+        "missing-step": 0,
+        "duplicate-step": 0,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "B",
+        "MIX_02": "A",
+        "MIX_03": "D",
+        "MIX_04": "D",
+        "MIX_05": "B",
+        "MIX_06": "A",
+        "MIX_07": "A",
+        "MIX_08": "D",
+        "MIX_09": "C",
+        "MIX_10": "B",
+        "MIX_11": "A",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 0,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 0
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "B",
+        "MIX_05": "D",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "B",
+        "MIX_09": "D",
+        "MIX_10": "A",
+        "MIX_11": "C",
+        "MIX_12": "B"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 0,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 0,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "A",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "missing-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 0,
+        "missing-step": 3,
+        "duplicate-step": 0,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "A",
+        "MIX_06": "B",
+        "MIX_07": "D",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "C",
+        "MIX_11": "D",
+        "MIX_12": "A"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-target",
+        "duplicate-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 3,
+        "wrong-version": 0,
+        "missing-step": 0,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "A",
+        "MIX_02": "D",
+        "MIX_03": "D",
+        "MIX_04": "B",
+        "MIX_05": "C",
+        "MIX_06": "A",
+        "MIX_07": "D",
+        "MIX_08": "D",
+        "MIX_09": "B",
+        "MIX_10": "A",
+        "MIX_11": "A",
+        "MIX_12": "D"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "duplicate-step",
+        "mixed-amount"
+      ],
+      "counts": {
+        "wrong-target": 0,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 0
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "C",
+        "MIX_03": "C",
+        "MIX_04": "A",
+        "MIX_05": "A",
+        "MIX_06": "D",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "duplicate-step",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 0,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 0,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "C",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "B",
+        "MIX_08": "C",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "missing-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 0,
+        "wrong-version": 3,
+        "missing-step": 3,
+        "duplicate-step": 0,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "C",
+        "MIX_05": "A",
+        "MIX_06": "A",
+        "MIX_07": "C",
+        "MIX_08": "A",
+        "MIX_09": "A",
+        "MIX_10": "D",
+        "MIX_11": "D",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "wrong-version",
+        "duplicate-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 0,
+        "wrong-version": 3,
+        "missing-step": 0,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "B",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "D",
+        "MIX_08": "A",
+        "MIX_09": "B",
+        "MIX_10": "D",
+        "MIX_11": "A",
+        "MIX_12": "C"
+      }
+    },
+    {
+      "winnerIds": [
+        "missing-step",
+        "duplicate-step",
+        "mixed-amount",
+        "unspoken-handoff"
+      ],
+      "counts": {
+        "wrong-target": 0,
+        "wrong-version": 0,
+        "missing-step": 3,
+        "duplicate-step": 3,
+        "mixed-amount": 3,
+        "unspoken-handoff": 3
+      },
+      "answers": {
+        "MIX_01": "D",
+        "MIX_02": "D",
+        "MIX_03": "C",
+        "MIX_04": "C",
+        "MIX_05": "B",
+        "MIX_06": "D",
+        "MIX_07": "D",
+        "MIX_08": "B",
+        "MIX_09": "A",
+        "MIX_10": "A",
+        "MIX_11": "D",
+        "MIX_12": "D"
+      }
+    }
+  ]
+}

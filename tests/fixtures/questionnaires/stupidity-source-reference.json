@@ -1,0 +1,615 @@
+{
+  "edition": "fm_everyday_mixups_choice12_v1",
+  "kind": "FermatMind independently authored entertainment choice bank about six observable everyday mix-up outcomes;notIQ/ability/causes/errorfrequency/validatedtaxonomy",
+  "questions": [
+    {
+      "id": "MIX_01",
+      "prompt": {
+        "en": "You are making a photo page for a book club. Which small mix-up do you most readily recognise?",
+        "zh": "为读书会做一页照片时，你更容易认出哪种小乌龙？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The finished page lands in the folder for a different book.",
+            "zh": "页面做好了，却放进另一本书的文件夹。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "You use the cover draft from before the group changed its choice.",
+            "zh": "用了小组更换封面之前的那版草稿。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The page is ready, but the link that lets the group open it is missing.",
+            "zh": "页面已经做好，却漏了让大家打开的链接。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The page prints as a tiny thumbnail because its scale was mixed up.",
+            "zh": "打印比例弄串了，整页变成一张小缩略图。"
+          },
+          "directionId": "mixed-amount"
+        }
+      ]
+    },
+    {
+      "id": "MIX_02",
+      "prompt": {
+        "en": "A club is putting up a simple event poster. Which harmless snag sounds most familiar?",
+        "zh": "兴趣小组准备贴一张活动海报，哪种小岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The exported poster still has the wording from before the date was revised.",
+            "zh": "导出的还是改日期之前那版文字。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The poster has the title and date, but the room number was left out.",
+            "zh": "标题和日期都有，却漏了房间号。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The same poster batch gets printed twice.",
+            "zh": "同一批海报多打印了一遍。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Both helpers thought the other one was bringing the posters.",
+            "zh": "两位帮忙的人都以为海报由对方带来。"
+          },
+          "directionId": "unspoken-handoff"
+        }
+      ]
+    },
+    {
+      "id": "MIX_03",
+      "prompt": {
+        "en": "You are getting a board game ready for a relaxed afternoon. Which mix-up rings a bell?",
+        "zh": "准备一个轻松下午的桌游时，哪种乌龙让你有点印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The board and pieces arrive, but the cards that start the game do not.",
+            "zh": "带了棋盘和棋子，却少了开局要用的卡牌。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "There are two copies of the same score pad in the box.",
+            "zh": "盒子里装了两份相同的记分纸。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You set out supplies for five tables when the note meant five players.",
+            "zh": "便签写五位玩家，却按五桌准备了用品。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "You bring the neighbouring box: a different game with a similar label.",
+            "zh": "拿了旁边标签相似、内容却不同的另一盒游戏。"
+          },
+          "directionId": "wrong-target"
+        }
+      ]
+    },
+    {
+      "id": "MIX_04",
+      "prompt": {
+        "en": "Friends are making paper badges for fun. Which small mistake feels easiest to recognise?",
+        "zh": "朋友一起做纸徽章玩，哪种小失误更容易认出来？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "One participant gets two identical name cards.",
+            "zh": "给同一位参与者做了两张一样的名卡。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A strip is cut in centimetres when the template uses millimetres.",
+            "zh": "模板用毫米，纸条却照着厘米剪了。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Each helper assumed the other had agreed who would bring the supplies.",
+            "zh": "两位帮忙的人都以为对方已约好谁带材料。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The printed badges use the old template from before the lettering changed.",
+            "zh": "徽章打印的是改字样之前的旧模板。"
+          },
+          "directionId": "wrong-version"
+        }
+      ]
+    },
+    {
+      "id": "MIX_05",
+      "prompt": {
+        "en": "A few friends exchange small potted plants. Which ordinary mix-up is most recognisable?",
+        "zh": "几个朋友交换小盆栽，哪种普通乌龙更有印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "You make labels for twelve pots when the plan meant twelve pairs.",
+            "zh": "计划是十二对盆栽，却只按十二盆做了标签。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Two friends each thought the other had written the plant labels.",
+            "zh": "两位朋友都以为植物标签由对方写好了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The label for one plant ends up on a different pot.",
+            "zh": "一棵植物的标签贴到了另一盆上。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The written labels are packed, but the blank tags they attach to are not.",
+            "zh": "写好的标签带了，却漏了用来贴标签的空白小牌。"
+          },
+          "directionId": "missing-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_06",
+      "prompt": {
+        "en": "You are arranging a short, shared playlist. Which little mishap sounds closest to one you recognise?",
+        "zh": "一起整理一份短歌单时，哪种小岔子更像你能认出的情况？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both contributors thought the other had saved the final arrangement.",
+            "zh": "两位参与者都以为最后的排序由对方保存了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The playlist is added to the wrong club folder.",
+            "zh": "歌单加进了另一个兴趣小组的文件夹。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The link points to yesterday’s order rather than the revised sequence.",
+            "zh": "链接指向的是昨天的顺序，不是刚调整的那版。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The same short audio sample appears twice.",
+            "zh": "同一段短音频在列表里出现了两次。"
+          },
+          "directionId": "duplicate-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_07",
+      "prompt": {
+        "en": "You are preparing a tiny puzzle-card set. Which harmless mix-up do you notice yourself recognising?",
+        "zh": "准备一小套谜题卡时，哪种无害乌龙更有似曾相识感？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The backs are filed with the cards for another round.",
+            "zh": "卡背被归进了另一轮游戏的卡牌组。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The printout uses the copy from before a typo was corrected.",
+            "zh": "打印的是改错字之前的那份。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The cards are finished, but the marker for the starting player is missing.",
+            "zh": "卡牌完成了，却少了标出起始玩家的小标记。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A page-size setting shrinks cards that were meant to fill a larger sheet.",
+            "zh": "纸张尺寸设置弄串，原本要铺满大纸的卡牌都缩小了。"
+          },
+          "directionId": "mixed-amount"
+        }
+      ]
+    },
+    {
+      "id": "MIX_08",
+      "prompt": {
+        "en": "A shared sketchbook is ready to show the group. Which small snag sounds most familiar?",
+        "zh": "一本共作速写册要给大家看了，哪种小岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The scan is from before the latest edits were added.",
+            "zh": "扫描的还是最新修改之前那版。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The pages are drawn, but the numbers needed to read them in order are missing.",
+            "zh": "页面画好了，却漏了帮助按顺序阅读的页码。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "One finished page is included twice.",
+            "zh": "同一张完成的页面收进去了两次。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Each friend thought the other was posting the link for the group.",
+            "zh": "两位朋友都以为册子的链接由对方发给大家。"
+          },
+          "directionId": "unspoken-handoff"
+        }
+      ]
+    },
+    {
+      "id": "MIX_09",
+      "prompt": {
+        "en": "You are helping organise a small book-swap shelf. Which mix-up is easiest to relate to?",
+        "zh": "帮忙整理小型换书架时，哪种乌龙更容易理解？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The books arrive, but the index cards for finding them are still at home.",
+            "zh": "书带到了，用来查找的索引卡却留在家里。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Two index cards are made for the same book.",
+            "zh": "给同一本书做了两张索引卡。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You prepare ten bookmarks when the note meant ten pairs.",
+            "zh": "便签要十对书签，却只准备了十张。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A book goes onto the shelf for a different subject.",
+            "zh": "书放上了另一个主题的书架。"
+          },
+          "directionId": "wrong-target"
+        }
+      ]
+    },
+    {
+      "id": "MIX_10",
+      "prompt": {
+        "en": "A hobby group is laying out a few seats for an informal session. Which little mishap rings a bell?",
+        "zh": "兴趣小组给一次轻松活动摆几个座位，哪种小乌龙有印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The same invitation is sent out twice.",
+            "zh": "同一份活动邀请多发了一次。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A note about ten seats is copied as ten tables.",
+            "zh": "关于十个座位的便签，被记成了十张桌子。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Each helper thought the other had brought the paper table mats.",
+            "zh": "两位帮忙的人都以为桌上的纸垫由对方带了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The layout still follows the version from before the group reduced its numbers.",
+            "zh": "摆法还是小组减少人数之前的那版。"
+          },
+          "directionId": "wrong-version"
+        }
+      ]
+    },
+    {
+      "id": "MIX_11",
+      "prompt": {
+        "en": "You are finishing a small cardboard display box. Which harmless snag is most recognisable?",
+        "zh": "给一个小纸板展示盒收尾时，哪种无害岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A measurement is copied in the wrong unit, so the lid comes out too large.",
+            "zh": "尺寸抄成了另一种单位，盒盖做大了。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Both makers thought the other had told the group about the changed layout.",
+            "zh": "两位制作者都以为布局变了这件事由对方通知了大家。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The right label is attached to the neighbouring display box.",
+            "zh": "标签内容没错，却贴在旁边的展示盒上。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The box is finished without the small tab needed to close it.",
+            "zh": "盒子做完了，却少了让它合上的小插舌。"
+          },
+          "directionId": "missing-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_12",
+      "prompt": {
+        "en": "A club newsletter is ready to circulate. Which everyday mix-up feels most familiar?",
+        "zh": "一份兴趣小组简报准备发出，哪种日常乌龙更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both editors thought the other was pressing Send.",
+            "zh": "两位编辑都以为发送这一步由对方完成。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The public newsletter goes to the test list rather than the club list.",
+            "zh": "公开简报发到了测试名单，而不是小组名单。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The attached draft is the older copy from before the final edits.",
+            "zh": "附件还是最终修改之前的旧稿。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The same event notice appears twice on the page.",
+            "zh": "页面里同一条活动通知出现了两遍。"
+          },
+          "directionId": "duplicate-step"
+        }
+      ]
+    }
+  ],
+  "directions": [
+    {
+      "id": "wrong-target",
+      "title": {
+        "en": "Wrong Target",
+        "zh": "对象错位"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "wrong-version",
+      "title": {
+        "en": "Wrong Version",
+        "zh": "版本拿错"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "missing-step",
+      "title": {
+        "en": "One Thing Left Out",
+        "zh": "漏了一项"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "duplicate-step",
+      "title": {
+        "en": "Done Twice",
+        "zh": "多做一遍"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "mixed-amount",
+      "title": {
+        "en": "Mixed-up Amount",
+        "zh": "数量串台"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "unspoken-handoff",
+      "title": {
+        "en": "Unspoken Handoff",
+        "zh": "交接没说清"
+      },
+      "comparisons": 8
+    }
+  ],
+  "provenance": {
+    "originalPreComparatorBankSHA256": "af9f25a37a5724982c7185c1179709a4afce937b3b57217f0e6951e5ece2b3ce",
+    "runtimeFormatNormalization": "Only draft score:0 placeholders removed;existing archetype engine requires no option.score. All bilingual prompts/options/IDs and direction mappings unchanged.",
+    "comparatorUse": "Original concept and12x4 bilingual draft frozen before actual comparator bank read. Competitor model,labels,questions and reports not adopted."
+  },
+  "interpretation": "Each chosen option adds1 toitsdeclaredtheme;all12beforeanypersonaloutput;6themes8exposures/2perposition;allhighestties;notactualerrorrate orcauses.",
+  "publicChoiceKey": {
+    "id": "public-choice-key",
+    "title": {
+      "en": "The complete option-to-theme key",
+      "zh": "完整选项与主题对应表"
+    },
+    "paragraphs": [
+      {
+        "en": "For independent recounting, the following key maps option positions 1–4 to the six themes. Positions follow the displayed top-to-bottom order in each question, in both languages. Add one to the named theme for your selected position; do not add points to unselected options.",
+        "zh": "如需自己复算，下表把每题第1—4个选项对应到六个主题。答位在两种语言中均按题目从上到下的显示顺序。每题只给所选答位对应的主题加1次，未选选项不加分。"
+      },
+      {
+        "en": "Question 1 — options in displayed order: 1: Wrong Target; 2: Wrong Version; 3: One Thing Left Out; 4: Mixed-up Amount.",
+        "zh": "第1题——按显示顺序对应：1: 对象错位; 2: 版本拿错; 3: 漏了一项; 4: 数量串台。"
+      },
+      {
+        "en": "Question 2 — options in displayed order: 1: Wrong Version; 2: One Thing Left Out; 3: Done Twice; 4: Unspoken Handoff.",
+        "zh": "第2题——按显示顺序对应：1: 版本拿错; 2: 漏了一项; 3: 多做一遍; 4: 交接没说清。"
+      },
+      {
+        "en": "Question 3 — options in displayed order: 1: One Thing Left Out; 2: Done Twice; 3: Mixed-up Amount; 4: Wrong Target.",
+        "zh": "第3题——按显示顺序对应：1: 漏了一项; 2: 多做一遍; 3: 数量串台; 4: 对象错位。"
+      },
+      {
+        "en": "Question 4 — options in displayed order: 1: Done Twice; 2: Mixed-up Amount; 3: Unspoken Handoff; 4: Wrong Version.",
+        "zh": "第4题——按显示顺序对应：1: 多做一遍; 2: 数量串台; 3: 交接没说清; 4: 版本拿错。"
+      },
+      {
+        "en": "Question 5 — options in displayed order: 1: Mixed-up Amount; 2: Unspoken Handoff; 3: Wrong Target; 4: One Thing Left Out.",
+        "zh": "第5题——按显示顺序对应：1: 数量串台; 2: 交接没说清; 3: 对象错位; 4: 漏了一项。"
+      },
+      {
+        "en": "Question 6 — options in displayed order: 1: Unspoken Handoff; 2: Wrong Target; 3: Wrong Version; 4: Done Twice.",
+        "zh": "第6题——按显示顺序对应：1: 交接没说清; 2: 对象错位; 3: 版本拿错; 4: 多做一遍。"
+      },
+      {
+        "en": "Question 7 — options in displayed order: 1: Wrong Target; 2: Wrong Version; 3: One Thing Left Out; 4: Mixed-up Amount.",
+        "zh": "第7题——按显示顺序对应：1: 对象错位; 2: 版本拿错; 3: 漏了一项; 4: 数量串台。"
+      },
+      {
+        "en": "Question 8 — options in displayed order: 1: Wrong Version; 2: One Thing Left Out; 3: Done Twice; 4: Unspoken Handoff.",
+        "zh": "第8题——按显示顺序对应：1: 版本拿错; 2: 漏了一项; 3: 多做一遍; 4: 交接没说清。"
+      },
+      {
+        "en": "Question 9 — options in displayed order: 1: One Thing Left Out; 2: Done Twice; 3: Mixed-up Amount; 4: Wrong Target.",
+        "zh": "第9题——按显示顺序对应：1: 漏了一项; 2: 多做一遍; 3: 数量串台; 4: 对象错位。"
+      },
+      {
+        "en": "Question 10 — options in displayed order: 1: Done Twice; 2: Mixed-up Amount; 3: Unspoken Handoff; 4: Wrong Version.",
+        "zh": "第10题——按显示顺序对应：1: 多做一遍; 2: 数量串台; 3: 交接没说清; 4: 版本拿错。"
+      },
+      {
+        "en": "Question 11 — options in displayed order: 1: Mixed-up Amount; 2: Unspoken Handoff; 3: Wrong Target; 4: One Thing Left Out.",
+        "zh": "第11题——按显示顺序对应：1: 数量串台; 2: 交接没说清; 3: 对象错位; 4: 漏了一项。"
+      },
+      {
+        "en": "Question 12 — options in displayed order: 1: Unspoken Handoff; 2: Wrong Target; 3: Wrong Version; 4: Done Twice.",
+        "zh": "第12题——按显示顺序对应：1: 交接没说清; 2: 对象错位; 3: 版本拿错; 4: 多做一遍。"
+      }
+    ]
+  }
+}

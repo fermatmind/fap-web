@@ -1,0 +1,1631 @@
+{
+  "slug": "stupidity-test",
+  "code": "FM_EVERYDAY_MIXUPS12",
+  "kind": "archetype",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "title": {
+    "en": "Stupidity Test: Everyday Mix-ups",
+    "zh": "犯蠢测试：日常乌龙方式"
+  },
+  "seoTitle": {
+    "en": "Stupidity Test: 12 Playful Choices & 6 Full Guides",
+    "zh": "犯蠢测试：12道趣味情境与6份完整读法"
+  },
+  "description": {
+    "en": "Which small mix-up feels familiar? Explore six original mistake themes through 12 playful choices. All ties and full guides are free; no IQ or error-rate score.",
+    "zh": "哪种小乌龙让你有印象？用12道原创趣味选择探索六类日常失误主题，所有最高并列和完整双语说明免费；不测智商、失误率或人的价值。"
+  },
+  "resultHeading": {
+    "en": "Your selected mix-ups: the complete reading",
+    "zh": "本次选择的乌龙主题：完整读法"
+  },
+  "minutes": 3,
+  "introduction": {
+    "en": "A page reaches another folder, an older draft gets printed, or two helpers each thought the other was sending something. Which harmless mix-up is easiest to recognise? This original entertainment quiz offers twelve everyday situations and six descriptive themes. Pick a familiar example, not a mistake you want to make. Recognition does not confirm that an incident happened to you or explain its cause. You can leave without a result and read all six complete guides first. “Stupidity Test” is a playful entry name, never an intelligence score or a verdict about a person.",
+    "zh": "页面去了别的文件夹，打印的是旧稿，两位帮手都以为由对方发送……哪种无害小乌龙更容易认出？本原创娱乐版提供12道日常情境和六个描述性主题。选的是熟悉的例子，不是你希望犯的错；有印象不确认事件发生在你身上，也不解释原因。可以无分退出，先读六份完整指南。“犯蠢测试”只是趣味入口名称，不是智商分，也不是对人的判决。"
+  },
+  "instructions": {
+    "en": "Choose one of four examples per situation, even if the fit is approximate. There are no correct answers, better people or severity points. No NA option is scored; if none of the examples suits you, you may leave and read every guide free. All twelve valid choices are needed before any personal counts appear. Every highest count keeps its full explanation. No real messages, files or private experiences need to be supplied.",
+    "zh": "每道情境从四个例子选较接近的一项，即使只是大致相像。没有正确答案、更好的人或严重程度分。本题本没有计分NA选项；若都不合适，可以退出并免费阅读全部指南。12题全部有效后才显示个人计数，每个最高并列都保留完整说明。无需提供真实消息、文件或私人经历。"
+  },
+  "references": [],
+  "source": {
+    "kind": "FermatMind independently authored entertainment choice bank about six observable everyday mix-up outcomes;notIQ/ability/causes/errorfrequency/validatedtaxonomy",
+    "formCode": "fm_everyday_mixups_choice12_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "all_highest_raw_choice_counts_v1",
+    "resultContentVersion": "six_mixup_full8_v1",
+    "itemBankSha256": "8931ba09a6cf76ee3fdfa0a9616a16e13509938ea81d4fdc9b4c2c0eab7e77fa",
+    "resultContentSha256": "d8e03f3a70cf65c5a54d094731a6c3ed890fe4247deaaeaaf21751aa84262490",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "wrong-target",
+      "title": {
+        "en": "Wrong Target",
+        "zh": "对象错位"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "wrong-version",
+      "title": {
+        "en": "Wrong Version",
+        "zh": "版本拿错"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "missing-step",
+      "title": {
+        "en": "One Thing Left Out",
+        "zh": "漏了一项"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "duplicate-step",
+      "title": {
+        "en": "Done Twice",
+        "zh": "多做一遍"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "mixed-amount",
+      "title": {
+        "en": "Mixed-up Amount",
+        "zh": "数量串台"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "unspoken-handoff",
+      "title": {
+        "en": "Unspoken Handoff",
+        "zh": "交接没说清"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "MIX_01",
+      "prompt": {
+        "en": "You are making a photo page for a book club. Which small mix-up do you most readily recognise?",
+        "zh": "为读书会做一页照片时，你更容易认出哪种小乌龙？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The finished page lands in the folder for a different book.",
+            "zh": "页面做好了，却放进另一本书的文件夹。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "You use the cover draft from before the group changed its choice.",
+            "zh": "用了小组更换封面之前的那版草稿。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The page is ready, but the link that lets the group open it is missing.",
+            "zh": "页面已经做好，却漏了让大家打开的链接。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The page prints as a tiny thumbnail because its scale was mixed up.",
+            "zh": "打印比例弄串了，整页变成一张小缩略图。"
+          },
+          "directionId": "mixed-amount"
+        }
+      ]
+    },
+    {
+      "id": "MIX_02",
+      "prompt": {
+        "en": "A club is putting up a simple event poster. Which harmless snag sounds most familiar?",
+        "zh": "兴趣小组准备贴一张活动海报，哪种小岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The exported poster still has the wording from before the date was revised.",
+            "zh": "导出的还是改日期之前那版文字。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The poster has the title and date, but the room number was left out.",
+            "zh": "标题和日期都有，却漏了房间号。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The same poster batch gets printed twice.",
+            "zh": "同一批海报多打印了一遍。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Both helpers thought the other one was bringing the posters.",
+            "zh": "两位帮忙的人都以为海报由对方带来。"
+          },
+          "directionId": "unspoken-handoff"
+        }
+      ]
+    },
+    {
+      "id": "MIX_03",
+      "prompt": {
+        "en": "You are getting a board game ready for a relaxed afternoon. Which mix-up rings a bell?",
+        "zh": "准备一个轻松下午的桌游时，哪种乌龙让你有点印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The board and pieces arrive, but the cards that start the game do not.",
+            "zh": "带了棋盘和棋子，却少了开局要用的卡牌。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "There are two copies of the same score pad in the box.",
+            "zh": "盒子里装了两份相同的记分纸。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You set out supplies for five tables when the note meant five players.",
+            "zh": "便签写五位玩家，却按五桌准备了用品。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "You bring the neighbouring box: a different game with a similar label.",
+            "zh": "拿了旁边标签相似、内容却不同的另一盒游戏。"
+          },
+          "directionId": "wrong-target"
+        }
+      ]
+    },
+    {
+      "id": "MIX_04",
+      "prompt": {
+        "en": "Friends are making paper badges for fun. Which small mistake feels easiest to recognise?",
+        "zh": "朋友一起做纸徽章玩，哪种小失误更容易认出来？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "One participant gets two identical name cards.",
+            "zh": "给同一位参与者做了两张一样的名卡。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A strip is cut in centimetres when the template uses millimetres.",
+            "zh": "模板用毫米，纸条却照着厘米剪了。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Each helper assumed the other had agreed who would bring the supplies.",
+            "zh": "两位帮忙的人都以为对方已约好谁带材料。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The printed badges use the old template from before the lettering changed.",
+            "zh": "徽章打印的是改字样之前的旧模板。"
+          },
+          "directionId": "wrong-version"
+        }
+      ]
+    },
+    {
+      "id": "MIX_05",
+      "prompt": {
+        "en": "A few friends exchange small potted plants. Which ordinary mix-up is most recognisable?",
+        "zh": "几个朋友交换小盆栽，哪种普通乌龙更有印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "You make labels for twelve pots when the plan meant twelve pairs.",
+            "zh": "计划是十二对盆栽，却只按十二盆做了标签。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Two friends each thought the other had written the plant labels.",
+            "zh": "两位朋友都以为植物标签由对方写好了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The label for one plant ends up on a different pot.",
+            "zh": "一棵植物的标签贴到了另一盆上。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The written labels are packed, but the blank tags they attach to are not.",
+            "zh": "写好的标签带了，却漏了用来贴标签的空白小牌。"
+          },
+          "directionId": "missing-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_06",
+      "prompt": {
+        "en": "You are arranging a short, shared playlist. Which little mishap sounds closest to one you recognise?",
+        "zh": "一起整理一份短歌单时，哪种小岔子更像你能认出的情况？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both contributors thought the other had saved the final arrangement.",
+            "zh": "两位参与者都以为最后的排序由对方保存了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The playlist is added to the wrong club folder.",
+            "zh": "歌单加进了另一个兴趣小组的文件夹。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The link points to yesterday’s order rather than the revised sequence.",
+            "zh": "链接指向的是昨天的顺序，不是刚调整的那版。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The same short audio sample appears twice.",
+            "zh": "同一段短音频在列表里出现了两次。"
+          },
+          "directionId": "duplicate-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_07",
+      "prompt": {
+        "en": "You are preparing a tiny puzzle-card set. Which harmless mix-up do you notice yourself recognising?",
+        "zh": "准备一小套谜题卡时，哪种无害乌龙更有似曾相识感？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The backs are filed with the cards for another round.",
+            "zh": "卡背被归进了另一轮游戏的卡牌组。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The printout uses the copy from before a typo was corrected.",
+            "zh": "打印的是改错字之前的那份。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The cards are finished, but the marker for the starting player is missing.",
+            "zh": "卡牌完成了，却少了标出起始玩家的小标记。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A page-size setting shrinks cards that were meant to fill a larger sheet.",
+            "zh": "纸张尺寸设置弄串，原本要铺满大纸的卡牌都缩小了。"
+          },
+          "directionId": "mixed-amount"
+        }
+      ]
+    },
+    {
+      "id": "MIX_08",
+      "prompt": {
+        "en": "A shared sketchbook is ready to show the group. Which small snag sounds most familiar?",
+        "zh": "一本共作速写册要给大家看了，哪种小岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The scan is from before the latest edits were added.",
+            "zh": "扫描的还是最新修改之前那版。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The pages are drawn, but the numbers needed to read them in order are missing.",
+            "zh": "页面画好了，却漏了帮助按顺序阅读的页码。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "One finished page is included twice.",
+            "zh": "同一张完成的页面收进去了两次。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Each friend thought the other was posting the link for the group.",
+            "zh": "两位朋友都以为册子的链接由对方发给大家。"
+          },
+          "directionId": "unspoken-handoff"
+        }
+      ]
+    },
+    {
+      "id": "MIX_09",
+      "prompt": {
+        "en": "You are helping organise a small book-swap shelf. Which mix-up is easiest to relate to?",
+        "zh": "帮忙整理小型换书架时，哪种乌龙更容易理解？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The books arrive, but the index cards for finding them are still at home.",
+            "zh": "书带到了，用来查找的索引卡却留在家里。"
+          },
+          "directionId": "missing-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Two index cards are made for the same book.",
+            "zh": "给同一本书做了两张索引卡。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You prepare ten bookmarks when the note meant ten pairs.",
+            "zh": "便签要十对书签，却只准备了十张。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A book goes onto the shelf for a different subject.",
+            "zh": "书放上了另一个主题的书架。"
+          },
+          "directionId": "wrong-target"
+        }
+      ]
+    },
+    {
+      "id": "MIX_10",
+      "prompt": {
+        "en": "A hobby group is laying out a few seats for an informal session. Which little mishap rings a bell?",
+        "zh": "兴趣小组给一次轻松活动摆几个座位，哪种小乌龙有印象？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The same invitation is sent out twice.",
+            "zh": "同一份活动邀请多发了一次。"
+          },
+          "directionId": "duplicate-step"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A note about ten seats is copied as ten tables.",
+            "zh": "关于十个座位的便签，被记成了十张桌子。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Each helper thought the other had brought the paper table mats.",
+            "zh": "两位帮忙的人都以为桌上的纸垫由对方带了。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The layout still follows the version from before the group reduced its numbers.",
+            "zh": "摆法还是小组减少人数之前的那版。"
+          },
+          "directionId": "wrong-version"
+        }
+      ]
+    },
+    {
+      "id": "MIX_11",
+      "prompt": {
+        "en": "You are finishing a small cardboard display box. Which harmless snag is most recognisable?",
+        "zh": "给一个小纸板展示盒收尾时，哪种无害岔子更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A measurement is copied in the wrong unit, so the lid comes out too large.",
+            "zh": "尺寸抄成了另一种单位，盒盖做大了。"
+          },
+          "directionId": "mixed-amount"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Both makers thought the other had told the group about the changed layout.",
+            "zh": "两位制作者都以为布局变了这件事由对方通知了大家。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The right label is attached to the neighbouring display box.",
+            "zh": "标签内容没错，却贴在旁边的展示盒上。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The box is finished without the small tab needed to close it.",
+            "zh": "盒子做完了，却少了让它合上的小插舌。"
+          },
+          "directionId": "missing-step"
+        }
+      ]
+    },
+    {
+      "id": "MIX_12",
+      "prompt": {
+        "en": "A club newsletter is ready to circulate. Which everyday mix-up feels most familiar?",
+        "zh": "一份兴趣小组简报准备发出，哪种日常乌龙更熟悉？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both editors thought the other was pressing Send.",
+            "zh": "两位编辑都以为发送这一步由对方完成。"
+          },
+          "directionId": "unspoken-handoff"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The public newsletter goes to the test list rather than the club list.",
+            "zh": "公开简报发到了测试名单，而不是小组名单。"
+          },
+          "directionId": "wrong-target"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The attached draft is the older copy from before the final edits.",
+            "zh": "附件还是最终修改之前的旧稿。"
+          },
+          "directionId": "wrong-version"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The same event notice appears twice on the page.",
+            "zh": "页面里同一条活动通知出现了两遍。"
+          },
+          "directionId": "duplicate-step"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wrong-target",
+      "directionIds": [
+        "wrong-target"
+      ],
+      "title": {
+        "en": "Wrong Target",
+        "zh": "对象错位"
+      },
+      "headline": {
+        "en": "The thing can be right while its destination is wrong.",
+        "zh": "东西可能没错，只是去处不对。"
+      },
+      "summary": {
+        "en": "A finished page reaches another folder, or the right label lands on the neighbouring box. Explore a destination mix-up without turning it into a claim about attention, intentions or intelligence.",
+        "zh": "页面做好了，却进了别的文件夹；标签没写错，却贴在旁边盒子上。从去处或对象错位看一个小乌龙，不由此推断注意力、意图或聪明程度。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "What this theme records",
+            "zh": "这个主题记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme collects choices in which a destination or object gets mixed up: a useful page is filed for another book, a label goes on the neighbouring pot, or a different game box comes along. The work itself may be perfectly usable. The limited question is whether the selected example involves the wrong target. A high count does not explain how it happened or establish that these events occur often in your life.",
+              "zh": "本主题收集去处或对象弄串的选项：能用的页面被归进另一本书，标签贴到旁边盆栽，或拿来了另一盒游戏。东西本身可能完全能用。本版只问所选例子是否涉及对象错位；计数较高不会解释成因，也不确立这些事在你生活里经常发生。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "The correct notice on the other table",
+            "zh": "通知没错，桌子却不是那张"
+          },
+          "paragraphs": [
+            {
+              "en": "At a relaxed book-swap afternoon, two tables have similar signs. A neatly prepared notice ends up beside the other table’s pile. Someone says, “The wording is right; this is the other table.” Moving that one notice may settle the practical problem. The scene does not require a story about who was careless, who was rushing or whether somebody secretly wanted a different outcome.",
+              "zh": "一次轻松换书活动，两张桌子的标牌很像。一份排好的通知放到了另一桌的书堆旁。有人说：“文字没错，这边是另一张桌子。”把通知挪过去，眼前问题也许就解决了；不需要再编谁粗心、谁匆忙，或谁暗中希望出现另一种结果的故事。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A different destination can be intentional",
+            "zh": "放到别处，也可能正是本意"
+          },
+          "paragraphs": [
+            {
+              "en": "A newsletter sent to a test list is not a mistake when a preview was the agreed aim. Two identical-looking boxes may deliberately be exchanged. Intent and context matter more than resemblance to a quiz example. If you recognised a scene for a different reason, you can disagree with its editorial mapping. The quiz cannot inspect that reason, and another person’s explanation should not be replaced by your count.",
+              "zh": "如果约好的目的就是预览，简报发到测试名单并不是错误。两只外观相似的盒子，也可能本就打算交换。意图和情境比与题目相像更重要；若你因别的理由认出某个场景，可以不同意本版映射。测试看不到这个理由，计数也不能取代当事人的解释。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Where it differs from the other five themes",
+            "zh": "与另外五类怎样区分"
+          },
+          "paragraphs": [
+            {
+              "en": "Wrong Version keeps the intended task but picks an older copy. One Thing Left Out omits a needed piece; Done Twice repeats a contribution. Mixed-up Amount changes a number or scale, while Unspoken Handoff leaves responsibility unclear. Several may coexist in one real incident. Here each offered option has one declared mapping so the arithmetic stays readable; the six themes are not an exhaustive or mutually exclusive account of real life.",
+              "zh": "版本拿错保留原任务，却选了较旧的副本；漏了一项少了所需部分，多做一遍重复了一份贡献。数量串台改变数目或比例，交接没说清则留下谁来做的空白。现实一件事可兼有几种情况。本版每个选项只映射一类，以便计数清楚；六类并不是穷尽现实、彼此绝不重叠的解释。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Try a destination check with invented materials",
+            "zh": "用虚构材料试一次去处核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For a harmless private experiment, label two empty folders for two imaginary activities and make two simple note cards. Before placing a card, say which folder you intend to use, then compare the label with that intention. Keep, revise or drop this extra step according to whether it helps. No real address, private message or personal file needs to be entered into this quiz or shown to another person.",
+              "zh": "可以私下做个无害小尝试：给两个空文件夹标上两项虚构活动，再做两张简单便签。放卡片前先说想放哪个文件夹，再核对标签与本意。按是否有帮助决定留、改或不用这一步，不需要把真实地址、私密消息或个人文件填进测试，也无需向别人展示。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Keep the repair smaller than the story about it",
+            "zh": "让修正小于围绕它的评判"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful response can be as modest as moving the right item and making the two destinations easier to tell apart. It does not require everyone to become slower or to check every harmless action repeatedly. A low count does not certify accuracy, and a high count does not assign an attention problem. Use the actual situation to decide what needs correcting; the result remains a playful reading of your choices.",
+              "zh": "有用的处理也许只是挪对物件，让两个去处更好区分。不必因此要求每个人都变慢，或反复检查每个无害动作。低计数不认证准确，高计数不派出注意力问题。实际要改什么，仍由具体情境决定；结果只是对本次选择的一种趣味读法。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Wrong Target: Everyday Mix-up Test Result",
+          "zh": "对象错位：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "A useful page reaches the wrong folder or a label lands on another box. Read the full Wrong Target guide, with counterexamples, six-theme comparisons and clear counts.",
+          "zh": "页面或标签本身没错，却到了别的文件夹或盒子。对象错位的完整说明提供具体例子、反例、六类比较和小尝试；计数不解释原因，也不评价聪明程度。"
+        }
+      }
+    },
+    {
+      "id": "wrong-version",
+      "directionIds": [
+        "wrong-version"
+      ],
+      "title": {
+        "en": "Wrong Version",
+        "zh": "版本拿错"
+      },
+      "headline": {
+        "en": "The task is familiar; the copy may be out of date.",
+        "zh": "任务没换，手里的副本却旧了。"
+      },
+      "summary": {
+        "en": "An earlier poster or sketch survives after a revision. Read about making the current copy visible, keeping useful archives and agreeing what “latest” means without treating memory as a score.",
+        "zh": "海报或草图改过了，流转的却还是之前那份。看看怎样说清当前副本、保留有用旧稿，也约清“最新”所指；这里不为记忆力打分。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "What counts as a version mix-up here",
+            "zh": "本版怎样理解版本拿错"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme records options where the intended work is represented by an earlier copy: a poster before its date changed, a scan before new edits, or a playlist before its order was revised. “Earlier” only matters when a different copy was intended. The category says nothing about memory, technical skill or whether somebody dislikes change. It also cannot tell whether the source was clearly labelled in the first place.",
+              "zh": "本主题记录原本要用某份作品，却拿了较早副本的选项：改日期前的海报、添修改前的扫描，或换顺序前的歌单。只有本来想用另一份时，“较早”才构成这里的问题。分类不说明记忆力、技术，也不推断谁不喜欢变化，更看不出源文件最初是否标清。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Two poster files on one shared screen",
+            "zh": "同一个屏幕上的两份海报"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends have revised a small event poster and left both copies available. The next export still uses the earlier wording. One person asks which copy the group actually agreed to share; another points to the revised date. Choosing the agreed file resolves the immediate mismatch. The situation does not prove that anyone ignored the group, and the newest file is not automatically the right one simply because it was saved last.",
+              "zh": "朋友改好一张小活动海报，两份副本都还在。下次导出时，用的却仍是早先文字。有人问大家到底约好分享哪份，另一个人指出修改后的日期。选对约好的文件就能处理当前不一致；这不证明谁忽视小组，保存时间最后的文件也不会自动成为正确版本。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "An archive can be exactly what you need",
+            "zh": "旧稿也可以正好有用"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping an earlier draft for comparison is ordinary and useful when that is the agreed purpose. A later edit may be unfinished or unwanted. A version number, timestamp or filename offers a clue, not a universal verdict about quality. If the task was to review the old design, selecting it is not a lapse. The quiz records the offered scenario you chose and cannot decide what a real group intended.",
+              "zh": "约好拿来比较时，保留较早草稿很正常，也很有用。后来的修改可能尚未完成，或不是大家想用的。版本号、时间、文件名只是线索，不是质量的通用裁决。若任务就是回看旧设计，选它不算失误。测试只记录你选了哪个例子，无法替真实小组决定原本想做什么。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "A copy, a destination or a quantity?",
+            "zh": "是副本、去处，还是数量？"
+          },
+          "paragraphs": [
+            {
+              "en": "Wrong Target chooses another object or destination; Wrong Version stays with the intended work but uses an unintended revision. Done Twice might send the current copy twice, while One Thing Left Out may forget the link entirely. Mixed-up Amount changes scale or number. Unspoken Handoff concerns who was meant to act. A real incident can contain several of these; the single mapping is a feature of this small entertainment bank.",
+              "zh": "对象错位选了别的物件或去处；版本拿错仍是那件作品，只是用了并非本意的修订。多做一遍可能把当前稿发两次，漏了一项可能完全漏链接；数量串台改变比例或数目，交接没说清关乎谁来做。现实一件事可以兼有几类，单一映射只是这份小型娱乐题本的安排。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Agree which copy is for use",
+            "zh": "约清哪份用于当前活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Using two invented drafts of a short note, decide which one a pretend activity would use and which one is kept only for comparison. Give that distinction a label you can understand later. Try finding the intended copy again without relying on how many times “final” appears in its name. Keep the label only if it helps. This is a small organisation experiment, not a test of memory or digital competence.",
+              "zh": "用一张短便签的两份虚构草稿，决定假想活动采用哪份、哪份只留作比较，给这种区别取个之后还能看懂的标记。再试着找到原本要用的副本，不靠文件名里出现几遍“最终”。有帮助才保留这个标记；这是整理小尝试，不是记忆或数字能力测试。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "A current copy is a shared agreement",
+            "zh": "当前副本是一项共同约定"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear source can help more than expecting every participant to remember every revision. If the intended copy changes, discuss where that change will be visible and whether older copies remain useful. Nobody needs to erase their working history to fit this result. Neither a high nor low count predicts reliability, and the result cannot settle responsibility for a real disagreement about what was approved.",
+              "zh": "把采用哪份说清，可能比期待每个人记住每次修改更有用。如果采用的副本变了，可以谈这种变化在哪里看得见、旧稿是否仍有用。无人需要为符合结果而删掉自己的工作历史。高低计数都不预测可靠性，也不能解决现实中对“到底同意过哪版”的责任争议。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Wrong Version: Everyday Mix-up Test Result",
+          "zh": "版本拿错：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "An earlier poster or sketch survives a revision. Explore the Wrong Version guide on current copies, useful archives and an agreement about which draft to use.",
+          "zh": "海报或草图已经修改，流转的却还是之前那份。版本拿错的完整说明谈当前副本、有用的旧稿与采用哪份的约定，不用文件选择给记忆力打分。"
+        }
+      }
+    },
+    {
+      "id": "missing-step",
+      "directionIds": [
+        "missing-step"
+      ],
+      "title": {
+        "en": "One Thing Left Out",
+        "zh": "漏了一项"
+      },
+      "headline": {
+        "en": "Nearly finished can still be missing a small piece.",
+        "zh": "快完成了，也可能少了一小项。"
+      },
+      "summary": {
+        "en": "The cards are ready but a starting marker is absent, or a finished page has no usable link. Explore a missing piece, a workable ending and the difference between an omission and a deliberate smaller scope.",
+        "zh": "卡牌准备好了，却少个开局标记；页面做完了，却没有能打开的链接。从漏掉的一小项谈可用的收尾，也区分遗漏与本来就想做小一点的范围。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "What was needed but did not arrive?",
+            "zh": "需要的哪一小项没有到？"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme groups examples where a small needed part is absent: a room number, an index card, a closing tab or a link. Much of the task may already be complete. The count does not establish how often you omit things, whether you intended a delay or why this particular piece was missing.",
+              "zh": "本主题收集少了一小项所需内容的例子：房间号、索引卡、合盒插舌或链接。任务的大部分可能已经完成。计数不确立你多常漏项，不判断是否本来想延后，也不解释为什么偏偏少了这一项。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "The shelf is ready, the index is elsewhere",
+            "zh": "书架好了，索引还在别处"
+          },
+          "paragraphs": [
+            {
+              "en": "A book-swap shelf is neatly arranged, but its index cards were left behind. A friend asks how to find a title. The group can bring the cards or agree a simpler temporary label. The immediate question is what makes this afternoon’s shelf usable, rather than who deserves a general label for being organised or disorganised.",
+              "zh": "换书架摆好了，索引卡却留在别处。朋友问怎样找一本书，小组可以取来卡片，也可以约一种更简单的临时标记。眼前的问题是怎样让今天的书架能用，不是谁该因此被整体贴上有条理或没条理的标签。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Smaller can be the agreed plan",
+            "zh": "做小一点，也可能正是约好的"
+          },
+          "paragraphs": [
+            {
+              "en": "Leaving out an optional decoration is not an omission when the group chose a simpler display. A link is unnecessary if people are reading a printed page. Ask what the actual task required before calling something missing. The quiz cannot recover that context from a familiar-looking example or turn your selection into a complete record of an event.",
+              "zh": "小组决定做简单展示时，不加可选装饰并不算漏项。大家读的是打印页，也未必需要链接。先问实际任务需要什么，再说少了什么。测试无法从一个看似熟悉的例子找回这些背景，也不会把选择变成事件的完整记录。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "A missing part beside the other five themes",
+            "zh": "少一项与另外五类"
+          },
+          "paragraphs": [
+            {
+              "en": "Wrong Target sends an available piece elsewhere; Wrong Version supplies an earlier copy. Done Twice adds a repeated contribution, while Mixed-up Amount changes how much there is. Unspoken Handoff concerns an unclarified responsibility. A missing part can occur alongside any of them, but each option in this bank receives one stated mapping for transparent arithmetic.",
+              "zh": "对象错位把已有物件送到了别处，版本拿错提供了较早副本；多做一遍增加重复贡献，数量串台改变多少，交接没说清关乎尚未约清的责任。少一项可以与它们同时发生，但为便于计数，本题本的每个选项只作一个明确映射。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Define one usable ending",
+            "zh": "约一个能够使用的终点"
+          },
+          "paragraphs": [
+            {
+              "en": "For a harmless private paper project, name the few pieces needed for a usable first version. Include how someone would open or use it, rather than only how it looks. Compare the finished toy example with that short list. Keep the list only if it helps; a longer checklist is not automatically a better one.",
+              "zh": "拿一个私下的无害纸面小项目，列出首版能用所需的少数几项，也包括别人怎样打开或使用它，而不只看外观。做好后与短清单核对。有帮助才留；清单越长，并不自动越好。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "One repair does not define a person",
+            "zh": "补一项不定义一个人"
+          },
+          "paragraphs": [
+            {
+              "en": "Adding the missing card may be enough. Someone else may supply a detail because the work was shared, not because the original maker failed. This result cannot judge motivation, memory or completion ability. It also cannot decide responsibility for an actual problem; use the real agreement and circumstances instead of treating the count as evidence against somebody.",
+              "zh": "补上那张卡也许就够了。别人提供一项细节，也可能只是共同工作，不表示原制作者失败。结果不评动力、记忆或完成能力，也不能裁决实际问题的责任。应回到真实约定与条件，不把计数当成指责谁的证据。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "One Thing Left Out: Everyday Mix-up Test Result",
+          "zh": "漏了一项：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "The page is finished but has no link, or the game lacks one small piece. Read the full guide to missing items, deliberate smaller scopes and a usable ending.",
+          "zh": "页面做好了却没链接，游戏备齐了却少一张卡。漏了一项的完整说明区分所需小部分与有意缩小的范围，并用一个可用的终点帮助回看。"
+        }
+      }
+    },
+    {
+      "id": "duplicate-step",
+      "directionIds": [
+        "duplicate-step"
+      ],
+      "title": {
+        "en": "Done Twice",
+        "zh": "多做一遍"
+      },
+      "headline": {
+        "en": "An extra copy can be the whole little mix-up.",
+        "zh": "多出一份，就可能是这次小乌龙。"
+      },
+      "summary": {
+        "en": "A poster batch is printed again or the same page appears twice. Explore an unintended repeat, the value of intentional backups and a small way to make “already done” visible.",
+        "zh": "海报多印了一批，或同一页收进了两次。从无意重复看一个小乌龙，也区分有用的备份，并试着让“已经做过”更容易看见。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "An unintended repeat, not a personality",
+            "zh": "无意重复，不是一种人格"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme gathers options where a contribution appears twice when one was intended: duplicate invitations, score pads or newsletter notices. It concerns the repeat shown in the example. Your count cannot establish repetitive habits, perfectionism, memory trouble or a wish to do more than others. Nor does it tell us whether one person or several people made the copies.",
+              "zh": "本主题收集本来只要一份，却重复出现的贡献：邀请、记分纸或简报通知。它只关例子呈现的重复。计数不确立反复习惯、完美主义、记忆困难或比别人多做的愿望，也看不出副本是一个人还是多人做的。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Two copies of the same notice",
+            "zh": "同一条通知出现两遍"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends assemble a short club newsletter and spot the same event notice on two pages. They check that the notices really are identical and ask whether the repetition was wanted. If not, they can choose one location. The small editing decision need not become a judgment about who was paying attention or why a particular person repeated an action.",
+              "zh": "朋友拼好一份小组简报，发现同一条活动通知出现在两页。先核对是否真的相同，再问是否本来就需要重复。若不需要，约好留在哪里即可。这个小编辑决定不必变成对谁有没有留心、谁为什么重复动作的评判。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A second copy can be useful",
+            "zh": "第二份也可以很有用"
+          },
+          "paragraphs": [
+            {
+              "en": "Two identical cards may be an intentional spare, or two notices may serve different readers. Repeating a demonstration can be part of learning. None of those becomes a mistake because this quiz has a duplicate theme. Establish the intended number and purpose before discarding anything; the result is not an instruction to remove real files or useful backups.",
+              "zh": "两张相同卡片可能是有意留备份，两条通知也可能服务不同读者；重复示范可以是学习的一部分。不会因为测试设了重复主题，就都变成错误。先核实原定数量和用途，再决定取舍；结果不是删除真实文件或有用备份的指令。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Repeating beside five other mix-ups",
+            "zh": "重复与另外五种乌龙"
+          },
+          "paragraphs": [
+            {
+              "en": "Wrong Version selects an earlier copy; Done Twice can repeat the correct current one. Wrong Target changes the destination, and One Thing Left Out omits a needed part. Mixed-up Amount may change a quantity without repeating an action. Unspoken Handoff concerns responsibility, though it can sometimes accompany duplicate work. The bank’s single mapping does not erase those overlaps.",
+              "zh": "版本拿错选较早副本，多做一遍可以重复的是正确当前稿。对象错位改变去处，漏了一项少了所需部分；数量串台可能只改变数量，并未重复动作。交接没说清关乎责任，有时也会伴随重复工作。本版的单一映射并不抹去这些重叠。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Make one harmless completion visible",
+            "zh": "让一次无害完成看得见"
+          },
+          "paragraphs": [
+            {
+              "en": "On a private sheet, invent three tiny paper tasks and mark one as complete. Pretend that a second helper joins and ask whether the mark makes it clear what is already done. Try a different label if it does not. This is a small visibility experiment, not a system for monitoring another person or certifying their reliability.",
+              "zh": "在私人纸张上编三件很小的纸面任务，将其中一件标为完成。假想另一个帮手加入，看看标记能否让人知道哪件已做；不清楚就换个说法。这是可见性小尝试，不是监看别人或认证他人可靠性的系统。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Keep enough repetition for the purpose",
+            "zh": "保留目的所需的重复"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful response might be checking that a second print run is actually wanted, rather than making everyone afraid to repeat anything. Rehearsal, backups and separate audiences have their own purposes. A low count does not prove efficiency, and a high count does not establish wastefulness. The result describes twelve selected examples, not your overall pattern of work.",
+              "zh": "有用的处理也许是核实是否真要再印一批，而不是让大家害怕任何重复。排练、备份和不同读者各有目的。低计数不证明高效，高计数不确立浪费。结果描述十二次所选例子，不概括你的整体工作模式。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Done Twice: Everyday Mix-up Test Result",
+          "zh": "多做一遍：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "A notice appears twice or a poster batch gets printed again. Explore an unintended repeat, useful backups and a small way to make completed work visible.",
+          "zh": "通知收进了两次，海报多印了一批。多做一遍的完整说明比较无意重复与有用备份，提供小情境、反例和可选尝试，不把重复解释成一种人格。"
+        }
+      }
+    },
+    {
+      "id": "mixed-amount",
+      "directionIds": [
+        "mixed-amount"
+      ],
+      "title": {
+        "en": "Mixed-up Amount",
+        "zh": "数量串台"
+      },
+      "headline": {
+        "en": "The pieces may be right while the number or scale differs.",
+        "zh": "部件可能没错，数量或比例却串了台。"
+      },
+      "summary": {
+        "en": "A note meant pairs, a layout meant a different paper size, or a template used another unit. Explore a small quantity mismatch without turning a selected example into a verdict on mathematical ability.",
+        "zh": "便签说的是成对数量，版面用了另一种纸张尺寸，或模板采用了不同单位。从一个数量小错位谈清楚所指，不把所选例子变成数学能力评判。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "Numbers and scale in this small bank",
+            "zh": "本题本里的数目与比例"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme deliberately groups several visible mismatches: pairs mistaken for single items, players mistaken for tables, or one unit used where another was intended. These are editorial neighbours, not one proven mental ability. You do not solve arithmetic problems here. The count says which offered examples you selected, without measuring numeracy, accuracy or how often a mismatch occurs.",
+              "zh": "本主题有意把几种可见错位放在一起：把成对数当单件数，把玩家当桌数，或在原定单位的位置用了另一种单位。它们只是编辑上的近邻，不是一种经过证明的心理能力。这里不要求解算术题；计数只说选了哪些例子，不测数感、准确性或错位发生频率。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Ten bookmarks or ten pairs?",
+            "zh": "十张书签，还是十对？"
+          },
+          "paragraphs": [
+            {
+              "en": "A book-swap organiser writes “ten pairs” on a short note. A helper arrives with ten bookmarks. They can first clarify what the note meant and what the afternoon actually needs. The gap might be easy to fill or the plan might change. It is not necessary to decide who is bad at numbers before making the practical arrangement usable.",
+              "zh": "换书活动的便签写着“十对”，帮手带来了十张书签。可以先说清便签所指，以及今天实际需要多少。差额也许好补，计划也可以改；不必先决定谁不擅长数字，才把眼前安排变得能用。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Bigger or different can be intentional",
+            "zh": "更大或不同，也可能是有意选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Printing a larger page can be a deliberate accessibility or display choice. A group may need spare materials, and a changed scale may make a model more enjoyable. Difference alone does not establish error. The relevant question is what was intended in that situation. A selected quiz example cannot tell us whether a real instruction was clear, consistent or reasonable.",
+              "zh": "放大打印可以是有意的阅读或展示选择，小组也可能需要备用材料，模型换比例可能更好玩。只有不同，并不确立错误；关键是该情境原本想要什么。测试里选了一个例子，看不出真实说明是否清楚、一致或合理。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Amount beside the other five themes",
+            "zh": "数量与另外五类"
+          },
+          "paragraphs": [
+            {
+              "en": "Done Twice repeats a contribution; a quantity mismatch can happen in a single action. Wrong Version may carry an old size, and Wrong Target may receive the right number of objects at the wrong place. One Thing Left Out concerns a missing part, while Unspoken Handoff concerns responsibility. The categories overlap in life; the bank uses one declared label per option only to keep counts understandable.",
+              "zh": "多做一遍重复了贡献，数量错位则可能一次动作就发生。版本拿错可能带着旧尺寸，对象错位可能只是把正确数量送到了别处；漏了一项关乎少了部分，交接没说清关乎责任。现实会重叠，本题本每项只用一个明确标签，是为让计数好懂。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Name the unit on an invented note",
+            "zh": "在虚构便签上写清单位"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private paper exercise, invent a short materials note using a few tokens or bookmarks. Write whether the number means pieces, pairs or sets, then draw a tiny example. Ask yourself whether the wording still makes sense when read later. No timed calculation is needed. Keep the clearer wording if it helps; this is not a test of mathematical skill.",
+              "zh": "私下做个纸面小练习：用几个小标记或书签编一张材料便签，写明数目指单件、成对还是成套，再画个小例子。之后回看，问表达是否仍清楚。不需要限时计算；有帮助就留更清楚的说法，这不测试数学技能。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Clarify the reference before judging the result",
+            "zh": "先约清参照，再判断是否错位"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful adjustment may be agreeing the intended unit or showing one sample, rather than demanding more concentration. Different conventions, unclear notes and changed plans all need their actual context; the quiz cannot choose a cause among them. A low count does not certify numerical ability, and a high count does not imply poor education, low intelligence or a clinical condition.",
+              "zh": "有用的调整可能是约清原定单位，或给一个样例，不一定是要求更专心。不同惯例、含糊便签和计划变更，都要看实际背景，测试不能替它们选一个成因。低计数不认证数字能力，高计数也不暗示教育不足、智力低或临床状况。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Mixed-up Amount: Everyday Mix-up Test Result",
+          "zh": "数量串台：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "Pairs become single items or a paper template changes scale. Read the Mixed-up Amount guide on clear units and intentions, without a mathematics or IQ score.",
+          "zh": "成对数量变成单件数，纸模板的比例或单位弄串了。数量串台的完整说明从具体例子谈单位、原定目的与六类区别，不测试计算能力或智商。"
+        }
+      }
+    },
+    {
+      "id": "unspoken-handoff",
+      "directionIds": [
+        "unspoken-handoff"
+      ],
+      "title": {
+        "en": "Unspoken Handoff",
+        "zh": "交接没说清"
+      },
+      "headline": {
+        "en": "The next action may have no shared owner yet.",
+        "zh": "下一步，也许还没约清由谁来做。"
+      },
+      "summary": {
+        "en": "Two people each thought the other was bringing, saving or sending something. Explore a small gap in a shared arrangement, with room to clarify responsibilities without assigning blame or a trusting personality.",
+        "zh": "两个人都以为东西由对方带来、内容由对方保存或消息由对方发出。从共同安排里的一个小空白谈清责任，不据此责怪谁，也不派出轻信型人格。"
+      },
+      "scoreReading": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "en": "The agreement is the subject",
+            "zh": "这里看的是约定"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme groups options where two participants each thought the other would do a small task. The example states that mismatch; the count does not diagnose why either person made an assumption. It cannot establish trust, passivity, dependence or poor teamwork. A handoff involves an arrangement between people, so a result from one person’s choices cannot describe the whole group.",
+              "zh": "本主题收集两位参与者都以为小任务由对方来做的选项。例子已说明这种不一致，计数不会诊断双方为什么这样想，也不确立信任、被动、依赖或协作差。交接涉及人之间的安排，只凭一个人的选择不能描述整个小组。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Two editors, one unsent newsletter",
+            "zh": "两位编辑，一份还没发出的简报"
+          },
+          "paragraphs": [
+            {
+              "en": "A small club newsletter is ready. One editor says, “I thought you were sending it.” The other was waiting for a signal that the draft was ready. They can agree who will take the next action and how to recognise that it is complete. The exchange need not decide which person is more responsible or turn a missed handoff into a lasting identity.",
+              "zh": "一份小组简报已经准备好。一位编辑说：“我以为由你发。”另一位在等草稿已就绪的信号。可以约清谁做下一步，以及怎样知道已经完成。这次对话不必决定谁更有责任心，也不把一次没接上的交接变成永久身份。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Relying on an agreement can be appropriate",
+            "zh": "依靠已经说清的约定可以很合适"
+          },
+          "paragraphs": [
+            {
+              "en": "If someone agreed to bring materials and the other person understood that agreement, waiting for them is not automatically a mistake. Shared work does not require everybody to do everything independently. A changed plan or a delay can have reasons outside the quiz. Find out what was actually said before interpreting an incident, rather than using this category to accuse somebody of assuming too much.",
+              "zh": "如果某人已经同意带材料，另一位也理解这份约定，等对方并不自动是错误。共同工作不要求人人独立做全部事情。计划变动或延迟，也可能有测试之外的原因。先弄清实际说过什么，不用这类结果指责谁“想当然”。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "A handoff beside five other mix-ups",
+            "zh": "交接与另外五种乌龙"
+          },
+          "paragraphs": [
+            {
+              "en": "One Thing Left Out describes a missing piece, even in a solo task. Done Twice describes a repeat, which an unclear handoff may sometimes produce. Wrong Target concerns the object or destination; Wrong Version concerns the copy; Mixed-up Amount concerns a number or scale. These descriptions do not compete to identify the one true cause of an event. Each option has one editorial mapping for this game.",
+              "zh": "漏了一项描述缺少部分，独自做事也能发生；多做一遍描述重复，交接不清有时也会带来重复。对象错位关乎物件或去处，版本拿错关乎副本，数量串台关乎数目或比例。这些描述不竞争判断事件唯一真因，每个选项只为本趣味题本作一个编辑映射。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Make one small handoff explicit",
+            "zh": "说清一次小交接"
+          },
+          "paragraphs": [
+            {
+              "en": "On a private sheet, invent two helpers and a harmless paper task. Write who would take the next action, what would show that it is ready and how either person could ask for a change. Read it from each helper’s point of view. If it stays unclear, simplify one sentence. No real colleague needs to be contacted or evaluated to use this exercise.",
+              "zh": "在私人纸张上编两位帮手和一件无害纸面任务，写清谁做下一步、什么表示已就绪，以及双方怎样提出修改。分别从两位帮手角度读，不清楚就简化一句。不需要联系或评价真实同事，便能做这个小练习。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Responsibility can be shared without disappearing",
+            "zh": "责任可以共担，也可以说清"
+          },
+          "paragraphs": [
+            {
+              "en": "The aim is a usable agreement, not making one person carry every reminder or check. People can decline a role or ask to revise it. A count cannot assign responsibility for an actual dispute, prove a communication weakness or tell you whom to trust. Keep the conversation about the specific small arrangement; the result is an entertainment comparison, not an evaluation of a person or team.",
+              "zh": "目的在于约定能用，不是让一个人承担所有提醒和检查。人可以拒绝分工，也可以要求修改。计数不能分派真实争议的责任，不能证明沟通弱点，也不能告诉你该信任谁。讨论仍应关乎那项具体小安排；结果是娱乐比较，不是对人或团队的评估。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twelve choices, eight exposures and every highest tie",
+            "zh": "12次选择、8次曝光与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+              "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original entertainment edition and private choices",
+            "zh": "原创娱乐版本与私密选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+              "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Unspoken Handoff: Everyday Mix-up Test Result",
+          "zh": "交接没说清：日常乌龙测试结果"
+        },
+        "description": {
+          "en": "Two people each thought the other was sending or bringing something. Read about a clear next action, shared agreements and a handoff without personal labels.",
+          "zh": "两个人都以为由对方带东西或发消息。交接没说清的完整说明谈下一步、就绪信号与可修改的共同约定，不由一次乌龙评判谁可靠或轻信。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Twelve choices and six separate counts",
+        "zh": "12次选择与六项独立计数"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+          "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest tie, without a favourite",
+        "zh": "全部最高并列，不固定偏爱"
+      },
+      "paragraphs": [
+        {
+          "en": "Every highest count is shown with its complete guide. All first-position choices give two counts to each theme and all six guides; no fixed order selects one headline winner. Counts add to twelve but do not form a stupidity total, a seriousness ranking or an error probability. A small difference is not a validated difference between people.",
+          "zh": "所有最高计数都显示完整说明。全部选第一项会使六类各2次，同时给六份全文；不按固定顺序选一个标题赢家。计数相加为12，但不构成犯蠢总分、严重程度排名或失误概率；小差距不是经过验证的人群差异。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Six original descriptions, with a limited scope",
+        "zh": "六种原创描述及范围"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind created six themes for this entertainment edition: Wrong Target, Wrong Version, One Thing Left Out, Done Twice, Mixed-up Amount and Unspoken Handoff. They group visible outcomes in these examples rather than measuring one underlying ability or a person’s character. Real incidents can overlap categories. The choices, mapping and full guides are original; no published scale is administered, and psychological validity or language equivalence has not been established.",
+          "zh": "费马为本娱乐版原创六个主题：对象错位、版本拿错、漏了一项、多做一遍、数量串台、交接没说清。它们归纳例子里的可见结果，不测一种潜在能力或人的品格；现实事件可能跨类。题目、映射和全文均为原创，不施测任何发表量表，尚未建立心理效度或跨语言等价。"
+        }
+      ]
+    },
+    {
+      "id": "recognition-and-context",
+      "title": {
+        "en": "Recognising an example is not a personal history",
+        "zh": "认出例子不等于个人经历"
+      },
+      "paragraphs": [
+        {
+          "en": "A familiar scene may come from a story, a friend’s experience or an imagined possibility. The quiz cannot distinguish those sources or infer motives, attention, memory, intelligence, education, neurotype, mental health or moral worth. An intentional backup or deliberately smaller project can be appropriate. Use the actual agreement and context rather than the label to decide whether anything needs correcting.",
+          "zh": "熟悉感可能来自故事、朋友经历或想象，测试分不出这些来源，也不推断动机、注意、记忆、智力、教育、神经类型、心理健康或道德价值。有意留备份、刻意缩小项目都可能合适；是否需要纠正什么，仍应依据实际约定与情境，而非标签。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices, optional drafts and copying",
+        "zh": "私密选择、可选草稿与复制"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+          "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original editorial edition",
+        "zh": "原创编辑版本"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind created six themes for this entertainment edition: Wrong Target, Wrong Version, One Thing Left Out, Done Twice, Mixed-up Amount and Unspoken Handoff. They group visible outcomes in these examples rather than measuring one underlying ability or a person’s character. Real incidents can overlap categories. The choices, mapping and full guides are original; no published scale is administered, and psychological validity or language equivalence has not been established.",
+          "zh": "费马为本娱乐版原创六个主题：对象错位、版本拿错、漏了一项、多做一遍、数量串台、交接没说清。它们归纳例子里的可见结果，不测一种潜在能力或人的品格；现实事件可能跨类。题目、映射和全文均为原创，不施测任何发表量表，尚未建立心理效度或跨语言等价。"
+        }
+      ]
+    },
+    {
+      "id": "public-choice-key",
+      "title": {
+        "en": "The complete option-to-theme key",
+        "zh": "完整选项与主题对应表"
+      },
+      "paragraphs": [
+        {
+          "en": "For independent recounting, the following key maps option positions 1–4 to the six themes. Positions follow the displayed top-to-bottom order in each question, in both languages. Add one to the named theme for your selected position; do not add points to unselected options.",
+          "zh": "如需自己复算，下表把每题第1—4个选项对应到六个主题。答位在两种语言中均按题目从上到下的显示顺序。每题只给所选答位对应的主题加1次，未选选项不加分。"
+        },
+        {
+          "en": "Question 1 — options in displayed order: 1: Wrong Target; 2: Wrong Version; 3: One Thing Left Out; 4: Mixed-up Amount.",
+          "zh": "第1题——按显示顺序对应：1: 对象错位; 2: 版本拿错; 3: 漏了一项; 4: 数量串台。"
+        },
+        {
+          "en": "Question 2 — options in displayed order: 1: Wrong Version; 2: One Thing Left Out; 3: Done Twice; 4: Unspoken Handoff.",
+          "zh": "第2题——按显示顺序对应：1: 版本拿错; 2: 漏了一项; 3: 多做一遍; 4: 交接没说清。"
+        },
+        {
+          "en": "Question 3 — options in displayed order: 1: One Thing Left Out; 2: Done Twice; 3: Mixed-up Amount; 4: Wrong Target.",
+          "zh": "第3题——按显示顺序对应：1: 漏了一项; 2: 多做一遍; 3: 数量串台; 4: 对象错位。"
+        },
+        {
+          "en": "Question 4 — options in displayed order: 1: Done Twice; 2: Mixed-up Amount; 3: Unspoken Handoff; 4: Wrong Version.",
+          "zh": "第4题——按显示顺序对应：1: 多做一遍; 2: 数量串台; 3: 交接没说清; 4: 版本拿错。"
+        },
+        {
+          "en": "Question 5 — options in displayed order: 1: Mixed-up Amount; 2: Unspoken Handoff; 3: Wrong Target; 4: One Thing Left Out.",
+          "zh": "第5题——按显示顺序对应：1: 数量串台; 2: 交接没说清; 3: 对象错位; 4: 漏了一项。"
+        },
+        {
+          "en": "Question 6 — options in displayed order: 1: Unspoken Handoff; 2: Wrong Target; 3: Wrong Version; 4: Done Twice.",
+          "zh": "第6题——按显示顺序对应：1: 交接没说清; 2: 对象错位; 3: 版本拿错; 4: 多做一遍。"
+        },
+        {
+          "en": "Question 7 — options in displayed order: 1: Wrong Target; 2: Wrong Version; 3: One Thing Left Out; 4: Mixed-up Amount.",
+          "zh": "第7题——按显示顺序对应：1: 对象错位; 2: 版本拿错; 3: 漏了一项; 4: 数量串台。"
+        },
+        {
+          "en": "Question 8 — options in displayed order: 1: Wrong Version; 2: One Thing Left Out; 3: Done Twice; 4: Unspoken Handoff.",
+          "zh": "第8题——按显示顺序对应：1: 版本拿错; 2: 漏了一项; 3: 多做一遍; 4: 交接没说清。"
+        },
+        {
+          "en": "Question 9 — options in displayed order: 1: One Thing Left Out; 2: Done Twice; 3: Mixed-up Amount; 4: Wrong Target.",
+          "zh": "第9题——按显示顺序对应：1: 漏了一项; 2: 多做一遍; 3: 数量串台; 4: 对象错位。"
+        },
+        {
+          "en": "Question 10 — options in displayed order: 1: Done Twice; 2: Mixed-up Amount; 3: Unspoken Handoff; 4: Wrong Version.",
+          "zh": "第10题——按显示顺序对应：1: 多做一遍; 2: 数量串台; 3: 交接没说清; 4: 版本拿错。"
+        },
+        {
+          "en": "Question 11 — options in displayed order: 1: Mixed-up Amount; 2: Unspoken Handoff; 3: Wrong Target; 4: One Thing Left Out.",
+          "zh": "第11题——按显示顺序对应：1: 数量串台; 2: 交接没说清; 3: 对象错位; 4: 漏了一项。"
+        },
+        {
+          "en": "Question 12 — options in displayed order: 1: Unspoken Handoff; 2: Wrong Target; 3: Wrong Version; 4: Done Twice.",
+          "zh": "第12题——按显示顺序对应：1: 交接没说清; 2: 对象错位; 3: 版本拿错; 4: 多做一遍。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this measure how stupid or intelligent I am?",
+        "zh": "这会测我多蠢或多聪明吗？"
+      },
+      "answer": {
+        "en": "No. You choose familiar examples; you do not perform reasoning tasks or receive an ability score. No result measures IQ, memory, education, a clinical condition or personal worth. The entry name is playful and must not be used to judge another person.",
+        "zh": "不会。你选择熟悉例子，不完成推理作业，也不获得能力分。结果不测智商、记忆、教育、临床状况或个人价值；入口名称是玩趣表达，不应用来评判别人。"
+      }
+    },
+    {
+      "question": {
+        "en": "What are the six results?",
+        "zh": "六种结果分别是什么？"
+      },
+      "answer": {
+        "en": "Wrong Target, Wrong Version, One Thing Left Out, Done Twice, Mixed-up Amount and Unspoken Handoff. All six have complete bilingual guides with concrete scenes, counterexamples, comparisons and optional private experiments. They are original editorial groupings, not a universal scientific taxonomy.",
+        "zh": "对象错位、版本拿错、漏了一项、多做一遍、数量串台、交接没说清。六类均有完整双语指南，包含具体情境、反例、比较和可选私下小尝试；它们是原创编辑归类，不是通用科学分类法。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are choices counted, including ties?",
+        "zh": "怎样计数和处理并列？"
+      },
+      "answer": {
+        "en": "Complete all twelve choices before any personal count or reading appears. Each selected option adds one count to its stated theme. Each theme is offered eight times, twice in each answer position; its absence from another item is not a rejection. All counts add to twelve and every highest count keeps its complete guide. The denominator eight is exposure in this bank, not an error rate. There are no IQ points, population ranks, fixed primary or secondary types, or validated meanings for a one-choice gap.",
+        "zh": "12题全部完成后，才显示任何个人计数或读法。每个所选选项给其明确对应的主题加1次。各主题共出现8次，四个答位各2次；其他题没有提供它，不算拒绝。所有计数加总12，最高计数全部保留完整说明。分母8是本题本的选项曝光数，不是失误率。没有智商分、人群排名、固定主次型；相差一次也没有经过验证的心理意义。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if none fits or I leave a question unanswered?",
+        "zh": "都不合适或有题没答怎么办？"
+      },
+      "answer": {
+        "en": "You can leave without a personal result and still read every public guide. There is no scored NA. A missing, unknown or invalid choice withholds personal interpretation; no gaps are filled. Completing twelve approximate choices is still a playful bank result, not evidence that those incidents actually occurred.",
+        "zh": "可以无个人结果退出，仍能阅读全部公开指南。本版没有计分NA。缺答、未知或非法选择会暂停个人解释，不填补空白。即使完成12个大致相近的选择，也只是趣味题本结果，不证明那些事件真实发生过。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do higher counts mean more frequent or serious mistakes?",
+        "zh": "计数更高表示更常或更严重地出错吗？"
+      },
+      "answer": {
+        "en": "No. Counts describe selections among this bank’s offered examples. Opportunities in real life were not measured, categories can overlap and incidents vary in context. The denominator eight is option exposure, not an error rate, and the total twelve is the number of choices, not a stupidity score.",
+        "zh": "不是。计数描述在本题本提供的例子中选了哪些，未测现实机会，类别可能重叠，事件背景也不同。分母8是选项曝光，不是失误率；合计12是选择次数，不是犯蠢分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved, uploaded or copied?",
+        "zh": "保存、上传和复制什么？"
+      },
+      "answer": {
+        "en": "FermatMind wrote these twelve situations, six editorial themes and complete guides for entertainment. The categories describe the examples you selected, not a cause, ability, diagnosis or judgment of a person’s worth. They are not a validated instrument or a universal classification of mistakes. Answers stay in this browser flow; only an explicitly saved tab draft is kept for up to twenty-four hours and is removed on completion, retake or exit-and-clear. Optional copying uses public result names and a public link, without answers or counts.",
+        "zh": "费马为娱乐目的原创这12道情境、六个编辑主题和完整指南。分类描述你选了哪些例子，不确立原因、能力、诊断或人的价值；它不是经验证量表，也不是通用失误分类法。答案在本浏览器流程内处理；只有主动保存才产生最多24小时的标签页草稿，完成、重测或退出清除即移除。可选复制只有公开结果名称和公开链接，不含答案或计数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and full guides free in both languages?",
+        "zh": "全部题目和全文都有免费双语吗？"
+      },
+      "answer": {
+        "en": "Yes, without signup, email or a previous test. English and Chinese keep the same questions, mappings and identifiers; language equivalence has not been validated. Three minutes is an editorial estimate, not a measured completion benchmark. Optional further tests have separate questions and are never calculated from this result.",
+        "zh": "是，无需注册、邮箱或前置测试。中英文保持相同题目、映射和标识，尚未验证语言等价。约3分钟是编辑估计，不是实测完成基准；可选后续测试须另行作答，绝不由本结果换算。"
+      }
+    }
+  ]
+}
