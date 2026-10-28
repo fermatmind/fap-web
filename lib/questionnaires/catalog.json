@@ -5040,5 +5040,30 @@
       "continuing-after-inconvenience",
       "everyday-effects"
     ]
+  },
+  {
+    "slug": "coping-rhythm-test",
+    "code": "PSYCHOLOGICAL_AGE",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Coping Rhythm Test",
+      "zh": "应对节奏测试"
+    },
+    "description": {
+      "en": "Explore four everyday coping comparisons with 24 original paired questions. See raw counts, keep ties and read four complete guides free, without an age estimate.",
+      "zh": "用24道原创配对题探索四组日常应对选择，分别查看原始次数与并列，免费阅读四份完整指南；不计算心理年龄、成熟度或能力分数。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "psychological_age_paired_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "trying-and-assessing",
+      "expressing-and-processing-privately",
+      "adapting-and-keeping-structure",
+      "present-needs-and-future-plans"
+    ]
   }
 ]

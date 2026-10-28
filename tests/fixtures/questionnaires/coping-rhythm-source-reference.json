@@ -1,0 +1,634 @@
+{
+  "at_epoch": 1793150292.010416,
+  "source_code": "PSYCHOLOGICAL_AGE",
+  "source_bank_sha256": "9446f0c99b0355116aa826788ab07efcddcdd59f32a18eca6ae1992b98f15e16",
+  "status": "24originalChinese prompts/48options preserved;48manualworkingENtranslations;no sourceorsemanticvalidationtransfer",
+  "no_added_NA": true,
+  "no_age_claim_or_measurement": true,
+  "items": [
+    {
+      "id": "AGE_RHYTHM_PC_001",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "工作中出现一个低风险新工具时，我会先用小样例试一遍。",
+            "en": "When a low-risk new tool comes up at work, I first try it on a small example."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "工作中出现一个低风险新工具时，我会先看说明并评估适用条件。",
+            "en": "When a low-risk new tool comes up at work, I first read the instructions and assess where it would fit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_002",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "收到一个陌生活动邀请时，我会先了解流程和现场安排。",
+            "en": "When invited to an unfamiliar activity, I first learn about the process and arrangements."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "收到一个陌生活动邀请时，我会考虑先参加一小段。",
+            "en": "When invited to an unfamiliar activity, I consider joining for a short part first."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_003",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "原计划突然取消时，我会先看看现场还有哪些新选择。",
+            "en": "When a plan is suddenly canceled, I first look for new options available there."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "原计划突然取消时，我会先确认资源和限制，再选替代方案。",
+            "en": "When a plan is suddenly canceled, I first check the resources and limits before choosing an alternative."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_004",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "学习一项新技能时，我会先比较路径并选择合适起点。",
+            "en": "When learning a new skill, I first compare possible routes and choose a suitable starting point."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "学习一项新技能时，我会先做一个小练习感受过程。",
+            "en": "When learning a new skill, I first try a small exercise to get a feel for the process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_005",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "任务要求还不完整时，我会先搭一个可修改的雏形。",
+            "en": "When a task is not fully specified, I first make a draft that can be changed."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "任务要求还不完整时，我会先列出问题并补齐关键要求。",
+            "en": "When a task is not fully specified, I first list questions and fill in the key requirements."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_006",
+      "dimension": "EXPLORATION_EVALUATION",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "CAUTIOUS_EVALUATION",
+          "label": {
+            "zh": "团队提出新想法时，我会建议先识别约束和可能影响。",
+            "en": "When the team suggests a new idea, I suggest first identifying constraints and possible effects."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPLORATION",
+          "label": {
+            "zh": "团队提出新想法时，我会建议做一次小规模试验。",
+            "en": "When the team suggests a new idea, I suggest a small trial."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_007",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "一次会议让我不舒服时，我会找可信的人说说发生了什么。",
+            "en": "When a meeting leaves me uncomfortable, I talk to someone I trust about what happened."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "一次会议让我不舒服时，我会先独处，把发生的事写下来或想清楚。",
+            "en": "When a meeting leaves me uncomfortable, I first spend time alone, writing down or thinking through what happened."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_008",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "面对感受复杂的决定时，我会先安静整理，再决定是否表达。",
+            "en": "When a decision involves mixed feelings, I first sort them out quietly before deciding whether to express them."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "面对感受复杂的决定时，我会边说边整理自己的重点。",
+            "en": "When a decision involves mixed feelings, I work out my main points by talking."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_009",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "遇到意外的好消息时，我会通过分享来消化兴奋。",
+            "en": "When unexpected good news arrives, I process the excitement by sharing it."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "遇到意外的好消息时，我会先自己体会一阵，再选择何时分享。",
+            "en": "When unexpected good news arrives, I first take it in on my own and then choose when to share it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_010",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "一场冲突结束后，我会通过散步或独处来理解自己的反应。",
+            "en": "After a conflict ends, I make sense of my reaction by walking or spending time alone."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "一场冲突结束后，我会通过复述过程来理解自己的反应。",
+            "en": "After a conflict ends, I make sense of my reaction by describing what happened."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_011",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "压力逐渐累积时，我会把感受用语言说出来。",
+            "en": "When stress gradually builds up, I put my feelings into words."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "压力逐渐累积时，我会先减少交流，给自己整理空间。",
+            "en": "When stress gradually builds up, I first reduce conversation to give myself space to sort things out."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_012",
+      "dimension": "PROCESSING_STYLE",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRIVATE_PROCESSING",
+          "label": {
+            "zh": "期待落空时，我会先在心里梳理失望来自哪里。",
+            "en": "When a hope falls through, I first work out privately where the disappointment comes from."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "EXPRESSIVE_PROCESSING",
+          "label": {
+            "zh": "期待落空时，我会向可信的人描述失望的部分。",
+            "en": "When a hope falls through, I describe the disappointing parts to someone I trust."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_013",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "当天计划被打断时，我会按新情况重新排列优先顺序。",
+            "en": "When the day’s plan is interrupted, I reorder priorities to suit the new circumstances."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "当天计划被打断时，我会重建一份清单，再按顺序推进。",
+            "en": "When the day’s plan is interrupted, I rebuild a checklist and then work through it in order."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_014",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "长期任务遇到阻力时，我会保留里程碑，用固定节奏继续。",
+            "en": "When a long-term task meets an obstacle, I keep the milestones and continue at a regular pace."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "长期任务遇到阻力时，我会尝试换一种完成方法。",
+            "en": "When a long-term task meets an obstacle, I try a different way to complete it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_015",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "出行安排临时变化时，我会根据现场条件即刻调整。",
+            "en": "When travel arrangements change at short notice, I adjust immediately to the conditions there."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "出行安排临时变化时，我会先确认新的时间和路线再行动。",
+            "en": "When travel arrangements change at short notice, I first confirm the new times and route before acting."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_016",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "开始一项新合作时，我会先明确角色和检查节点。",
+            "en": "When starting a new collaboration, I first clarify roles and checkpoints."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "开始一项新合作时，我会边做边调整分工。",
+            "en": "When starting a new collaboration, I adjust the division of work as we go."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_017",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "当天精力变化时，我会选择最适合当前状态的任务。",
+            "en": "When my energy changes during the day, I choose the task that best fits my current state."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "当天精力变化时，我会保持一项最低限度的固定例行。",
+            "en": "When my energy changes during the day, I keep a minimum regular routine."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_018",
+      "dimension": "ADAPTATION_FOLLOW_THROUGH",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "STRUCTURED_FOLLOW_THROUGH",
+          "label": {
+            "zh": "多件事同时出现时，我会先完成已经排定的一个工作块。",
+            "en": "When several things come up at once, I first finish one work block already on the schedule."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FLEXIBLE_ADAPTATION",
+          "label": {
+            "zh": "多件事同时出现时，我会根据进展灵活换序。",
+            "en": "When several things come up at once, I change the order flexibly as things progress."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_019",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "意外多出一个空闲晚上时，我会先照顾当天最需要的休息或活动。",
+            "en": "When an evening unexpectedly becomes free, I first attend to the rest or activity I need most that day."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "意外多出一个空闲晚上时，我会先推进一个之后会用到的计划。",
+            "en": "When an evening unexpectedly becomes free, I first move forward a plan that will be useful later."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_020",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "安排周末时，我会优先为下个月的重要事项做准备。",
+            "en": "When arranging the weekend, I prioritize preparing for something important next month."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "安排周末时，我会优先处理本周累积的现实需要。",
+            "en": "When arranging the weekend, I prioritize practical needs that have built up this week."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_021",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "出现一个新机会时，我会先看它能带来怎样的当前体验。",
+            "en": "When a new opportunity appears, I first consider the experience it could offer now."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "出现一个新机会时，我会先看它与长期方向怎样连接。",
+            "en": "When a new opportunity appears, I first consider how it connects with my long-term direction."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_022",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "一天任务很多时，我会先保护一段推进长期目标的时间。",
+            "en": "When the day is full of tasks, I first protect some time for a long-term goal."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "一天任务很多时，我会先完成眼前最需要回应的部分。",
+            "en": "When the day is full of tasks, I first complete the part that most needs an immediate response."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_023",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "选择学习内容时，我会先解决当前正在遇到的问题。",
+            "en": "When choosing what to learn, I first address a problem I am facing now."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "选择学习内容时，我会先补充未来会反复用到的基础。",
+            "en": "When choosing what to learn, I first build foundations I will use repeatedly in the future."
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_RHYTHM_PC_024",
+      "dimension": "TIME_FOCUS",
+      "prompt": {
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？",
+        "en": "Of these two equally reasonable approaches, which is closer to your more natural choice at present?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "pole": "FUTURE_PLANNING",
+          "label": {
+            "zh": "计划发生变化时，我会先调整后续节点，保持长期方向连续。",
+            "en": "When a plan changes, I first adjust later milestones to keep the long-term direction connected."
+          }
+        },
+        {
+          "id": "B",
+          "pole": "PRESENT_FOCUS",
+          "label": {
+            "zh": "计划发生变化时，我会先让今天恢复到可行动状态。",
+            "en": "When a plan changes, I first get today back to a point where I can act."
+          }
+        }
+      ]
+    }
+  ]
+}
