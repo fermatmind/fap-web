@@ -146,6 +146,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : (questionnaire?.kind === "extraversion" || questionnaire?.kind === "optimism") ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
     : questionnaire?.kind === "alignment" ? (zh ? "原创阵营问卷" : "Original alignment reflection")
     : questionnaire?.slug === "stupidity-test" ? (zh ? "原创日常乌龙选择" : "Original everyday mix-up choices")
+    : questionnaire?.slug === "values-assessment" ? (zh ? "原创工作取舍" : "Original work-priority choices")
     : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
     : (zh ? "自编风格问卷" : "Original style questionnaire");

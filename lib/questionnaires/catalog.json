@@ -5569,5 +5569,36 @@
       "all-three"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "values-assessment",
+    "code": "FM_WORK_VALUES30",
+    "version": "fm_work_values_original30_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Values Assessment",
+      "zh": "工作价值观测试"
+    },
+    "description": {
+      "en": "Compare ten work priorities in 30 original four-option choices. Read all counts, shared ranks and ten full free guides. No job-fit percentage or hiring verdict.",
+      "zh": "通过30道原创四选一比较十项工作优先事项，查看全部次数、并列名次和十份免费完整读法；不输出岗位适配百分比或录用结论。"
+    },
+    "minutes": 7,
+    "formCode": "fm_work_values_original30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "achievement",
+      "autonomy",
+      "creativity",
+      "security",
+      "altruism",
+      "recognition",
+      "relationships",
+      "learning",
+      "balance",
+      "impact"
+    ],
+    "collection": "explore"
   }
 ]

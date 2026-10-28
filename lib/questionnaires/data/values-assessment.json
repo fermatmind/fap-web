@@ -1,0 +1,3001 @@
+{
+  "slug": "values-assessment",
+  "code": "FM_WORK_VALUES30",
+  "version": "fm_work_values_original30_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "en": "Values Assessment",
+    "zh": "工作价值观测试"
+  },
+  "description": {
+    "en": "Compare ten work priorities in 30 original four-option choices. Read all counts, shared ranks and ten full free guides. No job-fit percentage or hiring verdict.",
+    "zh": "通过30道原创四选一比较十项工作优先事项，查看全部次数、并列名次和十份免费完整读法；不输出岗位适配百分比或录用结论。"
+  },
+  "seoTitle": {
+    "en": "Values Assessment: Work Priorities & Full Free Results",
+    "zh": "工作价值观测试：十项工作取舍与免费完整结果"
+  },
+  "minutes": 7,
+  "introduction": {
+    "en": "What would you protect first when a workable role cannot offer every attractive benefit? Compare Achievement, Autonomy, Creativity, Security, Altruism, Recognition, Relationships, Learning, Work-Life Balance and Impact. These ten editorial work priorities and all thirty questions are independently written for this edition. They differ from Schwartz basic human values, RIASEC activity interests and the six O*NET work values; this is not their questionnaire or a standardized job-match instrument. All ten complete guides are open before you start.",
+    "zh": "一份可行岗位无法同时提供所有好处时，你最先保护什么？比较成就、自主、创意、稳定保障、助人、认可、关系、学习、工作生活平衡和实际影响。十项编辑定义的工作优先事项与三十道题均为本版独立编写；它们不同于Schwartz基本价值、RIASEC活动兴趣或O*NET六项工作价值，不是这些题本或标准岗位匹配工具。十份完整指南开测前全部开放。"
+  },
+  "instructions": {
+    "en": "Imagine one ordinary next work role and keep that setting throughout. Assume the basic role is feasible and fair pay, safety and legal conditions are already required; those are not benefits to trade away. In each question choose the one offered condition you would protect first, even if several matter or none is ideal. The four conditions are assumed feasible for that imagined comparison, not promises about real employers. You can stop if the task does not fit. Finish all thirty choices before any counts or interpretation. No correct answers, reverse keys, purchases or personal workplace details are needed.",
+    "zh": "设想一份普通的下一阶段工作，始终使用同一背景。假设岗位基本可行，公平薪酬、安全和法律条件已经满足，不能把这些基本要求当作必须放弃的好处。每题在四项中选最先保护的一项，即使多项都重要或都不理想。题中假设这些条件在设想比较中均可行，并非真实雇主承诺。任务不适合时可以退出；三十题全部完成后才显示次数与读法。没有正确答案、反向键、消费任务，也无需个人单位细节。"
+  },
+  "resultHeading": {
+    "en": "Your ten work priorities in these choices",
+    "zh": "本题组中的十项工作优先事项"
+  },
+  "source": {
+    "kind": "fermatmind_original_work_priority_choices",
+    "formCode": "fm_work_values_original30_v1",
+    "itemBankVersion": "fm_work_values_original30_v1",
+    "scoringVersion": "fm_work_values_equal12_all_highest_counts_v1",
+    "resultContentVersion": "fm_work_values_original10_full_v1",
+    "itemBankSha256": "29889e254b6dc642bf57b1e48a94708210e33c189cc0be6ee293a42236e0d437",
+    "resultContentSha256": "db9a71e0e4d47af16b1fbd530f6cf42aa1cb71ff247edf6c745acbac366ee8a7",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "achievement",
+      "title": {
+        "en": "Achievement",
+        "zh": "成就"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "autonomy",
+      "title": {
+        "en": "Autonomy",
+        "zh": "自主"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "creativity",
+      "title": {
+        "en": "Creativity",
+        "zh": "创意"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "security",
+      "title": {
+        "en": "Security",
+        "zh": "稳定保障"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "altruism",
+      "title": {
+        "en": "Altruism",
+        "zh": "助人"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "recognition",
+      "title": {
+        "en": "Recognition",
+        "zh": "认可"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "relationships",
+      "title": {
+        "en": "Relationships",
+        "zh": "关系"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "learning",
+      "title": {
+        "en": "Learning",
+        "zh": "学习"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "balance",
+      "title": {
+        "en": "Work-Life Balance",
+        "zh": "工作生活平衡"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "impact",
+      "title": {
+        "en": "Impact",
+        "zh": "实际影响"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "WV_01",
+      "prompt": {
+        "en": "A next role can reliably protect one of these benefits. Which matters most to you?",
+        "zh": "下一份岗位能可靠保留以下一项好处，你最看重哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Choose my method within an agreed brief.",
+            "zh": "在约定要求内自己选择方法。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "altruism",
+          "label": {
+            "en": "Make it easier for someone who needs practical help.",
+            "zh": "给需要实际帮助的人提供便利。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "creativity",
+          "label": {
+            "en": "Generate an original idea rather than only repeat a template.",
+            "zh": "提出新想法，而非只重复模板。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "achievement",
+          "label": {
+            "en": "Finish a demanding assignment to a clear standard.",
+            "zh": "把有难度的任务做到明确标准。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_02",
+      "prompt": {
+        "en": "When comparing otherwise workable offers, which promise would you check first?",
+        "zh": "比较其他条件都可行的机会时，你最先核实哪项承诺？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "recognition",
+          "label": {
+            "en": "Receive clear credit for my contribution.",
+            "zh": "自己的贡献获得清楚署名或肯定。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "security",
+          "label": {
+            "en": "Know that the role is expected to continue.",
+            "zh": "知道这份岗位预计能够持续。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "achievement",
+          "label": {
+            "en": "Reach an agreed milestone that shows what I accomplished.",
+            "zh": "达到约定里程碑，看清自己完成了什么。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "impact",
+          "label": {
+            "en": "See what changed because the work was used.",
+            "zh": "看到工作被使用之后带来了什么变化。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_03",
+      "prompt": {
+        "en": "Before joining a project, which condition would you most want to preserve?",
+        "zh": "加入项目前，你最想保留哪项条件？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "creativity",
+          "label": {
+            "en": "Make room for an unusual but workable concept.",
+            "zh": "为不常见但可行的构想留出空间。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Decide the order of tasks I am responsible for.",
+            "zh": "自己决定负责事项的先后顺序。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "recognition",
+          "label": {
+            "en": "Have others acknowledge the part I played.",
+            "zh": "让他人承认我发挥的作用。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "learning",
+          "label": {
+            "en": "Develop a skill I do not yet have.",
+            "zh": "发展一项自己尚未掌握的技能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_04",
+      "prompt": {
+        "en": "A team is planning an ordinary month. Which benefit would you prioritize?",
+        "zh": "团队安排普通一个月的工作时，你优先哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "creativity",
+          "label": {
+            "en": "Design a fresh way to present or solve something.",
+            "zh": "设计一种新的呈现或解决方式。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "recognition",
+          "label": {
+            "en": "Get specific recognition when my work goes well.",
+            "zh": "工作做得好时获得具体认可。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "security",
+          "label": {
+            "en": "Have reliable information about when pay will arrive.",
+            "zh": "清楚工资何时到账，而且安排可靠。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "balance",
+          "label": {
+            "en": "Keep a dependable stopping time for work.",
+            "zh": "有可靠的下班界限。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_05",
+      "prompt": {
+        "en": "A manager asks what would make a role worthwhile to you. Which answer comes first?",
+        "zh": "负责人问什么会让这份岗位值得做，你先选哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "balance",
+          "label": {
+            "en": "Protect time for responsibilities outside the job.",
+            "zh": "保护工作以外责任所需的时间。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "relationships",
+          "label": {
+            "en": "Build trusting day-to-day connections with colleagues.",
+            "zh": "与同事建立日常互信的连接。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "altruism",
+          "label": {
+            "en": "Spend part of my work directly supporting another person.",
+            "zh": "把部分工作用于直接支持他人。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "recognition",
+          "label": {
+            "en": "Have my contribution noticed in feedback.",
+            "zh": "反馈中能看到自己的贡献被注意。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_06",
+      "prompt": {
+        "en": "A role is being redesigned. Which part would you protect first?",
+        "zh": "岗位重新设计时，你最先保护哪部分？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "achievement",
+          "label": {
+            "en": "Produce work whose quality I can check against a target.",
+            "zh": "让工作质量可以对照目标检查。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "creativity",
+          "label": {
+            "en": "Try a small prototype of an idea I have invented.",
+            "zh": "把自己构想的点子做成小原型。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "learning",
+          "label": {
+            "en": "Have time to understand how something unfamiliar works.",
+            "zh": "有时间理解陌生事物怎样运作。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "relationships",
+          "label": {
+            "en": "Have people at work with whom I can speak openly.",
+            "zh": "工作中有可以坦诚交流的人。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_07",
+      "prompt": {
+        "en": "You can ask one question about a possible assignment. Which benefit would it concern?",
+        "zh": "对于可能承担的任务，你能先问一个问题，会先问哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Organize my working day within agreed hours.",
+            "zh": "在约定工时内自己安排一天。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "recognition",
+          "label": {
+            "en": "Be credited accurately when a team result is presented.",
+            "zh": "展示团队成果时，自己的贡献被准确标明。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "creativity",
+          "label": {
+            "en": "Combine existing elements into a new approach.",
+            "zh": "把已有要素组合成新的做法。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "security",
+          "label": {
+            "en": "Work to a reasonably predictable schedule.",
+            "zh": "工作日程大体可以预期。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_08",
+      "prompt": {
+        "en": "A team has room to improve one part of ordinary working life. Which would you choose?",
+        "zh": "团队能改善日常工作的一部分，你会先选哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Select the tools that suit my way of working.",
+            "zh": "自己选择适合工作方式的工具。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "learning",
+          "label": {
+            "en": "Receive feedback that helps me learn a new technique.",
+            "zh": "获得有助于学习新技术的反馈。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "balance",
+          "label": {
+            "en": "Have genuine time off without routine work messages.",
+            "zh": "休息时不被日常工作消息持续占据。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "impact",
+          "label": {
+            "en": "Trace my contribution to a practical downstream result.",
+            "zh": "能够追踪自己的贡献产生了什么后续结果。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_09",
+      "prompt": {
+        "en": "While considering a fresh opportunity, which condition would carry most weight?",
+        "zh": "考虑新机会时，哪项条件对你最有分量？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "relationships",
+          "label": {
+            "en": "Feel a steady sense of connection with the team.",
+            "zh": "与团队保持稳定的连接感。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "impact",
+          "label": {
+            "en": "Know who used the output and what it made possible.",
+            "zh": "知道产出被谁使用，以及促成了什么。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "security",
+          "label": {
+            "en": "Receive enough notice before major changes to the role.",
+            "zh": "岗位重大变化前能提前获得通知。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "altruism",
+          "label": {
+            "en": "Help a person get through a task they would struggle with alone.",
+            "zh": "帮助一个人完成独自处理会有困难的事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_10",
+      "prompt": {
+        "en": "A project can offer one of these advantages more consistently. Which would you request?",
+        "zh": "项目可以更稳定地提供以下一项优势，你会要求哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "achievement",
+          "label": {
+            "en": "Turn a difficult problem into a completed deliverable.",
+            "zh": "把棘手问题变成完成的交付成果。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "relationships",
+          "label": {
+            "en": "Work with people who take time to understand one another.",
+            "zh": "与愿意花时间互相理解的人共事。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Make routine decisions without repeated approval.",
+            "zh": "普通决定无需反复请示。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "altruism",
+          "label": {
+            "en": "Use my time to respond to another person’s concrete need.",
+            "zh": "用自己的时间回应他人的具体需要。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_11",
+      "prompt": {
+        "en": "You are writing a private checklist for your next role. Which item would you put first?",
+        "zh": "给下一份岗位写私人清单时，你把哪项排在前面？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "altruism",
+          "label": {
+            "en": "Include service to other people in my ordinary responsibilities.",
+            "zh": "让日常职责包含为他人服务。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "achievement",
+          "label": {
+            "en": "Use my existing abilities to meet a challenging goal.",
+            "zh": "运用已有能力完成有挑战的目标。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "balance",
+          "label": {
+            "en": "Maintain room for rest alongside work commitments.",
+            "zh": "承担工作同时保留休息空间。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "recognition",
+          "label": {
+            "en": "See good work acknowledged rather than taken for granted.",
+            "zh": "好的工作得到肯定，而非被视为理所当然。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_12",
+      "prompt": {
+        "en": "A team asks what you would most dislike losing from this list. Which would you protect?",
+        "zh": "团队问以下哪项最不想失去，你会保护哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "relationships",
+          "label": {
+            "en": "Develop respectful relationships beyond exchanging task updates.",
+            "zh": "除了任务进度交流，还能建立尊重的关系。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "balance",
+          "label": {
+            "en": "Keep workload within the hours we agreed.",
+            "zh": "让工作量落在约定工时之内。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Have discretion over how I meet an agreed target.",
+            "zh": "对于怎样实现约定目标拥有裁量空间。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "recognition",
+          "label": {
+            "en": "Have a fair chance to be known for what I contributed.",
+            "zh": "有公平机会让别人知道自己作了什么贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_13",
+      "prompt": {
+        "en": "Two suitable directions remain open. Which benefit would you use as your first comparison?",
+        "zh": "两个方向都可行时，你先用哪项好处来比较？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "impact",
+          "label": {
+            "en": "See a concrete improvement beyond merely finishing the task.",
+            "zh": "除了任务完成，还能看到具体改善。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "creativity",
+          "label": {
+            "en": "Develop several imaginative alternatives before choosing one.",
+            "zh": "先发展几个有想象力的备选方案。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "learning",
+          "label": {
+            "en": "Build knowledge that goes beyond my current routine.",
+            "zh": "积累超出当前日常工作的知识。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "relationships",
+          "label": {
+            "en": "Have room for mutual support among colleagues.",
+            "zh": "同事之间有相互支持的空间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_14",
+      "prompt": {
+        "en": "Before accepting a new responsibility, which condition would you clarify first?",
+        "zh": "接受新职责之前，你会先问清哪项条件？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "security",
+          "label": {
+            "en": "Have stable arrangements for the next several months.",
+            "zh": "未来几个月的工作安排保持稳定。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "achievement",
+          "label": {
+            "en": "Have a concrete standard for knowing a task is done well.",
+            "zh": "有具体标准判断任务是否做得好。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "relationships",
+          "label": {
+            "en": "Get to know the people I work alongside.",
+            "zh": "有机会了解身边一起工作的人。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Shape my workflow instead of following every prescribed step.",
+            "zh": "自行组织流程，而非每一步都被规定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_15",
+      "prompt": {
+        "en": "A team wants to know what you hope to gain from the work. Which answer fits best?",
+        "zh": "团队想了解你希望从工作中获得什么，哪项最合适？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "learning",
+          "label": {
+            "en": "Try a task that teaches me something new.",
+            "zh": "尝试一项能够学到新东西的任务。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "balance",
+          "label": {
+            "en": "Have enough personal time after a demanding work period.",
+            "zh": "高强度工作之后仍有足够个人时间。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "security",
+          "label": {
+            "en": "Understand the conditions under which my contract continues.",
+            "zh": "清楚合同继续有效的条件。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "achievement",
+          "label": {
+            "en": "Complete something I can regard as a solid accomplishment.",
+            "zh": "完成一件自己认为扎实的成果。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_16",
+      "prompt": {
+        "en": "When planning a next step, which of these benefits would you give priority?",
+        "zh": "规划下一步时，你优先考虑以下哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "balance",
+          "label": {
+            "en": "Plan non-work commitments without frequent last-minute disruption.",
+            "zh": "安排工作以外事项时，不经常被临时打乱。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "security",
+          "label": {
+            "en": "Avoid having core job arrangements change without warning.",
+            "zh": "核心工作安排不会毫无预告地改变。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "learning",
+          "label": {
+            "en": "Get a supported opportunity to practise an unfamiliar skill.",
+            "zh": "获得有支持地练习陌生技能的机会。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Use my judgment when the brief allows more than one route.",
+            "zh": "任务允许多条路径时能够运用自己的判断。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_17",
+      "prompt": {
+        "en": "An ordinary assignment could emphasize one of these features. Which would you prefer?",
+        "zh": "一项普通任务可以重点提供以下一项特点，你偏向哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "security",
+          "label": {
+            "en": "Have a dependable plan for ongoing work.",
+            "zh": "对持续的工作有可靠计划。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "balance",
+          "label": {
+            "en": "Make work sustainable alongside the rest of my life.",
+            "zh": "让工作与生活其他部分能够持续并存。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "creativity",
+          "label": {
+            "en": "Contribute ideas that are not already in the standard plan.",
+            "zh": "贡献标准计划之外的新点子。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "relationships",
+          "label": {
+            "en": "Keep a cooperative atmosphere when work becomes busy.",
+            "zh": "工作忙起来时仍保持合作氛围。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_18",
+      "prompt": {
+        "en": "You can retain one benefit while other workable conditions stay basic. Which do you retain?",
+        "zh": "其他可行条件维持基本水平时，你想额外保留哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "recognition",
+          "label": {
+            "en": "Hear specific appreciation for the effort and result.",
+            "zh": "听到对付出和成果的具体赞赏。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "learning",
+          "label": {
+            "en": "Understand a difficult topic more deeply.",
+            "zh": "更深入地理解一个困难主题。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "relationships",
+          "label": {
+            "en": "Feel comfortable asking a colleague for a conversation.",
+            "zh": "需要交流时能够自在地找同事聊聊。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "impact",
+          "label": {
+            "en": "Understand how the work changed a process or outcome.",
+            "zh": "理解工作怎样改变了流程或结果。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_19",
+      "prompt": {
+        "en": "You are describing a worthwhile workday. Which feature would you mention first?",
+        "zh": "描述一个值得投入的工作日时，你先提哪项特点？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "balance",
+          "label": {
+            "en": "Have clear expectations about when I am unavailable.",
+            "zh": "清楚约定哪些时间不处理工作。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "achievement",
+          "label": {
+            "en": "See evidence that I met the demanding part of my brief.",
+            "zh": "看到自己完成任务中高要求部分的证据。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "impact",
+          "label": {
+            "en": "Follow an output far enough to see its effects.",
+            "zh": "跟进产出，直到能够看到实际作用。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "creativity",
+          "label": {
+            "en": "Give an assignment a distinctive original treatment.",
+            "zh": "用有原创特点的方式处理任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_20",
+      "prompt": {
+        "en": "A team asks what deserves more attention next month. Which benefit comes first?",
+        "zh": "团队问下个月哪项好处值得更多关注，你先选哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "learning",
+          "label": {
+            "en": "Have access to someone who can teach me a new approach.",
+            "zh": "能向别人学习一种新的做法。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "altruism",
+          "label": {
+            "en": "Offer useful help even when it is not publicly visible.",
+            "zh": "提供有用帮助，即使外界看不到。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Adjust the sequence of my work when circumstances change.",
+            "zh": "情况变化时可以自行调整任务顺序。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "creativity",
+          "label": {
+            "en": "Explore a different design instead of defaulting to last time.",
+            "zh": "探索不同设计，而非默认照搬上一次。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_21",
+      "prompt": {
+        "en": "You are reviewing a possible role after an interview. Which point would you most want evidence for?",
+        "zh": "面试后回顾一个岗位时，你最希望看到哪项的证据？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "security",
+          "label": {
+            "en": "Know the regular hours and commitments I can plan around.",
+            "zh": "知道可以据此安排生活的固定工时和承诺。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "creativity",
+          "label": {
+            "en": "Use imagination to open up a solution nobody has proposed yet.",
+            "zh": "用想象力打开还没有人提出的解决方向。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "relationships",
+          "label": {
+            "en": "Have ongoing relationships rather than only anonymous hand-offs.",
+            "zh": "形成持续关系，而非只有互不认识的任务交接。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "altruism",
+          "label": {
+            "en": "Do work that gives someone practical assistance.",
+            "zh": "做能够给别人实际协助的工作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_22",
+      "prompt": {
+        "en": "A project brief leaves room to improve one condition. Which would you choose?",
+        "zh": "项目要求允许改善一项条件，你会选哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "learning",
+          "label": {
+            "en": "Make steady progress in an area I want to learn.",
+            "zh": "在自己想学习的领域持续积累。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "altruism",
+          "label": {
+            "en": "Make space for helping a person rather than only completing my own list.",
+            "zh": "除了完成自己的清单，也有空间帮助别人。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "impact",
+          "label": {
+            "en": "Work on something with a visible consequence outside my task list.",
+            "zh": "做一件在任务清单之外有可见后果的事。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "security",
+          "label": {
+            "en": "See that the role has a clear basis for continued funding.",
+            "zh": "看到岗位继续获得经费的明确依据。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_23",
+      "prompt": {
+        "en": "Someone asks what would make a change of role attractive. Which answer matters most?",
+        "zh": "有人问岗位变动怎样才有吸引力，你最看重哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "creativity",
+          "label": {
+            "en": "Create something with room for my own invention.",
+            "zh": "创作一件容得下个人构思的东西。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "impact",
+          "label": {
+            "en": "Learn whether the delivered work made a useful difference.",
+            "zh": "知道交付的工作是否带来了有用的不同。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "recognition",
+          "label": {
+            "en": "Keep a visible record of the contributions I made.",
+            "zh": "自己作出的贡献留有可见记录。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "achievement",
+          "label": {
+            "en": "Set a worthwhile target and work through to its completion.",
+            "zh": "设定值得完成的目标，并推进到完成。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_24",
+      "prompt": {
+        "en": "A next assignment has several possible benefits. Which would you make explicit in the agreement?",
+        "zh": "下一项任务有几种潜在好处，你先把哪项明确约定下来？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "relationships",
+          "label": {
+            "en": "Work in a group where people treat one another considerately.",
+            "zh": "在成员彼此体谅的小组中工作。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "learning",
+          "label": {
+            "en": "Use part of the assignment to expand my understanding.",
+            "zh": "用任务的一部分拓展理解。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "achievement",
+          "label": {
+            "en": "Deliver a result that meets the quality level I aimed for.",
+            "zh": "交付达到预期质量的结果。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "balance",
+          "label": {
+            "en": "Protect a regular period for recovery.",
+            "zh": "保护固定的恢复时段。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_25",
+      "prompt": {
+        "en": "You are comparing what different teams can offer. Which feature would you examine first?",
+        "zh": "比较不同团队能提供什么时，你先查看哪项特点？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "recognition",
+          "label": {
+            "en": "Know that a useful contribution will not go unnoticed.",
+            "zh": "知道有用贡献不会始终被忽略。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "relationships",
+          "label": {
+            "en": "Maintain reliable human connections while doing the work.",
+            "zh": "做事过程中维持可靠的人际连接。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "impact",
+          "label": {
+            "en": "Have a clear connection between my effort and an outcome in use.",
+            "zh": "清楚连接自己的付出与被使用的结果。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Choose a practical approach without unnecessary sign-offs.",
+            "zh": "选择可行做法时不必经过多余审批。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_26",
+      "prompt": {
+        "en": "A team can improve one feature without changing the basic role. Which would you welcome most?",
+        "zh": "不改变岗位基本职责时，团队能改善一项特点，你最欢迎哪项？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "altruism",
+          "label": {
+            "en": "Use what I can do to make another person’s day easier.",
+            "zh": "用自己能做的事减轻他人当天的困难。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "security",
+          "label": {
+            "en": "Have steady expectations instead of repeated uncertainty about continuation.",
+            "zh": "对延续性有稳定预期，而非反复悬而未定。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "recognition",
+          "label": {
+            "en": "Receive acknowledgment that names what I did well.",
+            "zh": "获得明确指出哪里做得好的认可。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "learning",
+          "label": {
+            "en": "Have room to ask questions and develop competence over time.",
+            "zh": "有空间提问，并逐渐发展能力。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_27",
+      "prompt": {
+        "en": "When deciding where to invest your working time, which benefit would you protect?",
+        "zh": "决定把工作时间投入哪里时，你会保护哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "impact",
+          "label": {
+            "en": "See evidence of what the finished work enabled.",
+            "zh": "看到完成的工作实际促成了什么的证据。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Have a real say in how my own assignment is carried out.",
+            "zh": "对于自己负责的任务怎样实施有实际发言权。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "achievement",
+          "label": {
+            "en": "Mark a completed goal rather than leave progress undefined.",
+            "zh": "明确一个目标已经完成，而非进展始终含糊。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "security",
+          "label": {
+            "en": "Understand what stability this opportunity can actually offer.",
+            "zh": "弄清这个机会实际能提供怎样的稳定性。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_28",
+      "prompt": {
+        "en": "An ordinary work arrangement is negotiable. Which condition would you raise first?",
+        "zh": "一项普通工作安排可以商量，你先提出哪项条件？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "achievement",
+          "label": {
+            "en": "Take satisfaction in doing a difficult piece of work well.",
+            "zh": "从认真完成一项困难工作中获得满足。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "recognition",
+          "label": {
+            "en": "Have the people involved give proper credit.",
+            "zh": "让相关人员给予恰当肯定。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "altruism",
+          "label": {
+            "en": "Have time to support a person who asks for help.",
+            "zh": "有人求助时，有时间提供支持。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "learning",
+          "label": {
+            "en": "Leave the work knowing something I did not know before.",
+            "zh": "做完工作后掌握之前不知道的知识。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_29",
+      "prompt": {
+        "en": "You are explaining why one workable opportunity appeals to you. Which benefit would lead?",
+        "zh": "说明一个可行机会为什么有吸引力时，你先说哪项好处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "impact",
+          "label": {
+            "en": "Know how a contribution continued to matter after hand-off.",
+            "zh": "知道任务交接后，贡献怎样继续发挥作用。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "autonomy",
+          "label": {
+            "en": "Work with clear goals and room to decide the means.",
+            "zh": "目标清楚，同时保留选择实现方式的空间。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "altruism",
+          "label": {
+            "en": "Contribute directly to the welfare of people using the service.",
+            "zh": "直接为服务使用者的福祉作出贡献。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "balance",
+          "label": {
+            "en": "Keep work from routinely taking over personal plans.",
+            "zh": "避免工作经常挤占个人计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WV_30",
+      "prompt": {
+        "en": "Looking at your next working phase, which of these features would you most want to keep?",
+        "zh": "看向下一阶段的工作，你最想保留以下哪项特点？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "directionId": "altruism",
+          "label": {
+            "en": "Know that caring for people is part of what I am doing.",
+            "zh": "知道自己所做的事情包含对人的照顾。"
+          }
+        },
+        {
+          "id": "b",
+          "directionId": "impact",
+          "label": {
+            "en": "Understand the practical effect rather than only record completion.",
+            "zh": "理解实际作用，而非只记录任务完成。"
+          }
+        },
+        {
+          "id": "c",
+          "directionId": "balance",
+          "label": {
+            "en": "Have boundaries that let me finish work and switch attention.",
+            "zh": "有边界，让自己结束工作后可以转移注意力。"
+          }
+        },
+        {
+          "id": "d",
+          "directionId": "creativity",
+          "label": {
+            "en": "Experiment with a new concept in a bounded trial.",
+            "zh": "在有限试验中尝试新构想。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "achievement",
+      "directionIds": [
+        "achievement"
+      ],
+      "title": {
+        "en": "Achievement",
+        "zh": "成就"
+      },
+      "headline": {
+        "en": "A standard worth meeting",
+        "zh": "把值得完成的目标做好"
+      },
+      "summary": {
+        "en": "This reading concerns the satisfaction of completing demanding work to a clear standard. It does not estimate ability, productivity or career success.",
+        "zh": "这份读法关注按清楚标准完成有难度工作的满足感，不估计能力、生产率或职业成功。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "achievement-1",
+          "title": {
+            "en": "What the choices foreground",
+            "zh": "这些选择把什么放在前面"
+          },
+          "paragraphs": [
+            {
+              "en": "Choosing Achievement more often can mean that a role feels worthwhile when you can tell what you completed and whether it met the brief. A visible finish line may matter more in these comparisons than having every other attractive feature. That is a priority expressed here, not a promise that you will always meet the target.",
+              "zh": "成就选得较多，可能说明岗位是否值得做，与你能否看清完成了什么、是否达到要求有关。在这些比较里，明确的终点可能比同时获得其他所有好处更有分量。这只是本次优先选择，不保证你总能完成目标。"
+            },
+            {
+              "en": "The emphasis is on doing a worthwhile piece of work well. It does not require constant competition, public praise or a larger job title. A person can value a demanding standard while preferring quiet work, ordinary hours and no comparison with colleagues.",
+              "zh": "这里重视的是把一件值得做的工作做好，不要求持续竞争、公开表扬或更高头衔。一个人可以看重高标准，同时喜欢安静工作、正常工时，也不愿与同事比较。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-2",
+          "title": {
+            "en": "An ordinary trade-off",
+            "zh": "一个日常取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a project that offers a clear quality target and a definite hand-off, beside another that leaves the outcome open but gives more freedom over methods. Selecting the first protects the satisfaction of completion. It does not establish that either project is better or that freedom is unimportant to you.",
+              "zh": "假设一个项目有明确质量目标和交接节点，另一个结果较开放，但方法自由更大。选择前者，保留的是完成工作的满足感，并不能证明哪个项目更好，也不说明自由对你不重要。"
+            },
+            {
+              "en": "A target can also be badly designed. Finishing a large number of tasks says little about whether they were useful, fair or realistically scoped. Before treating a real target as attractive, ask who set it, what resources exist and whether completion can be checked without encouraging shortcuts.",
+              "zh": "目标本身也可能设计不当。完成很多任务，不能说明它们有用、公平或范围合理。真实目标是否有吸引力，还要问是谁设定、有哪些资源，以及完成标准能否避免鼓励走捷径。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-3",
+          "title": {
+            "en": "Achievement, learning and impact",
+            "zh": "成就、学习与实际影响"
+          },
+          "paragraphs": [
+            {
+              "en": "Learning concerns what you come to understand or do that you could not do before. Achievement concerns bringing work to a standard you aimed for. A familiar task can provide substantial achievement without much new learning; a difficult learning experience may be valuable before any polished result appears.",
+              "zh": "学习关心新增了什么理解或技能；成就关心把工作做到自己瞄准的标准。熟悉的任务也可能带来很强的成就感，却没有多少新学习；困难的学习经历也可能尚未形成漂亮成果，仍然有价值。"
+            },
+            {
+              "en": "Impact asks what happens after the output is used. A report can be excellent and finished on time yet never change a decision. Conversely, a small, unremarkable correction can have an important downstream effect. Compare these readings instead of assuming that three different priorities are one score.",
+              "zh": "实际影响追问产出被使用之后发生什么。一份报告可以优秀且准时，却没有改变任何决定；一处不起眼的小修正，也可能产生重要后果。请比较这几份读法，不把三个优先事项当成一个分数。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-4",
+          "title": {
+            "en": "Higher, lower and mixed counts",
+            "zh": "较多、较少与混合次数"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count invites you to look for clear briefs, realistic standards and feedback about completion. A lower count can mean that another condition mattered more in the offered choices. It does not show low ambition, laziness or poor performance; none of those was observed by this questionnaire.",
+              "zh": "次数较多时，可以进一步关注明确要求、现实标准和完成反馈。次数较少，可能只是提供的选项中另一个条件更重要，并不代表缺乏抱负、懒惰或表现差；这份问卷没有观察这些行为。"
+            },
+            {
+              "en": "Several values can share a count. Achievement and Balance may both rank near the top because you want work that can be finished well within a sustainable arrangement. There is no rule requiring dedication to displace rest, or requiring a single value to describe the whole person.",
+              "zh": "多项价值可以同次。成就和平衡都排在前面，可能表示希望在可持续的安排中把工作做好。没有规则要求投入必然挤掉休息，也不要求一项价值描述整个人。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-5",
+          "title": {
+            "en": "A one-answer arithmetic check",
+            "zh": "改一题的算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose Achievement was chosen seven times from twelve appearances. Changing one answer from Achievement to an offered alternative makes its count six and raises that alternative by one. The two counts move together because this is a choice task; it is not evidence that your underlying character changed.",
+              "zh": "假设成就在十二次出现中被选七次。把其中一题改为同题另一选项，成就变为六次，另一项增加一次。两边同时变化，是选择任务的计数关系，不是你的性格已经改变的证据。"
+            },
+            {
+              "en": "Counts with a difference of one remain close observations. Equal exposure makes the available counts comparable within this bank, but it does not establish a significant gap, reliability or a percentage of your motivation. Re-read the actual options before giving a small difference much weight.",
+              "zh": "差一次仍是接近的观察。相同出现次数让本题组内的原始次数便于比较，却不能证明显著差异、可靠性或某种动机百分比。解释微小差距之前，先回看具体选项。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-6",
+          "title": {
+            "en": "A private evidence check",
+            "zh": "一次私人证据核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one recent assignment privately and describe its finish line without naming the employer or sharing confidential work. Could you tell when it was complete? What made the standard worthwhile? If the answer is unclear, the next useful step may be clarifying the brief rather than seeking a harder challenge.",
+              "zh": "私下选一项近期任务，不写单位名称或机密内容，描述它的终点。你能判断何时完成吗？标准为什么值得达到？如果说不清，下一步可能是澄清要求，而非再找更难挑战。"
+            },
+            {
+              "en": "For a possible role, ask for one example of how good work is defined and reviewed. Compare the answer with available time, training and support. The exercise asks for evidence about conditions; it does not instruct you to accept an offer or leave your current work.",
+              "zh": "了解一个机会时，可以请对方举例说明好工作怎样定义、怎样复盘，再与时间、培训和支持条件核对。这是在寻找工作条件的证据，不是要求接受机会或离开现有工作。"
+            }
+          ]
+        },
+        {
+          "id": "achievement-7",
+          "title": {
+            "en": "Scope and the next choice",
+            "zh": "范围与下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "These original statements and interpretations have no established psychometric validation or occupational norms. Achievement here is an editorial work priority, not a certified assessment of competence or an O*NET score. Language versions are written for the same task without an established measurement-equivalence claim.",
+              "zh": "本版原创题目与读法尚无已建立的心理测量验证或职业常模。这里的成就是编辑定义的工作优先事项，不是认证能力评估或O*NET分数。两个语言版本对应同一任务，但尚未建立测量等值证据。"
+            },
+            {
+              "en": "You can compare Learning and Impact, inspect every original choice, or stop. A separate RIASEC attempt concerns enjoyable work activities and requires its own answers. Neither tool supplies a hiring verdict, and this result is not converted into a career-fit percentage.",
+              "zh": "可以比较学习、实际影响，回看原创选项，也可以结束。若另做RIASEC，它关注喜欢的工作活动，需要独立作答。两种工具都不提供录用结论，本次结果也不换算成职业适配百分比。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Achievement: Full Work Values Guide | FermatMind",
+          "zh": "成就：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "A standard worth meeting. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "把值得完成的目标做好：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "autonomy",
+      "directionIds": [
+        "autonomy"
+      ],
+      "title": {
+        "en": "Autonomy",
+        "zh": "自主"
+      },
+      "headline": {
+        "en": "Room to decide the means",
+        "zh": "保留决定做法的空间"
+      },
+      "summary": {
+        "en": "This reading concerns discretion over how ordinary work is carried out within agreed boundaries. It does not measure independence as a personality trait or permission to ignore responsibilities.",
+        "zh": "这份读法关注约定边界内怎样开展日常工作的裁量空间，不测量独立人格，也不代表可以忽略职责。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "autonomy-1",
+          "title": {
+            "en": "What autonomy means in this edition",
+            "zh": "本版自主的含义"
+          },
+          "paragraphs": [
+            {
+              "en": "Autonomy options concern choosing methods, sequence, tools or routine decisions while a brief remains in place. More selections suggest that this room mattered in the comparisons. They do not mean you want no manager, no collaborators or no accountability; a clear agreement can make useful discretion possible.",
+              "zh": "自主选项关注在任务要求仍然有效时，选择方法、顺序、工具和日常决定。选得较多，说明这些空间在比较中有分量，不代表不想要负责人、合作伙伴或责任。清楚约定反而可能让有效裁量成为可能。"
+            },
+            {
+              "en": "The questionnaire asks about a preferred work condition. It does not observe whether you make sound decisions alone, manage uncertainty well or possess a particular leadership style. Those questions need evidence from actual tasks and situations, not a larger choice count.",
+              "zh": "问卷询问希望的工作条件，没有观察你独自决策是否合理、是否擅长应对不确定，或属于哪种领导风格。这些问题需要真实任务和情境证据，不能从较多次数推出。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-2",
+          "title": {
+            "en": "A choice about working methods",
+            "zh": "关于做法的选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider two feasible assignments with the same required outcome. One specifies every step; the other agrees checkpoints and lets you select the method. Choosing discretion can protect a way of working that suits you. It does not make the more structured option harmful or inferior.",
+              "zh": "假设两项任务都可行，所需成果相同。一项规定每一步，另一项约定检查点后允许自己选方法。选择裁量空间，可能是在保护适合自己的做法，但不表示结构更强的安排有害或较差。"
+            },
+            {
+              "en": "Real autonomy depends on the decision in question. Permission to choose a document format is different from authority over a budget or a legal obligation. Ask which decisions are yours, what must be coordinated and where advice is available before treating a broad promise of freedom as concrete.",
+              "zh": "真实自主取决于具体决定。选择文件格式，与决定预算或法律义务不同。面对笼统的自由承诺，先问哪些决定属于自己、哪些需要协作，以及哪里可以得到建议。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-3",
+          "title": {
+            "en": "Autonomy, creativity and balance",
+            "zh": "自主、创意与平衡"
+          },
+          "paragraphs": [
+            {
+              "en": "Creativity concerns producing a fresh idea or approach. Autonomy concerns deciding the means. You might independently perform a familiar procedure without inventing anything; you might also contribute imaginative ideas in a tightly coordinated team. The two counts describe different choices.",
+              "zh": "创意关心提出新想法或做法，自主关心由谁决定手段。可以独立执行熟悉流程而不发明任何东西，也可以在紧密协作的团队里提出有想象力的点子。两项次数描述不同选择。"
+            },
+            {
+              "en": "Balance concerns the boundary around work and the rest of life. A role can offer substantial method freedom while expecting constant availability. Another can specify methods closely yet protect predictable time off. Read the actual arrangement instead of assuming that discretion guarantees sustainable hours.",
+              "zh": "平衡关心工作与生活其他部分的边界。一份岗位可能方法很自由，却要求随时在线；另一份做法规定较细，却保护稳定休息时间。需要看实际安排，不能认为自主自然保证可持续工时。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-4",
+          "title": {
+            "en": "When the count is higher or lower",
+            "zh": "次数较多或较少时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count suggests checking decision rights carefully in a real opportunity. A lower count may reflect a preference for another benefit in this bank, a wish for guidance in unfamiliar work, or how the options were phrased. It is not a diagnosis of dependence or lack of initiative.",
+              "zh": "次数较多时，可以认真核对真实机会中的决策权限。次数较少，可能是本题组中更看重其他好处、陌生任务需要指导，或措辞造成差异，不是依赖或缺乏主动性的诊断。"
+            },
+            {
+              "en": "Equal ranks stay equal. If Autonomy and Relationships have the same count, you may want discretion alongside dependable collaboration. This exercise does not force the idea that choosing your own method requires working alone, or that cooperation requires giving up all choice.",
+              "zh": "同次保留相同名次。自主与关系同次时，可能希望既有裁量，也有可靠合作。本练习不强迫你接受自主必须独处、合作必须放弃所有选择的设定。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-5",
+          "title": {
+            "en": "Checking a changed answer",
+            "zh": "核对改答的变化"
+          },
+          "paragraphs": [
+            {
+              "en": "If Autonomy has five choices and you change one offered alternative to Autonomy, it becomes six. The alternative loses one. Nothing is averaged across people, and the result is not a percentile. The twelve appearances are opportunities in this bank, not twelve observed workplace decisions.",
+              "zh": "如果自主原为五次，把一题其他选项改为自主后就是六次，原选项减一次。这里没有与其他人平均比较，也没有百分位。十二次只是本题组的选择机会，不是十二次被观察的职场决定。"
+            },
+            {
+              "en": "A small count change can alter which reading appears first without establishing a stable change in priorities. The fixed presentation has balanced positions but unvalidated wording and context effects. Keep the content of the changed choice next to the number when interpreting it.",
+              "zh": "改动少量次数可能改变最先呈现的读法，却不能证明优先事项稳定改变。固定题序平衡了选项位置，但措辞和情境效应尚未验证。解释数字时，请保留改答的具体内容。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-6",
+          "title": {
+            "en": "A bounded question to investigate",
+            "zh": "一个有边界的核实问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately identify one decision you would like to own, such as task order or the choice of a routine tool. Describe the desired boundary without confidential details. Then ask what checkpoints would make that discretion workable for everyone involved.",
+              "zh": "私下找一个希望自己决定的事项，例如任务顺序或日常工具。不写机密细节，描述理想边界，再想哪些检查点能让相关人员都放心地接受这份裁量。"
+            },
+            {
+              "en": "When exploring a role, request an ordinary example of a decision made by the person doing the work. Who was consulted and what required approval? A concrete example is more useful than treating a broad statement about empowerment as a guarantee.",
+              "zh": "了解岗位时，可以请对方举一个由实际执行者作决定的普通例子：征询了谁，什么需要批准？具体例子比把赋权口号当保证更有帮助。"
+            }
+          ]
+        },
+        {
+          "id": "autonomy-7",
+          "title": {
+            "en": "Limits and optional comparisons",
+            "zh": "边界与可选比较"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original work-priority reflection, with no established reliability, occupational norms or verified ability to predict satisfaction. It is not the O*NET Independence instrument, the SDT autonomy scale or a personality diagnosis. Shared terminology does not make scores interchangeable.",
+              "zh": "这是原创工作优先事项反思，尚无已建立的可靠性、职业常模或预测满意度的验证。它不是O*NET独立性工具、SDT自主量表或人格诊断。术语相近不代表分数可以互换。"
+            },
+            {
+              "en": "Compare Creativity and Balance if they help clarify what freedom means to you. You can also inspect all thirty choices or finish here. No automatic job ranking, employer recommendation or conversion into a core personality type follows from this count.",
+              "zh": "如果有帮助，可比较创意和平衡，澄清自己所说的自由，也可以回看三十题或结束。这个次数不会自动产生岗位排序、雇主推荐或核心人格类型换算。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Autonomy: Full Work Values Guide | FermatMind",
+          "zh": "自主：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Room to decide the means. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "保留决定做法的空间：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "creativity",
+      "directionIds": [
+        "creativity"
+      ],
+      "title": {
+        "en": "Creativity",
+        "zh": "创意"
+      },
+      "headline": {
+        "en": "Space to originate an approach",
+        "zh": "给新构想留出空间"
+      },
+      "summary": {
+        "en": "This reading concerns opportunities to invent ideas, designs or approaches. It describes a work priority, not a test of creative ability or artistic talent.",
+        "zh": "这份读法关注提出新点子、设计或做法的机会，描述工作优先事项，不测试创造能力或艺术天赋。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "creativity-1",
+          "title": {
+            "en": "What a creative opportunity can mean",
+            "zh": "创意机会可以是什么"
+          },
+          "paragraphs": [
+            {
+              "en": "More Creativity choices suggest that room for invention mattered when compared with other benefits. In this bank, invention may be a different design, a prototype, a fresh combination or an alternative solution. It need not mean an artistic occupation, public originality or producing something unusual every day.",
+              "zh": "创意选得较多，说明与其他好处比较时，构思空间更有分量。本题组中的构思可以是不同设计、小原型、新组合或备选解法，不必等于艺术职业、公开原创成就，或每天都提出与众不同的东西。"
+            },
+            {
+              "en": "A preference for such opportunities says nothing by itself about whether an idea will work. Feasibility, quality, knowledge and feedback still matter. The questionnaire observes selected descriptions, not the novelty or usefulness of any work you have produced.",
+              "zh": "喜欢这些机会，本身不能说明点子一定可行。可行性、质量、知识和反馈仍然重要。问卷记录的是描述选项，没有观察你的作品是否新颖或有用。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-2",
+          "title": {
+            "en": "A fresh idea beside a familiar route",
+            "zh": "新想法与熟悉路径"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a task where a proven template would be adequate but a small trial could explore another approach. Choosing the trial foregrounds the opportunity to invent. It does not establish that changing the template is necessary or that routine work cannot be meaningful.",
+              "zh": "假设一项任务使用成熟模板已经足够，也可以做小试验探索其他做法。选择试验，突出的是构思机会，并不能证明必须改变模板，也不表示常规工作没有意义。"
+            },
+            {
+              "en": "In a real setting, creative room needs a budget of time, permission and a way to test the result. An invitation to be innovative without any chance to try or revise may provide less practical freedom than the phrase suggests. Ask what a bounded trial would actually involve.",
+              "zh": "真实情境中的创意空间需要时间、许可和检验办法。如果只要求创新，却没有尝试或修改机会，实际空间可能比说法小。可以问一次有限试验具体怎样开展。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-3",
+          "title": {
+            "en": "Creativity is different from learning",
+            "zh": "创意与学习不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Learning is acquiring understanding or competence. Creativity is originating an idea or treatment. You might learn a well-established method without changing it, or use familiar knowledge to invent a new arrangement. Neither priority is automatically more advanced, and the two can work together.",
+              "zh": "学习是新增理解或能力，创意是提出新构思或处理方式。可以学习成熟方法而不改变它，也可以用熟悉知识构想新安排。两项没有高低等级，也可以共同发挥作用。"
+            },
+            {
+              "en": "Autonomy is another nearby but separate priority. A team may invite original proposals while requiring a shared decision about implementation. A role with broad discretion may mainly involve standard procedures. Distinguish the chance to invent from the authority to decide.",
+              "zh": "自主也是相近却独立的事项。团队可以欢迎原创方案，同时共同决定怎样实施；裁量很大的岗位也可能主要执行标准流程。请区分提出新构想的机会与决定实施的权限。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-4",
+          "title": {
+            "en": "Reading less frequent selections",
+            "zh": "怎样看较少选择"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower Creativity count does not mean you are uncreative. You may prefer stability, visible outcomes or stronger boundaries in the imagined role, while enjoying invention elsewhere. This task cannot assess talent, originality of thought or suitability for a design profession.",
+              "zh": "创意次数较少，不等于没有创造力。可能只是设想岗位中更看重稳定、可见结果或清楚边界，而在其他地方喜欢构思。本任务无法评估天赋、思考原创性或设计职业资格。"
+            },
+            {
+              "en": "When several values share the highest count, every corresponding reading stays available. Creativity with Security might express wanting new ideas inside a dependable arrangement. Treat that combination as a question about conditions, rather than a contradiction requiring a single fixed label.",
+              "zh": "多项并列最高时，各份读法都保留。创意和稳定保障一起靠前，可能表示希望在可靠安排中尝试新想法。可以把它变成对条件的提问，不必视为矛盾或强行选择固定标签。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-5",
+          "title": {
+            "en": "A concrete counting example",
+            "zh": "具体计数例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose Creativity was chosen four times. Switching one answer from another offered value to Creativity gives five choices and reduces the other value by one. The count remains out of twelve opportunities. It is not five successful inventions or a creative-ability score.",
+              "zh": "假设创意被选四次，把一题另一价值改为创意，就变为五次，另一项减一次。分母仍是十二次机会，并不是成功发明五次，也不是创造能力分。"
+            },
+            {
+              "en": "Every pair of values occurs together four times, but the words around those choices still differ. Equal co-exposure limits one structural imbalance; it does not prove equal difficulty, neutral wording or measurement precision. Use the original choices when explaining a close result.",
+              "zh": "每两项价值共同出现四次，但相关措辞仍有差异。共同出现次数相等，只减少一种结构失衡，不能证明难度一致、措辞中立或测量精度。解释接近结果时，仍应回到具体选择。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-6",
+          "title": {
+            "en": "A small private exploration",
+            "zh": "一次小范围私人探索"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a non-confidential example where you wished you could try a different approach. Identify the change you wanted and the smallest safe test of it. You do not need to carry out the test or produce a portfolio to use this reading.",
+              "zh": "选一个不涉及机密、曾希望尝试不同做法的例子，写清想改变什么，以及最小的安全试验是什么。使用这份读法并不要求真的试验或制作作品集。"
+            },
+            {
+              "en": "For a possible role, ask how a new idea was last proposed, tested and revised. Look for ordinary examples rather than exceptional success stories. Whether those conditions appeal to you is a separate judgment from whether you possess the skills the role requires.",
+              "zh": "了解岗位时，可以问最近一次新想法怎样提出、试验、修改。关注普通例子，而非只看特殊成功故事。是否喜欢这些条件，与是否具备岗位所需技能，是两个判断。"
+            }
+          ]
+        },
+        {
+          "id": "creativity-7",
+          "title": {
+            "en": "What remains unmeasured",
+            "zh": "还没有测量什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The ten priorities, statements and readings are original editorial material. They have no established psychometric validity or population norms, and this is not a standardized creativity test. No claim is made that the two language versions have proven measurement equivalence.",
+              "zh": "十项优先事项、题目和读法属于原创编辑内容，尚无已建立的心理测量效度或人群常模，也不是标准创造力测试。两个语言版本没有经过测量等值验证。"
+            },
+            {
+              "en": "You may compare Learning and Autonomy, review a changed answer or stop. The result does not require buying tools, changing jobs or taking another test. It is not used to generate a hiring judgment or a claim about which creative occupation you should enter.",
+              "zh": "可以比较学习和自主、回看改答，或在此结束。结果不要求购买工具、换工作或继续其他测试，也不会据此判断录用或宣称应该进入哪种创意职业。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Creativity: Full Work Values Guide | FermatMind",
+          "zh": "创意：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Space to originate an approach. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "给新构想留出空间：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "security",
+      "directionIds": [
+        "security"
+      ],
+      "title": {
+        "en": "Security",
+        "zh": "稳定保障"
+      },
+      "headline": {
+        "en": "A dependable basis for work",
+        "zh": "让工作有可靠基础"
+      },
+      "summary": {
+        "en": "This reading concerns continuity and predictable arrangements in ordinary working life. It does not measure courage, financial worth or a general attitude toward risk.",
+        "zh": "这份读法关注日常工作的延续性和可预期安排，不衡量勇气、经济价值或一般风险态度。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "security-1",
+          "title": {
+            "en": "The condition behind the word",
+            "zh": "这个词背后的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Security options describe knowing whether work is expected to continue, when pay arrives and what changes require notice. More selections suggest that dependable arrangements mattered in the offered trade-offs. They do not imply that any employer can guarantee permanent employment or that uncertainty can be eliminated.",
+              "zh": "稳定保障选项涉及岗位是否延续、工资何时到账，以及变化前是否通知。选得较多，说明可靠安排在这些取舍中有分量，并不表示任何雇主都能保证永久工作，或不确定可以完全消除。"
+            },
+            {
+              "en": "A preference for predictability can have many practical reasons: existing commitments, a wish to plan, or simply the conditions you want next. The questionnaire does not ask for income, family circumstances or financial details, and it cannot infer those circumstances from your choices.",
+              "zh": "偏好可预期可能有很多现实原因，例如已有责任、需要规划，或只是下一阶段想要的条件。问卷不询问收入、家庭或财务细节，也不能从答案反推这些情况。"
+            }
+          ]
+        },
+        {
+          "id": "security-2",
+          "title": {
+            "en": "Continuity beside another benefit",
+            "zh": "延续性与另一项好处"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two feasible roles that meet basic pay, safety and legal requirements. One provides clearer information about continued funding; the other offers a more visible opportunity for recognition. Choosing continuity protects a planning condition. It is not proof that the other role is unsafe or unsuitable.",
+              "zh": "假设两个岗位都满足基本薪酬、安全和法律要求，一份提供更清楚的持续经费信息，另一份更容易获得认可。选择延续性，是保护规划条件，不能证明另一岗位不安全或不适合。"
+            },
+            {
+              "en": "In actual work, distinguish an enforceable term from an expectation. A reassuring statement about stability may depend on funding, demand or a review date. Read the relevant agreement and ask what is known, what could change and how changes are communicated; this guide does not assess a particular contract.",
+              "zh": "实际工作中，要区分可落实条款与预期。稳定承诺可能取决于经费、需求或复核日期。请看相关约定，并问清已知信息、可能变化及通知方式；这份读法不评估具体合同。"
+            }
+          ]
+        },
+        {
+          "id": "security-3",
+          "title": {
+            "en": "Security and sustainable boundaries",
+            "zh": "稳定与可持续边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Balance concerns room for rest and non-work commitments. Security concerns dependable arrangements and continuity. A continuing role can still have excessive hours; a time-limited project can have excellent boundaries. A higher count on one does not supply evidence about the other.",
+              "zh": "平衡关注休息和工作外责任的空间，稳定保障关注可靠安排与延续性。长期岗位也可能工时过多，短期项目也可能边界清楚。一项次数较多，不能替另一项提供证据。"
+            },
+            {
+              "en": "Autonomy concerns choosing methods and routine decisions. Predictable work need not be tightly controlled, and discretion need not require constant uncertainty. If both priorities matter, look for concrete arrangements that allow each rather than accepting the idea that one must cancel the other.",
+              "zh": "自主关注做法和日常决定的裁量。可预期工作不必事事受控，自主也不必伴随持续不确定。两项都重要时，可以寻找同时支持它们的安排，不必认为必然互相抵消。"
+            }
+          ]
+        },
+        {
+          "id": "security-4",
+          "title": {
+            "en": "How to read different counts",
+            "zh": "怎样看不同次数"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower Security count means these options lost to other benefits more often in this bank. It does not show recklessness, wealth or an ability to tolerate financial loss. Do not use the result to justify taking a risk that would otherwise require careful assessment.",
+              "zh": "稳定保障次数较少，表示本题组中这些选项更多让位于其他好处，不说明鲁莽、富裕或能够承受财务损失。不能用结果为本来需要审慎评估的风险作辩护。"
+            },
+            {
+              "en": "A higher count is also not a command to keep an arrangement that harms you. Stability is one condition among many, and rights, safety and fair treatment remain basic requirements. The task assumes those requirements rather than making them prizes that must be traded away.",
+              "zh": "次数较多，也不是要求留在伤害自己的安排中。稳定只是条件之一，权利、安全和公平对待仍是基本要求。本任务把这些要求作为前提，而不是必须牺牲的奖品。"
+            }
+          ]
+        },
+        {
+          "id": "security-5",
+          "title": {
+            "en": "An answer-change example",
+            "zh": "改答例子"
+          },
+          "paragraphs": [
+            {
+              "en": "If Security has eight selections, changing one of them to an offered Learning option makes the counts seven for Security and one higher for Learning. Total selected options remain thirty. Neither count is an estimate of future job retention or a probability of financial safety.",
+              "zh": "如果稳定保障有八次，把其中一题改为学习，稳定保障变七次，学习加一次。总选择数仍为三十。两项都不是未来留任率或经济安全概率。"
+            },
+            {
+              "en": "Two values with equal counts share a rank. The display does not use a hidden tie-breaker to declare one your true priority. Small differences can reflect the wording or the particular combination offered; equal exposure does not remove those limitations.",
+              "zh": "同次价值保留相同名次，系统不会用隐藏规则指定哪项才是真正优先。小差距可能来自措辞或选项组合；出现次数相等，也不能消除这些限制。"
+            }
+          ]
+        },
+        {
+          "id": "security-6",
+          "title": {
+            "en": "One practical clarification",
+            "zh": "一个现实澄清"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately complete the sentence: “To plan my next phase, I would need reliable information about …”. Keep it specific, such as hours, notice or continuation. There is no need to enter the answer into the website or reveal personal circumstances.",
+              "zh": "私下补完一句话：“为了规划下一阶段，我需要可靠地知道……”尽量具体，例如工时、通知或延续安排。无需把答案输入网站，也不必透露个人情况。"
+            },
+            {
+              "en": "If you investigate an opportunity, ask which parts are confirmed and which remain estimates. Compare the evidence with your own needs and obtain appropriate professional advice where a contract or financial decision requires it. This questionnaire cannot perform that assessment.",
+              "zh": "了解机会时，可以区分哪些已经确认、哪些仍是估计，再与自己的需要核对。涉及合同或财务决定时，按需要寻求适当专业意见；这份问卷无法完成这些评估。"
+            }
+          ]
+        },
+        {
+          "id": "security-7",
+          "title": {
+            "en": "Limits and other readings",
+            "zh": "边界与其他读法"
+          },
+          "paragraphs": [
+            {
+              "en": "This original reflection has no established reliability, occupational norms or validated prediction of satisfaction. Security here is an editorial work priority, not a financial-risk instrument, a clinical scale or the O*NET Working Conditions score. Do not exchange their numbers.",
+              "zh": "本原创反思尚无已建立的可靠性、职业常模或满意度预测验证。这里的稳定保障是编辑定义的工作优先事项，不是财务风险工具、临床量表或O*NET工作条件分数，不能互换数字。"
+            },
+            {
+              "en": "Balance and Autonomy may help you specify what a dependable arrangement would include. You can inspect the choices or stop. There is no automatic recommendation to remain, leave, invest or apply for a particular occupation.",
+              "zh": "平衡和自主读法可能帮助具体说明可靠安排应包括什么。也可以回看选择或结束。结果不会自动建议留下、离开、投资或申请某种职业。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Security: Full Work Values Guide | FermatMind",
+          "zh": "稳定保障：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "A dependable basis for work. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "让工作有可靠基础：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "altruism",
+      "directionIds": [
+        "altruism"
+      ],
+      "title": {
+        "en": "Altruism",
+        "zh": "助人"
+      },
+      "headline": {
+        "en": "Practical help as part of work",
+        "zh": "把实际帮助纳入工作"
+      },
+      "summary": {
+        "en": "This reading concerns directly supporting people through ordinary work. It does not measure moral worth, compassion as a trait or suitability for a helping profession.",
+        "zh": "这份读法关注通过日常工作直接支持他人，不衡量道德价值、关怀人格或助人职业资格。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "altruism-1",
+          "title": {
+            "en": "The priority described here",
+            "zh": "这里描述的优先事项"
+          },
+          "paragraphs": [
+            {
+              "en": "Altruism options concern giving practical assistance, responding to a need and making another person’s task or day easier. More selections suggest that direct service mattered in the comparisons. They do not establish how much help you actually give or whether it is effective.",
+              "zh": "助人选项关心实际协助、回应需要，以及减轻别人的任务或日常困难。选得较多，说明直接服务在比较中有分量，却不能证明实际帮助了多少，或帮助是否有效。"
+            },
+            {
+              "en": "This is a preferred work condition rather than a moral ranking. Wanting recognition, stability or time outside work is not evidence of selfishness. Useful help also requires skills, boundaries and attention to what the person receiving it wants; good intentions alone do not establish benefit.",
+              "zh": "这是希望的工作条件，不是道德排序。看重认可、稳定或工作外时间，不是自私的证据。有用帮助还需要技能、边界，以及留意接收者的需要；意图良好不等于已经产生益处。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-2",
+          "title": {
+            "en": "A service-oriented trade-off",
+            "zh": "一项服务取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two feasible assignments. One includes time to assist service users directly; another offers a clearer opportunity to finish a difficult technical target. Choosing assistance foregrounds contact with a person’s concrete need. Both forms of work can be worthwhile, and the technical task may also help people indirectly.",
+              "zh": "假设两个任务都可行，一项留出直接协助服务使用者的时间，另一项更便于完成困难的技术目标。选择协助，突出的是接触具体需要。两种工作都可能有价值，技术任务也可能间接帮助他人。"
+            },
+            {
+              "en": "In actual service work, ask what support is expected, what training is available and when a request should be referred elsewhere. Being available without limits is not a requirement of this value. A sustainable arrangement can protect both the person giving help and the person receiving it.",
+              "zh": "真实服务工作中，需要问清协助范围、培训条件，以及何时应转介其他人员。这项价值不要求无限待命。可持续安排可以同时保护提供帮助和接收帮助的人。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-3",
+          "title": {
+            "en": "Altruism beside impact and relationships",
+            "zh": "助人、影响与关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Impact asks whether the work produces a practical downstream difference, whether or not there is direct contact. Altruism here emphasizes helping a person. Maintaining a public system might have broad impact with little personal contact; assisting one visitor might provide direct help without a measurable long-term outcome.",
+              "zh": "实际影响追问工作是否产生后续变化，不论有没有直接接触；这里的助人强调帮助具体的人。维护公共系统可能影响很广，却少有个人接触；协助一位来访者可能是直接帮助，却没有可量化的长期结果。"
+            },
+            {
+              "en": "Relationships concerns ongoing connections with colleagues. Helping service users is different from feeling connected to a team, although they may coexist. Do not treat one count as evidence that your colleagues are supportive or that your relationships are satisfying.",
+              "zh": "关系关注与同事的持续连接。帮助服务使用者，与融入团队不同，虽然两者可以并存。不能把一项次数当成同事提供支持或关系令人满意的证据。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-4",
+          "title": {
+            "en": "Reading higher and lower counts",
+            "zh": "怎样看次数高低"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count invites questions about whether ordinary duties include the kind of assistance you value. A lower count means other benefits were selected more often here. It does not identify low empathy, poor character or lack of concern for other people.",
+              "zh": "次数较多，可以进一步问日常职责是否包含自己看重的协助。次数较少，只说明本题组中其他好处更多被选中，不表示同理心低、品格不好或不关心他人。"
+            },
+            {
+              "en": "Altruism and Balance can share a high rank without contradiction. You may want work that helps people and leaves enough recovery time to keep doing it. The questionnaire does not force self-sacrifice or ask you to give away basic pay, safety or legal protections.",
+              "zh": "助人与平衡可以共同靠前，并不矛盾。可能希望工作帮助别人，同时有足够恢复时间持续做下去。问卷不要求自我牺牲，也不要求放弃基本薪酬、安全或法律保障。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-5",
+          "title": {
+            "en": "Following one changed choice",
+            "zh": "跟踪一次改答"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose Altruism appears twelve times and you select it six times. Changing one selected answer to another option makes it five and increases the alternative by one. The number counts descriptions chosen, not people helped, hours volunteered or units of social benefit.",
+              "zh": "假设助人出现十二次，被选六次。把一题改为另一选项，助人变五次，另一项加一次。这个数字统计选中的描述，不是帮助人数、志愿时数或社会益处单位。"
+            },
+            {
+              "en": "A one-count difference from another value has no established significance. Every pair is offered together four times, but contexts and wording still influence the task. Keep close counts close instead of turning a small numerical lead into an obligation to choose a service career.",
+              "zh": "与另一项差一次，没有已建立的显著性。任意两项共同出现四次，但情境和措辞仍会影响选择。接近次数应保留为接近观察，不能把一点领先变成必须选择服务职业的义务。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-6",
+          "title": {
+            "en": "An optional needs check",
+            "zh": "可选的需要核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately think of one ordinary instance of helpful work without recording anyone’s name or private circumstances. What was requested? What did you actually provide? What information would tell you whether it was useful? This distinguishes the wish to help from assuming that help succeeded.",
+              "zh": "私下想一个普通助人工作例子，不记录姓名或私人情况。对方要求什么，你实际提供什么，哪些信息能说明有用？这样可以区分希望帮助，与假定已经帮助成功。"
+            },
+            {
+              "en": "For a role you are exploring, ask how assistance is supervised and how staff handle requests beyond their remit. You can use the answers as questions for further investigation. The result does not qualify you to provide clinical, legal or other professional services.",
+              "zh": "了解岗位时，可以问协助怎样获得支持，以及超出职责的要求怎样处理。把答案作为继续核实的线索；本次结果不授予临床、法律或其他专业服务资格。"
+            }
+          ]
+        },
+        {
+          "id": "altruism-7",
+          "title": {
+            "en": "Limits and a suitable next step",
+            "zh": "边界与合适下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original editorial work-priority exercise without established psychometric validity, reliability or population norms. It is not a validated altruism scale or a moral assessment. Chinese and English serve the same reflection task without a proven measurement-equivalence claim.",
+              "zh": "这是原创编辑工作优先事项练习，尚无已建立的心理测量效度、可靠性或人群常模，不是经过验证的利他量表或道德评估。中英文服务同一反思任务，但没有已证明的测量等值。"
+            },
+            {
+              "en": "Compare Impact and Relationships to clarify which form of contribution matters to you, or stop here. No profession, employer or life decision is recommended automatically. Any separate interest test needs its own answers and does not convert this count into ability.",
+              "zh": "可以比较实际影响和关系，澄清看重哪种贡献，也可以结束。系统不自动推荐职业、雇主或人生决定。另做兴趣测试需要独立作答，也不会把本次次数换算成能力。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Altruism: Full Work Values Guide | FermatMind",
+          "zh": "助人：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Practical help as part of work. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "把实际帮助纳入工作：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "recognition",
+      "directionIds": [
+        "recognition"
+      ],
+      "title": {
+        "en": "Recognition",
+        "zh": "认可"
+      },
+      "headline": {
+        "en": "Let contributions receive clear credit",
+        "zh": "让贡献获得清楚肯定"
+      },
+      "summary": {
+        "en": "This reading concerns acknowledgment and accurate credit for work. It does not measure vanity, popularity, social status or leadership potential.",
+        "zh": "这份读法关注工作获得肯定和准确归功，不测量虚荣、人气、社会地位或领导潜力。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "recognition-1",
+          "title": {
+            "en": "What recognition refers to",
+            "zh": "这里的认可指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Recognition options describe feedback that names a contribution, appropriate credit and an acknowledgment of useful effort or results. More choices suggest that being noticed in this way mattered among the available benefits. Public fame, a managerial title and constant applause are not requirements of this reading.",
+              "zh": "认可选项描述点明贡献的反馈、恰当归功，以及对有用付出或结果的肯定。选得较多，说明被这样看见在现有好处中有分量，不要求公众名气、管理头衔或持续掌声。"
+            },
+            {
+              "en": "Accurate credit can concern fairness as much as attention. A person may want a contribution recorded without wanting a public ceremony. The count cannot distinguish every reason behind your choices, so use the actual wording rather than assigning a flattering or critical personality label.",
+              "zh": "准确归功既可能关乎关注，也可能关乎公平。一个人可以希望贡献留下记录，却不想公开表彰。次数无法区分所有选择原因，因此应看具体措辞，而非贴上褒义或贬义人格标签。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-2",
+          "title": {
+            "en": "Credit in a shared project",
+            "zh": "共同项目中的归功"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a team presentation where your contribution could be described clearly, beside an alternative benefit such as more room to learn a new method. Choosing credit protects acknowledgment in that comparison. It does not mean you prefer praise to doing good work or that learning is irrelevant.",
+              "zh": "假设团队展示中可以清楚说明你的贡献，同时也可选择另一项好处，例如学习新方法的空间。选择归功，是在这次比较中保护肯定，不代表比起做好工作更喜欢表扬，也不表示学习无关紧要。"
+            },
+            {
+              "en": "In a real role, ask how shared work is credited and how feedback is given. A broad promise that effort is valued may not tell you what happens when several people contribute. Look for a routine process and an ordinary example instead of relying only on awards or slogans.",
+              "zh": "真实岗位中，可以问共同成果怎样归功、反馈怎样提供。笼统承诺重视努力，不一定说明多人参与时怎样处理。关注日常流程和普通例子，而非只看奖项或口号。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-3",
+          "title": {
+            "en": "Recognition is not achievement",
+            "zh": "认可并不等于成就"
+          },
+          "paragraphs": [
+            {
+              "en": "Achievement concerns meeting a worthwhile standard. Recognition concerns whether the contribution is acknowledged. You might finish excellent work that receives little attention, or receive warm thanks for a simple but useful task. Neither count establishes the other, and praise does not by itself verify quality.",
+              "zh": "成就关注达到值得完成的标准，认可关注贡献是否得到承认。优秀成果可能少有关注，简单却有用的任务也可能得到真诚感谢。两项不能互相证明，表扬本身也不能验证质量。"
+            },
+            {
+              "en": "Relationships concerns ongoing human connections rather than credit for particular work. A friendly team may still distribute credit poorly; a formal arrangement may document contributions accurately. Compare the conditions you actually want rather than assuming acknowledgment and closeness are the same need.",
+              "zh": "关系关注持续人际连接，而非特定工作的归功。友好团队也可能归功不当，正式安排也可能准确记录贡献。请比较实际想要的条件，不把肯定和亲近当作同一需要。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-4",
+          "title": {
+            "en": "Higher, lower and tied observations",
+            "zh": "较多、较少及并列观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher Recognition count can prompt a closer look at feedback and attribution practices. A lower count may mean other benefits took precedence in this imagined phase. It does not show low self-worth, exceptional humility or an absence of need for fair treatment.",
+              "zh": "认可次数较多，可以更仔细核对反馈和署名做法。次数较少，可能只是设想阶段中其他好处更靠前，不表示自我价值低、特别谦逊或不需要公平对待。"
+            },
+            {
+              "en": "If Recognition and Impact tie, you might want both a useful downstream effect and an honest account of who contributed. The result does not force you to choose between meaningful work and visible credit. Every highest-count reading remains available without a hidden winner.",
+              "zh": "认可与实际影响同次，可能表示既希望工作产生实际作用，也希望如实说明贡献者。结果不强迫在有意义工作和可见归功之间二选一；最高并列全部保留，没有隐藏赢家。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-5",
+          "title": {
+            "en": "Counting without a status score",
+            "zh": "计数并不是地位分"
+          },
+          "paragraphs": [
+            {
+              "en": "If Recognition was selected three times, changing one answer to it produces four selections and takes one from the alternative. Four out of twelve means four choices in this bank. It is not a measure of how much respect you receive, your social rank or how likely you are to be promoted.",
+              "zh": "如果认可被选三次，把一题改为认可后变四次，原选项减一次。十二次中的四次，只是本题组选择，不衡量得到多少尊重、社会排名或晋升可能性。"
+            },
+            {
+              "en": "Balanced exposure and option positions do not establish unbiased wording or a stable priority hierarchy. Counts separated by one may deserve the same practical attention. Revisit the relevant question if a numerical order does not fit what you meant to express.",
+              "zh": "出现次数和位置平衡，不代表措辞无偏或优先顺序稳定。差一次的两项，在实践中可能值得同样关注。如果数字顺序不符合原意，可以回看相关题目。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-6",
+          "title": {
+            "en": "An optional attribution question",
+            "zh": "可选的归功问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately recall a non-confidential shared task. What contribution would you want acknowledged, and by whom? Distinguish a useful record, personal thanks and public attention; you may value one without wanting the others. No names or examples need to be entered on this site.",
+              "zh": "私下回想一项非机密共同任务：希望哪种贡献被谁承认？区分有用记录、个人感谢和公开关注，可能只看重其中一项。无需把姓名或例子输入网站。"
+            },
+            {
+              "en": "For an opportunity under consideration, ask how contributions are described during review or hand-off. Compare the answer with your own preference for feedback. This is a way to gather evidence, not a recommendation to seek a title or negotiate a particular reward.",
+              "zh": "考虑机会时，可以问复盘或交接中怎样说明各方贡献，再与自己的反馈偏好比较。这是取证办法，不是建议追求某种头衔或特定奖励。"
+            }
+          ]
+        },
+        {
+          "id": "recognition-7",
+          "title": {
+            "en": "Method limits and next comparisons",
+            "zh": "方法边界与后续比较"
+          },
+          "paragraphs": [
+            {
+              "en": "This original reflection does not provide a standardized status, motivation or self-esteem score. Its reliability, norms and predictive validity have not been established. Shared words with other work-values models do not make this the same instrument or permit direct score conversion.",
+              "zh": "本原创反思不提供标准化地位、动机或自尊分数，可靠性、常模和预测效度尚未建立。与其他工作价值模型使用相近词汇，不代表工具相同，也不能直接换算分数。"
+            },
+            {
+              "en": "You can read Achievement and Relationships, inspect your selected options or stop. All complete guides are free to read without submitting an email or taking another test. No employer assessment or automatic career match is generated from the count.",
+              "zh": "可以阅读成就和关系、回看选择，或结束。全部完整指南无需提交邮箱或继续其他测试即可免费阅读。计数不会产生雇主评估或自动职业匹配。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Recognition: Full Work Values Guide | FermatMind",
+          "zh": "认可：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Let contributions receive clear credit. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "让贡献获得清楚肯定：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "relationships",
+      "directionIds": [
+        "relationships"
+      ],
+      "title": {
+        "en": "Relationships",
+        "zh": "关系"
+      },
+      "headline": {
+        "en": "Reliable connections while doing the work",
+        "zh": "做事时保留可靠连接"
+      },
+      "summary": {
+        "en": "This reading concerns ongoing, respectful connections with people at work. It does not rate your social skill, popularity or the quality of your current relationships.",
+        "zh": "这份读法关注工作中持续、相互尊重的人际连接，不评价社交技能、人气或当前关系质量。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "relationships-1",
+          "title": {
+            "en": "A preferred social condition",
+            "zh": "希望的人际条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Relationships options concern mutual understanding, consideration and a dependable connection with colleagues. More selections suggest that these conditions mattered beside other benefits. They do not show how many friends you have or whether you need constant social contact throughout the day.",
+              "zh": "关系选项关心相互理解、体谅，以及与同事之间可靠的连接。选得较多，说明这些条件与其他好处相比有分量，不表示朋友数量，也不表示一天中需要持续社交。"
+            },
+            {
+              "en": "The task describes ordinary work relationships, not intimacy or a substitute family. You may prefer warm cooperation while keeping personal information private. Respectful boundaries can support connection rather than weaken it, and no answer requires sharing private circumstances with colleagues.",
+              "zh": "本任务描述普通工作关系，不是亲密关系或替代家庭。可以希望温暖合作，同时保留个人信息。尊重边界可以支持连接，不一定削弱连接；任何答案都不要求向同事透露私事。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-2",
+          "title": {
+            "en": "Connection during ordinary tasks",
+            "zh": "普通任务中的连接"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a project that includes time for a proper conversation with collaborators, beside another that provides more freedom to choose tools. Choosing conversation foregrounds human connection in that comparison. It does not prove that a remote, quiet or independent arrangement would be unsuitable for you.",
+              "zh": "假设一个项目留出与合作者认真交流的时间，另一个允许更自由地选择工具。选择交流，突出的是这次比较中的人际连接，不能证明远程、安静或独立安排不适合自己。"
+            },
+            {
+              "en": "Real connection is more than scheduled social events. Ask how people ask for help, disagree and communicate a change of plan. An ordinary example of considerate coordination may tell you more than a claim that everyone is close or that the team is like a family.",
+              "zh": "真实连接不只是安排团建。可以问大家怎样求助、表达分歧和通知计划变化。一个体谅他人的日常协作例子，可能比团队亲密或像家人的说法更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-3",
+          "title": {
+            "en": "Relationships, altruism and recognition",
+            "zh": "关系、助人与认可"
+          },
+          "paragraphs": [
+            {
+              "en": "Altruism emphasizes direct practical help, which may be offered to people outside the team. Relationships emphasizes continuing connections with colleagues. Helping someone once can be valuable without producing an ongoing bond; a supportive bond need not revolve around providing help.",
+              "zh": "助人强调直接实际协助，对象可能在团队之外；关系强调与同事的持续连接。一次帮助可能有价值，却不形成长期联系；支持性连接也不必始终围绕提供帮助。"
+            },
+            {
+              "en": "Recognition concerns credit for a contribution. A collegial atmosphere does not guarantee accurate credit, and fair attribution does not guarantee personal closeness. Read these as separate conditions you might investigate, rather than using one count to judge an entire workplace culture.",
+              "zh": "认可关注贡献归功。同事相处友好，不保证归功准确；公平归功也不保证个人亲近。这些是可以分别核实的条件，不能用一项次数判断整个职场文化。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-4",
+          "title": {
+            "en": "What different counts can suggest",
+            "zh": "不同次数可能提示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count can make the everyday quality of collaboration a useful topic to explore. A lower count means other benefits were selected more often in this exercise. It does not diagnose introversion, poor social ability, loneliness or a dislike of people.",
+              "zh": "次数较多，可以把日常合作质量作为有用的了解主题。次数较少，只说明练习中其他好处更多被选中，不诊断内向、社交能力不足、孤独或不喜欢人。"
+            },
+            {
+              "en": "Relationships and Autonomy can tie because dependable collaboration and room for individual judgment may both matter. The task does not require choosing a permanently social or solitary identity. Work arrangements can combine regular connection with uninterrupted time.",
+              "zh": "关系与自主可以同次，因为可靠合作和个人判断空间可能都重要。本任务不要求选择永久社交或独处身份。工作安排可以同时包含稳定连接和不被打断的时间。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-5",
+          "title": {
+            "en": "Reading one changed answer",
+            "zh": "看一次改答"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose Relationships has nine choices. Switching one of them to another offered option gives eight and increases the alternative by one. That movement describes the answer record. It is not evidence that a relationship improved or worsened, or that a particular team is a better fit.",
+              "zh": "假设关系被选九次，把一题改为另一选项后变八次，另一项加一次。这描述答题记录的变化，不是关系改善或恶化的证据，也不能证明某个团队更匹配。"
+            },
+            {
+              "en": "All ten values appear twelve times, and every pair shares four questions. This design avoids giving a value extra appearances, but it does not validate the wording, establish norms or make a small count gap meaningful. A tie remains a tie in the displayed rank.",
+              "zh": "十项价值各出现十二次，每两项同题四次。设计避免额外出现机会，却没有验证措辞、建立常模，也不能证明小差距有意义。同次在显示名次中仍保持同次。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-6",
+          "title": {
+            "en": "A private coordination example",
+            "zh": "一个私人协作例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a non-confidential occasion when collaboration felt workable. What behavior helped: listening, keeping an agreement, explaining a delay or making room for a question? Name the behavior privately rather than rating a colleague or writing identifying details.",
+              "zh": "私下选一次合作比较顺畅的非机密经历。具体什么有帮助：倾听、履行约定、解释延误，还是允许提问？描述行为即可，不必评价同事或写可识别细节。"
+            },
+            {
+              "en": "For a possible role, ask how new colleagues learn the communication routines and how disagreements are handled. Compare the answer with the connection you want. This guide cannot assess harassment, safety or an individual workplace dispute; those need their own evidence and appropriate support.",
+              "zh": "了解岗位时，可以问新人怎样熟悉沟通习惯，以及分歧怎样处理，再与希望的连接比较。本指南无法评估骚扰、安全或具体职场争议；这些需要各自证据和适当支持。"
+            }
+          ]
+        },
+        {
+          "id": "relationships-7",
+          "title": {
+            "en": "Scope and optional next steps",
+            "zh": "范围与可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This original work-values exercise has no established psychometric validity, reliability or occupational norms. It is not a social-ability test or a measure of belonging, attachment or clinical well-being. The two language versions do not carry an established equivalence claim.",
+              "zh": "本原创工作价值练习尚无已建立的心理测量效度、可靠性或职业常模，不是社交能力测试，也不测量归属、依恋或临床心理状态。两个语言版本没有已建立的等值声明。"
+            },
+            {
+              "en": "Compare Altruism and Recognition if helpful, inspect the choices or finish. A separate RIASEC test explores enjoyable activities and needs its own complete attempt. No count here identifies the people, profession or employer with whom you should work.",
+              "zh": "如果有帮助，可以比较助人和认可、回看选择，或结束。另做RIASEC关注喜欢的活动，需要独立完整作答。本次次数不会识别应该与哪些人、职业或雇主共事。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Relationships: Full Work Values Guide | FermatMind",
+          "zh": "关系：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Reliable connections while doing the work. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "做事时保留可靠连接：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "learning",
+      "directionIds": [
+        "learning"
+      ],
+      "title": {
+        "en": "Learning",
+        "zh": "学习"
+      },
+      "headline": {
+        "en": "Work that expands understanding",
+        "zh": "让工作拓展理解"
+      },
+      "summary": {
+        "en": "This reading concerns opportunities to develop knowledge or competence through work. It does not measure intelligence, educational level or how quickly you learn.",
+        "zh": "这份读法关注通过工作发展知识或能力的机会，不测量智力、学历或学习速度。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "learning-1",
+          "title": {
+            "en": "What learning choices describe",
+            "zh": "学习选项描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Learning options concern understanding something unfamiliar, practising a new skill and receiving useful feedback. More selections suggest that development opportunities mattered in these trade-offs. The result does not show that you currently lack competence or that every next task needs to be difficult and new.",
+              "zh": "学习选项关心理解陌生内容、练习新技能和获得有用反馈。选得较多，说明发展机会在这些取舍中有分量，不表示现在能力不足，也不要求下一项任务必须困难而陌生。"
+            },
+            {
+              "en": "Learning can involve depth as well as novelty. A familiar topic may open into a more demanding question, while a new tool may teach little that matters to you. Read what kind of understanding the option offered rather than treating any change as development.",
+              "zh": "学习既可以追求新内容，也可以追求深度。熟悉主题可能引出更深入的问题，新工具也可能没有教会多少重要内容。需要看选项提供哪种理解，不把任何变化都当作成长。"
+            }
+          ]
+        },
+        {
+          "id": "learning-2",
+          "title": {
+            "en": "A development opportunity in practice",
+            "zh": "实践中的发展机会"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a role with supported time to practise an unfamiliar method, beside another with clearer recognition for work you already do well. Choosing practice foregrounds development. It does not establish that recognition would be unimportant, or that the unfamiliar method is useful for your actual plans.",
+              "zh": "假设一份岗位支持练习陌生方法，另一份会更明确肯定已经擅长的工作。选择练习，突出的是发展，并不表示认可不重要，也不能证明那种新方法有助于真实计划。"
+            },
+            {
+              "en": "A real learning opportunity needs more than a steep workload. Ask who provides guidance, whether mistakes can be reviewed safely and how practice time fits the duties. Being left without support is not automatically a developmental challenge, and this result does not require accepting one.",
+              "zh": "真实学习机会不能只有陡增的工作量。需要问谁提供指导、错误能否安全复盘，以及练习时间怎样纳入职责。缺乏支持不自动等于发展挑战，本次结果也不要求接受这种安排。"
+            }
+          ]
+        },
+        {
+          "id": "learning-3",
+          "title": {
+            "en": "Learning beside achievement and creativity",
+            "zh": "学习、成就与创意"
+          },
+          "paragraphs": [
+            {
+              "en": "Achievement emphasizes completing work to a worthwhile standard. Learning emphasizes what you gain in understanding or skill. A well-executed familiar assignment can provide achievement with little new learning; an unfinished practice attempt can teach something important without yet meeting a delivery standard.",
+              "zh": "成就强调按值得达到的标准完成工作，学习强调新增理解或技能。熟悉任务做得很好，可能有成就却少有新学习；尚未完成的练习，也可能已经教会重要内容，却还没达到交付标准。"
+            },
+            {
+              "en": "Creativity concerns originating a new idea or treatment. Learning an established technique need not be original, and inventing an approach may use knowledge you already have. Comparing the readings can clarify whether you want to become more capable, invent something, complete something, or some combination.",
+              "zh": "创意关心提出新构思或处理方式。学习成熟技术未必原创，构思新做法也可能只用已有知识。比较读法有助于澄清是希望发展能力、创造东西、完成事情，还是几项同时重要。"
+            }
+          ]
+        },
+        {
+          "id": "learning-4",
+          "title": {
+            "en": "Higher and lower are not ability levels",
+            "zh": "次数高低不是能力等级"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher Learning count makes access to feedback and practice a sensible condition to investigate. A lower count may reflect wanting stability, recovery time or another benefit in this phase. It does not identify a fixed mindset, low intelligence or unwillingness to learn.",
+              "zh": "学习次数较多时，可以进一步了解反馈和练习条件。次数较少，可能是当前阶段更需要稳定、恢复时间或其他好处，不表示固定型思维、智力低或不愿学习。"
+            },
+            {
+              "en": "Equal counts remain equal, including ties involving several priorities. Learning and Balance may both matter because development requires time and attention. There is no rule that growth requires continuous availability, unpaid study or giving up responsibilities outside work.",
+              "zh": "同次保留相同名次，包括多项并列。学习和平衡可能同时重要，因为发展需要时间和注意力。没有规则要求成长必须随时在线、无偿学习或放弃工作以外责任。"
+            }
+          ]
+        },
+        {
+          "id": "learning-5",
+          "title": {
+            "en": "An arithmetic example",
+            "zh": "一个算例"
+          },
+          "paragraphs": [
+            {
+              "en": "If Learning was selected twice, changing one offered alternative to it produces three selections. The alternative loses one, and the sum across all values remains thirty. Three out of twelve is a choice count, not a learning speed, an examination mark or a percentage of potential.",
+              "zh": "如果学习被选两次，把一题其他选项改为学习后变三次，另一项减一次，十项总选择数仍为三十。十二次中的三次是选择次数，不是学习速度、考试成绩或潜力百分比。"
+            },
+            {
+              "en": "A new top rank after changing an answer is a description of this record. It is not a verified change in long-term priorities. Balanced exposure does not establish test-retest reliability, and the fixed hypothetical wording may fit some experiences better than others.",
+              "zh": "改答后排到前面，只是描述这份记录，不是长期优先事项已经改变的验证。出现次数平衡不等于重测可靠，固定假设措辞也可能更贴近部分经历。"
+            }
+          ]
+        },
+        {
+          "id": "learning-6",
+          "title": {
+            "en": "A useful learning question",
+            "zh": "一个有用的学习问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately name one thing you would like to understand or practise, without entering personal or employer details. What would count as a small sign of progress? Who or what could provide feedback? Distinguishing a specific learning aim from a vague promise of growth makes a role easier to investigate.",
+              "zh": "私下写一件想理解或练习的事，不输入个人或单位细节。什么可以作为一点进步的迹象？谁或什么能够提供反馈？把具体学习目标与笼统成长承诺分开，更便于了解岗位。"
+            },
+            {
+              "en": "For a possible role, ask for an example of how someone learned an unfamiliar part of the job. Look at time, guidance and realistic expectations. The exercise does not determine which course to buy, what qualification to pursue or whether you meet a role’s skill requirements.",
+              "zh": "了解岗位时，可以请对方举例说明新人怎样学会陌生部分，关注时间、指导和现实预期。本练习不决定该买哪门课、取得什么资格，也不判断是否满足岗位技能要求。"
+            }
+          ]
+        },
+        {
+          "id": "learning-7",
+          "title": {
+            "en": "Limits and optional comparisons",
+            "zh": "边界与可选比较"
+          },
+          "paragraphs": [
+            {
+              "en": "This original editorial priority has no established psychometric validation, reliability or occupational norms. It is not a learning-ability, intelligence or growth-mindset scale. General research about development does not validate these items or transfer other instruments’ accuracy to them.",
+              "zh": "本原创编辑优先事项尚无已建立的心理测量验证、可靠性或职业常模，不是学习能力、智力或成长型思维量表。发展领域的一般研究不能验证本题，也不能移植其他工具的准确性。"
+            },
+            {
+              "en": "You can compare Achievement and Creativity, inspect selected options or finish. Another assessment is optional and requires its own answers. No score here is converted into a personality type, an occupational qualification or a predicted learning outcome.",
+              "zh": "可以比较成就和创意、回看选择，或结束。其他测评完全可选，需要独立作答。这里的数字不会换算成人格类型、职业资格或预期学习成果。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Learning: Full Work Values Guide | FermatMind",
+          "zh": "学习：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Work that expands understanding. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "让工作拓展理解：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "balance",
+      "directionIds": [
+        "balance"
+      ],
+      "title": {
+        "en": "Work-Life Balance",
+        "zh": "工作生活平衡"
+      },
+      "headline": {
+        "en": "Boundaries that leave room for life",
+        "zh": "让工作之外仍有空间"
+      },
+      "summary": {
+        "en": "This reading concerns time, recovery and commitments outside work. It does not measure dedication, resilience or whether your current workload is healthy.",
+        "zh": "这份读法关注时间、恢复和工作外责任，不测量敬业、韧性，也不判断当前工作量是否健康。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "balance-1",
+          "title": {
+            "en": "The boundary this reading concerns",
+            "zh": "这份读法关注的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Balance options describe a dependable stopping time, workable hours, genuine time off and room for non-work responsibilities. More selections suggest that these conditions mattered in the comparisons. The questionnaire does not ask what you do outside work or require you to justify wanting that time.",
+              "zh": "平衡选项描述可靠的结束时间、可行工时、真正休息，以及工作外责任的空间。选得较多，说明这些条件在比较中有分量。问卷不询问业余做什么，也不要求为想要这些时间作辩解。"
+            },
+            {
+              "en": "This is a priority about arrangements, not a claim that every day can be evenly divided. Different phases can involve different demands. What matters in a real decision is the actual expectation and whether it works for your circumstances; the count cannot establish that on its own.",
+              "zh": "这是对安排的优先选择，不表示每天都能平均分配。不同阶段可能有不同要求。真实决定需要看实际预期与个人情况能否配合，次数本身不能证明。"
+            }
+          ]
+        },
+        {
+          "id": "balance-2",
+          "title": {
+            "en": "A sustainable working arrangement",
+            "zh": "一项可持续工作安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a project that protects an agreed finishing time, beside another that offers more visible opportunities for recognition. Choosing the boundary foregrounds room for the rest of life. It does not imply low ambition or that the second project is necessarily excessive or harmful.",
+              "zh": "假设一个项目保护约定结束时间，另一个更便于得到认可。选择边界，是把生活其他部分的空间放在前面，不表示缺少抱负，也不说明另一项目一定过量或有害。"
+            },
+            {
+              "en": "A real promise of flexibility can hide different meanings. It may mean that you choose your hours, or that the employer expects availability whenever work appears. Ask about ordinary hours, exceptional periods and how time off is handled instead of treating the word flexible as proof of balance.",
+              "zh": "真实的弹性承诺可能有不同含义：可能是自己选择工时，也可能是单位希望有工作就随时待命。请问普通工时、特殊阶段和休息怎样安排，不把弹性二字当作平衡证据。"
+            }
+          ]
+        },
+        {
+          "id": "balance-3",
+          "title": {
+            "en": "Balance, autonomy and security",
+            "zh": "平衡、自主与稳定"
+          },
+          "paragraphs": [
+            {
+              "en": "Autonomy concerns how decisions and methods are chosen. Balance concerns the boundary around work. You might choose your method freely while working long hours, or follow a clear procedure within protected hours. The two counts can help separate freedom inside work from time outside it.",
+              "zh": "自主关注谁决定做法，平衡关注工作的外部边界。可以方法自由却工时很长，也可以按清楚流程工作而工时受保护。两项次数有助于区分工作内部的自由与工作外的时间。"
+            },
+            {
+              "en": "Security concerns continuity and predictable arrangements. A stable role can still encroach on recovery time; a short project can have firm boundaries. If both values rank highly, investigate both rather than assuming one dependable condition supplies all the others.",
+              "zh": "稳定保障关注延续性和可预期安排。稳定岗位仍可能侵占恢复时间，短项目也可能边界明确。两项都靠前时，应分别核实，不认为一项可靠条件自动提供其他条件。"
+            }
+          ]
+        },
+        {
+          "id": "balance-4",
+          "title": {
+            "en": "How to read a lower count",
+            "zh": "怎样看较少次数"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower Balance count means other offered benefits won more comparisons. It does not show that rest is unnecessary, that excessive demands are safe or that you consent to unlimited availability. Basic rights, safety and fair conditions remain requirements regardless of the selected result.",
+              "zh": "平衡次数较少，表示其他好处赢得更多比较，不说明不需要休息、过量要求安全，或同意无限待命。无论结果怎样，基本权利、安全和公平条件始终是要求。"
+            },
+            {
+              "en": "A higher count is not evidence of low resilience or poor performance. You may value demanding, useful work and want it contained within a sustainable arrangement. Equal ranks can preserve that combination without labeling you as either career-focused or life-focused.",
+              "zh": "次数较多，不是韧性不足或表现差的证据。可以重视有挑战、有用的工作，也希望它落在可持续安排中。同次可以保留这种组合，无需贴事业型或生活型标签。"
+            }
+          ]
+        },
+        {
+          "id": "balance-5",
+          "title": {
+            "en": "A count-change example",
+            "zh": "次数变化例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose Balance has ten selections. Changing one to an offered Achievement option reduces Balance to nine and adds one to Achievement. The result does not say you should work one hour more, take one day less leave or change any actual commitment.",
+              "zh": "假设平衡有十次，把一题改为成就后，平衡变九次，成就加一次。结果不表示应该多工作一小时、少休息一天或改变任何真实责任。"
+            },
+            {
+              "en": "The denominator of twelve counts appearances, not days or proportions of life. A displayed lead of one has no established statistical significance. You can compare the changed wording privately and retain uncertainty rather than make a substantial decision from the numerical order.",
+              "zh": "分母十二统计出现机会，不是天数或生活比例。领先一次没有已建立的统计显著性。可以私下比较改答措辞并保留不确定，不必按数字顺序作重大决定。"
+            }
+          ]
+        },
+        {
+          "id": "balance-6",
+          "title": {
+            "en": "An optional boundary check",
+            "zh": "可选的边界核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately write one boundary that would make ordinary work more workable, such as notice before a late change or a predictable response window. Keep the description general and do not enter personal commitments or identifiable workplace details on this site.",
+              "zh": "私下写一个能让普通工作更可行的边界，例如临时变化提前通知，或明确回复时段。描述保持一般性，不必把个人责任或可识别单位细节输入网站。"
+            },
+            {
+              "en": "When investigating an opportunity, ask how exceptions are handled and what happens after a busy period. Compare an ordinary example with the written expectation. This guide does not assess a health condition, employment dispute or particular contract; those questions require their own appropriate evidence and support.",
+              "zh": "了解机会时，可以问例外怎样处理、繁忙阶段之后怎样安排，再把普通例子与书面预期比较。本指南不评估健康状态、劳动争议或具体合同；这些问题需要各自适当的证据和支持。"
+            }
+          ]
+        },
+        {
+          "id": "balance-7",
+          "title": {
+            "en": "Scope and the next decision",
+            "zh": "范围与下一步决定"
+          },
+          "paragraphs": [
+            {
+              "en": "This original exercise has no established psychometric validity, reliability or occupational norms. It does not measure burnout, recovery capacity or a clinical condition. General statements about sustainable work do not validate the bank or make a choice count a health assessment.",
+              "zh": "本原创练习尚无已建立的心理测量效度、可靠性或职业常模，不测量倦怠、恢复能力或临床状态。关于可持续工作的一般说明，不能验证题本，也不能让选择次数变成健康评估。"
+            },
+            {
+              "en": "You may compare Autonomy and Security, inspect all choices or finish. No further test is required, and the result does not automatically recommend leaving, staying or selecting a particular occupation. It supplies questions about conditions rather than a decision on your behalf.",
+              "zh": "可以比较自主和稳定保障、回看全部选择，或结束。不要求继续测试，也不自动建议离开、留下或选择特定职业。它提供核对条件的问题，而不代替个人决定。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Work-Life Balance: Full Work Values Guide | FermatMind",
+          "zh": "工作生活平衡：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Boundaries that leave room for life. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "让工作之外仍有空间：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    },
+    {
+      "id": "impact",
+      "directionIds": [
+        "impact"
+      ],
+      "title": {
+        "en": "Impact",
+        "zh": "实际影响"
+      },
+      "headline": {
+        "en": "See what the work makes possible",
+        "zh": "看到工作实际促成什么"
+      },
+      "summary": {
+        "en": "This reading concerns the effects of work after an output is used. It does not measure social value, objective impact or suitability for a particular mission.",
+        "zh": "这份读法关注产出被使用之后的作用，不衡量社会价值、客观影响大小或特定使命的适合度。"
+      },
+      "scoreReading": {
+        "en": "The count is how often you selected this value from its twelve appearances. Read all ten counts, including equal ranks. A lower count means it was chosen less often in these comparisons, not that you reject it.",
+        "zh": "次数表示这一价值出现十二次时，你选择了多少次。请一起看十项次数和相同名次。次数较少只是本题组中选得较少，不等于你反对这项价值。"
+      },
+      "sections": [
+        {
+          "id": "impact-1",
+          "title": {
+            "en": "The effect beyond completion",
+            "zh": "完成之后的作用"
+          },
+          "paragraphs": [
+            {
+              "en": "Impact options ask whether you can trace work to a practical consequence: a process changes, someone uses an output, or a result makes another step possible. More selections suggest that seeing this connection mattered in the comparisons. It does not establish that your work actually had that effect.",
+              "zh": "实际影响选项关注能否把工作追踪到具体后果：流程改变、产出被使用，或某项结果促成下一步。选得较多，说明看见这种连接在比较中有分量，不证明工作已经产生那种作用。"
+            },
+            {
+              "en": "The effect can be modest and ordinary. Maintaining a useful record, removing a repeated obstacle or improving a hand-off can matter without being dramatic. The reading does not require a prestigious mission, a large audience or a claim that one role is more valuable than another.",
+              "zh": "作用可以很小、很普通，例如维护有用记录、消除重复障碍或改善交接，无需戏剧化。读法不要求声望很高的使命、大量受众，也不宣称某岗位比另一岗位更有价值。"
+            }
+          ]
+        },
+        {
+          "id": "impact-2",
+          "title": {
+            "en": "A task and its downstream use",
+            "zh": "任务与后续使用"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two feasible projects. One provides a clear finish line; the other also allows you to learn how the delivered output is used. Choosing the second foregrounds the downstream connection. The preference does not establish that the output is beneficial or that you can control what happens after hand-off.",
+              "zh": "假设两个项目都可行，一项有明确完成节点，另一项还让你了解交付后怎样使用。选择后者，突出的是后续连接，却不能证明产出有益，也不能说明自己能控制交接后发生什么。"
+            },
+            {
+              "en": "In a real role, ask who uses the output and what information comes back. An impressive impact claim may describe an intention, an estimate or a team outcome with many causes. Look for the evidence and your actual contribution instead of treating every positive change as proof of personal influence.",
+              "zh": "真实岗位中，可以问谁使用产出、会返回什么信息。漂亮的影响声明可能只是意图、估计，或多重原因造成的团队结果。需要看证据和实际贡献，不能把所有积极变化都归为个人影响。"
+            }
+          ]
+        },
+        {
+          "id": "impact-3",
+          "title": {
+            "en": "Impact beside altruism and achievement",
+            "zh": "实际影响、助人与成就"
+          },
+          "paragraphs": [
+            {
+              "en": "Altruism emphasizes direct assistance to people. Impact emphasizes a visible consequence, which can arise through systems or processes without personal contact. A person can want to help directly even when outcomes are hard to trace; another can value broad operational effects without preferring a service role.",
+              "zh": "助人强调直接协助他人，实际影响强调可见后果，可能通过系统或流程发生，不必亲自接触。一个人可能希望直接帮助，即使难以追踪结果；另一个人可能重视广泛流程作用，却不偏好服务岗位。"
+            },
+            {
+              "en": "Achievement emphasizes completing work to a worthwhile standard. Impact asks what the completed work enables. A high-quality output may be unused, and a simple correction may have a meaningful effect. Compare both questions rather than assuming that good completion guarantees useful consequences.",
+              "zh": "成就强调按值得达到的标准完成工作，实际影响追问完成后促成什么。高质量产出可能未被使用，简单修正也可能产生重要作用。两方面都需要比较，不能认为完成得好自然保证后果有用。"
+            }
+          ]
+        },
+        {
+          "id": "impact-4",
+          "title": {
+            "en": "Higher, lower and shared priorities",
+            "zh": "较多、较少与共同优先"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher count can make feedback about downstream use a useful condition to investigate. A lower count does not show that you lack purpose or do meaningless work. You may prioritize continuity, boundaries or learning in the offered comparisons, while still caring deeply about the consequences of what you do.",
+              "zh": "次数较多，可以进一步了解后续使用反馈。次数较少，不表示没有目标或工作没有意义。可能只是比较中更看重延续性、边界或学习，同时仍然认真关心自己行为的后果。"
+            },
+            {
+              "en": "Impact and Recognition can share a rank because you may want useful consequences and accurate credit. Impact and Security can also sit together: dependable arrangements may help you follow a contribution over time. No combination is automatically contradictory or a fixed career identity.",
+              "zh": "实际影响与认可可以同次，因为可能既希望有用后果，也希望准确归功；与稳定保障也可以共同靠前，因为可靠安排可能有助于持续跟进贡献。组合不自动矛盾，也不是固定职业身份。"
+            }
+          ]
+        },
+        {
+          "id": "impact-5",
+          "title": {
+            "en": "A one-choice calculation",
+            "zh": "改一项的计算"
+          },
+          "paragraphs": [
+            {
+              "en": "If Impact was chosen once, switching one answer from another offered value to Impact makes it two. The alternative loses one, and the full answer record still contains thirty selections. Two out of twelve is not two successful outcomes, an impact percentage or a prediction of future influence.",
+              "zh": "如果实际影响被选一次，把一题其他价值改为实际影响后变两次，另一项减一次，完整答卷仍有三十次选择。十二次中的两次，不是成功结果数量、影响百分比或未来影响力预测。"
+            },
+            {
+              "en": "Every highest count stays in the result, including an all-ten tie if each receives three selections. The list order does not break ties. Equal exposure is a structural property of this bank, not evidence that small differences are reliable or that all ten concepts are independent psychological factors.",
+              "zh": "全部最高次数都保留；如果十项各三次，也保留十项同次。列表顺序不用于破同分。出现次数相等是题本结构，不证明小差异可靠，也不证明十个概念是独立心理因子。"
+            }
+          ]
+        },
+        {
+          "id": "impact-6",
+          "title": {
+            "en": "A private evidence trail",
+            "zh": "一条私人证据线"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one non-confidential output and privately trace what happened after it left your hands. What is known about use, what is inferred and what is unknown? You can stop at an honest unknown. The purpose is to distinguish a desired effect from evidence that it occurred.",
+              "zh": "选一项非机密产出，私下追踪离开自己手中之后发生什么。哪些使用情况已知，哪些是推测，哪些未知？可以诚实停在未知。目的是区分希望发生的作用与已经发生的证据。"
+            },
+            {
+              "en": "For a possible role, ask for an ordinary example of feedback from the people or process that uses the work. Check whether the example explains a contribution or merely repeats a mission statement. No names, confidential outcomes or personal stories need to be submitted to this site.",
+              "zh": "了解岗位时，可以问接收工作的人或流程怎样提供日常反馈，再看例子是在解释实际贡献，还是重复使命口号。无需向网站提交姓名、机密结果或个人故事。"
+            }
+          ]
+        },
+        {
+          "id": "impact-7",
+          "title": {
+            "en": "Limits and a place to finish",
+            "zh": "边界与结束的位置"
+          },
+          "paragraphs": [
+            {
+              "en": "This original editorial reflection has no established psychometric validity, reliability, occupational norms or predictive accuracy. It is not an objective impact audit or a career-fit assessment. The common theme of meaningful work does not transfer validity from other instruments to these items.",
+              "zh": "本原创编辑反思尚无已建立的心理测量效度、可靠性、职业常模或预测准确性，不是客观影响审计或职业适配评估。工作意义这一共同主题，不能把其他工具的效度移给本题。"
+            },
+            {
+              "en": "You can compare Altruism and Achievement, read the other full guides, review an answer or finish here. A separate interest questionnaire is optional and needs its own complete attempt. This count does not choose a profession, employer or mission for you.",
+              "zh": "可以比较助人和成就、阅读其他完整指南、回看答案，或结束。另做兴趣问卷完全可选，需要独立完整作答。本次次数不替你选择职业、雇主或使命。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Impact: Full Work Values Guide | FermatMind",
+          "zh": "实际影响：工作价值观完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "See what the work makes possible. Read choices, trade-offs, neighbouring values, a counting example and optional evidence checks. No job-fit score.",
+          "zh": "看到工作实际促成什么：理解选择、取舍、相邻价值、计数例子与可选证据核对，不输出岗位适配分。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Thirty choices with equal opportunities",
+        "zh": "三十次选择与相同出现机会"
+      },
+      "paragraphs": [
+        {
+          "en": "Each question offers four different values and one selection adds one count to its value. All ten appear twelve times, three times in each option position; every unordered pair appears together four times. The fixed bank has thirty selections in total, not a grand personality score. All thirty valid answers are required. Partial or invalid answers receive no interpretation. The design balances appearances, not wording difficulty, context or psychometric precision.",
+          "zh": "每题四项不同价值，选中一项就给该价值记一次。十项各出现十二次，在四个位置各三次；任意两项共同出现四次。固定题本共三十次选择，不是整体人格总分。三十题全部有效后才解释；未完成或无效答案不解释。设计只平衡出现机会，不证明措辞难度、情境或心理测量精度相同。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Read every count and keep equal ranks",
+        "zh": "看全部次数，保留相同名次"
+      },
+      "paragraphs": [
+        {
+          "en": "Rank equals one plus the number of values with a greater count. Equal counts share a rank, so counts of 6, 6 and 4 begin with ranks 1, 1 and 3. All highest values retain their own complete reading; no hidden tie-break, fixed top-three cutoff, percentage or norm is used. Three selections each makes an all-ten tie. A lower count means fewer choices in this bank, not rejection, low ability or moral inferiority. Compare the actual selected and unselected alternatives, especially for close counts.",
+          "zh": "名次等于一加上次数更多的价值数量。同次保持同名次，例如6、6、4对应1、1、3。所有最高价值分别保留完整读法，没有隐藏破同分、固定前三阈值、百分比或常模。十项各三次就是十项同次。次数较少只是本题组中选得较少，不表示反对、能力低或道德较差。尤其次数接近时，应核对实际选中与未选的替代项。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Original priorities, with a private stopping point",
+        "zh": "原创优先事项与私人结束点"
+      },
+      "paragraphs": [
+        {
+          "en": "This is an original reflection, not the competitor bank, an O*NET Work Importance Locator, Schwartz PVQ or an occupational-fit score. The CareerOneStop reference explains a separate six-value model and supplies background only; none of its cards, questions, formulas or job data is administered. This edition has no established reliability, validation, norms or language equivalence. All ten full guides are free without an account or email. Sharing copies only the public title and entry; answers stay in this page unless you opt into temporary tab storage. Review conditions, compare evidence or finish here.",
+          "zh": "这是原创反思，不是竞品题库、O*NET工作重要性工具、Schwartz PVQ或岗位适配分。CareerOneStop参考资料介绍另一套六项价值，只作背景，不施测其卡片、题目、公式或职业数据。本版尚无已建立的可靠性、验证、常模或语言等值。十份全文无需账号或邮箱即可免费阅读。分享只复制公开标题和入口；答案保留在页面，除非主动选择临时标签页存储。可以回看条件、比较证据，或直接结束。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Schwartz values test or O*NET Work Values Matcher?",
+        "zh": "这是Schwartz价值观或O*NET工作价值观测试吗？"
+      },
+      "answer": {
+        "en": "No. These are ten editorial work priorities and thirty original choices. Schwartz basic human values, the six O*NET work values and RIASEC activity interests are different frameworks. Their banks, scores, validity and job recommendations are not inherited.",
+        "zh": "不是。这是十项编辑定义的工作优先事项和三十道原创选择；Schwartz基本价值、O*NET六项工作价值与RIASEC活动兴趣是不同框架。本版不继承其题本、分数、效度或职业推荐。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is the Values Assessment scored?",
+        "zh": "工作价值观测试怎样计数？"
+      },
+      "answer": {
+        "en": "One selected option adds one to its value. Each value appears twelve times with balanced option positions and pair co-exposure. All thirty valid choices are required; show all ten counts out of twelve, shared ranks and every highest reading. There is no overall score or fixed unique winner.",
+        "zh": "每选一项给该价值加一次；各价值出现十二次，选项位置和两两同题次数平衡。三十题全部有效后，显示十项各十二次中的次数、并列名次和全部最高读法，没有总分或固定唯一赢家。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can the result identify the right career or employer?",
+        "zh": "结果能找出正确职业或雇主吗？"
+      },
+      "answer": {
+        "en": "No. It provides questions about preferred conditions, not occupation rankings, fit percentages, hiring suitability or predictions of satisfaction. Real decisions also require evidence about duties, skills, opportunities and constraints.",
+        "zh": "不能。它提供核对工作条件的问题，不生成职业排序、适配百分比、录用资格或满意度预测。真实决定还需要职责、技能、机会和限制等证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does a low count mean?",
+        "zh": "次数较少说明什么？"
+      },
+      "answer": {
+        "en": "It means that value was selected less often against the alternatives offered here. It does not show that you reject it, lack ability or have a character flaw. Every choice also declines three options, so read the actual alternatives and keep close counts close.",
+        "zh": "只是该价值与本题组替代项比较时选得较少，不表示反对、能力不足或人格缺陷。每选一项也同时放弃三项，因此要看具体替代项，接近次数仍按接近观察。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does balancing the options validate the questionnaire?",
+        "zh": "选项平衡就证明问卷有效吗？"
+      },
+      "answer": {
+        "en": "No. Equal appearances, positions and pair co-exposure are transparent structural properties. Reliability, validity, norms and language equivalence have not been established. The ten editorial concepts are not claimed to be ten independent psychological factors.",
+        "zh": "不能。出现机会、位置和两两同题次数相等，只是透明的结构特征。可靠性、效度、常模和语言等值尚未建立，也不声称十个编辑概念就是十个独立心理因子。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all ten full results free, and what is shared?",
+        "zh": "十份完整结果免费吗？分享包含什么？"
+      },
+      "answer": {
+        "en": "Every full guide is free before and after answering, with no email, account, purchase or another-test gate. Optional sharing contains only the public title and entry link, without answers, counts, private ranks or a personal-result identifier.",
+        "zh": "全部完整指南在作答前后都免费，没有邮箱、账号、购买或另一测试门槛。可选分享只含公开标题与入口，不含答案、次数、私人名次或个人结果标识。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "CareerOneStop: work values background — separate six-value model, not this bank",
+        "zh": "CareerOneStop工作价值背景：独立六项模型，并非本题本"
+      },
+      "url": "https://cloudfront.careeronestop.org/ExploreCareers/Assessments/work-values.aspx"
+    }
+  ]
+}
