@@ -122,6 +122,7 @@ test("@release edgerunners all16publicpages, complete body, metadata,16fontOGs a
     const body = await page.locator("main").last().textContent();
     for (const s of p ? p.sections : quiz.guide) for (const t of s.paragraphs) expect(body).toContain(t[l]);
     if (!p) for (const f of quiz.faq) expect(body).toContain(f.answer[l]);
+    if (!p) for (const reference of quiz.references) await expect(page.getByRole("link", { name: reference.title[l], exact: true })).toHaveAttribute("href", reference.url);
     if (l === "en") expect(body).not.toMatch(/\p{Script=Han}/u);
     const schema = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(schema.length).toBeGreaterThan(0);

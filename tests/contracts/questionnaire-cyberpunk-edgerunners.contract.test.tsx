@@ -94,6 +94,9 @@ describe("T048 original first-series Cyberpunk: Edgerunners character comparison
         const dom = document.createElement("div"); dom.innerHTML = html;
         for (const s of quiz.guide) for (const t of s.paragraphs) expect(dom.textContent).toContain(t[locale]);
         for (const f of quiz.faq) expect(dom.textContent).toContain(f.answer[locale]);
+        // The Chinese-name FAQ needs the primary Chinese naming source, not only the English cast page.
+        expect(quiz.references?.map(r => r.url)).toContain("https://www.cyberpunk.net/zh-cn/edgerunners");
+        for (const reference of quiz.references ?? []) expect(dom.querySelector(`a[href="${reference.url}"]`)?.textContent).toBe(reference.title[locale]);
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${base}"`);
         expect(maps.filter(x => x.loc === `https://fermatmind.com${base}`)).toHaveLength(1);
         for (const p of quiz.profiles) {
