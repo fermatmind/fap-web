@@ -8,13 +8,13 @@ Do not paste real IDs, labels, order numbers, transaction IDs, customer data, co
 
 Backend `analytics_funnel_daily` is the primary business-funnel conversion truth for payment, report unlock, and report-ready stages. GA4 is the public-funnel reporting surface.
 
-GA4 Key Events configured for the production property:
+Public GA4 event names to verify in the production property (this list is a QA target, not proof that the dashboard is configured):
 
 - `test_start`
-- `test_submit`
+- `test_complete`
 - `result_view`
-- `checkout_start`
-- `order_created`
+- `report_click`
+- `checkout_begin`
 
 Business purchase-success reporting uses backend/Ops `payment_success`. GA4 `payment_success`, `report_unlock`, and `report_ready` should not be treated as browser-only truth unless a later privacy-safe bridge is explicitly approved.
 
@@ -23,11 +23,11 @@ GA4 may still show the built-in `purchase` key event, and the dashboard star can
 | Funnel action | Frontend canonical event | GA4 event / Key Event | Business conversion role | Google Ads conversion |
 | --- | --- | --- | --- | --- |
 | Article CTA click | `article_to_test_click` | `article_to_test_click`; not a Key Event until Ops confirms | article-to-test intent for funnel exploration | no |
-| Start test | `start_attempt` | `test_start` | primary public funnel step | no |
-| Complete test | `submit_attempt` | `test_submit` | primary public funnel step | no |
+| Start test | `start_test` (normalized from `start_attempt`) | `test_start` | public intent/start signal; not a distinct server-attempt denominator | no |
+| Complete test | `complete_test` (normalized from `submit_attempt`) | `test_complete` | public submission-success signal; not result visibility | no |
 | View result | `view_result` | `result_view` | primary public funnel step | no |
-| Click deep report | `click_unlock` | `checkout_start` | public checkout intent | no |
-| Begin checkout/order created | `create_order` | `order_created` | backend order-created reporting | no |
+| Click deep report | `click_deep_report` (normalized from `click_unlock`) | `report_click` | public report intent | no |
+| Begin checkout/order intent | `begin_checkout` (normalized from `create_order` or `checkout_start`) | `checkout_begin` | public checkout intent; not proof of a persisted order | no |
 | Purchase success | `purchase_success` | `payment_success` | backend/Ops truth; browser bridge is auxiliary | yes, purchase only |
 
 `payment_confirmed` is tracked as GA4 `payment_success` only as an auxiliary browser event. It is not the primary purchase conversion truth.
@@ -35,6 +35,24 @@ GA4 may still show the built-in `purchase` key event, and the dashboard star can
 Privacy rule: dashboard reports and exports must not rely on raw `orderNo`, raw result identifiers, email, phone, token, cookie, or full private URLs as dimensions.
 
 `article_to_test_click` must be interpreted separately from `test_start`: article click intent is not proof that the user started a test. Baidu may observe public CTA interaction only as auxiliary traffic analysis and must not be used as a private funnel source.
+
+### IQ start-cohort and current runtime interpretation
+
+The public dispatch chain is `submit_attempt` -> `complete_test` -> GA4 `test_complete`. `test_submit` is a legacy mapping entry; aliases normalize before GA4 dispatch. Do not emit both names or rename production runtime to match an old dashboard note. Verify the actual received event and its star in GA4 Admin > Data display > Events.
+
+`test_start` can include both a landing CTA intent and a successful attempt creation. Its public-event count is not the denominator of a server attempt cohort. The IQ owner-original flow creates an attempt before loading the first question, so a server start does not prove that the first question was visible.
+
+For IQ use the existing read-only `measurement.start-cohort.168h.v3` report for the same distinct persisted attempt IDs, Shanghai start interval, locale, and explicit `iq_owner_original_30` form. Keep unknown-form rows separate and apply the existing QA exclusions. Verify known operator/test attempts separately: existing QA exclusions may not identify every QA start. Keep any remaining QA contribution explicitly labelled and exclude it from natural-use interpretations. Report elapsed-window submit and valid-result-ready counts separately from calendar activity and GA4 event totals. Do not divide successful attempts by start IPs or GA4 sessions.
+
+The current IQ browser request stores `client_platform=web`; the cohort's `device_class=web` does not distinguish mobile browsers from desktop browsers. Keep that split unknown unless the source actually supports it.
+
+A native result-visible observation requires a valid owner receipt, analytics consent, and a visible result heading. Private-route third-party suppression remains in force. Missing observations do not prove an unread result; retain the report's null visible rate and its separately labelled observed lower bound when coverage is incomplete. Do not enable private result pageviews to fill this gap.
+
+A full 168-hour observation period does not finalize the report: `processing_grace_hours` remains null and `finalized=false` until verified ingestion evidence establishes the remaining condition. Record the report's `as_of`, definition version, scope, maturity and coverage. Do not infer a delay bound from a small sample.
+
+The IQ result uses existing guest/owner authorization and free full-report access, subject to the current result-access and recovery requirements. Saving an email is not the same action as starting, submitting, paying, or making a result visible. TXT/Markdown and PDF each retain their existing readiness and access checks; requesting a download does not prove that the user saved it.
+
+Source: `lib/tracking/events.ts`, `lib/tracking/client.ts`, `lib/iq/api.ts`, `lib/quiz/store.tsx`, `hooks/useResultVisibilityObservation.ts`; backend `MeasurementStartCohortReadModel`, `MeasurementAttributionDimensions`, `AnalyticsTrafficExclusionPolicy`, and `Report/Resolvers/AccessResolver`.
 
 ## 2. Required Production Environment
 
@@ -62,12 +80,12 @@ Do not enable non-purchase Google Ads conversion labels until a later scoped PR 
 
 Dashboard owner:
 
-1. Open GA4 Admin for the production property.
+1. Open GA4 Admin for the production property. Record the verification date and property reporting timezone. Marking an event as a Key Event affects reporting from that time and does not rewrite historical data; standard reports can take up to 24 hours to reflect it ([Google Analytics Help](https://support.google.com/analytics/answer/13128484?hl=en)).
 2. Confirm Data Stream uses the production web stream for `fermatmind.com`.
 3. Confirm the five public GA4 events above exist in Events or Key Events.
-4. Confirm each of the five public funnel events is marked as a Key Event.
+4. Verify and record each applicable event name and star from the real property. A checklist or runtime mapping alone does not prove the dashboard configuration. For IQ completion, check `test_complete`, not `complete_test` or legacy `test_submit`.
 5. Confirm backend/Ops `payment_success`, not Baidu or browser-only GA4, is the business purchase-success reporting metric.
-6. Do not mark legacy aliases such as `start_click`, `submit_click`, `checkout_start`, or `pay_success` as separate Key Events. They should normalize before dispatch.
+6. Do not configure canonical or legacy alias names as additional copies of the same transported event. They normalize before dispatch; compare the received GA4 name with `lib/tracking/client.ts`.
 7. Confirm the event parameter allowlist is sufficient for reporting:
    - `test_type`
    - `test_version`
@@ -86,7 +104,7 @@ Dashboard owner:
 2. Confirm the conversion ID is configured as `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID`.
 3. Confirm the purchase label is configured as `NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL`.
 4. Confirm only `purchase_success` sends the Google Ads `conversion` event.
-5. Do not configure `test_start`, `test_submit`, `result_view`, `checkout_start`, or `order_created` as Google Ads purchase conversions.
+5. Do not configure `test_start`, `test_complete`, `result_view`, `report_click`, or `checkout_begin` as Google Ads purchase conversions.
 6. Confirm conversion diagnostics show the Google tag on production public pages after deployment.
 
 QA boundary: do not create a real order or trigger a real payment from this checklist. Use production diagnostics only for passive tag detection unless a separate payment test plan authorizes a sandbox or test transaction.
@@ -153,10 +171,10 @@ Current bridge values:
 | GA4 public event | Baidu category | Baidu action |
 | --- | --- | --- |
 | `test_start` | `test` | `start` |
-| `test_submit` | `test` | `complete` |
-| `view_result` | `result` | `view` |
-| `checkout_start` | `checkout` | `begin` |
-| `order_created` | `checkout` | `order` |
+| `test_complete` | `test` | `complete` |
+| `result_view` | `result` | `view` |
+| `report_click` | `report` | `click` |
+| `checkout_begin` | `checkout` | `begin` |
 
 These values are not a promise that the current Baidu Tongji dashboard can create new conversion goals from `_trackEvent` category/action. Treat them as analysis/debug taxonomy only unless Baidu restores or explicitly supports that setup path for the account.
 
@@ -192,7 +210,7 @@ Engineering or QA:
 
 1. Use a non-production analytics account when testing locally, preview, or staging.
 2. Confirm `NEXT_PUBLIC_ANALYTICS_ENABLED` is not accidentally pointing local or preview traffic at production measurement IDs.
-3. In GA4 Realtime or DebugView, confirm `test_start`, `test_submit`, `result_view`, `checkout_start`, and `order_created` appear once for one authorized user action.
+3. In GA4 Realtime or DebugView, verify applicable public events, including `test_start` and `test_complete`, for an authorized non-production session. A private result route intentionally suppresses third-party analytics; do not require a GA4 `result_view` from it or bypass that suppression. Use the native owner observation for supported result-visible checks.
 4. Confirm browser `payment_success` is treated as auxiliary only, with backend/Ops remaining the business payment truth.
 5. Do not complete a real payment for this QA checklist.
 6. In Baidu Tongji, verify public CTA elements can be selected or addressed by element ID only on public routes.
@@ -203,7 +221,7 @@ Engineering or QA:
 
 GA4:
 
-- Realtime or DebugView shows the five public funnel Key Events after an authorized test session.
+- Realtime or DebugView shows applicable public Key Events after an authorized test session; private result visibility uses its existing native observation, not a required GA4 pageview.
 - The same action does not produce duplicate Key Events.
 - Backend/Ops `payment_success` is the business purchase-success metric.
 - `purchase`, `purchase_success`, and browser `payment_success` are not used together as duplicate business purchase success.
@@ -248,7 +266,7 @@ Google Ads:
 Before marking dashboard setup complete:
 
 - Production environment variables are configured outside the repository.
-- GA4 Key Events are enabled for the five public funnel events.
+- Actual received GA4 event names and applicable Key Event stars have been checked in the real property; private-route suppression is preserved.
 - Backend/Ops business purchase success is `payment_success`.
 - Google Ads purchase conversion is configured only for `purchase_success`.
 - Baidu Tongji is limited to PV/UV, source, search-term, entrance-page, visited-page, and public CTA auxiliary click analysis.
