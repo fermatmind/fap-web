@@ -1,0 +1,298 @@
+{
+  "slug": "career-match",
+  "code": "FM_CAREER_THEME_COMPARE",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "career-theme-compare",
+  "title": {
+    "en": "Career Match: Compare Interests and Roles",
+    "zh": "职业匹配测试：比较兴趣与真实职业"
+  },
+  "description": {
+    "en": "Choose interest themes and compare two or three real careers. See shared RIASEC themes, their limits and complete occupation guides. Free, no signup.",
+    "zh": "选择兴趣主题，比较两个或三个真实职业的已发布RIASEC代码，查看共同主题、适用边界与完整职业档案。免费使用，无需注册。"
+  },
+  "seoTitle": {
+    "en": "Career Match Test: Compare Interests & Real Roles",
+    "zh": "职业匹配测试：比较兴趣主题与真实职业"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Start with what you want to explore, then read what the work involves. This comparison connects your selected themes to current career descriptions and keeps the arithmetic visible.",
+    "zh": "先从想探索的兴趣出发，再查看实际工作。本比较把你选择的主题与当前职业资料连接起来，规则直接可见。"
+  },
+  "instructions": {
+    "en": "Choose one to six themes and two or three different occupations. The list loads only when you start. Search titles locally; no name, work history or private narrative is needed.",
+    "zh": "选择一至六项主题，以及两个或三个不同职业。只有开始后才读取目录；职业名称在本页内筛选，无需姓名、工作经历或私人叙述。"
+  },
+  "resultHeading": {
+    "en": "Shared themes in your selected careers",
+    "zh": "所选职业中的共同兴趣主题"
+  },
+  "directions": [
+    {
+      "id": "R",
+      "title": {
+        "en": "Realistic — practical work",
+        "zh": "实用型：动手与实物"
+      }
+    },
+    {
+      "id": "I",
+      "title": {
+        "en": "Investigative — inquiry and analysis",
+        "zh": "研究型：探究与分析"
+      }
+    },
+    {
+      "id": "A",
+      "title": {
+        "en": "Artistic — expression and creation",
+        "zh": "艺术型：表达与创作"
+      }
+    },
+    {
+      "id": "S",
+      "title": {
+        "en": "Social — helping and teaching",
+        "zh": "社会型：帮助与教学"
+      }
+    },
+    {
+      "id": "E",
+      "title": {
+        "en": "Enterprising — initiative and negotiation",
+        "zh": "企业型：推动与协商"
+      }
+    },
+    {
+      "id": "C",
+      "title": {
+        "en": "Conventional — information and procedures",
+        "zh": "常规型：信息与流程"
+      }
+    }
+  ],
+  "questions": [],
+  "profiles": [],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "How the comparison works",
+        "zh": "比较怎样进行"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose the interest themes you want to explore, then choose two or three different occupations from the published career list. The page reads only those occupations’ current interest descriptions. For each role, it checks which selected letters also occur in that role’s published RIASEC code. For example, selecting A and S against a sample code ASE returns A and S. This is a visible set comparison, without hidden weights, a personality assignment or an employment-success calculation.",
+          "zh": "先选择想探索的兴趣主题，再从已发布职业目录选两个或三个不同职业。本页只读取所选职业当前的兴趣说明，逐一检查哪些所选字母也出现在该职业已发布的RIASEC代码中。例如，选择A与S，示例代码为ASE，交集就是A与S。这是公开规则的集合比较，没有隐藏权重、人格归类或就业成功计算。"
+        },
+        {
+          "en": "The roles stay in the order you selected. Shared themes appear in R, I, A, S, E, C order; neither order is a fit ranking. The code and its accompanying explanation come from the current occupation page, which remains the place to read the complete profile. If a selected page or its interest information cannot be read, the comparison marks that part unavailable. A missing description is never replaced with a guessed code or a score from a different system.",
+          "zh": "职业保持你的选择顺序，交集主题按R、I、A、S、E、C固定顺序展示，两种顺序都不表示适配排名。职业代码及其说明来自当前职业页，完整档案仍在该页阅读。如果某个所选页面或兴趣信息无法读取，本次比较会明确标记该部分不可用，不用猜测代码或其他系统的分数补位。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "What shared or absent themes mean",
+        "zh": "怎样理解交集与未出现的主题"
+      },
+      "paragraphs": [
+        {
+          "en": "Selecting a theme says that you want to consider it here; it is not a new measurement of your interest level. You may use themes you already recognize, or privately refer to an existing RIASEC result. Keep any relevant close or tied themes instead of forcing a top three. Selecting all six produces a broad comparison rather than a more certain answer. An unselected theme means only that you did not select it for this comparison, not that you dislike it or lack the relevant skill.",
+          "zh": "勾选某个主题只表示你想在这里考虑它，并没有重新测得兴趣高低。可以直接选自己已认识的兴趣，也可以私下参考已有RIASEC结果；相近或并列的主题都可保留，不强行缩成前三。全选六项会得到较宽的比较，并不让结论更确定。未勾选只表示这次没有选择，不等于讨厌或缺乏相关技能。"
+        },
+        {
+          "en": "A shared theme is a reason to inspect the work more closely, not a reason to accept or reject a job. No shared selected theme is also an observation about these two inputs, not evidence that an occupation is wrong for you. Read the actual tasks, entry requirements, setting and local conditions in the full profile. An optional next step is to pick one ordinary task and note privately what appeals, what is unfamiliar and what further evidence you would need. No decision or additional test is required.",
+          "zh": "出现共同主题，可以作为继续查看工作的线索，不能据此接受或排除岗位。没有共同的所选主题，也只是这两组输入的关系，并不能证明某职业不适合你。请结合完整职业页的实际任务、入门要求、工作环境和当地条件阅读。可选的下一步是挑一项普通任务，私下记录哪里有吸引力、哪里陌生、还需什么证据；无需立即决定，也不用强做其他测评。"
+        }
+      ]
+    },
+    {
+      "id": "theme-R",
+      "title": {
+        "en": "Realistic: work with tangible things",
+        "zh": "实用型：与具体事物打交道"
+      },
+      "paragraphs": [
+        {
+          "en": "Realistic interests concern practical activity with physical things, equipment, materials, living things or outdoor settings. The letter does not mean that someone is more realistic, stronger or more technically capable than another person. In this comparison, choosing R simply asks whether practical work is represented in the published code of each role you selected. A role can contain several kinds of activity even when its short code contains only some of them.",
+          "zh": "实用型兴趣关注与实物、设备、材料、生物或户外环境有关的具体活动。这个字母不表示一个人更现实、更强壮或技术更好。本页勾选R，只是在比较所选职业已发布的短代码是否包含这一主题。一个职业实际可以涉及多种活动，短代码并不能装下全部工作内容。"
+        },
+        {
+          "en": "For an ordinary exploration, compare the appeal of adjusting a physical object with the appeal of describing or analyzing it. You might enjoy making a small model but dislike working at height, or enjoy caring for plants while preferring an indoor setting. Those distinctions belong in your notes alongside the interest comparison. Do not test an interest by handling unfamiliar machinery, entering a hazardous site or attempting a task that requires training or authorization.",
+          "zh": "做普通探索时，可以比较调整一个实物与描述、分析它，各自哪里吸引自己。你可能喜欢做小模型，却不喜欢高处作业；也可能愿意照料植物，同时更偏好室内环境。这些具体差异应与主题比较一起保留。不必通过操作陌生机器、进入危险场所或尝试需要培训授权的任务来证明兴趣。"
+        }
+      ]
+    },
+    {
+      "id": "theme-I",
+      "title": {
+        "en": "Investigative: questions and evidence",
+        "zh": "研究型：问题与证据"
+      },
+      "paragraphs": [
+        {
+          "en": "Investigative interests concern inquiry, explanation and analysis. The theme can appear in scientific, technical and other work involving questions and evidence. Selecting I does not establish intelligence, a qualification or the ability to perform research. It adds a theme to compare with the roles you chose. An occupational code also cannot say which particular research topic or method you would enjoy.",
+          "zh": "研究型兴趣关注探究、解释和分析，在需要提出问题、理解证据的科学、技术及其他工作中都可能出现。勾选I不证明智力、资格或研究能力，只是增加一个与所选职业比较的主题。职业短代码也无法说明你会喜欢哪一个具体研究主题或方法。"
+        },
+        {
+          "en": "One small example is deciding which of two explanations is better supported by a short, public account of an everyday event. Notice whether you enjoy forming the question, organizing observations, checking a calculation or communicating the conclusion. These are different activities, and you may want some more than others. The next useful evidence is a task description or learning example, rather than treating a shared I as a promise that a course or profession will suit you.",
+          "zh": "可以用一个小例子探索：阅读一段公开的日常事件说明，看看两个解释中哪个更有依据。留意自己喜欢的是形成问题、整理观察、检查运算，还是表达结论。这些活动并不相同，你可能只偏好其中一部分。下一步更有用的是查看任务说明或学习示例，而不是把共同的I当成某课程或职业一定适合自己的保证。"
+        }
+      ]
+    },
+    {
+      "id": "theme-A",
+      "title": {
+        "en": "Artistic: making and expressing",
+        "zh": "艺术型：创作与表达"
+      },
+      "paragraphs": [
+        {
+          "en": "Artistic interests concern creating, interpreting or expressing ideas through forms such as writing, design, performance or other creative work. The letter does not certify talent, originality or a professional identity. Choosing A lets you inspect whether creative activity is represented in a role’s published interest code. It cannot distinguish your preferred medium, working conditions or tolerance for the practical demands of a particular creative occupation.",
+          "zh": "艺术型兴趣关注通过写作、设计、表演等方式创作、诠释和表达想法。这个字母不认证天赋、原创水平或专业身份。勾选A可以查看创作活动是否出现在某职业已发布的兴趣代码中，但无法区分你偏好的媒介、工作条件，或对某个创意职业现实要求的接受程度。"
+        },
+        {
+          "en": "For example, you may like drafting a short original scene while finding repeated revisions less appealing, or enjoy arranging a page while preferring a clear brief to an open commission. Compare the task itself with its deadlines, collaboration and feedback. All of those can matter after a shared theme appears. A private sketch or a reading exercise can be enough for reflection; there is no need to publish work, buy equipment or share personal material to complete this tool.",
+          "zh": "例如，你可能喜欢写一小段原创场景，却不太喜欢反复修改；也可能喜欢编排页面，同时更希望有明确要求而非完全开放的委托。应把任务本身与期限、合作、反馈一起看，它们都可能影响实际体验。私下画草稿或阅读一个练习就足以回想，不需要为了完成本工具而发布作品、购买设备或分享私人材料。"
+        }
+      ]
+    },
+    {
+      "id": "theme-S",
+      "title": {
+        "en": "Social: supporting other people",
+        "zh": "社会型：支持他人"
+      },
+      "paragraphs": [
+        {
+          "en": "Social interests concern activities such as helping, teaching, advising or providing a service to other people. They do not measure kindness, empathy or the quality of your relationships. A shared S only identifies one broad activity theme in your selection and the role’s published code. It does not establish that every setting involving people will feel comfortable or that a person is qualified for a regulated helping profession.",
+          "zh": "社会型兴趣关注帮助、教学、提供建议或服务他人的活动，不测善良、共情或关系质量。共同的S只是指出你的选择与职业已发布代码之间有一个宽泛的活动主题，并不表示所有接触人的环境都会舒适，也不能说明已具备受监管助人职业所需的资格。"
+        },
+        {
+          "en": "Consider the difference between explaining a familiar idea to one person, facilitating a group activity and supporting someone under pressure. Your interest and your boundaries may differ across those situations. Read the role’s actual responsibilities and required training before drawing a conclusion. An optional observation can stay hypothetical or use a benign familiar example; do not arrange an intervention, request someone’s private history or offer professional advice merely to check this theme.",
+          "zh": "可以区分给一个人解释熟悉概念、组织小组活动、在压力情境下支持他人。你对这些情境的兴趣与边界可能各不相同。下结论前，应看职业的实际职责与培训要求。可选回想可以停留在假设或普通熟悉例子，不需要为了核对主题而安排干预、询问别人的隐私经历或提供专业建议。"
+        }
+      ]
+    },
+    {
+      "id": "theme-E",
+      "title": {
+        "en": "Enterprising: initiating and influencing",
+        "zh": "企业型：发起与协商"
+      },
+      "paragraphs": [
+        {
+          "en": "Enterprising interests concern activities such as initiating projects, persuading, negotiating, leading or promoting an idea. The theme does not require owning a company, and selecting it does not establish leadership ability or sales performance. A shared E is a broad connection to investigate in a selected occupation. The exact responsibilities, authority and incentives still need to be understood separately.",
+          "zh": "企业型兴趣关注发起项目、说服、协商、带领或推动想法等活动，并不要求拥有企业。勾选它不能证明领导能力或销售表现。共同的E只是在所选职业中值得继续了解的宽泛联系，具体职责、权限和激励条件仍需分别核对。"
+        },
+        {
+          "en": "For an everyday example, imagine presenting two reasonable plans and discussing how a group might choose between them. Notice whether you enjoy framing the proposal, negotiating priorities, coordinating people or taking responsibility for follow-through. Those preferences are not interchangeable. A useful next question is what the role actually allows you to decide and what support it provides. The comparison does not recommend making a financial commitment, pitching to strangers or taking on unagreed responsibility.",
+          "zh": "一个日常例子是提出两种合理计划，讨论小组怎样选择。可以留意自己喜欢的是组织提案、协商优先事项、协调人员，还是负责后续落实，这些偏好不能互换。下一步可核对该岗位实际允许决定什么、提供什么支持。比较结果不要求你作出财务承诺、向陌生人推销或承担未经约定的责任。"
+        }
+      ]
+    },
+    {
+      "id": "theme-C",
+      "title": {
+        "en": "Conventional: organizing information",
+        "zh": "常规型：整理信息与流程"
+      },
+      "paragraphs": [
+        {
+          "en": "Conventional interests concern organizing information and following defined procedures. The theme may involve records, schedules, accounts or other structured work. It does not mean that someone is uncreative, conservative in politics or better at obeying rules. Selecting C asks whether this kind of activity is represented in a role’s published code, without estimating accuracy, reliability or competence.",
+          "zh": "常规型兴趣关注整理信息和按明确流程开展工作，可能涉及记录、排程、账目等结构化活动。它不表示缺乏创造力、政治立场保守，或更善于服从规则。勾选C是在查看这类活动是否出现在职业已发布的代码中，并没有估算准确性、可靠性或胜任程度。"
+        },
+        {
+          "en": "You might enjoy bringing order to a small fictional set of records but dislike repetitive entry, or prefer a clear procedure while wanting room to improve it. Those differences matter more than treating a letter as a fixed identity. Explore a harmless sample with invented information if you want an example. Do not upload workplace files, account details or real personal records. Reading a task description is also a complete stopping point; no exercise is required.",
+          "zh": "你可能喜欢把一小组虚构记录整理清楚，却不喜欢重复录入；也可能偏好清晰流程，同时希望有改进空间。这些差异比把字母当作固定身份更重要。若想找例子，可用虚构信息做无风险的小样本，不上传工作文件、账户信息或真实个人记录。只阅读任务说明也可以在这里结束，不必完成任何练习。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this another RIASEC questionnaire?",
+        "zh": "这是另一份RIASEC问卷吗？"
+      },
+      "answer": {
+        "en": "This tool compares themes you choose with codes in published occupation pages. It does not ask an interest item bank or calculate a new RIASEC score. You can use familiar themes directly; the existing RIASEC test is optional.",
+        "zh": "本工具把你选择的主题与已发布职业页的代码作比较，不使用兴趣题库，也不计算新的RIASEC分数。可以直接选择熟悉的主题；已有RIASEC测评为可选入口。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a shared letter mean I am suited to the job?",
+        "zh": "有共同字母就表示适合这个岗位吗？"
+      },
+      "answer": {
+        "en": "It identifies a shared broad interest theme in these inputs. Ability, training, working conditions, qualifications and local opportunities remain separate questions. No fit percentage, job ranking or hiring recommendation is produced.",
+        "zh": "它只识别这两组输入中的共同宽泛兴趣主题。能力、培训、工作条件、资格及当地机会仍是另外的问题。本工具不产生适配百分比、职业排名或录用建议。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if several themes are close or tied?",
+        "zh": "几个主题接近或并列怎么办？"
+      },
+      "answer": {
+        "en": "Keep all relevant themes, up to all six. They remain an unordered selection. The tool does not force a top three or break a tie; a broad selection should be read as broad exploration.",
+        "zh": "可以保留所有相关主题，最多六项。它们是一组没有排名的选择，不强制前三，也不破同分；选得较宽就按较宽的探索理解。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why can a selected role be unavailable?",
+        "zh": "为什么所选职业可能不可用？"
+      },
+      "answer": {
+        "en": "The current public page, its language version or its interest component may be missing, unreadable or invalid for this comparison. The affected part stays unavailable; no old local career data, other personality score or guessed letter replaces it. You can retry the read or choose another role.",
+        "zh": "当前公开职业页、所选语言或兴趣模块可能缺失、暂时无法读取或不符合本次比较所需结构。受影响部分保持不可用，不以旧本地职业数据、其他人格分数或猜测字母补充。可以重试读取或换一个职业。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my choices saved, sent or shared?",
+        "zh": "选择会保存、发送或分享吗？"
+      },
+      "answer": {
+        "en": "Theme selections and local title-search text stay in this page’s memory. The page requests a public occupation list and at most three selected public profiles. Clearing, leaving, reloading or switching language removes your inputs. Sharing copies only the public title and entry link. Optional anonymous activity counts follow the existing consent controls and contain no inputs.",
+        "zh": "兴趣选择与本地职业名筛选文字只留在本页内存中；页面请求公开职业列表，以及最多三个所选的公开职业档案。清除、离开、刷新或换语会移除输入，分享只复制公开标题与入口。可选匿名动作次数沿用已有同意控制，不包含输入。"
+      }
+    },
+    {
+      "question": {
+        "en": "How can I use the comparison next?",
+        "zh": "比较之后可以做什么？"
+      },
+      "answer": {
+        "en": "Read each complete occupation profile, compare one actual task and check the relevant entry requirements. You can keep questions unanswered and stop here. This page does not require an account, payment or another assessment to show the comparison.",
+        "zh": "可以阅读每个完整职业档案，比较一项真实任务，并核对相关入门要求；也可以保留疑问并在此结束。显示比较结果不需要账号、付费或完成另一项测评。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "O*NET: browse broad career interest types",
+        "zh": "O*NET：职业兴趣类型说明"
+      },
+      "url": "https://www.onetonline.org/find/descriptor/browse/1.B.1/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_career_interest_comparison",
+    "formCode": "fm_career_theme_comparison_v1",
+    "itemBankVersion": "fm_career_theme_comparison_v1",
+    "scoringVersion": "fm_career_literal_interest_intersection_v1",
+    "resultContentVersion": "fm_career_comparison_guidance_v1",
+    "itemBankSha256": "40085e6a2857876ea0b7c49fc98064af8c40f6f69d87de9ef594d50e1b432834",
+    "resultContentSha256": "79e5c11d6a9b427c7142c749e51d175a23b0e0827a2ae7d3c4f0ea06b5b6a477",
+    "psychometricValidationCompleted": false
+  }
+}

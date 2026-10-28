@@ -1,3 +1,5 @@
+import { isCareerMatchConfigurationValid } from "@/lib/questionnaires/careerMatch";
+import { CareerMatchPage } from "./CareerMatchPage";
 import { isLoveType16ConfigurationValid } from "@/lib/questionnaires/loveType16";
 import { isFds32ConfigurationValid } from "@/lib/questionnaires/fds32";
 import { QuestionnaireFds32Attribution } from "./QuestionnaireFds32Attribution";
@@ -77,6 +79,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "career-theme-compare" && !isCareerMatchConfigurationValid(quiz)) return { title: "Comparison unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "love-type16" && !isLoveType16ConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (((quiz?.kind === "mini-virtues" || quiz?.slug === "seven-sins-virtues-test") && !isMiniVirtuesConfigurationValid(quiz)) || (quiz?.slug === "euphoria-character-quiz" && !isEuphoriaConfigurationValid(quiz))) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "natal-chart" && !isNatalChartConfigurationValid(quiz)) return { title: "Chart unavailable", robots: { index: false, follow: false } };
@@ -98,6 +101,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "natal-chart") {
     if (!isNatalChartConfigurationValid(quiz)) notFound();
     return <NatalChartPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "career-theme-compare") {
+    if (!isCareerMatchConfigurationValid(quiz)) notFound();
+    return <CareerMatchPage quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "birth-number") {
     if (!isBirthNumberConfigurationValid(quiz)) notFound();

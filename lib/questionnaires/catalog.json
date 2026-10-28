@@ -5629,5 +5629,25 @@
       "anticipation"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "career-match",
+    "code": "FM_CAREER_THEME_COMPARE",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Career Match: Compare Interests and Roles",
+      "zh": "职业匹配测试：比较兴趣与真实职业"
+    },
+    "description": {
+      "en": "Choose interest themes and compare two or three real careers. See shared RIASEC themes, their limits and complete occupation guides. Free, no signup.",
+      "zh": "选择兴趣主题，比较两个或三个真实职业的已发布RIASEC代码，查看共同主题、适用边界与完整职业档案。免费使用，无需注册。"
+    },
+    "minutes": 5,
+    "formCode": "fm_career_theme_comparison_v1",
+    "questionCount": 0,
+    "resultSlugs": [],
+    "collection": "explore"
   }
 ]
