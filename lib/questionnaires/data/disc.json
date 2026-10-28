@@ -2,7 +2,7 @@
   "slug": "disc",
   "code": "DISC_BEHAVIOR",
   "version": "1.0.0",
-  "updated": "2026-10-25",
+  "updated": "2026-10-28",
   "category": "framework",
   "kind": "directional",
   "title": {
@@ -10,17 +10,17 @@
     "en": "DISC Personality Test"
   },
   "description": {
-    "zh": "完成24道真实工作情境二选一，比较D、I、S、C四个方向的本次选择次数，阅读完整单项或并列结果及具体练习。全部免费，无需注册。",
-    "en": "Take a free 24-question DISC-style test. Compare your D, I, S and C choices, keep every tie and read a full report with workplace examples and practical reflection."
+    "en": "Take 24 original DISC choices, keep every tie and read full free results. Compare Thai Four Animals labels with two named source versions. No signup.",
+    "zh": "免费完成24道原创DISC工作情境二选一，保留全部并列并读完整结果；对照泰国四种动物在两份具名来源中的不同映射。无需注册。"
   },
   "seoTitle": {
-    "zh": "DISC测试：24题、完整结果与计分说明",
-    "en": "DISC Personality Test: Free 24-Question Results"
+    "en": "DISC Test & Thai Four Animals: 24 Questions, Full Results",
+    "zh": "DISC测试与泰国四种动物：24题、并列与完整结果"
   },
   "minutes": 5,
   "introduction": {
-    "zh": "在推进任务、表达想法、稳定协作和核对标准之间，你通常先做什么？这份费马自编问卷保留小程序完整24题，每题选更贴近当前做法的一项。结果来自你的实际选择，不随机抽取。",
-    "en": "When work needs doing, do you move it forward, get people talking, steady the handoffs or check the details first? Choose the response that fits your current approach in 24 paired situations. Your result follows those choices, with a complete report for every single or tied outcome."
+    "en": "When work needs doing, do you move it forward, get people talking, steady the handoffs or check the details first? Choose the response that fits your current approach in 24 paired situations. Your result follows those choices, with a complete report for every single or tied outcome. Looking for the Thai Four Animals Test? The animal comparison below reuses these four DISC-style choice counts and shows two named versions. This remains FermatMind’s own 24-item questionnaire, with no additional animal test or claim of equivalence to JobCannon’s 12-item form.",
+    "zh": "在推进任务、表达想法、稳定协作和核对标准之间，你通常先做什么？这份费马自编问卷保留小程序完整24题，每题选更贴近当前做法的一项。结果来自你的实际选择，不随机抽取。 若你在寻找“泰国四种动物测试”，下方动物对照复用这四组DISC式选择次数，并明确列出两份来源版本。本页仍是费马自有24题问卷，不另建动物测评，也不声称等同JobCannon的12题版。"
   },
   "source": {
     "kind": "FermatMind original mini-program questionnaire",
@@ -1007,6 +1007,27 @@
               "en": "This test is for entertainment and self-exploration. It has not completed psychometric work on reliability, validity or norms, and has no official DISC certification. Results compare only the counts from the choices you reported in this attempt."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D as the highest-count direction in this attempt. In the cited 2021 Inskru classroom version, the corresponding label is Bull. In JobCannon’s published mapping, the label is Bull. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D。按所引2021年Inskru课堂版本，对应标签为牛；按JobCannon公开映射，对应牛。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -1356,6 +1377,27 @@
             {
               "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何 DISC 官方的认证资格。结果仅基于本次自报选择的次数比较。",
               "en": "This test is for entertainment and self-exploration. It has not completed psychometric work on reliability, validity or norms, and has no official DISC certification. Results compare only the counts from the choices you reported in this attempt."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains I as the highest-count direction in this attempt. In the cited 2021 Inskru classroom version, the corresponding label is Eagle. In JobCannon’s published mapping, the label is Eagle. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向I。按所引2021年Inskru课堂版本，对应标签为鹰；按JobCannon公开映射，对应鹰。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -1709,6 +1751,27 @@
               "en": "This test is for entertainment and self-exploration. It has not completed psychometric work on reliability, validity or norms, and has no official DISC certification. Results compare only the counts from the choices you reported in this attempt."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains S as the highest-count direction in this attempt. In the cited 2021 Inskru classroom version, the corresponding label is Mouse. In JobCannon’s published mapping, the label is Bear. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向S。按所引2021年Inskru课堂版本，对应标签为鼠；按JobCannon公开映射，对应熊。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -2060,6 +2123,27 @@
               "en": "This test is for entertainment and self-exploration. It has not completed psychometric work on reliability, validity or norms, and has no official DISC certification. Results compare only the counts from the choices you reported in this attempt."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains C as the highest-count direction in this attempt. In the cited 2021 Inskru classroom version, the corresponding label is Bear. In JobCannon’s published mapping, the label is Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向C。按所引2021年Inskru课堂版本，对应标签为熊；按JobCannon公开映射，对应鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -2325,6 +2409,27 @@
             {
               "zh": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。",
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / I as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Eagle. In JobCannon’s published mapping, the labels are Bull / Eagle. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / I。按所引2021年Inskru课堂版本，对应标签为牛、鹰；按JobCannon公开映射，对应牛、鹰。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -2594,6 +2699,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / S as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Mouse. In JobCannon’s published mapping, the labels are Bull / Bear. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / S。按所引2021年Inskru课堂版本，对应标签为牛、鼠；按JobCannon公开映射，对应牛、熊。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -2859,6 +2985,27 @@
             {
               "zh": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。",
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Bear. In JobCannon’s published mapping, the labels are Bull / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / C。按所引2021年Inskru课堂版本，对应标签为牛、熊；按JobCannon公开映射，对应牛、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -3128,6 +3275,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains I / S as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Eagle / Mouse. In JobCannon’s published mapping, the labels are Eagle / Bear. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向I / S。按所引2021年Inskru课堂版本，对应标签为鹰、鼠；按JobCannon公开映射，对应鹰、熊。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -3395,6 +3563,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains I / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Eagle / Bear. In JobCannon’s published mapping, the labels are Eagle / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向I / C。按所引2021年Inskru课堂版本，对应标签为鹰、熊；按JobCannon公开映射，对应鹰、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -3660,6 +3849,27 @@
             {
               "zh": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。",
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains S / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Mouse / Bear. In JobCannon’s published mapping, the labels are Bear / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向S / C。按所引2021年Inskru课堂版本，对应标签为鼠、熊；按JobCannon公开映射，对应熊、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -3934,6 +4144,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / I / S as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Eagle / Mouse. In JobCannon’s published mapping, the labels are Bull / Eagle / Bear. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / I / S。按所引2021年Inskru课堂版本，对应标签为牛、鹰、鼠；按JobCannon公开映射，对应牛、鹰、熊。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -4204,6 +4435,27 @@
             {
               "zh": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。",
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / I / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Eagle / Bear. In JobCannon’s published mapping, the labels are Bull / Eagle / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / I / C。按所引2021年Inskru课堂版本，对应标签为牛、鹰、熊；按JobCannon公开映射，对应牛、鹰、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -4478,6 +4730,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / S / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Mouse / Bear. In JobCannon’s published mapping, the labels are Bull / Bear / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / S / C。按所引2021年Inskru课堂版本，对应标签为牛、鼠、熊；按JobCannon公开映射，对应牛、熊、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -4748,6 +5021,27 @@
             {
               "zh": "本页仅解释本次 24 道强迫选择题的原始次数并列。请用具体经历核对，符合的作为观察线索，不符合的略过；内容尚未完成信度、效度或常模验证，也不等同任何商业 DISC 产品或认证量表。",
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
+            }
+          ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains I / S / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Eagle / Mouse / Bear. In JobCannon’s published mapping, the labels are Eagle / Bear / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向I / S / C。按所引2021年Inskru课堂版本，对应标签为鹰、鼠、熊；按JobCannon公开映射，对应鹰、熊、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
             }
           ]
         }
@@ -5027,6 +5321,27 @@
               "en": "This page explains only tied raw counts within these 24 forced-choice questions. Check it against specific experiences, keeping what fits as an observation and setting aside what does not. Reliability, validity and norms have not been established, and this is not equivalent to any commercial DISC product or certified instrument."
             }
           ]
+        },
+        {
+          "id": "thai-four-animals-labels",
+          "title": {
+            "en": "Thai Four Animals labels for this result",
+            "zh": "这项结果的泰国四种动物对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This result retains D / I / S / C as the highest-count directions in this attempt. In the cited 2021 Inskru classroom version, the corresponding labels are Bull / Eagle / Mouse / Bear. In JobCannon’s published mapping, the labels are Bull / Eagle / Bear / Mouse. These are two source-dependent names for the same reported letters here, not two different test results.",
+              "zh": "本次结果保留最高次数方向D / I / S / C。按所引2021年Inskru课堂版本，对应标签为牛、鹰、鼠、熊；按JobCannon公开映射，对应牛、鹰、熊、鼠。它们是本页同一组字母在两份来源中的名称，不是两次不同测评结果。"
+            },
+            {
+              "en": "Keep all the listed directions and their raw counts when reading the nicknames. A tie does not become a primary animal plus a secondary animal, and a single highest direction does not mean the other directions are absent. Every direction appeared in 12 of the 24 paired choices; the animal wording adds no item, point, percentage, norm or new measurement.",
+              "zh": "读别称时保留所列全部方向与原始次数。并列不变成主动物加次动物；单项最高也不表示其他方向不存在。每方向在24道二选一里出现12次；动物措辞不增加题目、点数、百分比、常模或新测量。"
+            },
+            {
+              "en": "The entry page links the two public source examples and explains the S/C label difference. Our original 24-item bank is not JobCannon’s 12-item bank, a licensed commercial DISC instrument or a validated Thai-standard animal test. Use the concrete examples elsewhere in this complete guide for optional reflection, without treating an animal nickname as a fixed identity or a decision about another person.",
+              "zh": "入口页链接两份公开例子并解释S/C标签差别。费马原创24题不是JobCannon12题、某款商业DISC授权题本或已验证的泰国标准动物测试。可用本完整指南其他部分的具体例子自愿回看，不把动物别称当固定身份或对别人的判断。"
+            }
+          ]
         }
       ],
       "seo": {
@@ -5171,6 +5486,44 @@
           "en": "This test is for entertainment and self-exploration. It has not completed psychometric work on reliability, validity or norms. The content offers complete explanations for self-exploration, but does not represent a formal commercial instrument, establish scientific validity or carry official certification."
         }
       ]
+    },
+    {
+      "id": "thai-four-animals-versions",
+      "title": {
+        "en": "Thai Four Animals: the source version matters",
+        "zh": "泰国四种动物：先认来源版本"
+      },
+      "paragraphs": [
+        {
+          "en": "Two public examples explicitly connect the animal nicknames to DISC’s four directions. JobCannon labels D as Bull, I as Eagle, S as Bear and C as Mouse. A 2021 classroom activity published by its teacher on Inskru instead pairs D/I/S/C with Bull, Eagle, Mouse and Bear. These two examples demonstrate a version difference, not a universal mapping or proof of the framework’s historical origin.",
+          "zh": "两份公开例子明确把动物别称与DISC四方向相连。JobCannon将D称牛、I称鹰、S称熊、C称鼠；教师本人在Inskru发表的2021课堂活动则依D/I/S/C顺序对应牛、鹰、鼠、熊。两份例子证明存在版本差别，不证明统一映射或框架历史起源。"
+        },
+        {
+          "en": "Before comparing an animal result, ask which source assigns its labels. In particular, a Bear label in one version can refer to the direction called Mouse in the other. Comparing the animals without the underlying letters can therefore reverse the intended S/C meaning. The source links below let you inspect both examples.",
+          "zh": "比较动物结果前，应先核对是哪份来源分配标签。尤其某版本的熊，可能对应另一版本称鼠的方向；只比动物、不看字母，可能把S/C含义对调。下面来源链接可供直接核对两份例子。"
+        }
+      ]
+    },
+    {
+      "id": "thai-four-animals-reuse",
+      "title": {
+        "en": "One DISC attempt, transparent animal labels",
+        "zh": "同一份DISC作答，透明对照动物标签"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind does not administer a separate Thai-standard animal questionnaire. The existing 24 original paired choices still produce D/I/S/C counts with 12 appearances per direction. We keep every highest-count tie. Animal labels are a source-dependent explanation of those same counts, not another score, a primary/secondary ranking or a percentage of your personality.",
+          "zh": "费马不另施测某套泰国标准动物题本。现有24道原创二选一仍给D/I/S/C次数，每方向出现12次，所有最高次数并列都保留。动物标签只是同一组次数按来源作出的解释，不是另一项分数、主次排名或人格百分比。"
+        },
+        {
+          "en": "The complete single-direction and tied guides now include the corresponding animal labels in both cited versions. Use the behavioral examples already in the guide to reflect on a concrete situation; a nickname adds no evidence about ability, leadership, hiring or career success. The source questions, scoring identities and canonical result links remain the same.",
+          "zh": "完整单项及并列指南均补充两份来源中的对应动物标签。仍可用原指南行为例子回看具体场景；别称不增加能力、领导、招聘或职业成功证据。源题、计分标识与canonical结果链接保持相同。"
+        },
+        {
+          "en": "Even the C term differs: the classroom post writes Compliance, while this questionnaire’s C is Conscientiousness, described here as standards and checks. The animal crosswalk compares naming conventions; it does not establish equal item meanings, scoring or measurement across forms, or equate this C with a Big Five score.",
+          "zh": "连C的用词也有区别：课堂文写Compliance，本问卷的C代码为Conscientiousness，在此解释为规范核对。动物对照比较的是命名惯例，不确立不同题本的题义、计分或测量等值，也不把这个C等同大五分数。"
+        }
+      ]
     }
   ],
   "faq": [
@@ -5213,6 +5566,42 @@
         "zh": "全部24题及完整结果免费，不需要注册或先做MBTI。答案只在浏览器计算，不发送至服务器、不写入网址或分析事件。只有主动选择后才在本标签页临时保存进度；完成、退出清除或重测会删除。",
         "en": "All 24 questions and full results are free, with no signup or prerequisite MBTI test. Answers are evaluated in your browser and never sent to a server, URL or analytics event. Tab-session saving is optional and clears on completion, exit-and-clear or retake."
       }
+    },
+    {
+      "question": {
+        "en": "Is this also a Thai Four Animals Test?",
+        "zh": "这也算泰国四种动物测试吗？"
+      },
+      "answer": {
+        "en": "This is FermatMind’s original 24-item DISC-style questionnaire with a transparent Thai Four Animals label comparison. The two cited versions use different S/C animal labels. No additional animal questionnaire, independent score or equivalence to JobCannon’s 12-item form is claimed.",
+        "zh": "这里是费马原创24题DISC式问卷，增加透明的泰国四种动物标签对照。两份所引版本的S/C动物标签不同；不另施测动物问卷，不新增独立分数，也不声称等同JobCannon12题版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why can Bear and Mouse mean different directions?",
+        "zh": "为什么熊与鼠会对应不同方向？"
+      },
+      "answer": {
+        "en": "JobCannon maps S to Bear and C to Mouse; the cited teacher’s Inskru classroom post maps S to Mouse and C to Bear. Check the source and underlying letter before comparing nicknames. Both versions are shown for every single or tied result.",
+        "zh": "JobCannon把S对应熊、C对应鼠；所引教师的Inskru课堂文则把S对应鼠、C对应熊。比较别称前先认来源与字母。本页对每个单项或并列结果均显示两个版本。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "JobCannon: published Thai Four Animals mapping (separate 12-item form)",
+        "zh": "JobCannon：公开四动物映射（另有12题版）"
+      },
+      "url": "https://jobcannon.io/tests/thai-four-animals"
+    },
+    {
+      "title": {
+        "en": "Teacher’s 2021 Inskru classroom version: a different S/C mapping",
+        "zh": "教师本人2021年Inskru课堂版本：S/C映射不同"
+      },
+      "url": "https://inskru.com/idea/-Mo92H9lGEhATD1OwjvT/"
     }
   ]
 }

@@ -27,6 +27,7 @@ async function complete(page: Page, locale: "en" | "zh", mode: "D" | "all-A") {
   const counts = page.getByRole("region", { name: locale === "zh" ? "本次原始选择次数" : "Raw choice counts for this attempt", exact: true });
   for (const direction of quiz.directions) await expect(counts.locator("dl > div").filter({ hasText: direction.title[locale] }).locator("dd")).toHaveText(`${expected.directions[direction.id].wins} / ${direction.comparisons}`);
   for (const section of profile.sections) await expect(page.locator(`#report-${section.id}`)).toBeAttached();
+  for (const text of profile.sections.find(s => s.id === "thai-four-animals-labels")!.paragraphs) await expect(page.locator("#report-thai-four-animals-labels")).toContainText(text[locale]);
   return profile;
 }
 
@@ -103,5 +104,16 @@ test("@release DISC public images and closed identities", async ({ request }, te
     expect(response.status()).toBe(200); expect(response.headers()["content-type"]).toContain("image/png");
     const bytes = await response.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
     if (locale === "zh" && profile === "single-d") await testInfo.attach("DISC-Chinese-result-image", { body: bytes, contentType: "image/png" });
+  }
+});
+
+for (const locale of ["en", "zh"] as const) test(`@release T066 ${locale}: named animal versions and all fifteen canonical DISC guides`, async ({ page }) => {
+  await page.goto(`/${locale}/tests/explore/disc`); await expect(page).toHaveTitle(`${quiz.seoTitle[locale]} | FermatMind`);
+  for (const ref of quiz.references!) await expect(page.locator(`#questionnaire-references + ul a[href="${ref.url}"]`)).toHaveCount(1);
+  for (const profile of quiz.profiles) {
+    const path = `/${locale}/tests/explore/disc/results/${profile.id}`; await page.goto(path);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://fermatmind.com${path}`);
+    for (const text of profile.sections.find(s => s.id === "thai-four-animals-labels")!.paragraphs) await expect(page.locator("#report-thai-four-animals-labels")).toContainText(text[locale]);
+    if (profile.id === "tied-d-i-s-c") { await page.setViewportSize({ width: 390, height: 844 }); await page.locator("#report-thai-four-animals-labels").scrollIntoViewIfNeeded(); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); await page.screenshot({ path: test.info().outputPath(`${locale}-animals.png`) }); }
   }
 });
