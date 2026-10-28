@@ -5372,5 +5372,27 @@
       "mixed-amount",
       "unspoken-handoff"
     ]
+  },
+  {
+    "slug": "mental-age",
+    "code": "FM_MENTAL_AGE12",
+    "version": "fm_mental_age12_v1",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Mental Age Test",
+      "zh": "心理年龄测试"
+    },
+    "description": {
+      "en": "Answer 12 daily-preference questions for a playful mental age. See the exact formula and full guide free. No signup, brain-age or IQ claims.",
+      "zh": "回答12道日常偏好题，得到娱乐心理年龄，免费查看明确公式、逐题点数和完整指南。无需注册，不测脑龄、智商或成熟度。"
+    },
+    "minutes": 3,
+    "formCode": "fm_mental_age12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "understanding-your-playful-age"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,929 @@
+{
+  "slug": "mental-age",
+  "code": "FM_MENTAL_AGE12",
+  "version": "fm_mental_age12_v1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "mental-age",
+  "title": {
+    "en": "Mental Age Test",
+    "zh": "心理年龄测试"
+  },
+  "seoTitle": {
+    "en": "Mental Age Test: Free Playful Age & Full Results",
+    "zh": "心理年龄测试：免费娱乐年龄与完整结果"
+  },
+  "description": {
+    "en": "Answer 12 daily-preference questions for a playful mental age. See the exact formula and full guide free. No signup, brain-age or IQ claims.",
+    "zh": "回答12道日常偏好题，得到娱乐心理年龄，免费查看明确公式、逐题点数和完整指南。无需注册，不测脑龄、智商或成熟度。"
+  },
+  "minutes": 3,
+  "instructions": {
+    "en": "Choose the option closest to what you would enjoy in each low-stakes situation, thinking about your preferences now. Every question needs one response; there are no right answers. If none fits, you may stop and read the full public guide. Points describe novelty versus familiarity choices only. The playful age is an arbitrary number, not your real mental age. Three minutes is an editorial estimate.",
+    "zh": "按当前偏好，在每个轻松情境中选最接近自己想法的一项。每题需一个回答，没有正确答案；没有合适项可以停止，直接读完整公开指南。点数只概括新鲜与熟悉偏好，娱乐年龄是任意数字，不是真实心智年龄。三分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "How old does your mind feel? This original entertainment quiz turns twelve daily preferences into a playful age using a public formula. Get the exact sum, a response-by-response calculation and the complete guide at every value. It does not estimate brain age, intelligence, maturity or development. No birthday, account or email is required.",
+    "zh": "感觉自己的心态像几岁？本原创娱乐测试用公开公式，把十二种日常偏好换成娱乐年龄。任何数值都能查看原始总和、逐题计算和完整指南，不估计脑龄、智力、成熟度或发展阶段；无需填写生日、注册或邮箱。"
+  },
+  "resultHeading": {
+    "en": "Your playful mental age and complete reading",
+    "zh": "本次娱乐心理年龄与完整读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_playful_mental_age",
+    "formCode": "fm_mental_age12_v1",
+    "itemBankVersion": "fm_mental_age12_v1",
+    "scoringVersion": "fm_mental_age12_sum0to36_age18plus2s_v1",
+    "resultContentVersion": "fm_mental_age12_continuous_full8_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "15de88d9e6ec4d54d43ab5497ff7c3b0f5b4f169949cb9857b0182366e7e1dd8",
+    "resultContentSha256": "8b2a6fbf61c2d98f3b278a0e0c49e00edd8b629fffea6dbff8dd94078fdb4313"
+  },
+  "directions": [
+    {
+      "id": "age-points",
+      "title": {
+        "en": "Editorial familiarity points",
+        "zh": "编辑熟悉偏好点数"
+      },
+      "itemCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MAGE_01",
+      "prompt": {
+        "en": "An unplanned free hour opens up. With the same time and cost, what sounds appealing?",
+        "zh": "临时空出一小时，时间和花费都相同时，你更想怎样度过？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Try an activity I have never tried",
+            "zh": "试一种从没做过的活动"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Try something new near a place I know",
+            "zh": "在熟悉的地方试点新东西"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Return to an activity I like, with one small change",
+            "zh": "重做喜欢的活动，改一个小细节"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Enjoy my usual activity in its familiar form",
+            "zh": "按熟悉方式享受惯常活动"
+          },
+          "directionId": "age-points",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "MAGE_02",
+      "prompt": {
+        "en": "You can choose a short playlist without needing to please anyone else. What would you pick?",
+        "zh": "独自选一份短歌单，不需要照顾其他人的口味，你会选什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Mostly new tracks with a familiar song between them",
+            "zh": "以新歌为主，中间穿插熟悉的歌"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Mostly favourites with one new track",
+            "zh": "以常听的歌为主，加一首新歌"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "The familiar sequence I already enjoy",
+            "zh": "喜欢的熟悉歌单，顺序也不换"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Only artists I have not heard before",
+            "zh": "全选没听过的音乐人"
+          },
+          "directionId": "age-points",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "MAGE_03",
+      "prompt": {
+        "en": "A local place offers several equally accessible, free activities. Which invitation catches your eye?",
+        "zh": "附近有几种同样方便、免费的活动，哪个邀请先吸引你？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A favourite activity with a different theme",
+            "zh": "熟悉活动换一个主题"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "The regular activity I know what to expect from",
+            "zh": "知道会做什么的常规活动"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A completely unfamiliar activity",
+            "zh": "完全没接触过的活动"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A new activity with one familiar element",
+            "zh": "带一个熟悉环节的新活动"
+          },
+          "directionId": "age-points",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "MAGE_04",
+      "prompt": {
+        "en": "For a harmless personal project with no deadline, how would you choose a starting point?",
+        "zh": "做一个没有截止时间、也不影响他人的个人小项目，你想怎样开头？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Repeat a well-liked example as it is",
+            "zh": "原样重做自己喜欢的例子"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Begin from a blank page and see what appears",
+            "zh": "从白纸开始，看看会出现什么"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Try a fresh idea beside a simple example",
+            "zh": "拿个简单例子陪着，试新想法"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Use a familiar example and adjust one part",
+            "zh": "沿用熟悉例子，只改一部分"
+          },
+          "directionId": "age-points",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MAGE_05",
+      "prompt": {
+        "en": "You want a light read, and all four options are freely available. Which would you reach for?",
+        "zh": "想找点轻松读物，以下内容都能免费读，你会先拿哪一种？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "An unfamiliar topic by an unfamiliar writer",
+            "zh": "陌生作者写的陌生主题"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A new topic presented in a format I know",
+            "zh": "用熟悉形式讲的新主题"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A familiar topic with one different perspective",
+            "zh": "熟悉主题，加一种不同看法"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A favourite piece I enjoy rereading",
+            "zh": "喜欢反复读的那篇内容"
+          },
+          "directionId": "age-points",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "MAGE_06",
+      "prompt": {
+        "en": "On a familiar walk, all the paths are equally safe and take the same time. What appeals to you?",
+        "zh": "在熟悉的散步区域，几条路线都同样安全、耗时相同，你更想选哪条？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Mostly new paths, ending at a familiar spot",
+            "zh": "大部分走新路，终点选熟悉地点"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "My usual route with one short detour",
+            "zh": "惯常路线，换一小段路"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "My usual route from start to finish",
+            "zh": "从头到尾都走惯常路线"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A path I have never used",
+            "zh": "从没走过的路线"
+          },
+          "directionId": "age-points",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "MAGE_07",
+      "prompt": {
+        "en": "You can arrange a small display using only items already at home. Which approach feels inviting?",
+        "zh": "只用家里现成物品布置一个小角落，你觉得哪种做法更有吸引力？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Keep the arrangement and change one detail",
+            "zh": "基本沿用原摆法，只换一个细节"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Recreate the arrangement I already like",
+            "zh": "重现自己原本喜欢的摆法"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Make a completely new arrangement",
+            "zh": "试一套全新摆法"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Make a new arrangement around one familiar item",
+            "zh": "留一件熟悉物品，其余换新摆法"
+          },
+          "directionId": "age-points",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "MAGE_08",
+      "prompt": {
+        "en": "Choosing a free puzzle for enjoyment rather than a score, what would you prefer?",
+        "zh": "免费选个解谜活动，只图有趣、不比成绩，你更想选哪一种？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "The familiar puzzle format I regularly choose",
+            "zh": "平时就爱选的熟悉形式"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A format whose rules I have never seen",
+            "zh": "连规则形式都没见过的题"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "New rules with a worked example nearby",
+            "zh": "新规则，旁边带一个演示例子"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Familiar rules with a small twist",
+            "zh": "熟悉规则，带一点小变化"
+          },
+          "directionId": "age-points",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "id": "MAGE_09",
+      "prompt": {
+        "en": "A friend asks what kind of low-key catch-up you would enjoy; every option works for both of you. What is your preference?",
+        "zh": "和朋友轻松小聚，几种安排双方都方便，你自己更喜欢哪种？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Try a different kind of activity together",
+            "zh": "一起试一种不同形式的活动"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Try a new activity and keep our usual catch-up time",
+            "zh": "活动换新，保留惯常聊天时段"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Use our usual plan but add one new element",
+            "zh": "沿用惯常安排，加一个新环节"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Keep the familiar plan we both enjoy",
+            "zh": "保持双方都喜欢的熟悉安排"
+          },
+          "directionId": "age-points",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": "MAGE_10",
+      "prompt": {
+        "en": "You have a blank notebook for casual use, with no work or study requirement. What would you enjoy doing first?",
+        "zh": "一本空白本子只作随手使用，没有工作学习要求，你更想先做什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Try a new layout with a familiar heading",
+            "zh": "标题照旧，试试新的页面布局"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Use my usual layout with one change",
+            "zh": "常用版式改一个地方"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Use my usual page layout unchanged",
+            "zh": "照用自己熟悉的页面布局"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Invent a page layout as I go",
+            "zh": "边写边想一套没用过的版式"
+          },
+          "directionId": "age-points",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "MAGE_11",
+      "prompt": {
+        "en": "You can spend a few minutes exploring a public exhibition at your own pace. Which route would you choose?",
+        "zh": "有几分钟可以自在逛一个公开展览，你会怎样选择参观路线？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Stay mainly with familiar subjects and sample one new section",
+            "zh": "主要看熟悉主题，顺便看一个新展区"
+          },
+          "directionId": "age-points",
+          "score": 2
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Revisit the subjects I already enjoy",
+            "zh": "再看自己原本就喜欢的主题"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Start with the section I know least about",
+            "zh": "先逛最不了解的展区"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Explore a new section before a familiar subject",
+            "zh": "先看新展区，再回熟悉主题"
+          },
+          "directionId": "age-points",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "MAGE_12",
+      "prompt": {
+        "en": "For your next relaxed evening, with practical obligations already covered, which plan is most inviting?",
+        "zh": "下一次轻松的晚间，实际事务都已安排好，你觉得哪种计划最合心意？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Enjoy the usual sequence I look forward to",
+            "zh": "享受自己期待的惯常安排"
+          },
+          "directionId": "age-points",
+          "score": 3
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Leave the activity open and discover it at the time",
+            "zh": "活动先不定，到时再发现"
+          },
+          "directionId": "age-points",
+          "score": 0
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Choose a new activity, keeping one familiar part of the evening",
+            "zh": "试新活动，保留一个熟悉环节"
+          },
+          "directionId": "age-points",
+          "score": 1
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Keep my usual evening, changing just one activity",
+            "zh": "晚上大致照旧，只换一项活动"
+          },
+          "directionId": "age-points",
+          "score": 2
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "understanding-your-playful-age",
+      "directionIds": [
+        "age-points"
+      ],
+      "title": {
+        "en": "Mental Age Test Results: The Complete Playful-Age Guide",
+        "zh": "心理年龄结果：娱乐数字完整读法"
+      },
+      "headline": {
+        "en": "Read the arithmetic alongside your choices",
+        "zh": "把算式和具体选择放在一起看"
+      },
+      "summary": {
+        "en": "All 37 playful age values share this complete guide: points, worked examples, mixed choices, counterexamples and one optional next step.",
+        "zh": "全部37种娱乐年龄数值共用这份完整指南：点数、算例、混合选择、反例和可选行动。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mental Age Test Results: Formula, Examples & Limits",
+          "zh": "心理年龄测试结果：计算公式、算例与限制"
+        },
+        "description": {
+          "en": "Understand every playful mental age from 18 to 90. Recalculate the 12-choice formula, compare different answer patterns and read its limits.",
+          "zh": "看懂18至90的全部娱乐心理年龄，复算十二题公式，对照相同数字的不同回答与具体反例；不评价脑龄、智力或成熟度。"
+        }
+      },
+      "scoreReading": {
+        "en": "S = the sum of twelve 0–3 points. Playful age = 18 + 2 × S; S = 0…36 gives every even number 18…90. These are arbitrary display ages, without age norms.",
+        "zh": "S为十二题0至3点之和。娱乐年龄＝18＋2×S；S从0至36，对应18至90的全部偶数。这些是任意展示年龄，没有年龄常模。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What your playful age actually summarises",
+            "zh": "娱乐年龄实际概括了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This Mental Age Test gives a playful age number from twelve choices about novelty and familiarity in low-stakes leisure situations. The age is an editorial metaphor. It is not an estimate of years lived, the age of your brain, intellectual ability, emotional maturity or a developmental stage. The same answer pattern receives the same number at any real age. We never ask for your birthday or compare you with an age group.",
+              "zh": "本心理年龄测试把十二种轻松日常情境中对新鲜与熟悉的偏好，换算成一个娱乐年龄。年龄是编辑比喻，不估计真实岁数、脑龄、智力、情绪成熟度或发展阶段。同一套回答，无论实际年龄多少都得到同一数字；本版不问生日，也不和某个年龄群体比较。"
+            },
+            {
+              "en": "A smaller number means your selections received fewer familiarity points in this particular bank; a larger number means they received more. Neither end is a recommendation. Exploring a new exhibition and revisiting a favourite song are both ordinary pleasures. Twelve hypothetical preferences cannot tell us how you behave when money, safety, care responsibilities or an important decision is at stake.",
+              "zh": "较小的数字只表示本题本中所选选项累计的熟悉偏好点数较少，较大的数字表示较多，两端都不是推荐答案。逛新展区和重听喜欢的歌都是普通乐趣。十二道假设性偏好题，无法说明你在金钱、安全、照顾责任或重要决策中怎样行动。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Recalculate every possible number",
+            "zh": "复算每一个可达数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Every question has four original options worth 0, 1, 2 or 3 familiarity points. A fully new or open choice receives 0; novelty with a familiar anchor receives 1; a familiar choice with a small variation receives 2; keeping the familiar form receives 3. Positions rotate between questions, so choosing the first option throughout does not mean choosing zero throughout. Your response table shows the points for each chosen option.",
+              "zh": "每题四个原创选项分别计0、1、2、3个熟悉偏好点：完全尝新或开放选择为0，新鲜为主、保留熟悉支点为1，熟悉为主、略作变化为2，保持熟悉形式为3。选项位置随题轮换，因此全选第一项不等于全得0点。个人结果的回答表列出每次所选选项的点数。"
+            },
+            {
+              "en": "Add all twelve points to obtain S, an integer from 0 to 36. Playful age = 18 + 2 × S. Thus the complete possible output set is every even number from 18 through 90, inclusive: 37 numbers. There is no rounding, random draw, birthday adjustment or hidden weight. Eighteen and the two-year step are arbitrary display conventions, not research findings. Different raw patterns with the same S produce exactly the same age.",
+              "zh": "把十二题点数相加得到S，范围为整数0至36。娱乐年龄＝18＋2×S，因此全部可达输出为18至90之间的每个偶数，含两端，共37个。不取整、不随机、不按生日调整，也没有隐藏权重。18的起点和每点两岁的步长都是任意展示约定，不是研究结论；不同回答只要S相同，年龄数字就完全相同。"
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "en": "Three worked examples without age stereotypes",
+            "zh": "三个不套年龄刻板印象的算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Twelve zero-point choices give S = 0 and age 18. Twelve three-point choices give S = 36 and age 90. These are endpoints of the formula, not signs that someone thinks like an eighteen-year-old or a ninety-year-old. Changing a single chosen option from 0 to 3 adds six displayed years because it adds three points. That arithmetic does not describe six years of personal change.",
+              "zh": "十二题都选0点，S＝0，显示18；都选3点，S＝36，显示90。这只是公式两端，不表示谁的思维像十八岁或九十岁。把单题从0点改成3点，展示年龄增加六岁，因为增加了三点；这个算术变化不表示个人经历了六年的改变。"
+            },
+            {
+              "en": "For 0, 1, 2, 3 repeated three times, S = 18 and age = 54. Six zero-point answers plus six three-point answers also total 18, so they produce 54 as well. One pattern varies across all four options; the other alternates between two ends. Read your actual choices beside the number: 54 is not a distinct personality, a normal midpoint or an explanation of those differences.",
+              "zh": "把0、1、2、3重复三组，S＝18，年龄为54。六题0点加六题3点，同样合计18，也显示54。前者包含四种选项，后者落在两端；只看54无法分辨。请结合自己的具体选择阅读，54既不是一种独立人格，也不是正常中点，更不能解释这两套回答的差异。"
+            }
+          ]
+        },
+        {
+          "id": "situations",
+          "title": {
+            "en": "Use the situations, not the age as a label",
+            "zh": "回到情境，不用年龄贴标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine choosing a fresh playlist but taking the usual walking route. Novel music may fit a private listening session, while a familiar path makes conversation easier. Those answers need not agree, and the quiz does not correct one to match the other. A mixed pattern may be the most faithful record of what you wanted in those two imagined moments.",
+              "zh": "例如你想听新歌，却想走熟悉的散步路线。独自听音乐时尝新很合适，和人聊天时熟悉路线可能更方便。两题不必一致，测试也不会为保持一致而修正其中一题；混合回答可能最贴近你在这两个想象时刻的真实偏好。"
+            },
+            {
+              "en": "For a Chinese-language example, you might revisit a familiar exhibition topic but change a notebook layout. Repetition may be enjoyable in one activity and tedious in another. Time, access, sensory comfort and who is present can change a preference. The prompts hold cost and safety steady where relevant, but cannot reproduce your actual circumstances. Choose the nearest option or stop if none fits.",
+              "zh": "又如，你愿意重看熟悉的展览主题，却想换个记事本版式。同样的重复在一项活动中让人愉快，在另一项中可能无趣。时间、可及性、感官舒适和同行者都会影响偏好。题目在相关处尽量固定花费与安全条件，但无法重现你的真实处境；可选最接近的一项，没有合适项也可以停止。"
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "en": "What this result cannot distinguish",
+            "zh": "结果分不清的情况与反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people can both choose the usual evening plan for unrelated reasons: one loves the routine, while the other is temporarily tired. The age formula cannot separate these reasons. Likewise, choosing an unfamiliar puzzle expresses a preference in that moment; it does not demonstrate puzzle-solving ability, risk tolerance in real life or openness on a validated personality scale.",
+              "zh": "两个人都选惯常晚间安排，原因可能完全不同：一位就是喜欢熟悉节奏，另一位只是暂时疲倦。年龄公式分不清这些原因。同样，选陌生解谜形式只表达当时偏好，不证明解题能力、真实生活中的风险承受力或经过验证的人格开放性。"
+            },
+            {
+              "en": "An older person can choose every novelty option and a younger person every familiar option. Neither is an exception to a developmental rule because this bank contains no such rule. Do not use the result to evaluate a child, a partner, an applicant or a colleague. It supplies no evidence about cognitive decline, trauma, neurodevelopment, health or whether someone is acting their age.",
+              "zh": "年长者可以全选新鲜选项，年轻者也可以全选熟悉选项。两者都不违背任何发展规律，因为本题本根本没有建立这种规律。不要拿结果评价儿童、伴侣、求职者或同事；它不提供认知衰退、创伤、神经发育、健康或“行为是否符合年龄”的证据。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Compare choices without ranking people",
+            "zh": "比较选择，不给人排名"
+          },
+          "paragraphs": [
+            {
+              "en": "If friends want to compare, discuss one optional situation rather than who is younger, wiser or more mature. You could ask whether you would both choose a new activity for a free hour. Nobody needs to disclose a score, real age or answer table. A shared link opens the same public test or guide for everyone and does not retrieve a private attempt.",
+              "zh": "朋友愿意比较时，可以聊一道自愿选择的情境，不必评谁更年轻、更有智慧或更成熟。例如讨论空出一小时是否都想尝试新活动。任何人都无需公开数字、真实年龄或回答表。分享链接向所有人打开同一公开测试或指南，不会调取私人答卷。"
+            },
+            {
+              "en": "Retaking can change the number when your choices change. It does not establish that your mind has aged or become younger. If you switch languages, the editorial scoring remains the same; that technical consistency does not prove measurement equivalence between languages. There are no population norms, percentiles, diagnostic cutoffs or validated age bands to compare against.",
+              "zh": "重测时选择变了，数字就可能改变；这不能证明心智变老或变年轻。切换语言沿用同一编辑计分规则，但技术一致不证明两种语言的测量等值。这里没有人群常模、百分位、诊断截点或经过验证的年龄分档可供对照。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "An optional small experiment",
+            "zh": "可选的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-stakes activity from your responses. Keep something familiar and change one small part, such as one track in a playlist or one page layout in a notebook. Afterwards, notice whether the change was enjoyable. Keep the observation private and skip the experiment if it adds effort or discomfort. The purpose is to find an enjoyable choice, not to improve an age score.",
+              "zh": "从回答中挑一项轻松活动，保留熟悉部分，只改变一个小细节，例如换歌单里的一首歌或本子的一页版式。之后留意变化是否让你愉快。记录可以只给自己看；如果费力或不舒服就不做。目的在于找到喜欢的选择，不是提高或降低年龄数字。"
+            },
+            {
+              "en": "You may also finish here with the complete guide. For a separate exploration of personality preferences, MBTI requires its own full questionnaire and is optional. This age number cannot be converted into an MBTI type, an IQ score or a career recommendation. A concerning real-world difficulty deserves attention on its own terms, rather than an explanation from an entertainment label.",
+              "zh": "也可以读完完整指南就在这里结束。若另想探索人格偏好，可自行选择需要重新完整作答的MBTI；它不是必经步骤。本年龄数字不能转换为MBTI类型、智商或职业建议。真实生活中令人困扰的困难，应按具体情况理解，不由娱乐标签来解释。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Missing answers, privacy and method limits",
+            "zh": "缺答、隐私与方法限制"
+          },
+          "paragraphs": [
+            {
+              "en": "All twelve questions require one valid option before a result is shown. Missing answers are not filled in, averaged away or scored zero. There is no not-applicable choice because this edition cannot produce the declared total with an unscored item; you can leave at any point and read this guide without taking the test. Invalid choices or an unavailable bank do not receive an age.",
+              "zh": "十二题全部各有一个有效选项，才显示结果。缺答不填补、不从均值分母中删除，也不当作0点。本版没有“不适用”选项，因为少一题就无法按所声明规则求总和；你随时可以退出，也可以不答题直接阅读本指南。无效选项或题本不可用时不给年龄。"
+            },
+            {
+              "en": "Answers and your computed value stay in this browser. Optional progress saving uses this tab for up to 24 hours and clears on completion, exit-and-clear or retake. Public sharing contains only the test title and entry link, without the number or responses. All questions, point assignments and explanations are original FermatMind editorial content. Psychometric validation, age calibration and cross-language equivalence have not been established.",
+              "zh": "回答与算出的个人数值留在本浏览器。进度可自愿在当前标签页临时保存，最多24小时；完成、退出并清除或重测即删除。公开分享只含测试标题与入口链接，不带数字和答案。题目、点数约定与解释均为费马原创编辑内容，尚未建立心理测量验证、年龄校准或跨语言等值。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "en": "An original entertainment edition",
+        "zh": "原创娱乐版本"
+      },
+      "paragraphs": [
+        {
+          "en": "Twelve original daily-preference choices explore novelty and familiarity. This edition does not reproduce a competitor bank or a standard instrument. The number is a playful editorial convention, without age calibration.",
+          "zh": "十二道原创日常偏好题涉及新鲜与熟悉。本版不复制竞品题库或标准量表，数字是没有年龄校准的娱乐编辑约定。"
+        }
+      ]
+    },
+    {
+      "id": "calculation",
+      "title": {
+        "en": "The full calculation",
+        "zh": "完整计算规则"
+      },
+      "paragraphs": [
+        {
+          "en": "Each choice is worth 0–3 points, ordered from a fully new/open choice to keeping a familiar form. Add twelve points as S, then calculate 18 + 2 × S. S ranges from 0 to 36; all 37 even ages from 18 to 90 are reachable. The starting age and step are arbitrary.",
+          "zh": "每项计0至3点，按完全尝新／开放到保持熟悉形式排序。十二题相加为S，再计算18＋2×S。S为0至36，18至90之间37个偶数年龄均可达到；起点和步长是任意约定。"
+        }
+      ]
+    },
+    {
+      "id": "example",
+      "title": {
+        "en": "A worked example and a counterexample",
+        "zh": "算例与反例"
+      },
+      "paragraphs": [
+        {
+          "en": "Repeating 0, 1, 2, 3 three times gives S = 18 and age 54. Six zeros and six threes give the same number with a different pattern. Fifty-four is not a personality type or a normal benchmark.",
+          "zh": "0、1、2、3重复三次得到S＝18、年龄54；六个0加六个3也得到54，但回答模式不同。54不是人格类型或正常基准。"
+        }
+      ]
+    },
+    {
+      "id": "complete",
+      "title": {
+        "en": "Complete choices, optional participation",
+        "zh": "全部有效才显示，参与自愿"
+      },
+      "paragraphs": [
+        {
+          "en": "One valid choice is needed on each of twelve questions. Missing or invalid responses never produce an age. Choose the closest response or stop if none fits; the complete public guide is available before answering.",
+          "zh": "十二题每题都需一个有效选项；缺答或无效值不产生年龄。可选最接近的一项，没有合适项也可以停止；完整公开指南在答题前即可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What the age does not measure",
+        "zh": "年龄数字不能测什么"
+      },
+      "paragraphs": [
+        {
+          "en": "This is entertainment about hypothetical preferences, not brain age, IQ, maturity, development, health or a career assessment. The same choices give the same number at any real age. No age-group norms or scientific accuracy claim is provided.",
+          "zh": "这是关于假设性偏好的娱乐测试，不测脑龄、智商、成熟度、发展、健康或职业。相同选择在任何实际年龄都给同一数字，不提供年龄群体常模或科学准确性承诺。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Your responses stay private",
+        "zh": "回答保留在本浏览器"
+      },
+      "paragraphs": [
+        {
+          "en": "Optional progress saving lasts up to 24 hours in this tab and clears on completion, exit-and-clear or retake. Sharing copies only the public title and entry link. Your answers and age do not go into the link or analytics.",
+          "zh": "可选进度在当前标签页最多保存24小时，完成、退出并清除或重测即删除。分享只复制公开标题与入口链接，答案与年龄不放进链接或分析事件。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the Mental Age Test free?",
+        "zh": "心理年龄测试免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All twelve questions, the calculated playful age and the complete public guide are free, without an account or email.",
+        "zh": "免费。十二道题、算出的娱乐年龄和完整公开指南均可直接使用，不需要账户或邮箱。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is my mental age calculated?",
+        "zh": "心理年龄怎么算？"
+      },
+      "answer": {
+        "en": "Add the twelve 0–3 familiarity points as S. Playful age is 18 + 2 × S. Every even number from 18 to 90 is reachable; the age conversion is an arbitrary editorial convention.",
+        "zh": "十二题每题0至3个熟悉偏好点，相加为S；娱乐年龄＝18＋2×S。18至90的每个偶数均可达到，年龄换算是任意编辑约定。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it measure brain age or IQ?",
+        "zh": "它能测脑龄或智商吗？"
+      },
+      "answer": {
+        "en": "No. The number describes only this entertainment formula. It has no age calibration, cognitive tasks, developmental norms or diagnostic meaning.",
+        "zh": "不能。数字只来自本娱乐公式，没有年龄校准、认知任务、发展常模或诊断含义。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a higher or lower age better?",
+        "zh": "年龄高一点或低一点更好吗？"
+      },
+      "answer": {
+        "en": "Neither. More points mean more familiarity choices in this bank, not greater maturity or wisdom. Fewer points do not mean immaturity.",
+        "zh": "都不是。点数更多只表示本题本中熟悉偏好选择较多，不表示更成熟或更有智慧；较少也不表示幼稚。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can different answers give the same age?",
+        "zh": "不同回答会得到同一年龄吗？"
+      },
+      "answer": {
+        "en": "Yes. Different twelve-item patterns can have the same sum. The result retains your selected options and points so you can read the pattern instead of treating the number as a type.",
+        "zh": "会。不同的十二题组合可能总和相同。结果保留所选选项与点数，方便结合具体选择阅读，而不是把数字当类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do you need my real age?",
+        "zh": "需要填写实际年龄吗？"
+      },
+      "answer": {
+        "en": "No. We ask for neither birthday nor real age. We do not calculate an age gap or compare you with people of your age.",
+        "zh": "不需要。不问生日或实际年龄，不计算年龄差，也不和你的同龄人比较。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip a question?",
+        "zh": "有题没答会怎样？"
+      },
+      "answer": {
+        "en": "No age is shown until all twelve choices are valid. Missing is not zero. You can stop and read the complete guide without finishing.",
+        "zh": "十二题全部有效前不显示年龄，缺答不当作0点。可以停止，也可以不完成测试直接读完整指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I save or share the result?",
+        "zh": "可以保存进度或分享吗？"
+      },
+      "answer": {
+        "en": "Progress saving is optional in this tab for up to 24 hours. Completion, exit-and-clear or retake clears it. Sharing copies the public title and entry link without responses or your age.",
+        "zh": "可自愿在当前标签页保存进度，最多24小时；完成、退出并清除或重测即删除。分享只复制公开标题与入口链接，不含回答或个人年龄。"
+      }
+    }
+  ]
+}
