@@ -5649,5 +5649,33 @@
     "questionCount": 0,
     "resultSlugs": [],
     "collection": "explore"
+  },
+  {
+    "slug": "cyberpunk-edgerunners",
+    "code": "FM_EDGERUNNERS_CHARACTER21",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "fantasy",
+    "title": {
+      "en": "Cyberpunk: Edgerunners Test",
+      "zh": "《赛博朋克：边缘行者》角色测试"
+    },
+    "description": {
+      "en": "Which original-series character do your choices bring to mind? Take 21 original questions and read seven complete fan guides free. No signup or episode trivia.",
+      "zh": "21道原创题，对照大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第。七份完整同人说明免费，无需注册，不考剧情，也不作临床标签。"
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_edgerunners_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "david",
+      "lucy",
+      "rebecca",
+      "maine",
+      "kiwi",
+      "falco",
+      "faraday"
+    ]
   }
 ]

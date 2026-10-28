@@ -1,0 +1,2184 @@
+{
+  "slug": "cyberpunk-edgerunners",
+  "code": "FM_EDGERUNNERS_CHARACTER21",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Cyberpunk: Edgerunners Test",
+    "zh": "《赛博朋克：边缘行者》角色测试"
+  },
+  "description": {
+    "en": "Which original-series character do your choices bring to mind? Take 21 original questions and read seven complete fan guides free. No signup or episode trivia.",
+    "zh": "21道原创题，对照大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第。七份完整同人说明免费，无需注册，不考剧情，也不作临床标签。"
+  },
+  "seoTitle": {
+    "en": "Cyberpunk: Edgerunners Test: Free Character Quiz",
+    "zh": "《赛博朋克：边缘行者》角色测试：21题与7份全文"
+  },
+  "resultHeading": {
+    "en": "Character comparisons for your choices",
+    "zh": "与你本次选择相呼应的角色"
+  },
+  "minutes": 7,
+  "introduction": {
+    "en": "Compare seven selected characters from the original anime through ordinary imagined choices: starting a bounded attempt, keeping a personal goal, expressing support, coordinating a crew, checking information, clarifying a handoff and making terms explicit. Every angle is an independently written fan interpretation. You do not need plot knowledge, and no character match assigns the cast’s private history, harmful acts or fate to you. All seven full public guides can be read before starting.",
+    "zh": "从普通设想情境，对照初代动画中的七位人物：尝试有限的一步、保留个人目标、直接表达支持、协调团队、核对信息、说清交接，以及明确交换条件。角度均由费马独立写作，是非官方同人解释。不需剧情知识，人物匹配也不把私人经历、伤害行为或命运赋给你。开测前即可读七份全文。"
+  },
+  "instructions": {
+    "en": "Choose the response you currently feel drawn to in each of 21 ordinary imagined situations. No action has to be performed, and there are no right answers or best-looking options to find. Each choice adds one raw count to one character, with no reverse keys or weights. Every character appears 12 times, three in each position; every pair appears together six times. Complete all 21 choices for seven counts and every highest match with its full explanation. Counts are not similarity percentages, ability, moral worth or clinical scores. Optional tab drafts expire after 24 hours; completion, retake and exit-and-clear remove them. Copying is optional and shares only names and public links, not answers or counts.",
+    "zh": "按目前更想采用的回应，完成21道普通设想情境。无需实际做任何行动，没有对错，也不用找最漂亮的选项。每次为一位角色记1次，无反向、无加权；每位出现12次，四位置各3次，每对角色共同出现6次。全卷完成后显示七项次数，所有最高匹配逐份显示全文。次数不是相似度百分比、能力、道德价值或临床分。自选草稿仅在本标签页保留24小时，完成、重测、退出并清除会删除；分享可选，只含名字与公开链接，不含答卷或次数。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Official Cyberpunk: Edgerunners character and series introduction",
+        "zh": "《赛博朋克：边缘行者》官方角色与作品介绍"
+      },
+      "url": "https://www.cyberpunk.net/en/edgerunners"
+    },
+    {
+      "title": {
+        "en": "TRIGGER: original-series staff and cast",
+        "zh": "TRIGGER：初代作品制作与角色表"
+      },
+      "url": "https://www.st-trigger.co.jp/works/cyberpunk-edgerunners/"
+    },
+    {
+      "title": {
+        "en": "Wikipedia character list: secondary reference for Kiwi and Falco’s roles",
+        "zh": "维基百科角色表：琦薇与法尔科身份的辅助参考"
+      },
+      "url": "https://en.wikipedia.org/wiki/Cyberpunk:_Edgerunners"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fm_edgerunners_original_21_v1",
+    "itemBankVersion": "fm_edgerunners_original_21_v1",
+    "scoringVersion": "fm_edgerunners_all_highest_counts_v1",
+    "resultContentVersion": "fm_edgerunners_seven_full_guides_v1",
+    "itemBankSha256": "471e017793d97166c4dbb2c8d87fc8c3c0dda6153fc347b367e9231e56f770b3",
+    "resultContentSha256": "e80a37a9ee7a5714a76ffccc9751c85d0891c2d7291cedef0a3fa29226c24878",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "david",
+      "title": {
+        "en": "David Martinez",
+        "zh": "大卫（David）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lucy",
+      "title": {
+        "en": "Lucy",
+        "zh": "露西（Lucy）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rebecca",
+      "title": {
+        "en": "Rebecca",
+        "zh": "丽贝卡（Rebecca）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "maine",
+      "title": {
+        "en": "Maine",
+        "zh": "曼恩（Maine）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "kiwi",
+      "title": {
+        "en": "Kiwi",
+        "zh": "琦薇（Kiwi）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "falco",
+      "title": {
+        "en": "Falco",
+        "zh": "法尔科（Falco）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "faraday",
+      "title": {
+        "en": "Faraday",
+        "zh": "法拉第（Faraday）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "EDGE_01",
+      "prompt": {
+        "en": "A group has a small, unfamiliar task and an afternoon free. Which opening would you choose?",
+        "zh": "几个人有一下午空闲，想试一件没做过的小事。你愿意怎样开场？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "david",
+          "label": {
+            "en": "Try one manageable part now and learn what the attempt changes.",
+            "zh": "先试一个能掌握的小部分，看看尝试带来什么变化。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucy",
+          "label": {
+            "en": "Keep space for a personal reason to join, without having to explain everything.",
+            "zh": "给自己参加的理由留点空间，不必一开始全盘说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Tell someone directly that you are glad to do this with them.",
+            "zh": "直接告诉一个人：很高兴这次能和你一起做。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Check which facts the group actually has before treating a guess as shared knowledge.",
+            "zh": "先核对大家确实知道什么，不把猜测当作共同事实。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_02",
+      "prompt": {
+        "en": "Friends are choosing a public meeting place. What would you contribute first?",
+        "zh": "朋友正在挑一个公共见面地点，你想先补充什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucy",
+          "label": {
+            "en": "State a location or time boundary you need in order to enjoy joining.",
+            "zh": "说清让自己能安心参加的地点或时间边界。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Say plainly which suggestion you like and who you want to include.",
+            "zh": "清楚说出喜欢哪个提议，也说出想邀请谁。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maine",
+          "label": {
+            "en": "Make sure the people joining understand how the plan will be coordinated.",
+            "zh": "让参加的人知道这次安排由谁怎样协调。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "falco",
+          "label": {
+            "en": "Check the ordinary route home and the point at which the meeting ends.",
+            "zh": "查看正常回程路线，约好聚会何时结束。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_03",
+      "prompt": {
+        "en": "Two versions of a shared document disagree about a deadline. What is your first move?",
+        "zh": "两份共同文档写了不同的截止时间，你会先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Tell the people involved about the difference in a short, direct message.",
+            "zh": "用一条简明消息把差异直接告诉相关的人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maine",
+          "label": {
+            "en": "Bring the affected contributors together to agree how the correction gets made.",
+            "zh": "把受影响的伙伴召集起来，约定这次怎样修正。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Trace which version each date came from before passing either one on.",
+            "zh": "先追溯两个日期各出自哪一版，再决定传哪条。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "faraday",
+          "label": {
+            "en": "Clarify what each deadline commits the group to deliver or exchange.",
+            "zh": "说清每个日期分别意味着要交付或交换什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_04",
+      "prompt": {
+        "en": "The person coordinating a small project is absent today. What part would you most willingly take?",
+        "zh": "一个小项目的协调人今天不在，你更愿意先接哪一部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maine",
+          "label": {
+            "en": "Give the group a shared point of contact and help distribute the immediate work.",
+            "zh": "给小组一个共同联络点，帮大家分配眼前的工作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Separate confirmed instructions from details that still need the coordinator’s reply.",
+            "zh": "把已经确认的指示和仍要等回复的细节分开。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "falco",
+          "label": {
+            "en": "Keep the current handoff clear so the next person can continue without guessing.",
+            "zh": "把当前交接说清楚，让下一位不用猜也能继续。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "david",
+          "label": {
+            "en": "Choose one modest piece that can move forward without that person’s decision.",
+            "zh": "挑一件不用等对方拍板、可以先迈一步的小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_05",
+      "prompt": {
+        "en": "An acquaintance asks for a list containing other people’s contact details. What comes first for you?",
+        "zh": "一位熟人想要一份含有他人联系方式的名单，你会先考虑哪一步？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Check what can be shared, with whose permission and for which stated purpose.",
+            "zh": "核对哪些能分享、需要谁同意，以及明确用途是什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "falco",
+          "label": {
+            "en": "Offer an agreed way to pass the request on without moving the whole list.",
+            "zh": "提供一个约定好的转达办法，不把整份名单搬过去。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "faraday",
+          "label": {
+            "en": "Make the request’s conditions and any reciprocal commitment explicit.",
+            "zh": "把请求的条件以及双方要承担的约定说清楚。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucy",
+          "label": {
+            "en": "Say what you are comfortable contributing and keep other parts private.",
+            "zh": "说清自己愿意提供什么，让其他部分继续保留。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_06",
+      "prompt": {
+        "en": "There is only half an hour left to finish a voluntary group task. What would you focus on?",
+        "zh": "一项自愿参与的小组任务只剩半小时，你想把注意力放在哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "falco",
+          "label": {
+            "en": "Leave a usable ending and a clear note about what remains unfinished.",
+            "zh": "留一个别人接得住的结尾，说明还有什么没完成。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "faraday",
+          "label": {
+            "en": "Agree which promised outcome fits the remaining time and available help.",
+            "zh": "约定剩余时间和帮助实际能兑现哪项成果。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "david",
+          "label": {
+            "en": "Make one small, visible attempt at the part nobody has tried yet.",
+            "zh": "把还没人试过的一小部分实际试一次。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Speak up for a contributor whose immediate need has gone unnoticed.",
+            "zh": "替眼前需要帮助却没被注意到的伙伴说句话。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_07",
+      "prompt": {
+        "en": "You have been offered a new role in a hobby group. What would you ask about first?",
+        "zh": "爱好小组邀请你担任一个新角色，你更想先问清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "faraday",
+          "label": {
+            "en": "What is expected in return for the time or resources you would commit?",
+            "zh": "如果投入这些时间或资源，双方分别期待什么？"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "david",
+          "label": {
+            "en": "Which part lets you begin learning by doing something concrete?",
+            "zh": "哪一部分可以从做一件具体小事开始学习？"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucy",
+          "label": {
+            "en": "Can you keep the personal goal that made the activity worth joining?",
+            "zh": "还能否保留当初让自己愿意参加的那个目标？"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maine",
+          "label": {
+            "en": "How can you help the group work together rather than only do your own part?",
+            "zh": "除了做自己的部分，还能怎样帮大家一起推进？"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_08",
+      "prompt": {
+        "en": "You saved a few free hours for a personal project, and another invitation arrives. Which response appeals?",
+        "zh": "你留了几小时给个人计划，这时又来一个邀请。你更想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "david",
+          "label": {
+            "en": "Use part of the time for a short first attempt before deciding about the invitation.",
+            "zh": "先留一小段时间试自己的计划，再决定是否赴约。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucy",
+          "label": {
+            "en": "Protect the time you chose for yourself and explain only the boundary that matters.",
+            "zh": "保留自己选定的时间，只解释这次必要的边界。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Reply warmly and clearly about what you can offer your friend today.",
+            "zh": "明确而热情地回复朋友，今天自己能参与到什么程度。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Ask for the missing practical details before accepting an unclear plan.",
+            "zh": "先问清缺少的实际安排，不急着答应模糊计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_09",
+      "prompt": {
+        "en": "An event room suddenly becomes unavailable. What do you want the group to settle first?",
+        "zh": "活动场地突然无法使用，你想先和大家确定哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucy",
+          "label": {
+            "en": "Which part of the original experience still matters personally to those joining?",
+            "zh": "原本体验中，哪些部分对参加的人仍然重要？"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Who needs a quick, straightforward message so they are not left waiting?",
+            "zh": "谁需要马上收到一条清楚消息，以免白等？"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maine",
+          "label": {
+            "en": "Who can coordinate the change and make sure everyone has a way to contribute?",
+            "zh": "谁来协调变动，让每个人仍有可参与的位置？"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "falco",
+          "label": {
+            "en": "Where can people arrive and leave reliably if a replacement place is chosen?",
+            "zh": "若换地方，大家怎样可靠地到达和离开？"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_10",
+      "prompt": {
+        "en": "A shared plan quietly changes after some people have left the conversation. What would you do?",
+        "zh": "一些人离开讨论后，共同计划悄悄变了。你会先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rebecca",
+          "label": {
+            "en": "State the change openly in the group’s usual channel.",
+            "zh": "在小组平常使用的沟通处直接说出这次变化。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maine",
+          "label": {
+            "en": "Arrange a short check so the affected people can agree on the revised action.",
+            "zh": "安排一次简短核对，让受影响的人同意新做法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Check who knows the new information and who is still using the old version.",
+            "zh": "核对谁已知新消息，谁还在依据旧版行动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "faraday",
+          "label": {
+            "en": "Revisit what the change means for each person’s promised contribution.",
+            "zh": "重新说明变化后，每个人原先答应的贡献怎样算。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_11",
+      "prompt": {
+        "en": "A newcomer wants to help but does not know the group’s routines. Which help would you offer?",
+        "zh": "新伙伴想帮忙，却还不熟悉小组习惯，你更愿意提供哪种帮助？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maine",
+          "label": {
+            "en": "Connect them with the people and support needed to take a clear part.",
+            "zh": "帮对方找到相关的人和支持，接下一个清楚的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Explain which instructions are current and where to check uncertain information.",
+            "zh": "说明哪些指示是当前版本，不确定时去哪里核对。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "falco",
+          "label": {
+            "en": "Show what a completed handoff looks like and who receives it next.",
+            "zh": "说明一次完整交接长什么样，以及接下来交给谁。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "david",
+          "label": {
+            "en": "Invite a small first attempt that does not need mastery of the whole routine.",
+            "zh": "邀请对方先试一小件事，不必先精通全部流程。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_12",
+      "prompt": {
+        "en": "A friendly group chat asks why you declined a plan. Which approach feels most comfortable?",
+        "zh": "友好的群聊里有人问你为什么不参加安排，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Clarify which part of the explanation is useful for coordination and which is private.",
+            "zh": "区分哪些说明有助于协调，哪些仍属私人部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "falco",
+          "label": {
+            "en": "Give a practical next step so nobody has to keep waiting for your decision.",
+            "zh": "给一个实际的下一步，不让别人一直等自己决定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "faraday",
+          "label": {
+            "en": "Explain what you can still contribute under a smaller, explicit arrangement.",
+            "zh": "说明在一个更小、更明确的约定里，自己还能贡献什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucy",
+          "label": {
+            "en": "Keep your own reason intact without feeling obliged to justify every detail.",
+            "zh": "保留自己的理由，不觉得必须为所有细节作辩护。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_13",
+      "prompt": {
+        "en": "A borrowed tool needs to be returned after a group activity. What would you take care of first?",
+        "zh": "活动结束后，有件借来的工具需要归还，你想先照看什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "falco",
+          "label": {
+            "en": "Confirm when, where and to whom it will be returned.",
+            "zh": "确认什么时候、在哪里、交给谁。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "faraday",
+          "label": {
+            "en": "Check the return agreement and any responsibility that still needs settling.",
+            "zh": "核对归还约定，以及还有哪些责任需要结清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "david",
+          "label": {
+            "en": "Try the agreed closing step yourself rather than leaving it as an intention.",
+            "zh": "亲手完成已经约好的收尾步骤，不只停在打算上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Tell the person who helped that their contribution mattered to the group.",
+            "zh": "直接告诉帮忙的人：这次贡献大家看到了。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_14",
+      "prompt": {
+        "en": "A club proposes dividing a small supply budget. What question would you raise?",
+        "zh": "社团准备分配一小笔物料预算，你更想提出哪个问题？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "faraday",
+          "label": {
+            "en": "What do the different allocations actually buy or commit us to?",
+            "zh": "几种分法分别能换来什么，又要承担什么约定？"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "david",
+          "label": {
+            "en": "Which modest purchase lets us try the idea before deciding on a larger plan?",
+            "zh": "哪一项小投入能先让想法试起来，再决定要不要扩大？"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucy",
+          "label": {
+            "en": "Does the plan leave room for the reason each person wanted to join?",
+            "zh": "安排有没有给每个人最初想参加的理由留位置？"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maine",
+          "label": {
+            "en": "How will we coordinate shared use and help members who need support?",
+            "zh": "共同使用怎样协调，需要帮助的成员由谁支持？"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_15",
+      "prompt": {
+        "en": "You are editing an introduction to a group’s original work. Which part would you check first?",
+        "zh": "你在修改一段介绍小组原创作品的文字，会先留意哪一点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "david",
+          "label": {
+            "en": "Make a small draft that gives the idea a concrete starting form.",
+            "zh": "先写一个小版本，让想法有个具体起点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucy",
+          "label": {
+            "en": "Keep the stated purpose close to what the contributors actually wanted to express.",
+            "zh": "让写出的目的接近参与者真正想表达的东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Say clearly whose effort you appreciate rather than using distant praise.",
+            "zh": "清楚说出欣赏谁的付出，不只写疏远的套话。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Check whether every factual claim is confirmed and safe to include.",
+            "zh": "核对每条事实是否已确认，以及是否适合公开。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_16",
+      "prompt": {
+        "en": "A friend is unsure whether to attend a large gathering. What response would you prefer to offer?",
+        "zh": "朋友拿不准要不要参加一场人数较多的聚会，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucy",
+          "label": {
+            "en": "Ask what they want from the evening and respect the limit they choose.",
+            "zh": "先问对方想从这晚获得什么，尊重其选择的限度。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Say directly that you would enjoy their company without making it a demand.",
+            "zh": "直接表达希望一起参加，但不把心意变成要求。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maine",
+          "label": {
+            "en": "Offer to coordinate a simple check-in with people they already know.",
+            "zh": "提出和已认识的人约个简单联络方式，帮忙协调。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "falco",
+          "label": {
+            "en": "Clarify an ordinary arrival and leaving plan so they can decide concretely.",
+            "zh": "把正常到场和离开的安排说清，让对方容易决定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_17",
+      "prompt": {
+        "en": "Your group has two equally interesting ways to use a free weekend. What would help you choose?",
+        "zh": "小组有两种同样吸引人的周末安排，什么最能帮你作决定？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Hearing an honest, direct expression of what someone most wants to do.",
+            "zh": "听见有人坦率而直接地说出这次最想做什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maine",
+          "label": {
+            "en": "Seeing how the choice brings people together and who needs help to join.",
+            "zh": "看哪种选择能把大家带到一起，以及谁需要帮助。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Knowing which assumptions about the options have actually been checked.",
+            "zh": "知道两个选项里的哪些假设已经核实。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "faraday",
+          "label": {
+            "en": "Understanding the time, resource and commitment trade-offs of each option.",
+            "zh": "弄清各自要投入的时间、资源和承诺如何取舍。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_18",
+      "prompt": {
+        "en": "An agreed group task has reached a confusing middle point. Which contribution feels most like yours?",
+        "zh": "共同任务走到一半，大家有些摸不清下一步，你更想作哪种贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maine",
+          "label": {
+            "en": "Help people see their shared direction and offer support for the next piece.",
+            "zh": "帮大家看清共同方向，为下一小段提供支持。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Identify the unanswered question before giving confident instructions.",
+            "zh": "先找出尚未回答的问题，再给确定的指示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "falco",
+          "label": {
+            "en": "Make the next handoff and stopping point concrete enough to follow.",
+            "zh": "把下一次交接和停下来的位置说得足够具体。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "david",
+          "label": {
+            "en": "Try one limited move that can reveal what the group needs to learn next.",
+            "zh": "试一个有限的小动作，看还需要学会或弄清什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_19",
+      "prompt": {
+        "en": "Someone offers a shortcut but cannot explain all its conditions yet. What would you do first?",
+        "zh": "有人提出一个捷径，但暂时说不全条件，你会先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kiwi",
+          "label": {
+            "en": "Keep the unknown conditions visible instead of filling them with a hopeful guess.",
+            "zh": "让未知条件继续保持未知，不用乐观猜测填上。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "falco",
+          "label": {
+            "en": "Keep the current workable route until a clear handoff to the new one is possible.",
+            "zh": "先保留现有可用路径，等能清楚交接后再切换。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "faraday",
+          "label": {
+            "en": "Ask what would change in the agreement if the shortcut is accepted.",
+            "zh": "问清接受捷径后，原有约定具体会怎样改变。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucy",
+          "label": {
+            "en": "Check whether the shortcut still respects the goal and limits you chose.",
+            "zh": "核对它是否仍尊重自己选定的目标和限度。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_20",
+      "prompt": {
+        "en": "A group activity went well, and everyone is about to leave. What would you still like to do?",
+        "zh": "小组活动顺利结束，大家准备离开，你还想做哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "falco",
+          "label": {
+            "en": "Make sure the final materials and practical responsibilities have a clear destination.",
+            "zh": "确认最后的材料和实际责任都有清楚的去向。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "faraday",
+          "label": {
+            "en": "Check which promises are fulfilled and which follow-up needs a fresh agreement.",
+            "zh": "核对哪些承诺已兑现，哪些后续需要另作约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "david",
+          "label": {
+            "en": "Note one thing you want to try differently the next time you participate.",
+            "zh": "记下一件下次参加时想换个办法试的小事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rebecca",
+          "label": {
+            "en": "Thank someone in a specific, lively way while you are still together.",
+            "zh": "趁还在一起，具体而有温度地向一个人道谢。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EDGE_21",
+      "prompt": {
+        "en": "A collaborator proposes doing much more than the original plan. What do you want to clarify?",
+        "zh": "伙伴提议比原计划多做很多，你更想先澄清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "faraday",
+          "label": {
+            "en": "What additional time or exchange is being proposed, and can everyone agree?",
+            "zh": "这会增加哪些时间或交换条件，大家能否同意？"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "david",
+          "label": {
+            "en": "Can we test a small piece before committing to the whole expansion?",
+            "zh": "能否先试其中一小部分，再决定是否全部扩大？"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucy",
+          "label": {
+            "en": "Does the larger plan still leave room for the purpose I chose to pursue?",
+            "zh": "扩大后，自己选定的目的是否仍有位置？"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maine",
+          "label": {
+            "en": "Who will coordinate the extra work and make sure help is available?",
+            "zh": "谁来协调增加的工作，并确保需要时有人支持？"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "david",
+      "directionIds": [
+        "david"
+      ],
+      "title": {
+        "en": "David Martinez",
+        "zh": "大卫·马丁内斯（David Martinez）"
+      },
+      "headline": {
+        "en": "Give a chosen direction a first real step",
+        "zh": "让选定的方向有一个实际起点"
+      },
+      "summary": {
+        "en": "Read the David comparison through a small first attempt, the difference between momentum and overcommitment, and six other ways the crew’s roles can illuminate a choice. All counts and limits stay explicit.",
+        "zh": "从一次小尝试读大卫的角色联想：区分向前一步与接下过多，比较另外六种角度，保留计数边界。全文不把角色命运或冒险行为赋给你。"
+      },
+      "seo": {
+        "title": {
+          "en": "David Martinez Test Result: A First Step with Limits",
+          "zh": "大卫测试结果：向前一步，也看清自己能承担什么"
+        },
+        "description": {
+          "en": "An unfinished idea needs a small trial. Read David’s unofficial character guide on learning through a bounded attempt, asking for support and understanding a close result.",
+          "zh": "一个想法迟迟没开始，先试哪一小步？大卫的非官方角色说明讨论小范围尝试、求助与接下过多的区别，也解释相近计数。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The angle this edition takes from David",
+            "zh": "本版从大卫取的一个角度"
+          },
+          "paragraphs": [
+            {
+              "en": "David is the young protagonist who enters Night City’s edgerunner world. This fan edition uses a deliberately limited association: wanting a direction to become something you can actually try. It is an editorial link between fictional roles and the offered choices, rather than an assessment of your ambition, courage, background or resemblance to his life.",
+              "zh": "大卫是进入夜之城边缘行者世界的年轻主角。本同人版只取一个有限联想：希望心里的方向能变成可以实际尝试的事。这是虚构人物与本题选项之间的编辑性连接，不评你的志向、勇气、出身，也不判断人生是否像他。"
+            },
+            {
+              "en": "A David count can come from choosing a first draft, a small experiment or one part that can move without mastering the whole plan. Those choices may reflect today’s circumstances as much as any preference. Someone can welcome a first attempt in a hobby and prefer careful preparation in an unfamiliar responsibility.",
+              "zh": "选择先写小稿、做一次尝试，或推进不必等全盘成熟的一部分，都可能记到大卫。它也可能反映眼前条件，而不只是偏好。一个人可以在爱好里愿意先试，同时在不熟悉的责任上更想准备充分。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The project that has never left the notes",
+            "zh": "停在笔记里的小计划"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a few friends planning an original community display. There are pages of possibilities, but nobody knows whether visitors can understand its central idea. Your contribution might be a single paper mock-up that people can read in a minute. The attempt gives the group something specific to discuss without committing it to the entire display.",
+              "zh": "比如几位朋友想做一份原创兴趣展示，写了许多设想，却还不知道别人能否看懂核心意思。可以先做一张一分钟能读完的纸样，让大家有具体东西可讨论，而不是因此承诺办完一整场活动。"
+            },
+            {
+              "en": "The useful question is what that one version is meant to reveal. Perhaps it checks the wording, the order of information or whether the task is enjoyable. Decide what would make you pause or revise it before you begin. An attempt can be worthwhile even when the answer is that the larger idea needs to change.",
+              "zh": "这张纸样要帮忙弄清什么，才是关键：措辞、信息顺序，还是大家是否愿意继续做？开始前可先想想，出现什么情况会暂停或调整。小尝试发现“大计划需要改”也有用，不必把坚持原样做完当作唯一收获。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Momentum needs a size and a stopping point",
+            "zh": "行动也需要大小与停点"
+          },
+          "paragraphs": [
+            {
+              "en": "Beginning can make an uncertain task feel less abstract, but activity alone does not show that a direction is good. A David-style reading becomes more concrete when the first step has an agreed size, enough information and a way to stop. Taking on more is not automatically the same as learning more.",
+              "zh": "开始做，会让模糊任务变得具体一些；但忙起来并不证明方向正确。给第一步约定大小、必要信息和停下来的办法，这个“大卫式”角度才更具体。接更多事，不自动等于学得更多。"
+            },
+            {
+              "en": "The story association does not recommend copying dangerous choices, ignoring ordinary limits or trying to prove that you can carry everything. A useful counterexample is a request that needs authority or knowledge you do not have. Asking someone qualified, changing the scope or declining can fit a chosen direction better than pushing ahead.",
+              "zh": "人物联想不建议模仿危险行为、无视日常限制，或证明自己什么都能扛。反例是：请求需要你没有的权限或知识。询问合适的人、缩小范围或拒绝，反而可能更符合自己原本想去的方向。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "David beside Lucy, Rebecca and Maine",
+            "zh": "和露西、丽贝卡、曼恩放在一起看"
+          },
+          "paragraphs": [
+            {
+              "en": "Lucy’s angle asks which goal and boundary you want to keep; David’s asks which small move could put a direction into practice. They can support each other. Rebecca adds an immediate, openly expressed response to another person, while Maine puts the crew’s coordination and available support into the foreground.",
+              "zh": "露西的角度先问：想保留什么目标和边界？大卫的角度则问：哪一个小动作能让方向实际发生？两者能互相支持。丽贝卡强调眼前直接表达的回应，曼恩则把团队协同和可用支持放到前面。"
+            },
+            {
+              "en": "Kiwi checks what is known and who should receive it. Falco makes a workable handoff or ending visible. Faraday brings the terms of an exchange into view. None of these contributions is an inferior form of initiative. Read another guide when its question is useful, without treating it as a hidden rank inside yourself.",
+              "zh": "琦薇核对知道什么、信息应交给谁；法尔科让交接和结尾可靠；法拉第把交换条件摆到明面。这些都不比“先行动”低一等。另一份说明的问题有用就可以读，不必把它变成自己内部隐藏的高低排名。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Five choices are five choices",
+            "zh": "五次就是本题里的五次"
+          },
+          "paragraphs": [
+            {
+              "en": "If five of the twelve offered David options were selected, the report describes five choices in this bank. It does not say that you are five-twelfths David, identify a general level of determination or establish how you compare with other people. A missing David option on another question is not a rejection of him.",
+              "zh": "如果大卫出现的12次里选中了5次，报告记录的就是本题本里这5次选择。它不说明你有十二分之五像大卫，不测普遍的坚定程度，也不确定你在人群中的位置。另一题没出现大卫，不算你拒绝他。"
+            },
+            {
+              "en": "A one-choice lead over Lucy or another character has no validated psychological significance. All equal highest counts receive complete guides, including the seven-way tie. Your practical reason for choosing an option may be more interesting than the winning name, and repeating after reading the mappings can change what you are choosing for.",
+              "zh": "比露西或其他角色多一次，没有验证过的心理显著意义。最高值并列时，全文全部保留，也包括七人同分。你当时为什么选那一项，可能比名字更有意思；知道映射后重做，也可能是在按不同目的选择。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Try a version that can remain small",
+            "zh": "让小版本真的可以保持小"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a next step, choose an ordinary activity you already have permission to try. Write what a first version would contain and what it would leave out. Use invented information when an example needs details. You do not need to carry out a public challenge or submit evidence to this quiz.",
+              "zh": "如果想接着做点什么，可选一项自己本来就能决定的普通活动，写下第一版包含什么、暂不包含什么。例子需要资料时用虚构信息，不必公开挑战，也不需要向测试提交证明。"
+            },
+            {
+              "en": "Afterwards, ask whether you learned something that changes the next decision. The answer can be to continue, ask for help or stop. This is an optional way to examine a task, not a programme for becoming more like a character. Simply reading and ending the quiz is a complete choice too.",
+              "zh": "之后可以问：有没有学到会改变下一步决定的东西？答案可以是继续、求助，也可以是结束。这只是查看任务的一种自选办法，不是把自己训练得更像某位角色。读完说明，就到这里，也完全可以。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "What this character result leaves open",
+            "zh": "人物结果仍然不能替你回答的事"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote the questions, matching choices and this explanation. Character names and limited role facts identify the original anime’s cast; the count angles are our own. This is an unofficial fan comparison without affiliation or endorsement from the series’ creators, and no official art, dialogue or competitor result text is used.",
+              "zh": "题目、选项映射与本说明由费马独立编写。角色名和有限的身份事实用于识别初代动画人物，计数角度由本版自行设定。这是非官方同人比较，没有主创合作或背书，不使用官方图画、台词或竞品结果正文。"
+            },
+            {
+              "en": "The result establishes no personality diagnosis, ability, relationship role or prediction about what happens to you. It also does not convert to MBTI or any other assessment. You may compare the seven public character guides or optionally choose a different test for a different question; none is needed to unlock this full result.",
+              "zh": "结果不确定人格诊断、能力、关系角色或人生走向，也不能换算MBTI等测评。可以比较七份公开角色说明，也可为了另一个问题自选其他测试；这份全文不需要靠后续测评来解锁。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lucy",
+      "directionIds": [
+        "lucy"
+      ],
+      "title": {
+        "en": "Lucy",
+        "zh": "露西（Lucy）"
+      },
+      "headline": {
+        "en": "Keep the destination yours, and the boundary speakable",
+        "zh": "保留自己的目的，也把必要边界说得清楚"
+      },
+      "summary": {
+        "en": "Lucy’s limited fan reading separates a self-chosen goal from an unexplained disappearance. Follow a changed group plan, compare the other six characters and read what a close count can mean.",
+        "zh": "露西的有限同人读法把自主目标与不告而别分开：用一次变动的小组安排作例子，比较其他六位角色，也说明相近计数的边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Lucy Test Result: Personal Goals and Clear Boundaries",
+          "zh": "露西测试结果：自己的目标与说得清的边界"
+        },
+        "description": {
+          "en": "A shared invitation grows beyond what you wanted. Read Lucy’s unofficial guide on keeping a personal purpose, choosing what to explain and making a smaller agreement.",
+          "zh": "原本期待的邀请越变越大，怎样保留自己参加的理由？露西的非官方说明谈自主目标、说明范围、小约定与其他六角色的区别。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A chosen purpose behind a quiet answer",
+            "zh": "安静回答背后的自主目的"
+          },
+          "paragraphs": [
+            {
+              "en": "Lucy is a netrunner with a private past in the original anime. This edition takes a narrow editorial angle from that role: keeping a self-chosen purpose and deciding what you want to explain. It does not score secrecy, attachment, technical skill or similarity to her experiences. A fictional reference supplies a comparison, not an account of your inner life.",
+              "zh": "初代动画中的露西是一位有私人过往的网络黑客。本版从这个角色取一个很窄的编辑角度：保留自己选定的目的，并决定愿意解释到哪里。它不测秘密、依恋、技术能力，也不判断你的经历是否像她。人物联想用来比较，不是解释你的内心人生。"
+            },
+            {
+              "en": "Your Lucy choices may have favoured protecting a reason for joining, naming an ordinary limit or leaving some personal details private. They need not mean that you prefer being alone. A person can care deeply about a shared activity while wanting its pace, size or purpose to remain something they have actually chosen.",
+              "zh": "本次记到露西的选择，可能是在保留参加理由、说明普通限度，或让部分细节继续属于私人范围。它不等于喜欢独处。一个人很重视共同活动，也可以希望节奏、规模或目的仍是自己真正同意的。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "When an invitation quietly becomes a commitment",
+            "zh": "邀请怎样悄悄变成了承诺"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine joining a small reading group for relaxed discussion. Later, the group proposes a public event, regular organising duties and a shared promotional account. The new plan might be enjoyable, but it is a different invitation. You can still appreciate the people while asking whether the expanded role fits the reason you joined.",
+              "zh": "比如原本参加轻松的读书小组，后来大家提议公开活动、固定组织职责和共同运营账号。新安排也许不错，但它已经是另一份邀请。你仍然可以喜欢这些伙伴，同时问问扩大后的角色是否符合最初参加的理由。"
+            },
+            {
+              "en": "One possible response is to keep attending the discussion but decline the account work, or to try one event before taking a continuing role. The important part is that the limit can be understood. You do not owe a complete personal history, yet a practical answer helps other people decide what they can plan around.",
+              "zh": "一种回应是继续参加讨论，但不接账号工作；也可以先参加一次活动，再考虑长期角色。关键是让边界能够被理解。你不必交代完整私人经历，但一个实际回答，能让别人知道接下来可以怎样安排。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A boundary can contain an answer",
+            "zh": "边界里也可以有一个回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping a goal can become difficult when the only visible response is silence. Others may not know whether you need time, have declined or never received the request. A small statement about what you can and cannot agree to can preserve privacy while reducing that uncertainty. It need not explain the personal reasons behind the decision.",
+              "zh": "如果别人只看见沉默，保留目标也可能变得困难：对方不知道你要时间、已经拒绝，还是没收到请求。一句关于“能答应什么、不能答应什么”的说明，可以保留隐私，也减少这种不确定，不必把私人理由一并展开。"
+            },
+            {
+              "en": "The counterexample is an arrangement whose limits are already clear and respected. There may be nothing to negotiate or defend. A higher count does not show that someone is especially guarded, and a lower one does not show an absence of boundaries. The questions offered only selected situations and a restricted menu of responses.",
+              "zh": "反例是：某个安排本来就把限度说得清楚，也受到尊重，那就未必需要再争取或防守。次数较高不说明特别防备，较低也不说明没有边界。题目只提供了若干情境和有限的回应菜单。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Lucy is not simply the opposite of the crew",
+            "zh": "露西不是团队协作的反面"
+          },
+          "paragraphs": [
+            {
+              "en": "David’s angle puts a direction into a small first attempt; Lucy’s keeps the direction meaningfully yours. Maine asks how a crew can coordinate and provide support. Those questions can coexist: you might agree a bounded role that serves your own goal while still helping a group move. There is no automatic conflict between independence and participation.",
+              "zh": "大卫的角度让方向变成一个小尝试，露西的角度让那个方向仍然属于自己；曼恩关心团队怎样协同、怎样提供支持。几种问题可以同时成立：约好一个有限角色，既服务自己的目的，也帮助集体推进。自主与参与不必自动对立。"
+            },
+            {
+              "en": "Kiwi’s information angle asks what is known and what should be passed on; it does not ask the same question as choosing a personal goal. Rebecca makes support explicit, Falco clarifies a reliable ending and Faraday makes terms visible. Read these as alternative contributions, not seven fixed kinds of people who cannot work together.",
+              "zh": "琦薇的信息角度问“知道什么、该传给谁”，与“自己想保留什么目标”并不是同一问题。丽贝卡把支持表达出来，法尔科说清可靠的结尾，法拉第让条件可见。它们是可比较的贡献，不是七种注定无法合作的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Close counts can come from one practical constraint",
+            "zh": "一次实际限制也会影响相近计数"
+          },
+          "paragraphs": [
+            {
+              "en": "If Lucy is one choice ahead of Kiwi, the test cannot tell whether a lasting preference or today’s practical constraint produced that difference. Perhaps the setting reminded you of a recent invitation, or one option simply described something feasible. A one-choice gap has no established psychological significance, and it is not a relationship or trust score.",
+              "zh": "露西若比琦薇多一次，测试无法判断差别来自长期偏好，还是眼前实际限制。也许某题让你想起最近的邀请，也许那项恰好最可行。一次的差距没有已建立的心理显著意义，也不是关系或信任分数。"
+            },
+            {
+              "en": "The report keeps every equal highest count and supplies each full guide. Seven equal maxima are a valid outcome rather than a problem to fix. You may find a useful question in another character’s explanation without retaking to obtain that label. Reading a guide does not add a second type to your result.",
+              "zh": "最高次数相同时，报告会保留每一个并给出全文。七人同分也是有效结果，不是需要修复的问题。另一角色说明中的问题有用，就可以直接阅读，不必重做到拿到那个名字；读过说明，也不会新增第二类型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Try a smaller, understandable agreement",
+            "zh": "试着约一个更小也更好懂的安排"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary choice you already control, privately write what you want to keep, what you can offer and what remains undecided. Choose one sentence that communicates only the practical boundary. This could concern time at a hobby group or the size of a shared task; there is no need to disclose a sensitive experience.",
+              "zh": "对一项自己本来就能决定的普通选择，可以私下写下想保留什么、愿意提供什么、还有什么没决定，再挑一句只传达实际边界的话。比如兴趣小组的时间，或共同任务的大小；不必披露敏感经历。"
+            },
+            {
+              "en": "You do not have to send the sentence, confront someone or test whether another person accepts it. The optional exercise can end with noticing that you need more information. Its purpose is to make an agreement clearer, not to train yourself to resemble Lucy or to prove that a boundary is objectively correct.",
+              "zh": "这句话不一定要发出去，也不需要对质或检验别人是否接受。发现自己还需要信息，就可以结束这次自选观察。它只是让约定更清楚，不是训练自己变成露西，也不证明某条边界客观正确。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "An unofficial comparison leaves your history private",
+            "zh": "非官方比较，让经历继续属于自己"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this question bank and its result texts. The names identify characters from the original anime; the selected matching angles are editorial metaphors. No official dialogue, character art or competitor result is reproduced, and the page implies no affiliation or endorsement from CD PROJEKT RED, TRIGGER or Netflix.",
+              "zh": "题本和结果文字由费马独立创作。名字用于识别初代动画人物，选定的匹配角度是编辑性隐喻。不复现官方台词、角色画面或竞品结果，也不暗示与CD PROJEKT RED、TRIGGER或Netflix有合作或背书。"
+            },
+            {
+              "en": "No count establishes personality, mental health, relationship compatibility or a future like the story. Answers and counts are not placed in a public link. Optional copying shares a character name and public guide, rather than your answer sheet. All seven guides are free to read, and you may finish here without another assessment.",
+              "zh": "计数不确定人格、心理健康、关系兼容，或与剧情相似的未来。答卷和次数不进入公开链接；自选复制分享的是角色名与公开说明，不是答卷。七份全文都可免费阅读，不必再做其他测评才能结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebecca",
+      "directionIds": [
+        "rebecca"
+      ],
+      "title": {
+        "en": "Rebecca",
+        "zh": "丽贝卡（Rebecca）"
+      },
+      "headline": {
+        "en": "Let support be clear enough to reach someone",
+        "zh": "让支持清楚到别人接得住"
+      },
+      "summary": {
+        "en": "Rebecca’s fan comparison follows the moment when support needs words. Read a specific group example, the limits of speaking for someone, six character contrasts and the meaning of tied counts.",
+        "zh": "丽贝卡的同人读法看支持怎样被说出来：有具体的小组例子、替人发言的边界、六角色对照与并列计数说明，不把热烈回应等同冲动或善恶。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rebecca Test Result: Direct Support without Taking Over",
+          "zh": "丽贝卡测试结果：直接表达支持，也给对方留位置"
+        },
+        "description": {
+          "en": "Someone’s effort disappears behind a vague group thank-you. Rebecca’s unofficial guide explores clear appreciation, asking what help is wanted and comparing close character counts.",
+          "zh": "一句笼统的“谢谢大家”漏掉了具体付出，怎样表达看见？丽贝卡的非官方说明谈清楚的欣赏、先问需要什么帮助，以及相近角色计数。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A clear response in the present moment",
+            "zh": "回应就在眼前"
+          },
+          "paragraphs": [
+            {
+              "en": "Rebecca is part of the original anime’s edgerunner crew. This edition uses a limited association with an openly expressed, immediate response to the people present. It does not measure how lively, impulsive, loyal or generous you are. The link is our fan interpretation of the offered choices, not a statement about your resemblance to her story.",
+              "zh": "丽贝卡是初代动画边缘行者团队中的人物。本版取一个有限联想：把对眼前伙伴的回应直接表达出来。它不测活泼、冲动、忠诚或慷慨的程度，也不说你的人生像她。这个连接来自本版对选项的同人解释。"
+            },
+            {
+              "en": "You may have chosen a direct message, a specific thank-you or an offer that makes another person feel included. These actions can happen quietly as well as energetically. A short written note can express a clear response just as well as an enthusiastic conversation; the quiz does not assign an outgoing personality from either one.",
+              "zh": "本次可能选中了直接的消息、具体的感谢，或让另一个人知道自己被包括在内的提议。这些回应可以热烈，也可以安静。一条简短文字同样能够清楚表达心意，测试不会因此把人归为外向。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The contribution a general thank-you misses",
+            "zh": "笼统感谢漏掉的那份贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine friends finishing a small community activity. The group thanks everyone, but one person quietly handled an awkward practical detail that made the afternoon work. A Rebecca-style contribution might name that effort plainly: you noticed what they did and how it helped. No dramatic speech or public disclosure is necessary.",
+              "zh": "比如朋友一起完成一项社区小活动，大家说了“谢谢所有人”，但其中一位默默处理了一个棘手细节，下午才得以顺利进行。丽贝卡式的角度，可以是清楚指出那份付出：你看见做了什么，也知道它帮到哪里。不必演说或公开私人细节。"
+            },
+            {
+              "en": "If you want to offer more help, make the offer something the recipient can understand and decline. “I can carry this box to the agreed place” is different from assuming that you should take over their whole responsibility. Specific support gives the other person a usable choice rather than a new obligation to reassure you.",
+              "zh": "想进一步帮忙时，可以让提议具体到对方听得懂，也能拒绝。“我可以把这箱东西搬到约好的地方”，和接管对方全部责任并不是一回事。具体支持给的是可用的选择，不是让别人反过来安慰你的新义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Warmth does not remove the need to ask",
+            "zh": "有心意，仍然需要询问"
+          },
+          "paragraphs": [
+            {
+              "en": "A direct response can make care visible, especially when people are tired of guessing whether anyone noticed. Its limit appears when speed replaces attention to what the person actually wants. An unsolicited public defence, joke or announcement may put someone on the spot even when the intention was to support them.",
+              "zh": "当别人已经不想再猜“有没有人注意到”时，直接回应能让关心可见。但若快过了对实际需要的了解，就会出现限度。没有询问就公开替人辩护、开玩笑或宣布消息，即便出于支持，也可能让人难堪。"
+            },
+            {
+              "en": "A useful counterexample is a person who asks for quiet, time or privacy. Respecting that request is not a less caring response. Neither a higher nor a lower Rebecca count establishes interpersonal skill or kindness. Those questions need information about what happened and what the people involved understood, which this fictional quiz never observes.",
+              "zh": "反例是：对方明确想要安静、时间或隐私。尊重这样的请求，并不比热烈回应少一份关心。丽贝卡计数高或低都不能确定人际能力或善意；那需要了解实际发生什么，以及相关的人怎样理解，而本测试没有观察这些。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Six different questions around the same moment",
+            "zh": "同一时刻，六种别的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "David asks what can begin; Rebecca asks what response is needed here and now. Maine considers how the crew can work together, while Rebecca’s angle can be one immediate contribution within that coordination. Lucy keeps a chosen purpose and limit visible. None of these is automatically more expressive or more supportive than the others.",
+              "zh": "大卫问有什么可以开始，丽贝卡问眼前需要怎样回应；曼恩考虑团队怎样一起做，丽贝卡角度则可能是其中一次具体支持。露西让自主目的与限度保持可见。这些角度没有谁自动更会表达，或更关心别人。"
+            },
+            {
+              "en": "Kiwi checks the information before it travels. Falco clarifies the practical handoff, and Faraday makes the exchange explicit. A clear thank-you can coexist with all three. The comparison helps distinguish what an option foregrounded, without declaring that you lack the contributions attached to characters you selected less often.",
+              "zh": "琦薇先核对要传递的信息，法尔科说清实际交接，法拉第把交换说到明面。一句清楚的感谢可以与它们并存。对照只帮助看出某个选项强调了什么，不会把较少选择的角色所对应贡献判成你的缺点。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A name at the top is still a choice count",
+            "zh": "名字排在最高处，仍然只是次数"
+          },
+          "paragraphs": [
+            {
+              "en": "A report of six Rebecca selections out of twelve appearances means six selected options, not a measure of emotional intensity or a percentage of character resemblance. The options she did not appear in cannot be counted as rejections. Each answer contributed one count to one character, for twenty-one counts across the whole attempt.",
+              "zh": "若报告是丽贝卡出现的12次里选了6次，指的就是6个被选选项，不是情绪强度，也不是角色相似度百分比。她没有出现的题目不能算作被拒绝。每题为一位角色加1次，全卷一共21次。"
+            },
+            {
+              "en": "All equal highest counts keep their complete guides. A close Rebecca–Maine result might simply reflect that several options made direct support and coordination separately attractive. There is no established meaningful-difference threshold here. You can compare those explanations without inventing a primary and secondary personality or trying to make the counts farther apart.",
+              "zh": "最高次数并列，全文全部保留。丽贝卡与曼恩接近，可能只是几道题里的直接支持和协同安排都吸引了你。这里没有已建立的显著差异阈值，可以比较说明，不必发明主副人格，也不必把次数拉开。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Name one thing you actually noticed",
+            "zh": "说清一件自己确实看见的事"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next step is to privately write one sentence about an ordinary contribution you appreciated. Name the action and its practical effect without guessing the person’s motives. It can stay in your notes. You do not need to contact anyone, reveal their circumstances or reproduce a scene from the series.",
+              "zh": "如果想做一点自选观察，可以私下写一句话，具体说出欣赏的一次普通贡献：做了什么，有什么实际作用，不猜对方动机。文字可以只留在笔记里，不必联系任何人、披露其处境或复现剧情。"
+            },
+            {
+              "en": "If a real offer of help is relevant, ask whether it would be welcome and let the answer change your plan. That is a practical question about a situation, not a test of how compassionate you are. Ending with the guide, choosing another character to read or leaving the quiz are all complete next steps.",
+              "zh": "现实中如果确实要提供帮助，可以问对方是否需要，并让回答影响自己的安排。这是在了解情境，不是在检验自己多有同情心。读完这篇、看看另一个角色，或者离开测试，都可以作为完整的下一步。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Character reference and personal identity stay separate",
+            "zh": "人物联想与真人身份分开"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote these questions and explanations. Chinese renderings of Rebecca vary between sources; the English name keeps the character identity clear across spellings. The matching angle is editorial and unofficial, without affiliation or endorsement from the series’ creators. No official image, dialogue or competitor result is reproduced.",
+              "zh": "题目与解释由费马独立编写。Rebecca在官方中文网站也写作“瑞贝卡”，英文名用于让不同写法指向同一人物。匹配角度由本版编辑设定，属于非官方同人，没有主创合作或背书，不复现官方画面、台词或竞品结果。"
+            },
+            {
+              "en": "Your result supplies no diagnosis, personal-worth grade, relationship forecast or instruction to imitate a character’s harmful acts. Optional copying contains a result name and public explanation link, without answers or counts. Every character’s complete guide is free to read before or after answering, and none requires another assessment to unlock it.",
+              "zh": "结果不给诊断、个人价值等级、关系预测，也不要求模仿角色的伤害行为。自选复制只含结果名称与公开说明链接，没有答卷和次数。答题前后都能免费读每位角色的全文，不需另做测评解锁。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maine",
+      "directionIds": [
+        "maine"
+      ],
+      "title": {
+        "en": "Maine",
+        "zh": "曼恩（Maine）"
+      },
+      "headline": {
+        "en": "Give the crew a direction and usable support",
+        "zh": "让团队有方向，也有接得住的支持"
+      },
+      "summary": {
+        "en": "Maine’s fan guide asks what coordination actually makes possible. Follow a shared project, separate support from taking charge, compare all six other characters and understand the count boundary.",
+        "zh": "曼恩的同人说明看协同具体带来了什么：通过共同任务区分支持与接管，比较其他六角色，并把计数当作本次选择记录。"
+      },
+      "seo": {
+        "title": {
+          "en": "Maine Test Result: Coordination and Shared Support",
+          "zh": "曼恩测试结果：一起推进，也给支持一个具体位置"
+        },
+        "description": {
+          "en": "A group has willing people but no shared next step. Read Maine’s unofficial character guide on coordinating roles, making help available and leaving room for disagreement.",
+          "zh": "大家都愿意做，却没有共同下一步，怎样让支持真正可用？曼恩的非官方角色说明讨论协调、角色约定与不同意见。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A crew role rather than a leadership grade",
+            "zh": "团队角色，不是领导力等级"
+          },
+          "paragraphs": [
+            {
+              "en": "Maine leads an edgerunner crew and mentors David in the original anime. This edition takes one limited angle from that role: making a shared direction and support visible. It does not assess leadership ability, authority, strength or how others should follow you. Character association is an editorial comparison within these options.",
+              "zh": "初代动画里的曼恩带领边缘行者团队，也是大卫的导师。本版只取一个角度：让共同方向与支持变得可见。不评领导能力、权威、力量，也不决定别人应怎样跟随你；人物联想只用于本组选项中的比较。"
+            },
+            {
+              "en": "Your choices may have favoured a common point of contact, bringing contributors together or checking who needs help. These can be contributions from any member. A person can coordinate one small activity without wanting a permanent organising role, and an experienced organiser may choose to participate differently in another setting.",
+              "zh": "本次可能倾向于设共同联络点、召集参与者，或留意谁需要帮助。这些贡献不属于某个固定头衔。一个人可以协调一次小活动，却不想长期组织；有经验的组织者也可能在别的场合换种方式参与。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Willing people need a shared next step",
+            "zh": "大家愿意做，也要知道下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group preparing a modest local exhibition of its own original work. Several people have offered help, but the plan lists only broad headings. One person assumes they are designing a poster while another is waiting for them to arrange the room. A shared intention has not yet become a workable agreement.",
+              "zh": "比如几个人准备展示自己的原创作品，大家都答应帮忙，但计划上只有几个大标题。有人以为自己负责海报，另一个人却等着他安排场地。“愿意一起做”还没有变成能实际照着走的约定。"
+            },
+            {
+              "en": "A Maine-style contribution might be to ask what each person understands, identify the next common decision and make support available where it is wanted. That does not require issuing orders. It may reveal that the sensible shared plan is smaller, or that one part should wait until someone has the time or information it needs.",
+              "zh": "曼恩式角度可以是问清每个人怎样理解，找出下一项共同决定，再把帮助放到确实需要的地方。不必因此发布命令；也可能发现，合适的计划应更小，或某一部分需要等到时间、资料具备再做。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Support works better when it can be accepted or declined",
+            "zh": "支持也应可以接受或拒绝"
+          },
+          "paragraphs": [
+            {
+              "en": "Coordination can reduce confusion, but taking over may remove another person’s chance to choose. Before assigning a role or correcting someone’s method, check what has actually been agreed. An offer of help is clearer when its size and recipient are explicit, rather than an open promise that everyone should now rely on you.",
+              "zh": "协调能够减少混乱，接管却也可能拿走别人的选择空间。分派角色或纠正做法前，可以先核对实际约定。把帮助的大小和对象说清，通常比一句“以后都靠我”更容易被理解。"
+            },
+            {
+              "en": "A counterexample is a group that already has clear roles and does not need another coordinator. Contributing your own agreed piece can be the more useful choice. A high Maine count proves neither that the group needs your direction nor that your support would be effective; the quiz observes selected answers, not shared outcomes.",
+              "zh": "反例是：小组已有清楚角色，也不需要更多协调者，这时做好约定的那一部分反而可能更有用。曼恩次数高，不证明团队需要你指挥，也不证明帮助必然有效；测试只看到所选答案，没有观察共同成果。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Six contributions that need not compete",
+            "zh": "六种不必互相排斥的贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "David turns a direction into a first trial; Maine asks how people can move together around it. Rebecca makes an immediate offer or appreciation explicit. Lucy protects a chosen purpose and practical limit. Someone can combine those contributions in one activity, so a character name cannot stand in for a complete account of how you participate.",
+              "zh": "大卫让方向变成初次尝试，曼恩关心大家怎样围绕它共同推进；丽贝卡把眼前的支持或欣赏说出来，露西保留自主目的与实际限度。同一次活动里可以兼有这些贡献，所以角色名无法概括完整的参与方式。"
+            },
+            {
+              "en": "Kiwi checks uncertain information, Falco clarifies the handoff and ending, and Faraday makes terms and exchanges visible. Their guides can expose different reasons why a group plan becomes difficult. The aim is to compare questions, not to decide that an organiser outranks the people who protect information, finish details or negotiate a smaller commitment.",
+              "zh": "琦薇核对不确定的信息，法尔科说清交接和结束，法拉第让条件与交换可见。它们可能指出共同计划困难的不同原因。对照是比较问题，不是把组织者排在信息核对、细节收尾或约定小承诺的人之上。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A shared highest count keeps both explanations",
+            "zh": "并列最高时，说明也一起保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Every Maine selection adds one raw count, with twelve offered opportunities across twenty-one questions. The displayed denominator is not a support percentage or a score of how well you lead. An absent option was not rejected, and the available choices limit which kinds of coordination could appear in your answers.",
+              "zh": "每次选中曼恩加1次，21题中共出现12次。显示的分母不是支持程度百分比，也不是领导表现分数。没有出现的选项不算被拒绝，而选项菜单本身，也限制了能够被记录的协同方式。"
+            },
+            {
+              "en": "If Maine and Falco share the highest count, both receive their complete guide. A one-choice difference has no validated significance, and all-seven ties are retained. You can privately revisit which situations made coordination attractive without looking for a hidden dominant identity or treating the next highest character as a lesser person inside you.",
+              "zh": "曼恩与法尔科若并列最高，两份全文都会显示；相差一次没有验证过的显著意义，七人并列也保留。可以私下回看哪些情境让协同有吸引力，不必寻找隐藏主导身份，也不把第二高角色当作内部较次的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Ask what the next person understands",
+            "zh": "问问下一位怎样理解"
+          },
+          "paragraphs": [
+            {
+              "en": "If a next step is useful, choose a benign shared task and privately note its next decision, the people affected and what remains unagreed. You may ask what someone understands only when a real conversation is appropriate. The notes can stay with you; the quiz needs no names, documents or proof of participation.",
+              "zh": "想接着观察时，可以选一件普通共同任务，私下记下下一项决定、涉及谁、还有什么没约定。现实中确实适合沟通时，再询问对方怎样理解；笔记可以只留给自己，测试不需要姓名、文件或参与证明。"
+            },
+            {
+              "en": "Notice whether a clearer agreement changes what help is needed. The answer may be to coordinate, contribute a smaller part or let someone else lead. This optional observation promises no improvement in leadership or relationships. Reading another guide or ending here is equally complete, without an obligation to organise anything after the result.",
+              "zh": "可留意：约定更清楚后，需要的帮助有没有变化？答案可能是协调、只做更小一部分，或由别人来带头。这种自选观察不承诺改善领导力或关系；读别的说明或就到这里，同样完整，不负有组织活动的义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "One cast member, several Chinese renderings",
+            "zh": "同一角色与不同中文写法"
+          },
+          "paragraphs": [
+            {
+              "en": "Chinese renderings of Maine vary between the official website and common reader usage. The stable English name identifies the same original-series character. FermatMind independently wrote the questions and this unofficial explanation; the comparison implies no creator affiliation or endorsement and reproduces no official art, dialogue or competitor result.",
+              "zh": "Maine在官方中文网站写作“曼因”，读者也常称“曼恩”。这里以英文名识别同一位初代角色。题目与非官方说明由费马独立编写，不暗示主创合作或背书，也不复现官方图画、台词和竞品结果。"
+            },
+            {
+              "en": "No result assigns a clinical label, moral worth, management qualification or future like the plot. Sharing is optional and contains only a character name and public guide link, without the answers or counts. All seven complete guides remain free, including when your highest count is shared with several characters.",
+              "zh": "结果不派临床标签，不评道德价值、管理资格，也不预测类似剧情的未来。分享可选，只含角色名与公开说明链接，没有答卷和次数。七份完整指南免费，并列最高涉及多位角色时也一样。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kiwi",
+      "directionIds": [
+        "kiwi"
+      ],
+      "title": {
+        "en": "Kiwi",
+        "zh": "琦薇（Kiwi）"
+      },
+      "headline": {
+        "en": "Keep what is known separate from what is assumed",
+        "zh": "把已知与猜测分开，再决定怎样传递"
+      },
+      "summary": {
+        "en": "Kiwi’s limited fan comparison follows uncertain information through a shared plan. Read about checking versions, choosing what to pass on, six character contrasts and close or tied counts.",
+        "zh": "琦薇的有限同人读法沿一条不确定消息展开：核对版本、决定传递范围、比较其他六位角色，并说明相近或并列计数。"
+      },
+      "seo": {
+        "title": {
+          "en": "Kiwi Test Result: Information, Uncertainty and Clear Limits",
+          "zh": "琦薇测试结果：信息、未知与清楚的传递范围"
+        },
+        "description": {
+          "en": "Two dates appear in a shared plan. Read Kiwi’s unofficial guide on identifying the current information, keeping unknowns visible and choosing a careful next message.",
+          "zh": "共同计划里出现两个日期，先核对什么再传给谁？琦薇的非官方说明讨论当前信息、仍然未知的部分，以及清楚的下一条消息。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The information angle used for Kiwi",
+            "zh": "本版给琦薇的信息角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Kiwi is a netrunner in the original anime’s crew. This edition selects a narrow editorial association: checking the information available and deciding what should travel further. A count reflects choices mapped to that association, without measuring intelligence, suspicion, trustworthiness or similarity to a character’s actions across the story.",
+              "zh": "琦薇是初代动画团队中的网络黑客。本版只选一个编辑性联想：核对现有信息，并决定哪些内容应继续传递。次数反映的是映射到这一角度的选择，不测聪明、猜疑、可信程度，也不判断你像不像角色在剧情里的行为。"
+            },
+            {
+              "en": "You may have selected options about checking a version, asking for missing conditions or separating useful coordination details from private material. Such choices can protect clarity rather than create distance. Their meaning depends on the situation, including what has already been agreed and who has a legitimate reason to receive the information.",
+              "zh": "本次可能选择了核对版本、追问缺少的条件，或把协调所需细节与私人材料分开。这些选择可以是为了清楚，而非为了疏远。实际含义还要看情境：先前约好了什么，谁又有合适理由接收信息。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The deadline with two different versions",
+            "zh": "一个截止日期，两个版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine helping with a small voluntary project. One message names Friday as the deadline, while a copied document says Monday. Passing on whichever date looks most convenient could leave two people preparing for different commitments. A useful first step is to identify where each date came from and which decision, if any, changed it.",
+              "zh": "比如协助一个自愿项目，消息里写周五截止，转存文档里却写周一。如果只挑方便的日期转发，可能让两个人各自准备不同承诺。可以先找出两个日期的来源，以及是否真的有某次决定更改了安排。"
+            },
+            {
+              "en": "The next message can preserve what remains unknown: “These versions differ; I have asked which is current.” That is different from silently choosing one date or presenting a guess as a confirmed answer. The information need not be complete before you communicate, provided the uncertainty and its practical consequence are understandable.",
+              "zh": "下一条消息也可以把未知留着：“两个版本不一致，已经在确认哪一个有效。”这与悄悄选一个日期，或把猜测说成确认答案，并不一样。沟通不必等到信息完美，只要不确定在哪里、会影响什么，能够被理解。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Careful checking can still have an ending",
+            "zh": "谨慎核对，也可以有一个结束"
+          },
+          "paragraphs": [
+            {
+              "en": "Information checking helps when a specific uncertainty could change what people do. It can become less useful when no remaining answer would affect the decision, or when checking turns into collecting other people’s personal details without a reason. A concrete question is easier to resolve than a general demand to know everything.",
+              "zh": "某个未知会改变行动时，核对信息就很有用。如果剩下的答案已经不会影响决定，或者核对变成无理由搜集他人私人细节，作用就可能不同。一个具体问题，比“什么都要知道”更容易处理。"
+            },
+            {
+              "en": "For a contact-list request, you might establish the purpose, permission and smallest necessary transfer. For an ordinary schedule, it may be enough to ask the person responsible for the current version. These are contextual decisions, not evidence that a high Kiwi count means that you should distrust people or constantly inspect them.",
+              "zh": "有人要联络名单时，可以问用途、同意情况和最小必要范围；普通日程则可能只要向负责当前版本的人确认。它们都是具体情境中的决定，不说明琦薇次数高，就应不信任别人或持续检查他人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Kiwi, Lucy and Faraday ask different questions",
+            "zh": "琦薇、露西与法拉第问的是不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Kiwi’s angle asks what is known and how it should be shared. Lucy’s asks which personal purpose and boundary you want to preserve. Faraday’s makes an exchange and its commitments explicit. One situation can need all three, and keeping private details does not automatically mean that you are controlling information or negotiating a transaction.",
+              "zh": "琦薇角度问知道什么、怎样分享；露西问想保留什么自主目的与边界；法拉第让交换及其承诺明确。同一情境可能都需要它们。保留私人细节，不自动等于控制信息，也不一定是在谈一场交易。"
+            },
+            {
+              "en": "David can begin a bounded trial, Rebecca can make the immediate response clear, Maine can coordinate the crew, and Falco can organise a reliable handoff. Checking information is one contribution among those actions. Read the other guides as questions that may be useful beside yours, without arranging the characters into a hierarchy of competence.",
+              "zh": "大卫可以先试一个小版本，丽贝卡说清眼前回应，曼恩协调团队，法尔科安排可靠交接。核对信息只是这些行动中的一种贡献。其他说明可以作为并排有用的问题来读，不必给角色排能力高低。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "The report counts options, not secret motives",
+            "zh": "报告数选项，不猜秘密动机"
+          },
+          "paragraphs": [
+            {
+              "en": "Kiwi is offered twelve times, three in each position. Selecting four of those options records four choices; it does not establish a level of caution or provide a score for reading people. Options absent from a question were not rejected, and the four-option format limits what can be expressed on any one item.",
+              "zh": "琦薇出现12次，四位置各3次。选中其中4次，就记录4个选择，不确定谨慎等级，也不给识人能力分。某题没有出现的选项不算被拒绝，每题只有四项也限制了当时能表达什么。"
+            },
+            {
+              "en": "All equal highest counts retain complete explanations. A small gap between Kiwi and Lucy can come from the way a particular option was phrased or the context you imagined. No validated threshold makes that gap meaningful. You may compare their full guides without retaking, and an all-seven tie remains a legitimate output.",
+              "zh": "最高计数相同，完整解释都会保留。琦薇与露西差一点，可能来自某个选项的表达，也可能来自你设想的情境；没有经过验证的阈值证明这个差别有意义。可直接比较全文，无需重测，七人同分也有效。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Give one unanswered question a clear place",
+            "zh": "给一个未回答的问题安放位置"
+          },
+          "paragraphs": [
+            {
+              "en": "For a benign plan you already know, privately separate three notes: what is confirmed, what remains a guess and who could answer the question that matters next. Use invented details if needed. The exercise can be completed on paper without contacting anyone, searching personal accounts or testing another person’s honesty.",
+              "zh": "对一项自己已经了解的普通计划，可以私下分三栏：已确认、仍是猜测、下一项关键问题可能由谁回答。需要细节时用虚构资料。纸上整理就能结束，不必联系谁、搜私人账号或检验他人诚实。"
+            },
+            {
+              "en": "If the question no longer changes the next action, leave it open rather than manufacturing certainty. If it does matter, decide what small clarification is appropriate. This is an optional observation about information use, not a method for becoming a netrunner, proving a personality type or correcting a mental-health condition.",
+              "zh": "问题若已经不影响下一步，可以让它继续开放，不必制造确定答案；若仍有影响，再想什么小澄清合适。这是对信息使用的自选观察，不是成为网络黑客、证明人格类型或处理心理状况的方法。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Limited role facts and an independent fan model",
+            "zh": "有限的角色事实与独立同人规则"
+          },
+          "paragraphs": [
+            {
+              "en": "The original cast credits establish Kiwi’s character identity, while the short role reference is distinct from this edition’s invented matching angle. FermatMind wrote the questions, examples and full guide independently. No official psychological character model, artwork, dialogue or competitor result is reproduced, and no creator partnership or endorsement is implied.",
+              "zh": "初代角色表确认琦薇的角色身份；简短身份资料与本版自行设定的匹配角度分开。题目、例子和全文由费马独立撰写，不复现官方心理角色模型、画面、台词或竞品结果，也不暗示主创合作和背书。"
+            },
+            {
+              "en": "The count establishes no clinical label, moral character, relationship compatibility or future behaviour. Sharing is optional and copies only a character name and public guide link, without answers or counts. All seven guides remain freely accessible, including the explanations of characters who were not among your highest counts.",
+              "zh": "次数不确定临床标签、道德品格、关系兼容或未来行为。分享可选，只复制角色名与公开说明链接，没有答卷和次数。七份指南都免费开放，包括本次没有最高计数的角色。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "falco",
+      "directionIds": [
+        "falco"
+      ],
+      "title": {
+        "en": "Falco",
+        "zh": "法尔科（Falco）"
+      },
+      "headline": {
+        "en": "Make the next handoff and the way home usable",
+        "zh": "把下一次交接与回程安排妥当"
+      },
+      "summary": {
+        "en": "Falco’s fan comparison follows a plan through its ending. Read a handoff example, distinguish continuity from taking everything on, compare six characters and interpret close counts.",
+        "zh": "法尔科的同人比较沿计划走到收尾：有交接实例、持续照看与包办的区别、六角色对照，以及相近计数的读法。"
+      },
+      "seo": {
+        "title": {
+          "en": "Falco Test Result: Reliable Handoffs and a Clear Ending",
+          "zh": "法尔科测试结果：可靠交接与清楚的结尾"
+        },
+        "description": {
+          "en": "A shared activity ends, but materials and responsibilities remain. Falco’s unofficial guide explores clear destinations, realistic follow-through and room to decline a task.",
+          "zh": "活动结束，材料与责任还没找到去向。法尔科的非官方说明讨论交接目的地、做得到的跟进，以及拒绝接手的空间。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The route and handoff angle",
+            "zh": "路径与交接的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Falco is the driver associated with the original anime’s crew. This fan edition uses that limited role reference for an editorial angle: keeping an ordinary route, handoff or ending usable. Your count measures neither driving skill nor composure, loyalty or responsibility. It records choices within this bank, not resemblance to his whole character.",
+              "zh": "法尔科是与初代动画团队相关的司机。本同人版从这个有限身份取一个编辑角度：让普通路径、交接或结束真正可用。计数不测驾驶、镇定、忠诚或责任心，也不说你与整个角色相像；它记录本题本里的选择。"
+            },
+            {
+              "en": "You may have favoured confirming who receives something, leaving a clear next step or keeping an existing workable route until a change can be handed over. These actions can be quiet and visible at the same time. Their value depends on an actual agreement, rather than on someone always volunteering to stay behind.",
+              "zh": "本次可能更想确认东西交给谁、留下清楚下一步，或在能完成交接前保留现有可用路径。这些行动可以安静，也可以被看见。它们是否有用取决于实际约定，不取决于某个人是否总主动留下来兜底。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The activity is over, but the work has no destination",
+            "zh": "活动结束了，东西还没有去向"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a small group finishing an afternoon activity. The room is tidy, but a borrowed tool is still in a bag, a shared note has no named recipient and somebody assumes that another person will handle both. The group has reached a pleasant ending without quite reaching an understandable handoff.",
+              "zh": "比如小组结束一下午的活动，场地已经收好，但借来的工具还在袋子里，共同记录没说交给谁，有人以为别人会处理这两件事。大家到了一个愉快的结尾，却还没形成好理解的交接。"
+            },
+            {
+              "en": "A Falco-style contribution might clarify the tool’s agreed return point and where the note belongs. You need not personally transport everything or become the permanent keeper of the materials. The useful change is that the people involved can say what happens next, including when an unfinished part will remain unfinished.",
+              "zh": "法尔科式角度可以是问清工具约好归还到哪里、记录应放在哪里。不必因此亲自搬所有东西，或长期保管材料。有用的变化是：相关的人能说清接下来会发生什么，也能说清什么暂时仍未完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Continuity is different from unlimited availability",
+            "zh": "接得住，不等于无限在场"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear route or handoff can make it easier for others to continue. But a person who silently accepts every loose end may become the new point of confusion. It helps to state what you are taking, what you are not taking and the condition under which the next person can reasonably rely on that arrangement.",
+              "zh": "清楚路径或交接能让别人容易继续。但如果一个人默默接下所有尾巴，也可能成为新的不清楚之处。可说明自己接什么、不接什么，以及在什么条件下，下一位可以合理地依靠这项安排。"
+            },
+            {
+              "en": "A counterexample is an uncertain task that cannot be made reliable with the information or resources available. Flagging the uncertainty or asking to stop may be more appropriate than promising smooth completion. A higher count does not prove that you are dependable in every setting, and a lower count does not mean that you leave people behind.",
+              "zh": "反例是：现有信息和资源不足，无法把某件事变得可靠。这时指出不确定、提出暂停，可能比承诺顺利做完更合适。次数高不证明处处可靠，次数低也不说明你总把别人丢在身后。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Falco beside Maine, David and Kiwi",
+            "zh": "把法尔科与曼恩、大卫、琦薇并排看"
+          },
+          "paragraphs": [
+            {
+              "en": "Maine’s angle coordinates people around a shared direction; Falco’s makes the practical transition and ending visible. David gives a direction its first attempt. Those contributions can appear at different moments in one activity, rather than defining who must lead, start or finish every task for the rest of their life.",
+              "zh": "曼恩的角度围绕共同方向协调人，法尔科把实际转接和结束说清，大卫让方向有一次初试。同一活动的不同时刻都可能出现这些贡献，不必由此决定谁一辈子负责带头、开场或收尾。"
+            },
+            {
+              "en": "Kiwi checks what is known, Lucy keeps a chosen goal and boundary, Rebecca offers a direct response, and Faraday makes the exchange explicit. A reliable handoff can need all four questions. Compare their guides when they explain a practical difference in your choices, without converting the cast into a ranking of useful and less useful people.",
+              "zh": "琦薇核对已知，露西保留自主目标与边界，丽贝卡直接回应，法拉第说明交换条件。一次可靠交接也可能需要这四种问题。可用它们解释选择中的实际差别，不必给人物排“有用”和“没用”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Twelve opportunities are not a reliability scale",
+            "zh": "十二次机会，不是可靠程度量尺"
+          },
+          "paragraphs": [
+            {
+              "en": "Falco appears twelve times, with three appearances in each option position. Seven selections would mean seven choices in those offered situations, not that you are a particular percentage reliable or suited to a support role. Every answer contributes one count and the twenty-one answers together contribute twenty-one counts.",
+              "zh": "法尔科出现12次，四个选项位置各3次。若选中7次，指的是这些情境里的7个选择，不是可靠程度百分比，也不确定是否适合支援角色。每题加1次，21道回答合计21次。"
+            },
+            {
+              "en": "All equal highest counts retain complete guides. A close Falco–Maine result could come from the available distinction between organising people and clarifying a transition, but the count alone cannot explain why. A one-choice gap has no validated psychological meaning. You can read either explanation even when neither is your sole highest match.",
+              "zh": "并列最高时，全文全部保留。法尔科和曼恩接近，可能与题目把组织人员和澄清转接分开有关，但计数本身无法解释原因。相差一次没有验证过的心理意义，也不必唯一匹配某人才能读其说明。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Check one ordinary transition",
+            "zh": "看一次普通的转接"
+          },
+          "paragraphs": [
+            {
+              "en": "If an optional observation would be useful, pick a small activity you already participate in. Privately note where the next thing goes, who has agreed to receive it and what remains open. An invented example is enough. You do not have to arrange travel, drive anywhere or take responsibility for someone else’s safety to complete this reflection.",
+              "zh": "想做一点自选观察时，可选一项本来就在参与的小活动，私下记下下一件东西去哪里、谁已同意接收、还有什么未定。用虚构例子也够了，不必实际安排出行、驾驶，或为了反思而承担他人安全责任。"
+            },
+            {
+              "en": "Notice whether a clearer transition reduces guessing, or whether the current plan still asks for more than anyone has agreed to provide. You can stop at that observation. This is not a promise that a particular organisational habit will improve every situation, and no follow-up task is required to make your quiz result complete.",
+              "zh": "可以看看交接变清楚后，猜测有没有减少，还是计划仍在要求超出约定的付出。观察到这里就能停下；某种组织习惯并非对所有情境都有效，也不需要完成后续任务，测试结果才算完整。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "An original fan explanation, without a role assignment",
+            "zh": "原创同人说明，不给真人分派职责"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote the questions, examples and matching model. The character name and brief role reference identify Falco from the original cast; they do not make this an official character assessment. No creator affiliation, endorsement or licence of official images or dialogue is claimed, and no competitor result text is reproduced.",
+              "zh": "题目、例子和匹配模型由费马独立编写。角色名与简短身份说明用来识别初代人物法尔科，不使本页成为官方角色测评。不宣称主创合作、背书或官方画面台词授权，也不复现竞品结果正文。"
+            },
+            {
+              "en": "No result determines competence, personal worth, a clinical condition or the responsibility you owe another person. Optional copying shares a name and public guide, not answers or counts. You may read all seven complete explanations, choose a different question to explore elsewhere or finish here without signing up or taking another test.",
+              "zh": "结果不确定胜任力、个人价值、临床状况或应对别人负担的责任。自选复制分享名字与公开说明，没有答卷和次数。七份全文都可读，也可去了解另一个问题，或就此结束，不需注册或另做测试。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faraday",
+      "directionIds": [
+        "faraday"
+      ],
+      "title": {
+        "en": "Faraday",
+        "zh": "法拉第（Faraday）"
+      },
+      "headline": {
+        "en": "Bring the terms and competing commitments into view",
+        "zh": "把条件与彼此的承诺摆到明面"
+      },
+      "summary": {
+        "en": "Faraday’s limited fan guide examines what a proposed exchange actually commits people to. Read a changing plan, the difference between clarity and pressure, six character contrasts and the count limits.",
+        "zh": "法拉第的有限同人说明看一次交换究竟让人答应了什么：有变动计划、清楚与施压的区别、六角色对照，以及计数边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Faraday Test Result: Explicit Terms and Real Trade-offs",
+          "zh": "法拉第测试结果：说清条件，也看清实际取舍"
+        },
+        "description": {
+          "en": "A small favour grows into a recurring commitment. Read Faraday’s unofficial guide on explicit terms, room to decline and why a character count is not a moral verdict.",
+          "zh": "一次小帮忙逐渐变成固定承诺，条件该怎样说清？法拉第的非官方说明谈明确约定、拒绝空间，以及人物计数为何不是道德判词。"
+        }
+      },
+      "scoreReading": {
+        "en": "Every selected option contributes one count to its mapped character. There are 21 choices in total and 12 opportunities for each character, three in every position. The denominator describes exposure, not similarity. Every highest count receives its full guide; close counts have no validated significance and no second personality is assigned. All A choices give three to every character and retain seven complete guides.",
+        "zh": "每次选择为对应角色记1次，全卷合计21。每位角色有12次出现机会，四个位置各3次；分母说明曝光，不是相似度。最高计数全部获得全文，相近次数没有验证过的显著意义，也不派第二人格。全选A时各3次，七份全文都会保留。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The terms angle used for Faraday",
+            "zh": "本版从法拉第取的条件角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Faraday acts as a fixer and intermediary in the original anime. This edition takes one narrow editorial association from that role: making terms, exchanges and competing commitments explicit. The association does not endorse his story choices or measure your motives, morality, ambition or ability to negotiate. It describes the focus of selected options.",
+              "zh": "法拉第在初代动画中担任中间人。本版只取一个很窄的编辑联想：让条件、交换及相互竞争的承诺变得明确。不借此认可他的剧情行为，也不测你的动机、道德、野心或谈判能力，只描述某些选项关注了什么。"
+            },
+            {
+              "en": "You may have favoured asking what an expanded plan requires, what a contribution is offered in return for or which agreement changes after a shortcut. Those questions can be relevant in generous as well as transactional settings. Making a commitment visible does not require treating every relationship as a bargain or every contribution as a price.",
+              "zh": "本次可能更想问扩大计划需要什么、贡献对应怎样的约定，或捷径会改变哪项承诺。这些问题在互相帮忙时也可能有用，不只适用于交易。把约定说清，并不要求给每段关系讨价还价，或给每份付出标价。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The favour that becomes a continuing role",
+            "zh": "小帮忙怎样变成长期角色"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine agreeing to help a club prepare one short notice. The request later becomes weekly updates, replies to every message and responsibility for the whole account. Everyone may have acted with good intentions, but the second arrangement is larger. A useful question is what additional work is being proposed and whether the people involved can agree to it.",
+              "zh": "比如答应帮社团做一则短通知，后来逐渐变成每周更新、回复每条消息，并负责整个账号。大家也许都出于好意，但后一个安排已经大了许多。可以问：现在新增了什么工作，相关的人能否同意？"
+            },
+            {
+              "en": "A clear response could keep the original notice, offer a limited trial of updates or decline the continuing role. The choice need not be defended by declaring the other people unreasonable. Naming time, scope and reciprocal expectations can reveal that two different agreements were being treated as if they were the same one.",
+              "zh": "可以保留原来的通知、只试一小段更新，也可以不接长期角色。不必先把别人说成不讲理，才能作选择。说明时间、范围和双方期待，可能发现原来有两份不同约定，却一直被当作同一件事。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Clear conditions leave room for an answer",
+            "zh": "条件说清，也给回答留空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Terms are useful when they help people understand a choice. They become pressure when an explanation hides a new demand, removes a practical chance to decline or treats silence as agreement. Stating an exchange plainly does not make it fair by itself; the people affected still need to understand and choose what they accept.",
+              "zh": "条件如果帮助人理解选择，就很有用；若说明里藏了新要求，让人实际上难以拒绝，或把沉默当同意，就可能成了压力。交换写得明白，不会自动使它公平；受影响的人仍需理解，并选择接受到哪里。"
+            },
+            {
+              "en": "A counterexample is an ordinary gift or contribution that everyone already understands as freely offered. Insisting on a return may introduce a bargain that was never wanted. A higher Faraday count therefore establishes neither strategic intelligence nor selfishness, and a lower count does not show that you fail to understand practical constraints.",
+              "zh": "反例是：一份普通心意或贡献，本来就被大家理解为自愿提供。此时强求回报，反而可能新增没人想要的交易。因此次数高既不证明谋略，也不说明自私；次数低也不说明不懂现实条件。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Faraday beside Lucy, Maine and Falco",
+            "zh": "和露西、曼恩、法尔科并排看"
+          },
+          "paragraphs": [
+            {
+              "en": "Lucy keeps a self-chosen purpose and boundary visible; Faraday’s angle asks which shared terms follow from a proposal. Maine coordinates people and support, while Falco clarifies the practical handoff and ending. These are different questions within a plan. None automatically tells you whether another person is trustworthy or what their private intention might be.",
+              "zh": "露西让自主目的和边界保持可见，法拉第角度问一个提议带来了哪些共同条件；曼恩协调人员与支持，法尔科说清交接和结尾。它们是计划中的不同问题，没有一种能直接告诉你别人是否可信，或其私人意图是什么。"
+            },
+            {
+              "en": "David tries a bounded first step, Rebecca makes an immediate response explicit, and Kiwi checks what is known before information moves. Their approaches can improve the clarity of a proposed exchange without becoming part of a competition for control. Read the other character guides for a concrete difference, rather than for a ranking of social power.",
+              "zh": "大卫先试有限的一步，丽贝卡直接表达眼前回应，琦薇在信息流动前核对已知。它们能帮助交换更清楚，不必变成争控制权的竞赛。比较其他说明时，可找具体差别，不必把它们排成社会权力榜。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A count cannot explain the intention behind an agreement",
+            "zh": "次数解释不了约定背后的动机"
+          },
+          "paragraphs": [
+            {
+              "en": "Every Faraday option chosen contributes one raw count. Twelve appearances provide the denominator, three in each position, across twenty-one questions. Four choices out of twelve mean four selected options, not a percentage of calculation or a degree of similarity to a villain. The situations offered are only a small editorial sample.",
+              "zh": "每次选中法拉第选项加1次。21题中出现12次，四位置各3次，这就是分母。12次中选择4次，指4个被选选项，不是精于计算的百分比，也不是像反派的程度；提供的情境只是本版有限样本。"
+            },
+            {
+              "en": "All equal highest counts receive full explanations, including the seven-way tie. A one-choice gap between Faraday and Kiwi cannot establish a difference in motives or a fixed main and secondary type. You can read both guides without changing answers, and the next highest count never supplies a hidden diagnosis or moral label.",
+              "zh": "最高计数相同，全文全部保留，也包括七人同分。法拉第和琦薇相差一次，不能确定动机不同，或固定主副型。无需改答案就能阅读两篇，第二高也不会提供隐藏诊断或道德标签。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Restate one proposal in ordinary language",
+            "zh": "把一个提议改写成普通话"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional next step, privately choose a harmless imagined proposal and write what is offered, what is requested and what remains undecided. Include who would need to agree. You do not have to negotiate a real deal, disclose financial information or test anyone’s loyalty to use this guide.",
+              "zh": "如果想接着观察，可私下选一个无害的设想提议，写下提供什么、请求什么、还有什么没定，再列出需要谁同意。不必实际谈交易、披露财务资料或检验谁忠诚，才能使用这篇说明。"
+            },
+            {
+              "en": "Ask whether a smaller version would make the proposal easier to understand or decline. It may turn out that no exchange is needed, or that the answer should remain open. This exercise is about making a choice legible; it promises no negotiating advantage, career outcome or improvement in a relationship. Ending here is also complete.",
+              "zh": "可以问，更小的版本是否更容易理解，也更容易拒绝。也许根本不需要交换，也许答案适合暂时留白。这只是在让选择可理解，不承诺谈判优势、职业结果或关系改善；到这里结束也完整。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "An editorial character match leaves your values yours",
+            "zh": "编辑性的角色匹配，不替你评判价值"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this bank, the matching choices and these examples. The name and limited role facts identify Faraday from the original cast; the count angle is our own unofficial fan interpretation. No official image, dialogue, licensed psychological character model or competitor result is reproduced, and no creator partnership or endorsement is implied.",
+              "zh": "题本、选项映射与例子由费马独立编写。名字和有限的身份事实用来识别初代人物法拉第，计数角度是本版非官方同人解释。不复现官方画面、台词、授权心理角色模型或竞品结果，也不暗示主创合作和背书。"
+            },
+            {
+              "en": "No result establishes moral worth, a clinical condition, compatibility or a future like the plot. Sharing is optional and contains only a result name and public guide link, without the answer sheet or counts. You can read every character’s complete explanation, choose a different assessment for another question or leave without registering.",
+              "zh": "结果不确定道德价值、临床状况、兼容或类似剧情的未来。分享可选，只含结果名与公开说明链接，没有答卷和次数。每位角色的全文都能读，也可以为另一个问题另选测评，或不注册就离开。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Twenty-one choices, seven raw counts",
+        "zh": "二十一次选择，七项原始次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each of the 21 chosen options adds one count to its explicitly mapped character. The seven counts sum to 21. Every character is offered 12 times and three times in each of four positions; every character pair appears together six times. This balances exposure, without establishing a psychological measurement. No reverse keys, score weights, normal ranges or hidden tie-breakers apply. All 21 valid choices are needed. Missing or invalid answers produce no match, and an option absent from a question is not rejected. Twelve is the number of opportunities to choose that character, not a similarity denominator. A count cannot establish ability, trustworthiness, a clinical condition or a future like the series.",
+          "zh": "21个所选选项各为明确映射的角色加1次，七项计数合计21。每位出现12次，四位置各3次；每对角色同题出现6次。这平衡的是曝光，不确立心理测量。没有反向键、分数权重、正常区间或隐藏裁定。 21项均为有效选择才给匹配；缺答或无效输入不产生结果。某题没有出现的选项不算被拒绝。12是可选择该角色的机会数，不是相似度分母；次数不确定能力、可信程度、临床状况或类似剧情的未来。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest match gets the complete guide",
+        "zh": "所有最高匹配都获得全文"
+      },
+      "paragraphs": [
+        {
+          "en": "Every character tied for the highest count is retained, with each full explanation displayed. All A responses give three to each of the seven characters, so all seven guides appear. A one-choice lead has no validated psychological significance; the second highest character is not assigned as a secret personality. You can read any public character guide before or after answering. Comparing another explanation does not alter the current counts or require a retake to unlock it. Different imagined contexts and the limited menu of options can affect your choices; a repeated result is not a measure of personal development.",
+          "zh": "最高次数相同的角色全部保留，逐份显示完整解释。全选A时七位各3次，因此七份全文一起出现。相差一次没有验证过的心理显著意义；第二高不被派为隐藏人格。 答题前后都能读任何公开角色说明。比较另一篇不会改变本次计数，也不需重测来解锁。设想情境与有限选项菜单都会影响选择，重测结果不是个人成长量尺。"
+        }
+      ]
+    },
+    {
+      "id": "cast-and-scope",
+      "title": {
+        "en": "An original-series fan comparison",
+        "zh": "初代人物的同人比较"
+      },
+      "paragraphs": [
+        {
+          "en": "The roster is David Martinez, Lucy, Rebecca, Maine, Kiwi, Falco and Faraday. These are selected characters from the original anime rather than an episode-knowledge examination. The seven editorial angles simplify particular role associations and do not claim to represent complete canonical personalities or a validated character scale.",
+          "zh": "本版角色为大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第，选取初代动画人物，不是剧情知识考试。七个编辑角度只是有限的角色联想，不声称概括完整正史人格或构成验证过的角色量表。"
+        },
+        {
+          "en": "FermatMind wrote all questions, options, examples and result texts independently. Official credits and brief role descriptions establish identity; they do not validate the matching choices. The page is unofficial, without affiliation or endorsement from CD PROJEKT RED, TRIGGER or Netflix, and uses no official character art, dialogue or competitor bank.",
+          "zh": "题目、选项、例子与结果全文由费马独立编写。官方角色表和简短身份资料用于识别人物，不验证选项映射。本页为非官方同人，与CD PROJEKT RED、TRIGGER或Netflix没有合作或背书，不用官方立绘、台词或竞品题库。"
+        }
+      ]
+    },
+    {
+      "id": "privacy-next",
+      "title": {
+        "en": "Private answers and optional sharing",
+        "zh": "私人答卷与自选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are scored in the browser and never placed in a public result URL or activity payload. Saving a tab draft requires your choice and expires after 24 hours. Completion, retake or exit-and-clear removes it. Optional copying contains a character name and public guide link, or the names of tied matches and the entry link, without answers or counts.",
+          "zh": "答案在浏览器内计数，不进入公开结果网址或活动统计载荷。标签页草稿需主动选择保存，24小时失效，完成、重测或退出并清除即删除。自选复制只含角色名与公开说明链接；并列时含角色名和入口，不带答卷或次数。"
+        },
+        {
+          "en": "Read the full comparison, choose a harmless private observation from a guide or finish here. The optional next step does not ask for real documents, contact details, public challenges or another person’s private history. Other assessments answer different questions and cannot convert these seven character counts into MBTI, ability or compatibility.",
+          "zh": "可读完整对照、在指南里挑一项无害的私下观察，或就到这里。自选下一步不要求真实文件、联系方式、公开挑战或他人私人经历。其他测评回答的是另一问题，不能把这七项计数换算成MBTI、能力或兼容性。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which series and characters does this edition use?",
+        "zh": "本版用哪部作品、哪些人物？"
+      },
+      "answer": {
+        "en": "It uses seven selected characters from the original Cyberpunk: Edgerunners anime: David Martinez, Lucy, Rebecca, Maine, Kiwi, Falco and Faraday. Their limited editorial matching angles are not complete canonical personalities, and you need no episode knowledge to answer.",
+        "zh": "采用初代《赛博朋克：边缘行者》的大卫、露西、丽贝卡、曼恩、琦薇、法尔科和法拉第七位人物。有限的编辑匹配角度不概括完整正史人格，作答不需剧情知识。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this an official or validated personality test?",
+        "zh": "这是官方或经过验证的人格测试吗？"
+      },
+      "answer": {
+        "en": "This is an independently written, unofficial fan comparison. It has no creator endorsement, psychometric validation, population norms, ability score or clinical interpretation. Character names and limited role facts identify the cast; the questions and matching choices are FermatMind’s own.",
+        "zh": "这是独立创作的非官方同人比较，没有主创背书、心理测量验证、人群常模、能力分或临床解释。角色名与有限身份事实用于识别人物；题目与匹配选项由费马自行编写。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do the 21 questions produce a result?",
+        "zh": "21题怎样产生结果？"
+      },
+      "answer": {
+        "en": "Each chosen option adds one count to one character. Every character appears 12 times, three in each position, with no reverse keys or weights. Complete all 21 choices for seven raw counts. Every highest count is retained with its full guide; no random draw or fixed-order tie winner is used.",
+        "zh": "每个所选选项为一位角色加1次。每位出现12次，四位置各3次，无反向或加权。21项完整后给七项原始次数，最高计数全部保留并显示全文，不随机抽签，也不按名单顺序裁掉并列。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if the counts are close or all seven tie?",
+        "zh": "次数接近或七人同分怎么办？"
+      },
+      "answer": {
+        "en": "All equal highest counts receive complete guides. All A choices give three to every character and display all seven explanations. A small difference has no validated significance, and it does not assign a hidden second type. Any public guide is readable without retaking.",
+        "zh": "最高次数相同，完整说明全部显示。全选A时各3次，七份解释一起保留。小差别没有经过验证的显著意义，不派隐藏第二型；无需重测就能读任何公开说明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do some Chinese character spellings differ?",
+        "zh": "有些角色的中文写法为什么不同？"
+      },
+      "answer": {
+        "en": "Chinese versions and reader usage can use different renderings of a name. This edition keeps the English names beside the Chinese forms so that Rebecca, Maine, Kiwi and the other characters remain identifiable across spellings. Different renderings are not different results.",
+        "zh": "不同中文版本与读者习惯会使用不同译名，例如Rebecca有瑞贝卡／丽贝卡，Maine有曼因／曼恩。这里附上英文名，确保琦薇（Kiwi）等人物身份清楚；不同写法不是不同结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the full guides free, and what does copying share?",
+        "zh": "全文免费吗？复制会分享什么？"
+      },
+      "answer": {
+        "en": "All seven full guides and the questionnaire are free without signup or email. Optional copying shares character names and a public guide or entry link, without answers or counts. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. You can stop without taking another test.",
+        "zh": "问卷和七份全文免费，不需注册或邮箱。自选复制分享角色名与公开说明或入口链接，没有答卷和次数。自选标签页草稿24小时失效，完成、重测或退出并清除即删除；不需要另做测试才能结束。"
+      }
+    }
+  ]
+}
