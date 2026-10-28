@@ -1,0 +1,1352 @@
+{
+  "slug": "sake-type",
+  "code": "FM_SAKE_METAPHOR16",
+  "version": "fm_sake_fourchoice16_v1",
+  "updated": "2026-10-28",
+  "category": "metaphor",
+  "kind": "archetype",
+  "instructions": {
+    "en": "For each imagined everyday scene, choose the option you would most enjoy exploring right now. Each option belongs to one of four drink images; these are fictional editorial metaphors, not drinks you need to know or consume. All sixteen questions need one choice for a result. If none fits, you can stop and read all four complete guides without answering. Do not choose a statement just to appear more sociable or sophisticated.",
+    "zh": "每个想象中的日常小场面，选你此刻更愿意探索的一种做法。每个选项对应四种饮品意象之一；它们是编辑创作的比喻，不要求认识或饮用这些饮品。生成结果需要16题各选一项；如果都不合适，可以停止作答，直接阅读四份完整指南。不必为了显得会社交或有修养而选择。"
+  },
+  "title": {
+    "en": "Sake Type Test",
+    "zh": "酒水类型测试"
+  },
+  "description": {
+    "en": "Explore four drink metaphors through 16 original imagined scenes. See raw counts, keep every highest tie and read all four complete guides free. No alcohol needed.",
+    "zh": "用16个原创想象场面探索四种饮品比喻，查看原始次数，保留全部最高并列，免费阅读四份完整指南；不需要饮酒。"
+  },
+  "resultHeading": {
+    "en": "Your drink-metaphor choices",
+    "zh": "你本次的饮品意象选择"
+  },
+  "seoTitle": {
+    "en": "Sake Type Test: Four Drink Metaphors, Full Free Results",
+    "zh": "酒水类型测试：四种饮品比喻与免费完整结果"
+  },
+  "minutes": 4,
+  "introduction": {
+    "en": "Which small opening, familiar welcome, layered connection or quiet detail would you choose in an imagined scene? This original four-image game connects those choices with Sparkling Wine, Beer, Whisky and Sake. It provides raw counts and every highest-matching full reading, with examples, comparisons and optional small experiments. The names are metaphors: the game tests neither personality accuracy nor what you should drink.",
+    "zh": "在想象的小场面里，你会选一个闪亮开头、亲切落点、层次关联，还是安静细节？本原创四意象游戏把这些选择与起泡酒、啤酒、威士忌和清酒相连，提供原始计数及全部最高匹配的完整指南，含例子、比较和可选小尝试。名称只是比喻，不检验真实人格，也不建议应该饮用什么。"
+  },
+  "source": {
+    "kind": "fermatmind_original_four_drink_metaphor_game",
+    "formCode": "fm_sake_fourchoice16_v1",
+    "itemBankVersion": "fm_sake_fourchoice16_v1",
+    "scoringVersion": "fm_sake_fourchoice16_rawcounts_allmax_v1",
+    "resultContentVersion": "fm_sake_four_full_readings_v1",
+    "itemBankSha256": "4afa5f0bdb2c4ad88a2426e7d9a754a6d5a4536c8b8f12d411f22cece775bb1a",
+    "resultContentSha256": "05c4292ec45fe6d7959cf3098f9c059cb5021ad2a6aa70687f4b601da4d4a833",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "sparkling-wine",
+      "title": {
+        "en": "Sparkling Wine: The Bright Spark",
+        "zh": "起泡酒：闪亮开场的比喻"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "beer",
+      "title": {
+        "en": "Beer: The Familiar Welcome",
+        "zh": "啤酒：亲切相聚的比喻"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "whisky",
+      "title": {
+        "en": "Whisky: The Layered Connection",
+        "zh": "威士忌：层次联想的比喻"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "sake",
+      "title": {
+        "en": "Sake: The Quiet Detail",
+        "zh": "清酒：安静细节的比喻"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "SKM_01",
+      "prompt": {
+        "en": "A friend group is inventing a fictional pop-up exhibition. Which small contribution sounds most appealing?",
+        "zh": "朋友们在构思一场虚构快闪展，你更愿意先贡献哪一小步？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Suggest an unexpected opening moment.",
+            "zh": "提议一个出人意料的开场瞬间。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Create a simple welcome that nobody needs to prepare for.",
+            "zh": "安排一个不用提前准备也能加入的欢迎环节。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Find one idea worth developing through the whole exhibition.",
+            "zh": "找一个值得贯穿整场展览的想法。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Choose a few details that make the room feel considered.",
+            "zh": "挑几处让空间显得经过用心考虑的细节。"
+          },
+          "directionId": "sake"
+        }
+      ]
+    },
+    {
+      "id": "SKM_02",
+      "prompt": {
+        "en": "You are making a postcard from an imaginary place. What would you build around?",
+        "zh": "为一个想象中的地方制作明信片，你想围绕什么展开？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A familiar scene that feels easy to enter.",
+            "zh": "一处容易走进去、让人亲切的熟悉场面。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A clue that connects to a larger story.",
+            "zh": "一条能连向更大故事的线索。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "One carefully framed colour or texture.",
+            "zh": "一种经过细选的颜色或质感。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A playful surprise that makes the recipient look twice.",
+            "zh": "一个让收件人多看一眼的小惊喜。"
+          },
+          "directionId": "sparkling-wine"
+        }
+      ]
+    },
+    {
+      "id": "SKM_03",
+      "prompt": {
+        "en": "At a low-key gathering, someone offers a short optional activity. Which version would you choose?",
+        "zh": "轻松聚会里有人提议一个可自由参加的小活动，你会选哪一版？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A puzzle everyone can gradually unpack together.",
+            "zh": "一道大家能慢慢拆解的谜题。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A quiet making activity with room for individual touches.",
+            "zh": "一段可以安静制作、保留个人细节的活动。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "An improvised game whose ending nobody knows.",
+            "zh": "一段谁也不知道结尾的即兴小游戏。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "An easy shared task people can join or leave.",
+            "zh": "一项随时能加入或离开的简单合作。"
+          },
+          "directionId": "beer"
+        }
+      ]
+    },
+    {
+      "id": "SKM_04",
+      "prompt": {
+        "en": "You can add one element to a fictional team celebration. What attracts you?",
+        "zh": "给一场虚构团队庆祝加一个环节，哪种更吸引你？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A thoughtful closing gesture without a big performance.",
+            "zh": "用一个体贴的小动作收尾，不必盛大表演。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A short reveal that changes the mood.",
+            "zh": "用一个短暂揭晓让气氛换个样子。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A space where people can settle into ordinary conversation.",
+            "zh": "留一处能自然坐下聊家常的空间。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A story showing how several small efforts connected.",
+            "zh": "讲一个把几次小努力连起来的故事。"
+          },
+          "directionId": "whisky"
+        }
+      ]
+    },
+    {
+      "id": "SKM_05",
+      "prompt": {
+        "en": "A blank notebook will become a shared creative project. What would you put on the first page?",
+        "zh": "一本空白本子要变成共同创作，你会在第一页放什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "An unusual prompt that invites an experiment.",
+            "zh": "一个不同寻常、邀请大家试试的题目。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A friendly starter anyone can answer casually.",
+            "zh": "一个谁都能轻松接上的亲切开头。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A question that can gain meaning over several pages.",
+            "zh": "一个写到后面还能增加意思的问题。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A little arrangement of words and blank space.",
+            "zh": "一小段文字与留白的安排。"
+          },
+          "directionId": "sake"
+        }
+      ]
+    },
+    {
+      "id": "SKM_06",
+      "prompt": {
+        "en": "A friend asks you to choose a made-up weekend event. Which description catches your eye?",
+        "zh": "朋友请你从虚构的周末活动中选一项，哪段介绍先吸引你？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A familiar meeting spot with time to catch up.",
+            "zh": "熟悉的碰面地点，留足叙旧时间。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "One subject explored through several connected stops.",
+            "zh": "围绕一个主题走过几处相互关联的地点。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A small visit with enough time to notice the setting.",
+            "zh": "规模不大，能留时间细看环境的一次参观。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A changing route with a few delightful surprises.",
+            "zh": "路线会变化，途中有些轻快的小惊喜。"
+          },
+          "directionId": "sparkling-wine"
+        }
+      ]
+    },
+    {
+      "id": "SKM_07",
+      "prompt": {
+        "en": "You are assembling a fictional playlist, with no real songs required. What would shape it?",
+        "zh": "给一个虚构播放列表排顺序，不需要选真实歌曲，你会优先想什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A slow-building connection between the beginning and ending.",
+            "zh": "让开头与结尾的关系逐渐显出来。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A few precisely placed pauses and transitions.",
+            "zh": "细放几处停顿和过渡。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A lively turn that wakes up the sequence.",
+            "zh": "安排一处让整个顺序活起来的转折。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "An inviting thread that feels comfortable to return to.",
+            "zh": "保留一条随时回来都舒服的亲切线索。"
+          },
+          "directionId": "beer"
+        }
+      ]
+    },
+    {
+      "id": "SKM_08",
+      "prompt": {
+        "en": "A shared display has room for only a short caption. Which approach do you prefer?",
+        "zh": "一件共同布置的展品只能放一句短说明，你更喜欢哪种写法？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A spare line that leaves the object room to speak.",
+            "zh": "少写一点，给展品留出自己表达的空间。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A curious line that starts a little conversation.",
+            "zh": "一句带点好奇、能引起小讨论的话。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A plain invitation that makes newcomers feel included.",
+            "zh": "一句直白的邀请，让新来的人容易加入。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A compact line suggesting another layer to explore.",
+            "zh": "一句简短的话，提示还有一层可以探索。"
+          },
+          "directionId": "whisky"
+        }
+      ]
+    },
+    {
+      "id": "SKM_09",
+      "prompt": {
+        "en": "You are sketching a pretend social space. Which feature would you most enjoy designing?",
+        "zh": "想象画一个供朋友相聚的小空间，你最想设计哪一处？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A corner that can become a spontaneous activity.",
+            "zh": "一个随时可能变成即兴活动的角落。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A welcoming table where joining is uncomplicated.",
+            "zh": "一张坐下来就能加入的亲切桌子。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A wall where an idea can grow over repeated visits.",
+            "zh": "一面能随着几次来访不断增加内容的墙。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A calm nook with a few intentional objects.",
+            "zh": "一处安静小角落，放几件有意挑选的物品。"
+          },
+          "directionId": "sake"
+        }
+      ]
+    },
+    {
+      "id": "SKM_10",
+      "prompt": {
+        "en": "A familiar activity can be changed for one evening. Which change would you try?",
+        "zh": "一项熟悉活动可以在今晚换个做法，你更想试什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Make the usual format easier for everyone to join.",
+            "zh": "把平常的形式改得更容易让大家加入。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Follow one part further instead of covering everything.",
+            "zh": "少铺开一点，把其中一部分往深处延伸。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Remove a few extras so the remaining details stand out.",
+            "zh": "减去几处附加内容，让留下的细节更清楚。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Add an unexpected constraint and see what happens.",
+            "zh": "加一个出乎意料的小限制，看看会发生什么。"
+          },
+          "directionId": "sparkling-wine"
+        }
+      ]
+    },
+    {
+      "id": "SKM_11",
+      "prompt": {
+        "en": "Someone offers you a role in an imaginary short film. Which task sounds enjoyable?",
+        "zh": "有人邀请你参与一部想象中的短片，哪项工作听来更有意思？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Connect an early detail with a later discovery.",
+            "zh": "把前面的细节与后面的发现连起来。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Choose one gesture or object the camera can linger on.",
+            "zh": "选一个能让镜头稍作停留的动作或物件。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Invent a small scene that changes the film’s rhythm.",
+            "zh": "想一个能改变节奏的小场面。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Make the characters’ ordinary moments feel welcoming.",
+            "zh": "让人物的日常片段带点容易亲近的感觉。"
+          },
+          "directionId": "beer"
+        }
+      ]
+    },
+    {
+      "id": "SKM_12",
+      "prompt": {
+        "en": "A fictional club wants an invitation that reflects its mood. Which idea would you pick?",
+        "zh": "一个虚构小社团想用邀请方式表达自己的气氛，你会选什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A simple design with one quietly distinctive detail.",
+            "zh": "设计简单些，留一处安静但有辨识度的细节。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "An invitation with a small playful reveal.",
+            "zh": "一张带点俏皮揭晓的小邀请。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A direct friendly message with no elaborate expectations.",
+            "zh": "一条友好直接、不设复杂期待的信息。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A clue that invites people to discover the theme.",
+            "zh": "放一条让人自己发现主题的线索。"
+          },
+          "directionId": "whisky"
+        }
+      ]
+    },
+    {
+      "id": "SKM_13",
+      "prompt": {
+        "en": "You have an hour for a small personal creative exercise. What would you rather explore?",
+        "zh": "有一小时做一段个人小创作，你更想探索哪种方向？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Try several playful beginnings without choosing one yet.",
+            "zh": "先试几个有玩心的开头，不急着定一个。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Make something familiar a little more companionable.",
+            "zh": "给熟悉的东西加一点让人容易亲近的感觉。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Develop one idea until its connections become clearer.",
+            "zh": "沿着一个想法走下去，让其中关联更清楚。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Notice and arrange a handful of subtle details.",
+            "zh": "观察并安排几处不显眼的小细节。"
+          },
+          "directionId": "sake"
+        }
+      ]
+    },
+    {
+      "id": "SKM_14",
+      "prompt": {
+        "en": "A friend shares a harmless imaginary scenario and asks what you would add. What comes first?",
+        "zh": "朋友讲了一个轻松的想象场面，请你补一点内容，你先想到什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A small connection that makes the people feel at ease.",
+            "zh": "加一点联系，让场面里的人更容易自在相处。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A detail that changes how the earlier scene is understood.",
+            "zh": "加一处能让前面场景有另一层意思的细节。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A pause that lets an already good moment settle.",
+            "zh": "留一段停顿，让已经不错的瞬间慢慢落定。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A surprise that opens another possibility.",
+            "zh": "加一个惊喜，让场面出现另一种可能。"
+          },
+          "directionId": "sparkling-wine"
+        }
+      ]
+    },
+    {
+      "id": "SKM_15",
+      "prompt": {
+        "en": "You are choosing how to mark the end of a voluntary group project. What appeals most?",
+        "zh": "一个自愿参加的小项目要结束了，你更喜欢怎样留下印记？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Show a few connected moments from the project’s journey.",
+            "zh": "把过程中几处相连的时刻呈现出来。"
+          },
+          "directionId": "whisky"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Keep one carefully chosen detail as a quiet reminder.",
+            "zh": "留一个细选的小细节，作为安静的提醒。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Create a cheerful little finale that can be different each time.",
+            "zh": "做一个每次都可以变化的轻快小结尾。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Bring people together for an uncomplicated thank-you.",
+            "zh": "让大家聚一下，简单说声感谢。"
+          },
+          "directionId": "beer"
+        }
+      ]
+    },
+    {
+      "id": "SKM_16",
+      "prompt": {
+        "en": "For a fictional portrait of your present mood, which creative direction would you choose?",
+        "zh": "若用一幅虚构作品描绘此刻的心情，你更愿意采用哪种创作方向？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A small number of details given generous attention.",
+            "zh": "少放几处细节，给每处留足注意。"
+          },
+          "directionId": "sake"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A bright change of pace with room for improvisation.",
+            "zh": "节奏轻快地变一下，留点即兴空间。"
+          },
+          "directionId": "sparkling-wine"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "An approachable scene with a comfortable point of return.",
+            "zh": "画一个容易亲近、也能舒服回来的场面。"
+          },
+          "directionId": "beer"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Several layers that become interesting on a second look.",
+            "zh": "叠几层内容，第二次看还有可以发现的地方。"
+          },
+          "directionId": "whisky"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "sparkling-wine",
+      "title": {
+        "en": "Sparkling Wine: The Bright Spark",
+        "zh": "起泡酒：闪亮开场的比喻"
+      },
+      "headline": {
+        "en": "A small surprise can open the scene",
+        "zh": "用一个小惊喜，让场面多一种可能"
+      },
+      "summary": {
+        "en": "Explore the choices that added a playful turn, a fresh beginning or an improvised opening. The label describes a game image, not your sociability or drink preferences.",
+        "zh": "回看那些增添俏皮转折、新开头或即兴空间的选择。这个标签是游戏意象，不评价社交能力，也不推断饮品偏好。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sparkling Wine Sake Type: Bright Spark, Full Free Guide",
+          "zh": "起泡酒型完整指南：闪亮开场的比喻与计数读法"
+        },
+        "description": {
+          "en": "Read the Bright Spark drink metaphor, compare close counts and try one optional creative opening. No drinking preference or personality ability is inferred.",
+          "zh": "完整阅读闪亮开场的饮品比喻、相近计数的区别和一个可选创意开头；不推断饮品偏好、社交能力或固定人格。"
+        }
+      },
+      "scoreReading": {
+        "en": "A Sparkling Wine count records selections for the bright-spark image. Every question offers this image once, so its denominator is 16. A highest tie keeps every matching full guide.",
+        "zh": "起泡酒计数记录本次选到“闪亮开场”意象的次数；16题各出现一次，因此分母为16。最高并列时，所有相应完整指南都保留。"
+      },
+      "directionIds": [
+        "sparkling-wine"
+      ],
+      "sections": [
+        {
+          "id": "image",
+          "title": {
+            "en": "What the image means here",
+            "zh": "这个意象在这里表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Bright Spark is our editorial name for options that introduce a little surprise, change the pace or invite improvisation. Sparkling Wine is simply the image attached to those choices in this game. A higher count means you selected more of these particular options. It does not establish that you are outgoing, confident, popular or good at organizing an event, and you do not need to know anything about the drink to read the guide.",
+              "zh": "“闪亮开场”是本游戏给一组选择取的编辑名称：加一点小惊喜、改变一下节奏，或者留出即兴空间。“起泡酒”只是与这组选择相连的意象，不需要了解或饮用它。次数较多，只表示你在这16个场面里多选了这些说法，不能由此认定外向、自信、受欢迎，或者擅长组织活动。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "When the same choice means something different",
+            "zh": "同一选择也可能有不同原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine liking a playful invitation but preferring to spend the actual evening quietly. There is no contradiction: the question offered a creative opening, not a stamina test. You might also choose a surprise because the fictional group already has a familiar routine. Context, available time and the other people’s preferences can change the appeal of the same idea. A low count does not mean that your real life lacks humour or imagination.",
+              "zh": "例如，你可能喜欢有玩心的开头，却希望真正见面时安静一点，两者并不矛盾。题目问的是一个场面怎样展开，没有测试你能社交多久。也可能因为想象中的小组已经很熟悉，才觉得加一点变化有趣。次数较少，也不能说明真实生活中缺少幽默、创意或主动性。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare the other three readings",
+            "zh": "与另外三种读法比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Bright Spark adds a turn; Familiar Welcome lowers the effort needed to join; Layered Connection develops a connection; Quiet Detail gives a small element more attention. These moves can work together. A surprising opening can lead into a comfortable conversation, and a carefully placed detail can make the surprise effective. The four readings are neither a complete map of personality nor four ingredients that must be balanced in a person.",
+              "zh": "闪亮开场偏向增添转折，亲切相聚偏向让加入变容易，层次联想偏向延伸关联，安静细节偏向细看一个小地方。这些做法可以同时使用：有趣的开头之后可以是自在聊天，一处精心安排的细节也能让惊喜成立。四份读法不是完整人格地图，更不是每个人都应按某种比例混合的配方。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A scene worth looking at more closely",
+            "zh": "把一个小场面看清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you are making a fictional invitation for a community drawing session. One idea opens with a folding card that reveals an unexpected prompt. Before treating that as a useful invitation, ask what the recipient needs to understand: the optional nature of the activity, the time and the way to join. The playful reveal may be enjoyable while still needing plain information. The game cannot tell you whether a particular audience would welcome it.",
+              "zh": "设想你在构思一次虚构的社区换书活动。一张邀请卡先露出一个意外的小题目，打开后才是活动信息。这个点子可以有趣，但仍要核对：收到的人能否知道活动可自由参加、何时开始、怎样加入？有玩心不代表可以省略基本说明，测试也没有验证某群真实参与者会怎样回应。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional small experiment",
+            "zh": "一个可以不做的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "If you feel like trying something, create two tiny openings for an imaginary project: one straightforward and one with a modest surprise. Show them to a willing friend only if they want to take part, and ask what each makes them expect. Keep one detail you enjoy and remove anything that obscures the invitation. There is no need to stage a public event, spend money or persuade somebody who would rather decline.",
+              "zh": "愿意的话，可以为一个想象项目写两个很短的开头，一个直接，一个带点小惊喜。仅在对方愿意时，请熟人说说两版分别让他期待什么。留下自己喜欢的一处，同时删掉妨碍理解的部分即可。不必真的办活动、花钱，或说服本来不想参加的人；不想做尝试也可以在这里结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the counts without turning them into a verdict",
+            "zh": "怎样读计数，而不把它变成定论"
+          },
+          "paragraphs": [
+            {
+              "en": "The result retains raw choice counts, including every highest tie. Five choices for this image and four for another are not a demonstrated psychological difference; one changed answer could alter that order. If all four counts are four, all four complete guides remain visible. Use a passage that interests you and leave the rest. This original metaphor game supplies no alcohol recommendation, compatibility percentage, ability assessment or validated personality category.",
+              "zh": "结果保留原始选择次数和全部最高并列。某项5次、另一项4次，不是已经证明的人格差异，改一个选择就可能改变顺序。四项各4次时，四份全文都会出现。可以选有帮助的一段想想，其余暂且放下。本原创比喻游戏不提供饮酒建议、关系适配百分比、能力评价或已经验证的人格分类。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beer",
+      "title": {
+        "en": "Beer: The Familiar Welcome",
+        "zh": "啤酒：亲切相聚的比喻"
+      },
+      "headline": {
+        "en": "Make the invitation easy to enter",
+        "zh": "让人容易加入，也容易保留自己的步调"
+      },
+      "summary": {
+        "en": "Explore choices for an uncomplicated welcome, a familiar point of return and ordinary moments of company. A count cannot verify kindness, loyalty or popularity.",
+        "zh": "回看简单欢迎、熟悉落点和日常相伴的选择。一次计数不能验证善良、忠诚、受欢迎程度或别人与你相处的真实感受。"
+      },
+      "seo": {
+        "title": {
+          "en": "Beer Sake Type: Familiar Welcome, Full Free Guide",
+          "zh": "啤酒型完整指南：亲切相聚的比喻与计数读法"
+        },
+        "description": {
+          "en": "Explore the Familiar Welcome drink metaphor, with a concrete invitation scene, comparisons and raw-count limits. No drinking or popularity claim is made.",
+          "zh": "用具体邀请场面、相近意象比较和原始计数边界，完整理解亲切相聚的饮品比喻；不推断饮酒习惯或受欢迎程度。"
+        }
+      },
+      "scoreReading": {
+        "en": "The Beer count records selections for Familiar Welcome. A zero means none of these options was selected in this attempt, not an absence of friendliness. All highest-count ties stay complete.",
+        "zh": "啤酒计数记录选到“亲切相聚”的次数。零次只表示本次没有选到这组说法，不表示缺少友好；所有最高并列都保留完整说明。"
+      },
+      "directionIds": [
+        "beer"
+      ],
+      "sections": [
+        {
+          "id": "image",
+          "title": {
+            "en": "What the image means here",
+            "zh": "这个意象在这里表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Familiar Welcome collects choices that make an activity approachable, offer an easy way to join or leave, or create a comfortable point of return. Beer is an editorial image for that group of options, not a description of what you order. Selecting it often does not prove that other people experience you as friendly or dependable. The questions contain imagined situations, and the result cannot observe your relationships or anyone else’s feelings.",
+              "zh": "“亲切相聚”把几种说法放在一起：让活动容易接近、让人能自然加入或离开，或者保留一个熟悉的落点。啤酒是这组选择的编辑意象，不表示你会点什么饮品。选得较多，不能证明别人一定觉得你可靠、友好或好相处。题目中的场面都是设想，结果没有观察真实关系，也不能替别人表达感受。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "When the same choice means something different",
+            "zh": "同一选择也可能有不同原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar format can reduce uncertainty, but familiarity is not equally comfortable for everyone. A long-established joke may leave a newcomer outside it; an ordinary meeting place may be difficult for somebody to access. A useful reflection asks who can join and what they need to know, rather than assuming that a relaxed mood automatically includes everybody. Equally, choosing another option in this quiz does not make you inconsiderate or unwilling to cooperate.",
+              "zh": "熟悉的形式有时能减少不确定，但不是所有人都觉得同一种熟悉舒服。老朋友之间的固定笑话，可能让新来的人插不上话；平常常去的地方，也可能有人不便到达。回看时可以具体问“谁能加入、还需要知道什么”，而不是默认气氛轻松就等于照顾了所有人。选其他说法也不等于不体贴。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare the other three readings",
+            "zh": "与另外三种读法比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Familiar Welcome with Bright Spark: an easy invitation and an interesting opening answer different questions. Layered Connection asks what connection could grow over time, while Quiet Detail asks what deserves careful notice. A small gathering might use all four. If two counts are close, return to the situations rather than deciding that one is your true social identity. This game has no verified scale of warmth, trust or belonging.",
+              "zh": "亲切相聚与闪亮开场回答不同问题：前者让参与容易，后者让开头多点新意。层次联想关心可以延伸的关联，安静细节关心值得细看的小处。一场小活动可能同时需要四种做法。次数相近时，先看各自对应的题目，不必分出哪个才是真实社交身份；这里没有经过验证的温暖、信任或归属量尺。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A scene worth looking at more closely",
+            "zh": "把一个小场面看清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine inviting a few neighbours to a fictional seed-swap table. A short message gives the place, the optional nature of the visit and a simple explanation that no contribution is required. That is a concrete example of the welcome image. It does not guarantee attendance or make the organizer responsible for everyone’s enjoyment. A person may decline for many reasons that the invitation writer, and certainly this quiz, cannot infer.",
+              "zh": "设想为一次虚构的社区拼图交换写通知。说明地点、可以只来看看、不必自带物品，就把“容易加入”落到了一件小事上。这并不保证有人到场，也不表示发起人必须负责每个人的开心。别人没有参加，可能有许多原因，不能用测试标签猜测是自己的欢迎做得不够好。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional small experiment",
+            "zh": "一个可以不做的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small optional exercise, draft an invitation to an imaginary activity and ask yourself what a newcomer would need to know. Is there a clear way to join, an acceptable way to decline and enough information to avoid a needless extra step? Change one sentence rather than planning an entire event. If you ask someone for feedback, make participation voluntary and keep names, contact information and private experiences outside the test.",
+              "zh": "如果想试一小步，可以为一个想象活动写短邀请，站在第一次看到消息的人的位置，看看是否知道怎样加入、怎样婉拒，以及是否缺了某个基本信息。改一句话即可，不必真的筹办整场活动。请人反馈也应自愿，不要为了作答提供姓名、联系方式或私人经历。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the counts without turning them into a verdict",
+            "zh": "怎样读计数，而不把它变成定论"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the number as a count out of sixteen available choices. It is not a percentage of friendliness, and the four counts cannot tell you who will get along. A highest tie keeps both or all matching guides without selecting a hidden winner; a one-choice lead remains a small difference in this question set. No drinking experience is needed. You can read the other guides, take a passage as a conversation idea or simply finish here.",
+              "zh": "数字是16次可选机会中的计数，不是友好程度百分比，也不能预测谁和谁相处得来。最高并列会保留所有相应全文，不靠隐藏规则选唯一获胜者；仅多一次仍是这套题内的小差别。不需要有饮酒经历，可以再读其他指南、拿一个小想法聊聊，或直接结束本次探索。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whisky",
+      "title": {
+        "en": "Whisky: The Layered Connection",
+        "zh": "威士忌：层次联想的比喻"
+      },
+      "headline": {
+        "en": "Let one idea gain another layer",
+        "zh": "沿一个想法走一段，看看它还能连到哪里"
+      },
+      "summary": {
+        "en": "Explore choices that connect an early detail with a later discovery or follow one idea further. The image says nothing about intelligence, ambition or handling pressure.",
+        "zh": "回看把前后细节连起来、或沿一个想法继续走的选择。这个意象不推断智力、抱负、压力承受或工作表现。"
+      },
+      "seo": {
+        "title": {
+          "en": "Whisky Sake Type: Layered Connection, Full Free Guide",
+          "zh": "威士忌型完整指南：层次联想的比喻与相近计数"
+        },
+        "description": {
+          "en": "Read the Layered Connection drink metaphor with an original scene and optional creative exercise. Raw counts do not measure intelligence or ambition.",
+          "zh": "结合原创小场面与可选创作练习，完整理解层次联想的饮品比喻；原始选择次数不测量智力、抱负或承压能力。"
+        }
+      },
+      "scoreReading": {
+        "en": "The Whisky count records Layered Connection choices. It is not a depth, ambition or intelligence score; the same count can come from different situations. Read every highest-count match in full.",
+        "zh": "威士忌计数记录“层次联想”的选择，不是深度、抱负或智力分数；同样次数也可能来自不同场面。所有最高匹配都应保留全文。"
+      },
+      "directionIds": [
+        "whisky"
+      ],
+      "sections": [
+        {
+          "id": "image",
+          "title": {
+            "en": "What the image means here",
+            "zh": "这个意象在这里表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Layered Connection is the image attached to choices that follow one idea further, join two moments or leave something to discover on another look. The Whisky name is a metaphor selected for this original game. It does not test whether you can solve a hard problem, appreciate a particular beverage or sustain attention. A higher count describes the options chosen here, rather than a hidden measure of how complex or accomplished you are.",
+              "zh": "“层次联想”对应沿一个想法继续走、把两个时刻连起来，或让第二次观看还能有发现的选择。威士忌是本原创游戏给这组选择安排的比喻，不测试解难题、鉴赏饮品或持续专注的本领。次数较多只说明你在这些题目中选了相应说法，不能把它解释为更复杂、更有成就或更有思想。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "When the same choice means something different",
+            "zh": "同一选择也可能有不同原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting another layer is not always the most useful move. A friend asking for a meeting time may need a plain answer rather than an elaborate explanation; a new reader may need the first step before appreciating a later connection. The same person can enjoy a layered fictional story and prefer concise practical messages. Neither preference establishes a general capacity for concentration, emotional depth, ambition or working well under pressure.",
+              "zh": "增加层次并不总是眼前最有用的做法。朋友只想确认见面时间时，可能需要一句直接答复；第一次读的人，也可能还没看懂基本信息。一个人可以喜欢多层故事，同时偏好简短实用消息。两者都不能据此推广成总体专注力、情感深度、抱负，或能否在压力下表现更好的证明。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare the other three readings",
+            "zh": "与另外三种读法比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Layered Connection develops an association; Quiet Detail may dwell on one small feature without building a larger story. Bright Spark can introduce a turn, while Familiar Welcome gives people a clear point of entry. These are options for shaping a scene, not rankings of mental sophistication. If you selected several of them, there is no contradiction to resolve. The game does not translate any combination into MBTI, a career match or a relationship role.",
+              "zh": "层次联想会延伸关联；安静细节可能只停留在一个小处，并不组织更大的故事。闪亮开场可以制造转折，亲切相聚则提供容易进入的落点。这些是塑造场面的不同做法，不是思想高低的排序。同一个人喜欢其中几种很正常，组合也不能换算为MBTI、职业适配或关系角色。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A scene worth looking at more closely",
+            "zh": "把一个小场面看清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you are assembling a fictional neighbourhood newsletter. An early photograph of a shared garden could connect with a later account of the people who looked after it. That link may make the piece enjoyable, provided a reader can follow it. Another reader might simply want the opening hours. The useful question is what the connection adds in that particular piece, not whether it proves that its maker is a deeper person.",
+              "zh": "设想为一次虚构的社区展览写小册子。前面一张旧门牌的插图，与后面一段街区变化的虚构故事呼应，可能让阅读更有意思；也有读者此刻只想知道展览怎样走。可以核对关联是否帮助了这份材料，而不是因为自己想出了呼应，就认定比直接说明的人更“深刻”。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional small experiment",
+            "zh": "一个可以不做的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional exercise is to take two harmless, invented details and write one sentence connecting them. Then try the same sentence without the connection. Which version better fits what you wanted to make? You can keep either, or neither. The exercise needs no private photographs, personal history, demanding work challenge or disclosure from another person. It is a small creative comparison, not training that this quiz can certify as an improvement in ability.",
+              "zh": "愿意的话，可随手想两个无关隐私的小细节，用一句话把它们连起来，再试试删去这个关联的版本，看看哪一版更符合你想做的东西。两版都可以保留，也可以都不要。无需动用私人照片、个人经历、复杂工作挑战或向别人索取披露；这只是一次创意比较，测试不会为能力提升作认证。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the counts without turning them into a verdict",
+            "zh": "怎样读计数，而不把它变成定论"
+          },
+          "paragraphs": [
+            {
+              "en": "The four raw counts sum to sixteen because each answer goes to one image. They are not four independent trait measurements or points that can be compared with a population. When Whisky ties for the highest count, its full guide appears alongside every other matching guide. When another image leads by one, that is not a validated boundary. Read a fitting example, ignore an unfitting one and leave the beverage label as an optional story device.",
+              "zh": "四项次数合计为16，因为每题只记给一个意象；它们不是四个独立的人格测量，也没有人群常模。威士忌与其他项最高并列时，全文会一起保留；另一项仅多一次，也不是经过验证的分界。可以使用一个贴切例子、略过不合适的例子，让饮品名称停留在自愿采用的故事比喻上。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sake",
+      "title": {
+        "en": "Sake: The Quiet Detail",
+        "zh": "清酒：安静细节的比喻"
+      },
+      "headline": {
+        "en": "Give one small detail enough room",
+        "zh": "不急着增加内容，先给一个细节留点空间"
+      },
+      "summary": {
+        "en": "Explore choices that make room for a pause, a considered gesture or a carefully noticed detail. Quiet imagery does not measure calmness or define a cultural personality.",
+        "zh": "回看留出停顿、安排一个小动作或细看一处细节的选择。安静意象不测情绪平稳，也不定义任何文化人格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sake Type Result: Quiet Detail, Full Free Guide",
+          "zh": "清酒型完整指南：安静细节的比喻与完整计数解释"
+        },
+        "description": {
+          "en": "Explore the Quiet Detail drink metaphor through a scene, comparisons and an optional exercise. No cultural personality, calmness or drinking claim is made.",
+          "zh": "通过具体场面、相近意象比较和可选小练习，完整理解安静细节的饮品比喻；不推断文化人格、平静程度或饮酒习惯。"
+        }
+      },
+      "scoreReading": {
+        "en": "The Sake count records Quiet Detail choices. Four counts of four produce a four-way tie, not an ideal balance or a more refined person. Every matching full guide stays available.",
+        "zh": "清酒计数记录“安静细节”的选择。四项各4次是四项并列，不是理想平衡，也不表示更有修养；所有匹配全文都保留。"
+      },
+      "directionIds": [
+        "sake"
+      ],
+      "sections": [
+        {
+          "id": "image",
+          "title": {
+            "en": "What the image means here",
+            "zh": "这个意象在这里表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Quiet Detail is our label for choices that give a small feature, a pause or a considered gesture room to matter. Sake is the generic beverage image attached to that editorial grouping. The game does not derive a personality from Japanese culture, measure refinement or ask whether you drink sake. A higher count does not demonstrate emotional calm, politeness, good taste or a capacity to keep a group harmonious.",
+              "zh": "“安静细节”是本游戏给一组选择取的名称：让一处小地方、一个停顿或经过考虑的小动作得到注意。清酒只是与这组选择相连的通用饮品意象，不是从日本文化推导人格，也不测试修养或是否喝清酒。次数较多，不能证明情绪更平稳、更礼貌、更有品位，或更能维持群体和谐。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "When the same choice means something different",
+            "zh": "同一选择也可能有不同原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A quiet-looking choice can have many reasons. You may want fewer elements because the scene already feels crowded, because the object is interesting on its own or simply because you like that version today. Another situation may make an exuberant opening more appealing. None of these choices tells the quiz how you feel internally. A calm design is not proof of a calm person, and a lively design is not evidence of distress.",
+              "zh": "看起来安静的选择，可能出于很多原因：原本内容已经太多、某件物品单独放着就有意思，或今天只是更喜欢这一版。换个场面，你也可能更想加一个热闹开头。题目无法从这些选择读取内心感受；平静的设计不证明人很平静，活泼的设计也不能说明正在难受。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Compare the other three readings",
+            "zh": "与另外三种读法比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Quiet Detail with Layered Connection: noticing one feature does not require weaving a larger story around it. Familiar Welcome may make the social setting easier to enter, while Bright Spark adds a change of pace. A carefully chosen pause can support any of them. The four images are deliberately limited editorial lenses, rather than natural personality categories, and none is positioned as more mature, sophisticated or culturally authentic.",
+              "zh": "安静细节可以只停留在一个小处，不一定像层次联想那样编织更大故事；亲切相聚关心怎样容易加入，闪亮开场关心怎样改变节奏。一个细选的停顿可以支持其中任何一种。四个意象只是有限的编辑观察入口，并非天然的人格种类，也没有哪一项更成熟、高级或更“符合某种文化”。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A scene worth looking at more closely",
+            "zh": "把一个小场面看清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine preparing a fictional listening corner for an exhibition. One chair, a short caption and a little breathing room around an object might be enough for the idea. The choice still needs checking against the intended use: could someone find the caption, understand what is optional and use the space comfortably? Leaving things out is not automatically considerate. A real setting would require listening to the people who use it, not relying on a quiz label.",
+              "zh": "设想布置一处虚构的社区留言角：一张卡片、简短提示和周围留白，可能已经足以表达想法。但仍要看使用场景，别人能否找到提示、知道可以不写、并自在使用？内容少并不自动等于体贴。真要落实一个空间，还应听使用者的意见，不能凭测试标签认定自己已经替大家考虑周全。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "An optional small experiment",
+            "zh": "一个可以不做的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "If it sounds enjoyable, sketch two versions of a small imaginary display or message. In one, remove a detail; in the other, give that detail more room. Ask what became clearer and what information disappeared. There is no correct quiet version to achieve. Keep the exercise private or invite voluntary feedback, without using somebody else’s home, personal material or preferences as a test of whether they share your type.",
+              "zh": "如果觉得有趣，可以给一个想象中的小展示或消息画两版，一版去掉某处细节，一版给它多留一点空间，比较什么更清楚、什么信息又丢了。没有必须达到的“正确安静版”。可以自己看，也可以邀请自愿反馈，不把别人的居住空间、私人材料或偏好拿来检验是否和自己同型。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the counts without turning them into a verdict",
+            "zh": "怎样读计数，而不把它变成定论"
+          },
+          "paragraphs": [
+            {
+              "en": "Sake appears as a match only when its raw count is among the highest in this completed attempt. The order of tied guides is fixed for display and does not choose a hidden winner. A four-way tie at four each is neither an ideal blend nor a superior result. You may read every guide before answering, leave an unfinished attempt without a result or retake the game later. No purchase, alcohol consumption or further personality test is required.",
+              "zh": "只有本次完整作答中，清酒次数位于最高值时，这份指南才列为匹配。并列全文的显示顺序固定，但不会隐藏选出赢家。四项各4次也不是理想配方或更优秀的结果。可以在作答前读完所有指南，未答完便退出而不生成结果，或者日后再玩；无需购买、饮酒或继续人格测试。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "An original four-image game",
+        "zh": "一份原创的四意象游戏"
+      },
+      "paragraphs": [
+        {
+          "en": "Sixteen original situations offer four possible creative or social moves. We call the images Bright Spark (Sparkling Wine), Familiar Welcome (Beer), Layered Connection (Whisky) and Quiet Detail (Sake). Their association with drink names is editorial, not a traditional or validated personality taxonomy. The game asks about imagined choices, not consumption or drink preferences.",
+          "zh": "16个原创小场面各提供四种创作或相处做法：闪亮开场（起泡酒）、亲切相聚（啤酒）、层次联想（威士忌）和安静细节（清酒）。与饮品名称的联系是编辑设定，不是传统或经过验证的人格分类。这里选择想象中的做法，不询问饮用习惯或口味。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "One choice, one raw count",
+        "zh": "一个选择，只记一次"
+      },
+      "paragraphs": [
+        {
+          "en": "Each question offers every image once. A selected option adds one raw count to its image, without weights, reverse scoring or a hidden trait total. After all sixteen choices, the four counts add to sixteen and each image has sixteen possible appearances. A count of six is six selections out of sixteen opportunities, not a similarity or personality percentage. The visible option order rotates. The open response key below, under “Questionnaire, reading guide and scope”, lists every position-to-image mapping.",
+          "zh": "每题四个意象各出现一次，选中哪项，就给对应意象记一次，不加权、不反向，也不另算隐藏人格总分。16题完成后，四项次数合计16，每项都有16次可选机会。6次表示16次机会里选到6次，不是相似度或人格百分比。选项位置会轮换；下方“题本、结果读法与使用范围”中的公开对应表列出了全部选项位置与意象的关系。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest tie stays complete",
+        "zh": "所有最高并列，都保留全文"
+      },
+      "paragraphs": [
+        {
+          "en": "Every image with the highest count gets its complete guide. Counts of 6, 6, 3 and 1 keep both six-count readings; 4, 4, 4 and 4 keep all four. Display order never breaks a tie. Counts of 7 and 6 are close choices within this bank, not a statistically established difference or a fixed primary and secondary personality. All four guides are also public before answering.",
+          "zh": "最高次数有几个，就完整呈现几份指南。6、6、3、1会保留两份6次的说明；4、4、4、4则保留四份。显示顺序不用于拆并列。7次和6次只是本题组中接近的选择，不是已验证的显著差异，也不产生固定主副人格。作答前同样能公开阅读四份全文。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "An unfinished game has no assigned result",
+        "zh": "未完成时，不分配结果"
+      },
+      "paragraphs": [
+        {
+          "en": "An unfinished attempt does not produce a result, even if one count happens to lead. This four-choice game has no scored not-applicable option; unknown answers are not converted into a count or an assumed preference. If a scene does not fit, leave it unfinished or exit and clear the attempt. You can still use every public guide. There is no requirement to force an answer or maintain a particular label.",
+          "zh": "没答完时，即使某项暂时领先，也不生成结果。这份四选一游戏没有计分的“不适用”选项；未知答案不会被换成次数或假定偏好。某个场面不合适，可以保持未完成，或退出并清除本次进度；四份公开指南仍可阅读，不要求勉强补答或维持某个标签。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Use an image without judging a person",
+        "zh": "使用一个意象，不据此评价人"
+      },
+      "paragraphs": [
+        {
+          "en": "The result describes this set of choices, not a measured trait, ability, social standing, compatibility or career fit. It does not tell what someone should drink, buy or serve. No drink knowledge, alcohol experience, age, body or health information is required. The four images are not a complete spectrum of people, and one is not more mature or culturally authentic than another.",
+          "zh": "结果描述本次选择，不是实测人格、能力、社交地位、适配或职业匹配。它不建议任何人喝什么、买什么或提供什么饮品，也不需要饮品知识、饮酒经验、年龄、身体或健康信息。四个意象并未覆盖所有人，更没有哪一项更成熟或更符合某种文化。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep the choices in the page",
+        "zh": "把选择留在页面内"
+      },
+      "paragraphs": [
+        {
+          "en": "The result is calculated in the page. Optional progress saving uses this tab’s session storage, expires after 24 hours and clears on completion, retake or exit-and-clear. Copying includes the test title, matched reading titles and a public guide or entry link; it does not include answers or counts. You may read a guide, try one harmless creative comparison or finish here. No purchase, drinking or additional test is required.",
+          "zh": "结果在页面内计算。自愿保存的进度使用本标签页会话存储，24小时后失效，完成、重测或退出并清除时删除。复制内容包括测试名称、匹配指南名称和公开指南或入口链接，不含答案或次数。可以读一份说明、试一次无负担的创意比较，或在这里结束；无需购买、饮酒或继续测试。"
+        }
+      ]
+    },
+    {
+      "id": "answer-key",
+      "title": {
+        "en": "Open response key: visible option positions",
+        "zh": "公开对应表：按可见选项顺序"
+      },
+      "paragraphs": [
+        {
+          "en": "Questions 1, 5, 9 and 13: first option → Sparkling Wine; second → Beer; third → Whisky; fourth → Sake.",
+          "zh": "第1、5、9、13题：第一项→起泡酒；第二项→啤酒；第三项→威士忌；第四项→清酒。"
+        },
+        {
+          "en": "Questions 2, 6, 10 and 14: first option → Beer; second → Whisky; third → Sake; fourth → Sparkling Wine.",
+          "zh": "第2、6、10、14题：第一项→啤酒；第二项→威士忌；第三项→清酒；第四项→起泡酒。"
+        },
+        {
+          "en": "Questions 3, 7, 11 and 15: first option → Whisky; second → Sake; third → Sparkling Wine; fourth → Beer.",
+          "zh": "第3、7、11、15题：第一项→威士忌；第二项→清酒；第三项→起泡酒；第四项→啤酒。"
+        },
+        {
+          "en": "Questions 4, 8, 12 and 16: first option → Sake; second → Sparkling Wine; third → Beer; fourth → Whisky.",
+          "zh": "第4、8、12、16题：第一项→清酒；第二项→起泡酒；第三项→啤酒；第四项→威士忌。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does my Sake Type result mean?",
+        "zh": "酒水类型结果实际表示什么？"
+      },
+      "answer": {
+        "en": "It identifies the drink images with the most choices in this original sixteen-scene game. Each matching image has a complete reading. It does not reveal a drink preference or a hidden psychological type.",
+        "zh": "它列出本原创16题游戏中选得最多的饮品意象，每个匹配意象都有完整读法；不揭示真实口味，也不鉴定隐藏心理类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to drink or know about alcohol?",
+        "zh": "需要喝酒或了解酒类吗？"
+      },
+      "answer": {
+        "en": "No. Each label is explained as an editorial image. The test asks no consumption, purchase, serving, age or health questions and recommends no alcoholic product.",
+        "zh": "不需要。每个名称都作为编辑意象解释；题目不询问饮用、购买、提供饮品、年龄或健康情况，也不推荐任何酒类产品。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are counts and ties handled?",
+        "zh": "次数和并列怎样处理？"
+      },
+      "answer": {
+        "en": "Each selected option adds one count to its image. All sixteen valid choices are required. Every highest-count image keeps its full guide, including all four when counts are four each.",
+        "zh": "每选一项，为对应意象记一次，需要16题全部有效选择。所有最高次数意象都保留全文；四项各4次时，四份均完整呈现。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does one more choice establish my real personality?",
+        "zh": "多一次，就能确定真实人格吗？"
+      },
+      "answer": {
+        "en": "No. Close counts are sensitive to which scene and option appealed to you. They have no population benchmark, diagnostic cutoff or validated primary/secondary interpretation.",
+        "zh": "不能。相近次数会受具体场面和当时喜欢的说法影响，没有人群常模、诊断阈值或已验证的主副型解释。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if none of the options fits?",
+        "zh": "如果四种说法都不合适怎么办？"
+      },
+      "answer": {
+        "en": "You may leave the game unfinished or exit and clear it. No missing answer becomes a score, and all four complete public guides remain free to read.",
+        "zh": "可以保持未完成，或退出并清除。缺答不会补成分数，四份完整公开指南仍可免费阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or copied?",
+        "zh": "会保存或复制哪些内容？"
+      },
+      "answer": {
+        "en": "Only an optional draft is kept in this tab for up to twenty-four hours; completion, retake or exit-and-clear removes it. Copying uses titles and a public link, without your answers or counts.",
+        "zh": "仅在自愿开启时，本标签页临时保存最多24小时的草稿；完成、重测或退出并清除会删除。复制只含名称和公开链接，不含个人答案或次数。"
+      }
+    }
+  ]
+}

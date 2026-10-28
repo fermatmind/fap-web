@@ -5272,5 +5272,30 @@
     "resultSlugs": [
       "reading-your-check-in"
     ]
+  },
+  {
+    "slug": "sake-type",
+    "code": "FM_SAKE_METAPHOR16",
+    "version": "fm_sake_fourchoice16_v1",
+    "category": "metaphor",
+    "title": {
+      "en": "Sake Type Test",
+      "zh": "酒水类型测试"
+    },
+    "description": {
+      "en": "Explore four drink metaphors through 16 original imagined scenes. See raw counts, keep every highest tie and read all four complete guides free. No alcohol needed.",
+      "zh": "用16个原创想象场面探索四种饮品比喻，查看原始次数，保留全部最高并列，免费阅读四份完整指南；不需要饮酒。"
+    },
+    "minutes": 4,
+    "updated": "2026-10-28",
+    "collection": "explore",
+    "formCode": "fm_sake_fourchoice16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "sparkling-wine",
+      "beer",
+      "whisky",
+      "sake"
+    ]
   }
 ]
