@@ -1,0 +1,2134 @@
+{
+  "slug": "caliper-style-assessment-test",
+  "code": "FM_MOST_LEAST_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "most-least",
+  "title": {
+    "en": "Caliper-Style Assessment: Most/Least Practice",
+    "zh": "Caliper风格评估：最符合／最不符合练习"
+  },
+  "seoTitle": {
+    "en": "Free Caliper-Style Most/Least Practice | 16 Original Blocks",
+    "zh": "Caliper风格最符合／最不符合练习：16组原创题块"
+  },
+  "description": {
+    "en": "Practise choosing one Most and one different Least statement in 16 original four-statement blocks. See all eight choice records and full guides, free with no signup.",
+    "zh": "免费练习16组原创四陈述题块，每组选择一项最符合与另一项最不符合。查看八主题的两类次数、差值与完整读法，无需注册。"
+  },
+  "minutes": 8,
+  "introduction": {
+    "en": "Get familiar with a most/least interface, then reflect on the choices you made. FermatMind wrote these statements and eight working-action topics. This independent practice is not the official Caliper Profile, a licensed item bank, a personality assessment or a predictor of employment outcomes.",
+    "zh": "先熟悉最符合／最不符合的操作，再回看自己的选择。陈述与八项工作动作主题均由费马原创。本独立练习不是正式Caliper Profile、授权题库、人格测评或就业结果预测工具。"
+  },
+  "instructions": {
+    "en": "Think about ordinary work or study recently. In every block choose the statement MOST like you and a different statement LEAST like you. There are no right answers or timer. Do not guess what an employer wants. If no comparison feels meaningful, you may stop without a result.",
+    "zh": "回看最近普通的工作或学习。每组各选一条最符合与最不符合，二者必须不同。没有正确答案和计时，不猜雇主想要什么。若比较没有意义，可以直接结束，不必取得结果。"
+  },
+  "resultHeading": {
+    "en": "Your Most/Least choice record",
+    "zh": "你的最符合／最不符合选择记录"
+  },
+  "source": {
+    "kind": "fermatmind_original_most_least_format_practice",
+    "formCode": "fm_most_least_blocks16_v1",
+    "itemBankVersion": "fm_most_least_blocks16_v1",
+    "scoringVersion": "fm_most_least_raw_counts_v1",
+    "resultContentVersion": "fm_most_least_guides8_v1",
+    "itemBankSha256": "4dace0f609e8ec9b76cbe2dffcd5df6642fbc868b8a5a7988fce120f155d53cc",
+    "resultContentSha256": "6826606ac7ef440f0b657a840a2e8b2691526c2c83cb1cdce5d90392120abb1c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "context",
+      "title": {
+        "en": "Share the context",
+        "zh": "交代来龙去脉"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "options",
+      "title": {
+        "en": "Try a small alternative",
+        "zh": "小步尝试替代方案"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "finish",
+      "title": {
+        "en": "Finish a bounded step",
+        "zh": "完成一个明确步骤"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "details",
+      "title": {
+        "en": "Organize the details",
+        "zh": "整理细节"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "constraints",
+      "title": {
+        "en": "Clarify the constraints",
+        "zh": "澄清限制条件"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "understanding",
+      "title": {
+        "en": "Check shared understanding",
+        "zh": "核对共同理解"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "followup",
+      "title": {
+        "en": "Follow up on an agreement",
+        "zh": "跟进已有约定"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "pause",
+      "title": {
+        "en": "Pause before responding",
+        "zh": "回应前留一点停顿"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "ML_01",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I explain why a request matters before passing it on.",
+            "zh": "转交请求时，我先说明它为什么重要。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I sketch a second route before committing to a routine solution.",
+            "zh": "采用常规方案前，我先画出另一条路径。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I give related files names that make their purpose clear.",
+            "zh": "我给相关文件起能看出用途的名字。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I ask which requirement is essential before choosing an approach.",
+            "zh": "决定做法前，我先问哪项要求是必须满足的。"
+          },
+          "directionId": "constraints"
+        }
+      ]
+    },
+    {
+      "id": "ML_02",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I test a small variation on a disposable draft.",
+            "zh": "我在可丢弃的草稿上试一个小变化。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I bring one clearly defined step to a usable stopping point.",
+            "zh": "我把一项定义清楚的步骤做到可以使用。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I check what the deadline actually applies to.",
+            "zh": "我核对期限究竟针对哪部分交付。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I restate a request in my own words to check its meaning.",
+            "zh": "我用自己的话复述请求，核对含义。"
+          },
+          "directionId": "understanding"
+        }
+      ]
+    },
+    {
+      "id": "ML_03",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I close a small open loop before starting another.",
+            "zh": "开始下一件事前，我先收好一个小尾巴。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I put a scattered list into a usable order.",
+            "zh": "我把零散清单整理成可用的顺序。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I ask whether my summary leaves out an important point.",
+            "zh": "我询问自己的概括是否遗漏重点。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I return to an agreement at the time we set.",
+            "zh": "我在约定时间回到已有安排上。"
+          },
+          "directionId": "followup"
+        }
+      ]
+    },
+    {
+      "id": "ML_04",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I label the current version before sharing a document.",
+            "zh": "分享文档前，我标明当前版本。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I clarify the available resources before promising a step.",
+            "zh": "承诺步骤前，我澄清可用资源。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I update someone when a promised response is delayed.",
+            "zh": "承诺的回复延迟时，我及时告知对方。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I reread a tense message once before replying.",
+            "zh": "回复语气紧张的信息前，我先重读一次。"
+          },
+          "directionId": "pause"
+        }
+      ]
+    },
+    {
+      "id": "ML_05",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I ask what is outside the scope of a new request.",
+            "zh": "接到新请求时，我问清哪些内容不在范围内。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I check that we mean the same thing by an ambiguous word.",
+            "zh": "词语有歧义时，我核对双方是否指同一件事。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I leave a brief gap before answering an unexpected request.",
+            "zh": "面对意料外的请求，我留一点间隙再回答。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I give a new collaborator a short account of what has happened.",
+            "zh": "新伙伴加入时，我简短交代事情的来龙去脉。"
+          },
+          "directionId": "context"
+        }
+      ]
+    },
+    {
+      "id": "ML_06",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I invite a correction after explaining my understanding.",
+            "zh": "说出自己的理解后，我请对方纠正。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I check whether an earlier blocker has been resolved.",
+            "zh": "我跟进先前的阻碍是否已经解决。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I flag a changed assumption in my handoff note.",
+            "zh": "交接时，我标出已经变化的前提。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I ask whether a reversible experiment could resolve uncertainty.",
+            "zh": "面对不确定性，我会想能否用可撤回的小试验澄清。"
+          },
+          "directionId": "options"
+        }
+      ]
+    },
+    {
+      "id": "ML_07",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I revisit a shared action list at the agreed checkpoint.",
+            "zh": "到约定检查点时，我重新查看共同任务清单。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I consider my wording before sending a rushed response.",
+            "zh": "匆忙回复前，我先想一下措辞。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I put two possible approaches side by side.",
+            "zh": "我把两种可能的做法并排比较。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I mark a completed part so another person can use it.",
+            "zh": "我标明已完成的部分，方便别人使用。"
+          },
+          "directionId": "finish"
+        }
+      ]
+    },
+    {
+      "id": "ML_08",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I pause to identify what I want to say in a difficult exchange.",
+            "zh": "交流困难时，我先停一下，想清自己要说什么。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I tell someone how a small task connects to the larger plan.",
+            "zh": "我会说明小任务与整体安排的联系。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I work toward the agreed done condition on a small task.",
+            "zh": "做小任务时，我围绕约定的完成条件推进。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I group small tasks so their dependencies are easier to see.",
+            "zh": "我把小任务分组，让前后依赖更清楚。"
+          },
+          "directionId": "details"
+        }
+      ]
+    },
+    {
+      "id": "ML_09",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I add the missing background when a thread becomes hard to follow.",
+            "zh": "讨论难以跟上时，我补充缺失的背景。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I finish a bounded draft before adding optional extras.",
+            "zh": "添加可选内容前，我先完成边界明确的初稿。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I distinguish a fixed rule from a preference.",
+            "zh": "我区分必须遵守的规则与可以商量的偏好。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I ask a focused question when two accounts seem to conflict.",
+            "zh": "两种说法似乎冲突时，我提出一个具体问题。"
+          },
+          "directionId": "understanding"
+        }
+      ]
+    },
+    {
+      "id": "ML_10",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I try a different order when a small task gets stuck.",
+            "zh": "小任务卡住时，我试试调整步骤顺序。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I tidy a shared workspace so the next item is easy to find.",
+            "zh": "我整理共享工作区，让下一份资料容易找到。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I confirm the next step in plain language at a handoff.",
+            "zh": "交接时，我用平实语言确认下一步。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I ask for a status update when an agreed check-in arrives.",
+            "zh": "到约定查看时间时，我询问当前状态。"
+          },
+          "directionId": "followup"
+        }
+      ]
+    },
+    {
+      "id": "ML_11",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I complete the next promised piece before widening the task.",
+            "zh": "扩大任务前，我先交付下一块已承诺的内容。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I check a crucial assumption before building on it.",
+            "zh": "依照关键前提继续推进前，我先核对它。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I let the affected person know when a commitment changes.",
+            "zh": "承诺发生变化时，我通知受影响的人。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I take a moment before responding to criticism.",
+            "zh": "回应批评前，我留一点时间。"
+          },
+          "directionId": "pause"
+        }
+      ]
+    },
+    {
+      "id": "ML_12",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I separate confirmed details from open questions in a note.",
+            "zh": "写记录时，我把已确认细节与待确认问题分开。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I check whether a brief message was interpreted as intended.",
+            "zh": "发出简短信息后，我核对是否按原意被理解。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I delay a non-urgent reply long enough to read the whole message.",
+            "zh": "回复非紧急信息时，我先把整条信息读完。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I explain the reason behind a revised request.",
+            "zh": "请求调整后，我交代修改的缘由。"
+          },
+          "directionId": "context"
+        }
+      ]
+    },
+    {
+      "id": "ML_13",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I ask who can decide when a requirement is unclear.",
+            "zh": "要求不清楚时，我会问由谁决定。"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I keep track of a reply that another step depends on.",
+            "zh": "后续步骤依赖一份回复时，我留意回复进展。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I summarize the current situation before asking for help.",
+            "zh": "求助前，我先概括目前的情况。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I suggest a limited trial before a larger change.",
+            "zh": "提出较大调整前，我建议先做有限试验。"
+          },
+          "directionId": "options"
+        }
+      ]
+    },
+    {
+      "id": "ML_14",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I ask what the other person understood before moving ahead.",
+            "zh": "继续推进前，我询问对方理解到哪一步。"
+          },
+          "directionId": "understanding"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I briefly consider the request before saying yes.",
+            "zh": "答应请求前，我先简短考虑一下。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I make a rough alternative to help compare choices.",
+            "zh": "我做一个粗略备选稿来帮助比较。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I leave a usable checkpoint when a larger job must pause.",
+            "zh": "大任务需要暂停时，我留下可用的阶段成果。"
+          },
+          "directionId": "finish"
+        }
+      ]
+    },
+    {
+      "id": "ML_15",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I check the status of an unfinished agreement before forgetting it.",
+            "zh": "一项约定尚未结束时，我会回看其状态。"
+          },
+          "directionId": "followup"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I include the next decision when handing work to someone else.",
+            "zh": "把工作交给别人时，我写清下一个待决定事项。"
+          },
+          "directionId": "context"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I check that the agreed small deliverable is actually ready.",
+            "zh": "我核对约定的小交付是否真的已经就绪。"
+          },
+          "directionId": "finish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I arrange the materials needed for the next step.",
+            "zh": "我整理下一步需要用到的材料。"
+          },
+          "directionId": "details"
+        }
+      ]
+    },
+    {
+      "id": "ML_16",
+      "prompt": {
+        "en": "In ordinary work or study recently, which statement is MOST like you and which is LEAST like you? Choose two different statements.",
+        "zh": "回看最近普通的工作或学习，哪项最符合你、哪项最不符合你？请选择两条不同陈述。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I pause before adding my immediate reaction to a discussion.",
+            "zh": "讨论中说出第一反应前，我先停顿一下。"
+          },
+          "directionId": "pause"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I explore one other way before repeating the same approach.",
+            "zh": "重复原做法之前，我探索另一种方式。"
+          },
+          "directionId": "options"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I make a short index when a collection becomes hard to navigate.",
+            "zh": "资料变得难以查找时，我做一份简短索引。"
+          },
+          "directionId": "details"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I identify a limit that could change the next action.",
+            "zh": "我找出可能改变下一步行动的限制条件。"
+          },
+          "directionId": "constraints"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "context",
+      "directionIds": [
+        "context"
+      ],
+      "title": {
+        "en": "Share the context",
+        "zh": "交代来龙去脉"
+      },
+      "headline": {
+        "en": "Make the situation easier for another person to enter.",
+        "zh": "让接手的人更容易理解情境。"
+      },
+      "summary": {
+        "en": "This topic counts choices about explaining why a task exists, what changed and what another person needs to know. It concerns information handoffs within these menus, rather than sociability or a communication-ability score.",
+        "zh": "这组内容记录你对任务缘由、变化以及接手所需信息的选择，只涉及这些菜单里的信息交接，不代表外向程度或沟通能力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Share the context: Most/Least Practice Guide",
+          "zh": "交代来龙去脉：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to share the context in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“交代来龙去脉”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic counts choices about explaining why a task exists, what changed and what another person needs to know. It concerns information handoffs within these menus, rather than sociability or a communication-ability score.",
+              "zh": "这组内容记录你对任务缘由、变化以及接手所需信息的选择，只涉及这些菜单里的信息交接，不代表外向程度或沟通能力分。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A short handoff could explain the request, its current state and the next decision. Someone can do this in a written note while still preferring quiet, independent work.",
+              "zh": "一次简短交接可以写清请求、当前状态和下一个待决定事项。喜欢安静独立工作的人，也可以用文字完成这些交代。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most selections here can mean that providing orientation felt more characteristic than the competing actions. Check which alternatives appeared beside it: the result changes when the menu changes.",
+              "zh": "这里的“最符合”较多，可能表示在给定选项中，先交代背景更接近你的自述。要同时看旁边有哪些竞争动作；菜单改变，选择也可能改变。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least selections may reflect an already shared context, a role with little handoff work, or a stronger pull toward another action. It does not establish poor communication or lack of consideration.",
+              "zh": "“最不符合”较多，也可能因为背景已经共享、当前角色很少交接，或另一动作更贴近你；不能据此认定沟通差或不体谅人。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "An orientation note can become so long that its recipient cannot find the decision. Ask what the person needs now, and move background detail behind a short opening.",
+              "zh": "背景说明过长，也会让人找不到决策点。先问对方眼下需要什么，把细节放在简短开头之后。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Try a three-line handoff on one small task: why it matters, where it stands, what happens next. Ask the recipient which line was useful rather than assuming a higher count means better work.",
+              "zh": "找一件小任务试写三行交接：为什么做、做到哪里、下一步是什么。问接收者哪一行有用，不把次数较高等同于工作较好。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "options",
+      "directionIds": [
+        "options"
+      ],
+      "title": {
+        "en": "Try a small alternative",
+        "zh": "小步尝试替代方案"
+      },
+      "headline": {
+        "en": "Explore one reversible route before settling.",
+        "zh": "在定下来之前探索一条可撤回的路径。"
+      },
+      "summary": {
+        "en": "These statements concern generating and trying a modest alternative. They do not measure creativity, risk appetite, abstract reasoning or the quality of any actual solution.",
+        "zh": "这些陈述涉及提出并尝试一个小规模替代办法，不测创造力、冒险倾向、抽象推理或真实方案质量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Try a small alternative: Most/Least Practice Guide",
+          "zh": "小步尝试替代方案：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to try a small alternative in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“小步尝试替代方案”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern generating and trying a modest alternative. They do not measure creativity, risk appetite, abstract reasoning or the quality of any actual solution.",
+              "zh": "这些陈述涉及提出并尝试一个小规模替代办法，不测创造力、冒险倾向、抽象推理或真实方案质量。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you might test two headings on a disposable draft before polishing the final document. The experiment is limited and reversible; it need not involve a risky operational change.",
+              "zh": "例如，先在可丢弃的草稿里比较两个标题，再打磨定稿。这是有限且可撤回的试验，不需要冒险改动实际业务。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher Most count says that trying another route often won a forced comparison in this exercise. It does not show that the alternative worked or that you always prefer novelty.",
+              "zh": "“最符合”次数较多，只说明本练习中试一条替代路径常在强制比较里被选中，不能证明办法有效，也不表示你总喜欢新东西。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher Least count could reflect a settled procedure, limited time or a setting where experimentation needs permission. Familiar methods may already be appropriate.",
+              "zh": "“最不符合”较多，可能对应成熟流程、时间有限或试验需要许可的情境；沿用熟悉办法本来就可能合适。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Generating more options can delay a decision. Choose a stopping condition before exploring, such as one comparison or a ten-minute sketch, while respecting real task constraints.",
+              "zh": "持续增加备选项会推迟决定。探索前先约定停止条件，例如只做一次比较或十分钟草图，同时遵守真实任务约束。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick a low-stakes draft and write one alternative next to the usual approach. Record what changed and what stayed unclear; do not use this page to rehearse an employer-preferred personality.",
+              "zh": "选一份低风险草稿，在常用办法旁写出一个替代办法。记录变化和仍不清楚的地方，不用本页排练雇主喜欢的性格。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "directionIds": [
+        "finish"
+      ],
+      "title": {
+        "en": "Finish a bounded step",
+        "zh": "完成一个明确步骤"
+      },
+      "headline": {
+        "en": "Bring a defined unit of work to a usable stopping point.",
+        "zh": "把边界清楚的一步做到可以交接或使用。"
+      },
+      "summary": {
+        "en": "This topic concerns completing a defined piece, not being a harder worker or more conscientious person. A count cannot tell whether the target was useful, realistic or chosen freely.",
+        "zh": "这组内容关注完成一块定义清楚的工作，不表示更勤奋或更尽责。次数无法说明目标是否有用、合理或出于自愿。"
+      },
+      "seo": {
+        "title": {
+          "en": "Finish a bounded step: Most/Least Practice Guide",
+          "zh": "完成一个明确步骤：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to finish a bounded step in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“完成一个明确步骤”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns completing a defined piece, not being a harder worker or more conscientious person. A count cannot tell whether the target was useful, realistic or chosen freely.",
+              "zh": "这组内容关注完成一块定义清楚的工作，不表示更勤奋或更尽责。次数无法说明目标是否有用、合理或出于自愿。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A finished step might be one checked paragraph rather than the entire report. Naming its boundary lets a collaborator understand what can already be used.",
+              "zh": "完成的一步可以是一段已经核对的文字，不必是整份报告。说明边界，伙伴才知道哪些部分已经可用。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most choices may indicate that reaching a usable stopping point felt particularly familiar beside other actions. They do not prove productivity or predict performance on a job.",
+              "zh": "“最符合”较多，可能表示与其他动作相比，把一小步做到可用更贴近你的日常；它不能证明生产率，也不预测工作表现。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least choices can occur when discovery, interruptions or changing requirements prevent clean stopping points. Review the situation before treating the count as a personal limitation.",
+              "zh": "探索阶段、频繁打断或需求变化都可能让“最不符合”较多。先看情境，再考虑是否存在自己想调整的习惯。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Finishing the wrong step can create rework. Check that its purpose still holds, and distinguish a useful pause from abandoning an obligation that another person relies on.",
+              "zh": "把错误的一步做完也会造成返工。先核对目的是否还成立，并区分有用的暂停与放下别人正在依赖的承诺。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Define one small done condition before starting, then review whether it helped. If the condition changes, tell the affected person rather than chasing completion for its own sake.",
+              "zh": "开始前给一件小事写一个完成条件，再回看它是否有帮助。如果条件改变，及时告诉受影响的人，不为完成而完成。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "details",
+      "directionIds": [
+        "details"
+      ],
+      "title": {
+        "en": "Organize the details",
+        "zh": "整理细节"
+      },
+      "headline": {
+        "en": "Make parts and versions easier to find.",
+        "zh": "让资料、步骤与版本更容易找到。"
+      },
+      "summary": {
+        "en": "These choices concern arranging practical details such as names, steps and versions. They do not test memory, attention accuracy or a clinical need for order.",
+        "zh": "这些选择涉及名称、步骤、版本等实际细节的整理，不测记忆、注意准确度，也不用于判断临床意义上的秩序需要。"
+      },
+      "seo": {
+        "title": {
+          "en": "Organize the details: Most/Least Practice Guide",
+          "zh": "整理细节：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to organize the details in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“整理细节”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These choices concern arranging practical details such as names, steps and versions. They do not test memory, attention accuracy or a clinical need for order.",
+              "zh": "这些选择涉及名称、步骤、版本等实际细节的整理，不测记忆、注意准确度，也不用于判断临床意义上的秩序需要。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A folder with a clear current version may save a colleague time. The useful action is making something findable, not producing the most elaborate filing system.",
+              "zh": "文件夹里清楚标明当前版本，可能节省同事时间。有用之处是容易找到，而不是整理体系越复杂越好。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most selections mean that arranging details was often preferred over the other statements shown. They cannot establish that your arrangements are accurate or useful to other people.",
+              "zh": "“最符合”较多，说明相较当时的其他陈述，整理细节常被你选中；不能证明整理准确或一定方便别人。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least selections may reflect a task with few moving parts or a shared system that already handles organization. It is not a finding of carelessness.",
+              "zh": "“最不符合”较多，可能因为任务本来简单，或已有共享系统承担整理工作，不是粗心的判定。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "A detailed system can become maintenance work of its own. Keep only the distinctions that support a real decision or handoff, and check whether others understand the labels.",
+              "zh": "细致体系也会产生维护成本。只保留有助于真实决策和交接的区分，并确认别人看得懂标签。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one recurring retrieval problem and simplify its label or location. Ask another person to find the current item; that small observation is more informative than this count alone.",
+              "zh": "选一个反复找不到资料的问题，简化标签或位置，再请别人找一次当前文件。这种具体观察比单看次数更有信息。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constraints",
+      "directionIds": [
+        "constraints"
+      ],
+      "title": {
+        "en": "Clarify the constraints",
+        "zh": "澄清限制条件"
+      },
+      "headline": {
+        "en": "Ask what a task must respect before choosing a route.",
+        "zh": "选择做法前先问任务必须遵守什么。"
+      },
+      "summary": {
+        "en": "This topic records choices about checking scope, resources and requirements. It is not an abstract-reasoning score, a judgment of caution or proof of decision quality.",
+        "zh": "这组内容记录核对范围、资源与要求的选择，不是抽象推理分、谨慎程度判断或决策质量证明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Clarify the constraints: Most/Least Practice Guide",
+          "zh": "澄清限制条件：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to clarify the constraints in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“澄清限制条件”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic records choices about checking scope, resources and requirements. It is not an abstract-reasoning score, a judgment of caution or proof of decision quality.",
+              "zh": "这组内容记录核对范围、资源与要求的选择，不是抽象推理分、谨慎程度判断或决策质量证明。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Before accepting a revised deadline, you could ask which part must be ready and what can wait. That question identifies a constraint; it does not require controlling the entire project.",
+              "zh": "接受修改后的期限前，可以先问哪部分必须就绪、哪部分可以等。这是在识别限制条件，不需要掌控整个项目。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most choices suggest that checking limits often felt more characteristic than competing statements. Whether a specific limit matters still requires evidence from the actual task.",
+              "zh": "“最符合”较多，说明核对限制常比竞争陈述更像你的自述。某个限制是否重要，仍须依据真实任务证据。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least choices could mean the limits were already clear or someone else owned that decision. They do not show recklessness or inability to plan.",
+              "zh": "“最不符合”较多，可能因为限制早已明确，或由别人负责相关决定，不能说明鲁莽或不会计划。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeated clarification can hold up an easy reversible action. Separate what must be known now from what can be learned during a small, authorized step.",
+              "zh": "反复澄清也可能拖住简单且可撤回的行动。把现在必须知道的事与可以在一小步中了解的事分开。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "For one modest request, write the must-have, the deadline and one unresolved assumption. Confirm only the assumption that changes your next action.",
+              "zh": "针对一个小请求，写下必须满足的条件、期限和一个未确认前提。只确认会影响下一步行动的那个前提。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "understanding",
+      "directionIds": [
+        "understanding"
+      ],
+      "title": {
+        "en": "Check shared understanding",
+        "zh": "核对共同理解"
+      },
+      "headline": {
+        "en": "See whether two people mean the same thing.",
+        "zh": "确认双方说的是不是同一件事。"
+      },
+      "summary": {
+        "en": "These statements concern checking the meaning of an exchange. They do not measure empathy, emotional intelligence, persuasiveness or another person’s willingness to agree.",
+        "zh": "这些陈述关注核对交流含义，不测共情、情商、说服力，也不判断对方是否愿意赞同。"
+      },
+      "seo": {
+        "title": {
+          "en": "Check shared understanding: Most/Least Practice Guide",
+          "zh": "核对共同理解：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to check shared understanding in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“核对共同理解”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern checking the meaning of an exchange. They do not measure empathy, emotional intelligence, persuasiveness or another person’s willingness to agree.",
+              "zh": "这些陈述关注核对交流含义，不测共情、情商、说服力，也不判断对方是否愿意赞同。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "You might repeat a request in your own words and ask whether you missed anything. This tests your interpretation of the request, not the other person’s intelligence or sincerity.",
+              "zh": "可以用自己的话复述请求，再问是否遗漏。这是在核对自己的理解，不是在考验对方的智力或诚意。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most selections can indicate that checking meaning often won the comparison. It does not show that agreement was achieved or that everyone felt heard.",
+              "zh": "“最符合”较多，只表示核对含义常在比较中被选中，不能证明已经达成共识或每个人都感到被倾听。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least selections could reflect familiar shorthand, solitary work or another action that felt more characteristic. A low count does not diagnose social difficulty.",
+              "zh": "“最不符合”较多，也可能对应熟悉的简写、独立工作，或另一个动作更像你；次数低不用于诊断社交困难。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking can feel repetitive if the meaning is already clear. Ask a specific question about the point that matters, and accept a concise correction without demanding agreement.",
+              "zh": "含义已明确时，反复核对会显得啰嗦。针对关键点提出具体问题，接受简短纠正，不要求别人必须同意。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "At one handoff, state your interpretation in a sentence and invite a correction. Notice whether the correction changes the work; do not treat silence as proof of agreement.",
+              "zh": "下一次交接时，用一句话说出你的理解并邀请纠正。观察纠正是否改变工作，不把沉默当作同意证明。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "followup",
+      "directionIds": [
+        "followup"
+      ],
+      "title": {
+        "en": "Follow up on an agreement",
+        "zh": "跟进已有约定"
+      },
+      "headline": {
+        "en": "Return to a commitment at an agreed point.",
+        "zh": "在约定时间回到一项承诺上。"
+      },
+      "summary": {
+        "en": "This topic concerns returning to an agreement and updating its status. It is distinct from finishing a bounded step: a follow-up may reveal a blocker without completing any deliverable.",
+        "zh": "这组内容涉及回到约定上并更新状态，与完成明确步骤不同：一次跟进可能只发现阻碍，没有完成任何交付。"
+      },
+      "seo": {
+        "title": {
+          "en": "Follow up on an agreement: Most/Least Practice Guide",
+          "zh": "跟进已有约定：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to follow up on an agreement in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“跟进已有约定”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns returning to an agreement and updating its status. It is distinct from finishing a bounded step: a follow-up may reveal a blocker without completing any deliverable.",
+              "zh": "这组内容涉及回到约定上并更新状态，与完成明确步骤不同：一次跟进可能只发现阻碍，没有完成任何交付。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you might check on a promised reply at the agreed time and tell the affected person about a delay. This is a coordination action, not evidence of being a reliable person in every context.",
+              "zh": "例如，在约定时间核对承诺回复，并告诉受影响的人发生延迟。这是一项协调动作，不能证明在所有情境中都可靠。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most choices mean that revisiting agreements often felt characteristic among the available statements. The count says nothing about whether others welcomed each follow-up.",
+              "zh": "“最符合”较多，说明在给定陈述中，回到已有约定上常贴近你的自述；次数不说明别人是否欢迎每一次跟进。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least choices may reflect short tasks, automatic reminders or a role with few continuing dependencies. It does not imply that you break promises.",
+              "zh": "“最不符合”较多，可能对应短任务、自动提醒或持续依赖很少的角色，不意味着你不守承诺。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Unscheduled reminders can interrupt someone else. Agree on when to check, what counts as an update and how to signal that a commitment has changed.",
+              "zh": "没有约定的提醒可能打断别人。先商量何时查看、什么算一次更新，以及承诺变化时怎样告知。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one existing agreement and set a mutually acceptable check-in. At that point, share the status or the blocker rather than inventing a success update.",
+              "zh": "选一项已有约定，设一个双方能接受的查看时间。到时如实说明进度或阻碍，不编造成功消息。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pause",
+      "directionIds": [
+        "pause"
+      ],
+      "title": {
+        "en": "Pause before responding",
+        "zh": "回应前留一点停顿"
+      },
+      "headline": {
+        "en": "Create a short gap before an immediate response.",
+        "zh": "在即时反应与回应之间留一个短间隙。"
+      },
+      "summary": {
+        "en": "These statements concern pausing briefly before a response. They do not measure emotional stability, impulse control, stress tolerance or the right way to handle a conflict.",
+        "zh": "这些陈述涉及回应前短暂停顿，不测情绪稳定、冲动控制、抗压能力，也不规定处理冲突的正确方式。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pause before responding: Most/Least Practice Guide",
+          "zh": "回应前留一点停顿：最符合／最不符合练习读法"
+        },
+        "description": {
+          "en": "Read the full free guide to pause before responding in an original most/least exercise: examples, both choice counts, trade-offs and an optional next step.",
+          "zh": "完整免费阅读“回应前留一点停顿”的原创最符合／最不符合练习读法，包括具体例子、两类选择次数、取舍与可选下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+        "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this topic records",
+            "zh": "这组内容记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern pausing briefly before a response. They do not measure emotional stability, impulse control, stress tolerance or the right way to handle a conflict.",
+              "zh": "这些陈述涉及回应前短暂停顿，不测情绪稳定、冲动控制、抗压能力，也不规定处理冲突的正确方式。"
+            },
+            {
+              "en": "Each topic appears in eight blocks, twice in each option position. This gives the same number of opportunities to select it, without establishing equal difficulty, desirability or measurement validity.",
+              "zh": "每个主题出现于八组，在四个位置各出现两次。这样只保证被选机会相同，不证明难度、吸引力或测量效度相同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example",
+            "zh": "具体例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A pause could be rereading a confusing message once before sending a reply. It is a small delay to consider the wording, rather than ignoring an urgent request.",
+              "zh": "停顿可以是回复一条难懂信息前再读一次，只是为考虑措辞留一点时间，不是忽视紧急请求。"
+            },
+            {
+              "en": "Ask whether that example fits your current circumstances. School, paid work and unpaid projects can offer different opportunities; the exercise does not adjust for those differences.",
+              "zh": "先问例子是否符合当前情境。学校、有薪工作与无薪项目提供的机会可能不同，本练习没有校正这些差异。"
+            }
+          ]
+        },
+        {
+          "id": "most",
+          "title": {
+            "en": "When Most is selected more often",
+            "zh": "“最符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Most selections indicate that a brief pause often felt familiar relative to the competing actions. They cannot show that a later response was calmer, wiser or more effective.",
+              "zh": "“最符合”较多，表示相对竞争动作，短暂停顿常更像你；不能证明之后的回应更冷静、明智或有效。"
+            },
+            {
+              "en": "The Most count is the number of its eight appearances selected as Most. It is not the frequency with which you performed this action outside the exercise.",
+              "zh": "“最符合”次数是八次出现中被选为最符合的次数，不是你在练习之外实际做过这一动作的频率。"
+            }
+          ]
+        },
+        {
+          "id": "least",
+          "title": {
+            "en": "When Least is selected more often",
+            "zh": "“最不符合”选得较多时"
+          },
+          "paragraphs": [
+            {
+              "en": "More Least selections may reflect urgent tasks, easy exchanges or a preference for another action. They are not evidence of emotional dysregulation or a need for treatment.",
+              "zh": "“最不符合”较多，可能对应紧急任务、简单交流或更偏向另一动作，不是情绪失调或需要治疗的证据。"
+            },
+            {
+              "en": "Least means less characteristic relative to the other three statements in that block. It does not mean that you never do the action, dislike it or lack the ability.",
+              "zh": "最不符合是相对同组另三条陈述而言，不表示从不做、不喜欢或没有能力做。"
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "en": "A useful trade-off to consider",
+            "zh": "值得考虑的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "A pause can become avoidance if nobody knows when you will reply. Where appropriate, acknowledge the request and give a realistic time for the next response.",
+              "zh": "如果别人不知道你何时回复，停顿也可能变成回避。适合时先确认收到，并给出下一次回复的合理时间。"
+            },
+            {
+              "en": "Keep both counts visible. Four Most and four Least choices produce the same zero difference as zero and zero, while describing a different pattern of selections.",
+              "zh": "同时保留两种次数。四次最符合、四次最不符合，与两者都为零的差值相同，但选择过程不同。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "One optional next step",
+            "zh": "一个可选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Try one brief reread before a non-urgent reply, then send or explain when you will return. Compare the actual exchange with your intention instead of trying to maximize a practice score.",
+              "zh": "下次回复非紧急信息前试着简短重读一次，随后发送或说明何时回来。比较实际交流与原意，不追求练习次数最大化。"
+            },
+            {
+              "en": "There is no target score to reach. Repeating the exercise may change the counts as your context or interpretation changes; it is not evidence that your personality has improved.",
+              "zh": "没有需要达到的目标分。情境或理解改变后，重做可能改变次数；这不是人格有所进步的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the complete record",
+            "zh": "完整读取次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Difference = Most selections minus Least selections, from −8 to +8 for this topic. Every complete attempt has sixteen Most and sixteen Least selections across all eight topics, so their differences always sum to zero.",
+              "zh": "本主题差值＝最符合次数－最不符合次数，范围为−8到＋8。一次完整练习在八主题合计十六次最符合、十六次最不符合，因此所有差值之和恒为零。"
+            },
+            {
+              "en": "These fixed-menu counts are interdependent and cannot be converted into Caliper traits, percentiles, a hiring recommendation or a population ranking. This public guide is the same for everyone and contains no personal answers.",
+              "zh": "固定菜单中的次数相互依赖，不能换算为Caliper特质、百分位、招聘建议或人群排名。本公开指南对所有人相同，不含个人答案。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "What this practice covers",
+        "zh": "本练习覆盖什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Talogy describes forced-choice, agreement-rating and abstract-reasoning formats in the official Caliper Profile. Its forced-choice items ask for a most-like and least-like statement; its percentiles use norm groups. This page practises only a most/least interaction with original statements.",
+          "zh": "Talogy说明正式Caliper Profile包含强制选择、同意程度评分与抽象推理。强制选择需要选最符合与最不符合陈述；正式百分位使用常模组。本页只用原创陈述练习最符合／最不符合的交互。"
+        },
+        {
+          "en": "The eight topics here are FermatMind working-action labels, not the official trait inventory. The publisher’s validation, norms and job models do not apply to this exercise. We do not reproduce or reconstruct its questions or scoring.",
+          "zh": "这里的八个主题是费马定义的工作动作标签，不是正式特质目录。出版方的效度、常模与岗位模型不适用于本练习；我们不复刻或重建其题目与计分。"
+        }
+      ]
+    },
+    {
+      "id": "counts",
+      "title": {
+        "en": "How the counts work",
+        "zh": "次数怎样计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Each completed block adds one Most selection and one Least selection to the topics attached to those two statements. A topic appears eight times, twice in each of four positions. Its difference is Most minus Least. Read all eight topics in their fixed order; there is no winning type, combined ability score or pass mark.",
+          "zh": "每组完成后，向两条陈述各自所属主题增加一次最符合或最不符合。每主题出现八次，四个位置各两次，差值为最符合减最不符合。八主题按固定顺序全部展示，不产生获胜类型、综合能力分或及格线。"
+        },
+        {
+          "en": "The fixed menus make the counts depend on one another. Equal exposure does not make the topics calibrated scales. A zero difference can hide both frequent Most and frequent Least choices, so the two counts remain visible.",
+          "zh": "固定菜单使次数相互依赖。出现次数相同，不等于主题已成为校准量表。零差值可能同时包含多次最符合与最不符合，所以两种次数始终分别展示。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Progress, privacy and retaking",
+        "zh": "进度、隐私与重做"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay only in this open page’s memory. Refreshing, changing language, leaving the page or using Clear and exit removes them; returning through browser history also starts fresh. There is no saved draft or account record. You can go back and edit while this page remains open.",
+          "zh": "答案仅留在当前打开页面的内存中。刷新、切换语言、离开、使用清空并退出均会移除答案；通过浏览器历史返回也重新开始。没有草稿或账户记录。页面保持打开时，可返回修改。"
+        },
+        {
+          "en": "Retake clears the complete record and starts at block one. The optional copy action shares only the public practice link, without choices or counts. Anonymous activity counts require the page’s optional permission and your site analytics choice; they never include answers.",
+          "zh": "重做会清空完整记录并回到第一组。可选复制只分享公开练习链接，不含选择或次数。匿名动作计数同时需要本页可选许可和全站分析选择，始终不包含答案。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Use it as practice, then decide whether to continue",
+        "zh": "练习之后，自行决定是否继续"
+      },
+      "paragraphs": [
+        {
+          "en": "If you are taking an assessment requested by an organization, follow its actual invitation and instructions. This practice does not prepare a preferred answer pattern, provide official feedback or cover its reasoning and rating sections.",
+          "zh": "如果正在参加某机构邀请的正式测评，请遵循真实邀请及说明。本练习不准备所谓理想答题模式，不提供正式反馈，也不覆盖正式推理与评分题。"
+        },
+        {
+          "en": "All eight full reading guides below are available before you start and after you finish. You may optionally explore the existing work-ethics reflection or Big Five test afterward; neither is required and their outputs are not equivalent to these counts.",
+          "zh": "以下八份完整读法在开始前和完成后都可阅读。之后可自愿选择已有的工作习惯反思或大五测试，均非必做，其结果也不与这些次数等同。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the official Caliper assessment?",
+        "zh": "这是正式Caliper测评吗？"
+      },
+      "answer": {
+        "en": "No. This is independent FermatMind practice using 64 original statements arranged into 16 four-statement blocks. Caliper and Talogy do not sponsor or endorse it.",
+        "zh": "不是。这是费马独立练习，将64条原创陈述安排为16组四陈述题块，不由Caliper或Talogy赞助或背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do Most and Least work?",
+        "zh": "最符合与最不符合怎样选？"
+      },
+      "answer": {
+        "en": "Choose one statement in each group as Most and one different statement as Least. Selecting the same statement in both is blocked. You can change either choice before moving on.",
+        "zh": "每组各选一条最符合和另一条最不符合。系统阻止同一陈述同时被选为两者，继续前可以修改任意选择。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I pass, fail or see a percentile?",
+        "zh": "会有及格、不及格或百分位吗？"
+      },
+      "answer": {
+        "en": "No. The exercise shows literal selection counts and their differences only. There are no correct answers, norm group, official trait conversions, job-fit rating or pass threshold.",
+        "zh": "没有。本练习只显示实际选择次数与差值，没有正确答案、常模组、正式特质换算、岗位适配评分或及格阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if all four statements fit, or none fit?",
+        "zh": "四条都像我，或都不像我怎么办？"
+      },
+      "answer": {
+        "en": "You can compare which is relatively more and less characteristic in a recent ordinary context. If that comparison is not meaningful, stop or clear the page. Unanswered blocks cannot generate a complete record.",
+        "zh": "可以回到最近普通情境，比较哪条相对更像、哪条相对更不像。若比较没有意义，可以结束或清空页面；未完成题块不能生成完整记录。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will refreshing or changing language save my progress?",
+        "zh": "刷新或换语言会保存进度吗？"
+      },
+      "answer": {
+        "en": "No. Answers are held only in page memory and are cleared when you leave, refresh or change language. Read the public guides in either language before starting if you want to compare wording.",
+        "zh": "不会。答案只保存在页面内存，离开、刷新或切换语言均会清空。如需比较措辞，可先在两种语言阅读公开指南再开始。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all the results free?",
+        "zh": "所有读法都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All eight topic records and complete guides are free without signup or email. Public guide links contain no personal result, and you do not need to take another test to open them.",
+        "zh": "是。八主题记录和完整指南均免费，无需注册或邮箱。公开指南链接不含个人结果，也不要求先完成其他测试。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Talogy: official Caliper formats and norm-based scoring",
+        "zh": "Talogy：正式Caliper题式与常模计分说明"
+      },
+      "url": "https://support.talogy.com/hc/en-us/articles/11134068643091-CALIPER-Design-of-the-Caliper-Profile-Assessment"
+    }
+  ]
+}

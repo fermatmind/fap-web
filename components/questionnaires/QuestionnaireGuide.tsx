@@ -1,3 +1,5 @@
+import { isMostLeastConfigurationValid } from "@/lib/questionnaires/mostLeast";
+import { MostLeastGuidePage } from "./MostLeastPage";
 import { isLoveType16ConfigurationValid } from "@/lib/questionnaires/loveType16";
 import { isFds32ConfigurationValid } from "@/lib/questionnaires/fds32";
 import { QuestionnaireFds32Attribution } from "./QuestionnaireFds32Attribution";
@@ -64,6 +66,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "most-least" && !isMostLeastConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "love-type16" && !isLoveType16ConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (((quiz?.kind === "mini-virtues" || quiz?.slug === "seven-sins-virtues-test") && !isMiniVirtuesConfigurationValid(quiz)) || (quiz?.slug === "euphoria-character-quiz" && !isEuphoriaConfigurationValid(quiz))) return { title: "Guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "natal-chart" && !isNatalChartConfigurationValid(quiz)) return { title: "Chart guide unavailable", robots: { index: false, follow: false } };
@@ -94,6 +97,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "most-least") {
+    if (!isMostLeastConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <MostLeastGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "love-type16" && !isLoveType16ConfigurationValid(quiz)) notFound();
   if (((quiz?.kind === "mini-virtues" || quiz?.slug === "seven-sins-virtues-test") && !isMiniVirtuesConfigurationValid(quiz)) || (quiz?.slug === "euphoria-character-quiz" && !isEuphoriaConfigurationValid(quiz))) notFound();
   if (quiz?.kind === "nine-star-year") {

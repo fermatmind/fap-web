@@ -5677,5 +5677,34 @@
       "falco",
       "faraday"
     ]
+  },
+  {
+    "slug": "caliper-style-assessment-test",
+    "code": "FM_MOST_LEAST_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Caliper-Style Assessment: Most/Least Practice",
+      "zh": "Caliper风格评估：最符合／最不符合练习"
+    },
+    "description": {
+      "en": "Practise choosing one Most and one different Least statement in 16 original four-statement blocks. See all eight choice records and full guides, free with no signup.",
+      "zh": "免费练习16组原创四陈述题块，每组选择一项最符合与另一项最不符合。查看八主题的两类次数、差值与完整读法，无需注册。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_most_least_blocks16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "context",
+      "options",
+      "finish",
+      "details",
+      "constraints",
+      "understanding",
+      "followup",
+      "pause"
+    ]
   }
 ]
