@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -19,6 +20,7 @@ export function TenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Lo
 }
 
 function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", rounds = quiz.tenKey!.rounds;
   const [mode, setMode] = useState(0), [phase, setPhase] = useState<"ready" | "running" | "result">("ready");
@@ -35,8 +37,8 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     if (!attempt || elapsed < TEN_KEY_DURATION_MS) return;
     active.current = null;
     setFinished({ mode: attempt.mode, entries: attempt.entries, observedElapsedMs: elapsed, tail: attempt.text, events: attempt.events });
-    composing.current = false; setRemaining(0); setText(""); setMessage(""); setPhase("result");
-  }, []);
+    composing.current = false; setRemaining(0); setText(""); setMessage(""); setPhase("result"); recordComplete();
+  }, [recordComplete]);
   const current = useCallback(() => {
     const attempt = active.current;
     if (!attempt) return null;
@@ -71,7 +73,7 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     if (document.visibilityState !== "visible") { setMessage(zh ? "请在可见页面开始计时练习。" : "Start the timed practice in a visible page."); return; }
     setFinished(null); setMessage(""); setText(""); setPosition(0); setRemaining(TEN_KEY_DURATION_MS); composing.current = false;
     active.current = { mode, started: performance.now(), wallStarted: Date.now(), entries: [], text: "", events: { numpad: 0, row: 0, other: 0 } };
-    setPhase("running");
+    setPhase("running"); recordStart();
   }
   function confirm() {
     const now = current();
@@ -80,7 +82,9 @@ function ValidTenKeyClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     now.attempt.text = ""; setText(""); setPosition(now.attempt.entries.length); input.current?.focus();
   }
   const percent = (value: number | null) => value === null ? (zh ? "资料不足" : "Unavailable") : `${value.toFixed(1)}%`;
+  useEntertainmentResultView(recordView, phase === "result");
   return <section id="take-test" className="my-8 rounded-xl border border-slate-200 bg-white p-5 sm:p-8" aria-labelledby="ten-key-heading">
+    {activityConsent}
     <h2 id="ten-key-heading" ref={heading} tabIndex={-1} className="text-2xl font-semibold focus-visible:outline-2 focus-visible:outline-violet-700">{phase === "result" ? quiz.resultHeading![locale] : (zh ? "真实数字录入练习" : "Real number-entry practice")}</h2>
     {message && <p role="status" className="my-4 leading-7 text-slate-700">{message}</p>}
     {phase === "ready" && <>

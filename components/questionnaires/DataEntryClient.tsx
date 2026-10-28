@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -17,6 +18,7 @@ export function DataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale:
   return <ValidDataEntryClient quiz={quiz} locale={locale} />;
 }
 function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const config = (quiz as Questionnaire & { dataEntry: DataEntryConfiguration }).dataEntry;
   const [mode, setMode] = useState(0), [recordIndex, setRecordIndex] = useState(0), [phase, setPhase] = useState<"ready" | "running" | "result">("ready");
@@ -33,8 +35,8 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
     const result = scoreDataEntryRound(config.rounds[attempt.mode], Array.from(attempt.rows, ([recordId, values]) => ({ recordId, values })), elapsed);
     active.current = null; composing.current = null; setComposingField(null); setValues(["", "", "", ""]); setRemaining(0);
     if (result.status !== "complete") { reset(zh ? "本轮输入无法核对，已清空，请重新开始。" : "This round could not be checked and was cleared. Start again."); return; }
-    setFinished(result); setMessage(""); setPhase("result");
-  }, [config.rounds, reset, zh]);
+    setFinished(result); setMessage(""); setPhase("result"); recordComplete();
+  }, [config.rounds, reset, zh, recordComplete]);
   const current = useCallback(() => {
     const attempt = active.current; if (!attempt) return null;
     const elapsed = Math.max(0, performance.now() - attempt.started), wallElapsed = Date.now() - attempt.wallStarted;
@@ -59,7 +61,7 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
     if (phase === "result") heading.current?.focus();
   }, [phase, recordIndex]);
   function start() {
-    reset(); active.current = { mode, started: performance.now(), wallStarted: Date.now(), rows: new Map() }; setPhase("running");
+    reset(); active.current = { mode, started: performance.now(), wallStarted: Date.now(), rows: new Map() }; setPhase("running"); recordStart();
   }
   function change(field: number, value: string, isComposing: boolean) {
     const attempt = current(); if (!attempt) return;
@@ -78,12 +80,14 @@ function ValidDataEntryClient({ quiz, locale }: { quiz: Questionnaire; locale: L
   }
   async function share() {
     const text = `${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`;
-    try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制公开练习链接。" : "Public practice link copied."); }
+    try { await navigator.clipboard.writeText(text); recordShare(); setMessage(zh ? "已复制公开练习链接。" : "Public practice link copied."); }
     catch { setManual(text); setMessage(zh ? "无法自动复制，可在下方手动复制。" : "Automatic copying is unavailable; copy the text below."); }
   }
   const labels: Record<DataEntryError, string> = zh ? { blank: "空字段", "case-spacing": "大小写或空白差异", transposition: "一对相邻字符颠倒", omission: "仅漏字符", addition: "仅多字符", other: "其他差异" }
     : { blank: "Blank field", "case-spacing": "Case or whitespace difference", transposition: "One adjacent transposition", omission: "Characters omitted only", addition: "Characters added only", other: "Other difference" };
+  useEntertainmentResultView(recordView, phase === "result");
   return <section id="take-test" className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "60秒结构化录入练习" : "60-second structured entry practice"}>
+    {activityConsent}
     {phase !== "result" && <>
       <label htmlFor="data-entry-mode" className="mb-2 block font-semibold">{zh ? "选择记录模式，两语界面使用相同原始字段" : "Choose records; both interface languages use identical source values"}</label>
       <select id="data-entry-mode" className="mb-5 min-h-12 w-full rounded-lg border border-slate-400 p-3" value={mode} disabled={phase !== "ready"} onChange={event => { reset(); setMode(Number(event.target.value)); }}>{config.rounds.map((r, i) => <option key={r.id} value={i}>{r.title[locale]}</option>)}</select>

@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,6 +16,7 @@ export function NineStarYearClient({ quiz, locale }: { quiz: unknown; locale: Lo
 }
 
 function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [year, setYear] = useState(""), [side, setSide] = useState("");
   const [finished, setFinished] = useState<NineStarReference | null>(null), [message, setMessage] = useState(""), [manual, setManual] = useState("");
@@ -29,7 +31,7 @@ function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionn
   useEffect(() => { if (finished) resultHeading.current?.focus(); }, [finished]);
   const preview = calculateNineStarYearFromInput(year, "uncertain"), validYear = preview.status === "reference";
   function calculate(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); invalidate();
+    event.preventDefault(); recordStart(); invalidate();
     const result = calculateNineStarYearFromInput(year, side);
     if (result.status !== "reference") {
       if (result.status === "incomplete" && result.field === "boundarySide") {
@@ -39,7 +41,7 @@ function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionn
       }
       return;
     }
-    setFinished(result);
+    recordComplete(); setFinished(result);
   }
   async function copy() {
     if (!finished) return;
@@ -50,14 +52,16 @@ function ValidNineStarYearClient({ quiz, locale }: { quiz: NineStarYearQuestionn
     try {
       await navigator.clipboard.writeText(text);
       if (copiedRevision !== revision.current) return;
-      setManual(""); setMessage(zh ? "已复制公开指南标题和链接，不含年份、界点选择或算式。" : "Copied public guide titles and links, without the year, boundary-side selection or calculations.");
+      recordShare(); setManual(""); setMessage(zh ? "已复制公开指南标题和链接，不含年份、界点选择或算式。" : "Copied public guide titles and links, without the year, boundary-side selection or calculations.");
     } catch {
       if (copiedRevision !== revision.current) return;
       setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually.");
     }
   }
   const labels = zh ? ["明确在所示界点之前", "明确在所示界点之后", "不确定：保留两个可能结果"] : ["Clearly before the displayed boundary", "Clearly after the displayed boundary", "Uncertain: keep both possibilities"];
+  useEntertainmentResultView(recordView, finished !== null);
   return <section id="take-test" data-nine-star-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="nine-star-input-title">
+    {activityConsent}
     <h2 id="nine-star-input-title" className="text-2xl font-semibold">{zh ? "输入年份，再明确选择立春界点前后" : "Enter a year, then explicitly choose a boundary side"}</h2>
     <p id="nine-star-privacy-note" className="my-4 text-sm leading-7 text-slate-600">{zh ? "只需1900至2026的公历年份与界点前后，不收集完整生日、出生时刻、时区、姓名、性别或地点。输入仅在本页内存中，清除、刷新、离开或换语会移除。" : "Only a Gregorian year from 1900–2026 and a boundary side are needed. No full birth date, birth time, time zone, name, sex or location is collected. Input stays in this page’s memory; clearing, reloading, leaving or changing language removes it."}</p>
     <form onSubmit={calculate} aria-describedby="nine-star-privacy-note" noValidate>

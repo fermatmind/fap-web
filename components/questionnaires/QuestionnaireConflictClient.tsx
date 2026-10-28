@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -17,6 +18,7 @@ export function QuestionnaireConflictClient({ quiz, locale }: { quiz: unknown; l
 }
 
 function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [result, setResult] = useState<Complete | null>(null);
@@ -37,11 +39,13 @@ function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire
     if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择一个数字，或明确选择不想回答。" : "Choose a number, or explicitly prefer not to answer."); return; }
     setMessage("");
     if (position < 23) setPosition(position + 1);
-    else if (checked.status === "complete") { setResult(checked); setStage("result"); }
+    else if (checked.status === "complete") { setResult(checked); setStage("result"); recordComplete(); }
     else setMessage(zh ? "还有题目未作选择；空白与不计分不同。请返回检查。" : "Some statements have no choice. Blank and unscored are different; go back to check.");
   }
+  useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" data-conflict-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
-    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择，不接分析事件，不提供个人结果分享。刷新、换语或离开会清除。" : "Current-page memory only: no saved draft or result, choice uploads, analytics or personal-result sharing. Reloading, changing language or leaving clears answers."}</p>
+    {activityConsent}
+    <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择，默认不接分析事件，不提供个人结果分享。刷新、换语或离开会清除。" : "Current-page memory only: no saved draft or result, choice uploads or personal-result sharing; analytics is off by default. Reloading, changing language or leaving clears answers."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
       {stage === "welcome" && <>
@@ -49,7 +53,7 @@ function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire
         <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
         <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "仅回看本人过去三个月。数值不能判定或排除真实伤害、危险性或诊断；不替别人作答。现实安全问题优先寻求适当支持，不等待测试结果。" : "Look back at your own past three months only. Values cannot establish or rule out actual harm, dangerousness or a diagnosis. Do not assess someone else. Prioritize appropriate support for real safety concerns rather than waiting for a result."}</p>
-        <button type="button" className={button} onClick={() => { setStage("answer"); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+        <button type="button" className={button} onClick={() => { setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-conflict-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 条` : `Statement ${position + 1} of 24`}</p>
@@ -63,7 +67,7 @@ function ValidConflictClient({ quiz, locale }: { quiz: MiniConflictQuestionnaire
       {stage === "result" && result && <>
         <h2 ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading[locale]}</h2>
         <QuestionnaireConflictReport quiz={quiz} result={result} locale={locale} />
-        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)"}</button>
+        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "愿意时重新作答（清除本次回答）" : "Answer again if you want (empty answers)"}</button>
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>

@@ -105,7 +105,7 @@ describe("T074 owned original Dark Triad thematic preview", () => {
     expect(source).not.toMatch(/sessionStorage|localStorage|indexedDB|trackEvent|navigator\.clipboard|appendSeoCta|questionnaire_result_mbti/);
     const html = renderToStaticMarkup(<QuestionnaireDarkTriadClient quiz={quiz} locale="en" />);
     expect(html).toContain("Refreshing, changing language or leaving loses the attempt");
-    expect(html).not.toContain("type=\"checkbox\""); expect(html).not.toContain("Resume this tab");
+    expect(html.match(/type="checkbox"/g)).toHaveLength(1); expect(html).toContain("data-entertainment-activity-opt-in"); expect(html).not.toContain("checked="); expect(html).not.toContain("Resume this tab");
     expect(html).not.toContain("Copy result"); expect(html).not.toContain("Explore MBTI and its versions");
     expect(readFileSync("components/questionnaires/QuestionnairePage.tsx", "utf8")).toContain('QuestionnaireDarkTriadClient key={`${slug}:${locale}`}');
   });
@@ -122,7 +122,7 @@ describe("T074 owned original Dark Triad thematic preview", () => {
         expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`);
         expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(locale === "zh" ? "原创三组主题观察" : "Original three-theme reflection");
         expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
-        expect(html).not.toContain("type=\"checkbox\"");
+        expect(html.match(/type="checkbox"/g)).toHaveLength(1); expect(html).toContain("data-entertainment-activity-opt-in"); expect(html).not.toContain("checked=");
         for (const profile of quiz.profiles) {
           const publicPath = `${path}/results/${profile.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: profile.id }) };
           const rendered = renderToStaticMarkup(await guide.default(props)), meta = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = rendered;

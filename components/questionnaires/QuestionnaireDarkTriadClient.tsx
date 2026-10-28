@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -12,20 +13,23 @@ const subscribeReady = () => () => {};
 const button = "min-h-12 rounded-lg border border-slate-300 px-5 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
 
 export function QuestionnaireDarkTriadClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome"), [message, setMessage] = useState("");
   const heading = useRef<HTMLHeadingElement>(null), result = scoreLikertQuestionnaire(quiz, answers), question = quiz.questions[position];
   useEffect(() => { if (stage !== "welcome") heading.current?.focus(); }, [stage, position]);
-  function reset(next: "welcome" | "answer") { setAnswers({}); setPosition(0); setMessage(""); setStage(next); }
+  function reset(next: "welcome" | "answer") { setAnswers({}); setPosition(0); setMessage(""); setStage(next); if (next === "answer") recordStart(); }
   function advance() {
     if (!question || !answers[question.id]) { setMessage(zh ? "请选择一个选项再继续。" : "Choose an option before continuing."); return; }
     if (position < quiz.questions.length - 1) { setPosition(position + 1); setMessage(""); return; }
     if (result.status !== "complete") { setMessage(zh ? "本次结果暂不可用，请检查完整作答。" : "The result is unavailable. Check that all items have a response."); return; }
-    setStage("result"); setMessage("");
+    setStage("result"); recordComplete(); setMessage("");
   }
+  useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
-    <p data-dtt-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、不发送测试流程统计、不分享个人结果；刷新、换语言或离开后不能恢复。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt."}</p>
+    {activityConsent}
+    <p data-dtt-privacy className="mb-5 rounded-lg bg-slate-50 p-4 text-sm leading-7">{zh ? "仅本人作答。答案只留当前页面内存，不保存进度、默认不发送测试流程统计、不分享个人结果；刷新、换语言或离开后不能恢复。" : "Answer only for yourself. Answers remain in this page’s memory without saved drafts or personal-result sharing; quiz-flow statistics are off by default. Refreshing, changing language or leaving loses the attempt."}</p>
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{zh ? `开始${quiz.questions.length}题的主题自我观察` : `Start your ${quiz.questions.length}-item thematic reflection`}</h2>
       <p className="my-4 leading-8">{quiz.instructions?.[locale]}</p>

@@ -12,6 +12,10 @@ import {
 } from "@/lib/tracking/privacy";
 
 export const TRACKING_EVENTS = {
+  FUN_START: "fun_start",
+  FUN_COMPLETE: "fun_complete",
+  FUN_RESULT_VIEW: "fun_result_view",
+  FUN_SHARE: "fun_share",
   // Standard commercial funnel events (COMMERCIAL-CONTRACTS-FOUNDATION-01)
   LANDING_PV: "landing_pv",
   ARTICLE_TO_TEST_CLICK: "article_to_test_click",
@@ -429,6 +433,10 @@ const COMMON_CONVERSION_FIELDS = [
 ] as const;
 
 const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
+  fun_start: ["slug", "form_code", "locale", "entry_surface", "target_action", "consent_state"],
+  fun_complete: ["slug", "form_code", "locale", "entry_surface", "target_action", "consent_state"],
+  fun_result_view: ["slug", "form_code", "locale", "entry_surface", "target_action", "consent_state"],
+  fun_share: ["slug", "form_code", "locale", "entry_surface", "target_action", "consent_state"],
   landing_pv: [...COMMON_COMMERCIAL_STANDARD_FIELDS, "landing_path", ...SEO_CONVERSION_DIMENSION_FIELDS],
   view_landing: ["locale"],
   view_test: ["slug", "locale"],

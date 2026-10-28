@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -17,6 +18,7 @@ export function TypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Lo
   return <ValidTypingClient quiz={quiz} locale={locale} />;
 }
 function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const config = (quiz as Questionnaire & { typing: TypingConfiguration }).typing;
   const zh = locale === "zh";
@@ -38,8 +40,8 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
     const result = scoreTypingRound(config.rounds[attempt.mode], attempt.committed, elapsed);
     active.current = null; composing.current = false; setText(""); setCommitted(""); setRemaining(0);
     if (result.status !== "complete") { reset(zh ? "本轮输入无法核对，已清空。请重新开始。" : "This round could not be checked and was cleared. Start again."); return; }
-    setFinished(result); setMessage(""); setPhase("result");
-  }, [config.rounds, reset, zh]);
+    setFinished(result); setMessage(""); setPhase("result"); recordComplete();
+  }, [config.rounds, reset, zh, recordComplete]);
   const current = useCallback(() => {
     const attempt = active.current;
     if (!attempt) return null;
@@ -84,14 +86,16 @@ function ValidTypingClient({ quiz, locale }: { quiz: Questionnaire; locale: Loca
   const start = () => {
     if (!ready || active.current || document.visibilityState !== "visible") return;
     active.current = { mode, started: performance.now(), wallStarted: Date.now(), committed: "" };
-    composing.current = false; setText(""); setCommitted(""); setRemaining(TYPING_DURATION_MS); setFinished(null); setManual(""); setMessage(""); setPhase("running");
+    composing.current = false; setText(""); setCommitted(""); setRemaining(TYPING_DURATION_MS); setFinished(null); setManual(""); setMessage(""); setPhase("running"); recordStart();
   };
   const share = async () => {
     const value = `${quiz.title[locale]}\nhttps://fermatmind.com/${locale}/tests/explore/${quiz.slug}`;
-    try { await navigator.clipboard.writeText(value); setMessage(zh ? "已复制公开练习链接，不含输入和成绩。" : "Public practice link copied without input or results."); }
+    try { await navigator.clipboard.writeText(value); recordShare(); setMessage(zh ? "已复制公开练习链接，不含输入和成绩。" : "Public practice link copied without input or results."); }
     catch { setManual(value); setMessage(zh ? "复制不可用，可手动复制公开链接。" : "Copy is unavailable. Copy the public link manually."); }
   };
+  useEntertainmentResultView(recordView, phase === "result");
   return <section id="take-test" className="my-8 rounded-2xl border border-violet-200 bg-white p-5 [overflow-wrap:anywhere]" aria-labelledby="typing-heading">
+    {activityConsent}
     <h2 id="typing-heading" ref={heading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold outline-none">{phase === "result" ? (zh ? "本轮60秒打字结果" : "Your 60-second typing result") : phase === "running" ? round.title[locale] : (zh ? "选择语言，开始真实60秒练习" : "Choose a language for a real 60-second round")}</h2>
     {phase !== "result" && <>
       {phase === "ready" && <><label className="mt-4 block font-medium" htmlFor="typing-mode">{zh ? "原文语言（切换界面不翻译原文）" : "Passage language (the interface does not translate it)"}</label>

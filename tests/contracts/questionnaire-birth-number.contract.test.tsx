@@ -131,7 +131,9 @@ describe("one birthday calculator, two rules and twelve shared original guides",
     for (const locale of ["en", "zh"] as const) {
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<BirthNumberPage quiz={quiz} locale={locale} />);
       expect(dom.querySelector("h1")?.textContent).toBe(quiz.title[locale]);
-      expect(dom.querySelectorAll("input")).toHaveLength(3);
+      expect(dom.querySelectorAll('input:not([type="checkbox"])')).toHaveLength(3);
+      expect(dom.querySelectorAll("[data-entertainment-activity-opt-in] input")).toHaveLength(1);
+      expect(dom.querySelector("[data-entertainment-activity-opt-in] input")).not.toBeChecked();
       expect([...dom.querySelectorAll("input, select")].every(node => !node.hasAttribute("name"))).toBe(true);
       expect(dom.textContent).not.toMatch(/0 questions|0 题|0 min|0 分钟/);
       for (const profile of quiz.profiles) {

@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -17,6 +18,7 @@ export function QuestionnaireCopingClient({ quiz, locale }: { quiz: unknown; loc
 }
 
 function ValidCopingClient({ quiz, locale }: { quiz: MiniCopingQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [result, setResult] = useState<Complete | null>(null);
@@ -37,16 +39,18 @@ function ValidCopingClient({ quiz, locale }: { quiz: MiniCopingQuestionnaire; lo
     if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择更接近当前的一项；也可以退出，直接读指南。" : "Choose the closer approach, or exit and read the guides."); return; }
     setMessage("");
     if (position < 23) setPosition(position + 1);
-    else if (checked.status === "complete") { revision.current += 1; setResult(checked); setStage("result"); }
+    else if (checked.status === "complete") { revision.current += 1; setResult(checked); setStage("result"); recordComplete(); }
     else setMessage(zh ? "还有题目未选择，可以返回检查，也可以退出无分阅读。" : "Some choices are missing. Go back to check, or leave without a result.");
   }
   async function copyPublicLinks() {
     const text = quiz.profiles.map(profile => `${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, profile.id)}`).join("\n\n");
     const copiedRevision = revision.current;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
+    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
+  useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" data-coping-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
@@ -55,7 +59,7 @@ function ValidCopingClient({ quiz, locale }: { quiz: MiniCopingQuestionnaire; lo
         <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
         <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "不同情境可以同时使用两种方式。完整作答后只显示四组原始次数，不评价年龄、成熟度、能力或心理健康；所有全文均可先读。" : "Both approaches can be used in different situations. A complete form shows four separate raw-count records, without assessing age, maturity, ability or mental health. All full guides can be read first."}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-coping-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 题` : `Choice ${position + 1} of 24`}</p>
@@ -71,7 +75,7 @@ function ValidCopingClient({ quiz, locale }: { quiz: MiniCopingQuestionnaire; lo
         <QuestionnaireCopingReport quiz={quiz} result={result} locale={locale} />
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
-        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
+        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>

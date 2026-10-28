@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -15,6 +16,7 @@ export function BirthNumberClient({ quiz, locale }: { quiz: unknown; locale: Loc
 }
 
 function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [year, setYear] = useState(""), [month, setMonth] = useState(""), [day, setDay] = useState("");
   const [method, setMethod] = useState<BirthNumberMethod>("separate-parts"), [message, setMessage] = useState("");
@@ -38,13 +40,13 @@ function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnai
             : (zh ? "请填写完整的公历年月日：年份四位，月和日各一至两位数字。" : "Enter a complete Gregorian date: four year digits and one or two digits each for month and day."));
   }
   function calculate(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+    event.preventDefault(); recordStart();
     invalidate();
     const date = joinBirthDateFields(year, month, day);
     if (!date) { failure("invalid", "date-format"); return; }
     const result = calculateBirthDateNumber(date, method, deviceCalendarDate());
     if (result.status !== "complete") { failure(result.status, "reason" in result ? result.reason : undefined); return; }
-    setFinished({ date, results: [result] }); setManual(""); setMessage("");
+    recordComplete(); setFinished({ date, results: [result] }); setManual(""); setMessage("");
   }
   function compare() {
     if (!finished) return;
@@ -62,13 +64,15 @@ function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnai
     try {
       await navigator.clipboard.writeText(text);
       if (copiedRevision !== revision.current) return;
-      setManual(""); setMessage(zh ? "已复制符号标签与方法，不含生日或算式。" : "Copied the symbolic label and method, without a date or operations.");
+      recordShare(); setManual(""); setMessage(zh ? "已复制符号标签与方法，不含生日或算式。" : "Copied the symbolic label and method, without a date or operations.");
     } catch {
       if (copiedRevision !== revision.current) return;
       setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制。" : "Automatic copying is unavailable. Copy the text below manually.");
     }
   }
+  useEntertainmentResultView(recordView, finished !== null);
   return <section id="take-test" data-birth-number-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="birth-number-input-title">
+    {activityConsent}
     <h2 id="birth-number-input-title" className="text-2xl font-semibold">{zh ? "选择规则，输入公历日期" : "Choose a rule and enter a Gregorian date"}</h2>
     <p id="birth-number-input-note" className="my-4 text-sm leading-7 text-slate-600">{zh ? "范围为1900年1月1日至当前设备显示的今天。无需姓名、性别、出生时间或地点。输入只在本页内存中，清除、离开、刷新或换语会移除。" : "Use January 1, 1900 through today on this device. No name, gender, birth time or place is needed. Input stays in this page’s memory; clearing, leaving, reloading or changing language removes it."}</p>
     <form onSubmit={calculate} aria-describedby="birth-number-input-note" noValidate>

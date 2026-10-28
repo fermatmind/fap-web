@@ -13,6 +13,7 @@ import { buildPublicTrackingServerLabels } from "@/lib/tracking/attribution";
 import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
 import { resolveApiOrigin } from "@/lib/api-base";
 
+import { entertainmentActivityCatalog } from "@/lib/entertainment/activityCatalog";
 import { resolveTrackingRuntime } from "@/lib/tracking/serverRuntime";
 
 export const dynamic = "force-dynamic";
@@ -212,12 +213,18 @@ const SEO_ATTRIBUTION_INGEST_FIELDS = [
 ] as const;
 
 export function toSeoAttributionIngestEnvelope(event: {
+  requestId?: string;
   eventName: string;
   anonymousId: string;
   path: string;
   timestamp: string;
   payload: Record<string, unknown>;
 }) {
+  if (["fun_start", "fun_complete", "fun_result_view", "fun_share"].includes(event.eventName)) {
+    const fields = ["slug", "form_code", "locale", "entry_surface", "target_action", "consent_state", "is_internal", "is_qa", "is_bot", "environment", "traffic_quality"];
+    return { requestId: event.requestId, eventName: event.eventName, anonymousId: "",
+      payload: Object.fromEntries(fields.filter(key => event.payload[key] !== undefined).map(key => [key, event.payload[key]])) };
+  }
   return {
     eventName: event.eventName,
     anonymousId: event.anonymousId,
@@ -251,6 +258,19 @@ export async function POST(request: NextRequest) {
     payloadSource && typeof payloadSource === "object" && !Array.isArray(payloadSource)
       ? filterTrackingPayload(normalizedEventName, payloadSource as Record<string, unknown>)
       : {};
+
+  const isFunActivity = ["fun_start", "fun_complete", "fun_result_view", "fun_share"].includes(normalizedEventName);
+  if (isFunActivity) {
+    const definition = entertainmentActivityCatalog.find(item => item.slug === payload.slug);
+    const validMethod = normalizedEventName === "fun_share" ? ["copy", "system", "image", "link_open"].includes(String(payload.target_action)) : payload.target_action === "none";
+    if (!definition || !definition.roles.includes(String(payload.entry_surface))
+      || !["en", "zh"].includes(String(payload.locale)) || !validMethod
+      || typeof payload.form_code !== "string" || !/^[A-Za-z0-9._-]{1,64}$/.test(payload.form_code)
+      || !["analytics_granted", "activity_opt_in"].includes(String(payload.consent_state))
+      || (definition.privacy === "explicit_opt_in" && payload.consent_state !== "activity_opt_in")) {
+      return NextResponse.json({ ok: false, error: "invalid_activity" }, { status: 400 });
+    }
+  }
 
   const suppliedRequestId = (body as { requestId?: unknown }).requestId;
   if (suppliedRequestId !== undefined && (typeof suppliedRequestId !== "string"
@@ -290,6 +310,7 @@ export async function POST(request: NextRequest) {
     payload: {
       ...payloadWithLocale,
       ...trustedLabels,
+      ...(isFunActivity ? { consent_state: payload.consent_state } : {}),
     },
   };
 
@@ -302,8 +323,8 @@ export async function POST(request: NextRequest) {
   if (token && !nativeOrigin) {
     return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
   }
-  const identityHeaders = buildAccessStatsIdentityHeaders(request, timestamp, token);
-  const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
+  const identityHeaders = isFunActivity ? {} : buildAccessStatsIdentityHeaders(request, timestamp, token);
+  const seoAttributionTarget = (isSeoConversionFunnelEvent(normalizedEventName) || isFunActivity)
     ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
   const nativeCareerAttributionTarget = nativeOrigin ? `${nativeOrigin}/api/v0.5/career/attribution/events` : undefined;
@@ -311,7 +332,7 @@ export async function POST(request: NextRequest) {
     || process.env.ANALYTICS_ENDPOINT?.trim()
     || nativeCareerAttributionTarget;
   const targets = uniqueTargets(
-    isCareerAttributionEvent(normalizedEventName)
+    isFunActivity ? [seoAttributionTarget] : isCareerAttributionEvent(normalizedEventName)
       ? [seoAttributionTarget, careerAttributionTarget]
       : [
           seoAttributionTarget,

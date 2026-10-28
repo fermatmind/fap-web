@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -17,6 +18,7 @@ export function QuestionnaireFscrs22Client({ quiz, locale }: { quiz: unknown; lo
 }
 
 function ValidFscrs22Client({ quiz, locale }: { quiz: Fscrs22Questionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [result, setResult] = useState<Fscrs22Readout | null>(null);
@@ -37,17 +39,19 @@ function ValidFscrs22Client({ quiz, locale }: { quiz: Fscrs22Questionnaire; loca
     if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择一个数字，或明确选择跳过此项。" : "Choose a number, or explicitly skip this statement."); return; }
     setMessage("");
     if (position < 21) setPosition(position + 1);
-    else if (checked.status === "complete") { revision.current += 1; setResult(checked.fscrs22); setStage("result"); }
+    else if (checked.status === "complete") { revision.current += 1; setResult(checked.fscrs22); setStage("result"); recordComplete(); }
     else setMessage(zh ? "还有题目未作选择；空白与跳过不同。请返回检查。" : "Some statements have no choice. Blank and skipped are different; go back to check.");
   }
   async function copyPublicLinks() {
     const text = quiz.profiles.map(profile => `${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, profile.id)}`).join("\n\n");
     const copiedRevision = revision.current;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
+    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
   const question = quiz.questions[position];
+  useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" data-fscrs22-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{quiz.fscrs22.privacy[locale]}</p>
     <QuestionnaireFscrs22Support support={quiz.fscrs22.support} locale={locale} />
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
@@ -56,7 +60,7 @@ function ValidFscrs22Client({ quiz, locale }: { quiz: Fscrs22Questionnaire; loca
         <h2 className="text-2xl font-semibold">{quiz.fscrs22.subtitle[locale]}</h2>
         {quiz.fscrs22.intro.map((paragraph, index) => <p key={index} className="leading-8">{paragraph[locale]}</p>)}
         <p data-fscrs22-sensitive-notice className="rounded-lg border border-slate-300 p-4 leading-8">{quiz.fscrs22.sensitiveNotice[locale]}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p data-fscrs22-progress className="text-sm text-slate-600">{zh ? `第 ${position + 1} / 22 条` : `Statement ${position + 1} of 22`}</p>

@@ -1,6 +1,7 @@
 "use client";
 import { QuestionnaireMiniVirtuesReport, QuestionnaireMiniVirtuesNextSteps } from "./QuestionnaireMiniVirtuesReport";
 import { QuestionnaireEuphoriaNextSteps } from "./QuestionnaireEuphoriaNextSteps";
+import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
 import { preparationActions20GuideLinks } from "@/lib/questionnaires/preparationActions20";
 import { QuestionnairePreparationActions20Report, QuestionnairePreparationActions20NextSteps } from "./QuestionnairePreparationActions20Report";
 import { QuestionnaireHoldingBack35Report, QuestionnaireHoldingBack35NextSteps } from "./QuestionnaireHoldingBack35Report";
@@ -163,7 +164,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
-  const emit = (event: string) => trackEvent(event, questionnaireTrackingPayload(quiz, locale));
+  const emit = (event: string) => { if (event === "start_test" || event === "complete_test") recordEntertainmentActivity(quiz.slug, quiz.version, locale, event === "start_test" ? "start" : "complete"); trackEvent(event, questionnaireTrackingPayload(quiz, locale)); };
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
   const recommendationId = quiz.slug === "relationship-values" ? "entertainment_result_mbti" : "questionnaire_result_mbti";
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: recommendationId, targetAction: recommendationId, targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
@@ -186,6 +187,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   useEffect(() => {
     if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
+      recordEntertainmentActivity(quiz.slug, quiz.version, locale, "result_view");
       trackEvent("view_result", questionnaireTrackingPayload(quiz, locale));
     }
   }, [stage, hasCompleteResult, quiz, locale]);
@@ -226,7 +228,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
     const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (interactionPairs || skillsEvidence || practice || extraversion || optimism || saps) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = (miniVirtues || quiz.slug === "euphoria-character-quiz") ? `${quiz.title[locale]}\nhttps://fermatmind.com${questionnairePath(locale, quiz.slug)}` : preparationActions20 ? (preparationActions20GuideLinks(quiz, locale) ?? "") : (holdingBack35 || quiz.kind === "mini-breakup" || quiz.kind === "parenting-practices" || spq92 || miniFriction || ctl41) ? `${quiz.title[locale]}\nhttps://fermatmind.com${questionnairePath(locale, quiz.slug)}` : `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
-    try { await navigator.clipboard.writeText(text); setMessage(miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "已复制公开标题与入口链接，不含个人答案或次数。" : "Copied the public title and entry link, without personal answers or counts.") : (zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link.")); }
+    try { await navigator.clipboard.writeText(text); recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", "copy"); setMessage(miniVirtues || quiz.slug === "euphoria-character-quiz" ? (zh ? "已复制公开标题与入口链接，不含个人答案或次数。" : "Copied the public title and entry link, without personal answers or counts.") : (zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link.")); }
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
   }
 

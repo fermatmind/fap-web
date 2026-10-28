@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -17,6 +18,7 @@ export function NatalChartClient({ quiz, locale }: { quiz: unknown; locale: Loca
 }
 
 function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const zh = locale === "zh", ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const [date, setDate] = useState(""), [time, setTime] = useState(""), [unknownTime, setUnknownTime] = useState(false);
   const [latitude, setLatitude] = useState(""), [longitude, setLongitude] = useState(""), [zone, setZone] = useState("");
@@ -60,6 +62,7 @@ function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire
   }
 
   async function calculate() {
+    recordStart();
     revision.current += 1;
     const calculationRevision = revision.current;
     setChart(null); setMessage(""); setManual(""); setBusy(true);
@@ -69,7 +72,7 @@ function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire
       if (revision.current !== calculationRevision) return;
       const result = calculateNatalChart(values, Date.now());
       if (revision.current !== calculationRevision) return;
-      if (result.status === "complete") { setChart(result.chart); setChoices([]); }
+      if (result.status === "complete") { recordComplete(); setChart(result.chart); setChoices([]); }
       else if (result.status === "choose-time") { setChoices(result.choices); setMessage(zh ? "该分钟发生两次，请按原始记录选择一次，再计算。" : "This minute occurs twice. Choose the occurrence from the original record, then calculate again."); }
       else error(result);
     } catch {
@@ -82,14 +85,16 @@ function ValidNatalChartClient({ quiz, locale }: { quiz: NatalChartQuestionnaire
     try {
       await navigator.clipboard.writeText(text);
       if (revision.current !== copiedRevision) return;
-      setManual(""); setMessage(zh ? "已复制公开入口和十二份指南网址，不含出生资料、星座结果或个人数值。" : "Copied the public entry and twelve guide URLs, without birth details, calculated signs or personal values.");
+      recordShare(); setManual(""); setMessage(zh ? "已复制公开入口和十二份指南网址，不含出生资料、星座结果或个人数值。" : "Copied the public entry and twelve guide URLs, without birth details, calculated signs or personal values.");
     } catch {
       if (revision.current !== copiedRevision) return;
       setManual(text); setMessage(zh ? "自动复制不可用，可手动复制以下公开网址。" : "Automatic copying is unavailable. Copy the public URLs below manually.");
     }
   }
 
+  useEntertainmentResultView(recordView, chart !== null);
   return <section id="take-test" data-natal-client aria-busy={!ready || busy} aria-labelledby="natal-input-title" className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {activityConsent}
     <h2 id="natal-input-title" className="text-2xl font-semibold">{zh ? "填写已知出生时刻与地点条件" : "Enter the known birth time and location details"}</h2>
     <p className="my-4 text-sm leading-7 text-slate-600">{quiz.natalChart.privacy[locale]}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0"><legend className="sr-only">{quiz.title[locale]}</legend>

@@ -1,4 +1,5 @@
 "use client";
+import { useEntertainmentMetrics, useEntertainmentResultView } from "@/components/entertainment/useEntertainmentMetrics";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
@@ -18,6 +19,7 @@ export function QuestionnaireIntimacyClient({ quiz, locale }: { quiz: unknown; l
 }
 
 function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire; locale: Locale }) {
+  const { start: recordStart, complete: recordComplete, view: recordView, consent: activityConsent, share: recordShare } = useEntertainmentMetrics(quiz.slug, quiz.version, locale, true);
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false), zh = locale === "zh";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [result, setResult] = useState<Complete | null>(null);
@@ -38,16 +40,18 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
     if (!Object.hasOwn(answers, quiz.questions[position].id)) { setMessage(zh ? "请选择一个数字，或明确选择不计分。" : "Choose a number, or explicitly choose unscored."); return; }
     setMessage("");
     if (position < 23) setPosition(position + 1);
-    else if (checked.status === "complete") { revision.current += 1; setResult(checked); setStage("result"); }
+    else if (checked.status === "complete") { revision.current += 1; setResult(checked); setStage("result"); recordComplete(); }
     else setMessage(zh ? "还有题目未作选择；空白与不计分不同。请返回检查。" : "Some statements have no choice. Blank and unscored are different; go back to check.");
   }
   async function copyPublicLinks() {
     const text = quiz.profiles.map(profile => `${profile.title[locale]}\nhttps://fermatmind.com${questionnaireGuidePath(locale, quiz.slug, profile.id)}`).join("\n\n");
     const copiedRevision = revision.current;
-    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
+    try { await navigator.clipboard.writeText(text); if (revision.current !== copiedRevision) return; recordShare(); setManual(""); setMessage(zh ? "已复制公开解释链接，不含答案或个人数值。" : "Copied public explanation links, without answers or personal values."); }
     catch { if (revision.current !== copiedRevision) return; setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制公开链接。" : "Automatic copying is unavailable. Copy the public links below manually."); }
   }
+  useEntertainmentResultView(recordView, stage === "result");
   return <section id="take-test" data-intimacy-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7">
+    {activityConsent}
     <p className="mb-4 text-sm leading-7 text-slate-600">{zh ? "只使用当前页面内存；不保存草稿或结果，不上传逐题选择。刷新、换语或离开会清除。" : "Current-page memory only: no draft or result is saved and choices are not uploaded. Reloading, changing language or leaving clears answers."}</p>
     <fieldset disabled={!ready} className="min-w-0 space-y-5 p-0">
       <legend className="sr-only">{quiz.title[locale]}</legend>
@@ -56,7 +60,7 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
         <p className="leading-8">{quiz.introduction[locale]}</p>
         <p className="leading-8">{quiz.instructions[locale]}</p>
         <p className="rounded-lg border border-slate-300 p-4 leading-8">{zh ? "偏好不代替当下同意；没有分数可以要求接触、公开或披露。任何题都可选不计分，四份全文始终可读。" : "Preferences do not replace present consent. No score can demand contact, publicity or disclosure. Any item can be unscored, and all four full guides remain open."}</p>
-        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
+        <button type="button" className={button} onClick={() => { revision.current += 1; setStage("answer"); recordStart(); setPosition(0); setMessage(""); }}>{zh ? "开始测试" : "Start test"}</button>
       </>}
       {stage === "answer" && <>
         <p ref={progress} data-intimacy-progress className="scroll-mt-24 text-sm text-slate-600">{zh ? `第 ${position + 1} / 24 条` : `Statement ${position + 1} of 24`}</p>
@@ -72,7 +76,7 @@ function ValidIntimacyClient({ quiz, locale }: { quiz: MiniIntimacyQuestionnaire
         <QuestionnaireIntimacyReport quiz={quiz} result={result} locale={locale} />
         <button type="button" className={button} onClick={copyPublicLinks}>{zh ? "复制公开解释链接" : "Copy public explanation links"}</button>
         {manual && <label className="block leading-7">{zh ? "手动复制公开链接" : "Public links for manual copying"}<textarea readOnly value={manual} className="mt-2 min-h-40 w-full rounded-lg border border-slate-300 p-3" /></label>}
-        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
+        <button type="button" className={button} onClick={() => { clear(); setStage("answer"); recordStart(); }}>{zh ? "重新测试（清除本次回答）" : "Retake with empty answers"}</button>
       </>}
       {stage !== "welcome" && <button type="button" className={button} onClick={clear}>{zh ? "退出并清除本次回答" : "Exit and clear these responses"}</button>}
     </fieldset>

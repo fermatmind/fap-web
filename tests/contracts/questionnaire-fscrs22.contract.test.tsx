@@ -165,7 +165,8 @@ describe("FSCRS22 2019 source edition, separate strict groups and optional web s
       const dom = new DOMParser().parseFromString(renderToStaticMarkup(await page.default(args)), "text/html");
       expect(dom.querySelectorAll("[data-fscrs22-client]")).toHaveLength(1);
       expect(dom.querySelectorAll("[data-fscrs22-support]")).toHaveLength(1);
-      expect(dom.querySelector('input[type="checkbox"]')).toBeNull();
+      expect(dom.querySelectorAll('input[type="checkbox"]')).toHaveLength(1);
+      expect((dom.querySelector("[data-entertainment-activity-opt-in] input") as HTMLInputElement).checked).toBe(false);
       const method = dom.querySelector('section[aria-labelledby="questionnaire-method"]');
       for (const section of quiz.guide) for (const paragraph of section.paragraphs) expect(method?.textContent).toContain(paragraph[locale]);
       for (const profile of quiz.profiles) {

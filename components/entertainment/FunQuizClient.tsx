@@ -1,4 +1,5 @@
 "use client";
+import { recordEntertainmentActivity } from "@/lib/entertainment/activity";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -49,7 +50,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   const questionId = resolved.path[position];
   const question = quiz.questions.find(q => q.id === questionId);
   const result = quiz.results.find(r => r.id === resolved.resultIds[0]);
-  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
+  const emit = (event: string) => { if (event === "start_test" || event === "complete_test") recordEntertainmentActivity(quiz.slug, quiz.version, locale, event === "start_test" ? "start" : "complete"); trackEvent(event, { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` }); };
 
   useEffect(() => {
     if (!entered.current) {
@@ -65,6 +66,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
   useEffect(() => {
     if (stage !== "result" || viewed.current) return;
     viewed.current = true;
+    recordEntertainmentActivity(quiz.slug, quiz.version, locale, "result_view");
     trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", test_type: "entertainment", page_type: "entertainment", form_code: `fun_${quiz.slug}_v1` });
   }, [stage, quiz.slug, quiz.version, locale]);
 
@@ -126,7 +128,7 @@ export function FunQuizClient({ quiz, locale }: { quiz: FunQuiz; locale: Locale 
     const sharedTitle = resolved.resultIds.length > 1 ? `${zh ? "并列画像：" : "Tied portraits: "}${resolved.resultIds.map(id => quiz.results.find(portrait => portrait.id === id)!.title[locale]).join(zh ? "、" : "; ")}` : result.title[locale];
     const guides = resolved.resultIds.map(id => `https://fermatmind.com${resultPath(locale, quiz.slug, id)}`).join("\n");
     const text = `${quiz.title[locale]}\n${sharedTitle}\n${zh ? "趣味测试结果，仅供娱乐。公开画像指南：" : "A playful quiz result, for entertainment. Public portrait guides:"}\n${guides}\n${url}`;
-    try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与测试链接。" : "Copied the result name and quiz link."); }
+    try { await navigator.clipboard.writeText(text); recordEntertainmentActivity(quiz.slug, quiz.version, locale, "share", "single", "copy"); setMessage(zh ? "已复制结果名称与测试链接。" : "Copied the result name and quiz link."); }
     catch { setCopyFallback(text); setMessage(zh ? "无法自动复制，请选中下方文字手动复制。" : "Automatic copying is unavailable. Select and copy the text below."); }
   }
 
