@@ -2,6 +2,7 @@ import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessment
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
+import { IqLandingPreview } from "@/components/tests/IqLandingPreview";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
@@ -1534,6 +1535,12 @@ export default async function TestLandingPage({
             ) : null}
           </section>
           )}
+
+          {showsIqActions ? <IqLandingPreview
+            locale={locale}
+            scoringHref={mbtiEditorial?.items.some((item) => item.id === "iq-section-3") ? "#iq-section-3" : undefined}
+            limitsHref={mbtiEditorial?.items.some((item) => item.id === "iq-section-5") ? "#iq-section-5" : undefined}
+          /> : null}
 
           {usesIllustratedLanding && !showsMbtiActions && !mbtiEditorial ? (
             <section id="about-assessment" className={previewStyles.whyChoose}>
