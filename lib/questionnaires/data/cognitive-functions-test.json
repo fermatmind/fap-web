@@ -1,0 +1,3560 @@
+{
+  "slug": "cognitive-functions-test",
+  "code": "FM_COGNITIVE_FUNCTIONS32",
+  "version": "fm_cognitive_functions32_v1",
+  "updated": "2026-10-28",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Cognitive Functions Test",
+    "zh": "认知功能测试"
+  },
+  "seoTitle": {
+    "en": "Cognitive Functions Test: 32 Questions & Eight Full Readings",
+    "zh": "认知功能测试：32道原创题与八份完整免费读法"
+  },
+  "description": {
+    "en": "Explore Ni, Ne, Si, Se, Ti, Te, Fi and Fe with 32 original prompts. Eight full readings free; no function stack, ability score or signup.",
+    "zh": "用32道原创题探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe。八份完整读法免费，无需注册；分别呈现自报均值，不推功能栈、不测认知能力。"
+  },
+  "minutes": 10,
+  "instructions": {
+    "en": "Think about the past month in a setting you choose. Rate how well each statement describes your approach from 1 to 5; 3 includes partly / depends. You may select “No suitable opportunity / prefer not to rate.” Respond to all 32 prompts. Each four-item group has three direct items and one reverse item (6 minus your response), and needs at least three numeric responses for a mean. Eight separate readings; no total, ranking, stack or type. You can stop or read every guide first. Ten minutes is an estimate, not a limit.",
+    "zh": "回想过去一个月自己选定情境中的做法，以1至5评价符合程度，3含部分符合／视情况；可选“没有合适机会／不想评价”。32题都需回应，每组四题中前三题直接计分、第四题反向换算（6减所选数），至少三项数字才给均值。八组分别阅读，无总分、排名、功能栈或类型。可以停止，也能先读全部指南；十分钟是估计，不是时限。"
+  },
+  "introduction": {
+    "en": "How do you approach information and decisions? Explore eight Jungian function themes through 32 original self-reflection statements. Read keyed sums, numeric coverage and descriptive means with concrete examples and all eight full guides. This edition does not identify abilities, an ordered function stack or a four-letter personality type.",
+    "zh": "你怎样获取信息、考虑决定？用32句原创反思题文探索八个荣格功能主题，结合换算和、数字覆盖、描述性均值、具体例子与全部八份指南阅读。本版不识别能力、有序功能栈或四字母人格类型。"
+  },
+  "resultHeading": {
+    "en": "Your eight separate cognitive-function readings",
+    "zh": "八组独立认知功能读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_cognitive_function_reflection",
+    "formCode": "fm_cognitive_functions32_v1",
+    "itemBankVersion": "fm_cognitive_functions32_v1",
+    "scoringVersion": "fm_cf32_eight4_reverse4_min3_round1_v1",
+    "resultContentVersion": "fm_cf32_eight_full7_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "7e1297d73ba66b1ebde6551a00ba79eebcffce9537a0caa39d0aa7b14fd9eb50",
+    "resultContentSha256": "08e4138e318ae91043e1172a285ae3f2b2648898d5545a7376d5bb04d8e7ead1"
+  },
+  "directions": [
+    {
+      "id": "ni",
+      "title": {
+        "en": "Ni · Introverted intuition",
+        "zh": "Ni · 内倾直觉"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ne",
+      "title": {
+        "en": "Ne · Extraverted intuition",
+        "zh": "Ne · 外倾直觉"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "si",
+      "title": {
+        "en": "Si · Introverted sensing",
+        "zh": "Si · 内倾感觉"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "se",
+      "title": {
+        "en": "Se · Extraverted sensing",
+        "zh": "Se · 外倾感觉"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "ti",
+      "title": {
+        "en": "Ti · Introverted thinking",
+        "zh": "Ti · 内倾思考"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "te",
+      "title": {
+        "en": "Te · Extraverted thinking",
+        "zh": "Te · 外倾思考"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fi",
+      "title": {
+        "en": "Fi · Introverted feeling",
+        "zh": "Fi · 内倾情感"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fe",
+      "title": {
+        "en": "Fe · Extraverted feeling",
+        "zh": "Fe · 外倾情感"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CF_NI_01",
+      "prompt": {
+        "en": "When several recent events seem connected, I privately work toward one underlying explanation before discussing it.",
+        "zh": "几件近期发生的事似乎有关联时，我会先在心里整理出一个潜在解释，再拿出来讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ni",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ni",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ni",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ni",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ni",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ni",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NI_02",
+      "prompt": {
+        "en": "Before choosing a direction, I spend quiet time considering the longer-term pattern I think the clues suggest.",
+        "zh": "选择方向前，我会安静想一想：这些线索在我看来可能指向怎样的长期走向。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ni",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ni",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ni",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ni",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ni",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ni",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NI_03",
+      "prompt": {
+        "en": "I revisit an initially hard-to-explain impression until I can put its central theme into words.",
+        "zh": "有个一开始说不清的印象时，我会反复琢磨，尝试把其中的核心主题说出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ni",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ni",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ni",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ni",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ni",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ni",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NI_04",
+      "prompt": {
+        "en": "With scattered clues, I prefer to keep separate impressions rather than bring them into one underlying interpretation.",
+        "zh": "面对零散线索，我更愿意分别保留印象，而不是先把它们收束成一个潜在解释。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ni",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ni",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ni",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ni",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ni",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ni",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NE_01",
+      "prompt": {
+        "en": "A detail in something I see or hear often starts several different possibilities that I want to explore.",
+        "zh": "看到或听到某个细节时，我常会联想到几种想继续探索的可能性。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ne",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ne",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ne",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ne",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ne",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ne",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NE_02",
+      "prompt": {
+        "en": "In a discussion, I suggest connections between the topic and examples from quite different areas.",
+        "zh": "讨论时，我会提出当前话题与其他不同领域例子之间的联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ne",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ne",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ne",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ne",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ne",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ne",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NE_03",
+      "prompt": {
+        "en": "When a plan is still open, I enjoy trying another interpretation even if the first one could work.",
+        "zh": "计划还没定下来时，即使第一种解释可行，我也愿意试着换个角度理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ne",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ne",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ne",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ne",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ne",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ne",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_NE_04",
+      "prompt": {
+        "en": "Once one workable possibility appears, I usually stop looking for other connections or alternatives.",
+        "zh": "一旦出现一种可行的可能性，我通常就停止寻找其他联系或替代角度。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ne",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ne",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ne",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ne",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ne",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ne",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SI_01",
+      "prompt": {
+        "en": "To understand a new situation, I compare its concrete details with a similar experience I remember having.",
+        "zh": "理解新情境时，我会把具体细节与自己记得的一次相似经验进行比较。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "si",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "si",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "si",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "si",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "si",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "si",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SI_02",
+      "prompt": {
+        "en": "When a familiar activity feels different, I notice it by comparing the present impression with how it felt before.",
+        "zh": "熟悉的活动感觉不同时，我会把现在的感受与以前的印象对照，留意差在哪里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "si",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "si",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "si",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "si",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "si",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "si",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SI_03",
+      "prompt": {
+        "en": "Before changing a personal routine, I recall which specific parts previously felt dependable to me.",
+        "zh": "改变个人惯例前，我会回想其中哪些具体部分过去让我觉得可靠。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "si",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "si",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "si",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "si",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "si",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "si",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SI_04",
+      "prompt": {
+        "en": "When judging a present experience, I usually set aside my own earlier impressions instead of using them as a reference.",
+        "zh": "判断当下经验时，我通常先放下自己以前的印象，而不是把它们当作参照。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "si",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "si",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "si",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "si",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "si",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "si",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SE_01",
+      "prompt": {
+        "en": "When I enter an unfamiliar place, I first pay attention to what I can directly see, hear or handle there.",
+        "zh": "进入陌生地方时，我会先留意现场能直接看到、听到或接触到的东西。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "se",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "se",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "se",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "se",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "se",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "se",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SE_02",
+      "prompt": {
+        "en": "When an ordinary situation changes, I like to respond to the concrete information available at that moment.",
+        "zh": "普通情境发生变化时，我愿意依据当时能接触到的具体信息作出回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "se",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "se",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "se",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "se",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "se",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "se",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SE_03",
+      "prompt": {
+        "en": "When it is safe and optional, trying a material or activity directly helps me decide what I want to do with it.",
+        "zh": "在安全且可自行选择时，直接试试一种材料或活动，有助于我决定想怎样使用它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "se",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "se",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "se",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "se",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "se",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "se",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_SE_04",
+      "prompt": {
+        "en": "While doing something, I often stay with my ideas about it rather than notice how the immediate scene is changing.",
+        "zh": "做事情时，我常停留在对它的想法中，而不是留意眼前场景正在怎样变化。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "se",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "se",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "se",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "se",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "se",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "se",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TI_01",
+      "prompt": {
+        "en": "Before accepting an explanation, I check whether its terms and assumptions fit together in my own understanding.",
+        "zh": "接受一种解释前，我会检查其中的词义与假设，在自己的理解中是否彼此一致。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ti",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ti",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ti",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ti",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ti",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ti",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TI_02",
+      "prompt": {
+        "en": "When two claims seem inconsistent, I want to work out the distinction even if there is no immediate practical decision.",
+        "zh": "两种说法似乎矛盾时，即使眼下不用作实际决定，我也想把其中的区别弄清楚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ti",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ti",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ti",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ti",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ti",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ti",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TI_03",
+      "prompt": {
+        "en": "I revise my own explanation when an example exposes a contradiction in its internal logic.",
+        "zh": "某个例子暴露出自己解释中的逻辑矛盾时，我会重新调整这套解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ti",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ti",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ti",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ti",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ti",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ti",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TI_04",
+      "prompt": {
+        "en": "If an explanation works for the immediate task, I usually leave unclear definitions or internal contradictions unexplored.",
+        "zh": "一种解释只要能应付眼前任务，我通常就不再追究其中模糊的定义或内部矛盾。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "ti",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "ti",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "ti",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "ti",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "ti",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "ti",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TE_01",
+      "prompt": {
+        "en": "For a shared task, I like to make the goal, available resources and next actions explicit.",
+        "zh": "处理共同任务时，我愿意把目标、可用资源和下一步行动明确列出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "te",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "te",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "te",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "te",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "te",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "te",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TE_02",
+      "prompt": {
+        "en": "When choosing a procedure, I compare it with stated requirements or observable results rather than leave the criteria implicit.",
+        "zh": "选择做事步骤时，我会对照明说的要求或可观察结果，而不是把标准留在心里。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "te",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "te",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "te",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "te",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "te",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "te",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TE_03",
+      "prompt": {
+        "en": "If a plan is not producing the agreed result, I want to reorganize the steps or responsibilities.",
+        "zh": "计划没有带来约定结果时，我会想重新安排步骤或分工。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "te",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "te",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "te",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "te",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "te",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "te",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_TE_04",
+      "prompt": {
+        "en": "When coordinating a task, I tend to leave goals and checks unstated instead of putting them into a shared plan.",
+        "zh": "协调任务时，我往往不把目标与检查点说清楚，而不是写进共同计划。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "te",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "te",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "te",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "te",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "te",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "te",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FI_01",
+      "prompt": {
+        "en": "Before agreeing to a choice, I privately ask whether it fits values that matter personally to me.",
+        "zh": "同意一个选择前，我会先在心里问：它是否符合自己重视的价值。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fi",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fi",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fi",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fi",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fi",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fi",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FI_02",
+      "prompt": {
+        "en": "When others approve of an action, I still take time to consider whether I can personally stand behind it.",
+        "zh": "别人都赞成一种做法时，我仍会花时间考虑，自己是否愿意认同并承担这个选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fi",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fi",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fi",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fi",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fi",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fi",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FI_03",
+      "prompt": {
+        "en": "When my action feels at odds with a personal conviction, I reflect on that mismatch before moving on.",
+        "zh": "自己的行动似乎违背某个个人信念时，我会先反思这处不一致，再继续往下做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fi",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fi",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fi",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fi",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fi",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fi",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FI_04",
+      "prompt": {
+        "en": "In personal choices, I usually follow the approval around me without checking my own values first.",
+        "zh": "面对个人选择时，我通常顺着周围的赞同走，而不先检查自己的价值立场。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fi",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fi",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fi",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fi",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fi",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fi",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FE_01",
+      "prompt": {
+        "en": "In a group decision, I pay attention to how the proposal fits the people involved and their shared expectations.",
+        "zh": "集体作决定时，我会留意方案与参与者及共同期待是否相协调。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fe",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fe",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fe",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fe",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fe",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fe",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FE_02",
+      "prompt": {
+        "en": "When someone seems uncomfortable in an interaction, I check with them rather than assume my reading is correct.",
+        "zh": "互动中觉得有人不自在时，我会向对方确认，而不是直接认定自己的理解正确。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fe",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fe",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fe",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fe",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fe",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fe",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FE_03",
+      "prompt": {
+        "en": "To settle an everyday disagreement, I look for wording or arrangements that the people involved can accept together.",
+        "zh": "处理日常分歧时，我会寻找相关人能够共同接受的说法或安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fe",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fe",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fe",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fe",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fe",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fe",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CF_FE_04",
+      "prompt": {
+        "en": "During a shared decision, I usually focus on the proposal without considering the expectations expressed by the other people involved.",
+        "zh": "共同作决定时，我通常只关注方案本身，而不考虑其他参与者表达的期待。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my recent approach",
+            "zh": "不符合近期做法"
+          },
+          "directionId": "fe",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes it a little",
+            "zh": "有一点符合"
+          },
+          "directionId": "fe",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Partly describes it / depends",
+            "zh": "部分符合／视情况"
+          },
+          "directionId": "fe",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes it fairly well",
+            "zh": "比较符合"
+          },
+          "directionId": "fe",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes it very well",
+            "zh": "很符合"
+          },
+          "directionId": "fe",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable opportunity / prefer not to rate",
+            "zh": "没有合适机会／不想评价"
+          },
+          "directionId": "fe",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "ni",
+      "directionIds": [
+        "ni"
+      ],
+      "title": {
+        "en": "Ni · Introverted intuition — Full Cognitive Functions Reading",
+        "zh": "Ni · 内倾直觉：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Ni · Introverted intuition",
+        "zh": "Ni · 内倾直觉"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ni · Introverted intuition: Cognitive Functions Results Explained",
+          "zh": "Ni · 内倾直觉：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "ni-meaning",
+          "title": {
+            "en": "A privately formed interpretation",
+            "zh": "在心里收束解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Ni is a theory term for an inwardly oriented form of intuition. This edition focuses on privately bringing impressions and patterns into a central interpretation, including a tentative sense of where a situation might lead. The four prompts ask about that reflective approach. They do not test prediction, intuition accuracy, access to unconscious material or any special ability.",
+              "zh": "Ni是理论中的内倾直觉术语。本版聚焦于在心里把印象与模式收束成一个核心解释，包括对事情可能走向的暂时判断。四题问的是这种反思方式，不测试预言、直觉准确度、进入无意识的能力或特殊天赋。"
+            },
+            {
+              "en": "A result describes agreement with these particular examples during the past month. Someone may form a private interpretation and also seek many alternatives, remember past details or ask other people for evidence. These activities can coexist. The website does not convert a larger Ni mean into a dominant function, a function stack or an INFJ or INTJ label.",
+              "zh": "结果只描述过去一个月对这些具体例子的认同。一个人可以在心里形成解释，同时寻找替代可能、回忆旧细节或请别人提供证据，这些活动可以共存。网站不会把较大的Ni均值转成主导功能、功能栈或INFJ、INTJ标签。"
+            }
+          ]
+        },
+        {
+          "id": "ni-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "ni-example",
+          "title": {
+            "en": "A pattern in a changing project",
+            "zh": "项目变化中的模式"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional person, Lin, who notices repeated changes in a voluntary project. Lin privately wonders whether the group is moving toward a different purpose, then tries to express that idea clearly. This fits the interpretation theme even if the eventual explanation is wrong. Correctly predicting the project’s future is a different question that these ratings cannot answer.",
+              "zh": "设想一个虚构人物小林，注意到自愿参与的项目反复调整，于是在心里猜想：团队是否正在转向另一个目标，并尝试把这个想法说清楚。即使最后解释错了，这仍符合本组的解释主题；是否准确预测项目未来，是这些评分回答不了的另一件事。"
+            },
+            {
+              "en": "A useful next step would be to separate the impression from its supporting observations: what happened, what Lin thinks it means, and what would count against that interpretation. Quiet reflection does not make an interpretation more authoritative than another person’s account. Ask about the situation without claiming to know motives that have not been shared.",
+              "zh": "可用的下一步是把印象与观察分开：发生了什么，小林认为它意味着什么，以及什么证据可能反驳这个解释。安静思考不会让解释自动比别人更权威；可以询问情境，但不要声称知道别人尚未表达的动机。"
+            }
+          ]
+        },
+        {
+          "id": "ni-contrast",
+          "title": {
+            "en": "Ni, Ne and a remembered example",
+            "zh": "与Ne和旧经验的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "The Ni prompts emphasize gathering impressions into one underlying reading. The Ne prompts emphasize opening several possibilities through connections with the outside world. A person can endorse both: generating several possibilities first, then privately developing one interpretation. Different means cannot tell us that one approach is stronger in the brain or more developed as a psychological function.",
+              "zh": "Ni题文强调把印象收束成一个潜在读法，Ne题文强调借助外界联系打开几种可能。两者可以都认同：先提出几个可能，再在心里发展其中一个解释。均值不同，不能说明某种方式在大脑中更强，或心理功能发展得更成熟。"
+            },
+            {
+              "en": "Si, by contrast, asks about concrete present impressions in relation to personally remembered experience. Thinking “this resembles the meeting last month” supplies a remembered reference; thinking “these events point toward a change in purpose” supplies an interpretation. Real reasoning can use both in one conversation, so the distinction is a vocabulary aid rather than a boundary between kinds of people.",
+              "zh": "相比之下，Si题文关注眼前具体印象与个人旧经验的对照。“这像上个月那次会议”提供旧经验参照，“这些事情可能指向目标变化”提供一种解释。实际思考可以在一次对话里同时使用两者，因此区别用于帮助表达，不是划开两类人的界线。"
+            }
+          ]
+        },
+        {
+          "id": "ni-reading",
+          "title": {
+            "en": "Read endorsement without elevating insight",
+            "zh": "理解认同，不拔高洞察"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 indicates greater endorsement of working toward a private central interpretation after the reverse item is keyed. Nearer 1 indicates less endorsement of these four prompts. Neither value tells us whether your ideas are original, profound, realistic or helpful. A lower result also cannot establish that you lack intuition or must belong to another function category.",
+              "zh": "反向题换算后，均值越接近5，表示越认同“在心里形成核心解释”的这些题文；接近1表示较少认同这四题。两者都不能判断想法是否原创、深刻、现实或有帮助；较低结果也不证明你没有直觉，或必须属于另一个功能类别。"
+            },
+            {
+              "en": "The middle response includes partial fit and dependence on the setting. Three moderate ratings may describe a different month from a mix of strong agreement and disagreement. Read the actual responses, including whether the reverse prompt felt clear. There are no high-Ni cutoffs, rarity claims or life-stage rules in this edition.",
+              "zh": "中间选项包含部分符合、视情境而定。几项中等评分，与强烈认同和不认同混合，可能对应不同的一个月；请回看具体选择，也留意反向题是否容易理解。本版没有“高Ni”截点、稀有比例或人生阶段规则。"
+            }
+          ]
+        },
+        {
+          "id": "ni-try",
+          "title": {
+            "en": "Make one interpretation testable",
+            "zh": "让一个解释可以被核对"
+          },
+          "paragraphs": [
+            {
+              "en": "If reflection feels useful, write one tentative interpretation and two observations that led you there. Add one alternative explanation and one observation that would make you revise your first idea. This is an optional thinking exercise, not a way to train or certify Ni. You can keep the note private or skip it.",
+              "zh": "如果觉得反思有用，可写下一个暂时解释、让你想到它的两项观察，再补一个替代解释和一种会促使你修订原想法的观察。这是可选思考练习，不是训练或认证Ni；可以私下保留，也可以跳过。"
+            },
+            {
+              "en": "Choose an ordinary, low-stakes situation rather than health, safety, money or another person’s private life. For consequential decisions, gather the relevant evidence and expertise directly. If the same approach appears less often in a different setting next month, that is context to understand rather than a failed personality result.",
+              "zh": "请选择普通、低风险情境，不拿健康、安全、金钱或他人隐私来试。重要决定仍应直接寻找相应证据和专业意见。下个月换个情境，这种方式出现得少了，也是值得理解的背景，不是人格结果失败。"
+            }
+          ]
+        },
+        {
+          "id": "ni-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ne",
+      "directionIds": [
+        "ne"
+      ],
+      "title": {
+        "en": "Ne · Extraverted intuition — Full Cognitive Functions Reading",
+        "zh": "Ne · 外倾直觉：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Ne · Extraverted intuition",
+        "zh": "Ne · 外倾直觉"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ne · Extraverted intuition: Cognitive Functions Results Explained",
+          "zh": "Ne · 外倾直觉：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "ne-meaning",
+          "title": {
+            "en": "Opening possibilities through connections",
+            "zh": "借联系打开可能性"
+          },
+          "paragraphs": [
+            {
+              "en": "Ne is a theory term for outwardly oriented intuition. Here it provides a way to describe noticing possible connections and alternative interpretations when something in the environment catches your interest. The four original prompts concern exploring possibilities, not the number or quality of ideas you can produce. They are not a creativity or innovation test.",
+              "zh": "Ne是理论中的外倾直觉术语。本版用它描述：外界某件事引起兴趣时，注意可能的联系与替代解释。四道原创题问探索可能性的方式，不问能产生多少想法或想法质量，也不是创造力、创新能力测试。"
+            },
+            {
+              "en": "Outward orientation refers to the reference point of attention, not to being sociable or talkative. Someone can quietly generate alternatives while reading alone. Someone else may talk frequently but mainly organize one agreed plan. A mean here does not classify either person as an extravert or assign a four-letter personality code.",
+              "zh": "“外倾”在这里指注意的参照方向，不等于善于社交或话多。一个人独自阅读时也能安静地产生替代角度，另一个人说得很多却可能主要在安排既定计划。本组均值不会把两者判成外向者，也不分配四字母人格代码。"
+            }
+          ]
+        },
+        {
+          "id": "ne-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "ne-example",
+          "title": {
+            "en": "Several uses for the same resource",
+            "zh": "同一种资源的几种用法"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional community project, Mei sees an unused table and suggests a repair station, a swap corner and a shared drawing space. The Ne theme is the movement from a concrete cue to several possible uses. The list itself does not establish which use is feasible, welcome or safe; that needs separate information from the people and place involved.",
+              "zh": "在一个虚构社区项目里，小梅看到一张闲置桌子，联想到维修台、交换角和共同画画的地方。Ne主题体现在从一个具体线索打开几种用途；这份清单本身不能证明哪种可行、受欢迎或安全，还需了解相关人和场地的实际情况。"
+            },
+            {
+              "en": "Mei could ask one practical question about each possibility before choosing what to explore. Another person might endorse the same prompts but offer alternatives in writing instead of a meeting. The setting changes the visible behavior. Do not treat speed, volume or enthusiasm in a discussion as a substitute for this person’s own account.",
+              "zh": "小梅可以对每种可能先问一个实际问题，再选择要探索什么。另一个认同同样题文的人，可能用文字而不是在会上提出替代方案。情境会改变外在表现，不能用讨论中的速度、话量或热情代替当事人的自报。"
+            }
+          ]
+        },
+        {
+          "id": "ne-contrast",
+          "title": {
+            "en": "Alternatives, a central theme and present facts",
+            "zh": "替代角度、核心主题与眼前事实"
+          },
+          "paragraphs": [
+            {
+              "en": "Ne prompts emphasize several possible readings; Ni prompts emphasize privately developing a central interpretation. You may endorse both because you move between opening and narrowing. This questionnaire does not force them to sum to a constant, subtract one from the other, or decide which is your authentic self. The two sets contain different examples and are not calibrated ability scales.",
+              "zh": "Ne题文强调多种可能读法，Ni题文强调在心里发展核心解释。你可能都认同，因为思考会在打开与收束之间移动。本问卷不要求两组加起来等于固定数，不互相抵扣，也不决定哪一个才是真实的你；两组例子不同，并非经过标定的能力尺。"
+            },
+            {
+              "en": "Se prompts focus on information directly available in the current scene. Noticing a table’s actual condition fits that concrete focus; imagining other uses fits the possibilities focus. A real project needs both kinds of attention, and an engaging idea can still depend on facts that have not been checked. These are complementary descriptions of an activity, not proof of a fixed stack.",
+              "zh": "Se题文聚焦现场直接可得的信息。留意桌子的实际状态符合具体关注，想象其他用途符合可能性关注。真实项目可能都需要，有趣的点子仍可能依赖尚未核实的事实。这些是活动中可并存的描述，不证明固定功能栈。"
+            }
+          ]
+        },
+        {
+          "id": "ne-reading",
+          "title": {
+            "en": "More alternatives is not a quality grade",
+            "zh": "可能性多不等于质量高"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 shows greater keyed endorsement of exploring connections and alternatives in these examples. Nearer 1 shows less endorsement during the chosen month. It does not rate creativity, intelligence, originality or openness on a Big Five instrument. A person can value careful exploration while having little opportunity to suggest alternatives in a highly prescribed role.",
+              "zh": "均值接近5，表示换算后较认同本组探索联系、替代角度的例子；接近1，表示在所选月份较少认同。它不评价创造力、智力、原创性，也不等于大五工具中的开放性。即使重视探索，在规定严格的角色里也可能很少有提出其他方案的机会。"
+            },
+            {
+              "en": "An apparent tie with another topic is only equality after one-decimal rounding. A small gap can result from one answer, a different opportunity or wording. There is no validated threshold for calling a difference meaningful. Keep all eight readings in view without turning the highest displayed number into a dominant function.",
+              "zh": "与另一组显示并列，只代表保留一位小数后相等。小差值可能来自一个回答、不同机会或题文表达；本版没有判定差异有意义的验证阈值。可以同时看八份读法，但不要把显示的最大数字变成主导功能。"
+            }
+          ]
+        },
+        {
+          "id": "ne-try",
+          "title": {
+            "en": "Explore, then choose one next question",
+            "zh": "先探索，再选一个下一步问题"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small optional task, write three different approaches and one concrete question that would help you compare them. Then decide whether to investigate one, keep several open or stop. This exercise links possibilities with evidence without making speed or productivity the goal. It is not a treatment or a function-development program.",
+              "zh": "面对一个小的可选任务，可以写三种不同做法，以及一个帮助比较它们的具体问题，再决定调查其中一个、暂留几个，或就此停止。练习把可能性与证据联系起来，不以速度、产出为目标，也不是治疗或功能发展课程。"
+            },
+            {
+              "en": "If alternatives are unwelcome or the decision is already constrained, recognizing that boundary can be more useful than generating another idea. Ask what is genuinely open before proposing changes for others. You do not need to act on every possibility, disclose private notes or keep taking tests to justify an ordinary preference.",
+              "zh": "若情境不适合替代方案，或决定已经受限，识别边界可能比再想一个点子更有用。替别人提改动前，先问清还有什么可讨论。无需实行每种可能、公开私人笔记，或反复测试来证明一个普通偏好。"
+            }
+          ]
+        },
+        {
+          "id": "ne-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "si",
+      "directionIds": [
+        "si"
+      ],
+      "title": {
+        "en": "Si · Introverted sensing — Full Cognitive Functions Reading",
+        "zh": "Si · 内倾感觉：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Si · Introverted sensing",
+        "zh": "Si · 内倾感觉"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Si · Introverted sensing: Cognitive Functions Results Explained",
+          "zh": "Si · 内倾感觉：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "si-meaning",
+          "title": {
+            "en": "A personal reference for present impressions",
+            "zh": "用个人经验参照当下"
+          },
+          "paragraphs": [
+            {
+              "en": "Si is the inwardly oriented sensing term in this framework. These prompts focus on comparing a present concrete impression with personally remembered experience: what something felt like, which detail seems familiar, or which part of a routine has felt dependable. This is not a test of memory capacity, recall accuracy, loyalty to tradition or resistance to change.",
+              "zh": "Si是本框架中的内倾感觉术语。题文聚焦把当下具体印象与个人记忆中的经验对照：某件事以前感觉如何、哪个细节熟悉、惯例中哪部分让人觉得可靠。它不测试记忆容量、回忆准确度、是否忠于传统或是否抗拒改变。"
+            },
+            {
+              "en": "An inward reference is personal rather than automatically correct or universal. Two people can remember the same activity differently, and each memory can leave things out. A greater mean describes endorsement of consulting that reference, not evidence that your memory preserves more facts than someone else’s. All other function topics remain available alongside it.",
+              "zh": "内在参照是个人的，不会自动正确或普遍适用。两个人对同一活动可能有不同记忆，每种记忆都可能遗漏信息。较大均值描述认同使用这种参照，不证明你的记忆比别人保留更多事实；其他功能主题仍可同时阅读。"
+            }
+          ]
+        },
+        {
+          "id": "si-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "si-example",
+          "title": {
+            "en": "A familiar recipe changes",
+            "zh": "熟悉的食谱变了"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person, Bo, making a familiar meal. The texture seems different, and Bo compares it with a remembered version before checking the ingredients and cooking time. The Si theme is the comparison with personal experience. Whether the memory is accurate or the meal is safe requires facts outside this self-report, so neither is inferred from the score.",
+              "zh": "设想虚构人物小博做一道熟悉的饭菜，觉得口感不同，先与记忆中的版本对照，再检查食材和时间。Si主题在于与个人经验作比较。记忆准不准确、食物是否安全，都需要自报之外的事实，不能从分数推出。"
+            },
+            {
+              "en": "Bo might keep a part of the method that has worked and change a different part. Consulting past experience does not imply refusing novelty. Conversely, repeating a routine because no other option is available does not prove a preference for remembered references. Interpret the responses together with the actual choices that were possible.",
+              "zh": "小博可以保留过去好用的一部分方法，同时改变另一部分。参考旧经验并不等于拒绝新事物；反过来，没有其他办法只能重复惯例，也不证明偏爱经验参照。应把回答与实际可选空间一起理解。"
+            }
+          ]
+        },
+        {
+          "id": "si-contrast",
+          "title": {
+            "en": "Personal comparison and direct observation",
+            "zh": "个人对照与直接观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The Se prompts emphasize attending to the current scene; Si emphasizes the present impression in relation to a remembered one. You may inspect a material now and compare its feel with one used before. These are two aspects of one activity, so both means can be similar without creating a contradiction or a mixed personality type.",
+              "zh": "Se题文强调留意眼前场景，Si强调当前印象与记忆中印象的关系。你可以一边查看眼前材料，一边与以前用过的触感比较。它们是同一活动的两个方面，两组均值相近不矛盾，也不形成“混合人格”。"
+            },
+            {
+              "en": "Ni concerns developing an underlying interpretation from patterns, rather than recalling a particular concrete experience. “This feels like the last material I used” is a remembered comparison; “these changes suggest a new direction” is a broader interpretation. In practice they can interact. The test does not use these distinctions to rank experience against insight.",
+              "zh": "Ni关注从模式发展潜在解释，而不是回想某次具体经历。“这像我上次用的材料”是记忆对照，“这些变化可能意味着新方向”是较广的解释。实际思考可以交互使用；测试不据此给经验与洞察排高低。"
+            }
+          ]
+        },
+        {
+          "id": "si-reading",
+          "title": {
+            "en": "Keep the reference and its limits together",
+            "zh": "同时看参照和局限"
+          },
+          "paragraphs": [
+            {
+              "en": "Nearer 5 means more keyed endorsement of using personal concrete references in this bank. Nearer 1 means less endorsement of these examples, not poor memory or lack of experience. Someone who has recently entered a new setting may have few comparable experiences. Choosing no suitable opportunity is different from saying that the approach does not describe you.",
+              "zh": "接近5，表示更认同本题本中使用个人具体参照的方式；接近1，表示较少认同这些例子，不等于记性差或缺少经验。刚进入新环境的人可能很少有相似经历。选择没有合适机会，与选择题意不符合自己，是不同回答。"
+            },
+            {
+              "en": "A stable mean across two attempts would show similar answers to these prompts, not demonstrated reliability or a permanent trait. A changed mean could reflect a different routine or a new comparison point. No age, culture or occupational norm is supplied, and the score cannot tell you which environment you should live or work in.",
+              "zh": "两次均值稳定，只表示对这些题文回答相近，不证明信度或永久特质。变化也可能来自惯例改变或新的对照点。本版没有年龄、文化或职业常模，分数不能决定你应该在哪里生活或工作。"
+            }
+          ]
+        },
+        {
+          "id": "si-try",
+          "title": {
+            "en": "Compare one recollection with a record",
+            "zh": "把一次回忆与记录对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes activity and note the detail you remember, the detail you observe now and anything you are unsure about. If a harmless record is available, compare it without treating disagreement as failure. This can make a remembered reference explicit. It does not measure or improve a psychological function in any verified way.",
+              "zh": "选一个低风险活动，分别记下自己记得的细节、现在观察到的细节和不确定处；如果有无害的记录，可以拿来对照，不把不一致当作失败。这样有助于说清记忆参照，但不能声称以经过验证的方式测量或改善了心理功能。"
+            },
+            {
+              "en": "Keep other people’s recollections separate from your own, especially when discussing a shared event. A preference for a familiar method does not entitle anyone to override present evidence or another person’s needs. You can also stop after reading; collecting more examples or maintaining a diary is entirely optional.",
+              "zh": "讨论共同经历时，把别人记得的事与自己的回忆分开。偏爱熟悉方法不赋予任何人忽略眼前证据或他人需要的权利。也可以读完就结束；继续收集例子、持续记日记都完全自愿。"
+            }
+          ]
+        },
+        {
+          "id": "si-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "se",
+      "directionIds": [
+        "se"
+      ],
+      "title": {
+        "en": "Se · Extraverted sensing — Full Cognitive Functions Reading",
+        "zh": "Se · 外倾感觉：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Se · Extraverted sensing",
+        "zh": "Se · 外倾感觉"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Se · Extraverted sensing: Cognitive Functions Results Explained",
+          "zh": "Se · 外倾感觉：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "se-meaning",
+          "title": {
+            "en": "Attending to what is available now",
+            "zh": "留意此刻可接触的信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Se is the outwardly oriented sensing term. This edition uses it to discuss attention to concrete information and direct experience in the immediate environment. The prompts concern noticing and responding, including safely trying an optional material or activity. They do not test sensory acuity, coordination, reaction time, physical courage or athletic performance.",
+              "zh": "Se是外倾感觉术语。本版借它讨论对眼前环境具体信息与直接经验的注意，包括观察、回应，以及在安全可选时试试某种材料或活动。题目不测试感官敏锐度、协调性、反应速度、勇气或运动表现。"
+            },
+            {
+              "en": "An outward reference does not mean that someone must enjoy crowds, loud places or risk. Direct attention can be quiet: examining a piece of paper, listening to an ordinary sound or noticing a changed arrangement. Access needs and environmental conditions affect what is available, so the questionnaire should never be used to compare people’s sensory abilities.",
+              "zh": "参照朝向外界，不表示必须喜欢人群、喧闹或冒险。直接注意也可以很安静，例如看一张纸、听普通声音、留意物品摆放变化。可接触的信息还受无障碍需要与环境影响，不能用问卷比较人的感官能力。"
+            }
+          ]
+        },
+        {
+          "id": "se-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "se-example",
+          "title": {
+            "en": "Working with an unfamiliar material",
+            "zh": "接触一种陌生材料"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional person, Rui, is offered two safe craft materials. Rui examines their present texture and tries a small permitted sample before deciding which to use. This illustrates relying on direct experience. It does not imply that the eventual choice is better, that Rui learns faster, or that another person who prefers instructions has a weaker function.",
+              "zh": "虚构人物小瑞可以在两种安全手工材料中选择，于是先查看眼前质地，再在允许的范围内试一点样品，才决定使用哪种。这说明参考直接经验，不表示最后选择更好、学得更快，也不表示更愿意先读说明的人功能较弱。"
+            },
+            {
+              "en": "If the material is unfamiliar or potentially hazardous, instructions and relevant expertise come first; a preference is not permission to experiment. The item explicitly concerns safe, optional opportunities. A person with no such opportunity can leave it unscored, and all the public readings remain available without completing the questionnaire.",
+              "zh": "材料陌生或可能有危险时，应先遵循说明和相关专业意见；偏好不等于可以随意试验。题目明确限定安全、可选择的机会。没有这种机会可以不评分，不答完整问卷也能读全部公开解释。"
+            }
+          ]
+        },
+        {
+          "id": "se-contrast",
+          "title": {
+            "en": "The scene, a memory and a possible use",
+            "zh": "现场、记忆与可能用途"
+          },
+          "paragraphs": [
+            {
+              "en": "Se emphasizes the available scene, whereas Si compares present impressions with personal remembered experience. Examining a new tool now and recalling a previous tool can occur together. A higher displayed mean on one topic is not proof that the other process is suppressed or undeveloped. The website does not infer a psychological hierarchy from those numbers.",
+              "zh": "Se强调眼前可得场景，Si把当前印象与个人记忆中的经验比较。查看新工具与回想旧工具可以同时发生。某组显示均值较高，不证明另一过程被压抑或未发展，网站不从数字推断心理等级。"
+            },
+            {
+              "en": "Ne asks about possible connections or alternative uses prompted by what is encountered. Noticing the actual shape of an object and imagining three uses are different parts of an activity. Neither description is a measure of creativity or practical competence. Keep the distinction specific to the examples rather than labeling one person practical and another abstract.",
+              "zh": "Ne问的是接触外界事物后想到的联系或替代用途。留意物品实际形状、想象三种用途，是活动中的不同部分；两种描述都不测创造力或实践胜任力。请把区别留在具体例子中，不给人贴“务实”或“抽象”的固定标签。"
+            }
+          ]
+        },
+        {
+          "id": "se-reading",
+          "title": {
+            "en": "Endorsement is separate from performance",
+            "zh": "认同与表现分开"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 indicates more keyed endorsement of direct present-scene attention in this bank. Nearer 1 indicates less endorsement in the chosen month. It cannot establish attention disorder, absent-mindedness, lower awareness or a need for more stimulation. You may use deliberate reflection in one setting and direct observation in another.",
+              "zh": "均值接近5，表示更认同本题本中直接留意眼前场景的方式；接近1，表示所选月份较少认同。它不能证明注意障碍、心不在焉、觉察较差或需要更多刺激。一个情境里可能仔细反思，另一个情境里则直接观察。"
+            },
+            {
+              "en": "The reverse statement asks about staying with ideas instead of noticing changes in the immediate scene. Disagreeing raises its keyed contribution, but this is an arithmetic convention, not evidence that disagreement is better. If the distinction feels unclear, the unscored option can be more faithful than guessing what an ideal attentive person would say.",
+              "zh": "反向题问的是停留在想法中，而未留意眼前变化。不同意会提高换算贡献，但这只是算式约定，不表示不同意更好。若区别不清楚，不评分可能比猜测“理想的专注者”会怎么答更贴近经验。"
+            }
+          ]
+        },
+        {
+          "id": "se-try",
+          "title": {
+            "en": "Notice without grading yourself",
+            "zh": "观察而不评分自己"
+          },
+          "paragraphs": [
+            {
+              "en": "For a safe ordinary activity, pause briefly to describe three concrete features currently available to you. Use any accessible sense or source; there is no requirement to see, hear or touch in a particular way. Then decide whether those observations are relevant to what you want to do. This is optional observation, not a sensory test.",
+              "zh": "做一件安全普通的事时，可以短暂停下来，说说当下可接触到的三个具体特征。用自己可用的感官或信息来源即可，不要求以特定方式看、听、触摸；再判断这些观察是否与想做的事有关。这是可选观察，不是感官测试。"
+            },
+            {
+              "en": "Do not use the exercise in traffic, with dangerous equipment or where attention is already needed for safety. You do not need to seek stronger experiences or change your lifestyle to match a result. The useful question is whether a different source of information helps this particular task, not whether you can become a certain type.",
+              "zh": "不要在道路交通、危险设备旁，或本来就需要集中注意保障安全时做这个练习。无需为了符合结果寻找更强刺激或改变生活方式。可用的问题是：另一种信息来源是否帮助眼前任务，而不是能否变成某个类型。"
+            }
+          ]
+        },
+        {
+          "id": "se-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ti",
+      "directionIds": [
+        "ti"
+      ],
+      "title": {
+        "en": "Ti · Introverted thinking — Full Cognitive Functions Reading",
+        "zh": "Ti · 内倾思考：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Ti · Introverted thinking",
+        "zh": "Ti · 内倾思考"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ti · Introverted thinking: Cognitive Functions Results Explained",
+          "zh": "Ti · 内倾思考：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "ti-meaning",
+          "title": {
+            "en": "An internally consistent explanation",
+            "zh": "内部一致的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Ti is a theoretical term for inwardly oriented thinking. In this edition, it concerns examining definitions, assumptions and the internal consistency of an explanation as you understand it. The four prompts ask about engaging in that kind of analysis. They do not test reasoning accuracy, mathematical skill, intelligence, objectivity or whether your conclusions are true.",
+              "zh": "Ti是理论中的内倾思考术语。本版关注检查自己所理解的解释中的定义、假设和内部一致性。四题问是否进行这类分析，不测试推理准确度、数学技能、智力、客观程度，也不判定结论是否真实。"
+            },
+            {
+              "en": "Internal consistency is one consideration in reasoning, not a guarantee that the starting assumptions fit reality. A beautifully consistent account can still rely on incomplete evidence. Someone who endorses these prompts can also attend to shared goals, personal values and other people’s expectations. The eight means do not divide reason from emotion or assign a rationality grade.",
+              "zh": "内部一致只是思考的一项考量，不保证起初假设符合现实。一套很自洽的解释也可能依据不完整信息。认同本组题文的人同样可以关注共同目标、个人价值和他人期待。八组均值不把理性与情感分开，也不给理性程度打分。"
+            }
+          ]
+        },
+        {
+          "id": "ti-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "ti-example",
+          "title": {
+            "en": "Clarifying a rule in a small game",
+            "zh": "说清小游戏的规则"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional game night, An notices that two rules use the word “turn” differently. Before the next round, An asks what each rule means and whether the examples fit the same definition. This illustrates interest in a coherent account. It does not prove that An is correct, more analytical than the others or better suited to any occupation.",
+              "zh": "在一次虚构游戏聚会中，小安注意到两条规则对“回合”的用法不同，于是在下一轮前询问各自含义，以及例子能否符合相同定义。这说明对解释一致性的关注，不证明小安正确、比别人更善分析或更适合某种职业。"
+            },
+            {
+              "en": "The group may need a workable temporary agreement while the ambiguity is explored later. Clarification and timely participation can both matter. A test result should not be used as a reason to keep everyone waiting or to dismiss people who are content with a practical convention. Ask whether the distinction affects the actual decision.",
+              "zh": "大家可能需要先约定一个临时可用办法，晚些再讨论歧义。澄清与及时参与都可能重要。测试结果不能成为让所有人等待，或轻视愿意采用实用约定者的理由。可以先问：这个区别是否影响眼前决定。"
+            }
+          ]
+        },
+        {
+          "id": "ti-contrast",
+          "title": {
+            "en": "Ti and Te ask different questions",
+            "zh": "Ti与Te的问题不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The Ti prompts ask whether the explanation makes sense within your own understanding. Te prompts ask about explicit goals, requirements, observable results and organizing action. “Are we using the same definition?” and “What result have we agreed to check?” can both be useful in one project. Their means are not competing measures of logical ability.",
+              "zh": "Ti题文问解释在自己的理解中是否一致；Te题文问明确目标、要求、可观察结果和行动安排。“我们是否在用相同定义？”与“我们约定检查什么结果？”可以在同一个项目里都有用，两组均值不是互相竞争的逻辑能力分。"
+            },
+            {
+              "en": "Personal conviction in Fi is another kind of inward reference, concerning values rather than the consistency of a conceptual account. Values and analysis can inform the same choice. The questionnaire does not infer that a greater Ti mean means less empathy, weaker values or an inability to cooperate. Such claims would go beyond the questions asked.",
+              "zh": "Fi的个人信念也是一种内在参照，但关注价值，而不是概念解释的一致性。价值与分析可以共同参与选择。问卷不会从较大Ti均值推断同理心少、价值立场弱或无法合作，这些说法超出了题目所问。"
+            }
+          ]
+        },
+        {
+          "id": "ti-reading",
+          "title": {
+            "en": "Read the wish to examine, not an ability",
+            "zh": "读检查意愿，不读能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Nearer 5 means more keyed endorsement of examining terms and internal contradictions in these situations. Nearer 1 means less endorsement during the month, not a lack of thinking. Time pressure, familiarity and the purpose of a conversation can influence whether pursuing a distinction feels worthwhile. A rating does not reveal why an opportunity was absent.",
+              "zh": "接近5，表示较认同在这些情境里检查用词和内部矛盾；接近1表示这个月较少认同，不是缺乏思考。时间压力、熟悉程度、对话目的都会影响是否值得继续辨析；单个评分不能说明机会为何缺少。"
+            },
+            {
+              "en": "The fourth item is reverse keyed: more endorsement of leaving contradictions unexplored contributes fewer points to this topic. That does not make the response wrong. Sometimes a temporary practical answer is sufficient. Read the original response and the context alongside the keyed sum rather than treating the mean as a judgment of intellectual standards.",
+              "zh": "第四题反向换算：越认同不继续追究矛盾，给本组的贡献越少，但这不表示答错了。有时临时实用办法已经足够。请同时看原回答、情境与换算和，不把均值当作对思考标准的评判。"
+            }
+          ]
+        },
+        {
+          "id": "ti-try",
+          "title": {
+            "en": "Separate definitions from evidence",
+            "zh": "分开定义与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one harmless explanation you are trying to understand. Write its key term, one assumption and an example that seems to challenge it. Then ask separately whether the relevant real-world evidence supports the explanation. This keeps internal coherence and external support visible without claiming to diagnose or strengthen Ti.",
+              "zh": "选一个想理解的无害解释，写下关键术语、一项假设和一个似乎构成挑战的例子，再另问现实证据是否支持它。这样把内部一致与外在依据都摆出来，不声称诊断或增强Ti。"
+            },
+            {
+              "en": "If another person is involved, ask whether they want to explore the distinction and respect their answer. An optional thought exercise need not become a debate, a disclosure or a permanent project. You may stop after clarifying one useful point, and a different approach next time does not invalidate your earlier responses.",
+              "zh": "若涉及他人，先问对方是否愿意探讨，并尊重回答。可选练习不必变成辩论、披露或长期项目。澄清一个有用点就可以结束；下次采用别的方式，也不会让先前回答失效。"
+            }
+          ]
+        },
+        {
+          "id": "ti-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "te",
+      "directionIds": [
+        "te"
+      ],
+      "title": {
+        "en": "Te · Extraverted thinking — Full Cognitive Functions Reading",
+        "zh": "Te · 外倾思考：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Te · Extraverted thinking",
+        "zh": "Te · 外倾思考"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Te · Extraverted thinking: Cognitive Functions Results Explained",
+          "zh": "Te · 外倾思考：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "te-meaning",
+          "title": {
+            "en": "Shared criteria and organized action",
+            "zh": "共同标准与行动安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Te is the outwardly oriented thinking term. This edition focuses on making goals and criteria explicit, using observable results and arranging steps or resources in relation to a task. The prompts ask about the approach you describe, not how effectively you manage, how much you produce or whether your plans succeed. No leadership or career-fit score is calculated.",
+              "zh": "Te是外倾思考术语。本版关注明确目标与标准、参考可观察结果，以及围绕任务安排步骤和资源。题文问你描述的方式，不问管理效果、产出多少或计划是否成功，也不计算领导力或职业适配分。"
+            },
+            {
+              "en": "External criteria can be questioned and revised. A requirement may be clear yet unsuitable, unfair or incomplete. Greater endorsement of organizing a task does not establish that you should direct others or that numerical evidence is the only legitimate consideration. Personal values, relationships and the purpose of the task remain relevant.",
+              "zh": "外部标准也可以被质疑、修订。一项要求即使明确，也可能不适当、不公平或不完整。较认同安排任务，不证明应该指挥别人，也不说明数字证据是唯一合理考虑。个人价值、关系和任务目的仍然相关。"
+            }
+          ]
+        },
+        {
+          "id": "te-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "te-example",
+          "title": {
+            "en": "Making a shared task inspectable",
+            "zh": "让共同任务可以核对"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional neighborhood activity, Yun writes down the agreed goal, who has offered which resources and what needs doing before the event. When a delivery changes, Yun suggests revising the order of tasks. The Te theme is the link between an explicit goal and an organized response, not proof that the event will run well.",
+              "zh": "在一项虚构邻里活动中，小云写下约定目标、谁愿意提供什么资源，以及活动前有哪些事要做。物资安排变化时，小云建议调整任务顺序。Te主题在于明确目标与组织回应之间的联系，不证明活动一定顺利。"
+            },
+            {
+              "en": "Another participant may ask whether the goal serves everyone or whether the schedule is realistic. Those questions can improve the shared account rather than oppose organization. If you recognize yourself in the example, seek agreement before assigning responsibilities; a self-report result never grants authority over other people’s time.",
+              "zh": "另一位参与者可能询问目标是否照顾各方、时间表是否现实。这些问题可以改善共同安排，不是在反对组织。若例子让你有共鸣，分工前仍需取得同意，自报结果不会赋予支配别人时间的权力。"
+            }
+          ]
+        },
+        {
+          "id": "te-contrast",
+          "title": {
+            "en": "External checks and internal logic",
+            "zh": "外部检查与内部逻辑"
+          },
+          "paragraphs": [
+            {
+              "en": "Te prompts emphasize stated requirements and observable outcomes. Ti prompts emphasize definitions and consistency within an explanation. A plan can meet a deadline while resting on an unclear assumption, or be carefully reasoned while lacking practical checks. Both questions can be worth asking; the questionnaire does not decide which approach is superior.",
+              "zh": "Te题文强调明说的要求和可观察结果，Ti题文强调解释中的定义与一致性。一个计划可能按时完成却有模糊假设，也可能推理细致却缺少实际检查。两种问题都可能值得问，问卷不决定哪种方式更优越。"
+            },
+            {
+              "en": "Fe concerns attention to the people involved and their expressed shared expectations. Organizing responsibilities and checking how people experience them can happen together. A larger Te mean does not imply coldness or less concern for others. Likewise, a lower mean does not mean you cannot organize a task when that is needed.",
+              "zh": "Fe关注参与者及其表达的共同期待。安排责任与了解大家对此的感受可以同时进行。Te均值较大不表示冷漠或不关心别人，较小也不表示需要时不能组织任务。"
+            }
+          ]
+        },
+        {
+          "id": "te-reading",
+          "title": {
+            "en": "A method preference has no success rate",
+            "zh": "做法偏好没有成功率"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean nearer 5 indicates greater keyed endorsement of making task arrangements and checks explicit. Nearer 1 indicates less endorsement of these examples in the chosen month. Neither measures competence, productivity, conscientiousness on a Big Five instrument or promotion potential. The bank does not observe your work or compare results with an independent standard.",
+              "zh": "均值接近5，表示更认同把任务安排和检查说清楚；接近1表示所选月份较少认同这些例子。它们都不测胜任力、生产率、大五工具中的尽责性或晋升潜力。题本没有观察实际工作，也没有与独立标准比较成果。"
+            },
+            {
+              "en": "A middle answer can reflect context: organizing your own activity may feel natural while coordinating a group is unwelcome. The same mean can conceal that difference. Review the specific responses rather than treating a small numerical gap from another topic as a meaningful psychological preference or a reason to take on a management role.",
+              "zh": "中间回答可能来自情境：安排自己的活动很自然，协调集体却不愿意。同样均值可能掩盖这种区别。应回看具体选择，不把与另一组的小差值当作有意义的心理偏好，或据此承担管理角色。"
+            }
+          ]
+        },
+        {
+          "id": "te-try",
+          "title": {
+            "en": "Agree on one useful check",
+            "zh": "约定一个有用检查点"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small voluntary task, state the intended result in plain words and ask what one observable check would show it was done. Confirm the plan with anyone whose time is involved. This can make coordination easier to discuss, but it is not a validated intervention or evidence that Te has increased.",
+              "zh": "面对一个小的自愿任务，可用普通话说明想达到的结果，再问：哪一项可观察检查能看出完成了？涉及他人时间时先确认安排。这有助于讨论协作，但不是经过验证的干预，也不证明Te增加。"
+            },
+            {
+              "en": "If the check distorts the purpose of the activity or creates unnecessary burden, change or drop it. Not every hobby, relationship or ordinary interaction needs a target. You can keep the result as a vocabulary aid and stop here, without reorganizing your life or measuring yourself against someone else’s means.",
+              "zh": "若检查扭曲活动目的或带来多余负担，可以改掉、取消。不是每种爱好、关系、普通互动都需要目标。可以只把结果作为表达工具，读到这里就结束，无需重组生活或用别人的均值衡量自己。"
+            }
+          ]
+        },
+        {
+          "id": "te-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fi",
+      "directionIds": [
+        "fi"
+      ],
+      "title": {
+        "en": "Fi · Introverted feeling — Full Cognitive Functions Reading",
+        "zh": "Fi · 内倾情感：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Fi · Introverted feeling",
+        "zh": "Fi · 内倾情感"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fi · Introverted feeling: Cognitive Functions Results Explained",
+          "zh": "Fi · 内倾情感：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "fi-meaning",
+          "title": {
+            "en": "Checking personal values before a choice",
+            "zh": "选择前核对个人价值"
+          },
+          "paragraphs": [
+            {
+              "en": "Fi is a theoretical term for inwardly oriented feeling. Feeling here concerns value-based judgment, not simply being emotional. The four prompts focus on privately checking whether a choice and action fit values or convictions that matter to you personally. They do not measure moral goodness, empathy, emotional depth or the correctness of those values.",
+              "zh": "Fi是理论中的内倾情感术语。这里的情感涉及基于价值的判断，不只是情绪多。四题关注在心里核对选择、行动是否符合个人重视的价值或信念，不测道德好坏、同理心、情感深度，也不裁定价值是否正确。"
+            },
+            {
+              "en": "A personal value can be reflected on, questioned and changed. Consulting it does not mean disregarding facts, responsibilities or the rights of others. Someone can care deeply about a value yet have limited freedom to act on it. The questionnaire describes endorsement of the checking process, not whether a person has lived an authentic or worthy life.",
+              "zh": "个人价值也可以被反思、质疑和改变。参考它不等于不顾事实、责任或他人权利。一个人可能很重视某种价值，却没有足够自由按它行动。问卷描述对核对过程的认同，不判断是否活得真实或有价值。"
+            }
+          ]
+        },
+        {
+          "id": "fi-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "fi-example",
+          "title": {
+            "en": "An invitation and a personal conviction",
+            "zh": "邀请与个人信念"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person, Jia, invited to join an optional activity. Most friends approve, but Jia privately considers whether participation fits a personal commitment to fairness. Jia asks for more information before deciding. This illustrates a values reference; it does not prove that Jia’s interpretation of fairness is right or that the friends lack values.",
+              "zh": "设想虚构人物小佳受邀参加一项可选活动。朋友多半赞成，小佳却先考虑参与是否符合自己重视的公平，再多问一些信息才作决定。这说明个人价值参照，不证明小佳对公平的理解正确，也不表示朋友没有价值观。"
+            },
+            {
+              "en": "Jia can explain a boundary without asking everyone to share the same conviction. Another person may reach the same decision through shared expectations or practical constraints. Similar actions can follow different considerations, so it is unsafe to assign someone else a function from observing one decision or reading a result card.",
+              "zh": "小佳可以说明边界，而不要求所有人认同同一个信念。另一个人也可能根据共同期待或实际限制作出相同决定。同样行动可以出于不同考虑，不能观察一次选择、读一张结果卡，就替别人分配功能。"
+            }
+          ]
+        },
+        {
+          "id": "fi-contrast",
+          "title": {
+            "en": "Personal conviction and shared expectations",
+            "zh": "个人信念与共同期待"
+          },
+          "paragraphs": [
+            {
+              "en": "Fi prompts ask about a personal values reference; Fe prompts ask about the people involved and their expressed shared expectations. You may consult both before acting. They are not an egoism-versus-kindness scale, and a difference between their means cannot show who is more caring, independent or sincere. The sets have no common calibrated metric.",
+              "zh": "Fi题文关注个人价值参照，Fe题文关注参与者及其表达的共同期待。行动前可以都考虑。它们不是自私与善良的两端，均值差异不能说明谁更关心人、更独立或更真诚，两组也没有共同标定尺度。"
+            },
+            {
+              "en": "Ti concerns internal consistency in definitions and explanations, while Fi concerns fit with values. A difficult choice can need both careful reasoning and a clear statement of what matters. The test does not sort people into emotional and logical camps or suggest that one process excludes the other. Keep the distinction about the question being considered.",
+              "zh": "Ti关注定义、解释中的内部一致，Fi关注与价值是否相符。困难选择可以既需要严谨思考，也需要说清重视什么。测试不把人分成情感派、逻辑派，也不暗示两种过程互相排斥；区别应落在正在考虑的问题上。"
+            }
+          ]
+        },
+        {
+          "id": "fi-reading",
+          "title": {
+            "en": "More endorsement is not more integrity",
+            "zh": "认同较多不等于更正直"
+          },
+          "paragraphs": [
+            {
+              "en": "Nearer 5 indicates more keyed endorsement of pausing to consult personal values in these examples. Nearer 1 indicates less endorsement in the selected month, not an absence of principles. People may understand the word value differently or be making choices under strong constraints. No moral rank, authenticity score or relationship compatibility estimate follows.",
+              "zh": "接近5，表示更认同在这些例子里停下来参考个人价值；接近1表示所选月份较少认同，不是没有原则。人对“价值”的理解可能不同，选择也可能受很强限制。结果不产生道德排名、真实性分数或关系相容估计。"
+            },
+            {
+              "en": "Agreement with the reverse prompt describes following surrounding approval without first checking your values; its numeric contribution is reversed. The response may fit a particular context without defining your whole life. If the wording does not fit an available experience, choose unscored rather than answer as the person you feel you ought to be.",
+              "zh": "反向题描述顺着周围赞同走、未先核对个人价值，数字贡献会反向换算。回答可以只符合某个情境，不定义整个人生。若题文找不到适用经验，可以不评分，不必回答成自己觉得“应该成为的人”。"
+            }
+          ]
+        },
+        {
+          "id": "fi-try",
+          "title": {
+            "en": "Name one value and one tradeoff",
+            "zh": "说出一项价值和一处取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes optional choice, name one value you want to honor and one practical or interpersonal tradeoff. Ask whether there is a small action that respects both. A private note is sufficient. The purpose is to make your reasoning discussable, not to prove purity, eliminate compromise or train a psychological function.",
+              "zh": "对一个低风险可选决定，可写一项想尊重的价值和一处实际或人际取舍，再问能否找到兼顾两者的小行动。私人笔记已经足够；目的是让考虑更清楚，不是证明纯粹、消除妥协或训练心理功能。"
+            },
+            {
+              "en": "Respect other people’s boundaries and seek relevant advice for consequential decisions. A result should not pressure you to disclose beliefs, confront someone or justify a personal choice publicly. You may simply read, keep what is useful and stop; changing your view with new information is compatible with reflecting on values.",
+              "zh": "重要决定仍应尊重他人边界，并寻找相应意见。结果不应迫使你披露信念、与人对抗或公开证明个人选择。可以只阅读、保留有用部分就结束；依据新信息改变看法，也可以是反思价值的一部分。"
+            }
+          ]
+        },
+        {
+          "id": "fi-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe",
+      "directionIds": [
+        "fe"
+      ],
+      "title": {
+        "en": "Fe · Extraverted feeling — Full Cognitive Functions Reading",
+        "zh": "Fe · 外倾情感：认知功能测试完整读法"
+      },
+      "headline": {
+        "en": "Fe · Extraverted feeling",
+        "zh": "Fe · 外倾情感"
+      },
+      "summary": {
+        "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+        "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+      },
+      "scoreReading": {
+        "en": "Three direct ratings and one reverse rating (6 − response), excluding unscored. At least three numeric ratings for a one-decimal mean; no ranking or stack.",
+        "zh": "前三题直接计分，第四题为6减所选数；不评分排除。至少三项数字才给一位小数均值，不排名、不推功能栈。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fe · Extraverted feeling: Cognitive Functions Results Explained",
+          "zh": "Fe · 外倾情感：认知功能结果解释"
+        },
+        "description": {
+          "en": "Read this function theme, its four original prompts, reverse key, examples, nearby distinctions and limits.",
+          "zh": "理解本功能主题、四道原创题文、反向换算、具体情境、相邻区别与局限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "fe-meaning",
+          "title": {
+            "en": "Attending to people and shared expectations",
+            "zh": "留意参与者和共同期待"
+          },
+          "paragraphs": [
+            {
+              "en": "Fe is the outwardly oriented feeling term. This edition focuses on how decisions and interaction relate to the people involved, their expressed expectations and a possible shared understanding. The prompts include checking an impression with the person concerned. They do not test mind-reading, empathy accuracy, social skill, agreeableness or the ability to keep everyone happy.",
+              "zh": "Fe是外倾情感术语。本版关注决定、互动与参与者、他们表达的期待，以及可能达成的共同理解之间的关系。题文包含向当事人确认自己的印象，不测试读心、同理准确度、社交技能、宜人性或让所有人开心的能力。"
+            },
+            {
+              "en": "Outward reference does not require being outgoing or always accommodating others. A quiet person may carefully consult shared expectations; an outspoken person may not. Harmony can include honest disagreement and clear boundaries. A mean here never obliges anyone to mediate, provide emotional labor or accept an arrangement that feels unsafe or unwanted.",
+              "zh": "参照朝向外界，不要求性格外向或总是迁就别人。安静的人也可能认真了解共同期待，健谈的人却未必如此。协调可以包含诚实分歧与清晰边界。均值不会要求任何人必须调解、承担情绪劳动，或接受不安全、不愿意的安排。"
+            }
+          ]
+        },
+        {
+          "id": "fe-arithmetic",
+          "title": {
+            "en": "Four prompts, one descriptive mean",
+            "zh": "四题与一个描述性均值"
+          },
+          "paragraphs": [
+            {
+              "en": "The first three prompts contribute the selected number from 1 to 5. The fourth is reverse keyed: its contribution is 6 minus the selected number, so 1 becomes 5, 2 becomes 4 and 3 stays 3. An unscored answer contributes nothing and is excluded from the denominator. All 32 prompts need a response before any personal summaries appear.",
+              "zh": "前三题贡献所选的1至5数字。第四题反向换算，贡献为6减所选数字，因此1变5、2变4、3不变。不评分项没有数字贡献，也不占分母。全部32题都回应后才出现个人汇总。"
+            },
+            {
+              "en": "For responses 4, 3, 5 and 2, the keyed contributions are 4, 3, 5 and 4: sum 16, count 4, mean 4.0. For 4, unscored, 5 and 2, the sum is 13, count 3 and mean 4.3. With fewer than three numeric ratings, no mean is calculated. The minimum and one-decimal rounding are website conventions, not reliability or certainty thresholds.",
+              "zh": "回答4、3、5、2时，换算贡献是4、3、5、4，原始换算和16，数字项数4，均值4.0。回答4、不评分、5、2时，和13，项数3，均值4.3。数字不足三项不给均值；最低项数和一位小数是网站呈现约定，不是信度或确定性门槛。"
+            }
+          ]
+        },
+        {
+          "id": "fe-example",
+          "title": {
+            "en": "Checking before trying to smooth things over",
+            "zh": "缓和之前先确认"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional group activity, Tao notices a participant becoming quieter and asks privately whether the current arrangement works for them. The participant may be tired, content or unhappy for a reason unrelated to the group. The Fe theme is checking interpersonal understanding, not correctly decoding the person from silence. Their own answer remains the relevant evidence.",
+              "zh": "在一个虚构集体活动里，小陶注意到一位参与者变安静，于是私下询问当前安排是否合适。对方可能疲倦、满意，或因与团队无关的事不开心。Fe主题在于核对人际理解，不是从沉默正确解码对方；当事人的回答仍是相关证据。"
+            },
+            {
+              "en": "If the person does not want to discuss it, respecting that preference can be the appropriate response. A wish for smoother interaction does not justify repeated questions or speaking for someone else. Another participant might use a written check-in instead of a conversation; the visible behavior can differ while the consideration is similar.",
+              "zh": "若对方不愿讨论，尊重这个偏好可能就是适当回应。想让互动顺畅，不足以正当化反复追问或替别人发言。另一位参与者也可能用文字而不是对话确认，外在做法不同，考虑却可以相似。"
+            }
+          ]
+        },
+        {
+          "id": "fe-contrast",
+          "title": {
+            "en": "Shared expectations and personal values",
+            "zh": "共同期待与个人价值"
+          },
+          "paragraphs": [
+            {
+              "en": "Fe prompts emphasize the interpersonal setting and shared expectations that people express. Fi prompts emphasize checking personal convictions. These considerations can support or challenge one another within a single choice. Neither set measures kindness, sincerity or whether you should put yourself first. They are not opposite ends whose scores must add up to a fixed total.",
+              "zh": "Fe题文强调人际情境和人们表达的共同期待，Fi题文强调核对个人信念。在同一个选择里，两种考虑可以互相支持，也可以形成张力。两组都不测善良、真诚或是否应把自己放第一，也不是分数必须相加为固定总数的两端。"
+            },
+            {
+              "en": "Te concerns explicit task criteria and organizing action. Asking whether people accept an arrangement and asking whether it meets a stated requirement are different questions; both can matter. A greater Fe mean does not mean less logical thinking, and a smaller one does not establish social indifference. The questionnaire does not observe the quality of your relationships.",
+              "zh": "Te关注明确任务标准和行动安排。询问大家是否接受安排，与询问安排是否符合明说要求，是不同问题，却可以都重要。Fe均值较大不表示逻辑思考少，较小也不证明不关心人。问卷没有观察关系质量。"
+            }
+          ]
+        },
+        {
+          "id": "fe-reading",
+          "title": {
+            "en": "Read attention without assigning a duty",
+            "zh": "读关注，不分配义务"
+          },
+          "paragraphs": [
+            {
+              "en": "Nearer 5 indicates greater keyed endorsement of attending to people’s expressed expectations and seeking shared understanding in these examples. Nearer 1 means less endorsement during the month. It is not an interpersonal competence grade, a test of being liked or proof that others feel understood by you. Opportunity, safety and cultural expectations can shape the answers.",
+              "zh": "接近5，表示更认同在这些例子里关注别人表达的期待、寻求共同理解；接近1表示这个月较少认同。它不是人际胜任分、不测试讨人喜欢，也不证明别人觉得被你理解。机会、安全和文化期待都可能影响回答。"
+            },
+            {
+              "en": "If a mean ties another topic or differs by only a tenth, preserve that ambiguity. Rounding, wording and a single changed answer can alter the display; no meaningful-difference threshold has been established. Read all eight topics as separate descriptions rather than choosing one to explain every friendship, disagreement or group role.",
+              "zh": "与另一组并列或只差零点一时，应保留这种不明确。舍入、题文和一个回答改变都可能影响显示，本版尚无有意义差异的阈值。请把八组当作分开的描述，不选其中一个解释所有友谊、分歧或集体角色。"
+            }
+          ]
+        },
+        {
+          "id": "fe-try",
+          "title": {
+            "en": "Ask one bounded question",
+            "zh": "问一个有边界的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If appropriate, ask someone involved in an ordinary shared task one specific question about an arrangement: what works, what does not or what they would prefer. Give them room not to answer. Use the response they choose to offer rather than infer a private feeling. This is optional communication practice, not a validated way to improve Fe.",
+              "zh": "适当时，可以针对一件普通共同事务问相关人一个具体问题：安排哪部分合适、哪部分不合适，或更希望怎样。给对方不回答的空间，根据愿意表达的内容沟通，不推断私下感受。这是可选沟通练习，不是经过验证的Fe提升方法。"
+            },
+            {
+              "en": "You do not have to solve every tension or make a group agree. A clear respectful disagreement may be a better outcome than a superficial consensus. For serious or unsafe situations, use the support suited to the actual issue rather than a personality result. Reading and stopping is also a complete way to use this guide.",
+              "zh": "无需解决每处紧张，或让集体达成一致。清楚而尊重的分歧可能比表面共识更合适。遇到严重或不安全情境，应寻求适合实际问题的支持，而不是靠人格结果。读完并结束，同样是完整使用本指南的方式。"
+            }
+          ]
+        },
+        {
+          "id": "fe-limits",
+          "title": {
+            "en": "What this edition can and cannot conclude",
+            "zh": "本版可以和不能得出的结论"
+          },
+          "paragraphs": [
+            {
+              "en": "These original items and the English and Chinese versions have not established psychometric validity, reliability, population norms or measurement equivalence. The framework source explains terminology; it did not supply, approve or validate this bank. Means summarize keyed endorsement of different sets of statements. They are not calibrated against one another and do not establish a dominant, auxiliary or inferior function.",
+              "zh": "这些原创题项及中英文版本尚未建立心理测量效度、信度、人群常模或测量等值。框架来源只解释术语，没有提供、批准或验证本题本。均值汇总不同题文集合的换算认同，彼此没有经过标定，不能确立主导、辅助或劣势功能。"
+            },
+            {
+              "en": "No overall score, ordered function stack, four-letter type, diagnosis or decision about work or relationships is produced. Exact display ties remain ties; small gaps have no validated interpretation. All eight complete guides are available regardless of your ratings. Public guides contain no personal answers, and optional sharing includes only the test title and entry link.",
+              "zh": "本版不产生总分、有序功能栈、四字母类型、诊断，或对工作、关系的决定。显示相等就保留相等，小差值没有经过验证的解释。无论如何评分，八份完整指南均可阅读；公开指南不含个人答案，可选分享只含测试标题与入口链接。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "edition",
+      "title": {
+        "en": "An original eight-function reflection",
+        "zh": "原创八功能反思版"
+      },
+      "paragraphs": [
+        {
+          "en": "This Cognitive Functions Test asks about eight separate Jungian function themes: Ni, Ne, Si, Se, Ti, Te, Fi and Fe. The 32 original prompts contain four examples per theme, including one reverse item. It is a framework self-reflection, not a cognitive ability test, clinical instrument or official MBTI assessment. All questions and eight complete readings are free without signup.",
+          "zh": "本认知功能测试探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe八个分开的荣格功能主题。32道原创题每组四题，含一项反向题。它是框架反思，不是认知能力测试、临床工具或官方MBTI测评。全部题目和八份完整读法免费，无需注册。"
+        },
+        {
+          "en": "The framework distinguishes sensing and intuition as ways of taking in information, and thinking and feeling as ways of judging it, with inward or outward orientations. Our prompts operationalize limited everyday examples, not the whole theory or eight established brain systems. The source supports the terminology only; this particular bank has not completed psychometric validation.",
+          "zh": "框架将感觉、直觉视为获取信息的方式，将思考、情感视为判断方式，并区分内倾与外倾方向。题目将有限日常例子具体化，不代表整套理论或八个已确立的大脑系统。来源只支持术语，本题本尚未完成心理测量验证。"
+        }
+      ]
+    },
+    {
+      "id": "how",
+      "title": {
+        "en": "How to answer and read the arithmetic",
+        "zh": "怎样回答与复算"
+      },
+      "paragraphs": [
+        {
+          "en": "Think about ordinary situations over the past month, in a setting you choose. Rate how well each statement describes your approach from 1 to 5; 3 includes partly and depends. Choose no suitable opportunity or prefer not to rate when appropriate. Respond to all prompts, then read each topic’s numeric coverage, keyed sum and descriptive mean. Ten minutes is an editorial estimate, with no time limit.",
+          "zh": "回想过去一个月自己选定情境中的普通经历，以1至5评价题文多符合做法；3包括部分符合、视情况。适当时可选没有合适机会或不想评价。全部题目回应后，分别看数字项数、换算和与描述性均值。十分钟是编辑估计，没有限时。"
+        },
+        {
+          "en": "Within each four-item topic, the fourth item is reversed as 6 minus the response; the first three keep their numbers. Unscored items are excluded. At least three numeric responses are needed to divide their sum by their count, rounded to one decimal. This is a completeness convention. No average is substituted when information is insufficient, and the other sufficiently rated topics remain available.",
+          "zh": "每组四题中，第四题按6减回答数反向换算，前三题保留数字，不评分项排除。至少三项数字才用和除以项数，保留一位小数。这是资料完整约定；信息不足时不补均值，其他足够评分的组仍可查看。"
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "title": {
+        "en": "Ties, small gaps and function stacks",
+        "zh": "并列、小差值与功能栈"
+      },
+      "paragraphs": [
+        {
+          "en": "The eight means summarize different sets of statements and have no common calibration. We keep a fixed topic order rather than sort them or call the highest your dominant function. Equal displayed means remain equal; nearby means have no validated meaningful-difference threshold. Read the prompts and examples rather than turn a tenth of a point into a personality conclusion.",
+          "zh": "八组均值概括不同题文集合，没有共同标定。本版保留固定主题顺序，不排序，也不把最大值称为主导功能。显示相等就保留相等，相近均值没有经过验证的有意义差异阈值；应回看题文、例子，不把零点一变成人格结论。"
+        },
+        {
+          "en": "An ordered function stack is a stronger claim than agreement with some examples. This test does not infer a stack, four-letter type or developmental hierarchy. It also does not convert a prior MBTI result into eight scores. A separate four-preference assessment asks different questions and requires its own answers; it is optional after the complete result here.",
+          "zh": "有序功能栈比“认同一些例子”是更强的主张。本测试不推功能栈、四字母类型或发展等级，也不把已有MBTI结果转成八个分数。独立的四偏好测评问不同问题，需要另行回答，在本页完整结果之后可自愿选择。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Sources, edition and scope",
+        "zh": "来源、版本与范围"
+      },
+      "paragraphs": [
+        {
+          "en": "The Myers & Briggs Foundation’s explanation of the eight dominant processes supplies background terminology and distinguishes the process attitudes. The wording, question bank, keyed averages, examples and complete readings here are original FermatMind work. This is not an official or endorsed instrument, a copy of a competitor bank, or a migration of the unpublished Mini Jung forced-choice pilot.",
+          "zh": "Myers & Briggs Foundation关于八种主导过程的说明提供背景术语与方向区别。本页题文、题本、换算均值、例子和完整读法为费马原创；不是官方或获背书工具，不复制竞品题本，也不是尚未公开的Mini Jung强迫选择试点迁移版。"
+        },
+        {
+          "en": "This edition does not borrow the validity, norms or results of another assessment. English and Chinese are working versions without demonstrated measurement equivalence. The results are for your own reflection and should not decide recruitment, school placement, treatment or another person’s role. The references do not supply evidence that this bank measures abilities or predicts behavior.",
+          "zh": "本版不继承其他测评的效度、常模或结果。中英文为工作版本，尚无测量等值证据。结果供个人反思，不用于招聘、教育分配、治疗或决定他人的角色；参考来源不能证明本题本测量能力或预测行为。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Optional drafts and public links",
+        "zh": "可选草稿与公开链接"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers and numeric summaries stay in this browser. Saving progress is optional and uses this tab for up to 24 hours; completion, exit-and-clear or retake removes it. Public result guides can be read before answering and contain no personal scores. Copying a share link includes only the public title and test entry, without responses, means or a function label assigned to you.",
+          "zh": "回答和数字汇总留在本浏览器。保存进度为自愿选择，仅在本标签页最多24小时，完成、退出并清除或重测即删除。公开指南可先读，不含个人分数。复制分享只含公开标题和测试入口，不含答案、均值或派给你的功能标签。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the full Cognitive Functions Test free?",
+        "zh": "认知功能测试完整结果免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 32 original prompts, eight separate summaries and eight complete public guides are free, without an account or email.",
+        "zh": "免费。32道原创题、八组独立汇总与八份公开完整指南都可直接使用，无需账户或邮箱。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do Ni, Ne, Si, Se, Ti, Te, Fi and Fe mean?",
+        "zh": "Ni、Ne、Si、Se、Ti、Te、Fi、Fe是什么？"
+      },
+      "answer": {
+        "en": "They are function-attitude terms in Jungian typology: inward or outward orientations of intuition, sensing, thinking and feeling. Each guide explains the theme and nearby distinctions in everyday examples.",
+        "zh": "它们是荣格类型理论中的功能与方向术语，即直觉、感觉、思考、情感的内倾或外倾形式；各指南用日常例子解释主题与相邻区别。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will I get a dominant function or stack?",
+        "zh": "会得到主导功能或功能栈吗？"
+      },
+      "answer": {
+        "en": "No. You get eight descriptive means in a fixed order. Different item sets are not calibrated for ranking, so we do not infer a dominant, auxiliary or inferior function, stack or four-letter type.",
+        "zh": "不会。结果是固定顺序的八组描述性均值。不同题组没有经过排序标定，不据此推主导、辅助、劣势功能、功能栈或四字母类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does reverse scoring work?",
+        "zh": "反向计分怎么算？"
+      },
+      "answer": {
+        "en": "The fourth prompt in each group contributes 6 minus your numeric response; the other three keep the selected numbers. Unscored items are excluded. At least three numeric responses are needed for a one-decimal mean.",
+        "zh": "每组第四题贡献为6减所选数字，其余三题保留数字。不评分排除，至少三项数字才给一位小数均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if a topic has too few numeric answers?",
+        "zh": "某组数字回答不足怎么办？"
+      },
+      "answer": {
+        "en": "It displays insufficient information and no mean. Other sufficiently rated topics remain, and every complete guide is still readable. Unscored responses never become zero.",
+        "zh": "该组显示资料不足，不给均值；其他评分足够的组保留，全部完整指南仍可读。不评分不会变成零。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this scientifically validated or official MBTI?",
+        "zh": "本版经过科学验证或属于官方MBTI吗？"
+      },
+      "answer": {
+        "en": "No. These are original framework-reflection prompts, without established psychometric validity, reliability, norms or language equivalence. The background source explains terminology and does not endorse the bank.",
+        "zh": "不是。这是原创框架反思题本，尚无已建立的心理测量效度、信度、常模或语言等值；背景来源解释术语，不代表其为题本背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do I read equal or close means?",
+        "zh": "相等或相近均值怎样读？"
+      },
+      "answer": {
+        "en": "Keep the equality or ambiguity. Means concern different statements; there is no validated meaningful-difference cutoff. Review your responses and the separate guides without assigning a function hierarchy.",
+        "zh": "保留相等或不明确。均值涉及不同题文，没有经过验证的有意义差异截点；回看回答和分组指南，不分配功能等级。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the Mini Jung pilot?",
+        "zh": "这是Mini Jung试点吗？"
+      },
+      "answer": {
+        "en": "No. This independent original web edition does not unlock or reuse that unpublished forced-choice pilot and is not counted as its migration.",
+        "zh": "不是。这是独立原创网页版本，不解锁或复用尚未公开的强迫选择试点，也不计为该Mini产品迁移。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Myers & Briggs Foundation: The Eight Dominant Processes (framework terminology only)",
+        "zh": "Myers & Briggs Foundation：八种主导过程（仅框架术语）"
+      },
+      "url": "https://www.myersbriggs.org/unique-features-of-myers-briggs/type-dynamics-processes/"
+    }
+  ]
+}

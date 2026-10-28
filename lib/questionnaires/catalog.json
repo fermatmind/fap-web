@@ -5448,5 +5448,34 @@
       "living-contaminants"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "cognitive-functions-test",
+    "code": "FM_COGNITIVE_FUNCTIONS32",
+    "version": "fm_cognitive_functions32_v1",
+    "updated": "2026-10-28",
+    "category": "framework",
+    "title": {
+      "en": "Cognitive Functions Test",
+      "zh": "认知功能测试"
+    },
+    "description": {
+      "en": "Explore Ni, Ne, Si, Se, Ti, Te, Fi and Fe with 32 original prompts. Eight full readings free; no function stack, ability score or signup.",
+      "zh": "用32道原创题探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe。八份完整读法免费，无需注册；分别呈现自报均值，不推功能栈、不测认知能力。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_cognitive_functions32_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "ni",
+      "ne",
+      "si",
+      "se",
+      "ti",
+      "te",
+      "fi",
+      "fe"
+    ]
   }
 ]
