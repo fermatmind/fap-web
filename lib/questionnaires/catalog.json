@@ -5600,5 +5600,34 @@
       "impact"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "eq-dashboard",
+    "code": "FM_EMOTION_DASHBOARD40",
+    "version": "fm_emotion_dashboard_original40_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "EQ Dashboard: Eight Emotions",
+      "zh": "情绪仪表盘：八种感受"
+    },
+    "description": {
+      "en": "Reflect on eight emotion families with 40 original context prompts. Read separate frequency means or insufficient information and eight full free guides. No EQ ability score.",
+      "zh": "用40条原创情境题回顾八类情绪，分别看频率均值或资料不足，直接阅读八份免费全文；不计算EQ能力分。"
+    },
+    "minutes": 9,
+    "formCode": "fm_emotion_dashboard_original40_v1",
+    "questionCount": 40,
+    "resultSlugs": [
+      "joy",
+      "trust",
+      "fear",
+      "surprise",
+      "sadness",
+      "disgust",
+      "anger",
+      "anticipation"
+    ],
+    "collection": "explore"
   }
 ]

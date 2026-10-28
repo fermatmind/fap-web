@@ -1,0 +1,4043 @@
+{
+  "slug": "eq-dashboard",
+  "code": "FM_EMOTION_DASHBOARD40",
+  "version": "fm_emotion_dashboard_original40_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "EQ Dashboard: Eight Emotions",
+    "zh": "情绪仪表盘：八种感受"
+  },
+  "description": {
+    "en": "Reflect on eight emotion families with 40 original context prompts. Read separate frequency means or insufficient information and eight full free guides. No EQ ability score.",
+    "zh": "用40条原创情境题回顾八类情绪，分别看频率均值或资料不足，直接阅读八份免费全文；不计算EQ能力分。"
+  },
+  "seoTitle": {
+    "en": "EQ Dashboard: Eight Emotions & Full Free Readings",
+    "zh": "情绪仪表盘（EQ Dashboard）：八种情绪与免费完整读法"
+  },
+  "minutes": 9,
+  "introduction": {
+    "en": "This original FermatMind EQ Dashboard explores remembered Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger and Anticipation in ordinary situations. The eight theoretical emotion families organize reflection; they are not eight emotional-intelligence abilities. Each has five independently written prompts and its own complete guide. We do not administer MSCEIT, WLEIS, the Emotions Profile Index or the competitor questionnaire, and do not calculate an overall EQ, a dominant personality or an emotional-intensity percentage. All eight full readings are free before you start.",
+    "zh": "本费马原创情绪仪表盘回顾普通情境中记得的喜悦、信任、害怕、惊讶、难过、厌恶、生气与期待。八类理论情绪只用于组织反思，不是八种情绪智力能力。每类五条独立编写的题目和一份完整指南。本版不施测MSCEIT、WLEIS、情绪轮廓工具或竞品题本，不计算整体EQ、主导人格或情绪强度百分比。八份全文在开测前全部免费。"
+  },
+  "instructions": {
+    "en": "Choose one ordinary work, study or voluntary-group setting and recall the past four weeks; this window is editorial. Keep the same setting throughout. For each described occasion, rate how often you felt the stated feeling when that occasion applied, from 1 Never to 5 Almost every relevant occasion. If it did not apply, you cannot recall or prefer not to answer, choose the separate unscored option. Do not create, repeat or re-enter an uncomfortable situation for a rating. All 40 recognized choices finish the attempt; each five-item part needs at least three numeric ratings for a mean. No names, private events or conversations are requested.",
+    "zh": "选定一个普通工作、学习或自愿小组场景，回顾过去四周；四周是编辑窗口。始终使用同一背景，评价所述机会适用时，多常体验到题中的感受，从1从不到5几乎每次相关机会。未经历、记不清或不愿回答时，选独立的不计分项。不要为了评分制造、重现或重新进入不舒服的情境。40项有效选择即可完成，每部分五题至少三条数值才给均分。不要求姓名、私人事件或对话。"
+  },
+  "resultHeading": {
+    "en": "Your eight separate emotion readings",
+    "zh": "你的八类情绪独立读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_emotion_occurrence_reflection",
+    "formCode": "fm_emotion_dashboard_original40_v1",
+    "itemBankVersion": "fm_emotion_dashboard_original40_v1",
+    "scoringVersion": "fm_emotion_dashboard_forward1to5_min3of5_v1",
+    "resultContentVersion": "fm_emotion_dashboard_original8_full_v1",
+    "itemBankSha256": "48741927218d173611d611cecb36ee9892db3c8f1811b4d9320fe785d03e7a79",
+    "resultContentSha256": "736963b71b2099ad43340565d611da33e7101462b524603c4d48f39c3934ca62",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "joy",
+      "title": {
+        "en": "Joy",
+        "zh": "喜悦"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "trust",
+      "title": {
+        "en": "Trust",
+        "zh": "信任"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "fear",
+      "title": {
+        "en": "Fear",
+        "zh": "害怕"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "surprise",
+      "title": {
+        "en": "Surprise",
+        "zh": "惊讶"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "sadness",
+      "title": {
+        "en": "Sadness",
+        "zh": "难过"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "disgust",
+      "title": {
+        "en": "Disgust",
+        "zh": "厌恶"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "anger",
+      "title": {
+        "en": "Anger",
+        "zh": "生气"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "anticipation",
+      "title": {
+        "en": "Anticipation",
+        "zh": "期待"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "ED_JOY_01",
+      "prompt": {
+        "en": "When I saw useful progress on a routine task, I felt happy about it.",
+        "zh": "看到日常任务有实际进展时，我为此感到开心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "joy",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "joy",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "joy",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "joy",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "joy",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "joy",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_TRUST_01",
+      "prompt": {
+        "en": "When someone here kept a small agreement, I felt trust toward them.",
+        "zh": "这里有人遵守一个小约定时，我对那个人感到信任。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "trust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "trust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "trust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "trust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "trust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "trust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_FEAR_01",
+      "prompt": {
+        "en": "When a routine deadline approached and the outcome was uncertain, I felt apprehensive about what might go wrong.",
+        "zh": "普通期限临近、结果还不确定时，我为可能出错感到惴惴不安。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "fear",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "fear",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "fear",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "fear",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "fear",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "fear",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SURPRISE_01",
+      "prompt": {
+        "en": "When the time of a familiar activity changed unexpectedly, I felt surprised.",
+        "zh": "熟悉活动的时间意外变化时，我感到惊讶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "surprise",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "surprise",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "surprise",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "surprise",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "surprise",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "surprise",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SADNESS_01",
+      "prompt": {
+        "en": "When an ordinary plan I valued was cancelled, I felt sad about losing that possibility.",
+        "zh": "在意的普通计划取消时，我为失去这种可能而难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "sadness",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "sadness",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "sadness",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "sadness",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "sadness",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "sadness",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_DISGUST_01",
+      "prompt": {
+        "en": "When an unpleasant smell reached me in this ordinary setting, I felt disgust.",
+        "zh": "这个普通场景里有难闻气味传来时，我感到厌恶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "disgust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "disgust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "disgust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "disgust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "disgust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "disgust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANGER_01",
+      "prompt": {
+        "en": "When repeated interruptions broke my concentration on an ordinary task, I felt angry or frustrated.",
+        "zh": "反复打断影响普通任务的专注时，我感到生气或挫败。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anger",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anger",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anger",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anger",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anger",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anger",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANTICIPATION_01",
+      "prompt": {
+        "en": "When an interesting shared activity was approaching, I felt anticipation about taking part.",
+        "zh": "一项有兴趣的共同活动逐渐临近时，我对参与感到期待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_JOY_02",
+      "prompt": {
+        "en": "When someone welcomed me warmly in this setting, I felt glad.",
+        "zh": "在这个场景里受到友好欢迎时，我感到高兴。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "joy",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "joy",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "joy",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "joy",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "joy",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "joy",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_TRUST_02",
+      "prompt": {
+        "en": "When a familiar collaborator explained a routine plan clearly, I felt reassured about relying on that explanation.",
+        "zh": "熟悉的合作者把普通计划讲清楚时，我对依靠这项说明感到安心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "trust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "trust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "trust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "trust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "trust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "trust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_FEAR_02",
+      "prompt": {
+        "en": "When I had to use an unfamiliar procedure for an ordinary task, I felt afraid of making a mistake.",
+        "zh": "普通任务需要采用陌生流程时，我害怕犯错。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "fear",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "fear",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "fear",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "fear",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "fear",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "fear",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SURPRISE_02",
+      "prompt": {
+        "en": "When someone proposed an idea I had not anticipated in a routine discussion, I felt surprise.",
+        "zh": "日常讨论中有人提出未预想到的点子时，我感到惊讶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "surprise",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "surprise",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "surprise",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "surprise",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "surprise",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "surprise",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SADNESS_02",
+      "prompt": {
+        "en": "When a pleasant period of ordinary collaboration ended, I felt sadness about the ending.",
+        "zh": "一段愉快的日常合作结束时，我为结束感到难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "sadness",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "sadness",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "sadness",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "sadness",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "sadness",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "sadness",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_DISGUST_02",
+      "prompt": {
+        "en": "When a routinely shared surface looked dirty, I experienced a feeling of disgust.",
+        "zh": "日常共用表面看起来很脏时，我产生厌恶感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "disgust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "disgust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "disgust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "disgust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "disgust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "disgust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANGER_02",
+      "prompt": {
+        "en": "When a preventable problem blocked progress on routine work, I experienced anger.",
+        "zh": "可以避免的问题阻碍日常工作进展时，我感到生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anger",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anger",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anger",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anger",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anger",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anger",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANTICIPATION_02",
+      "prompt": {
+        "en": "When a routine project was about to enter a new stage, I felt a sense of looking forward to it.",
+        "zh": "普通项目即将进入下一阶段时，我有所期待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_JOY_03",
+      "prompt": {
+        "en": "When I had a pleasant break during an ordinary day here, I experienced joy.",
+        "zh": "这里普通一天中有一段愉快休息时，我体验到喜悦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "joy",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "joy",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "joy",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "joy",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "joy",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "joy",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_TRUST_03",
+      "prompt": {
+        "en": "When I received useful, consistent information from someone here, I felt confidence in that person’s account.",
+        "zh": "这里有人提供有用且前后一致的信息时，我对其说明产生信任感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "trust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "trust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "trust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "trust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "trust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "trust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_FEAR_03",
+      "prompt": {
+        "en": "When I needed to ask for clarification here, I felt afraid of a negative response.",
+        "zh": "在这里需要请人澄清问题时，我害怕得到负面回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "fear",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "fear",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "fear",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "fear",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "fear",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "fear",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SURPRISE_03",
+      "prompt": {
+        "en": "When a familiar task produced an unexpected result, I experienced surprise.",
+        "zh": "熟悉任务产生意外结果时，我体验到惊讶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "surprise",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "surprise",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "surprise",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "surprise",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "surprise",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "surprise",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SADNESS_03",
+      "prompt": {
+        "en": "When a routine task had a disappointing outcome, I experienced a sad feeling.",
+        "zh": "日常任务的结果令人失望时，我感到难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "sadness",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "sadness",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "sadness",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "sadness",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "sadness",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "sadness",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_DISGUST_03",
+      "prompt": {
+        "en": "When I noticed visibly spoiled material in an ordinary shared area, I felt revulsion.",
+        "zh": "注意到日常共用区域有明显变质的东西时，我感到反感、厌恶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "disgust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "disgust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "disgust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "disgust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "disgust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "disgust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANGER_03",
+      "prompt": {
+        "en": "When an ordinary agreement here changed without notice, I felt angry about it.",
+        "zh": "这里普通约定未提前通知就改变时，我为此生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anger",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anger",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anger",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anger",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anger",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anger",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANTICIPATION_03",
+      "prompt": {
+        "en": "When I expected to receive new information about an engaging task, I felt curious anticipation.",
+        "zh": "预期会收到有关一项有参与感任务的新信息时，我带着好奇期待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_JOY_04",
+      "prompt": {
+        "en": "When I received good news about an ordinary plan, I felt happy.",
+        "zh": "收到有关普通计划的好消息时，我感到开心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "joy",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "joy",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "joy",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "joy",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "joy",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "joy",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_TRUST_04",
+      "prompt": {
+        "en": "When a colleague or fellow participant followed through on an ordinary promise, I felt I could trust them in that situation.",
+        "zh": "同事或共同参与者兑现普通承诺时，我在那个情境里感到可以信任对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "trust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "trust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "trust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "trust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "trust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "trust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_FEAR_04",
+      "prompt": {
+        "en": "When a routine change left important arrangements unclear, I felt wary or afraid about the possible outcome.",
+        "zh": "普通变化让重要安排变得不清楚时，我对可能的结果感到警惕或害怕。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "fear",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "fear",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "fear",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "fear",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "fear",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "fear",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SURPRISE_04",
+      "prompt": {
+        "en": "When I discovered an ordinary detail I had previously missed, I felt taken aback for a moment.",
+        "zh": "发现之前漏看的普通细节时，我有片刻意外。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "surprise",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "surprise",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "surprise",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "surprise",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "surprise",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "surprise",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SADNESS_04",
+      "prompt": {
+        "en": "When an activity I had enjoyed here was discontinued, I felt sad about that change.",
+        "zh": "这里原本喜欢的一项活动不再开展时，我为变化感到难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "sadness",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "sadness",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "sadness",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "sadness",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "sadness",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "sadness",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_DISGUST_04",
+      "prompt": {
+        "en": "When an everyday object had an unpleasant texture on routine contact, I felt disgusted by it.",
+        "zh": "正常接触日常物品时发现其触感令人不适，我为此感到厌恶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "disgust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "disgust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "disgust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "disgust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "disgust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "disgust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANGER_04",
+      "prompt": {
+        "en": "When credit for an ordinary contribution seemed to be given to the wrong person, I felt anger.",
+        "zh": "普通贡献似乎被错误归到别人名下时，我感到生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anger",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anger",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anger",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anger",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anger",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anger",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANTICIPATION_04",
+      "prompt": {
+        "en": "When a planned collaboration with someone was approaching, I felt expectant about working together.",
+        "zh": "一项计划好的合作逐渐临近时，我对一起做事感到期待。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_JOY_05",
+      "prompt": {
+        "en": "When I completed a modest goal here, I experienced a cheerful feeling.",
+        "zh": "在这里完成一个小目标时，我感到愉快。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "joy",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "joy",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "joy",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "joy",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "joy",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "joy",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_TRUST_05",
+      "prompt": {
+        "en": "When a routine interaction here felt dependable, I experienced a sense of trust.",
+        "zh": "这里一次普通互动让人觉得可靠时，我体验到信任感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "trust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "trust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "trust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "trust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "trust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "trust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_FEAR_05",
+      "prompt": {
+        "en": "When I was waiting for a result that mattered to an ordinary task, I felt fear that it might go badly.",
+        "zh": "等待与普通任务有关、自己在意的结果时，我害怕结果不顺利。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "fear",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "fear",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "fear",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "fear",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "fear",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "fear",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SURPRISE_05",
+      "prompt": {
+        "en": "When someone joined an ordinary activity without my expecting them, I felt surprised.",
+        "zh": "有人在我没有预期的时候加入普通活动时，我感到惊讶。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "surprise",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "surprise",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "surprise",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "surprise",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "surprise",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "surprise",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_SADNESS_05",
+      "prompt": {
+        "en": "When a familiar participant could no longer join an ordinary shared activity, I felt sadness about their absence.",
+        "zh": "熟悉的参与者无法再参加普通共同活动时，我为少了对方而难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "sadness",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "sadness",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "sadness",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "sadness",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "sadness",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "sadness",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_DISGUST_05",
+      "prompt": {
+        "en": "When I noticed a hygiene problem with an ordinary shared item, I experienced aversion.",
+        "zh": "注意到普通共用品有卫生问题时，我产生厌恶、排斥的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "disgust",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "disgust",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "disgust",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "disgust",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "disgust",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "disgust",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANGER_05",
+      "prompt": {
+        "en": "When a routine division of shared tasks seemed unfair to me, I experienced frustration or anger.",
+        "zh": "日常共同任务的分配在我看来不公平时，我体验到挫败或生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anger",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anger",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anger",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anger",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anger",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anger",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ED_ANTICIPATION_05",
+      "prompt": {
+        "en": "When I considered the next step of an activity that interested me, I experienced a forward-looking feeling of anticipation.",
+        "zh": "想到一项感兴趣活动的下一步时，我有向前期待的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 1
+        },
+        {
+          "id": "2",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 2
+        },
+        {
+          "id": "3",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 3
+        },
+        {
+          "id": "4",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "score": 4
+        },
+        {
+          "id": "5",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Almost every relevant occasion",
+            "zh": "几乎每次相关机会"
+          },
+          "score": 5
+        },
+        {
+          "id": "na",
+          "directionId": "anticipation",
+          "label": {
+            "en": "Not applicable / cannot recall / prefer not to answer",
+            "zh": "不适用／记不清／不愿回答"
+          },
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "joy",
+      "directionIds": [
+        "joy"
+      ],
+      "title": {
+        "en": "Joy",
+        "zh": "喜悦"
+      },
+      "headline": {
+        "en": "Pleasant moments in their actual context",
+        "zh": "把愉快片刻放回情境"
+      },
+      "summary": {
+        "en": "This reading concerns reported joy in five ordinary contexts. It does not measure optimism, social warmth, well-being or your ability to create a positive mood.",
+        "zh": "这份读法关注五种普通情境中的喜悦自报，不测量乐观、社交温暖、心理健康或营造积极气氛的能力。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "joy-1",
+          "title": {
+            "en": "What this part asks about",
+            "zh": "这一部分在问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The Joy items concern useful progress, a warm welcome, a pleasant break, good news and a modest goal completed. You report how often you felt happy on relevant occasions in your chosen setting over the past four weeks. The setting and window belong to this original edition, not a validated emotion diary.",
+              "zh": "喜悦题涉及实际进展、友好欢迎、愉快休息、好消息和小目标完成。你回顾选定场景中过去四周，在相关机会中多常感到开心。场景和时间窗口属于本原创版本，不是已经验证的情绪日记。"
+            },
+            {
+              "en": "The questions concern feelings you remember, rather than how cheerful you appeared to others. You may have experienced joy without smiling, or smiled while feeling something else. This questionnaire neither observes expression nor checks whether your recollection is complete.",
+              "zh": "题目关心记得的感受，而非在别人看来多开朗。可以感到喜悦却没有微笑，也可以微笑时心里是另一种感受。问卷既不观察表情，也不核实回忆是否完整。"
+            }
+          ]
+        },
+        {
+          "id": "joy-2",
+          "title": {
+            "en": "Frequency is different from intensity",
+            "zh": "频率与强度不同"
+          },
+          "paragraphs": [
+            {
+              "en": "A high frequency rating says that the described feeling occurred on more of the relevant occasions you had in mind. A brief, quiet pleasure can count, just as a vivid celebration can. The mean cannot tell how strong the feeling was, how long it lasted or how many hours of your life were happy.",
+              "zh": "较高频率表示在想到的相关机会中，这种感受出现得更多。短暂安静的愉快可以算，鲜明的庆祝喜悦也可以算。均分不能说明感受多强、持续多久，或生活中有多少小时开心。"
+            },
+            {
+              "en": "Imagine two people with the same mean. One recalls many small pleasant moments, while another thinks of a few important occasions when joy usually appeared. Their opportunity counts and experiences may differ. The questionnaire does not collect enough information to equate those histories.",
+              "zh": "假设两人均分相同，一个想到许多小小愉快片刻，另一个想到少数重要机会里通常会开心。两人的机会数量和经历可能不同，问卷收集的信息不足以把这些经历视为相同。"
+            }
+          ]
+        },
+        {
+          "id": "joy-3",
+          "title": {
+            "en": "Joy beside anticipation and trust",
+            "zh": "喜悦、期待与信任"
+          },
+          "paragraphs": [
+            {
+              "en": "Anticipation is the forward-looking feeling before an event. Joy concerns the pleasant feeling reported in these moments. Looking forward to a project does not guarantee enjoying it once it starts, and an unplanned pleasant break can bring joy without much anticipation.",
+              "zh": "期待是事情发生前向前看的感受；喜悦关心这些片刻中报告的愉快。期待项目不保证开始后享受，意外获得的愉快休息，也可能没有多少预先期待。"
+            },
+            {
+              "en": "Trust concerns felt confidence in a person or interaction. A warm welcome may evoke joy without establishing that someone is dependable. Joy and Trust can both be reported often, but neither mean supplies evidence about another person’s intentions, your social skill or the quality of a relationship.",
+              "zh": "信任关注对人或互动感到可靠。友好欢迎可以带来喜悦，却不能证明对方值得依靠。喜悦和信任都可能经常被报告，但任何一项均分都不能证明他人意图、自己的社交技能或关系质量。"
+            }
+          ]
+        },
+        {
+          "id": "joy-4",
+          "title": {
+            "en": "Higher, lower and mixed readings",
+            "zh": "较高、较低与混合读数"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher Joy mean is not an achievement to maximize. A lower mean does not establish a clinical condition, a lack of gratitude or a cold personality. It may reflect which occasions occurred, the setting you chose, how you understood the words or what you can recall.",
+              "zh": "喜悦均分较高，不是需要不断追求的成就；较低也不能说明临床状态、不懂感恩或人格冷漠。它可能反映经历了哪些机会、选择的场景、怎样理解措辞，以及能够回想什么。"
+            },
+            {
+              "en": "Joy and Sadness can both have higher readings across different moments in four weeks. The dashboard does not subtract one from the other or require a single emotional identity. Read each part with its actual situations rather than turning the eight numbers into a good-versus-bad balance.",
+              "zh": "四周内不同片刻，可以同时有较高的喜悦与难过读数。仪表盘不把两者相减，也不要求唯一情绪身份。请结合各自情境阅读，不把八个数字合成好坏平衡。"
+            }
+          ]
+        },
+        {
+          "id": "joy-5",
+          "title": {
+            "en": "A worked mean and a missing value",
+            "zh": "均分与缺失值算例"
+          },
+          "paragraphs": [
+            {
+              "en": "If your five selections are 2, 4, 3, unscored and unscored, the sum is 9 across three numeric ratings. The mean is 3.0. Unscored is not zero, so neither dividing by five nor replacing the two missing ratings with a midpoint follows this edition’s rule.",
+              "zh": "五项选择如果是2、4、3、不计分、不计分，三条数值总和为9，均分为3.0。不计分不是零，因此不能除以五，也不能用中间值补两项缺失。"
+            },
+            {
+              "en": "With only two numeric ratings, this part shows insufficient information and no personal mean. The public reading remains available as general information. The minimum of three is an editorial completeness rule, not a clinical threshold or a guarantee that the available answers are representative.",
+              "zh": "只有两条数值时，本部分显示资料不足，不给个人均分。公开读法仍可作为一般说明阅读。至少三条只是编辑完整度规则，不是临床阈值，也不保证现有答案具有代表性。"
+            }
+          ]
+        },
+        {
+          "id": "joy-6",
+          "title": {
+            "en": "One optional private observation",
+            "zh": "一次可选的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, privately recall one ordinary pleasant moment and identify what happened before the feeling. Keep the description general; no names, conversations or workplace details need to be entered here. It is acceptable to leave the question open if nothing useful comes to mind.",
+              "zh": "愿意的话，可以私下回想一个普通愉快片刻，辨认感受前发生了什么。描述保持一般性，无需在这里输入姓名、对话或单位细节。想不到有用例子时，保留未确定也可以。"
+            },
+            {
+              "en": "You do not need to manufacture a happy event, perform positivity or retake until the number rises. A later response is another recollection under its own conditions, not proof that emotional ability improved. You can compare Anticipation or simply stop reading.",
+              "zh": "无需制造开心事件、表现积极，或反复重测直到数字变高。后来的回答只是另一个条件下的回忆，不是情绪能力提升的证明。可以比较期待，也可以结束阅读。"
+            }
+          ]
+        },
+        {
+          "id": "joy-7",
+          "title": {
+            "en": "Theory and this original edition",
+            "zh": "理论与本原创版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Plutchik’s model offers eight emotion families as a theoretical organization. It does not validate these forty new prompts or establish that exactly eight categories exhaust human emotional life. This edition does not administer a published EQ ability test, the Emotions Profile Index or a clinical scale.",
+              "zh": "Plutchik模型用八类情绪进行理论组织，没有验证这四十条新题，也不能证明八类已经穷尽人类情绪。本版不施测已发表的EQ能力测试、情绪轮廓工具或临床量表。"
+            },
+            {
+              "en": "The items, meanings and bilingual readings are original and have no established reliability, norms or measurement-equivalence evidence. Results do not predict success, certify empathy or identify a dominant personality. All eight full guides remain free, including when a part has insufficient information.",
+              "zh": "题目、解释和双语读法均为原创，尚无已建立的可靠性、常模或测量等值证据。结果不预测成功、不认证同理心，也不确定主导人格。八份全文始终免费，包括资料不足的部分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Joy: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "喜悦：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Pleasant moments in their actual context. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "把愉快片刻放回情境：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "trust",
+      "directionIds": [
+        "trust"
+      ],
+      "title": {
+        "en": "Trust",
+        "zh": "信任"
+      },
+      "headline": {
+        "en": "A feeling of reliance is not a guarantee",
+        "zh": "信任感并不是保证"
+      },
+      "summary": {
+        "en": "This reading concerns felt trust in five ordinary situations. It does not assess another person’s trustworthiness, relationship safety or your attachment style.",
+        "zh": "这份读法关注五种普通情境中的信任感，不评估别人是否可信、关系是否安全或自己的依恋类型。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "trust-1",
+          "title": {
+            "en": "What the Trust items describe",
+            "zh": "信任题描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items concern small agreements kept, clear explanations, consistent information, promises followed through and dependable routine interactions. You rate the trust you felt on relevant occasions in one setting over four weeks. The questions do not ask you to certify that the person or information was objectively reliable.",
+              "zh": "题目涉及小约定得到遵守、说明清楚、信息一致、承诺兑现和普通互动可靠。你评价四周内同一场景中，在相关机会里感到信任的频率，并不是为对方或信息的客观可靠性背书。"
+            },
+            {
+              "en": "Feeling confidence, deciding to rely and being correct about reliability are different questions. Someone may feel trust without acting on it, or follow a necessary procedure without feeling trust. This dashboard records remembered feelings and cannot reconstruct the reasons or consequences of a real decision.",
+              "zh": "感到信任、决定依靠，以及判断是否正确，是不同问题。可以感到信任却没有采取行动，也可以遵循必要流程却并不信任。仪表盘记录回忆中的感受，无法重建真实决定的原因或后果。"
+            }
+          ]
+        },
+        {
+          "id": "trust-2",
+          "title": {
+            "en": "An ordinary example of context",
+            "zh": "一个普通情境例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A collaborator keeps a small scheduling agreement, and you feel reassured about the next routine step. That is one possible Trust occasion. The experience may concern that limited interaction, not every responsibility the person could take on or every future situation.",
+              "zh": "合作者遵守一个小日程约定，你对下一步普通安排感到安心，这是一个可能的信任机会。体验可能只涉及这次有限互动，不涵盖对方所有责任，也不涵盖未来所有情境。"
+            },
+            {
+              "en": "Another person might remember the same event without a strong feeling of reliance. A different rating does not establish that either person is naive, suspicious or better at reading people. Their expectations, information and interpretation of the words can differ.",
+              "zh": "另一个人记得相同事件时，可能没有明显的依靠感。不同评分不能证明谁天真、多疑或更会看人；预期、掌握信息和对措辞的理解可能不同。"
+            }
+          ]
+        },
+        {
+          "id": "trust-3",
+          "title": {
+            "en": "Trust is not a relationship verdict",
+            "zh": "信任不是关系裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean does not prove safety, honesty, loyalty or mutual care. The questionnaire observes none of those conditions. Keep any real concerns separate from this number, and use relevant facts and appropriate support rather than treating a positive reading as permission to ignore a concern.",
+              "zh": "均分较高不能证明安全、诚实、忠诚或相互关心，问卷没有观察这些条件。真实顾虑需要与数字分开，根据相关事实和适当支持处理，不能用积极读数作为忽略顾虑的许可。"
+            },
+            {
+              "en": "A lower mean does not mean you are incapable of closeness or have a particular attachment pattern. You may have had few relevant occasions, chosen a formal setting or understood trust narrowly. This is an emotion-family reflection rather than an interpersonal-trust or attachment instrument.",
+              "zh": "均分较低，不表示无法亲近别人或具有某种依恋模式。可能只是相关机会少、场景正式，或对信任的理解较窄。这是情绪类别反思，不是人际信任或依恋工具。"
+            }
+          ]
+        },
+        {
+          "id": "trust-4",
+          "title": {
+            "en": "Trust beside joy, fear and disgust",
+            "zh": "信任、喜悦、害怕与厌恶"
+          },
+          "paragraphs": [
+            {
+              "en": "Joy concerns remembered pleasant feelings, while Trust concerns felt reliance. They can occur together but need not. You can enjoy a friendly exchange without having evidence for a larger promise, or feel steady confidence in a routine interaction that is not especially exciting or cheerful.",
+              "zh": "喜悦关注记得的愉快，信任关注依靠感。两者可以并存，也不必同时出现。可以享受友好交流，却没有更大承诺的证据；也可以对普通互动稳稳信任，却不特别兴奋或开心。"
+            },
+            {
+              "en": "The theory’s wheel places categories in conceptual relationships; this edition does not enforce opposite scores. Fear or Disgust in one situation can coexist with Trust in another. No feeling cancels another, and the eight means do not determine whether a relationship is healthy.",
+              "zh": "理论情绪轮讨论类别关系，但本版不要求相对类别分数互补。一个情境中的害怕或厌恶，可以与另一个情境中的信任并存。感受不互相抵销，八个均分也不判断关系是否健康。"
+            }
+          ]
+        },
+        {
+          "id": "trust-5",
+          "title": {
+            "en": "A transparent arithmetic example",
+            "zh": "透明的算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 4, 3, 4, unscored and 2 total 13 across four numeric responses. Dividing by four gives 3.25, displayed as 3.3. That is an arithmetic summary of ordinal selections, not a probability that someone will keep a promise or a percentage of your social life that is secure.",
+              "zh": "4、3、4、不计分、2，共四条数值，总和13；除以四得到3.25，显示3.3。这是等级选项的算术概括，不是对方兑现承诺的概率，也不是社交生活安全比例。"
+            },
+            {
+              "en": "If fewer than three items have numeric ratings, no personal mean is given. Unscored can mean no applicable opportunity, uncertain recall or a choice not to answer; it is not mistrust. Different patterns can yield the same mean, so the decimal alone cannot explain your experience.",
+              "zh": "少于三条数值时，不给个人均分。不计分可能是没有适用机会、记不清或不愿回答，并不等于不信任。不同答案也可能得到相同均分，单凭小数无法解释经历。"
+            }
+          ]
+        },
+        {
+          "id": "trust-6",
+          "title": {
+            "en": "A private distinction to consider",
+            "zh": "私下可以区分的一件事"
+          },
+          "paragraphs": [
+            {
+              "en": "If helpful, choose a routine example privately and separate what happened, what you felt and what you concluded. Keeping those three descriptions apart can clarify what this result records. No person needs to be named or contacted, and no private message needs to be entered on this page.",
+              "zh": "如果有帮助，可以私下选一个日常例子，分开发生了什么、自己感到什么、作了什么结论。区分这三件事，有助于弄清结果记录哪一部分。无需点名、联系他人或输入私人消息。"
+            },
+            {
+              "en": "You do not need to increase trust, lower caution or test a relationship to improve a reading. Another attempt uses another recollection and possibly different opportunities. You may compare the other guides or finish without taking any action.",
+              "zh": "无需为了改善读数而增加信任、降低谨慎或试探关系。再次作答使用另一份回忆，机会也可能不同。可以比较其他指南，也可以不采取任何行动就结束。"
+            }
+          ]
+        },
+        {
+          "id": "trust-7",
+          "title": {
+            "en": "Source and measurement limits",
+            "zh": "来源与测量边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Trust is used here as a category in the theoretical Plutchik framework, which has also used acceptance terminology. The word does not turn these prompts into a validated trust scale, an EQ ability assessment or a measure of moral judgment. No published bank or scoring norm is administered.",
+              "zh": "这里的信任来自Plutchik理论分类，其中也出现过接纳用语。一个类别名称，不会让新题变成已验证信任量表、EQ能力测评或道德判断工具。本版不施测已发表题库或常模。"
+            },
+            {
+              "en": "All items and full explanations are original. Reliability, validity and Chinese–English measurement equivalence have not been established. Read the mean only within the stated items, setting and four-week window, with all eight complete guides available even when observations are insufficient.",
+              "zh": "题目和完整说明均为原创，可靠性、效度及中英文测量等值尚未建立。请只结合规定题目、场景和四周窗口阅读均分；观察不足时，八份完整指南仍然开放。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Trust: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "信任：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "A feeling of reliance is not a guarantee. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "信任感并不是保证：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "fear",
+      "directionIds": [
+        "fear"
+      ],
+      "title": {
+        "en": "Fear",
+        "zh": "害怕"
+      },
+      "headline": {
+        "en": "Apprehension in ordinary situations",
+        "zh": "普通情境中的不安与害怕"
+      },
+      "summary": {
+        "en": "This reading concerns remembered fear or apprehension in five ordinary contexts. It does not measure courage, risk skill, danger or a clinical condition.",
+        "zh": "这份读法关注五种普通情境中记得的害怕或不安，不测量勇气、风险技能、危险程度或临床状态。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "fear-1",
+          "title": {
+            "en": "The situations covered",
+            "zh": "覆盖哪些情境"
+          },
+          "paragraphs": [
+            {
+              "en": "The Fear items concern an approaching deadline, an unfamiliar procedure, asking for clarification, unclear arrangements and waiting for a result. They ask about fear or apprehension on relevant occasions in one ordinary setting. They do not ask you to recall frightening events or create a situation to test your reaction.",
+              "zh": "害怕题涉及期限临近、陌生流程、请人澄清、安排不清楚及等待结果，关注同一普通场景中相关机会里的害怕或不安，不要求回想惊恐事件，也不要求制造情境测试反应。"
+            },
+            {
+              "en": "The wording includes mild apprehension within this emotion-family reflection. It does not establish that every instance of uncertainty is fear, or that the reported feeling was intense. Choose the unscored option when the described occasion does not fit, cannot be recalled or is not something you want to answer.",
+              "zh": "本情绪类别反思的措辞包含较轻的不安，不认为所有不确定都是害怕，也不证明感受强烈。情境不适合、记不清或不愿回答时，可以选不计分。"
+            }
+          ]
+        },
+        {
+          "id": "fear-2",
+          "title": {
+            "en": "A feeling and a possible outcome",
+            "zh": "感受与可能结果"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine waiting for feedback on an ordinary assignment and feeling apprehensive that the result may be disappointing. The feeling can be real even if the outcome later goes well. A frequency rating does not verify the prediction, establish how likely a problem was or tell you how well you handled it.",
+              "zh": "假设等待普通任务反馈时，担心结果令人失望而感到不安。即使后来结果很好，当时的感受也可以是真实的。频率评分不验证预测、不计算出问题概率，也不说明处理得怎样。"
+            },
+            {
+              "en": "Another setting may provide clearer information or fewer relevant occasions. A different mean can therefore reflect different circumstances rather than more courage or less fearfulness. This questionnaire does not adjust for workload, power differences, actual opportunity or the reliability of the information available.",
+              "zh": "另一个场景可能信息更清楚，或相关机会更少。因此不同均分可能反映不同条件，而非更勇敢或更胆怯。问卷没有校正工作量、权力差异、实际机会或可获得信息的可靠性。"
+            }
+          ]
+        },
+        {
+          "id": "fear-3",
+          "title": {
+            "en": "Fear beside anticipation and anger",
+            "zh": "害怕、期待与生气"
+          },
+          "paragraphs": [
+            {
+              "en": "Anticipation in this bank concerns interested, forward-looking feelings. Fear concerns apprehension about an unwanted possibility. The same upcoming event can involve both. The dashboard keeps the parts separate instead of using one to cancel the other or naming a single dominant emotional identity.",
+              "zh": "本题的期待关注带着兴趣向前看的感受，害怕关注对不愿发生结果的不安。同一未来事件可以包含两者。仪表盘分别保留，不相互抵销，也不指定唯一主导情绪身份。"
+            },
+            {
+              "en": "Anger concerns frustration or an angry feeling around obstacles and perceived unfairness. Feeling fear does not show that you would withdraw, and feeling anger does not show that you would confront someone. Emotions, intentions and actions are different, and the questionnaire does not observe a response in real time.",
+              "zh": "生气关注障碍或主观不公平感中的挫败、生气。感到害怕，不证明会退出；感到生气，也不证明会对抗他人。情绪、意图和行动不同，问卷没有实时观察反应。"
+            }
+          ]
+        },
+        {
+          "id": "fear-4",
+          "title": {
+            "en": "What higher and lower do not establish",
+            "zh": "高低不能证明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean does not diagnose anything or mean you are weak. A lower mean does not certify bravery, safety or good judgment about risk. The number describes how you rated five conditional statements, with no clinical cutoff, population comparison or evidence about danger in the setting.",
+              "zh": "均分较高不作诊断，也不表示软弱；较低不认证勇敢、安全或风险判断好。数字只是五条条件式陈述的自报，没有临床阈值、人群比较或场景危险证据。"
+            },
+            {
+              "en": "Frequency also differs from intensity and disruption. A quiet worry on many relevant occasions and a strong feeling on a few occasions are not fully described by the same answer format. Any real concern needs its own relevant information; the dashboard cannot resolve it with a decimal.",
+              "zh": "频率也不同于强度和影响程度。很多机会中的轻微不安，与少数机会中的强烈感受，无法由同一种答题格式完整描述。真实顾虑需要各自相关信息，仪表盘不能用小数解决。"
+            }
+          ]
+        },
+        {
+          "id": "fear-5",
+          "title": {
+            "en": "A mean with explicit missingness",
+            "zh": "均分与明确缺失"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 2, 4, 3 and unscored total 10 across four numeric items. The displayed mean is 2.5. The missing answer contributes neither a point nor an occasion count; dividing by five would incorrectly treat it as a zero.",
+              "zh": "1、2、4、3、不计分，共四条数值，总和10，显示均分2.5。缺失回答既不贡献分值，也不贡献有效题数；除以五会错误地把它当零。"
+            },
+            {
+              "en": "With two numeric answers and three unscored ones, this part has insufficient information. That is not evidence of low fear or hidden distress. At three or more ratings, the mean becomes available under an editorial completeness rule, without a claim of established precision.",
+              "zh": "两条数值加三条不计分时，本部分资料不足，不说明害怕少，也不说明隐藏了困扰。三条或更多数值时按编辑完整度规则给均分，但不声称精度已经建立。"
+            }
+          ]
+        },
+        {
+          "id": "fear-6",
+          "title": {
+            "en": "An optional private clarification",
+            "zh": "可选的私人澄清"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to review a manageable ordinary example, separate what was known from what you expected might happen. You can do this privately without details, without contacting anyone and without repeating the situation. Stop if the exercise is not useful or comfortable.",
+              "zh": "如果想回看一个可承受的普通例子，可以区分当时已经知道什么、预期可能发生什么。无需细节、无需联系任何人，也不必重现情境。练习无用或不舒服时可以停止。"
+            },
+            {
+              "en": "The purpose is to understand the scope of a remembered rating, not to make fear disappear or prove that it was unreasonable. You may read another guide or finish here. The result does not prescribe exposure, a coping exercise, a treatment or a decision about a real risk.",
+              "zh": "目的是理解一个回忆评分的范围，不是消除害怕或证明它不合理。可以读另一份指南或结束。结果不要求暴露情境、实施应对练习、接受治疗或决定真实风险。"
+            }
+          ]
+        },
+        {
+          "id": "fear-7",
+          "title": {
+            "en": "Theoretical category, original prompts",
+            "zh": "理论类别与原创题目"
+          },
+          "paragraphs": [
+            {
+              "en": "Plutchik’s framework supplies an emotion-family vocabulary, not a validated forty-item Fear measure. This edition does not administer an anxiety screen, an EQ performance instrument or a published diagnostic scale. General research about emotions does not validate these newly authored items.",
+              "zh": "Plutchik框架提供情绪类别词汇，并没有提供经过验证的四十题害怕测量。本版不施测焦虑筛查、EQ表现工具或已发表诊断量表。一般情绪研究不能验证这些新题。"
+            },
+            {
+              "en": "Reliability, norms, validity and language equivalence remain unestablished. The eight separate readings never become an overall EQ, a severity tier, a dominant personality or a prediction about future behavior. All complete explanations remain available without an account or another-test requirement.",
+              "zh": "可靠性、常模、效度和语言等值尚未建立。八份独立读法不合成整体EQ、严重度等级、主导人格或未来行为预测。全部完整说明无需账号或继续其他测试即可阅读。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Fear: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "害怕：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Apprehension in ordinary situations. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "普通情境中的不安与害怕：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "surprise",
+      "directionIds": [
+        "surprise"
+      ],
+      "title": {
+        "en": "Surprise",
+        "zh": "惊讶"
+      },
+      "headline": {
+        "en": "The moment an expectation changes",
+        "zh": "预期改变的片刻"
+      },
+      "summary": {
+        "en": "This reading concerns remembered surprise in five ordinary situations. It does not measure curiosity, adaptability, attention or how quickly you recover from an unexpected event.",
+        "zh": "这份读法关注五种普通情境中记得的惊讶，不测量好奇、适应、注意力或意外后的恢复速度。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "surprise-1",
+          "title": {
+            "en": "What is being reported",
+            "zh": "报告的是什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The Surprise items concern an unexpected schedule change, an unanticipated idea, an unusual task result, a detail newly noticed and someone joining an activity unexpectedly. You rate remembered surprise when those ordinary occasions applied, in one selected setting over four weeks. No reaction time or behavior is observed.",
+              "zh": "惊讶题涉及时间意外变化、未预想到的点子、意外任务结果、新注意到的细节及有人意外加入活动。你回顾同一选定场景中过去四周，在这些普通机会中感到惊讶的频率。问卷不观察反应时间或行为。"
+            },
+            {
+              "en": "A change in expectation can feel pleasant, unpleasant or neither. The questions do not require surprise to be exciting or alarming. If an occasion did not happen, cannot be recalled or is not one you want to answer about, the separate unscored option is available.",
+              "zh": "预期变化可以令人愉快、不愉快，也可以没有明显好坏。题目不要求惊讶必然兴奋或警觉。没有经历、记不清或不愿回答某种机会时，可以选独立的不计分项。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-2",
+          "title": {
+            "en": "An ordinary unexpected detail",
+            "zh": "一个普通意外细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine seeing a familiar task produce a result you did not expect. You might have a brief moment of surprise and then understand the reason. The feeling can be present even when you respond calmly and competently; this number does not measure whether you adapted well.",
+              "zh": "假设熟悉任务产生未预期结果，你可能短暂惊讶，随后理解原因。即使反应平静、处理得当，也可以体验到惊讶；这个数字不测量适应得好不好。"
+            },
+            {
+              "en": "Another person might have expected that result and feel little surprise. The two ratings would not establish a difference in emotional skill. Information, experience, attention and the particular event can all affect what someone expected, and those conditions are not controlled here.",
+              "zh": "另一个人可能早有预期，所以少有惊讶。两个评分不能证明情绪技能不同。信息、经历、注意和具体事件都会影响预期，这些条件没有在本题中受到控制。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-3",
+          "title": {
+            "en": "Surprise, anticipation and joy",
+            "zh": "惊讶、期待与喜悦"
+          },
+          "paragraphs": [
+            {
+              "en": "Anticipation concerns looking forward, while Surprise concerns an event differing from expectation. They can both be reported often across different situations, or even around different parts of one event. The theoretical wheel’s conceptual opposition is not a numerical rule requiring their means to add to a constant.",
+              "zh": "期待关注向前看，惊讶关注事情与预期不同。不同情境，甚至同一事件不同部分，都可能经常报告两者。理论情绪轮中的概念对应，不是要求两个均分相加等于常数的规则。"
+            },
+            {
+              "en": "Joy concerns pleasant feeling, which may accompany a welcome surprise but is not required for surprise. A lower Surprise mean does not imply low curiosity or a closed mind. A higher one does not demonstrate creativity or an ability to notice important information.",
+              "zh": "喜悦关心愉快感，受欢迎的意外可能伴随喜悦，但惊讶不要求喜悦。惊讶均分较低，不表示好奇少或思想封闭；较高也不证明创造力或识别重要信息的能力。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-4",
+          "title": {
+            "en": "How to read higher and lower",
+            "zh": "怎样看较高和较低"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says the described feeling was reported more often on the relevant occasions you had in mind. It is not a measure of how unpredictable your life is. A lower mean may reflect familiar routines, fewer applicable occasions, different expectations or how the descriptions fit your experience.",
+              "zh": "较高均分表示想到的相关机会里，所述感受报告得更多，不衡量生活多不可预测。较低均分可能与熟悉流程、适用机会较少、预期不同或措辞是否贴合经历有关。"
+            },
+            {
+              "en": "Neither end is a target or a deficiency. Surprise frequency does not establish whether an unexpected change was important, useful or harmful. Read the actual situations rather than interpreting the number as a verdict on resilience, maturity or flexibility.",
+              "zh": "两端都不是目标或缺陷。惊讶频率不能说明意外变化重要、有用或有害。应结合实际情境阅读，而非把数字看成韧性、成熟或灵活性的裁决。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-5",
+          "title": {
+            "en": "A changed-answer example",
+            "zh": "改答例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose five numeric ratings total 12, giving a mean of 2.4. Changing one answer from 2 to 5 adds 3 to the sum, giving 15 divided by five, or 3.0. That movement is an arithmetic consequence of one changed recollection, not proof that your emotional response became more intense.",
+              "zh": "假设五条数值总和12，均分2.4。把一题从2改成5，总和增加3，变成15除以五，即3.0。这是一次回忆改答的算术结果，不证明情绪反应更强烈。"
+            },
+            {
+              "en": "If an unscored answer becomes numeric, both the sum and the number rated change. A mean may move down even though more information is available. Fewer than three numeric ratings keeps the personal mean unavailable; that state is different from a low frequency result.",
+              "zh": "不计分改为数值时，总和与有效题数同时变化。资料增加，均分也可能下降。少于三条数值时不给个人均分，这种状态与频率较低不同。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-6",
+          "title": {
+            "en": "A private expectation check",
+            "zh": "私下核对一次预期"
+          },
+          "paragraphs": [
+            {
+              "en": "If helpful, privately choose a manageable ordinary example and distinguish what you expected from what actually happened. You do not need to identify a person, preserve a message or produce a detailed account. Leaving a gap in your memory is acceptable.",
+              "zh": "如果有帮助，可以私下选一个可承受的普通例子，区分原先预期与实际发生。无需识别他人、保存消息或写详细经过；记忆有空缺也可以。"
+            },
+            {
+              "en": "The purpose is to understand a remembered rating, not to seek novelty or deliberately startle yourself. No surprise experiment, confrontation or repeated exposure is requested. You may compare Anticipation, read another part or finish here.",
+              "zh": "目的是理解回忆评分，不是追求新奇或故意惊吓自己。不要求意外实验、对抗或反复暴露。可以比较期待、阅读其他部分，或结束。"
+            }
+          ]
+        },
+        {
+          "id": "surprise-7",
+          "title": {
+            "en": "Original items and limited inference",
+            "zh": "原创题目与有限推断"
+          },
+          "paragraphs": [
+            {
+              "en": "Plutchik’s theoretical vocabulary is background for organizing this part. It does not supply validation for the five items, prove that surprise has a universal five-point scale or make the dashboard an EQ ability test. These statements are not taken from a published performance instrument.",
+              "zh": "Plutchik理论词汇只作为组织这一部分的背景，不验证五条新题，不证明惊讶存在普遍五级尺度，也不会让仪表盘成为EQ能力测试。这些陈述不来自已发表的表现测量工具。"
+            },
+            {
+              "en": "Reliability, validity, population norms and language equivalence have not been established. All eight full readings remain available without ranking emotions or choosing a dominant personality. The number is best kept beside its items, setting, opportunity limits and four-week recall window.",
+              "zh": "可靠性、效度、人群常模和语言等值尚未建立。八份全文全部可读，不给情绪排名，也不选主导人格。阅读数字时，应保留题目、场景、机会限制与四周回忆窗口。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Surprise: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "惊讶：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "The moment an expectation changes. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "预期改变的片刻：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "sadness",
+      "directionIds": [
+        "sadness"
+      ],
+      "title": {
+        "en": "Sadness",
+        "zh": "难过"
+      },
+      "headline": {
+        "en": "Ordinary disappointment and endings",
+        "zh": "普通失望与结束的感受"
+      },
+      "summary": {
+        "en": "This reading concerns reported sadness around five ordinary losses or disappointments. It does not measure empathy, emotional depth or a clinical condition.",
+        "zh": "这份读法关注五种普通失落或失望中的难过自报，不测量同理心、情感深度或临床状态。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "sadness-1",
+          "title": {
+            "en": "The scope of these five items",
+            "zh": "五条题目的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The Sadness items describe a cancelled plan, a pleasant collaboration ending, a disappointing outcome, an activity discontinued and a familiar participant no longer joining. They concern ordinary situations in one setting during four weeks, not a request to revisit major losses or provide a personal history.",
+              "zh": "难过题描述计划取消、愉快合作结束、结果令人失望、活动停办及熟悉参与者不再加入，关注四周内同一场景中的普通事件，不要求重访重大失落或提供个人经历。"
+            },
+            {
+              "en": "You report how often a sad feeling appeared on relevant occasions. The task does not observe how you expressed the feeling or whether you spoke about it. There is no requirement to demonstrate sadness, justify it or answer an item that is not comfortable to consider.",
+              "zh": "你报告在相关机会里多常感到难过。任务不观察怎样表达感受，也不观察是否谈论感受。不要求表现或解释难过，也不要求回答不舒服的题目。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-2",
+          "title": {
+            "en": "An ending can have several meanings",
+            "zh": "一次结束可以有多种感受"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a small shared activity ending after you enjoyed taking part. You might feel sad about losing the routine while also appreciating what happened. Both descriptions can fit the same event. The dashboard does not force a single emotional identity or require a pleasant feeling to erase sadness.",
+              "zh": "假设一项喜欢的小型共同活动结束，可能为失去日常安排而难过，同时珍惜已经发生的体验。两种描述可以同时符合，仪表盘不强迫唯一情绪身份，也不要求愉快感抵销难过。"
+            },
+            {
+              "en": "Someone who had fewer such endings may have fewer applicable occasions. Another person may recall them differently. A frequency mean cannot compare the amount or importance of loss in two lives, and this questionnaire does not collect information sufficient to make that comparison.",
+              "zh": "有人经历这样的结束较少，适用机会也可能较少；也有人回想方式不同。频率均分无法比较两个人生活中失去多少或多重要，问卷收集的信息也不足以进行这种比较。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-3",
+          "title": {
+            "en": "Sadness is not empathy or depth",
+            "zh": "难过不等于同理心或深度"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling sadness around a disappointment does not establish that you understand another person’s feelings. A lower mean does not imply indifference or a shallow personality. Empathy, personal values and the quality of support offered require different evidence from a rating of your own remembered emotion.",
+              "zh": "为失望而难过，不能证明理解他人的感受；均分较低，也不表示冷漠或人格浅薄。同理心、个人价值和提供支持的质量，需要不同于自报情绪的证据。"
+            },
+            {
+              "en": "Anger and Sadness may both occur around an unwanted outcome, while Joy may appear elsewhere in the same four weeks. These means remain separate. The dashboard does not convert their relative heights into a stage of grief, a diagnosis or an explanation of someone’s motives.",
+              "zh": "不愿发生的结果可能同时引起生气和难过，同样四周内也可能在别处感到喜悦。各均分保持独立，不把相对高低换算成哀伤阶段、诊断或他人动机解释。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-4",
+          "title": {
+            "en": "Higher and lower within this bank",
+            "zh": "本题组中的较高与较低"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says that these descriptions were endorsed more frequently on the relevant occasions you recalled. It is not a severity score and has no clinical cutoff. A lower mean describes fewer reported occurrences here; it does not prove that your life is going well or that a real concern is absent.",
+              "zh": "较高均分只表示回忆中的相关机会里，这些描述被更频繁选中。它不是严重度分数，也没有临床阈值。较低均分描述本题中报告较少，不能证明生活顺利或真实顾虑不存在。"
+            },
+            {
+              "en": "Neither end needs to be corrected to satisfy the questionnaire. Frequency, intensity, duration and effect on everyday functioning are different kinds of information. This exercise collects only its stated frequency ratings and cannot turn them into a complete assessment of well-being.",
+              "zh": "两端都不需要为了符合问卷而纠正。频率、强度、持续时间和对日常生活的影响，是不同信息。本练习只收集明确说明的频率回答，无法把它们变成完整心理健康评估。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-5",
+          "title": {
+            "en": "A low mean and an unavailable mean",
+            "zh": "较低均分与不给均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 1, 1, 1, unscored and unscored produce a sum of 3 across three numeric answers, so the mean is 1.0. It means “Never” was selected for those three descriptions. It does not mean that sadness is absent from every context or will not occur in the future.",
+              "zh": "1、1、1、不计分、不计分，三条数值总和3，均分1.0，表示那三条描述选择了“从不”。不表示所有情境都没有难过，也不表示未来不会发生。"
+            },
+            {
+              "en": "With two numeric answers, the personal mean is withheld as insufficient information. Unscored is not a lower score and is not replaced with zero or a midpoint. The public text remains general information, rather than an interpretation of an unavailable personal result.",
+              "zh": "只有两条数值时，因资料不足而不给个人均分。不计分不是较低分，也不补零或中间值。公开文字仍是一般说明，不能当成对未得个人结果的解释。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-6",
+          "title": {
+            "en": "An optional, manageable review",
+            "zh": "可选的可承受回看"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, privately identify one ordinary disappointment and what mattered about it. You can keep the description broad or decide not to continue. No names, personal story or private conversation are requested, and there is no need to contact anyone or recreate the event.",
+              "zh": "愿意的话，可以私下辨认一次普通失望，以及其中什么对自己重要。描述可以保持宽泛，也可以决定不继续。无需姓名、个人故事或私人对话，也不必联系任何人或重现事件。"
+            },
+            {
+              "en": "This is a way to place a rating in context, not a promise to reduce sadness. You are free to stop, seek support you consider appropriate or simply read another guide. The result does not prescribe a treatment, require forgiveness or tell you how you should feel about a real situation.",
+              "zh": "这是把评分放回情境的方法，不承诺减少难过。可以停止、寻找自己认为适当的支持，或只读其他指南。结果不指定治疗、不要求原谅，也不规定对真实事情应该有什么感受。"
+            }
+          ]
+        },
+        {
+          "id": "sadness-7",
+          "title": {
+            "en": "What the model can support",
+            "zh": "模型支持到哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "The theoretical Plutchik framework provides one vocabulary for emotion families. It does not establish a standard sadness questionnaire here, validate the four-week window or prove that exactly eight categories capture all feelings. No clinical instrument or published EQ ability bank is administered.",
+              "zh": "Plutchik理论框架提供一种情绪类别词汇，不在这里建立标准难过问卷，不验证四周窗口，也不证明八类涵盖全部感受。本版不施测临床工具或已发表EQ能力题库。"
+            },
+            {
+              "en": "These original prompts and bilingual explanations have no established reliability, validity, norms or language-equivalence evidence. All eight complete readings remain free and separate. They do not become an overall EQ, a dominant personality or a ranking of better and worse emotional lives.",
+              "zh": "这些原创题和双语解释尚无已建立的可靠性、效度、常模或语言等值证据。八份完整读法免费且独立，不合成整体EQ、主导人格或情感生活好坏排名。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Sadness: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "难过：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Ordinary disappointment and endings. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "普通失望与结束的感受：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "disgust",
+      "directionIds": [
+        "disgust"
+      ],
+      "title": {
+        "en": "Disgust",
+        "zh": "厌恶"
+      },
+      "headline": {
+        "en": "Sensory aversion without a judgment of people",
+        "zh": "感官厌恶不用于评价他人"
+      },
+      "summary": {
+        "en": "This reading concerns reported aversion to five ordinary sensory or hygiene situations. It does not measure moral standards, discernment or the safety of an object or food.",
+        "zh": "这份读法关注五种普通感官或卫生情境中的厌恶自报，不测量道德标准、辨别力或物品、食物的安全性。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "disgust-1",
+          "title": {
+            "en": "The narrow scope of this part",
+            "zh": "这一部分的有限范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The Disgust items concern an unpleasant smell, a dirty shared surface, visibly spoiled material, an unpleasant texture and a hygiene problem with a shared item. They ask about your remembered feeling in one ordinary setting, not whether you correctly identified a hazard or followed a particular hygiene rule.",
+              "zh": "厌恶题涉及难闻气味、脏的共用表面、明显变质的东西、不适触感及共用品卫生问题，询问同一普通场景中记得的感受，不判断是否正确识别危险或遵守某项卫生规则。"
+            },
+            {
+              "en": "The prompts concern things and sensory details, not the worth of a person or group. No category of people is an appropriate substitute for an item. If a description does not apply, cannot be recalled or is something you prefer not to answer, choose unscored rather than inventing an example.",
+              "zh": "题目关心物品和感官细节，不评价个人或群体价值，不能拿某类人代替题目中的物品。描述不适用、记不清或不愿回答时，可以不计分，不必编造例子。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-2",
+          "title": {
+            "en": "A feeling is not a safety inspection",
+            "zh": "感受不是安全检查"
+          },
+          "paragraphs": [
+            {
+              "en": "You might remember an unpleasant smell and the aversion it evoked. That feeling does not establish what caused the smell or whether anything was unsafe. Conversely, little disgust would not show that an object was clean or safe. The questionnaire cannot inspect materials, diagnose a reaction or provide food-safety advice.",
+              "zh": "可能记得某种难闻气味和它引起的排斥感，但感受不能说明气味来源或是否不安全。反过来，少有厌恶也不能证明物品干净或安全。问卷无法检查物品、诊断反应或提供食品安全建议。"
+            },
+            {
+              "en": "Ordinary environments offer different opportunities for these experiences. Someone who uses a shared work area and someone who does not may have very different relevant occasions. The five ratings do not control exposure or estimate how frequently a sensory event actually occurred.",
+              "zh": "普通环境提供的相关机会不同。使用共用工作区的人，与不使用的人，可能有很不同的经历。五条评分没有控制接触机会，也不估计感官事件实际发生多少次。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-3",
+          "title": {
+            "en": "Disgust beside anger and fear",
+            "zh": "厌恶、生气与害怕"
+          },
+          "paragraphs": [
+            {
+              "en": "Anger can concern a perceived obstacle or unfair arrangement. Disgust here concerns sensory aversion. A dirty shared item might evoke both disgust and anger about the arrangement, but the two feelings answer different questions. One mean does not determine why a person reacted as they did.",
+              "zh": "生气可以与主观障碍或不公平安排有关，这里的厌恶关注感官排斥。脏的共用品可能既引起厌恶，也引起对安排的生气，但两个感受回答不同问题，均分不能确定反应原因。"
+            },
+            {
+              "en": "Fear concerns apprehension about an unwanted possibility. Disgust need not involve a prediction of danger, and fear need not involve a repellent sensation. The dashboard does not turn a combination into a clinical label, a cleanliness identity or an objective measure of risk sensitivity.",
+              "zh": "害怕关注对不愿发生可能的不安，厌恶未必包含危险预测，害怕也未必伴随排斥感官。仪表盘不把组合换算成临床标签、洁净身份或客观风险敏感度。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-4",
+          "title": {
+            "en": "Reading higher and lower fairly",
+            "zh": "公平理解较高与较低"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean describes more frequent endorsement of these feelings on the occasions recalled. It does not mean higher principles, better taste or superior judgment. A lower mean does not show poor hygiene, indifference or willingness to accept unsafe conditions. No such behavior was observed.",
+              "zh": "较高均分描述回忆中的相关机会里，更频繁选中这些感受，不表示原则更高、品位更好或判断更优。较低也不说明卫生差、漠不关心或愿意接受不安全条件，因为问卷没有观察这些行为。"
+            },
+            {
+              "en": "Different words, contexts and opportunities can affect responses. The dashboard therefore does not rank Disgust against Joy or Trust to identify your strongest emotion. The equal five-item length is a structural feature, not evidence that the parts form a common intensity scale.",
+              "zh": "措辞、情境和机会都会影响回答。因此仪表盘不把厌恶与喜悦或信任排序，来找最强情绪。每部分同为五题，只是结构特征，不证明它们使用共同强度尺度。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-5",
+          "title": {
+            "en": "A mean and its rounding",
+            "zh": "均分与四舍五入"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 2, 2, 4, 5 and unscored total 13 across four numeric answers. The mean is 3.25 and is displayed as 3.3. It is not a percentage of contamination, a threshold for concern or a count of unsafe objects. The separate unscored answer contributes no value.",
+              "zh": "2、2、4、5、不计分，共四条数值，总和13，均分3.25，显示3.3。它不是污染百分比、需要关注的阈值或不安全物品数量。独立的不计分回答不贡献分值。"
+            },
+            {
+              "en": "Fewer than three numeric answers produces insufficient information. All five can be unscored without implying an absence of disgust. The public guide remains readable, but no personal mean or interpretation is inferred from a missing observation.",
+              "zh": "少于三条数值时显示资料不足。五条全部不计分，也不表示没有厌恶。公开指南仍可阅读，但不会从缺失观察推断个人均分或个人状态。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-6",
+          "title": {
+            "en": "A private, non-exposure review",
+            "zh": "不需要重现刺激的私人回看"
+          },
+          "paragraphs": [
+            {
+              "en": "If helpful, privately distinguish the sensory detail you recall from the interpretation you gave it. A general description is enough. You do not need to name a place, identify another person, describe an upsetting event or decide whether the original object was objectively safe.",
+              "zh": "如果有帮助，可以私下区分记得的感官细节与当时赋予的解释，概括描述即可。无需写地点、识别他人、描述不舒服事件，或判断原物品客观上是否安全。"
+            },
+            {
+              "en": "Do not touch, smell, taste or revisit something to complete this exercise. The questionnaire asks only for a recollection and allows unscored answers or stopping. A retake is another self-report under its own circumstances, not a test that your aversion has improved or worsened.",
+              "zh": "不需要为了完成练习而触摸、闻、品尝或重访某样东西。问卷只询问回忆，允许不计分或停止。重测是另一条件下的自报，不检验厌恶是否改善或恶化。"
+            }
+          ]
+        },
+        {
+          "id": "disgust-7",
+          "title": {
+            "en": "Conceptual and measurement limits",
+            "zh": "概念与测量边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Disgust is one category in Plutchik’s theoretical organization of emotion. That background does not validate these five sensory prompts or make them a food-disgust, moral-purity or clinical instrument. The forty-item dashboard uses original content without reproducing a published bank or wheel illustration.",
+              "zh": "厌恶是Plutchik情绪理论组织中的一类，但背景理论不验证这五条感官题，也不会让它们变成食物厌恶、道德纯洁或临床工具。四十题仪表盘使用原创内容，不复刻已发表题本或情绪轮图片。"
+            },
+            {
+              "en": "Reliability, validity, norms and bilingual measurement equivalence have not been established. Read the number beside its specific statements, relevant opportunities and recall window. You can compare the other complete guides or finish without changing a habit or taking another test.",
+              "zh": "可靠性、效度、常模和双语测量等值尚未建立。请结合具体陈述、相关机会和回忆窗口阅读数字。可以比较其他全文，也可以不改变习惯、不继续测试就结束。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Disgust: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "厌恶：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Sensory aversion without a judgment of people. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "感官厌恶不用于评价他人：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "anger",
+      "directionIds": [
+        "anger"
+      ],
+      "title": {
+        "en": "Anger",
+        "zh": "生气"
+      },
+      "headline": {
+        "en": "A feeling does not establish an action",
+        "zh": "感到生气，不等于采取某种行动"
+      },
+      "summary": {
+        "en": "This reading concerns reported anger or frustration in five ordinary contexts. It does not assess aggression, assertiveness, justice or the effectiveness of a response.",
+        "zh": "这份读法关注五种普通情境中的生气或挫败自报，不评估攻击性、坚定表达、公平正义或反应效果。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "anger-1",
+          "title": {
+            "en": "What the items cover",
+            "zh": "题目覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The Anger items concern repeated interruptions, a preventable obstacle, an agreement changed without notice, apparently misplaced credit and a division of tasks that seemed unfair. You report your feeling on relevant occasions in one setting over four weeks. The wording describes your perspective, not a verified judgment about what happened.",
+              "zh": "生气题涉及反复打断、可避免障碍、约定未通知就改变、贡献似乎归功错误，以及在自己看来不公平的任务分配。你回顾同一场景四周内的相关感受；措辞描述个人视角，不是对事件的核实判断。"
+            },
+            {
+              "en": "Frustration is included as a nearby feeling in this original emotion-family reflection. The questionnaire does not claim that all frustration is identical to anger or that every obstacle should provoke either. Use unscored when a described occasion did not fit, cannot be recalled or is not something you want to consider.",
+              "zh": "本原创情绪类别反思把挫败作为相近感受纳入，但不认为所有挫败都等同生气，也不认为每个障碍都该引起它们。情境不符、记不清或不愿考虑时，可以不计分。"
+            }
+          ]
+        },
+        {
+          "id": "anger-2",
+          "title": {
+            "en": "Feeling, interpretation and behavior",
+            "zh": "感受、解释与行为"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an interruption breaking your concentration and an angry feeling appearing. That feeling does not tell whether you spoke sharply, stayed quiet, asked for a pause or did something else. The dashboard observes none of those actions, so it cannot use the mean to rate your conduct or communication ability.",
+              "zh": "假设打断影响专注，随后感到生气。感受不能说明是否语气尖锐、保持安静、请求暂停或采取其他行动。仪表盘没有观察这些行为，因此不能用均分评价举止或沟通能力。"
+            },
+            {
+              "en": "Likewise, feeling angry about an arrangement does not prove the arrangement was unfair. Facts, expectations and misunderstandings need separate consideration. Keeping the feeling distinct from a factual verdict lets you acknowledge the experience without treating the questionnaire as evidence against another person.",
+              "zh": "同样，对安排生气也不能证明安排确实不公。事实、预期和误解需要另行考虑。把感受与事实裁决分开，可以承认体验，而不把问卷当作指控他人的证据。"
+            }
+          ]
+        },
+        {
+          "id": "anger-3",
+          "title": {
+            "en": "Anger beside fear and sadness",
+            "zh": "生气、害怕与难过"
+          },
+          "paragraphs": [
+            {
+              "en": "Fear concerns apprehension about an unwanted possibility; Anger here concerns a reaction around interference or perceived unfairness. Both may occur before an ordinary discussion. Neither mean predicts whether you will confront, withdraw, cooperate or choose another response.",
+              "zh": "害怕关注对不愿发生可能的不安，这里的生气关注干扰或主观不公平感中的反应。普通讨论前，两者都可能出现。任何均分都不预测会对抗、退出、合作或选择其他反应。"
+            },
+            {
+              "en": "Sadness may also accompany a disappointing outcome, while Joy can appear in another part of the same period. The dashboard keeps eight separate readings rather than adding a positive-emotion score or subtracting a negative one. Co-occurrence is not a contradiction to be resolved by assigning a type.",
+              "zh": "结果令人失望时也可能难过，同期其他事情中也可能喜悦。仪表盘保留八份独立读法，不相加为积极情绪分，也不减去消极分。共同出现不是必须靠派型解决的矛盾。"
+            }
+          ]
+        },
+        {
+          "id": "anger-4",
+          "title": {
+            "en": "What a higher or lower mean cannot say",
+            "zh": "高低不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean does not establish assertiveness, leadership, strong boundaries or a commitment to justice. It also does not by itself show harmful behavior. A lower mean does not certify calm judgment, kindness or an absence of conflict. Those claims require evidence beyond these reported feelings.",
+              "zh": "较高均分不能证明坚定表达、领导力、强边界或正义感，也不单凭自身证明伤害行为。较低不能认证判断冷静、友善或没有冲突。这些主张需要超出自报感受的证据。"
+            },
+            {
+              "en": "The number is not permission to excuse behavior or ignore real concerns. Safety, consent and fair treatment do not depend on a score. If a setting is not manageable to reflect on, you can leave the item unscored or stop; no disagreement needs to be created or continued for this task.",
+              "zh": "数字不是为行为开脱或忽略真实顾虑的许可。安全、同意和公平对待不取决于分数。场景难以承受时，可以不计分或停止，无需为了任务制造或继续分歧。"
+            }
+          ]
+        },
+        {
+          "id": "anger-5",
+          "title": {
+            "en": "Reading the arithmetic",
+            "zh": "理解算术过程"
+          },
+          "paragraphs": [
+            {
+              "en": "If the five ratings are 3, 4, 2, 3 and 5, their sum is 17 and the mean is 3.4. A different pattern can also total 17. The mean therefore does not reveal which occasion mattered most, how intense the feeling was or what action followed it.",
+              "zh": "如果五条评分是3、4、2、3、5，总和17，均分3.4。不同答案也可能总和17，所以均分不能说明哪个机会最重要、感受多强或随后采取了什么行动。"
+            },
+            {
+              "en": "At least three numeric answers are needed; unscored choices are excluded rather than treated as low anger. With fewer ratings, the display keeps insufficient information explicit. The three-rating rule is editorial, not an evidence-based threshold for the importance or seriousness of anger.",
+              "zh": "至少三条数值才给均分，不计分排除，而非视为生气少。数值不足时明确显示资料不足。三条规则属于编辑设定，不是衡量生气重要性或严重性的实证阈值。"
+            }
+          ]
+        },
+        {
+          "id": "anger-6",
+          "title": {
+            "en": "One optional private distinction",
+            "zh": "私下可以做的一次区分"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful and comfortable, choose an ordinary example privately and separate the event, your interpretation, the feeling and what you actually did. A brief general description is enough. You do not need to disclose a conversation, name another person or defend the rating.",
+              "zh": "如果有用且舒服，可以私下选普通例子，分开事件、个人解释、感受和实际行动。简短概括即可，无需披露对话、点名他人或为评分辩护。"
+            },
+            {
+              "en": "This review aims to clarify the information a number leaves out. It does not promise to reduce anger, require an apology or suggest contacting someone. You may compare Fear or Sadness, seek support you consider appropriate, or simply finish here.",
+              "zh": "这种回看只是澄清数字漏掉的信息，不承诺减少生气、不要求道歉，也不建议联系某个人。可以比较害怕或难过、寻找自己认为适当的支持，或直接结束。"
+            }
+          ]
+        },
+        {
+          "id": "anger-7",
+          "title": {
+            "en": "Theory is not validation of this bank",
+            "zh": "理论不等于本题本验证"
+          },
+          "paragraphs": [
+            {
+              "en": "Plutchik’s model supplies an emotion-family vocabulary, while these five situations and their ratings are newly authored. This is not an aggression inventory, conflict-effectiveness test, clinical anger scale or published EQ ability instrument. No certification or outcome prediction follows from its conceptual background.",
+              "zh": "Plutchik模型提供情绪类别词汇，而五个情境及其评分为新编。本版不是攻击性清单、冲突效果测试、临床愤怒量表或已发表EQ能力工具，不能从概念背景推出认证或结果预测。"
+            },
+            {
+              "en": "Reliability, validity, population norms and language equivalence remain unestablished. All eight complete readings stay available, including when observations are insufficient. The dashboard never assigns a dominant personality, a moral rank or an overall emotional-intelligence score.",
+              "zh": "可靠性、效度、人群常模和语言等值尚未建立。八份全文始终开放，包括观察不足时。仪表盘不分配主导人格、道德排名或整体情绪智力分数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Anger: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "生气：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "A feeling does not establish an action. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "感到生气，不等于采取某种行动：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    },
+    {
+      "id": "anticipation",
+      "directionIds": [
+        "anticipation"
+      ],
+      "title": {
+        "en": "Anticipation",
+        "zh": "期待"
+      },
+      "headline": {
+        "en": "Looking forward is not a forecast",
+        "zh": "有所期待，不代表能够预测结果"
+      },
+      "summary": {
+        "en": "This reading concerns interested, forward-looking feelings in five ordinary contexts. It does not measure planning ability, optimism or whether an expected outcome will occur.",
+        "zh": "这份读法关注五种普通情境中带着兴趣向前看的感受，不测量规划能力、乐观或预期结果是否会发生。"
+      },
+      "scoreReading": {
+        "en": "Five original items describe occasions in one chosen setting. At least three numeric ratings are needed for a mean; unscored answers are excluded. The number describes these reported feelings, not emotional skill, intensity or a population rank.",
+        "zh": "五条原创题描述同一选定场景中的相关机会。至少三条数值回答才给均分，不计分回答排除。数字描述这些自报感受，不是情绪技能、强度或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "anticipation-1",
+          "title": {
+            "en": "The forward-looking feeling here",
+            "zh": "这里向前看的感受"
+          },
+          "paragraphs": [
+            {
+              "en": "The Anticipation items concern an approaching activity, a project’s next stage, new information expected, a planned collaboration and the next step of something engaging. They ask about interested expectation on relevant occasions in one setting over four weeks, not whether you made a detailed plan.",
+              "zh": "期待题涉及活动临近、项目下一阶段、等候新信息、计划好的合作和有兴趣事项的下一步，关注四周内同一场景中相关机会里的期待感，而非是否制订详细计划。"
+            },
+            {
+              "en": "This edition uses the interested, looking-forward sense of anticipation. Not every thought about the future fits it. Apprehension about an unwanted outcome belongs to different wording in the Fear part; uncertainty alone is not automatically scored as either feeling. Choose unscored if the occasion does not apply or recall is uncertain.",
+              "zh": "本版采用带着兴趣向前看的期待含义，不是所有关于未来的想法都符合。对不愿发生结果的不安，在害怕部分采用不同措辞；不确定本身不自动算作任何一种感受。情境不符或回忆不确定时，可以不计分。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-2",
+          "title": {
+            "en": "An ordinary next stage",
+            "zh": "一个普通的下一阶段"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine knowing that a familiar project will soon reach a new stage and looking forward to seeing what happens. That feeling may coexist with uncertainty about the result. It does not prove that the project will succeed, that the opportunity is suitable or that your expectations are realistic.",
+              "zh": "假设知道熟悉项目快进入新阶段，并期待看到后续，感受可以与结果不确定并存。它不能证明项目成功、机会适合或预期现实。"
+            },
+            {
+              "en": "You may also complete useful plans without much anticipation, especially in familiar or demanding periods. The dashboard does not observe preparation, time management or delivery. A feeling about the next step and evidence of carrying out that step remain separate.",
+              "zh": "熟悉或要求较高的时期，也可能没有多少期待却完成有用计划。仪表盘不观察准备、时间管理或交付。对下一步的感受，与实际完成下一步的证据，需要分开。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-3",
+          "title": {
+            "en": "Anticipation beside joy and surprise",
+            "zh": "期待、喜悦与惊讶"
+          },
+          "paragraphs": [
+            {
+              "en": "Joy concerns a pleasant feeling in a moment; Anticipation concerns looking ahead. You can look forward to an activity and later find it disappointing, or enjoy an unplanned moment without expecting it. The two means do not determine whether you are generally optimistic or able to make yourself happy.",
+              "zh": "喜悦关注片刻中的愉快，期待关注向前看。可以期待活动却后来失望，也可以享受没预料到的片刻。两个均分不判断是否总体乐观，也不判断能否让自己开心。"
+            },
+            {
+              "en": "Surprise concerns something differing from expectation. Anticipation and Surprise can both be reported in one period because the situations and parts of an event can differ. This edition does not impose a numerical opposite, subtract one mean from the other or use their combination to create a personality type.",
+              "zh": "惊讶关注事情与预期不同。因为情境和事件部分不同，同期可以同时报告期待与惊讶。本版不强制数值互补、不相减，也不把组合变成人格类型。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-4",
+          "title": {
+            "en": "Higher, lower and opportunity",
+            "zh": "较高、较低与机会"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says that interested expectation appeared more often on the relevant occasions you recalled. It is not a planning score, a productivity forecast or evidence of ambition. A lower mean may reflect a routine period, fewer relevant occasions, different priorities or wording that fits your experience less well.",
+              "zh": "较高均分表示回忆中的相关机会里，更经常出现带着兴趣的期待，不是规划分、生产率预测或抱负证据。较低可能反映日常阶段、相关机会较少、关注不同，或措辞不太贴合经历。"
+            },
+            {
+              "en": "You do not need to raise the mean or create more things to look forward to. The questionnaire does not establish what level is healthy or useful for you. Differences between emotion parts also reflect different contexts, so this is not a ranking of your strongest emotional skill.",
+              "zh": "不必提高均分，也不必制造更多值得期待的事。问卷没有确定什么水平对自己健康或有用。各部分差异也反映不同情境，因此不是最强情绪技能的排名。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-5",
+          "title": {
+            "en": "The same mean from different answers",
+            "zh": "不同答案可以均分相同"
+          },
+          "paragraphs": [
+            {
+              "en": "Three numeric ratings of 2, 3 and 4 total 9, giving a mean of 3.0. Three ratings of 1, 3 and 5 also give 3.0. The first pattern is more closely grouped, but the displayed mean alone does not retain that difference. Review the original choices if the details matter.",
+              "zh": "三条数值2、3、4总和9，均分3.0；1、3、5也得到3.0。前一种回答更集中，但显示的均分本身没有保留这种差异。细节重要时，可以回看原始选择。"
+            },
+            {
+              "en": "Unscored answers are excluded, with a minimum of three numeric ratings for a personal mean. Below that minimum, information is insufficient rather than low. This editorial rule provides a transparent display boundary, without establishing reliability, a clinical threshold or equal opportunity across people.",
+              "zh": "不计分回答排除，至少三条数值才给个人均分。低于最低数时是资料不足，而非较低。编辑规则只提供透明的显示边界，不建立可靠性、临床阈值或人与人之间的机会相等。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-6",
+          "title": {
+            "en": "An optional private expectation review",
+            "zh": "可选的私人期待回看"
+          },
+          "paragraphs": [
+            {
+              "en": "If helpful, privately choose one ordinary next step and distinguish what you look forward to from what you know will happen. A general description is enough; no plans, names or confidential work details need to be entered on the site. You can retain uncertainty.",
+              "zh": "如果有帮助，可以私下选一个普通的下一步，区分期待什么与已经知道会发生什么。概括描述即可，无需把计划、姓名或机密工作细节输入网站，也可以保留不确定。"
+            },
+            {
+              "en": "The exercise does not require scheduling an activity, purchasing anything or contacting another person. It aims only to place a remembered rating in context. You can compare Joy or Surprise, read the other full guides or stop without further action.",
+              "zh": "练习不要求安排活动、购买任何东西或联系他人，只是把回忆评分放回情境。可以比较喜悦或惊讶、阅读其他全文，或不采取后续行动就结束。"
+            }
+          ]
+        },
+        {
+          "id": "anticipation-7",
+          "title": {
+            "en": "Conceptual background and limits",
+            "zh": "概念背景与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Anticipation is one category in Plutchik’s theoretical emotion framework, which also uses expectancy terminology. The concept does not validate these five prompts or turn them into an optimism, goal-setting or EQ performance instrument. No published item bank, norm or certification is adopted.",
+              "zh": "期待是Plutchik理论情绪框架中的一类，也出现过预期用语。概念不验证这五条题，也不会让它们变成乐观、目标设定或EQ表现工具。本版不采用已发表题本、常模或认证。"
+            },
+            {
+              "en": "All forty statements and eight bilingual full readings are original. Reliability, validity and language equivalence have not been established. The dashboard keeps feelings, capabilities and actual outcomes separate, without an overall EQ score, dominant emotion, severity tier or career prediction.",
+              "zh": "四十条陈述和八份双语全文均为原创，可靠性、效度和语言等值尚未建立。仪表盘区分感受、能力与实际结果，不提供整体EQ、主导情绪、严重度等级或职业预测。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Anticipation: Full Emotion Dashboard Guide | FermatMind",
+          "zh": "期待：情绪仪表盘完整读法 | 费马测试"
+        },
+        "description": {
+          "en": "Looking forward is not a forecast. Read frequency, context, neighbouring feelings, examples and limits. No EQ ability score or dominant personality.",
+          "zh": "有所期待，不代表能够预测结果：理解频率、情境、相近感受、算例与边界，不计算EQ能力分或主导人格。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Eight separate descriptive means",
+        "zh": "八组独立描述均值"
+      },
+      "paragraphs": [
+        {
+          "en": "Each emotion family has five original frequency statements, all forward-scored from 1 to 5. At least three numeric ratings are needed: add them and divide by the number rated, rounded to one decimal. For example, 2+4+3=9 across three ratings gives 3.0. Unscored is excluded, never zero or a midpoint. All forty statements need a recognized choice before any personal reading. The three-rating minimum is an editorial completeness rule, not a validated or clinical cutoff.",
+          "zh": "每类五条原创频率陈述，全部按1—5直接计分。至少三条数值才显示均值：相加后除以有效题数，四舍五入到一位小数。例如三条2+4+3=9，均值3.0。不计分排除，不补零或中间值。四十条都要有效选择，才显示个人读数。最低三条是编辑完整度规则，不是经过验证或临床阈值。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Frequency does not establish intensity or ability",
+        "zh": "频率不能证明强度或能力"
+      },
+      "paragraphs": [
+        {
+          "en": "The means summarize how frequently the stated feelings were reported on relevant occasions in your chosen setting. They do not measure intensity, duration, actual occurrence counts, regulation skill or objective emotion-reading ability. Different prompts and opportunities prevent treating the eight values as a dominant-emotion ranking. Higher is not inherently better or worse, and a low mean is different from insufficient information.",
+          "zh": "均值概括选定场景中相关机会里，所述感受被报告的频率，不测量强度、持续时间、真实发生次数、调节技能或客观识别情绪能力。题目和机会不同，不能把八项数值排成主导情绪。较高不天然更好或更差，较低也不同于资料不足。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Mixed emotions stay separate",
+        "zh": "混合情绪分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "All eight complete guides appear together, even for unavailable means. Joy and Sadness can both be reported in different moments; Trust does not cancel Fear. There is no overall average, positive-minus-negative score, wheel area, percentage, tier, winner, fixed personality or clinical severity. Equal or close means are not a tie to break and have no established statistical significance. Different answers can yield the same mean.",
+          "zh": "八份全文同时呈现，包括无法给均值的部分。不同时刻可以既喜悦又难过，信任不抵销害怕。不合整体平均、不算积极减消极、轮盘面积、百分比、等级、赢家、固定人格或临床严重度。同值或接近不需要破同分，也没有已建立的统计显著性；不同答案可以均值相同。"
+        }
+      ]
+    },
+    {
+      "id": "emotion-source",
+      "title": {
+        "en": "Theory is background, not validation",
+        "zh": "理论是背景，不是本版验证"
+      },
+      "paragraphs": [
+        {
+          "en": "Plutchik’s 2001 article discusses an eight-family theoretical organization of emotion, including conceptual relations and different intensities. It does not validate these forty new items, their mean rule or the four-week window. The diagram, published measures, figures, competitor stimuli and report text are not reproduced. Eight categories are one model rather than a settled inventory of every human feeling; this edition has no established reliability, norms, validity or Chinese–English measurement equivalence.",
+          "zh": "Plutchik于2001年的文章讨论八类情绪的理论组织、概念关系与不同强度，没有验证这四十条新题、均值规则或四周窗口。本版不复刻图示、已发表量表、图片、竞品刺激材料或报告正文。八类是一种模型，不是已经定论的人类全部情绪清单；本版尚无已建立的可靠性、常模、效度或中英文测量等值。"
+        }
+      ]
+    },
+    {
+      "id": "emotion-privacy",
+      "title": {
+        "en": "A private, optional reflection",
+        "zh": "私人且可选的反思"
+      },
+      "paragraphs": [
+        {
+          "en": "Read all eight complete guides without an email, account, payment or another-test gate. A personal result stays in this page unless you opt into temporary tab storage; optional sharing copies only the public title and entry, not answers, means or a personal-result ID. You may review a manageable example privately, choose unscored responses or finish without taking action. No emotion-induction, exposure, purchase or contact task is required.",
+          "zh": "八份全文没有邮箱、账号、付费或另一测评门槛。个人结果留在页面，除非主动选择临时标签页存储；可选分享只复制公开标题和入口，不带答案、均值或个人结果标识。可以私下回看可承受的例子、选择不计分或不采取行动就结束，不要求情绪诱导、暴露、消费或联系任务。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this EQ Dashboard measure emotional intelligence?",
+        "zh": "这个情绪仪表盘测量情绪智力吗？"
+      },
+      "answer": {
+        "en": "It describes responses to forty original emotion-occurrence prompts, not emotional-intelligence ability. Eight emotion families differ from skill or performance branches. There is no overall EQ, accuracy score, diagnosis or conversion into a core EQ result.",
+        "zh": "它描述四十条原创情绪出现题的回答，不测情绪智力能力。八类情绪不同于技能或表现分支，不提供整体EQ、准确率、诊断，也不换算成核心EQ测评结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "What are the eight emotion parts?",
+        "zh": "八个情绪部分是什么？"
+      },
+      "answer": {
+        "en": "Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger and Anticipation. They use theoretical category names as reflection topics, with five original contexts each. The names do not establish eight independent biological or psychological factors.",
+        "zh": "喜悦、信任、害怕、惊讶、难过、厌恶、生气和期待。理论类别名称用于反思主题，每类五个原创情境，不证明八个独立生物或心理因子。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are missing answers and reverse keys handled?",
+        "zh": "不计分和反向题怎样处理？"
+      },
+      "answer": {
+        "en": "All forty recognized choices, including unscored, complete the attempt. Each five-item part uses at least three numeric ratings for its own mean. Unscored is excluded rather than filled; fewer ratings withholds only that part. There are no reverse-keyed items or overall score.",
+        "zh": "四十项包括不计分的有效选择即可完成。每个五题部分至少三条数值才给独立均值。不计分排除、不填补；不足只使所属部分不给均值。没有反向题或总分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a higher mean better or a lower mean worse?",
+        "zh": "均值高更好、低更差吗？"
+      },
+      "answer": {
+        "en": "Neither follows. A mean describes selected frequency ratings for those items, not ability, moral worth or emotion intensity. Different opportunities and contexts mean the eight values do not identify a dominant personality or strongest emotion.",
+        "zh": "都不能这样推出。均值描述这些题目的频率选择，不是能力、道德价值或情绪强度。机会和情境不同，八项数值不识别主导人格或最强情绪。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a published Plutchik, MSCEIT or WLEIS questionnaire?",
+        "zh": "这是已发表的Plutchik、MSCEIT或WLEIS题本吗？"
+      },
+      "answer": {
+        "en": "No. The forty prompts and eight full readings are original. Plutchik’s theory is background vocabulary, not validation or endorsement. No published test bank, diagram, norm or competitor explanation is administered or reproduced.",
+        "zh": "不是。四十题和八份全文为原创；Plutchik理论只是背景词汇，不是验证或认可。不施测或复刻已发表题库、图示、常模或竞品解释。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all full readings free, and what is shared?",
+        "zh": "全部完整读法免费吗？分享会带什么？"
+      },
+      "answer": {
+        "en": "All eight guides are free before and after answering, including when information is insufficient. Optional sharing includes only the public title and entry. Answers, means, private events and a personal-result identifier are excluded.",
+        "zh": "八份指南在作答前后都免费，包括资料不足时。可选分享只含公开标题和入口，不带答案、均值、私人事件或个人结果标识。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Plutchik (2001), The Nature of Emotions — theoretical background, not this item bank",
+        "zh": "Plutchik（2001）《The Nature of Emotions》：理论背景，不是本题本"
+      },
+      "url": "https://www.americanscientist.org/article/the-nature-of-emotions"
+    },
+    {
+      "title": {
+        "en": "Public copy of the primary 2001 article — no illustration reused",
+        "zh": "2001年原始文章公开副本：本版不复用图示"
+      },
+      "url": "https://motricidadehumana.org/wp-content/uploads/2019/11/the_nature_of_emotions_plutchik_2001.pdf"
+    }
+  ]
+}
