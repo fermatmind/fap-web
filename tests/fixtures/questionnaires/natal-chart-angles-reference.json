@@ -1,0 +1,20 @@
+{
+  "state": "One original fixed independent Swiss numerical witness only;no library/code redistribution/range-wide precision claim",
+  "utc": "2001-06-15T07:30:00Z",
+  "latitude": 51.5,
+  "longitude": -0.1,
+  "swiss": {
+    "MC": 17.409645998986726,
+    "IC": 197.40964599898672,
+    "DSC": 308.1070499019082,
+    "wholeSignMCHouse": 9
+  },
+  "referenceRawSHA256": "03b4a7e423d0832726788a05fb1111f4e9b7ea3c1c6dd742d2e67425934d693d",
+  "model": "SwissEphemeris2.10.03/Moshier;root independent AE meridian derivation agrees MC17.40963063890848 within one sample",
+  "expectedWholeSignHouses": {
+    "mc": 9,
+    "ic": 3,
+    "descendant": 7
+  },
+  "limitation": "Meridian/upperDot eps are normalized-vector numerical conventions;not a globalphysicalaccuracy certificate"
+}

@@ -1,7 +1,7 @@
 {
   "slug": "natal-chart",
   "code": "FM_NATAL_CHART_CORE",
-  "version": "2026-10-28.3",
+  "version": "2026-10-28.4",
   "updated": "2026-10-28",
   "category": "fantasy",
   "kind": "natal-chart",
@@ -34,10 +34,10 @@
     "kind": "fermatmind_original_natal_symbolic_reading",
     "formCode": "fm_natal_known_time_core_v1",
     "itemBankVersion": "fm_natal_known_time_core_v1",
-    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_v3",
-    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_motion_v3",
-    "itemBankSha256": "6ebed7709080c93cccb7f44d64270362ddef9a3a2b44d44d4ab0213b3bfc64bf",
-    "resultContentSha256": "a0b51e5c55fb1816c859ae904c62bf3d17395ce1a1177daca614b5263026a1d0",
+    "scoringVersion": "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_angles_v4",
+    "resultContentVersion": "fm_natal_twelve_signs_ten_roles_five_aspects_motion_angles_v4",
+    "itemBankSha256": "ddae3fbe95415458c0269cf9fe2013ab6a3557ab1e4573ca38cd7e59f76eb781",
+    "resultContentSha256": "71868782517fd835a6ba6910776abc649398c6e02ec8cc0b363d231f059e3781",
     "psychometricValidationCompleted": false
   },
   "natalChart": {
@@ -749,6 +749,81 @@
         {
           "en": "Motion is estimated from unrounded apparent longitudes 60 seconds before and after the chosen instant, then checked with 30-second neighbors. A rate with absolute value at most 0.0001° per day is labeled near-stationary under this website’s numerical convention; this does not certify an exact astronomical station. If calculations fail or the two estimates give different labels, that body’s motion is unavailable while its placement remains. The internal neighbors do not expand the allowed birth dates or permit a future birth time.",
           "zh": "运动用所选时刻前后各60秒的未舍入视黄经估计，再用前后各30秒的邻点核对。速率绝对值不超过每天0.0001°时，按本网站的数值约定标为接近停滞；这不认证精确的天文停滞时刻。计算失败或两次估计给出不同类别时，该天体的运动不可用，原落点仍保留。内部邻点计算不扩大允许的出生日期，也不允许未来出生时间。"
+        }
+      ]
+    },
+    "angles": {
+      "method": "ECT-upper-meridian-IC-opposition-DSC-ASC-opposition-v1",
+      "meridianNormTolerance": 1e-10,
+      "upperProjectionTolerance": 1e-12,
+      "poleCosineTolerance": 1e-12,
+      "methodReading": {
+        "en": "The MC is calculated from the upper-meridian intersection with the tropical ecliptic. The IC is opposite the MC, and the DSC is opposite the Ascendant. Away from a geographic pole, MC and IC can remain available when the Ascendant fails; DSC and all whole-sign house assignments require a computed Ascendant. Polar or numerically degenerate cases are withheld without substitute angles. The small numerical thresholds do not certify physical accuracy. The MC is assigned its actual whole-sign house, rather than automatically becoming House 10, and these angles do not add to the ten-body counts.",
+        "zh": "MC 由上中天子午圈与回归黄道的交点计算，IC 与 MC 相对，DSC 与上升点相对。非地理极点处，上升点失败时 MC 和 IC 仍可独立计算；DSC 与全部整宫制宫位分配依赖已计算的上升点。极点或数值退化时不提供替代角度。极小数值阈值不认证物理精度。MC 按实际整宫制位置分宫，不自动等同第十宫；新增角点不加入十天体计数。"
+      },
+      "roles": [
+        {
+          "id": "mc",
+          "name": {
+            "en": "Midheaven MC",
+            "zh": "天顶 MC"
+          },
+          "topic": {
+            "en": "What you make available to others",
+            "zh": "让别人看清你提供什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The Midheaven is an angle defined by the local meridian and ecliptic, rather than a celestial body. Its conventional public-facing theme can be read as a question about a contribution that others can recognize. It is not a measurement of status, achievement or suitable work. With whole-sign houses, the angle need not occupy the tenth house; the geometric angle and a numbered house answer different questions.",
+              "zh": "天顶是由当地子午圈与黄道确定的角点，并非天体。其传统的公共呈现主题，可以读成一个问题：怎样让别人看清自己提供的内容。它不测量地位、成就或适合的工作。在整宫制中，天顶不一定落在第十宫；几何角点与编号宫位回答不同的问题。"
+            },
+            {
+              "en": "For a hypothetical scene, imagine handing a small project to another person. Add a note naming what is ready, what remains uncertain and what the recipient can use. Ask whether that note makes the contribution clearer. The response is evidence about this handover, not a verdict on your reputation or a direction your life must take.",
+              "zh": "假设要把一个小项目交给另一个人，可以附一张说明，写清哪些已完成、哪些仍不确定，以及对方可以使用什么。问这张说明是否让交付更清楚。对方的反应是关于这次交接的信息，不是对名声的判定，也不是人生必须选择的方向。"
+            }
+          ]
+        },
+        {
+          "id": "ic",
+          "name": {
+            "en": "IC",
+            "zh": "天底 IC"
+          },
+          "topic": {
+            "en": "A setting from which to begin",
+            "zh": "从什么环境开始"
+          },
+          "paragraphs": [
+            {
+              "en": "The IC is opposite the Midheaven in longitude. Astrology commonly connects its private or foundational image with a starting place. Here that can be a question about the conditions you prefer before beginning something. It cannot establish facts about your childhood, family, ancestry or home, and an opposite angle does not prove that public and private life are in conflict.",
+              "zh": "天底与天顶在黄经上相对。占星常把其私下或基础的意象与出发处相连。这里可以把它读成一个问题：开始一件事之前，希望具备哪些条件。它不能确立童年、家庭、祖先或居所的事实；角点相对，也不证明公共生活与私生活存在冲突。"
+            },
+            {
+              "en": "Imagine preparing a familiar corner for a brief task. You might move one object, choose a time or decide that the current arrangement is already enough. Compare whether the change helps you begin. There is no ideal home hidden in a chart, and leaving the arrangement as it is can be a complete answer to this optional prompt.",
+              "zh": "假设要在熟悉的角落完成一个短任务，可以挪动一件物品、选择一个时间，也可以认为现有安排已经足够。比较调整是否有助于开始。星盘里没有隐藏的理想居所；保持原样，也可以是这道可选提示的完整回答。"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "name": {
+            "en": "Descendant DSC",
+            "zh": "下降点 DSC"
+          },
+          "topic": {
+            "en": "Making an exchange explicit",
+            "zh": "把交流约定说清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "The Descendant is the western horizon angle, opposite the Ascendant. Its conventional one-to-one theme can introduce a question about an exchange between people. It does not identify an ideal partner, explain attraction or predict compatibility. A sign attached to the point cannot replace what another person says, chooses or agrees to.",
+              "zh": "下降点是西方地平角点，与上升点相对。其传统的一对一主题，可以引出人与人之间如何交流的问题。它不识别理想伴侣，不解释吸引力，也不预测匹配。角点的星座不能替代另一个人的表达、选择或同意。"
+            },
+            {
+              "en": "For a hypothetical shared errand, write down who is doing which part and when you will check in. Ask the other person whether the arrangement works for them. An adjustment reflects the actual task and conversation. It does not show that either person is behaving correctly or incorrectly for a Descendant sign.",
+              "zh": "假设两人一起办一件小事，写清谁负责哪部分、何时再沟通，并询问对方是否觉得安排可行。调整反映的是实际任务与交谈，不表示任何一方符合或违背了下降星座的要求。"
+            }
+          ]
         }
       ]
     }
@@ -2261,8 +2336,8 @@
       },
       "paragraphs": [
         {
-          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. Each body also has a numerical apparent-motion label. It does not yet calculate other angles or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
-          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位，并为每个天体提供数值视运动标签。其他角点与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
+          "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts and five major aspects under a disclosed uniform 8° orb. Each body also has a numerical apparent-motion label. MC, IC and DSC are calculated with separate availability states. Sensitive points are not yet calculated. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
+          "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质，按明示的统一8°容许度显示五类主要相位，并为每个天体提供数值视运动标签。MC、IC 与 DSC 也按各自可用性计算，敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
         }
       ]
     }
@@ -2510,6 +2585,13 @@
         "zh": "NASA：视逆行为什么发生"
       },
       "url": "https://starchild.gsfc.nasa.gov/docs/StarChild/questions/question46.html"
+    },
+    {
+      "title": {
+        "en": "CHANI: chart angles and whole-sign houses",
+        "zh": "CHANI：星盘角点与整宫制"
+      },
+      "url": "https://www.chani.com/astro-education/new-mc-ic-and-dc-are-now-in-the-chani-app"
     }
   ]
 }

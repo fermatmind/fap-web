@@ -6,6 +6,7 @@ import { NatalChartClient } from "@/components/questionnaires/NatalChartClient";
 import { NatalChartGuidePage, NatalChartPage } from "@/components/questionnaires/NatalChartPage";
 import { NatalChartReport } from "@/components/questionnaires/NatalChartReport";
 import { calculateNatalChart } from "@/lib/questionnaires/natalChartCalculation";
+import { calculateNatalAdditionalAngles } from "@/lib/questionnaires/natalChartAngles";
 import type { NatalChartQuestionnaire } from "@/lib/questionnaires/natalChart";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/natal-chart.json", "utf8")) as NatalChartQuestionnaire;
@@ -41,6 +42,9 @@ describe("T199 memory-only native chart client and complete public prose", () =>
       const motion = dom.querySelector("[data-natal-motion-guide]");
       expect(motion?.querySelector("h2")?.textContent).toBe(quiz.natalChart.motion.name[locale]);
       expect(Array.from(motion?.querySelectorAll("p") ?? []).map(p => p.textContent)).toEqual(quiz.natalChart.motion.paragraphs.map(p => p[locale]));
+      expect(dom.querySelectorAll("[data-natal-angle-reference]")).toHaveLength(3);
+      for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) expect(dom.querySelector(`[data-natal-angle-reference="${role.id}"]`)?.textContent).toContain(p[locale]);
+      expect(dom.querySelector("[data-natal-angles-guide]")?.textContent).toContain(quiz.natalChart.angles.methodReading[locale]);
       expect(dom.querySelectorAll("[data-natal-aspect-definition]")).toHaveLength(5);
       expect(dom.querySelector("[data-natal-aspect-convention]")?.textContent).toBe(quiz.natalChart.aspects.convention[locale]);
       for (const reading of quiz.natalChart.aspects.readings) {
@@ -90,6 +94,10 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     expect(document.querySelectorAll("[data-natal-motion]")).toHaveLength(10);
     expect(Array.from(document.querySelectorAll('[data-natal-motion-state="retrograde"]')).map(n => n.getAttribute("data-natal-motion"))).toEqual(["mercury", "mars", "uranus", "neptune", "pluto"]);
     expect(document.querySelector('[data-natal-motion="sun"]')).toHaveTextContent("Direct");
+    expect(document.querySelectorAll("[data-natal-angle]")).toHaveLength(3); expect(document.querySelectorAll("[data-natal-angle-reading]")).toHaveLength(3);
+    // The picker uses its labeled IANA reference coordinates, not the fixed numeric witness's51.5/-0.1.
+    expect(document.querySelector('[data-natal-angle="mc"]')).toHaveTextContent("Aries");
+    expect(document.querySelector('[data-natal-angle="mc"] [data-natal-angle-house]')).toHaveTextContent("9");
     expect(document.querySelector('[data-natal-aspect-pair="neptune:pluto"]')).toHaveTextContent("Sextile");
     expect(document.querySelectorAll("[data-natal-body]")).toHaveLength(10);
     expect(document.querySelectorAll("[data-natal-body-reading]")).toHaveLength(10);
@@ -102,6 +110,22 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     expect(document.querySelector('[data-natal-element="water"]')).toHaveTextContent("0");
     change("natal-time", "09:00"); expect(document.querySelector("[data-natal-result]")).toBeNull();
     view.unmount();
+  });
+
+  it("shows independent MC/IC with unavailable houses and DSC in both locales when ASC fails", () => {
+    const result = calculateNatalChart({ date: "2001-06-15", time: "08:30", zone: "Europe/London", latitude: "51.5", longitude: "-0.1", knownTime: true, coordinatesConfirmed: true }, Date.parse("2026-10-28T00:00Z"));
+    if (result.status !== "complete") throw new Error("Original body chart unavailable");
+    const ascendant = { status: "unavailable", reason: "geometry" } as const;
+    const chart = { ...result.chart, ascendant, placements: result.chart.placements.map(p => ({ ...p, house: null })), angles: calculateNatalAdditionalAngles(Date.parse(result.chart.utc), 51.5, -0.1, ascendant) };
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<NatalChartReport quiz={quiz} chart={chart} locale={locale} />);
+      expect(dom.querySelectorAll("[data-natal-angle-reading]")).toHaveLength(2);
+      expect(dom.querySelector('[data-natal-angle-reading="mc"]')).not.toBeNull(); expect(dom.querySelector('[data-natal-angle-reading="descendant"]')).toBeNull();
+      expect(dom.querySelector('[data-natal-angle="mc"]')?.textContent).toContain(locale === "zh" ? "白羊座 17.4°" : "Aries 17.4°");
+      expect(dom.querySelector('[data-natal-angle="mc"] [data-natal-angle-house]')?.textContent).toBe(locale === "zh" ? "不可用" : "Unavailable");
+      expect(dom.querySelector('[data-natal-angle="descendant"]')?.textContent).toContain(locale === "zh" ? "不可用" : "Unavailable");
+      expect(dom.querySelectorAll("[data-natal-body]")).toHaveLength(10); expect(dom.querySelectorAll("[data-natal-motion]")).toHaveLength(10);
+    }
   });
 
   it("renders the actual supported near-station minute without presenting it as an exact station time", () => {
@@ -151,6 +175,7 @@ describe("T199 memory-only native chart client and complete public prose", () =>
     expect(html).toContain("data-natal-angle-unavailable"); expect(html).not.toContain("data-natal-rising-reading");
     expect(html.match(/data-natal-body-reading=/g)).toHaveLength(10);
     expect(html.match(/data-natal-motion=/g)).toHaveLength(10);
+    expect(html).toContain("data-natal-no-angles"); expect(html).not.toContain("data-natal-angle-reading=");
     expect(html).not.toContain("Whole-sign house1");
   });
 

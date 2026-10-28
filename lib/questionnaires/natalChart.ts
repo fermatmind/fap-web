@@ -11,6 +11,7 @@ export type NatalSignProfile = QuestionnaireProfile & {
 };
 export type NatalBodyRole = { id: NatalBody; name: Text; topic: Text; paragraphs: Text[]; sourceURL: string };
 export type NatalAspectReading = { id: NatalAspectKind; targetDegrees: number; name: Text; theme: Text; paragraphs: Text[] };
+export type NatalAngleRole = { id: "mc" | "ic" | "descendant"; name: Text; topic: Text; paragraphs: Text[] };
 export type NatalChartConfiguration = {
   version: "fm_natal_known_time_core_v1";
   engine: "astronomy-engine@2.1.19"; timeResolver: "@js-temporal/polyfill@0.5.1";
@@ -25,6 +26,7 @@ export type NatalChartConfiguration = {
   inventoryReading: { definition: Text; zero: Text };
   aspects: { maximumOrbDegrees: 8; introduction: Text; orbExplanation: Text; convention: Text; readings: NatalAspectReading[] };
   motion: { method: "apparent-ect-central-60-30-v1"; stationToleranceDegreesPerDay: 0.0001; name: Text; paragraphs: Text[] };
+  angles: { method: "ECT-upper-meridian-IC-opposition-DSC-ASC-opposition-v1"; meridianNormTolerance: 1e-10; upperProjectionTolerance: 1e-12; poleCosineTolerance: 1e-12; methodReading: Text; roles: NatalAngleRole[] };
   referencePoints: NatalReferencePoint[];
 };
 export type NatalChartQuestionnaire = Omit<Questionnaire, "kind" | "profiles"> & {
@@ -51,8 +53,8 @@ export function isNatalChartConfigurationValid(input: unknown): input is NatalCh
     || !Array.isArray(input.questions) || input.questions.length !== 0 || !Array.isArray(input.directions) || input.directions.length !== 0
     || !plain(input.source) || input.source.kind !== "fermatmind_original_natal_symbolic_reading"
     || input.source.formCode !== "fm_natal_known_time_core_v1" || input.source.itemBankVersion !== "fm_natal_known_time_core_v1"
-    || input.source.scoringVersion !== "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_v3"
-    || input.source.resultContentVersion !== "fm_natal_twelve_signs_ten_roles_five_aspects_motion_v3" || input.source.psychometricValidationCompleted !== false
+    || input.source.scoringVersion !== "fm_natal_ae2119_temporal051_whole_sign_aspects8_motion_angles_v4"
+    || input.source.resultContentVersion !== "fm_natal_twelve_signs_ten_roles_five_aspects_motion_angles_v4" || input.source.psychometricValidationCompleted !== false
     || typeof input.source.itemBankSha256 !== "string" || !/^[0-9a-f]{64}$/.test(input.source.itemBankSha256)
     || typeof input.source.resultContentSha256 !== "string" || !/^[0-9a-f]{64}$/.test(input.source.resultContentSha256)
     || !plain(input.natalChart)) return false;
@@ -78,6 +80,11 @@ export function isNatalChartConfigurationValid(input: unknown): input is NatalCh
       && text(reading.name) && text(reading.theme) && texts(reading.paragraphs, 2))
     || !plain(c.motion) || c.motion.method !== "apparent-ect-central-60-30-v1" || c.motion.stationToleranceDegreesPerDay !== 0.0001
     || !text(c.motion.name) || !texts(c.motion.paragraphs, 2)
+    || !plain(c.angles) || c.angles.method !== "ECT-upper-meridian-IC-opposition-DSC-ASC-opposition-v1"
+    || c.angles.meridianNormTolerance !== 1e-10 || c.angles.upperProjectionTolerance !== 1e-12 || c.angles.poleCosineTolerance !== 1e-12
+    || !text(c.angles.methodReading) || !Array.isArray(c.angles.roles) || c.angles.roles.length !== 3
+    || !Array.from(c.angles.roles).every((role, index) => plain(role) && role.id === ["mc", "ic", "descendant"][index]
+      && text(role.name) && text(role.topic) && texts(role.paragraphs, 2))
     || !Array.isArray(c.referencePoints) || c.referencePoints.length !== 12 || !Array.from(c.referencePoints).every(point => plain(point)
       && typeof point.id === "string" && Boolean(point.id) && text(point.name) && typeof point.zone === "string" && point.zone.includes("/")
       && typeof point.latitude === "number" && Number.isFinite(point.latitude) && Math.abs(point.latitude) <= 90

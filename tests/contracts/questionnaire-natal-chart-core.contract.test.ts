@@ -38,7 +38,9 @@ describe("T199 adopted known-time core, separate from the remaining full-compari
     expect(quiz.natalChart.houseContexts.map(p => p.number)).toEqual(Array.from({ length: 12 }, (_, i) => i + 1));
     expect(quiz.natalChart.referencePoints).toHaveLength(12);
     expect(provenance.psychometricValidationCompleted).toBe(false);
-    expect(quiz.guide.find(s => s.id === "core-scope")!.paragraphs[0].en).toContain("does not yet calculate");
+    const scope = quiz.guide.find(s => s.id === "core-scope")!.paragraphs[0].en;
+    expect(scope).toContain("MC, IC and DSC are calculated");
+    expect(scope).toContain("Sensitive points are not yet calculated");
   });
 
   it("rejects identity, method, source and sparse-content drift before a renderer lookup", () => {
@@ -56,6 +58,9 @@ describe("T199 adopted known-time core, separate from the remaining full-compari
       (q: NatalChartQuestionnaire) => { q.natalChart.motion.stationToleranceDegreesPerDay = 0.001 as never; },
       (q: NatalChartQuestionnaire) => { q.natalChart.motion.method = "other" as never; },
       (q: NatalChartQuestionnaire) => { q.natalChart.motion.paragraphs[1].en = ""; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.angles.meridianNormTolerance = 1e-8 as never; },
+      (q: NatalChartQuestionnaire) => { delete q.natalChart.angles.roles[0]; },
+      (q: NatalChartQuestionnaire) => { q.natalChart.angles.roles[2].paragraphs[0].zh = ""; },
       (q: NatalChartQuestionnaire) => { delete q.profiles[0]; },
       (q: NatalChartQuestionnaire) => { delete q.profiles[0].sections[1]; },
       (q: NatalChartQuestionnaire) => { delete q.natalChart.bodyRoles[0]; },

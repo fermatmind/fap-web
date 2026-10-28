@@ -30,6 +30,7 @@ for (const locale of ["en", "zh"] as const) {
       for (const p of reading.paragraphs) await expect(definition.getByText(p[locale], { exact: true })).toBeVisible();
     }
     await expect(page.locator("#natal-date")).toHaveValue("");
+    for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) await expect(page.locator(`[data-natal-angle-reference="${role.id}"]`).getByText(p[locale], { exact: true })).toBeVisible();
     await enter(page); await page.locator("#natal-confirm").uncheck(); await page.locator("#natal-confirm").focus(); await page.keyboard.press("Space"); await expect(page.locator("#natal-confirm")).toBeChecked();
     await complete(page, zh);
     const result = box(page).locator("[data-natal-result]");
@@ -49,6 +50,16 @@ for (const locale of ["en", "zh"] as const) {
     await extra.scrollIntoViewIfNeeded(); await info.attach(`Natal-chart-${locale}-aspects-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     await expect(result.locator("[data-natal-body]")).toHaveCount(10); await expect(result.locator("[data-natal-body-reading]")).toHaveCount(10);
     await expect(result.locator("[data-natal-motion]")).toHaveCount(10);
+    await expect(result.locator("[data-natal-angle]")).toHaveCount(3); await expect(result.locator("[data-natal-angle-reading]")).toHaveCount(3);
+    await expect(result.locator('[data-natal-angle="mc"]')).toContainText(zh ? "白羊座" : "Aries");
+    await expect(result.locator('[data-natal-angle="mc"] [data-natal-angle-house]')).toHaveText("9");
+    await expect(result.locator('[data-natal-angle="ic"] [data-natal-angle-house]')).toHaveText("3");
+    await expect(result.locator('[data-natal-angle="descendant"] [data-natal-angle-house]')).toHaveText("7");
+    for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) await expect(result.locator(`[data-natal-angle-reading="${role.id}"]`)).toContainText(p[locale]);
+    await result.locator('[data-natal-angle-reading="mc"] h4').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-MC-reading-mobile`, { body: await page.screenshot(), contentType: "image/png" });
+    await result.locator('[data-natal-angle="mc"] [data-natal-angle-house]').scrollIntoViewIfNeeded();
+    await info.attach(`Natal-chart-${locale}-MC-house9-mobile`, { body: await page.screenshot(), contentType: "image/png" });
     expect(await result.locator('[data-natal-motion-state="retrograde"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("data-natal-motion")))).toEqual(["mercury", "mars", "uranus", "neptune", "pluto"]);
     await expect(result.locator('[data-natal-motion="sun"]')).toHaveText(zh ? "顺行" : "Direct");
     const tableRegion = result.getByRole("region", { name: zh ? "天体位置、视运动与宫位表" : "Body positions, apparent motion and houses table", exact: true });
@@ -98,6 +109,8 @@ for (const locale of ["en", "zh"] as const) {
     for (const row of await box(page).locator("[data-natal-body]").all()) await expect(row).toContainText(zh ? "不可用" : "Unavailable");
     await page.locator("#natal-result-title").scrollIntoViewIfNeeded(); await info.attach(`Natal-chart-${locale}-polar-planets-retained`, { body: await page.screenshot(), contentType: "image/png" });
     await expect(box(page).locator("[data-natal-motion]")).toHaveCount(10);
+    await expect(box(page).locator("[data-natal-angle-reading]")).toHaveCount(0); await expect(box(page).locator("[data-natal-no-angles]")).toBeVisible();
+    for (const row of await box(page).locator("[data-natal-angle]").all()) await expect(row).toContainText(zh ? "不可用" : "Unavailable");
     await enter(page, "2024-04-01", "22:14"); await page.locator("#natal-zone").fill("UTC"); await page.locator("#natal-confirm").check(); await complete(page, zh);
     await expect(box(page).locator('[data-natal-motion="mercury"]')).toHaveAttribute("data-natal-motion-state", "near-stationary");
     await expect(box(page).locator('[data-natal-motion="mercury"]')).toHaveText(zh ? "接近停滞" : "Near-stationary");
@@ -145,6 +158,8 @@ test("@release Natal chart: all26 public pages visibly render their complete tex
       }
       for (const reading of quiz.natalChart.aspects.readings) for (const p of reading.paragraphs) await expect(page.locator(`[data-natal-aspect-definition="${reading.id}"]`).getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
       for (const p of quiz.natalChart.motion.paragraphs) await expect(page.locator("[data-natal-motion-guide]").getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
+      await expect(page.locator("[data-natal-angles-guide]").getByText(quiz.natalChart.angles.methodReading[locale as "en" | "zh"], { exact: true })).toBeVisible();
+      for (const role of quiz.natalChart.angles.roles) for (const p of role.paragraphs) await expect(page.locator(`[data-natal-angle-reference="${role.id}"]`).getByText(p[locale as "en" | "zh"], { exact: true })).toBeVisible();
       await expect(page.locator("#natal-date")).toHaveValue(""); await expect(page.locator("[data-natal-result]")).toHaveCount(0);
     }
     const sections = profile ? profile.sections : quiz.guide;
