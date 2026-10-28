@@ -27,7 +27,7 @@
   "publicConfiguration": {
     "slug": "four-axes-test",
     "code": "FM_FOUR_AXES_REFLECTION60",
-    "version": "2026-10-28.1",
+    "version": "2026-10-28.2",
     "updated": "2026-10-28",
     "category": "framework",
     "kind": "four-axes",
@@ -3539,8 +3539,8 @@
             },
             "paragraphs": [
               {
-                "en": "A lower position means you more often endorsed the relational wording after the reverse keys were applied. In a hypothetical group discussion, you might first ask what has made someone hesitant. That question can open a useful exchange, but this result cannot tell whether your actual listening is effective.",
-                "zh": "数值偏低，表示按反向键换算后，你更常认同关系关照类表述。假设一群人正在讨论，你可能先问某个人为什么犹豫。这种提问可以打开交流，但分数不能判断你现实中的倾听是否有效。"
+                "en": "A lower position is a lower sum after reverse scoring; it can reflect weaker agreement with direct and self-directed wording, stronger agreement with relational wording, or both. In a hypothetical group discussion, you might first ask what has made someone hesitant. That question can open a useful exchange, but this result cannot tell whether your actual listening is effective.",
+                "zh": "偏低位置表示反向换算后的原始和较低，可能来自对直接、自主表述认同较弱、对关系关照表述认同较强，或两者兼有。假设一群人正在讨论，你可能先问某个人为什么犹豫。这种提问可以打开交流，但分数不能判断你现实中的倾听是否有效。"
               },
               {
                 "en": "The practical question is whether care and your own needs both remain visible. Imagine agreeing to help with an ordinary errand: naming the amount of time you can give makes the arrangement clearer. A warm response can still contain a firm boundary; no score requires continual accommodation.",
@@ -3556,8 +3556,8 @@
             },
             "paragraphs": [
               {
-                "en": "A higher position means you more often endorsed direct and self-directed wording in this set. For a hypothetical shared deadline, you might state which decision is needed and propose a next step. The useful evidence is whether others understand that proposal, rather than whether it fits a gender label.",
-                "zh": "数值偏高，表示你在这组题目中更常认同直接、自主的表述。假设共同任务临近期限，你可能说明需要决定什么，并提出下一步。真正有用的证据，是别人是否理解提议，而不是它是否符合性别标签。"
+                "en": "A higher position is a higher sum after reverse scoring; it can reflect stronger agreement with direct and self-directed wording, weaker agreement with relational wording, or both. For a hypothetical shared deadline, you might state which decision is needed and propose a next step. The useful evidence is whether others understand that proposal, rather than whether it fits a gender label.",
+                "zh": "偏高位置表示反向换算后的原始和较高，可能来自对直接、自主表述认同较强、对关系关照表述认同较弱，或两者兼有。假设共同任务临近期限，你可能说明需要决定什么，并提出下一步。真正有用的证据，是别人是否理解提议，而不是它是否符合性别标签。"
               },
               {
                 "en": "A clear position can leave room for questions. You could name a preference and then ask which constraint you have missed. If the exchange becomes tense, look at the actual wording, time pressure and relationship. This axis does not establish that you are dominant, insensitive or naturally suited to lead.",
@@ -3675,8 +3675,8 @@
             },
             "paragraphs": [
               {
-                "en": "A lower position means you more often endorsed familiar explanations and an easily shared sequence. Imagine describing how a small household problem occurred. Starting with what happened first and what you directly noticed can help another person follow the account. Whether it helps is something to check in that conversation.",
-                "zh": "偏低位置表示你更常认同熟悉解释和容易共享的顺序。假设说明家里一件小问题的经过，先说发生顺序和直接看到的事情，可以让别人更容易跟上。是否真的有帮助，要在那次交谈中核对。"
+                "en": "A lower position is a lower sum after reverse scoring; it can reflect weaker agreement with associative wording, stronger agreement with familiar and shared-sequence wording, or both. Imagine describing how a small household problem occurred. Starting with what happened first and what you directly noticed can help another person follow the account. Whether it helps is something to check in that conversation.",
+                "zh": "偏低位置表示反向换算后的原始和较低，可能来自对联想表述认同较弱、对熟悉解释与共同叙述顺序表述认同较强，或两者兼有。假设说明家里一件小问题的经过，先说发生顺序和直接看到的事情，可以让别人更容易跟上。是否真的有帮助，要在那次交谈中核对。"
               },
               {
                 "en": "Familiarity can also leave an assumption unexamined. An optional question is whether you have separated an observation from the explanation you usually give it. You can keep a familiar explanation when it fits the evidence; there is no requirement to produce a novel story to improve a result.",
@@ -3692,8 +3692,8 @@
             },
             "paragraphs": [
               {
-                "en": "A higher position means you endorsed more of this set’s imaginative or nonlinear descriptions. For a hypothetical creative task, one image may suggest several possible directions. Write them as possibilities before deciding which one fits the task. The number does not demonstrate creativity, insight or a special perception.",
-                "zh": "偏高位置表示你更认同本组想象或跳跃叙述。假设面对一个创作任务，一幅画面可能带出几个方向。可以先把它们写成可能性，再决定哪一种适合任务。数值不能证明创造力、洞察力或特殊感知。"
+                "en": "A higher position is a higher sum after reverse scoring; it can reflect stronger agreement with associative wording, weaker agreement with familiar and shared-sequence wording, or both. For a hypothetical creative task, one image may suggest several possible directions. Write them as possibilities before deciding which one fits the task. The number does not demonstrate creativity, insight or a special perception.",
+                "zh": "偏高位置表示反向换算后的原始和较高，可能来自对联想表述认同较强、对熟悉解释与共同叙述顺序表述认同较弱，或两者兼有。假设面对一个创作任务，一幅画面可能带出几个方向。可以先把它们写成可能性，再决定哪一种适合任务。数值不能证明创造力、洞察力或特殊感知。"
               },
               {
                 "en": "When sharing an association, make the connecting steps visible. You might explain which detail suggested the next idea and which part is still a guess. This lets another person respond to the idea itself. A surprising connection does not have to be true, false or meaningful simply because it feels vivid.",
@@ -3811,8 +3811,8 @@
             },
             "paragraphs": [
               {
-                "en": "A lower position means more of your answers favored keeping a familiar or inherited practice in this set. Imagine planning a small annual gathering. Repeating an established arrangement may make preparation easier and preserve something participants care about. The relevant question is which part remains useful to the actual people involved.",
-                "zh": "偏低位置表示你在这组题目中更常倾向保留熟悉或传承的做法。假设筹备一次年度小聚，沿用已有安排，可以让准备更容易，也保留参与者在意的内容。值得问的是，哪一部分对眼前这些人仍然有用。"
+                "en": "A lower position is a lower sum after reverse scoring; it can reflect weaker agreement with renewal wording, stronger agreement with continuity wording, or both. Imagine planning a small annual gathering. Repeating an established arrangement may make preparation easier and preserve something participants care about. The relevant question is which part remains useful to the actual people involved.",
+                "zh": "偏低位置表示反向换算后的原始和较低，可能来自对更新表述认同较弱、对延续表述认同较强，或两者兼有。假设筹备一次年度小聚，沿用已有安排，可以让准备更容易，也保留参与者在意的内容。值得问的是，哪一部分对眼前这些人仍然有用。"
               },
               {
                 "en": "Keeping a practice does not require keeping every detail. You might preserve a shared activity while changing its time so more people can participate. That is a concrete decision about access and meaning. The score cannot establish that you resist progress or that an inherited rule must always be right.",
@@ -3828,8 +3828,8 @@
             },
             "paragraphs": [
               {
-                "en": "A higher position means more of your answers favored reviewing expectations and adapting arrangements. In a hypothetical shared household, you might ask whether an old division of tasks still fits everyone’s available time. A proposed change can be assessed by its effects rather than by how new or unconventional it sounds.",
-                "zh": "偏高位置表示你更常认同审视期待、调整安排的表述。假设共同生活，可以问原有分工是否仍适合每个人的时间。评价一项改变时，可以看它带来的实际效果，而不只看它听起来多新、多不合惯例。"
+                "en": "A higher position is a higher sum after reverse scoring; it can reflect stronger agreement with renewal wording, weaker agreement with continuity wording, or both. In a hypothetical shared household, you might ask whether an old division of tasks still fits everyone’s available time. A proposed change can be assessed by its effects rather than by how new or unconventional it sounds.",
+                "zh": "偏高位置表示反向换算后的原始和较高，可能来自对更新表述认同较强、对延续表述认同较弱，或两者兼有。假设共同生活，可以问原有分工是否仍适合每个人的时间。评价一项改变时，可以看它带来的实际效果，而不只看它听起来多新、多不合惯例。"
               },
               {
                 "en": "A new arrangement may introduce costs that were easy to overlook. Asking who will learn a new routine, who benefits and what should be retained makes the proposal more specific. This does not require abandoning family ties or proving that you are more open-minded than someone who prefers the existing practice.",
@@ -3947,8 +3947,8 @@
             },
             "paragraphs": [
               {
-                "en": "A lower position means more of your answers endorsed shared provision and reducing some economic barriers. Imagine considering a hypothetical local service funded through a common budget. Your interest might focus on reliable access and on who would otherwise be excluded. That starting concern does not by itself settle the best design.",
-                "zh": "偏低位置表示你更常认同共同保障和减少某些经济障碍。假设讨论一项由共同预算支持的本地服务，你可能先关注能否稳定获得服务，以及哪些人原本难以参与。这种出发关切，本身并不能决定最好的设计。"
+                "en": "A lower position is a lower sum after reverse scoring; it can reflect weaker agreement with market-choice wording, stronger agreement with public-provision wording, or both. Imagine considering a hypothetical local service funded through a common budget. Your interest might focus on reliable access and on who would otherwise be excluded. That starting concern does not by itself settle the best design.",
+                "zh": "偏低位置表示反向换算后的原始和较低，可能来自对市场选择表述认同较弱、对公共保障表述认同较强，或两者兼有。假设讨论一项由共同预算支持的本地服务，你可能先关注能否稳定获得服务，以及哪些人原本难以参与。这种出发关切，本身并不能决定最好的设计。"
               },
               {
                 "en": "Questions about cost, accountability and unintended effects remain relevant to that preference. You could ask what the proposal provides, who pays and how its results would be checked. Considering those details does not make the preference less sincere; it makes a particular proposal easier to assess on its own evidence.",
@@ -3964,8 +3964,8 @@
             },
             "paragraphs": [
               {
-                "en": "A higher position means more of your answers endorsed private discretion, competition or responsibility for a choice. For a hypothetical service, your first question might be whether people can choose an option that fits their needs. That concern does not establish that everyone has equal resources or equal bargaining power.",
-                "zh": "偏高位置表示你更常认同私人自主、竞争或为选择承担责任。面对一项假想服务，你可能先问人们能否选择适合自身需要的选项。这种关切，并不证明每个人拥有相同资源或相同议价能力。"
+                "en": "A higher position is a higher sum after reverse scoring; it can reflect stronger agreement with market-choice wording, weaker agreement with public-provision wording, or both. For a hypothetical service, your first question might be whether people can choose an option that fits their needs. That concern does not establish that everyone has equal resources or equal bargaining power.",
+                "zh": "偏高位置表示反向换算后的原始和较高，可能来自对市场选择表述认同较强、对公共保障表述认同较弱，或两者兼有。面对一项假想服务，你可能先问人们能否选择适合自身需要的选项。这种关切，并不证明每个人拥有相同资源或相同议价能力。"
               },
               {
                 "en": "Questions about access, external costs and safeguards still matter. You might compare what happens to people with fewer options as well as to those able to choose freely. Checking those effects is a way to evaluate a specific arrangement, not a requirement to adopt or reject any political identity.",

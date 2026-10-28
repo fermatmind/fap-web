@@ -29,6 +29,10 @@ describe("original four-domain sixty-statement reflection", () => {
     expect(readQuestionnaireDraft(quiz!, JSON.stringify({ version: data.version, savedAt: Date.now(), answers: neutral() }))).toBeNull();
     for (const profile of data.profiles) {
       expect(profile.sections).toHaveLength(6);
+      for (const section of profile.sections.filter(s => s.id === "lower" || s.id === "higher")) {
+        expect(section.paragraphs[0].en).toContain("sum after reverse scoring");
+        expect(section.paragraphs[0].zh).toContain("反向换算后的原始和");
+      }
       expect(profile.sections.flatMap(s => s.paragraphs)).toHaveLength(12);
       expect(profile.seo.title.en.length).toBeLessThanOrEqual(47);
       expect(profile.seo.description.en.length).toBeLessThanOrEqual(160);
