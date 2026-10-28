@@ -2865,8 +2865,8 @@
       },
       "paragraphs": [
         {
-          "en": "All twenty-eight original statements use 1–5 agreement choices. Midpoint 3 means uncertain or depends on the situation and is numeric. Each four-item group is added separately (4–20) and divided by four (1–5), with no reverse key. The display retains quarter steps such as 1.25. There is no total, cross-group ranking or high/low band. The mean summarizes unlike statements and cannot identify any individual answer.",
-          "zh": "28条原始陈述使用1—5符合程度选项，中点3“不确定或视情况”是有效数值。各组四题分别相加（4—20），再除以四（1—5），不作反向计分；显示保留1.25等四分之一步长。不合总分、不跨组排名，也不派高低档位；均值汇合了含义不同的陈述，不能确认任何单题答案。"
+          "en": "All twenty-eight original statements use 1–5 agreement choices. Midpoint 3 means uncertain or depends on the situation and is numeric. Each four-item group is added separately (4–20) and divided by four (1–5), with no reverse key. The display retains quarter steps such as 1.25. There is no total, cross-group ranking or high/low band. The mean summarizes unlike statements; read their wording and context rather than treating it as one intensity.",
+          "zh": "28条原始陈述使用1—5符合程度选项，中点3“不确定或视情况”是有效数值。各组四题分别相加（4—20），再除以四（1—5），不作反向计分；显示保留1.25等四分之一步长。不合总分、不跨组排名，也不派高低档位；均值汇合了含义不同的陈述，需要结合题文与情境阅读，不把它当作单一强度。"
         }
       ]
     },
@@ -2957,8 +2957,8 @@
           "zh": "本测试没有高、中、低标签，不划分正常与异常，不设置红色预警或道德风险等级。"
         },
         {
-          "en": "A number describes agreement across four statements. It cannot identify any particular response or establish an item as a fact about your behaviour.",
-          "zh": "分数只表示你对每组四道陈述的整体符合程度，不能确认你在任一道具体题目中的回答；也不能把某一题当成你的行为事实。"
+          "en": "A number summarizes agreement across four statements. Read the statements and context together; the aggregate does not explain the reasons behind a response or establish a statement as a fact about your behaviour.",
+          "zh": "分数汇总对四条陈述的符合程度。需要结合题文与情境阅读；汇总数字不解释回答的原因，也不能把某条陈述确立为你的行为事实。"
         },
         {
           "en": "Some groups combine reactions with ways of responding: attraction with checking boundaries, reward appeal with deciding to pause, anger signals with leaving time to respond, and starting difficulty with making a first step easier. No group is one underlying intensity.",

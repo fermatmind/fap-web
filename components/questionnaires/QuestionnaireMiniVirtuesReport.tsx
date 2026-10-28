@@ -11,8 +11,8 @@ export function QuestionnaireMiniVirtuesReport({ quiz, result, locale }: {
   const zh = locale === "zh";
   return <div className="my-6 space-y-8" data-mini-virtues-result>
     <p className="leading-8">{zh
-      ? "下面七组分别呈现本次四题原始和与均值。每组都可能同时包含反应线索与调节方式，均值不代表单一强度；没有善恶总分、道德等级、首要罪或第一美德。数字不能确认某一道题的答案，也不替代具体情境。"
-      : "Seven groups show their own four-item sums and means. A group may combine reactions with ways of responding, so its mean is not one underlying intensity. There is no good-or-evil total, moral level, leading sin or first virtue. A number cannot identify an individual answer or replace its context."}</p>
+      ? "下面七组分别呈现本次四题原始和与均值。每组都可能同时包含反应线索与调节方式，均值不代表单一强度；没有善恶总分、道德等级、首要罪或第一美德。需要结合四条陈述及具体情境阅读，汇总数字不解释每个回答的原因。"
+      : "Seven groups show their own four-item sums and means. A group may combine reactions with ways of responding, so its mean is not one underlying intensity. There is no good-or-evil total, moral level, leading sin or first virtue. Read the four statements in context; the aggregate does not explain the reasons behind any response."}</p>
     {result.equalFactorGroups.length > 0 && <p className="rounded-lg bg-slate-50 p-4 leading-8" data-mini-virtues-equal>{zh
       ? "有些组的原始和相同，只表示本次数字相同。各组题目不同，不能据此比较心理意义，也不表示罪与美德平衡、混合人格或同样严重。七组仍分别完整阅读，不打破相同数值。"
       : "Some groups have equal sums. That establishes equal numbers in this attempt only. Their statements differ, so equal sums do not establish equivalent meaning, a balance of sins and virtues, a mixed identity or equal seriousness. Read all seven separately; no equal score is broken."}</p>}
