@@ -6,9 +6,27 @@ test.beforeEach(async ({ page }) => {
   await page.route(/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|https:\/\/(?:www\.googletagmanager\.com|(?:www\.)?google-analytics\.com|hm\.baidu\.com)\//, route => route.fulfill({ status: 204 }));
   await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "granted" })));
 });
-function observeAnalytics(page: Page) {
+function observeAnalytics(page: Page, hubLandingPath?: string, beforeHubClick?: () => boolean) {
   const attempts: string[] = [];
-  page.on("request", r => { if (/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|googletagmanager\.com|google-analytics\.com|hm\.baidu\.com/.test(r.url())) attempts.push(r.url()); });
+  page.on("request", r => {
+    if (!/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|googletagmanager\.com|google-analytics\.com|hm\.baidu\.com/.test(r.url())) return;
+    if (hubLandingPath && beforeHubClick?.() && new URL(page.url()).pathname === hubLandingPath && r.method() === "GET") {
+      const url = new URL(r.url());
+      if ((url.origin === "https://www.googletagmanager.com" && url.pathname === "/gtag/js")
+        || (url.origin === "https://hm.baidu.com" && url.pathname === "/hm.js")) return;
+    }
+    // A hub arrival may dispatch after the link click. Only that proven,
+    // nonsensitive arrival belongs to the preceding page; form events still fail.
+    if (hubLandingPath && r.method() === "POST" && /\/seo\/attribution\/events(?:\?|$)/.test(r.url())) {
+      try {
+        const raw = r.postData() ?? "", event = JSON.parse(raw) as { eventName?: unknown; path?: unknown; payload?: Record<string, unknown> };
+        if (event?.eventName === "landing_pv" && event.path === hubLandingPath
+          && ["landing_path", "url", "source_url", "current_path"].every(key => event.payload?.[key] === hubLandingPath)
+          && !/habit-patterns-test|HABIT_LK_|ADDICTION_TENDENCY/.test(raw)) return;
+      } catch { /* Unreadable or unexpected analytics remain failures. */ }
+    }
+    attempts.push(r.url());
+  });
   return attempts;
 }
 async function answer(page: Page, locale: "en" | "zh", mode: "worked" | "partial" | "all-na") {
@@ -57,8 +75,12 @@ for (const locale of ["en", "zh"] as const) {
   test(`@release habit ${locale}: hub, keyboard,20 responses, five means, all60 paragraphs, mobile progress and empty retake`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/${locale}/tests`);
-    const attempts = observeAnalytics(page);
-    await page.locator("#more-tests").getByRole("link", { name: data.title[locale], exact: true }).click();
+    let onHubBeforeClick = true;
+    const attempts = observeAnalytics(page, `/${locale}/tests`, () => onHubBeforeClick);
+    const hubLink = page.locator("#more-tests").getByRole("link", { name: data.title[locale], exact: true });
+    await expect(hubLink).toBeVisible();
+    onHubBeforeClick = false;
+    await hubLink.click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(data.title[locale]);
     await expect(page).toHaveTitle(`${data.seoTitle[locale]} | FermatMind`);
     for (const s of data.guide) for (const p of s.paragraphs) await expect(page.locator('section[aria-labelledby="questionnaire-method"]').getByText(p[locale], { exact: true })).toBeVisible();
