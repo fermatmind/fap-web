@@ -2,7 +2,7 @@ const REDACTED_TRACKING_VALUE = "redacted";
 const PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX = "private_route:";
 
 // These questionnaires' source contracts disable analytics, including public arrivals.
-export const ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS = ["/tests/explore/dark-triad", "/tests/explore/habit-patterns-test"] as const;
+export const ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS = ["/tests/explore/four-axes-test", "/tests/explore/dark-triad", "/tests/explore/habit-patterns-test"] as const;
 
 export type PrivateAnalyticsRouteFamily =
   | "history"

@@ -5200,5 +5200,30 @@
       "anger-reading",
       "starting-rest-reading"
     ]
+  },
+  {
+    "slug": "four-axes-test",
+    "code": "FM_FOUR_AXES_REFLECTION60",
+    "version": "2026-10-28.1",
+    "updated": "2026-10-28",
+    "category": "framework",
+    "title": {
+      "en": "Four Axes Self-Portrait Test",
+      "zh": "四轴自我画像测试"
+    },
+    "description": {
+      "en": "Explore expression, thinking, lifestyle and public-policy preferences with 60 original statements and four complete free guides.",
+      "zh": "用60道原创题观察表达、思维、生活态度与公共政策偏好，免费阅读四篇完整解读。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_four_axes_original60_v1",
+    "questionCount": 60,
+    "resultSlugs": [
+      "gender",
+      "personality",
+      "lifestyle",
+      "political"
+    ]
   }
 ]

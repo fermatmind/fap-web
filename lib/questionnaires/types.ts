@@ -1,3 +1,4 @@
+import type { FourAxesConfiguration } from "./fourAxes";
 import type { NatalChartConfiguration } from "./natalChart";
 import type { BirthNumberConfiguration } from "./birthNumber";
 import type { PairedDimensionConfiguration } from "./pairedDimensions";
@@ -28,7 +29,8 @@ export type Questionnaire = {
   category: string;
   natalChart?: NatalChartConfiguration;
   birthNumber?: BirthNumberConfiguration;
-  kind: "mini-virtues" | "mini-shadow" | "preparation-actions20" | "mini-coping" | "mini-habit" | "mini-intimacy" | "natal-chart" | "nine-star-year" | "mini-breakup" | "holding-back35" | "fscrs22" | "parenting-practices" | "spq92" | "adexi14" | "mini-friction" | "ctl41" | "birth-number" | "ptq15" | "interaction-pairs" | "skills-evidence" | "saps" | "scs26" | "cbi" | "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  fourAxes?: FourAxesConfiguration;
+  kind: "four-axes" | "mini-virtues" | "mini-shadow" | "preparation-actions20" | "mini-coping" | "mini-habit" | "mini-intimacy" | "natal-chart" | "nine-star-year" | "mini-breakup" | "holding-back35" | "fscrs22" | "parenting-practices" | "spq92" | "adexi14" | "mini-friction" | "ctl41" | "birth-number" | "ptq15" | "interaction-pairs" | "skills-evidence" | "saps" | "scs26" | "cbi" | "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   pairedDimensions?: PairedDimensionConfiguration[];
   typing?: TypingConfiguration;
   dataEntry?: DataEntryConfiguration;

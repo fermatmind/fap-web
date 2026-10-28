@@ -1,3 +1,4 @@
+import { isFourAxesConfigurationValid } from "@/lib/questionnaires/fourAxes";
 import { isMiniVirtuesConfigurationValid } from "@/lib/questionnaires/miniVirtues";
 import { isEuphoriaConfigurationValid } from "@/lib/questionnaires/euphoria";
 import { isMiniShadowConfigurationValid } from "@/lib/questionnaires/miniShadow";
@@ -89,6 +90,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (questionnaire?.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "mini-friction" && !isMiniFrictionConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "ctl41" && !isCtl41ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
+  if (questionnaire?.kind === "four-axes" && !isFourAxesConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   const quiz = questionnaire ? null : await loadFunQuiz(slug);
   if (!quiz && !questionnaire) return new Response("Image unavailable", { status: 404 });
   const portrait = query.get("portrait");

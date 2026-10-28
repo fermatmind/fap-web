@@ -1,0 +1,4186 @@
+{
+  "schemaVersion": 1,
+  "originalPromptFileSha256": "a351816b51211bdc4a2edfa79fd09b03027ff6858a15c5e2c653673abd461584",
+  "references": [
+    {
+      "title": {
+        "en": "IDRlabs: public four-axes format (topic reference only)",
+        "zh": "IDRlabs公开四轴形式（仅主题参考）"
+      },
+      "url": "https://www.idrlabs.com/4-axes/test.php"
+    },
+    {
+      "title": {
+        "en": "WHO: gender, social norms and identity distinctions",
+        "zh": "WHO：社会性别、规范与身份的区分"
+      },
+      "url": "https://www.who.int/health-topics/gender"
+    },
+    {
+      "title": {
+        "en": "World Values Survey: cultural values findings (societal context)",
+        "zh": "世界价值观调查：文化价值发现（社会背景）"
+      },
+      "url": "https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Findings"
+    }
+  ],
+  "publicConfiguration": {
+    "slug": "four-axes-test",
+    "code": "FM_FOUR_AXES_REFLECTION60",
+    "version": "2026-10-28.1",
+    "updated": "2026-10-28",
+    "category": "framework",
+    "kind": "four-axes",
+    "title": {
+      "en": "Four Axes Self-Portrait Test",
+      "zh": "四轴自我画像测试"
+    },
+    "seoTitle": {
+      "en": "Four Axes Self-Portrait Test",
+      "zh": "四轴自我画像测试"
+    },
+    "description": {
+      "en": "Explore expression, thinking, lifestyle and public-policy preferences with 60 original statements and four complete free guides.",
+      "zh": "用60道原创题观察表达、思维、生活态度与公共政策偏好，免费阅读四篇完整解读。"
+    },
+    "minutes": 10,
+    "introduction": {
+      "en": "Take four perspectives on how you describe yourself today. Read each statement as an everyday preference, with no right answer or desired endpoint.",
+      "zh": "从四个视角回看你今天如何描述自己。把每句话当作日常偏好来读，没有正确答案或理想端点。"
+    },
+    "instructions": {
+      "en": "Choose how much you agree with each statement in your usual circumstances. Neutral is a valid answer. If you prefer not to answer, you can exit and read the guides without a score. All 60 choices are required for the four bars.",
+      "zh": "按通常情境选择认同程度，中立也是有效回答。如果不愿作答，可以退出并直接读指南。只有60题全部有效后才显示四条图。"
+    },
+    "resultHeading": {
+      "en": "Your four separate response positions",
+      "zh": "本次回答的四个独立位置"
+    },
+    "fourAxes": {
+      "method": "original-four-domains-60-balanced-0to4-v1",
+      "axes": [
+        {
+          "id": "gender",
+          "title": {
+            "en": "Gendered expression",
+            "zh": "性别化表达"
+          },
+          "low": {
+            "en": "Relational care",
+            "zh": "关系关照"
+          },
+          "high": {
+            "en": "Direct agency",
+            "zh": "自主直接"
+          },
+          "definition": {
+            "en": "Ways of expressing preferences and responding to other people; cultural labels do not assign sex or identity.",
+            "zh": "表达偏好与回应他人的方式；文化标签不用于判定生理性别或身份。"
+          }
+        },
+        {
+          "id": "personality",
+          "title": {
+            "en": "Thinking experience",
+            "zh": "思维体验"
+          },
+          "low": {
+            "en": "Familiar and sequential",
+            "zh": "熟悉常规"
+          },
+          "high": {
+            "en": "Associative and unconventional",
+            "zh": "联想跳跃"
+          },
+          "definition": {
+            "en": "Everyday descriptions of familiar and associative experiences, without a clinical normality judgment.",
+            "zh": "对熟悉与联想式日常体验的描述，不作临床正常性判断。"
+          }
+        },
+        {
+          "id": "lifestyle",
+          "title": {
+            "en": "Lifestyle values",
+            "zh": "生活态度"
+          },
+          "low": {
+            "en": "Continuity and tradition",
+            "zh": "延续惯例"
+          },
+          "high": {
+            "en": "Renewal and choice",
+            "zh": "更新选择"
+          },
+          "definition": {
+            "en": "Views about keeping or revising everyday conventions, without ranking ways of life.",
+            "zh": "对延续或调整日常惯例的看法，不对生活方式作优劣排名。"
+          }
+        },
+        {
+          "id": "political",
+          "title": {
+            "en": "Public-policy outlook",
+            "zh": "公共政策立场"
+          },
+          "low": {
+            "en": "Public provision",
+            "zh": "公共保障"
+          },
+          "high": {
+            "en": "Market and personal responsibility",
+            "zh": "市场与个人责任"
+          },
+          "definition": {
+            "en": "Selected economic and public-service preferences, not a full ideology or party prediction.",
+            "zh": "选定经济与公共服务议题的偏好，不是完整意识形态或政党预测。"
+          }
+        }
+      ],
+      "privacy": {
+        "en": "Answers and bars stay in current-page memory. Reloading, changing language or leaving clears them. Copying includes only the same four public guide links, without answers or scores.",
+        "zh": "回答与图条只在当前页面内存中。刷新、换语或离开会清除。复制只包含固定的四篇公开指南链接，不含答案或分数。"
+      },
+      "scoreExplanation": {
+        "en": "Each axis has 15 statements scored 0–4, with seven reverse-keyed as 4 minus the chosen value. The sum is 0–60. The displayed high-end position is sum ÷ 60 × 100, and the other end is 100 minus that value, shown to one decimal. Fifty is a response midpoint, not a population average or probability. All 60 choices are required; no combined type is assigned.",
+        "zh": "每轴15题，选项记0—4分，其中7题反向记为4减所选值。原始和范围0—60；高端位置为原始和÷60×100，另一端为100减该值，显示一位小数。50只是回答中点，不是人群平均或概率。须完成全部60题，不合成类型。"
+      }
+    },
+    "directions": [
+      {
+        "id": "gender",
+        "title": {
+          "en": "Gendered expression",
+          "zh": "性别化表达"
+        },
+        "itemCount": 15
+      },
+      {
+        "id": "personality",
+        "title": {
+          "en": "Thinking experience",
+          "zh": "思维体验"
+        },
+        "itemCount": 15
+      },
+      {
+        "id": "lifestyle",
+        "title": {
+          "en": "Lifestyle values",
+          "zh": "生活态度"
+        },
+        "itemCount": 15
+      },
+      {
+        "id": "political",
+        "title": {
+          "en": "Public-policy outlook",
+          "zh": "公共政策立场"
+        },
+        "itemCount": 15
+      }
+    ],
+    "questions": [
+      {
+        "id": "four-axes-01",
+        "prompt": {
+          "en": "When I disagree, I usually state my position directly before discussing the feelings around it.",
+          "zh": "意见不同时，我通常先直接说明立场，再谈相关感受。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-02",
+        "prompt": {
+          "en": "An ordinary place can set off a vivid chain of imagined scenes in my mind.",
+          "zh": "一个普通场景，也可能在我脑中带出一连串鲜明的想象。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-03",
+        "prompt": {
+          "en": "Before following a custom, I like to ask whether it still serves a useful purpose.",
+          "zh": "遵循一项习俗之前，我喜欢先问它现在是否仍有作用。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-04",
+        "prompt": {
+          "en": "Public policy should generally leave people substantial control over how they use their own resources.",
+          "zh": "公共政策通常应给个人较大空间，决定如何使用自己的资源。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-05",
+        "prompt": {
+          "en": "Understanding how another person feels is an important part of how I express support.",
+          "zh": "表达支持时，了解对方的感受对我很重要。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-06",
+        "prompt": {
+          "en": "When explaining an event, I prefer starting with a concrete account that others can readily check.",
+          "zh": "解释一件事时，我更喜欢先说别人容易核对的具体经过。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-07",
+        "prompt": {
+          "en": "Familiar family rituals can give everyday life a welcome sense of continuity.",
+          "zh": "熟悉的家庭仪式，能给日常生活带来我喜欢的延续感。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-08",
+        "prompt": {
+          "en": "I support sharing some costs through taxes when that provides reliable basic public services.",
+          "zh": "如果能换来可靠的基础公共服务，我支持通过税收共同承担一部分成本。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-09",
+        "prompt": {
+          "en": "I am comfortable taking the lead when a group needs a clear decision.",
+          "zh": "一群人需要明确决定时，我愿意站出来带头。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-10",
+        "prompt": {
+          "en": "My train of thought often connects topics that seem far apart at first.",
+          "zh": "我的思路常会连接起乍看相隔很远的话题。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-11",
+        "prompt": {
+          "en": "Social roles should be open to revision when they do not fit the people involved.",
+          "zh": "社会角色不适合当事人时，我认为可以重新调整。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-12",
+        "prompt": {
+          "en": "Competition and the possibility of personal reward are important drivers of economic improvement.",
+          "zh": "竞争与个人获得回报的可能，是推动经济改善的重要动力。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-13",
+        "prompt": {
+          "en": "I prefer making room for a personal conversation before moving straight to a solution.",
+          "zh": "我更愿意先给个人交流留出空间，再直接解决问题。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-14",
+        "prompt": {
+          "en": "It is usually easy for me to separate a passing guess from what I actually observed.",
+          "zh": "我通常容易分清一闪而过的猜想与实际观察到的事情。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-15",
+        "prompt": {
+          "en": "I value keeping a practice that has proved meaningful over time.",
+          "zh": "对于长期被认为有意义的做法，我重视把它保留下来。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-16",
+        "prompt": {
+          "en": "Reducing avoidable barriers and large economic inequalities deserves a central place in policy.",
+          "zh": "减少可以避免的障碍与较大的经济不平等，应是政策的重要目标。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-17",
+        "prompt": {
+          "en": "Practical action often feels like my most natural way to show that I care.",
+          "zh": "采取实际行动，常是我最自然的关心方式。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-18",
+        "prompt": {
+          "en": "I enjoy following an unusual association even when it has no immediate practical use.",
+          "zh": "即使暂时没有实际用途，我也喜欢沿着不常见的联想想下去。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-19",
+        "prompt": {
+          "en": "I am comfortable questioning an expectation that people are supposed to follow because of gender.",
+          "zh": "对于因为性别而被要求遵守的期待，我愿意提出疑问。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-20",
+        "prompt": {
+          "en": "People who take responsibility for an economic risk should generally keep much of the resulting reward.",
+          "zh": "承担经济风险的人，通常应保留由此获得的大部分回报。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-21",
+        "prompt": {
+          "en": "I readily notice the emotional atmosphere between people in an ordinary interaction.",
+          "zh": "日常相处时，我容易留意人与人之间的情绪氛围。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-22",
+        "prompt": {
+          "en": "Familiar, straightforward explanations are usually the ones I find most comfortable.",
+          "zh": "熟悉、直接的解释，通常最让我感到自在。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-23",
+        "prompt": {
+          "en": "When changing a routine, I prefer a small tested adjustment to a complete break with the past.",
+          "zh": "改变惯例时，我更喜欢先做经过尝试的小调整，而不是彻底告别过去。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-24",
+        "prompt": {
+          "en": "A dependable safety net matters because hardship cannot always be prevented by personal effort.",
+          "zh": "可靠的基本保障很重要，因为个人努力并非总能避免困境。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-25",
+        "prompt": {
+          "en": "A clearly defined challenge can bring out my competitive side.",
+          "zh": "目标明确的挑战，容易带出我想争取领先的一面。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-26",
+        "prompt": {
+          "en": "I sometimes notice symbolic connections first and then return to check the ordinary facts.",
+          "zh": "有时我会先注意到象征或巧合，再回头核对日常事实。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-27",
+        "prompt": {
+          "en": "People should have room to choose a way of family or personal life that differs from a common template.",
+          "zh": "在家庭或个人生活上，人们应有选择不同于常见模板的空间。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-28",
+        "prompt": {
+          "en": "Before adding a business rule, I want clear evidence that its benefits justify its costs.",
+          "zh": "增加经营规则之前，我希望看到其益处足以抵偿成本的清楚依据。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-29",
+        "prompt": {
+          "en": "In a difficult conversation, maintaining a sense of connection matters more to me than winning.",
+          "zh": "艰难交谈时，比起争赢，我更在意彼此仍能交流。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-30",
+        "prompt": {
+          "en": "I can usually let an odd passing idea go without needing to develop it into a larger story.",
+          "zh": "对于偶然冒出的奇特念头，我通常可以放下，不必继续编成完整故事。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-31",
+        "prompt": {
+          "en": "Experience handed down between generations deserves serious consideration before it is discarded.",
+          "zh": "代际传下来的经验，在被舍弃之前值得认真考虑。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-32",
+        "prompt": {
+          "en": "Shared infrastructure can deserve public funding even when its immediate benefits differ between people.",
+          "zh": "即使不同人的直接获益不同，共用基础设施也可能值得公共投入。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-33",
+        "prompt": {
+          "en": "I can state a firm boundary without first softening every part of the message.",
+          "zh": "说明界限时，我可以直接而坚定，不必先把每句话都说得柔和。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-34",
+        "prompt": {
+          "en": "My inner conversation can contain detailed images or imagined dialogues.",
+          "zh": "我内心的思考有时包含细致画面或想象中的对话。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-35",
+        "prompt": {
+          "en": "I prefer being able to adapt appearance and everyday conventions to my own circumstances.",
+          "zh": "我更喜欢根据自身情况调整外表和日常约定。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-36",
+        "prompt": {
+          "en": "Where practical, I prefer decisions made through individual choice rather than a uniform public arrangement.",
+          "zh": "在实际可行时，我更倾向个人作出选择，而不是采用统一的公共安排。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-37",
+        "prompt": {
+          "en": "I deliberately use reassurance or warmth when someone seems uncertain.",
+          "zh": "对方显得不确定时，我会有意识地用温和或安抚的方式回应。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-38",
+        "prompt": {
+          "en": "In everyday communication, I usually rely on the shared, literal meaning of words.",
+          "zh": "日常交流时，我通常依靠大家共同理解的字面意思。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-39",
+        "prompt": {
+          "en": "Continuing a modest tradition can matter even when it is not the newest or most efficient option.",
+          "zh": "延续一个小传统可以有意义，即使它不是最新或最高效的选择。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-40",
+        "prompt": {
+          "en": "Access to basic education should depend as little as possible on a family’s financial position.",
+          "zh": "获得基础教育的机会，应尽可能少受家庭经济条件影响。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-41",
+        "prompt": {
+          "en": "In a negotiation, I am willing to sound forceful about a point that matters to me.",
+          "zh": "协商重要事项时，我愿意明确而有力度地坚持自己的观点。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-42",
+        "prompt": {
+          "en": "My ideas sometimes arrive in a nonlinear order that takes extra explaining.",
+          "zh": "我的想法有时按跳跃顺序出现，需要多解释几步。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-43",
+        "prompt": {
+          "en": "A widely accepted rule should still be reviewed if its effects seem unfair.",
+          "zh": "一条规则即使普遍被接受，如果效果不公平，也应重新审视。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-44",
+        "prompt": {
+          "en": "Protecting room for enterprise and voluntary exchange is a priority when I consider economic policy.",
+          "zh": "考虑经济政策时，保障创业与自愿交换的空间，是我重视的事项。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-45",
+        "prompt": {
+          "en": "I tend to invite quieter people to share how a shared situation affects them.",
+          "zh": "共同面对事情时，我通常愿意听听较少发言者的感受。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-46",
+        "prompt": {
+          "en": "For ordinary tasks, a steady and familiar way of thinking generally suits me.",
+          "zh": "处理普通任务时，稳定而熟悉的思考方式通常适合我。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-47",
+        "prompt": {
+          "en": "Established community conventions often provide a useful starting point for living together.",
+          "zh": "已有的社群惯例，常能为共同生活提供有用的起点。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-48",
+        "prompt": {
+          "en": "Public rules should address substantial costs that a private activity imposes on other people.",
+          "zh": "私人活动给他人带来较大外部成本时，公共规则应予以处理。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-49",
+        "prompt": {
+          "en": "I can make an independent decision even when the group has not reached emotional agreement.",
+          "zh": "即使大家在情绪上还没有达成一致，我也能独立作出决定。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-50",
+        "prompt": {
+          "en": "I notice details in sound, imagery or atmosphere that other people may pass over.",
+          "zh": "声音、画面或气氛中的一些细节，会引起我的注意，而别人可能直接略过。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-51",
+        "prompt": {
+          "en": "I prefer choosing the commitments I keep rather than treating every inherited expectation as a duty.",
+          "zh": "我更愿意选择自己保留的承诺，而不是把所有继承的期待都视为义务。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-52",
+        "prompt": {
+          "en": "Market prices and private decisions are often preferable to public allocation of scarce resources.",
+          "zh": "分配稀缺资源时，市场价格与私人决定往往比公共统一分配更合我的偏好。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-53",
+        "prompt": {
+          "en": "Small acts of mutual care are a central part of how I prefer to relate to people.",
+          "zh": "彼此关照的小事，是我喜欢的人际相处方式中很重要的一部分。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-54",
+        "prompt": {
+          "en": "Other people can usually follow the ordinary sequence I use to describe an experience.",
+          "zh": "别人通常能够跟上我描述一段经历时使用的常规顺序。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-55",
+        "prompt": {
+          "en": "Before replacing an old practice, I want to understand what people may lose along with it.",
+          "zh": "替换旧做法之前，我希望先了解人们也可能因此失去什么。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-56",
+        "prompt": {
+          "en": "Workers facing a large imbalance in bargaining power may need collective or public protection.",
+          "zh": "劳动者在议价能力明显不对等时，可能需要集体或公共保护。"
+        },
+        "reverse": true,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-57",
+        "prompt": {
+          "en": "I feel at ease presenting myself as determined and self-reliant.",
+          "zh": "把自己表现得坚定、自立，会让我感到自然。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "gender",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "gender",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "gender",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "gender",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "gender",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-58",
+        "prompt": {
+          "en": "Exploring what might be possible often interests me as much as describing what is already known.",
+          "zh": "探索各种可能，有时和描述已知情况一样让我感兴趣。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "personality",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "personality",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "personality",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "personality",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "personality",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-59",
+        "prompt": {
+          "en": "I am willing to redesign an everyday arrangement when it no longer fits present needs.",
+          "zh": "一项日常安排已经不适合当下需要时，我愿意重新设计它。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "lifestyle",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "lifestyle",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "lifestyle",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "lifestyle",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "four-axes-60",
+        "prompt": {
+          "en": "A good policy should give people a clear incentive to take responsibility for their own choices.",
+          "zh": "一项好政策应清楚鼓励人们为自己的选择承担责任。"
+        },
+        "reverse": false,
+        "options": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Strongly disagree",
+              "zh": "强烈不同意"
+            },
+            "directionId": "political",
+            "score": 0
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Disagree",
+              "zh": "不同意"
+            },
+            "directionId": "political",
+            "score": 1
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Neither agree nor disagree",
+              "zh": "既不同意也不反对"
+            },
+            "directionId": "political",
+            "score": 2
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Agree",
+              "zh": "同意"
+            },
+            "directionId": "political",
+            "score": 3
+          },
+          {
+            "id": "4",
+            "label": {
+              "en": "Strongly agree",
+              "zh": "强烈同意"
+            },
+            "directionId": "political",
+            "score": 4
+          }
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "gender",
+        "directionIds": [
+          "gender"
+        ],
+        "title": {
+          "en": "Gendered expression: agency and care",
+          "zh": "性别化表达：自主与关照的完整读法"
+        },
+        "headline": {
+          "en": "Read a way of expressing yourself in context",
+          "zh": "把表达方式放回具体情境"
+        },
+        "summary": {
+          "en": "Explore direct, self-directed and relational ways of communicating without assigning a sex or gender identity.",
+          "zh": "从直接、自主与关系关照的表达方式理解回答，不据此判定生理性别或性别认同。"
+        },
+        "scoreReading": {
+          "en": "The two ends summarize agreement with this original set of expression statements. They are not the proportions of men or women who resemble you.",
+          "zh": "两端只是这组原创表达条目的认同位置，不是你像多少比例的男性或女性。"
+        },
+        "seo": {
+          "title": {
+            "en": "Gendered Expression: Agency and Care Guide",
+            "zh": "性别化表达完整解释：自主、关照与情境"
+          },
+          "description": {
+            "en": "Read both ends of the expression axis, mixed answers and practical scenes. Original reflection, without sex assignment or population norms.",
+            "zh": "完整理解表达轴的自主与关照两端、混合回答和日常例子。原创反思，不判定性别，不套用人口常模。"
+          }
+        },
+        "sections": [
+          {
+            "id": "meaning",
+            "title": {
+              "en": "What this axis describes",
+              "zh": "这条轴描述什么"
+            },
+            "paragraphs": [
+              {
+                "en": "This axis gathers how you describe expressing a position, making a decision and responding to another person. Its direct end emphasizes agency and firmness; its relational end emphasizes warmth and attention to a shared atmosphere. Both are available to anyone, and the same conversation can call for both.",
+                "zh": "这条轴汇总你如何描述表达立场、作出决定和回应他人。偏直接的一端侧重自主与坚定，偏关系的一端侧重温和与相处氛围。任何人都可以使用这两类方式，同一次交谈也可能需要两者。"
+              },
+              {
+                "en": "The gendered context concerns cultural labels sometimes attached to these behaviors. WHO distinguishes social gender norms from biological sex and gender identity. Here no comparison sample of men or women is used: the number comes only from your answers to fifteen original statements.",
+                "zh": "性别化语境指文化中有时附着在这些行为上的标签。WHO区分社会性别规范、生理性别与性别认同。这里没有使用男性或女性对照样本，数值只来自你对十五条原创陈述的回答。"
+              }
+            ]
+          },
+          {
+            "id": "lower",
+            "title": {
+              "en": "A relational emphasis",
+              "zh": "偏向关系关照时"
+            },
+            "paragraphs": [
+              {
+                "en": "A lower position means you more often endorsed the relational wording after the reverse keys were applied. In a hypothetical group discussion, you might first ask what has made someone hesitant. That question can open a useful exchange, but this result cannot tell whether your actual listening is effective.",
+                "zh": "数值偏低，表示按反向键换算后，你更常认同关系关照类表述。假设一群人正在讨论，你可能先问某个人为什么犹豫。这种提问可以打开交流，但分数不能判断你现实中的倾听是否有效。"
+              },
+              {
+                "en": "The practical question is whether care and your own needs both remain visible. Imagine agreeing to help with an ordinary errand: naming the amount of time you can give makes the arrangement clearer. A warm response can still contain a firm boundary; no score requires continual accommodation.",
+                "zh": "值得观察的是，关照他人与自己的需要是否都被看见。假设答应帮人办一件小事，说清能够投入多少时间，可以让安排更明确。温和回应也可以带着坚定界限，分数不要求你持续迁就。"
+              }
+            ]
+          },
+          {
+            "id": "higher",
+            "title": {
+              "en": "A direct emphasis",
+              "zh": "偏向自主直接时"
+            },
+            "paragraphs": [
+              {
+                "en": "A higher position means you more often endorsed direct and self-directed wording in this set. For a hypothetical shared deadline, you might state which decision is needed and propose a next step. The useful evidence is whether others understand that proposal, rather than whether it fits a gender label.",
+                "zh": "数值偏高，表示你在这组题目中更常认同直接、自主的表述。假设共同任务临近期限，你可能说明需要决定什么，并提出下一步。真正有用的证据，是别人是否理解提议，而不是它是否符合性别标签。"
+              },
+              {
+                "en": "A clear position can leave room for questions. You could name a preference and then ask which constraint you have missed. If the exchange becomes tense, look at the actual wording, time pressure and relationship. This axis does not establish that you are dominant, insensitive or naturally suited to lead.",
+                "zh": "立场清楚，也可以给提问留下空间。你可以先说明偏好，再问自己漏掉了什么限制。交流紧张时，应看实际措辞、时间压力与关系。这条轴不能确立你是否强势、冷漠，或天生适合领导。"
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "title": {
+              "en": "Mixed answers and changing settings",
+              "zh": "混合回答与情境变化"
+            },
+            "paragraphs": [
+              {
+                "en": "A middle position can arise from choosing the middle response repeatedly or from endorsing statements on both sides. Those patterns are different, even if their totals match. Someone may be direct in a practical negotiation and highly attentive to feelings when a friend needs time to speak.",
+                "zh": "居中位置可能来自多次选择中立，也可能来自同时认同两端表述。即使总分相同，这两种模式也不同。一个人可以在实际协商中直接，在朋友需要倾诉时又充分留意感受。"
+              },
+              {
+                "en": "Use a specific recent scene before turning the bar into a description of your whole life. Role expectations, familiarity and available time can change which behavior feels natural. Retaking the quiz may change the number without proving that your identity or underlying personality has changed.",
+                "zh": "把整条分数当作人生描述之前，先找一个近期情境。角色期待、熟悉程度和可用时间，都可能影响哪种行为更自然。重测数值发生变化，并不证明身份或底层人格发生了变化。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Try one small comparison",
+              "zh": "做一次小比较"
+            },
+            "paragraphs": [
+              {
+                "en": "For an optional exercise, draft two ways to request a small change. One can lead with the concrete request; the other can begin by acknowledging the shared situation. Compare whether each version communicates the same boundary. You do not have to send either version or choose one style permanently.",
+                "zh": "可以尝试为一个小调整写两种请求方式：一种先说具体要求，另一种先回应共同处境。比较两种说法是否都说明了同一条界限。两条都无需发出，也无需永久选择其中一种风格。"
+              },
+              {
+                "en": "If you discuss the exercise with someone, ask about the wording rather than asking them to judge your masculinity or femininity. Their response describes this particular exchange. Keeping both approaches available can be more informative than trying to make a score move toward a preferred end.",
+                "zh": "若与别人讨论练习，可以询问措辞是否清楚，而不是请对方评判你的男性化或女性化。对方的反应描述的是这次交流。保留两种做法，往往比努力把分数推向某一端更能提供信息。"
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "title": {
+              "en": "How far the reading can go",
+              "zh": "读法能走到哪里"
+            },
+            "paragraphs": [
+              {
+                "en": "The percentage is a response-range position under FermatMind’s disclosed recipe. It is not a population percentile, a probability of a gender identity, or a measure of emotional intelligence. The item bank, equal weights and two-ended display have not been psychometrically validated.",
+                "zh": "这个百分数是费马明示算法下的回答区间位置，不是人群百分位、性别认同的概率或情商指标。题本、等权计分及两端显示方式尚未完成心理测量验证。"
+              },
+              {
+                "en": "Use the reading as optional language for reflection. It does not support hiring decisions, judgments about capability, or expectations imposed on a partner or child. Your own identity and another person’s stated preferences take precedence over a short questionnaire’s labels.",
+                "zh": "可以把读法作为可选的反思语言，不能据此招聘、判断能力，或给伴侣与孩子施加期待。你的身份认同，以及另一个人明确表达的偏好，都应优先于短题本的标签。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "personality",
+        "directionIds": [
+          "personality"
+        ],
+        "title": {
+          "en": "Thinking experience: familiar and associative styles",
+          "zh": "思维体验：常规与联想风格完整读法"
+        },
+        "headline": {
+          "en": "Describe experiences without declaring normality",
+          "zh": "描述体验，不给心理正常度打分"
+        },
+        "summary": {
+          "en": "Understand familiar explanations, vivid associations and mixed answers without turning them into a clinical label.",
+          "zh": "理解熟悉解释、鲜明联想与混合回答，不把它们变成临床标签。"
+        },
+        "scoreReading": {
+          "en": "This position summarizes the chosen everyday-experience statements. It cannot determine whether a person is psychologically normal or abnormal.",
+          "zh": "位置仅汇总所选的日常体验陈述，不能判断一个人心理正常或异常。"
+        },
+        "seo": {
+          "title": {
+            "en": "Thinking Styles: Familiar and Associative",
+            "zh": "思维体验完整解释：常规、联想与情境"
+          },
+          "description": {
+            "en": "Explore both ends of this original thinking-experience axis, ordinary examples and score limits. No diagnosis or creativity ranking.",
+            "zh": "完整阅读原创思维体验轴的两端、日常例子和分数边界。不作诊断，不给创造力排名。"
+          }
+        },
+        "sections": [
+          {
+            "id": "meaning",
+            "title": {
+              "en": "The selected experiences",
+              "zh": "本题本选取的体验"
+            },
+            "paragraphs": [
+              {
+                "en": "This axis combines statements about familiar explanations, imagined scenes, associations and the way you describe an experience. A higher position reflects more agreement with the associative wording; a lower position reflects more agreement with the familiar and shared-sequence wording. This is a small editorial selection, not a map of all thinking.",
+                "zh": "这条轴结合了熟悉解释、想象画面、联想，以及描述经历的方式。偏高表示更认同联想类表述，偏低表示更认同熟悉解释与共同叙述顺序。这只是编辑选取的一小组内容，不是全部思维方式的地图。"
+              },
+              {
+                "en": "Some online four-axis formats use normal-versus-abnormal language. FermatMind does not make that classification. An unusual association, an ordinary explanation and a passing vivid image do not by themselves establish mental health, a disorder or a person’s ability to understand reality.",
+                "zh": "一些网络四轴形式使用正常与异常的语言。费马不作这种分类。不常见的联想、普通解释或偶尔鲜明的画面，都不能单独确立心理健康、障碍，或一个人理解现实的能力。"
+              }
+            ]
+          },
+          {
+            "id": "lower",
+            "title": {
+              "en": "A familiar, shared sequence",
+              "zh": "偏向熟悉与共同顺序时"
+            },
+            "paragraphs": [
+              {
+                "en": "A lower position means you more often endorsed familiar explanations and an easily shared sequence. Imagine describing how a small household problem occurred. Starting with what happened first and what you directly noticed can help another person follow the account. Whether it helps is something to check in that conversation.",
+                "zh": "偏低位置表示你更常认同熟悉解释和容易共享的顺序。假设说明家里一件小问题的经过，先说发生顺序和直接看到的事情，可以让别人更容易跟上。是否真的有帮助，要在那次交谈中核对。"
+              },
+              {
+                "en": "Familiarity can also leave an assumption unexamined. An optional question is whether you have separated an observation from the explanation you usually give it. You can keep a familiar explanation when it fits the evidence; there is no requirement to produce a novel story to improve a result.",
+                "zh": "熟悉感也可能让某个假设没有被检查。可以问自己，是否分清了观察到的内容与惯常解释。解释符合证据时，可以继续使用它；无需为了改善结果而刻意编出新故事。"
+              }
+            ]
+          },
+          {
+            "id": "higher",
+            "title": {
+              "en": "An associative, vivid sequence",
+              "zh": "偏向联想与鲜明体验时"
+            },
+            "paragraphs": [
+              {
+                "en": "A higher position means you endorsed more of this set’s imaginative or nonlinear descriptions. For a hypothetical creative task, one image may suggest several possible directions. Write them as possibilities before deciding which one fits the task. The number does not demonstrate creativity, insight or a special perception.",
+                "zh": "偏高位置表示你更认同本组想象或跳跃叙述。假设面对一个创作任务，一幅画面可能带出几个方向。可以先把它们写成可能性，再决定哪一种适合任务。数值不能证明创造力、洞察力或特殊感知。"
+              },
+              {
+                "en": "When sharing an association, make the connecting steps visible. You might explain which detail suggested the next idea and which part is still a guess. This lets another person respond to the idea itself. A surprising connection does not have to be true, false or meaningful simply because it feels vivid.",
+                "zh": "分享联想时，可以把中间步骤说出来：哪处细节带出了下一想法，哪些仍是猜测。这样，对方才能回应想法本身。一种联系感受鲜明，并不自动使它成为事实、错误或特殊含义。"
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "title": {
+              "en": "One total, several patterns",
+              "zh": "相同总分，不同模式"
+            },
+            "paragraphs": [
+              {
+                "en": "A middle score may reflect moderate answers throughout, or a mixture of strong answers in both directions. It can also reflect different settings: a person may prefer a literal account at work and a richly imagined story while reading. The bar compresses those differences instead of resolving them.",
+                "zh": "中间分数可能来自各题都较温和的回答，也可能来自两端都很强的混合回答。情境也会不同：一个人工作时偏好字面说明，阅读时又喜欢丰富想象。分数压缩了这些差异，并没有替你解释原因。"
+              },
+              {
+                "en": "A recent memorable experience can influence what comes to mind while answering. If you revisit the questions, compare the circumstances you used, not just the number. A changed result is not evidence of recovery, deterioration, intelligence or a newly discovered diagnosis.",
+                "zh": "近期印象深刻的经历，会影响作答时想到什么。重新看题目时，可以比较所参考的情境，而不只盯着数值。结果改变，不是康复、恶化、智力变化或发现新诊断的证据。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Keep observations and possibilities distinct",
+              "zh": "把观察与可能性分开"
+            },
+            "paragraphs": [
+              {
+                "en": "For an ordinary optional exercise, describe a harmless event in two columns. Put what you directly observed in one, and possible explanations in the other. This is a way to make a description clearer, not a treatment or a test of whether your mind is functioning correctly.",
+                "zh": "可以选一件普通、无害的小事分两栏记录：一栏是直接观察，一栏是可能解释。这是让描述更清楚的方式，不是治疗，也不是检查大脑是否运作正常的测试。"
+              },
+              {
+                "en": "You may also ask a willing listener which connection needed more explanation. Their answer concerns this account and their understanding. It does not require you to suppress imagination or defend every image that passes through your mind. Keeping an idea provisional is a complete option.",
+                "zh": "也可以问一位愿意倾听的人，哪处联系需要多解释一步。回答针对的是这次叙述及对方的理解，无需因此压抑想象，也无需为每个闪过的画面辩护。把一个想法暂时保留为可能性，本身就是完整选择。"
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "title": {
+              "en": "What the axis cannot settle",
+              "zh": "这条轴不能决定什么"
+            },
+            "paragraphs": [
+              {
+                "en": "The questions do not assess diagnostic criteria, impairment, duration or a clinical history. A high or low result cannot establish a personality disorder, psychosis, attention disorder or psychological normality. Likewise, neither end is a moral grade or a ranking of the value of someone’s ideas.",
+                "zh": "题目没有评估诊断标准、功能受损、持续时间或临床历史。分数高低不能确立人格障碍、精神病性问题、注意障碍或心理正常度。两端也不是道德评分，更不排列一个人想法的价值。"
+              },
+              {
+                "en": "Use the reading only for optional self-description. If an actual experience is persistently distressing or disrupts daily life, that specific situation deserves attention beyond this quiz. The response-range percentage cannot identify its cause, confirm safety or replace an appropriate individual assessment.",
+                "zh": "读法只适用于可选的自我描述。如果某种实际体验持续令人困扰，或明显打乱日常生活，应关注具体情况，而不只看本测试。回答区间百分数不能识别原因、确认安全或替代合适的个别评估。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lifestyle",
+        "directionIds": [
+          "lifestyle"
+        ],
+        "title": {
+          "en": "Lifestyle values: continuity and renewal",
+          "zh": "生活态度：延续与更新的完整读法"
+        },
+        "headline": {
+          "en": "Consider what to keep and what to revise",
+          "zh": "看看想保留什么、想调整什么"
+        },
+        "summary": {
+          "en": "Read preferences for familiar practices and revised arrangements without turning tradition or change into a moral ranking.",
+          "zh": "理解熟悉做法与重新安排的偏好，不把传统或改变排成道德高低。"
+        },
+        "scoreReading": {
+          "en": "The two ends describe responses to this set’s continuity and change statements. They do not assign a complete political outlook or a cultural group.",
+          "zh": "两端描述这组延续与改变条目的回答，不据此判定完整政治立场或文化群体。"
+        },
+        "seo": {
+          "title": {
+            "en": "Lifestyle Values: Tradition and Change Guide",
+            "zh": "生活态度完整解释：传统、更新与具体情境"
+          },
+          "description": {
+            "en": "Explore continuity, renewal, mixed preferences and everyday choices. A full original reading with transparent limits and practical examples.",
+            "zh": "从延续、更新、混合偏好与日常选择理解生活态度。完整原创解释，含具体例子、反思和清楚边界。"
+          }
+        },
+        "sections": [
+          {
+            "id": "meaning",
+            "title": {
+              "en": "Continuity and revision",
+              "zh": "延续与调整"
+            },
+            "paragraphs": [
+              {
+                "en": "This axis concerns the practices and expectations you prefer to keep or reconsider in everyday life. The continuity end emphasizes inherited experience and familiar arrangements. The renewal end emphasizes revising a convention when it no longer fits. A person can value both, and different customs may call for different decisions.",
+                "zh": "这条轴关注你在日常生活中希望保留或重新考虑的做法与期待。延续一端侧重传承经验和熟悉安排，更新一端侧重在约定不再合适时调整。一个人可以同时珍惜两者，对不同习俗也可以作出不同决定。"
+              },
+              {
+                "en": "Values research offers broader descriptions of tradition and self-expression, including comparisons between societies. This quiz does not transfer a country’s position on a cultural map to an individual. Its result uses fifteen original statements about your preferences, not the World Values Survey item bank or its statistical model.",
+                "zh": "价值观研究对传统和自我表达有更广的描述，也包括社会之间的比较。本测试不把文化地图中一个国家的位置移到个人身上。结果使用十五条原创偏好陈述，不使用世界价值观调查的题库或统计模型。"
+              }
+            ]
+          },
+          {
+            "id": "lower",
+            "title": {
+              "en": "A continuity emphasis",
+              "zh": "偏向延续时"
+            },
+            "paragraphs": [
+              {
+                "en": "A lower position means more of your answers favored keeping a familiar or inherited practice in this set. Imagine planning a small annual gathering. Repeating an established arrangement may make preparation easier and preserve something participants care about. The relevant question is which part remains useful to the actual people involved.",
+                "zh": "偏低位置表示你在这组题目中更常倾向保留熟悉或传承的做法。假设筹备一次年度小聚，沿用已有安排，可以让准备更容易，也保留参与者在意的内容。值得问的是，哪一部分对眼前这些人仍然有用。"
+              },
+              {
+                "en": "Keeping a practice does not require keeping every detail. You might preserve a shared activity while changing its time so more people can participate. That is a concrete decision about access and meaning. The score cannot establish that you resist progress or that an inherited rule must always be right.",
+                "zh": "保留一个做法，不等于必须保留所有细节。可以留下共同活动，同时调整时间，让更多人能够参加。这是关于参与条件和意义的具体决定。分数不能确立你抗拒进步，也不能证明传下来的规则总是正确。"
+              }
+            ]
+          },
+          {
+            "id": "higher",
+            "title": {
+              "en": "A renewal emphasis",
+              "zh": "偏向更新时"
+            },
+            "paragraphs": [
+              {
+                "en": "A higher position means more of your answers favored reviewing expectations and adapting arrangements. In a hypothetical shared household, you might ask whether an old division of tasks still fits everyone’s available time. A proposed change can be assessed by its effects rather than by how new or unconventional it sounds.",
+                "zh": "偏高位置表示你更常认同审视期待、调整安排的表述。假设共同生活，可以问原有分工是否仍适合每个人的时间。评价一项改变时，可以看它带来的实际效果，而不只看它听起来多新、多不合惯例。"
+              },
+              {
+                "en": "A new arrangement may introduce costs that were easy to overlook. Asking who will learn a new routine, who benefits and what should be retained makes the proposal more specific. This does not require abandoning family ties or proving that you are more open-minded than someone who prefers the existing practice.",
+                "zh": "新安排也可能带来原先没注意到的成本。问清谁需要学习新习惯、谁会受益，以及哪些内容应保留，可以让提议更具体。无需因此放弃家庭联系，也无需证明自己比偏好旧做法的人更开放。"
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "title": {
+              "en": "Several preferences can coexist",
+              "zh": "不同偏好可以并存"
+            },
+            "paragraphs": [
+              {
+                "en": "You may prefer continuity in a meaningful ritual and flexibility in a social role. A single total compresses those separate choices. A middle position can therefore describe a genuine mixture, not uncertainty or a failure to hold values. Look at the statements that matter in the situation you want to understand.",
+                "zh": "你可能喜欢一个有意义的仪式保持原样，又希望社会角色更灵活。单一总分会压缩这些不同选择。中间位置因此可能是一种真实混合，而非没有主见或缺乏价值观。应回看与你想理解的情境有关的陈述。"
+              },
+              {
+                "en": "Lifestyle and public-policy preferences are scored separately here. Someone can favor familiar family customs while supporting strong public services; another person can prefer personal freedom in daily life and market choice in economic policy. The quiz does not require either combination to follow a single ideological package.",
+                "zh": "本站把生活态度和公共政策偏好分别计分。一个人可以珍惜熟悉的家庭习俗，同时支持较强的公共服务；也可以在日常生活强调自主、在经济政策中偏好市场选择。本题本不要求这些组合服从某套统一立场。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Review one modest practice",
+              "zh": "审视一个小做法"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose an ordinary practice that you are actually free to adjust, such as how a small group arranges a meeting. Write what the practice currently provides, one inconvenience it creates and a limited change worth trying. This keeps reflection connected to an observed setting instead of to an abstract score.",
+                "zh": "可以挑一个你确实有权调整的小做法，例如一群人如何安排碰面。写下它目前提供什么、带来哪项不便，以及值得尝试的有限改变。这样，反思就连接到实际场景，而不只连接一个抽象分数。"
+              },
+              {
+                "en": "If other people share the practice, ask what they want to preserve before suggesting a trial. Decide together what would count as a useful result. You can also keep the existing arrangement. No end of this axis requires a change, and an unsuccessful experiment is not a verdict on your values.",
+                "zh": "若这项做法涉及他人，可以在提议试行前，先问对方想保留什么，并一起决定怎样算有帮助。也可以继续沿用原安排。这条轴的任何一端都不要求改变，一次尝试不合适，也不是对价值观的判决。"
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "title": {
+              "en": "An editorial perspective, not a social ranking",
+              "zh": "编辑视角，不是社会排名"
+            },
+            "paragraphs": [
+              {
+                "en": "The displayed percentage is calculated from this item set. It is not a population percentile, a measure of being modern or outdated, or an assessment of moral worth. The terms tradition and change can mean different things across communities, generations and situations; this recipe does not settle those meanings universally.",
+                "zh": "显示百分数来自这套条目，不是人群百分位，也不测量一个人现代、落伍或道德价值。传统和改变在不同社群、代际与情境中可能含义不同，这个算法不能为它们规定普遍答案。"
+              },
+              {
+                "en": "The original questionnaire has not undergone psychometric validation. Use its words to start an optional conversation about a specific choice. It cannot establish someone’s religion, social identity, political party or duty to follow a custom, and it does not authorize judging another person by a label.",
+                "zh": "这份原创题本尚未完成心理测量验证。可以借它的语言，围绕一个具体选择展开可选的交谈。它不能确立宗教、社会身份、政党或遵循习俗的义务，也不能成为用标签评价他人的依据。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "political",
+        "directionIds": [
+          "political"
+        ],
+        "title": {
+          "en": "Public-policy outlook: provision and market choice",
+          "zh": "公共政策立场：保障与市场选择的完整读法"
+        },
+        "headline": {
+          "en": "Read a set of trade-offs, not a party identity",
+          "zh": "理解一组取舍，不判定政党身份"
+        },
+        "summary": {
+          "en": "Explore public provision, market discretion and mixed economic preferences with neutral examples and clear score boundaries.",
+          "zh": "以中立例子理解公共保障、市场自主与混合经济偏好，并明确分数边界。"
+        },
+        "scoreReading": {
+          "en": "This original axis summarizes selected economic and public-policy statements. Its endpoints are not a complete definition of political left and right.",
+          "zh": "这条原创轴汇总选取的经济与公共政策陈述，两端不是政治左右的完整定义。"
+        },
+        "seo": {
+          "title": {
+            "en": "Political Outlook: Public and Market Priorities",
+            "zh": "公共政策立场完整解释：保障、市场与取舍"
+          },
+          "description": {
+            "en": "A neutral guide to both ends of the original policy axis, mixed answers and practical trade-offs. No party, vote or ideology prediction.",
+            "zh": "中立解释原创公共政策轴的两端、混合回答和实际取舍，不预测政党、投票或完整意识形态。"
+          }
+        },
+        "sections": [
+          {
+            "id": "meaning",
+            "title": {
+              "en": "The choices represented here",
+              "zh": "这里选取了哪些取舍"
+            },
+            "paragraphs": [
+              {
+                "en": "This axis gathers responses about public services, shared costs, market choice and individual responsibility. The public-provision end favors more of the selected collective-support statements; the market-choice end favors more of the selected individual-discretion statements. Each end reflects this particular recipe rather than an exhaustive account of political life.",
+                "zh": "这条轴汇总公共服务、共同成本、市场选择与个人责任方面的回答。公共保障一端更认同所选的共同支持表述，市场选择一端更认同所选的个人自主表述。两端反映的是本套算法，不是政治生活的全部内容。"
+              },
+              {
+                "en": "Left and right are common shorthand in political discussion, but they do not resolve every issue or country’s context. Here the headline labels make the chosen economic emphasis explicit. The result does not identify a party, predict a vote, or tell you which public policy you should support.",
+                "zh": "左右是政治讨论中常用的简写，但无法涵盖每个议题或国家的情境。这里用标题明确选取的经济侧重。结果不识别政党，不预测投票，也不告诉你应该支持哪项公共政策。"
+              }
+            ]
+          },
+          {
+            "id": "lower",
+            "title": {
+              "en": "A public-provision emphasis",
+              "zh": "偏向公共保障时"
+            },
+            "paragraphs": [
+              {
+                "en": "A lower position means more of your answers endorsed shared provision and reducing some economic barriers. Imagine considering a hypothetical local service funded through a common budget. Your interest might focus on reliable access and on who would otherwise be excluded. That starting concern does not by itself settle the best design.",
+                "zh": "偏低位置表示你更常认同共同保障和减少某些经济障碍。假设讨论一项由共同预算支持的本地服务，你可能先关注能否稳定获得服务，以及哪些人原本难以参与。这种出发关切，本身并不能决定最好的设计。"
+              },
+              {
+                "en": "Questions about cost, accountability and unintended effects remain relevant to that preference. You could ask what the proposal provides, who pays and how its results would be checked. Considering those details does not make the preference less sincere; it makes a particular proposal easier to assess on its own evidence.",
+                "zh": "成本、问责及意外影响，仍然与这种偏好有关。可以问提议提供什么、由谁承担成本、如何检查结果。考虑这些细节，不会使偏好不真诚，而是让一个具体方案更容易依据证据被评估。"
+              }
+            ]
+          },
+          {
+            "id": "higher",
+            "title": {
+              "en": "A market-choice emphasis",
+              "zh": "偏向市场选择时"
+            },
+            "paragraphs": [
+              {
+                "en": "A higher position means more of your answers endorsed private discretion, competition or responsibility for a choice. For a hypothetical service, your first question might be whether people can choose an option that fits their needs. That concern does not establish that everyone has equal resources or equal bargaining power.",
+                "zh": "偏高位置表示你更常认同私人自主、竞争或为选择承担责任。面对一项假想服务，你可能先问人们能否选择适合自身需要的选项。这种关切，并不证明每个人拥有相同资源或相同议价能力。"
+              },
+              {
+                "en": "Questions about access, external costs and safeguards still matter. You might compare what happens to people with fewer options as well as to those able to choose freely. Checking those effects is a way to evaluate a specific arrangement, not a requirement to adopt or reject any political identity.",
+                "zh": "获得机会、外部成本与基本保护，仍值得考虑。可以同时比较选择较少者与能够自由选择者会受到什么影响。核对这些效果，是评价具体安排的方式，而不是要求你接受或拒绝某种政治身份。"
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "title": {
+              "en": "A mixed position is possible",
+              "zh": "混合立场可以成立"
+            },
+            "paragraphs": [
+              {
+                "en": "You may support one publicly funded service and prefer market competition in another setting. The same total can also arise from middle responses or from strong but opposing answers. Read the relevant statements before describing yourself as centrist or inconsistent; the bar alone cannot explain how you arrived there.",
+                "zh": "你可以支持某项公共资助服务，同时在另一情境偏好市场竞争。相同总分也可能来自中立回答，或来自两端都很强的回答。把自己称为中间派或前后矛盾之前，应回看相关条目；分数条本身解释不了形成过程。"
+              },
+              {
+                "en": "Economic preferences are only part of a wider outlook. Views about civil liberties, international affairs, institutions and culture need not align with a single economic axis. This questionnaire does not infer those unasked positions or require them to match your result on the separate lifestyle axis.",
+                "zh": "经济偏好只是更广立场的一部分。公民自由、国际事务、制度与文化等观点，不一定与单一经济轴一致。本题本不推断没有问到的立场，也不要求它们与你另一条生活态度轴的结果相配套。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Examine one proposal on its merits",
+              "zh": "按具体方案检查取舍"
+            },
+            "paragraphs": [
+              {
+                "en": "For an optional exercise, choose a modest, hypothetical community project. List its intended benefit, likely costs, who makes decisions and which evidence would change your view. You can use the same questions for different proposals. The exercise does not recommend a party, campaign, vote or ideological destination.",
+                "zh": "可以选一项规模不大的假想社区项目，列出预期益处、可能成本、由谁决定，以及什么证据会让你修正看法。同样的问题可以用于不同方案。练习不推荐政党、竞选活动、投票或某个意识形态终点。"
+              },
+              {
+                "en": "If you discuss it with someone, try stating their main concern in a form they recognize before evaluating it. Agreement is optional. A clearer account of the trade-off can be a useful result even when preferences remain different; a questionnaire score is not a substitute for that conversation.",
+                "zh": "若与别人讨论，可以先用对方认可的方式复述其主要关切，再作评价。无需一定达成共识。即使偏好仍不同，把取舍说得更清楚也可能有用；问卷分数不能替代这样的交谈。"
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "title": {
+              "en": "Keep the interpretation bounded",
+              "zh": "保持解释边界"
+            },
+            "paragraphs": [
+              {
+                "en": "The percentage is neither a share of the electorate nor a probability that you belong to a political group. There is no representative reference sample or validated ideological threshold behind this original recipe. A score reflects responses to the selected statements, including the balance and wording chosen by the editor.",
+                "zh": "这个百分数既不是选民中的比例，也不是你属于某个政治群体的概率。这份原创算法没有代表性对照样本或经验证的意识形态阈值。分数反映的是所选条目的回答，也受到编辑选择的平衡方式与措辞影响。"
+              },
+              {
+                "en": "The reading is for voluntary personal reflection, not targeting, persuasion, eligibility or judgments about citizenship and character. Your answers and private result remain in this page’s memory. Public guide links contain the same general text for everyone and do not include your policy answers or calculated position.",
+                "zh": "读法用于自愿的个人反思，不能用于定向说服、资格判断，或评价公民身份与品格。回答和个人结果只留在本页内存中。公开指南链接对所有人呈现相同通用文本，不包含你的政策回答或计算位置。"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "guide": [
+      {
+        "id": "four-domains",
+        "title": {
+          "en": "Four separate perspectives",
+          "zh": "四个独立视角"
+        },
+        "paragraphs": [
+          {
+            "en": "This original self-portrait brings together expression, thinking experience, lifestyle values and selected public-policy preferences. The familiar online four-axes format supplies the topic structure. FermatMind wrote the statements, translation, scoring and reading guides independently.",
+            "zh": "本原创自我画像把表达方式、思维体验、生活态度与选定公共政策偏好放在一起。常见网络四轴形式提供主题结构，费马独立编写题目、双语措辞、计分和解读。"
+          },
+          {
+            "en": "The axes do not explain one another. A preference for preserving family rituals need not imply a particular economic policy, and an associative imagination does not establish a mental-health condition. Read each bar alongside a concrete example from your life.",
+            "zh": "四轴之间不互相推导。喜欢保留家庭仪式，不必然意味着某种经济政策立场；想象富有联想，也不能确立心理健康状况。读每条图时，都可以配合一个具体生活例子。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How the four bars are calculated",
+          "zh": "四条图如何计算"
+        },
+        "paragraphs": [
+          {
+            "en": "Each axis has 15 statements scored 0–4, with seven reverse-keyed as 4 minus the chosen value. The sum is 0–60. The displayed high-end position is sum ÷ 60 × 100, and the other end is 100 minus that value, shown to one decimal. Fifty is a response midpoint, not a population average or probability. All 60 choices are required; no combined type is assigned.",
+            "zh": "每轴15题，选项记0—4分，其中7题反向记为4减所选值。原始和范围0—60；高端位置为原始和÷60×100，另一端为100减该值，显示一位小数。50只是回答中点，不是人群平均或概率。须完成全部60题，不合成类型。"
+          },
+          {
+            "en": "Equal weights are an editorial choice, not an estimated scientific model. Each axis has eight forward and seven reverse statements, so agreeing strongly with every statement produces 53.3 rather than 50.0 at the high end. Different combinations can yield the same sum.",
+            "zh": "等权是本版编辑选择，不是经估计的科学模型。每轴8道正向、7道反向，所以全部选强烈同意时，高端为53.3而非50.0。不同回答组合也可能得到相同原始和。"
+          }
+        ]
+      },
+      {
+        "id": "mixed",
+        "title": {
+          "en": "Mixed answers are readable",
+          "zh": "混合回答也可以理解"
+        },
+        "paragraphs": [
+          {
+            "en": "Choosing the middle response is valid when you neither agree nor disagree. It is different from leaving an item blank. If a statement feels too personal or does not fit, you can leave without submitting and read every public guide freely.",
+            "zh": "既不同意也不反对时，中间选项是有效回答，与空题不同。若一句话太私人或不适合你，可以不提交并离开，所有公开指南均可自由阅读。"
+          },
+          {
+            "en": "A position near the middle may reflect repeated neutral choices or agreement with both ends. A bar cannot distinguish these without looking back at the actual statements. There is no preferred endpoint, ideal profile or instruction to make your beliefs fit a label.",
+            "zh": "居中可能来自多次中立，也可能来自同时认同两端。若不回看实际题目，图条不能区分这些情况。本版没有理想端点、标准画像，也不要求你调整信念去符合标签。"
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "title": {
+          "en": "Your choices and the public guides",
+          "zh": "个人选择与公开指南"
+        },
+        "paragraphs": [
+          {
+            "en": "Answers and bars stay in current-page memory. Reloading, changing language or leaving clears them. Copying includes only the same four public guide links, without answers or scores.",
+            "zh": "回答与图条只在当前页面内存中。刷新、换语或离开会清除。复制只包含固定的四篇公开指南链接，不含答案或分数。"
+          },
+          {
+            "en": "No account, name, biological sex, gender identity or party affiliation is requested. The four guide addresses describe whole domains and are identical for every score. You can read them before answering; they are not links to anyone’s personal political or health profile.",
+            "zh": "无需账户、姓名、生理性别、性别认同或政党信息。四个指南地址描述完整领域，对任何分数都相同。答题前即可阅读，它们不是任何人的政治或健康画像链接。"
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": {
+          "en": "Is this the IDRlabs test?",
+          "zh": "这是IDRlabs原题吗？"
+        },
+        "answer": {
+          "en": "No. It is an original FermatMind questionnaire informed by the public four-domain format. Its statements, equal weights and guides do not reproduce a proprietary algorithm or inherit another test’s validation.",
+          "zh": "不是。这是参考公开四主题形式的费马原创题本。条目、等权与指南不复现专有算法，也不继承其他测试的验证。"
+        }
+      },
+      {
+        "question": {
+          "en": "What do the percentages mean?",
+          "zh": "百分数代表什么？"
+        },
+        "answer": {
+          "en": "They locate your response sum within this form’s possible 0–60 range. They are not population percentiles, probabilities or the proportions of people who resemble you.",
+          "zh": "它们表示回答原始和在本题本0—60范围中的位置，不是人群百分位、概率或与你相似的人所占比例。"
+        }
+      },
+      {
+        "question": {
+          "en": "Does the thinking axis assess normality?",
+          "zh": "思维轴判断正常与否吗？"
+        },
+        "answer": {
+          "en": "No. The source format uses normal/abnormal language, which this original version does not adopt as a clinical conclusion. Everyday imagination and associations do not establish a diagnosis.",
+          "zh": "不判断。参考形式使用正常／异常语言，本原创版不把它采用为临床结论。日常想象与联想不能确立诊断。"
+        }
+      },
+      {
+        "question": {
+          "en": "Does the expression axis determine gender?",
+          "zh": "表达轴判定性别吗？"
+        },
+        "answer": {
+          "en": "No. Directness and relational care are available to anyone. This form has no male/female comparison sample and does not infer sex or gender identity.",
+          "zh": "不判定。直接与关系关照都可以由任何人使用。本版没有男性／女性对照样本，不推断生理性别或性别认同。"
+        }
+      },
+      {
+        "question": {
+          "en": "Do lifestyle values predict political beliefs?",
+          "zh": "生活态度能预测政治立场吗？"
+        },
+        "answer": {
+          "en": "No. The axes summarize separate selected statements. Neither a lifestyle position nor a public-policy sum identifies a party, vote, moral worth or complete ideology.",
+          "zh": "不能。四轴分别汇总选定条目。生活态度与公共政策原始和都不能识别政党、投票、道德价值或完整意识形态。"
+        }
+      },
+      {
+        "question": {
+          "en": "Are answers saved or shared?",
+          "zh": "答案会保存或分享吗？"
+        },
+        "answer": {
+          "en": "They stay only in current-page memory and clear when you reload, change language or leave. The copy button shares four fixed public guide links, without answers, values or an individual profile.",
+          "zh": "只保留在当前页面内存，刷新、换语或离开会清除。复制按钮只分享四个固定公开指南链接，不含答案、数值或个人画像。"
+        }
+      }
+    ],
+    "references": [
+      {
+        "title": {
+          "en": "IDRlabs: public four-axes format (topic reference only)",
+          "zh": "IDRlabs公开四轴形式（仅主题参考）"
+        },
+        "url": "https://www.idrlabs.com/4-axes/test.php"
+      },
+      {
+        "title": {
+          "en": "WHO: gender, social norms and identity distinctions",
+          "zh": "WHO：社会性别、规范与身份的区分"
+        },
+        "url": "https://www.who.int/health-topics/gender"
+      },
+      {
+        "title": {
+          "en": "World Values Survey: cultural values findings (societal context)",
+          "zh": "世界价值观调查：文化价值发现（社会背景）"
+        },
+        "url": "https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Findings"
+      }
+    ]
+  }
+}
