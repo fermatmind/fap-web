@@ -1,3 +1,5 @@
+import { isCatQ25ConfigurationValid } from "@/lib/questionnaires/catq25";
+import { CatQ25Page } from "./CatQ25Page";
 import { isMostLeastConfigurationValid } from "@/lib/questionnaires/mostLeast";
 import { MostLeastPage } from "./MostLeastPage";
 import { isCareerMatchConfigurationValid } from "@/lib/questionnaires/careerMatch";
@@ -81,6 +83,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "catq25" && !isCatQ25ConfigurationValid(quiz)) return { title: "CAT-Q unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "most-least" && !isMostLeastConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "career-theme-compare" && !isCareerMatchConfigurationValid(quiz)) return { title: "Comparison unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "love-type16" && !isLoveType16ConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
@@ -95,6 +98,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "catq25") {
+    if (!isCatQ25ConfigurationValid(quiz)) notFound();
+    return <CatQ25Page quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "most-least") {
     if (!isMostLeastConfigurationValid(quiz)) notFound();
     return <MostLeastPage quiz={quiz} locale={locale} />;

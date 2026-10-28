@@ -5706,5 +5706,30 @@
       "followup",
       "pause"
     ]
+  },
+  {
+    "slug": "masking-test",
+    "code": "CATQ25_HULL2019",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Masking Test (CAT-Q)",
+      "zh": "社交伪装测试（CAT-Q）"
+    },
+    "description": {
+      "en": "Complete the original 25-item CAT-Q and read your raw total and three subscales with full free guides. A reflection tool, without autism diagnosis, score bands or signup.",
+      "zh": "完整25项CAT-Q原文与中文工作译文，免费查看原始总分、三个部分与完整读法。仅供反思，不诊断自闭症、不划等级，无需注册。"
+    },
+    "minutes": 7,
+    "formCode": "catq25_hull2019_appendix1_fm_zh_working_v1",
+    "questionCount": 25,
+    "resultSlugs": [
+      "overall",
+      "compensation",
+      "masking",
+      "assimilation"
+    ],
+    "collection": "explore"
   }
 ]

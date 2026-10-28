@@ -1,0 +1,2917 @@
+{
+  "slug": "masking-test",
+  "code": "CATQ25_HULL2019",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "catq25",
+  "title": {
+    "en": "Masking Test (CAT-Q)",
+    "zh": "社交伪装测试（CAT-Q）"
+  },
+  "seoTitle": {
+    "en": "Masking Test (CAT-Q): 25 Items, Scores & Full Guides",
+    "zh": "CAT-Q社交伪装测试：完整25项、计分与免费读法"
+  },
+  "description": {
+    "en": "Complete the original 25-item CAT-Q and read your raw total and three subscales with full free guides. A reflection tool, without autism diagnosis, score bands or signup.",
+    "zh": "完整25项CAT-Q原文与中文工作译文，免费查看原始总分、三个部分与完整读法。仅供反思，不诊断自闭症、不划等级，无需注册。"
+  },
+  "minutes": 7,
+  "introduction": {
+    "en": "The Camouflaging Autistic Traits Questionnaire asks about your own experiences during social interactions. This edition uses the 25 English statements and keys in Hull and colleagues’ original published appendix, with a new FermatMind working Chinese translation. It reports arithmetic readouts for adult self-reflection, not an autism assessment, a measure of social ability or a treatment outcome.",
+    "zh": "社交伪装问卷（Camouflaging Autistic Traits Questionnaire）询问你在社交互动中的自身体验。本版采用Hull等人原始发表附件中的25条英文陈述与计分键，并提供费马新作的中文工作译文。供成年人反思和读取实际算术结果，不用于自闭症评估、社交能力测量或疗效判断。"
+  },
+  "instructions": {
+    "en": "Please read each statement below and choose the answer that best fits your experiences during social interactions.",
+    "zh": "请阅读以下各项陈述，选择最符合你在社交互动中体验的答案。"
+  },
+  "resultHeading": {
+    "en": "Your CAT-Q readout",
+    "zh": "你的CAT-Q分数读法"
+  },
+  "source": {
+    "kind": "catq25_hull2019_ccby_working_zh",
+    "formCode": "catq25_hull2019_appendix1_fm_zh_working_v1",
+    "itemBankVersion": "catq25_hull2019_appendix1_fm_zh_working_v1",
+    "scoringVersion": "catq25_reverse5_three9_8_8_strictparts_total25_noimputation_v1",
+    "resultContentVersion": "fm_catq25_four_full_readings_v1",
+    "itemBankSha256": "dd35049e8ce4b3dd39f9190ef22253d142ab591e5a39529686789199b3a7f1c9",
+    "resultContentSha256": "89f65d7192a202af66ff9ebb50c4b653d54b8829c519ae418417d963b68893de",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "compensation",
+      "title": {
+        "en": "Compensation",
+        "zh": "补偿"
+      },
+      "itemCount": 9
+    },
+    {
+      "id": "masking",
+      "title": {
+        "en": "Masking",
+        "zh": "掩饰"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "assimilation",
+      "title": {
+        "en": "Assimilation",
+        "zh": "融入"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "CATQ_01",
+      "prompt": {
+        "en": "When I am interacting with someone, I deliberately copy their body language or facial expressions",
+        "zh": "与人互动时，我会刻意模仿对方的肢体语言或面部表情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_02",
+      "prompt": {
+        "en": "I monitor my body language or facial expressions so that I appear relaxed",
+        "zh": "我会留意自己的肢体语言或面部表情，让自己看起来放松。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_03",
+      "prompt": {
+        "en": "I rarely feel the need to put on an act in order to get through a social situation",
+        "zh": "为了应对社交场合，我很少觉得自己需要扮演某种样子。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_04",
+      "prompt": {
+        "en": "I have developed a script to follow in social situations (for example, a list of questions or topics of conversation)",
+        "zh": "我为社交场合准备了一套可遵循的脚本，例如一份问题或谈话主题清单。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_05",
+      "prompt": {
+        "en": "I will repeat phrases that I have heard others say in the exact same way that I first heard them",
+        "zh": "我会用最初听到时一模一样的方式，重复别人说过的话。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_06",
+      "prompt": {
+        "en": "I adjust my body language or facial expressions so that I appear interested by the person I am interacting with",
+        "zh": "我会调整自己的肢体语言或面部表情，让自己看起来对正在交谈的人感兴趣。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_07",
+      "prompt": {
+        "en": "In social situations, I feel like I’m ‘performing’ rather than being myself",
+        "zh": "在社交场合，我感觉自己是在“表演”，而不是在做自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_08",
+      "prompt": {
+        "en": "In my own social interactions, I use behaviours that I have learned from watching other people interacting",
+        "zh": "在自己的社交互动中，我会使用通过观察他人互动而学到的行为。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_09",
+      "prompt": {
+        "en": "I always think about the impression I make on other people",
+        "zh": "我总会想到自己给别人留下了什么印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_10",
+      "prompt": {
+        "en": "I need the support of other people in order to socialise",
+        "zh": "我需要其他人的支持，才能参与社交。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_11",
+      "prompt": {
+        "en": "I practice my facial expressions and body language to make sure they look natural",
+        "zh": "我会练习面部表情和肢体语言，确保它们看起来自然。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_12",
+      "prompt": {
+        "en": "I don’t feel the need to make eye contact with other people if I don’t want to",
+        "zh": "如果我不想与人有眼神接触，我不会觉得自己有必要这样做。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_13",
+      "prompt": {
+        "en": "I have to force myself to interact with people when I am in social situations",
+        "zh": "在社交场合，我得强迫自己与人互动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_14",
+      "prompt": {
+        "en": "I have tried to improve my understanding of social skills by watching other people",
+        "zh": "我曾试着通过观察别人，增进自己对社交技巧的理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_15",
+      "prompt": {
+        "en": "I monitor my body language or facial expressions so that I appear interested by the person I am interacting with",
+        "zh": "我会留意自己的肢体语言或面部表情，让自己看起来对正在交谈的人感兴趣。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_16",
+      "prompt": {
+        "en": "When in social situations, I try to find ways to avoid interacting with others",
+        "zh": "在社交场合，我会设法避免与他人互动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_17",
+      "prompt": {
+        "en": "I have researched the rules of social interactions (for example, by studying psychology or reading books on human behaviour) to improve my own social skills",
+        "zh": "为了改善自己的社交技巧，我研究过社交互动的规则，例如学习心理学或阅读关于人类行为的书籍。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_18",
+      "prompt": {
+        "en": "I am always aware of the impression I make on other people",
+        "zh": "我总是清楚自己给别人留下了什么印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_19",
+      "prompt": {
+        "en": "I feel free to be myself when I am with other people",
+        "zh": "与其他人在一起时，我觉得可以自在地做自己。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_20",
+      "prompt": {
+        "en": "I learn how people use their bodies and faces to interact by watching television or films, or by reading fiction",
+        "zh": "我通过看电视、看电影或读小说，观察人们怎样用身体和面部表情来互动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_21",
+      "prompt": {
+        "en": "I adjust my body language or facial expressions so that I appear relaxed",
+        "zh": "我会调整自己的肢体语言或面部表情，让自己看起来放松。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_22",
+      "prompt": {
+        "en": "When talking to other people, I feel like the conversation flows naturally",
+        "zh": "与别人交谈时，我感觉对话会自然地进行。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_23",
+      "prompt": {
+        "en": "I have spent time learning social skills from television shows and films, and try to use these in my interactions",
+        "zh": "我花过时间从电视节目和电影中学习社交技巧，并尝试将它们用于自己的互动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compensation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compensation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "compensation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "compensation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "compensation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compensation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compensation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "compensation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_24",
+      "prompt": {
+        "en": "In social interactions, I do not pay attention to what my face or body are doing",
+        "zh": "在社交互动中，我不太注意自己的面部或身体正在做什么。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "masking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "masking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "masking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "masking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "masking",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "masking",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "masking",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "masking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CATQ_25",
+      "prompt": {
+        "en": "In social situations, I feel like I am pretending to be ‘normal’",
+        "zh": "在社交场合，我感觉自己在假装“正常”。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "assimilation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "assimilation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Somewhat Disagree",
+            "zh": "有些不同意"
+          },
+          "directionId": "assimilation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither Agree nor Disagree",
+            "zh": "既不赞同，也不反对"
+          },
+          "directionId": "assimilation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Somewhat Agree",
+            "zh": "有些同意"
+          },
+          "directionId": "assimilation",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "assimilation",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "assimilation",
+          "score": 7
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "assimilation",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "overall",
+      "directionIds": [
+        "compensation",
+        "masking",
+        "assimilation"
+      ],
+      "title": {
+        "en": "CAT-Q Total: Read the 25-Item Sum",
+        "zh": "CAT-Q总分：25项合计怎样读"
+      },
+      "headline": {
+        "en": "A summary of 25 responses, without a diagnostic threshold.",
+        "zh": "汇总25项回答，不设置诊断阈值。"
+      },
+      "summary": {
+        "en": "The CAT-Q total combines the original statements about compensation, masking and assimilation. It records your agreement with those statements; it does not identify an autism diagnosis, a level of social ability, a fixed personality type or an amount of energy used.",
+        "zh": "CAT-Q总分合并补偿、掩饰与融入三部分的原始陈述，记录你对这些陈述的同意程度，不识别自闭症诊断、社交能力水平、固定人格类型或能量消耗量。"
+      },
+      "scoreReading": {
+        "en": "Complete total = sum of all 25 recoded responses, from 25 to 175. Reverse items 3, 12, 19, 22 and 24 as 8 minus the response. No total is calculated when any response is skipped. A displayed mean is that same sum divided by 25.",
+        "zh": "完整总分＝25项重编码后回答的合计，范围25—175。第3、12、19、22、24项用8减回答值。任一项跳过时，不计算总分；显示的均分是同一合计除以25。"
+      },
+      "seo": {
+        "title": {
+          "en": "CAT-Q Total: Read the 25-Item Sum | CAT-Q Full Score Guide",
+          "zh": "CAT-Q总分：25项合计怎样读｜CAT-Q完整分数读法"
+        },
+        "description": {
+          "en": "The CAT-Q total combines the original statements about compensation, masking and assimilation. It records your agreement with those statements; it does not identify an autism diagnosis, a level of social ability, a fixed personality type or an amount of energy used.",
+          "zh": "CAT-Q总分合并补偿、掩饰与融入三部分的原始陈述，记录你对这些陈述的同意程度，不识别自闭症诊断、社交能力水平、固定人格类型或能量消耗量。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the total records",
+            "zh": "总分记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The questionnaire asks about your own experiences in social interactions. Its total brings together responses about learned strategies, monitoring or adjusting your presentation, and blending into interactions that may feel uncomfortable. A larger sum reflects greater endorsement after the original reverse keys, within this particular item set.",
+              "zh": "问卷询问你在社交互动中的体验。总分合并有关学习策略、留意或调整表现，以及在可能不舒适的互动中融入的回答。较大的合计表示在这套题项中，按原始反向键处理后认同得更多。"
+            },
+            {
+              "en": "It is a self-report, not observation of what happened or a test of how convincingly you appeared to others. The original instruction does not specify a past-week or past-month window. Keep that general scope when answering, rather than inventing a time period or reconstructing an outside observer’s opinion.",
+              "zh": "它是自我报告，不是对实际发生行为的观察，也不测试你在别人眼中表现得多逼真。原始说明未指定过去一周或一个月；作答时保留这一一般范围，不自行补出时间窗或重建旁人的看法。"
+            }
+          ]
+        },
+        {
+          "id": "parts",
+          "title": {
+            "en": "Three parts with unequal numbers of items",
+            "zh": "三个部分的题项数不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Compensation contains nine items. Masking and Assimilation contain eight each. Their sums therefore have different possible ranges: 9–63, 8–56 and 8–56. A larger Compensation sum than a Masking sum does not, by itself, identify a dominant strategy, because one part contains an extra item.",
+              "zh": "补偿含九项，掩饰与融入各含八项，因此合计范围分别为9—63、8—56、8—56。补偿的合计大于掩饰，并不能单凭这一点判定主导策略，因为前者多一道题。"
+            },
+            {
+              "en": "The complete total adds all 25 values, giving each item one unit of weight. It is not made by taking an equal-weight average of three subscale means. The displayed means simply put each arithmetic average on a 1–7 scale; they do not turn the parts into equally calibrated measures or population ranks.",
+              "zh": "完整总分将25个值相加，每项等权，并不是把三个部分的均分再等权平均。显示均分只是把各自算术平均放到1—7范围，不会把它们变成同等校准的量表或人群排名。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A worked example: why 100 is not a cutoff",
+            "zh": "算例：100为什么不是切点"
+          },
+          "paragraphs": [
+            {
+              "en": "If every answer is 4, reversing the five keyed items still gives 4 on each. The total is 25 × 4 = 100, with part sums of 36, 32 and 32. This is a consequence of the response scale, not a clinical threshold or evidence that someone is or is not autistic.",
+              "zh": "若每项都选4，五个反向项处理后也仍为4，总分为25×4＝100，三个部分分别合计36、32、32。这来自选项量尺的算术，不是临床切点，也不能证明某人是否为自闭症。"
+            },
+            {
+              "en": "Mixed answers can produce the same total. Starting from all 4s, changing item 1 to 5 and item 2 to 3 keeps the total at 100 but changes two parts. Read the particular responses if that feels useful; do not assume that equal totals describe equal experiences, needs or circumstances.",
+              "zh": "混合回答也能得到同一合计。从全选4开始，把第1项改5、第2项改3，总分仍为100，两个部分却已改变。若有用，可以回看具体回答；不要把相同总分当成相同体验、需要或处境。"
+            }
+          ]
+        },
+        {
+          "id": "reverse",
+          "title": {
+            "en": "What reverse scoring does",
+            "zh": "反向计分做了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 3, 12, 19, 22 and 24 describe a differently keyed direction. The calculation maps 1 to 7, 2 to 6, 3 to 5 and 4 to 4, with the opposite mappings for 5, 6 and 7. It makes the arithmetic follow the published key; it is not a judgement that one answer is more honest or desirable.",
+              "zh": "第3、12、19、22、24项采用相反方向的计分键。计算将1换成7、2换成6、3换成5、4保留为4，5、6、7作对应反向处理。这样让算术遵循发表的键，不是在判断哪个答案更诚实或更可取。"
+            },
+            {
+              "en": "For this reason, selecting 1 everywhere gives 55, not 25, and selecting 7 everywhere gives 145, not 175. The mathematical endpoints require different responses on reverse and forward items. These are checking examples for the calculation, not instructions for obtaining a preferred result.",
+              "zh": "因此，所有项都选1会得到55，而不是25；所有项都选7会得到145，而不是175。数学端点需要反向与正向题采用不同回答。这些是核对计算的算例，不是教你取得某个想要的结果。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What cannot be inferred",
+            "zh": "不能由此推出什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The developers’ 2026 public perspective cautions against using CAT-Q scores for diagnostic decision-making or as an intervention outcome. A total cannot establish autism, a probability of autism, a clinical severity band, a need for a particular treatment, or the success of an attempt to appear a certain way.",
+              "zh": "原作者团队2026年公开观点提醒，不应用CAT-Q分数作诊断决定或干预结果。总分不能确定自闭症、自闭症概率、临床严重度、特定治疗需要，或某次表现尝试是否成功。"
+            },
+            {
+              "en": "The Chinese text here is a new working translation and has no established equivalence to the English edition. Original research and another translation’s results do not automatically validate this implementation. No gender, diagnostic-group or national norm is applied, and your score is not compared with visitors to this site.",
+              "zh": "这里的中文为新作工作译文，尚未建立与英文版的等值关系。原始研究或其他译本的结果，不会自动验证本实现。本页不采用性别、诊断群体或国家常模，也不把你的分数与本站访客比较。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Reflect without trying to lower a number",
+            "zh": "反思不必以降分为目标"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to consider one interaction privately, ask which parts felt chosen, useful, expected or tiring. The same behaviour can serve different purposes in different settings. There is no required change to make from a score, and no obligation to disclose an identity, force eye contact or stop using a strategy that helps you feel safe.",
+              "zh": "若愿意私下回看一次互动，可以问哪些部分出于自主、感觉有用、源于期待或令人疲惫。同一行为在不同场景可以有不同用途。分数不规定你必须改变什么，也不要求披露身份、强迫眼神接触或停止使用有助于安全感的策略。"
+            },
+            {
+              "en": "Retaking clears the previous record. A change between attempts may reflect interpretation or context and is not evidence of treatment improvement, deterioration or greater authenticity. If you would like professional support, your needs and preferences are enough to begin a conversation; you do not need to reach any CAT-Q number first.",
+              "zh": "重做会清空上一记录。两次差异可能来自理解或情境，不证明治疗改善、恶化或变得更真实。若希望获得专业支持，可以按自己的需要和意愿开始讨论，不必先达到某个CAT-Q数字。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Skipped items and public reading",
+            "zh": "跳过题项与公开阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "An explicit skip withholds the total and the numbers for its part. Complete other parts can still be read. No missing value is replaced with 0, 4 or a guessed average. This is the site’s transparent missing-data policy; it does not create a validated short form.",
+              "zh": "明确跳过会暂不给总分及所在部分的数字，其他完整部分仍可读。不用0、4或猜测的平均值替代缺失回答。这是本站公开的缺失处理规则，不会形成经过验证的短版。"
+            },
+            {
+              "en": "All four full guides are free, even when every item is skipped. This public page is identical for everyone and contains no personal responses. Answers and numerical readouts remain in page memory; refreshing, changing language, leaving, clearing or retaking removes them. Public links do not encode a private total.",
+              "zh": "即使全部跳过，四份完整指南仍免费。本公开页面对所有人相同，不含个人回答。答案与数字留在本页内存；刷新、换语、离开、清空或重做即移除，公开链接不编码私人总分。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compensation",
+      "directionIds": [
+        "compensation"
+      ],
+      "title": {
+        "en": "Compensation: Read the Nine CAT-Q Items",
+        "zh": "补偿：九项CAT-Q分数怎样读"
+      },
+      "headline": {
+        "en": "Learned interaction strategies, as reported in nine statements.",
+        "zh": "九条陈述中的学习型互动策略自述。"
+      },
+      "summary": {
+        "en": "The Compensation part covers learning or using ways to navigate social interactions, such as observing others or preparing conversational material. Its nine-item sum summarizes agreement with those source statements, without rating social competence, intelligence or how successful the strategy was.",
+        "zh": "补偿部分涉及为应对社交互动而学习或使用方法，例如观察别人或准备谈话材料。九项合计汇总对原始陈述的同意程度，不评定社交胜任力、智力或策略是否成功。"
+      },
+      "scoreReading": {
+        "en": "Compensation uses original items 1, 4, 5, 8, 11, 14, 17, 20 and 23. None are reverse-keyed. All nine numeric responses are needed for a sum from 9 to 63 and a mean from 1 to 7. A skipped item withholds this part and the overall total.",
+        "zh": "补偿采用原第1、4、5、8、11、14、17、20、23项，均不反向。九项全部有数值回答时，合计范围9—63，均分1—7；任一项跳过，则暂不给本部分及整体总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Compensation: Read the Nine CAT-Q Items | CAT-Q Full Score Guide",
+          "zh": "补偿：九项CAT-Q分数怎样读｜CAT-Q完整分数读法"
+        },
+        "description": {
+          "en": "The Compensation part covers learning or using ways to navigate social interactions, such as observing others or preparing conversational material. Its nine-item sum summarizes agreement with those source statements, without rating social competence, intelligence or how successful the strategy was.",
+          "zh": "补偿部分涉及为应对社交互动而学习或使用方法，例如观察别人或准备谈话材料。九项合计汇总对原始陈述的同意程度，不评定社交胜任力、智力或策略是否成功。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What Compensation means here",
+            "zh": "这里的补偿指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part uses the research term Compensation for strategies described in the original items: learning from observed interactions, preparing material and using learned patterns. The word does not mean that a person is deficient, pretending dishonestly or required to become a different kind of person.",
+              "zh": "本部分沿用研究术语“补偿”，指原题描述的观察互动、准备材料及使用已学模式等策略。这个词不表示一个人有缺陷、在不诚实地装扮，或需要变成另一种人。"
+            },
+            {
+              "en": "The responses concern your own experience, rather than an observer’s test of performance. You are not asked to demonstrate a skill, reveal a private conversation or prove that a strategy worked. A person can endorse a technique without knowing why they developed it, and that reason is not calculated from the sum.",
+              "zh": "回答关于你自己的体验，不是旁人对表现的测试。不要求展示技巧、披露私人对话或证明方法有效。一个人可以认同某种方法而不清楚为何发展它，合计也不会计算出这个原因。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An example to distinguish action from outcome",
+            "zh": "区分动作与效果的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone might prepare a few possible topics before a group meeting and later use a phrase learned from watching other people. Those experiences can be relevant to this part. The questionnaire does not observe whether the meeting was comfortable, whether the person made friends, or whether the prepared words were useful.",
+              "zh": "某人可能在小组见面前准备几个话题，之后用到观察别人时学来的表达。这些体验可能与本部分有关。问卷不会观察见面是否舒适、是否交到了朋友，或准备的话是否有用。"
+            },
+            {
+              "en": "Another person may use similar preparation because an agenda helps them participate in a new language or an unfamiliar role. The same answer can arise in different circumstances. Do not use an example or score to assign a diagnosis, infer a hidden identity or decide whether someone’s preparation is authentic.",
+              "zh": "另一个人也可能用类似准备，帮助自己以新语言参与活动或适应陌生角色。相同回答可能来自不同处境。不要依据例子或分数分配诊断、推断隐藏身份，或判断准备是否真实。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Read the sum and mean",
+            "zh": "读取合计与均分"
+          },
+          "paragraphs": [
+            {
+              "en": "The nine published items belong to Compensation even though their wording is not identical. Each response contributes its original 1–7 value, with no reverse items in this part and no factor-loading weights. Nine answers of 4 give a sum of 36 and a mean of 4.00.",
+              "zh": "九条发表题项虽然措辞不同，均归入补偿。每个回答贡献原始1—7值，本部分无反向项，也不用因子载荷加权。九项全选4时，合计36，均分4.00。"
+            },
+            {
+              "en": "The mean is the sum divided by nine before display rounding. A 36 does not mean 36 observed behaviours or 36 percent of a population. Its mathematical range differs from the two eight-item parts, so comparing their raw sums is not a rule for finding a dominant style.",
+              "zh": "均分为合计除以九，再按显示规则舍入。36不表示观察到36次行为，也不表示位于某个人群百分位。它与两个八项部分的数学范围不同，因此不能直接比较原始合计来找主导风格。"
+            }
+          ]
+        },
+        {
+          "id": "differences",
+          "title": {
+            "en": "Compensation, Masking and Assimilation",
+            "zh": "补偿、掩饰与融入的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Compensation focuses on learning and using strategies. Masking contains statements about monitoring or adjusting presentation. Assimilation includes trying to blend into interactions and feelings about participating. They are related parts of the original questionnaire, not three mutually exclusive kinds of people.",
+              "zh": "补偿侧重学习及使用策略；掩饰包含留意或调整外在表现的陈述；融入涉及尝试置身互动及参与时的感受。它们是原问卷中相关的部分，不是三种互不相容的人。"
+            },
+            {
+              "en": "This part is also different from a social-skills examination or a knowledge quiz. Knowing what an appropriate response could be, endorsing a strategy on a questionnaire and carrying it out in a particular interaction are different tasks. The CAT-Q does not make those tasks interchangeable.",
+              "zh": "本部分也不同于社交技能考试或知识问答。知道什么回应可能合适、在问卷中认同一种策略，以及在具体互动中做出来，是不同任务，CAT-Q不会把它们变成等同的事。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "What greater or smaller endorsement can tell you",
+            "zh": "认同程度不同意味着什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger part sum means greater agreement with these nine statements in this attempt. It cannot show that your techniques are more effective, that interactions cost more energy, or that you have more autistic traits. There is no high-score badge, desirable target or diagnostic boundary here.",
+              "zh": "本部分合计较大，表示这次对九条陈述认同得更多，不能证明技巧更有效、互动消耗更多能量或拥有更多自闭症特质。这里没有高分徽章、理想目标或诊断边界。"
+            },
+            {
+              "en": "Smaller endorsement does not establish effortless social ability or an absence of support needs. Opportunities, interpretation and context can differ. The Chinese working translation has not been validated or shown equivalent to English, so this page does not apply English sample distributions to it.",
+              "zh": "较少认同，也不证明社交能力毫不费力或没有支持需要。机会、理解和情境都可能不同。中文工作译文未经验证，尚未证明与英文等值，因此本页不把英文样本人群分布套过来。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "One optional way to think about a strategy",
+            "zh": "可选地想一想一种策略"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to reflect, consider a strategy you already use and ask whether it feels chosen, useful, tiring or dependent on the setting. You do not need to try a new social task or change your behaviour to test the score. Keeping a strategy that helps you participate can be a valid personal choice.",
+              "zh": "若愿意反思，可以想一种已经在用的方法，问它是否出于自主、感觉有用、令人疲惫，或随场景变化。无需新做社交任务或改变行为来验证分数。保留有助于参与的方法，可以是你自己的选择。"
+            },
+            {
+              "en": "You can stop the reflection without explaining yourself. There is no instruction to copy others more, stop preparing, disclose an identity or prove independence. If support would be useful, discuss the experience you want help with, rather than treating a CAT-Q sum as a treatment recommendation.",
+              "zh": "可以不作解释地结束反思。本页不要求更多模仿、停止准备、披露身份或证明独立。若支持可能有用，可以讨论你希望得到帮助的体验，不把CAT-Q合计当治疗建议。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Missing answers, retaking and privacy",
+            "zh": "缺失回答、重做与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "A skipped Compensation item withholds both this part’s numbers and the complete CAT-Q total. If Masking and Assimilation each have all their numeric responses, their readouts remain available. This site does not estimate the missing value or present the remaining eight items as a validated short scale.",
+              "zh": "补偿中的一项跳过，会暂不给本部分数字及完整CAT-Q总分。若掩饰与融入各自有全部数值回答，仍可显示它们的读数。本站不补估缺失值，也不把剩余八项称为经过验证的短量表。"
+            },
+            {
+              "en": "All full guides remain readable when answers are skipped. This public guide contains no personal score. Answers stay only in page memory and are removed on refresh, language change, leaving, clearing or retaking. Retaking is a fresh record; a different score is not evidence of treatment progress or a better self.",
+              "zh": "跳过后，全部完整指南仍可阅读。本公开指南不含个人分数。答案只在页面内存中，刷新、换语、离开、清空或重做均会移除。重做是一份新记录，数字不同不证明治疗进展或变成了更好的自己。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "masking",
+      "directionIds": [
+        "masking"
+      ],
+      "title": {
+        "en": "Masking: Read the Eight CAT-Q Items",
+        "zh": "掩饰：八项CAT-Q分数怎样读"
+      },
+      "headline": {
+        "en": "Attention to presentation, without judging its success.",
+        "zh": "留意外在表现，不评判表现是否成功。"
+      },
+      "summary": {
+        "en": "The Masking part concerns monitoring or adjusting expressions, body language and impressions. Its eight-item readout summarizes agreement with the published statements; it does not rate honesty, social skill, visible behaviour or how much energy an interaction costs.",
+        "zh": "掩饰部分涉及留意或调整表情、肢体语言与印象。八项读数汇总对发表陈述的同意程度，不评定诚实、社交技巧、可见行为或互动消耗的能量。"
+      },
+      "scoreReading": {
+        "en": "Masking uses original items 2, 6, 9, 12, 15, 18, 21 and 24. Reverse items 12 and 24 as 8 minus the response. Eight numeric responses give a sum from 8 to 56 and a mean from 1 to 7. A skip withholds this part and the total.",
+        "zh": "掩饰采用原第2、6、9、12、15、18、21、24项，第12与24项用8减回答值反向。八项都有数值时，合计8—56、均分1—7。跳过任一项则暂不给本部分与总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Masking: Read the Eight CAT-Q Items | CAT-Q Full Score Guide",
+          "zh": "掩饰：八项CAT-Q分数怎样读｜CAT-Q完整分数读法"
+        },
+        "description": {
+          "en": "The Masking part concerns monitoring or adjusting expressions, body language and impressions. Its eight-item readout summarizes agreement with the published statements; it does not rate honesty, social skill, visible behaviour or how much energy an interaction costs.",
+          "zh": "掩饰部分涉及留意或调整表情、肢体语言与印象。八项读数汇总对发表陈述的同意程度，不评定诚实、社交技巧、可见行为或互动消耗的能量。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the published part asks",
+            "zh": "发表的这一部分询问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These items describe attention to how you appear during interactions: looking relaxed or interested, considering the impression you make, and attention to facial or bodily presentation. They ask about your own experience. They do not ask an observer to confirm what you looked like or whether another person noticed a difference.",
+              "zh": "这些题项描述互动中对自身外在表现的注意：看起来放松或感兴趣、考虑留下的印象，以及留意面部或身体表现。它们询问自身体验，不要求旁人确认你看起来怎样，或别人是否注意到变化。"
+            },
+            {
+              "en": "The research label Masking is retained to identify this part. It does not establish deceit or a hidden true self. A score cannot decide whether a smile was genuine, whether an interaction was safe, or whether you should change how you present yourself.",
+              "zh": "保留研究标签“掩饰”是为了标识这一部分，不用于认定欺骗或隐藏的真实自我。分数不能判定微笑是否真诚、互动是否安全，或你是否该改变表现方式。"
+            }
+          ]
+        },
+        {
+          "id": "similar",
+          "title": {
+            "en": "Why monitoring and adjusting stay separate",
+            "zh": "为什么分别保留留意与调整"
+          },
+          "paragraphs": [
+            {
+              "en": "The source includes separate statements about monitoring and adjusting facial expressions or body language. It also separates thinking about an impression from being aware of it. These distinctions can sound close in everyday speech, but this edition keeps the published wording, order and part assignments.",
+              "zh": "原文分别陈述留意与调整表情或肢体语言，也区分想到某种印象与意识到它。日常语言中可能听起来相近，本版仍保留发表的措辞、顺序与部分归属。"
+            },
+            {
+              "en": "Answer each statement as written, rather than trying to make your answers identical or different for consistency. Similar wording is not a trick that lets the site infer dishonesty. No consistency penalty, hidden lie score or deduction from a person’s character is applied.",
+              "zh": "按每条陈述本身作答，不必为了“保持一致”故意选相同或不同答案。相似措辞不是用来推断不诚实的陷阱；本站不扣一致性分，不设隐藏测谎分，也不据此推断品格。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Two reverse items within eight responses",
+            "zh": "八项中的两个反向项"
+          },
+          "paragraphs": [
+            {
+              "en": "Items 12 and 24 are reversed before the eight values are added. A response of 1 becomes 7, and 7 becomes 1; the midpoint 4 remains 4. The other six responses contribute their selected numbers. All eight answers of 4 therefore give 32, with a mean of 4.00.",
+              "zh": "第12与24项先反向，再将八个值相加。回答1变7，7变1，中点4仍为4；另外六项贡献所选数字。因此八项全选4合计32，均分4.00。"
+            },
+            {
+              "en": "All answers of 1 give 20, while all answers of 7 give 44. Neither pattern reaches the mathematical endpoints because two items point the other way. The range 8–56 describes possible arithmetic, not a clinical low-to-high ladder, and the mean is not a percentile.",
+              "zh": "所有项选1得到20，全部选7得到44。因为两项方向相反，这两种答法均不到数学端点。8—56描述可能的算术范围，不是临床低到高的阶梯，均分也不是百分位。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Presentation and experience can differ",
+            "zh": "外在表现与自身体验可能不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone might check their expression during a meeting because they want to look interested. The questionnaire can record their agreement with that statement. It cannot establish whether they felt interested, whether others thought so, or whether checking required effort or helped the conversation.",
+              "zh": "某人可能在开会时检查自己的表情，希望显得感兴趣。问卷可记录对此陈述的认同，不能确定本人是否有兴趣、别人是否这么认为，或检查是否费力、是否有助于谈话。"
+            },
+            {
+              "en": "A similar action can reflect courtesy, an unfamiliar setting or a personal preference. CAT-Q does not select one explanation from the score. In particular, endorsing these statements is not evidence that ordinary impression management is uniquely autistic or that an autism diagnosis has been established.",
+              "zh": "类似动作也可能与礼貌、陌生情境或个人偏好有关。CAT-Q不会从分数选定某个解释，尤其不能把认同这些陈述当作普通印象管理专属于自闭症，或已经确定诊断的证据。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Read without ranking people",
+            "zh": "阅读而不排列人的高低"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger recoded sum means greater endorsement of these particular statements in this attempt. It does not measure quality of communication, effectiveness at concealing a trait, authenticity or energy expenditure. A smaller sum likewise cannot show effortless interaction or absence of support needs.",
+              "zh": "本次重编码后的合计较大，表示对这些具体陈述认同更多，不测沟通质量、隐藏某特质的效果、真实程度或能量消耗。合计较小同样不能证明互动毫不费力或没有支持需要。"
+            },
+            {
+              "en": "The developers’ 2026 public perspective cautions against diagnostic and intervention-outcome uses. The Chinese working translation is not validated or established as equivalent to English. No diagnostic-group average, gender comparison or cut point is used to label your result.",
+              "zh": "原作者团队2026年公开观点提醒避免诊断及干预结果用途。中文工作译文未经验证，尚未确立与英文等值。本页不利用诊断群体平均数、性别比较或切点给你贴标签。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Choice and comfort before a target score",
+            "zh": "自主与舒适先于目标分数"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to reflect privately, consider whether attending to your presentation feels useful, chosen or tiring in a particular setting. There is no ideal amount of attention to achieve. This page does not ask you to force eye contact, conceal discomfort or perform a more acceptable version of yourself.",
+              "zh": "若愿意私下反思，可以想在某个场景中留意表现是否有用、出于自主或令人疲惫。不存在要达到的理想注意量；本页不要求强迫眼神接触、隐藏不适或表现成更被接受的自己。"
+            },
+            {
+              "en": "You are also not instructed to stop a strategy, disclose an identity or experiment with removing a behaviour in an unsafe setting. Support can begin with your preferences and practical needs. It does not require proving a CAT-Q score or showing that the number has fallen.",
+              "zh": "也不要求停止某种策略、披露身份，或在不安全环境试着撤掉某行为。可以从个人偏好和实际需要谈支持，不必证明某个CAT-Q分数或展示数字已经下降。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Skipped responses and public links",
+            "zh": "跳过回答与公开链接"
+          },
+          "paragraphs": [
+            {
+              "en": "If any of these eight responses is skipped, the part sum and mean are withheld along with the overall total. Complete Compensation or Assimilation parts can remain visible. The site does not replace a skip with a midpoint or calculate a shortened Masking score.",
+              "zh": "八项中任一项跳过，本部分合计与均分及整体总分均暂不给。完整的补偿或融入仍可显示。本站不会把跳过填成中点，也不计算缩短的掩饰分。"
+            },
+            {
+              "en": "All four full guides remain available. Public links contain no numerical readout or response, and answers stay in page memory only. Clearing or retaking removes them; a later score is a fresh self-report, not a monitored health outcome or a record of personal improvement.",
+              "zh": "四份完整指南始终可读。公开链接不含数值读数或回答，答案只留在页面内存。清空或重做即移除；之后的分数是新一次自述，不是受监测的健康结果或个人改善记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assimilation",
+      "directionIds": [
+        "assimilation"
+      ],
+      "title": {
+        "en": "Assimilation: Read the Eight CAT-Q Items",
+        "zh": "融入：八项CAT-Q分数怎样读"
+      },
+      "headline": {
+        "en": "Experiences of joining in, without assigning an identity.",
+        "zh": "参与互动的体验，不据此分配身份。"
+      },
+      "summary": {
+        "en": "The Assimilation part concerns fitting into interactions, feeling able to be yourself, support and discomfort. The eight-item sum records agreement after the published reverse keys. It does not identify autism, social anxiety, an ability level or a need to become more sociable.",
+        "zh": "融入部分涉及置身互动、能否自在做自己、支持与不适。八项合计记录按发表反向键处理后的认同，不识别自闭症、社交焦虑、能力水平，也不要求变得更爱社交。"
+      },
+      "scoreReading": {
+        "en": "Assimilation uses original items 3, 7, 10, 13, 16, 19, 22 and 25. Reverse items 3, 19 and 22 as 8 minus the response. All eight numeric answers are required for a sum from 8 to 56 and a mean from 1 to 7. A skip withholds this part and the total.",
+        "zh": "融入采用原第3、7、10、13、16、19、22、25项，第3、19与22项用8减回答值反向。八项均有数值才给合计8—56及均分1—7；跳过一项则暂不给本部分与总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Assimilation: Read the Eight CAT-Q Items | CAT-Q Full Score Guide",
+          "zh": "融入：八项CAT-Q分数怎样读｜CAT-Q完整分数读法"
+        },
+        "description": {
+          "en": "The Assimilation part concerns fitting into interactions, feeling able to be yourself, support and discomfort. The eight-item sum records agreement after the published reverse keys. It does not identify autism, social anxiety, an ability level or a need to become more sociable.",
+          "zh": "融入部分涉及置身互动、能否自在做自己、支持与不适。八项合计记录按发表反向键处理后的认同，不识别自闭症、社交焦虑、能力水平，也不要求变得更爱社交。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Participation as experienced by the respondent",
+            "zh": "由作答者体验到的参与"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements cover experiences such as feeling that you are performing, needing support to socialise, trying to avoid an interaction, or feeling able to be yourself. The label Assimilation identifies this published group of items. It does not prescribe a goal of fitting in or approve pressure to conform.",
+              "zh": "这些陈述涉及感觉自己在表演、需要支持才能社交、尝试避开互动，或能否自在做自己。“融入”用于标识这一发表分组，不规定迎合群体的目标，也不认可从众压力。"
+            },
+            {
+              "en": "The answers are not an observer’s record of participation. Needing support is not a failure of independence, and preferring less contact is not a moral shortcoming. The score cannot determine how much contact a person should want or which form of participation suits them.",
+              "zh": "回答不是旁人记录的参与情况。需要支持不表示独立失败，偏好较少接触也不是品德不足。分数不能决定一个人应该想要多少接触，或何种参与方式适合本人。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Three reverse keys and a worked example",
+            "zh": "三个反向键与算例"
+          },
+          "paragraphs": [
+            {
+              "en": "The original reverse keys are items 3, 19 and 22. For them the recoded value is 8 minus the response; the remaining five use the selected 1–7 value. Eight midpoint answers give 32 and a mean of 4.00, without placing the respondent in a clinical category.",
+              "zh": "原始反向键为第3、19、22项，重编码值为8减回答；另五项使用所选1—7。八项都选中点得到32，均分4.00，不会因此把作答者分入临床类别。"
+            },
+            {
+              "en": "All answers of 1 give 26, and all answers of 7 give 38. These examples check the reverse scoring, not desirable answer patterns. The unrounded sum is divided by eight for the displayed mean. Neither the sum nor the mean is a probability, percentage of symptoms or measure of functioning.",
+              "zh": "所有项选1得到26，全部选7得到38。这些算例用来核对反向计算，不是理想答法。未舍入合计除以八再显示均分；两种数值都不是概率、症状百分比或功能测量。"
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "en": "Reading the quoted word “normal”",
+            "zh": "怎样读带引号的“正常”"
+          },
+          "paragraphs": [
+            {
+              "en": "Item 25 retains the source’s phrase about pretending to be “normal”, including its quotation marks. It asks whether that description fits your experience. This page does not define a normal kind of person, treat difference as a defect or demand that you meet a social standard.",
+              "zh": "第25项保留原文关于假装“正常”的措辞及引号，询问这个描述是否符合你的体验。本页不定义某种正常的人，不把差异视为缺陷，也不要求达到社交标准。"
+            },
+            {
+              "en": "You can disagree, choose any other agreement response or explicitly skip the item. You need not explain that choice or identify yourself as autistic or non-autistic. A single answer, like a part sum, cannot establish an identity or decide whether someone is being their real self.",
+              "zh": "可以不同意、选择其他同意程度，或明确跳过，不必解释选择，也不必标明自己是否为自闭症。单个回答和部分合计一样，都不能确立身份或判断某人是否在做真实的自己。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A situation does not explain its cause",
+            "zh": "一个场景不能解释成因"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone might find a group event easier with a familiar person nearby and still feel that conversation is effortful. The items can record agreement with related experiences. They do not establish whether the setting, language, anxiety, unfamiliarity or another factor accounts for the responses.",
+              "zh": "某人可能在熟悉的人陪伴下更容易参与集体活动，仍觉得谈话费力。题项可记录对相关体验的认同，不能确定回答来自场地、语言、焦虑、陌生感还是其他因素。"
+            },
+            {
+              "en": "The 2025 construct-validity study reported overlap between some Assimilation items and related anxiety or social-experience content. That finding does not turn the part into an anxiety test. It is a reason to avoid treating its number as a unique signal of autism or a complete explanation of discomfort.",
+              "zh": "2025年构念效度研究报告，部分融入题项与相关焦虑或社交体验内容重叠。这并不把本部分变成焦虑测试，而是提醒不要把数字当作自闭症的唯一信号，或不适的完整解释。"
+            }
+          ]
+        },
+        {
+          "id": "differences",
+          "title": {
+            "en": "How this differs from the other two parts",
+            "zh": "与另外两个部分的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Compensation concerns learned strategies, and Masking concerns attention to presentation. Assimilation brings in feelings about joining in and being yourself. Their meanings can relate, but a person is not assigned to one of three exclusive types, and one part does not invalidate another.",
+              "zh": "补偿关于学习型策略，掩饰关于留意表现，融入则包含参与和做自己的感受。它们可以相关，但不会把人分配到三个互斥类型，也不会以一部分否定另一部分。"
+            },
+            {
+              "en": "Compensation has nine items while this part has eight, so their raw sums have different ranges. Means share the 1–7 response scale but do not establish an equally calibrated comparison. No dominant part, total-to-autism conversion, population rank or diagnostic cutoff is calculated.",
+              "zh": "补偿九项，本部分八项，原始合计范围不同。均分虽共享1—7选项量尺，也不建立同等校准的比较。本页不算主导部分、总分到自闭症的换算、人群排名或诊断切点。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Support without compulsory exposure",
+            "zh": "支持不等于强制暴露"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, privately consider what makes an interaction feel more manageable: a clearer plan, a quieter setting, a trusted person or permission to leave. These are examples for reflection, not instructions or treatment claims. No new exposure, eye contact or disclosure task is required to use the guide.",
+              "zh": "若有用，可私下想什么让互动更容易应对：更清楚的计划、安静环境、可信的人，或可以离开的空间。这些是反思例子，不是指令或治疗主张；阅读不要求新的暴露、眼神接触或披露任务。"
+            },
+            {
+              "en": "There is no target number to reduce. The developers’ 2026 public perspective cautions against intervention monitoring with CAT-Q. Your needs can be discussed on their own terms with a qualified professional if you wish, without first proving a high score or demonstrating improvement on a repeat attempt.",
+              "zh": "没有要降低到的目标数字。原作者团队2026年公开观点提醒避免用CAT-Q监测干预。若愿意，可依据实际需要与合格专业人士讨论，不必先证明高分，也不必在重做中展示改善。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Incomplete parts and the working translation",
+            "zh": "不完整部分与工作译文"
+          },
+          "paragraphs": [
+            {
+              "en": "One explicit skip withholds this part and the overall total; complete other parts remain available. All guides can be read even if all statements are skipped. Missing responses are not estimated, so a smaller set is not presented as the original complete eight-item readout.",
+              "zh": "一次明确跳过即暂不给本部分和整体总分，其他完整部分仍可显示。即使全部题项都跳过，也能读全部指南。不估计缺失回答，不将较少题项当成原始完整八项读数。"
+            },
+            {
+              "en": "The Chinese text is a new working translation without established validation or English equivalence, and no external norms are imported. Public links carry no private score. Answers clear on refresh, language change, leaving, clearing or retaking; this page builds no account history or treatment timeline.",
+              "zh": "中文是新作工作译文，未建立验证或英文等值关系，不引入外部常模。公开链接不带私人分数。刷新、换语、离开、清空或重做均移除回答，不建立账户历史或治疗时间线。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "What this edition asks",
+        "zh": "本版询问什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Read each original statement and use its seven agreement choices. The source instruction concerns your experiences during social interactions; this page does not add a past-week or past-month recall window. The question about pretending to be “normal” retains the source’s quoted wording, without defining a normal kind of person or a standard you must perform.",
+          "zh": "阅读每条原始陈述，并按七级同意程度作答。原始说明询问社交互动中的体验，本页不额外添加过去一周或一个月的回顾范围。“假装‘正常’”一题保留原文带引号的措辞，不把人分成正常与不正常，也不要求你按某个标准表现。"
+        },
+        {
+          "en": "Choose a response or explicitly skip each statement. A skip is not disagreement, a midpoint or zero. You may stop at any point. All four full guides are available without answering, and no one needs to disclose a diagnosis, identity, personal example or reason for skipping.",
+          "zh": "每项可选择答案，或明确跳过。跳过不是不同意、不是中点，也不是零分。随时可以停止；四份完整读法不需作答也能查看，不要求披露诊断、身份、私人经历或跳过原因。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Original keys and transparent arithmetic",
+        "zh": "原始键与透明算术"
+      },
+      "paragraphs": [
+        {
+          "en": "All source items use 1–7. Items 3, 12, 19, 22 and 24 are reversed as 8 minus the selected number. Compensation has nine items; Masking and Assimilation have eight each. A complete total is the sum of all 25 recoded values, from 25 to 175. Each part’s sum and mean use its own items, without weights or a winning-type rule.",
+          "zh": "原题使用1—7。第3、12、19、22、24项反向计算为8减所选数值。补偿含九项，掩饰与融入各八项。完整总分是25项重编码后的合计，范围25—175。各部分只对自己的题项求和及均分，不加权，也不选获胜类型。"
+        },
+        {
+          "en": "This site withholds a part’s numbers unless every item in that part has a numeric response, and withholds the total unless all 25 do. Complete other parts remain readable. Means use the unrounded sums and are displayed to two decimal places. This explicit missing-data rule adds no estimated answers and does not establish a validated shortened form.",
+          "zh": "本站仅在某部分全部题项有数值回答时给出该部数字，25项都有数值时才给总分；其他完整部分仍可阅读。均分从未舍入合计计算，显示两位小数。这是明确的缺失处理规则，不补估答案，也不建立经过验证的缩短版。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What the readout can and cannot establish",
+        "zh": "分数的用途与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "The readout summarizes agreement with these statements, not the number of times you performed a behaviour, how convincingly you appeared to others, or how much energy you spent. It cannot confirm or rule out autism, explain why a response occurs, or set a low, moderate or high clinical band. A total of 100 is not a diagnostic threshold.",
+          "zh": "结果汇总你对这些陈述的同意程度，不是行为发生次数、在别人眼中表现得多成功，或消耗了多少能量。它不能确认或排除自闭症、解释反应成因，也不划临床低中高等级。总分100不是诊断阈值。"
+        },
+        {
+          "en": "The developers’ 2026 public perspective cautions against using CAT-Q scores for diagnostic decisions or intervention monitoring. This page does not compare your score with gender, diagnostic or national groups, track treatment progress, or apply another language’s norms to this Chinese working edition.",
+          "zh": "原作者团队2026年公开观点提醒，不应用CAT-Q分数作诊断决定或干预监测。本页不把你的分数与性别、诊断或国家群体比较，不追踪治疗进展，也不把其他语言常模套给本中文工作版。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Reflect without a target score",
+        "zh": "不以追分为目标的反思"
+      },
+      "paragraphs": [
+        {
+          "en": "If useful, consider privately whether an interaction felt chosen, expected, comfortable or tiring. The same action can have different meanings across settings. You do not need to reduce a score, force eye contact, disclose personal information, or remove a strategy that helps you feel safe.",
+          "zh": "如果有用，可以私下回想一次互动是自主选择、出于期待、感觉舒适还是令人疲惫。同一动作在不同情境中含义可能不同。不必为了降低分数强迫眼神接触、披露私人信息，或撤去有助于安全感的应对办法。"
+        },
+        {
+          "en": "If you want support, your needs and preferences are enough reason for a conversation with a qualified professional; no CAT-Q threshold is required. Retaking starts a fresh record and clears the previous one. A difference between attempts is not evidence that your health, authenticity or treatment has improved or worsened.",
+          "zh": "若希望获得支持，可以依据自己的需要与意愿和合格专业人士讨论，不必先达到某个CAT-Q分数。重做会清空旧记录，开始新一次自评。两次有差异，不证明健康、真实程度或治疗效果改善或恶化。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does a high CAT-Q score mean I am autistic?",
+        "zh": "CAT-Q分数高就说明我是自闭症吗？"
+      },
+      "answer": {
+        "en": "No. CAT-Q scores describe responses about social camouflaging, not an autism diagnosis or probability. A low score also cannot rule autism out. Similar answers can have different meanings, and this page makes no diagnostic decision.",
+        "zh": "不是。CAT-Q分数描述社交伪装相关回答，不是自闭症诊断或概率。分数低也不能排除自闭症。相似回答可能有不同含义，本页不作诊断决定。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is 100 the cutoff?",
+        "zh": "100分是分界线吗？"
+      },
+      "answer": {
+        "en": "No cutoff is applied here. Choosing the midpoint 4 on every statement produces a total of 100 after the reverse keys, but mixed answers can also total 100. That arithmetic does not define a clinical threshold.",
+        "zh": "本页不使用切点。每条都选中点4，经反向键后合计100；不同的混合回答也能合计100。这个算术关系不定义临床阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are some statements so similar?",
+        "zh": "为什么有些陈述很相似？"
+      },
+      "answer": {
+        "en": "The original 25-item edition includes separate statements about monitoring and adjusting expressions, and thinking about versus being aware of impressions. They are retained in their original order and assigned to the published parts; the interface does not merge or rewrite them into fewer items.",
+        "zh": "原始25项版分别询问留意与调整表情、想到与意识到印象等内容。本版保留原顺序和发表归属，不把它们合并或改写成更少的题项。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I skip statements and still read the guides?",
+        "zh": "跳过题项后还能看读法吗？"
+      },
+      "answer": {
+        "en": "Yes. Explicitly skip any statement you prefer not to answer, including all 25. A skipped item withholds the numbers for its part and the overall total; complete other parts can still be shown. All four full public guides remain free.",
+        "zh": "可以。可明确跳过任意题项，包括全部25项。跳过会暂不给所在部分及整体总分的数字；其他完整部分仍可显示。四份完整公开读法始终免费。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese edition validated?",
+        "zh": "中文版本经过验证了吗？"
+      },
+      "answer": {
+        "en": "This is a new FermatMind working translation of the selected English appendix. It has not been validated or shown equivalent to the English edition. It does not adopt another translation’s validation, thresholds or norms. You can read the original English version separately.",
+        "zh": "本版是费马对选定英文附件新作的工作译文，未经验证，尚未证明与英文等值。不沿用其他译本的验证、切点或常模。你可以另行阅读英文原版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my responses saved or included in a shared result?",
+        "zh": "会保存答案或在分享中带上个人结果吗？"
+      },
+      "answer": {
+        "en": "No saved draft or account record is created. Responses and scores stay in this page’s memory and clear on refresh, language change, leaving, exit or retake. Copying shares public explanation links only, without responses or numerical results.",
+        "zh": "不建立草稿或账户记录。答案和分数只留在本页内存，刷新、换语、离开、退出或重做会清空。复制仅包含公开解释链接，不带答案或个人数值。"
+      }
+    }
+  ],
+  "catq25": {
+    "subtitle": {
+      "en": "25 source statements · Seven agreement choices",
+      "zh": "25条原始陈述 · 七级同意程度"
+    },
+    "privacy": {
+      "en": "Answers and scores stay only in this page’s memory. Refreshing, changing language, leaving or clearing removes them; returning through browser history also starts fresh. No draft, account or answer history is created. Ordinary page analytics is disabled. Optional anonymous action counts need this page’s permission and your site analytics choice.",
+      "zh": "答案与分数只留在当前页面内存。刷新、切换语言、离开或清空均会移除；通过浏览器历史返回也重新开始。不保存草稿、账户或答题历史。常规页面分析关闭；可选匿名动作计数需同时获得本页许可与全站分析同意。"
+    },
+    "editionNotice": {
+      "en": "English follows the original published Appendix 1. Chinese is a new working translation, without validation or established equivalence to the English edition. No personal diagnostic conclusion or comparison with a population is provided.",
+      "zh": "英文沿用原始发表附件1。中文为新作工作译文，未经验证，尚未建立与英文版的等值关系。本页不给出个人诊断结论或人群比较。"
+    },
+    "attribution": {
+      "en": "CAT-Q items: © The Author(s) 2018. Laura Hull, William Mandy, Meng-Chuan Lai, Simon Baron-Cohen, Carrie Allison, Paula Smith and K. V. Petrides. Published in Journal of Autism and Developmental Disorders 49, 819–833 (2019), DOI 10.1007/s10803-018-3792-6, with Online Appendix 1. Used under CC BY 4.0. FermatMind added the Chinese working translation, interface, optional skip controls and original explanations; no author endorsement is implied.",
+      "zh": "CAT-Q题项：© The Author(s) 2018。作者为Laura Hull、William Mandy、Meng-Chuan Lai、Simon Baron-Cohen、Carrie Allison、Paula Smith、K. V. Petrides。发表于Journal of Autism and Developmental Disorders 49, 819–833（2019），DOI 10.1007/s10803-018-3792-6，含在线附件1。依CC BY 4.0使用。费马新增中文工作译文、界面、可选跳过操作和原创解释，不暗示作者背书。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Original CAT-Q paper and publisher-linked Appendix 1",
+        "zh": "CAT-Q原始论文与出版方所附附件1"
+      },
+      "url": "https://link.springer.com/article/10.1007/s10803-018-3792-6"
+    },
+    {
+      "title": {
+        "en": "Creative Commons Attribution 4.0 license",
+        "zh": "Creative Commons署名4.0许可"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "title": {
+        "en": "2026 authors’ perspective: public abstract and community brief",
+        "zh": "2026作者观点：公开摘要与社群说明"
+      },
+      "url": "https://journals.sagepub.com/doi/10.1177/25739581261435868"
+    },
+    {
+      "title": {
+        "en": "2025 construct-validity study: anxiety and social-experience overlap",
+        "zh": "2025构念效度研究：焦虑与社交体验的重叠"
+      },
+      "url": "https://journals.sagepub.com/doi/10.1177/13623613241287964"
+    }
+  ]
+}
