@@ -40,7 +40,19 @@ describe("T064 original five-part interpersonal habits accuracy reflection", () 
     for (const bank of readdirSync("lib/questionnaires/data").filter(f => f.endsWith(".json") && f !== "toxic-trait.json").map(f => f.slice(0, -5))) {
       const other = JSON.parse(readFileSync(`lib/questionnaires/data/${bank}.json`, "utf8")) as Questionnaire;
       const prompts = new Set(other.questions.flatMap(q => [q.prompt.en, q.prompt.zh]));
-      for (const question of quiz.questions) expect(prompts.has(question.prompt.en) || prompts.has(question.prompt.zh)).toBe(false);
+      const isOriginalMiniBank = bank === "stress-response-patterns-test";
+      if (isOriginalMiniBank) {
+        expect(other.code).toBe("PERSONALITY_SHADOW");
+        expect(other.kind).toBe("mini-shadow");
+        expect(other.source.formCode).toBe("personality_shadow_likert_20");
+        for (const item of source.miniReuse.items) {
+          expect(other.questions.find(q => q.id === item.miniQuestionId)?.prompt.zh).toBe(item.zhExact);
+        }
+      }
+      for (const question of quiz.questions) {
+        const declaredSourceItem = source.miniReuse.items.find(item => item.webQuestionId === question.id);
+        expect(prompts.has(question.prompt.en) || prompts.has(question.prompt.zh)).toBe(isOriginalMiniBank && !!declaredSourceItem);
+      }
     }
     expect(new Set(quiz.questions.map(q => q.prompt.en)).size).toBe(20); expect(new Set(quiz.profiles.map(p => p.seo!.title.en)).size).toBe(5);
   });
