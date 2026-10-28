@@ -5250,5 +5250,27 @@
       "responding-to-behavioral-impact",
       "following-through-after-repair"
     ]
+  },
+  {
+    "slug": "stress-check-in-test",
+    "code": "FM_MONTHLY_STRESS_REFLECTION4",
+    "version": "2026-10-28.1",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "One-Month Stress Check-In",
+      "zh": "近一个月压力自评"
+    },
+    "description": {
+      "en": "Reflect on the past month with four original prompts, a transparent 0–16 total and a complete free guide. No diagnosis or score cutoffs.",
+      "zh": "用四道原创题回看过去一个月，公开0—16计分并免费提供完整解读；不作诊断，不派分数等级。"
+    },
+    "minutes": 1,
+    "collection": "explore",
+    "formCode": "fm_original_monthly_stress4_v1",
+    "questionCount": 4,
+    "resultSlugs": [
+      "reading-your-check-in"
+    ]
   }
 ]

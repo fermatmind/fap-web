@@ -1,0 +1,561 @@
+{
+  "slug": "stress-check-in-test",
+  "code": "FM_MONTHLY_STRESS_REFLECTION4",
+  "version": "2026-10-28.1",
+  "updated": "2026-10-28",
+  "category": "everyday",
+  "kind": "stress-reflection4",
+  "title": {
+    "en": "One-Month Stress Check-In",
+    "zh": "近一个月压力自评"
+  },
+  "seoTitle": {
+    "en": "One-Month Stress Check-In: 4 Original Prompts",
+    "zh": "近一个月压力自评：四道原创题"
+  },
+  "description": {
+    "en": "Reflect on the past month with four original prompts, a transparent 0–16 total and a complete free guide. No diagnosis or score cutoffs.",
+    "zh": "用四道原创题回看过去一个月，公开0—16计分并免费提供完整解读；不作诊断，不派分数等级。"
+  },
+  "minutes": 1,
+  "introduction": {
+    "en": "Think about the past month as you remember it today. Choose how often each situation occurred, with no desired answer or target score.",
+    "zh": "回想你今天记得的过去一个月，选择每种情况的常见程度，没有理想答案或目标分数。"
+  },
+  "instructions": {
+    "en": "Choose one frequency for each prompt. If you prefer not to answer, exit and read the full guide. All four valid choices are required for a total.",
+    "zh": "每题选择一个频率。若不愿作答，可以退出并读完整指南。只有四题全部有效才显示总分。"
+  },
+  "resultHeading": {
+    "en": "Your one-month check-in total",
+    "zh": "本次近一个月回看总分"
+  },
+  "directions": [
+    {
+      "id": "MONTHLY_STRESS",
+      "title": {
+        "en": "Original monthly stress reflection",
+        "zh": "原创月度压力回看"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "stress-check-in-01",
+      "reverse": false,
+      "prompt": {
+        "en": "Over the past month, how often did several demands compete for your attention and leave you feeling rushed?",
+        "zh": "过去一个月，多件事同时需要你留意、让你感到急迫的情况有多常见？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 0,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 1,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 2,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "score": 3,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "score": 4,
+          "directionId": "MONTHLY_STRESS"
+        }
+      ]
+    },
+    {
+      "id": "stress-check-in-02",
+      "reverse": true,
+      "prompt": {
+        "en": "Over the past month, how often could you make room for a short pause that helped you regain composure?",
+        "zh": "过去一个月，你有多常能留出短暂停顿，让自己重新稳下来？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 0,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 1,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 2,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "score": 3,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "score": 4,
+          "directionId": "MONTHLY_STRESS"
+        }
+      ]
+    },
+    {
+      "id": "stress-check-in-03",
+      "reverse": false,
+      "prompt": {
+        "en": "Over the past month, how often did you feel pressed to respond before you had time to think?",
+        "zh": "过去一个月，你有多常感到还没来得及思考，就被催着作出回应？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 0,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 1,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 2,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "score": 3,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "score": 4,
+          "directionId": "MONTHLY_STRESS"
+        }
+      ]
+    },
+    {
+      "id": "stress-check-in-04",
+      "reverse": true,
+      "prompt": {
+        "en": "Over the past month, how often could you identify one manageable next step when plans became complicated?",
+        "zh": "过去一个月，计划变复杂时，你有多常能找到一个眼下做得了的下一步？"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "score": 0,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "score": 1,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "score": 2,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "score": 3,
+          "directionId": "MONTHLY_STRESS"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "score": 4,
+          "directionId": "MONTHLY_STRESS"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reading-your-check-in",
+      "directionIds": [
+        "MONTHLY_STRESS"
+      ],
+      "title": {
+        "en": "Reading Your One-Month Stress Check-In",
+        "zh": "近一个月压力自评：完整分数读法"
+      },
+      "headline": {
+        "en": "Read the number alongside your circumstances",
+        "zh": "把数值放回实际处境"
+      },
+      "summary": {
+        "en": "Understand this original four-prompt total, different response patterns, everyday context and optional next steps without diagnostic cutoffs.",
+        "zh": "理解原创四题总分、不同回答组合、实际处境与可选下一步，不使用诊断分界。"
+      },
+      "scoreReading": {
+        "en": "The original total ranges from 0 to 16. It summarizes these four responses and does not identify a stress disorder, risk level or position in the population.",
+        "zh": "本原创总分范围0—16，只汇总这四项回答，不识别压力障碍、风险等级或人群位置。"
+      },
+      "seo": {
+        "title": {
+          "en": "One-Month Stress Check-In: Full Score Guide",
+          "zh": "近一个月压力自评完整解释与分数读法"
+        },
+        "description": {
+          "en": "Read an original four-prompt stress total with context, mixed answers and optional reflection. No diagnosis, population norms or score cutoffs.",
+          "zh": "完整阅读原创四题压力总分、混合回答、情境与可选反思；不作诊断，不使用人群常模或分数门槛。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the check-in summarizes",
+            "zh": "这次自评汇总什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This check-in asks about feeling rushed, having room for a pause, pressure to answer quickly and finding a manageable next step. It refers to the past month as you remember it today. It is a small original reflection tool rather than a complete account of your demands, resources or well-being.",
+              "zh": "这次自评询问急迫感、留出停顿、被催着回应，以及找到可行下一步的情况。回顾范围是你今天记得的过去一个月。它是一份小型原创反思工具，不能完整呈现你的要求、资源或身心状况。"
+            },
+            {
+              "en": "WHO describes stress as a response to challenging situations and notes that experiences differ between people. That background helps frame an ordinary check-in; it does not validate these four prompts. No health condition or need for treatment is established by the number shown here.",
+              "zh": "WHO把压力描述为对困难情境的反应，并指出不同人的体验会有差异。这个背景有助于理解日常回看，但不验证这四道题。这里的数值不能确立健康状况或治疗需要。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Follow the arithmetic",
+            "zh": "把计算看清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Each response is assigned a value from zero for never to four for very often. The first and third prompts retain that value. The second and fourth concern available ways to pause or proceed, so their contributions are four minus the selected value. Adding the four contributions gives a total from zero to sixteen.",
+              "zh": "每项回答记为从不的0分到经常的4分。第一、第三题保留所选值；第二、第四题涉及能够停顿或继续推进的情况，贡献值为4减所选值。四项相加，总分范围0—16。"
+            },
+            {
+              "en": "For a worked example, choices of 3, 1, 2 and 3 contribute 3, 3, 2 and 1, giving nine. That is an arithmetic example, not a moderate-stress category. Equal weights and reverse keys are disclosed choices for this original form; their measurement properties have not been established.",
+              "zh": "例如四项分别选择3、1、2、3，对应贡献为3、3、2、1，合计9。这是算术例子，不代表中度压力。等权与反向键是本原创题本公开采用的选择，其测量性质尚未建立。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Similar totals, different experiences",
+            "zh": "相同总分，不同经历"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger total means that these particular responses leaned toward feeling pressed and having less room to pause or choose a next step. A smaller total means the reverse within this form. Neither end proves how well you are coping, and neither creates an obligation to feel better or work harder.",
+              "zh": "总分较大，表示这几项回答更偏向受催促、较少能停顿或找到下一步；较小则在本题本内偏向相反方向。任何一端都不能证明你应对得如何，也不要求你必须感觉更好或更努力。"
+            },
+            {
+              "en": "Two people can both obtain eight through very different choices. One may report frequent pressure together with workable pauses; another may choose the middle option throughout. If you want a useful next observation, look at one prompt and one actual scene rather than treating the total as a whole-person label.",
+              "zh": "两个人可能通过完全不同的选择都得到8分。一个人可能经常感到受催促，同时也能停顿；另一个人可能每题都选中间项。若想找到有用的下一条观察，可以看一道题和一个实际场景，而不把总分当作整个人的标签。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Notice demands and room to act",
+            "zh": "留意要求与行动空间"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional example, imagine several ordinary messages arriving during a planned task. Write down what required an immediate response, what could wait and who actually set the timing. This is a way to describe the scene, not a test of whether you should be able to control every demand.",
+              "zh": "可以设想一个可选例子：做原定任务时，接连来了几条普通消息。写下哪些确实需要马上回应、哪些可以等待，以及回应时间是谁设定的。这是描述情境的方法，不是检验你是否应该能控制全部要求。"
+            },
+            {
+              "en": "Resources, illness, caregiving, money, workload and other people’s decisions may constrain what is possible. A questionnaire cannot remove those constraints. If a small adjustment is available, you might identify a clearer deadline or one task to discuss with a relevant person, without committing to a change that is unsafe or impractical.",
+              "zh": "资源、疾病、照护责任、经济条件、工作量及别人的决定，都可能限制行动空间。问卷无法消除这些限制。若有可行的小调整，可以找一个更清楚的期限，或一件适合与相关人讨论的事，无需承诺不安全或不现实的改变。"
+            }
+          ]
+        },
+        {
+          "id": "reflection",
+          "title": {
+            "en": "Use another check-in carefully",
+            "zh": "谨慎使用下一次回看"
+          },
+          "paragraphs": [
+            {
+              "en": "You can simply read this guide and stop. If you choose to reflect again later, keep the same past-month wording in mind and note any major change in circumstances. Overlapping months and changing recollection mean that two totals are not independent observations or a precise progress meter.",
+              "zh": "你可以只读指南，到这里结束。如果之后自愿再回看，可以留意相同的过去一个月范围，并记下处境是否有明显变化。月份重叠、回忆变化，都意味着两次总分并非独立观察，也不是精确进度计。"
+            },
+            {
+              "en": "Do not treat a one-point change as proof of improvement or deterioration. This original form has no established reliable-change threshold. A concrete note such as an extra demand arriving or a deadline becoming clearer may be more useful than trying to reach a preferred number. Keeping any note is entirely optional.",
+              "zh": "不要把变化1分当作改善或恶化的证据。本原创题本没有已建立的可靠变化阈值。多了一项要求，或期限变得清楚，这类具体记录可能比追求某个分数更有用。是否留下记录完全自愿。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Privacy, boundaries and support",
+            "zh": "隐私、边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "This is not the standard PSS-4, an authorized translation, a clinical screen or a validated substitute for one. The public PSS material informed the general idea of a brief past-month check-in, while FermatMind wrote different prompts and this explanation. PSS norms and any other publisher’s score bands do not apply.",
+              "zh": "这不是标准PSS-4、授权译本、临床筛查或其已验证替代品。公开PSS资料提供简短过去一个月回看的形式参考，费马另写题目与本说明。PSS常模及其他发布者的分档不适用于这里。"
+            },
+            {
+              "en": "Answers and your total stay only in current-page memory; leaving, reloading or changing language clears them. Copying shares this fixed public guide without your score. If difficulties persist or affect daily functioning, a trusted health-care professional can help you consider them in context, regardless of this total.",
+              "zh": "回答与本次总分只在当前页面内存，离开、刷新或换语会清除。复制只分享这篇固定公开指南，不含分数。若困难持续或影响日常功能，无论此处总分多少，都可以与可信的医疗专业人员结合实际处境讨论。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original",
+      "title": {
+        "en": "An original brief check-in",
+        "zh": "一份原创简短回看"
+      },
+      "paragraphs": [
+        {
+          "en": "Four original prompts ask about feeling rushed and room to pause or find a next step over the past month. They are written by FermatMind, with a parallel working English and Chinese edition. This form is not the standard PSS-4 or a validated replacement.",
+          "zh": "四道原创题回看过去一个月的急迫感，以及能否停顿或找到下一步。费马独立编写双语工作版本。本版不是标准PSS-4，也不是其已验证替代品。"
+        },
+        {
+          "en": "Public PSS material informed the brief past-month format, while WHO supplies general stress context. Neither source validates this item bank, scoring or translation. You can review the method and complete public guide without answering.",
+          "zh": "公开PSS资料提供简短过去一个月形式的参考，WHO提供一般压力背景。两者都不验证本题本、计分或双语措辞。无需答题即可阅读计分方法与完整公开解读。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "The disclosed 0–16 total",
+        "zh": "公开的0—16总分"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses range from zero for never to four for very often. Items one and three retain the chosen value; items two and four contribute four minus the chosen value. Their four contributions are added without rounding or normalization. All four valid responses are required.",
+          "zh": "选项从“从不”的0分到“经常”的4分。第一、第三题保留所选值；第二、第四题贡献为4减所选值。四项直接相加，不四舍五入或标准化。须四题全部有效才显示总分。"
+        },
+        {
+          "en": "For example, 3, 1, 2, 3 gives 3 + 3 + 2 + 1 = 9. This is an original arithmetic recipe, not a low, moderate or high stress category. No population percentile, reliable-change threshold, clinical cutoff or risk probability is assigned.",
+          "zh": "例如选择3、1、2、3，对应3+3+2+1=9。这是原创算术规则，不代表低度、中度或高度压力。不派人群百分位、可靠变化门槛、临床分界或风险概率。"
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "en": "Use the total with context",
+        "zh": "结合处境读总分"
+      },
+      "paragraphs": [
+        {
+          "en": "Higher and lower totals describe the direction of these four responses, without establishing how well you cope. Different choices can produce the same total. Read one prompt alongside an actual scene if you want more context, without treating a number as a personal label.",
+          "zh": "较高或较低总分描述这四项回答的方向，不能确立你应对得如何。不同选择可能得到同一总分。若想补充处境，可以把一道题与一个实际场景对照，无需把数值当成个人标签。"
+        },
+        {
+          "en": "The single full guide covers the whole range, mixed responses, the worked arithmetic, context and optional reflection. It is available before answering and remains the same public page for everyone. No score selects a private or severity-labelled URL.",
+          "zh": "同一篇完整指南覆盖整个分数范围、混合回答、算例、情境与可选反思。答题前即可阅读，每个人使用同一个公开页面。分数不会选择私人或带严重度标签的地址。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Memory only, public link only",
+        "zh": "只在内存，只复制公开链接"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses and the total stay in current-page memory. Reloading, changing language or leaving clears them. No account or answer history is created. Ordinary page analytics stays disabled; anonymous action counts require separate optional page permission and your site analytics consent.",
+          "zh": "回答和总分只在当前页面内存。刷新、换语或离开会清除。不建立账户或答题历史。常规页面分析保持关闭；匿名操作次数须在本页另行自愿开启，并同时遵循全站分析选择。"
+        },
+        {
+          "en": "Copying includes only the fixed public guide title and URL. It excludes responses, contributions and the total. You may stop at any point and read the guide instead of completing the check-in.",
+          "zh": "复制仅包含固定公开指南的标题与地址，不含回答、单题贡献或总分。可以随时退出并直接阅读指南，无需完成自评。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this standard PSS-4?",
+        "zh": "这是标准PSS-4吗？"
+      },
+      "answer": {
+        "en": "No. It is an original FermatMind brief reflection, with different prompts and reverse keys. It is not a standard PSS-4 score, authorized translation or validated substitute.",
+        "zh": "不是。这是费马原创简短反思，题目和反向键不同。它不是标准PSS-4分数、授权译本或已验证替代品。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does the total mean?",
+        "zh": "总分代表什么？"
+      },
+      "answer": {
+        "en": "It adds four contributions from 0 to 4, after reversing prompts two and four. The possible total is 0–16. It summarizes this form’s answers rather than a diagnosis or a population rank.",
+        "zh": "第二、第四题反向换算后，四项各0—4分相加，总分范围0—16。它只汇总本题本回答，不是诊断或人群排名。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which scores are low or high?",
+        "zh": "多少分算低或高？"
+      },
+      "answer": {
+        "en": "This original form does not assign cutoff bands. A larger sum reflects more pressure-oriented responses under this recipe; it does not establish severity, illness or a need for treatment.",
+        "zh": "本原创题本不派分档。较大原始和表示按本算法回答更偏向受压力，但不能确立严重度、疾病或治疗需要。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I compare repeated totals?",
+        "zh": "能比较重测总分吗？"
+      },
+      "answer": {
+        "en": "You can note circumstances if you choose, but this form has no established reliable-change threshold. Overlapping recall periods and changed memory affect comparisons. A small difference is not proof of improvement or deterioration.",
+        "zh": "若自愿，可以记录处境；但本题本没有已建立的可靠变化门槛。回顾月份重叠和记忆变化都会影响比较，小幅变化不证明改善或恶化。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I answer everything?",
+        "zh": "必须回答全部吗？"
+      },
+      "answer": {
+        "en": "All four valid choices are required for a total. You can leave at any point and read the complete guide without a score. There are no right answers.",
+        "zh": "只有四题全部有效才显示总分。可以随时离开并无分阅读完整指南，没有正确答案。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers stay in current-page memory and clear on reload, language change or leaving. Copying shares the same public guide link for everyone, without a score or answers.",
+        "zh": "回答只在当前页面内存，刷新、换语或离开会清除。复制分享每个人相同的公开指南链接，不含分数或答案。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "CMU: PSS background and measurement boundaries",
+        "zh": "CMU：PSS背景与测量边界"
+      },
+      "url": "https://www.cmu.edu/dietrich/psychology/stress-immunity-disease-lab/scales/index.html"
+    },
+    {
+      "title": {
+        "en": "WHO: general stress context",
+        "zh": "WHO：一般压力背景"
+      },
+      "url": "https://www.who.int/news-room/questions-and-answers/item/stress"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_monthly_stress_reflection4",
+    "formCode": "fm_original_monthly_stress4_v1",
+    "itemBankVersion": "fm_original_monthly_stress4_v1",
+    "scoringVersion": "four_items_0to4_reverse_2_4_sum_0to16_v1",
+    "resultContentVersion": "monthly_stress_one_full_guide_v1",
+    "itemBankSha256": "80005e9364bfdd7255891e53df9f91b5042945c392206583c14d27236b7ab446",
+    "resultContentSha256": "87fc4514067c35cc496cc8182dde0d5f0d48608b84fcbe42754154c13feba844",
+    "psychometricValidationCompleted": false
+  }
+}
