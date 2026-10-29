@@ -1,0 +1,2307 @@
+{
+  "slug": "imposter-syndrome",
+  "code": "FM_IMPOSTER20",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "imposter20",
+  "title": {
+    "en": "Imposter Syndrome Test",
+    "zh": "冒名顶替综合征测试"
+  },
+  "seoTitle": {
+    "en": "Imposter Syndrome Test: 20 Original Questions, Free Full Guides",
+    "zh": "冒名顶替综合征测试｜20题原创自评与五篇完整读法"
+  },
+  "description": {
+    "en": "Reflect on achievement-related self-doubt with 20 original questions and five free full guides. See response frequencies, without diagnosis, CIPS scoring or signup.",
+    "zh": "用20条原创题目观察成就相关的自我怀疑，免费查看五组频率读数与完整解释。不作诊断，不使用CIPS计分，无需注册。"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "Wondering whether you discount a contribution, dismiss feedback or feel exposed during evaluation? This original reflection separates five everyday contexts. Impostor syndrome is a common alternative spelling; both spellings refer to this same page. This is not the Clance Impostor Phenomenon Scale or a validated measure of a disorder.",
+    "zh": "顺利完成事情，却把自己的贡献略过；听到肯定，先觉得对方只是客气；面对评价，又担心“不配待在这里”。这份原创自评把相关经历分成五组，帮助具体回顾。也有人称它为“冒充者综合征”。本页不是CIPS量表，也不是经过验证的疾病测量。"
+  },
+  "instructions": {
+    "en": "Think about the past four weeks in one work, study or voluntary-project context that you choose privately. Rate how often each statement fit: 0 never, 1 rarely, 2 sometimes, 3 often, 4 very often. Use no opportunity / prefer not to answer when appropriate. Do not enter a name or example.",
+    "zh": "在心里选定一个工作、学习或志愿项目情境，回顾近四周。按每条描述符合的频率选择：0从不、1很少、2有时、3经常、4非常经常。没有对应情境或不愿回答时可明确跳过，不必输入名称或具体经历。"
+  },
+  "resultHeading": {
+    "en": "Your five separate frequency readings",
+    "zh": "你的五组独立频率读数"
+  },
+  "source": {
+    "kind": "fermatmind_original_achievement_selfdoubt_reflection",
+    "formCode": "fm_imposter20_original_v1",
+    "itemBankVersion": "fm_imposter20_original_bilingual_v1",
+    "scoringVersion": "five_topics_4_direct_0to4_min3_no_total_v1",
+    "resultContentVersion": "fm_imposter20_five_full_guides_v1",
+    "itemBankSha256": "0138cfbf6d8485859bebd8a97ee8ef78e1f00c7a96d97f40b6725a087e5bc9dc",
+    "resultContentSha256": "8e766b1a183d70619b22a298e709a3e978ad6fc0a5599d945255cd2019eaeebf",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "contribution",
+      "title": {
+        "en": "Recognizing your contribution",
+        "zh": "看见自己的具体贡献"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "feedback",
+      "title": {
+        "en": "Receiving positive feedback",
+        "zh": "接住具体的肯定反馈"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "evaluation",
+      "title": {
+        "en": "Worrying about evaluation",
+        "zh": "面对评价时的担忧"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "comparison",
+      "title": {
+        "en": "Comparing uneven evidence",
+        "zh": "比较不对等的信息"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "preparation",
+      "title": {
+        "en": "Preparing and stopping",
+        "zh": "准备工作与停止界限"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPR_01",
+      "prompt": {
+        "en": "After finishing something successfully, I explained it to myself without including what I had contributed.",
+        "zh": "顺利完成一件事后，我在心里解释原因时，没有把自己的具体贡献算进去。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "contribution",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "contribution",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_02",
+      "prompt": {
+        "en": "When several people contributed to a good outcome, I treated my own part as if it did not count.",
+        "zh": "几个人共同取得成果时，我觉得自己做的那部分不值得算作贡献。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "contribution",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "contribution",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_03",
+      "prompt": {
+        "en": "I found it easier to name the circumstances behind a good outcome than the actions I had taken.",
+        "zh": "回顾好结果时，我更容易说出外部条件，而说不清自己采取过的行动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "contribution",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "contribution",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_04",
+      "prompt": {
+        "en": "A useful result felt like an exception that told me nothing about what I could do.",
+        "zh": "做出了有用的成果，我仍觉得那只是例外，完全不能说明自己能做什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "contribution",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "contribution",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_05",
+      "prompt": {
+        "en": "When someone praised a specific part of my work, I mentally dismissed that part.",
+        "zh": "别人肯定我做的某个具体部分时，我在心里把那部分否定了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "feedback",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feedback",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feedback",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "feedback",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "feedback",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "feedback",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_06",
+      "prompt": {
+        "en": "I assumed positive feedback was mainly politeness before checking what the person meant.",
+        "zh": "还没弄清对方具体指什么，我就先认定肯定反馈主要是客气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "feedback",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feedback",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feedback",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "feedback",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "feedback",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "feedback",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_07",
+      "prompt": {
+        "en": "I left a conversation remembering a small correction but not the positive feedback given alongside it.",
+        "zh": "一次交流后，我记住了一处小修正，却忘记同时收到的肯定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "feedback",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feedback",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feedback",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "feedback",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "feedback",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "feedback",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_08",
+      "prompt": {
+        "en": "I changed the subject when someone tried to discuss something I had done well.",
+        "zh": "有人想具体聊我做得好的地方时，我转开了话题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "feedback",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feedback",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feedback",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "feedback",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "feedback",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "feedback",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_09",
+      "prompt": {
+        "en": "Before an ordinary review, I imagined others concluding that I did not belong in the role.",
+        "zh": "普通检查或评议前，我想象别人会认为我不配待在这个位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "evaluation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "evaluation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "evaluation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "evaluation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "evaluation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "evaluation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_10",
+      "prompt": {
+        "en": "I treated a question about my work as a sign that the other person doubted my whole ability.",
+        "zh": "别人询问我做的事情时，我把这看成对方怀疑我的全部能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "evaluation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "evaluation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "evaluation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "evaluation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "evaluation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "evaluation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_11",
+      "prompt": {
+        "en": "Not knowing one answer made me worry that everything else I had contributed would be dismissed.",
+        "zh": "有一个问题答不上来，就让我担心自己其他贡献也会被全部否定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "evaluation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "evaluation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "evaluation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "evaluation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "evaluation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "evaluation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_12",
+      "prompt": {
+        "en": "I held back a useful question because I worried it would expose me as undeserving of my place.",
+        "zh": "我担心一个有用的问题会让人觉得我不配在这里，于是没有问。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "evaluation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "evaluation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "evaluation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "evaluation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "evaluation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "evaluation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_13",
+      "prompt": {
+        "en": "I compared another person’s polished outcome with the unfinished parts of my own work.",
+        "zh": "我拿别人已经整理好的成果，比较自己尚未完成的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "comparison",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "comparison",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_14",
+      "prompt": {
+        "en": "I used someone else’s speed as evidence against myself without knowing their starting point or support.",
+        "zh": "不知道别人的基础和支持条件，我就用对方的速度来否定自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "comparison",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "comparison",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_15",
+      "prompt": {
+        "en": "Seeing another person succeed made my own recent progress seem not worth counting.",
+        "zh": "看到别人取得进展后，我觉得自己最近的进步不值得一提。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "comparison",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "comparison",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_16",
+      "prompt": {
+        "en": "I imagined that other people had fewer doubts because I could not see their difficulties.",
+        "zh": "因为看不见别人的困难，我便想象他们比我少很多疑虑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "comparison",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "comparison",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "comparison",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "comparison",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "comparison",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "comparison",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_17",
+      "prompt": {
+        "en": "After meeting the agreed requirements, I kept preparing because I feared an ordinary mistake would expose me.",
+        "zh": "已经达到约定要求后，我仍因害怕普通失误会暴露自己而继续准备。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "preparation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "preparation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "preparation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "preparation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "preparation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "preparation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_18",
+      "prompt": {
+        "en": "I repeatedly checked something already checked because I worried one error would invalidate my place.",
+        "zh": "已经检查过的内容，我因担心一个错误会否定自己的位置而反复检查。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "preparation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "preparation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "preparation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "preparation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "preparation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "preparation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_19",
+      "prompt": {
+        "en": "I spent extra time hiding signs that I was still learning, rather than asking for the guidance I needed.",
+        "zh": "我把额外时间花在掩饰自己仍在学习，而没有寻求需要的指导。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "preparation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "preparation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "preparation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "preparation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "preparation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "preparation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_20",
+      "prompt": {
+        "en": "I postponed calling a task finished because I felt I had to prove more than the stated requirements.",
+        "zh": "我觉得必须证明超出明示要求的东西，因而迟迟不把任务视为完成。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "preparation",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "preparation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "preparation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "preparation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "preparation",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No opportunity / prefer not to answer",
+            "zh": "没有对应情境／不愿回答"
+          },
+          "directionId": "preparation",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "contribution",
+      "directionIds": [
+        "contribution"
+      ],
+      "title": {
+        "en": "Recognizing your contribution",
+        "zh": "看见自己的具体贡献"
+      },
+      "headline": {
+        "en": "A full reading of one recent response pattern",
+        "zh": "一组近期反应的完整读法"
+      },
+      "summary": {
+        "en": "Finishing a task usually involves several contributors: your actions, other people, timing and resources. This topic asks whether your own part disappears from the explanation. It does not require you to claim sole credit or turn every good outcome into proof of exceptional ability.",
+        "zh": "完成一件事往往同时需要自己的行动、他人的帮助、时机和资源。这一组观察的是：解释结果时，自己的那一部分是否完全消失。它不要求独占功劳，也不要求把每次好结果都当成非凡能力的证明。"
+      },
+      "scoreReading": {
+        "en": "Read the rated count, raw sum and 0–4 mean together. At least three of four numeric answers are required. No total, cutoff, ranking or diagnosis is calculated.",
+        "zh": "连同数字答案条数、原始合计和0—4均分一起阅读。四条中至少三条数字答案才计分，不计算总分、切点、排名或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Recognizing your contribution | Imposter Syndrome Test Guide",
+          "zh": "看见自己的具体贡献｜冒名顶替综合征测试完整读法"
+        },
+        "description": {
+          "en": "Read this complete original topic guide: response coverage, worked examples, related patterns, context and optional next steps. Free, without answering or signup.",
+          "zh": "完整阅读这一原创主题的回答覆盖、数字例子、相关模式差异、情境与可选下一步。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What this topic notices",
+            "zh": "这一组观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Finishing a task usually involves several contributors: your actions, other people, timing and resources. This topic asks whether your own part disappears from the explanation. It does not require you to claim sole credit or turn every good outcome into proof of exceptional ability.",
+              "zh": "完成一件事往往同时需要自己的行动、他人的帮助、时机和资源。这一组观察的是：解释结果时，自己的那一部分是否完全消失。它不要求独占功劳，也不要求把每次好结果都当成非凡能力的证明。"
+            },
+            {
+              "en": "The four statements concern a recent outcome, shared work, naming actions and treating a useful result as an exception. These are editorial prompts for noticing a pattern. They are not four diagnostic signs, and their average does not establish an impostor-phenomenon trait.",
+              "zh": "四条题目分别涉及成果归因、共同贡献、描述行动和把有用成果视为例外。它们是帮助观察的编辑性问题，不是四条诊断标准；其均分不能证明存在某种冒名顶替特质。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Read the numbers",
+            "zh": "怎样读数字"
+          },
+          "paragraphs": [
+            {
+              "en": "All four responses use 0–4 frequency anchors for the past four weeks in your chosen context. A larger mean means you endorsed these particular descriptions more often. It cannot tell whether your account of a specific success was accurate, generous or unfair to yourself.",
+              "zh": "四条均按选定情境中近四周的频率，以0—4作答。均分较大，只说明你更常认可这里描述的反应，不能判断某次成果归因是否准确、谦让，或对自己不公平。"
+            },
+            {
+              "en": "For example, responses 3, 4, 2 and a skip give a rated sum of 9 and a mean of 3.00 across three responses. That is not 75 percent impostor syndrome. With fewer than three numeric responses, this topic has no sum or mean.",
+              "zh": "例如3、4、2和一个跳过，数字答案合计为9，三条均分为3.00。这不表示“75%的冒名顶替综合征”。不足三条数字答案时，这一组不显示合计或均分。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "A shared-project example",
+            "zh": "共同完成事情的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group presentation that went well. One person supplied the data, another designed the slides and you clarified the argument. A balanced account can include all three contributions. Saying only that the others carried it may leave out something observable, even when their help mattered greatly.",
+              "zh": "例如一次小组展示，别人提供数据、制作图表，你负责理顺论证。完整回顾可以同时写下三种贡献。只说“都是别人带着我做的”，可能漏掉可观察的事实，即使他人的帮助确实很重要。"
+            },
+            {
+              "en": "Try naming a concrete action rather than a flattering label: checked two inconsistent figures, explained an unclear step, or followed up on a missing decision. An action can be small and still real. This exercise does not determine how much credit anyone objectively deserves.",
+              "zh": "可以描述具体行动，而非给自己贴好听标签：核对了两处矛盾数据、讲清一个步骤、追问一项遗漏决定。行动很小也可以真实存在；这个练习并不裁定每个人客观上应得多少功劳。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Different from receiving praise",
+            "zh": "与接收赞美的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "You might privately recognize a useful contribution while feeling awkward when someone praises it. You might also accept praise politely yet privately erase your role. Those possibilities explain why contribution and feedback are shown separately rather than combined into one rank or personality type.",
+              "zh": "你可能私下认可自己的具体贡献，却在被肯定时感到别扭；也可能礼貌接受赞美，心里仍把自己的作用抹掉。因此贡献归因与接收反馈分开展示，不合成排名或人格类型。"
+            },
+            {
+              "en": "This topic also differs from global self-esteem. A person can feel worthwhile and still struggle to explain one achievement. Conversely, a low mean here does not establish confidence across relationships, learning or other parts of life. The questionnaire does not measure those broader conclusions.",
+              "zh": "这一组也不同于整体自我价值感。一个人可以觉得自己有价值，却难以解释某项成果；这里均分较小，也不能证明其在关系、学习或其他生活领域都很自信。本问卷没有测量这些更广的结论。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Keep the setting in view",
+            "zh": "把情境保留在解释里"
+          },
+          "paragraphs": [
+            {
+              "en": "New responsibilities, unclear credit rules and unequal access to resources can complicate attribution. Sometimes you genuinely need more practice or information. Sometimes the environment overlooks your work. A response pattern cannot decide which explanation applies, and it should not place all responsibility inside you.",
+              "zh": "新职责、不清楚的署名规则、资源机会差异都可能使归因复杂。有时确实需要更多练习或信息，有时环境忽视了你的工作。答题模式不能判断是哪一种，更不应把全部责任归到你个人身上。"
+            },
+            {
+              "en": "Choose one context when answering, such as a course or a voluntary project, without entering its name. Mixing several settings may obscure useful differences. A skipped statement means no usable rating, whether you lacked an opportunity or preferred privacy; it is never treated as zero.",
+              "zh": "作答时可以在心里选一门课程或一个志愿项目，不必输入名称。混合多个场景可能遮住差异。跳过只表示没有可用评分，既可能是没有机会，也可能是不愿回答，绝不会按零处理。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "One optional next observation",
+            "zh": "一个可选的后续观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For one completed task, privately write three short columns: what I did, what others did, and what circumstances helped. Use specific evidence and allow uncertainty. The aim is a fuller description, not a mandatory positive story or a demonstration that your doubts were irrational.",
+              "zh": "可以选一件已完成的小事，私下分三栏写：我做了什么、别人做了什么、哪些条件提供了帮助。依据具体事实，也允许不确定；目的是描述更完整，而非强迫积极或证明自己的担忧不理性。"
+            },
+            {
+              "en": "If credit allocation has practical consequences, ask how contributions are documented rather than using this score as evidence in a dispute. You can stop the exercise if it becomes another demand to prove yourself. This site has not tested it as a treatment or performance intervention.",
+              "zh": "如果功劳分配影响现实权益，可以询问贡献如何记录，而不是拿这个分数作为争议证据。若练习反而成了新的自证任务，可以停止。本站没有验证它的治疗作用或绩效改善效果。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Use and privacy limits",
+            "zh": "使用与隐私边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The five topic groups are an original organizational choice, not the factors of the Clance Impostor Phenomenon Scale. No norm, cutoff, diagnosis or hiring inference is supplied. Your mean is a description of chosen responses, not proof that you are competent, incompetent or dishonest.",
+              "zh": "五组主题是本站原创的组织方式，不是CIPS的因子结构。这里没有常模、切点、诊断或招聘结论。均分描述所选答案，不能证明你胜任、不胜任或不诚实。"
+            },
+            {
+              "en": "Answers stay in page memory and clear when you leave, refresh or retake. Shared links open the same public guide for everyone. If self-doubt repeatedly disrupts daily life, you may choose a qualified professional or trusted support person; no score is needed to ask for support.",
+              "zh": "答案只留在页面内存，离开、刷新或重测会清除。分享链接打开的是对所有人相同的公开指南。如果自我怀疑反复影响日常生活，可以自主选择专业人员或可信赖的人讨论，寻求支持不需要达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "directionIds": [
+        "feedback"
+      ],
+      "title": {
+        "en": "Receiving positive feedback",
+        "zh": "接住具体的肯定反馈"
+      },
+      "headline": {
+        "en": "A full reading of one recent response pattern",
+        "zh": "一组近期反应的完整读法"
+      },
+      "summary": {
+        "en": "Positive feedback can provide information about a particular action, but it can also be vague or socially polite. This topic notices how quickly you discard it. It does not require trusting every compliment or treating another person’s judgment as an accurate measurement of your value.",
+        "zh": "肯定反馈可能提供某个行动的信息，也可能含糊或出于礼貌。这一组观察你是否很快把它丢开，不要求相信每一句赞美，也不把别人的评价当作对个人价值的精确测量。"
+      },
+      "scoreReading": {
+        "en": "Read the rated count, raw sum and 0–4 mean together. At least three of four numeric answers are required. No total, cutoff, ranking or diagnosis is calculated.",
+        "zh": "连同数字答案条数、原始合计和0—4均分一起阅读。四条中至少三条数字答案才计分，不计算总分、切点、排名或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Receiving positive feedback | Imposter Syndrome Test Guide",
+          "zh": "接住具体的肯定反馈｜冒名顶替综合征测试完整读法"
+        },
+        "description": {
+          "en": "Read this complete original topic guide: response coverage, worked examples, related patterns, context and optional next steps. Free, without answering or signup.",
+          "zh": "完整阅读这一原创主题的回答覆盖、数字例子、相关模式差异、情境与可选下一步。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What positive feedback can contain",
+            "zh": "肯定反馈中包含什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Positive feedback can provide information about a particular action, but it can also be vague or socially polite. This topic notices how quickly you discard it. It does not require trusting every compliment or treating another person’s judgment as an accurate measurement of your value.",
+              "zh": "肯定反馈可能提供某个行动的信息，也可能含糊或出于礼貌。这一组观察你是否很快把它丢开，不要求相信每一句赞美，也不把别人的评价当作对个人价值的精确测量。"
+            },
+            {
+              "en": "The statements cover dismissing a named strength, assuming politeness, remembering only a correction and changing the subject. These four experiences can occur for different reasons. They are grouped for reflection, not because research has validated them as one independent psychological scale.",
+              "zh": "四条涉及否定具体优点、先认定是客气、只记住修正和转开话题。这些经历可能出于不同原因，放在一起是为了反思，并非研究已把它们验证为一个独立心理量表。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Frequency and coverage",
+            "zh": "频率与回答覆盖"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean uses only your numeric responses, with at least three of four required. A mean of 2.00 describes an average response at the sometimes anchor. It does not say that half of all praise was rejected: the options do not count occasions or supply a denominator.",
+              "zh": "至少四条中的三条有数字答案，才计算均分。2.00对应“有时”这一频率锚点的平均读数，不表示拒绝了全部赞美的一半；选项没有逐次记录事件，也没有提供这样的分母。"
+            },
+            {
+              "en": "When one statement is skipped, the sum covers three responses, so its possible range is 0–12 rather than 0–16. Read the response count beside the number. A missing opportunity and a low-frequency response mean different things; neither is substituted for the other.",
+              "zh": "跳过一条时，合计来自三条，可能范围是0—12，而非0—16。请连同回答条数一起看数字。缺少对应机会与低频反应意义不同，不能互相代替。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Ask what the feedback refers to",
+            "zh": "弄清反馈具体指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a tutor says your explanation helped the group understand a difficult example. You do not have to decide whether you are a brilliant communicator. You can ask which step was clearer, and keep that specific information alongside any corrections you were also given.",
+              "zh": "例如老师说你的解释帮助小组理解了一个难例子，你不必据此判断自己是否“特别会表达”。可以问清哪一步更清楚，把这条具体信息与同时收到的修改意见一起保留。"
+            },
+            {
+              "en": "A short response such as thank you, which part was useful can leave room for detail without demanding reassurance. If the feedback remains vague, it is reasonable to leave it uncertain. The purpose is to examine information, not to practice believing something you cannot substantiate.",
+              "zh": "简单说“谢谢，哪一部分对你有用？”就能为细节留出空间，而不必反复讨保证。如果反馈仍然模糊，保留不确定也合理。重点是查看信息，不是练习相信无法证实的事情。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Different from praise seeking",
+            "zh": "与追求赞美的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Receiving information and repeatedly seeking reassurance are different activities. A low mean here does not imply dependence on praise, and a larger mean does not prove humility or independence. The questionnaire asks about your responses to feedback, not how much approval you need.",
+              "zh": "接收信息与反复寻求保证是不同活动。这里均分较小不表示依赖赞美，较大也不能证明谦逊或独立。题目问的是你对反馈的反应，没有测量你需要多少认可。"
+            },
+            {
+              "en": "This topic can also differ from recognizing your contribution. You may know precisely what you did yet dislike being praised publicly. Or you may enjoy encouragement while struggling to describe your role. Keep both readings open rather than choosing the one that sounds more flattering.",
+              "zh": "它也不同于看见自身贡献。你可能很清楚自己做了什么，却不喜欢公开表扬；也可能喜欢鼓励，却难以说明自己的作用。可以同时保留两种观察，不必选择听起来更好的一种。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Feedback is shaped by context",
+            "zh": "反馈受情境影响"
+          },
+          "paragraphs": [
+            {
+              "en": "Culture, power differences, past insincerity and an evaluator’s credibility can affect how feedback lands. Public recognition may feel unsafe or uncomfortable for reasons this questionnaire cannot see. Do not use a frequency readout to dismiss those experiences as merely a problem with your mindset.",
+              "zh": "文化习惯、权力差异、过去的不真诚经历、评价者是否可信，都影响反馈如何被接收。公开肯定也可能因问卷看不到的原因而令人不安，不应把频率读数拿来否定这些经历，说成只是心态问题。"
+            },
+            {
+              "en": "If your chosen setting provided no positive feedback recently, use the skip option rather than inventing an occasion. A topic without enough numeric responses remains unscored while its full explanation stays available. This is an information limit, not evidence that you avoid or reject praise.",
+              "zh": "若选定情境中近期没有肯定反馈，请跳过，不必想象一次事件。数字答案不足时，这组不计分，但完整解释仍可阅读。这是信息不足，不是你回避或拒绝赞美的证据。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "A small information check",
+            "zh": "一个小的信息核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You could keep one concrete positive observation and one concrete correction from the same task. For each, note the action it concerns and whether the speaker had a chance to observe it. No names or notes need to be entered on this site.",
+              "zh": "可以从同一件事保留一条具体肯定和一条具体修改意见，分别记录它指向什么行动、对方是否有机会观察。不需要把姓名或笔记输入本站。"
+            },
+            {
+              "en": "Reviewing both statements later may help you notice selective memory, but it cannot establish the speaker’s intent. Do not turn this into a quota for compliments or an obligation to feel better. It is an optional observation, without a tested promise of symptom reduction.",
+              "zh": "稍后同时看两条记录，可能帮助注意记忆是否有所选择，但不能据此证明说话者的意图。无需规定赞美数量，也不必强求自己感觉更好。这只是可选观察，没有经过验证的症状改善承诺。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Boundaries and next steps",
+            "zh": "边界与下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "This is one of five original editorial topics, not a CIPS subscale or a measure of actual performance. There is no recommended target score. Comparisons across people, languages or repeated sessions lack a validated basis and should not decide access to work, study or support.",
+              "zh": "这是五个原创编辑主题之一，不是CIPS分量表，也不衡量实际表现。它没有建议的目标分数。跨人、跨语言或多次作答的比较没有验证依据，不应用于决定工作、学习或支持资格。"
+            },
+            {
+              "en": "Your private responses remain in page memory; copying a link shares this general reading only. If feedback or evaluation is entangled with persistent distress, you can discuss the actual context with someone qualified or trusted. You do not have to prove a high score first.",
+              "zh": "私人回答只留在页面内存；复制链接分享的是通用读法。如果反馈或评价与持续困扰纠缠在一起，可以和专业人员或可信赖的人讨论实际情境，不需要先证明自己分数很高。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "directionIds": [
+        "evaluation"
+      ],
+      "title": {
+        "en": "Worrying about evaluation",
+        "zh": "面对评价时的担忧"
+      },
+      "headline": {
+        "en": "A full reading of one recent response pattern",
+        "zh": "一组近期反应的完整读法"
+      },
+      "summary": {
+        "en": "This topic concerns anticipating a broad negative judgment from ordinary questions, reviews or gaps in knowledge. It asks about your interpretation of those moments. It does not determine whether an evaluator is fair, whether criticism is justified or whether your role actually fits your current skills.",
+        "zh": "这一组涉及从普通提问、检查或知识空缺，预想到别人会给自己全面负面判断。它观察你如何理解这些时刻，不判断评价者是否公平、批评是否合理，也不判断当前技能是否真的适合职责。"
+      },
+      "scoreReading": {
+        "en": "Read the rated count, raw sum and 0–4 mean together. At least three of four numeric answers are required. No total, cutoff, ranking or diagnosis is calculated.",
+        "zh": "连同数字答案条数、原始合计和0—4均分一起阅读。四条中至少三条数字答案才计分，不计算总分、切点、排名或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Worrying about evaluation | Imposter Syndrome Test Guide",
+          "zh": "面对评价时的担忧｜冒名顶替综合征测试完整读法"
+        },
+        "description": {
+          "en": "Read this complete original topic guide: response coverage, worked examples, related patterns, context and optional next steps. Free, without answering or signup.",
+          "zh": "完整阅读这一原创主题的回答覆盖、数字例子、相关模式差异、情境与可选下一步。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What evaluation worry means here",
+            "zh": "这里的评价担忧是什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns anticipating a broad negative judgment from ordinary questions, reviews or gaps in knowledge. It asks about your interpretation of those moments. It does not determine whether an evaluator is fair, whether criticism is justified or whether your role actually fits your current skills.",
+              "zh": "这一组涉及从普通提问、检查或知识空缺，预想到别人会给自己全面负面判断。它观察你如何理解这些时刻，不判断评价者是否公平、批评是否合理，也不判断当前技能是否真的适合职责。"
+            },
+            {
+              "en": "The four statements move from an expected review to a question, an unknown answer and withholding a useful question. They describe different situations rather than stages of an illness. Endorsing them does not establish anxiety, deception or a hidden lack of competence.",
+              "zh": "四条分别涉及预期评议、被问问题、答不上来和忍住有用问题。它们是不同情境，不是疾病发展的阶段。认可这些描述不能证明焦虑障碍、欺骗或隐藏的能力不足。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "A descriptive readout",
+            "zh": "描述性的读数"
+          },
+          "paragraphs": [
+            {
+              "en": "Every item uses the same 0–4 frequency options over the past four weeks. With at least three numeric responses, the display gives their raw sum and mean, alongside coverage. A larger number means these descriptions were endorsed more often, without defining clinically severe or abnormal worry.",
+              "zh": "每条均使用近四周0—4频率选项。至少三条数字答案时，显示这些答案的原始合计、均分及覆盖条数。数字较大只表示更常认可这些描述，不定义临床上的严重或异常担忧。"
+            },
+            {
+              "en": "Equal means can come from different responses: 4, 0, 4, 0 and 2, 2, 2, 2 both average 2.00. The specific situations still differ. Read the prompts again instead of treating the mean as a complete account of when or why you feel evaluated.",
+              "zh": "相同均分可能来自不同答案：4、0、4、0与2、2、2、2的均分都是2.00，但具体情境不同。可以重新看题目，不要把均分当成对何时、为何感到被评价的完整说明。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Separate a question from a verdict",
+            "zh": "把提问与判决分开"
+          },
+          "paragraphs": [
+            {
+              "en": "In a project review, someone might ask why you chose one method. Possible explanations include curiosity, a need to document the decision, a real concern or an unclear expectation. The question alone does not reveal their conclusion about your whole ability or your place in the group.",
+              "zh": "项目回顾时，有人问为什么选某种方法，可能是好奇、需要记录决策、确有担忧，或之前要求不清楚。仅凭这一问，无法知道对方对你全部能力或团队位置的结论。"
+            },
+            {
+              "en": "An optional reply is to clarify what needs explaining before defending everything you have done. If you genuinely do not know an answer, you can distinguish that specific gap from the broader task. This is not a guarantee that every review will be supportive or safe.",
+              "zh": "一个可选做法是先问清需要解释哪一点，而非立刻为全部工作辩护。真的答不上来时，可以区分具体知识空缺和整体任务。但这并不保证每次评价都友善、安全。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Not the same as careful preparation",
+            "zh": "不等于认真准备"
+          },
+          "paragraphs": [
+            {
+              "en": "You can prepare carefully with little fear of being exposed, or fear evaluation even when you stop work on time. Preparation and evaluation therefore have separate readings. Neither topic identifies a cause of the other, and the display deliberately avoids selecting a dominant pattern.",
+              "zh": "认真准备时可以并不害怕“被揭穿”；按时停止工作的人也可能担心评价。因此准备行为与评价担忧分开展示，不据此确定因果，也不选出所谓主导模式。"
+            },
+            {
+              "en": "This topic is not a knowledge or ability test. It has no correct answers and no external performance evidence. A low mean cannot certify readiness for a task; a larger mean cannot disqualify you from it. Practical decisions need the actual requirements and relevant evidence.",
+              "zh": "它不是知识或能力测验，没有标准答案，也没有外部表现证据。均分较小不能证明已经胜任，较大也不能成为取消资格的理由。实际决定需要真实要求和相关证据。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Examine the evaluation conditions",
+            "zh": "看看评价条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Unclear criteria, contradictory feedback, exclusion and past penalties for asking questions can reasonably shape expectations. Your responses cannot separate these influences from self-doubt. Naming a concern as impostor syndrome should not replace examining how decisions are made or how people are treated.",
+              "zh": "标准不清、反馈矛盾、排斥经历、提问曾受惩罚，都可能影响预期。回答不能把这些因素与自我怀疑分开。把担忧叫作冒名顶替综合征，不应替代对决策方式和实际对待的检查。"
+            },
+            {
+              "en": "Answer for a context you can recall without entering private details. If no review or relevant interaction occurred, skipping is more accurate than assigning zero. Below three numeric responses the topic stays unscored, while other sufficiently answered topics can still have descriptive numbers.",
+              "zh": "可以选择能回忆的情境作答，不必输入私人细节。如果没有评议或相应互动，跳过比填零更准确。不足三条数字答案时本组不计分，其他答够的组仍可显示描述性数字。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional clarification step",
+            "zh": "可选的澄清动作"
+          },
+          "paragraphs": [
+            {
+              "en": "Before one ordinary review, write privately what is known: the stated criteria, the question you need answered and any actual evidence of concern. Keep predicted judgments in a separate line. This can make uncertainties visible without requiring you to dismiss them or think positively.",
+              "zh": "一次普通评议前，可以私下写清已知信息：明示标准、需要弄清的问题、确实存在的担忧证据。把预想中的判断另写一行，让不确定变得可见，而非要求自己否认担忧或保持积极。"
+            },
+            {
+              "en": "Where possible, ask what a satisfactory outcome would look like. If the setting is unsafe or discriminatory, consider appropriate institutional or personal support rather than treating the questionnaire as a solution. No exercise here has been established as treatment or as protection against unfair evaluation.",
+              "zh": "条件允许时，可以问清什么样的结果算符合要求。如果环境不安全或存在歧视，可考虑适当的机构支持或个人支持，不把问卷当解决方案。这里的练习没有被证明可治疗困扰或防止不公平评价。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Use the guide without a label",
+            "zh": "不贴标签也能阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "The common search phrase impostor syndrome names the page topic; this original questionnaire does not diagnose it. The five groups are editorial, not validated factors. Do not convert the mean to a percentage of illness or compare it with CIPS cutoffs, which belong to a different instrument.",
+              "zh": "“冒名顶替综合征”是通行搜索主题，本原创问卷不诊断它。五组是编辑分组，不是验证后的因子。不要把均分换算成患病比例，也不要与另一工具CIPS的分数段相比较。"
+            },
+            {
+              "en": "All public guides are available before you answer, and shared links contain no personal result. If worry persistently affects sleep, study, relationships or daily functioning, you can seek support based on that impact. No numerical threshold here decides whether your concern deserves attention.",
+              "zh": "所有公开指南作答前即可阅读，分享链接不含个人结果。如果担忧持续影响睡眠、学习、关系或日常功能，可以根据实际影响寻求支持。这里没有用数字决定你的困扰是否值得关注的门槛。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "directionIds": [
+        "comparison"
+      ],
+      "title": {
+        "en": "Comparing uneven evidence",
+        "zh": "比较不对等的信息"
+      },
+      "headline": {
+        "en": "A full reading of one recent response pattern",
+        "zh": "一组近期反应的完整读法"
+      },
+      "summary": {
+        "en": "We often see other people’s finished outputs while experiencing our own drafts, delays and uncertainty from the inside. This topic notices comparisons made with that unequal information. It does not assume every comparison is harmful, inaccurate or caused by an impostor-phenomenon trait.",
+        "zh": "我们常看到别人的成品，却从内部经历自己的草稿、延误和犹豫。这一组观察在信息不对等时进行的比较，不预设每次比较都有害、不准确，或由某种冒名顶替特质造成。"
+      },
+      "scoreReading": {
+        "en": "Read the rated count, raw sum and 0–4 mean together. At least three of four numeric answers are required. No total, cutoff, ranking or diagnosis is calculated.",
+        "zh": "连同数字答案条数、原始合计和0—4均分一起阅读。四条中至少三条数字答案才计分，不计算总分、切点、排名或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Comparing uneven evidence | Imposter Syndrome Test Guide",
+          "zh": "比较不对等的信息｜冒名顶替综合征测试完整读法"
+        },
+        "description": {
+          "en": "Read this complete original topic guide: response coverage, worked examples, related patterns, context and optional next steps. Free, without answering or signup.",
+          "zh": "完整阅读这一原创主题的回答覆盖、数字例子、相关模式差异、情境与可选下一步。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What uneven comparison notices",
+            "zh": "什么是不对等比较"
+          },
+          "paragraphs": [
+            {
+              "en": "We often see other people’s finished outputs while experiencing our own drafts, delays and uncertainty from the inside. This topic notices comparisons made with that unequal information. It does not assume every comparison is harmful, inaccurate or caused by an impostor-phenomenon trait.",
+              "zh": "我们常看到别人的成品，却从内部经历自己的草稿、延误和犹豫。这一组观察在信息不对等时进行的比较，不预设每次比较都有害、不准确，或由某种冒名顶替特质造成。"
+            },
+            {
+              "en": "The four statements concern polished outcomes, speed without context, discounting your progress and imagining that others have fewer doubts. These are practical observation topics. They are not an intelligence measure, a social-ranking system or evidence about how other people actually feel.",
+              "zh": "四条涉及比较成品、脱离条件比较速度、否定自身进步和想象别人疑虑更少。它们是日常观察主题，不是智力测量、社会排名系统，也不提供别人实际感受的证据。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Read means without ranking people",
+            "zh": "不拿均分给人排名"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes your selected 0–4 frequency responses for one context over four weeks. It requires at least three numeric answers. Larger values indicate more frequent endorsement of these statements, not a lower position relative to peers, lower ability or a stronger diagnosis.",
+              "zh": "均分描述某一情境中近四周所选0—4频率答案，至少需要三条数字回答。数值较大表示更常认可这些描述，不代表在同伴中排名较低、能力较弱或诊断更严重。"
+            },
+            {
+              "en": "One skipped item changes the set of experiences summarized, even when two means happen to match. Check coverage and the individual prompts. The five groups share response anchors but have not been calibrated against each other, so the largest mean is not declared your defining difficulty.",
+              "zh": "跳过一条会改变被概括的经历集合，即使两个均分恰好一样。请同时看覆盖条数和具体题目。五组虽共用选项，但没有相互校准，因此不会把最大均分宣布为你的决定性困难。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "A learning example",
+            "zh": "学习中的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine seeing a classmate solve a problem quickly while you are still working through it. You may not know whether they have seen a similar problem, received help or spent hours preparing. Your visible pause and their visible answer are not a complete matched comparison.",
+              "zh": "例如同学很快解出一道题，你还在思考。你未必知道对方是否见过相似题、获得过帮助或提前准备了很久。你可见的停顿与对方可见的答案，并不是条件完整对等的比较。"
+            },
+            {
+              "en": "There may still be a real skill difference worth learning from. You can ask about their method or compare your current attempt with a previous attempt on a similar task. Neither move requires insisting you are equally skilled or treating another person’s success as a threat.",
+              "zh": "其中仍可能有值得学习的真实技能差异。可以请教方法，或把自己这次尝试与以前相似任务比较；不必坚持双方技能完全相同，也不必把别人的成功视为威胁。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Different from ambition or envy",
+            "zh": "与进取或羡慕的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting to improve after seeing strong work is not the same as erasing your own progress. Feeling envy also does not tell us which comparisons you make. This questionnaire does not judge either emotion morally or infer a fixed personality from a recent response pattern.",
+              "zh": "看到优秀成果后想进步，与抹掉自己的进步不是一回事。感到羡慕也不能直接说明采用了哪种比较。本问卷不对情绪作道德判断，也不从近期答题推断固定人格。"
+            },
+            {
+              "en": "Comparison differs from contribution attribution because another person’s performance need not be involved when explaining your own outcome. You may count your own actions accurately yet compare uneven information elsewhere. Read both topics without requiring them to tell one simple story about you.",
+              "zh": "比较也不同于成果归因：解释自己的结果时，未必涉及他人表现。你可能准确承认自身行动，却在别处比较不对等的信息。两组可以一起看，不必强行拼成关于自己的单一故事。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Opportunity and visibility matter",
+            "zh": "机会与可见度也重要"
+          },
+          "paragraphs": [
+            {
+              "en": "Resources, accessibility, previous experience and whose work gets displayed can shape what is available to compare. The questionnaire cannot identify or remove those differences. An answer should not be used to blame someone for responding to unequal conditions or to excuse unfair treatment.",
+              "zh": "资源、便利条件、既有经验、谁的成果被展示，都影响可供比较的信息。问卷不能识别或消除这些差异，不应据此责怪一个人对不平等条件的反应，也不能为不公平待遇开脱。"
+            },
+            {
+              "en": "If your recent context involved little contact with others’ work, a skip may be appropriate. Do not reconstruct a fictional month to obtain a number. Fewer than three numeric answers leave this topic unscored; every explanation and optional next step remains readable without a score.",
+              "zh": "如果近期很少接触他人的成果，可以跳过。不必为了得到数字虚构一个月的经历。不足三条数字答案时本组不计分，所有解释和可选下一步仍可直接阅读。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional comparison audit",
+            "zh": "一次可选的比较核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one comparison privately and list what you actually know about each side: task, stage, time, prior exposure and support. Mark missing information as unknown. This is not a requirement to make the comparison fair by guessing facts you do not have.",
+              "zh": "可以私下选一次比较，列出两边真正知道的信息：任务、完成阶段、时间、之前接触和支持。缺的信息写未知，不要求靠猜测补齐事实，把比较强行变得公平。"
+            },
+            {
+              "en": "Then decide whether the comparison offers a useful next action, such as learning one method, or simply lacks enough information. You may set it aside without proving it wrong. This exercise is an editorial suggestion, not a validated intervention with a promised effect on self-doubt.",
+              "zh": "再判断它能否提供有用行动，例如学习一个方法，还是信息不足。可以暂时搁置，不必证明比较一定错误。这是编辑性建议，不是有确定自我怀疑改善效果的验证干预。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Limits and private use",
+            "zh": "边界与私人使用"
+          },
+          "paragraphs": [
+            {
+              "en": "These original prompts do not reproduce CIPS, provide population norms or measure your objective standing. There are no good and bad score bands. A small mean does not prove healthy comparison habits, and a larger mean does not reveal why the pattern occurred.",
+              "zh": "这些原创题不复现CIPS、不提供人口常模，也不测量你的客观位置。没有好坏分数段。均分较小不能证明比较习惯健康，较大也不能揭示模式产生的原因。"
+            },
+            {
+              "en": "You do not enter names, grades or private examples, and answers clear on leaving or refreshing. Sharing opens the general guide only. When comparisons are part of ongoing distress or exclusion, you may discuss the real situation with a trusted person or appropriate professional rather than relying on this number.",
+              "zh": "不需要输入姓名、成绩或私人例子，离开或刷新会清除答案。分享仅打开通用指南。如果比较与持续困扰或排斥经历相关，可以和可信赖的人或适当专业人员讨论实际情况，不依赖这个数字作决定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "preparation",
+      "directionIds": [
+        "preparation"
+      ],
+      "title": {
+        "en": "Preparing and stopping",
+        "zh": "准备工作与停止界限"
+      },
+      "headline": {
+        "en": "A full reading of one recent response pattern",
+        "zh": "一组近期反应的完整读法"
+      },
+      "summary": {
+        "en": "Careful preparation can be necessary and useful. This topic is narrower: it notices continued checking, delaying completion or hiding learning needs when you fear that an ordinary error will undermine your place. It does not measure working hours, conscientiousness, work quality or a clinical compulsion.",
+        "zh": "认真准备可能必要且有用。这一组更具体：当你担心普通失误会否定自己的位置时，是否继续检查、推迟完成或隐藏学习需求。它不测量工时、尽责性、工作质量或临床强迫症状。"
+      },
+      "scoreReading": {
+        "en": "Read the rated count, raw sum and 0–4 mean together. At least three of four numeric answers are required. No total, cutoff, ranking or diagnosis is calculated.",
+        "zh": "连同数字答案条数、原始合计和0—4均分一起阅读。四条中至少三条数字答案才计分，不计算总分、切点、排名或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Preparing and stopping | Imposter Syndrome Test Guide",
+          "zh": "准备工作与停止界限｜冒名顶替综合征测试完整读法"
+        },
+        "description": {
+          "en": "Read this complete original topic guide: response coverage, worked examples, related patterns, context and optional next steps. Free, without answering or signup.",
+          "zh": "完整阅读这一原创主题的回答覆盖、数字例子、相关模式差异、情境与可选下一步。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Preparation with a fear of exposure",
+            "zh": "担心暴露自己时的准备"
+          },
+          "paragraphs": [
+            {
+              "en": "Careful preparation can be necessary and useful. This topic is narrower: it notices continued checking, delaying completion or hiding learning needs when you fear that an ordinary error will undermine your place. It does not measure working hours, conscientiousness, work quality or a clinical compulsion.",
+              "zh": "认真准备可能必要且有用。这一组更具体：当你担心普通失误会否定自己的位置时，是否继续检查、推迟完成或隐藏学习需求。它不测量工时、尽责性、工作质量或临床强迫症状。"
+            },
+            {
+              "en": "The four original statements concern continuing after requirements are met, repeated checking, concealing learning and proving more than requested. Their grouping is editorial. It should not be treated as a validated overwork scale or evidence that preparation is always driven by impostor feelings.",
+              "zh": "四条原创描述分别涉及达标后继续准备、重复检查、掩饰学习和额外自证。分组是编辑安排，不应视为经过验证的过劳量表，也不能证明准备工作总由冒名顶替感驱动。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Count responses rather than hours",
+            "zh": "统计回答而非工时"
+          },
+          "paragraphs": [
+            {
+              "en": "The 0–4 answers describe how often each statement fit during the past four weeks in your chosen context. A mean is shown only with at least three numeric responses. It is not the proportion of your time spent overpreparing, and no mean defines a healthy stopping point.",
+              "zh": "0—4答案描述选定情境中近四周每条描述符合的频率，至少三条数字答案才显示均分。它不是过度准备占用时间的比例，也没有哪个均分定义健康的停止点。"
+            },
+            {
+              "en": "The rated sum and its range change with coverage: four responses allow 0–16, three allow 0–12. A skip never adds a zero. With fewer than three numeric responses, both sum and mean are withheld; other topics can still be read and scored when sufficiently answered.",
+              "zh": "数字答案合计及范围随覆盖变化：四条范围0—16，三条范围0—12。跳过不增加一个零。不足三条时合计和均分均不显示，其他答够的主题仍可计分和阅读。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "A stopping-rule example",
+            "zh": "停止规则的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a low-stakes document already meets the agreed brief and has been checked once. You keep reformatting it because a minor error feels as though it would invalidate your role. That is different from correcting a known factual problem or carrying out a required safety review.",
+              "zh": "例如一份低风险材料已达到约定要求并检查过一次，你仍反复调整格式，因为一个小错仿佛会否定自己的位置。这与修正已知事实错误，或完成规定安全检查，是不同的事情。"
+            },
+            {
+              "en": "The distinction depends on actual requirements, consequences and remaining uncertainty. A self-report cannot decide that work is safe to stop. In regulated, medical or otherwise high-stakes tasks, follow the applicable procedures and qualified supervision instead of using this questionnaire as permission to do less.",
+              "zh": "如何区分取决于真实要求、后果和剩余不确定性。自报答案不能决定工作是否可以安全停止。受监管、医疗或其他高风险任务应遵循适用程序和专业监督，不能拿问卷作为少做检查的许可。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Different from perfectionism",
+            "zh": "与完美主义的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Perfectionistic concerns, high standards and impostor-related doubts can overlap, but they are not interchangeable. These prompts specifically connect preparation with concerns about being exposed or deserving a role. They do not provide the published SAPS scores or replace a separate perfectionism questionnaire.",
+              "zh": "完美主义担忧、高标准和冒名顶替相关疑虑可能重叠，但不能互换。这些题特指准备与被揭穿或不配担任角色的担心之间的联系，不提供已发表的SAPS分数，也不替代另一份完美主义问卷。"
+            },
+            {
+              "en": "A person may worry about evaluation without checking repeatedly, or check repeatedly for reasons unrelated to self-doubt. That is why evaluation and preparation remain separate descriptions. We do not infer a causal cycle, select a winner or combine them into an overall severity score.",
+              "zh": "有人担心评价却不反复检查，也有人因与自我怀疑无关的原因反复检查。因此评价与准备保持为独立描述，不推断因果循环、不选赢家，也不合成整体严重程度分数。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Requirements can genuinely be unclear",
+            "zh": "要求可能确实不清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "Changing instructions, excessive workload and inconsistent standards can make stopping difficult. Lack of access to guidance can also lead to extra checking. The questionnaire cannot distinguish these external constraints from an internal concern, and should not make you solely responsible for resolving structural problems.",
+              "zh": "要求反复变化、任务过量、标准不一致，都可能使停止变困难。缺少指导也会导致额外检查。问卷不能把这些外部限制与内在担忧分开，不应让你独自承担解决结构性问题的责任。"
+            },
+            {
+              "en": "If no relevant task occurred in the four-week window, select no opportunity rather than pretending you had a chance to stop. Consider one setting consistently. Moving between a safety-critical job and a casual personal project would change the meaning of an otherwise similar response.",
+              "zh": "四周内若没有相关任务，可以选没有对应情境，不必假装经历过停止机会。尽量持续考虑同一场景：高安全要求的工作与轻松的个人项目，会使相似答案具有不同含义。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional boundary conversation",
+            "zh": "一个可选的边界讨论"
+          },
+          "paragraphs": [
+            {
+              "en": "For one low-stakes task, you might clarify the required output, essential checks and who can resolve remaining questions. If feasible, agree on a stopping condition in advance. The aim is a practical agreement about this task, not an arbitrary time limit or a ban on asking for help.",
+              "zh": "可以针对一件低风险任务，弄清交付要求、必要检查以及剩余问题由谁确认。可行时事先商定停止条件。目的是形成具体任务约定，不是任意限时，也不是禁止求助。"
+            },
+            {
+              "en": "Afterward, privately notice whether the agreed condition was usable and what got in the way. An unworkable condition may need revision rather than more self-discipline. This suggestion has not been tested here for reducing distress, improving productivity or treating any disorder.",
+              "zh": "之后可私下观察约定是否可用、什么因素造成困难。无法执行的条件也许需要修改，而不是更多自律。本站没有验证此建议能减少困扰、提高生产力或治疗任何障碍。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Boundaries and support",
+            "zh": "边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "No frequency here certifies safety, competence or an ability to manage workload. The five groups are original topic guides, without validated norms, diagnostic cutoffs or treatment monitoring. Repeating the questionnaire under different conditions does not produce a validated measure of improvement or decline.",
+              "zh": "这里的频率不能认证安全、胜任或管理工作量的能力。五组是原创主题指南，没有验证常模、诊断切点或治疗监测功能。不同条件下重测，也不会产生经过验证的改善或恶化指标。"
+            },
+            {
+              "en": "Answers remain in page memory and public sharing contains no score. If checking, exhaustion or self-doubt keeps disrupting daily life, consider discussing the concrete difficulty with an appropriate professional or trusted support person. You can seek help regardless of whether this topic has a number.",
+              "zh": "答案保存在页面内存，公开分享不含分数。如果检查、疲惫或自我怀疑持续影响日常生活，可以和适当专业人员或可信赖的人讨论具体困难。不论这里是否算出数字，都可以寻求帮助。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "An original reflection, not CIPS",
+        "zh": "原创自我反思版，与CIPS区分"
+      },
+      "paragraphs": [
+        {
+          "en": "The 20 prompts, response anchors, four-week window and five topic groups were authored for FermatMind. None is presented as a CIPS item, factor or licensed adaptation. The groups organize contribution, feedback, evaluation, comparison and preparation; they have not been psychometrically validated.",
+          "zh": "20条题目、选项、四周时间窗和五组主题均由本站独立组织，不作为CIPS原题、因子或授权改编。五组分别观察贡献、反馈、评价、比较与准备，尚未完成心理测量学验证。"
+        },
+        {
+          "en": "Research reviews describe substantial differences in definitions and measurement. They inform the limits on our claims, not validation of these new questions. The common name does not make self-doubt a diagnosis, and an answer cannot establish whether your actual performance or environment is fairly judged.",
+          "zh": "研究综述指出概念和测量存在显著差异。这些资料用于约束主张，不代表验证了本站新题。通行名称不把自我怀疑变成诊断，回答也不能判断实际表现或环境评价是否公正。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Exactly how the numbers work",
+        "zh": "数字具体怎样计算"
+      },
+      "paragraphs": [
+        {
+          "en": "All items are direct: the selected 0–4 number is used without reversal. Each topic has four items. At least three numeric answers are needed: sum the rated values, then divide by their count. Display the unrounded mean to two decimal places. Skips never become zero and are never imputed.",
+          "zh": "所有题均为正向，直接使用所选0—4数字，无反向换算。每组四条，至少三条数字答案才计算：把数字相加，再除以数字答案条数；按未提前取整的均分保留两位小数。跳过不当零，也不补值。"
+        },
+        {
+          "en": "All 20 items need an explicit choice, including skips, before submission. All-skip answers can finish without producing numbers. Below three numeric answers a topic has no sum or mean. There is no overall score, winner, severity band, percentile or numerical comparison with CIPS. The minimum-three rule is an editorial policy, not a validated missing-data standard.",
+          "zh": "提交前20条均需明确选择，包括跳过。全部跳过也可完成，但不产生数字。某组不足三条数字答案时不显示合计与均分。不计算总分、赢家、严重程度分段、百分位，也不与CIPS数值比较。至少三条规则是本站编辑政策，不是验证过的缺失值标准。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Who and what this is for",
+        "zh": "适用对象与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "For adults aged 18 and over who want private self-reflection. This is not a clinical screen, ability test, dishonesty detector, personnel decision tool or treatment monitor. Higher frequencies do not prove incompetence, and lower frequencies do not certify confidence or readiness for a task.",
+          "zh": "面向18岁及以上成年人私人自我反思，不是临床筛查、能力测验、测谎、人员决策工具或治疗监测。频率较高不能证明不胜任，较低也不能认证自信或任务准备程度。"
+        },
+        {
+          "en": "Real skill gaps, unclear requirements, unequal opportunities and exclusion may matter alongside self-doubt. The questionnaire cannot determine causes. No prevalence claim, population norm or promise that an exercise will cure impostor feelings is made; support can be sought because of real-life impact without a score.",
+          "zh": "真实技能空缺、要求不清、机会差异和排斥经历，都可能与自我怀疑同时存在，问卷无法判断原因。这里不宣称发生率、人口常模或练习可以治愈冒名顶替感；寻求支持可依据现实影响，不需要某个分数。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Free guides and optional next steps",
+        "zh": "免费指南与可选下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "All five complete guides are available before you answer and expanded on request after the readout. They describe concrete examples, coverage, differences and context. These are the same public pages for everyone, not hidden personal reports. No email, account or additional test is required.",
+          "zh": "五篇完整指南在作答前即可阅读，查看读数后也可逐篇展开，包含具体例子、覆盖读法、差异与情境。它们是对所有人相同的公开页面，不是隐藏的个人报告，无需邮箱、账户或另做测试。"
+        },
+        {
+          "en": "A separate Big Five entry is optional for broader personality preferences and shows its own burden. It does not verify these responses or explain their cause; no answers or scores are transferred. Shared links contain only public guide addresses, never your numeric readout.",
+          "zh": "另做大五人格仅是了解更广泛偏好的可选入口，题量与用时以该入口为准。它不验证这里的回答，也不解释原因，不传递本次答案或分数。分享链接仅含公开指南地址，不带个人数字。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Clance Impostor Phenomenon Scale?",
+        "zh": "这是Clance冒名顶替现象量表吗？"
+      },
+      "answer": {
+        "en": "No. This is a newly authored 20-item reflection with five editorial topics. It does not reproduce CIPS, use its response format or transfer its bands, validation or interpretation.",
+        "zh": "不是。这是新写的20条反思题与五组编辑主题，不复现CIPS，不使用其选项格式，也不移用其分数段、验证或解释。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do imposter and impostor mean different tests?",
+        "zh": "“冒名顶替”与“冒充者”是两个测试吗？"
+      },
+      "answer": {
+        "en": "Both English spellings commonly refer to this topic. They lead to the same questionnaire here, not separate products. The name does not imply a diagnosis or dishonest behaviour.",
+        "zh": "这些是同一主题的常见叫法，在本站承接同一份问卷，不是两个产品。名称不表示诊断，也不意味着有不诚实行为。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip a question?",
+        "zh": "跳过会怎样？"
+      },
+      "answer": {
+        "en": "A skip is explicit and never scored as zero. Each topic needs at least three of its four numeric answers for a sum and mean. All topics remain readable even if every statement is skipped.",
+        "zh": "跳过是明确选择，不算零。每组四条中至少三条数字答案才显示合计与均分。即使全部跳过，五篇解释仍可阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a high mean a diagnosis or a low ability score?",
+        "zh": "均分较高代表诊断或能力低吗？"
+      },
+      "answer": {
+        "en": "Neither. It describes how often these particular statements fit your chosen context. There are no clinical bands, ability inferences, norms or hiring uses. The causes and accuracy of any concern remain unknown.",
+        "zh": "都不是。它只描述这些具体题目在所选情境中符合的频率。没有临床分段、能力推断、常模或招聘用途，担忧的原因与准确性仍未知。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "They remain in this page’s memory and clear on refresh, language change, leaving or retaking. Public guide sharing contains no answers or scores. Optional anonymous action counts require both the page permission and global analytics consent.",
+        "zh": "答案只留在本页内存，刷新、换语言、离开或重测会清除。公开指南分享不含答案或分数。可选匿名动作计数须同时取得本页许可与全站分析同意。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I compare English and Chinese scores or track improvement?",
+        "zh": "能比较中英文分数或追踪改善吗？"
+      },
+      "answer": {
+        "en": "The two versions have not been validated for equivalence. The questionnaire has not been validated for change measurement. Different opportunities and recall can change responses, so a numerical difference does not establish improvement or decline.",
+        "zh": "两个语言版本尚未验证等值性，也未验证用于变化测量。机会和回忆变化会改变答案，数字差异不能证明改善或恶化。"
+      }
+    }
+  ],
+  "imposter20": {
+    "subtitle": {
+      "en": "Notice five contexts, without a label",
+      "zh": "观察五种情境，不给自己贴标签"
+    },
+    "privacy": {
+      "en": "Answers stay only in page memory. Refreshing, changing language, leaving or retaking clears them. No draft, account, private example or score-bearing share link is created.",
+      "zh": "答案只保存在页面内存；刷新、换语言、离开或重测即清除。不建立草稿或账户，不收集私人例子，也不生成带分数的分享链接。"
+    },
+    "editionNotice": {
+      "en": "FermatMind original reflection · Not CIPS · Not validated · Ages 18+ · No diagnosis or norms.",
+      "zh": "费马测试原创反思版 · 非CIPS · 尚未验证 · 18岁及以上 · 无诊断或常模。"
+    },
+    "attribution": {
+      "en": "Questions and guides: FermatMind Editorial, 2026. Research links below provide background and measurement limitations, not endorsement, item permissions or validation of this questionnaire.",
+      "zh": "题目与指南：费马测试编辑部，2026。以下研究链接提供背景与测量限制，不代表背书、题项授权或对本站问卷的验证。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Rethinking the impostor phenomenon: umbrella review (2026 issue)",
+        "zh": "重新思考冒名顶替现象：伞式综述（2026年卷期）"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13129615/"
+    },
+    {
+      "title": {
+        "en": "Measurement critique in medical-student studies (2026 abstract)",
+        "zh": "医学生研究的测量问题（2026年摘要）"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41801596/"
+    },
+    {
+      "title": {
+        "en": "CIPS researchers: a different original instrument and its conditions",
+        "zh": "CIPS研究者说明：另一原始工具及其条件"
+      },
+      "url": "https://www.clanceimpostorphenomenonscale.org/researchers"
+    }
+  ]
+}

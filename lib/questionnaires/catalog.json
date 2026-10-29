@@ -5731,5 +5731,31 @@
       "assimilation"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "imposter-syndrome",
+    "code": "FM_IMPOSTER20",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Imposter Syndrome Test",
+      "zh": "冒名顶替综合征测试"
+    },
+    "description": {
+      "en": "Reflect on achievement-related self-doubt with 20 original questions and five free full guides. See response frequencies, without diagnosis, CIPS scoring or signup.",
+      "zh": "用20条原创题目观察成就相关的自我怀疑，免费查看五组频率读数与完整解释。不作诊断，不使用CIPS计分，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "fm_imposter20_original_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "contribution",
+      "feedback",
+      "evaluation",
+      "comparison",
+      "preparation"
+    ],
+    "collection": "explore"
   }
 ]
