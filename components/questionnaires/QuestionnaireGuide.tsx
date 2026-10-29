@@ -1,3 +1,5 @@
+import { isTechnical30ConfigurationValid } from "@/lib/questionnaires/technical30";
+import { Technical30GuidePage } from "./Technical30Page";
 import { CognitiveFunctionsGuidePage, isCognitiveFunctionsPageAvailable } from "./CognitiveFunctionsPage";
 import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
 import { Dvmsq18GuidePage } from "./Dvmsq18Page";
@@ -86,6 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "technical30" && !isTechnical30ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "afqt32" && !isAfqt32ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "anger20" && !isAnger20ConfigurationValid(quiz)) return { title: "Anger reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sens16" && !isSens16ConfigurationValid(quiz)) return { title: "Sensory reflection unavailable", robots: { index: false, follow: false } };
@@ -140,6 +143,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <Synes15GuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "technical30") {
+    if (!isTechnical30ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <Technical30GuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "afqt32") {
     if (!isAfqt32ConfigurationValid(quiz)) notFound();

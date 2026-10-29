@@ -1,3 +1,5 @@
+import { isTechnical30ConfigurationValid } from "@/lib/questionnaires/technical30";
+import { Technical30Page } from "./Technical30Page";
 import { CognitiveFunctionsPage, isCognitiveFunctionsPageAvailable } from "./CognitiveFunctionsPage";
 import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
 import { Dvmsq18Page } from "./Dvmsq18Page";
@@ -101,6 +103,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "technical30" && !isTechnical30ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "afqt32" && !isAfqt32ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "anger20" && !isAnger20ConfigurationValid(quiz)) return { title: "Anger reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sens16" && !isSens16ConfigurationValid(quiz)) return { title: "Sensory reflection unavailable", robots: { index: false, follow: false } };
@@ -130,6 +133,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "synes15") {
     if (!isSynes15ConfigurationValid(quiz)) notFound();
     return <Synes15Page quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "technical30") {
+    if (!isTechnical30ConfigurationValid(quiz)) notFound();
+    return <Technical30Page quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "afqt32") {
     if (!isAfqt32ConfigurationValid(quiz)) notFound();

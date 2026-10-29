@@ -1,0 +1,2531 @@
+{
+  "slug": "asvab-science-mechanical-practice-test",
+  "code": "FM_TECHNICAL30",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "technical30",
+  "title": {
+    "en": "ASVAB-Style Science & Technical Practice",
+    "zh": "ASVAB风格科学与技术练习"
+  },
+  "seoTitle": {
+    "en": "ASVAB Science & Mechanical Practice: 30 Original Questions",
+    "zh": "ASVAB科学与机械练习：30道原创题、五份完整指南"
+  },
+  "description": {
+    "en": "Practise 30 original English questions across science, mechanics, circuits, auto/shop and written assembly. Section timers or untimed study; five full guides free.",
+    "zh": "免费练习科学、机械、电路、汽车车间与文字组装五领域的30道原创英文题。可选分段计时或不计时学习，提供双语解析与五份完整指南。"
+  },
+  "minutes": 24,
+  "instructions": {
+    "en": "Work through five parts of six original English questions each. Choose A–D or explicitly leave a question unanswered. You may edit within the active part; finishing early or reaching its deadline locks that part. Start each next part explicitly. Paper, sketches and a calculator are allowed. All answers and explanations appear after five parts; public guides can be read before answering.",
+    "zh": "五部分各六道原创英文题。选A—D或明确留空；当前部分内可返回修改。主动结束或到时后锁定该部分，下一部分需点击开始。允许纸笔、草图和计算器。五部分完成后显示全部题解，公开指南无需作答也可先读。"
+  },
+  "introduction": {
+    "en": "Explore five science and technical areas related to ASVAB preparation: general science, mechanical models, electric circuits, auto/shop knowledge and written assembly. This is our own short fixed bank, with English questions in both interfaces and bilingual explanations. It complements the separate four-area English practice; these five parts do not produce an AFQT score. The text-and-coordinate assembly tasks are not an official visual subtest.",
+    "zh": "本原创短题本练习与ASVAB备考相关的普通科学、机械模型、电路、汽车车间常识及文字组装。两种界面均使用英文题干选项，解析与指南为英中双语。它补充另一套四领域英文练习；这五部分不产生AFQT成绩。文字坐标组装也不等同官方图形分测验。"
+  },
+  "resultHeading": {
+    "en": "Your five practice records and every worked answer",
+    "zh": "五项练习记录与全部题解"
+  },
+  "technical30": {
+    "sections": [
+      {
+        "id": "general-science",
+        "code": "GS",
+        "count": 6,
+        "limitSeconds": 180,
+        "title": {
+          "en": "General science",
+          "zh": "普通科学"
+        }
+      },
+      {
+        "id": "mechanical",
+        "code": "MC",
+        "count": 6,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Mechanical models",
+          "zh": "机械模型"
+        }
+      },
+      {
+        "id": "electronics",
+        "code": "EI",
+        "count": 6,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Electric circuits",
+          "zh": "电路基础"
+        }
+      },
+      {
+        "id": "auto-shop",
+        "code": "AS",
+        "count": 6,
+        "limitSeconds": 180,
+        "title": {
+          "en": "Auto and shop knowledge",
+          "zh": "汽车与车间常识"
+        }
+      },
+      {
+        "id": "assembling",
+        "code": "AO",
+        "count": 6,
+        "limitSeconds": 300,
+        "title": {
+          "en": "Written assembly and spatial models",
+          "zh": "文字组装与空间模型"
+        }
+      }
+    ],
+    "subtitle": {
+      "en": "Choose how to practise these 30 English questions",
+      "zh": "选择这30道英文题的练习方式"
+    },
+    "privacy": {
+      "en": "Responses and counts stay in this page’s memory and are cleared by restart, refresh, leaving or changing language. There is no saved draft or public answer URL. Optional activity counts use a separate consent choice and contain no responses or scores.",
+      "zh": "答案与计数只留在本页内存，重测、刷新、离开或换语言会清除；无保存草稿或公开答卷URL。可选活动计数单独征得同意，不含答案或成绩。"
+    },
+    "editionNotice": {
+      "en": "Original fixed learning bank, not an official ASVAB form or examination simulation. Not validated; no norm, performance tier, percentile, pass mark, military-job match or AFQT estimate. The section caps are selected by this site, not official limits.",
+      "zh": "原创固定学习题本，不是正式ASVAB题式或考试模拟。未验证，无常模、表现档位、百分位、通过线、军职匹配或AFQT估计；分段上限由本站选择，不是官方时限。"
+    },
+    "attribution": {
+      "en": "All scenarios, questions, options, explanations and guides are independently written by FermatMind. Linked official and educational pages support limited factual background; no official exam item, competitor bank, prep-book exercise or third-party illustration is reproduced. ASVAB is a U.S. Department of Defense program; FermatMind is not affiliated with or endorsed by it or a military branch.",
+      "zh": "场景、题目、选项、解析和指南均由费马测试独立编写。链接的官方与教育资料只支持有限事实背景，不复制正式试题、竞品题库、备考书练习或第三方插图。ASVAB是美国国防部项目，费马测试与其或任何军种无隶属关系，亦未获认可。"
+    }
+  },
+  "directions": [
+    {
+      "id": "general-science",
+      "itemCount": 6,
+      "title": {
+        "en": "General science",
+        "zh": "普通科学"
+      }
+    },
+    {
+      "id": "mechanical",
+      "itemCount": 6,
+      "title": {
+        "en": "Mechanical models",
+        "zh": "机械模型"
+      }
+    },
+    {
+      "id": "electronics",
+      "itemCount": 6,
+      "title": {
+        "en": "Electric circuits",
+        "zh": "电路基础"
+      }
+    },
+    {
+      "id": "auto-shop",
+      "itemCount": 6,
+      "title": {
+        "en": "Auto and shop knowledge",
+        "zh": "汽车与车间常识"
+      }
+    },
+    {
+      "id": "assembling",
+      "itemCount": 6,
+      "title": {
+        "en": "Written assembly and spatial models",
+        "zh": "文字组装与空间模型"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "TECH_1_01",
+      "prompt": {
+        "en": "A model defines acceleration as net force divided by mass. A 4 kg cart has a 20 N net horizontal force. What acceleration follows in this model?",
+        "zh": "A model defines acceleration as net force divided by mass. A 4 kg cart has a 20 N net horizontal force. What acceleration follows in this model?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.2 m/s²",
+            "zh": "0.2 m/s²"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "5 m/s²",
+            "zh": "5 m/s²"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "16 m/s²",
+            "zh": "16 m/s²"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "80 m/s²",
+            "zh": "80 m/s²"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Use the stated relationship: 20/4 = 5 m/s². Net force already includes the combined effect of the forces; there is no additional opposing force to subtract.",
+        "zh": "按题内关系计算20÷4=5米/秒²。净力已经包含各力的合效应，不再另减一个未给出的阻力。"
+      }
+    },
+    {
+      "id": "TECH_1_02",
+      "prompt": {
+        "en": "For a uniform sample, density is mass divided by volume. Its mass is 360 g and its volume is 120 cm³. What is its density?",
+        "zh": "For a uniform sample, density is mass divided by volume. Its mass is 360 g and its volume is 120 cm³. What is its density?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.333 g/cm³",
+            "zh": "0.333 g/cm³"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "240 g/cm³",
+            "zh": "240 g/cm³"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3 g/cm³",
+            "zh": "3 g/cm³"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "480 g/cm³",
+            "zh": "480 g/cm³"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Density is 360/120 = 3 g/cm³. Keep grams and cubic centimetres together; dividing volume by mass would give a different quantity.",
+        "zh": "密度360÷120=3克/厘米³，保留质量与体积的单位。若体积除以质量，得到的是另一种量。"
+      }
+    },
+    {
+      "id": "TECH_1_03",
+      "prompt": {
+        "en": "In the human body, which listed blood component primarily carries oxygen from the lungs to other tissues?",
+        "zh": "In the human body, which listed blood component primarily carries oxygen from the lungs to other tissues?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Platelets",
+            "zh": "Platelets"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Red blood cells",
+            "zh": "Red blood cells"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The fluid in a sweat gland",
+            "zh": "The fluid in a sweat gland"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Digestive enzymes",
+            "zh": "Digestive enzymes"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Red blood cells contain haemoglobin, which carries oxygen. This is a general biology fact, not a question about anyone’s symptoms, blood-test result or medical care.",
+        "zh": "红细胞含有携带氧的血红蛋白。这是一般生物学常识，不用于推断个人症状、验血结果或医疗需要。"
+      }
+    },
+    {
+      "id": "TECH_1_04",
+      "prompt": {
+        "en": "Consider a green plant carrying out photosynthesis. Which listed substance supplies the carbon used to build carbohydrates?",
+        "zh": "Consider a green plant carrying out photosynthesis. Which listed substance supplies the carbon used to build carbohydrates?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Oxygen gas",
+            "zh": "Oxygen gas"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Sunlight",
+            "zh": "Sunlight"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Carbon dioxide",
+            "zh": "Carbon dioxide"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Nitrogen gas",
+            "zh": "Nitrogen gas"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Carbon dioxide supplies the carbon atoms. Light supplies energy, while oxygen is a product of the familiar oxygen-producing process in green plants; light itself is not a material source of carbon.",
+        "zh": "二氧化碳提供碳原子，光提供能量。在绿色植物常见的产氧光合作用中，氧气是产物之一；光本身不是碳的物质来源。"
+      }
+    },
+    {
+      "id": "TECH_1_05",
+      "prompt": {
+        "en": "The bright part of the Moon normally visible from Earth mainly shines by which process?",
+        "zh": "The bright part of the Moon normally visible from Earth mainly shines by which process?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Reflecting sunlight",
+            "zh": "Reflecting sunlight"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Burning fuel at its surface",
+            "zh": "Burning fuel at its surface"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Producing sunlight internally",
+            "zh": "Producing sunlight internally"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Receiving visible light only from Earth’s cities",
+            "zh": "Receiving visible light only from Earth’s cities"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Ordinary moonlight is sunlight reflected by the lunar surface. The changing phase concerns our view of the illuminated part, not the Moon turning its own light source on and off.",
+        "zh": "通常看到的月光是月面反射的阳光。月相变化涉及我们看见多少受光部分，不是月球自身光源的开关。"
+      }
+    },
+    {
+      "id": "TECH_1_06",
+      "prompt": {
+        "en": "Liquid water at the surface of a pond becomes water vapour and enters the air. What is this change called?",
+        "zh": "Liquid water at the surface of a pond becomes water vapour and enters the air. What is this change called?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Freezing",
+            "zh": "Freezing"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Condensation",
+            "zh": "Condensation"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Precipitation",
+            "zh": "Precipitation"
+          },
+          "directionId": "general-science"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Evaporation",
+            "zh": "Evaporation"
+          },
+          "directionId": "general-science"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Evaporation changes liquid water into vapour. Condensation describes the reverse gas-to-liquid change; precipitation describes water falling from clouds rather than this surface change.",
+        "zh": "蒸发指液态水变成水蒸气。凝结是气体变液体，降水是水从云中落下，都不是题述的水面变化。"
+      }
+    },
+    {
+      "id": "TECH_2_01",
+      "prompt": {
+        "en": "An ideal massless lever balances opposite moments. A 72 N load has a 0.25 m perpendicular arm. The opposing effort has a 0.75 m perpendicular arm. What effort balances it?",
+        "zh": "An ideal massless lever balances opposite moments. A 72 N load has a 0.25 m perpendicular arm. The opposing effort has a 0.75 m perpendicular arm. What effort balances it?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18 N",
+            "zh": "18 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "24 N",
+            "zh": "24 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "54 N",
+            "zh": "54 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "216 N",
+            "zh": "216 N"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Balance moments: effort × 0.75 = 72 × 0.25 = 18 N m. The effort is 24 N. The question explicitly specifies opposite moments, so the two products can be equated.",
+        "zh": "力矩平衡F×0.75=72×0.25=18牛米，得24牛。题目明确两力矩反向，因此可以令其大小相等。"
+      }
+    },
+    {
+      "id": "TECH_2_02",
+      "prompt": {
+        "en": "A stationary ideal pulley block has a total downward load of 150 N. Exactly three vertical rope segments support it, each with the same tension. What is each tension?",
+        "zh": "A stationary ideal pulley block has a total downward load of 150 N. Exactly three vertical rope segments support it, each with the same tension. What is each tension?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "50 N",
+            "zh": "50 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "75 N",
+            "zh": "75 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "150 N",
+            "zh": "150 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "450 N",
+            "zh": "450 N"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The three upward tensions sum to the stated total load: 3T = 150, so T = 50 N. The total already includes anything the question counts as load.",
+        "zh": "三股向上张力之和等于总负载，3T=150，T=50牛。题给总负载已包含其计入的所有重量，不重复加重。"
+      }
+    },
+    {
+      "id": "TECH_2_03",
+      "prompt": {
+        "en": "Two ideal external gears mesh without slip. A 20-tooth driver turns at 150 rpm; the driven gear has 60 teeth. What is the driven speed magnitude?",
+        "zh": "Two ideal external gears mesh without slip. A 20-tooth driver turns at 150 rpm; the driven gear has 60 teeth. What is the driven speed magnitude?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30 rpm",
+            "zh": "30 rpm"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "50 rpm",
+            "zh": "50 rpm"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "150 rpm",
+            "zh": "150 rpm"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "450 rpm",
+            "zh": "450 rpm"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Equal tooth passage gives 150 × 20 = driven speed × 60, so the magnitude is 50 rpm. This asks for magnitude only, not a viewing-side-dependent clockwise label.",
+        "zh": "相同时间啮合齿数相等，150×20=n×60，得50转/分。题目只问大小，不问与观察侧有关的顺逆时针。"
+      }
+    },
+    {
+      "id": "TECH_2_04",
+      "prompt": {
+        "en": "A load of weight 120 N is moved slowly up a frictionless straight ramp of length 4 m and vertical rise 1 m. The effort is parallel to the ramp. What constant ideal effort is needed?",
+        "zh": "A load of weight 120 N is moved slowly up a frictionless straight ramp of length 4 m and vertical rise 1 m. The effort is parallel to the ramp. What constant ideal effort is needed?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "15 N",
+            "zh": "15 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30 N",
+            "zh": "30 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "120 N",
+            "zh": "120 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "480 N",
+            "zh": "480 N"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "For this frictionless slow model, effort × 4 m equals the 120 N × 1 m gain in gravitational energy. The effort is 30 N; the model does not include real rolling or sliding losses.",
+        "zh": "理想无摩擦缓慢移动时，F×4米=120牛×1米，得30牛。模型没有加入真实滚动或滑动损失。"
+      }
+    },
+    {
+      "id": "TECH_2_05",
+      "prompt": {
+        "en": "A box slides horizontally at constant velocity. In this model, the only horizontal forces are a 14 N push to the right and sliding friction. What is the friction force?",
+        "zh": "A box slides horizontally at constant velocity. In this model, the only horizontal forces are a 14 N push to the right and sliding friction. What is the friction force?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14 N to the left",
+            "zh": "14 N to the left"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "14 N to the right",
+            "zh": "14 N to the right"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0 N",
+            "zh": "0 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "28 N to the left",
+            "zh": "28 N to the left"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Constant velocity means zero net force in the specified model. Friction must balance the rightward 14 N push with 14 N leftward. Zero net force does not mean each force is zero.",
+        "zh": "匀速意味着题设模型中合力为零，摩擦力须向左14牛抵消推力。合力为零不等于每个力都为零。"
+      }
+    },
+    {
+      "id": "TECH_2_06",
+      "prompt": {
+        "en": "Two ideal hydraulic pistons are at the same height with areas 2 cm² and 10 cm². An extra 16 N is applied to the small piston. Neglect losses and piston weight. What extra force acts at the large piston?",
+        "zh": "Two ideal hydraulic pistons are at the same height with areas 2 cm² and 10 cm². An extra 16 N is applied to the small piston. Neglect losses and piston weight. What extra force acts at the large piston?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "3.2 N",
+            "zh": "3.2 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "16 N",
+            "zh": "16 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "32 N",
+            "zh": "32 N"
+          },
+          "directionId": "mechanical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "80 N",
+            "zh": "80 N"
+          },
+          "directionId": "mechanical"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Equal added pressure gives 16/2 = output/10. The output is 80 N. The added pressure is shared; it is force, not pressure, that scales with piston area.",
+        "zh": "新增压强相同，16÷2=F÷10，得80牛。随活塞面积变化的是力，不是把传递压强放大。"
+      }
+    },
+    {
+      "id": "TECH_3_01",
+      "prompt": {
+        "en": "An ideal 12 V source is connected across one 6 ohm resistor. Using I = V/R, what current flows?",
+        "zh": "An ideal 12 V source is connected across one 6 ohm resistor. Using I = V/R, what current flows?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.5 A",
+            "zh": "0.5 A"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2 A",
+            "zh": "2 A"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6 A",
+            "zh": "6 A"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "72 A",
+            "zh": "72 A"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The stated Ohm relationship gives I = 12/6 = 2 A. The numbers describe an ideal paper circuit, not instructions to connect a real source.",
+        "zh": "按题给欧姆关系I=12÷6=2安。这是理想纸上电路，不要求连接真实电源。"
+      }
+    },
+    {
+      "id": "TECH_3_02",
+      "prompt": {
+        "en": "Two ideal resistors of 3 ohms and 9 ohms are connected in series. What is their total resistance?",
+        "zh": "Two ideal resistors of 3 ohms and 9 ohms are connected in series. What is their total resistance?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.333 ohm",
+            "zh": "0.333 ohm"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2.25 ohms",
+            "zh": "2.25 ohms"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6 ohms",
+            "zh": "6 ohms"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "12 ohms",
+            "zh": "12 ohms"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Series resistances add: 3 + 9 = 12 ohms. A reciprocal sum is used for a different parallel arrangement, not for this single series path.",
+        "zh": "串联电阻相加3+9=12欧。倒数求和适用于另一种并联结构，不能用于这条串联通路。"
+      }
+    },
+    {
+      "id": "TECH_3_03",
+      "prompt": {
+        "en": "Two ideal resistors of 6 ohms and 3 ohms are connected in parallel. Use 1/R = 1/6 + 1/3. What is the equivalent resistance?",
+        "zh": "Two ideal resistors of 6 ohms and 3 ohms are connected in parallel. Use 1/R = 1/6 + 1/3. What is the equivalent resistance?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2 ohms",
+            "zh": "2 ohms"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3 ohms",
+            "zh": "3 ohms"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "9 ohms",
+            "zh": "9 ohms"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18 ohms",
+            "zh": "18 ohms"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The right side is 1/6 + 2/6 = 1/2, so R = 2 ohms. The equivalent is smaller than either branch resistance in this positive-resistance parallel model.",
+        "zh": "1/6+1/3=1/2，故等效电阻2欧。在本题正电阻并联模型中，它小于任一支路电阻。"
+      }
+    },
+    {
+      "id": "TECH_3_04",
+      "prompt": {
+        "en": "A model component has 9 V across it and a current of 2 A through it. Using P = VI, what electrical power is transferred to it?",
+        "zh": "A model component has 9 V across it and a current of 2 A through it. Using P = VI, what electrical power is transferred to it?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4.5 W",
+            "zh": "4.5 W"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "7 W",
+            "zh": "7 W"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "11 W",
+            "zh": "11 W"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18 W",
+            "zh": "18 W"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "P = 9 × 2 = 18 W. Voltage and current are different quantities; adding their numerical values does not produce power.",
+        "zh": "P=9×2=18瓦。电压与电流是不同的量，不能把两个数相加当成功率。"
+      }
+    },
+    {
+      "id": "TECH_3_05",
+      "prompt": {
+        "en": "An ideal battery, a resistor and a switch form a single series loop with no other connections. The switch is fully open. What steady current flows through the resistor?",
+        "zh": "An ideal battery, a resistor and a switch form a single series loop with no other connections. The switch is fully open. What steady current flows through the resistor?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Zero",
+            "zh": "Zero"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The battery voltage in amperes",
+            "zh": "The battery voltage in amperes"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Twice the closed-switch current",
+            "zh": "Twice the closed-switch current"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A current fixed by the wire colour",
+            "zh": "A current fixed by the wire colour"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The open switch breaks the only conducting path, so the ideal steady current is zero. There is no alternative branch or capacitor in the stated model.",
+        "zh": "开关断开唯一导电通路，因此理想稳态电流为零。题目未设其他支路或电容，不能另加这些条件。"
+      }
+    },
+    {
+      "id": "TECH_3_06",
+      "prompt": {
+        "en": "An ideal resistor has voltage V across it. Keep its resistance fixed and double V while it remains ohmic. Using I = V/R, how does current change?",
+        "zh": "An ideal resistor has voltage V across it. Keep its resistance fixed and double V while it remains ohmic. Using I = V/R, how does current change?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It halves",
+            "zh": "It halves"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It is unchanged",
+            "zh": "It is unchanged"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It doubles",
+            "zh": "It doubles"
+          },
+          "directionId": "electronics"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It becomes zero",
+            "zh": "It becomes zero"
+          },
+          "directionId": "electronics"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "With R fixed, current is directly proportional to voltage in the stated ohmic range. Doubling V doubles I. Real heating could change resistance, but that change is expressly excluded here.",
+        "zh": "电阻固定且仍满足欧姆关系时，I与V成正比，电压加倍则电流加倍。真实发热可能改变电阻，但本题已排除该变化。"
+      }
+    },
+    {
+      "id": "TECH_4_01",
+      "prompt": {
+        "en": "In a conventional spark-ignited gasoline engine, which listed part supplies the spark that ignites the air-fuel mixture?",
+        "zh": "In a conventional spark-ignited gasoline engine, which listed part supplies the spark that ignites the air-fuel mixture?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Fuel tank",
+            "zh": "Fuel tank"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Spark plug",
+            "zh": "Spark plug"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Exhaust pipe",
+            "zh": "Exhaust pipe"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Transmission",
+            "zh": "Transmission"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The spark plug provides the ignition spark in the specified gasoline-engine arrangement. The question does not describe the compression ignition used by a conventional diesel engine.",
+        "zh": "在题述汽油机结构中，火花塞提供点火火花。不能把它替换成常规柴油机的压燃过程。"
+      }
+    },
+    {
+      "id": "TECH_4_02",
+      "prompt": {
+        "en": "A simplified four-stroke engine cycle is intake, compression, power, then exhaust. Which stroke immediately follows compression in this stated sequence?",
+        "zh": "A simplified four-stroke engine cycle is intake, compression, power, then exhaust. Which stroke immediately follows compression in this stated sequence?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Intake",
+            "zh": "Intake"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Exhaust",
+            "zh": "Exhaust"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Power",
+            "zh": "Power"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A fifth lubrication stroke",
+            "zh": "A fifth lubrication stroke"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Read the sequence given: compression is followed by the power stroke. This checks order within a simplified cycle, not timing settings or instructions to service an engine.",
+        "zh": "依题给简化顺序，压缩后是做功冲程。这只核对顺序，不给发动机正时设置或维修操作指导。"
+      }
+    },
+    {
+      "id": "TECH_4_03",
+      "prompt": {
+        "en": "In a conventional gasoline car, which listed system normally routes burned gases from the engine toward the tailpipe?",
+        "zh": "In a conventional gasoline car, which listed system normally routes burned gases from the engine toward the tailpipe?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Exhaust system",
+            "zh": "Exhaust system"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Fuel storage tank",
+            "zh": "Fuel storage tank"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Starter battery",
+            "zh": "Starter battery"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Windscreen washer system",
+            "zh": "Windscreen washer system"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The exhaust system carries engine exhaust toward the tailpipe. This is a component-role question; it is not advice about modifying emissions equipment or checking a running vehicle.",
+        "zh": "排气系统将发动机废气导向尾管。这是部件用途常识，不指导改装排放装置或检查运转中的车辆。"
+      }
+    },
+    {
+      "id": "TECH_4_04",
+      "prompt": {
+        "en": "Which listed assembly normally transfers mechanical power from a car’s engine toward its driven wheels?",
+        "zh": "Which listed assembly normally transfers mechanical power from a car’s engine toward its driven wheels?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Windscreen",
+            "zh": "Windscreen"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Seat upholstery",
+            "zh": "Seat upholstery"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Fuel filler cap",
+            "zh": "Fuel filler cap"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Transmission",
+            "zh": "Transmission"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The transmission transfers mechanical power in the driveline. A correct answer to a component-role question does not establish the ability to repair or operate that assembly.",
+        "zh": "变速传动装置在传动系统中传递机械动力。答对用途题不说明具备该装置的维修或操作能力。"
+      }
+    },
+    {
+      "id": "TECH_4_05",
+      "prompt": {
+        "en": "A paper shop drawing specifies a length of 0.075 m. Using 1000 mm = 1 m, what length is this in millimetres?",
+        "zh": "A paper shop drawing specifies a length of 0.075 m. Using 1000 mm = 1 m, what length is this in millimetres?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.075 mm",
+            "zh": "0.075 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "7.5 mm",
+            "zh": "7.5 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75 mm",
+            "zh": "75 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "750 mm",
+            "zh": "750 mm"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Multiply by 1000: 0.075 m = 75 mm. Keep the physical length unchanged when converting units; the new numerical value depends on the chosen unit.",
+        "zh": "乘1000得75毫米。单位换算不改变真实长度，只改变使用该单位表示的数值。"
+      }
+    },
+    {
+      "id": "TECH_4_06",
+      "prompt": {
+        "en": "On a paper scale, adjacent tick marks are exactly 0.5 mm apart. Two marked positions are nine intervals apart. What distance separates them?",
+        "zh": "On a paper scale, adjacent tick marks are exactly 0.5 mm apart. Two marked positions are nine intervals apart. What distance separates them?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4 mm",
+            "zh": "4 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "4.5 mm",
+            "zh": "4.5 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "9 mm",
+            "zh": "9 mm"
+          },
+          "directionId": "auto-shop"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18 mm",
+            "zh": "18 mm"
+          },
+          "directionId": "auto-shop"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Nine intervals × 0.5 mm = 4.5 mm. Count spaces between tick marks rather than adding an extra endpoint mark. No real machining tolerance is specified.",
+        "zh": "九个间隔×0.5毫米=4.5毫米。数刻线之间的间隔，不多算一个端点；本题未设真实加工公差。"
+      }
+    },
+    {
+      "id": "TECH_5_01",
+      "prompt": {
+        "en": "A target rectangle contains unit cells with x in {0,1,2} and y in {0,1}. Piece A occupies {(0,0),(1,0),(0,1)}. Piece B starts at {(1,0),(0,1),(1,1)}. Translate B only; do not rotate or reflect it. Which offset makes A and B fill the target without overlap?",
+        "zh": "A target rectangle contains unit cells with x in {0,1,2} and y in {0,1}. Piece A occupies {(0,0),(1,0),(0,1)}. Piece B starts at {(1,0),(0,1),(1,1)}. Translate B only; do not rotate or reflect it. Which offset makes A and B fill the target without overlap?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-1,0)",
+            "zh": "(-1,0)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(0,1)",
+            "zh": "(0,1)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(1,0)",
+            "zh": "(1,0)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2,1)",
+            "zh": "(2,1)"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Adding (1,0) to every B coordinate gives {(2,0),(1,1),(2,1)}, exactly the three cells A leaves empty. Every cell lies in the target, and no cell is shared by both pieces.",
+        "zh": "B各坐标加(1,0)得{(2,0),(1,1),(2,1)}，正是A缺少的三格。都在目标内，且两块不重叠。"
+      }
+    },
+    {
+      "id": "TECH_5_02",
+      "prompt": {
+        "en": "A target uses cells {(0,0),(1,0),(2,0),(1,1)}. A three-cell piece already fills {(0,0),(1,0),(2,0)}. A single-cell piece starts at (0,0). Which translation fills the one remaining target cell?",
+        "zh": "A target uses cells {(0,0),(1,0),(2,0),(1,1)}. A three-cell piece already fills {(0,0),(1,0),(2,0)}. A single-cell piece starts at (0,0). Which translation fills the one remaining target cell?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(1,1)",
+            "zh": "(1,1)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(0,1)",
+            "zh": "(0,1)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(1,0)",
+            "zh": "(1,0)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2,1)",
+            "zh": "(2,1)"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract the occupied three-cell row from the target: only (1,1) remains. Moving the single cell from (0,0) by (1,1) reaches it; no rotation is relevant for one cell.",
+        "zh": "从目标中去掉已占的三格，只余(1,1)。单格从(0,0)平移(1,1)即可到达，不涉及旋转。"
+      }
+    },
+    {
+      "id": "TECH_5_03",
+      "prompt": {
+        "en": "A target rectangle contains cells x in {0,1,2,3}, y in {0,1}. Piece A fills its left two columns. Piece B starts as a 2-by-2 square at cells x in {0,1}, y in {0,1}. Which translation of B exactly fills the remaining target cells without overlap?",
+        "zh": "A target rectangle contains cells x in {0,1,2,3}, y in {0,1}. Piece A fills its left two columns. Piece B starts as a 2-by-2 square at cells x in {0,1}, y in {0,1}. Which translation of B exactly fills the remaining target cells without overlap?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(0,2)",
+            "zh": "(0,2)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1,0)",
+            "zh": "(1,0)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2,0)",
+            "zh": "(2,0)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(3,0)",
+            "zh": "(3,0)"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The remaining columns have x = 2 and 3, with y unchanged. Add (2,0) to B. An offset of (1,0) overlaps A, while (3,0) extends beyond the target.",
+        "zh": "空余列为x=2、3，y不变，所以B平移(2,0)。平移(1,0)会与A重叠，(3,0)会越出目标。"
+      }
+    },
+    {
+      "id": "TECH_5_04",
+      "prompt": {
+        "en": "A zero-thickness sheet covers -3 ≤ x ≤ 3 and -2 ≤ y ≤ 2. Fold the right half left across x=0. Punch through both layers at (-2,1), then fully unfold. Where is the other hole?",
+        "zh": "A zero-thickness sheet covers -3 ≤ x ≤ 3 and -2 ≤ y ≤ 2. Fold the right half left across x=0. Punch through both layers at (-2,1), then fully unfold. Where is the other hole?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(-2,-1)",
+            "zh": "(-2,-1)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(1,2)",
+            "zh": "(1,2)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(2,-1)",
+            "zh": "(2,-1)"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(2,1)",
+            "zh": "(2,1)"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Reflection across x=0 reverses x and preserves y, so (-2,1) is paired with (2,1). Both points lie within the original bounds. The fold does not rotate or swap the coordinates.",
+        "zh": "沿x=0展开使x反号、y不变，另一孔为(2,1)，两点都在原边界内。折叠不交换坐标，也不是旋转。"
+      }
+    },
+    {
+      "id": "TECH_5_05",
+      "prompt": {
+        "en": "A labelled cube starts with T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top, keeping front/back fixed. A forward roll sends top→front→bottom→back→top, keeping left/right fixed. Roll right, then forward. Which original label ends in front?",
+        "zh": "A labelled cube starts with T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top, keeping front/back fixed. A forward roll sends top→front→bottom→back→top, keeping left/right fixed. Roll right, then forward. Which original label ends in front?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "L",
+            "zh": "L"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "K",
+            "zh": "K"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "F",
+            "zh": "F"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The right roll moves L to the top. The forward roll then moves that current top face to the front, so L ends in front. Labels stay attached to faces; each move starts from the updated orientation.",
+        "zh": "向右滚先把L移到顶部；向前滚再把当前顶面送到前面，因此前面是L。标签贴在原面上，各步须接着更新后的朝向进行。"
+      }
+    },
+    {
+      "id": "TECH_5_06",
+      "prompt": {
+        "en": "Unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1)}. Project orthographically along the y direction onto the x-z plane. Count each distinct projected unit cell once. How many cells are in the projection?",
+        "zh": "Unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1)}. Project orthographically along the y direction onto the x-z plane. Count each distinct projected unit cell once. How many cells are in the projection?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "assembling"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "assembling"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Remove y and deduplicate: (0,0), (1,0), (1,1). Two cubes share the projected cell (1,0), so four cubes yield three distinct cells in this view.",
+        "zh": "去掉y并去重，得(0,0)、(1,0)、(1,1)。两块重叠投到(1,0)，故四块产生三个不同投影格。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "general-science",
+      "directionIds": [
+        "general-science"
+      ],
+      "title": {
+        "en": "General science: check the concept and the units",
+        "zh": "普通科学：核对概念与单位"
+      },
+      "headline": {
+        "en": "General science: check the concept and the units",
+        "zh": "普通科学：核对概念与单位"
+      },
+      "summary": {
+        "en": "Review the physical, biological and Earth-science ideas used in this six-item practice section, with fresh examples and a clear study plan.",
+        "zh": "复习本组六题涉及的物理、生物与地球科学概念，附新算例和具体学习步骤。"
+      },
+      "scoreReading": {
+        "en": "This is a public learning guide, identical for everyone. A completed practice record separately shows correct, wrong and unanswered counts out of six for each part. These are not norms, ability ranks, official ASVAB scores or AFQT estimates.",
+        "zh": "这是对所有人相同的公开学习指南。完整练习另外显示各部分六题中的正确、错误和未答数；不是常模、能力排名、正式ASVAB分数或AFQT估计。"
+      },
+      "seo": {
+        "title": {
+          "en": "General science: check the concept and the units | ASVAB-Style Practice Guide",
+          "zh": "普通科学：核对概念与单位｜五领域练习完整指南"
+        },
+        "description": {
+          "en": "Review the physical, biological and Earth-science ideas used in this six-item practice section, with fresh examples and a clear study plan.",
+          "zh": "复习本组六题涉及的物理、生物与地球科学概念，附新算例和具体学习步骤。"
+        }
+      },
+      "sections": [
+        {
+          "id": "general-science-1",
+          "title": {
+            "en": "What these six tasks sample",
+            "zh": "六题抽样了哪些内容"
+          },
+          "paragraphs": [
+            {
+              "en": "This small section combines two numerical physical models with four factual questions about biology, the Moon and water. Its purpose is to practise identifying the relevant relationship or process. Six answers cannot represent the breadth of a science curriculum or establish a general science ability. Each item gives a specific task rather than asking whether you think you are good at science.",
+              "zh": "本组把两个物理数量模型与生物、月球、水循环常识放在一起，练习识别关系或过程。六题不能代表完整科学课程或总体科学能力；每题都是具体任务，不让自评信心替代作答。"
+            },
+            {
+              "en": "In the timed mode, the section closes at the site-selected deadline. In study mode, the questions are identical and there is no deadline. Correct, wrong and unanswered counts remain separate in either mode. An untouched question has not demonstrated an incorrect belief; it may simply not have been attempted.",
+              "zh": "计时模式到本站上限后锁定，不计时模式用同一题本但无截止时间。两种模式都区分正确、错误与未答。没有碰过的题不能当作已表现出的错误理解，也可能只是尚未尝试。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-2",
+          "title": {
+            "en": "A fresh calculation with a check",
+            "zh": "用新数字完整核算"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a model states that acceleration equals net force divided by mass. With a 30 N net force and a 6 kg mass, acceleration is 5 m/s². Multiplying the proposed 5 m/s² by 6 kg recovers 30 N. This reverse check helps catch an inverted division before it becomes a memorised rule.",
+              "zh": "另设净力30牛、质量6千克，按a=F/m得5米/秒²。把5乘6可还原30牛，反向核算有助于发现除法颠倒，不是仅凭答案看起来熟悉。"
+            },
+            {
+              "en": "For density, a different sample with mass 420 g and volume 140 cm³ has density 3 g/cm³. Dividing the mass by that density recovers the volume. The same number 3 could describe many unrelated quantities, so write the unit with the answer. Density does not by itself tell you the chemical identity of the sample.",
+              "zh": "另一个420克、140厘米³样品的密度为3克/厘米³，用质量除密度可还原体积。数字3可以对应许多量，必须带单位；密度本身也不能单独确定样品是什么化学物质。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-3",
+          "title": {
+            "en": "Separate a material from an energy source",
+            "zh": "区分物质与能量来源"
+          },
+          "paragraphs": [
+            {
+              "en": "A question about where carbon atoms come from is different from a question about where energy comes from. In green-plant photosynthesis, carbon dioxide supplies carbon while light supplies energy. Use that distinction rather than choosing a familiar word associated with plants. The question is about a biological process, not a prescription for plant care or nutrition.",
+              "zh": "问碳原子来自哪里，与问能量来自哪里不同。绿色植物光合作用中，二氧化碳提供碳，光提供能量。应按所问类别判断，不能看到植物就挑一个熟悉词；本题也不制定栽培或营养方案。"
+            },
+            {
+              "en": "The blood-component question asks for a general transport role: red blood cells contain haemoglobin that carries oxygen. Knowing that fact does not let this exercise interpret a blood test, diagnose fatigue or assess health. Keep the educational answer within its stated biological question and use qualified medical advice for personal health concerns.",
+              "zh": "血液部件题只问一般运输用途：红细胞内的血红蛋白携带氧。知道这个事实，不能据此解释验血、诊断疲倦或评价健康。个人医疗问题需要合格专业人员判断。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-4",
+          "title": {
+            "en": "Name the physical process precisely",
+            "zh": "准确命名物理过程"
+          },
+          "paragraphs": [
+            {
+              "en": "Moonlight and lunar phases need two separate ideas. The bright surface reflects sunlight, while the visible phase depends on the portion of the illuminated Moon seen from Earth. The familiar monthly phase cycle is not ordinarily an eclipse and does not require the Moon to produce its own visible light. A diagram you draw yourself can help separate illumination from viewpoint.",
+              "zh": "月光来源与月相要分开：受光月面反射阳光，月相取决于地球上能看见多少受光部分。通常的月相周期不是日常意义的月食，也不要求月球自己发光。可画自用草图区分照明和视角。"
+            },
+            {
+              "en": "For water, write the starting and ending states before naming the change. Liquid to vapour is evaporation; vapour to liquid is condensation. Precipitation refers to water falling from clouds and is not another name for every change involving water. These distinctions organise a concept, rather than predicting the weather from a six-question score.",
+              "zh": "水的变化先写初态和末态：液体到水蒸气是蒸发，水蒸气到液体是凝结；降水指水从云中落下，不是所有涉水变化的统称。这是在整理概念，不用六题成绩预测天气。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-5",
+          "title": {
+            "en": "Read a missed item before choosing a topic",
+            "zh": "先读错题，再选复习点"
+          },
+          "paragraphs": [
+            {
+              "en": "A wrong selected option may reflect a unit conversion, an inverted relationship, a word misunderstood in English or a fact not yet learned. The total cannot determine which happened. Reopen the actual stem and its explanation, then write one sentence stating what the question asked and which evidence settles that particular choice.",
+              "zh": "错选可能涉及单位、关系写反、英语理解或尚未学过的知识，总数无法判定原因。重读题干与解析，再用一句话写所问是什么、哪项证据能确定该选择。"
+            },
+            {
+              "en": "An unanswered item deserves a different note: not reached, deliberately skipped or left blank when the clock ended. Those are useful study observations but are not proof of low knowledge or slow thinking. This local exercise does not measure why a response was missing and does not turn blanks into a personal ability label.",
+              "zh": "未答可自记未做到、主动跳过或到时留下，但这些观察不证明知识低或思考慢。本地练习不测缺答原因，也不把空白转化成能力标签。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-6",
+          "title": {
+            "en": "A short, concrete study session",
+            "zh": "一次具体的学习安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one numerical and one factual example from the explanations. For the numerical example, change the values and solve it again with units and a reverse check. For the factual example, explain why each alternative belongs to a different category. Do the new examples before looking back at the fixed answer choices.",
+              "zh": "从解析中选一个数量例和一个事实例。数量例换数字，写单位并反算；事实例说明其他选项各自属于什么类别。先完成新例，再回看固定选项。"
+            },
+            {
+              "en": "Use a trustworthy educational source to check an unfamiliar fact, such as the linked NASA, NOAA or NIH material. You do not need to copy an exercise or illustration to learn the underlying concept. A small written explanation that you can defend is a more useful practice record than simply remembering the letter of the correct option.",
+              "zh": "不熟悉的事实可用链接的NASA、NOAA或NIH教育资料核对。理解概念不需要复制原练习或插图。能讲清依据的简短说明，比仅记正确字母更有学习价值。"
+            }
+          ]
+        },
+        {
+          "id": "general-science-7",
+          "title": {
+            "en": "What a repeat can and cannot show",
+            "zh": "重做可以说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "All completed attempts open the same five public guides and every worked answer, including attempts with zero correct answers or many blanks. The guides are reading resources, not grades or individually generated medical, educational or occupational advice. No overall performance tier is assigned from these six science questions.",
+              "zh": "完整记录不论零题正确还是有许多空白，都可查看五份相同指南与全部题解。指南是学习资料，不是个人医疗、教育或职业意见，也不凭六道科学题划总体档位。"
+            },
+            {
+              "en": "A repeat uses the same fixed items. A higher correct count may reflect memory, more reading time or a newly understood concept; the score cannot separate them. It is not an ASVAB standard score, AFQT percentile, population comparison or qualification decision. Use fresh examples when you want to explore whether you can apply a rule beyond this bank.",
+              "zh": "重做仍是固定题本。提高可能来自记忆、阅读时间或理解变化，计数不能分辨。它不是ASVAB标准分、AFQT百分位、人群比较或资格判定；要练习迁移，可另做新例。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanical",
+      "directionIds": [
+        "mechanical"
+      ],
+      "title": {
+        "en": "Mechanical models: follow force, distance and direction",
+        "zh": "机械模型：追踪力、距离与方向"
+      },
+      "headline": {
+        "en": "Mechanical models: follow force, distance and direction",
+        "zh": "机械模型：追踪力、距离与方向"
+      },
+      "summary": {
+        "en": "Work through ideal levers, supporting ropes, gears, ramps, friction and hydraulics. Includes fresh calculations and checks without an operating certificate.",
+        "zh": "完整复习理想杠杆、支持绳、齿轮、斜面、摩擦与液压，附新算例和复核方法，不认证实际操作。"
+      },
+      "scoreReading": {
+        "en": "This is a public learning guide, identical for everyone. A completed practice record separately shows correct, wrong and unanswered counts out of six for each part. These are not norms, ability ranks, official ASVAB scores or AFQT estimates.",
+        "zh": "这是对所有人相同的公开学习指南。完整练习另外显示各部分六题中的正确、错误和未答数；不是常模、能力排名、正式ASVAB分数或AFQT估计。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mechanical models: follow force, distance and direction | ASVAB-Style Practice Guide",
+          "zh": "机械模型：追踪力、距离与方向｜五领域练习完整指南"
+        },
+        "description": {
+          "en": "Work through ideal levers, supporting ropes, gears, ramps, friction and hydraulics. Includes fresh calculations and checks without an operating certificate.",
+          "zh": "完整复习理想杠杆、支持绳、齿轮、斜面、摩擦与液压，附新算例和复核方法，不认证实际操作。"
+        }
+      },
+      "sections": [
+        {
+          "id": "mechanical-1",
+          "title": {
+            "en": "Start from the stated model",
+            "zh": "从题内模型开始"
+          },
+          "paragraphs": [
+            {
+              "en": "The mechanical section contains six written models, not observations of hands-on work. The assumptions name massless or ideal parts, slow movement, fixed geometry and excluded losses where needed. Those words decide which relationship applies. Do not silently replace a frictionless ramp with a real rolling machine or add a load that the statement already includes.",
+              "zh": "六题是书面模型，不观察动手工作。无重、理想、缓慢、固定几何和忽略损失等条件决定使用哪项关系；不能自行换成真实机器，也不重复加入题目已包含的负载。"
+            },
+            {
+              "en": "Make a small sketch with force directions, the relevant distances and one consistent viewing side. The sketch is allowed in both modes. A short countdown is a practice condition chosen by this site, not an official ASVAB timing simulation or evidence of how quickly a person should reason about real equipment.",
+              "zh": "可画草图，标力方向、相关距离并保持观察侧一致，两种模式都允许。倒计时是本站选择的练习条件，不模拟正式时限，也不规定真实设备推理应有多快。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-2",
+          "title": {
+            "en": "A lever example and its reverse check",
+            "zh": "杠杆新例与反向复核"
+          },
+          "paragraphs": [
+            {
+              "en": "Take an ideal lever with opposite moments: a 96 N load at a perpendicular arm of 0.30 m and an effort arm of 0.80 m. Balance gives effort = 96 × 0.30/0.80 = 36 N. Multiplying 36 by 0.80 recovers the 28.8 N m opposing moment. The full beam length is not automatically either perpendicular arm.",
+              "zh": "另设96牛负载力臂0.30米，反向动力臂0.80米，得F=96×0.30/0.80=36牛。36×0.80还原28.8牛米。整根梁长不自动等于任一个垂直力臂。"
+            },
+            {
+              "en": "Two downward forces on opposite sides can have opposite moments, while two forces on the same side can oppose if their directions differ. The force arrows therefore matter as much as the distances. A balanced moment equation does not alone establish material strength, a stable support or a safe real lifting arrangement.",
+              "zh": "支点两侧同向下的力可有反向力矩，同侧反向力也可互相平衡，所以箭头与距离同样重要。力矩方程成立，不独自证明材料强度、支撑稳定或真实起吊安全。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-3",
+          "title": {
+            "en": "Count supporting ropes and tooth passage",
+            "zh": "数支持绳与经过的齿数"
+          },
+          "paragraphs": [
+            {
+              "en": "If five ideal vertical rope segments support a stationary total load of 400 N, each carries 80 N. The relevant count is the segments lifting the moving body, not the number of pulley wheels. Raising the body 0.20 m requires 1.00 m of free-rope travel in that stated arrangement; the smaller force exchanges for greater travel.",
+              "zh": "若五股理想竖直绳支持静止总重400牛，每股80牛。数的是支持动块的绳股，不是轮数。动块升0.20米时自由绳收进1米，较小力对应较长行程。"
+            },
+            {
+              "en": "For meshing gears, equal tooth passage gives driver speed × driver teeth = driven speed × driven teeth. A 24-tooth driver at 210 rpm therefore turns a 56-tooth driven gear at 90 rpm. External contact also reverses rotation when viewed from the same side, but a speed-magnitude question does not ask for that direction label.",
+              "zh": "啮合齿数经过速率相同：主动转速×主动齿数=从动转速×从动齿数。24齿210转/分带56齿得90转/分。同侧看外啮合会反向，但转速大小题没有问方向标签。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-4",
+          "title": {
+            "en": "Keep force and work distinct",
+            "zh": "分开力与功"
+          },
+          "paragraphs": [
+            {
+              "en": "A lossless ramp trades effort for distance. With a 180 N load rising 0.50 m over a 3.00 m path, the ideal slow effort is 30 N because both sides of the work balance equal 90 J. This is not a claim that the same effort will work on a real ramp with friction, acceleration or a different force direction.",
+              "zh": "无损斜面交换力与距离：180牛升0.50米、沿斜面走3米，理想缓慢动力30牛，两端功均90焦。真实摩擦、加速或不同施力方向不能直接沿用。"
+            },
+            {
+              "en": "A constant velocity means zero net force, not an absence of forces. When only a horizontal push and sliding friction are stated, they balance. If the problem instead described acceleration, the same balance would not hold. Read the motion condition before deciding whether to add forces, balance them or use an energy relationship.",
+              "zh": "匀速表示合力为零，不表示没有力。只给水平推力与滑动摩擦时，两者平衡；若题述加速，这个平衡就不成立。先看运动条件，再决定求合力、平衡或使用能量关系。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-5",
+          "title": {
+            "en": "Hydraulic pressure and piston area",
+            "zh": "液压压强与活塞面积"
+          },
+          "paragraphs": [
+            {
+              "en": "At equal piston heights in an ideal confined-fluid model, the same added pressure acts at both pistons. If areas are 3 and 12 cm² and the extra input force is 21 N, output force is 84 N. The pressure ratio is one; the force ratio is four. Calling both quantities pressure would erase the distinction needed to solve the task.",
+              "zh": "同高理想密闭液体的新增压强相同。面积3和12厘米²、额外输入21牛，则输出84牛。压强比为1，力比为4；不能把这两个量都叫压强。"
+            },
+            {
+              "en": "A larger output force is not free energy. In the lossless incompressible model, a larger output piston travels a shorter distance for the same displaced volume. This bank does not assess leakage, wear, fluid choice, braking faults or safe working loads. None of its numerical answers is a maintenance setting for a real hydraulic system.",
+              "zh": "较大输出力不创造能量。理想不可压缩液体中，相同排开体积对应大活塞较短行程。题本不检漏损、磨损、液体选择、制动故障或安全负载，数值答案不是维修设置。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-6",
+          "title": {
+            "en": "Use errors to select a fresh exercise",
+            "zh": "按错误选择新练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Check the actual missed explanation rather than diagnosing a weak mechanical ability from the smallest section count. An error might concern a reversed ratio, a length unit, a missed force direction or the wrong ideal assumption. The report cannot observe which reasoning process occurred and does not equate the difficulty of the five sections.",
+              "zh": "应读具体题解，不因五项中最低正确数就诊断机械弱。错误可能涉及比例颠倒、长度单位、漏方向或假设用错；报告不观察推理过程，也没有把五部分难度等值。"
+            },
+            {
+              "en": "For a new paper problem, keep all but one quantity fixed. Predict the direction of the change before calculating: longer effort arm, more supporting segments or a larger driven gear. Then substitute the answer back into the relationship. This makes your explanation checkable even when a fixed-choice answer happens to look familiar.",
+              "zh": "新纸上题每次只改一个量，如动力臂、支持股数或从动齿轮大小，先预测增减再计算，最后代回关系。这样即使某个选项看起来熟悉，过程也可核查。"
+            }
+          ]
+        },
+        {
+          "id": "mechanical-7",
+          "title": {
+            "en": "Practice boundaries and next reading",
+            "zh": "练习边界与后续阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "Each completed record opens all six mechanical explanations and all five complete public guides. The mechanical count is correctness on this selected six-item sample. It is not a percentile, employer benchmark, engineering qualification, physical-strength measure or observation of workshop performance. Unanswered items remain visible as unanswered rather than being presented as selected mistakes.",
+              "zh": "完整记录给六道机械解析及全部五份指南。机械计数只描述本组抽样，不是百分位、雇主基准、工程资格、肌力或车间表现。未答保留为未答，不冒充已选择的错误。"
+            },
+            {
+              "en": "For more untimed work on ideal levers, gears and fluids, the separate Mechanical Reasoning entry offers another original bank. Its counts are not combined with this one. Fixed-bank retakes can improve through recognition, so use new numerical examples to explore application without turning a repeat score into proof of training benefit or job readiness.",
+              "zh": "想进一步练理想杠杆、齿轮和流体，可另看机械推理入口的原创题本，两边计数不合并。固定题重做会受识别影响，宜用新数例练应用，不把涨分当训练效果或岗位准备证明。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "directionIds": [
+        "electronics"
+      ],
+      "title": {
+        "en": "Electric circuits: distinguish voltage, current and resistance",
+        "zh": "电路基础：分开电压、电流与电阻"
+      },
+      "headline": {
+        "en": "Electric circuits: distinguish voltage, current and resistance",
+        "zh": "电路基础：分开电压、电流与电阻"
+      },
+      "summary": {
+        "en": "Review six ideal-circuit tasks with Ohm relationships, series and parallel resistance, power and open paths. Paper examples with explicit assumptions.",
+        "zh": "完整理解欧姆关系、串并联电阻、功率与断路六题，采用明确假设的纸上算例。"
+      },
+      "scoreReading": {
+        "en": "This is a public learning guide, identical for everyone. A completed practice record separately shows correct, wrong and unanswered counts out of six for each part. These are not norms, ability ranks, official ASVAB scores or AFQT estimates.",
+        "zh": "这是对所有人相同的公开学习指南。完整练习另外显示各部分六题中的正确、错误和未答数；不是常模、能力排名、正式ASVAB分数或AFQT估计。"
+      },
+      "seo": {
+        "title": {
+          "en": "Electric circuits: distinguish voltage, current and resistance | ASVAB-Style Practice Guide",
+          "zh": "电路基础：分开电压、电流与电阻｜五领域练习完整指南"
+        },
+        "description": {
+          "en": "Review six ideal-circuit tasks with Ohm relationships, series and parallel resistance, power and open paths. Paper examples with explicit assumptions.",
+          "zh": "完整理解欧姆关系、串并联电阻、功率与断路六题，采用明确假设的纸上算例。"
+        }
+      },
+      "sections": [
+        {
+          "id": "electronics-1",
+          "title": {
+            "en": "The scope is an ideal written circuit",
+            "zh": "范围是理想书面电路"
+          },
+          "paragraphs": [
+            {
+              "en": "This section uses voltage, current, resistance and power in small ideal models. It does not ask you to wire a circuit, handle a battery or test an electrical installation. The stated formulas and arrangements define each question. They are not a complete electronics curriculum and do not certify a person to work on an electrical system.",
+              "zh": "本组在小型理想模型中使用电压、电流、电阻与功率，不要求接线、处理电池或检验电气设施。题内公式和连接方式定义问题，不构成完整电学课程或电气作业资格。"
+            },
+            {
+              "en": "Write the requested quantity and its unit before choosing an operation. Volts, amperes, ohms and watts describe different things. A plausible number with the wrong unit does not answer the question. Paper and a calculator are allowed, and the same six items are used in the timed and untimed modes.",
+              "zh": "先写所求量与单位，再选运算。伏、安、欧、瓦描述不同的量，数值像样但单位错误仍未回答问题。允许纸笔与计算器，计时和学习模式使用相同六题。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-2",
+          "title": {
+            "en": "A fresh Ohm calculation",
+            "zh": "欧姆关系新算例"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ideal 15 V source across one 5 ohm resistor, I = V/R gives 3 A. Check it by multiplying 3 A by 5 ohms to recover 15 V. Dividing the resistance by voltage produces the wrong relationship for the requested current, even if the arithmetic itself is performed accurately.",
+              "zh": "另设15伏加在5欧电阻两端，I=V/R得3安。3安乘5欧可还原15伏。若用电阻除以电压，即使算术无误，关系也不是所求电流。"
+            },
+            {
+              "en": "The proportional relationship depends on the fixed-resistance, ohmic assumption. With the same resistor remaining ohmic, increasing voltage by a factor of three increases current by three. Actual devices can heat or behave nonlinearly; this exercise expressly stays inside the simplified model instead of treating every electrical component as an ideal resistor.",
+              "zh": "比例关系依赖电阻固定并满足欧姆定律。保持此条件时电压变三倍，电流也三倍。真实元件可发热或非线性，不能把所有电器都当理想电阻。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-3",
+          "title": {
+            "en": "Identify the arrangement before adding",
+            "zh": "先识别结构再求和"
+          },
+          "paragraphs": [
+            {
+              "en": "In a series chain, the same current passes through the ideal resistors and their resistance values add. A 4 ohm resistor and an 8 ohm resistor therefore give 12 ohms. This addition belongs to the stated single path; seeing two resistors in a question does not automatically make every arrangement a series circuit.",
+              "zh": "串联中同一电流经过各理想电阻，4欧与8欧相加为12欧。加法属于题定单一路径，看到两个电阻，不能直接认定串联。"
+            },
+            {
+              "en": "In parallel, branch voltages are equal and the reciprocal resistance contributions add. For 4 and 12 ohms, 1/R = 1/4 + 1/12 = 1/3, so R is 3 ohms. A useful check is that a parallel combination of positive resistances is lower than either branch. The reciprocal sum is not the resistance itself until inverted.",
+              "zh": "并联支路电压相同，倒数贡献相加。4欧与12欧满足1/R=1/4+1/12=1/3，故R=3欧，可用小于任一正支路电阻复核。倒数和还需取倒数才是电阻。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-4",
+          "title": {
+            "en": "Power is a product, not an addition",
+            "zh": "功率是乘积，不是相加"
+          },
+          "paragraphs": [
+            {
+              "en": "For a component with 6 V across it and 1.5 A through it, P = VI gives 9 W. The word across points to voltage, while through points to current. Keeping these two descriptions separate can make the equation easier to read. Adding 6 and 1.5 cannot yield electrical power because the quantities have different units.",
+              "zh": "另设元件两端6伏、流经1.5安，P=VI得9瓦。“两端”对应电压，“流经”对应电流，分开这两种描述有助于读公式；不同单位的6与1.5不能相加当功率。"
+            },
+            {
+              "en": "A watt describes a rate of energy transfer, not an amount of energy by itself. The practice does not supply operating temperatures, component ratings or safe loading conditions. A correct paper calculation cannot be used to select a real power supply or component without the additional engineering and safety information that this bank does not assess.",
+              "zh": "瓦描述能量传递速率，不单独表示能量总量。题本不提供工作温度、元件额定值或安全负载条件，纸上算对不能替代真实选型所需的工程安全资料。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-5",
+          "title": {
+            "en": "Trace the conducting path",
+            "zh": "追踪导电通路"
+          },
+          "paragraphs": [
+            {
+              "en": "An open switch in the only ideal series path prevents steady current through the stated resistor. That conclusion follows from the complete arrangement given in the stem. Do not add an alternative branch, a hidden capacitor or an accidental contact that the question never specifies. A different circuit would require a different analysis.",
+              "zh": "唯一理想串联通路上的开关断开，会阻止题述电阻中的稳态电流。不能自行添加隐藏支路、电容或意外接触；换结构后必须重新分析。"
+            },
+            {
+              "en": "Zero current in this ideal paper problem is not a claim that a disconnected-looking real device is safe to touch. Real installations can have stored energy, other supplies and failure modes outside the question. Keep all practice hypothetical; this page provides no inspection, repair, mains-wiring or live-testing procedure.",
+              "zh": "纸上零电流不证明看似断开的真实设备可以触碰。真实设施可有储能、其他电源和题外故障。所有练习保持假想，本页不提供检修、市电接线或带电测试步骤。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-6",
+          "title": {
+            "en": "A practical paper-study routine",
+            "zh": "具体的纸上复习步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a missed item and rewrite its known values, requested quantity, arrangement and assumption on four lines. Solve it without looking at the options. Then check a unit and a limiting relationship: for example, whether increasing fixed resistance should reduce current or whether adding a positive series resistor should increase total resistance.",
+              "zh": "选一错题，分四行写已知值、所求量、结构与假设，先不看选项求解，再核单位和变化趋势，如固定电压增电阻是否减电流、添正串联电阻是否增总阻。"
+            },
+            {
+              "en": "Create one fresh example with different values but the same arrangement. After solving it, change the arrangement from series to parallel and explain why the operation changes. This checks understanding of the connection rule instead of recall of a letter. It does not require building a physical circuit or buying any equipment.",
+              "zh": "换数值写同结构新例，算完再改串联为并联，并说明为什么运算随结构变化。目标是理解连接规则，而非记字母，不需搭电路或购买设备。"
+            }
+          ]
+        },
+        {
+          "id": "electronics-7",
+          "title": {
+            "en": "Read the counts within their limits",
+            "zh": "按有限范围读计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six-item record separates selected correct answers, selected wrong answers and unanswered questions. It cannot establish why a miss occurred, compare electronics ability with other people or identify the weakest professional skill. All five complete study guides remain available, regardless of the count or chosen practice mode.",
+              "zh": "六题记录区分选对、选错、未答，无法确定错因、比较人群电学能力或识别最弱职业技能。不论计数与模式如何，都能阅读全部五份完整指南。"
+            },
+            {
+              "en": "These original questions are not official ASVAB items and have no calibrated score conversion. A repeated fixed-bank result may reflect memory or more time spent reading. Treat it as a local learning record, not proof of electrical competence, military qualification, an AFQT estimate or permission to undertake electrical work.",
+              "zh": "原创题不是正式ASVAB题，没有校准分数转换。固定题重做可受记忆或阅读时间影响，只是本地学习记录，不证明电气能力、军职资格，也不估AFQT或授权电气作业。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "auto-shop",
+      "directionIds": [
+        "auto-shop"
+      ],
+      "title": {
+        "en": "Auto and shop knowledge: identify roles and read dimensions",
+        "zh": "汽车与车间常识：认清用途，读准尺寸"
+      },
+      "headline": {
+        "en": "Auto and shop knowledge: identify roles and read dimensions",
+        "zh": "汽车与车间常识：认清用途，读准尺寸"
+      },
+      "summary": {
+        "en": "Learn the selected gasoline-engine component roles, a simplified four-stroke sequence and shop-drawing unit checks. Includes a study plan and clear use limits.",
+        "zh": "完整解释所选汽油机部件、简化四冲程顺序与车间图纸单位，附学习计划和使用边界。"
+      },
+      "scoreReading": {
+        "en": "This is a public learning guide, identical for everyone. A completed practice record separately shows correct, wrong and unanswered counts out of six for each part. These are not norms, ability ranks, official ASVAB scores or AFQT estimates.",
+        "zh": "这是对所有人相同的公开学习指南。完整练习另外显示各部分六题中的正确、错误和未答数；不是常模、能力排名、正式ASVAB分数或AFQT估计。"
+      },
+      "seo": {
+        "title": {
+          "en": "Auto and shop knowledge: identify roles and read dimensions | ASVAB-Style Practice Guide",
+          "zh": "汽车与车间常识：认清用途，读准尺寸｜五领域练习完整指南"
+        },
+        "description": {
+          "en": "Learn the selected gasoline-engine component roles, a simplified four-stroke sequence and shop-drawing unit checks. Includes a study plan and clear use limits.",
+          "zh": "完整解释所选汽油机部件、简化四冲程顺序与车间图纸单位，附学习计划和使用边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "auto-shop-1",
+          "title": {
+            "en": "What this sample asks",
+            "zh": "本组具体问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Four questions concern familiar roles in a conventional spark-ignited gasoline car; two concern dimensions on a paper drawing or scale. These are knowledge and arithmetic tasks. They do not observe inspection, driving, fabrication, fault finding or safe use of workshop equipment. A perfect result is still a result on this small written sample.",
+              "zh": "四题涉及常规点燃式汽油车的部件用途，两题涉及纸上尺寸刻度。这是知识与算术任务，不观察检验、驾驶、制造、排故或车间安全操作，满分仍只属于这小组书面题。"
+            },
+            {
+              "en": "Read the specified vehicle arrangement. Gasoline spark ignition and conventional diesel compression ignition do not use identical explanations. Modern vehicles also vary in their driveline design. The questions deliberately name a simple arrangement so one role can be identified without pretending to describe every car or every powertrain.",
+              "zh": "先看题定车辆结构，汽油机点燃与常规柴油机压燃不能混讲；现代车辆传动也有差异。题目明确简化结构，只识别一个用途，不声称概括所有车型。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-2",
+          "title": {
+            "en": "Follow the engine sequence",
+            "zh": "顺着发动机循环理解"
+          },
+          "paragraphs": [
+            {
+              "en": "A simplified four-stroke sequence is intake, compression, power and exhaust. A fresh exercise is to start at exhaust and name the next two stages: intake, then compression. Moving the starting point does not change the cyclic order. There is no extra fifth stroke merely because another supporting process, such as lubrication, also occurs in an engine.",
+              "zh": "简化循环为进气、压缩、做功、排气。另练从排气起向后数两步，应为进气、压缩。换起点不改循环次序；润滑等支持过程存在，也不意味着增一个第五冲程。"
+            },
+            {
+              "en": "In the described spark-ignited gasoline engine, combustion gases expand and drive the piston during the power stroke. A spark plug supplies ignition, while other assemblies have different jobs. This educational sequence does not provide valve timing, ignition adjustments or instructions to inspect or service an engine. Those require vehicle-specific information and appropriate expertise.",
+              "zh": "题述汽油机在做功冲程由燃烧气体膨胀推动活塞，火花塞提供点火，其他装置另有用途。本序列不提供配气、点火调节或检修步骤，那些需要车型专用资料与专业能力。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-3",
+          "title": {
+            "en": "Separate component roles",
+            "zh": "把部件用途分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a simple role map: the fuel tank stores fuel, the spark plug supplies an ignition spark, the exhaust system routes exhaust gases, and the transmission transfers mechanical power along the driveline. A component name can sound familiar while still being the wrong answer to a role question. State the action in a verb before choosing the part.",
+              "zh": "可列用途图：油箱储油、火花塞点火、排气系统导气、传动装置传机械动力。熟悉名称不代表适合所问用途，选择前先用一个动词说清动作。"
+            },
+            {
+              "en": "For a fresh paper check, ask which component would belong in a sentence about storing fuel and which in a sentence about transferring mechanical power. Explain why exchanging those names would break the meaning. This is conceptual sorting, not a method for diagnosing a symptom, checking emissions equipment or modifying a vehicle.",
+              "zh": "另写“储存燃料”和“传递机械动力”两句，分别填部件，再说明为什么交换后意思不成立。这是概念分类，不是按症状诊断、检查排放或改装车辆的方法。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-4",
+          "title": {
+            "en": "Convert units without changing the length",
+            "zh": "换单位，不改长度"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a drawing gives 0.045 m. Using 1000 mm = 1 m, the same length is 45 mm. Reversing the conversion gives 45/1000 = 0.045 m, which checks the answer. Write the conversion factor with its units so metres cancel rather than relying on how many zeros seem likely.",
+              "zh": "另设图纸0.045米，按1米=1000毫米得45毫米，再除1000可还原0.045米。写带单位的换算因子，让米约掉，不靠猜零的个数。"
+            },
+            {
+              "en": "A correctly converted dimension does not establish that a part meets a tolerance. Tolerance, material, temperature, measuring instrument and intended use are additional information not supplied by this simple question. The test does not turn a unit-conversion answer into permission to cut, machine, repair or install a real component.",
+              "zh": "尺寸换对不证明零件符合公差，还需要材料、温度、仪器和用途等题外信息。单位换算题不授权真实切割、加工、修理或安装。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-5",
+          "title": {
+            "en": "Count scale intervals",
+            "zh": "数清刻度间隔"
+          },
+          "paragraphs": [
+            {
+              "en": "On a fresh paper scale with 0.2 mm between adjacent marks, a separation of seven intervals is 1.4 mm. There are eight marks if both endpoints are shown, but only seven spaces. The distance comes from the spaces. This is a common source of an otherwise careful arithmetic error.",
+              "zh": "另设相邻刻线0.2毫米，相距七个间隔即1.4毫米。若两端都画出，会有八条线，但只有七个空格，距离依空格而非线数计算。"
+            },
+            {
+              "en": "Identify the first marked position, the last marked position and the number of intervals between them before multiplying. If a problem instead gives two numbered scale readings, subtract those readings in consistent units. Neither method measures a real object here, and no claim is made about practical measuring precision or tool handling.",
+              "zh": "先找首末位置和中间间隔数再乘。若直接给两个刻度读数，则在统一单位后相减。这里都不测真实物体，也不评价实际测量精度或工具操作。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-6",
+          "title": {
+            "en": "Study a missed question concretely",
+            "zh": "针对错题做具体学习"
+          },
+          "paragraphs": [
+            {
+              "en": "Classify the missed item as a component role, sequence, unit conversion or interval count. Read its explanation and write one fresh example in that category. For component roles, use the linked U.S. Department of Energy explanation rather than an invented repair claim. For arithmetic, retain the units through the whole working and check the result in reverse.",
+              "zh": "把错题分为部件、顺序、换算或间隔，读解析后另写同类新例。部件用途可用链接的美国能源部资料核对，不编维修结论；算术全程带单位，并反算。"
+            },
+            {
+              "en": "Keep the exercise on paper. You do not need a car, a running engine, a power tool or any purchase to use these explanations. If your aim is practical training, seek instruction and official equipment-specific materials appropriate to that activity. This page does not assess the conditions needed to carry out that work safely.",
+              "zh": "练习保持纸上，不需车辆、运转发动机、电动工具或购买材料。若目标是实操培训，应使用相应指导和官方设备资料，本页不核实安全开展那项工作的条件。"
+            }
+          ]
+        },
+        {
+          "id": "auto-shop-7",
+          "title": {
+            "en": "Interpret the small record accurately",
+            "zh": "准确解释小组记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The result separates correct, wrong and unanswered counts out of six. It does not identify an automotive career match, repair competence or a workshop proficiency tier. An unanswered item may reflect a deliberate skip or time ending, and the report preserves that difference from a selected wrong answer. All five complete guides stay readable.",
+              "zh": "结果给六题中的正确、错误、未答数，不匹配汽车职业、不评价维修能力或车间等级。未答可来自跳过或到时，与选错分开保留；五份指南始终可读。"
+            },
+            {
+              "en": "There are no official ASVAB questions, standard scores, norms or AFQT estimates in this bank. Retaking repeats the same choices, so recognition can change a result without proving broader learning. Use fresh role descriptions and dimensions to explore understanding, and keep any real equipment decision outside this practice score.",
+              "zh": "题本没有正式ASVAB题、标准分、常模或AFQT估计。重做可能因识别选项而变化，不能证明广泛学习；可换用途描述和尺寸练理解，真实设备决定不依此分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assembling",
+      "directionIds": [
+        "assembling"
+      ],
+      "title": {
+        "en": "Written assembly: track cells, folds and face labels",
+        "zh": "文字组装：追踪格子、折叠与面标签"
+      },
+      "headline": {
+        "en": "Written assembly: track cells, folds and face labels",
+        "zh": "文字组装：追踪格子、折叠与面标签"
+      },
+      "summary": {
+        "en": "Use explicit coordinate rules to practise piece fitting, unfolding, cube-label tracking and projection. Complete worked reasoning without a general spatial-ability claim.",
+        "zh": "按明确坐标练习拼合、展开、立方体标签与投影，提供完整过程，不给总体空间能力结论。"
+      },
+      "scoreReading": {
+        "en": "This is a public learning guide, identical for everyone. A completed practice record separately shows correct, wrong and unanswered counts out of six for each part. These are not norms, ability ranks, official ASVAB scores or AFQT estimates.",
+        "zh": "这是对所有人相同的公开学习指南。完整练习另外显示各部分六题中的正确、错误和未答数；不是常模、能力排名、正式ASVAB分数或AFQT估计。"
+      },
+      "seo": {
+        "title": {
+          "en": "Written assembly: track cells, folds and face labels | ASVAB-Style Practice Guide",
+          "zh": "文字组装：追踪格子、折叠与面标签｜五领域练习完整指南"
+        },
+        "description": {
+          "en": "Use explicit coordinate rules to practise piece fitting, unfolding, cube-label tracking and projection. Complete worked reasoning without a general spatial-ability claim.",
+          "zh": "按明确坐标练习拼合、展开、立方体标签与投影，提供完整过程，不给总体空间能力结论。"
+        }
+      },
+      "sections": [
+        {
+          "id": "assembling-1",
+          "title": {
+            "en": "An explicit written model",
+            "zh": "规则明确的文字模型"
+          },
+          "paragraphs": [
+            {
+              "en": "These six questions describe cells, offsets, folds, cube movements and projections in words and coordinates. They do not reproduce an official diagram-based Assembling Objects subtest. Reading the definitions and keeping a record are part of the task. The count therefore cannot be interpreted as a pure measure of visual imagery, spatial ability or hands-on assembly.",
+              "zh": "六题用文字坐标描述格子、位移、折叠、立方体与投影，不复刻官方图形组装分测验。阅读定义与维护记录属于任务，计数不能纯解释成心像、空间能力或动手组装测量。"
+            },
+            {
+              "en": "Before solving, name the allowed moves. Translation adds the same offset to every cell; rotation changes orientation; reflection reverses it in a specified mirror. If only translation is permitted, a rotated piece is not a valid match even when the shape looks familiar. The explicit rule, rather than an imagined diagram, settles the available answers.",
+              "zh": "先命名允许动作。平移给每格加相同偏移，旋转改朝向，镜像沿指定线翻转。若只允许平移，即使旋转后看似匹配，也不符合规则，应依明示条件判断。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-2",
+          "title": {
+            "en": "A fresh piece-fitting example",
+            "zh": "一个新拼合算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a target consisting of cells x in {0,1,2,3} and y in {0,1}. A fixed piece occupies the bottom row. A second horizontal four-cell piece starts at {(0,0),(1,0),(2,0),(3,0)}. Translating it by (0,1) fills the top row. The union equals the target and the intersection of the pieces is empty.",
+              "zh": "另设目标x为0至3、y为0或1，固定块占底行；第二块初始为{(0,0),(1,0),(2,0),(3,0)}，平移(0,1)填顶行。两块并集等于目标，交集为空。"
+            },
+            {
+              "en": "Check all cells, not just one corner or the overall cell count. Two pieces can have the right combined number of cells while overlapping or leaving a hole. For each candidate offset, compute the moved coordinates, confirm they lie inside the target, check no overlap, and compare the final occupied set with the whole target.",
+              "zh": "不能只核一个角或格子总数。格数相同仍可能重叠或留空。逐候选计算移动后坐标，核目标内、无交叠，再比较完整占格集合。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-3",
+          "title": {
+            "en": "Unfold in the correct mirror",
+            "zh": "沿正确镜线展开"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh single-fold example, a point hole at (-1,2) in a sheet folded across x=0 has its partner at (1,2) when unfolded. The x coordinate changes sign and y stays fixed. This relation depends on that mirror line; folding across x=1 would require a different mapping. Always keep the original coordinate frame visible.",
+              "zh": "另设沿x=0折的点孔(-1,2)，展开配对点为(1,2)，x变号、y不变。若镜线改成x=1，映射就不同，应一直保留原坐标系。"
+            },
+            {
+              "en": "Also check the sheet boundary and the stage requested. A fully unfolded sheet and a partly unfolded one can display different distinct hole positions. This sample uses explicitly bounded, zero-thickness models. It does not measure practical cutting or folding skill and does not require punching, cutting or building anything to answer.",
+              "zh": "还要核纸边界和所问阶段，完全与部分展开可有不同孔位数。本题采用明示边界的零厚度模型，不测实际剪折，也不需打孔、切割或制作物品。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-4",
+          "title": {
+            "en": "Carry labels through cube moves",
+            "zh": "连续追踪立方体标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A label stays attached to its original face even after that face changes position. Use a six-position row for top, bottom, front, back, right and left. For each move, read every label from the old row and write a complete new row. Updating one position in place can overwrite a label still needed later in the same move.",
+              "zh": "标签贴在原面上，不因换位置而改名。可列顶底前后左右六格，每步从旧行完整抄到新行，避免原地改写覆盖同一步还要用的标签。"
+            },
+            {
+              "en": "For a fresh sequence, perform two right rolls using the defined top→right→bottom→left cycle. The original bottom reaches the top; the front and back stay fixed. Two rolls in the same direction make a half-turn rather than cancel. Different axes can make order matter, so do not replace a mixed sequence with a count of moves alone.",
+              "zh": "另练按定义向右滚两次，原底到顶，前后保持。两次同向为半圈，不是抵消；不同轴动作可依赖先后，不能只数动作次数。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-5",
+          "title": {
+            "en": "Projection discards one coordinate",
+            "zh": "投影舍去一个坐标"
+          },
+          "paragraphs": [
+            {
+              "en": "A projection onto the x-z plane keeps horizontal x and height z while dropping depth y. Cubes at different y values may then occupy one projected cell. For a fresh set {(0,0,0),(0,1,0),(1,0,0)}, dropping y gives (0,0),(0,0),(1,0): two distinct projected cells from three cubes. Deduplicate after applying the projection.",
+              "zh": "投影到x-z平面保留x与高度z，舍去深度y。新例三块{(0,0,0),(0,1,0),(1,0,0)}去y后为(0,0)、(0,0)、(1,0)，只有两个不同投影格。先投影再去重。"
+            },
+            {
+              "en": "The number of projected cells is different from volume, total cube count or footprint. Name the requested quantity before counting. A view can hide information about an object, so do not invent unlisted cubes or infer a unique interior from a projection alone. This task supplies the coordinates needed for its specific answer.",
+              "zh": "投影格数与体积、块数、足迹不同，要先命名所求量。视图可隐藏信息，不能添加未列块或仅凭投影推断唯一内部结构；本题给足所需坐标。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-6",
+          "title": {
+            "en": "A checkable spatial study routine",
+            "zh": "可核对的空间练习步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one missed question and reconstruct the permitted transformations on paper. For cell fits, list coordinates; for folds, list the mirrored point; for cube moves, write a row per step; for projection, remove the named coordinate and deduplicate. These different representations expose different bookkeeping mistakes that one overall count cannot diagnose.",
+              "zh": "选一错题按允许变换重做。拼格列坐标，折叠列镜点，转面逐步列行，投影去指定坐标后去重。不同表示可发现不同记录错误，单一计数诊断不了。"
+            },
+            {
+              "en": "Change just one input for a fresh example: a translation offset, a hole coordinate, a move order or a cube position. Predict the consequence before enumerating the choices. Check that each original face label still occurs once and that a rigid move preserves the number of cells. These are useful checks, not a replacement for the full requested transformation.",
+              "zh": "新例每次只改一个输入，如位移、孔位、次序或块坐标，先预测再枚举。核标签各一次、刚体移动格数不变；这些是辅助复核，不能代替完整变换。"
+            }
+          ]
+        },
+        {
+          "id": "assembling-7",
+          "title": {
+            "en": "The boundary of this written practice",
+            "zh": "文字练习的解释边界"
+          },
+          "paragraphs": [
+            {
+              "en": "All completed attempts reveal the six worked spatial answers and all five topic guides, including a record consisting entirely of blanks. The counts do not establish a spatial type, hiring result, official Assembling Objects score or general cognitive rank. Difficulty across the five technical sections has not been equated, so the lowest count does not certify a weakest ability.",
+              "zh": "全空白的完整记录也给六道空间题解及五份指南。计数不确定空间类型、招聘结果、官方组装分数或认知排名。五技术部分未等值，最低正确数不能认证最弱能力。"
+            },
+            {
+              "en": "A repeat contains the same original cells and labels, and recognition may affect it. To explore application, make a new explicit model rather than claiming that a higher repeated count proves transfer. The separate Spatial Reasoning entry offers more untimed written-coordinate tasks; it does not convert these answers into a common norm or an official assessment result.",
+              "zh": "固定格子和标签重做可受记忆影响。可另写明确模型练应用，不能以涨分证明迁移。空间推理入口还有不计时文字坐标题，但不会把两套答案换算成共同常模或正式成绩。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_technical_five_area_practice",
+    "formCode": "fm_technical30_original_english_v1",
+    "itemBankVersion": "fm_technical30_fixed_english_bilingual_explanations_v1",
+    "scoringVersion": "raw_correct_wrong_unanswered_5x6_site_caps_or_study_v1",
+    "resultContentVersion": "fm_technical30_five_full_guides_v1",
+    "itemBankSha256": "0aa86ef57644ea96bfac7b5f4e6a116200301c986d20475a010763c641c423d4",
+    "resultContentSha256": "62830e1a3cab4b7a966126cf6946e093471e3044a7c972cc9713422a8aef2f70",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Official ASVAB: subtest content and format differences",
+        "zh": "ASVAB官方：分测验内容与形式差异"
+      },
+      "url": "https://www.officialasvab.com/applicants/subtests/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: standard scores and the four AFQT inputs",
+        "zh": "ASVAB官方：标准分与AFQT四项输入"
+      },
+      "url": "https://www.officialasvab.com/applicants/scores/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: preparation-claim disclaimer",
+        "zh": "ASVAB官方：备考主张说明"
+      },
+      "url": "https://www.officialasvab.com/applicants/asvab-test-preparation-disclaimer/"
+    },
+    {
+      "title": {
+        "en": "DOE: the basic internal-combustion cycle",
+        "zh": "美国能源部：内燃机基本循环"
+      },
+      "url": "https://www.energy.gov/cmei/vehicles/articles/internal-combustion-engine-basics"
+    },
+    {
+      "title": {
+        "en": "DOE AFDC: gasoline-car component roles",
+        "zh": "美国能源部AFDC：汽油车部件用途"
+      },
+      "url": "https://afdc.energy.gov/vehicles/how-do-gasoline-cars-work"
+    },
+    {
+      "title": {
+        "en": "NASA: lunar phases and reflected sunlight",
+        "zh": "NASA：月相与反射阳光"
+      },
+      "url": "https://science.nasa.gov/moon/moon-phases/"
+    },
+    {
+      "title": {
+        "en": "NOAA: water and evaporation",
+        "zh": "NOAA：水循环与蒸发"
+      },
+      "url": "https://www.noaa.gov/education/resource-collections/freshwater/water-cycle"
+    },
+    {
+      "title": {
+        "en": "NIH NHLBI: oxygen transport by red blood cells",
+        "zh": "NIH NHLBI：红细胞运输氧"
+      },
+      "url": "https://www.nhlbi.nih.gov/health/anemia/diagnosis"
+    },
+    {
+      "title": {
+        "en": "OpenStax Biology: photosynthesis background, no book exercises reproduced",
+        "zh": "OpenStax生物学：光合作用背景，不复制书中练习"
+      },
+      "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis"
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Five distinct areas in a short original edition",
+        "zh": "短原创版本的五个领域"
+      },
+      "paragraphs": [
+        {
+          "en": "Each part has six independently written four-option questions with one answer under the stated definitions or ideal assumptions. The bank is English in both interfaces. Explanations, instructions and every guide are bilingual working content, not evidence that a translated assessment has been validated.",
+          "zh": "每部分六道独立编写的四选一题，按明示定义或理想假设有一个答案。两种界面均为英文题本，双语解析、说明与指南不表示翻译测量版本已获验证。"
+        },
+        {
+          "en": "Science, mechanics, electronics, auto/shop and written assembly add content not present in the separate four-area English practice. The official computer format separates Auto Information and Shop Information before combining their score; this short edition combines those topics for learning and does not claim to reproduce an official form.",
+          "zh": "科学、机械、电学、汽车车间与文字组装补充另一套四领域英文练习未含的内容。官方机考将汽车与车间分题施测后合分；本短版为学习合并主题，不冒称复刻官方题式。"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "title": {
+        "en": "Explicit part starts and site-selected caps",
+        "zh": "明确开始与本站计时上限"
+      },
+      "paragraphs": [
+        {
+          "en": "Timed caps are 3:00, 4:00, 4:00, 3:00 and 5:00. The next clock starts only when you press Start this part. Time continues while the tab is in the background. At the deadline, the current part locks and blank items remain unanswered. Untimed study uses the same bank without deadlines.",
+          "zh": "计时上限依次3:00、4:00、4:00、3:00、5:00；点击开始本部分后才启动下一段。切后台不暂停，到时锁定、空白保留未答。不计时学习使用同一题本，无截止。"
+        },
+        {
+          "en": "You can go back within the active part, explicitly leave a blank, or finish the part early. Closed parts cannot be reopened. If the page detects inconsistent device clocks, it clears the attempt without a timed result. These checks support a local practice clock and do not provide proctoring, identity checking or tamper-proof examination conditions.",
+          "zh": "活动部分内可返回、明确留空或提前结束，已关部分不可重开。检测到设备计时不一致会清除本次，不生成计时结果。这只是本地练习计时，不提供监考、身份核验或防篡改考试环境。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Correct, wrong and unanswered stay distinct",
+        "zh": "正确、错误、未答分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Every selected correct answer adds one correct count; another selected valid option adds one wrong count. Missing or explicitly skipped responses add one unanswered count. The three counts sum to six per part and thirty overall. There is no guessing adjustment, speed bonus, weighted composite or conversion to a performance band.",
+          "zh": "选对记一个正确，其他有效选项记一个错误，缺答或明确跳过记一个未答。每部分三数合六，总计合三十；无猜测修正、速度奖励、加权综合或表现分档。"
+        },
+        {
+          "en": "The sections have not been equated for difficulty. Do not interpret the lowest count as a diagnosed weakness. All questions, selected responses, keys and explanations become available after five parts close. All five complete public guides are free before and after practice, and public links contain no personal answers or counts.",
+          "zh": "各部分未做难度等值，不把最低数诊断为弱项。五部分结束后可见全部题目、选择、答案和解释；五份完整公开指南在练习前后均免费，公开链接不含个人答案或数量。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Choose a bounded next step",
+        "zh": "选择具体有限的下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "Read an explanation and make a fresh paper example before repeating the fixed bank. Repeated scores can change through recognition, more time or understanding, and this exercise cannot isolate those causes. Twenty-four minutes is an editorial estimate including instructions, not observed completion data.",
+          "zh": "先读解析、另写新纸上例，再重复固定题。成绩变化可来自识别、更多时间或理解，本练习不区分原因。约24分钟含说明是编辑估计，不是实测数据。"
+        },
+        {
+          "en": "These raw records do not determine military eligibility, a career match, intelligence or safe equipment competence. For official preparation and examination information, consult the official ASVAB site. For real workshop or electrical work, use qualified instruction and equipment-specific safety information rather than a web-practice score.",
+          "zh": "原始记录不决定军职资格、职业匹配、智力或设备安全操作能力。正式备考考试信息以ASVAB官方为准；真实车间或电气工作需要合格指导和设备专用安全资料，不依赖网页练习分。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this give an AFQT score?",
+        "zh": "会给AFQT成绩吗？"
+      },
+      "answer": {
+        "en": "No. Official AFQT uses standard scores from arithmetic, word knowledge, paragraph comprehension and mathematics. These five other topic areas produce only local practice counts.",
+        "zh": "不会。正式AFQT使用算术、词汇、段落理解与数学知识的标准分，本五领域只产生本地练习计数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these official or copied ASVAB questions?",
+        "zh": "是正式ASVAB题或复制题吗？"
+      },
+      "answer": {
+        "en": "No. FermatMind independently wrote this fixed short bank, its options, workings and guides. There is no endorsement, official score conversion, calibrated norm or examination simulation.",
+        "zh": "不是。费马测试独立编写固定短题本、选项、过程与指南，无官方认可、成绩转换、校准常模或考试模拟。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the Chinese interface?",
+        "zh": "可以用中文界面吗？"
+      },
+      "answer": {
+        "en": "Yes. Instructions, explanations and all guides are bilingual, while the question stems and options remain English in both interfaces. Language comprehension is part of this practice context; no cross-language score equivalence is claimed.",
+        "zh": "可以。说明、解析与完整指南为双语，题干选项在两种界面均保持英文。语言理解属于本练习情境，不宣称跨语言成绩等价。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when time ends or I skip?",
+        "zh": "到时或跳过会怎样？"
+      },
+      "answer": {
+        "en": "The part locks at its deadline. Blanks stay unanswered, separately from selected wrong answers. You explicitly start the next part and can choose untimed study before beginning a new attempt.",
+        "zh": "本部分到时锁定，空白保留未答并与错选分开。下一部分需主动开始；新一轮开始前可选不计时学习。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the complete answers and guides free?",
+        "zh": "完整题解与指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All thirty explanations open after five parts close, even with zero correct. Every public topic guide can also be read without answering, without signup and without purchasing a report.",
+        "zh": "是。五部分结束后显示三十题解释，即使零题正确也提供。全部公开主题指南无需作答、注册或购买报告即可阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are responses saved or included in shared links?",
+        "zh": "答案会保存或进入分享链接吗？"
+      },
+      "answer": {
+        "en": "Responses and counts stay in page memory; refresh, leaving, changing language or restarting clears them. Shared links lead to identical public guides, without a score, answer, attempt identifier or private result.",
+        "zh": "答案与数量只留本页内存，刷新、离开、换语言或重测会清除。分享链接指向相同公开指南，不带成绩、答案、答卷标识或私人结果。"
+      }
+    }
+  ]
+}

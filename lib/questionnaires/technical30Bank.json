@@ -1,0 +1,1412 @@
+[
+  {
+    "id": "TECH_1_01",
+    "prompt": {
+      "en": "A model defines acceleration as net force divided by mass. A 4 kg cart has a 20 N net horizontal force. What acceleration follows in this model?",
+      "zh": "A model defines acceleration as net force divided by mass. A 4 kg cart has a 20 N net horizontal force. What acceleration follows in this model?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "0.2 m/s²",
+          "zh": "0.2 m/s²"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "5 m/s²",
+          "zh": "5 m/s²"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "16 m/s²",
+          "zh": "16 m/s²"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "80 m/s²",
+          "zh": "80 m/s²"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Use the stated relationship: 20/4 = 5 m/s². Net force already includes the combined effect of the forces; there is no additional opposing force to subtract.",
+      "zh": "按题内关系计算20÷4=5米/秒²。净力已经包含各力的合效应，不再另减一个未给出的阻力。"
+    }
+  },
+  {
+    "id": "TECH_1_02",
+    "prompt": {
+      "en": "For a uniform sample, density is mass divided by volume. Its mass is 360 g and its volume is 120 cm³. What is its density?",
+      "zh": "For a uniform sample, density is mass divided by volume. Its mass is 360 g and its volume is 120 cm³. What is its density?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "0.333 g/cm³",
+          "zh": "0.333 g/cm³"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "240 g/cm³",
+          "zh": "240 g/cm³"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "3 g/cm³",
+          "zh": "3 g/cm³"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "480 g/cm³",
+          "zh": "480 g/cm³"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Density is 360/120 = 3 g/cm³. Keep grams and cubic centimetres together; dividing volume by mass would give a different quantity.",
+      "zh": "密度360÷120=3克/厘米³，保留质量与体积的单位。若体积除以质量，得到的是另一种量。"
+    }
+  },
+  {
+    "id": "TECH_1_03",
+    "prompt": {
+      "en": "In the human body, which listed blood component primarily carries oxygen from the lungs to other tissues?",
+      "zh": "In the human body, which listed blood component primarily carries oxygen from the lungs to other tissues?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Platelets",
+          "zh": "Platelets"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Red blood cells",
+          "zh": "Red blood cells"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "The fluid in a sweat gland",
+          "zh": "The fluid in a sweat gland"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Digestive enzymes",
+          "zh": "Digestive enzymes"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Red blood cells contain haemoglobin, which carries oxygen. This is a general biology fact, not a question about anyone’s symptoms, blood-test result or medical care.",
+      "zh": "红细胞含有携带氧的血红蛋白。这是一般生物学常识，不用于推断个人症状、验血结果或医疗需要。"
+    }
+  },
+  {
+    "id": "TECH_1_04",
+    "prompt": {
+      "en": "Consider a green plant carrying out photosynthesis. Which listed substance supplies the carbon used to build carbohydrates?",
+      "zh": "Consider a green plant carrying out photosynthesis. Which listed substance supplies the carbon used to build carbohydrates?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Oxygen gas",
+          "zh": "Oxygen gas"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Sunlight",
+          "zh": "Sunlight"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Carbon dioxide",
+          "zh": "Carbon dioxide"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Nitrogen gas",
+          "zh": "Nitrogen gas"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Carbon dioxide supplies the carbon atoms. Light supplies energy, while oxygen is a product of the familiar oxygen-producing process in green plants; light itself is not a material source of carbon.",
+      "zh": "二氧化碳提供碳原子，光提供能量。在绿色植物常见的产氧光合作用中，氧气是产物之一；光本身不是碳的物质来源。"
+    }
+  },
+  {
+    "id": "TECH_1_05",
+    "prompt": {
+      "en": "The bright part of the Moon normally visible from Earth mainly shines by which process?",
+      "zh": "The bright part of the Moon normally visible from Earth mainly shines by which process?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Reflecting sunlight",
+          "zh": "Reflecting sunlight"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Burning fuel at its surface",
+          "zh": "Burning fuel at its surface"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Producing sunlight internally",
+          "zh": "Producing sunlight internally"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Receiving visible light only from Earth’s cities",
+          "zh": "Receiving visible light only from Earth’s cities"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Ordinary moonlight is sunlight reflected by the lunar surface. The changing phase concerns our view of the illuminated part, not the Moon turning its own light source on and off.",
+      "zh": "通常看到的月光是月面反射的阳光。月相变化涉及我们看见多少受光部分，不是月球自身光源的开关。"
+    }
+  },
+  {
+    "id": "TECH_1_06",
+    "prompt": {
+      "en": "Liquid water at the surface of a pond becomes water vapour and enters the air. What is this change called?",
+      "zh": "Liquid water at the surface of a pond becomes water vapour and enters the air. What is this change called?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Freezing",
+          "zh": "Freezing"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Condensation",
+          "zh": "Condensation"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Precipitation",
+          "zh": "Precipitation"
+        },
+        "directionId": "general-science"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Evaporation",
+          "zh": "Evaporation"
+        },
+        "directionId": "general-science"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Evaporation changes liquid water into vapour. Condensation describes the reverse gas-to-liquid change; precipitation describes water falling from clouds rather than this surface change.",
+      "zh": "蒸发指液态水变成水蒸气。凝结是气体变液体，降水是水从云中落下，都不是题述的水面变化。"
+    }
+  },
+  {
+    "id": "TECH_2_01",
+    "prompt": {
+      "en": "An ideal massless lever balances opposite moments. A 72 N load has a 0.25 m perpendicular arm. The opposing effort has a 0.75 m perpendicular arm. What effort balances it?",
+      "zh": "An ideal massless lever balances opposite moments. A 72 N load has a 0.25 m perpendicular arm. The opposing effort has a 0.75 m perpendicular arm. What effort balances it?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "18 N",
+          "zh": "18 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "24 N",
+          "zh": "24 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "54 N",
+          "zh": "54 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "216 N",
+          "zh": "216 N"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Balance moments: effort × 0.75 = 72 × 0.25 = 18 N m. The effort is 24 N. The question explicitly specifies opposite moments, so the two products can be equated.",
+      "zh": "力矩平衡F×0.75=72×0.25=18牛米，得24牛。题目明确两力矩反向，因此可以令其大小相等。"
+    }
+  },
+  {
+    "id": "TECH_2_02",
+    "prompt": {
+      "en": "A stationary ideal pulley block has a total downward load of 150 N. Exactly three vertical rope segments support it, each with the same tension. What is each tension?",
+      "zh": "A stationary ideal pulley block has a total downward load of 150 N. Exactly three vertical rope segments support it, each with the same tension. What is each tension?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "50 N",
+          "zh": "50 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "75 N",
+          "zh": "75 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "150 N",
+          "zh": "150 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "450 N",
+          "zh": "450 N"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The three upward tensions sum to the stated total load: 3T = 150, so T = 50 N. The total already includes anything the question counts as load.",
+      "zh": "三股向上张力之和等于总负载，3T=150，T=50牛。题给总负载已包含其计入的所有重量，不重复加重。"
+    }
+  },
+  {
+    "id": "TECH_2_03",
+    "prompt": {
+      "en": "Two ideal external gears mesh without slip. A 20-tooth driver turns at 150 rpm; the driven gear has 60 teeth. What is the driven speed magnitude?",
+      "zh": "Two ideal external gears mesh without slip. A 20-tooth driver turns at 150 rpm; the driven gear has 60 teeth. What is the driven speed magnitude?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "30 rpm",
+          "zh": "30 rpm"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "50 rpm",
+          "zh": "50 rpm"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "150 rpm",
+          "zh": "150 rpm"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "450 rpm",
+          "zh": "450 rpm"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Equal tooth passage gives 150 × 20 = driven speed × 60, so the magnitude is 50 rpm. This asks for magnitude only, not a viewing-side-dependent clockwise label.",
+      "zh": "相同时间啮合齿数相等，150×20=n×60，得50转/分。题目只问大小，不问与观察侧有关的顺逆时针。"
+    }
+  },
+  {
+    "id": "TECH_2_04",
+    "prompt": {
+      "en": "A load of weight 120 N is moved slowly up a frictionless straight ramp of length 4 m and vertical rise 1 m. The effort is parallel to the ramp. What constant ideal effort is needed?",
+      "zh": "A load of weight 120 N is moved slowly up a frictionless straight ramp of length 4 m and vertical rise 1 m. The effort is parallel to the ramp. What constant ideal effort is needed?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "15 N",
+          "zh": "15 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "30 N",
+          "zh": "30 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "120 N",
+          "zh": "120 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "480 N",
+          "zh": "480 N"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "For this frictionless slow model, effort × 4 m equals the 120 N × 1 m gain in gravitational energy. The effort is 30 N; the model does not include real rolling or sliding losses.",
+      "zh": "理想无摩擦缓慢移动时，F×4米=120牛×1米，得30牛。模型没有加入真实滚动或滑动损失。"
+    }
+  },
+  {
+    "id": "TECH_2_05",
+    "prompt": {
+      "en": "A box slides horizontally at constant velocity. In this model, the only horizontal forces are a 14 N push to the right and sliding friction. What is the friction force?",
+      "zh": "A box slides horizontally at constant velocity. In this model, the only horizontal forces are a 14 N push to the right and sliding friction. What is the friction force?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "14 N to the left",
+          "zh": "14 N to the left"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "14 N to the right",
+          "zh": "14 N to the right"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "0 N",
+          "zh": "0 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "28 N to the left",
+          "zh": "28 N to the left"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Constant velocity means zero net force in the specified model. Friction must balance the rightward 14 N push with 14 N leftward. Zero net force does not mean each force is zero.",
+      "zh": "匀速意味着题设模型中合力为零，摩擦力须向左14牛抵消推力。合力为零不等于每个力都为零。"
+    }
+  },
+  {
+    "id": "TECH_2_06",
+    "prompt": {
+      "en": "Two ideal hydraulic pistons are at the same height with areas 2 cm² and 10 cm². An extra 16 N is applied to the small piston. Neglect losses and piston weight. What extra force acts at the large piston?",
+      "zh": "Two ideal hydraulic pistons are at the same height with areas 2 cm² and 10 cm². An extra 16 N is applied to the small piston. Neglect losses and piston weight. What extra force acts at the large piston?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "3.2 N",
+          "zh": "3.2 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "16 N",
+          "zh": "16 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "32 N",
+          "zh": "32 N"
+        },
+        "directionId": "mechanical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "80 N",
+          "zh": "80 N"
+        },
+        "directionId": "mechanical"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Equal added pressure gives 16/2 = output/10. The output is 80 N. The added pressure is shared; it is force, not pressure, that scales with piston area.",
+      "zh": "新增压强相同，16÷2=F÷10，得80牛。随活塞面积变化的是力，不是把传递压强放大。"
+    }
+  },
+  {
+    "id": "TECH_3_01",
+    "prompt": {
+      "en": "An ideal 12 V source is connected across one 6 ohm resistor. Using I = V/R, what current flows?",
+      "zh": "An ideal 12 V source is connected across one 6 ohm resistor. Using I = V/R, what current flows?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "0.5 A",
+          "zh": "0.5 A"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "2 A",
+          "zh": "2 A"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "6 A",
+          "zh": "6 A"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "72 A",
+          "zh": "72 A"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The stated Ohm relationship gives I = 12/6 = 2 A. The numbers describe an ideal paper circuit, not instructions to connect a real source.",
+      "zh": "按题给欧姆关系I=12÷6=2安。这是理想纸上电路，不要求连接真实电源。"
+    }
+  },
+  {
+    "id": "TECH_3_02",
+    "prompt": {
+      "en": "Two ideal resistors of 3 ohms and 9 ohms are connected in series. What is their total resistance?",
+      "zh": "Two ideal resistors of 3 ohms and 9 ohms are connected in series. What is their total resistance?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "0.333 ohm",
+          "zh": "0.333 ohm"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "2.25 ohms",
+          "zh": "2.25 ohms"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "6 ohms",
+          "zh": "6 ohms"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "12 ohms",
+          "zh": "12 ohms"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Series resistances add: 3 + 9 = 12 ohms. A reciprocal sum is used for a different parallel arrangement, not for this single series path.",
+      "zh": "串联电阻相加3+9=12欧。倒数求和适用于另一种并联结构，不能用于这条串联通路。"
+    }
+  },
+  {
+    "id": "TECH_3_03",
+    "prompt": {
+      "en": "Two ideal resistors of 6 ohms and 3 ohms are connected in parallel. Use 1/R = 1/6 + 1/3. What is the equivalent resistance?",
+      "zh": "Two ideal resistors of 6 ohms and 3 ohms are connected in parallel. Use 1/R = 1/6 + 1/3. What is the equivalent resistance?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "2 ohms",
+          "zh": "2 ohms"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "3 ohms",
+          "zh": "3 ohms"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "9 ohms",
+          "zh": "9 ohms"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "18 ohms",
+          "zh": "18 ohms"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The right side is 1/6 + 2/6 = 1/2, so R = 2 ohms. The equivalent is smaller than either branch resistance in this positive-resistance parallel model.",
+      "zh": "1/6+1/3=1/2，故等效电阻2欧。在本题正电阻并联模型中，它小于任一支路电阻。"
+    }
+  },
+  {
+    "id": "TECH_3_04",
+    "prompt": {
+      "en": "A model component has 9 V across it and a current of 2 A through it. Using P = VI, what electrical power is transferred to it?",
+      "zh": "A model component has 9 V across it and a current of 2 A through it. Using P = VI, what electrical power is transferred to it?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "4.5 W",
+          "zh": "4.5 W"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "7 W",
+          "zh": "7 W"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "11 W",
+          "zh": "11 W"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "18 W",
+          "zh": "18 W"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "P = 9 × 2 = 18 W. Voltage and current are different quantities; adding their numerical values does not produce power.",
+      "zh": "P=9×2=18瓦。电压与电流是不同的量，不能把两个数相加当成功率。"
+    }
+  },
+  {
+    "id": "TECH_3_05",
+    "prompt": {
+      "en": "An ideal battery, a resistor and a switch form a single series loop with no other connections. The switch is fully open. What steady current flows through the resistor?",
+      "zh": "An ideal battery, a resistor and a switch form a single series loop with no other connections. The switch is fully open. What steady current flows through the resistor?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Zero",
+          "zh": "Zero"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "The battery voltage in amperes",
+          "zh": "The battery voltage in amperes"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Twice the closed-switch current",
+          "zh": "Twice the closed-switch current"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "A current fixed by the wire colour",
+          "zh": "A current fixed by the wire colour"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The open switch breaks the only conducting path, so the ideal steady current is zero. There is no alternative branch or capacitor in the stated model.",
+      "zh": "开关断开唯一导电通路，因此理想稳态电流为零。题目未设其他支路或电容，不能另加这些条件。"
+    }
+  },
+  {
+    "id": "TECH_3_06",
+    "prompt": {
+      "en": "An ideal resistor has voltage V across it. Keep its resistance fixed and double V while it remains ohmic. Using I = V/R, how does current change?",
+      "zh": "An ideal resistor has voltage V across it. Keep its resistance fixed and double V while it remains ohmic. Using I = V/R, how does current change?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "It halves",
+          "zh": "It halves"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "It is unchanged",
+          "zh": "It is unchanged"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "It doubles",
+          "zh": "It doubles"
+        },
+        "directionId": "electronics"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "It becomes zero",
+          "zh": "It becomes zero"
+        },
+        "directionId": "electronics"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "With R fixed, current is directly proportional to voltage in the stated ohmic range. Doubling V doubles I. Real heating could change resistance, but that change is expressly excluded here.",
+      "zh": "电阻固定且仍满足欧姆关系时，I与V成正比，电压加倍则电流加倍。真实发热可能改变电阻，但本题已排除该变化。"
+    }
+  },
+  {
+    "id": "TECH_4_01",
+    "prompt": {
+      "en": "In a conventional spark-ignited gasoline engine, which listed part supplies the spark that ignites the air-fuel mixture?",
+      "zh": "In a conventional spark-ignited gasoline engine, which listed part supplies the spark that ignites the air-fuel mixture?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Fuel tank",
+          "zh": "Fuel tank"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Spark plug",
+          "zh": "Spark plug"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Exhaust pipe",
+          "zh": "Exhaust pipe"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Transmission",
+          "zh": "Transmission"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The spark plug provides the ignition spark in the specified gasoline-engine arrangement. The question does not describe the compression ignition used by a conventional diesel engine.",
+      "zh": "在题述汽油机结构中，火花塞提供点火火花。不能把它替换成常规柴油机的压燃过程。"
+    }
+  },
+  {
+    "id": "TECH_4_02",
+    "prompt": {
+      "en": "A simplified four-stroke engine cycle is intake, compression, power, then exhaust. Which stroke immediately follows compression in this stated sequence?",
+      "zh": "A simplified four-stroke engine cycle is intake, compression, power, then exhaust. Which stroke immediately follows compression in this stated sequence?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Intake",
+          "zh": "Intake"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Exhaust",
+          "zh": "Exhaust"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Power",
+          "zh": "Power"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "A fifth lubrication stroke",
+          "zh": "A fifth lubrication stroke"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Read the sequence given: compression is followed by the power stroke. This checks order within a simplified cycle, not timing settings or instructions to service an engine.",
+      "zh": "依题给简化顺序，压缩后是做功冲程。这只核对顺序，不给发动机正时设置或维修操作指导。"
+    }
+  },
+  {
+    "id": "TECH_4_03",
+    "prompt": {
+      "en": "In a conventional gasoline car, which listed system normally routes burned gases from the engine toward the tailpipe?",
+      "zh": "In a conventional gasoline car, which listed system normally routes burned gases from the engine toward the tailpipe?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Exhaust system",
+          "zh": "Exhaust system"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Fuel storage tank",
+          "zh": "Fuel storage tank"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Starter battery",
+          "zh": "Starter battery"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Windscreen washer system",
+          "zh": "Windscreen washer system"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The exhaust system carries engine exhaust toward the tailpipe. This is a component-role question; it is not advice about modifying emissions equipment or checking a running vehicle.",
+      "zh": "排气系统将发动机废气导向尾管。这是部件用途常识，不指导改装排放装置或检查运转中的车辆。"
+    }
+  },
+  {
+    "id": "TECH_4_04",
+    "prompt": {
+      "en": "Which listed assembly normally transfers mechanical power from a car’s engine toward its driven wheels?",
+      "zh": "Which listed assembly normally transfers mechanical power from a car’s engine toward its driven wheels?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Windscreen",
+          "zh": "Windscreen"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Seat upholstery",
+          "zh": "Seat upholstery"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Fuel filler cap",
+          "zh": "Fuel filler cap"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Transmission",
+          "zh": "Transmission"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "The transmission transfers mechanical power in the driveline. A correct answer to a component-role question does not establish the ability to repair or operate that assembly.",
+      "zh": "变速传动装置在传动系统中传递机械动力。答对用途题不说明具备该装置的维修或操作能力。"
+    }
+  },
+  {
+    "id": "TECH_4_05",
+    "prompt": {
+      "en": "A paper shop drawing specifies a length of 0.075 m. Using 1000 mm = 1 m, what length is this in millimetres?",
+      "zh": "A paper shop drawing specifies a length of 0.075 m. Using 1000 mm = 1 m, what length is this in millimetres?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "0.075 mm",
+          "zh": "0.075 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "7.5 mm",
+          "zh": "7.5 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "75 mm",
+          "zh": "75 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "750 mm",
+          "zh": "750 mm"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Multiply by 1000: 0.075 m = 75 mm. Keep the physical length unchanged when converting units; the new numerical value depends on the chosen unit.",
+      "zh": "乘1000得75毫米。单位换算不改变真实长度，只改变使用该单位表示的数值。"
+    }
+  },
+  {
+    "id": "TECH_4_06",
+    "prompt": {
+      "en": "On a paper scale, adjacent tick marks are exactly 0.5 mm apart. Two marked positions are nine intervals apart. What distance separates them?",
+      "zh": "On a paper scale, adjacent tick marks are exactly 0.5 mm apart. Two marked positions are nine intervals apart. What distance separates them?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "4 mm",
+          "zh": "4 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "4.5 mm",
+          "zh": "4.5 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "9 mm",
+          "zh": "9 mm"
+        },
+        "directionId": "auto-shop"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "18 mm",
+          "zh": "18 mm"
+        },
+        "directionId": "auto-shop"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Nine intervals × 0.5 mm = 4.5 mm. Count spaces between tick marks rather than adding an extra endpoint mark. No real machining tolerance is specified.",
+      "zh": "九个间隔×0.5毫米=4.5毫米。数刻线之间的间隔，不多算一个端点；本题未设真实加工公差。"
+    }
+  },
+  {
+    "id": "TECH_5_01",
+    "prompt": {
+      "en": "A target rectangle contains unit cells with x in {0,1,2} and y in {0,1}. Piece A occupies {(0,0),(1,0),(0,1)}. Piece B starts at {(1,0),(0,1),(1,1)}. Translate B only; do not rotate or reflect it. Which offset makes A and B fill the target without overlap?",
+      "zh": "A target rectangle contains unit cells with x in {0,1,2} and y in {0,1}. Piece A occupies {(0,0),(1,0),(0,1)}. Piece B starts at {(1,0),(0,1),(1,1)}. Translate B only; do not rotate or reflect it. Which offset makes A and B fill the target without overlap?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "(-1,0)",
+          "zh": "(-1,0)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "(0,1)",
+          "zh": "(0,1)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "(1,0)",
+          "zh": "(1,0)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "(2,1)",
+          "zh": "(2,1)"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Adding (1,0) to every B coordinate gives {(2,0),(1,1),(2,1)}, exactly the three cells A leaves empty. Every cell lies in the target, and no cell is shared by both pieces.",
+      "zh": "B各坐标加(1,0)得{(2,0),(1,1),(2,1)}，正是A缺少的三格。都在目标内，且两块不重叠。"
+    }
+  },
+  {
+    "id": "TECH_5_02",
+    "prompt": {
+      "en": "A target uses cells {(0,0),(1,0),(2,0),(1,1)}. A three-cell piece already fills {(0,0),(1,0),(2,0)}. A single-cell piece starts at (0,0). Which translation fills the one remaining target cell?",
+      "zh": "A target uses cells {(0,0),(1,0),(2,0),(1,1)}. A three-cell piece already fills {(0,0),(1,0),(2,0)}. A single-cell piece starts at (0,0). Which translation fills the one remaining target cell?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "(1,1)",
+          "zh": "(1,1)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "(0,1)",
+          "zh": "(0,1)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "(1,0)",
+          "zh": "(1,0)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "(2,1)",
+          "zh": "(2,1)"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Subtract the occupied three-cell row from the target: only (1,1) remains. Moving the single cell from (0,0) by (1,1) reaches it; no rotation is relevant for one cell.",
+      "zh": "从目标中去掉已占的三格，只余(1,1)。单格从(0,0)平移(1,1)即可到达，不涉及旋转。"
+    }
+  },
+  {
+    "id": "TECH_5_03",
+    "prompt": {
+      "en": "A target rectangle contains cells x in {0,1,2,3}, y in {0,1}. Piece A fills its left two columns. Piece B starts as a 2-by-2 square at cells x in {0,1}, y in {0,1}. Which translation of B exactly fills the remaining target cells without overlap?",
+      "zh": "A target rectangle contains cells x in {0,1,2,3}, y in {0,1}. Piece A fills its left two columns. Piece B starts as a 2-by-2 square at cells x in {0,1}, y in {0,1}. Which translation of B exactly fills the remaining target cells without overlap?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "(0,2)",
+          "zh": "(0,2)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "(1,0)",
+          "zh": "(1,0)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "(2,0)",
+          "zh": "(2,0)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "(3,0)",
+          "zh": "(3,0)"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "The remaining columns have x = 2 and 3, with y unchanged. Add (2,0) to B. An offset of (1,0) overlaps A, while (3,0) extends beyond the target.",
+      "zh": "空余列为x=2、3，y不变，所以B平移(2,0)。平移(1,0)会与A重叠，(3,0)会越出目标。"
+    }
+  },
+  {
+    "id": "TECH_5_04",
+    "prompt": {
+      "en": "A zero-thickness sheet covers -3 ≤ x ≤ 3 and -2 ≤ y ≤ 2. Fold the right half left across x=0. Punch through both layers at (-2,1), then fully unfold. Where is the other hole?",
+      "zh": "A zero-thickness sheet covers -3 ≤ x ≤ 3 and -2 ≤ y ≤ 2. Fold the right half left across x=0. Punch through both layers at (-2,1), then fully unfold. Where is the other hole?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "(-2,-1)",
+          "zh": "(-2,-1)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "(1,2)",
+          "zh": "(1,2)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "(2,-1)",
+          "zh": "(2,-1)"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "(2,1)",
+          "zh": "(2,1)"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Reflection across x=0 reverses x and preserves y, so (-2,1) is paired with (2,1). Both points lie within the original bounds. The fold does not rotate or swap the coordinates.",
+      "zh": "沿x=0展开使x反号、y不变，另一孔为(2,1)，两点都在原边界内。折叠不交换坐标，也不是旋转。"
+    }
+  },
+  {
+    "id": "TECH_5_05",
+    "prompt": {
+      "en": "A labelled cube starts with T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top, keeping front/back fixed. A forward roll sends top→front→bottom→back→top, keeping left/right fixed. Roll right, then forward. Which original label ends in front?",
+      "zh": "A labelled cube starts with T on top, B below, F in front, K behind, R right and L left. A right roll sends top→right→bottom→left→top, keeping front/back fixed. A forward roll sends top→front→bottom→back→top, keeping left/right fixed. Roll right, then forward. Which original label ends in front?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "T",
+          "zh": "T"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "L",
+          "zh": "L"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "K",
+          "zh": "K"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "F",
+          "zh": "F"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The right roll moves L to the top. The forward roll then moves that current top face to the front, so L ends in front. Labels stay attached to faces; each move starts from the updated orientation.",
+      "zh": "向右滚先把L移到顶部；向前滚再把当前顶面送到前面，因此前面是L。标签贴在原面上，各步须接着更新后的朝向进行。"
+    }
+  },
+  {
+    "id": "TECH_5_06",
+    "prompt": {
+      "en": "Unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1)}. Project orthographically along the y direction onto the x-z plane. Count each distinct projected unit cell once. How many cells are in the projection?",
+      "zh": "Unit cubes have lower-corner coordinates {(0,0,0),(1,0,0),(1,1,0),(1,1,1)}. Project orthographically along the y direction onto the x-z plane. Count each distinct projected unit cell once. How many cells are in the projection?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "2",
+          "zh": "2"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "3",
+          "zh": "3"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "4",
+          "zh": "4"
+        },
+        "directionId": "assembling"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "5",
+          "zh": "5"
+        },
+        "directionId": "assembling"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Remove y and deduplicate: (0,0), (1,0), (1,1). Two cubes share the projected cell (1,0), so four cubes yield three distinct cells in this view.",
+      "zh": "去掉y并去重，得(0,0)、(1,0)、(1,1)。两块重叠投到(1,0)，故四块产生三个不同投影格。"
+    }
+  }
+]
