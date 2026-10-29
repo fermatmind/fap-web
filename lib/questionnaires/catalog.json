@@ -5857,5 +5857,30 @@
       "input-reducing"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "anger-issues-screener",
+    "code": "FM_ANGER20",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Anger & Frustration Check-In",
+      "zh": "愤怒与挫败自评"
+    },
+    "description": {
+      "en": "Reflect on anger occurrence, visible expression, keeping feelings private and perceived response choices. Twenty original prompts, four separate readings and full free guides. No diagnosis, risk tier or signup.",
+      "zh": "回顾生气出现、外显表达、保留感受与自感回应选择。二十条原创描述、四组独立读数及免费完整指南。不作诊断、不分风险层级，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "fm_anger20_original_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "anger-occurrence",
+      "outward-expression",
+      "kept-inside",
+      "perceived-choice"
+    ],
+    "collection": "explore"
   }
 ]

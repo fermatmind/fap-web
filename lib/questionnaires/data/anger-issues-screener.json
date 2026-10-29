@@ -1,0 +1,2146 @@
+{
+  "slug": "anger-issues-screener",
+  "code": "FM_ANGER20",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "anger20",
+  "title": {
+    "en": "Anger & Frustration Check-In",
+    "zh": "愤怒与挫败自评"
+  },
+  "seoTitle": {
+    "en": "Anger Test: 20 Original Prompts and Four Free Full Guides",
+    "zh": "愤怒测试｜20条原创自评与四篇免费完整指南"
+  },
+  "description": {
+    "en": "Reflect on anger occurrence, visible expression, keeping feelings private and perceived response choices. Twenty original prompts, four separate readings and full free guides. No diagnosis, risk tier or signup.",
+    "zh": "回顾生气出现、外显表达、保留感受与自感回应选择。二十条原创描述、四组独立读数及免费完整指南。不作诊断、不分风险层级，无需注册。"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "When anger comes up, what do you notice, show, keep private or feel able to choose? This original anger test helps adults describe four aspects of recent ordinary experiences. It does not decide whether you have anger issues or assess aggression, dangerousness or emotional-intelligence ability. All four full guides are readable before answering.",
+    "zh": "生气出现时，你察觉、表达、保留什么，又感到有何选择？这份原创愤怒测试帮助成年人描述近期普通体验的四个方面，不判断是否有愤怒问题，不评攻击、危险性或情商能力。四篇完整指南在作答前即可阅读。"
+  },
+  "instructions": {
+    "en": "For adults aged 18 and over, about yourself only. Recall ordinary situations in the past four weeks without provoking or recreating anger. The first five prompts concern anger when their everyday situations occurred. The remaining fifteen concern occasions when you already felt angry. If there were no angry occasions, choose unscored for those fifteen rather than zero. Use unscored for no relevant occasion, uncertainty or declining. You do not need to describe events, name anyone or contact another person.",
+    "zh": "面向18岁及以上成年人，只回答本人。回顾过去四周普通情境，不诱发或重现怒意。前五条询问题述日常情境出现时的生气；后十五条询问已经生气的场合。没有生气场合时，后十五条选不计分而非零。无相关机会、不确定或不愿回答均可不计分。不需描述事件、填写姓名或联系别人。"
+  },
+  "resultHeading": {
+    "en": "Your four separate anger response readings",
+    "zh": "你的四组独立愤怒反应读数"
+  },
+  "source": {
+    "kind": "fermatmind_original_anger_response_reflection",
+    "formCode": "fm_anger20_original_v1",
+    "itemBankVersion": "fm_anger20_original_bilingual_v1",
+    "scoringVersion": "four_topics_5_direct_0to4_completegroups_conditionalNA_no_total_or_risk_v1",
+    "resultContentVersion": "fm_anger20_four_full_guides_v1",
+    "itemBankSha256": "73e044d85487db130f789234eb22cd5921c1f40646e244225edf7c38fedd01f2",
+    "resultContentSha256": "67a9e79be6e699a11e9597f543b3806643a2f350fa1abc94a9657e55fdf41392",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "anger-occurrence",
+      "title": {
+        "en": "Anger in everyday contexts",
+        "zh": "日常情境中的生气"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "outward-expression",
+      "title": {
+        "en": "Visible expression while angry",
+        "zh": "生气时的外显表达"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "kept-inside",
+      "title": {
+        "en": "Keeping angry feelings private",
+        "zh": "保留生气感受"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "perceived-choice",
+      "title": {
+        "en": "Feeling a choice in the response",
+        "zh": "感到自己仍有回应选择"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "ANG_01",
+      "prompt": {
+        "en": "When a small change disrupted an ordinary plan, I felt angry about it.",
+        "zh": "普通安排被小变化打乱时，我为此生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "anger-occurrence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_02",
+      "prompt": {
+        "en": "When an everyday task went wrong in a way I thought could have been avoided, I felt frustrated or angry.",
+        "zh": "日常任务出岔子、而我觉得本可避免时，我感到挫败或生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "anger-occurrence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_03",
+      "prompt": {
+        "en": "When someone took a different view in an ordinary conversation, I noticed anger arising in me.",
+        "zh": "普通谈话中对方看法不同，我察觉自己生起怒意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "anger-occurrence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_04",
+      "prompt": {
+        "en": "When an ordinary practical goal was blocked, I experienced anger or frustration.",
+        "zh": "普通实际目标受阻时，我体验到生气或挫败。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "anger-occurrence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_05",
+      "prompt": {
+        "en": "When a small everyday boundary I had stated was overlooked, I felt angry.",
+        "zh": "已说清的日常小界限被忽略时，我感到生气。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "anger-occurrence",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "anger-occurrence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_06",
+      "prompt": {
+        "en": "While I was angry, I spoke in a noticeably sharper tone.",
+        "zh": "生气时，我说话的语气明显变得尖锐。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "outward-expression",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "outward-expression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "outward-expression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "outward-expression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "outward-expression",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "outward-expression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_07",
+      "prompt": {
+        "en": "While I was angry, I said directly that I was upset.",
+        "zh": "生气时，我直接说出自己感到不快。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "outward-expression",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "outward-expression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "outward-expression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "outward-expression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "outward-expression",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "outward-expression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_08",
+      "prompt": {
+        "en": "While I was angry, I let that feeling show in the wording of a brief message.",
+        "zh": "生气时，我让简短信息的措辞流露出这种感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "outward-expression",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "outward-expression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "outward-expression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "outward-expression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "outward-expression",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "outward-expression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_09",
+      "prompt": {
+        "en": "While I was angry, I let my facial expression show the feeling rather than hide it.",
+        "zh": "生气时，我让脸上的表情流露这种感受，没有遮掩。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "outward-expression",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "outward-expression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "outward-expression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "outward-expression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "outward-expression",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "outward-expression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_10",
+      "prompt": {
+        "en": "While I was angry, I used emphatic gestures to show that I was upset.",
+        "zh": "生气时，我用明显的手势表达自己不快。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "outward-expression",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "outward-expression",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "outward-expression",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "outward-expression",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "outward-expression",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "outward-expression",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_11",
+      "prompt": {
+        "en": "While I felt angry, I deliberately kept that feeling out of what I said.",
+        "zh": "心里生气时，我刻意不让说出的话透露这种感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "kept-inside",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "kept-inside",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "kept-inside",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "kept-inside",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "kept-inside",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "kept-inside",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_12",
+      "prompt": {
+        "en": "While I felt angry, I maintained an even tone so that the feeling would remain private.",
+        "zh": "心里生气时，我保持平稳语气，好让这种感受不被知道。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "kept-inside",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "kept-inside",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "kept-inside",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "kept-inside",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "kept-inside",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "kept-inside",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_13",
+      "prompt": {
+        "en": "When I could choose whether to name my anger, I chose to leave it unspoken.",
+        "zh": "可以选择是否说出自己生气时，我选择不提这种感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "kept-inside",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "kept-inside",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "kept-inside",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "kept-inside",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "kept-inside",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "kept-inside",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_14",
+      "prompt": {
+        "en": "After an ordinary activity ended, I kept my remaining anger to myself rather than mentioning it.",
+        "zh": "普通活动结束后，我把仍有的怒意留给自己，没有提起。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "kept-inside",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "kept-inside",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "kept-inside",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "kept-inside",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "kept-inside",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "kept-inside",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_15",
+      "prompt": {
+        "en": "While still angry, I gave a neutral response to avoid revealing the feeling.",
+        "zh": "仍在生气时，我用中性回应避免透露这种感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "kept-inside",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "kept-inside",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "kept-inside",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "kept-inside",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "kept-inside",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "kept-inside",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_16",
+      "prompt": {
+        "en": "While I felt angry, I felt able to choose my next words rather than speak automatically.",
+        "zh": "心里生气时，我感到自己仍能选择接下来的话，而非自动说出口。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "perceived-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_17",
+      "prompt": {
+        "en": "While I felt angry, I felt I had the option of taking a safe pause before replying.",
+        "zh": "心里生气时，我感到自己有在回复前安全暂停的选项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "perceived-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_18",
+      "prompt": {
+        "en": "While I felt angry, I felt free to wait before sending a nonessential message.",
+        "zh": "心里生气时，我感到自己可以等一等再发送非必要的信息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "perceived-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_19",
+      "prompt": {
+        "en": "While I felt angry, I felt I could stop a routine exchange and return to it later if needed.",
+        "zh": "心里生气时，我感到需要时可以暂停普通交流，之后再回来处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "perceived-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ANG_20",
+      "prompt": {
+        "en": "While I felt angry, I felt there was more than one acceptable way for me to respond.",
+        "zh": "心里生气时，我感到自己有不止一种可以接受的回应方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "perceived-choice",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "perceived-choice",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "anger-occurrence",
+      "directionIds": [
+        "anger-occurrence"
+      ],
+      "title": {
+        "en": "Anger in everyday contexts",
+        "zh": "日常情境中的生气"
+      },
+      "headline": {
+        "en": "Anger in everyday contexts",
+        "zh": "日常情境中的生气"
+      },
+      "summary": {
+        "en": "Read anger occurrence in five everyday contexts without a severity band or angry-person label.",
+        "zh": "回顾五种日常情境中的生气，不分严重度或易怒人格。"
+      },
+      "scoreReading": {
+        "en": "Five numeric answers: direct sum 0–20 and mean 0–4 to two decimals. Any unscored response withholds this part only; no total, rank, risk band or diagnosis.",
+        "zh": "五个数字：直接合计0—20、均分0—4显示两位小数。任一不计分仅不提供本组数字，无总分、排名、风险段或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Anger in everyday contexts: Full Anger Reflection Guide",
+          "zh": "日常情境中的生气｜愤怒自评完整指南"
+        },
+        "description": {
+          "en": "Read anger occurrence in five everyday contexts without a severity band or angry-person label.",
+          "zh": "回顾五种日常情境中的生气，不分严重度或易怒人格。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this reading describes",
+            "zh": "这组读数在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns how often you recall anger or frustration arising in five ordinary situations during the past four weeks. The situations involve a changed plan, an avoidable mishap, a difference of view, a blocked practical goal and an overlooked small boundary. They are original reflection contexts, not a complete inventory of what can make somebody angry.",
+              "zh": "这组回顾过去四周，五种普通情境下多常出现生气或挫败：安排变化、可避免的差错、看法不同、实际目标受阻、小界限被忽略。这些是原创回顾情境，不是一个人所有生气原因的完整清单。"
+            },
+            {
+              "en": "The record describes your selected frequency labels when those situations occurred. It does not count angry days, measure intensity or decide whether your feeling was justified. Anger appearing during an ordinary difficulty does not establish aggression, a disorder or a bad personality. The relevant question here is what you recall, with uncertainty left explicit rather than converted into a conclusion.",
+              "zh": "记录描述相关情境出现时所选的频率，不数生气天数、不测强度，也不裁定感受是否合理。普通困难中生气，不确立攻击、障碍或坏人格。本组关注记得什么，把不确定明确留下，而非转成结论。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Put it in an ordinary situation",
+            "zh": "放进普通情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that a small change disrupts a routine plan. You notice frustration, then continue the activity. Another person might feel little anger in that setting yet become angry during a disagreement elsewhere. This reflection does not decide whose response is correct. It keeps the specific opportunity separate from a broad claim such as being an angry person.",
+              "zh": "例如小变化打乱日常安排，你察觉挫败后继续活动。另一个人在此不太生气，却可能在别处的分歧中生气。本回顾不判谁的反应正确，把具体机会与“我是易怒的人”这类宽泛判断分开。"
+            },
+            {
+              "en": "For each description, recall whether the situation actually occurred before choosing its frequency. A week without shared plans may provide few chances to notice the first pattern. No relevant occasion is therefore different from never. You do not need to invent a scenario, revisit an upsetting event or provide its details to complete the page.",
+              "zh": "先回忆题述情境是否确实发生，再选频率。一周没有共同安排，可能很少有机会观察第一种情况。因此无相关机会不同于从未。不必编造场景、重返不快事件或提供细节来完成页面。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Separate feeling, expression and choice",
+            "zh": "分清感受、表达与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling anger differs from expressing it, keeping it private and feeling able to choose a response. You can feel anger frequently and still communicate deliberately. You can also recall few matching situations yet find one response difficult. The other three readings address those different questions; none is inferred automatically from the frequency record or used to cancel it out.",
+              "zh": "生气感受不同于表达、保留以及感到能选择回应。可能常生气，仍能审慎沟通；也可能匹配情境少，却有一次回应困难。另三组处理不同问题，不从本频率自动推断，也不相互抵消。"
+            },
+            {
+              "en": "The separate eight-emotion dashboard also includes anger occurrence, but in one chosen work, study or group context alongside seven other emotion families. This check-in adds distinct expression, privacy and perceived-choice topics. A waiting-irritation reading from the Type A/B reflection is narrower again. Shared words do not make these forms, numbers or user tasks identical.",
+              "zh": "单独八情绪仪表盘也含生气出现，但放在一个选定工作、学习或小组场景，与另七种感受一起回顾。本自评另含表达、保留和选择感。A/B回顾中的等待烦躁又更窄。共用词语不代表题本、数字或任务相同。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the answers and arithmetic",
+            "zh": "读懂回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the five numeric choices contributes directly from zero to four. With all five numeric answers, add them for a sum from zero to twenty and divide by five for a mean from zero to four, shown to two decimals. The mean summarises ordered frequency descriptions across these selected contexts; it is not a calibrated amount of anger.",
+              "zh": "五条数字各直接计零至四。全部为数字时相加得到零至二十，再除以五得零至四均分，显示两位小数。均分概括选定情境中的有序频率描述，不是校准后的愤怒数量。"
+            },
+            {
+              "en": "An explicit unscored answer withholds this part’s sum and mean while keeping numeric and skipped counts. Other complete parts remain readable, and all-unscored responses can finish without numbers. Blank is incomplete. A zero occurrence mean does not automatically answer the remaining questions: if no angry occasions occurred, explicitly use their unscored options rather than filling them with zero.",
+              "zh": "明确不计分就不显示本组合计与均分，保留数字及跳过数量，其他完整组仍可读。全不计分可无数字完成，空白则未完成。出现均分为零不自动代答后续；没有生气机会时，后续明确选不计分，不填零。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Make one useful observation",
+            "zh": "作一次有用的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful private observation separates a situation, a feeling and what you did next. For example, a plan changed, you noticed anger and you asked for clarification. This is more informative than deciding that the feeling itself was a failure. You may keep the observation off the site; no account, private story or conversation transcript is requested.",
+              "zh": "有用的私人观察可分开写情境、感受与随后行动，例如安排改变、察觉生气、询问澄清。这比把感受本身判为失败更具体。观察可留在站外，不要求账户、私人故事或对话记录。"
+            },
+            {
+              "en": "If you choose a small next step, make it about an ordinary task rather than suppressing every feeling: perhaps clarify an ambiguous arrangement before deciding what to say. You do not need to provoke anger or test your limits. An important disagreement can remain important even if its emotional intensity changes, and a score cannot decide what boundary you should accept.",
+              "zh": "若选小下一步，可围绕普通任务，例如先澄清含糊安排再决定怎么说，而非压下所有感受。不需要诱发生气或测试极限。情绪强弱改变，重要分歧仍可能重要；分数不能决定该接受什么界限。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep the limits visible",
+            "zh": "保留必要边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four-week window, contexts and arithmetic are editorial choices. These original English and Chinese questions have not been validated as a psychological scale or equivalent language forms. No population norm, clinical severity band, diagnostic cutoff, probability, state-trait classification or change threshold is supplied. The record cannot tell whether a particular reaction is proportionate without understanding the actual situation.",
+              "zh": "四周、情境与计算是编辑选择。原创中英文题未验证为心理量表或等值语言版本。没有人口常模、临床严重度、诊断切点、概率、状态特质分类或变化阈值。不了解具体情况，本记录不能判断某次反应是否相称。"
+            },
+            {
+              "en": "These numbers also cannot predict aggression, establish safety or rule out a concern. A small average can conceal a consequential event that deserves attention on its own. Conversely, frequently feeling angry does not prove that somebody has harmed others. Use actual behaviour and circumstances for those questions, rather than treating a self-report average as a certificate or accusation.",
+              "zh": "数字也不能预测攻击、确立安全或排除困扰。小均分可能掩盖一件本身值得重视的事；常生气也不证明伤害过别人。此类问题应看真实行为与环境，不把自报均分当证明或指控。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose an optional next step",
+            "zh": "选择可选的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "For another angle, read all three companion guides before selecting any conclusion about your response. Notice that a larger perceived-choice mean describes a different direction from frequent anger occurrence, while neither is a global good-or-bad score. There is no overall sum, highest pattern or personal type to collect, and none of the four parts replaces the others.",
+              "zh": "可先读另三篇指南，再对回应作判断。较大的选择感均分与频繁生气描述不同方向，但都不是整体好坏分。没有总分、最高模式或个人类型可收集，四组也不相互替代。"
+            },
+            {
+              "en": "If anger is persistently difficult to manage or is affecting important activities, seek support based on what is happening rather than waiting for a number to cross a line. The optional EQ60 entry covers broader self-reported emotional and relational patterns. Its method and burden are explained separately; it is not required to unlock this result or verify it.",
+              "zh": "若持续难以应对生气，或重要活动受影响，可按实际情况寻求支持，不等数字越线。可选EQ60覆盖更广泛的自报情绪与关系模式，方法和负担单独说明；无需再做它来解锁或验证本结果。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outward-expression",
+      "directionIds": [
+        "outward-expression"
+      ],
+      "title": {
+        "en": "Visible expression while angry",
+        "zh": "生气时的外显表达"
+      },
+      "headline": {
+        "en": "Visible expression while angry",
+        "zh": "生气时的外显表达"
+      },
+      "summary": {
+        "en": "Read visible expression without treating every expression as harm or failed control.",
+        "zh": "理解外显表达，不把每种表达都当伤害或失控。"
+      },
+      "scoreReading": {
+        "en": "Five numeric answers: direct sum 0–20 and mean 0–4 to two decimals. Any unscored response withholds this part only; no total, rank, risk band or diagnosis.",
+        "zh": "五个数字：直接合计0—20、均分0—4显示两位小数。任一不计分仅不提供本组数字，无总分、排名、风险段或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Visible expression while angry: Full Anger Reflection Guide",
+          "zh": "生气时的外显表达｜愤怒自评完整指南"
+        },
+        "description": {
+          "en": "Read visible expression without treating every expression as harm or failed control.",
+          "zh": "理解外显表达，不把每种表达都当伤害或失控。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this reading describes",
+            "zh": "这组读数在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part describes ways that anger became visible in words, voice, written messages, facial expression or gestures. Its five original prompts deliberately include both a sharper tone and directly naming that you are upset. Visible expression is therefore a descriptive topic, not a list of harmful acts or an automatic sign that you lost control.",
+              "zh": "这组描述生气如何在话语、语气、文字信息、表情或手势中外显。五条原创题刻意同时包含尖锐语气与直接说明不快。因此外显表达是描述主题，不是伤害行为清单，也不自动表示失控。"
+            },
+            {
+              "en": "The relevant opportunities are occasions when you already felt angry during the past four weeks. Rate the expression, not how angry you became or how another person judged you. If there were no angry occasions, use unscored. Nobody needs to provoke a feeling, ask for a confrontation or observe another person to obtain a result.",
+              "zh": "相关机会是过去四周已经感到生气的场合，评分针对表达，不是怒意强度或别人怎样评价。没有生气场合就选不计分。无需诱发感受、要求对峙或观察别人来获得结果。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Put it in an ordinary situation",
+            "zh": "放进普通情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you might say calmly that a change upset you. That is an outward statement of a feeling, even when you choose your words carefully and respect the other person. On another occasion your voice might become sharper. These events can both fit the broad topic while differing greatly in their effect and in what you would want to do next.",
+              "zh": "例如冷静说出某个变化令你不快，即使措辞谨慎、尊重对方，仍是感受外显。另一次语气可能变尖锐。两件事都可落在宽泛主题里，但影响和适合的后续行动可能差别很大。"
+            },
+            {
+              "en": "Read the individual answers alongside the arithmetic so that those differences stay visible. A single mean cannot distinguish a clear boundary statement from a reply you later wished you had phrased differently. This check-in does not collect the words you used, the recipient’s identity or the private exchange, and it cannot reconstruct the event from a response category.",
+              "zh": "把逐条含义与计算一起看，才不会抹去差别。一个均分分不清清楚的界限说明与事后想换措辞的回复。本自评不收原话、接收者身份或私人交流，也不能从选项重建事件。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Separate feeling, expression and choice",
+            "zh": "分清感受、表达与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Expression and the feeling itself are different. You can be visibly angry after a rare upsetting event or feel anger repeatedly while showing little. Expression also differs from the perceived ability to choose a response. Deliberately naming a feeling may involve considerable choice; a private response may still feel automatic. The site does not reverse one part into the other.",
+              "zh": "表达不同于感受本身。可能偶遇不快却明显表现生气，也可能反复生气而很少外显。表达也不同于感到能选择回应；主动说明感受可能很有选择感，私下反应仍可能感到自动发生。本站不把一组反向变成另一组。"
+            },
+            {
+              "en": "Neither this part nor the other three is an aggression, abuse or dangerousness assessment. Harmful behaviour matters on its own and should not be averaged away with ordinary expressions. At the same time, visible anger is not evidence of violence. These distinctions are why the result offers descriptive records and public guides instead of a risk tier or reassurance about safety.",
+              "zh": "本组及另三组都不评攻击、虐待或危险性。伤害行为本身重要，不应与普通表达平均后抹掉；但可见生气也不证明暴力。因此结果提供描述与指南，不分风险层级，也不作安全保证。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the answers and arithmetic",
+            "zh": "读懂回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "All five numeric responses are needed for this part’s direct sum out of twenty and mean out of four. Values run from zero for never on relevant occasions to four for almost always; no item is reverse-scored. A displayed mean such as 1.80 is an arithmetic summary of ordered descriptions, not a percentage of aggressive encounters or a calibrated expression intensity.",
+              "zh": "五个数字才提供本组二十分范围合计、四分范围均分。相关机会时从未计零、几乎总是计四，无反向题。显示1.80这样的均分，只是有序描述的计算摘要，不是攻击场合百分比或校准表达强度。"
+            },
+            {
+              "en": "No opportunity, uncertainty and declining share the explicit unscored option. One such answer withholds this part’s sum and mean while preserving its numeric and skipped counts. A blank remains incomplete, whereas an explicit skip lets you finish. Other complete parts retain their own readings. The four means are not ranked, added or converted into a dominant response style.",
+              "zh": "无机会、不确定和不愿回答共用明确不计分项。出现一条就不显示本组合计与均分，保留数字和跳过数量。空白未完成，明确跳过可完成，其他完整组各自保留。不排名、相加或转成主导回应风格。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Make one useful observation",
+            "zh": "作一次有用的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful ordinary observation asks which part of an expression you want to keep and which wording you would choose differently. For instance, keep the clear statement that an arrangement did not work, while making a later practical request more specific. You do not need to deny the feeling or produce a perfectly neutral face to make the observation useful.",
+              "zh": "普通观察可问：表达中想保留什么、哪些措辞想换。例如保留安排不合适的清楚说明，把下一次实际请求说具体。不必否认感受或保持绝对中性表情，观察才算有用。"
+            },
+            {
+              "en": "If a conversation needs a pause, make any practical follow-up voluntary and appropriate to the situation. A questionnaire does not require you to contact someone, reopen an argument or ask them to validate your score. It also cannot determine whether continuing a discussion is safe. Use the actual circumstances and available support rather than the average to decide that.",
+              "zh": "谈话需要暂停时，后续实际安排应自愿且适合情境。问卷不要求联系某人、重开争执或请对方验证分数，也不能判定继续谈是否安全。此类决定看实际情况与可用支持，不看均分。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep the limits visible",
+            "zh": "保留必要边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This original topic is not the Anger Expression-Out scale of STAXI-2 or a licensed short form of it. No official item, scoring key, normative table or interpretive report is supplied. The shared distinction between feeling and expression is conceptual background only; evidence about a published professional instrument does not validate these five independently authored prompts.",
+              "zh": "本原创主题不是STAXI-2的向外表达分量表或授权短版，不提供官方题项、计分键、常模表或解释报告。感受与表达的区分仅为概念背景，专业发表工具的证据不验证本站五条独立题目。"
+            },
+            {
+              "en": "Recent circumstances, language interpretation and your available opportunities affect what you can recall. These questions do not establish a permanent trait, diagnose a condition, judge relationship quality or predict workplace performance. A lower mean is not necessarily a better response, and a higher mean does not prove that you should conceal your feelings more often.",
+              "zh": "近期情况、语言理解及可用机会影响回忆。题目不确立固定特质、不诊断、不评关系质量或预测工作表现。均分低不一定更好，均分高也不证明你应该更常隐藏感受。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose an optional next step",
+            "zh": "选择可选的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "For a next reading, compare the guide to keeping feelings private and the guide to perceived choice. The point is to understand different aspects of a response without forcing them into opposites. A clearly stated feeling and a deliberate choice can coexist. None of the guides requires a particular pattern of numbers, and every complete guide is freely available before answering.",
+              "zh": "接着可比较保留感受与选择感指南，理解回应不同方面，而非强迫它们互为反面。清楚表达与审慎选择可以共存。指南不要求某种数字组合，全部完整内容在作答前免费开放。"
+            },
+            {
+              "en": "If a particular incident caused harm or remains difficult to manage, address that incident directly and seek suitable support when needed. Do not let a small average dismiss it or use the questionnaire to label another person. Public sharing copies all four guide links, without the answers or arithmetic that belong to your private attempt.",
+              "zh": "某次事件造成伤害或持续难应对时，应直接处理事件，必要时寻求合适支持。不让小均分否定事件，也不用问卷给别人贴标签。公开分享复制四篇指南链接，不带本次私人答案或计算。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kept-inside",
+      "directionIds": [
+        "kept-inside"
+      ],
+      "title": {
+        "en": "Keeping angry feelings private",
+        "zh": "保留生气感受"
+      },
+      "headline": {
+        "en": "Keeping angry feelings private",
+        "zh": "保留生气感受"
+      },
+      "summary": {
+        "en": "Read keeping angry feelings private without assuming stored-up anger or required disclosure.",
+        "zh": "理解保留生气感受，不假定必然积压或必须披露。"
+      },
+      "scoreReading": {
+        "en": "Five numeric answers: direct sum 0–20 and mean 0–4 to two decimals. Any unscored response withholds this part only; no total, rank, risk band or diagnosis.",
+        "zh": "五个数字：直接合计0—20、均分0—4显示两位小数。任一不计分仅不提供本组数字，无总分、排名、风险段或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Keeping angry feelings private: Full Anger Reflection Guide",
+          "zh": "保留生气感受｜愤怒自评完整指南"
+        },
+        "description": {
+          "en": "Read keeping angry feelings private without assuming stored-up anger or required disclosure.",
+          "zh": "理解保留生气感受，不假定必然积压或必须披露。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this reading describes",
+            "zh": "这组读数在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records occasions when you kept an angry feeling private instead of making it apparent. The five original descriptions cover wording, tone, choosing not to name the feeling, what remained after an activity and a neutral response. They describe what you recall doing while angry, not why you did it or whether the choice was healthy or unhealthy.",
+              "zh": "这组记录生气时保留感受、没有让它显露的场合。五条原创描述涉及措辞、语气、不说出感受、活动后仍有的怒意与中性回应，描述记得怎样做，不解释原因，也不直接判健康或不健康。"
+            },
+            {
+              "en": "Privacy can serve different purposes in different situations. You may want time, prefer not to discuss a feeling publicly or choose a better moment. You may also feel constrained. A frequency response cannot distinguish those reasons. This is why a larger mean is not interpreted as stored-up anger, a future outburst, emotional weakness or an instruction to disclose more.",
+              "zh": "保留可能在不同环境服务不同目的：想留时间、不愿公开谈、选择更适合的时刻，也可能感到受限。频率选项分不清原因。因此较大均分不被解释成积压怒气、将来爆发、情绪软弱或必须更多披露。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Put it in an ordinary situation",
+            "zh": "放进普通情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you may keep your voice even during a shared activity while deciding privately that you are angry. You later decide whether there is a practical issue to discuss. That differs from feeling unable to say anything in an unsafe situation. The outward behaviour may look similar, but a questionnaire average cannot tell these circumstances apart.",
+              "zh": "例如共同活动中语气平稳，心里知道自己生气，之后再决定是否有实际问题要谈。这不同于不安全环境中感到不能说话。外在行为可能像，问卷均分却分不清两种情况。"
+            },
+            {
+              "en": "Use the unscored option if the description or the available choice does not fit what you remember. No angry occasions is also unscored rather than a zero rating for keeping anger private. You do not need to recall an upsetting exchange in detail or tell anyone what happened. The page collects no names, personal accounts or explanations of your choices.",
+              "zh": "描述或可选条件不符合回忆时可选不计分。没有生气场合也属不计分，不是保留感受的零频率。不必细想不快交流，也不必告诉别人发生什么。页面不收姓名、私人叙述或选择理由。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Separate feeling, expression and choice",
+            "zh": "分清感受、表达与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping a feeling private differs from having no feeling, calming down, postponing a conversation or repeatedly thinking about it. Those processes can overlap but need not occur together. This topic does not measure rumination or demonstrate a hidden physical cost. In particular, it does not assume that every unspoken feeling inevitably accumulates or needs to be expressed to another person.",
+              "zh": "保留感受不同于没有感受、平静下来、推迟谈话或反复思考。过程可能重叠，却不必同时出现。本组不测反刍，也不证明隐藏的身体代价，尤其不假定每个未说出口的感受必然积累或必须向别人表达。"
+            },
+            {
+              "en": "It also differs from perceived choice. You can deliberately keep anger private and feel considerable control over the response. You can remain outwardly neutral while feeling little choice. Read those two records separately instead of subtracting one from the other. The direction of a number here is descriptive frequency, not a good-or-bad rating of your emotional life.",
+              "zh": "也不同于选择感。可能主动保留生气并觉得很能选择回应，也可能外表中性却觉得没选择。应分开读，不用一组减另一组。本组数字方向只是发生频率，不评情绪生活好坏。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the answers and arithmetic",
+            "zh": "读懂回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "With five numeric choices, add their direct zero-to-four values for a sum from zero to twenty and divide by five for a mean shown to two decimals. There are no reverse items. The average summarises responses to these five descriptions; it is not a calibrated degree of suppression, a percentage of concealed feelings or a diagnosis.",
+              "zh": "五个数字时，把直接零至四相加得到零至二十，再除以五、显示两位小数。无反向题。均分只概括对五条描述的回答，不是校准压制程度、隐藏感受百分比或诊断。"
+            },
+            {
+              "en": "Any explicit unscored response withholds this part’s sum and mean. Numeric and skipped counts remain, while complete other parts can still be read. Nothing is imputed and uncertainty is not silently treated as a midpoint. All-skipped answers are valid for finishing without a number, whereas a blank asks you to choose or explicitly skip before continuing.",
+              "zh": "任一明确不计分就不显示本组合计与均分，保留数字和跳过数量，其他完整组仍可读。不补值，也不把不确定暗中当中点。全跳过可无数字完成；空白则提示选择或明确跳过再继续。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Make one useful observation",
+            "zh": "作一次有用的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful private observation might ask whether the reason for keeping a feeling private still matters later. You may conclude that no further discussion is needed, or that one practical matter deserves a calm, specific request. Either choice can be reasonable depending on the context. The purpose is to clarify your options, not to meet a disclosure target.",
+              "zh": "有用的私人观察可问：保留感受的原因，之后是否仍重要。也许不需再谈，也许某实际事项值得冷静具体地提出。应视情况决定，目的在于看清选项，不是达到披露目标。"
+            },
+            {
+              "en": "You do not need to send a message, make a confession, confront somebody or recreate the situation. If there is a low-stakes issue you want to revisit, decide whether and when you actually want to do so. Keep your safety, the other person’s boundaries and the practical purpose visible. A questionnaire does not decide who is entitled to hear your feelings.",
+              "zh": "不需要发信息、坦白、对峙或重现场景。若想重谈低负担事项，可决定是否愿意、什么时候谈。保留安全、对方边界与实际目的。问卷不决定谁有权听取你的感受。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep the limits visible",
+            "zh": "保留必要边界"
+          },
+          "paragraphs": [
+            {
+              "en": "These original prompts do not reproduce the Anger Expression-In scale or establish the validity of a shortened clinical instrument. The past-four-weeks window and complete-five arithmetic are editorial choices. Both language forms are unvalidated, without norms, clinical bands, hidden-risk categories, causal explanations or a threshold for when privacy becomes a problem.",
+              "zh": "原创题不复现向内表达分量表，也不确立短临床工具效度。四周窗口和全五题计算是编辑选择。两种语言未验证，没有常模、临床分段、隐藏风险类别、因果解释或保留感受变成问题的阈值。"
+            },
+            {
+              "en": "The record cannot decide whether your relationship is safe, whether you have been harmed or whether you have harmed someone. Nor does a low mean establish emotional openness or wellbeing. Important concerns need their own attention based on events and available support. Do not use a partner’s silence or a colleague’s neutral tone to assign them a score from this guide.",
+              "zh": "记录不能决定关系是否安全、是否受害或伤害过别人。均分低也不确立情绪开放或健康。重要疑问需按事件与支持单独处理。不用伴侣沉默或同事平稳语气替对方打分。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose an optional next step",
+            "zh": "选择可选的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "For a next reading, compare visible expression with perceived choice while remembering that they are separate topics. You might sometimes name anger clearly, sometimes keep it private and feel able to choose both. The questionnaire preserves that mixed picture rather than assigning an inward or outward personality type. No particular combination is required to access the full explanation.",
+              "zh": "可接着比较外显表达与选择感，记住它们是不同主题。可能有时明确说生气，有时保留，并且都觉得有选择。问卷保留混合情况，不分向内或向外人格类型，也不要求某组合才给完整解释。"
+            },
+            {
+              "en": "If keeping feelings private feels persistently unwanted or difficult, consider support appropriate to the actual concern. A public guide cannot prescribe disclosure or treatment. Sharing contains all four public readings and none of your choices, counts, sums or means; another reader can consider the topic without receiving your private response record.",
+              "zh": "若保留感受持续违背意愿或难应对，可按实际困扰考虑合适支持。公开指南不规定披露或治疗。分享含全部四篇公开读法，不含选择、数量、合计或均分，别人可以理解主题而不收到私人记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "perceived-choice",
+      "directionIds": [
+        "perceived-choice"
+      ],
+      "title": {
+        "en": "Feeling a choice in the response",
+        "zh": "感到自己仍有回应选择"
+      },
+      "headline": {
+        "en": "Feeling a choice in the response",
+        "zh": "感到自己仍有回应选择"
+      },
+      "summary": {
+        "en": "Read perceived response choices without mistaking them for demonstrated control or safety.",
+        "zh": "理解自感回应选择，不误当已展示控制或安全证明。"
+      },
+      "scoreReading": {
+        "en": "Five numeric answers: direct sum 0–20 and mean 0–4 to two decimals. Any unscored response withholds this part only; no total, rank, risk band or diagnosis.",
+        "zh": "五个数字：直接合计0—20、均分0—4显示两位小数。任一不计分仅不提供本组数字，无总分、排名、风险段或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feeling a choice in the response: Full Anger Reflection Guide",
+          "zh": "感到自己仍有回应选择｜愤怒自评完整指南"
+        },
+        "description": {
+          "en": "Read perceived response choices without mistaking them for demonstrated control or safety.",
+          "zh": "理解自感回应选择，不误当已展示控制或安全证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this reading describes",
+            "zh": "这组读数在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part describes how often you felt you still had a choice about your response while angry. The five original prompts concern choosing words, a safe pause, waiting to send a nonessential message, stopping a routine exchange and seeing more than one acceptable response. They concern perceived options, not a demonstrated skill or a guarantee that the eventual behaviour was helpful.",
+              "zh": "这组描述生气时多常感到仍能选择回应。五条原创题涉及选词、安全暂停、等一等再发非必要信息、暂停普通交流及看到多种可接受回应。关注自感选项，不是已展示技能，也不保证最终行为有用。"
+            },
+            {
+              "en": "A larger mean means you endorsed these perceived-choice descriptions more frequently on relevant occasions. It is a different direction from frequently feeling anger, not a value to subtract from it. You may feel angry and have options at the same time. There is no target number that would establish maturity, good character, emotional intelligence or the absence of harm.",
+              "zh": "均分较大，表示有相关机会时更常认同这些选择感描述；与常生气方向不同，但不从怒意分中扣除。生气与有选项可以同时存在。没有某个目标数字能确立成熟、好品格、情商或没有伤害。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Put it in an ordinary situation",
+            "zh": "放进普通情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine receiving a routine message while already irritated. You feel able to leave a nonessential reply until later and then decide what to write. That describes a perceived option. It does not tell the site whether you actually waited, whether the reply was appropriate or whether the recipient agreed. Those are separate observations that a frequency rating cannot replace.",
+              "zh": "例如本来就烦躁时收到普通信息，感到可以晚些回复非必要内容，再决定怎么写。这描述自感选项，不告诉网站是否真的等了、回复是否合适或对方是否认同。这些独立观察不能由频率替代。"
+            },
+            {
+              "en": "An opportunity also depends on the setting. A genuinely urgent task may not permit the same pause as a casual exchange. If the prompt’s ordinary, optional setting did not occur or you cannot judge the available choice, use unscored. Do not mark yourself down for not having options that the situation did not offer, and do not change safety procedures to create them.",
+              "zh": "机会也取决于环境。真正紧急的任务，不一定允许像随意交流一样暂停。若没有题中普通可选情境，或无法判断有何选择，可不计分。不因为环境没提供选项就给自己扣分，也不改变安全程序来制造选项。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Separate feeling, expression and choice",
+            "zh": "分清感受、表达与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Perceived choice differs from concealment. Keeping an even tone can be deliberate, automatic or constrained; naming anger can also be deliberate. This record therefore does not treat private feelings as failed control or outward expression as its opposite. Read the other parts for what you felt and showed, without assuming that one response explains another.",
+              "zh": "选择感不同于遮掩。平稳语气可能是主动、自动或受限，直接说明生气也可能是主动选择。因此不把保留感受当控制失败，也不把外显表达当其反面。另几组描述感受与表现，不假定一组解释另一组。"
+            },
+            {
+              "en": "Feeling able to choose is also different from regulating the feeling itself. You may still feel angry after choosing careful words. You may calm down without solving the practical issue that mattered. These five prompts do not establish physiological recovery, the success of a technique or an ability to control other people. A useful response can leave room for a feeling to remain.",
+              "zh": "觉得能选择，也不同于调节感受本身。选词谨慎后可能仍生气；平静下来也可能没解决重要实际问题。五条题不确立生理恢复、方法成功或控制别人的能力。有用回应可以容许感受继续存在。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the answers and arithmetic",
+            "zh": "读懂回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of five numeric answers contributes directly from zero to four. All five are required for a sum from zero to twenty and a mean from zero to four, displayed to two decimals. No item is reversed. A mean of 2.00 summarises selected frequency categories, rather than proving that you control half your reactions or perform at an average population level.",
+              "zh": "五条数字各直接计零至四，全五条才提供零至二十合计、零至四均分，显示两位小数，无反向。2.00只是所选频率类别摘要，不证明能控制一半反应或达到人口平均水平。"
+            },
+            {
+              "en": "If one answer is no opportunity, unsure or declined, this part’s sum and mean remain unscored. Counts of numeric and skipped responses stay visible, and complete other parts retain their readings. No missing response is imputed. If you recall no angry occasions at all, explicitly choose unscored for these conditional prompts; the site does not invent fifteen downstream zeroes from the occurrence part.",
+              "zh": "一条无机会、不确定或不愿回答，就不提供本组合计与均分，仍显示数字与跳过数量，其他完整组保留读数，不补值。若完全没有生气场合，这些条件题明确选不计分；本站不从出现组编造后十五个零。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Make one useful observation",
+            "zh": "作一次有用的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful next observation asks what one available choice actually was and what happened after you used or did not use it. For a routine, nonurgent exchange, that might be drafting a practical question privately before deciding whether to send it. The observation is optional; you do not need to create an argument or turn the questionnaire into a performance test.",
+              "zh": "有用的后续观察可问：当时一个真实选项是什么，用或没用之后发生什么。普通非紧急交流中，可能是私下写好实际问题，再决定是否发送。观察可选，无需制造争论，也不把问卷变成表现考试。"
+            },
+            {
+              "en": "Keep the aim concrete and modest. You might want a clearer request, a pause with an agreed practical follow-up or simply more time to decide. None of these is a promise that anger will disappear or another person will respond as you wish. The score cannot decide when to contact someone, override their request for a pause or demand agreement with your interpretation.",
+              "zh": "目标保持具体而小：更清楚的请求、有实际后续约定的暂停，或更多决定时间。都不保证怒意消失或别人按希望回应。分数不能决定何时联系、越过对方暂停请求或要求对方同意解释。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep the limits visible",
+            "zh": "保留必要边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a self-report reflection, not an ability demonstration, treatment outcome or validated anger-control scale. The four-week recall window, original wording and arithmetic are site-selected. Neither the English nor Chinese form has established psychometric validity or cross-language equivalence. Repeating it is not validated for measuring improvement, and a number cannot certify readiness for a difficult conversation.",
+              "zh": "这是自报回顾，不是能力展示、治疗效果或验证后的愤怒控制量表。四周、原创措辞与计算由本站选定。中英文都未确立心理测量效度或跨语言等值，重测未验证用于测改善，数字不能证明已准备好困难谈话。"
+            },
+            {
+              "en": "Perceived options can vary with circumstances, fatigue, communication demands and what you remember. This tool cannot separate those influences or establish their causes. A low mean does not make you powerless or morally deficient, and a high mean cannot rule out harmful conduct. Serious concerns should be considered through what happened, not reduced to a rating of self-control.",
+              "zh": "自感选项可能随环境、疲倦、沟通要求和回忆而变，工具无法分开影响或确立原因。均分低不代表无能或品德不足，高也不排除伤害行为。严重疑问应据事件考虑，不压缩成自控评分。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose an optional next step",
+            "zh": "选择可选的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the other three complete guides to distinguish occurrence, expression and privacy from perceived choice. All four are parts of one check-in, not four personality types or independent tests. The result keeps them in a fixed order without a winner, a risk band or an overall score, and the same public explanations are available to everyone before answering.",
+              "zh": "读另三篇完整指南，区分出现、表达、保留与选择感。四者是同一自评的部分，不是四种人格或四个独立测试。结果按固定顺序保留，无赢家、风险分段或总分；相同公开解释在作答前向所有人开放。"
+            },
+            {
+              "en": "If anger or your responses are persistently difficult to manage, seek help matched to the actual concern instead of waiting for a cutoff. For broader self-reflection, the separate EQ60 entry offers its own method, questions and report scope. It does not validate this result, and no further test, signup or personal disclosure is required to read these guides.",
+              "zh": "若怒意或回应持续难以应对，可按实际困扰寻求帮助，不等切点。更广泛自我回顾可选EQ60，它有自己的方法、题目与报告范围，不验证本结果；读这些指南不需继续测试、注册或披露个人情况。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four independently authored topics",
+        "zh": "四个独立写作的主题"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind Editorial independently authored twenty bilingual prompts and four complete guides. The topics are occurrence in everyday contexts, visible expression while angry, keeping angry feelings private and perceived response choice. They are editorial reflection topics, not validated factors or a complete model of anger.",
+          "zh": "费马测试编辑部独立写作二十条双语描述与四篇完整指南，主题是日常情境中出现、已生气时外显、保留生气感受与自感回应选择。这些是编辑回顾主题，不是验证因子或愤怒完整模型。"
+        },
+        {
+          "en": "STAXI-2 is a separate professional instrument with its own state, trait, expression and control measures. This page does not reproduce its fifty-seven items, scoring keys, normative classifications or reports and is not its licensed or validated short form. Conceptual distinctions and general information do not transfer an instrument’s evidence to our original questionnaire.",
+          "zh": "STAXI-2是另一个专业工具，有自己的状态、特质、表达和控制测量。本页不复现其五十七题、计分键、常模分类或报告，不是授权或验证短版。概念区分与一般信息，不把原工具证据转给本站原创问卷。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Exactly what the four readings mean",
+        "zh": "四组读数具体是什么意思"
+      },
+      "paragraphs": [
+        {
+          "en": "Every prompt needs an explicit numeric or unscored choice. Each part requires all five numeric zero-to-four answers for a direct sum of zero to twenty and a mean of zero to four, displayed to two decimals. All items are direct. Means summarise ordered frequency labels rather than calibrated interval measurements, percentages of time or population comparisons.",
+          "zh": "每条需明确选择数字或不计分。每组五条均为零至四数字，才提供零至二十直接合计与零至四均分、显示两位小数，全部直接计分。均分概括有序频率描述，不是校准等距测量、时间比例或人口比较。"
+        },
+        {
+          "en": "Unscored is valid but withholds its own part’s numbers; complete other parts remain readable. Nothing is imputed. Never on relevant occasions differs from no opportunity. Zero occurrence does not auto-answer the conditional prompts, and no angry occasions should not become fifteen invented zeroes. No total, reverse scoring, rank, winner, bands, risk level, norms or diagnostic cutoff is used.",
+          "zh": "不计分有效，但不提供本组数字，其他完整组仍可读，不补值。有机会时从未不同于无机会。出现为零不自动代答条件题，没有生气场合不变成十五个编造的零。无总分、反向、排名、赢家、分段、风险等级、常模或诊断切点。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Feeling, expression, privacy and choice are different",
+        "zh": "感受、表达、保留与选择不同"
+      },
+      "paragraphs": [
+        {
+          "en": "Visible expression includes directly saying that you are upset and is not automatically aggression or failed control. Keeping a feeling private is not inherently unhealthy and does not prove that anger inevitably accumulates. Perceived choice is not demonstrated skill, absence of harm or safety. Different topics can coexist and are not scored as opposites.",
+          "zh": "外显包括直接说出不快，不自动等于攻击或控制失败。保留感受并非本质上不健康，也不证明怒气必然积累。自感选择不是已展示技能、无伤害或安全。不同主题可以同时存在，不作为彼此反向计分。"
+        },
+        {
+          "en": "The four-week window and arithmetic are editorial. Neither language is psychometrically validated or established as equivalent, and retaking is not a validated change measure. This self-reflection cannot diagnose a disorder, judge a partner, screen applicants or assess violence. Important concerns need attention based on actual events, not a mean; persistent difficulty can be discussed with appropriate support.",
+          "zh": "四周与计算是编辑选择。两种语言均未做心理测量或等值验证，重测不是已验证变化测量。本自评不能诊断、评伴侣、筛求职者或评暴力。重要疑问应看真实事件而非均分，持续困难可向合适支持讨论。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Four full guides without an extra test",
+        "zh": "四篇完整指南，无需再测解锁"
+      },
+      "paragraphs": [
+        {
+          "en": "Each public guide explains a concrete situation, nearby distinctions, exact arithmetic, optional observations and limits. All four are identical public readings for everyone, freely available before answering and expandable beside the private response records. They are parts of one check-in, not four independent tests, personal clinical reports or hidden result types.",
+          "zh": "每篇公开指南解释具体情境、相近区别、精确计算、可选观察与限制。四篇向所有人提供相同内容，作答前免费、私人记录旁可展开。它们是同一自评的部分，不是四个独立测试、个人临床报告或隐藏类型。"
+        },
+        {
+          "en": "Sharing copies all four public guide links without selected answers, counts, sums or means. A separate EQ60 entry offers broader self-reported emotional and relational reflection, with its own method and burden. It does not validate these results, receives no answers or scores from them and is not required to see the full explanation.",
+          "zh": "分享复制四篇公开指南链接，不带答案、数量、合计或均分。单独EQ60入口提供更广泛的自报情绪与关系回顾，有自己的方法和负担，不验证本结果，不接收此处答案或分数，也不是看完整解释的条件。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I have anger issues?",
+        "zh": "这能判断我有没有愤怒问题吗？"
+      },
+      "answer": {
+        "en": "No. It records responses to twenty original descriptions, without diagnosis, severity bands, risk tiers, norms or a safety assessment. Significant events matter on their own and cannot be ruled out by a small mean.",
+        "zh": "不能。本页记录二十条原创描述的回答，无诊断、严重度、风险段、常模或安全评估。重要事件本身值得重视，不能被小均分排除。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this STAXI-2 or a validated short form?",
+        "zh": "这是STAXI-2或验证短版吗？"
+      },
+      "answer": {
+        "en": "No. The questions, response labels, arithmetic and guides are independently authored. No official STAXI-2 items, keys, norms or reports are reproduced. General conceptual background does not validate this questionnaire.",
+        "zh": "不是。题目、选项、计算与指南独立写作，不复现官方题项、键、常模或报告。一般概念背景不验证本问卷。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I did not feel angry during the window?",
+        "zh": "这段时间没有生气怎么办？"
+      },
+      "answer": {
+        "en": "Use never only when a relevant ordinary situation occurred without the described anger. For the last fifteen prompts, no angry occasions means unscored, not zero. The page does not auto-fill them from the first part; explicit choices are still required.",
+        "zh": "相关普通情境发生却没有题述怒意时才选从未。后十五条没有生气场合应不计分，不是零。页面不从第一组自动填后续，仍需明确选择。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is expressing anger bad, or keeping it private unhealthy?",
+        "zh": "表达生气就是不好，保留就是不健康吗？"
+      },
+      "answer": {
+        "en": "Neither conclusion follows. Expression includes clearly naming a feeling; privacy can be deliberate or constrained. Perceived choice is another topic. The records do not rank the four parts, label a person or predict harm.",
+        "zh": "均不能这样推断。表达包括清楚说明感受，保留可能主动或受限，选择感又是另一主题。记录不对四组排名、不贴人格标签、不预测伤害。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are uncertainty and skips handled?",
+        "zh": "不确定和跳过怎么处理？"
+      },
+      "answer": {
+        "en": "They are explicit unscored choices, never imputed as zero or a midpoint. Any unscored answer withholds its own part’s sum and mean, with counts visible and complete other parts readable. All-unscored can finish; blank is incomplete.",
+        "zh": "它们是明确不计分项，不补成零或中点。出现一条就不提供本组合计与均分，保留数量和其他完整组。全不计分可完成，空白则未完成。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved, posted or included in sharing?",
+        "zh": "答案会保存、上传或进入分享吗？"
+      },
+      "answer": {
+        "en": "Answers remain in page memory and clear on refresh, language change, leaving or retaking. Public sharing contains all four guide links only. Optional anonymous action counts require both page permission and global analytics consent, without answers or part scores.",
+        "zh": "答案留在页面内存，刷新、换语言、离开或重测清除。公开分享只含四篇指南。可选匿名动作计数需本页许可及全站分析同意，不含答案或分组分数。"
+      }
+    }
+  ],
+  "anger20": {
+    "subtitle": {
+      "en": "Describe four aspects of a response, without a risk label",
+      "zh": "描述回应的四个方面，不贴风险标签"
+    },
+    "privacy": {
+      "en": "Answers stay only in page memory and clear on refresh, language change, leaving or retaking. No draft, account, private event or conversation is collected. Sharing contains all four public guides without personal numbers.",
+      "zh": "答案仅留在页面内存，刷新、换语言、离开或重测清除。不收草稿、账户、私人事件或对话。分享含四篇公开指南，不带个人数字。"
+    },
+    "editionNotice": {
+      "en": "FermatMind original 20-item reflection · Not validated · Ages 18+ · No diagnosis, aggression assessment, norms or risk tier.",
+      "zh": "费马测试原创20题回顾 · 尚未验证 · 18岁及以上 · 无诊断、攻击评估、常模或风险等级。"
+    },
+    "attribution": {
+      "en": "Questions and guides: FermatMind Editorial, 2026. References distinguish concepts and provide general background; they do not supply, endorse or validate this original questionnaire.",
+      "zh": "题目与指南：费马测试编辑部，2026。来源区分概念并提供一般背景，不提供、背书或验证本站原创问卷。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "PAR: the separate professional STAXI-2 instrument",
+        "zh": "PAR：单独的专业STAXI-2工具"
+      },
+      "url": "https://www.parinc.com/products/STAXI-2"
+    },
+    {
+      "title": {
+        "en": "PAR: state, trait and the separate STAXI forms",
+        "zh": "PAR：状态、特质与不同STAXI题本"
+      },
+      "url": "https://www.parinc.com/product/groups/staxi-assessments"
+    },
+    {
+      "title": {
+        "en": "NHS: anger and getting appropriate support",
+        "zh": "NHS：生气与寻求合适支持"
+      },
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anger/"
+    }
+  ]
+}
