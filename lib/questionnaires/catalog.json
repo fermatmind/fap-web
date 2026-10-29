@@ -6034,5 +6034,30 @@
       "logical"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "social-attitudes-reflection",
+    "code": "FM_SOCIAL_ATTITUDES24",
+    "version": "fm_social_attitudes24_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Social Attitudes Reflection Test",
+      "zh": "社会态度反思测试"
+    },
+    "description": {
+      "en": "Explore four social topics with 24 original statements and full free guides. Separate agreement from uncertainty; no prejudice, party or identity score.",
+      "zh": "用24条原创陈述，分别回顾社会规则、性别角色、日常接纳同性恋者与种族公平看法。四篇完整指南免费，区分认同、中立与资料不足，不评偏见或身份。"
+    },
+    "minutes": 5,
+    "formCode": "fm_social_attitudes24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "reviewing-rules",
+      "gender-roles",
+      "gay-lesbian-inclusion",
+      "racial-context"
+    ],
+    "collection": "explore"
   }
 ]

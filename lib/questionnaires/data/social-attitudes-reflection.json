@@ -1,0 +1,2192 @@
+{
+  "slug": "social-attitudes-reflection",
+  "code": "FM_SOCIAL_ATTITUDES24",
+  "version": "fm_social_attitudes24_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Social Attitudes Reflection Test",
+    "zh": "社会态度反思测试"
+  },
+  "seoTitle": {
+    "en": "Social Attitudes Test: Gender, Inclusion & Social Change",
+    "zh": "社会态度反思测试：社会变革、性别角色与公平，四篇完整读法"
+  },
+  "description": {
+    "en": "Explore four social topics with 24 original statements and full free guides. Separate agreement from uncertainty; no prejudice, party or identity score.",
+    "zh": "用24条原创陈述，分别回顾社会规则、性别角色、日常接纳同性恋者与种族公平看法。四篇完整指南免费，区分认同、中立与资料不足，不评偏见或身份。"
+  },
+  "resultHeading": {
+    "en": "Your four separate readings and complete guides",
+    "zh": "四项独立读法与完整指南"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "A view about one social situation need not explain every other view. Explore four everyday topics through 24 original statements, with separate means or insufficient-information states and four complete free guides. This reflection describes agreement with the sentences shown, not who you are or how anyone behaves.",
+    "zh": "对一个社会场合的看法，不必解释其他所有观点。用24条原创陈述探索四个日常主题，分别呈现均分或资料不足，并免费阅读四篇完整指南。这份反思描述对所列句子的认同，不定义你是谁，也不确定任何人的行为。"
+  },
+  "instructions": {
+    "en": "Answer only for yourself, with ordinary voluntary shared activities in mind. Rate each statement from Strongly disagree to Strongly agree. Neither agree nor disagree is a valid numeric midpoint; uncertainty, absent context or declining to answer may remain unscored. Respond to all 24 prompts. Each six-item topic needs four numeric ratings for its own mean. No overall total, rank or identity is assigned. You may stop or read every guide without answering.",
+    "zh": "只回答自己，以普通、自愿的共同活动为参照。从非常不同意到非常同意评价每句。中立是有效数字中点，不确定、情境缺失或不想回答可选未评分。全部24条均需回应，每个六条主题至少四条数字才显示独立均分。不计算总分、排名或身份；可以随时停止，或不作答直接读全部指南。"
+  },
+  "source": {
+    "kind": "FermatMind independent original24ENZHagreementstatements/fourselectedsocialtopics;not JobCannon4stancebanksoranypublishedprejudicescale",
+    "formCode": "fm_social_attitudes24_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "six_items_equal_mean_min4_no_reverse_v1",
+    "resultContentVersion": "four_full_statement_set_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "8af58e48647a8577e9b007339638fec42c769a56d667ec84d8f47633483b1449",
+    "resultContentSha256": "d4d498887b85947fe6f5f02447115d3be2b02104418aed46fc124dc68498e49d"
+  },
+  "directions": [
+    {
+      "id": "reviewing-rules",
+      "title": {
+        "en": "Views on reviewing shared rules",
+        "zh": "关于复核共同规则的看法"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "gender-roles",
+      "title": {
+        "en": "Views on gender roles and choice",
+        "zh": "关于性别角色与选择的看法"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "gay-lesbian-inclusion",
+      "title": {
+        "en": "Views on everyday inclusion of gay and lesbian people",
+        "zh": "关于日常接纳同性恋者的看法"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "racial-context",
+      "title": {
+        "en": "Views on racial fairness and context",
+        "zh": "关于种族公平与处境的看法"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "SAR_01",
+      "prompt": {
+        "en": "I would support reviewing a familiar community rule if people described unequal barriers to taking part.",
+        "zh": "如果有人提出参与机会存在不平等障碍，我会支持复核一项沿用已久的社区规则。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_02",
+      "prompt": {
+        "en": "I think household tasks should be agreed around people’s circumstances rather than assigned by gender.",
+        "zh": "我认为，家务分工应根据各人的情况协商，而不是按性别指定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_03",
+      "prompt": {
+        "en": "I think an ordinary group invitation should follow the same participation rules for gay and lesbian people as for everyone else.",
+        "zh": "我认为，普通小组邀约应对同性恋者与其他人适用相同的参与规则。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_04",
+      "prompt": {
+        "en": "I think a rule that applies to everyone can still be worth checking for unequal practical barriers across racial backgrounds.",
+        "zh": "我认为，即使规则对所有人一样，也值得检查不同种族背景的人是否遇到不同的实际障碍。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_05",
+      "prompt": {
+        "en": "I think a long-standing custom can be reconsidered without dismissing everyone who values it.",
+        "zh": "我认为，可以重新讨论一项长期习俗，而不否定所有重视它的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_06",
+      "prompt": {
+        "en": "I think people of any gender should be considered for the same role using the same relevant criteria.",
+        "zh": "我认为，应以相同且相关的标准，考虑任何性别的人是否适合某项职责。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_07",
+      "prompt": {
+        "en": "I think a person mentioning a same-sex partner should have the same choice about privacy as anyone mentioning a partner.",
+        "zh": "我认为，提到同性伴侣的人，应与其他提到伴侣的人一样，自主选择披露多少隐私。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_08",
+      "prompt": {
+        "en": "I think it is better to ask about an individual’s experience than assume it from their racial background.",
+        "zh": "我认为，最好了解一个人的具体经历，而不是按其种族背景预设。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_09",
+      "prompt": {
+        "en": "I would support changing the wording of a shared notice when its meaning unnecessarily excludes some participants.",
+        "zh": "如果公共通知的表述造成不必要的参与排除，我会支持修改措辞。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_10",
+      "prompt": {
+        "en": "I would support someone choosing an ordinary hobby that people around them usually associate with another gender.",
+        "zh": "如果有人选择周围人通常归于另一性别的普通爱好，我会支持这种选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_11",
+      "prompt": {
+        "en": "I would be comfortable taking part in an ordinary shared activity with someone who had told me they were gay or lesbian.",
+        "zh": "如果有人告诉我其为同性恋者，我愿意自在地与其参加一项普通共同活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_12",
+      "prompt": {
+        "en": "I would consider concrete examples from more than one racial background when reviewing access to an ordinary group activity.",
+        "zh": "评估普通集体活动的参与机会时，我会考虑来自不止一种种族背景的具体例子。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_13",
+      "prompt": {
+        "en": "I think the people affected by an ordinary rule should have a chance to explain how it works for them.",
+        "zh": "我认为，受一项日常规则影响的人应有机会说明自己的实际体验。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_14",
+      "prompt": {
+        "en": "I think caregiving and practical repair skills should both be open to people of any gender.",
+        "zh": "我认为，照料他人与动手修理这两类技能，都应该向任何性别的人开放。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_15",
+      "prompt": {
+        "en": "I think a group can acknowledge different kinds of families without asking anyone to disclose private information.",
+        "zh": "我认为，小组可以承认家庭形式存在差异，而不要求任何人披露私人信息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_16",
+      "prompt": {
+        "en": "I think a person should not be expected to explain or represent everyone who shares their racial background.",
+        "zh": "我认为，不应期待一个人解释或代表所有与其种族背景相同的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_17",
+      "prompt": {
+        "en": "I would consider revising a routine even if it is familiar, when the reasons for keeping it no longer fit.",
+        "zh": "即使习惯某种做法，如果保留它的理由已不再适用，我也会考虑修改。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_18",
+      "prompt": {
+        "en": "I think shared arrangements for caring responsibilities should consider each person’s actual circumstances rather than assume one gender will do them.",
+        "zh": "我认为，照料职责的共同安排应考虑每个人的实际情况，而不是预设由某一性别承担。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_19",
+      "prompt": {
+        "en": "I think it is better to avoid assuming that a person’s partner is of a different sex.",
+        "zh": "我认为，最好不要预设一个人的伴侣必定与其性别不同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_20",
+      "prompt": {
+        "en": "I think a fairness claim is worth examining in its actual setting rather than accepting or dismissing it from a group label alone.",
+        "zh": "我认为，公平相关主张值得放回实际情境检查，而不应只凭群体标签接受或否定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_21",
+      "prompt": {
+        "en": "I think a proposed fairness reform should be reviewed again after people have tried it.",
+        "zh": "我认为，一项以公平为目的的改革试行后，还应该再次检查实际效果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "reviewing-rules",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "reviewing-rules",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "reviewing-rules",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_22",
+      "prompt": {
+        "en": "I think a person’s gender should not by itself decide whether they can speak for a group.",
+        "zh": "我认为，不应仅凭一个人的性别，决定其能否代表小组发言。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gender-roles",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gender-roles",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gender-roles",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gender-roles",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gender-roles",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_23",
+      "prompt": {
+        "en": "I think personal disagreement about relationships should not by itself exclude a gay or lesbian person from an unrelated ordinary activity.",
+        "zh": "我认为，不应仅因对关系的个人看法不同，就把同性恋者排除在与此无关的普通活动之外。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "gay-lesbian-inclusion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SAR_24",
+      "prompt": {
+        "en": "I think an account of racial unfairness can be heard without assuming every person from that background has the same experience.",
+        "zh": "我认为，可以听取一份关于种族不公平的描述，同时不预设该背景下每个人都有相同经历。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "racial-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "racial-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "中立（既不赞同也不反对）"
+          },
+          "directionId": "racial-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "racial-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "racial-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain / no suitable context / prefer not to answer",
+            "zh": "不确定／没有合适情境／不想回答"
+          },
+          "directionId": "racial-context",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reviewing-rules",
+      "directionIds": [
+        "reviewing-rules"
+      ],
+      "title": {
+        "en": "Views on reviewing shared rules: Full Social Attitudes Guide",
+        "zh": "关于复核共同规则的看法：社会态度完整读法"
+      },
+      "headline": {
+        "en": "Views on reviewing shared rules",
+        "zh": "关于复核共同规则的看法"
+      },
+      "summary": {
+        "en": "Read this selected statement set through an ordinary example, counterexamples, topic comparisons and an optional wording exercise.",
+        "zh": "通过一个普通例子、反例、主题比较和可选措辞练习，理解这组特定陈述。"
+      },
+      "scoreReading": {
+        "en": "Agreement with this statement set, read with the rated count; no identity or overall judgement.",
+        "zh": "结合有效项数，阅读对这组特定陈述的认同，不派身份或总体评价。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reviewing Shared Rules | Social Attitudes Test",
+          "zh": "关于复核共同规则的看法｜社会态度反思"
+        },
+        "description": {
+          "en": "Full free reading: original statement-set reflection, examples, uncertainty and clear limits. No prejudice, identity or party score.",
+          "zh": "免费完整读法：原创陈述反思、例子、不确定性与明确边界，不生成偏见、身份或党派分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reviewing-rules-1",
+          "title": {
+            "en": "What this reading actually summarizes",
+            "zh": "这项读法具体概括什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part summarizes agreement with six statements about reviewing ordinary rules and customs. They concern reported barriers, reconsidering a custom, wording, hearing affected people, changing an outdated routine and reviewing a reform after a trial. A higher mean means greater agreement with this particular set. It is not a general score for being progressive, fair or “woke.” It cannot establish which rule should change or whether a proposed change would work.",
+              "zh": "这一部分概括对六条普通规则与习俗复核观点的认同程度，分别涉及被提出的障碍、重新讨论习俗、措辞、听取受影响者、调整不合时宜的惯例，以及试行后的复核。均分较高，只表示更认同这一组具体陈述，不是进步、公平或“woke”总分，也不能确定哪条规则应该改变或改革是否有效。"
+            }
+          ]
+        },
+        {
+          "id": "reviewing-rules-2",
+          "title": {
+            "en": "A notice for a shared activity",
+            "zh": "一张共同活动的通知"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a local activity using an old notice that leaves the joining process unclear. One participant asks for simpler instructions; another values keeping the familiar format. Reviewing the notice can involve checking both accounts and the practical consequences of a revision. The result does not decide who is right. Nor does agreeing to review this notice imply support for changing every custom. An actual decision needs details that these broad statements do not supply.",
+              "zh": "设想一项本地活动沿用旧通知，参加流程不太清楚。有人希望说明更简明，也有人重视熟悉的格式。复核可以同时了解双方意见，以及修改后的实际影响。测试不裁定谁对谁错；愿意复核这张通知，也不表示支持改变所有习俗。真实决定需要具体信息，这些宽泛陈述并未提供。"
+            }
+          ]
+        },
+        {
+          "id": "reviewing-rules-3",
+          "title": {
+            "en": "Read agreement without assigning a camp",
+            "zh": "不从认同程度分派阵营"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean records less agreement with these sentences, not proof of indifference to fairness. Someone may question the examples, the wording or who should make a decision. A higher mean does not prove good intentions or effective action. A middle answer is a valid neutral response; uncertainty or unwillingness to answer belongs in the unscored option. The questionnaire does not determine a political party, a reform strategy or how much change a community needs.",
+              "zh": "均分较低只记录对这些句子的认同较少，不证明漠视公平。有人可能对例子、措辞或谁有权决定存在疑问；较高均分也不证明善意或行动有效。中间选项是有效的中立回答，不确定或不愿回答可选未评分。问卷不判断党派、改革策略或社区需要多大改变。"
+            },
+            {
+              "en": "For example, agreement with hearing affected people can coexist with disagreement about changing a familiar notice. A middle mean may combine those different answers rather than a single moderate position. Consider which sentence carried a different meaning for you before treating the average as one belief.",
+              "zh": "例如，认同听取受影响者，并不妨碍对修改旧通知有不同意见。中间均分可能来自这类不同回答的组合，而非一个温和立场。把平均数当成单一信念之前，可先想想哪句话对你含义不同。"
+            }
+          ]
+        },
+        {
+          "id": "reviewing-rules-4",
+          "title": {
+            "en": "Keep the four topics separate",
+            "zh": "四个主题分别理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Views about reviewing rules do not automatically determine views about gender roles, including gay and lesbian people or racial context. You might interpret one setting differently from another. This edition keeps all four means separate instead of turning them into an inclusion rank. It also does not reproduce another website’s Tradition First, Steady Reform, Everyday Inclusion or System Change classifier. Those names are not interchangeable with the response pattern shown here.",
+              "zh": "对复核规则的看法，不自动决定性别角色、是否接纳同性恋者，或种族背景相关的看法。不同场合可能有不同理解。本版分别保留四项均分，不把它们变成包容度排名，也不复现其他网站的传统优先、稳步改革、日常包容或制度变革分类；这些名称不能与本版回答模式互换。"
+            }
+          ]
+        },
+        {
+          "id": "reviewing-rules-5",
+          "title": {
+            "en": "An optional question about wording",
+            "zh": "一个可选的措辞问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to reflect further, choose one statement and ask what example you imagined. Separate the claim on the page from assumptions you supplied about a school, workplace or family. You can keep that note private and make no change to your answer. There is no desired score to reach. These prompts are for understanding an answer, not for persuading you to join a movement or choose a side.",
+              "zh": "如果想继续思考，可挑一句话，问自己当时想到了哪个例子。区分页上主张与自己补入的学校、职场或家庭背景。笔记可以保密，答案也无需改变，没有应该达到的分数。这些提示只帮助理解回答，不劝你参加运动或选择阵营。"
+            }
+          ]
+        },
+        {
+          "id": "reviewing-rules-6",
+          "title": {
+            "en": "Calculation and missing information",
+            "zh": "计算与缺失信息"
+          },
+          "paragraphs": [
+            {
+              "en": "All 24 prompts need a response before a result appears. Each topic has six items and needs at least four numeric ratings. There are no reverse items. For example, 2, 3, 4, 5 and two unscored responses give a raw sum of 14, four ratings and a mean of 3.5. Three ratings produce insufficient information. Missing responses are not made neutral, and no total, rank, threshold or population comparison is calculated.",
+              "zh": "结果出现前，全部24条均需回应。每主题六条，至少四条数字才计算，无反向题。例如2、3、4、5与两条未评分，原始和14、有效四条、均分3.5；只有三条有效时呈现资料不足。缺失不补成中立，不计算总体分、排名、阈值或人群比较。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gender-roles",
+      "directionIds": [
+        "gender-roles"
+      ],
+      "title": {
+        "en": "Views on gender roles and choice: Full Social Attitudes Guide",
+        "zh": "关于性别角色与选择的看法：社会态度完整读法"
+      },
+      "headline": {
+        "en": "Views on gender roles and choice",
+        "zh": "关于性别角色与选择的看法"
+      },
+      "summary": {
+        "en": "Read this selected statement set through an ordinary example, counterexamples, topic comparisons and an optional wording exercise.",
+        "zh": "通过一个普通例子、反例、主题比较和可选措辞练习，理解这组特定陈述。"
+      },
+      "scoreReading": {
+        "en": "Agreement with this statement set, read with the rated count; no identity or overall judgement.",
+        "zh": "结合有效项数，阅读对这组特定陈述的认同，不派身份或总体评价。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gender Roles and Choice | Social Attitudes Test",
+          "zh": "关于性别角色与选择的看法｜社会态度反思"
+        },
+        "description": {
+          "en": "Full free reading: original statement-set reflection, examples, uncertainty and clear limits. No prejudice, identity or party score.",
+          "zh": "免费完整读法：原创陈述反思、例子、不确定性与明确边界，不生成偏见、身份或党派分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "gender-roles-1",
+          "title": {
+            "en": "A specified set of role-related views",
+            "zh": "一组具体的角色观点"
+          },
+          "paragraphs": [
+            {
+              "en": "This part summarizes agreement with six statements about household tasks, relevant role criteria, hobbies, learning skills, caring responsibilities and speaking for a group. They concern room for individual choice rather than a gender identity assessment. A higher mean describes greater agreement with these particular propositions. It does not establish membership of a feminist movement, a complete theory of equality or what any person actually does in a relationship or workplace.",
+              "zh": "这一部分概括对六条角色观点的认同，涉及家务、相关任职标准、爱好、技能学习、照料职责和代表小组发言。它关注个人选择空间，不评估性别认同。均分较高表示更认同这些具体主张，不证明属于某个女权运动、持有完整的平等理论，或在关系与职场中实际怎样做。"
+            }
+          ]
+        },
+        {
+          "id": "gender-roles-2",
+          "title": {
+            "en": "One agreement about a shared task",
+            "zh": "一项共同任务的协商"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people are deciding who will prepare food and who will repair a shelf. They might consider available time, interest, experience and whether either person wants to learn. A choice can fit this particular occasion without becoming a permanent role. The questionnaire does not observe the discussion or determine whether the final arrangement was freely agreed. It also cannot infer fairness from a task title without understanding workload and each person’s account.",
+              "zh": "两个人在商量谁准备食物、谁修理架子，可以考虑时间、兴趣、经验，以及是否有人想学。一次选择可以适合当下，而不必变成永久角色。问卷没有观察讨论，也不能确定最后安排是否自愿，更不能只根据任务名称判断公平；还需要理解工作量和各自的描述。"
+            }
+          ]
+        },
+        {
+          "id": "gender-roles-3",
+          "title": {
+            "en": "Do not infer motives from the mean",
+            "zh": "不从均分推断动机"
+          },
+          "paragraphs": [
+            {
+              "en": "Less agreement does not identify a person as sexist, and more agreement does not certify equal treatment. Someone may read a broad sentence with a particular responsibility or circumstance in mind. The number alone cannot recover that reasoning. These statements do not ask your gender, someone else’s identity or private relationship arrangements. You may choose the unscored response without explaining why, and every complete guide remains available.",
+              "zh": "较少认同不能把一个人认定为性别歧视者，较多认同也不能认证实际平等对待。有人可能带着特定职责或处境理解宽泛句子，数字无法还原理由。题目不问你的性别、别人的身份或私人关系分工。可以不解释原因就选未评分，全部完整指南仍然开放。"
+            },
+            {
+              "en": "For example, someone can agree about using relevant criteria for a group role while reading the household-task statement differently. An average can conceal that distinction. A useful reading identifies the setting or responsibility behind each response rather than assuming every gender-role question would receive the same answer.",
+              "zh": "例如，有人认同以相关标准考虑小组职责，却对家务那句话作了不同理解。平均数可能掩盖这种区别。更有信息的读法，是辨明每次回答背后的场合或职责，而不是预设所有性别角色问题都会得到相同回答。"
+            }
+          ]
+        },
+        {
+          "id": "gender-roles-4",
+          "title": {
+            "en": "Compare topics, not people",
+            "zh": "比较主题，不比较人"
+          },
+          "paragraphs": [
+            {
+              "en": "Gender-role views can differ from views on reviewing customs or on including people in another setting. There is no requirement for the four topic means to form a particular pattern. They are not combined into a moral grade or used to classify someone as Settled Roles, Equal Chance, Fair Share or Rethink Roles. This edition uses its own statements and readings. Another person’s agreement cannot be inferred from your own score.",
+              "zh": "性别角色观点可能与复核习俗、或另一场合中的接纳看法不同。四项均分无需形成某种规定模式，不会合成道德等级，也不把人分为固守角色、机会平等、公平分担或重新思考角色。本版有自己的陈述与读法，不能从你的分数推断另一个人的认同。"
+            }
+          ]
+        },
+        {
+          "id": "gender-roles-5",
+          "title": {
+            "en": "A limited optional reflection",
+            "zh": "一个有限的可选反思"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one sentence and note which responsibility you imagined when answering it. Would your interpretation change if the time available or the skill required were different? You need not settle a family disagreement, reveal private arrangements or change a belief to complete the reflection. The aim is to make the meaning of an answer clearer. You can read the other guides, keep your note to yourself or finish here.",
+              "zh": "可挑一句，记下回答时想到的职责。如果可用时间或所需技能不同，理解是否会变化？完成反思不需要解决家庭分歧、披露私人安排或改变信念。目的只是澄清答案含义。可以读其他指南、保留自己的笔记，或在这里结束。"
+            }
+          ]
+        },
+        {
+          "id": "gender-roles-6",
+          "title": {
+            "en": "Calculation and missing information",
+            "zh": "计算与缺失信息"
+          },
+          "paragraphs": [
+            {
+              "en": "All 24 prompts need a response before a result appears. Each topic has six items and needs at least four numeric ratings. There are no reverse items. For example, 2, 3, 4, 5 and two unscored responses give a raw sum of 14, four ratings and a mean of 3.5. Three ratings produce insufficient information. Missing responses are not made neutral, and no total, rank, threshold or population comparison is calculated.",
+              "zh": "结果出现前，全部24条均需回应。每主题六条，至少四条数字才计算，无反向题。例如2、3、4、5与两条未评分，原始和14、有效四条、均分3.5；只有三条有效时呈现资料不足。缺失不补成中立，不计算总体分、排名、阈值或人群比较。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gay-lesbian-inclusion",
+      "directionIds": [
+        "gay-lesbian-inclusion"
+      ],
+      "title": {
+        "en": "Views on everyday inclusion of gay and lesbian people: Full Social Attitudes Guide",
+        "zh": "关于日常接纳同性恋者的看法：社会态度完整读法"
+      },
+      "headline": {
+        "en": "Views on everyday inclusion of gay and lesbian people",
+        "zh": "关于日常接纳同性恋者的看法"
+      },
+      "summary": {
+        "en": "Read this selected statement set through an ordinary example, counterexamples, topic comparisons and an optional wording exercise.",
+        "zh": "通过一个普通例子、反例、主题比较和可选措辞练习，理解这组特定陈述。"
+      },
+      "scoreReading": {
+        "en": "Agreement with this statement set, read with the rated count; no identity or overall judgement.",
+        "zh": "结合有效项数，阅读对这组特定陈述的认同，不派身份或总体评价。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gay and Lesbian Inclusion | Social Attitudes Test",
+          "zh": "关于日常接纳同性恋者的看法｜社会态度反思"
+        },
+        "description": {
+          "en": "Full free reading: original statement-set reflection, examples, uncertainty and clear limits. No prejudice, identity or party score.",
+          "zh": "免费完整读法：原创陈述反思、例子、不确定性与明确边界，不生成偏见、身份或党派分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "gay-lesbian-inclusion-1",
+          "title": {
+            "en": "Attitudes toward a stated everyday situation",
+            "zh": "对所述日常场合的态度"
+          },
+          "paragraphs": [
+            {
+              "en": "This part summarizes agreement with six statements about invitations, privacy, a shared activity, acknowledging families, assumptions about partners and participation despite personal disagreement. It asks about attitudes toward gay and lesbian people. It does not ask or infer your own sexual orientation. A higher mean means greater agreement with these six statements, not a validated measure of acceptance, prejudice, moral character or how someone will behave.",
+              "zh": "这一部分概括六条观点的认同，涉及邀请、隐私、共同活动、承认家庭差异、对伴侣的预设，以及个人看法不同情况下的参与。它询问对同性恋者的态度，不询问或推断你自己的性取向。均分较高表示更认同这六句话，不是经验证的接纳、偏见、品德或未来行为指标。"
+            }
+          ]
+        },
+        {
+          "id": "gay-lesbian-inclusion-2",
+          "title": {
+            "en": "A partner mentioned in conversation",
+            "zh": "交谈中提到伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "During an ordinary group conversation, someone mentions a partner of the same sex. A response might acknowledge what they chose to share and continue the topic without asking for a personal history. That example concerns the interaction, not a claim that everyone feels the same. Nobody owes an explanation of their orientation, family or beliefs. A questionnaire result does not authorise follow-up questions that the person has not welcomed.",
+              "zh": "普通小组交谈中，有人提到同性伴侣。一种回应是承接对方选择分享的信息，继续原来话题，而不追问私人经历。这个例子只说明互动，不表示所有人感受相同。任何人都不欠别人对性取向、家庭或信念的解释；问卷结果也不授权提出对方未欢迎的追问。"
+            }
+          ]
+        },
+        {
+          "id": "gay-lesbian-inclusion-3",
+          "title": {
+            "en": "Keep uncertainty separate from disagreement",
+            "zh": "区分不确定与不同意"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean cannot establish hostility or explain why an answer was chosen. Someone may find a phrase unclear, imagine a different setting or prefer not to discuss the subject. A higher mean cannot establish how another person experienced an interaction. A neutral response is scored as the middle option; uncertainty or declining to answer can remain unscored. Neither choice determines a person’s orientation, faith, political identity or trustworthiness.",
+              "zh": "较低均分不能证明敌意，也不能解释选项背后的原因。有人可能觉得措辞不清、想到另一场合，或不愿讨论话题；较高均分也不能证明别人怎样体验一次互动。中立用中间选项计分，不确定或不愿回答可保留未评分。任何选项都不确定性取向、信仰、政治身份或可信度。"
+            },
+            {
+              "en": "For example, comfort with a shared activity and a view about acknowledging families are different questions. A person may agree with one and be uncertain about the wording of another. An average can conceal that pattern; it cannot replace the specific meanings of the sentences or turn them into one complete stance.",
+              "zh": "例如，是否自在参加共同活动，与怎样看待承认家庭差异，是不同问题。一个人可能认同前者，却不确定另一句的措辞。平均数可能掩盖这个模式，不能替代各句具体含义，也不能把它们变成一个完整立场。"
+            }
+          ]
+        },
+        {
+          "id": "gay-lesbian-inclusion-4",
+          "title": {
+            "en": "A topic reading, not a stance label",
+            "zh": "主题读法，不是立场标签"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading remains separate from the three other social topics. Agreement about an invitation cannot stand in for every view about relationships, laws or community life. This is not another website’s At Ease, Warm but Unsure, Live and Let Live or Held on Principle classifier. The mean describes only this statement set. It is not a tool for checking a friend, colleague or family member, and no one should answer on another person’s behalf.",
+              "zh": "这项读法与其他三个社会主题分别保留。对邀请的认同不能代表所有关系、法律或社区生活观点。本版不是其他网站的轻松自在、温暖但犹豫、顺其自然或坚持原则分类器，均分仅描述本组陈述，不用于检查朋友、同事或家人，也不应代别人作答。"
+            }
+          ]
+        },
+        {
+          "id": "gay-lesbian-inclusion-5",
+          "title": {
+            "en": "An optional privacy check",
+            "zh": "一个可选的隐私检查"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to consider an ordinary conversation, ask what the other person actually volunteered and what you merely assumed. No disclosure or contact is required. You can keep your reflection private and leave the answer unchanged. These notes do not ask you to announce a position or justify a belief. They offer a way to separate the words of a scenario from information about another person that you do not have.",
+              "zh": "如果想回想一次普通交谈，可分辨对方实际自愿说了什么，哪些只是自己的预设。无需披露或联系任何人，可以保留私人反思，不改变答案。提示不要求宣布立场或证明信念，只帮助区分场景中的文字与自己并不知道的他人信息。"
+            }
+          ]
+        },
+        {
+          "id": "gay-lesbian-inclusion-6",
+          "title": {
+            "en": "Calculation and missing information",
+            "zh": "计算与缺失信息"
+          },
+          "paragraphs": [
+            {
+              "en": "All 24 prompts need a response before a result appears. Each topic has six items and needs at least four numeric ratings. There are no reverse items. For example, 2, 3, 4, 5 and two unscored responses give a raw sum of 14, four ratings and a mean of 3.5. Three ratings produce insufficient information. Missing responses are not made neutral, and no total, rank, threshold or population comparison is calculated.",
+              "zh": "结果出现前，全部24条均需回应。每主题六条，至少四条数字才计算，无反向题。例如2、3、4、5与两条未评分，原始和14、有效四条、均分3.5；只有三条有效时呈现资料不足。缺失不补成中立，不计算总体分、排名、阈值或人群比较。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "racial-context",
+      "directionIds": [
+        "racial-context"
+      ],
+      "title": {
+        "en": "Views on racial fairness and context: Full Social Attitudes Guide",
+        "zh": "关于种族公平与处境的看法：社会态度完整读法"
+      },
+      "headline": {
+        "en": "Views on racial fairness and context",
+        "zh": "关于种族公平与处境的看法"
+      },
+      "summary": {
+        "en": "Read this selected statement set through an ordinary example, counterexamples, topic comparisons and an optional wording exercise.",
+        "zh": "通过一个普通例子、反例、主题比较和可选措辞练习，理解这组特定陈述。"
+      },
+      "scoreReading": {
+        "en": "Agreement with this statement set, read with the rated count; no identity or overall judgement.",
+        "zh": "结合有效项数，阅读对这组特定陈述的认同，不派身份或总体评价。"
+      },
+      "seo": {
+        "title": {
+          "en": "Racial Fairness and Context | Social Attitudes Test",
+          "zh": "关于种族公平与处境的看法｜社会态度反思"
+        },
+        "description": {
+          "en": "Full free reading: original statement-set reflection, examples, uncertainty and clear limits. No prejudice, identity or party score.",
+          "zh": "免费完整读法：原创陈述反思、例子、不确定性与明确边界，不生成偏见、身份或党派分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "racial-context-1",
+          "title": {
+            "en": "A selected set of fairness questions",
+            "zh": "一组经过限定的公平问题"
+          },
+          "paragraphs": [
+            {
+              "en": "This part summarizes agreement with six statements about practical barriers, individual experience, several concrete examples, representation, context and hearing an account without generalising it. A higher mean means greater agreement with this set. It is not a racism score, an implicit-bias test or a measure of discrimination. The reflection does not identify anyone’s race, decide whether a particular event was unfair or establish the causes of a social outcome.",
+              "zh": "这一部分概括对六条陈述的认同，涉及实际障碍、个人经历、多个具体例子、群体代表、情境，以及听取描述时避免泛化。均分较高只表示更认同这组观点。它不是种族主义评分、内隐偏见测试或歧视测量，不识别种族，不裁定某次事件是否公平，也不确定社会结果的原因。"
+            }
+          ]
+        },
+        {
+          "id": "racial-context-2",
+          "title": {
+            "en": "A rule and the experience of using it",
+            "zh": "规则与实际使用体验"
+          },
+          "paragraphs": [
+            {
+              "en": "An ordinary group uses one sign-up process for everyone. Someone describes difficulty using that process. Looking at the actual steps and hearing different accounts can clarify what happened; it does not establish the answer in advance. A uniform rule and an unequal practical experience are different questions, and neither can be settled from a self-report mean. The questionnaire supplies no investigation, legal finding or judgement about the people involved.",
+              "zh": "一个普通小组对所有人采用同样的报名流程，有人提出使用困难。查看实际步骤、了解不同描述，可能有助于弄清发生了什么，但不预先确定答案。统一规则与实际体验是否存在差异，是不同问题，都不能靠自报均分裁定。问卷不作调查、法律认定或对相关人员的判断。"
+            }
+          ]
+        },
+        {
+          "id": "racial-context-3",
+          "title": {
+            "en": "Interpret the answers before the number",
+            "zh": "先理解回答，再解释数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Less agreement does not prove racial hostility, and more agreement does not certify that someone is free from bias. Broad statements can be understood differently. The mean cannot reveal an unstated reason, establish actual conduct or replace another person’s account. A neutral answer is scored as three; uncertainty, absent context or declining to answer may remain unscored. You do not have to reveal your own background or a private experience to use this guide.",
+              "zh": "较少认同不证明种族敌意，较多认同也不认证没有偏见。宽泛句子可能被不同理解；均分无法揭示未说出的理由、确定真实行为，或替代别人的描述。中立计为三分，不确定、缺少情境或不愿回答可保留未评分。使用指南无需披露自身背景或私人经历。"
+            },
+            {
+              "en": "For example, agreement that nobody represents a whole group can coexist with uncertainty about how to assess a particular rule. A combined mean can conceal those different answers. Separating an individual’s account, a general principle and evidence about a process can clarify what you meant without deciding an event from this questionnaire.",
+              "zh": "例如，认同无人代表整个群体，可以与不确定如何评估某条规则并存。综合均分可能掩盖不同回答。区分个人描述、一般原则与流程证据，有助于澄清本意，而无需用问卷裁定某次事件。"
+            }
+          ]
+        },
+        {
+          "id": "racial-context-4",
+          "title": {
+            "en": "Separate this topic from an overall identity",
+            "zh": "不把主题汇总变成人的身份"
+          },
+          "paragraphs": [
+            {
+              "en": "These six responses remain separate from views about gender roles, gay and lesbian inclusion and reviewing shared rules. A single total would conceal which statements you agreed with, so this edition does not produce one. It also does not assign another website’s Even Hand, Pattern Spotter, Peacekeeper or Hands-On Learner stance. Different histories of answers can yield the same mean, and the number cannot stand in for a complete account of someone’s social views.",
+              "zh": "这六条回答与性别角色、日常接纳同性恋者和复核共同规则的看法分开。单一总分会掩盖具体认同哪些句子，因此本版不计算总分，也不分派其他网站的公平之手、模式识别者、和平维护者或实践学习者立场。不同回答组合可得到同一均分，数字无法完整描述一个人的社会观点。"
+            }
+          ]
+        },
+        {
+          "id": "racial-context-5",
+          "title": {
+            "en": "One optional interpretation exercise",
+            "zh": "一个可选的理解练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one statement and write, privately if you wish, what evidence or detail you would need to understand an example. Distinguish what you know from what you are guessing. Nobody needs to recount an experience of unfairness or speak for a group to make the exercise complete. There is no target score, required conversation or prescribed political conclusion. You can read the other topic guides or finish without taking any action.",
+              "zh": "可挑一句，在愿意且保密的前提下记下：理解某个例子，还需要什么信息或细节。区分已知与猜测。任何人都无需讲述不公平经历，或代表群体发言，才能完成练习。这里没有目标分数、必须进行的交谈或规定政治结论，可以读其他指南，也可以不采取行动就结束。"
+            }
+          ]
+        },
+        {
+          "id": "racial-context-6",
+          "title": {
+            "en": "Calculation and missing information",
+            "zh": "计算与缺失信息"
+          },
+          "paragraphs": [
+            {
+              "en": "All 24 prompts need a response before a result appears. Each topic has six items and needs at least four numeric ratings. There are no reverse items. For example, 2, 3, 4, 5 and two unscored responses give a raw sum of 14, four ratings and a mean of 3.5. Three ratings produce insufficient information. Missing responses are not made neutral, and no total, rank, threshold or population comparison is calculated.",
+              "zh": "结果出现前，全部24条均需回应。每主题六条，至少四条数字才计算，无反向题。例如2、3、4、5与两条未评分，原始和14、有效四条、均分3.5；只有三条有效时呈现资料不足。缺失不补成中立，不计算总体分、排名、阈值或人群比较。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "edition",
+      "title": {
+        "en": "Four social topics, four separate readings",
+        "zh": "四个社会主题，四项独立读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Explore views about reviewing shared rules, gender roles and choice, everyday inclusion of gay and lesbian people, and racial fairness in context. Twenty-four original statements ask for agreement, not facts about any group. All four complete guides are free. Your answers are not combined into an overall social or moral score.",
+          "zh": "分别探索对复核共同规则、性别角色与选择、日常接纳同性恋者，以及种族公平与处境的看法。24条原创陈述询问认同，不陈述任何群体的事实。四篇完整指南免费，回答不合成总体社会或道德分数。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Agreement, neutral answers and uncertainty",
+        "zh": "认同、中立与不确定"
+      },
+      "paragraphs": [
+        {
+          "en": "Answer for yourself, thinking about ordinary voluntary shared activities rather than an emergency or a legal dispute. Use the same understanding of the setting throughout. Choose 1 Strongly disagree through 5 Strongly agree; 3 is a valid neutral response. Uncertainty, absent context or declining to answer can remain unscored. All 24 responses are required; each six-item topic needs four numeric ratings. No reverse scoring, overall total, rank or fixed type is used.",
+          "zh": "只回答自己，以普通、自愿的共同活动为参照，而不是紧急事件或法律争议，全程尽量保持对场合的理解一致。从1非常不同意到5非常同意选择，3是有效中立回答；不确定、情境缺失或不愿回答可保留未评分。全部24条均需回应，每个六条主题至少四条数字才计算。不反向计分，不计算总体分、排名或固定类型。"
+        }
+      ]
+    },
+    {
+      "id": "search-terms",
+      "title": {
+        "en": "What the familiar entry names can mean",
+        "zh": "常见入口名称的含义"
+      },
+      "paragraphs": [
+        {
+          "en": "Searches for a Woke Test, Feminist Test, Attitudes Toward Gay People Test or Racism Attitudes Test can concern these everyday topics. Such names do not establish a valid classification. This edition uses four independently written topic readings, not another website’s four-stance menus or any published prejudice scale. It does not label you woke, feminist, racist or prejudiced, and it does not infer your orientation, gender, race, faith or party.",
+          "zh": "搜索Woke测试、女权主义测试、对同性恋者的态度测试或种族态度测试时，可能关注这些日常主题。这些名称并不建立有效分类。本版采用四项独立原创主题读法，不使用其他网站的四立场菜单或任何已发表偏见量表。不把你标签为woke、女权主义者、种族主义者或有偏见者，也不推断性取向、性别、种族、信仰或党派。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What this reflection can establish",
+        "zh": "这份反思能说明什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Means summarize agreement with the listed sentences. They do not establish motives, conduct, another person’s experience or the fairness of a particular event. Reliability, validity, norms and English–Chinese measurement equivalence have not been established for this original edition. It is not for hiring, screening, clinical or legal decisions, and gives no voting or political recommendation. There is no desired score or required change of belief.",
+          "zh": "均分概括对所列句子的认同，不确定动机、行为、他人体验或某次事件是否公平。本原创版本尚未建立信度、效度、常模或英中文测量等值，不用于招聘、筛选、临床或法律决定，也不提供投票或政治建议。没有应该达到的分数或必须改变的信念。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep your answers private",
+        "zh": "保留私人回答"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are calculated in this page, without uploading a response sheet or adding answers to URLs or analytics events. Optional tab drafts need explicit opt-in, expire after 24 hours and clear on completion, exit-and-clear or retake. Public guides and share cards contain general text, not your answers or means. You can read every full guide without answering, sharing or disclosing a personal experience.",
+          "zh": "回答在当前页计算，不上传答卷，不把答案加进网址或分析事件。可选标签页草稿需明确主动选择，24小时失效，完成、退出清除或重测时删除。公开指南和分享图只有通用文字，没有答案或均分。不作答、不分享或不披露个人经历，也能读全部完整指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a Woke Test or Feminist Test?",
+        "zh": "这是Woke测试或女权主义测试吗？"
+      },
+      "answer": {
+        "en": "It explores specific everyday views that those searches may refer to. It assigns neither label, uses no validated political classification and preserves four separate topic readings.",
+        "zh": "它探索这些搜索可能关心的具体日常观点，不分派这两种标签，不使用经验证政治分类，并保留四项独立主题读法。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it measure racism or prejudice?",
+        "zh": "它测量种族主义或偏见吗？"
+      },
+      "answer": {
+        "en": "No. The means describe agreement with the displayed sentences. They do not establish implicit bias, motives, actual conduct or whether a particular event was fair.",
+        "zh": "不测量。均分只描述对所列句子的认同，不确定内隐偏见、动机、真实行为或某次事件是否公平。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can it identify my sexual orientation or other identity?",
+        "zh": "它能识别性取向或其他身份吗？"
+      },
+      "answer": {
+        "en": "No. Attitudes toward gay and lesbian people are not your own orientation. This reflection infers no orientation, gender, race, faith or party, and asks no one to disclose them.",
+        "zh": "不能。对同性恋者的态度，不等于你自己的性取向。本反思不推断性取向、性别、种族、信仰或党派，也不要求披露。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I am uncertain or prefer not to answer?",
+        "zh": "不确定或不想回答怎么办？"
+      },
+      "answer": {
+        "en": "Use the unscored option or stop. A topic with fewer than four numeric answers has no personal mean. Neutral agreement is a separate scored midpoint. Every full guide remains free.",
+        "zh": "可选未评分或停止。某主题不足四条数字回答时，没有个人均分；中立认同是另一项计分中点。全部完整指南始终免费。"
+      }
+    }
+  ],
+  "references": []
+}
