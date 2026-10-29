@@ -132,7 +132,8 @@ describe("T040 original six-character unofficial fan quiz", () => {
         const props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, path = `/${locale}/tests/explore/chiikawa`;
         const html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
         expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(metadata.title).toBe(quiz.seoTitle[locale]);
-        expect(html).toContain(quiz.instructions![locale]);
+        const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+        expect(entryDom.querySelector("#take-test")?.textContent).toContain(quiz.instructions![locale]);
         expect(html).toContain(locale === "zh" ? "原创象征测验" : "Original symbolic quiz");
         expect(quiz.resultHeading?.[locale]).toBeTruthy();
         for (const section of quiz.guide.slice(0, 3)) expect(html).toContain(section.paragraphs[0][locale]);
