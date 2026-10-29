@@ -1499,7 +1499,7 @@
     },
     "description": {
       "zh": "免费性格罗盘测试：36道原创情境题，查看北南东西原始次数、全部最高并列与12份完整读法。中英双语反思版，非官方PCTI，不由方向判断能力、族群或职业。",
-      "en": "Take 36 original compass questions. Read four raw counts, all highest ties and 12 full guides. A bilingual reflection, separate from the official PCTI."
+      "en": "Explore North, South, East and West in 36 original questions, in English or Chinese. All highest ties and 12 full guides are free. Not the official PCTI."
     },
     "minutes": 10,
     "collection": "explore",
@@ -2755,7 +2755,7 @@
     "updated": "2026-10-27",
     "category": "everyday",
     "title": {
-      "en": "Spanish Proficiency Test",
+      "en": "Spanish Proficiency Practice Test",
       "zh": "西班牙语水平测试"
     },
     "description": {
@@ -3265,7 +3265,7 @@
     "updated": "2026-10-27",
     "category": "everyday",
     "title": {
-      "en": "Word Skills Test",
+      "en": "Microsoft Word Skills Practice Test",
       "zh": "Word技能测试"
     },
     "description": {
@@ -3474,7 +3474,7 @@
     "updated": "2026-10-27",
     "category": "fantasy",
     "title": {
-      "en": "Zodiac Sign Quiz",
+      "en": "Zodiac Sign Story Quiz",
       "zh": "星座测试"
     },
     "description": {

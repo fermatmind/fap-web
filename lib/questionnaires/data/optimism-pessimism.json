@@ -1495,11 +1495,11 @@
     {
       "question": {
         "zh": "这份乐观与悲观测试用什么题本？",
-        "en": "Which items does this optimism and pessimism test use?"
+        "en": "Which optimism test is this: IPIP, OPI or LOT-R?"
       },
       "answer": {
         "zh": "英文10条及键来自IPIP公有领域资源，可用于商业与非商业；中文为费马本站试译，未完成语言等价或心理测量验证。五份解释、情境与阅读边界由本站原创，不是IPIP原作者制定的五种人格。源题含未来预期、心情与自我感受，本版只保留一个总分，不自行拆成正向展望／情绪稳定分量表，也不凭正反向组合检测认真程度。源比较表的alpha与相关系数仅属原研究，不验证本中文、个人答卷或五区。未采用LOT-R、竞品正文或算法；不推断防御性悲观、现实判断、能力、健康、职业或关系表现，也不以提高分数为目标。",
-        "en": "The ten English items and key come from public-domain IPIP resources permitting commercial and noncommercial use. Chinese is a FermatMind trial translation without language-equivalence or psychometric validation. Five explanations, examples and reading boundaries are website originals rather than five personalities defined by IPIP authors. Source items concern future outlook, mood and self-regard. This edition retains one total without inventing positive-outlook or emotional-steadiness subscales or an attention test from positive/negative patterns. Source alpha and correlations belong to their research context and validate neither this Chinese version, an individual attempt nor five regions. No LOT-R bank, competitor body or algorithm is adopted. Results infer no defensive-pessimism strategy, realism, ability, health, career or relationship performance and prescribe no higher-score goal."
+        "en": "This edition uses the ten English IPIP single-construct Optimism items and their scoring key. It is neither the Optimism/Pessimism Instrument (OPI) nor the LOT-R. It calculates one total rather than separate optimism and pessimism scores. The five full guides are FermatMind’s reading conventions, not official IPIP types or population norms. Chinese is a trial translation without established language equivalence. Source research does not validate these website interpretations."
       }
     },
     {
