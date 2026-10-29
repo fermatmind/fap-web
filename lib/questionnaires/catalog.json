@@ -5832,5 +5832,30 @@
       "impairment"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sensory-sensitivity",
+    "code": "FM_SENS16",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Sensory Sensitivity Test",
+      "zh": "感官敏感测试"
+    },
+    "description": {
+      "en": "Reflect on noticing cues later, adding input, sensory interruptions and reducing input. Get four separate response readings and full guides for everyday and work settings. Original, unvalidated and free; no diagnosis.",
+      "zh": "回顾晚察觉、主动增加输入、感官打断与主动减少输入，查看四组独立读数及日常与工作场景完整指南。原创、尚未验证、免费开放，不作诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_sens16_original_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "late-noticing",
+      "input-seeking",
+      "input-distraction",
+      "input-reducing"
+    ],
+    "collection": "explore"
   }
 ]

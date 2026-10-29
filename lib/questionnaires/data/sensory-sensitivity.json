@@ -1,0 +1,1883 @@
+{
+  "slug": "sensory-sensitivity",
+  "code": "FM_SENS16",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "sens16",
+  "title": {
+    "en": "Sensory Sensitivity Test",
+    "zh": "感官敏感测试"
+  },
+  "seoTitle": {
+    "en": "Sensory Sensitivity Test: 16 Original Prompts and Four Free Full Guides",
+    "zh": "感官敏感测试｜16条原创回顾与四篇免费完整指南"
+  },
+  "description": {
+    "en": "Reflect on noticing cues later, adding input, sensory interruptions and reducing input. Get four separate response readings and full guides for everyday and work settings. Original, unvalidated and free; no diagnosis.",
+    "zh": "回顾晚察觉、主动增加输入、感官打断与主动减少输入，查看四组独立读数及日常与工作场景完整指南。原创、尚未验证、免费开放，不作诊断。"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "What do you notice, add or turn down in an ordinary environment? This original sensory sensitivity test helps adults describe four kinds of recent response. Dunn’s four-pattern framework provides conceptual background, while these questions and readings are independently authored. You can read every full guide without answering.",
+    "zh": "普通环境中，你会察觉、增加或减少哪些输入？这份原创感官敏感测试帮助成年人描述近期四类反应。Dunn四模式框架仅提供概念背景，题目与读法独立写作。不作答也可读全部完整指南。"
+  },
+  "instructions": {
+    "en": "For adults aged 18 and over. Recall ordinary occasions in the past four weeks. When the situation and stated reason applied, how often did the described response occur? Use unscored for no relevant occasion, uncertainty or declining. Do not try activities, intensify sensations or expose yourself to discomfort for the test. No physical task, recording or private example is needed.",
+    "zh": "面向18岁及以上成年人，回想过去四周普通场合。情境及题述原因适用时，题述反应多常出现？无相关机会、不确定或不愿回答可选不计分。不为测试尝试活动、加强感觉或暴露于不适，不需要身体任务、录音或私人例子。"
+  },
+  "resultHeading": {
+    "en": "Your four separate sensory response readings",
+    "zh": "你的四组独立感官反应读数"
+  },
+  "source": {
+    "kind": "fermatmind_original_sensory_response_reflection",
+    "formCode": "fm_sens16_original_v1",
+    "itemBankVersion": "fm_sens16_original_bilingual_v1",
+    "scoringVersion": "four_topics_4_direct_0to4_completegroups_no_total_axes_or_winner_v1",
+    "resultContentVersion": "fm_sens16_four_full_guides_v1",
+    "itemBankSha256": "0bc46df92095b872a9c928350fdc89867b8e25ff2bfc2d4a3028511dca579939",
+    "resultContentSha256": "89651349ef2e4e645b15184fb2a2b415ef1b729b6955f4641856bd31d0ba1abc",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "late-noticing",
+      "title": {
+        "en": "Noticing a cue later",
+        "zh": "较晚察觉线索"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "input-seeking",
+      "title": {
+        "en": "Adding sensory input",
+        "zh": "主动增加感官输入"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "input-distraction",
+      "title": {
+        "en": "Being interrupted by input",
+        "zh": "被感官输入打断"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "input-reducing",
+      "title": {
+        "en": "Reducing sensory input",
+        "zh": "主动减少感官输入"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SEN_01",
+      "prompt": {
+        "en": "I noticed a change in the lighting of a familiar room only after someone pointed it out.",
+        "zh": "熟悉房间的光线变了，我直到有人指出才察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "late-noticing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "late-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "late-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "late-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "late-noticing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "late-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_02",
+      "prompt": {
+        "en": "During a shared task, I became aware that a background sound had stopped only when someone mentioned it.",
+        "zh": "共同做事时，我直到有人提起才意识到背景声音已经停了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "late-noticing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "late-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "late-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "late-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "late-noticing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "late-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_03",
+      "prompt": {
+        "en": "I realised that the feel of something I routinely handled had changed only after a second, explicit cue.",
+        "zh": "经常拿用的东西手感变了，我在第二次明确提示后才意识到。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "late-noticing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "late-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "late-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "late-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "late-noticing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "late-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_04",
+      "prompt": {
+        "en": "After an ordinary room temperature change, I noticed it later when another person drew attention to it.",
+        "zh": "房间温度发生普通变化后，另一个人提醒时我才察觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "late-noticing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "late-noticing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "late-noticing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "late-noticing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "late-noticing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "late-noticing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_05",
+      "prompt": {
+        "en": "When I could freely choose the setup for a quiet task, I added a gentle sound because I wanted more sensory input.",
+        "zh": "可以自由布置安静任务的环境时，我因想多一点感官输入而加了轻柔声音。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-seeking",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-seeking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-seeking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-seeking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-seeking",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-seeking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_06",
+      "prompt": {
+        "en": "During an ordinary pause, I chose a brief, comfortable movement because sitting still felt too lacking in sensory input.",
+        "zh": "普通休息间隙，静坐感觉感官输入太少，我会选择短暂且舒适的活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-seeking",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-seeking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-seeking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-seeking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-seeking",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-seeking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_07",
+      "prompt": {
+        "en": "When choosing among equally practical materials, I deliberately picked a noticeable texture for the sensation itself.",
+        "zh": "在同样实用的材料中选择时，我会为了触感本身而特意选质感明显的材料。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-seeking",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-seeking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-seeking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-seeking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-seeking",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-seeking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_08",
+      "prompt": {
+        "en": "While setting up a personal space, I added a visual detail because I wanted more to look at.",
+        "zh": "布置个人空间时，我因想多一点可看的东西而增加视觉细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-seeking",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-seeking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-seeking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-seeking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-seeking",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-seeking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_09",
+      "prompt": {
+        "en": "A background sound repeatedly pulled my attention away from an ordinary task while I stayed in the same setup.",
+        "zh": "保持原来环境做普通任务时，背景声音反复把我的注意拉走。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-distraction",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-distraction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-distraction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-distraction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-distraction",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-distraction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_10",
+      "prompt": {
+        "en": "A change in surrounding brightness kept interrupting what I was doing even though I did not alter the setting.",
+        "zh": "周围亮度的变化不断打断正在做的事，但我没有调整环境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-distraction",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-distraction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-distraction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-distraction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-distraction",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-distraction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_11",
+      "prompt": {
+        "en": "The feel of a material kept drawing my attention away from a task while I continued using it.",
+        "zh": "继续使用某种材料做事时，它的触感不断把我的注意拉走。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-distraction",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-distraction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-distraction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-distraction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-distraction",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-distraction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_12",
+      "prompt": {
+        "en": "A background smell kept intruding on my attention while I stayed with an otherwise ordinary activity.",
+        "zh": "继续一项普通活动时，背景气味不断闯入我的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-distraction",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-distraction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-distraction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-distraction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-distraction",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-distraction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_13",
+      "prompt": {
+        "en": "I deliberately reduced unnecessary background sound before or during a task because that input felt unwelcome.",
+        "zh": "任务前或过程中，因为不想要那种输入，我会特意减少不必要的背景声音。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-reducing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-reducing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-reducing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-reducing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-reducing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-reducing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_14",
+      "prompt": {
+        "en": "I chose an available place with fewer changing visual inputs because I wanted less sensory input.",
+        "zh": "有地方可选时，我因想减少感官输入而选择视觉变化更少的位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-reducing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-reducing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-reducing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-reducing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-reducing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-reducing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_15",
+      "prompt": {
+        "en": "I changed an optional material or surface to reduce a touch sensation I did not want.",
+        "zh": "可以选择材料或表面时，我会为了减少不想要的触感而更换它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-reducing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-reducing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-reducing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-reducing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-reducing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-reducing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SEN_16",
+      "prompt": {
+        "en": "When I could choose the setting, I selected one with less background scent because I wanted less smell input.",
+        "zh": "可以选择环境时，我因想减少气味输入而选背景气味更少的地方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never on relevant occasions",
+            "zh": "有相关机会时从未如此"
+          },
+          "directionId": "input-reducing",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely on relevant occasions",
+            "zh": "有相关机会时很少如此"
+          },
+          "directionId": "input-reducing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes on relevant occasions",
+            "zh": "有相关机会时有时如此"
+          },
+          "directionId": "input-reducing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often on relevant occasions",
+            "zh": "有相关机会时经常如此"
+          },
+          "directionId": "input-reducing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always on relevant occasions",
+            "zh": "有相关机会时几乎总如此"
+          },
+          "directionId": "input-reducing",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / unsure / prefer not to answer",
+            "zh": "没有相关机会／不确定／不愿回答"
+          },
+          "directionId": "input-reducing",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "late-noticing",
+      "directionIds": [
+        "late-noticing"
+      ],
+      "title": {
+        "en": "Noticing a cue later",
+        "zh": "较晚察觉线索"
+      },
+      "headline": {
+        "en": "Noticing a cue later",
+        "zh": "较晚察觉线索"
+      },
+      "summary": {
+        "en": "Read occasions when a cue entered awareness later, without inferring a detection threshold.",
+        "zh": "回顾线索较晚进入注意的场合，不推断探测阈值。"
+      },
+      "scoreReading": {
+        "en": "Four numeric answers: direct sum 0–16 and mean 0–4 to two decimals. Any unscored answer withholds this part only; no total, axis, winner or norm.",
+        "zh": "四条数字：直接合计0—16、均分0—4显示两位小数。任一不计分仅不提供本组数字；无总分、轴分、赢家或常模。"
+      },
+      "seo": {
+        "title": {
+          "en": "Noticing a cue later: Full Sensory Sensitivity Guide",
+          "zh": "较晚察觉线索｜感官敏感完整指南"
+        },
+        "description": {
+          "en": "Read occasions when a cue entered awareness later, without inferring a detection threshold.",
+          "zh": "回顾线索较晚进入注意的场合，不推断探测阈值。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this record describes",
+            "zh": "这组记录在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns occasions when a sensory change came to your attention later, after an explicit cue. The four original descriptions cover light, background sound, touch and room temperature. They describe recalled events, not a measured detection threshold or a permanent identity. A late observation on one occasion can coexist with quick observation on another.",
+              "zh": "这组回顾感官变化在明确提示后才较晚进入注意的场合。四条原创描述涉及光线、背景声音、触感和室温，记录回忆中的事件，不测探测阈值或固定身份。同一个人在某次较晚察觉，也可能在另一次很快察觉。"
+            },
+            {
+              "en": "In Dunn’s conceptual framework, low registration combines a high threshold with a passive response strategy. Here that name is background for a reflection topic only. These four answers cannot establish either underlying process. We therefore show a late-noticing record rather than assigning you to a neurological quadrant or comparing you with other people.",
+              "zh": "Dunn概念框架中的低登录结合较高阈值与被动反应策略。在此该名称仅是反思主题的概念背景，四个回答无法确立这两个内在过程，因此显示晚察觉记录，不分配神经系统象限，也不与他人比较。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Read a concrete situation",
+            "zh": "放进具体情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a shared workspace where a colleague says the desk lighting changed earlier. You recognise the change once it is mentioned. That fits a cue arriving later in your awareness. It does not tell you whether you were deeply focused, tired, facing away, unfamiliar with the room or experiencing a visual difficulty.",
+              "zh": "例如共享工作空间里，同事说桌面照明早已调整，你被提醒后才意识到。这符合线索较晚进入注意，却不能说明你是专注、疲倦、朝向不同、不熟悉房间，还是存在视觉困难。"
+            },
+            {
+              "en": "A useful private note would separate what changed, what you were doing and how you eventually noticed. You do not need to enter that note on the site. If nobody actually mentioned a change and you cannot recall a matching opportunity, choose the unscored option instead of imagining how you would have reacted.",
+              "zh": "有用的私人记录可以分开写：什么变了、当时在做什么、最后怎样察觉。无需把记录输入网站。如果没有实际提示过变化，也记不起匹配机会，选不计分，不必假想自己会怎样反应。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Keep nearby experiences separate",
+            "zh": "区分相近体验"
+          },
+          "paragraphs": [
+            {
+              "en": "Not noticing a sensory cue promptly is different from forgetting an instruction, missing the meaning of a message or choosing not to respond. Those may share an outward appearance while involving different tasks. This record asks about the sensory change itself and a later cue, not your reliability, intelligence, interest in another person or respect for instructions.",
+              "zh": "感官线索未及时进入注意，不同于忘记指令、没理解信息或选择不回应。外在表现可能相似，涉及的任务却不同。本组询问感官变化本身和后来的提示，不评价可靠性、智力、对人的兴趣或是否尊重指令。"
+            },
+            {
+              "en": "It is also different from actively seeking stimulation. You might notice a cue late without wanting stronger input; you might deliberately add input without missing cues. Read both records if they seem relevant, but do not combine them into an assumed high-threshold score. The site does not calculate an axis from these topics.",
+              "zh": "这也不同于主动寻求刺激。较晚察觉不一定意味着想要更强输入，主动增加输入也不一定意味着漏掉线索。两组都相关可以都读，但不要合成假定的高阈值分数；本站不据此计算轴分。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the four answers and arithmetic",
+            "zh": "读懂四个回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the four answers contributes directly from zero to four. When all four are numeric, their sum ranges from zero to sixteen and the mean is the sum divided by four, displayed to two decimal places. The mean summarises selected frequency descriptions; it is not a calibrated interval scale of sensory registration.",
+              "zh": "四个回答各直接计零至四。四条均为数字时，合计零至十六，均分为合计除以四、显示两位小数。均分概括所选频率描述，不是经过校准、等距的感官登录量尺。"
+            },
+            {
+              "en": "Never means you recall relevant occasions but not the described response. No opportunity, uncertainty and declining share an explicitly unscored option. One such answer withholds this part’s sum and mean while preserving its numeric and skipped counts; other complete parts remain readable. No missing value becomes zero, and no overall score or winning pattern is produced.",
+              "zh": "从未指记得有相关机会，但没有题述反应。无机会、不确定和不愿回答共用明确不计分项。出现一条就不提供本组合计与均分，保留数字及跳过数量，其他完整组仍可读。不把缺失当零，不计算总分或赢家模式。"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "title": {
+            "en": "Try one reversible environment choice",
+            "zh": "尝试一个可撤销的环境选择"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary work task, you could make a nonessential transition explicit: a written cue when a meeting changes stage, or a visible note when a shared setup changes. Choose something relevant and easy to reverse. This is a practical communication experiment, not treatment, and it does not require stronger sounds, brighter lights or uncomfortable sensations.",
+              "zh": "普通工作任务中，可把非关键过渡说清楚，例如会议换阶段时写出提示，共用布置改变时留可见说明。选相关且容易撤销的方法。这是沟通小实验，不是治疗，也不需要加强声音、亮光或不舒服的感觉。"
+            },
+            {
+              "en": "Assess the choice by whether the task becomes easier to follow, not by whether a questionnaire number falls. Keep existing safety alerts and accessibility arrangements intact. A self-reflection score is not a reason to increase alarm volume, test pain tolerance or assume someone cannot notice danger. Concerns about a sensory function need their own appropriate assessment.",
+              "zh": "判断选择是否有用，看任务是否更容易跟上，不看问卷数字是否下降。保留现有安全警报和无障碍安排。自我反思分数不能用来提高警报音量、测试痛觉耐受或假设某人察觉不到危险。感官功能疑问需要相应评估。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this record cannot establish",
+            "zh": "这组记录不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The recall window is the past four weeks, selected by FermatMind Editorial for this original reflection. It does not establish a developmental history, a cause or a stable trait. Neither language has been psychometrically validated, and English and Chinese scores have not been shown equivalent. Repeating the task is not a validated measure of improvement.",
+              "zh": "回忆范围为过去四周，由费马测试编辑部为原创回顾选定，不能确立发育史、原因或稳定特质。两种语言均未做心理测量验证，中英文分数也未证明等值。重复作答不是已验证的改善测量。"
+            },
+            {
+              "en": "The official Adolescent/Adult Sensory Profile is a different, sixty-item professional instrument with its own administration and normative classification. This page supplies none of its items, norms or reports. These results cannot identify autism, ADHD, a sensory processing disorder, hearing loss or visual impairment, and they should not guide hiring or judgements about somebody else.",
+              "zh": "官方Adolescent/Adult Sensory Profile是另一套六十题专业工具，有自己的施测与常模分类。本页不提供它的题项、常模或报告。结果不能识别自闭症、ADHD、感觉处理障碍、听力或视力损伤，也不应用于招聘或判断别人。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose a useful next observation",
+            "zh": "选择有用的下一次观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to observe this topic further, choose one familiar, low-stakes setting and notice the cues already present there. Separate an opportunity from an actual late observation. A week with few shared activities may simply offer fewer relevant occasions. You do not need to create sensations or ask another person to secretly test you.",
+              "zh": "想继续观察时，可选熟悉且低负担的环境，留意其中原有线索，分清有机会与确实较晚察觉。共同活动少的一周，可能只是相关机会较少。无需制造感官刺激，也无需让别人秘密测试你。"
+            },
+            {
+              "en": "For broader questions about noticing and discriminating sensations, the separate SPQ92 entry uses a published questionnaire and a different scoring method. HSP24 instead reflects four other experience topics. Reading those methods may help you choose a relevant task, but neither converts this record into a diagnosis. All four public guides here remain available without answering or sharing personal details.",
+              "zh": "更广泛的感知与分辨问题，可读单独SPQ92入口，它用发表题本与不同计分；HSP24则回顾另四类体验。阅读方法有助于选择任务，但都不会把本记录变成诊断。本页四篇公开指南无需作答或分享私人细节即可阅读。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input-seeking",
+      "directionIds": [
+        "input-seeking"
+      ],
+      "title": {
+        "en": "Adding sensory input",
+        "zh": "主动增加感官输入"
+      },
+      "headline": {
+        "en": "Adding sensory input",
+        "zh": "主动增加感官输入"
+      },
+      "summary": {
+        "en": "Read deliberate choices to add input, without inferring a sensory need or dominant type.",
+        "zh": "回顾主动增加输入的选择，不推断感官需要或主导类型。"
+      },
+      "scoreReading": {
+        "en": "Four numeric answers: direct sum 0–16 and mean 0–4 to two decimals. Any unscored answer withholds this part only; no total, axis, winner or norm.",
+        "zh": "四条数字：直接合计0—16、均分0—4显示两位小数。任一不计分仅不提供本组数字；无总分、轴分、赢家或常模。"
+      },
+      "seo": {
+        "title": {
+          "en": "Adding sensory input: Full Sensory Sensitivity Guide",
+          "zh": "主动增加感官输入｜感官敏感完整指南"
+        },
+        "description": {
+          "en": "Read deliberate choices to add input, without inferring a sensory need or dominant type.",
+          "zh": "回顾主动增加输入的选择，不推断感官需要或主导类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this record describes",
+            "zh": "这组记录在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records occasions when you deliberately added a sensory feature because you wanted more input. Its four original descriptions cover a gentle sound, comfortable movement, noticeable texture and a visual detail. The question is about the reason for an ordinary choice, not whether you are adventurous, energetic, productive or more capable in a busy environment.",
+              "zh": "这组记录因为想要更多输入而主动增加感官特征的场合。四条原创描述涉及轻柔声音、舒适活动、明显质感与视觉细节，关注普通选择的原因，不判断你是否爱冒险、精力足、高效或更能适应繁忙环境。"
+            },
+            {
+              "en": "Sensory seeking is one of four patterns in Dunn’s conceptual framework. Our independently authored items use that idea to organise reflection. Choosing an input does not prove a high neurological threshold, and this page does not measure a need for stronger stimulation. You may seek one kind of input while reducing another at the same time.",
+              "zh": "感觉寻求是Dunn概念框架中的四模式之一。本站独立写题，以该概念组织回顾。选择某种输入不证明神经阈值较高，本页也不测对更强刺激的需要。你可能寻求一种输入，同时减少另一种。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Read a concrete situation",
+            "zh": "放进具体情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, during a quiet independent task you freely add a low background sound because the space feels too empty of input. That is different from playing sound because your job requires checking a recording. The same visible action can have different reasons. Choose an answer only when both the situation and the stated reason fit your recollection.",
+              "zh": "例如安静独立任务中，因为环境输入太少而自愿增加轻微背景声；这不同于工作要求检查录音而播放声音。相同动作可能有不同原因。情境和题中原因都符合回忆时再选择。"
+            },
+            {
+              "en": "A material choice offers another example. You might pick a textured cover because the sensation itself is welcome, rather than because it is cheaper or easier to grip. If you had no comparable choice or do not remember your reason, an unscored answer is more faithful than guessing. The site does not ask you to buy anything or try the material now.",
+              "zh": "材料选择也是例子。你可能因喜欢触感本身而选择有质感的封面，而非因为便宜或好握。如果没有可比选择，或记不起原因，不计分比猜测更忠实。本站不要求购买物品或现在尝试材料。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Keep nearby experiences separate",
+            "zh": "区分相近体验"
+          },
+          "paragraphs": [
+            {
+              "en": "Adding sensory input is different from seeking social contact, praise, novelty, competition or risk. A person can enjoy a visually interesting personal space and still prefer predictable routines. Another can enjoy novelty yet choose quiet surroundings. The four answers do not form an extraversion, impulsivity or attention-deficit score, and none of those traits should be inferred from the record.",
+              "zh": "增加感官输入不同于寻求社交、赞扬、新鲜、竞争或风险。喜欢视觉丰富的个人空间，也可能偏爱可预测作息；喜欢新鲜，也可能选择安静环境。四个回答不组成外向、冲动或注意缺陷分数，不应据此推断这些特质。"
+            },
+            {
+              "en": "Nor is this the opposite of every reducing response. You may add movement during a break and prefer fewer scents while working. Those are different modalities, times and purposes. Separate records preserve that mixed picture. We do not subtract seeking from reducing, place you on a single continuum or label the larger mean your dominant sensory type.",
+              "zh": "也不与每一种减少输入相反。你可能休息时增加活动，工作时减少气味，涉及不同感官、时间和目的。分组记录保留这种混合情况。不用增加减去减少，不放到单一连续轴，也不把较大均分命名为主导感官类型。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the four answers and arithmetic",
+            "zh": "读懂四个回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Four explicit numeric answers produce a direct sum from zero to sixteen and a mean from zero to four. The mean equals the sum divided by four and is shown to two decimal places. The response categories are ordered descriptions, so a difference of one displayed point does not establish an equal difference in an underlying sensory need.",
+              "zh": "四个明确数字回答直接得到零至十六合计、零至四均分。均分是合计除以四，显示两位小数。选项是有序描述，显示相差一分不代表内在感官需要相差同等数量。"
+            },
+            {
+              "en": "Choose never only when relevant opportunities occurred and you do not recall the described choice. The unscored option covers no opportunity, uncertainty or declining. Any unscored item withholds this part’s sum and mean, with counts still shown. The site neither imputes a response nor discards the whole questionnaire when another part can be read completely.",
+              "zh": "有相关机会却未记得题述选择时才选从未。不计分涵盖无机会、不确定或不愿回答。任一不计分就不提供本组合计与均分，仍显示数量。不补填答案，也不因为一组缺项而丢弃其他完整组。"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "title": {
+            "en": "Try one reversible environment choice",
+            "zh": "尝试一个可撤销的环境选择"
+          },
+          "paragraphs": [
+            {
+              "en": "A reversible work experiment could offer a choice between two already acceptable personal setups, such as a plain surface and a visually varied one. Keep the task, duration and shared-space agreement clear. Use the option that helps you participate comfortably; there is no obligation to choose the one corresponding to a larger mean or to make the environment increasingly intense.",
+              "zh": "可撤销的工作实验，可以比较两个本来就可接受的个人布置，例如简洁与视觉稍丰富的桌面。说清任务、时长和共享空间约定。选择有助舒适参与的方案，不必服从较大均分，也不必不断提高环境强度。"
+            },
+            {
+              "en": "If a preferred input affects another person, ask rather than assuming a shared preference. Personal headphones are not a universal solution, and movement needs a suitable, safe setting. No loudness, flashing light, spinning, food tasting, strong smell or touch exposure is needed for this reflection. Keeping an option small and voluntary matters more than matching a profile label.",
+              "zh": "偏好的输入会影响别人时，先询问，不假设大家相同。个人耳机不是通用方案，活动也需合适安全环境。本回顾不需要大声、闪光、转圈、尝食、浓气味或触碰暴露。保持小幅、自愿，比符合模式标签更重要。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this record cannot establish",
+            "zh": "这组记录不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The four-week window reflects recent recall and available opportunities. It is not a lifespan assessment or a prescription for a sensory diet. These original bilingual items have not been validated, and repeating them cannot establish a treatment response. A different answer after a schedule change could reflect changed opportunities rather than a changed nervous system.",
+              "zh": "四周范围反映近期回忆与可用机会，不是终身评估，也不是感官饮食处方。原创双语题项尚未验证，重测不能确立治疗反应。作息改变后答案不同，可能是机会改变，而非神经系统改变。"
+            },
+            {
+              "en": "The research framework does not transfer the official Sensory Profile’s validation or normative classifications to this short reflection. Neither a larger nor a smaller mean establishes autism, ADHD, wellbeing, self-control or work suitability. Do not use another person’s reported choices to diagnose them or to remove an existing arrangement that helps them participate.",
+              "zh": "研究框架不会把官方Sensory Profile的验证或常模分类转给这份短回顾。均分高低都不能确立自闭症、ADHD、健康、自控或工作适配。不用别人报告的选择诊断对方，也不据此撤掉帮助其参与的既有安排。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose a useful next observation",
+            "zh": "选择有用的下一次观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a useful next note, identify the task, input you chose and practical effect you cared about. Did you want comfort, interest or an easier transition into the activity? Keep those questions open rather than declaring the input necessary for your brain. You can keep this note privately; the questionnaire collects no personal examples or sensory recordings.",
+              "zh": "下一次有用记录可写任务、所选输入及关心的实际效果。你想要舒适、兴趣，还是更容易开始活动？保持问题开放，不宣布某输入是大脑必需。记录可私下保留，问卷不收个人例子或感官录音。"
+            },
+            {
+              "en": "Read the reducing-input guide if your preferences differ across settings, and the interruption guide if input draws attention away despite your intentions. These are parts of one reflection rather than separate tests or personality types. Sharing copies all four public guides without your selections or numbers, so another reader can explore the ideas without receiving your private record.",
+              "zh": "偏好随环境改变可读减少输入指南；输入违背意愿拉走注意可读打断指南。这是同一回顾的不同部分，不是独立测试或人格类型。分享复制全部四篇公开指南，不带选择或数字，别人可了解概念而不收到私人记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input-distraction",
+      "directionIds": [
+        "input-distraction"
+      ],
+      "title": {
+        "en": "Being interrupted by input",
+        "zh": "被感官输入打断"
+      },
+      "headline": {
+        "en": "Being interrupted by input",
+        "zh": "被感官输入打断"
+      },
+      "summary": {
+        "en": "Read repeated sensory interruptions, without equating them with acuity or a diagnosis.",
+        "zh": "回顾反复感官打断，不等同于敏锐度或诊断。"
+      },
+      "scoreReading": {
+        "en": "Four numeric answers: direct sum 0–16 and mean 0–4 to two decimals. Any unscored answer withholds this part only; no total, axis, winner or norm.",
+        "zh": "四条数字：直接合计0—16、均分0—4显示两位小数。任一不计分仅不提供本组数字；无总分、轴分、赢家或常模。"
+      },
+      "seo": {
+        "title": {
+          "en": "Being interrupted by input: Full Sensory Sensitivity Guide",
+          "zh": "被感官输入打断｜感官敏感完整指南"
+        },
+        "description": {
+          "en": "Read repeated sensory interruptions, without equating them with acuity or a diagnosis.",
+          "zh": "回顾反复感官打断，不等同于敏锐度或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this record describes",
+            "zh": "这组记录在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records occasions when sensory input repeatedly drew attention away while you continued in the same setup. Four original descriptions concern sound, changing brightness, touch and background smell. The focus is the interruption you recall, rather than sensory acuity, emotional depth, dislike of a particular person or the cause of a distracting experience.",
+              "zh": "这组回顾保持原环境时，感官输入反复拉走注意的场合。四条原创描述涉及声音、亮度变化、触感与背景气味，关注记得的打断，而非感官敏锐程度、情绪深度、对某人的反感或分心原因。"
+            },
+            {
+              "en": "Dunn’s sensory sensitivity pattern offers conceptual background for noticing and responding without actively changing input. The present questions cannot establish a low neurological threshold. We call the output an input-interruption record so that the observable description stays separate from the mechanism proposed by a framework. An uncomfortable experience deserves consideration even when no mechanism has been established.",
+              "zh": "Dunn的感觉敏感模式为察觉输入、却未主动改变输入提供概念背景。本组不能确立低神经阈值，故输出称为输入打断记录，使可观察描述与框架提出的机制分开。即便未确立机制，不舒服的体验仍值得认真对待。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Read a concrete situation",
+            "zh": "放进具体情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider an ordinary reading task with a recurring background noise. Your attention keeps moving toward it, but you stay in the same room. That fits the described occasion. The answer does not tell us whether the sound was unusually loud, the task was difficult, you were tired, or the room offered no practical way to change the sound.",
+              "zh": "例如阅读普通材料时，背景声反复出现，注意不断被拉过去，但你留在原房间。这符合描述，却不能说明声音是否异常大、任务是否难、是否疲倦，或房间是否根本没有可行调整方法。"
+            },
+            {
+              "en": "Remaining in the same setup should not be read as consent to discomfort or failure to manage yourself. It may reflect a shared-space rule, limited choice or a wish to finish a task. If the event did not occur or you cannot distinguish an actual interruption from simply noticing a sensation, use the unscored option instead of forcing a judgment.",
+              "zh": "没有改变环境，不意味着同意忍受不适或缺乏自我管理，可能受共享规则、选择有限或想完成任务影响。没有发生过，或分不清真实打断与单纯察觉时，可选不计分，不必硬判断。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Keep nearby experiences separate",
+            "zh": "区分相近体验"
+          },
+          "paragraphs": [
+            {
+              "en": "This record differs from reducing input. One describes attention being pulled away while the setup remains; the other describes an intentional adjustment. You may report both on different occasions. A small reducing score does not prove that the interruption was unimportant, and a large reducing score does not prove that an interruption was prevented or resolved.",
+              "zh": "本组不同于减少输入：一个描述环境未变时注意被拉走，另一个描述主动调整。不同场合可能都出现。减少分数低不证明打断不重要，减少分数高也不证明打断被预防或解决。"
+            },
+            {
+              "en": "It is also different from the sound-linked reaction and impact examined by DVMSQ. A broad input interruption need not involve anger, disgust, a specific trigger, avoidance or functional impairment. Our separate SPQ92 entry asks published statements about sensory perception, while HSP24 covers other recent experiences. Shared words such as sensitivity do not make their scores interchangeable.",
+              "zh": "也不同于DVMSQ关注的声音相关反应与影响。一般输入打断不一定涉及愤怒、厌恶、特定触发、回避或功能受损。单独SPQ92用发表陈述回顾感知，HSP24关注另一些近期体验。共用“敏感”一词，不意味着分数可互换。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the four answers and arithmetic",
+            "zh": "读懂四个回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "For four numeric answers, add the selected zero-to-four values to obtain a sum out of sixteen, then divide by four for a mean shown to two decimal places. All items are direct, with no reverse scoring. The number describes the chosen frequency categories across these four prompts, without a clinical severity band or a population comparison.",
+              "zh": "四个数字回答，把零至四相加得到十六分范围的合计，再除以四得到显示两位小数的均分。全部正向直接计分，无反向题。数字只概括四条所选频率，不提供临床严重度分段或人口比较。"
+            },
+            {
+              "en": "An explicit unscored response is valid and lets you finish. It withholds this part’s sum and mean because all four numeric responses are required. Numeric and skipped counts remain visible, and other complete parts keep their own readings. Never is not the same as no opportunity; blank remains incomplete rather than being silently interpreted as a response.",
+              "zh": "明确不计分是有效回答，可继续完成。但本组需要四个数字，故不提供合计与均分，仍显示数字与跳过数量，其他完整组保留读数。从未不同于无机会，空白仍属未完成，不会被暗中解释为答案。"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "title": {
+            "en": "Try one reversible environment choice",
+            "zh": "尝试一个可撤销的环境选择"
+          },
+          "paragraphs": [
+            {
+              "en": "An ordinary work experiment might clarify whether one optional input can be adjusted during a specific task, such as moving a nonessential notification away from the immediate work area. Agree on a practical alternative if others rely on it. Evaluate the actual task experience, and reverse the change if it is unhelpful; a questionnaire mean need not decide the choice.",
+              "zh": "普通工作实验可以明确，某项任务中能否调整一种非必要输入，例如把非必要提示移出眼前工作区域。如果别人依赖它，先约定可行替代。判断实际任务体验，不合适就撤销，无需由问卷均分决定。"
+            },
+            {
+              "en": "Do not remove safety signals, change prescribed equipment, test your tolerance or expose yourself repeatedly to an unpleasant stimulus to obtain a different answer. You can leave or skip the reflection at any time. Persistent discomfort or interference is better described through the actual setting, duration and effect on participation than through an assumed sensory personality label.",
+              "zh": "不移除安全信号、不调整处方设备、不测试耐受，也不为换一个答案反复暴露于不舒服刺激。可随时离开或跳过。持续不适或干扰，更适合描述实际环境、时长与参与影响，而非假定的感官人格标签。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this record cannot establish",
+            "zh": "这组记录不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The framework and research references distinguish daily reports from laboratory measures; they do not validate this original item set. A report of frequent interruption cannot establish hearing or touch thresholds, a nervous-system explanation, autism, ADHD or a sensory disorder. Evidence about one published questionnaire should not be transferred to another questionnaire that happens to use related concepts.",
+              "zh": "框架及研究来源帮助区分日常报告与实验测量，不验证本站原创题组。频繁打断的报告不能确立听觉触觉阈值、神经系统解释、自闭症、ADHD或感觉障碍。一份发表问卷的证据，不能转给概念相近的另一份问卷。"
+            },
+            {
+              "en": "Recent sleep, task demands, environmental variation and opportunity may all affect recollection, without this tool being able to estimate their contributions. There are no norms, diagnostic cutoffs, change thresholds or language-equivalence claims. A zero mean is not proof of no difficulty, and a larger mean does not show that you notice detail more accurately than other people.",
+              "zh": "近期睡眠、任务要求、环境变化与机会都可能影响回忆，本工具无法估算各自贡献。没有常模、诊断切点、变化阈值或语言等值主张。零均分不证明没有困难，较大均分也不说明比别人更准确察觉细节。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose a useful next observation",
+            "zh": "选择有用的下一次观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a next observation, choose an existing, comfortable activity and separate the input, interruption and choice available at the time. You can note whether a pause or agreed environmental adjustment was helpful without trying to prove a causal theory. Do not record another person’s sensory responses without their agreement or treat a workplace disagreement as a test result.",
+              "zh": "下次可选现有舒适活动，分开记录输入、打断及当时可选做法。可以留意暂停或约定调整是否有用，无需证明因果理论。不在未经同意时记录别人的感官反应，也不把工作分歧当成测试结果。"
+            },
+            {
+              "en": "If your main concern is a specific sound-linked reaction with effects on daily life, read the separate sound-sensitivity entry and its method before deciding whether it fits. If you need help with persistent or newly changed symptoms, seek advice based on those experiences rather than this mean. All four guides remain freely readable, and sharing sends only their public links.",
+              "zh": "主要困扰若是特定声音相关反应及生活影响，可先读单独声音敏感入口与方法，再判断是否适合。持续或新变化的症状，可据实际体验寻求意见，不依赖本均分。四篇指南免费开放，分享只发送公开链接。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "input-reducing",
+      "directionIds": [
+        "input-reducing"
+      ],
+      "title": {
+        "en": "Reducing sensory input",
+        "zh": "主动减少感官输入"
+      },
+      "headline": {
+        "en": "Reducing sensory input",
+        "zh": "主动减少感官输入"
+      },
+      "summary": {
+        "en": "Read deliberate reductions in unwanted input, without a severity band or prescription.",
+        "zh": "回顾主动减少不想要的输入，不设严重度分段或处方。"
+      },
+      "scoreReading": {
+        "en": "Four numeric answers: direct sum 0–16 and mean 0–4 to two decimals. Any unscored answer withholds this part only; no total, axis, winner or norm.",
+        "zh": "四条数字：直接合计0—16、均分0—4显示两位小数。任一不计分仅不提供本组数字；无总分、轴分、赢家或常模。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reducing sensory input: Full Sensory Sensitivity Guide",
+          "zh": "主动减少感官输入｜感官敏感完整指南"
+        },
+        "description": {
+          "en": "Read deliberate reductions in unwanted input, without a severity band or prescription.",
+          "zh": "回顾主动减少不想要的输入，不设严重度分段或处方。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What this record describes",
+            "zh": "这组记录在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part describes deliberate choices to reduce sensory input that you did not want. Four original prompts cover background sound, changing visual input, touch and background scent. The task is to recognise an action and its stated reason during ordinary opportunities, rather than deciding whether the action is good, excessive, socially acceptable or evidence of a condition.",
+              "zh": "这组描述主动减少不想要的感官输入。四条原创题涉及背景声、变化的视觉输入、触感与背景气味，任务是在普通机会中识别动作及题述原因，不判断动作是否好、过度、符合社会期待或证明某种状况。"
+            },
+            {
+              "en": "Sensory avoiding in Dunn’s framework provides the conceptual background for active changes intended to limit input. Our questions do not establish the framework’s proposed low threshold or classify you as an avoider. An ordinary preference for a quieter setting can be reasonable without needing a test label, while a label cannot decide which setting is suitable for every task.",
+              "zh": "Dunn框架中的感觉回避，为主动限制输入提供概念背景。本站题目不确立框架提出的低阈值，也不把你归类为回避者。偏爱安静可以无需标签就合理，而标签不能决定每项任务都适合什么环境。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Read a concrete situation",
+            "zh": "放进具体情境理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that two equally available seats differ in the amount of visual movement nearby. You choose the less visually busy seat because you want less input. That fits the description even if nobody else would make the same choice. It does not reveal whether you feel anxious, whether the other seat is unsafe or whether your vision is unusually sensitive.",
+              "zh": "例如两个同样可选的座位，旁边视觉变化多少不同，你因想减少输入而选较简洁的位置。这符合描述，即使别人不会同样选。它不揭示你是否焦虑、另一座位是否不安全，或视觉是否异常敏感。"
+            },
+            {
+              "en": "The reason matters. Choosing the same seat to sit next to a friend is a different event, as is having no alternative seat at all. Use never for actual relevant opportunities without the described choice; choose unscored when no opportunity occurred or the reason is unclear. You do not need to revisit a difficult environment to answer the question.",
+              "zh": "原因很重要。为了坐朋友旁边而选同一座位，是不同事件；根本没得选也是另一回事。有相关机会却没题述选择可选从未，无机会或原因不清可选不计分。无需重返困难环境来回答。"
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "en": "Keep nearby experiences separate",
+            "zh": "区分相近体验"
+          },
+          "paragraphs": [
+            {
+              "en": "Reducing input is different from avoiding a person, an obligation, a feared consequence or an unwanted conversation. Those situations may overlap in everyday life, but these prompts focus on sensory input itself. A response does not establish relationship withdrawal, moral character, anxiety severity or a diagnosis. If several reasons were inseparable, uncertainty is a reasonable response.",
+              "zh": "减少输入不同于回避某个人、义务、害怕的后果或不想进行的谈话。生活中可能重叠，但本题关注感官输入本身。回答不确立关系退缩、品格、焦虑严重度或诊断。几种原因分不开时，不确定是合理选择。"
+            },
+            {
+              "en": "It also differs from being interrupted while staying with the same setup. You may reduce input proactively before discomfort occurs, or remain in a setting despite frequent interruption because changing it is not possible. This reflection cannot infer an action’s effectiveness from its frequency. Neither seeking nor reducing is used as a reverse-scored opposite of the other.",
+              "zh": "也不同于环境未变时被打断。你可能在不适前主动减少输入，也可能因无法改变而在频繁打断中留下。本回顾无法从动作频率推断效果。增加与减少都不作为彼此的反向计分。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the four answers and arithmetic",
+            "zh": "读懂四个回答与计算"
+          },
+          "paragraphs": [
+            {
+              "en": "When all four responses are numeric, their direct zero-to-four values produce a zero-to-sixteen sum and a zero-to-four mean, rounded for display to two decimal places. The number summarises selected frequency labels, without a threshold for excessive avoidance. It is not a percentage of time, a symptom probability or a recommendation to reduce more input.",
+              "zh": "四条都是数字时，零至四直接相加得零至十六合计，再除以四得到零至四均分，显示两位小数。数字概括所选频率，没有过度回避切点；不是时间百分比、症状概率，也不建议减少更多输入。"
+            },
+            {
+              "en": "Any unscored answer withholds this part’s sum and mean while keeping the numeric and skipped counts. A blank response is incomplete; an explicit skip is valid. No opportunity is not recoded as never, and no response is imputed. You can finish with every item skipped, in which case no numeric part is produced and all public guides remain available.",
+              "zh": "任一不计分就不提供本组合计与均分，保留数字与跳过数量。空白未完成，明确跳过有效。无机会不改编码为从未，不补值。全部跳过也可完成，此时没有数字组，仍可读全部公开指南。"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "title": {
+            "en": "Try one reversible environment choice",
+            "zh": "尝试一个可撤销的环境选择"
+          },
+          "paragraphs": [
+            {
+              "en": "For a reversible workplace choice, identify one nonessential input and a workable alternative: for example, a less scented shared material if everyone involved agrees and it meets the task’s requirements. State the practical need without claiming that a test has diagnosed your nervous system. A simple request can be useful even when you have not taken any questionnaire.",
+              "zh": "可撤销的工作选择，可以找一种非必要输入及可行替代，例如所有相关人同意、又满足任务要求的较少气味共用材料。说清实际需要，无需声称测试诊断了神经系统。即使没做问卷，简单请求也可能有用。"
+            },
+            {
+              "en": "Keep changes proportionate to the task and easy to undo. Do not remove alarms, ventilation, required protective equipment or another person’s agreed support. The questionnaire does not prescribe exposure exercises or tell you to eliminate all uncomfortable input. If a choice restricts important activities or causes conflict, discuss the actual situation and available options rather than treating the mean as a rule.",
+              "zh": "调整与任务相称、便于撤销。不撤警报、通风、必要防护或别人的既定支持。问卷不开暴露练习，也不要求消除一切不舒服输入。选择若限制重要活动或引发冲突，应讨论具体情况与选项，不把均分当规则。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What this record cannot establish",
+            "zh": "这组记录不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These are original reflection prompts, not a licensed short form of the Adolescent/Adult Sensory Profile. Its sixty published items, normative bands and professional interpretation are not reproduced here. No evidence from that instrument validates our four questions. The present record is for adults reflecting on recent experiences, not caregivers rating children, employers screening applicants or observers rating partners.",
+              "zh": "这些是原创回顾题，不是Adolescent/Adult Sensory Profile授权短版。不复现其六十题、常模分段或专业解读，原工具证据不验证本组四题。本记录面向成年人回顾近期体验，不面向照护者评儿童、雇主筛申请者或观察者评伴侣。"
+            },
+            {
+              "en": "A larger mean does not prove greater sensory acuity, autism, ADHD, a sensory processing disorder or a need for treatment. A smaller mean does not show that a person has no unmet sensory needs; their opportunities and choices may be constrained. The four-week window and arithmetic are editorial choices, and neither bilingual equivalence nor meaningful change has been validated.",
+              "zh": "均分大不证明更敏锐、自闭症、ADHD、感觉处理障碍或需要治疗；均分小也不说明没有未满足的感官需要，机会与选择可能受限。四周范围与计算是编辑选择，双语等值与有意义变化均未验证。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose a useful next observation",
+            "zh": "选择有用的下一次观察"
+          },
+          "paragraphs": [
+            {
+              "en": "A helpful next observation records what you hoped to change and whether the activity became more workable after an ordinary adjustment. Keep the focus on participation rather than a better test score. You may discover that one context benefits from reduced input while another benefits from added input; that mixed observation is not a contradiction to be forced into one type.",
+              "zh": "下一次有用观察可记想改变什么，普通调整后活动是否更可行。关注参与，而非更好分数。也许某环境减少输入有用，另一环境增加输入有用；混合观察不是必须压成一种类型的矛盾。"
+            },
+            {
+              "en": "Read the seeking and interruption guides for those distinctions, or the separate sound-sensitivity entry if your concern is a particular sound-linked reaction and impact. Persistent discomfort, sudden sensory changes or major interference deserve advice matched to the actual concern. Your answers stay in page memory; public sharing includes all four guides and no selections, counts, sums or means.",
+              "zh": "可读增加输入与打断指南理解区别；若关心特定声音相关反应与影响，可读单独声音敏感入口。持续不适、突然感官变化或明显干扰，需要与实际问题相称的意见。答案留在页面内存；公开分享含全部四篇指南，不带选择、数量、合计或均分。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four original reflection topics",
+        "zh": "四个原创回顾主题"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind Editorial independently authored sixteen prompts and four full bilingual guides: noticing cues later, adding input, being interrupted by input and reducing input. Dunn’s four-pattern model supplies conceptual background only. The items do not establish neurological thresholds, axis positions or validated sensory types.",
+          "zh": "费马测试编辑部独立写作十六条题目与四篇双语完整指南：晚察觉、增加输入、被输入打断、减少输入。Dunn四模式模型仅供概念背景，题目不确立神经阈值、轴上位置或验证后的感官类型。"
+        },
+        {
+          "en": "This is not the sixty-item Adolescent/Adult Sensory Profile, its licensed short form or a translation of it. No proprietary item bank, manual, normative classification or report is reproduced. Published research and the professional publisher’s description do not validate these original questions or transfer their instrument’s evidence to this page.",
+          "zh": "本页不是六十题Adolescent/Adult Sensory Profile、授权短版或译本。不复现其专有题本、手册、常模分类或报告。发表研究及专业出版方说明不验证本站原创题目，也不把原工具证据转给本页。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Direct arithmetic, separate parts",
+        "zh": "直接计算，分组呈现"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic has four direct items, rated zero to four on relevant occasions. All four numeric responses are required for that topic’s sum from zero to sixteen and mean from zero to four, displayed to two decimals. Frequency labels are ordered descriptions, not a calibrated interval measure, percentage of time or percentile.",
+          "zh": "每组四条直接题，按有相关机会时的频率选零至四。该组四条均为数字才显示零至十六合计与零至四均分，均分显示两位小数。频率选项是有序描述，不是校准等距测量、时间百分比或百分位。"
+        },
+        {
+          "en": "Never differs from no opportunity. An explicit unscored answer is valid but withholds its own part’s sum and mean; complete other parts remain visible. All unscored responses can finish without numbers. No reverse items, imputation, total, threshold axes, highest-pattern classification, bands, norms, probability or diagnostic cutoff is used.",
+          "zh": "从未不同于无机会。明确不计分是有效选择，但不提供本组合计与均分，其他完整组仍显示。全部不计分也可完成且无数字。无反向题、补值、总分、阈值轴、最高模式分类、分段、常模、概率或诊断切点。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Ordinary recall, without sensory experiments",
+        "zh": "普通回忆，不做感官实验"
+      },
+      "paragraphs": [
+        {
+          "en": "The past-four-weeks window and arithmetic are editorial choices. Both languages are unvalidated, with no established equivalence or meaningful-change threshold. Responses cannot establish autism, ADHD, a sensory processing disorder, sensory acuity, nervous-system function, workplace suitability or treatment needs. This is self-reflection for adults, not a child, partner or applicant rating.",
+          "zh": "过去四周范围与计算是编辑选择。两种语言尚未验证，无已确立等值或有意义变化阈值。回答不确立自闭症、ADHD、感觉处理障碍、感官敏锐度、神经系统功能、工作适配或治疗需要。面向成年人自我回顾，不评儿童、伴侣或求职者。"
+        },
+        {
+          "en": "No sounds, flashing images, tastes, smells, touch, movement trials or tolerance tests are supplied or required. The work suggestions are small, voluntary and reversible choices, not treatment or a sensory diet. Keep safety signals and existing support intact. Persistent discomfort, sudden changes or interference warrant advice matched to the actual experience rather than a questionnaire label.",
+          "zh": "不提供也不要求声音、闪光、味道、气味、触碰、活动试验或耐受测试。工作建议是小幅、自愿、可撤销的选择，不是治疗或感官饮食。保留安全信号及既有支持。持续不适、突然变化或干扰，需按实际体验寻求相应意见，不依赖问卷标签。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Read all four complete guides",
+        "zh": "阅读全部四篇完整指南"
+      },
+      "paragraphs": [
+        {
+          "en": "Every complete guide explains a concrete situation, differences from nearby experiences, exact arithmetic, optional work adjustments and limits. They are identical public readings for everyone, free before answering and expandable after your response record. Four guides belong to one reflection, not four independent products or personal clinical reports.",
+          "zh": "每篇完整指南解释具体情境、相近体验差别、精确计算、可选工作调整与边界。对所有人相同，作答前免费可读，记录后可展开。四篇指南属于同一回顾，不是四个独立产品或个人临床报告。"
+        },
+        {
+          "en": "Sharing copies all four public guide links without answers, counts, sums or means. The separate SPQ92 entry concerns published sensory-perception statements, while HSP24 and the sound-sensitivity entry serve different tasks. Choose them only if their methods fit your question; no answer or score is transferred and no further test is required to see this result.",
+          "zh": "分享复制全部四篇公开指南链接，不带答案、数量、合计或均分。单独SPQ92关注发表的感知陈述，HSP24和声音敏感入口各有不同任务。按方法是否适合你的问题来选，不传答案或分数，也不要求再测才能查看本结果。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the official Sensory Profile?",
+        "zh": "这是官方Sensory Profile吗？"
+      },
+      "answer": {
+        "en": "No. This is FermatMind’s original sixteen-item reflection with four recent-behaviour topics. It is not the sixty-item Adolescent/Adult Sensory Profile, a validated short form, its item bank, normative classifications or professional report.",
+        "zh": "不是。本页是费马原创十六题、四个近期行为主题的回顾，不是六十题Adolescent/Adult Sensory Profile、验证短版、原题本、常模分类或专业报告。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I have more than one response pattern?",
+        "zh": "可以同时有几种反应模式吗？"
+      },
+      "answer": {
+        "en": "You may recall different responses across inputs and situations. Four separate readings preserve that picture without choosing a winner, calculating threshold axes or assigning a permanent sensory type.",
+        "zh": "不同输入与情境中可能有不同反应。四组独立读数保留这种情况，不选赢家、不算阈值轴、不分配固定感官类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does sensory sensitivity mean autism or ADHD?",
+        "zh": "感官敏感就意味着自闭症或ADHD吗？"
+      },
+      "answer": {
+        "en": "These answers cannot identify either condition or a sensory processing disorder. Daily response descriptions do not measure neurological thresholds, sensory acuity or the cause of an experience.",
+        "zh": "这些回答不能识别其中任何状况或感觉处理障碍。日常反应描述不测神经阈值、感官敏锐度或体验原因。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do skips and missing answers work?",
+        "zh": "跳过与未答怎样处理？"
+      },
+      "answer": {
+        "en": "Blank is incomplete. Explicit no occasion / unsure / decline is valid but withholds its own part’s sum and mean; other complete parts remain readable. Never means relevant occasions without the described response. Nothing is imputed.",
+        "zh": "空白属未完成。明确无机会／不确定／不愿回答有效，但不提供本组合计与均分，其他完整组仍可读。从未指有机会但无题述反应，不补填任何值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to try a sound, smell or movement?",
+        "zh": "需要尝试声音、气味或活动吗？"
+      },
+      "answer": {
+        "en": "No. Use ordinary recollections only. Do not create sensory exposure, intensify input or test tolerance for this reflection. Work suggestions are optional reversible choices, not treatment or evidence of a neurological type.",
+        "zh": "不需要。仅用普通回忆，不制造感官暴露、加强输入或测试耐受。工作建议是可选可撤销的选择，不是治疗，也不证明神经类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers stored or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers stay in page memory and clear on refresh, language change, leaving or retaking. Sharing includes all four public guides only. Optional anonymous action counts require page permission and global analytics consent, without answers or part scores.",
+        "zh": "答案留在页面内存，刷新、换语言、离开或重测清除。分享只含全部四篇公开指南。可选匿名动作计数需本页许可及全站分析同意，不含答案或分组分数。"
+      }
+    }
+  ],
+  "sens16": {
+    "subtitle": {
+      "en": "Describe four kinds of sensory response",
+      "zh": "描述四类感官反应"
+    },
+    "privacy": {
+      "en": "Responses stay only in page memory and clear on refresh, language change, leaving or retaking. No draft, account, sensory recording or private example is collected. Public sharing contains all four guides, without personal numbers.",
+      "zh": "答案仅留在页面内存，刷新、换语言、离开或重测清除。不收草稿、账户、感官录音或私人例子。公开分享含全部四篇指南，不带个人数字。"
+    },
+    "editionNotice": {
+      "en": "FermatMind original 16-item reflection · Not validated · Ages 18+ · No diagnosis, threshold axes, norms or dominant type.",
+      "zh": "费马测试原创16题回顾 · 尚未验证 · 18岁及以上 · 无诊断、阈值轴、常模或主导类型。"
+    },
+    "attribution": {
+      "en": "Questions and guides: FermatMind Editorial, 2026. Dunn’s conceptual framework is background only. The cited researchers and publisher do not supply, endorse or validate this original questionnaire.",
+      "zh": "题目与指南：费马测试编辑部，2026。Dunn概念框架仅供背景。所引研究者及出版方不提供、背书或验证这份原创问卷。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Multidimensional sensory-processing study: questionnaire and laboratory measures (2022)",
+        "zh": "多维感官处理研究：问卷与实验测量（2022）"
+      },
+      "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.811547/full"
+    },
+    {
+      "title": {
+        "en": "Pearson: the separate professional Adolescent/Adult Sensory Profile",
+        "zh": "Pearson：单独的专业Adolescent/Adult Sensory Profile工具"
+      },
+      "url": "https://www.pearsonassessments.com/en-us/Store/Professional-Assessments/Motor-Sensory/Adolescent-Adult-Sensory-Profile/p/100000434"
+    }
+  ]
+}

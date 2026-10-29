@@ -2,6 +2,8 @@ import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
 import { Dvmsq18Page } from "./Dvmsq18Page";
 import { isSynes15ConfigurationValid } from "@/lib/questionnaires/synes15";
 import { Synes15Page } from "./Synes15Page";
+import { isSens16ConfigurationValid } from "@/lib/questionnaires/sens16";
+import { Sens16Page } from "./Sens16Page";
 import { isImagery12ConfigurationValid } from "@/lib/questionnaires/imagery12";
 import { Imagery12Page } from "./Imagery12Page";
 import { isImposter20ConfigurationValid } from "@/lib/questionnaires/imposter20";
@@ -93,6 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "sens16" && !isSens16ConfigurationValid(quiz)) return { title: "Sensory reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imagery12" && !isImagery12ConfigurationValid(quiz)) return { title: "Imagery reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imposter20" && !isImposter20ConfigurationValid(quiz)) return { title: "Reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "catq25" && !isCatQ25ConfigurationValid(quiz)) return { title: "CAT-Q unavailable", robots: { index: false, follow: false } };
@@ -117,6 +120,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "synes15") {
     if (!isSynes15ConfigurationValid(quiz)) notFound();
     return <Synes15Page quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "sens16") {
+    if (!isSens16ConfigurationValid(quiz)) notFound();
+    return <Sens16Page quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "imagery12") {
     if (!isImagery12ConfigurationValid(quiz)) notFound();
