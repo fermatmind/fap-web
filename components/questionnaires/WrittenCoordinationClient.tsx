@@ -103,7 +103,7 @@ function QuestionModule({ quiz, id, mode, locale, onStart, onComplete, onCancel 
       {id === "priority" && <p data-written-priority-rule className="rounded-lg border bg-slate-50 p-4 leading-8">{quiz.coordination.priorityRule[locale]}</p>}
       {id === "map" && <WrittenCoordinationGrid grid={quiz.coordination.grid} locale={locale} idPrefix="written-active-grid" />}
       <fieldset className="min-w-0 space-y-3" aria-labelledby="written-active-question">
-        {[...q.options.map(o => ({ id: o.id, label: o.label[locale] })), { id: "skip", label: zh ? "明确留空，计为未答" : "Leave unanswered explicitly" }].map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3 leading-7"><input type="radio" name={q.id} value={o.id} checked={answers[q.id] === o.id} onChange={() => choose(o.id)} className="mt-1.5 h-5 w-5 shrink-0" /><span className="min-w-0">{o.label}</span></label>)}
+        {[...q.options.map(o => ({ id: o.id, label: o.label[locale] })), { id: "skip", label: zh ? "明确留空，计为未答" : "Leave unanswered explicitly" }].map(o => <label key={o.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-3 leading-7"><input type="radio" name={q.id} value={o.id} checked={answers[q.id] === o.id} onChange={() => choose(o.id)} className="mt-2 h-5 w-5 shrink-0" /><span className="min-w-0">{o.label}</span></label>)}
       </fieldset>
       <div className="flex flex-wrap gap-3">
         <button type="button" className={button} disabled={position === 0} onClick={() => { if (checkClock() !== null) { setPosition(position - 1); setMessage(""); } }}>{zh ? "上一题" : "Back"}</button>
