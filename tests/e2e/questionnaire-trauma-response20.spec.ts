@@ -81,3 +81,18 @@ test("@release original observations:10publicpages, completebodies, localepairs,
   }
   for (const url of [`${path("en")}/results/high-risk`, `${path("zh")}/results/overall`, `/og/fun/${quiz.slug}?locale=fr`, `/og/fun/${quiz.slug}?portrait=diagnosis`]) expect((await request.get(url)).status()).toBe(404);
 });
+
+test("@release original observations: hydration gates the start button until delayed JavaScript is ready", async ({ page }) => {
+  let release!: () => void;
+  const chunks = new Promise<void>(resolve => { release = resolve; });
+  let delayed = 0;
+  await page.route("**/_next/static/**/*.js", async route => { delayed++; await chunks; await route.continue(); });
+  try {
+    await page.goto(path("en"), { waitUntil: "commit" });
+    const start = page.getByRole("button", { name: "Begin original observations", exact: true });
+    await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
+    await expect(start).toBeDisabled();
+    release(); await expect(start).toBeEnabled(); await start.click();
+    await expect(page.locator("#trauma-active-question")).toHaveText(quiz.questions[0].prompt.en);
+  } finally { release(); }
+});

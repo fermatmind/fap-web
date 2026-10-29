@@ -84,6 +84,8 @@ describe("Original trauma response observation categories, never a clinical scor
       const html = renderToStaticMarkup(<TraumaResponsePage quiz={quiz} locale={locale} />);
       expect((html.match(/data-trauma-full-guide=/g) ?? [])).toHaveLength(4);
       expect(html).not.toContain("data-trauma-result");
+      const dom = document.createElement("div"); dom.innerHTML = html;
+      expect(dom.querySelector("#take-test button")?.hasAttribute("disabled")).toBe(true);
       for (const p of quiz.profiles) {
         const guide = renderToStaticMarkup(<TraumaResponseGuidePage quiz={quiz} profile={p} locale={locale} />);
         expect(guide).toContain("data-trauma-support");

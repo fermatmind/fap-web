@@ -1,12 +1,14 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire, QuestionnaireAnswers } from "@/lib/questionnaires/types";
 import { recordTraumaResponse20, type TraumaResponseRecord } from "@/lib/questionnaires/traumaResponse20";
 import { questionnairePath } from "@/lib/questionnaires/paths";
 import { TraumaResponseReport } from "./TraumaResponseReport";
+const subscribeReady = () => () => undefined;
 const button = "min-h-12 rounded-lg border border-slate-400 px-5 py-3 font-semibold disabled:opacity-50";
 export function TraumaResponseClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [stage, setStage] = useState<"ready" | "answer" | "result">("ready");
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({}), [position, setPosition] = useState(0);
   const [records, setRecords] = useState<TraumaResponseRecord[]>([]), [message, setMessage] = useState("");
@@ -37,7 +39,7 @@ export function TraumaResponseClient({ quiz, locale }: { quiz: Questionnaire; lo
   }
   const q = quiz.questions[position];
   return <section id="take-test" data-trauma-stage={stage} className="my-8 space-y-5 rounded-lg border border-slate-300 bg-white p-4 sm:p-6">
-    {stage === "ready" && <><h2 className="text-2xl font-semibold">{zh ? "自愿开始，随时离开" : "Begin only if you want; leave at any time"}</h2><p className="leading-7">{zh ? "20条原创观察，回想过去四周。回答只留在本页内存，不保存草稿、不提交，也没有问卷分析。下方四篇全文无需答题就能读。" : "20 original observations about the past four weeks. Answers stay in this page’s memory, with no drafts, submission or questionnaire analytics. Read all four complete guides below without answering."}</p><button type="button" className={button} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始原创观察" : "Begin original observations"}</button></>}
+    {stage === "ready" && <><h2 className="text-2xl font-semibold">{zh ? "自愿开始，随时离开" : "Begin only if you want; leave at any time"}</h2><p className="leading-7">{zh ? "20条原创观察，回想过去四周。回答只留在本页内存，不保存草稿、不提交，也没有问卷分析。下方四篇全文无需答题就能读。" : "20 original observations about the past four weeks. Answers stay in this page’s memory, with no drafts, submission or questionnaire analytics. Read all four complete guides below without answering."}</p><button type="button" className={button} disabled={!ready} onClick={() => { clear(); setStage("answer"); }}>{zh ? "开始原创观察" : "Begin original observations"}</button></>}
     {stage === "answer" && <div ref={context} data-trauma-question-context className="scroll-mt-24 space-y-5">
       <p>{zh ? `第 ${position + 1} / 20 条 · 过去四周` : `Observation ${position + 1} / 20 · Past four weeks`}</p>
       <h2 ref={heading} id="trauma-active-question" tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{q.prompt[locale]}</h2>
