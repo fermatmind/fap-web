@@ -1,0 +1,1634 @@
+{
+  "slug": "aphantasia-test",
+  "code": "FM_IMAGERY12",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "imagery12",
+  "title": {
+    "en": "Aphantasia Test",
+    "zh": "心盲症测试"
+  },
+  "seoTitle": {
+    "en": "Aphantasia Test: 12 Original Imagery Prompts, Free Full Guides",
+    "zh": "心盲症测试｜12个原创意象情境与完整免费读法"
+  },
+  "description": {
+    "en": "Try 12 original visual-imagery prompts and read four free full guides. Explore your pictured experience without VVIQ scoring, condition labels, norms or signup.",
+    "zh": "尝试12个原创视觉意象情境，免费查看物体、虚构面孔、地点和运动四篇完整读法。不使用VVIQ计分，不分诊断类别或人口等级，无需注册。"
+  },
+  "minutes": 4,
+  "introduction": {
+    "en": "When you imagine an object, do you experience a picture, a faint impression or simply understand what the words describe? This original aphantasia test is a self-observation of voluntary visual imagery in four contexts. It does not identify aphantasia or hyperphantasia, reproduce VVIQ or test your vision, intelligence, memory or creativity.",
+    "zh": "想象一个物体时，你体验到的是画面、微弱印象，还是只理解文字所指的东西？这份原创“心盲症测试”用四类情境帮助观察主动视觉意象。它不鉴定心盲或超强意象，不复现VVIQ，也不测视力、智力、记忆或创造力。"
+  },
+  "instructions": {
+    "en": "Read each invented scene and make one comfortable, self-paced attempt to imagine its visual appearance. Keep your eyes open or closed as you prefer. Rate the mental picture you actually experience using the original 0–4 descriptions; nothing needs to appear on your eyelids or in front of you. Knowing what the scene means is different from having a picture. If you tried but had no image, zero is valid. Use the separate skip if you did not try, are unsure how to rate or prefer not to answer.",
+    "zh": "读完每个虚构场景后，用舒适、不计时的方式尝试一次，想象它的视觉样子，可自行选择睁眼或闭眼。按原创0—4描述评价实际脑中画面，不要求眼皮上或眼前出现图像。理解场景与形成画面不同；尝试后没有画面，零是有效答案。没有尝试、不确定如何评分或不愿回答时，请用单独的跳过。"
+  },
+  "resultHeading": {
+    "en": "Your four separate imagery readings",
+    "zh": "你的四组独立意象读数"
+  },
+  "source": {
+    "kind": "fermatmind_original_visual_imagery_reflection",
+    "formCode": "fm_imagery12_original_v1",
+    "itemBankVersion": "fm_imagery12_original_bilingual_v1",
+    "scoringVersion": "four_contexts_3_direct_0to4_completegroups_no_total_v1",
+    "resultContentVersion": "fm_imagery12_four_full_guides_v1",
+    "itemBankSha256": "90d4fc5c48bb93da95256b7bbcc69152cad9cc992aaf47e7958c742455308ecf",
+    "resultContentSha256": "15152b6718145ffdf23040db57a23db2cb20fa3f5966a275cfcf9c64669210ea",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "objects",
+      "title": {
+        "en": "Imagining everyday objects",
+        "zh": "想象日常物体"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "faces",
+      "title": {
+        "en": "Imagining fictional faces",
+        "zh": "想象虚构面孔"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "places",
+      "title": {
+        "en": "Imagining places and layouts",
+        "zh": "想象地点与布局"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "motion",
+      "title": {
+        "en": "Imagining movement",
+        "zh": "想象运动画面"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "IMG_01",
+      "prompt": {
+        "en": "Imagine a smooth white bowl with one blue dot on its side. Rate any mental picture of its shape and dot.",
+        "zh": "想象一只光滑的白碗，碗侧有一个蓝点。给你脑中出现的碗形和蓝点画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "objects",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "objects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "objects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "objects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "objects",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "objects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_02",
+      "prompt": {
+        "en": "Picture three wooden beads joined by a red string on a plain desk. Rate the visual image that comes to mind.",
+        "zh": "想象三颗木珠由一根红线连着，放在普通桌面上。给脑中出现的视觉画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "objects",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "objects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "objects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "objects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "objects",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "objects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_03",
+      "prompt": {
+        "en": "Imagine a striped cloth folded beside a small metal key. Rate any pictured appearance, rather than how well you understand the description.",
+        "zh": "想象一块条纹布折叠后放在一把小金属钥匙旁。请评脑中画面的样子，而不是对描述理解得有多好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "objects",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "objects",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "objects",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "objects",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "objects",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "objects",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_04",
+      "prompt": {
+        "en": "Imagine an invented adult face with one eyebrow slightly raised. Rate the mental picture, if any.",
+        "zh": "想象一张虚构的成年人面孔，一侧眉毛略微抬起。给脑中画面评分；没有画面也可以如实选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "faces",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "faces",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "faces",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "faces",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "faces",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "faces",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_05",
+      "prompt": {
+        "en": "Imagine a fictional adult face seen from the side, with a short fringe above the forehead. Rate its pictured appearance.",
+        "zh": "想象一张从侧面看到的虚构成年人面孔，额前有一小段刘海。给你脑中出现的外观画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "faces",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "faces",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "faces",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "faces",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "faces",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "faces",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_06",
+      "prompt": {
+        "en": "Imagine an invented adult face with a small smile and round glasses. Rate any visual image you experience.",
+        "zh": "想象一张虚构的成年人面孔，带一点微笑，戴圆框眼镜。给实际体验到的脑中视觉画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "faces",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "faces",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "faces",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "faces",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "faces",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "faces",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_07",
+      "prompt": {
+        "en": "Imagine an empty hallway with a bench on the left and a round wall clock ahead. Rate any mental picture of the scene.",
+        "zh": "想象一条空走廊，左边有长凳，前方墙上有圆钟。给脑中的场景画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "places",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "places",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "places",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "places",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "places",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "places",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_08",
+      "prompt": {
+        "en": "Imagine a reading corner with a square rug and a narrow window. Rate its visual appearance in your mind.",
+        "zh": "想象一个阅读角落，有方形地毯和窄窗。给脑中出现的视觉样子评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "places",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "places",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "places",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "places",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "places",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "places",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_09",
+      "prompt": {
+        "en": "Picture an unoccupied bus shelter with a yellow sign and two grey seats. Rate any mental picture, not your knowledge of where things would be.",
+        "zh": "想象一处无人的候车亭，有黄色标牌和两张灰色座椅。请评脑中画面，而不是对这些东西位置的理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "places",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "places",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "places",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "places",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "places",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "places",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_10",
+      "prompt": {
+        "en": "Imagine a paper square slowly rotating above a tabletop. Rate any pictured movement in your mind.",
+        "zh": "想象一个纸方片在桌面上方缓慢旋转。给你脑中出现的运动画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "motion",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "motion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "motion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "motion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "motion",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "motion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_11",
+      "prompt": {
+        "en": "Imagine a green marble rolling down a short wooden ramp. Rate the visual image of that movement, if any.",
+        "zh": "想象一颗绿色弹珠沿一小段木斜坡滚下。给脑中出现的运动画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "motion",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "motion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "motion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "motion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "motion",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "motion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IMG_12",
+      "prompt": {
+        "en": "Imagine a small paper flag gently moving from side to side. Rate any mental picture of the movement.",
+        "zh": "想象一面小纸旗轻轻地左右摆动。给脑中出现的运动画面评分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "No visual image to rate",
+            "zh": "没有可评分的视觉画面"
+          },
+          "directionId": "motion",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A barely formed visual impression",
+            "zh": "只有很微弱的视觉印象"
+          },
+          "directionId": "motion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "An image with a few visible features",
+            "zh": "画面中有少量可辨的特征"
+          },
+          "directionId": "motion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "A fairly clear image with several features",
+            "zh": "画面较清楚，有几种可辨特征"
+          },
+          "directionId": "motion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "A very clear, detailed mental image",
+            "zh": "脑中画面很清楚，细节丰富"
+          },
+          "directionId": "motion",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Did not try / unsure how to rate / prefer to skip",
+            "zh": "没有尝试／不确定如何评分／不愿回答"
+          },
+          "directionId": "motion",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "objects",
+      "directionIds": [
+        "objects"
+      ],
+      "title": {
+        "en": "Imagining everyday objects",
+        "zh": "想象日常物体"
+      },
+      "headline": {
+        "en": "A full reading of one imagery context",
+        "zh": "一个意象情境的完整读法"
+      },
+      "summary": {
+        "en": "You can understand a white bowl with a blue dot without experiencing a picture of it. This topic asks about the pictured appearance, not whether you can repeat the words, recognize a bowl or explain what one is used for. Knowing and picturing are allowed to differ.",
+        "zh": "你可以理解“带蓝点的白碗”，却没有相应脑中画面。这组问的是视觉样子，不是能否复述文字、认出碗或解释用途。理解和成像可以不同，不必为了表明自己理解了题目而选择有画面的选项。"
+      },
+      "scoreReading": {
+        "en": "All three numeric responses are needed for a rated sum and mean. Zero means no visual image was reported; a skip means no usable rating. These original numbers are not a diagnosis, percentile or measure of actual performance.",
+        "zh": "三条均为数字答案才显示合计和均分。零表示未报告视觉画面，跳过表示没有可用评分。原创数字不是诊断、百分位或实际表现测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Imagining everyday objects | Aphantasia Test Guide",
+          "zh": "想象日常物体｜心盲症测试完整读法"
+        },
+        "description": {
+          "en": "Read the complete original imagery guide: pictured experience versus knowledge, scoring examples, missing answers, context and practical options. Free without answering or signup.",
+          "zh": "完整阅读原创意象指南：画面与理解的区别、计分例子、跳过、情境和实用选择。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Picture or description?",
+            "zh": "画面还是描述？"
+          },
+          "paragraphs": [
+            {
+              "en": "You can understand a white bowl with a blue dot without experiencing a picture of it. This topic asks about the pictured appearance, not whether you can repeat the words, recognize a bowl or explain what one is used for. Knowing and picturing are allowed to differ.",
+              "zh": "你可以理解“带蓝点的白碗”，却没有相应脑中画面。这组问的是视觉样子，不是能否复述文字、认出碗或解释用途。理解和成像可以不同，不必为了表明自己理解了题目而选择有画面的选项。"
+            },
+            {
+              "en": "The three original scenes use a bowl, beads with string and cloth beside a key. They were written for this page and do not reproduce the VVIQ. The grouping is an editorial way to organize observations, not a validated object-imagery subscale or a test of factual memory.",
+              "zh": "三个原创场景分别使用碗、串珠、布与钥匙，不复现VVIQ题目。按物体归组只是组织观察的编辑方式，不是经过验证的物体意象分量表，也不是事实记忆测验。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Read the arithmetic with its limits",
+            "zh": "连同边界看算术"
+          },
+          "paragraphs": [
+            {
+              "en": "Each response is a chosen description from 0 to 4. Only three numeric responses produce a rated sum from 0 to 12 and a mean from 0 to 4. The mean is the sum divided by three, displayed to two decimals without rounding individual responses first.",
+              "zh": "每条选择0—4中的一种描述。三条都有数字答案时，才显示0—12的合计和0—4的均分。均分为合计除以三，按未提前舍入的结果显示两位小数。"
+            },
+            {
+              "en": "For example, 0, 2 and 4 give a sum of 6 and a mean of 2.00. That does not mean each image was similar or that imagery was fifty percent strong. These ordinal descriptions have not been calibrated as equal physical units or compared with population norms.",
+              "zh": "例如0、2、4的合计为6，均分为2.00，不表示三幅画面相似，也不表示意象强度为50%。这些有顺序的描述没有校准为等距的物理单位，也没有与人口常模比较。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Notice what was actually present",
+            "zh": "观察实际出现的内容"
+          },
+          "paragraphs": [
+            {
+              "en": "When considering the bowl, you might experience a faint contour but little colour, a clear dot with an uncertain shape, or only the idea described by the sentence. Choose the anchor that best describes your experience rather than the image you believe the prompt expects you to produce.",
+              "zh": "想白碗时，你可能只有模糊轮廓、没有颜色；也可能蓝点较清楚，碗形不确定；或者只是理解文字中的概念。请选择最接近实际体验的选项，不必努力达到你以为题目期望的画面。"
+            },
+            {
+              "en": "There is no hidden reference picture and no correctness check. A detailed mental image does not earn extra credit for matching the imagined object. You can keep your eyes open or closed comfortably; the task does not require an image to appear on your eyelids or in the room.",
+              "zh": "没有隐藏的标准图片，也不检查对错。细节多不表示更符合某张目标图。可按舒适程度睁眼或闭眼，不要求眼皮上或眼前房间里真正出现图像。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "A zero is different from a skip",
+            "zh": "零与跳过不同"
+          },
+          "paragraphs": [
+            {
+              "en": "If you tried the scene and had no visual image to rate, zero is a valid response. You do not need to change it to avoid a supposedly bad result. If you did not try, cannot decide how to rate the experience or prefer not to answer, use the separate skip option.",
+              "zh": "尝试后确实没有可评分的视觉画面，零就是有效答案，不必为了避免所谓坏结果而改选。有别于此，没有尝试、不确定如何评分或不愿回答，可以用单独的跳过选项。"
+            },
+            {
+              "en": "Any skip withholds this topic’s sum and mean; it is never replaced by zero or an estimated value. Other fully answered topics can still show numbers. All twelve explicit skips can finish the questionnaire, and every complete public guide remains available without generating a personal score.",
+              "zh": "这组有任何跳过，便不显示本组合计和均分，不把跳过补成零或估计值。其他答完整的组仍可显示数字。十二条全部明确跳过也能完成，所有完整公开指南都可阅读，不会编出个人分数。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "One context is not your whole imagination",
+            "zh": "一个情境不等于全部想象"
+          },
+          "paragraphs": [
+            {
+              "en": "Objects, faces, places and movement are shown separately because experiences may vary across prompts. A small object mean does not establish an inability to imagine a face, dream, hear music internally or invent a story. Those conclusions require different questions or methods.",
+              "zh": "物体、面孔、地点和运动分开显示，因为不同题目中的体验可能不同。物体均分较小，不能证明无法想象面孔、做梦、在心里听到音乐或创作故事；这些结论需要其他问题或方法。"
+            },
+            {
+              "en": "Likewise, a high mean does not demonstrate accurate memory, creativity or intelligence. This page records subjective descriptions during brief attempts, without checking remembered details, testing vision or measuring physiological responses. The common search name aphantasia test does not make those measurements part of the task.",
+              "zh": "均分较大同样不能证明记忆准确、创造力高或智力强。这页记录短暂尝试时的主观描述，不核对记忆细节、不测视力，也不测生理反应。通行搜索名“心盲症测试”不会使这些测量自动存在。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "A practical option without a training promise",
+            "zh": "不承诺训练效果的实用选择"
+          },
+          "paragraphs": [
+            {
+              "en": "For an everyday task, you could compare which support you prefer: a short written description, an external sketch or the object itself. Choosing one is a practical decision about that task, not proof of a permanent learning style or a need to repair your imagination.",
+              "zh": "日常任务中，可以比较自己更愿意使用文字说明、外部草图还是实物。这是针对具体任务的实用选择，不证明永久学习风格，也不表示需要修复自己的想象。"
+            },
+            {
+              "en": "For example, packing a bag can use a checklist even when a mental picture is available. A drawing can remain useful without proving it improves memory. These are optional alternatives to explore; this questionnaire has not tested their effectiveness, prescribed imagery training or established a treatment outcome.",
+              "zh": "例如整理行李，即使能形成画面，也可以用清单；草图有用不等于已证明能提高记忆。这些只是可选替代方式，本问卷没有验证其效果，不规定意象训练，也不建立治疗结论。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "What this reading can and cannot establish",
+            "zh": "这份读法能说明到哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "The twelve prompts and anchors are original and unvalidated. There are no aphantasic, faint, typical or hyperphantasic result bands, no cutoff transferred from VVIQ and no winner among the four contexts. English and Chinese have not been validated as equivalent measurement forms.",
+              "zh": "十二条题目和选项均为未经验证的原创内容，不按心盲、微弱、典型或超强意象分段，不移用VVIQ切点，也不在四组中选赢家。中英文尚未验证为等值测量版本。"
+            },
+            {
+              "en": "Your answers stay in page memory and clear when you leave, refresh or retake. A shared link opens this same general reading for everyone. If a change in imagery worries you or affects daily life, you can discuss the specific experience with a qualified professional without relying on this number.",
+              "zh": "答案留在页面内存，离开、刷新或重测会清除。分享链接打开对所有人相同的通用读法。若意象变化让你担心或影响日常，可以和专业人员讨论具体体验，不依赖这里的数字作判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faces",
+      "directionIds": [
+        "faces"
+      ],
+      "title": {
+        "en": "Imagining fictional faces",
+        "zh": "想象虚构面孔"
+      },
+      "headline": {
+        "en": "A full reading of one imagery context",
+        "zh": "一个意象情境的完整读法"
+      },
+      "summary": {
+        "en": "These three scenes ask for imagined adult faces: an eyebrow slightly raised, a side view with a short fringe, and a small smile with round glasses. No real person, relationship or private photograph is required. You are describing a pictured appearance, not identifying someone from memory.",
+        "zh": "三个场景分别想象略抬一侧眉毛、侧面短刘海、微笑并戴圆框眼镜的成年人面孔。不需要真实人物、关系或私人照片；你描述的是脑中外观，而不是从记忆中辨认某个人。"
+      },
+      "scoreReading": {
+        "en": "All three numeric responses are needed for a rated sum and mean. Zero means no visual image was reported; a skip means no usable rating. These original numbers are not a diagnosis, percentile or measure of actual performance.",
+        "zh": "三条均为数字答案才显示合计和均分。零表示未报告视觉画面，跳过表示没有可用评分。原创数字不是诊断、百分位或实际表现测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Imagining fictional faces | Aphantasia Test Guide",
+          "zh": "想象虚构面孔｜心盲症测试完整读法"
+        },
+        "description": {
+          "en": "Read the complete original imagery guide: pictured experience versus knowledge, scoring examples, missing answers, context and practical options. Free without answering or signup.",
+          "zh": "完整阅读原创意象指南：画面与理解的区别、计分例子、跳过、情境和实用选择。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "An invented face, not a person to identify",
+            "zh": "虚构面孔，不是辨认人物"
+          },
+          "paragraphs": [
+            {
+              "en": "These three scenes ask for imagined adult faces: an eyebrow slightly raised, a side view with a short fringe, and a small smile with round glasses. No real person, relationship or private photograph is required. You are describing a pictured appearance, not identifying someone from memory.",
+              "zh": "三个场景分别想象略抬一侧眉毛、侧面短刘海、微笑并戴圆框眼镜的成年人面孔。不需要真实人物、关系或私人照片；你描述的是脑中外观，而不是从记忆中辨认某个人。"
+            },
+            {
+              "en": "The faces need not become complete or realistic. You may have a partial impression, understand the features without seeing them, or find the prompt difficult to interpret. These possibilities are not treated as right and wrong answers, and a skip is available when a rating would be uncertain.",
+              "zh": "面孔不必完整或逼真。你可能只有局部印象，也可能理解特征却看不到画面，或不确定如何理解题目。这些不是对错之分；如果评分不确定，可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "How the three responses are summarized",
+            "zh": "三条答案如何概括"
+          },
+          "paragraphs": [
+            {
+              "en": "With all three numeric responses, the display adds the selected 0–4 values and divides by three for a mean. It shows both the raw sum and the mean to make the arithmetic visible. Neither is a percentage of facial imagery, a recognition accuracy score or a population rank.",
+              "zh": "三条都有数字答案时，显示所选0—4数值之和，并除以三求均分。同时呈现合计与均分，是为使算术可复核。它们都不是面孔意象百分比、辨认准确率或人口排名。"
+            },
+            {
+              "en": "A sum of 9 could come from 3, 3, 3 or 4, 4, 1; both means display 3.00 while describing different attempts. Read the individual prompts as well as the average. The anchors organize subjective descriptions and have not been shown to form an equal-interval scientific scale.",
+              "zh": "合计9可能来自3、3、3，也可能来自4、4、1；均分都显示3.00，实际尝试却不同。请同时看具体题目。选项只是组织主观描述，没有证明构成科学上的等距量尺。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Details may arrive unevenly",
+            "zh": "细节可能不均匀出现"
+          },
+          "paragraphs": [
+            {
+              "en": "You might picture the glasses clearly but have little sense of the rest of the face. Or a vague expression may be present without a stable outline. The task does not require you to force every named feature into place before selecting the nearest description of your experience.",
+              "zh": "你可能眼镜的画面较清楚，却没有其他面部细节；也可能有模糊表情，却没有稳定轮廓。作答不要求把每个提到的特征都强行拼好，再选择最接近体验的描述。"
+            },
+            {
+              "en": "Conceptual knowledge can remain detailed even when a visual image is absent. Being able to explain where glasses sit does not oblige you to report a picture. Conversely, reporting a picture does not show how accurately you would notice or remember details of an actual face in an everyday encounter.",
+              "zh": "没有画面时，概念理解仍可以很详细。能解释眼镜戴在哪里，不代表必须报告看见画面；反过来，报告有画面也不能说明你在现实相遇时会多准确地观察或记住面孔。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Not face recognition or social ability",
+            "zh": "不是面孔识别或社交能力"
+          },
+          "paragraphs": [
+            {
+              "en": "This page does not test recognition of familiar people, discriminate between photographs or assess face blindness. Imagining a fictional face and recognizing a person are different tasks. No conclusion about those abilities follows from a small mean, a zero response or a skipped prompt.",
+              "zh": "这页不测试识别熟人、不让你区分照片，也不评估脸盲。想象虚构面孔与认出一个人是不同任务。均分较小、填零或跳过，都不能推断这些能力。"
+            },
+            {
+              "en": "Nor do these responses measure empathy, attachment, affection or whether you care about other people. Vividness is not a moral or relationship grade. The editorial face group should not be used to infer what kind of friend, partner, colleague or learner you are.",
+              "zh": "回答也不测同理心、依恋、感情或是否关心别人。画面生动性不是道德或关系成绩，不应用这组编辑性题目推断你是怎样的朋友、伴侣、同事或学习者。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Respect uncertainty and opportunity",
+            "zh": "保留不确定与选择空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose zero when you made a comfortable attempt but had no visual image to rate. Choose the separate skip option if you did not try, are unsure how to describe the experience or prefer not to continue. A skip does not mean absent imagery and never becomes a zero.",
+              "zh": "舒适地尝试后没有可评分画面，可以选零；没有尝试、不确定如何描述或不愿继续，可选单独的跳过。跳过不表示意象缺失，绝不补成零。"
+            },
+            {
+              "en": "Any skipped response withholds this group’s sum and mean, while other fully answered groups can still show numbers. A result with no numbers is still a complete outcome after twelve explicit choices. The full face guide stays readable, so there is no need to invent an answer to unlock it.",
+              "zh": "任何跳过都会使本组不显示合计和均分，其他答完整的组仍可显示数字。十二条明确选择后，即使没有数字，也属于完成结果。完整面孔指南始终可读，不需要编答案来解锁。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional everyday approach",
+            "zh": "一个可选的日常做法"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to remember a practical detail about a meeting, you might use written notes or an agreed name list rather than requiring a mental portrait. The relevant choice depends on the actual task and privacy considerations, not on being assigned an imagery category.",
+              "zh": "若要记住会面中的实用信息，可以使用文字笔记或适当的姓名列表，不必要求自己保留脑中肖像。选择取决于实际任务和隐私考虑，不取决于被分到某种意象类别。"
+            },
+            {
+              "en": "This is a suggestion to consider, not evidence that one strategy will improve your memory or treat a condition. You do not need to upload an image or enter a person’s name here. Any concerns about real-world recognition deserve their own appropriate assessment rather than interpretation through this questionnaire.",
+              "zh": "这只是可考虑的方法，不是某种策略能改善记忆或治疗问题的证据。本站无需上传照片或输入姓名。现实中的辨认困扰应获得适当的独立评估，而不是通过本问卷解释。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Keep the source and privacy boundaries",
+            "zh": "保留来源与隐私边界"
+          },
+          "paragraphs": [
+            {
+              "en": "These are original prompts, not VVIQ questions or a validated face-imagery instrument. The page makes no diagnosis and supplies no normality bands or comparison with other people. Separate context means cannot establish a hierarchy of abilities or prove that one imagery process caused another.",
+              "zh": "这里是原创题目，不是VVIQ原题或验证后的面孔意象工具。本页不诊断，不给正常程度分段，也不与别人比较。不同情境的均分不能建立能力高低顺序，更不能证明一种意象过程导致另一种。"
+            },
+            {
+              "en": "Responses remain in page memory and clear on refresh, language change, leaving or retaking. Public sharing opens the same guide without your numbers. If the experience itself concerns you, you can discuss it with a qualified professional; this original score is not required as evidence that your concern is valid.",
+              "zh": "答案保存在页面内存，刷新、换语言、离开或重测会清除。公开分享打开同一指南，不带个人数字。如果体验本身让你困扰，可以咨询专业人员，不需要用原创分数证明自己的担心成立。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "directionIds": [
+        "places"
+      ],
+      "title": {
+        "en": "Imagining places and layouts",
+        "zh": "想象地点与布局"
+      },
+      "headline": {
+        "en": "A full reading of one imagery context",
+        "zh": "一个意象情境的完整读法"
+      },
+      "summary": {
+        "en": "You may understand that a bench is on the left and a clock is ahead without experiencing the hallway visually. This group separates a pictured scene from knowledge of a layout. Neither way of thinking is marked correct, and the task does not check how you navigate real places.",
+        "zh": "你可以理解“长凳在左边、钟在前方”，却没有走廊的视觉画面。这组把场景画面与布局知识区分开，不把哪一种思考判为正确，也不检查你如何在真实地点找路。"
+      },
+      "scoreReading": {
+        "en": "All three numeric responses are needed for a rated sum and mean. Zero means no visual image was reported; a skip means no usable rating. These original numbers are not a diagnosis, percentile or measure of actual performance.",
+        "zh": "三条均为数字答案才显示合计和均分。零表示未报告视觉画面，跳过表示没有可用评分。原创数字不是诊断、百分位或实际表现测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Imagining places and layouts | Aphantasia Test Guide",
+          "zh": "想象地点与布局｜心盲症测试完整读法"
+        },
+        "description": {
+          "en": "Read the complete original imagery guide: pictured experience versus knowledge, scoring examples, missing answers, context and practical options. Free without answering or signup.",
+          "zh": "完整阅读原创意象指南：画面与理解的区别、计分例子、跳过、情境和实用选择。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "A scene can be known without being pictured",
+            "zh": "知道场景，不一定看见画面"
+          },
+          "paragraphs": [
+            {
+              "en": "You may understand that a bench is on the left and a clock is ahead without experiencing the hallway visually. This group separates a pictured scene from knowledge of a layout. Neither way of thinking is marked correct, and the task does not check how you navigate real places.",
+              "zh": "你可以理解“长凳在左边、钟在前方”，却没有走廊的视觉画面。这组把场景画面与布局知识区分开，不把哪一种思考判为正确，也不检查你如何在真实地点找路。"
+            },
+            {
+              "en": "The three original prompts describe an empty hallway, a reading corner and an unoccupied bus shelter. They are invented scenes, so you do not need to recall a private location or prove that your image resembles a real one. No address or personal example is requested.",
+              "zh": "三个原创场景是空走廊、阅读角落和无人的候车亭。它们是虚构场景，不必回忆私人地点或证明画面与实景相像；不需要地址或个人例子。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Read this group’s sum and mean",
+            "zh": "阅读本组合计与均分"
+          },
+          "paragraphs": [
+            {
+              "en": "All three answers must be numeric before a sum and mean are shown. The selected 0–4 values add to a possible 0–12; their mean is that sum divided by three. It is displayed to two decimal places as a description of the chosen response anchors, without population comparison.",
+              "zh": "三条都为数字答案，才显示合计和均分。所选0—4数值相加，可能范围0—12，均分为合计除以三。显示两位小数，只概括所选描述，不与人群比较。"
+            },
+            {
+              "en": "Three zero responses mean that you reported no visual image for these three attempts. They do not establish a condition, predict your response to every scene or imply inability to understand spatial relations. We do not convert the sum into an aphantasia cutoff or a diagnostic probability.",
+              "zh": "三条都是零，只表示三次尝试中你都报告没有视觉画面，不证明某种状况、不预测所有场景，也不表示无法理解空间关系。合计不会被转换成心盲切点或诊断概率。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Distinguish visual detail from spatial reasoning",
+            "zh": "区分视觉细节与空间推理"
+          },
+          "paragraphs": [
+            {
+              "en": "For the hallway, you might reason that the bench and clock occupy different positions, perhaps using words or a simple abstract map. That spatial understanding can exist without a coloured scene. This page asks for the visual experience and does not award points for knowing the intended arrangement.",
+              "zh": "例如走廊中，你可能借助语言或抽象地图，理解长凳和钟位于不同位置。这种空间理解可以不伴随彩色场景。本页询问视觉体验，不因知道题目安排的位置而加分。"
+            },
+            {
+              "en": "You may also have a clear image while being uncertain about where an object would be in three dimensions. That uncertainty does not invalidate your response. An imagery rating and a spatial problem with a checkable answer are different forms of information and should not substitute for each other.",
+              "zh": "你也可能画面清楚，却不确定物体的三维位置，这不使答案失效。意象评分与有可核答案的空间问题是两种信息，不能互相替代。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Differences across scenes remain visible",
+            "zh": "保留不同场景间的差异"
+          },
+          "paragraphs": [
+            {
+              "en": "The reading corner may feel easier to picture than the shelter because the words are more familiar to you. Or colour may be clearer than overall layout. These differences can affect a mean without showing a general strength or weakness that applies across settings, languages and future attempts.",
+              "zh": "阅读角落的词语可能更熟悉，因此比候车亭容易形成画面；也可能颜色比整体布局清楚。这些差异会影响均分，却不证明跨场景、跨语言和未来尝试都适用的普遍强弱。"
+            },
+            {
+              "en": "The four context groups have not been calibrated as separate capacities. Comparing their means may prompt a question about your experiences, but the display does not rank them or assign your best imagery type. Equal means can also hide different responses within a group.",
+              "zh": "四组没有校准为独立能力。比较均分可以引出对体验的问题，但系统不排名，也不分配“最擅长的意象类型”。同一组的相同均分也可能掩盖不同答案。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "A skip keeps uncertainty separate",
+            "zh": "跳过使不确定保持独立"
+          },
+          "paragraphs": [
+            {
+              "en": "If you tried and had no visual image, zero is valid. If you did not try, cannot interpret the scene comfortably or are unsure how to rate it, an explicit skip avoids manufacturing a number. The site does not treat uncertainty as faint imagery or estimate a value from your other responses.",
+              "zh": "尝试后没有视觉画面，零是有效选择。没有尝试、无法舒适地理解场景，或不确定如何评分，可以明确跳过，不制造数字。不确定不会被当成微弱意象，也不会根据其他回答估值。"
+            },
+            {
+              "en": "Any skip withholds this topic’s sum and mean; every other complete topic remains readable with its own numbers. All-skip answers can finish without scores. Both public-language versions provide the full explanation before answering, without collecting a name, location, email or account.",
+              "zh": "任何跳过使本组不显示合计与均分，其他完整组仍按自身回答展示。全部跳过也能完成，不给分数。中英文完整解释都在作答前开放，不收集姓名、地点、邮箱或账户。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "Try an external aid for an actual task",
+            "zh": "针对实际任务选择外部辅助"
+          },
+          "paragraphs": [
+            {
+              "en": "For arranging a room or planning a route, a sketch, written sequence or real map may be useful regardless of how vividly you imagine the scene. Choose an aid based on the task and check it against real information rather than using this score to decide what you can do.",
+              "zh": "布置房间或规划路线时，无论意象是否清楚，都可以使用草图、文字顺序或真实地图。辅助方式应服务于任务，并与真实信息核对，不用本分数决定自己能做什么。"
+            },
+            {
+              "en": "This is not a claim that a particular aid improves memory, changes imagery or treats aphantasia. You can explore a practical preference without identifying as a fixed learner type. If an external plan is inaccurate, revise the plan rather than explaining the error through your questionnaire result.",
+              "zh": "这不表示某种辅助已被证明能改善记忆、改变意象或治疗心盲。可以探索实用偏好，不必认定固定学习类型。外部方案若不准确，应修正方案，而不是用问卷结果解释错误。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "No navigation, vision or clinical verdict",
+            "zh": "没有导航、视力或临床判决"
+          },
+          "paragraphs": [
+            {
+              "en": "The prompts, ordinal anchors and group arithmetic are original and unvalidated. They are not VVIQ, an eye examination, a neurological assessment or a navigation test. A large mean cannot certify safe navigation, and a small mean cannot establish impairment or lack of imagination.",
+              "zh": "题目、有序选项和分组算术均为未经验证的原创安排，不是VVIQ、眼科检查、神经评估或导航测验。均分较大不能认证安全找路，较小不能证明功能受损或缺少想象。"
+            },
+            {
+              "en": "Your answers clear on leaving, refreshing or retaking, and a shared guide contains no personal result. If a new or troubling change in your experience affects daily life, you may seek appropriate professional advice about the change itself. No threshold here determines whether support is warranted.",
+              "zh": "离开、刷新或重测会清除答案，分享指南不带个人结果。如果新的或令人困扰的体验变化影响日常，可以就变化本身寻求适当专业意见。这里没有决定是否值得获得支持的分数门槛。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "directionIds": [
+        "motion"
+      ],
+      "title": {
+        "en": "Imagining movement",
+        "zh": "想象运动画面"
+      },
+      "headline": {
+        "en": "A full reading of one imagery context",
+        "zh": "一个意象情境的完整读法"
+      },
+      "summary": {
+        "en": "This group concerns a paper square rotating, a marble rolling down a ramp and a paper flag moving side to side. You are asked about any pictured movement, not how correctly you understand the action or whether you can physically perform it. The page itself presents text rather than moving stimuli.",
+        "zh": "这一组想象纸方片旋转、弹珠沿斜坡滚动、小纸旗左右摆动。询问的是脑中运动画面，不是理解动作是否正确，也不要求身体做出来。页面只呈现文字，不展示运动刺激。"
+      },
+      "scoreReading": {
+        "en": "All three numeric responses are needed for a rated sum and mean. Zero means no visual image was reported; a skip means no usable rating. These original numbers are not a diagnosis, percentile or measure of actual performance.",
+        "zh": "三条均为数字答案才显示合计和均分。零表示未报告视觉画面，跳过表示没有可用评分。原创数字不是诊断、百分位或实际表现测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Imagining movement | Aphantasia Test Guide",
+          "zh": "想象运动画面｜心盲症测试完整读法"
+        },
+        "description": {
+          "en": "Read the complete original imagery guide: pictured experience versus knowledge, scoring examples, missing answers, context and practical options. Free without answering or signup.",
+          "zh": "完整阅读原创意象指南：画面与理解的区别、计分例子、跳过、情境和实用选择。免费开放，无需作答或注册。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Movement in a mental picture",
+            "zh": "脑中画面里的运动"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns a paper square rotating, a marble rolling down a ramp and a paper flag moving side to side. You are asked about any pictured movement, not how correctly you understand the action or whether you can physically perform it. The page itself presents text rather than moving stimuli.",
+              "zh": "这一组想象纸方片旋转、弹珠沿斜坡滚动、小纸旗左右摆动。询问的是脑中运动画面，不是理解动作是否正确，也不要求身体做出来。页面只呈现文字，不展示运动刺激。"
+            },
+            {
+              "en": "An experience might feel like continuous movement, a few separate still positions, a faint impression or only knowledge that something moves. Choose the nearest original description without forcing a movie-like sequence. Nothing has to appear as an external projection, and there is no target speed or duration.",
+              "zh": "体验可能像连续运动、几个独立静止位置、很微弱的印象，或只是知道某物在动。不必强迫自己形成电影般的连续片段，选择最接近的描述即可。不要求眼前投影，也没有目标速度或持续时间。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "The numbers summarize chosen descriptions",
+            "zh": "数字概括所选描述"
+          },
+          "paragraphs": [
+            {
+              "en": "With three numeric answers, the site adds the 0–4 values and divides by three, displaying an unrounded mean to two decimals. A sum of 12 and mean of 4.00 mean you selected the highest description on all three prompts, not that your imagery was objectively perfect or stronger than everyone else’s.",
+              "zh": "三条都有数字答案时，本站把0—4数值相加、除以三，按未提前舍入的均分显示两位小数。合计12、均分4.00表示三条都选了最高描述，不表示意象客观完美或比所有人更强。"
+            },
+            {
+              "en": "For example, 1, 2 and 2 give a sum of 5 and a displayed mean of 1.67. That extra decimal comes from arithmetic, not extra precision in measuring your mind. We do not turn the mean into a percentage, compare it with norms or label a clinical category.",
+              "zh": "例如1、2、2合计为5，均分显示1.67。多出的小数来自算术，不代表对心理体验测量得更精确。均分不转换为百分比，不与常模比较，也不用于临床分类。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Keep the physical and imagined tasks apart",
+            "zh": "把实际动作与想象任务分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You may know how a square changes orientation by reasoning about its corners without picturing a rotation. That can still be a sensible way to understand the prompt. This questionnaire has no timed mental-rotation problem, no right-angle answer and no check on how accurately an imagined movement follows physical rules.",
+              "zh": "你可能通过推理方片各角的位置变化来理解旋转，没有旋转画面，这仍是合理的理解方式。本问卷没有计时心理旋转题、标准角度答案，也不检查想象中的运动是否符合物理规律。"
+            },
+            {
+              "en": "Likewise, a pictured marble rolling does not establish your coordination, athletic ability, balance or ability to learn a movement. Those tasks require different evidence. This group should not be used to recommend sports, judge motor function or infer what kind of work you can safely perform.",
+              "zh": "脑中有弹珠滚动画面，也不能证明协调性、运动能力、平衡或动作学习能力。这些需要不同证据。本组不推荐运动项目、不判断运动功能，也不推断能安全从事什么工作。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Not a pupil or binocular-rivalry experiment",
+            "zh": "不是瞳孔或双眼竞争实验"
+          },
+          "paragraphs": [
+            {
+              "en": "Researchers have used controlled displays, eye tracking and other laboratory tasks to investigate imagery. These methods collect different information from a brief subjective rating. This page does not use your camera, measure pupil responses or reproduce an experiment simply by asking you to imagine a shape.",
+              "zh": "研究人员使用受控显示、眼动记录等实验任务研究意象，它们取得的信息不同于简短主观评分。本页不使用摄像头、不测瞳孔反应，也不会因让你想象形状就复现一个实验。"
+            },
+            {
+              "en": "No flashing patterns, bright-light exposure, after-image procedure or special eyewear is part of this questionnaire. Do not perform extra sensory tricks to obtain a result. The research links explain why subjective and objective evidence must be distinguished; they do not validate these twelve new prompts.",
+              "zh": "本问卷没有闪烁图案、强光暴露、后像程序或特殊眼镜，也不需要额外的感官操作来取得结果。研究链接用于解释主观与客观证据为何需区分，不代表验证了本站十二条新题。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "No image and no rating are different",
+            "zh": "没有画面与没有评分不同"
+          },
+          "paragraphs": [
+            {
+              "en": "If you made a comfortable attempt and had no visual image to rate, select zero. If you did not try, are unsure about the wording or prefer to skip, select the separate option. Neither choice is penalized, but they describe different information and cannot be combined as the same score.",
+              "zh": "舒适地尝试后没有可评分的视觉画面，可以选零；没有尝试、不确定文字含义或不愿回答，可以选单独的跳过。两种选择都不受惩罚，但信息不同，不能合成同一个分数。"
+            },
+            {
+              "en": "Any skip means this group has no sum or mean, without filling in a number or using the other two as substitutes. Other complete groups remain available. Twelve explicit skips can finish and reveal all four guides, so you do not need to force a rating in order to read the content.",
+              "zh": "这组只要有跳过，就没有合计或均分，不填补数字，也不拿另两条代替。其他完整组仍可显示。十二条全部明确跳过也能完成并阅读四篇指南，不必强行评分来解锁内容。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional way to examine a real task",
+            "zh": "可选的实际任务观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you are learning a simple everyday sequence, you could compare an external demonstration with written steps. Choose the format that makes the actual task clearer and check it safely against real requirements. Your questionnaire mean should not decide whether you are allowed to learn through a particular format.",
+              "zh": "学习一个简单日常步骤时，可以比较外部示范与文字步骤，选择让实际任务更清楚的形式，并按真实要求安全核对。不应由问卷均分决定你能否通过某种方式学习。"
+            },
+            {
+              "en": "This suggestion does not promise better motor learning, improved memory or a cure for absent imagery. It is a practical option to consider without assigning yourself a fixed learning style. If something does not work for the task, changing the aid may be more informative than trying to raise the score.",
+              "zh": "这不承诺提高动作学习、改善记忆或治愈意象缺失，只是无需固定学习风格标签的实用选择。某种辅助不适合任务时，调整辅助方式可能比努力提高问卷数字更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "A bounded observation, with privacy",
+            "zh": "有边界的私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The four contexts are editorial groups in an original, unvalidated questionnaire. There is no overall imagery score, dominant type, VVIQ conversion or comparison with other people. A different response next time may reflect the prompt, circumstances or interpretation; this page is not validated for tracking change.",
+              "zh": "四个情境是原创且未经验证问卷中的编辑分组，没有整体意象分数、主导类型、VVIQ换算或人际比较。下次答案不同，可能与题目、条件或理解有关；本页未验证可用于追踪变化。"
+            },
+            {
+              "en": "Responses stay in page memory and clear when you leave, refresh, change language or retake. Public links carry no answers or scores. If an experience worries you, seek appropriate advice based on what is happening in daily life rather than treating this numerical summary as a diagnosis.",
+              "zh": "答案保存在页面内存，离开、刷新、换语言或重测会清除。公开链接不带答案或分数。若某种体验让你担心，可以根据日常实际情况寻求适当意见，不把数字概括当成诊断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "An original visual self-observation",
+        "zh": "原创视觉意象自我观察"
+      },
+      "paragraphs": [
+        {
+          "en": "The twelve prompts and 0–4 anchors were written for FermatMind. Four groups of three organize objects, invented adult faces, places and motion. They are editorial contexts, not validated subscales. This is not the sixteen-item VVIQ, a shortened validated version or a licensed translation of that questionnaire.",
+          "zh": "十二条题目和0—4选项由本站独立写作，每组三条，按物体、虚构成年人面孔、地点和运动组织。它们是编辑性情境，不是验证后的分量表。这不是十六题VVIQ、经验证的短版或该问卷的授权翻译。"
+        },
+        {
+          "en": "Research distinguishes subjective reports from controlled behavioural and physiological tasks, and definitions and thresholds still vary. The sources below explain these boundaries; they do not validate the new prompts. We do not transfer VVIQ cutoffs, population prevalence, accuracy estimates or laboratory findings to your result.",
+          "zh": "研究区分主观报告与受控行为、生理任务，概念和阈值仍有差异。以下来源用于说明边界，不验证本站新题。这里不移用VVIQ切点、人口发生率、准确率或实验发现来解释个人结果。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Exactly how the numbers work",
+        "zh": "数字具体怎样计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Every numeric answer is used directly, without reverse scoring. All three answers in a context must be numeric for a rated sum of 0–12 and a mean of 0–4; divide the sum by three and display the unrounded mean to two decimals. Any skip withholds that context’s sum and mean, without imputing a value or treating it as zero. Other complete contexts can still be scored.",
+          "zh": "每条数字直接使用，无反向换算。一组三条均为数字答案才显示0—12合计与0—4均分：合计除以三，按未提前舍入的结果显示两位小数。有任何跳过，本组合计与均分暂不显示，不补值，也不把跳过当零；其他完整组仍可计分。"
+        },
+        {
+          "en": "All twelve prompts need an explicit choice, including skips, before submission. All-skip answers can finish without numbers. The arithmetic summarizes ordinal descriptions under a site policy, not calibrated physical imagery strength. There is no total, winner, normality band, aphantasia classification, percentile or diagnosis.",
+          "zh": "提交前十二条均需明确选择，包括跳过。全部跳过也能完成，但不产生数字。算术按本站政策概括有序描述，不是经校准的物理意象强度。不计算总分、赢家、正常程度分段、心盲类别、百分位或诊断。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Comfort, scope and privacy",
+        "zh": "舒适度、适用范围与隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "For adults aged 18 and over, with no requirement to force imagery, recall a real person or disclose a private place. No image is a valid report; it is not a failure of effort or understanding. There is no camera, photo upload, flashing display, after-image procedure, pupil measurement, timer or physical movement task.",
+          "zh": "面向18岁及以上成年人，不要求强迫成像、回忆真实人物或透露私人地点。没有画面是有效报告，不表示不努力或没理解。不使用摄像头、照片上传、闪烁显示、后像程序、瞳孔测量、计时器或实际动作任务。"
+        },
+        {
+          "en": "Answers remain only in page memory and clear on refresh, language change, leaving or retaking. No name, email, history or private example is requested. English and Chinese have not been validated as equivalent measurement forms; the questionnaire is not validated for tracking change or judging real-world performance.",
+          "zh": "答案仅留在页面内存，刷新、换语言、离开或重测会清除。不要求姓名、邮箱、历史资料或私人例子。中英文尚未验证为等值测量版本；问卷未验证用于追踪变化或判断现实表现。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "All four full guides, before you answer",
+        "zh": "作答前即可读完四篇指南"
+      },
+      "paragraphs": [
+        {
+          "en": "Every context has a complete public guide with concrete examples, arithmetic, missing-answer rules, related-task differences and optional practical approaches. All four are free before answering and expandable after the readout. They are identical public explanations for everyone, not hidden personal reports or four separate tests.",
+          "zh": "每个情境都有完整公开指南，包含具体例子、算术、跳过规则、相关任务差异及可选实用做法。四篇均在作答前免费开放，查看读数后也可展开。它们是对所有人相同的公开解释，不是隐藏个人报告，也不是四个独立测试。"
+        },
+        {
+          "en": "Sharing copies only the four public guide links, without answers or numbers. A separate Big Five entry is optional for broader preferences and does not verify imagery or explain its cause. If an experience concerns you or affects daily life, appropriate professional advice can address the experience without depending on this original score.",
+          "zh": "分享只复制四个公开指南链接，不含答案和数字。另做大五人格只是了解更广泛偏好的可选入口，不验证意象，也不解释原因。若某种体验让你担心或影响日常，可以就体验本身寻求适当专业意见，不依赖这个原创分数。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this test tell me that I have aphantasia?",
+        "zh": "这能鉴定我是否心盲吗？"
+      },
+      "answer": {
+        "en": "No. It records subjective responses to twelve original prompts in four contexts. It does not diagnose or classify aphantasia, supply population norms or measure an objective physiological response. Aphantasia test is the common topic name, not a diagnostic claim.",
+        "zh": "不能。它记录十二个原创场景中的主观回答，按四组展示，不诊断或分类心盲，不提供人口常模，也不测客观生理反应。“心盲症测试”是通行主题名称，不是诊断声明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this VVIQ or its Chinese translation?",
+        "zh": "这是VVIQ或其中文译本吗？"
+      },
+      "answer": {
+        "en": "No. The prompts and anchors are independently authored. There is no VVIQ score, cutoff, validation claim or conversion. Research background does not make these new questions a validated instrument.",
+        "zh": "不是。题目和选项独立创作，不给VVIQ分数、切点、验证声明或换算。研究背景不使这些新题自动成为经验证工具。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to see a picture in front of my eyes?",
+        "zh": "需要眼前真的出现图片吗？"
+      },
+      "answer": {
+        "en": "No. You are reflecting on a mental picture, not a retinal image, external projection or the darkness behind closed eyelids. Eyes may stay open or closed comfortably. Understanding the description without a picture is distinct from not trying.",
+        "zh": "不需要。观察的是脑中画面，不是视网膜图像、眼前投影或闭眼后的黑暗。可舒适地睁眼或闭眼。理解描述但没有画面，与没有尝试，是不同情况。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are zero, uncertainty and skipping handled?",
+        "zh": "零、不确定和跳过如何处理？"
+      },
+      "answer": {
+        "en": "Zero is a valid numeric answer when you tried and had no visual image to rate. Did not try, unsure and prefer not to answer use a separate skip. Any skip withholds its three-item context’s sum and mean; all-skip answers can still finish and read every guide.",
+        "zh": "尝试后没有可评分画面时，零是有效数字。没有尝试、不确定或不愿回答时用单独的跳过。任一跳过使该三题组不显示合计和均分；全部跳过仍可完成并阅读全部指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a small mean imply poor memory, creativity or vision?",
+        "zh": "均分小代表记忆、创造力或视力差吗？"
+      },
+      "answer": {
+        "en": "No. Those tasks are not measured here. The four means describe selected responses to these prompts, without a hierarchy of abilities or a fixed learning style. They do not show how accurately you remember, recognize, navigate or perform a movement.",
+        "zh": "不是。这些任务没有在此测量。四组均分描述针对这些题目的选择，不建立能力高低顺序或固定学习风格，也不说明记忆、辨认、找路或动作表现是否准确。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved, shared or used to track improvement?",
+        "zh": "答案会保存、分享或用于追踪改善吗？"
+      },
+      "answer": {
+        "en": "Answers stay in page memory and clear on refresh, language change, leaving or retaking. Shared links contain only public guides. Optional anonymous action counts need both per-page permission and global analytics consent. This original questionnaire is not validated to measure improvement or decline.",
+        "zh": "答案留在页面内存，刷新、换语言、离开或重测会清除。分享仅含公开指南。可选匿名动作计数须同时取得本页许可与全站分析同意。本原创问卷未验证用于测量改善或恶化。"
+      }
+    }
+  ],
+  "imagery12": {
+    "subtitle": {
+      "en": "Explore your mental pictures, without a category",
+      "zh": "观察脑中画面，不分配类别"
+    },
+    "privacy": {
+      "en": "Answers stay only in page memory and clear when you refresh, change language, leave or retake. No draft, account, photograph, private example or score-bearing share link is created.",
+      "zh": "答案仅留在页面内存，刷新、换语言、离开或重测即清除。不建立草稿或账户，不收照片、私人例子，也不生成带分数的分享链接。"
+    },
+    "editionNotice": {
+      "en": "FermatMind original 12-prompt reflection · Not VVIQ · Not validated · Ages 18+ · No diagnosis, norms or imagery categories.",
+      "zh": "费马测试原创12情境反思版 · 非VVIQ · 尚未验证 · 18岁及以上 · 无诊断、常模或意象类别。"
+    },
+    "attribution": {
+      "en": "Prompts and guides: FermatMind Editorial, 2026. The research below provides background and measurement boundaries; it does not endorse, validate or supply the questions used here.",
+      "zh": "题目与指南：费马测试编辑部，2026。以下研究提供背景与测量边界，不代表背书、验证或提供本站所用题目。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Aphantasia: concept, measurement and research limits (2024 review)",
+        "zh": "心盲：概念、测量与研究限制（2024年综述）"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11437436/"
+    },
+    {
+      "title": {
+        "en": "Imagery and pupil responses in a controlled laboratory study (Kay et al., 2022)",
+        "zh": "受控实验中的意象与瞳孔反应（Kay等，2022）"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9018072/"
+    },
+    {
+      "title": {
+        "en": "A decade of aphantasia research (Zeman, 2025 abstract)",
+        "zh": "心盲研究十年（Zeman，2025年摘要）"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40992607/"
+    }
+  ]
+}

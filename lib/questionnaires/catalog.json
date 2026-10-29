@@ -5757,5 +5757,30 @@
       "preparation"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "aphantasia-test",
+    "code": "FM_IMAGERY12",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Aphantasia Test",
+      "zh": "心盲症测试"
+    },
+    "description": {
+      "en": "Try 12 original visual-imagery prompts and read four free full guides. Explore your pictured experience without VVIQ scoring, condition labels, norms or signup.",
+      "zh": "尝试12个原创视觉意象情境，免费查看物体、虚构面孔、地点和运动四篇完整读法。不使用VVIQ计分，不分诊断类别或人口等级，无需注册。"
+    },
+    "minutes": 4,
+    "formCode": "fm_imagery12_original_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "objects",
+      "faces",
+      "places",
+      "motion"
+    ],
+    "collection": "explore"
   }
 ]
