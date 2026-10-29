@@ -7210,7 +7210,7 @@
     {
       "question": {
         "zh": "为什么有31种结果，五项相同是什么意思？",
-        "en": "Why are there 31results, and what does a five-way tie mean?"
+        "en": "Why are there 31 results, and what does a five-way tie mean?"
       },
       "answer": {
         "zh": "五个方向各参与8次比较，选中加1，总和固定20。最高原始次数相同就保留完整并列，因此有5单项、10双项、10三项、5四项和1五项组合。五项相同时各4次，没有唯一顶部，不意味着完美平衡或万人迷。",

@@ -34,7 +34,7 @@ describe("T031 original four-cultural-expression reflection", () => {
     expect(isArchetypeConfigurationValid(quiz)).toBe(true); expect(quiz.profiles).toHaveLength(4);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
     expect(quiz.references?.map(r => r.url)).toContain("https://ucatv.co.jp/ebook/yougosyu/");
-    expect(quiz.title).toEqual({ zh: "傲娇类型测试", en: "Tsundere Type Test" });
+    expect(quiz.title).toEqual({ zh: "傲娇类型测试", en: "Dere Type Quiz" });
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(16);
       for (const position of [0, 1, 2, 3]) expect(quiz.questions.filter(q => q.options[position].directionId === direction.id)).toHaveLength(4);

@@ -23,7 +23,7 @@
   },
   "minutes": 5,
   "introduction": {
-    "en": "Which Space Marine Chapter do your peaceful hobby choices bring to mind? Imagine friends making an entirely original paper-model display: an agreed plan, a steady base, a tested connection, a handmade detail, a visible observation or an alternative fictional route. This independent fan edition has 18 original situations and six complete public guides before you start. It selects six Chapter names without reproducing franchise art, fictional battles or another site’s nine-Chapter test.",
+    "en": "Which Space Marine Chapter do your peaceful hobby choices bring to mind? Imagine friends making an entirely original paper-model display: an agreed plan, a steady base, a tested connection, a handmade detail, a visible observation or an alternative fictional route. This independent fan edition has 18 original situations and six complete public guides before you start. It selects six Chapter names without reproducing franchise art, fictional battles or another site’s questions and reports.",
     "zh": "和平爱好选择会让你想到哪支星际战士战团？想象朋友作完全原创纸模型展示：约计划、稳底座、试连接、细手作、看可见之处、另虚构路。本独立同人版有18原创情境、六份开测前可读全文，选六战团名称，不重现IP图、虚构战斗、别站九战团测试。"
   },
   "instructions": {
@@ -1633,7 +1633,7 @@
       },
       "paragraphs": [
         {
-          "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars each have a complete bilingual guide. Blood Angels, Dark Angels, Space Wolves and other Chapters are outside this selection. The six names appear together in an official public list, but the original hobby angles and scoring are ours. This is not another site’s 45-item nine-Chapter test or a claim about current game rules.",
+          "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars each have a complete bilingual guide. Blood Angels, Dark Angels, Space Wolves and other Chapters are outside this selection. The six names appear together in an official public list, but the original hobby angles and scoring are ours. These original hobby readings do not provide current game rules.",
           "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤各有双语全文。圣血天使、暗黑天使、太空野狼等不在集合。六名称共见于官方公开名单，原创爱好角度、计分归本版。不是别站45题九战团测试，不对当前规则作主张。"
         }
       ]
@@ -1672,7 +1672,7 @@
         "zh": "包含哪些星际战士战团？"
       },
       "answer": {
-        "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars, each with a complete bilingual guide. This selected six-Chapter edition does not include every Chapter or reproduce another site’s nine-result set.",
+        "en": "Ultramarines, Imperial Fists, Iron Hands, Salamanders, Raven Guard and White Scars, each with a complete bilingual guide. This selected six-Chapter edition does not include every Chapter.",
         "zh": "极限战士、帝国之拳、钢铁之手、火蜥蜴、暗鸦守卫、白疤，各有双语全文。本选定六战团版不含所有战团、不复用别站九结果集合。"
       }
     },
