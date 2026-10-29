@@ -6748,5 +6748,29 @@
       "feelings-and-support-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "prakriti-inventory21",
+    "code": "BPI21_NOMINAL_WORKING_ZH",
+    "version": "bpi21_en_working_zh_na_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Dosha Reflection: BPI-21",
+      "zh": "Dosha话题自评：BPI-21"
+    },
+    "description": {
+      "en": "Read the 21 published English BPI items with working Chinese. Three raw counts, choice percentages and complete cultural guides, without a medical verdict or constitution assignment.",
+      "zh": "阅读BPI发表版21项英文及工作中译。三个原始计数、选择占比与完整文化指南，不作医疗结论、不派体质身份。"
+    },
+    "minutes": 7,
+    "formCode": "bpi21_en_working_zh_na_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "vata",
+      "pitta",
+      "kapha"
+    ],
+    "collection": "explore"
   }
 ]

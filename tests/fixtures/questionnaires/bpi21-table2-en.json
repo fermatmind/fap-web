@@ -1,0 +1,141 @@
+{
+  "source": "Bhargav H et al., The Brief Prakriti Inventory: Latent structure, reliability, and validity, Wellcome Open Research 2026;10:669, version 2, Table 2",
+  "doi": "10.12688/wellcomeopenres.25166.2",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12780516/",
+  "license": "CC BY 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "websiteChanges": "Working Chinese translation, separate NA extension, digital presentation and original guides. No website validation inherited.",
+  "columns": [
+    "vata",
+    "pitta",
+    "kapha"
+  ],
+  "rows": [
+    [
+      "1) Skin texture",
+      "My skin is generally dry, or rough, especially in areas like the forearm, elbows, and knuckles. Lotions and oils absorb very quickly and the skin dries up.",
+      "My skin is generally soft and supple, warm to the touch. I tend to develop pigmentation, dark spots, pimples, or moles easily.",
+      "My skin feels oily and clear. Lotions and oils take a while to absorb."
+    ],
+    [
+      "2) Hair",
+      "My hair tends to be dry, brittle, rough, and may have split ends.",
+      "I have medium-density hair that's naturally straight to slightly wavy. It can be prone to premature graying and thinning.",
+      "My hair is dense and smooth. It may be straight, wavy, or curly. My scalp tends to be oily."
+    ],
+    [
+      "3) Body Movements",
+      "I often move around a lot in my seat, play with my hands or feet when seated, change my position frequently, and find it hard to sit still for long periods.",
+      "I'm naturally coordinated and agile.",
+      "I generally prefer a calm and slow pace in my daily activities."
+    ],
+    [
+      "4) Physical endurance",
+      "I tend to have bursts of energy but tire easily. I may find it challenging to sustain physical activity for long periods.",
+      "I have a strong drive and enjoy intense physical activity. I tend to be competitive and push myself to my limits.",
+      "I have good stamina and can sustain moderate physical activity for extended periods. I enjoy activities like long walks, but prefer a more relaxed and rhythmic pace."
+    ],
+    [
+      "5) Resistance to Infections",
+      "When I get sick, my symptoms can fluctuate quickly. I may feel quite unwell at one point, but then start to feel better soon after.",
+      "When I get sick, I often have a strong reaction, like a high fever or inflammation. I usually recover quickly once the illness passes.",
+      "I generally don't get sick very often. But when I do, it takes me a while to fully recover, and I might have a lot of congestion or mucus."
+    ],
+    [
+      "6) Hunger/appetite",
+      "My hunger fluctuates, it varies from meal to meal. I'm sometimes very hungry and sometimes not hungry at all.",
+      "I usually have a strong appetite. I get irritable if I have to wait too long to eat.",
+      "I have a good appetite and I can easily skip a meal without feeling overly hungry."
+    ],
+    [
+      "7) Amount of food consumed in a meal",
+      "I might eat a large amount in one meal and very little in the next. I often prefer smaller portions and feel full quickly.",
+      "I have a strong digestive capacity, my food digests fast and I can handle larger quantities of food.",
+      "I have a good digestive capacity, my digestive system processes food at a slow and comfortable pace."
+    ],
+    [
+      "8) Thirst",
+      "My thirst is a bit unpredictable. I can go for quite a while without feeling thirsty, then suddenly I feel dry and thirsty. I tend to drink in spurts and generally prefer warm drinks.",
+      "I often feel thirsty and prefer cool drinks. I can get uncomfortable if I don't drink regularly.",
+      "I generally don't feel very thirsty and can go long periods without drinking. I prefer warm drinks."
+    ],
+    [
+      "9) Body Sweat",
+      "I sweat less, and even during exercise, I don't sweat much. My sweat is generally odorless.",
+      "I sweat during exercise. My sweat sometimes has a more noticeable odor.",
+      "I don't sweat much, and when I do, it usually occurs during intense exercise. My sweat is generally odorless."
+    ],
+    [
+      "10) Memory",
+      "I grasp new information quickly but tend to forget it easily. My mind jumps between ideas, and I may struggle to recall things from the distant past.",
+      "I grasp new information quickly and I have a strong memory for details. However, I might struggle to remember things if I'm feeling emotional. I can be prone to holding onto past hurts.",
+      "I learn and retain information slowly but thoroughly. Once I understand something, I tend to remember it for a long time. I tend to hold onto memories, both positive and negative."
+    ],
+    [
+      "11) Sleep",
+      "I generally tend to have a light, restless sleep and wake up easily. My mind often races at night, making it hard to quiet down.",
+      "I generally fall asleep easily and have sound sleep. But I can also easily forego sleep if I'm engrossed in a project.",
+      "I generally tend to sleep deeply and for long periods. It's hard for me to give up sleep unless absolutely necessary. I sometimes wake up with a stuffy nose."
+    ],
+    [
+      "12) Temperature Sensitivity",
+      "I prefer warm environments. I feel okay in moderately hot, humid weather but get uncomfortable in cold temperatures and often need extra layers to stay warm in cold climates.",
+      "I prefer cooler environments over warmth and dislike excessive heat or humidity.",
+      "I prefer warmth slightly more over cooler environments and can tolerate cold fairly well. I dislike excessive heat or humidity."
+    ],
+    [
+      "13) Initiative to start any work",
+      "I have bursts of enthusiasm for new projects, but my motivation can fluctuate, and I might lose interest if things get challenging or monotonous. I enjoy starting new things and thrive on variety. However, I can get bored easily and may struggle to complete tasks that require sustained effort.",
+      "I am highly driven and goal-oriented. I take initiative readily and enjoy taking charge. I can be competitive and focused on results. I can get frustrated if things don't progress as expected.",
+      "I have a slow and steady approach to work. I need time to gather momentum, but once I start, I am persistent and dislike being rushed."
+    ],
+    [
+      "14) How easily do you get emotionally aroused?",
+      "My emotions tend to fluctuate, and I get emotionally aroused easily. I am sensitive to the emotions of others and my surroundings.",
+      "I have strong and intense emotions. I can be passionate and driven, but also prone to anger or frustration when things don't go my way. I might express my emotions openly and directly.",
+      "I tend to have calm and stable emotions. I am generally peaceful, content, and forgiving. I might not express my emotions openly, but I can hold onto them for a long time."
+    ],
+    [
+      "15) Which of the following best describes your typical speech patterns?",
+      "I tend to speak quickly and jump between ideas. I can be a lively and engaging speaker, but also get distracted easily. I'm a quick listener, but my mind can wander, and I might miss details.",
+      "I speak clearly and directly, with a sharp and focused tone. I can be persuasive and articulate. I'm an attentive listener, but I might get impatient or interrupt when I have something to say.",
+      "I tend to speak slowly and calmly, with a soothing tone. I'm a good listener and choose my words carefully."
+    ],
+    [
+      "16) How do you feel about competitive situations?",
+      "Dislike and find them stressful",
+      "Enjoy competing and perform well under pressure, but find it mentally and physically exhausting",
+      "Handle competitive stress with ease and remain calm under pressure."
+    ],
+    [
+      "17) Bowel movements",
+      "My bowel movements tend to be irregular. I often experience constipation, gas, or bloating. My stools are often hard, dry, or small.",
+      "My bowel movements are usually regular and frequent. I occasionally have loose stools or a tendency towards diarrhea if I eat spicy or oily foods.",
+      "My bowel movements are generally slow and easy. I might experience stools that are heavy and sticky. My stools are often well-formed"
+    ],
+    [
+      "18) Tendency to Lose Weight",
+      "I tend to lose weight easily, even when I'm not trying to. This can happen if I overexert myself, like pushing myself too hard and taking on too many tasks at once.",
+      "I find it relatively easy to lose weight when I actively focus on diet and exercise.",
+      "I need to put in consistent effort to lose weight. It might take me longer to see results compared to others."
+    ],
+    [
+      "19) How would you describe your mental state?",
+      "Restless and easily distracted, with a lot of mental activity and energy",
+      "Focused and sharp, but can be easily agitated",
+      "Relaxed and unhurried, without feeling rushed or pressured."
+    ],
+    [
+      "20) How would you describe your emotional temperament?",
+      "Anxious, sensitive, and unpredictable",
+      "Quick to anger, easily agitated, Intense and passionate",
+      "Calm, slow to anger but find it difficult to detach emotionally from situations or people"
+    ],
+    [
+      "21) Taste Preference",
+      "I enjoy a variety of tastes including sweet, sour, and salty flavors. I like foods with spices and might dislike bitter tastes. I tend to prefer hot, salty, or sour drinks.",
+      "I enjoy strong, intense flavors and often crave sour, salty, and spicy tastes. I might like bitter tastes and dislike too sweet or oily foods. I tend to prefer cool or refreshing drinks.",
+      "I enjoy sweet, salty, and calorie-rich tastes that provide long-lasting energy and satisfaction. I might dislike too spicy or bitter flavors. I tend to prefer warm and sweet drinks."
+    ]
+  ]
+}

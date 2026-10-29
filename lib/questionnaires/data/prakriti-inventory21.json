@@ -1,0 +1,1471 @@
+{
+  "slug": "prakriti-inventory21",
+  "code": "BPI21_NOMINAL_WORKING_ZH",
+  "version": "bpi21_en_working_zh_na_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "bpi21",
+  "title": {
+    "en": "Dosha Reflection: BPI-21",
+    "zh": "Dosha话题自评：BPI-21"
+  },
+  "description": {
+    "en": "Read the 21 published English BPI items with working Chinese. Three raw counts, choice percentages and complete cultural guides, without a medical verdict or constitution assignment.",
+    "zh": "阅读BPI发表版21项英文及工作中译。三个原始计数、选择占比与完整文化指南，不作医疗结论、不派体质身份。"
+  },
+  "seoTitle": {
+    "en": "Dosha Reflection: Full BPI-21, Three Free Cultural Guides",
+    "zh": "Dosha话题自评：完整BPI-21与三篇免费文化读法"
+  },
+  "minutes": 7,
+  "resultHeading": {
+    "en": "Your BPI-21 choice record and all three readings",
+    "zh": "你的BPI-21选择记录与全部三篇读法"
+  },
+  "instructions": {
+    "en": "For adults, answer only for yourself using usual patterns and experiences you already know. Each item has three published descriptions in a shuffled order. Choose the closest overall description, even if some phrases fit less well; no medical examination, new inspection or change of routine is needed. If unclear, inapplicable or declined, choose unscored. All twenty-one response choices finish the form. Personal counts and percentages require every item to be scored; any unscored response withholds all personal numbers, with no substituted zero or changed denominator. All three complete guides remain open without answers or signup. This working digital edition records choices within a cultural research questionnaire and does not identify a medical constitution.",
+    "zh": "面向成年人，只为自己作答，使用已熟悉的通常模式与体验。每题三个发表描述打乱顺序，选择整体较接近的一项，即使部分措辞不太符合；不需要医学检查、新的身体检查或改变日常习惯。不清楚、不适用或不愿回答就未评分。二十一项均选择即可完成；个人计数和百分比要求每题都计分，任一未评分就不显示所有个人数值，不补零、不改分母。无需答案或注册，三份全文均开放。本数字工作版本记录文化研究问卷中的选择，不识别医疗体质。"
+  },
+  "introduction": {
+    "en": "This edition presents the published twenty-one-item Brief Prakriti Inventory in its Ayurvedic research context. English items retain Table 2 wording; Chinese is FermatMind’s working translation. Vata, Pitta and Kapha are nominal option keys, with separate count shares rather than a highest assigned type. The unscored response, private browser interface and full cultural guides are website additions.",
+    "zh": "本版在阿育吠陀研究背景下呈现发表版二十一项简明Prakriti问卷，英文保留表2措辞，中文为费马工作译文。Vata、Pitta、Kapha是类别选项键，分别显示计数占比，不按最高值派型。未评分、浏览器私有交互与完整文化指南是网站新增。"
+  },
+  "source": {
+    "kind": "licensed-bpi21-nominal-working-zh-with-unscored-extension",
+    "formCode": "bpi21_en_working_zh_na_v1",
+    "itemBankVersion": "bpi21-table2-v2-en-working-zh-na-v1",
+    "scoringVersion": "source-three-counts-over21-all-scored-no-classification-v1",
+    "resultContentVersion": "fm-bpi21-three-cultural-guides-v1",
+    "itemBankSha256": "6d8a11b6ed1c9a8bc378025ee3c685ea3a529a2766813a4c1c77bc7e8df1cff5",
+    "resultContentSha256": "2d0a5b97a77b3a4b8bdcc16f3dc598ad169b4cf06d8d4ce683b897af8e7209ce",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "vata",
+      "title": {
+        "en": "Vata-linked choices",
+        "zh": "Vata关联选择"
+      },
+      "itemCount": 21
+    },
+    {
+      "id": "pitta",
+      "title": {
+        "en": "Pitta-linked choices",
+        "zh": "Pitta关联选择"
+      },
+      "itemCount": 21
+    },
+    {
+      "id": "kapha",
+      "title": {
+        "en": "Kapha-linked choices",
+        "zh": "Kapha关联选择"
+      },
+      "itemCount": 21
+    }
+  ],
+  "questions": [
+    {
+      "id": "BPI21_001",
+      "prompt": {
+        "en": "1) Skin texture",
+        "zh": "皮肤质地"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My skin is generally dry, or rough, especially in areas like the forearm, elbows, and knuckles. Lotions and oils absorb very quickly and the skin dries up.",
+            "zh": "我的皮肤通常偏干或粗糙，尤其是前臂、肘部和指关节等处。乳液和油很快被吸收，之后皮肤又变干。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "My skin is generally soft and supple, warm to the touch. I tend to develop pigmentation, dark spots, pimples, or moles easily.",
+            "zh": "我的皮肤通常柔软、有弹性，触感温热。我容易出现色素沉着、暗斑、痘痘或痣。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "My skin feels oily and clear. Lotions and oils take a while to absorb.",
+            "zh": "我的皮肤感觉偏油、清透。乳液和油需要一段时间才会被吸收。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_002",
+      "prompt": {
+        "en": "2) Hair",
+        "zh": "头发"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My hair tends to be dry, brittle, rough, and may have split ends.",
+            "zh": "我的头发往往偏干、易断、粗糙，也可能分叉。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I have medium-density hair that's naturally straight to slightly wavy. It can be prone to premature graying and thinning.",
+            "zh": "我的头发密度中等，天然直发至微卷，可能容易较早变白和变稀。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "My hair is dense and smooth. It may be straight, wavy, or curly. My scalp tends to be oily.",
+            "zh": "我的头发浓密、顺滑，可能是直发、波浪发或卷发；头皮往往偏油。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_003",
+      "prompt": {
+        "en": "3) Body Movements",
+        "zh": "身体动作"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I often move around a lot in my seat, play with my hands or feet when seated, change my position frequently, and find it hard to sit still for long periods.",
+            "zh": "坐着时我经常动来动去、摆弄手脚、频繁换姿势，很难长时间静坐。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I'm naturally coordinated and agile.",
+            "zh": "我的动作自然协调、敏捷。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I generally prefer a calm and slow pace in my daily activities.",
+            "zh": "日常活动中，我通常偏好平静、缓慢的节奏。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_004",
+      "prompt": {
+        "en": "4) Physical endurance",
+        "zh": "体力耐受"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I tend to have bursts of energy but tire easily. I may find it challenging to sustain physical activity for long periods.",
+            "zh": "我的精力往往一阵一阵，但容易疲倦，可能很难长时间持续身体活动。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I have a strong drive and enjoy intense physical activity. I tend to be competitive and push myself to my limits.",
+            "zh": "我有很强的冲劲，喜欢强度较高的身体活动，往往有竞争心，会把自己推到极限。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I have good stamina and can sustain moderate physical activity for extended periods. I enjoy activities like long walks, but prefer a more relaxed and rhythmic pace.",
+            "zh": "我的耐力较好，能长时间维持中等强度活动；喜欢长距离步行等活动，但更偏好放松、有节奏的步调。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_005",
+      "prompt": {
+        "en": "5) Resistance to Infections",
+        "zh": "对感染的抵抗表现"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "When I get sick, my symptoms can fluctuate quickly. I may feel quite unwell at one point, but then start to feel better soon after.",
+            "zh": "生病时，我的症状变化可能很快：一会儿很难受，过一会儿又开始好转。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "When I get sick, I often have a strong reaction, like a high fever or inflammation. I usually recover quickly once the illness passes.",
+            "zh": "生病时，我常有较强的反应，例如高热或炎症；病程过去后，通常恢复很快。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I generally don't get sick very often. But when I do, it takes me a while to fully recover, and I might have a lot of congestion or mucus.",
+            "zh": "我通常不太常生病，但一旦生病，完全恢复会需要一段时间，也可能有较多鼻塞或黏液。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_006",
+      "prompt": {
+        "en": "6) Hunger/appetite",
+        "zh": "饥饿感与食欲"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My hunger fluctuates, it varies from meal to meal. I'm sometimes very hungry and sometimes not hungry at all.",
+            "zh": "我的饥饿感起伏不定，每顿都可能不同，有时很饿，有时完全不饿。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I usually have a strong appetite. I get irritable if I have to wait too long to eat.",
+            "zh": "我的食欲通常很强，吃饭等得太久会烦躁。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I have a good appetite and I can easily skip a meal without feeling overly hungry.",
+            "zh": "我的食欲不错，也容易跳过一餐而不觉得很饿。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_007",
+      "prompt": {
+        "en": "7) Amount of food consumed in a meal",
+        "zh": "一餐的进食量"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I might eat a large amount in one meal and very little in the next. I often prefer smaller portions and feel full quickly.",
+            "zh": "我可能一餐吃很多，下一餐却吃很少；常偏好小份，容易感到饱。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I have a strong digestive capacity, my food digests fast and I can handle larger quantities of food.",
+            "zh": "我的消化能力很强，食物消化快，也能承受较大的进食量。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I have a good digestive capacity, my digestive system processes food at a slow and comfortable pace.",
+            "zh": "我的消化能力不错，消化系统以缓慢、舒服的节奏处理食物。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_008",
+      "prompt": {
+        "en": "8) Thirst",
+        "zh": "口渴"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My thirst is a bit unpredictable. I can go for quite a while without feeling thirsty, then suddenly I feel dry and thirsty. I tend to drink in spurts and generally prefer warm drinks.",
+            "zh": "我的口渴有点难预测，可能很久不觉得渴，随后突然觉得干、渴；喝水往往一阵一阵，通常偏好温热饮品。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I often feel thirsty and prefer cool drinks. I can get uncomfortable if I don't drink regularly.",
+            "zh": "我经常觉得渴，偏好凉饮；不定时喝水会不舒服。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I generally don't feel very thirsty and can go long periods without drinking. I prefer warm drinks.",
+            "zh": "我通常不太渴，可以很久不喝水；偏好温热饮品。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_009",
+      "prompt": {
+        "en": "9) Body Sweat",
+        "zh": "出汗"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I sweat less, and even during exercise, I don't sweat much. My sweat is generally odorless.",
+            "zh": "我出汗少，即使运动也不太出汗；汗通常没有气味。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I sweat during exercise. My sweat sometimes has a more noticeable odor.",
+            "zh": "运动时我会出汗，有时汗味较明显。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I don't sweat much, and when I do, it usually occurs during intense exercise. My sweat is generally odorless.",
+            "zh": "我不太出汗，通常只在高强度运动时出汗，汗通常没有气味。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_010",
+      "prompt": {
+        "en": "10) Memory",
+        "zh": "记忆"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I grasp new information quickly but tend to forget it easily. My mind jumps between ideas, and I may struggle to recall things from the distant past.",
+            "zh": "我很快掌握新信息，但也容易忘记；思绪在不同想法间跳转，可能很难回想久远的事。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I grasp new information quickly and I have a strong memory for details. However, I might struggle to remember things if I'm feeling emotional. I can be prone to holding onto past hurts.",
+            "zh": "我很快掌握新信息，对细节的记忆很强；但情绪较强时可能难以记住事情，也可能放不下过去受过的伤。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I learn and retain information slowly but thoroughly. Once I understand something, I tend to remember it for a long time. I tend to hold onto memories, both positive and negative.",
+            "zh": "我学习、记住信息较慢，但比较透彻；理解之后，往往记得很久，会保留积极和消极的记忆。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_011",
+      "prompt": {
+        "en": "11) Sleep",
+        "zh": "睡眠"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I generally tend to have a light, restless sleep and wake up easily. My mind often races at night, making it hard to quiet down.",
+            "zh": "我的睡眠通常浅、不安稳，容易醒；晚上思绪常转得很快，难以安静下来。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I generally fall asleep easily and have sound sleep. But I can also easily forego sleep if I'm engrossed in a project.",
+            "zh": "我通常容易入睡，睡得安稳；但专注项目时，也容易暂时放弃睡觉。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I generally tend to sleep deeply and for long periods. It's hard for me to give up sleep unless absolutely necessary. I sometimes wake up with a stuffy nose.",
+            "zh": "我通常睡得深、时间长，除非十分必要，否则很难放弃睡眠；有时醒来会鼻塞。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_012",
+      "prompt": {
+        "en": "12) Temperature Sensitivity",
+        "zh": "温度敏感"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I prefer warm environments. I feel okay in moderately hot, humid weather but get uncomfortable in cold temperatures and often need extra layers to stay warm in cold climates.",
+            "zh": "我偏好温暖环境，在适度炎热、潮湿的天气中感觉尚可，冷天会不舒服，在寒冷地区常需要多穿几层保暖。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I prefer cooler environments over warmth and dislike excessive heat or humidity.",
+            "zh": "相比温暖，我更喜欢凉爽环境，不喜欢过热或潮湿。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I prefer warmth slightly more over cooler environments and can tolerate cold fairly well. I dislike excessive heat or humidity.",
+            "zh": "相比凉爽，我稍偏好温暖，但也较耐冷；不喜欢过热或潮湿。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_013",
+      "prompt": {
+        "en": "13) Initiative to start any work",
+        "zh": "启动工作的主动性"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I have bursts of enthusiasm for new projects, but my motivation can fluctuate, and I might lose interest if things get challenging or monotonous. I enjoy starting new things and thrive on variety. However, I can get bored easily and may struggle to complete tasks that require sustained effort.",
+            "zh": "新项目常让我一阵热情，但动力会起伏；事情变得困难或单调时，可能失去兴趣。我喜欢启动新事物，喜欢变化，但也容易无聊，可能难以完成需要持续投入的任务。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I am highly driven and goal-oriented. I take initiative readily and enjoy taking charge. I can be competitive and focused on results. I can get frustrated if things don't progress as expected.",
+            "zh": "我很有冲劲，目标明确，容易主动开始，也喜欢负责；有竞争心、重视结果，进展不如预期时可能感到挫折。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I have a slow and steady approach to work. I need time to gather momentum, but once I start, I am persistent and dislike being rushed.",
+            "zh": "我做事节奏慢而稳，需要时间积累动力；但开始之后会坚持，不喜欢被催。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_014",
+      "prompt": {
+        "en": "14) How easily do you get emotionally aroused?",
+        "zh": "你有多容易出现较强的情绪反应？"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My emotions tend to fluctuate, and I get emotionally aroused easily. I am sensitive to the emotions of others and my surroundings.",
+            "zh": "我的情绪容易波动，也容易出现较强反应；我对他人的情绪与周围环境比较敏感。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I have strong and intense emotions. I can be passionate and driven, but also prone to anger or frustration when things don't go my way. I might express my emotions openly and directly.",
+            "zh": "我的情绪强烈、浓烈，可以很有热情和冲劲，但事情不如意时，也容易愤怒或受挫；可能会直接、公开地表达情绪。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I tend to have calm and stable emotions. I am generally peaceful, content, and forgiving. I might not express my emotions openly, but I can hold onto them for a long time.",
+            "zh": "我的情绪往往平静、稳定，通常平和、知足、愿意原谅；可能不公开表达，但会把情绪保留很久。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_015",
+      "prompt": {
+        "en": "15) Which of the following best describes your typical speech patterns?",
+        "zh": "以下哪项最能描述你通常的说话方式？"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I tend to speak quickly and jump between ideas. I can be a lively and engaging speaker, but also get distracted easily. I'm a quick listener, but my mind can wander, and I might miss details.",
+            "zh": "我往往说得快，在不同想法间跳转；说话可能生动、有吸引力，但也容易分心。我听得快，但思绪可能走开，漏掉细节。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I speak clearly and directly, with a sharp and focused tone. I can be persuasive and articulate. I'm an attentive listener, but I might get impatient or interrupt when I have something to say.",
+            "zh": "我说话清楚、直接，语气鲜明、专注，可能有说服力、善于表达；听得专心，但有话要说时，也可能不耐烦或打断。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I tend to speak slowly and calmly, with a soothing tone. I'm a good listener and choose my words carefully.",
+            "zh": "我往往说得慢、平静，语气让人舒缓；善于倾听，会斟酌用词。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_016",
+      "prompt": {
+        "en": "16) How do you feel about competitive situations?",
+        "zh": "你怎样感受竞争场景？"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "Dislike and find them stressful",
+            "zh": "不喜欢，觉得有压力。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "Enjoy competing and perform well under pressure, but find it mentally and physically exhausting",
+            "zh": "喜欢竞争，在压力下表现不错，但觉得身心消耗很大。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "Handle competitive stress with ease and remain calm under pressure.",
+            "zh": "能够轻松应对竞争压力，在压力下保持平静。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_017",
+      "prompt": {
+        "en": "17) Bowel movements",
+        "zh": "排便"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "My bowel movements tend to be irregular. I often experience constipation, gas, or bloating. My stools are often hard, dry, or small.",
+            "zh": "我的排便往往不规律，经常便秘、胀气或腹胀；大便常偏硬、干或量小。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "My bowel movements are usually regular and frequent. I occasionally have loose stools or a tendency towards diarrhea if I eat spicy or oily foods.",
+            "zh": "我的排便通常规律、较频繁，偶尔大便偏稀；吃辛辣或油腻食物时，可能容易腹泻。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "My bowel movements are generally slow and easy. I might experience stools that are heavy and sticky. My stools are often well-formed",
+            "zh": "我的排便通常缓慢、轻松；可能有较沉重、黏的大便，大便通常成形较好。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_018",
+      "prompt": {
+        "en": "18) Tendency to Lose Weight",
+        "zh": "体重下降的倾向"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I tend to lose weight easily, even when I'm not trying to. This can happen if I overexert myself, like pushing myself too hard and taking on too many tasks at once.",
+            "zh": "即使没有刻意减重，我也容易体重下降；过度消耗时可能如此，例如把自己逼得太紧、一次承担太多任务。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I find it relatively easy to lose weight when I actively focus on diet and exercise.",
+            "zh": "主动关注饮食和运动时，我觉得体重比较容易下降。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I need to put in consistent effort to lose weight. It might take me longer to see results compared to others.",
+            "zh": "体重下降需要我持续付出努力，可能比别人更久才看见结果。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_019",
+      "prompt": {
+        "en": "19) How would you describe your mental state?",
+        "zh": "你怎样描述自己的精神状态？"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "Restless and easily distracted, with a lot of mental activity and energy",
+            "zh": "坐立不安、容易分心，脑中活动和精力很多。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "Focused and sharp, but can be easily agitated",
+            "zh": "专注、敏锐，但容易烦躁。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "Relaxed and unhurried, without feeling rushed or pressured.",
+            "zh": "放松、不赶时间，不觉得匆忙或受压。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_020",
+      "prompt": {
+        "en": "20) How would you describe your emotional temperament?",
+        "zh": "你怎样描述自己的情绪气质？"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "Anxious, sensitive, and unpredictable",
+            "zh": "焦虑、敏感、难预测。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "Quick to anger, easily agitated, Intense and passionate",
+            "zh": "容易发怒、容易烦躁，情绪强烈、热情。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "Calm, slow to anger but find it difficult to detach emotionally from situations or people",
+            "zh": "平静、不容易生气，但很难在情感上放下某些处境或人。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BPI21_021",
+      "prompt": {
+        "en": "21) Taste Preference",
+        "zh": "口味偏好"
+      },
+      "options": [
+        {
+          "id": "vata",
+          "directionId": "vata",
+          "label": {
+            "en": "I enjoy a variety of tastes including sweet, sour, and salty flavors. I like foods with spices and might dislike bitter tastes. I tend to prefer hot, salty, or sour drinks.",
+            "zh": "我喜欢多种口味，包括甜、酸、咸；喜欢带香料的食物，可能不喜欢苦味，往往偏好热、咸或酸的饮品。"
+          }
+        },
+        {
+          "id": "pitta",
+          "directionId": "pitta",
+          "label": {
+            "en": "I enjoy strong, intense flavors and often crave sour, salty, and spicy tastes. I might like bitter tastes and dislike too sweet or oily foods. I tend to prefer cool or refreshing drinks.",
+            "zh": "我喜欢强烈、浓重的口味，常想吃酸、咸、辣；可能喜欢苦味，不喜欢太甜或油腻，往往偏好凉爽、清新的饮品。"
+          }
+        },
+        {
+          "id": "kapha",
+          "directionId": "kapha",
+          "label": {
+            "en": "I enjoy sweet, salty, and calorie-rich tastes that provide long-lasting energy and satisfaction. I might dislike too spicy or bitter flavors. I tend to prefer warm and sweet drinks.",
+            "zh": "我喜欢甜、咸、热量较高、能带来持久精力与满足感的口味；可能不喜欢太辣或太苦，往往偏好温热、甜的饮品。"
+          }
+        },
+        {
+          "id": "na",
+          "directionId": "unscored",
+          "label": {
+            "en": "Unscored: unsure, not applicable or prefer not to answer",
+            "zh": "未评分：不确定、不适用，或不愿回答"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "vata",
+      "directionIds": [
+        "vata"
+      ],
+      "title": {
+        "en": "Reading Vata-Linked Choices",
+        "zh": "Vata关联选项读法"
+      },
+      "headline": {
+        "en": "Vata as a published choice key, with its full context",
+        "zh": "把Vata作为发表选项键，连同背景阅读"
+      },
+      "summary": {
+        "en": "Read what selections mapped to Vata mean within BPI-21, with raw-count arithmetic, a cultural context and the limits of this website edition.",
+        "zh": "阅读BPI-21里对应Vata的选择如何理解，包括原始计数算术、文化背景与网站版本的范围。"
+      },
+      "scoreReading": {
+        "en": "Twenty-one scored choices are required for all three raw counts and percentages. Any unscored response withholds every personal number. No highest type or health interpretation.",
+        "zh": "二十一项全部计分才显示三个原始计数和百分比；任一未评分就不显示所有个人数值，不派最高类型，不作健康解释。"
+      },
+      "seo": {
+        "title": {
+          "en": "Vata-Linked Choices: BPI-21 Full Cultural Reading",
+          "zh": "Vata关联选项：BPI-21完整文化读法"
+        },
+        "description": {
+          "en": "A full guide to Vata-mapped BPI-21 selections, count shares, mixed responses and source limits, without a medical verdict.",
+          "zh": "完整说明BPI-21的Vata映射选项、计数占比、混合回答与来源范围，不提供医疗结论。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What a Vata-linked count records",
+            "zh": "Vata关联计数记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A Vata-linked count records how many of your twenty-one choices matched the alternatives placed in the Vata column of the published Brief Prakriti Inventory. Those alternatives include descriptions about variable appetite, frequent movement, quickly changing interests and some bodily experiences. The number is a count of selected descriptions within this particular bank. It is not a measurement of air, a biological substance or a permanent essence. You may recognise some details and not others. Choosing one alternative does not require every phrase in it to describe you equally well.",
+              "zh": "Vata关联计数，记录二十一项选择中，有多少对应发表版简明Prakriti问卷的Vata列。该列包含食欲起伏、动作较多、兴趣变化较快，以及一些身体体验的描述。数值只是这份特定题本中所选描述的次数，不测空气、生物物质或永久本质。可能认同某些细节、不认同其他细节；选择一个选项，也不代表其中每句话都同样符合。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Recognise a description without becoming a type",
+            "zh": "辨认描述，不必成为一种类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine recognising the published description about enthusiasm for starting projects while also recognising a different alternative about moving at a calm pace. The two choices can belong to different columns without making either response wrong. Each item asks for one alternative that comes closest to your usual experience. A bundled description may still fit imperfectly. You can acknowledge that imperfection rather than trying to make your life more consistent with a label. The reading does not ask you to recreate a symptom, inspect your body or perform an activity to obtain a more decisive answer.",
+              "zh": "例如，认同发表题项里启动新项目的热情，也认同另一列里平静的日常动作节奏。两项可以落在不同列，并不使任何一项错误。每题只是选最接近通常体验的一项，一组描述仍可能不完全贴合。可以承认这种不贴合，不必让生活更符合标签；也不用重现症状、检查身体或实际做某件事来取得更明确答案。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read all three counts together",
+            "zh": "三个计数放在一起阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "Every scored item contributes one choice to exactly one column, so the three counts add to twenty-one. A higher Vata-linked count therefore leaves fewer choices for Pitta and Kapha within this form. It does not establish that you lack qualities mentioned in those alternatives, and it does not measure three independent quantities inside your body. The result presents all three columns together. No highest count becomes a diagnosis or a fixed identity, and an equal highest count does not require a tie-break. The full readings remain available whichever alternatives you chose.",
+              "zh": "每道计分题只给一列增加一次，因此三个计数相加为二十一。Vata关联计数较高，只意味着同一表内留给Pitta和Kapha的选择较少，不证明缺少其他选项中的特点，也不是身体内三个独立数量的测量。结果同时呈现三列，不让最高计数成为诊断或固定身份；最高并列无需打破，选择哪一列都能读全部全文。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A worked percentage, without a threshold",
+            "zh": "一个不派类型的百分比算例"
+          },
+          "paragraphs": [
+            {
+              "en": "If eight of twenty-one complete choices map to Vata, its displayed percentage is eight divided by twenty-one, multiplied by one hundred: 38.1 percent to one decimal. The other columns receive their own counts and percentages using the same denominator. This is a share of choices, not a population percentile, disease probability or amount of constitutional energy. Seven choices in each column produce three independently rounded values of 33.3 percent. Neither example assigns a balanced or mixed constitution. Rounding may make displayed percentages total slightly above or below one hundred.",
+              "zh": "如果二十一项完整计分选择里，八项对应Vata，显示百分比为八除以二十一再乘一百，保留一位小数是38.1%。其他列使用同样分母，分别显示计数和百分比。这是选择占比，不是人群百分位、疾病概率或体质能量含量。三列各七项会分别四舍五入为33.3%；两个例子都不分配平衡或混合体质。独立取整后，总和可能略高或略低于一百。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Keep the cultural framework in its context",
+            "zh": "保留文化框架的具体背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Prakriti and dosha belong to Ayurveda, a traditional Indian medical framework. Within that framework, Vata is associated with space and air. That cultural association explains the vocabulary; it does not mean this website has measured those elements or verified an Ayurvedic constitution. The BPI is one published attempt to organise self-reported physical, physiological and psychological descriptions. It is different from an original four-element personality metaphor quiz, and the two sets of results cannot be converted into one another. Shared words about movement or variation are not a common scoring key.",
+              "zh": "Prakriti和dosha属于印度传统医学阿育吠陀的语境，其中Vata与空间和空气关联。这解释的是文化用词，不表示网站测出了元素或验证了体质。BPI是一份整理身体、生理和心理自述的发表工具，与原创四元素人格隐喻题本不同，两者结果不能互换；都谈动作或变化，也不构成共同计分键。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A private observation can stay small",
+            "zh": "私下观察可以保持很小"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, choose one description you already recognised and note the situation in which it fitted. You may also note a situation in which it fitted less well. Neither observation requires a different score or a more certain identity. There is no need to compare photographs, monitor weight, change meals, purchase herbs or repeat an uncomfortable experience. A source alternative mentioning illness or appetite is still a questionnaire description rather than an instruction. Your result does not decide whether a bodily experience needs attention or tell you which treatment would be appropriate.",
+              "zh": "私下可以选一条已认出的描述，想想它在哪个场景符合，也想想在哪个场景不太符合。两种观察都不要求改分数或取得更确定身份。无需比较照片、监控体重、改变餐食、购买草药或重现不舒服的经历。题项提到疾病或食欲，仍是问卷描述，不是行动指令；结果不判断身体体验是否需要处理，也不决定适合什么治疗。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the evidence within its actual scope",
+            "zh": "按证据的实际范围阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "The BPI paper studied an Indian community sample of English-reading adults aged eighteen to sixty-five. Its strongest separation and some measurement results came from a single-dosha-dominant subset; those results should not be extended to everyone. The authors identify the absence of an objective gold standard, lower precision for mixed or balanced classifications and untested prediction of health and clinical outcomes. The website does not establish any of those missing claims. Its Chinese text is a working translation, and this digital edition has not completed its own psychometric or cross-cultural validation. A published questionnaire can remain interesting while these limits remain visible.",
+              "zh": "BPI论文研究的是印度社区中能够阅读英文的十八至六十五岁成年人，最清晰的分离和部分测量表现来自单一dosha占优子样本，不能推广给所有人。作者说明缺少客观金标准、混合或平衡分类精度较低，以及健康和临床结果预测尚未检验。网站不建立这些缺失主张；中文是工作译文，数字版本未完成自己的心理测量或跨文化验证。发表问卷可以值得阅读，同时保留这些限制。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Source credit, private answers and the unscored extension",
+            "zh": "来源署名、私有答案与未评分扩展"
+          },
+          "paragraphs": [
+            {
+              "en": "The twenty-one English items and their sixty-three mapped alternatives come from Bhargav and colleagues, Table 2 of the Brief Prakriti Inventory paper, version two, published in Wellcome Open Research under CC BY 4.0. FermatMind provides the working Chinese translation, these original guides and the digital presentation. The three published alternatives are shuffled for each item; their scoring keys remain unchanged. A separate unscored choice is an editorial extension: any such choice withholds all personal numbers without blocking the full guides. Answers remain in current page memory, without saved drafts, answer uploads, quiz-flow analytics or personal-result links. Refreshing or changing language starts fresh.",
+              "zh": "二十一项英文与六十三个映射选项，来自Bhargav及同事在Wellcome Open Research发表的简明Prakriti问卷论文第二版表2，按CC BY 4.0使用。费马提供工作中译、原创指南与数字呈现。每题三个发表选项打乱顺序，计分键不变；单独的未评分是编辑扩展，任一未评分就不显示所有个人数值，全文仍开放。答案仅留当前页面内存，不存草稿、不上传答案、不发送测试流程统计、不生成个人结果链接；刷新或换语言会重新开始。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pitta",
+      "directionIds": [
+        "pitta"
+      ],
+      "title": {
+        "en": "Reading Pitta-Linked Choices",
+        "zh": "Pitta关联选项读法"
+      },
+      "headline": {
+        "en": "Pitta as a published choice key, with its full context",
+        "zh": "把Pitta作为发表选项键，连同背景阅读"
+      },
+      "summary": {
+        "en": "Read what selections mapped to Pitta mean within BPI-21, with raw-count arithmetic, a cultural context and the limits of this website edition.",
+        "zh": "阅读BPI-21里对应Pitta的选择如何理解，包括原始计数算术、文化背景与网站版本的范围。"
+      },
+      "scoreReading": {
+        "en": "Twenty-one scored choices are required for all three raw counts and percentages. Any unscored response withholds every personal number. No highest type or health interpretation.",
+        "zh": "二十一项全部计分才显示三个原始计数和百分比；任一未评分就不显示所有个人数值，不派最高类型，不作健康解释。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pitta-Linked Choices: BPI-21 Full Cultural Reading",
+          "zh": "Pitta关联选项：BPI-21完整文化读法"
+        },
+        "description": {
+          "en": "A full guide to Pitta-mapped BPI-21 selections, count shares, mixed responses and source limits, without a medical verdict.",
+          "zh": "完整说明BPI-21的Pitta映射选项、计数占比、混合回答与来源范围，不提供医疗结论。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What a Pitta-linked count records",
+            "zh": "Pitta关联计数记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A Pitta-linked count records selections from the Pitta column of the published twenty-one-item Brief Prakriti Inventory. Its alternatives include descriptions about a strong appetite, taking initiative, focused speech, competition and some bodily experiences. The count does not establish that those experiences share a single cause in you. It also cannot tell whether a selected description applied equally across every situation. Read the number as a summary of which alternatives came closest in this particular attempt. The words in the source remain broader and more varied than any one score can express.",
+              "zh": "Pitta关联计数，记录发表版二十一项简明Prakriti问卷中，选择Pitta列的次数。该列包括较强食欲、主动启动、专注表达、竞争和部分身体体验。计数不证明这些体验在自己身上有同一原因，也不能说明选中的描述在所有场景都同样符合。它只总结本次哪些选项较接近，来源文字本身比一个分数能表达的更宽、更多样。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A familiar scene can contain several descriptions",
+            "zh": "熟悉场景可以包含多种描述"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine recognising the option about enjoying competition while finding it exhausting. That does not require you to recognise the same column’s description of appetite or sleep. Another item may have a closer alternative elsewhere. The inventory groups these alternatives according to its source framework, while your remembered experiences may be mixed. You can choose the closest available description without claiming that it is a complete account. If none is applicable or you prefer not to answer, the separate unscored response remains available. There is no need to compete, change your routine or test your endurance before answering.",
+              "zh": "例如，认同享受竞争但觉得消耗，并不要求同时认同同一列关于食欲或睡眠的描述；别题可能是其他列更接近。问卷按来源框架组织选项，自己记得的体验可以混合。选较接近的一项，不代表它已完整描述自己。都不适用或不愿回答，可以选未评分；作答前无需竞争、改变习惯或测试耐受力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "The alternatives create a relative count",
+            "zh": "选项形成相对计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The three published alternatives in each item are nominal choices rather than low, middle and high levels of one ability. Selecting a Pitta-linked alternative adds one to that column and zero to the other two for that item. It does not give you a point for performing better. Across a complete attempt, all twenty-one points are distributed among three columns. A larger count in one leaves fewer elsewhere, so the columns should be read together. The website does not turn their order into a single-dosha identity, a mixed type or a judgement about your health.",
+              "zh": "每题的三个发表选项是类别选择，不是同一种能力的低、中、高。选Pitta关联项，本题该列加一，另外两列加零，并不是表现更好得到一分。完整作答把二十一个点分在三列，一列多，其他列就相对少，因此应一起阅读。网站不会按排序派单一dosha身份、混合类型或健康结论。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Read the arithmetic separately from research classifications",
+            "zh": "区分计算与研究中的分类"
+          },
+          "paragraphs": [
+            {
+              "en": "A count of eleven Pitta-linked choices gives eleven divided by twenty-one times one hundred, or 52.4 percent to one decimal. This display simply reports the original table’s arithmetic. It does not apply the paper’s separate strategy for classifying extreme, dual or balanced research groups. Nor does it estimate a latent class or an IRT trait. The other two counts remain visible with their own percentages. An equal count is retained without selecting a preferred label. A percentage is a proportion of selected alternatives, rather than the proportion of your personality or body made from Pitta.",
+              "zh": "Pitta关联项选十一条，按十一除以二十一再乘一百，一位小数为52.4%。这里仅报告原表算术，不套用论文另外划分极端、双dosha或平衡研究组的策略，也不估算潜在类别或IRT特质。其他两列仍显示各自计数与百分比，计数相同就保留相同，不择优派标签。百分比是选项占比，不是人格或身体由Pitta构成的比例。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A traditional term and a published research tool",
+            "zh": "传统词语与一份发表研究工具"
+          },
+          "paragraphs": [
+            {
+              "en": "Ayurveda associates Pitta with fire and water within its traditional account of constitution. The association helps explain the cultural term, while this digital form records selections from a modern published questionnaire. The paper studied relationships among self-reported descriptions and a clinician-guided comparator. That does not make a website count a test of heat, metabolism or an underlying biological mechanism. The source also distinguishes physical, physiological and psychological descriptions; one should not be treated as proof of the others. A concise cultural reading can preserve those limits without turning an appealing story into a health claim.",
+              "zh": "阿育吠陀在传统体质论述中，把Pitta与火、水关联；这帮助理解文化词语，而数字题本记录的是现代发表问卷的选择。论文研究自述之间的关系，并与临床指导的工具比较，不使网站计数成为热量、代谢或生物机制检测。来源也区分身体、生理与心理描述，不应拿一种证明另一种。文化读法可以保留范围，不把有吸引力的故事变成健康主张。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Notice a detail without setting a performance target",
+            "zh": "注意细节，不设表现目标"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small private reflection, take a familiar description about how you approached an ordinary task. What part of the wording fitted, and what part remained uncertain? You can leave that question open without trying to become more driven, calmer or more consistent with a column. The inventory does not set an ideal count, and another person’s result provides no standard to meet. Nothing in a higher or lower Pitta-linked percentage prescribes food, supplements, exercise intensity or a relationship decision. The reflection can finish with a more precise sentence about your own experience, without changing any routine.",
+              "zh": "私下可以选一条关于处理普通任务的熟悉描述，想想哪些措辞符合，哪些仍不确定。可以留着疑问，不必变得更有冲劲、更平静或更符合某列。问卷不设理想次数，别人的结果也不是需要达到的标准。Pitta关联占比高低，都不规定食物、补充剂、运动强度或关系决定；用一句更准确的话描述自己，就可以结束，无需改变习惯。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the evidence within its actual scope",
+            "zh": "按证据的实际范围阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "The BPI paper studied an Indian community sample of English-reading adults aged eighteen to sixty-five. Its strongest separation and some measurement results came from a single-dosha-dominant subset; those results should not be extended to everyone. The authors identify the absence of an objective gold standard, lower precision for mixed or balanced classifications and untested prediction of health and clinical outcomes. The website does not establish any of those missing claims. Its Chinese text is a working translation, and this digital edition has not completed its own psychometric or cross-cultural validation. A published questionnaire can remain interesting while these limits remain visible.",
+              "zh": "BPI论文研究的是印度社区中能够阅读英文的十八至六十五岁成年人，最清晰的分离和部分测量表现来自单一dosha占优子样本，不能推广给所有人。作者说明缺少客观金标准、混合或平衡分类精度较低，以及健康和临床结果预测尚未检验。网站不建立这些缺失主张；中文是工作译文，数字版本未完成自己的心理测量或跨文化验证。发表问卷可以值得阅读，同时保留这些限制。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Source credit, private answers and the unscored extension",
+            "zh": "来源署名、私有答案与未评分扩展"
+          },
+          "paragraphs": [
+            {
+              "en": "The twenty-one English items and their sixty-three mapped alternatives come from Bhargav and colleagues, Table 2 of the Brief Prakriti Inventory paper, version two, published in Wellcome Open Research under CC BY 4.0. FermatMind provides the working Chinese translation, these original guides and the digital presentation. The three published alternatives are shuffled for each item; their scoring keys remain unchanged. A separate unscored choice is an editorial extension: any such choice withholds all personal numbers without blocking the full guides. Answers remain in current page memory, without saved drafts, answer uploads, quiz-flow analytics or personal-result links. Refreshing or changing language starts fresh.",
+              "zh": "二十一项英文与六十三个映射选项，来自Bhargav及同事在Wellcome Open Research发表的简明Prakriti问卷论文第二版表2，按CC BY 4.0使用。费马提供工作中译、原创指南与数字呈现。每题三个发表选项打乱顺序，计分键不变；单独的未评分是编辑扩展，任一未评分就不显示所有个人数值，全文仍开放。答案仅留当前页面内存，不存草稿、不上传答案、不发送测试流程统计、不生成个人结果链接；刷新或换语言会重新开始。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kapha",
+      "directionIds": [
+        "kapha"
+      ],
+      "title": {
+        "en": "Reading Kapha-Linked Choices",
+        "zh": "Kapha关联选项读法"
+      },
+      "headline": {
+        "en": "Kapha as a published choice key, with its full context",
+        "zh": "把Kapha作为发表选项键，连同背景阅读"
+      },
+      "summary": {
+        "en": "Read what selections mapped to Kapha mean within BPI-21, with raw-count arithmetic, a cultural context and the limits of this website edition.",
+        "zh": "阅读BPI-21里对应Kapha的选择如何理解，包括原始计数算术、文化背景与网站版本的范围。"
+      },
+      "scoreReading": {
+        "en": "Twenty-one scored choices are required for all three raw counts and percentages. Any unscored response withholds every personal number. No highest type or health interpretation.",
+        "zh": "二十一项全部计分才显示三个原始计数和百分比；任一未评分就不显示所有个人数值，不派最高类型，不作健康解释。"
+      },
+      "seo": {
+        "title": {
+          "en": "Kapha-Linked Choices: BPI-21 Full Cultural Reading",
+          "zh": "Kapha关联选项：BPI-21完整文化读法"
+        },
+        "description": {
+          "en": "A full guide to Kapha-mapped BPI-21 selections, count shares, mixed responses and source limits, without a medical verdict.",
+          "zh": "完整说明BPI-21的Kapha映射选项、计数占比、混合回答与来源范围，不提供医疗结论。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What a Kapha-linked count records",
+            "zh": "Kapha关联计数记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A Kapha-linked count records how many chosen alternatives came from the Kapha column of the published Brief Prakriti Inventory. That column includes descriptions about a steady approach to tasks, calm speech, retaining information and several bodily experiences. The count combines choices across a specific twenty-one-item bank; it does not show why those descriptions felt familiar. It cannot verify stamina, immunity, metabolism or an unchanging temperament. Some alternatives may fit only partly, and your reasons for selecting them are not measured. The useful reading begins with what you actually recognised in the available words.",
+              "zh": "Kapha关联计数，记录发表版简明Prakriti问卷中，选中Kapha列的次数。该列包含稳定做事、平静表达、保留信息及多种身体体验。计数汇总特定二十一项题本里的选择，不解释这些描述为何熟悉，不验证耐力、免疫力、代谢或恒定气质。选项可能只部分符合，选它的理由也不在测量中；有用的起点是实际认出了哪些文字。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Keep a remembered example in its own setting",
+            "zh": "让记得的例子留在具体场景里"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine recognising the description of needing time to gather momentum before working steadily. In a different task, you might recognise the enthusiasm for starting something new that appears in another column. Both memories can be relevant. The form still asks for one closest alternative for each item, so it compresses context rather than recording every variation. There is no need to invent consistency where your experience is varied. You can also decline an item or leave an uncertain description unscored. The full guide remains available even when the attempt cannot produce personal counts.",
+              "zh": "例如，认同需要时间积累动力，之后稳定做事；换个任务，也可能认同另一列里开始新事物的热情。两种记忆都可以相关。每题仍只选一项较接近的，因此会压缩场景，不记录每种变化。体验多样，不必编出一致性；也可以拒答或把不确定描述留为未评分。即使本次不能生成个人计数，全文仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A share of choices is not an independent quantity",
+            "zh": "选择占比不是独立含量"
+          },
+          "paragraphs": [
+            {
+              "en": "In a complete scored attempt, each item contributes one to exactly one of Vata, Pitta or Kapha. The resulting three counts sum to twenty-one. If you select more Kapha-linked alternatives, the same bank necessarily contains fewer selections for the other columns. It does not follow that the other descriptions are absent from your life. This relative structure matters whenever you compare the three percentages. They describe how this set of choices was divided, without measuring substances, assigning a constitution or ranking the value of different ways of living. All three readings remain open together.",
+              "zh": "完整计分时，每题只给Vata、Pitta、Kapha之一增加一次，三项合计二十一。Kapha关联项选得更多，同一题本里其他列的选择就必然较少，不等于那些描述在生活中不存在。比较三个百分比时，需要记住这个相对结构：它们说明这组选择怎样分配，不测物质含量、不派体质，也不排名生活方式价值；三个读法同时开放。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A percentage and a withheld result",
+            "zh": "百分比与暂不生成的结果"
+          },
+          "paragraphs": [
+            {
+              "en": "Nine Kapha-linked choices out of twenty-one yield 42.9 percent to one decimal. The denominator is always the twenty-one source items when every item has a scored choice. If even one response is unscored, this website withholds all personal counts and percentages rather than dividing by twenty or treating the omitted choice as zero. You can still finish all twenty-one response choices and read every guide. This unscored extension is a website feature, not an additional response validated by the source study. It keeps a declined or unclear answer from silently changing the published arithmetic.",
+              "zh": "二十一项中九项对应Kapha，一位小数是42.9%。每题都计分时，分母始终为原二十一项。一条未评分，本网站就不显示所有个人计数和百分比，不改除以二十，也不把略过当零。二十一项都选择后仍可完成，阅读全部指南。未评分是网站扩展，并非来源研究验证过的额外选项；它让拒答或不确定不会悄悄改变发表算术。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Read the traditional vocabulary with its limits",
+            "zh": "连同范围一起理解传统词语"
+          },
+          "paragraphs": [
+            {
+              "en": "Within Ayurveda, Kapha is associated with earth and water. These terms belong to a traditional Indian framework; their appearance in a questionnaire does not establish a physical measurement of those elements. The BPI paper examines a particular set of self-reports, while its clinical and biological predictive applications remain untested. A source description about infrequent illness or slow recovery should therefore stay a report about remembered experience. Selecting it is not a verification of immune function. Likewise, a description about learning slowly and retaining information does not establish general ability or predict how you will learn a new subject.",
+              "zh": "阿育吠陀把Kapha与土、水关联；词语属于印度传统框架，出现在问卷中不等于元素的物理测量。BPI论文研究一组特定自述，临床和生物预测应用仍未检验。来源关于较少生病或恢复慢的描述，应保留为对记忆体验的自述，选择它不验证免疫功能；学习慢而记得久的描述，也不确立一般能力，不预测学习新内容的表现。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Leave room for a small, ordinary observation",
+            "zh": "给普通的小观察留出空间"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, notice one familiar routine that helped you understand an alternative’s wording. You might recognise a way of speaking, starting work or remembering details. Then leave room for occasions when the same description did not fit. No result asks you to become more like Kapha or to correct a supposed imbalance. You do not need to change meals, track symptoms, buy products or disclose private bodily details to anyone. This can remain a cultural reading and a limited self-description, without a plan for improving a score or proving that one label is your true identity.",
+              "zh": "私下可以注意一个帮助理解选项措辞的熟悉日常，例如说话、开始做事或记住细节的方式，再为同一描述不符合的时刻留空间。结果不要求变得更像Kapha，也不要求纠正所谓失衡；无需改变餐食、追踪症状、购买产品或向任何人披露身体隐私。它可以停在文化阅读与有限自述，不必制定提分计划，也不必证明哪个标签是真实身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the evidence within its actual scope",
+            "zh": "按证据的实际范围阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "The BPI paper studied an Indian community sample of English-reading adults aged eighteen to sixty-five. Its strongest separation and some measurement results came from a single-dosha-dominant subset; those results should not be extended to everyone. The authors identify the absence of an objective gold standard, lower precision for mixed or balanced classifications and untested prediction of health and clinical outcomes. The website does not establish any of those missing claims. Its Chinese text is a working translation, and this digital edition has not completed its own psychometric or cross-cultural validation. A published questionnaire can remain interesting while these limits remain visible.",
+              "zh": "BPI论文研究的是印度社区中能够阅读英文的十八至六十五岁成年人，最清晰的分离和部分测量表现来自单一dosha占优子样本，不能推广给所有人。作者说明缺少客观金标准、混合或平衡分类精度较低，以及健康和临床结果预测尚未检验。网站不建立这些缺失主张；中文是工作译文，数字版本未完成自己的心理测量或跨文化验证。发表问卷可以值得阅读，同时保留这些限制。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Source credit, private answers and the unscored extension",
+            "zh": "来源署名、私有答案与未评分扩展"
+          },
+          "paragraphs": [
+            {
+              "en": "The twenty-one English items and their sixty-three mapped alternatives come from Bhargav and colleagues, Table 2 of the Brief Prakriti Inventory paper, version two, published in Wellcome Open Research under CC BY 4.0. FermatMind provides the working Chinese translation, these original guides and the digital presentation. The three published alternatives are shuffled for each item; their scoring keys remain unchanged. A separate unscored choice is an editorial extension: any such choice withholds all personal numbers without blocking the full guides. Answers remain in current page memory, without saved drafts, answer uploads, quiz-flow analytics or personal-result links. Refreshing or changing language starts fresh.",
+              "zh": "二十一项英文与六十三个映射选项，来自Bhargav及同事在Wellcome Open Research发表的简明Prakriti问卷论文第二版表2，按CC BY 4.0使用。费马提供工作中译、原创指南与数字呈现。每题三个发表选项打乱顺序，计分键不变；单独的未评分是编辑扩展，任一未评分就不显示所有个人数值，全文仍开放。答案仅留当前页面内存，不存草稿、不上传答案、不发送测试流程统计、不生成个人结果链接；刷新或换语言会重新开始。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Bhargav et al. (2026), Brief Prakriti Inventory, version 2, Table 2 — source items and scoring",
+        "zh": "Bhargav等（2026），简明Prakriti问卷第二版表2：题项与计分来源"
+      },
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12780516/"
+    },
+    {
+      "title": {
+        "en": "CC BY 4.0 — English source licence; working Chinese and website additions identified",
+        "zh": "CC BY 4.0：英文来源许可；工作中译与网站新增已注明"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "title": {
+        "en": "NCCIH: Ayurveda, evidence and safety context",
+        "zh": "NCCIH：阿育吠陀、证据与安全背景"
+      },
+      "url": "https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth"
+    },
+    {
+      "title": {
+        "en": "Uttarakhand Ayurveda: traditional dosha vocabulary, not this 21-item scoring key",
+        "zh": "Uttarakhand阿育吠陀：传统dosha词语，不是本21项计分键"
+      },
+      "url": "https://ayurved.uk.gov.in/service/prakriti-parikshan/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "method-1",
+      "title": {
+        "en": "A published twenty-one-item edition",
+        "zh": "发表版二十一项版本"
+      },
+      "paragraphs": [
+        {
+          "en": "The BPI-21 source bank differs from twelve-question online dosha quizzes and from this site’s original four-element metaphor quiz. Its three alternatives per item are nominal descriptions, not a low-to-high rating scale.",
+          "zh": "BPI-21来源题本不同于网络十二题dosha测试，也不同于本站原创四元素隐喻题本。每题三个选项是类别描述，不是低到高的评价量表。"
+        }
+      ]
+    },
+    {
+      "id": "method-2",
+      "title": {
+        "en": "Source arithmetic and the website extension",
+        "zh": "来源算术与网站扩展"
+      },
+      "paragraphs": [
+        {
+          "en": "Each of twenty-one scored choices adds one to its mapped dosha and zero to the other two. Display count divided by twenty-one times one hundred, to one decimal. The site adds a separate unscored response; any unscored choice withholds all three personal counts and percentages. There is no renormalisation, highest type, dual-dosha assignment, Sama classification, IRT estimate or clinical judgement.",
+          "zh": "二十一项计分选择各给对应dosha加一，另两项加零；计数除以二十一乘一百，一位小数。网站增加单独未评分，任一未评分就不显示全部三个个人计数和百分比。不重新归一化、不派最高类型或双dosha、不作Sama分类、不估IRT、不作临床判断。"
+        }
+      ]
+    },
+    {
+      "id": "method-3",
+      "title": {
+        "en": "Working translation, original guides and private memory",
+        "zh": "工作译文、原创指南与私有内存"
+      },
+      "paragraphs": [
+        {
+          "en": "The English source is Bhargav et al., Wellcome Open Research, 2026, version 2, Table 2, licensed CC BY 4.0. Chinese is a working translation without completed cross-cultural validation. Guides and the private browser presentation are original website additions. Answers stay in page memory without storage, answer uploads, quiz-flow analytics or personal sharing; refresh or language navigation starts fresh.",
+          "zh": "英文来源为Bhargav等在Wellcome Open Research于2026年发表的第二版表2，按CC BY 4.0使用。中文是未完成跨文化验证的工作译文，指南与浏览器私有呈现是网站新增。答案只留页面内存，不存储、不上传、不发送测试流程统计、不分享个人结果；刷新或换语言重新开始。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an original twelve-question dosha quiz?",
+        "zh": "这是原创十二题dosha测试吗？"
+      },
+      "answer": {
+        "en": "No. The complete English bank is the published BPI-21, Table 2, under CC BY 4.0, with FermatMind’s working Chinese. The website adds unscored responses, original guides and a private interface; those additions have not inherited the paper’s validation.",
+        "zh": "不是。完整英文题本来自CC BY 4.0发表版BPI-21表2，配费马工作中译。网站增加未评分、原创指南与私有界面，新增部分未继承论文的验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do these counts identify my constitution or diagnose a condition?",
+        "zh": "计数能识别体质或诊断状况吗？"
+      },
+      "answer": {
+        "en": "The site reports mapped choices rather than a medical constitution or diagnosis. The source study states that predictive validity for health and clinical outcomes remains untested. No result prescribes diet, herbs, supplements or treatment.",
+        "zh": "网站报告映射选择，不作医疗体质或诊断结论。来源研究说明健康和临床结果预测尚未检验；结果不规定饮食、草药、补充剂或治疗。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I leave a bodily or private item unscored?",
+        "zh": "可以不评分身体或隐私题吗？"
+      },
+      "answer": {
+        "en": "Yes. Unclear, inapplicable or declined items can stay unscored. All twenty-one response choices can finish the form without any personal numbers. No omitted value becomes zero, and every full guide remains available.",
+        "zh": "可以。不清楚、不适用或不愿回答可未评分。二十一项均选择即可完成，也可以不生成个人数值；略过不变成零，全文仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are the alternatives in a different order?",
+        "zh": "为什么选项顺序会不同？"
+      },
+      "answer": {
+        "en": "The published study randomised nominal option order using REDCap. This browser edition shuffles the three source alternatives for each item at the start while preserving their keys. The separate unscored response stays last. This does not establish equivalent platform validation.",
+        "zh": "发表研究用REDCap随机排列类别选项。本浏览器版本开始时，逐题打乱三个来源选项，保留计分键，未评分放最后；这不建立平台等效验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the largest percentage give a single or mixed type?",
+        "zh": "最高百分比会给出单一或混合类型吗？"
+      },
+      "answer": {
+        "en": "No. All three counts stay visible without a highest type or tie-break. This display does not implement the paper’s extreme-group, dual-dosha or Sama classification strategy, population norms or a probability of health outcomes.",
+        "zh": "不会。三个计数都保留，不按最高值派型，也不打破并列；不实施论文的极端组、双dosha或Sama分类，不给人群常模或健康结果概率。"
+      }
+    }
+  ]
+}
