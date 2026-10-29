@@ -1,0 +1,4971 @@
+{
+  "slug": "work-activity-interests",
+  "code": "FM_WORK_ACTIVITY_INTERESTS60",
+  "version": "fm_work_activity_interests60_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 8,
+  "title": {
+    "en": "Work Activity Interests: 60 Original Tasks",
+    "zh": "工作活动兴趣盘点：60项原创任务"
+  },
+  "seoTitle": {
+    "en": "Work Activity Interests: 60 Tasks & Six Free Guides",
+    "zh": "工作活动兴趣盘点：60项原创任务与六篇完整指南"
+  },
+  "description": {
+    "en": "Rate your interest in 60 concrete work tasks. Six separate raw readings and complete free guides; an original supplement to the core RIASEC test.",
+    "zh": "为60项具体工作任务评兴趣，分别阅读六组原始均分与完整免费指南。作为核心RIASEC的原创补充，不评能力、职业匹配或资格。"
+  },
+  "resultHeading": {
+    "en": "Six separate task-interest readings and full guides",
+    "zh": "六组独立任务兴趣读法与完整指南"
+  },
+  "minutes": 12,
+  "introduction": {
+    "en": "Would you enjoy doing the activity itself? Explore sixty concrete tasks, from repairing a practice object to checking a sample record. Six separate readings help you choose what to investigate next. This original supplement leaves the full core RIASEC assessment as the main route for a broader interest profile.",
+    "zh": "你是否喜欢做这件事本身？从修补练习物件到核对示例记录，用六十项具体任务探索兴趣。六组独立读法帮助选择下一步了解的活动；这份原创补充保留完整核心RIASEC，作为了解更广兴趣轮廓的主入口。"
+  },
+  "instructions": {
+    "en": "Imagine reasonable training, tools and support are available. Rate how much you would like doing each activity itself, not how skilled you are, its pay or status, or whether you can currently enter that work. Use 1 Strongly dislike through 5 Strongly like; 3 is a valid neutral response. Choose Cannot judge / too unfamiliar when you cannot form a view. Respond to all 60 prompts. Each ten-task group needs eight numeric ratings for its own mean. No timer, total, ranking, top-three code or job match is produced. The estimated 12 minutes covers ratings and instructions, not reading all six long guides.",
+    "zh": "设想有合理培训、工具和支持。评自己是否想做这项活动本身，不评现有技能、薪资地位或眼下能否入行。从1很不喜欢到5很喜欢，3是有效中立回答；无法形成看法时选暂无法判断／太陌生。全部60项均需回应，每组十项至少八条数字才显示所属均分。没有计时、总分、排名、前三代码或职业匹配。约12分钟是说明与作答的编辑估计，不包含读完六篇长指南。"
+  },
+  "source": {
+    "kind": "FermatMind independently authored60concreteworkactivities/ENZH;not published O*NET items,translation,officialtoolorvalidatedinterestscale",
+    "formCode": "fm_work_activity_interests60_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "ten_items_equal_mean_min8_no_reverse_v1",
+    "resultContentVersion": "six_full_task_interest_guides_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "0663dc085b1d6cb870e7b1137b1e1d1d443830d6e8b6d9f06c9b1eb30053073c",
+    "resultContentSha256": "901b6c7e31715b2fbbf2c11f677b23642083a5c36c05ff92da7a7f23b6f511f9"
+  },
+  "directions": [
+    {
+      "id": "R",
+      "title": {
+        "en": "Hands-on and physical tasks",
+        "zh": "动手与实体操作"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "I",
+      "title": {
+        "en": "Investigation and evidence tasks",
+        "zh": "调查与证据分析"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "A",
+      "title": {
+        "en": "Creative and expressive tasks",
+        "zh": "创作与表达"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "S",
+      "title": {
+        "en": "Teaching and support tasks",
+        "zh": "讲解与支持"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "E",
+      "title": {
+        "en": "Initiative and persuasion tasks",
+        "zh": "推动与说服"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "C",
+      "title": {
+        "en": "Records and organizing tasks",
+        "zh": "记录与整理"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "WAI_01",
+      "prompt": {
+        "en": "Patch a punctured bicycle inner tube at a supervised repair bench.",
+        "zh": "在有人指导的维修台上修补自行车内胎的漏孔。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_02",
+      "prompt": {
+        "en": "Compare two tables of sensor readings to investigate an unexplained change.",
+        "zh": "比较两份传感器读数表，调查一处原因不明的变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_03",
+      "prompt": {
+        "en": "Write a thirty-second narration for an imaginary museum object.",
+        "zh": "为一件想象中的博物馆展品写三十秒解说词。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_04",
+      "prompt": {
+        "en": "Walk a newcomer through the steps of a sample event registration.",
+        "zh": "带一位新来者逐步了解示例活动的报名流程。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_05",
+      "prompt": {
+        "en": "Prepare a sponsorship pitch for a fictional community exhibition.",
+        "zh": "为一场虚构社区展览准备赞助提案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_06",
+      "prompt": {
+        "en": "Reconcile duplicate identifiers in two sample inventory spreadsheets.",
+        "zh": "核对两份示例库存表中的重复编号。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_07",
+      "prompt": {
+        "en": "Fit labeled pipe sections into a small demonstration irrigation line.",
+        "zh": "把标有编号的管段接成一条演示用灌溉管线。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_08",
+      "prompt": {
+        "en": "Design a small test to distinguish two explanations for a fictional plant-growth result.",
+        "zh": "设计小实验，区分一个虚构植物生长结果的两种解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_09",
+      "prompt": {
+        "en": "Sketch three visual concepts for the cover of a fictional neighborhood magazine.",
+        "zh": "为一本虚构社区杂志的封面画三种视觉构想。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_10",
+      "prompt": {
+        "en": "Explain a spreadsheet skill to a learner who is trying it for the first time.",
+        "zh": "向第一次尝试的学习者讲解一种电子表格操作。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_11",
+      "prompt": {
+        "en": "Invite a group to choose a proposed pilot project and explain the case for it.",
+        "zh": "邀请小组选择一项试点方案，并说明支持它的理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_12",
+      "prompt": {
+        "en": "Sort fictional expense records into predefined categories and flag missing fields.",
+        "zh": "把虚构费用记录归入预设类别，并标出缺失字段。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_13",
+      "prompt": {
+        "en": "Measure and cut foam panels for a model display stand.",
+        "zh": "测量并裁切泡沫板，制作模型展示架。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_14",
+      "prompt": {
+        "en": "Inspect anonymized trial logs for a pattern that might explain repeated failures.",
+        "zh": "检查匿名化试验日志，寻找可能解释反复失败的规律。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_15",
+      "prompt": {
+        "en": "Arrange recorded everyday sounds into a short audio scene.",
+        "zh": "把录下的日常声音编排成一段短音景。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_16",
+      "prompt": {
+        "en": "Prepare a short practice lesson for a small group learning a new craft.",
+        "zh": "为学习新手工的小组准备一节简短练习课。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_17",
+      "prompt": {
+        "en": "Negotiate a sample delivery arrangement when two teams want different dates.",
+        "zh": "两个团队希望不同日期时，协商一项示例交付安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_18",
+      "prompt": {
+        "en": "Check that a sample booking schedule follows its room and timing rules.",
+        "zh": "检查一份示例预约表是否符合场地与时间规则。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_19",
+      "prompt": {
+        "en": "Adjust the alignment of a practice door latch using hand tools.",
+        "zh": "用手工工具调整练习门锁扣的位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_20",
+      "prompt": {
+        "en": "Classify sample microscope images using an illustrated identification key.",
+        "zh": "依据图示检索表，对练习用显微图像分类。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_21",
+      "prompt": {
+        "en": "Choose colors and lettering for an original community exhibition poster.",
+        "zh": "为一张原创社区展览海报选择配色和字体。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_22",
+      "prompt": {
+        "en": "Ask a volunteer what support they need before showing them a new task.",
+        "zh": "在示范新任务前，询问志愿者需要哪些支持。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_23",
+      "prompt": {
+        "en": "Present a small service idea and answer a panel’s questions about its value.",
+        "zh": "介绍一项小型服务构想，并回答评议小组对其价值的提问。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_24",
+      "prompt": {
+        "en": "Update a document index after several files receive new version numbers.",
+        "zh": "几份文件版本号改变后，更新文档索引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_25",
+      "prompt": {
+        "en": "Repot nursery seedlings into labeled containers with the specified soil mix.",
+        "zh": "按指定土壤配比，把苗圃幼苗移栽到有标签的容器。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_26",
+      "prompt": {
+        "en": "Calculate how a change in one assumption affects a simple water-use model.",
+        "zh": "计算一项假设改变后，一个简单用水模型会怎样变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_27",
+      "prompt": {
+        "en": "Rewrite a short fictional dialogue to give its two characters different voices.",
+        "zh": "改写一段虚构对话，让两个人物有不同的说话风格。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_28",
+      "prompt": {
+        "en": "Help participants take turns and clarify ideas during a learning discussion.",
+        "zh": "在学习讨论中帮助参与者轮流发言并澄清想法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_29",
+      "prompt": {
+        "en": "Recruit volunteers for a defined project by explaining roles and commitments.",
+        "zh": "通过说明职责和投入要求，为一项具体项目招募志愿者。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_30",
+      "prompt": {
+        "en": "Compare a sample invoice with its order record and note discrepancies.",
+        "zh": "对照一张示例发票和订单记录，注明差异。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_31",
+      "prompt": {
+        "en": "Check a demonstration cart for loose wheels and fasteners.",
+        "zh": "检查演示推车的轮子和紧固件是否松动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_32",
+      "prompt": {
+        "en": "Check whether a chart supports the claim made in a sample research summary.",
+        "zh": "核对一张图表能否支持练习研究摘要里的主张。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_33",
+      "prompt": {
+        "en": "Photograph the same ordinary object in several ways to convey different moods.",
+        "zh": "用几种方式拍摄同一件日常物品，表达不同情绪。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_34",
+      "prompt": {
+        "en": "Show a visitor how to use an accessible route through a sample venue.",
+        "zh": "向访客说明如何走一处示例场馆的无障碍路线。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_35",
+      "prompt": {
+        "en": "Lead a short planning meeting toward an agreed next action.",
+        "zh": "主持一次短策划会，促成双方同意的下一步行动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_36",
+      "prompt": {
+        "en": "Apply a stated naming convention to a folder of fictional project files.",
+        "zh": "按明确的命名规范整理一组虚构项目文件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_37",
+      "prompt": {
+        "en": "Set out field markers and take distance measurements for a sample site plan.",
+        "zh": "为一份练习场地平面图布设标记并测量距离。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_38",
+      "prompt": {
+        "en": "Trace a surprising laboratory measurement back through its recording steps.",
+        "zh": "沿记录步骤回查一次出乎意料的实验室测量值。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_39",
+      "prompt": {
+        "en": "Create a repeating pattern for a sample textile print.",
+        "zh": "为一件练习纺织印品创作连续图案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_40",
+      "prompt": {
+        "en": "Give a learner specific, respectful feedback on a practice presentation.",
+        "zh": "就一次练习展示，向学习者提供具体且尊重的反馈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_41",
+      "prompt": {
+        "en": "Compare two proposed partnerships and recommend one with stated reasons.",
+        "zh": "比较两项拟议合作，并说明理由推荐其中一项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_42",
+      "prompt": {
+        "en": "Enter training records from a practice form and verify each field.",
+        "zh": "从练习表单录入培训记录，并逐项核验字段。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_43",
+      "prompt": {
+        "en": "Assemble a reusable shipping insert that holds a fragile model securely.",
+        "zh": "组装可重复使用的运输内衬，把易碎模型固定好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_44",
+      "prompt": {
+        "en": "Compare alternative explanations for a pattern in publicly available weather observations.",
+        "zh": "为公开天气观测中的一种规律比较不同解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_45",
+      "prompt": {
+        "en": "Storyboard a silent one-minute animation about a misplaced parcel.",
+        "zh": "为一段关于放错包裹的一分钟无声动画画分镜。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_46",
+      "prompt": {
+        "en": "Listen to a fictional service request and clarify what help the person is asking for.",
+        "zh": "听一则虚构服务请求，澄清对方希望获得什么帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_47",
+      "prompt": {
+        "en": "Respond to objections during a fictional product demonstration.",
+        "zh": "在一场虚构产品演示中回应质疑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_48",
+      "prompt": {
+        "en": "Prepare a checklist that tracks required materials for a routine appointment.",
+        "zh": "制作核对清单，追踪一次常规预约所需材料。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_49",
+      "prompt": {
+        "en": "Trim and join fabric pieces to repair a practice equipment cover.",
+        "zh": "裁剪并连接布片，修补一件练习用设备罩。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_50",
+      "prompt": {
+        "en": "Write a short plan identifying what evidence could disprove a proposed explanation.",
+        "zh": "写一份短计划，列出哪些证据可能推翻某个解释。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_51",
+      "prompt": {
+        "en": "Rehearse an original movement sequence for a small performance space.",
+        "zh": "为一个小型表演空间排练一段原创动作。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_52",
+      "prompt": {
+        "en": "Adapt a public workshop explanation after someone says a step is unclear.",
+        "zh": "有人表示某一步不清楚时，调整公开工作坊的讲解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_53",
+      "prompt": {
+        "en": "Ask local organizations to take part in a trial neighborhood event.",
+        "zh": "邀请本地组织参与一场试办社区活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_54",
+      "prompt": {
+        "en": "Find and correct inconsistent date formats in a sample event register.",
+        "zh": "找出示例活动名册中不一致的日期格式并修正。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_55",
+      "prompt": {
+        "en": "Clean, calibrate and store a set of basic workshop measuring tools.",
+        "zh": "清洁、校准并收好一套基础工坊量具。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "R",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "R",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "R",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "R",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "R",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "R",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_56",
+      "prompt": {
+        "en": "Repeat a safe classroom measurement to estimate how much its readings vary.",
+        "zh": "重复一项安全的课堂测量，估计读数的波动范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "I",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "I",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "I",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "I",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "I",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "I",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_57",
+      "prompt": {
+        "en": "Edit the pacing of a fictional travel video using a set of supplied clips.",
+        "zh": "用提供的片段，调整一段虚构旅行视频的节奏。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "A",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "A",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "A",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "A",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "A",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "A",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_58",
+      "prompt": {
+        "en": "Guide a peer through planning a manageable first step toward a learning goal.",
+        "zh": "陪同一位同伴，为学习目标规划可完成的第一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "S",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "S",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "S",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "S",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "S",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "S",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_59",
+      "prompt": {
+        "en": "Revise a proposal after discussing costs and responsibilities with a decision maker.",
+        "zh": "与决策者讨论成本和责任后修改一份提案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "E",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "E",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "E",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "E",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "E",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "E",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WAI_60",
+      "prompt": {
+        "en": "Maintain a log showing who has received each version of a fictional notice.",
+        "zh": "维护一份日志，记录每个版本的虚构通知已发给谁。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly dislike",
+            "zh": "很不喜欢"
+          },
+          "directionId": "C",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Dislike",
+            "zh": "不喜欢"
+          },
+          "directionId": "C",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither like nor dislike",
+            "zh": "既不喜欢也不讨厌"
+          },
+          "directionId": "C",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Like",
+            "zh": "喜欢"
+          },
+          "directionId": "C",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly like",
+            "zh": "很喜欢"
+          },
+          "directionId": "C",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / too unfamiliar",
+            "zh": "暂无法判断／太陌生"
+          },
+          "directionId": "C",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "hands-on-tasks",
+      "directionIds": [
+        "R"
+      ],
+      "title": {
+        "en": "Hands-on and physical tasks: Full Interest Guide",
+        "zh": "动手与实体操作：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Hands-on and physical tasks",
+        "zh": "动手与实体操作"
+      },
+      "summary": {
+        "en": "Explore interest in hands-on and physical tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索动手与实体操作兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Hands-on and physical tasks | Work Activity Interests",
+          "zh": "动手与实体操作｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "hands-on-tasks-1",
+          "title": {
+            "en": "Interest in doing something tangible",
+            "zh": "对实体操作本身的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about the activity of working with physical objects, materials, plants, tools and a site. Its ten tasks include repairing a practice tube, fitting labeled pipe sections, measuring foam, checking a cart and caring for measuring tools. Read your answer as willingness to try these particular activities under reasonable training and support. It is not a test of dexterity, strength, technical knowledge or how quickly you could complete a repair.",
+              "zh": "这组询问处理实体物件、材料、植物、工具与场地的活动兴趣。十项包括修补练习内胎、连接标号管段、测量泡沫板、检查推车和维护量具。回答表示在有合理培训与支持时，是否愿意尝试这些具体活动，不测试手巧、力量、技术知识或维修速度。"
+            },
+            {
+              "en": "The letter R is a familiar organizing cue, not a certified Realistic score. These newly written tasks have not inherited the properties of a published inventory. Enjoying a carefully supervised workshop also need not mean enjoying every outdoor, mechanical or industrial job. The material, setting, pace and safety arrangements can change what you want to do.",
+              "zh": "字母R只作熟悉的整理线索，不是经认证的实作型分数。新写任务不会继承已发表问卷的测量性质。喜欢有人指导的工坊，也不等于喜欢所有户外、机械或工业工作；材料、场地、节奏和安全安排都可能改变意愿。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-2",
+          "title": {
+            "en": "A repair task from start to finish",
+            "zh": "从头到尾看一项修补任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine receiving a practice object, checking the brief, choosing a tool, trying a repair and inspecting the result. Which stage seems appealing: handling the material, making an adjustment or seeing a tangible change? Those details give more information than a general claim that you are practical. You can enjoy the handling stage while disliking repeated setup or cleanup. The ten ratings do not record those reasons separately.",
+              "zh": "设想收到练习物件后，核对要求、选择工具、尝试修补，再检查结果。吸引你的是接触材料、动手调整，还是看见实体变化？这些细节比“我很务实”的概括更具体。可以喜欢操作阶段，却不喜欢反复准备或清理；十项评分没有分别记录这些原因。"
+            },
+            {
+              "en": "A low rating can concern the chosen object rather than physical work as a whole. For example, someone may welcome planting tasks but avoid textile repair. Look back at the individual task descriptions privately before treating their average as one preference. A wide range within the group is useful context, even though this version displays only its raw summary.",
+              "zh": "较低评分可能只针对特定物件，而非全部实体工作。例如愿意种植，却不想修补布料。把平均数当成一种偏好前，可私下回看各任务。组内差异本身是有用背景，虽然本版只显示原始汇总。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-3",
+          "title": {
+            "en": "Training and access are separate questions",
+            "zh": "培训与可接触机会分别考虑"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone can be interested without having used the tools before. Someone with years of experience can also be tired of an activity. This questionnaire asks neither for proof of experience nor for a demonstration of safe technique. If you cannot imagine the activity clearly enough, use the unscored option rather than converting unfamiliarity into dislike. A neutral response instead means you can form a view and feel neither like nor dislike.",
+              "zh": "没有用过工具，也可以感兴趣；做了多年，也可能已经厌倦。问卷不索要经验凭证，也不演示安全技术。如果无法清楚想象活动，可选未评分，不必把陌生写成不喜欢。中立则表示能形成看法，但既不喜欢也不讨厌。"
+            },
+            {
+              "en": "Physical access, fatigue, equipment and a suitable learning environment can matter greatly in a real decision. None is inferred from the number. An accommodation may change the experience without changing the purpose of the activity. Do not use this reading to decide another person’s suitability or to replace a qualified assessment of a hazardous task.",
+              "zh": "真实选择还需考虑身体可及性、疲劳、设备和合适的学习环境，数字不推断这些条件。合理调整可能改变体验而保留活动目的。不能用这份读法决定他人的适任性，也不能替代危险任务的合格评估。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-4",
+          "title": {
+            "en": "Distinguish making, investigating and creating",
+            "zh": "区分制作、调查与创作"
+          },
+          "paragraphs": [
+            {
+              "en": "Working on one object may involve several interests. Tightening a cart wheel emphasizes changing a physical object; tracing why it repeatedly loosens emphasizes investigation; designing how the cart should look emphasizes creation. These are ways to examine what draws your attention, not exclusive occupational categories. An actual role may ask for all three, along with records, coordination and explaining a process to someone else.",
+              "zh": "同一物件可以涉及多种兴趣。紧固推车轮子侧重实体调整；追查反复松动的原因侧重调查；设计推车外观侧重创作。这些角度帮助看清关注点，不是互斥职业类别。一份真实工作可能同时要求三者，以及记录、协调和向他人讲解。"
+            },
+            {
+              "en": "Read the six groups in their fixed display order. Their tasks differ in content, so even equal means do not establish equal underlying traits. There is no top group, three-letter code or automatic list of careers here. To explore a broader interest profile, use the linked core RIASEC route and keep its separate form and interpretation visible.",
+              "zh": "按固定顺序分别看六组。各组题材不同，即使均分相同，也不证明潜在特质相等。本版没有最高组、三字母代码或自动职业清单。更广的兴趣轮廓可从所链核心RIASEC入口了解，并保留那套独立题本与解释。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-5",
+          "title": {
+            "en": "A small, safe observation",
+            "zh": "做一次小而安全的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-risk task you can observe or try with suitable instruction, such as assembling a harmless model from labeled parts. Before starting, write what you expect to enjoy. Afterwards, note which stage held your attention, what became tiring and what support changed the experience. A brief trial is information about that occasion, not evidence that you should enter a trade or leave your current work.",
+              "zh": "可以挑一项有合适指导、低风险的活动观察或尝试，例如按标号组装无害模型。开始前写下预计喜欢什么；结束后记下哪个阶段吸引注意、哪里疲倦，以及支持如何改变体验。短暂尝试只提供这次的信息，不证明应该入某行业或离开现职。"
+            },
+            {
+              "en": "You may instead read a task description or ask someone what a typical workday involves. Include setup, waiting, checking and cleanup rather than considering only the satisfying final result. Keep interest, observed skill, safety requirements and practical access in separate notes. No score increase is required, and deciding not to try is an acceptable outcome of exploration.",
+              "zh": "也可阅读任务说明，或询问从业者典型一天的内容。除满意的最终成果，也了解准备、等待、核查与清理。分别记录兴趣、观察到的技能、安全要求与实际可接触条件。无需提高分数；决定暂不尝试，也是探索的合理结果。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "hands-on-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "investigation-tasks",
+      "directionIds": [
+        "I"
+      ],
+      "title": {
+        "en": "Investigation and evidence tasks: Full Interest Guide",
+        "zh": "调查与证据分析：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Investigation and evidence tasks",
+        "zh": "调查与证据分析"
+      },
+      "summary": {
+        "en": "Explore interest in investigation and evidence tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索调查与证据分析兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Investigation and evidence tasks | Work Activity Interests",
+          "zh": "调查与证据分析｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "investigation-tasks-1",
+          "title": {
+            "en": "Interest in a question and its evidence",
+            "zh": "对问题及证据的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns investigating a question, comparing explanations and checking evidence. Its ten tasks include reviewing sensor tables, planning a small experiment, tracing an unusual reading and checking whether a chart supports a claim. Rate whether you would like the activity of finding out, with reasonable preparation available. The result does not establish scientific knowledge, mathematical ability, intelligence or the quality of a conclusion you might reach.",
+              "zh": "这组关注调查问题、比较解释和核查证据。十项包括查看传感器数据表、计划小实验、回查异常读数，以及判断图表是否支持主张。有合理准备条件时，评自己是否想做弄清问题的活动。结果不确定科学知识、数学能力、智力或结论质量。"
+            },
+            {
+              "en": "I is an organizing label for this original task set, not a validated Investigative scale. Some tasks use numbers, some images and some written reasoning. Liking one format does not imply liking them all. You may enjoy a question intensely while finding the repeated measurements or documentation required to answer it less appealing. Those distinctions deserve attention beyond an average.",
+              "zh": "I只是本原创任务组的整理标签，不是经验证的研究型量表。有的任务用数字，有的用图像或文字推理；喜欢一种形式不意味着都喜欢。可能对问题很着迷，却不喜欢回答它所需的重复测量或记录；这些区别值得在均分之外注意。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-2",
+          "title": {
+            "en": "Follow an unexpected reading",
+            "zh": "追查一个意外读数"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a simple classroom instrument produces one surprising value. You could check the recording steps, repeat the measurement and compare alternative explanations. Ask which part attracts you: the puzzle, careful repetition, a visual pattern or explaining uncertainty. You are not required to choose the correct explanation here. These are interest ratings, so neither a plausible hypothesis nor an error changes the numerical scoring rule.",
+              "zh": "设想一个简单课堂仪器给出意外数值。可以检查记录步骤、重复测量并比较解释。吸引你的是谜题、仔细重复、视觉规律，还是解释不确定性？这里无需选出正确原因。它评兴趣，因此猜想是否合理或出现错误都不改变计分规则。"
+            },
+            {
+              "en": "Someone may dislike laboratory materials but enjoy checking a written argument. Another person may prefer hands-on measurements to reading summaries. Such patterns do not make either person more analytical. The tasks cover selected examples, not every form of research or reasoning. A lower mean might reflect the topics or formats you imagined rather than a general wish to avoid inquiry.",
+              "zh": "有人不喜欢实验材料，却喜欢检查文字论证；也有人更喜欢亲自测量，而非阅读摘要。这不证明谁更善分析。任务只取部分例子，没有穷尽研究或推理形式。较低均分可能反映想象的题材或形式，而非普遍不愿探究。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-3",
+          "title": {
+            "en": "Separate curiosity from performance",
+            "zh": "把好奇与表现分开"
+          },
+          "paragraphs": [
+            {
+              "en": "A person can want to learn an unfamiliar method and still need substantial teaching. A trained specialist can perform a method well while wishing to spend less time on it. The questionnaire does not test either situation. Use the unscored option when unfamiliarity prevents a meaningful interest judgment; do not guess an ability score. A numeric midpoint is instead a neutral view of the activity.",
+              "zh": "想学陌生方法的人，仍可能需要大量教学；熟练专家也可能表现很好，却不愿再花那么多时间做它。问卷不测试这两种情况。陌生到无法判断兴趣时可选未评分，不必猜能力分；数字中点表示对活动持中立看法。"
+            },
+            {
+              "en": "Real research also depends on sound methods, permission to use data, equipment and supervision. Interest alone supplies none of those conditions. This guide does not authorize an experiment involving people, hazardous materials or private records. For exploration, use safe teaching examples and public or fictional information. No inference about education, employability or suitability for scientific training follows from a mean.",
+              "zh": "真实研究还依赖合理方法、数据使用权限、设备与监督，兴趣不能提供这些条件。本指南不授权涉及人、危险材料或私人记录的实验。探索时选安全教学例子，以及公开或虚构资料。均分不推断学历、就业能力或是否适合科研训练。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-4",
+          "title": {
+            "en": "Distinguish evidence, systems and invention",
+            "zh": "区分证据、系统与创意"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking an invoice against an order emphasizes following a stated record rule. Investigating why discrepancies keep appearing emphasizes an explanatory question. Creating a more expressive way to present the findings emphasizes design. These activities can occur together, and none requires an exclusive interest identity. Read what you wanted to do within the example rather than assigning an entire occupation to a single letter.",
+              "zh": "按订单核对发票侧重遵循记录规则；调查差异为何反复出现侧重解释问题；创作更有表现力的呈现方式侧重设计。这些活动可以并存，不要求一种排他的兴趣身份。留意例子里想做的部分，不把整份职业分给一个字母。"
+            },
+            {
+              "en": "Six displayed means are descriptive summaries of different task sets. This edition neither ranks them nor converts them to a Holland code or job match. The linked core RIASEC assessment remains the main route for a broader profile. Its questions and interpretation belong to a separate form; these sixty ratings are not transferred into its scoring or used to modify its result.",
+              "zh": "六项均分只描述不同任务组。本版不排名，不转为霍兰德代码或职业匹配。所链核心RIASEC仍是更广兴趣轮廓的主入口，其题目与解释属于另一套题本；这六十项回答不会传入其计分，也不修改核心结果。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-5",
+          "title": {
+            "en": "Try a question with an observable answer",
+            "zh": "尝试一个能观察的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick a safe, small question using public or fictional information, such as why two sample charts appear different. Write two explanations before checking axes, units and source notes. Afterwards, note whether you enjoyed proposing explanations, checking details or communicating what remains unknown. You do not need to find a dramatic discovery. The observation concerns your experience of the process, not a grade for reasoning.",
+              "zh": "可用公开或虚构资料挑一个安全小问题，例如两张示例图为何看起来不同。核对坐标、单位与来源前，先写两种解释。之后记下是否喜欢提出解释、检查细节或说明未知。无需有重大发现；观察的是过程体验，不是推理成绩。"
+            },
+            {
+              "en": "If the task feels unappealing, ask whether the subject, reading load, uncertainty or repeated checking was responsible. Change one condition in a later optional trial rather than treating one occasion as final. Keep your notes private. A workday may include deadlines, collaboration and routine alongside inquiry, so a short exercise cannot establish how an entire role would feel over time.",
+              "zh": "若体验不吸引人，可问是题材、阅读量、不确定性，还是反复核查所致。之后可自愿改变一个条件再试，不把一次体验当定论。笔记可保密。真实工作还有期限、协作和常规事务，短练习不能确定整份工作长期会是什么感受。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "investigation-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creative-tasks",
+      "directionIds": [
+        "A"
+      ],
+      "title": {
+        "en": "Creative and expressive tasks: Full Interest Guide",
+        "zh": "创作与表达：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Creative and expressive tasks",
+        "zh": "创作与表达"
+      },
+      "summary": {
+        "en": "Explore interest in creative and expressive tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索创作与表达兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Creative and expressive tasks | Work Activity Interests",
+          "zh": "创作与表达｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "creative-tasks-1",
+          "title": {
+            "en": "Interest in making an expressive choice",
+            "zh": "对表达性选择的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about creating and shaping an expression. Ten tasks span narration, visual concepts, sound, dialogue, photography, pattern, animation, movement and video pacing. They ask whether you would like doing the creative work, not whether you already have a portfolio or whether an audience would admire it. Reasonable tools and instruction are assumed. The mean is not a measure of talent, originality, artistic quality or creative potential.",
+              "zh": "这组询问创作与塑造表达的兴趣。十项涉及解说、视觉构想、声音、对话、摄影、图案、动画、动作与视频节奏。评是否喜欢创作过程，不评是否已有作品集或观众是否欣赏。设想有合理工具与指导；均分不测天赋、原创性、艺术质量或创作潜力。"
+            },
+            {
+              "en": "A is an organizing cue for this newly authored bank rather than a validated Artistic score. Preferences can differ greatly by medium. Enjoying words does not require enjoying performance; liking photography does not require liking sound editing. The selected activities give concrete starting points for exploration. They are not a complete inventory of creative practice or a permanent description of your identity.",
+              "zh": "A是本新题本的整理线索，不是经验证的艺术型分数。不同媒介的偏好可能差异很大：喜欢文字无需喜欢表演，喜欢摄影也无需喜欢声音剪辑。所选活动提供具体探索起点，没有穷尽创作实践，也不永久定义身份。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-2",
+          "title": {
+            "en": "One object, several expressive versions",
+            "zh": "同一物件的不同表达"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine photographing an ordinary object to convey several moods. You might enjoy choosing light, framing, sequence or the contrast between versions. You might instead prefer writing the accompanying story. These different attractions help explain a rating. The page does not observe the process or evaluate the finished image, and a higher rating cannot tell whether you would persist through repetitive revisions.",
+              "zh": "设想拍摄一件日常物品以表达不同情绪。可能喜欢选择光线、构图、顺序或版本间的反差，也可能更喜欢写配套故事。不同吸引点帮助理解评分。页面不观察过程、不评价成片；较高评分也不能说明是否愿意坚持反复修改。"
+            },
+            {
+              "en": "A lower rating might concern being on stage, unfamiliar software or a topic you dislike rather than expression itself. A high rating might concern the freedom to experiment rather than commercial production. Notice which conditions you supplied in your imagination. Real commissions can include a fixed brief, accessibility requirements, feedback and deadlines that were not measured by these short task prompts.",
+              "zh": "较低评分可能涉及上台、陌生软件或不喜欢的题材，而非表达本身；较高评分可能喜欢自由尝试，而非商业制作。留意自己想象时补入的条件。真实委托还有固定要求、无障碍需求、反馈和期限，短任务未测这些条件。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-3",
+          "title": {
+            "en": "Keep practice and audience response separate",
+            "zh": "练习与观众反应分别看"
+          },
+          "paragraphs": [
+            {
+              "en": "You can be drawn to a medium before learning its techniques. You can also be competent in a medium without wanting it as daily work. Neither case is inconsistent. Choose unscored if the activity is too unfamiliar to imagine, and neutral if you can imagine it but feel neither like nor dislike. The questionnaire has no correct aesthetic answer and does not reward enthusiasm over a cautious response.",
+              "zh": "可以在学会技术前就喜欢一种媒介，也可以已经熟练，却不想每天做。两者都合理。陌生到难以想象时选未评分；能想象但不喜欢也不讨厌时选中立。这里没有正确审美答案，也不因热情而比谨慎回答得到更高评价。"
+            },
+            {
+              "en": "Portfolio quality, feedback, working conditions, income and available training require their own evidence. An interest mean cannot replace it. Do not use the result to tell someone they lack creativity or must pursue an artistic career. Private making, occasional projects and paid work are different possibilities. Your preferred level of exposure to an audience is also not inferred from the number.",
+              "zh": "作品质量、反馈、工作条件、收入和可用培训需要各自证据，兴趣均分不能替代。不能据此说某人没有创造力或必须从事艺术工作。私人创作、偶尔项目与有偿工作是不同选择；数字也不推断希望接触观众到什么程度。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-4",
+          "title": {
+            "en": "Creation can sit beside other activities",
+            "zh": "创作可以与其他活动并存"
+          },
+          "paragraphs": [
+            {
+              "en": "A poster project can involve artistic choices, organizing version files, presenting the idea and explaining it to a learner. You may like some parts and dislike others. These are not contradictions that the questionnaire must resolve into one type. Consider the activity itself rather than the prestige of a job title or the impression that one letter is more imaginative than another.",
+              "zh": "海报项目可能同时涉及艺术选择、整理版本、介绍构想和向学习者解释。可以喜欢其中几部分而不喜欢其他部分，不必把这些差异化为单一类型。关注活动本身，而非职业名称的声望，也不预设某个字母更有想象力。"
+            },
+            {
+              "en": "The six groups retain a fixed display order with no rank or top-three code. Similar means summarize different examples and are not proof of equal latent interests. If you want a broader interest profile, follow the core RIASEC link. This supplement does not alter that assessment, supply its scores or turn a creative-task preference into a list of suitable occupations.",
+              "zh": "六组按固定顺序显示，不排名、不出前三代码。相近均分汇总的是不同例子，不证明潜在兴趣相等。若想了解更广轮廓，可从核心RIASEC链接继续；补充盘点不修改核心测评、不提供核心分数，也不把创作偏好变成适合职业清单。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-5",
+          "title": {
+            "en": "Make a small version before a large commitment",
+            "zh": "先做一个小版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-cost task, such as making two short narrations for an imaginary object. Keep the brief and time available similar, then notice which decisions you wanted to keep exploring. Did you enjoy starting, revising or arranging a finished sequence? Record frustration as well as enjoyment. This is an optional observation of one process, not a talent audition or an instruction to publish your work.",
+              "zh": "可以选低成本任务，例如为想象物件写两个短解说。在要求和可用时间相近时，观察还想继续琢磨哪些决定：喜欢开头、修改，还是编排成品？同时记录挫折与乐趣。这是自愿观察一次过程，不是才艺选拔，也不要求公开作品。"
+            },
+            {
+              "en": "Ask what ordinary maintenance surrounds the enjoyable part: naming files, checking rights, receiving feedback or preparing an accessible format. Those activities may affect whether a longer project appeals to you. You can keep the work private, switch media or decide that occasional practice is enough. None of those decisions needs a particular score, and one short trial does not predict long-term satisfaction.",
+              "zh": "也了解有趣部分周围的常规维护：命名文件、核对权利、接收反馈或准备无障碍格式。这些会影响是否愿意做长期项目。可以保密、换媒介，或觉得偶尔练习已足够。任何决定都不需某个分数，短暂尝试也不预测长期满意度。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "creative-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-tasks",
+      "directionIds": [
+        "S"
+      ],
+      "title": {
+        "en": "Teaching and support tasks: Full Interest Guide",
+        "zh": "讲解与支持：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Teaching and support tasks",
+        "zh": "讲解与支持"
+      },
+      "summary": {
+        "en": "Explore interest in teaching and support tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索讲解与支持兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Teaching and support tasks | Work Activity Interests",
+          "zh": "讲解与支持｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "support-tasks-1",
+          "title": {
+            "en": "Interest in another person’s learning or support",
+            "zh": "对他人学习与支持过程的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns explaining, listening, guiding and adapting support for another person. Its ten tasks include showing a registration process, teaching a spreadsheet operation, clarifying a service request and offering specific feedback. Rate whether you would like participating in those activities with reasonable preparation. The result does not establish empathy, kindness, teaching skill, clinical competence or how another person experiences your help.",
+              "zh": "这组关注讲解、倾听、引导，以及根据他人调整支持。十项包括示范报名流程、教授表格操作、澄清服务请求和提供具体反馈。有合理准备时，评自己是否想参与这些活动。结果不确定同理心、善意、教学技能、临床能力，或他人如何体验你的帮助。"
+            },
+            {
+              "en": "S is a familiar organizing cue, not a validated Social score. These tasks involve purposeful support, which differs from enjoying a party or meeting many new people. A person can prefer quiet one-to-one teaching and dislike busy group settings. Someone else may enjoy a workshop but prefer not to offer individual guidance. The selected tasks cannot resolve every setting-specific difference.",
+              "zh": "S是熟悉的整理线索，不是经验证的社会型分数。任务涉及有目的的支持，和喜欢聚会、结识许多人不同。可以偏好安静的一对一教学而不喜欢热闹小组，也可喜欢工作坊却不愿个别指导。所选任务无法解释每种场合差异。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-2",
+          "title": {
+            "en": "Clarify before showing a step",
+            "zh": "示范步骤前先澄清"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a newcomer asks how to register for an event. You could ask which step is unclear, show it at a suitable pace and check whether the explanation helped. Which part sounds appealing: listening, explaining, adapting or seeing someone become more independent? Your interest rating does not show whether you would actually do these things well or whether the person wanted that form of assistance.",
+              "zh": "设想新来者询问怎样报名活动。可以先问哪里不清楚，以适当节奏示范，再了解解释是否有帮助。吸引你的是倾听、说明、调整，还是看见对方更独立？兴趣评分不能表明是否真的做得好，也不能确定对方是否希望以这种方式获助。"
+            },
+            {
+              "en": "Support has limits and should respect the other person’s choices. A task description is not an instruction to take over, disclose private information or offer advice outside your role. Someone may rate the activity lower because of a setting they imagined, available time or emotional demands. That rating is not evidence of indifference, selfishness or a lack of concern for others.",
+              "zh": "支持有边界，应尊重对方选择。任务说明不要求接管、披露私人信息或越权建议。较低评分可能源于想象场合、可用时间或情绪负担，不证明冷漠、自私或不关心他人。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-3",
+          "title": {
+            "en": "Interest does not certify a helping role",
+            "zh": "兴趣不能认证助人职责"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want to teach a skill while still needing training in how to explain it. You may be capable of supporting others yet not want that as your main work. The questionnaire asks about neither qualifications nor suitability for regulated roles. Use the unscored option for an activity you cannot imagine clearly. A neutral answer is a different response and remains a valid numeric rating.",
+              "zh": "可能想教授某项技能，却仍需学习如何讲解；也可能能够支持他人，却不想把它当主要工作。问卷不询问资格，也不决定是否适合受监管职业。无法清楚想象时选未评分，中立是不同回答，保留为有效数字。"
+            },
+            {
+              "en": "Real support may require consent, supervision, boundaries, specialist training and a way to refer matters beyond your responsibility. None is provided by a high mean. This guide does not qualify someone to counsel, diagnose, teach independently or make care decisions. The fictional and ordinary learning examples are starting points for interest exploration, not evidence of readiness to work with vulnerable people.",
+              "zh": "真实支持可能需要同意、监督、边界、专业培训和转介方式，较高均分不能提供这些条件。本指南不授予咨询、诊断、独立教学或照护决策资格。虚构与普通学习例子只是探索起点，不证明已准备好为脆弱人群工作。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-4",
+          "title": {
+            "en": "Support, persuasion and organizing can overlap",
+            "zh": "支持、说服与整理可能交叠"
+          },
+          "paragraphs": [
+            {
+              "en": "Helping a learner understand a choice differs from persuading a panel to fund a proposal, although both can involve speaking. Preparing a registration checklist adds organizing, while redesigning the explanation can add creation. In a real role these activities mix. You need not choose a single identity to explain your response. Focus on the purpose and process you imagined for each task.",
+              "zh": "帮助学习者理解选择，与说服小组资助方案不同，虽然都可能需要讲话。准备报名核对表涉及整理，重新设计讲解也涉及创作。真实岗位常混合这些活动，不必选一种身份来解释回答；留意各题想象的目的与过程。"
+            },
+            {
+              "en": "The display keeps all six groups separate and in a fixed order. It does not infer extraversion, relationship quality, a top-three code or job fit. The core RIASEC link offers the main route for a broader interest profile using its own form. Answers here are not passed into that assessment or combined with its scores, and the two results should retain their distinct meanings.",
+              "zh": "六组分别保留并按固定顺序显示，不推断外向性、关系质量、前三代码或职业适配。核心RIASEC链接是用其独立题本了解更广轮廓的主入口。这里的回答不传入核心测评、不与核心分数相加，两者应保留各自含义。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-5",
+          "title": {
+            "en": "Observe a bounded explanation",
+            "zh": "观察一次有边界的讲解"
+          },
+          "paragraphs": [
+            {
+              "en": "With a willing peer, choose an ordinary skill that is safe for you to demonstrate. Ask what they want to learn, offer a short explanation and invite feedback about clarity. Afterwards, note whether you enjoyed listening, adapting, checking understanding or preparing materials. You do not need to collect personal disclosures or turn a practice exchange into an assessment of the other person.",
+              "zh": "与愿意参与的同伴选一项自己能安全示范的普通技能。先问想学什么，简短讲解，再邀请反馈是否清楚。之后记下是否喜欢倾听、调整、确认理解或准备材料。无需收集私人经历，也不把练习交流变成对他人的评估。"
+            },
+            {
+              "en": "A useful note can include the amount of preparation, the pace and how much interaction felt manageable. Enjoying one exchange does not establish that a full working week would suit you. If you do not want a trial, observe an appropriately public workshop instead. Keep practical conditions, skills and interest separate, and allow your preference to remain mixed or uncertain without forcing a helping identity.",
+              "zh": "笔记可包括准备量、节奏和可承受的互动程度。喜欢一次交流不证明适合做整周工作。不想尝试时，也可观察合适的公开工作坊。分别考虑实际条件、技能与兴趣，允许偏好混合或不确定，不强迫自己接受助人身份。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "support-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "initiative-tasks",
+      "directionIds": [
+        "E"
+      ],
+      "title": {
+        "en": "Initiative and persuasion tasks: Full Interest Guide",
+        "zh": "推动与说服：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Initiative and persuasion tasks",
+        "zh": "推动与说服"
+      },
+      "summary": {
+        "en": "Explore interest in initiative and persuasion tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索推动与说服兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Initiative and persuasion tasks | Work Activity Interests",
+          "zh": "推动与说服｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "initiative-tasks-1",
+          "title": {
+            "en": "Interest in moving a proposal forward",
+            "zh": "对推动提案的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about proposing, persuading, negotiating and coordinating an agreed action. Ten tasks include a sponsorship pitch, a pilot proposal, volunteer recruitment and revising an arrangement after discussing responsibilities. Rate whether you would like doing the activity with reasonable training and support. The mean does not establish leadership effectiveness, business skill, confidence, dominance, honesty or the likelihood that anyone would accept a proposal.",
+              "zh": "这组询问提案、说服、协商及协调共同行动的兴趣。十项包括赞助推介、试点方案、志愿者招募，以及讨论责任后修改安排。有合理培训和支持时，评自己是否愿意做。均分不确定领导效果、商业技能、自信、支配性、诚实或提案被接受的概率。"
+            },
+            {
+              "en": "E is an organizing label for these original examples, not a validated Enterprising score. The activities can happen in a community project as well as a business. Interest in explaining a proposal does not require wanting authority over people or enjoying financial risk. Someone may prefer a small team and a clear brief while disliking open-ended competition or repeated public presentations.",
+              "zh": "E是原创例子的整理标签，不是经验证的企业型分数。活动既可发生在社区项目，也可发生在企业。喜欢说明方案，无需想掌权或喜欢财务风险。可能偏好小团队与清楚要求，却不喜欢无休止竞争或反复公开展示。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-2",
+          "title": {
+            "en": "Consider a proposal and its objections",
+            "zh": "同时看提案与质疑"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine asking a group to try a neighborhood event. You explain its purpose, hear concerns about dates and responsibilities, and revise the plan. Which part interests you: forming the case, inviting participation, responding to objections or reaching a workable agreement? A rating does not reveal which reason mattered. It also cannot show whether the final agreement would be fair, informed or successful.",
+              "zh": "设想邀请小组试办社区活动。说明目的、听取对日期与责任的顾虑，再修改计划。吸引你的是组织理由、邀请参加、回应质疑，还是达成可行安排？评分不说明哪个理由重要，也不能确定最后约定是否公平、知情或成功。"
+            },
+            {
+              "en": "A lower rating can concern repeated rejection, an unfamiliar topic or the setting rather than initiative in general. A higher rating might reflect enjoyment of a prepared discussion rather than a desire to sell under pressure. Notice the imagined conditions before treating the mean as a career direction. Real projects include follow-through and accountability after the exciting presentation is over.",
+              "zh": "较低评分可能涉及反复遭拒、陌生议题或场合，而非普遍缺少主动性；较高评分也可能喜欢有准备的讨论，而非高压销售。把均分当职业方向前，先留意想象条件。真实项目在展示之后，还需要后续落实与问责。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-3",
+          "title": {
+            "en": "Persuasion is not permission or proof",
+            "zh": "说服兴趣不等于许可或证明"
+          },
+          "paragraphs": [
+            {
+              "en": "Enjoying a pitch does not establish that its claims are accurate, that you can deliver it or that another person should agree. An ethical real proposal still needs evidence, clear commitments and room for refusal. This questionnaire supplies no authority to pressure someone. It does not assess negotiation skill or tell whether you are ready to manage a budget, team or regulated activity.",
+              "zh": "喜欢推介不证明主张准确、能够兑现，或他人应该同意。真实提案仍需证据、清楚承诺与拒绝空间。问卷不授权施压，不评协商技能，也不决定是否已准备好管理预算、团队或受监管活动。"
+            },
+            {
+              "en": "You may want to learn an activity that you have never tried, or be skilled at one you no longer enjoy. Both are compatible with the instructions. Choose unscored if you cannot form an interest judgment; do not substitute a guess about ability. Neutral remains a valid numeric midpoint. No response indicates greater worth, ambition or employability than another response.",
+              "zh": "可以想学未曾尝试的活动，也可擅长却不再喜欢。两者都符合说明。无法判断兴趣时选未评分，不必改为猜测能力；中立保留为有效数字中点。任何回答都不表示更高价值、抱负或就业能力。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-4",
+          "title": {
+            "en": "Separate explaining a case from helping and creating",
+            "zh": "区分说明理由、支持与创作"
+          },
+          "paragraphs": [
+            {
+              "en": "A project pitch can include creating slides, teaching background information, checking costs and inviting a decision. You may enjoy only some of those stages. The questionnaire separates selected task sets but does not claim that real jobs divide neatly into six boxes. Consider which purpose draws you: helping someone learn, expressing an idea, keeping records or obtaining agreement for a next action.",
+              "zh": "项目推介可能包括制作幻灯片、讲解背景、核对成本和邀请决策。可以只喜欢其中部分阶段。问卷分开所选任务组，但不声称真实工作整齐分成六格。留意吸引自己的目的：帮助学习、表达构想、保持记录，还是为下一行动取得共识。"
+            },
+            {
+              "en": "Six means remain in a fixed order rather than a competitive ranking. There is no strongest trait, three-letter code or employer recommendation. The core RIASEC route is the main option for a broader interest profile. This supplement keeps its own form identity and does not transfer ratings, override a core result or convert a preference for persuasion into evidence of management potential.",
+              "zh": "六项均分按固定顺序保留，不作竞争排名。没有最强特质、三字母代码或雇主推荐。核心RIASEC仍是更广兴趣轮廓的主入口。补充盘点保留自身题本身份，不转移评分、不覆盖核心结果，也不把说服偏好变成管理潜力证据。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-5",
+          "title": {
+            "en": "Try a reversible proposal",
+            "zh": "尝试一项可撤回的小提案"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes fictional or voluntary project. Prepare a short proposal with a purpose, a limited commitment and an explicit way to decline. Ask a willing peer what remains unclear rather than trying to secure agreement at all costs. Afterwards, note whether you enjoyed preparation, questions, revision or coordinating a next step. The exercise should not involve real financial commitments or pressure on someone else.",
+              "zh": "可选低风险的虚构或自愿项目。写一份短提案，说明目的、有限投入和明确拒绝方式。向愿意参与的同伴询问哪里不清楚，不以必须达成同意为目标。之后记下是否喜欢准备、答疑、修改或协调下一步。练习不涉及真实资金承诺或对他人施压。"
+            },
+            {
+              "en": "Include the less visible work in your reflection: checking claims, documenting decisions, following up and accepting a refusal. If only the presentation appealed, that is useful detail rather than a failure. A brief exercise cannot predict how you would feel about repeated targets or responsibility over time. You may prefer occasional project coordination, a support role or no further trial, without needing a label.",
+              "zh": "也考虑不显眼的部分：核对主张、记录决定、跟进和接受拒绝。如果只喜欢展示，那是有用细节而非失败。短练习不能预测长期面对反复目标或责任的感受。可以偏好偶尔协调、支持职责或不再尝试，无需标签。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "initiative-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organizing-tasks",
+      "directionIds": [
+        "C"
+      ],
+      "title": {
+        "en": "Records and organizing tasks: Full Interest Guide",
+        "zh": "记录与整理：完整兴趣指南"
+      },
+      "headline": {
+        "en": "Records and organizing tasks",
+        "zh": "记录与整理"
+      },
+      "summary": {
+        "en": "Explore interest in records and organizing tasks through concrete examples, a private small trial, raw-mean calculations and clear boundaries.",
+        "zh": "通过具体例子、私人小尝试、原始均分算例与明确边界，探索记录与整理兴趣。"
+      },
+      "scoreReading": {
+        "en": "Liking for this selected task set, read with rated coverage; no ability, rank or job match.",
+        "zh": "结合有效覆盖度阅读对所选任务的喜欢程度，不评能力、排名或职业匹配。"
+      },
+      "seo": {
+        "title": {
+          "en": "Records and organizing tasks | Work Activity Interests",
+          "zh": "记录与整理｜工作活动兴趣"
+        },
+        "description": {
+          "en": "Complete free guide to concrete task interests: examples, a small exploration, raw sums and means, missing ratings and limits. No ability or job-fit score.",
+          "zh": "具体任务兴趣的免费完整指南：例子、小探索、原始和与均分、缺失项及边界。不生成能力或职业适配分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "organizing-tasks-1",
+          "title": {
+            "en": "Interest in making information usable",
+            "zh": "对整理出可用信息的兴趣"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns recording, checking, categorizing and maintaining information under stated rules. Its ten tasks include reconciling identifiers, checking a booking schedule, updating an index and reviewing date formats. Rate whether you would like doing those concrete activities with reasonable training and tools. A mean does not establish accuracy, conscientiousness, reliability, mathematical skill or how well you would perform under a real organization’s procedures.",
+              "zh": "这组关注按明确规则记录、核查、归类和维护信息。十项包括核对编号、检查预约表、更新索引和统一日期格式。有合理培训与工具时，评是否喜欢做这些具体活动。均分不确定准确性、尽责、可靠性、数学技能或执行真实机构流程的表现。"
+            },
+            {
+              "en": "C is an organizing cue for this original bank, not a validated Conventional score. Interest in clear records does not imply preferring tradition in politics or having a rigid personality. The tasks concern particular information processes. Someone may enjoy resolving inconsistencies but dislike prolonged data entry, while another person enjoys a predictable routine more than investigating an unusual discrepancy.",
+              "zh": "C是本原创题本的整理线索，不是经验证的常规型分数。喜欢清楚记录不意味着政治上偏传统或人格僵化。任务针对具体信息过程。有人喜欢解决不一致，却不喜欢长时间录入；也有人喜欢可预期的常规，胜过调查异常差异。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-2",
+          "title": {
+            "en": "Follow one record through its changes",
+            "zh": "跟随一条记录的变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional project notice receives a new version. You update the index, record who received it and check that the naming rule is followed. Which part appeals: a clear procedure, finding a discrepancy, finishing a consistent set or making information easier for others to use? The average does not record those motives. It also does not check whether your completed log would be correct.",
+              "zh": "设想虚构项目通知更新版本。需要更新索引、记录发给谁，并检查命名规范。吸引你的是清楚流程、找出差异、完成一致的记录集，还是方便他人使用？均分不记录这些动机，也不检查最终日志是否正确。"
+            },
+            {
+              "en": "A low rating can concern repetitive screen work or the imagined setting rather than an inability to organize. A high rating may reflect satisfaction with a short puzzle rather than enthusiasm for a long routine. Look at the activity and the conditions you supplied. Real record work can include interruptions, exceptions and accountability that a brief prompt does not capture.",
+              "zh": "较低评分可能涉及重复屏幕操作或想象场合，而非不会整理；较高评分也可能喜欢短谜题，而非长时间常规事务。注意活动和自己补入的条件。真实记录工作还有打断、例外和问责，简短题目无法涵盖。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-3",
+          "title": {
+            "en": "Separate liking a system from doing it accurately",
+            "zh": "把喜欢系统与准确执行分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You can enjoy organizing while still making errors or needing instruction. You can also perform a routine accurately while wishing to do less of it. This is an interest reflection, not a timed accuracy task or a test of diligence. Choose unscored if the task is too unfamiliar to judge. A neutral rating means neither like nor dislike and is included in the raw mean.",
+              "zh": "喜欢整理，也可能出错或需要指导；准确执行常规事务，也可能希望少做一些。这是兴趣反思，不是计时准确率任务或勤勉测试。陌生到无法判断时选未评分；中立表示既不喜欢也不讨厌，计入原始均分。"
+            },
+            {
+              "en": "Real information work may involve privacy, permissions, retention rules and consequences for an incorrect record. A high score provides none of the required authority or training. Explore using fictional or properly public sample data, and do not enter another person’s records into this questionnaire. It cannot certify readiness for bookkeeping, compliance, administration or any role with a controlled information boundary.",
+              "zh": "真实信息工作可能涉及隐私、权限、保留规则和错误记录的后果。高分不提供所需权限或培训。探索时使用虚构或适当公开的示例资料，不把他人记录输入问卷。它不能认证记账、合规、行政或任何受控信息职责的任职准备。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-4",
+          "title": {
+            "en": "Rules, explanation and invention can share a project",
+            "zh": "规则、解释与创意可以共存"
+          },
+          "paragraphs": [
+            {
+              "en": "Following a naming convention emphasizes a stated information rule. Asking why the rule keeps failing adds investigation; redesigning a clearer document layout adds creation; teaching the process adds support. A real project can require all these activities. The letters are a way to keep selected prompts organized, not a claim that a person or a job belongs in only one category.",
+              "zh": "遵循命名规范侧重明确的信息规则；追问规则为何失效涉及调查；重新设计更清楚的版式涉及创作；教授流程涉及支持。真实项目可以同时需要这些活动。字母用于整理所选题目，不表示一个人或岗位只能归入一类。"
+            },
+            {
+              "en": "All six means are displayed in a fixed order without ranks, thresholds or a three-letter interest code. They summarize different tasks, so comparing their numbers cannot establish a validated preference hierarchy. For a broader interest profile, use the core RIASEC link and read its own form-specific explanation. The supplement neither supplies its scores nor produces an occupation match from these task ratings.",
+              "zh": "六项均分固定顺序显示，不排名、不分档、不生成三字母兴趣代码。各组任务不同，数字比较不能建立经验证的偏好层级。更广轮廓可从核心RIASEC链接了解，并阅读其题本解释；补充盘点不提供核心分数，也不从任务评分生成职业匹配。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-5",
+          "title": {
+            "en": "Try a small fictional record set",
+            "zh": "试一组小型虚构记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a few fictional appointment rows with one missing field and two inconsistent dates. Apply a clear rule, record the exceptions and check the final set. Afterwards, note whether you enjoyed the routine, discovering errors or making the information easier to retrieve. Interest and correctness should be separate observations. You do not need to time the exercise, compete with someone or produce a perfect result.",
+              "zh": "可做几条虚构预约记录，放入一个缺失字段和两个不一致日期。按清楚规则处理、记录例外并检查最终记录。之后记下是否喜欢常规过程、发现错误或改善检索。兴趣与正确性分别观察，无需计时、竞争或做到完美。"
+            },
+            {
+              "en": "Ask what a longer version would involve: volume, interruptions, unclear cases and responsibility for corrections. A short task can feel satisfying while a full day feels different. If you cannot try it, read a public process description and keep the reaction tentative. You may want more variety, different tools or less screen time; those conditions provide useful context without turning a mean into a personality verdict.",
+              "zh": "也问更长版本会涉及什么：数量、打断、模糊情形和纠错责任。短任务令人满足，整天做可能不同。不能尝试时，可阅读公开流程说明并保留暂定看法。可能希望更多变化、不同工具或更少屏幕时间；这些背景比人格判定更有用。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-6",
+          "title": {
+            "en": "Read the raw numbers with their coverage",
+            "zh": "结合覆盖度读原始数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group has ten activities with the same 1–5 interest anchors and no reverse items. All sixty prompts need a response before a result appears; the unscored option counts as a response but not a rating. A group needs at least eight numeric ratings for a displayed mean. For example, ratings 1, 2, 3, 3, 4, 4, 5, 5 and two unscored responses give sum 27, eight ratings and displayed mean 3.4. Seven ratings keep that group insufficient, regardless of their values.",
+              "zh": "每组十项，使用相同1—5兴趣锚点，没有反向题。结果出现前需回应全部六十项；未评分算回应，不算数字评分。每组至少八条数字才显示均分。例如1、2、3、3、4、4、5、5与两条未评分，原始和27、有效八条、显示均分3.4；只有七条有效时，无论数字多高均保留资料不足。"
+            },
+            {
+              "en": "The original sum and rated count remain visible beside the mean, rounded to one decimal. Missing ratings are not zero and are not made neutral. The minimum-eight rule is a website coverage convention, not a validated threshold. A higher mean records more liking for the rated tasks in this set; a lower mean records less. Different answers, including strongly mixed ones, can yield the same average. No total, percentile, level or prediction follows from it.",
+              "zh": "原始和与有效项数和均分一起保留，均分显示一位小数。缺失不补零或中立。至少八项是本站覆盖约定，不是经验证阈值。较高均分表示更喜欢本组已评任务，较低表示较少喜欢。不同回答、包括强烈分化的组合，可以得到同一均分；不生成总分、百分位、等级或预测。"
+            }
+          ]
+        },
+        {
+          "id": "organizing-tasks-7",
+          "title": {
+            "en": "Version, privacy and your next choice",
+            "zh": "版本、隐私与下一步选择"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote this sixty-task bank and its English and Chinese text. Reliability, validity, norms and cross-language measurement equivalence have not been established. It does not reproduce an official O*NET Interest Profiler form or inherit the evidence for a published instrument. The official profiler and the FermatMind core RIASEC forms are distinct products. Keep this supplement’s version and task wording with any private notes rather than treating familiar letters as proof of identical measurement.",
+              "zh": "这套六十项任务及英中文由费马独立编写，尚未建立信度、效度、常模或跨语言测量等值。不复现官方O*NET兴趣问卷题本，也不继承已发表工具的证据。官方问卷与费马核心RIASEC题本是不同产品。私人笔记宜保留补充版版本与任务原文，不把熟悉字母当作相同测量的证明。"
+            },
+            {
+              "en": "All six complete guides are public before any answers and remain the same for every response pattern, including all unscored. Answers are calculated on this page. Only an explicit choice saves a tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Sharing copies only the public title and entry link, without ratings or means. You can stop, read another guide or visit the core assessment without transferring answers. No payment, registration or desired score is required for these guides.",
+              "zh": "全部六篇完整指南在作答前公开，所有回答模式、包括全部未评分，读到相同正文。回答在本页计算；只有主动选择才保存最多24小时的标签页草稿，完成、重测或退出清除时删除。分享只复制公开标题与入口，不含评分或均分。可停止、读其他指南或访问核心入口，答案不会转移。阅读无需付款、注册或达到某个分数。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "edition",
+      "title": {
+        "en": "An original concrete-task supplement",
+        "zh": "原创具体任务补充"
+      },
+      "paragraphs": [
+        {
+          "en": "Sixty newly written activities cover six familiar work-interest areas: hands-on, investigation, creation, support, initiative and organizing. The six descriptive readings are separate. The full core RIASEC assessment remains the main route for a broader profile; this supplement adds a different, literal task perspective without replacing its forms or scoring.",
+          "zh": "六十项新写活动涉及六个熟悉工作兴趣领域：动手、调查、创作、支持、推动与整理，分别给出描述性读法。完整核心RIASEC仍是更广兴趣轮廓的主入口；补充盘点增加字面任务视角，不替换核心题本或计分。"
+        }
+      ]
+    },
+    {
+      "id": "respond",
+      "title": {
+        "en": "Rate the activity, not your current skill",
+        "zh": "评活动兴趣，不评现有技能"
+      },
+      "paragraphs": [
+        {
+          "en": "Imagine reasonable training, tools and support. Rate whether you would like doing the activity itself, leaving pay, prestige and current access aside. Neutral is numeric 3. Too unfamiliar to judge remains unscored. Each ten-task group needs eight numeric ratings; there is no timer, total, ranking, top-three code or occupation match. The 12-minute estimate is for instructions and ratings, excluding the six long guides.",
+          "zh": "设想有合理培训、工具和支持。评是否愿意做活动本身，暂放薪资、声望和当前入行条件。中立是数字3；陌生到无法判断则保留未评分。每组十项至少八条数字，无计时、总分、排名、前三代码或职业匹配。12分钟估计只含说明与评分，不含六篇长指南。"
+        }
+      ]
+    },
+    {
+      "id": "identity",
+      "title": {
+        "en": "Keep different instruments distinct",
+        "zh": "区分不同题本身份"
+      },
+      "paragraphs": [
+        {
+          "en": "This is a FermatMind original bank, not the official O*NET Interest Profiler, a translation of its questions or a named validated scale. The shared six-area vocabulary does not make item content, scores or evidence interchangeable. English and Chinese are newly authored working versions without established reliability, validity, norms or measurement equivalence. The official source below describes its own separate tool, not validation of this supplement.",
+          "zh": "这是费马原创题本，不是官方O*NET兴趣问卷、其题目译本或具名已验证量表。共享六领域词汇，不使题文、分数或证据可互换。英中文均为新写工作版本，未建立信度、效度、常模或测量等值。下方官方来源说明其自身工具，不是补充版验证。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers, public complete guides",
+        "zh": "私人回答与完整公开指南"
+      },
+      "paragraphs": [
+        {
+          "en": "All six guides can be read before answering and never depend on a score. Answers stay in this page; only your explicit choice saves a tab draft for up to 24 hours. Completion, retake or exit-and-clear removes it. No response sheet or mean is uploaded or added to a URL. Ordinary route analytics are disabled; optional anonymous activity counting requires its separate explicit opt-in. Sharing copies only the public title and entry link.",
+          "zh": "六篇指南均可先读，不依赖分数。回答保留在本页，只有主动选择才保存最多24小时标签页草稿；完成、重测或退出清除时删除。不上传答卷或均分，不加入网址。普通路由分析关闭；可选匿名活动计数需要另行主动选择。分享只复制公开标题和入口。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the official O*NET Interest Profiler?",
+        "zh": "这是官方O*NET兴趣问卷吗？"
+      },
+      "answer": {
+        "en": "No. FermatMind independently authored these sixty tasks and bilingual guides. It is not an official form, translated item set or validated substitute. Familiar six-area labels do not make scores interchangeable.",
+        "zh": "不是。费马独立编写六十项任务与双语指南，不是官方题本、原题译本或经验证替代版。熟悉的六领域标签不使分数可互换。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does this relate to the core RIASEC assessment?",
+        "zh": "它与核心RIASEC什么关系？"
+      },
+      "answer": {
+        "en": "The complete core RIASEC remains the main route for a broader interest profile. This separate supplement asks about concrete activities. It does not alter core scoring, transfer answers or supply its top-three code.",
+        "zh": "完整核心RIASEC仍是更广兴趣轮廓的主入口。本补充独立询问具体活动，不改核心计分、不传答案，也不提供核心前三代码。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens to unfamiliar tasks?",
+        "zh": "陌生任务怎么办？"
+      },
+      "answer": {
+        "en": "Use Cannot judge / too unfamiliar. It counts as a response, not a numeric rating. Each ten-task group needs eight numeric ratings for a mean; otherwise it shows insufficient information. All guides remain free.",
+        "zh": "选暂无法判断／太陌生。它算回应，不算数字评分。每组十项至少八条数字才有均分，否则显示资料不足；全部指南仍免费。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a high mean mean skill or a suitable career?",
+        "zh": "高均分表示擅长或适合某职业吗？"
+      },
+      "answer": {
+        "en": "No. It describes liking for the rated tasks in one selected set. It establishes no ability, qualification, personality rank, hiring recommendation, population standing or career fit.",
+        "zh": "不表示。它描述对一组选定已评任务的喜欢，不确定能力、资格、人格排名、招聘建议、人群位置或职业适配。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my ratings included in sharing?",
+        "zh": "分享会包含评分吗？"
+      },
+      "answer": {
+        "en": "No. Sharing copies only the public title and entry link. All six guides are general, identical for everyone and available without answering. A tab draft exists only if you explicitly choose to save it.",
+        "zh": "不包含。只复制公开标题和入口。六篇指南为人人相同的通用正文，不作答也能阅读；只有明确主动保存才有标签页草稿。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "O*NET Resource Center: its separate official Interest Profiler",
+        "zh": "O*NET资源中心：其独立官方兴趣问卷"
+      },
+      "url": "https://www.onetcenter.org/IP.html"
+    }
+  ]
+}

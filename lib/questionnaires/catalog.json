@@ -6157,5 +6157,32 @@
       "low-battery-rebuilder"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "work-activity-interests",
+    "code": "FM_WORK_ACTIVITY_INTERESTS60",
+    "version": "fm_work_activity_interests60_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Work Activity Interests: 60 Original Tasks",
+      "zh": "工作活动兴趣盘点：60项原创任务"
+    },
+    "description": {
+      "en": "Rate your interest in 60 concrete work tasks. Six separate raw readings and complete free guides; an original supplement to the core RIASEC test.",
+      "zh": "为60项具体工作任务评兴趣，分别阅读六组原始均分与完整免费指南。作为核心RIASEC的原创补充，不评能力、职业匹配或资格。"
+    },
+    "minutes": 12,
+    "collection": "explore",
+    "formCode": "fm_work_activity_interests60_v1",
+    "questionCount": 60,
+    "resultSlugs": [
+      "hands-on-tasks",
+      "investigation-tasks",
+      "creative-tasks",
+      "support-tasks",
+      "initiative-tasks",
+      "organizing-tasks"
+    ]
   }
 ]
