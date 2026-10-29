@@ -1,0 +1,1189 @@
+{
+  "slug": "work-role-reflection",
+  "code": "FM_WORK_ROLE_CONTEXT12",
+  "version": "fm_work_role_context12_v1",
+  "updated": "2026-10-29",
+  "category": "everyday",
+  "kind": "work-role12",
+  "references": [
+    {
+      "title": {
+        "en": "OPM: competencies and work tasks",
+        "zh": "OPM：胜任力与工作任务"
+      },
+      "url": "https://www.opm.gov/policy-data-oversight/assessment-and-selection/competencies/"
+    },
+    {
+      "title": {
+        "en": "OPM: position-specific proficiency decisions",
+        "zh": "OPM：基于具体岗位的熟练程度判断"
+      },
+      "url": "https://www.opm.gov/frequently-asked-questions/qualifications-faq/general/how-will-agencies-determine-proficiency-levels/"
+    },
+    {
+      "title": {
+        "en": "USA Staffing: task experience and support examples",
+        "zh": "USA Staffing：任务经验与支持条件示例"
+      },
+      "url": "https://support-usastaffing.opm.gov/hc/en-us/articles/45424405323155-Rating-Scale-Definitions"
+    }
+  ],
+  "instructions": {
+    "en": "Choose one current or recent role and consider the past twelve weeks. Paid work, volunteering or a study project can provide the context. For each prompt, recall one concrete instance; if several apply, use the most recent. Select your main responsibility in that instance: working with step-by-step guidance, owning your task with agreed checkpoints, or supporting another person’s task. These can overlap in real work and are not ordered levels. Use the fourth choice if there is no relevant instance, you cannot assess it or you prefer not to answer. No names, employer details or work materials are requested.",
+    "zh": "选择一个当前或近期角色，回看近12周。付费工作、志愿活动或学习项目都可作为背景。每题回想一个具体实例；有多个实例时选最近一次。按当时主要责任选择：在逐步指导下参与、按约定检查点承担自己的任务，或支持他人完成任务。现实中这些方式可能重叠，不按等级排序。没有相关实例、无法判断或不愿回答时选第四项。不要求姓名、雇主信息或工作材料。"
+  },
+  "title": {
+    "en": "Work Role and Support Reflection",
+    "zh": "工作角色与支持方式回顾"
+  },
+  "description": {
+    "en": "Review twelve recent task instances and their support contexts. See three separate records and complete guides, without career tiers or ability scores.",
+    "zh": "用十二项任务实例回看问题澄清、交付核对和共同贡献，保留参与情境计数，免费阅读三份完整指南，不判定职业等级。"
+  },
+  "resultHeading": {
+    "en": "Your task-context records",
+    "zh": "你的任务情境记录"
+  },
+  "seoTitle": {
+    "en": "Work Role Reflection: 12 Tasks and Three Full Guides",
+    "zh": "工作角色回顾：十二项任务与三份完整指南"
+  },
+  "minutes": 4,
+  "introduction": {
+    "en": "Choose one role and describe your main responsibility in recent concrete instances. See every chosen context and three complete public readings. The original inventory does not verify skills, rank career stages or assess hiring eligibility.",
+    "zh": "选定一个角色，按近期具体实例中的主要责任作答。查看逐题情境和三份完整公开读法。本原创回顾不验证技能、不排列职业阶段，也不评估招聘资格。"
+  },
+  "source": {
+    "kind": "fermatmind_original_work_role_context_inventory",
+    "formCode": "fm_work_role_context12_v1",
+    "itemBankVersion": "original12_bilingual_task_contexts_v1",
+    "scoringVersion": "three_fourtask_categorical_counts_no_levels_v1",
+    "resultContentVersion": "three_full_work_role_readings_v1",
+    "itemBankSha256": "ed2dfdf8f458f219ebc2c15afc22b06c7b723ccbee1ac82e9ecfc925aafeff8f",
+    "resultContentSha256": "0db4db5e59b54a06a99b104f7a6a5ec1b152bdbe41ff75284fff790e5dad488c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "problem-clarification",
+      "title": {
+        "en": "Clarifying a problem",
+        "zh": "澄清问题"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "delivery-checking",
+      "title": {
+        "en": "Checking a delivery",
+        "zh": "核对交付"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "shared-contribution",
+      "title": {
+        "en": "Contributing with others",
+        "zh": "共同贡献"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "WRC_01",
+      "prompt": {
+        "en": "Turn an unclear request into an agreed problem and a short list of missing information.",
+        "zh": "把模糊请求整理为双方认可的问题，以及一小份待补信息。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "problem-clarification"
+        }
+      ]
+    },
+    {
+      "id": "WRC_02",
+      "prompt": {
+        "en": "Compare possible approaches when the usual instructions do not fit the task.",
+        "zh": "常规指引不适用时，比较可行的处理办法。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "problem-clarification"
+        }
+      ]
+    },
+    {
+      "id": "WRC_03",
+      "prompt": {
+        "en": "Identify what can be decided from the available information and what still needs checking.",
+        "zh": "区分现有信息足以决定的部分，以及仍待核对的部分。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "problem-clarification"
+        }
+      ]
+    },
+    {
+      "id": "WRC_04",
+      "prompt": {
+        "en": "Revise an approach after new information challenges the original assumption.",
+        "zh": "新信息与最初假设不一致后，调整处理办法。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "problem-clarification"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "problem-clarification"
+        }
+      ]
+    },
+    {
+      "id": "WRC_05",
+      "prompt": {
+        "en": "Agree what a task must produce and how its completion will be checked.",
+        "zh": "约定任务应产出什么，以及怎样核对完成。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "delivery-checking"
+        }
+      ]
+    },
+    {
+      "id": "WRC_06",
+      "prompt": {
+        "en": "Check an output against the agreed requirement and identify a remaining limitation.",
+        "zh": "按约定要求核对产出，并指出仍有的限制。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "delivery-checking"
+        }
+      ]
+    },
+    {
+      "id": "WRC_07",
+      "prompt": {
+        "en": "Raise a blocker that requires a decision or permission outside your responsibility.",
+        "zh": "提出需要职责之外的决定或许可才能解决的阻塞。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "delivery-checking"
+        }
+      ]
+    },
+    {
+      "id": "WRC_08",
+      "prompt": {
+        "en": "Adjust a delivery plan after its requirement, resources or dependencies change.",
+        "zh": "要求、资源或依赖变化后，调整交付安排。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "delivery-checking"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "delivery-checking"
+        }
+      ]
+    },
+    {
+      "id": "WRC_09",
+      "prompt": {
+        "en": "Explain the reasoning behind a task output so a collaborator can use it.",
+        "zh": "说明任务产出背后的理由，帮助协作者使用。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "shared-contribution"
+        }
+      ]
+    },
+    {
+      "id": "WRC_10",
+      "prompt": {
+        "en": "Resolve different expectations about a shared piece of work.",
+        "zh": "处理双方对同一项共同工作的不同预期。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "shared-contribution"
+        }
+      ]
+    },
+    {
+      "id": "WRC_11",
+      "prompt": {
+        "en": "Help another person work through a task while making responsibilities clear.",
+        "zh": "帮助他人处理任务，同时明确各自责任。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "shared-contribution"
+        }
+      ]
+    },
+    {
+      "id": "WRC_12",
+      "prompt": {
+        "en": "Record a lesson or method so collaborators can use it in a later task.",
+        "zh": "记录经验或方法，让协作者能在后续任务中使用。"
+      },
+      "options": [
+        {
+          "id": "guided",
+          "label": {
+            "en": "Worked with step-by-step guidance",
+            "zh": "在逐步指导下参与"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "owned",
+          "label": {
+            "en": "Owned the task with agreed checkpoints",
+            "zh": "按约定检查点承担任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "supported",
+          "label": {
+            "en": "Supported another person's task",
+            "zh": "支持他人完成任务"
+          },
+          "directionId": "shared-contribution"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No instance / cannot assess / prefer not to answer",
+            "zh": "没有实例／无法判断／不愿回答"
+          },
+          "directionId": "shared-contribution"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "problem-clarification-reading",
+      "directionIds": [
+        "problem-clarification"
+      ],
+      "title": {
+        "en": "Clarifying a Problem",
+        "zh": "澄清问题"
+      },
+      "headline": {
+        "en": "Make the question and its limits visible before choosing an approach.",
+        "zh": "选择做法之前，先看清问题与限制。"
+      },
+      "summary": {
+        "en": "Explore unclear requests, alternative approaches, incomplete information and changed assumptions through four task records.",
+        "zh": "通过四项任务记录，回看模糊请求、不同办法、信息缺口和假设变化。"
+      },
+      "seo": {
+        "title": {
+          "en": "Clarifying a Problem: Work Role and Support Guide",
+          "zh": "澄清问题：工作角色与支持方式指南"
+        },
+        "description": {
+          "en": "Explore unclear requests, alternative approaches, incomplete information and changed assumptions through four task records.",
+          "zh": "通过四项任务记录，回看模糊请求、不同办法、信息缺口和假设变化。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read four chosen task contexts and their category counts. These are records of selected instances, not proficiency levels or verified performance.",
+        "zh": "回看四项所选任务情境与类别计数。这是选定实例的记录，不是熟练等级或已核实表现。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the four records describe",
+            "zh": "四项记录描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A request can sound precise while leaving its purpose unclear. Someone may ask for a spreadsheet, a presentation or a quick answer without agreeing what decision it should support. This reading concerns the work of clarifying that problem: identifying missing information, comparing possible approaches, separating established information from uncertainty and revising an assumption. Choose a concrete instance from your selected role rather than judging your general intelligence or confidence.",
+              "zh": "一个请求听上去具体，目的却可能并不清楚。对方可能要一张表、一份展示或一个快速答案，却未约定它应支持什么决定。本组关注澄清问题的工作：发现缺失信息、比较办法、区分已知与不确定，以及调整假设。应从选定角色中找一个具体实例，不评价整体智力或信心。"
+            },
+            {
+              "en": "The twelve-week reference period keeps the reflection tied to a recent setting, but it does not make every task equally difficult. Clarifying a routine appointment list differs from clarifying a new technical requirement. Time, authority, information access and the availability of a reviewer also matter. The record preserves which participation context you selected for four tasks; it cannot establish whether your understanding was correct, complete or appropriate for another role.",
+              "zh": "近12周的范围让回顾有一个近期背景，但不会让不同任务难度相同。澄清常规预约清单，与澄清新的技术要求并非同一回事。时间、职责、信息权限和是否有人复核也会影响过程。本组保留四项任务所选参与情境，不能证明理解正确、完整，或能迁移到另一个角色。"
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": {
+            "en": "Different responsibilities can appear together",
+            "zh": "不同责任可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "Working with step-by-step guidance can mean that another person helped structure the questions, explained a method or reviewed the reasoning as it developed. That support may be entirely appropriate for a new topic, a complex assignment or an agreed training arrangement. It is not evidence of a low career stage. Consider what you actually did within the guidance and what remained someone else’s decision, rather than treating the presence of help as a personal shortcoming.",
+              "zh": "逐步指导可能包括：别人协助组织问题、解释方法，或在推理过程中复核。这些支持可能适用于新主题、复杂任务或约定的培养安排，不说明职业阶段低。可以回看指导之内自己实际做了什么、哪些决定仍由别人负责，不把获得帮助解释成个人不足。"
+            },
+            {
+              "en": "Owning a task with agreed checkpoints means taking responsibility for your part while keeping the required review and permission boundaries. Supporting someone else concerns their task, even when you contribute useful expertise. These responsibilities often overlap. For this inventory, select the main responsibility in one instance, using the most recent instance when several are available. If a meaningful distinction is not possible, the non-assessment choice keeps that uncertainty visible without forcing a level.",
+              "zh": "按检查点承担任务，指对自己负责的部分承担责任，同时保留所需复核与许可边界。支持他人则以对方的任务为中心，即使自己提供了重要经验。它们现实中可能重叠。本表按一次实例的主要责任选择，有多个实例时用最近一次。实在无法区分时可选未评估，保留不确定性。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An unclear request becomes a usable question",
+            "zh": "把模糊请求变为可处理的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a volunteer asked to “improve the event signup.” They might first clarify whether the concern is missing contact details, duplicate registrations or unclear accessibility requests. A coordinator could guide them through those distinctions, or the volunteer could prepare a short problem statement for an agreed review. Both arrangements can produce useful work. The selected category describes the responsibility and support in that instance, not which person is more capable or committed.",
+              "zh": "例如，志愿者被要求“改善活动报名”。先要弄清问题是联系方式缺失、重复报名，还是无障碍需求表达不清。协调者可以逐步协助区分；志愿者也可以先写问题说明，按约定提交复核。两种安排都可能有用，类别只描述此次责任与支持，不比较谁更有能力或更投入。"
+            },
+            {
+              "en": "Suppose a later check shows that duplicate entries came from two legitimate attendees sharing a contact address. The original assumption needs revisiting. Useful evidence would describe what changed, how the approach was adjusted and who approved the next step. It would not be enough simply to remember feeling decisive. Keep any real names, contact records or private discussions outside this page; a brief private note or a fictional rehearsal can support reflection without exposing those details.",
+              "zh": "假如后来发现，重复联系地址其实来自两位共用联系方式的真实参加者，原假设就需要调整。有用的实例应说明新信息是什么、做法怎样改变、谁确认下一步，而不只是“当时很果断”。真实姓名、联系方式和私下沟通无需填入页面，可留在私人记录中；也可用虚构材料演练。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "Read four choices before interpreting a pattern",
+            "zh": "理解组合前先看四项选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the four prompts contributes one category record. If your choices are guided, owned, supported and non-assessment, the four counts are one each. If all four are non-assessment, that category has four and the others have zero. A zero count only says that this category was not selected for these four instances. It does not mean that you lack the corresponding experience, because the inventory does not sample every task you have performed.",
+              "zh": "每题只形成一项类别记录。若四题分别选指导、承担、支持和未评估，各类就各记1；若都选未评估，则该类为4，其余为0。某类计数为0，只说明这四项实例未选该类，不代表没有相关经历，本表没有覆盖做过的所有任务。"
+            },
+            {
+              "en": "No category wins, and no arithmetic combines the counts into a score. The fixed group order is not a ranking either. Two people can show identical counts while dealing with different problems, deadlines and review requirements. Even your own equal counts at two dates can refer to entirely different work. Start with the individual prompt and its chosen context, then ask what concrete evidence or feedback would make the account more informative for your next conversation.",
+              "zh": "不选胜出类别，也不把计数合成分数；分组顺序同样不是排名。不同的人可能计数相同，问题、期限和复核要求却完全不同。自己两次得到相同计数，也可能来自不同工作。应先看具体任务及选择，再考虑哪些实例或反馈能让下一次讨论更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Use a small clarification exercise",
+            "zh": "试做一个小型澄清练习"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes practice, take a fictional request such as preparing a shared reading list. Write its intended user, the decision it supports, the information already available and two questions that still need answers. Suggest two possible approaches and explain one trade-off. Ask a willing partner whether they understand the problem in the same way. The purpose is to test the clarity of the brief, not to demonstrate that you can avoid asking for help.",
+              "zh": "可用“准备一份共享阅读清单”等虚构低风险请求练习。写出使用者、它支持的决定、已有信息和两个待回答问题，再提出两种办法及一项取舍。请愿意协助的人核对双方是否理解一致。目标是检验说明是否清楚，不是证明自己不需要求助。"
+            },
+            {
+              "en": "After the discussion, choose one revision that would reduce confusion and note the reason privately. If the task involves real work, stay within the permissions and review arrangements already agreed for it. Do not change production systems, contact clients or access restricted information merely to create an example for this reflection. A smaller authorized exercise can reveal a useful question while keeping the consequences manageable and the original task owner’s responsibilities clear.",
+              "zh": "讨论后选一处能减少误解的修改，私下记下原因。若涉及真实工作，应遵守原有权限和复核安排，不要为了制造一个实例而改动生产系统、联系客户或访问受限信息。较小且已获授权的练习，也能暴露有用的问题，并保留原负责人责任。"
+            }
+          ]
+        },
+        {
+          "id": "feedback",
+          "title": {
+            "en": "Ask about the work rather than the label",
+            "zh": "围绕工作获取反馈"
+          },
+          "paragraphs": [
+            {
+              "en": "Useful feedback might concern whether the agreed problem excluded something important, whether an alternative was overlooked or whether an uncertainty should have been raised sooner. Ask for an example that the other person is permitted to discuss. Their perspective adds context; it is not automatically a complete judgment of your ability. Differences in access, instructions and expectations may explain why two people remember the same task differently, so clarify those conditions before drawing a conclusion.",
+              "zh": "有用反馈可以是：约定的问题是否漏了重要部分、是否忽略另一办法，或某项不确定性是否应更早提出。可以请对方提供允许讨论的例子。对方视角能补充背景，却不自动成为完整能力判断。权限、指引和预期不同，也可能让双方对同一工作记忆不同，应先核对这些条件。"
+            },
+            {
+              "en": "You do not need to upload proof or disclose private performance discussions. If no recent instance is available, record non-assessment and use the guide to identify an appropriate future learning opportunity. Having no opportunity can reflect the role’s design rather than an individual limitation. Supporting another person on one problem also does not establish readiness to take responsibility for every kind of problem; the scope and consequences of each real assignment still need their own agreement.",
+              "zh": "无需上传证明或披露私密绩效讨论。没有近期实例时可选未评估，并从指南中寻找合适的后续学习机会。机会不足可能来自角色安排，而非个人限制。支持别人处理过一个问题，也不能证明已能承担所有问题；每项真实任务的范围与后果仍需具体约定。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep a task record open to revision",
+            "zh": "让任务记录可以被修订"
+          },
+          "paragraphs": [
+            {
+              "en": "OPM’s published material connects proficiency decisions to analysis of specific positions. That limited principle supports asking about the actual task before making a broad claim. This original FermatMind group does not implement an OPM assessment or convert participation into a credential. Its four prompts have no established norms, reliability or hiring validity. They cannot resolve impostor feelings, certify expertise or show which career stage you should occupy from a few selected recollections.",
+              "zh": "OPM公开说明把熟练程度判断与具体岗位分析相联系。这一有限原则支持先了解真实任务，再作较广判断。本组并未实现OPM评估，也不把参与方式换为资格。四题尚无已建立的常模、信度或招聘效度，不能凭少量回忆解决冒名顶替感、认证专业水平或安排职业阶段。"
+            },
+            {
+              "en": "You can finish by identifying one question to clarify in your next appropriate conversation. All three complete readings are public before answering and remain available even when every item is non-assessment. If you return later, keep the reference role, time period and task difficulty in view rather than treating changed category counts as measured growth. A different assignment may reasonably need different support, and choosing that support can be a thoughtful part of responsible work.",
+              "zh": "可以在确定下一次适合讨论的问题后结束。三份完整指南在作答前就公开，即使全部选未评估也开放。以后再次回顾时，应留意角色、时间和任务难度，不把计数变化当成已测量的成长。不同任务可能合理地需要不同支持，选择合适支持本身也可以是负责任的工作方式。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delivery-checking-reading",
+      "directionIds": [
+        "delivery-checking"
+      ],
+      "title": {
+        "en": "Checking a Delivery",
+        "zh": "核对交付"
+      },
+      "headline": {
+        "en": "Agree what done means, then keep the checks and decisions visible.",
+        "zh": "约定完成标准，再看清核对与决定。"
+      },
+      "summary": {
+        "en": "Review acceptance criteria, output limits, escalation and changed delivery conditions without turning autonomy into a proficiency score.",
+        "zh": "回看完成标准、产出限制、升级求助和交付条件变化，不把自主程度换成能力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Checking a Delivery: Work Role and Support Guide",
+          "zh": "核对交付：工作角色与支持方式指南"
+        },
+        "description": {
+          "en": "Review acceptance criteria, output limits, escalation and changed delivery conditions without turning autonomy into a proficiency score.",
+          "zh": "回看完成标准、产出限制、升级求助和交付条件变化，不把自主程度换成能力分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read four chosen task contexts and their category counts. These are records of selected instances, not proficiency levels or verified performance.",
+        "zh": "回看四项所选任务情境与类别计数。这是选定实例的记录，不是熟练等级或已核实表现。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A finished task needs a shared reference",
+            "zh": "完成任务需要共同参照"
+          },
+          "paragraphs": [
+            {
+              "en": "Finishing an activity and meeting an agreed requirement are different observations. A document may exist while its audience, review needs or remaining limitations are still unclear. This group concerns four tasks around delivery: agreeing what must be produced, checking the output, raising a blocker outside your responsibility and adjusting a plan when conditions change. It records your main participation context in selected instances, without testing the accuracy, safety or usefulness of the work that was delivered.",
+              "zh": "做完一个动作，与满足约定要求，是不同的观察。文件已经存在，受众、复核需要或剩余限制却可能仍不清楚。本组关注约定产出、核对结果、提出职责之外的阻塞，以及条件变化后调整安排。记录的是选定实例中的主要参与情境，不检验交付的准确、安全或有用程度。"
+            },
+            {
+              "en": "Choose the same role and twelve-week period used for the other groups. Consider a real instance you can recall without opening confidential files or sharing private feedback. A study project or volunteer role can be relevant, but its consequences and review arrangements may differ from paid work. The inventory does not make those settings equivalent. If a prompt has no appropriate instance, the non-assessment choice is available and all of the reading remains accessible.",
+              "zh": "沿用其他分组的同一角色和近12周。回想不需打开机密文件或分享私人反馈就能描述的实例。学习项目或志愿角色也可相关，但其后果和复核安排可能不同于付费工作，本表不把这些背景视为等同。没有适当实例时可选未评估，仍能阅读全部内容。"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "title": {
+            "en": "Review belongs inside responsible ownership",
+            "zh": "负责任地承担任务包含复核"
+          },
+          "paragraphs": [
+            {
+              "en": "Step-by-step guidance might include help defining acceptance criteria, demonstrating a check or deciding how to report an exception. Task ownership with agreed checkpoints might include regular review by a colleague, a required approval or a specialist safety check. Neither arrangement is inherently better for every task. Necessary review should not be removed to obtain a more independent-sounding response. The relevant question is what responsibility you held and how the required boundaries were respected in that specific instance.",
+              "zh": "逐步指导可能包括协助定义完成标准、演示核对，或决定怎样报告例外。按检查点承担任务，也可能包含同事定期复核、必需审批或专业安全检查。两种安排都不在所有任务上更好，不应为选择听起来更独立的选项而取消必要复核。重点是此次负责什么、怎样遵守边界。"
+            },
+            {
+              "en": "Supporting another person can mean helping them understand a requirement, reviewing a draft they own or explaining an issue they need to escalate. It does not mean that you hold final authority for their output. When support and ownership overlap, choose one recent instance and identify its main responsibility. Use non-assessment if the distinction cannot reasonably be made. A category record should preserve a workable account of the task rather than press you into claiming expertise or certainty.",
+              "zh": "支持他人可能是协助理解要求、复核由对方负责的草稿，或解释对方需要升级的问题；不代表自己拥有最终决定权。支持与承担重叠时，可选一个近期实例，辨认主要责任。无法合理区分就选未评估，让记录保留可解释的任务背景，不迫使自己声称专业水平或确定性。"
+            }
+          ]
+        },
+        {
+          "id": "scenario",
+          "title": {
+            "en": "A public information page is ready for review",
+            "zh": "一份公开说明准备交付"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a student team preparing a fictional museum information page. The agreed requirement includes opening times, a readable mobile layout and a clear indication that the page is a mock exercise. One person writes the page, another checks the supplied schedule and a tutor reviews the final demonstration. The writer can own their task while still needing those checks. The reviewer can support the writer without becoming the owner of every decision or claiming wider publishing expertise.",
+              "zh": "例如，学生团队制作一份虚构博物馆说明页。约定要求包括开放时间、手机可读，以及明确说明这是模拟练习。一人编写，一人核对提供的时刻表，导师复核最终演示。编写者仍可承担自己的任务；复核者是在支持对方，并不因此拥有所有决定，或证明具备更广出版经验。"
+            },
+            {
+              "en": "Suppose the provided timetable changes just before the demonstration. A useful delivery account would identify the changed source, the pages affected, the person who can approve an adjustment and what remains unchecked. It would not treat silently guessing the hours as evidence of independence. In real work, the same principle of clarifying responsibility must follow the actual organization’s rules. The fictional example is a reflection exercise, not permission to publish, change records or bypass a required review.",
+              "zh": "假如演示前时刻表变化，有用的交付记录应说明来源怎样变了、影响哪些页面、谁能同意调整，还有什么未核对。默默猜一个时间，不是独立的证据。真实工作仍须遵守组织的具体规则；这个虚构例子只用于反思，不授权发布、改记录或绕过复核。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "The record does not reward avoiding escalation",
+            "zh": "记录不奖励回避升级求助"
+          },
+          "paragraphs": [
+            {
+              "en": "The four tasks each add one selected category to this group’s counts. Guided, owned, supported and non-assessment are not assigned values, so there is no average or overall delivery level. A record of four owned instances cannot show whether their outputs met the requirements. Four guided instances cannot show that their quality was poor. The selected contexts describe participation, while evidence about correctness, timeliness and consequences would need to be considered separately for each task.",
+              "zh": "四项任务各给所选类别增加一次计数。指导、承担、支持和未评估不赋值，因此不计算平均值或整体交付等级。四项都选承担，不能证明产出达标；四项都选指导，也不能证明质量差。参与情境与正确性、时效、后果等证据，应按具体任务分别考虑。"
+            },
+            {
+              "en": "A blocker can require escalation because of permission, resources, an unresolved requirement or a risk outside the task’s agreed scope. Recognizing that boundary may be part of the work itself. Do not interpret the escalation prompt as an invitation to act without authorization. Equal category counts can also hide different review practices, so read the individual choices before making a comparison. Non-assessment remains a separate record and is never converted into a failure or a zero-ability judgment.",
+              "zh": "阻塞可能涉及许可、资源、未明确要求，或超出任务范围的风险。识别边界本身可能就是工作的一部分，不应把升级条目理解为鼓励无授权行动。相同计数也可能对应不同复核方式，应先看逐项选择。未评估独立保留，不会换算成失败或零能力判断。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Try a bounded acceptance check",
+            "zh": "试做有范围的完成核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes fictional output, such as an event checklist or a sample instruction sheet. Write three observable requirements and who would check them. Produce a small draft, compare it with those requirements and identify one thing you have not verified. Ask a willing partner to apply the same criteria. Differences between your checks can help reveal an ambiguous requirement without requiring a score, a competition or a claim about which person is more professionally advanced.",
+              "zh": "可选活动清单或示例操作说明等虚构低风险产出。写出三项可观察要求和由谁核对，制作小草稿后逐项检查，指出一处尚未核实的部分。再请愿意参与的人用同样标准核对。双方检查的差别可帮助发现要求含糊之处，不需要打分、竞赛或比较职业高低。"
+            },
+            {
+              "en": "Next, introduce a harmless change, such as a different intended audience or a shorter available time. Decide which requirements still apply, which need discussion and who should approve a changed plan. Keep the exercise within its fictional setting. For an actual task, use the existing permission and review process rather than copying this exercise into a consequential environment. The useful output is a clearer conversation about completion and limits, not an unreviewed promise to deliver more than the available resources allow.",
+              "zh": "然后加入无害变化，例如受众变化或可用时间缩短，讨论哪些要求继续适用、哪些需重谈、谁应确认调整。练习应留在虚构背景。真实任务使用既有权限和复核流程，不把演练直接搬到后果重大的环境。目标是更清楚地讨论完成与限制，不是未经复核地承诺超出资源的交付。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Quality and opportunity need their own evidence",
+            "zh": "质量与机会需要另外核实"
+          },
+          "paragraphs": [
+            {
+              "en": "A selected context cannot establish the difficulty of the requirement, the quality of the source material or the resources available. Someone may have few delivery opportunities because their role is tightly defined, while another may own many routine tasks under well-established procedures. Those differences matter more than the category label alone. If you discuss development with a supervisor or collaborator, identify the task, the expected output and the support that was available before discussing a broader responsibility.",
+              "zh": "所选情境不能证明要求难度、来源质量或可用资源。有的人机会少，可能因为角色边界很窄；另一个人承担很多任务，也可能因为流程十分成熟。它们都比单独标签更有解释力。讨论发展安排时，应先说清具体任务、预期产出和已有支持，再讨论更广责任。"
+            },
+            {
+              "en": "Feedback can focus on a specific missed requirement, a well-handled exception or a communication that helped another person decide. Ask for information the person is allowed to share, and keep private details outside the inventory. No evidence upload is required. If feedback is unavailable, state that uncertainty instead of assuming that silence means approval. A later conversation can revisit the record when the requirement or working arrangement becomes clearer, without turning one example into a general verdict about your competence.",
+              "zh": "反馈可围绕漏掉的要求、处理得当的例外，或帮助对方决定的一次沟通。只讨论允许分享的信息，私密细节留在表外，无需上传证明。没有反馈时应保留不确定，不把沉默当认可。要求或工作安排更清楚后，可重新讨论记录，不把一个实例变成整体胜任结论。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Use the reading for a focused next conversation",
+            "zh": "把读法用于一次具体讨论"
+          },
+          "paragraphs": [
+            {
+              "en": "The OPM and USA Staffing references are conceptual background about work tasks and experience, not validation of this inventory. FermatMind wrote these twelve prompts and the category-count method. This group has no established cutoffs, norms or evidence that it predicts work performance. It cannot authorize a promotion, decide hiring eligibility or tell an employer which applicant is better. A consequential employment decision needs its own appropriate evidence and process; this reflection supplies neither a substitute credential nor a shortcut.",
+              "zh": "OPM与USA Staffing来源仅提供工作任务和经验的概念背景，没有验证本表。十二题与类别计数方法由费马原创。本组未建立阈值、常模或表现预测证据，不能授权晋升、判断招聘资格或比较应聘者。后果重大的雇佣决定需要适当证据与流程，本回顾不提供替代资格或捷径。"
+            },
+            {
+              "en": "You may finish by choosing one completion criterion to clarify, one review arrangement to confirm or one limitation to raise. All three full guides remain open before answering and after every response pattern, including twelve non-assessment choices. When returning to the inventory, notice changes in task scope, authority and resources as well as your selected contexts. More ownership is not automatically progress when the new task requires stronger review, and obtaining the right support can be the practical next step.",
+              "zh": "可以在选定一项待澄清标准、待确认复核安排或待提出限制后结束。三份全文在作答前及所有回答组合后都开放，包括十二项全部未评估。以后重做时，也应留意范围、权限和资源变化。若新任务需要更严格复核，更多承担并不自动代表进步；获得合适支持也可以是实际下一步。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-contribution-reading",
+      "directionIds": [
+        "shared-contribution"
+      ],
+      "title": {
+        "en": "Contributing with Others",
+        "zh": "共同贡献"
+      },
+      "headline": {
+        "en": "Make reasoning, expectations and responsibilities usable to other people.",
+        "zh": "让理由、预期和责任能被协作者理解。"
+      },
+      "summary": {
+        "en": "Explore explaining work, resolving expectations, supporting another person and recording a reusable lesson through four concrete task contexts.",
+        "zh": "通过四项具体任务，回看说明理由、协调预期、支持他人和记录可复用经验。"
+      },
+      "seo": {
+        "title": {
+          "en": "Contributing with Others: Work Role and Support Guide",
+          "zh": "共同贡献：工作角色与支持方式指南"
+        },
+        "description": {
+          "en": "Explore explaining work, resolving expectations, supporting another person and recording a reusable lesson through four concrete task contexts.",
+          "zh": "通过四项具体任务，回看说明理由、协调预期、支持他人和记录可复用经验。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read four chosen task contexts and their category counts. These are records of selected instances, not proficiency levels or verified performance.",
+        "zh": "回看四项所选任务情境与类别计数。这是选定实例的记录，不是熟练等级或已核实表现。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Contribution is more specific than being a team player",
+            "zh": "把贡献落到具体任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Saying that you work well with others leaves many useful details unanswered. Did you explain why a choice was made, clarify different expectations, help someone with their task or leave a method that a later collaborator could use? This group looks at those four activities in one selected role. It records participation contexts, without measuring sociability, leadership potential, kindness or the quality of your relationships. A clear account of one instance is more useful here than a broad identity claim.",
+              "zh": "“善于合作”这句话会留下很多细节：是否说明选择理由、澄清不同预期、协助别人的任务，或留下后续协作者能用的方法？本组在一个选定角色中回看这四项活动，记录参与情境，不测社交性、领导潜力、善良程度或关系质量。这里需要具体实例，而不是整体身份判断。"
+            },
+            {
+              "en": "Use the same recent role and twelve-week period as the other groups. A quiet written explanation can be relevant, and a highly visible meeting may provide no relevant instance at all. The form of communication alone does not tell us whether the contribution helped the work. Consider the task, the intended recipient and your main responsibility. If you cannot identify an appropriate instance without guessing, the non-assessment choice keeps the record honest without making a judgment about cooperation.",
+              "zh": "沿用其他分组的同一近期角色及近12周。安静写下的说明也可以相关；很显眼的一次会议也可能并无对应实例。沟通形式本身不说明贡献是否有用，应看任务、接收者及主要责任。找不到适当实例时可选未评估，不需猜测，也不据此评价合作程度。"
+            }
+          ]
+        },
+        {
+          "id": "roles",
+          "title": {
+            "en": "Helping does not settle who owns the output",
+            "zh": "协助不等于取得最终责任"
+          },
+          "paragraphs": [
+            {
+              "en": "You might work with step-by-step guidance while learning how to write a useful handover or explain a decision. You might own your contribution while a collaborator checks whether it meets an agreed need. You might primarily support another person whose task remains theirs. All three arrangements can be appropriate. They are not stages that everybody must pass through, and the presence of another person’s help does not show that the contribution was less thoughtful, valuable or technically demanding.",
+              "zh": "学习怎样写交接或解释决定时，可能需要逐步指导；承担自己的贡献时，也可能由协作者核对是否符合约定需要；还可能主要支持任务仍由对方负责的人。这些安排都可能适当，并不是人人必经的阶段。获得帮助也不说明贡献较少思考、较无价值或技术难度较低。"
+            },
+            {
+              "en": "Supporting others does not prove that you are an expert, a manager or a qualified trainer. You could be sharing one fact, checking a familiar procedure or helping someone locate the right decision owner. In the selected instance, identify the main responsibility rather than the most flattering label. If you owned an output and also advised a colleague, choose the context that best describes the instance you are recording; if that distinction remains unclear, select non-assessment instead of inventing certainty.",
+              "zh": "支持别人并不证明自己是专家、管理者或合格培训者，也可能只是分享一条事实、核对熟悉流程或帮助找到决定者。应按所选实例的主要责任选择。若既承担产出又给同事建议，选最贴合这次实例的情境；仍无法区分时，就选未评估，不必制造确定性。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Two collaborators interpret a label differently",
+            "zh": "两人对同一标签理解不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two volunteers organizing fictional archive records. One uses “ready” to mean that a record has been entered; the other understands it to mean that the record has also been checked. A useful contribution might be to identify that difference, agree a clearer set of labels and explain the change to the next volunteer. The activity does not require a loud presentation or a formal leadership title. It requires a shared understanding of the task and who can approve a change.",
+              "zh": "例如，两名志愿者整理虚构档案。一人把“已就绪”理解为录入完成，另一人以为还包括核对完成。有用贡献可能是指出差别、约定更清楚的标签，并向下一位志愿者说明。它不要求高声展示或领导头衔，而需要共同理解任务，以及谁能确认变更。"
+            },
+            {
+              "en": "Suppose a third person later asks why the labels changed. A short explanation could describe the ambiguity, the agreed distinction and where the current instruction can be found. Whether you prepared that explanation under guidance, owned the note or supported its author is the context recorded here. The example is deliberately fictional. For an actual archive or project, retain the required permissions and avoid placing private records, names or organizational instructions into this public reflection simply to demonstrate that the instance occurred.",
+              "zh": "后来第三个人问标签为什么改了，可用简短说明写出原有歧义、约定后的区别，以及当前指引在哪里。自己是在指导下准备说明、负责说明文件，还是支持作者，就是这里记录的情境。例子使用虚构背景；真实档案或项目应保留所需权限，不把私人记录、姓名或组织指引输入公开回顾。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "title": {
+            "en": "Keep the four records separate",
+            "zh": "保留四项记录各自背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Each prompt contributes one record to guided, owned, supported or non-assessment. The four category counts always add to four, including when every item is non-assessment. There is no contribution total, winning role or leadership level. A large supported count only describes the selected instances. It does not establish how often you help, how effectively you communicate or how much your team depends on you, because the inventory does not observe those activities or sample every relevant occasion.",
+              "zh": "每题记入指导、承担、支持或未评估之一，四类计数之和始终为4，包括全部未评估的情况。不计算贡献总分、胜出角色或领导等级。支持类较多只描述所选实例，不能证明帮助频率、沟通效果或团队依赖程度，因为本表没有观察活动，也没有抽取所有相关场景。"
+            },
+            {
+              "en": "The individual choices can point toward different conversations even when category counts match. Someone may want clearer responsibility when helping a colleague, while another may need a better way to preserve the reasoning behind a decision. Their shared count pattern does not make those needs interchangeable. Read the prompt and chosen context together, then consider the particular audience, constraints and feedback. The record is most useful as a starting point for a specific discussion, not as a comparison between people.",
+              "zh": "即使计数相同，逐题选择也可能引向不同讨论。有人需要在帮助同事时澄清责任，另一个人需要更好地保留决策理由，不能因组合相同就视为需求相同。应结合题目、情境、受众、限制和反馈，作为具体讨论起点，不用于人与人比较。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Explain a small decision and check understanding",
+            "zh": "解释一个小决定，再核对理解"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes exercise, use a fictional shared task such as arranging a reading session. Write a short decision note that identifies the goal, the option chosen, one reason and the person responsible for the next action. Ask a willing partner what they understand from it and what remains unclear. They can respond in a format that works for them. The exercise checks the usefulness of the note; it should not become a test of the partner’s memory, language ability or personality.",
+              "zh": "可用安排一次阅读活动的虚构任务练习。写一份简短决定说明，包括目标、所选办法、一条理由和下一步负责人，请愿意参与的人说说理解到了什么、还有什么不清楚，并使用对方方便的表达方式。练习核对的是说明是否有用，不测试对方记忆、语言能力或人格。"
+            },
+            {
+              "en": "Revise one unclear part and note what changed. If you create a reusable instruction, include its intended scope and an appropriate point for checking whether it is still current. More documentation is not automatically better: a short, findable note can be more useful than several conflicting versions. For real work, follow the organization’s ownership and information-sharing rules. Do not promise to take over someone else’s responsibility or distribute restricted material in order to create a stronger-looking contribution record.",
+              "zh": "修改一处不清楚的地方，记下变化。若形成可复用指引，应说明适用范围，以及何时核对是否仍有效。文件更多不自动更好，易找到的简短说明，可能比多份互相冲突的版本更有用。真实工作遵守所有权与分享规则，不为获得更好看的记录而接管他人责任或分发受限材料。"
+            }
+          ]
+        },
+        {
+          "id": "feedback",
+          "title": {
+            "en": "Notice the support conditions around the contribution",
+            "zh": "看见贡献周围的支持条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The opportunity to contribute is shaped by access, workload, permission and whether others have time to respond. A person may have useful knowledge but no agreed channel for sharing it, or may be asked for help beyond the time available. These conditions should not be collapsed into an individual character judgment. If the record raises a concern, identify the working arrangement that could be clarified, such as a review window, an owner for shared notes or a boundary around optional support.",
+              "zh": "贡献机会受到权限、工作量、许可和对方是否有时间回应的影响。有用知识可能缺少约定分享渠道，求助也可能超出可用时间，不应把这些条件简化为性格评价。若记录引出问题，可识别需要澄清的安排，例如复核时段、共享说明负责人，或额外支持的边界。"
+            },
+            {
+              "en": "Ask for specific feedback when it is appropriate and the other person is willing. You might ask whether an explanation made the next action clearer, or whether a reusable note omitted a necessary step. Keep private evaluations and work details outside this inventory. Silence does not verify usefulness, and disagreement does not by itself prove poor teamwork. A focused exchange can reveal different expectations that need an agreement, while preserving both people’s right not to disclose information or take on extra work.",
+              "zh": "适当且对方愿意时，可询问具体反馈，例如说明是否让下一步更清楚，或可复用记录是否漏了步骤。私密评价和工作细节留在表外。沉默不证明有用，分歧也不自动证明合作差。具体交流可以暴露需要约定的不同预期，同时保留不披露信息或不额外接活的选择。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A useful next step can be modest",
+            "zh": "有用的下一步可以很小"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original reflection, not a published leadership scale or an assessment of employment suitability. Its prompts, categories and readings have no established reliability, norms or predictive validity. The references provide background concepts rather than evidence that these records measure expertise. A supported instance does not certify that advice was correct, just as a guided instance does not establish poor performance. Decisions about training, promotion, hiring or professional authority require appropriate task-specific evidence beyond this page.",
+              "zh": "这是原创回顾，并非发表的领导力量表或雇佣适合性评估；题目、类别和读法尚无已建立的信度、常模或预测效度。来源提供概念背景，不证明记录能测专业水平。支持实例不认证建议正确，指导实例也不证明表现差。培训、晋升、招聘或专业权限决定，需要表外的适当任务证据。"
+            },
+            {
+              "en": "You can finish by clarifying one shared expectation or improving one small explanation. All three full readings are available before answering and for every response pattern, including twelve non-assessment choices. There is no requirement to gather more followers, become a mentor or take another assessment. If you revisit the record, keep changes in the role and its opportunities visible. Responsible contribution can involve offering help, asking for help or declining work that has no agreed scope or capacity.",
+              "zh": "可以在澄清一个共同预期，或改进一小段说明后结束。三份全文在作答前和所有回答组合后都开放，包括十二项全部未评估。不要求增加影响力、成为导师或继续测试。以后回顾时，应保留角色与机会变化的背景。负责任的贡献既可以提供帮助，也可以求助，或拒绝没有约定范围和余量的工作。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "role-scope",
+      "title": {
+        "en": "Choose one role and one instance per task",
+        "zh": "每项任务选定一个角色和一个实例"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose one current or recent role and consider the past twelve weeks. Paid work, volunteering or a study project can provide the context. For each prompt, recall one concrete instance; if several apply, use the most recent. Select your main responsibility in that instance: working with step-by-step guidance, owning your task with agreed checkpoints, or supporting another person’s task. These can overlap in real work and are not ordered levels. Use the fourth choice if there is no relevant instance, you cannot assess it or you prefer not to answer. No names, employer details or work materials are requested.",
+          "zh": "选择一个当前或近期角色，回看近12周。付费工作、志愿活动或学习项目都可作为背景。每题回想一个具体实例；有多个实例时选最近一次。按当时主要责任选择：在逐步指导下参与、按约定检查点承担自己的任务，或支持他人完成任务。现实中这些方式可能重叠，不按等级排序。没有相关实例、无法判断或不愿回答时选第四项。不要求姓名、雇主信息或工作材料。"
+        }
+      ]
+    },
+    {
+      "id": "role-contexts",
+      "title": {
+        "en": "Record participation, not a career tier",
+        "zh": "记录参与方式"
+      },
+      "paragraphs": [
+        {
+          "en": "The first three choices describe your main responsibility in the selected instance. Someone can support a colleague while needing guidance elsewhere. Agreed review and escalation can be appropriate at any experience level. The fourth choice is a separate non-assessment category, never a zero or an inference about ability.",
+          "zh": "前三项描述选定实例中的主要责任。支持同事的人，也可能在其他任务上需要指导。任何经验阶段都可能需要约定复核或升级求助。第四项是独立的未评估类别，不计为零，也不推断能力。"
+        }
+      ]
+    },
+    {
+      "id": "role-counts",
+      "title": {
+        "en": "Four category counts for each four-task group",
+        "zh": "每组四项分别计数"
+      },
+      "paragraphs": [
+        {
+          "en": "Count each selected category once within its four-task group. For example, guided + owned + supported + na gives 1, 1, 1, 1; the four counts always sum to four. All four tasks need a choice. There is no numeric weight, sum of ability, mean, winning context, threshold or overall level. Groups remain in a fixed order; equal counts do not establish equal experience or performance.",
+          "zh": "每组四项按所选类别各记一次。例如guided、owned、supported、na各一项，计数就是1、1、1、1；四种计数之和始终为4。四项都需作出选择。不赋予类别数值权重，不计算能力总分、均值、胜出情境、阈值或整体等级。三组按固定顺序展示，相同计数不证明经验或表现相同。"
+        }
+      ]
+    },
+    {
+      "id": "role-readings",
+      "title": {
+        "en": "All three full readings stay open",
+        "zh": "三份完整读法始终开放"
+      },
+      "paragraphs": [
+        {
+          "en": "Read the complete guides to clarifying problems, checking delivery and contributing with others before answering or after any response pattern. Twelve non-assessment choices still produce all three readings and the twelve chosen records. The public guides describe task contexts; they are not personal beginner, intermediate or expert reports.",
+          "zh": "澄清问题、核对交付和共同贡献的完整指南，在作答前及任意回答组合后都可阅读。十二题全部选择未评估，仍显示三份全文与十二项所选记录。公开指南解释任务情境，不是个人初级、中级或专家报告。"
+        }
+      ]
+    },
+    {
+      "id": "role-privacy",
+      "title": {
+        "en": "Keep the instance details private",
+        "zh": "实例细节留在自己手中"
+      },
+      "paragraphs": [
+        {
+          "en": "The page only needs category choices and calculates the record locally. Progress stays in memory unless you explicitly save a tab draft. A saved draft expires after twenty-four hours and clears on completion, retake or exit-and-clear. Public links contain no choices or counts. Ordinary page analytics are disabled; optional anonymous activity counts require separate explicit opt-in. Do not enter work documents, client identities or private performance feedback.",
+          "zh": "页面只需类别选择，记录在本地计算。默认只留在内存；只有主动保存时，本标签页才保留草稿。草稿24小时后失效，完成、重测或退出并清除时删除。公开链接不包含选择或计数。普通页面分析关闭，可选匿名使用计数需另行主动开启。不要输入工作文件、客户身份或私密绩效反馈。"
+        }
+      ]
+    },
+    {
+      "id": "role-source",
+      "title": {
+        "en": "Original reflection with a limited source role",
+        "zh": "原创回顾及来源范围"
+      },
+      "paragraphs": [
+        {
+          "en": "OPM’s competency explanation and USA Staffing rating examples provide conceptual background about tasks, experience and support. OPM also ties proficiency decisions to analysis of specific positions. This twelve-prompt inventory, its four categories and three readings are original FermatMind content, not an OPM instrument, translation or endorsement. No psychometric validation, norms, career-stage calibration or employment assessment is claimed. Existing Skills Audit and Work Behavior Reflection remain separate tools with their own methods.",
+          "zh": "OPM的胜任力说明与USA Staffing评分示例，为任务、经验和支持条件提供概念背景；OPM也把熟练程度判断与具体岗位分析联系起来。本表十二题、四种类别和三份读法均为费马原创，不是OPM题本、翻译或背书。未建立心理测量效度、常模、职业阶段校准或雇佣评估功能。现有技能审计与工作行为回顾仍各自保留原方法。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this tell me whether I am a beginner, intermediate or expert?",
+        "zh": "它会判断我是初级、中级还是专家吗？"
+      },
+      "answer": {
+        "en": "No. It records participation contexts in one selected role. The same person can need detailed guidance for one task, own another and support someone else on a third. No universal career tier is assigned.",
+        "zh": "不会。本表记录选定角色中的参与情境。同一个人可能在某项任务需要详细指导，独立承担另一项，又支持别人完成第三项；不分配通用职业等级。"
+      }
+    },
+    {
+      "question": {
+        "en": "How should I answer when categories overlap?",
+        "zh": "几种情境重叠时怎样选择？"
+      },
+      "answer": {
+        "en": "Recall one concrete instance, using the most recent if several apply, and choose your main responsibility in that instance. Owning your output differs from supporting someone else’s output. If that distinction cannot be made, use the non-assessment choice; the record does not require a flattering or certain answer.",
+        "zh": "选择一个具体实例，有多个时用最近一次，按当时主要责任作答。承担自己的产出与支持他人的产出有所不同。确实无法区分时，可选未评估，不必给出更好看或确定的答案。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens with no relevant experience or twelve non-assessment choices?",
+        "zh": "没有相关经历，或十二项都选未评估会怎样？"
+      },
+      "answer": {
+        "en": "Each group shows its four category counts and item records, including non-assessment. No missing experience is converted into a low score. All three full public guides remain available.",
+        "zh": "每组显示四种类别的计数及逐题记录，包括未评估项。没有经历不会被换算成低分，三份完整公开指南仍可阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can an employer use these records to compare applicants?",
+        "zh": "雇主能用这些记录比较应聘者吗？"
+      },
+      "answer": {
+        "en": "These original self-reports have no established hiring validity or common difficulty standard. Responsibilities, permission, review and opportunity differ across roles. They cannot certify performance, decide promotion or match people to jobs.",
+        "zh": "本原创自报没有已建立的招聘效度或统一难度标准。不同角色的责任、许可、复核和机会各不相同，不能据此认证表现、决定晋升或匹配岗位。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use a volunteer or study role?",
+        "zh": "志愿活动或学习项目可以作为角色吗？"
+      },
+      "answer": {
+        "en": "Yes. Choose one specific role and the past twelve weeks, without merging unrelated settings into one career claim. If no relevant instance is available, use the non-assessment option.",
+        "zh": "可以。选定一个具体角色和近12周，不把无关背景合并为整体职业判断。没有相关实例时使用未评估选项。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does this differ from Skills Audit and Work Behavior Reflection?",
+        "zh": "它与技能审计、工作行为回顾有何不同？"
+      },
+      "answer": {
+        "en": "Skills Audit records the recency of task examples; Work Behavior Reflection records the frequency of selected behaviors. This inventory records the participation and support context of an instance. None verifies the quality of performance, and taking another test is optional.",
+        "zh": "技能审计记录任务实例的时间状态，工作行为回顾记录选定行为的频率；本表记录一次实例中的参与及支持情境。三者都不核实表现质量，是否继续做其他测试由你决定。"
+      }
+    }
+  ]
+}

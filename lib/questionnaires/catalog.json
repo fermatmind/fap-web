@@ -6260,5 +6260,29 @@
       "guarded-expectations",
       "fixed-conditions"
     ]
+  },
+  {
+    "slug": "work-role-reflection",
+    "code": "FM_WORK_ROLE_CONTEXT12",
+    "version": "fm_work_role_context12_v1",
+    "updated": "2026-10-29",
+    "category": "everyday",
+    "title": {
+      "en": "Work Role and Support Reflection",
+      "zh": "工作角色与支持方式回顾"
+    },
+    "description": {
+      "en": "Review twelve recent task instances and their support contexts. See three separate records and complete guides, without career tiers or ability scores.",
+      "zh": "用十二项任务实例回看问题澄清、交付核对和共同贡献，保留参与情境计数，免费阅读三份完整指南，不判定职业等级。"
+    },
+    "minutes": 4,
+    "formCode": "fm_work_role_context12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "problem-clarification-reading",
+      "delivery-checking-reading",
+      "shared-contribution-reading"
+    ],
+    "collection": "explore"
   }
 ]

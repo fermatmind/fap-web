@@ -1,3 +1,4 @@
+import { isWorkRole12ConfigurationValid } from "@/lib/questionnaires/workRole12";
 import { isSbti31ConfigurationValid } from "@/lib/questionnaires/sbti31";
 import { isCritical30ConfigurationValid } from "@/lib/questionnaires/critical30";
 import { isReasoning18ConfigurationValid } from "@/lib/questionnaires/reasoning18";
@@ -82,6 +83,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const questionnaire = await loadQuestionnaire(slug);
+  if (questionnaire?.kind === "work-role12" && !isWorkRole12ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "synes15" && !isSynes15ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "reasoning18" && !isReasoning18ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
@@ -180,6 +182,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.slug === "stupidity-test" ? (zh ? "原创日常乌龙选择" : "Original everyday mix-up choices")
     : questionnaire?.slug === "values-assessment" ? (zh ? "原创工作取舍" : "Original work-priority choices")
     : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
+    : questionnaire?.kind === "work-role12" ? (zh ? "原创任务情境回顾" : "Original task-context reflection")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
     : (zh ? "自编风格问卷" : "Original style questionnaire");
   return new ImageResponse(<div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 60, background: "#f8fafc", color: "#0f172a", fontFamily: "FunNoto" }}>
