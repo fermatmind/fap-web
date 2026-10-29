@@ -6085,5 +6085,31 @@
       "arguments"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "tipi-10",
+    "code": "TIPI10_GOSLING_2003",
+    "version": "tipi10_gosling2003_en_fm_zh_working_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "TIPI-10 Personality Test",
+      "zh": "TIPI-10极短大五人格测试"
+    },
+    "description": {
+      "en": "Try the original 10-item TIPI with seven-point answers, five raw Big Five means and full guides. English source items; working Chinese translation.",
+      "zh": "按原TIPI十题、七级选项，查看五个大五维度的原始均值及完整指南。保留英文原题，中文为未独立验证的费马工作译文。"
+    },
+    "minutes": 2,
+    "formCode": "tipi10_gosling2003_en_fm_zh_working_v1",
+    "questionCount": 10,
+    "resultSlugs": [
+      "extraversion-reading",
+      "agreeableness-reading",
+      "conscientiousness-reading",
+      "emotional-stability-reading",
+      "openness-reading"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,1618 @@
+{
+  "slug": "tipi-10",
+  "code": "TIPI10_GOSLING_2003",
+  "version": "tipi10_gosling2003_en_fm_zh_working_v1",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "tipi10",
+  "instructions": {
+    "en": "I see myself as: rate how much each pair of traits applies to you overall, even if one trait applies more strongly than the other. Use the original seven agreement options. All ten valid responses are required for five separate two-item means. There are no right answers, total score, percentiles or assigned types. You may exit and clear at any time, or read all five guides without answering.",
+    "zh": "总体上，我认为自己：请评价每对特质整体符合自己的程度，即使其中一项更符合。使用原七级认同选项。十题全部有效作答后，显示五个独立两题均值；没有正确答案、总分、百分位或类型分配。可随时退出清除，也可不作答直接阅读五篇完整指南。"
+  },
+  "title": {
+    "en": "TIPI-10 Personality Test",
+    "zh": "TIPI-10极短大五人格测试"
+  },
+  "description": {
+    "en": "Try the original 10-item TIPI with seven-point answers, five raw Big Five means and full guides. English source items; working Chinese translation.",
+    "zh": "按原TIPI十题、七级选项，查看五个大五维度的原始均值及完整指南。保留英文原题，中文为未独立验证的费马工作译文。"
+  },
+  "seoTitle": {
+    "en": "TIPI-10 Personality Test: Five Big Five Scores",
+    "zh": "TIPI-10极短大五人格测试：五维原始均值与完整读法"
+  },
+  "minutes": 2,
+  "introduction": {
+    "en": "TIPI is a very brief Big Five inventory by Gosling, Rentfrow and Swann (2003). This edition preserves its ten English trait pairs and scoring, with an independent FermatMind working Chinese translation. Shortness limits detail: it does not measure thirty facets or replace a longer Big Five assessment. Every full domain guide is free to read.",
+    "zh": "TIPI是Gosling、Rentfrow与Swann于2003年提出的极短大五量表。本版保留十组英文原特质及计分，配费马独立工作中译。极短版细节有限，不测三十面向，也不替代较长大五测评。五维完整指南均可免费阅读。"
+  },
+  "resultHeading": {
+    "en": "Your five TIPI-10 pair means",
+    "zh": "本次TIPI-10五项两题均值"
+  },
+  "source": {
+    "kind": "gosling_tipi10_author_permission_working_zh",
+    "formCode": "tipi10_gosling2003_en_fm_zh_working_v1",
+    "itemBankVersion": "tipi10_gosling2003_en_fm_zh_working_v1",
+    "scoringVersion": "tipi10_source_pairs_reverse8_complete10_v1",
+    "resultContentVersion": "fm_tipi10_five_full8_20261029_v1",
+    "itemBankSha256": "b00e58af44dbf92ea917a4006e13b05477e4520b58c5792d2ae4849590858643",
+    "resultContentSha256": "4cfcbe98248aef606ca06f1a8ecfa1c109133d09f7e1e32eb5e6e83b462921a1",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "extraversion",
+      "title": {
+        "en": "Extraversion",
+        "zh": "外向性"
+      },
+      "itemCount": 2
+    },
+    {
+      "id": "agreeableness",
+      "title": {
+        "en": "Agreeableness",
+        "zh": "宜人性"
+      },
+      "itemCount": 2
+    },
+    {
+      "id": "conscientiousness",
+      "title": {
+        "en": "Conscientiousness",
+        "zh": "尽责性"
+      },
+      "itemCount": 2
+    },
+    {
+      "id": "emotional-stability",
+      "title": {
+        "en": "Emotional Stability",
+        "zh": "情绪稳定性"
+      },
+      "itemCount": 2
+    },
+    {
+      "id": "openness",
+      "title": {
+        "en": "Openness to Experiences",
+        "zh": "经验开放性"
+      },
+      "itemCount": 2
+    }
+  ],
+  "questions": [
+    {
+      "id": "tipi-01",
+      "prompt": {
+        "en": "Extraverted, enthusiastic.",
+        "zh": "外向、热情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "extraversion",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "extraversion",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-02",
+      "prompt": {
+        "en": "Critical, quarrelsome.",
+        "zh": "爱挑毛病、容易争辩。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "agreeableness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "agreeableness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "agreeableness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "agreeableness",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-03",
+      "prompt": {
+        "en": "Dependable, self-disciplined.",
+        "zh": "值得信赖、能约束自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "conscientiousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-04",
+      "prompt": {
+        "en": "Anxious, easily upset.",
+        "zh": "容易焦虑、容易烦乱。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "emotional-stability",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-05",
+      "prompt": {
+        "en": "Open to new experiences, complex.",
+        "zh": "愿意接触新体验、思想复杂。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "openness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "openness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "openness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "openness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "openness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "openness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "openness",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-06",
+      "prompt": {
+        "en": "Reserved, quiet.",
+        "zh": "内敛、话不多。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "extraversion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "extraversion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "extraversion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "extraversion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "extraversion",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "extraversion",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "extraversion",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-07",
+      "prompt": {
+        "en": "Sympathetic, warm.",
+        "zh": "能体谅他人、待人温暖。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "agreeableness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "agreeableness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "agreeableness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "agreeableness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "agreeableness",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-08",
+      "prompt": {
+        "en": "Disorganized, careless.",
+        "zh": "做事缺少条理、容易粗心。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "conscientiousness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "conscientiousness",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-09",
+      "prompt": {
+        "en": "Calm, emotionally stable.",
+        "zh": "沉着、情绪平稳。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "emotional-stability",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "emotional-stability",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "id": "tipi-10",
+      "prompt": {
+        "en": "Conventional, uncreative.",
+        "zh": "遵循惯例、缺少创意。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Disagree strongly",
+            "zh": "强烈不同意"
+          },
+          "directionId": "openness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree moderately",
+            "zh": "中等程度不同意"
+          },
+          "directionId": "openness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Disagree a little",
+            "zh": "有点不同意"
+          },
+          "directionId": "openness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不赞同"
+          },
+          "directionId": "openness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Agree a little",
+            "zh": "有点同意"
+          },
+          "directionId": "openness",
+          "score": 5
+        },
+        {
+          "id": "6",
+          "label": {
+            "en": "Agree moderately",
+            "zh": "中等程度同意"
+          },
+          "directionId": "openness",
+          "score": 6
+        },
+        {
+          "id": "7",
+          "label": {
+            "en": "Agree strongly",
+            "zh": "强烈同意"
+          },
+          "directionId": "openness",
+          "score": 7
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "extraversion-reading",
+      "directionIds": [
+        "extraversion"
+      ],
+      "title": {
+        "en": "Extraversion: Full TIPI-10 Guide",
+        "zh": "外向性：TIPI-10完整读法"
+      },
+      "headline": {
+        "en": "Read the two-item mean and the original responses together.",
+        "zh": "结合两题均值与原回答阅读。"
+      },
+      "summary": {
+        "en": "A complete guide to the Extraversion pair, its reverse key, examples, context and limits.",
+        "zh": "完整说明外向性这一对的反向键、均值、例子、场合和局限。"
+      },
+      "scoreReading": {
+        "en": "Use item 1 directly and item 6 as 8 minus its response; average the two keyed values. Range 1–7, without bands or a type.",
+        "zh": "第1题直接使用，第6题用8减原回答，两项计分值取平均。范围1至7，不分档或派型。"
+      },
+      "seo": {
+        "title": {
+          "en": "TIPI-10 Extraversion: Full Score Guide",
+          "zh": "TIPI-10外向性完整分数读法"
+        },
+        "description": {
+          "en": "Read the TIPI-10 Extraversion mean: exact two-item scoring, mixed answers, examples and limits. Full guide, no percentile or type.",
+          "zh": "完整阅读TIPI-10外向性：准确两题计分、混合回答、场景算例与极短量表局限。不设百分位或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "extraversion-1",
+          "title": {
+            "en": "What these two traits cover",
+            "zh": "这两个特质覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Extraversion here concerns seeing yourself as outgoing and enthusiastic rather than reserved and quiet. These are broad descriptions of how you tend to engage, not a count of friends or a requirement to enjoy every gathering. Someone can enjoy conversation with familiar people and still need considerable quiet time. Two items cannot describe every setting, distinguish assertiveness from positive energy, or establish what other people experience when they meet you.",
+              "zh": "这里的外向性概括：你多大程度认为自己外向且热情，相对于内敛且话不多。这是对通常参与方式的宽泛描述，不数朋友，也不要求喜欢每场聚会。有人与熟人交谈愉快，同时仍需要很多安静时间。两题不能覆盖所有场合、区分自信表达与积极活力，或证明别人见到你时的感受。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-2",
+          "title": {
+            "en": "The exact pair calculation",
+            "zh": "这一对的准确计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Use item 1 directly and reverse item 6 by subtracting its response from eight. If item 1 is 6 and item 6 is 2, the calculation is (6 + (8 − 2)) / 2 = 6. The possible mean runs from 1 to 7. This is the source TIPI key. The displayed two-decimal mean is a raw response summary, without a population comparison or a threshold dividing introverts from extraverts.",
+              "zh": "第1题直接使用，第6题用8减去原回答。若第1题答6、第6题答2，则为(6＋(8－2))/2＝6。均值范围1至7，遵循TIPI原计分键。页面保留两位小数，表示原回答摘要，没有人群比较，也没有把内向者与外向者切开的阈值。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-3",
+          "title": {
+            "en": "Reading greater or lesser agreement",
+            "zh": "怎样读较高或较低均值"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean reflects greater endorsement of the outgoing end of this particular pair. It does not prove leadership, confidence, popularity or social skill. A lower mean reflects stronger endorsement of the reserved end; it does not establish loneliness, shyness or a problem to fix. A person who prefers listening can contribute strongly to a discussion, while someone who speaks readily can still need preparation and support.",
+              "zh": "均值较高，表示这对题中更认同外向一端，不能证明领导力、自信、受欢迎程度或社交技能。较低表示更认同内敛一端，不能证明孤独、害羞或存在需要修正的问题。偏好倾听的人也能为讨论作重要贡献；容易开口的人同样可能需要准备和支持。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-4",
+          "title": {
+            "en": "The same mean can hide different answers",
+            "zh": "相同均值可能来自不同回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Responses of 6 and 6 to items 1 and 6 give a mean of 4 after reversing item 6. Responses of 4 and 4 also give 4. In the first case you endorsed both trait pairs, perhaps imagining different settings; in the second you chose the midpoint twice. Neither pattern proves inconsistency. The report preserves both original responses so the mean does not erase this useful distinction.",
+              "zh": "第1、6题都答6，反向后均值为4；两题都答4，均值也是4。前者同时认同两组特质，也许想到不同场合；后者两次选中点。任何一种模式都不能证明作答不一致。报告保留两题原回答，避免均值抹掉这项有用区别。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-5",
+          "title": {
+            "en": "A conversation changes with its setting",
+            "zh": "交谈方式会随场合变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine contributing ideas in a small project meeting but speaking little at a crowded reception. A single broad rating needs you to weigh both experiences. Language familiarity, fatigue and the topic can change the picture without changing your whole personality. If you repeat the inventory, first note whether you are using a similar reference point. A changed answer alone does not show that an intervention worked or a trait permanently changed.",
+              "zh": "例如，在小型项目会上积极提建议，到了拥挤招待会却很少说话。宽泛评分需要你自己权衡两种经历；语言熟悉程度、疲劳和话题都可能改变画面，而不是整个人格都变化。以后重做时，先看看参照是否相近。答案变化本身不能证明干预有效或特质永久改变。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-6",
+          "title": {
+            "en": "Compare domains without making a type",
+            "zh": "比较维度而不生成类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Extraversion is separate from Agreeableness. Speaking often does not tell us how considerate someone is, and speaking rarely does not tell us whether they are warm. The five TIPI means are not five competing scores: one need not be highest, and equal means need no tie-break. This short inventory does not generate an MBTI code or estimate the thirty facets of a longer Big Five questionnaire.",
+              "zh": "外向性与宜人性分别保留。说得多不能说明是否体谅他人，说得少也不能说明是否温暖。TIPI五个均值不互相竞争，不需要找最高项，相同也不用打破并列。短量表不生成人格类型代码，也不能估算较长大五题本的三十个面向。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-7",
+          "title": {
+            "en": "One optional observation",
+            "zh": "一个可选观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall one recent interaction where your preferred level of participation felt comfortable. Note the group size, familiarity and recovery time, rather than trying to increase your score. You may use that observation to plan a suitable way to contribute next time. There is no need to share the ratings with anyone, adopt a social identity, or take another test before ending this reflection.",
+              "zh": "回想最近一次参与程度让你自在的互动，记下人数、熟悉程度与恢复时间，不必设法提高分数。以后可据此安排适合自己的参与方式。无需向别人公开评分、采用某种社交身份，或在结束反思前继续测评。"
+            }
+          ]
+        },
+        {
+          "id": "extraversion-8",
+          "title": {
+            "en": "A brief instrument, with a declared edition",
+            "zh": "极短量表与明确版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Gosling, Rentfrow and Swann introduced TIPI in 2003 for situations needing a very short description of broad personality domains. The author permits use for any purpose and explains the trade-off in measurement detail. This website retains the English items and source key; Chinese is FermatMind’s working translation, without established language equivalence or local norms. These explanations are editorial guides, not part of the original item bank or evidence of new validation.",
+              "zh": "Gosling、Rentfrow与Swann于2003年提出TIPI，用于需要极短宽泛人格描述的场合。作者允许任何目的使用，也说明测量细节上的取舍。本页保留英文原题和原计分键；中文为费马工作译文，未建立跨语言等价或本地常模。这些解释是本站编辑指南，不属于原始题本，也不是新验证的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agreeableness-reading",
+      "directionIds": [
+        "agreeableness"
+      ],
+      "title": {
+        "en": "Agreeableness: Full TIPI-10 Guide",
+        "zh": "宜人性：TIPI-10完整读法"
+      },
+      "headline": {
+        "en": "Read the two-item mean and the original responses together.",
+        "zh": "结合两题均值与原回答阅读。"
+      },
+      "summary": {
+        "en": "A complete guide to the Agreeableness pair, its reverse key, examples, context and limits.",
+        "zh": "完整说明宜人性这一对的反向键、均值、例子、场合和局限。"
+      },
+      "scoreReading": {
+        "en": "Use item 7 directly and item 2 as 8 minus its response; average the two keyed values. Range 1–7, without bands or a type.",
+        "zh": "第7题直接使用，第2题用8减原回答，两项计分值取平均。范围1至7，不分档或派型。"
+      },
+      "seo": {
+        "title": {
+          "en": "TIPI-10 Agreeableness: Full Score Guide",
+          "zh": "TIPI-10宜人性完整分数读法"
+        },
+        "description": {
+          "en": "Read the TIPI-10 Agreeableness mean: exact two-item scoring, mixed answers, examples and limits. Full guide, no percentile or type.",
+          "zh": "完整阅读TIPI-10宜人性：准确两题计分、混合回答、场景算例与极短量表局限。不设百分位或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "agreeableness-1",
+          "title": {
+            "en": "A broad interpersonal contrast",
+            "zh": "一个宽泛的人际对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This TIPI pair contrasts describing yourself as sympathetic and warm with describing yourself as critical and quarrelsome. It offers a very brief view of interpersonal tendencies, not an evaluation of moral worth. A person may care deeply while challenging an unfair proposal. Another may sound friendly while avoiding a necessary disagreement. The wording bundles traits together, so each response should describe the pair overall even if one word fits better.",
+              "zh": "这对TIPI特质对照：认为自己能体谅他人且待人温暖，或爱挑毛病且容易争辩。它简略观察人际倾向，不评价道德价值。一个人可能关心他人，同时质疑不公平的提议；另一个人语气友好，却回避必要分歧。每题把特质放在一起，即使其中一个更符合，也按整对总体评价。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-2",
+          "title": {
+            "en": "Reverse item two, retain item seven",
+            "zh": "第2题反向，第7题正向"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeableness is ((8 − item 2) + item 7) / 2. For example, responses of 3 to item 2 and 6 to item 7 yield (5 + 6) / 2 = 5.5. Seven is the maximum possible mean, not a perfect-person score. Four is the middle of the response range, not an established population average. Both source items must have valid responses before any personal TIPI means appear.",
+              "zh": "宜人性为((8－第2题)＋第7题)/2。第2题答3、第7题答6，则(5＋6)/2＝5.5。7只是可能的最高均值，不是完美人格分；4是响应范围中点，不是已经建立的人群平均。原十题都有效作答后，才呈现本次五项个人均值。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-3",
+          "title": {
+            "en": "What a larger or smaller mean supports",
+            "zh": "较高或较低均值支持什么读法"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater self-description toward warmth and sympathy within these two items. It does not demonstrate kindness in every relationship, honesty, generosity or suitability as a partner. A lower mean indicates stronger critical or quarrelsome self-description, not a diagnosis or proof of mistreatment. Necessary boundaries, cultural meanings of directness and a recent disagreement can all influence how someone understands these adjectives.",
+              "zh": "均值较高，表示在这两题中更把自己描述为温暖且能体谅他人，不能证明每段关系中都善良、诚实、慷慨或适合作伴侣。较低表示更认同挑剔或争辩的自我描述，不是诊断或伤害他人的证据。必要边界、文化中直接表达的含义及最近的分歧，都可能影响对形容词的理解。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-4",
+          "title": {
+            "en": "Warmth and criticism can coexist",
+            "zh": "温暖与批评可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you answer 6 to both items 2 and 7. The resulting mean is 4 because the keyed responses are 2 and 6. Someone answering 4 twice also receives 4, but has not endorsed both ends as strongly. You may be supportive with a friend and exacting about shared responsibilities. The pair is too brief to explain why; keep the original ratings alongside a concrete example rather than treating the midpoint as indifference.",
+              "zh": "假设第2、7题都答6，计分值为2和6，均值4。另一人两题都答4，也得4，却没有强烈认同两端。你可能支持朋友，同时严格要求共同责任。两题太短，解释不了原因；保留原回答与具体例子，不要把中点直接当成冷漠。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-5",
+          "title": {
+            "en": "An example involving a shared deadline",
+            "zh": "共同截止日期的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A teammate misses an agreed deadline. You can acknowledge their difficulty and still ask for a revised plan. Warmth does not require taking over their work, while a critical observation need not become an argument. The TIPI response cannot determine which exchange actually occurred or whether another person felt respected. For a useful reflection, describe the words you used and the situation, without scoring the teammate.",
+              "zh": "队友错过约定期限时，可以承认其困难，也要求修订计划。温暖不等于接手全部工作，指出问题也不必变成争吵。TIPI回答不能确定实际交流怎样发生，或别人是否感到被尊重。若想反思，描述自己的措辞与场合即可，不给队友评分。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-6",
+          "title": {
+            "en": "Separate warmth from energy and organisation",
+            "zh": "区分温暖、活力与条理"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeableness differs from Extraversion: quiet people can be warm, and enthusiastic people can disagree sharply. It also differs from Conscientiousness: dependable follow-through and interpersonal softness are not the same trait. Do not add these means to obtain a relationship-quality score or use them to rank friends. The five domains remain separate descriptions, and their numerical order is not a list of personal strengths and weaknesses.",
+              "zh": "宜人性不同于外向性：安静者也能温暖，热情者也可能尖锐反对。它也不同于尽责性：可靠履行与人际温和不是同一特质。不要相加生成关系质量分，或用来排名朋友。五维分别描述，数值顺序不是个人优缺点清单。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-7",
+          "title": {
+            "en": "A question about one real exchange",
+            "zh": "关于一次真实交流的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a recent disagreement and ask whether you expressed both the concern and the boundary clearly. This is optional observation, not a prescription to become more agreeable. If useful, write one alternative sentence that keeps the disagreement specific while recognising the other person’s perspective. You can keep the note private and stop here; no one owes another person their personality responses or a higher score.",
+              "zh": "选择最近一次分歧，看看自己是否清楚表达了关切和边界。这是可选观察，不要求变得更顺从。如果有帮助，可写一句替代表达，在具体说明分歧时承认对方视角。笔记可保密，到此结束；任何人都不欠别人自己的人格答案或更高分数。"
+            }
+          ]
+        },
+        {
+          "id": "agreeableness-8",
+          "title": {
+            "en": "A brief instrument, with a declared edition",
+            "zh": "极短量表与明确版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Gosling, Rentfrow and Swann introduced TIPI in 2003 for situations needing a very short description of broad personality domains. The author permits use for any purpose and explains the trade-off in measurement detail. This website retains the English items and source key; Chinese is FermatMind’s working translation, without established language equivalence or local norms. These explanations are editorial guides, not part of the original item bank or evidence of new validation.",
+              "zh": "Gosling、Rentfrow与Swann于2003年提出TIPI，用于需要极短宽泛人格描述的场合。作者允许任何目的使用，也说明测量细节上的取舍。本页保留英文原题和原计分键；中文为费马工作译文，未建立跨语言等价或本地常模。这些解释是本站编辑指南，不属于原始题本，也不是新验证的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conscientiousness-reading",
+      "directionIds": [
+        "conscientiousness"
+      ],
+      "title": {
+        "en": "Conscientiousness: Full TIPI-10 Guide",
+        "zh": "尽责性：TIPI-10完整读法"
+      },
+      "headline": {
+        "en": "Read the two-item mean and the original responses together.",
+        "zh": "结合两题均值与原回答阅读。"
+      },
+      "summary": {
+        "en": "A complete guide to the Conscientiousness pair, its reverse key, examples, context and limits.",
+        "zh": "完整说明尽责性这一对的反向键、均值、例子、场合和局限。"
+      },
+      "scoreReading": {
+        "en": "Use item 3 directly and item 8 as 8 minus its response; average the two keyed values. Range 1–7, without bands or a type.",
+        "zh": "第3题直接使用，第8题用8减原回答，两项计分值取平均。范围1至7，不分档或派型。"
+      },
+      "seo": {
+        "title": {
+          "en": "TIPI-10 Conscientiousness: Full Score Guide",
+          "zh": "TIPI-10尽责性完整分数读法"
+        },
+        "description": {
+          "en": "Read the TIPI-10 Conscientiousness mean: exact two-item scoring, mixed answers, examples and limits. Full guide, no percentile or type.",
+          "zh": "完整阅读TIPI-10尽责性：准确两题计分、混合回答、场景算例与极短量表局限。不设百分位或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "conscientiousness-1",
+          "title": {
+            "en": "Dependability and organisation",
+            "zh": "可靠与做事条理"
+          },
+          "paragraphs": [
+            {
+              "en": "The pair asks whether you see yourself as dependable and self-disciplined, and as disorganised and careless. It briefly describes tendencies around follow-through and organisation. It is not an inspection of your work, an ability test or a judgement of effort. Someone may maintain careful routines in a familiar role and struggle when resources change. Two adjective pairs cannot separate planning, persistence, accuracy and responsibility into distinct facets.",
+              "zh": "这对题询问：你是否认为自己值得信赖且能约束自己，以及做事缺少条理且容易粗心。它简略描述履行安排和条理方面的倾向，不检查工作表现、不测试能力，也不评价努力程度。有人在熟悉角色中保持细致常规，资源改变后却遇困难。两组形容词无法分别测出计划、坚持、准确与责任等面向。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-2",
+          "title": {
+            "en": "Keep item three; reverse item eight",
+            "zh": "第3题正向，第8题反向"
+          },
+          "paragraphs": [
+            {
+              "en": "The source formula is (item 3 + (8 − item 8)) / 2. A response of 5 to item 3 and 2 to item 8 produces (5 + 6) / 2 = 5.5. Each original response remains visible beside its keyed value. The mean can only change in half-point steps, so two decimal places are a display convention and do not create extra measurement precision.",
+              "zh": "原公式为(第3题＋(8－第8题))/2。第3题答5、第8题答2，得(5＋6)/2＝5.5。每题原回答与计分值分别保留。均值只能以0.5为步长变化，显示两位小数只是呈现约定，不会增加测量精度。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-3",
+          "title": {
+            "en": "Read the description without a productivity rank",
+            "zh": "不把描述当作效率排名"
+          },
+          "paragraphs": [
+            {
+              "en": "Greater agreement toward dependability raises this mean. It does not prove higher productivity, better grades or greater suitability for a job. A lower mean does not establish laziness, a lack of values or an attention disorder. Available time, unclear instructions, illness and competing responsibilities may affect how you describe yourself. The inventory cannot tell which explanation applies, and its raw mean cannot choose an occupation or decide whether support is needed.",
+              "zh": "更认同可靠一端会提高均值，但不能证明效率、成绩或岗位适合度更高。较低不能证明懒惰、没有原则或存在注意障碍。可用时间、指令不清、生病和责任冲突，都可能影响自我描述。量表不能判断哪种解释适用，原均值也不能替你选职业或判断是否需要支持。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-4",
+          "title": {
+            "en": "A mixed pair is not a contradiction test",
+            "zh": "混合回答不是矛盾检验"
+          },
+          "paragraphs": [
+            {
+              "en": "Answering 6 to both items 3 and 8 gives a mean of 4, the same as answering 4 twice. The first pattern might describe someone who reliably fulfils commitments while feeling disorganised in daily details. The second may reflect moderate endorsement of both pairs. Neither pattern is invalid simply because its words point in different directions. Read the actual responses before interpreting the shared mean.",
+              "zh": "第3、8题都答6，均值为4，与两题都答4相同。前者可能描述：能可靠履行承诺，却觉得日常细节缺乏条理；后者可能是对两对都中度认同。不能仅因词语方向不同就判回答无效。解释相同均值前，先看实际回答。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-5",
+          "title": {
+            "en": "A reminder system changes the context",
+            "zh": "提醒工具会改变场合"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider remembering a shared appointment. A calendar reminder may make follow-through easy even if you would otherwise forget. This does not make the dependable description false, nor does the questionnaire reveal how much scaffolding you use. For reflection, name the arrangement that helps rather than assigning all success or difficulty to personality. Different demands at home and work can lead to different examples behind the same broad response.",
+              "zh": "例如，日历提醒可能让你轻松记住共同约定，即使没有提醒原本会忘。这样不意味着可靠的描述虚假，问卷也看不出用了多少辅助。反思时可以写出哪些安排有用，不必把全部成功或困难归给人格。家庭和工作的要求不同，同一个宽泛回答背后也可能有不同例子。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-6",
+          "title": {
+            "en": "Keep diligence separate from warmth",
+            "zh": "区分尽责与人际温暖"
+          },
+          "paragraphs": [
+            {
+              "en": "Conscientiousness and Agreeableness are separate descriptions. Keeping a deadline does not show that an exchange was warm, and being considerate does not establish that every detail was organised. Emotional Stability also asks a different question: feeling upset does not erase dependable behaviour. Avoid combining these five means into an overall good-person score. A brief profile leaves many important qualities and circumstances unmeasured.",
+              "zh": "尽责性与宜人性分别描述。按期完成不能说明交流温暖，体谅他人也不能证明所有细节都有条理。情绪稳定性又是另一问题：心烦不会抹去可靠行为。不要把五项均值合成整体好人格分，短画像有许多重要品质和场合没有测到。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-7",
+          "title": {
+            "en": "Try an observation rather than a score target",
+            "zh": "先观察，不追分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one small commitment from the past week. Note what was clear, what competed for attention and which reminder or agreement helped. If useful, adjust one practical arrangement next time, without trying to move a personality score. You may keep the observation private. A longer Big Five questionnaire is an optional different assessment, not a way to certify this short response or fill missing facets automatically.",
+              "zh": "挑上周一项小承诺，记下哪些要求清楚、什么分散注意、哪种提醒或约定有帮助。如果有用，下次调整一项实际安排即可，无需追求人格分变化。观察可保密。较长大五题本是可另选的测评，不会认证这次短回答，也不会自动补齐缺失面向。"
+            }
+          ]
+        },
+        {
+          "id": "conscientiousness-8",
+          "title": {
+            "en": "A brief instrument, with a declared edition",
+            "zh": "极短量表与明确版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Gosling, Rentfrow and Swann introduced TIPI in 2003 for situations needing a very short description of broad personality domains. The author permits use for any purpose and explains the trade-off in measurement detail. This website retains the English items and source key; Chinese is FermatMind’s working translation, without established language equivalence or local norms. These explanations are editorial guides, not part of the original item bank or evidence of new validation.",
+              "zh": "Gosling、Rentfrow与Swann于2003年提出TIPI，用于需要极短宽泛人格描述的场合。作者允许任何目的使用，也说明测量细节上的取舍。本页保留英文原题和原计分键；中文为费马工作译文，未建立跨语言等价或本地常模。这些解释是本站编辑指南，不属于原始题本，也不是新验证的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotional-stability-reading",
+      "directionIds": [
+        "emotional-stability"
+      ],
+      "title": {
+        "en": "Emotional Stability: Full TIPI-10 Guide",
+        "zh": "情绪稳定性：TIPI-10完整读法"
+      },
+      "headline": {
+        "en": "Read the two-item mean and the original responses together.",
+        "zh": "结合两题均值与原回答阅读。"
+      },
+      "summary": {
+        "en": "A complete guide to the Emotional Stability pair, its reverse key, examples, context and limits.",
+        "zh": "完整说明情绪稳定性这一对的反向键、均值、例子、场合和局限。"
+      },
+      "scoreReading": {
+        "en": "Use item 9 directly and item 4 as 8 minus its response; average the two keyed values. Range 1–7, without bands or a type.",
+        "zh": "第9题直接使用，第4题用8减原回答，两项计分值取平均。范围1至7，不分档或派型。"
+      },
+      "seo": {
+        "title": {
+          "en": "TIPI-10 Emotional Stability: Full Score Guide",
+          "zh": "TIPI-10情绪稳定性完整分数读法"
+        },
+        "description": {
+          "en": "Read the TIPI-10 Emotional Stability mean: exact two-item scoring, mixed answers, examples and limits. Full guide, no percentile or type.",
+          "zh": "完整阅读TIPI-10情绪稳定性：准确两题计分、混合回答、场景算例与极短量表局限。不设百分位或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "emotional-stability-1",
+          "title": {
+            "en": "The source scale is Emotional Stability",
+            "zh": "原维度是情绪稳定性"
+          },
+          "paragraphs": [
+            {
+              "en": "TIPI names this domain Emotional Stability. It combines seeing yourself as calm and emotionally stable with the reverse of anxious and easily upset. This page preserves that direction rather than relabelling the value Neuroticism. It is a broad trait self-description, not a record of current symptoms, a test of resilience or a measure of how well you cope with a specific hardship.",
+              "zh": "TIPI将这一维命名为情绪稳定性：结合沉着且情绪平稳的自我描述，以及容易焦虑且容易烦乱的反向计分。本页保持原方向，不把数值改叫神经质。这是宽泛特质自报，不记录当前症状，也不测韧性或应对某项困难的能力。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-2",
+          "title": {
+            "en": "Reverse four, never nine",
+            "zh": "第4题反向，第9题不反向"
+          },
+          "paragraphs": [
+            {
+              "en": "The source calculation is ((8 − item 4) + item 9) / 2. If item 4 is 2 and item 9 is 5, the mean is (6 + 5) / 2 = 5.5. Reversing item 9 instead would change what the score means and is not this implementation. The 1–7 value remains a raw pair mean; it is not converted to a risk tier, symptom severity or a percentile.",
+              "zh": "原计算为((8－第4题)＋第9题)/2。第4题答2、第9题答5，均值(6＋5)/2＝5.5。若改为反向第9题，就会改变分数含义，本版不这样做。1至7的值仍是两题原始均值，不换算风险等级、症状严重度或百分位。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-3",
+          "title": {
+            "en": "Higher is not proof of wellbeing",
+            "zh": "较高不证明身心状况良好"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean reflects stronger self-description toward calmness within these two pairs. It cannot establish mental health, absence of distress or a need to handle everything alone. A lower mean cannot diagnose anxiety, predict a crisis or determine whether treatment would help. A recent loss, pressure or lack of sleep may influence your response; the inventory does not separate these circumstances from a broad trait judgement.",
+              "zh": "较高表示在这两对中更把自己描述为沉着，不能证明心理健康、没有痛苦，或应该独自应对一切。较低不能诊断焦虑、预测危机或决定治疗是否有用。近期失落、压力或睡眠不足可能影响回答；量表不能把这些场合与宽泛特质判断分开。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-4",
+          "title": {
+            "en": "Calm and easily upset in different situations",
+            "zh": "不同情境下既平静又易心烦"
+          },
+          "paragraphs": [
+            {
+              "en": "Responses of 6 to both items 4 and 9 yield 4 after reverse scoring, just as two midpoint responses do. You may feel calm when solving practical problems yet easily upset by an unresolved personal concern. That context is invisible in the mean. It is not a lie-detection pattern or a reason to discard your experience. Keep both responses and decide whether a concrete example would clarify them.",
+              "zh": "第4、9题都答6，反向后均值4，与两次中点相同。你可能处理实际问题时沉着，却容易被悬而未决的个人烦恼扰动；均值看不到这种场合差异。这不是测谎模式，也不是否定经历的理由。保留两题回答，可自行决定是否用具体例子澄清。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-5",
+          "title": {
+            "en": "A difficult week is not a permanent label",
+            "zh": "困难一周不是永久标签"
+          },
+          "paragraphs": [
+            {
+              "en": "After several disrupted nights, small problems may feel more upsetting than usual. When answering a broad personality statement, consider the overall reference you intended rather than letting a single event silently stand for everything. You need not minimise a current difficulty to keep a stable self-image. If distress itself is your concern, consider your actual needs and suitable support separately from this two-item score.",
+              "zh": "连续几晚睡眠被打断后，小问题可能比平时更烦人。回答宽泛人格陈述时，可以留意原本想采用的整体参照，不让单个事件悄悄代表全部。也不必为维持稳定自我形象而淡化当前困难。若你关心的是痛苦本身，请另看实际需要和合适支持，不依赖这两题分数。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-6",
+          "title": {
+            "en": "Separate stability from conscientious action",
+            "zh": "区分情绪平稳与尽责行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Emotional Stability does not measure how many commitments you keep; that is closer to the separate Conscientiousness description. It also does not measure compassion, courage or the depth of emotion. People with different raw means can make equally thoughtful choices in the same situation. Do not subtract this value from another domain, use it as a relationship compatibility score or infer the thirty facets of a longer instrument.",
+              "zh": "情绪稳定性不测履行了多少承诺，那更接近独立的尽责性描述；也不测同情心、勇气或情感深度。原均值不同的人，在同一场合也能作同样周到的选择。不要把此值与另一维相减、拿来做关系匹配，或推断较长题本的三十面向。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-7",
+          "title": {
+            "en": "An optional context note",
+            "zh": "可选的场合笔记"
+          },
+          "paragraphs": [
+            {
+              "en": "If comfortable, note one setting in which you feel relatively settled and one that tends to unsettle you. The purpose is to understand the reference behind the adjectives, not to suppress emotion or raise a score. You can leave the exercise here, without disclosing difficult experiences. A repeat result is another self-report under its own circumstances, not proof of recovery, decline or a permanent change.",
+              "zh": "如果自在，可记一个相对平稳的场合和一个容易扰动你的场合。目的是理解形容词背后的参照，不是压抑情绪或提高分数。无需披露困难经历，可以到此结束。重做结果只是另一场合下的自报，不证明恢复、恶化或永久变化。"
+            }
+          ]
+        },
+        {
+          "id": "emotional-stability-8",
+          "title": {
+            "en": "A brief instrument, with a declared edition",
+            "zh": "极短量表与明确版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Gosling, Rentfrow and Swann introduced TIPI in 2003 for situations needing a very short description of broad personality domains. The author permits use for any purpose and explains the trade-off in measurement detail. This website retains the English items and source key; Chinese is FermatMind’s working translation, without established language equivalence or local norms. These explanations are editorial guides, not part of the original item bank or evidence of new validation.",
+              "zh": "Gosling、Rentfrow与Swann于2003年提出TIPI，用于需要极短宽泛人格描述的场合。作者允许任何目的使用，也说明测量细节上的取舍。本页保留英文原题和原计分键；中文为费马工作译文，未建立跨语言等价或本地常模。这些解释是本站编辑指南，不属于原始题本，也不是新验证的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openness-reading",
+      "directionIds": [
+        "openness"
+      ],
+      "title": {
+        "en": "Openness to Experiences: Full TIPI-10 Guide",
+        "zh": "经验开放性：TIPI-10完整读法"
+      },
+      "headline": {
+        "en": "Read the two-item mean and the original responses together.",
+        "zh": "结合两题均值与原回答阅读。"
+      },
+      "summary": {
+        "en": "A complete guide to the Openness to Experiences pair, its reverse key, examples, context and limits.",
+        "zh": "完整说明经验开放性这一对的反向键、均值、例子、场合和局限。"
+      },
+      "scoreReading": {
+        "en": "Use item 5 directly and item 10 as 8 minus its response; average the two keyed values. Range 1–7, without bands or a type.",
+        "zh": "第5题直接使用，第10题用8减原回答，两项计分值取平均。范围1至7，不分档或派型。"
+      },
+      "seo": {
+        "title": {
+          "en": "TIPI-10 Openness to Experiences: Full Score Guide",
+          "zh": "TIPI-10经验开放性完整分数读法"
+        },
+        "description": {
+          "en": "Read the TIPI-10 Openness to Experiences mean: exact two-item scoring, mixed answers, examples and limits. Full guide, no percentile or type.",
+          "zh": "完整阅读TIPI-10经验开放性：准确两题计分、混合回答、场景算例与极短量表局限。不设百分位或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "openness-1",
+          "title": {
+            "en": "New experiences and conventional preferences",
+            "zh": "新体验与惯常偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "This pair concerns seeing yourself as open to new experiences and complex, versus conventional and uncreative. The original wording is deliberately broad and combines two descriptors in each item. It is not a creativity task, an intelligence test or a count of places visited. Interest in unfamiliar ideas can coexist with a preference for familiar routines, and opportunities to try something new differ substantially between people.",
+              "zh": "这对题询问：认为自己愿意接触新体验且思想复杂，或遵循惯例且缺少创意。原文刻意宽泛，每题结合两个描述。它不是创造力任务、智力测试，也不数旅行地点。对陌生想法有兴趣，也可同时偏好熟悉常规；不同人尝试新事物的机会也明显不同。"
+            }
+          ]
+        },
+        {
+          "id": "openness-2",
+          "title": {
+            "en": "Keep five; reverse ten",
+            "zh": "第5题正向，第10题反向"
+          },
+          "paragraphs": [
+            {
+              "en": "The formula is (item 5 + (8 − item 10)) / 2. Responses of 6 to item 5 and 3 to item 10 give (6 + 5) / 2 = 5.5. Rate each trait pair overall, even if only one descriptor seems especially fitting. The arithmetic does not turn broad adjectives into an objective estimate of artistic talent, intellectual depth or the number of ideas you can generate.",
+              "zh": "公式为(第5题＋(8－第10题))/2。第5题答6、第10题答3，得(6＋5)/2＝5.5。即使只有其中一个描述特别符合，也按整对总体作答。计算不能把宽泛形容词变成艺术才能、思想深度或想法产量的客观估计。"
+            }
+          ]
+        },
+        {
+          "id": "openness-3",
+          "title": {
+            "en": "No better lifestyle follows from the mean",
+            "zh": "均值不决定哪种生活更好"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater self-description toward the open end of these items. It does not prove tolerance, good judgement or originality in actual work. A lower mean cannot establish narrow-mindedness or lack of imagination. Familiarity may be practical, enjoyable or essential in a particular setting. Neither end tells you which interests to adopt, what to buy or how many new activities you should attempt.",
+              "zh": "较高表示在这些题中更认同开放一端，不能证明包容、判断正确或工作中有原创力。较低不能证明思想狭窄或没有想象力。在特定场合，熟悉做法可能实用、愉快或不可缺。两端都不能决定你该培养什么兴趣、购买什么或尝试多少新活动。"
+            }
+          ]
+        },
+        {
+          "id": "openness-4",
+          "title": {
+            "en": "Strong endorsement of both pairs",
+            "zh": "同时认同两组特质"
+          },
+          "paragraphs": [
+            {
+              "en": "If items 5 and 10 both receive 6, the keyed mean is 4; answering 4 to both also produces 4. The first pattern may reflect enjoying new ideas while considering your everyday habits conventional. The second endorses neither pair strongly. These examples show why the original answers matter. They are not categories in the source instrument, and the website does not assign you a mixed personality type.",
+              "zh": "第5、10题都答6，计分均值4；两题都答4也得4。前者可能享受新想法，同时认为日常习惯遵循惯例；后者没有强烈认同任一对。这说明原回答值得保留。例子不是源量表分类，网站也不会派给你混合人格类型。"
+            }
+          ]
+        },
+        {
+          "id": "openness-5",
+          "title": {
+            "en": "One interest does not represent every domain",
+            "zh": "一项兴趣不能代表全部领域"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine enjoying an unfamiliar kind of music while following a well-practised cooking routine. Or consider wanting to explore a topic but lacking time or access. A broad adjective response needs you to weigh those examples yourself. The short form cannot distinguish aesthetics, imagination, curiosity and values as separate facets. Do not treat a single hobby or an expensive experience as the standard against which everyone’s answer should be judged.",
+              "zh": "例如，喜欢陌生音乐风格，同时做饭遵循熟练常规；又或者想探索某话题，却缺时间或渠道。宽泛形容词需要你自己权衡例子。短版不能分别测审美、想象、好奇和价值面向。不要把某种爱好或昂贵体验当成评价所有人回答的标准。"
+            }
+          ]
+        },
+        {
+          "id": "openness-6",
+          "title": {
+            "en": "Different from being outgoing",
+            "zh": "它与外向并不同义"
+          },
+          "paragraphs": [
+            {
+              "en": "Openness and Extraversion are separate TIPI domains. Exploring a new idea alone does not require frequent social activity, and an outgoing person may prefer familiar topics. Conscientious routines can also support creative work rather than oppose it. Read each mean on its own stated pair; their numerical ranking cannot determine a career, a cultural identity or an ideal partner, and no total openness percentage is generated.",
+              "zh": "开放性与外向性是TIPI的独立维度。独自探索新想法不要求频繁社交，外向者也可偏好熟悉话题；尽责常规也可能支持创作，而非与之对立。每项均值只按所述特质对阅读，数值排序不决定职业、文化身份或理想伴侣，也不生成开放性百分比。"
+            }
+          ]
+        },
+        {
+          "id": "openness-7",
+          "title": {
+            "en": "Follow curiosity without chasing novelty",
+            "zh": "可以跟随好奇，不必追逐新奇"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one low-pressure topic you would like to understand better. Note whether curiosity, access, time or preference is shaping that choice. You can also enjoy something familiar without treating it as a weakness. The aim is to clarify your own examples, not collect novelty to raise a score. Further testing is optional, and the short form cannot silently supply the finer detail of a longer assessment.",
+              "zh": "如果有用，可选一个没有太多压力、想多了解的话题，记下好奇、渠道、时间或偏好怎样影响选择。也可以享受熟悉事物，不把它当缺点。目的在于澄清自己的例子，不是为了提高分数收集新奇体验。继续测试可自行决定，短版不能悄悄补出长题本的细节。"
+            }
+          ]
+        },
+        {
+          "id": "openness-8",
+          "title": {
+            "en": "A brief instrument, with a declared edition",
+            "zh": "极短量表与明确版本"
+          },
+          "paragraphs": [
+            {
+              "en": "Gosling, Rentfrow and Swann introduced TIPI in 2003 for situations needing a very short description of broad personality domains. The author permits use for any purpose and explains the trade-off in measurement detail. This website retains the English items and source key; Chinese is FermatMind’s working translation, without established language equivalence or local norms. These explanations are editorial guides, not part of the original item bank or evidence of new validation.",
+              "zh": "Gosling、Rentfrow与Swann于2003年提出TIPI，用于需要极短宽泛人格描述的场合。作者允许任何目的使用，也说明测量细节上的取舍。本页保留英文原题和原计分键；中文为费马工作译文，未建立跨语言等价或本地常模。这些解释是本站编辑指南，不属于原始题本，也不是新验证的证据。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "tipi-source",
+      "title": {
+        "en": "Original English; declared working Chinese",
+        "zh": "英文原题与明确的中文工作译文"
+      },
+      "paragraphs": [
+        {
+          "en": "The ten English trait pairs, seven response anchors and five scoring pairs follow the original author’s public TIPI instrument. The author allows use for any purpose. Chinese here is an independent FermatMind working translation, not a published validated Chinese version or an author-endorsed adaptation. The original study and these editorial guides do not establish norms or cross-language equivalence for this website.",
+          "zh": "十组英文特质、七级选项和五对计分遵循原作者公开TIPI。作者允许任何目的使用。这里的中文是费马独立工作译文，不是已发表验证的中文版，也不表示原作者认可。原研究与本站编辑指南不能建立本站常模或跨语言等价。"
+        }
+      ]
+    },
+    {
+      "id": "tipi-scoring",
+      "title": {
+        "en": "Five separate source-key means",
+        "zh": "五项独立原计分均值"
+      },
+      "paragraphs": [
+        {
+          "en": "Reverse items 2, 4, 6, 8 and 10 as 8 minus the original response. Average pairs 1/6R, 2R/7, 3/8R, 4R/9 and 5/10R for Extraversion, Agreeableness, Conscientiousness, Emotional Stability and Openness. Each mean ranges from 1 to 7. Item 9 stays direct. No combined total, low/high bands, percentile, trait type or facet values are generated. The report retains every original and keyed response.",
+          "zh": "第2、4、6、8、10题用8减原回答。按1/6R、2R/7、3/8R、4R/9、5/10R各取均值，分别为外向性、宜人性、尽责性、情绪稳定性与经验开放性。均值范围1至7，第9题保持正向。不合总分、不分高低档、不生成百分位、类型或面向值。报告保留所有原回答与计分值。"
+        }
+      ]
+    },
+    {
+      "id": "tipi-missing",
+      "title": {
+        "en": "A midpoint is a response, not missing data",
+        "zh": "中点是回答，不是缺答"
+      },
+      "paragraphs": [
+        {
+          "en": "All ten valid seven-point responses are required; missing answers are not filled with zero, a midpoint or a guessed value. Four means neither agree nor disagree. If you cannot or do not want to rate a pair, exit and clear rather than selecting a false answer. Optional tab-only draft saving expires after 24 hours and clears on completion or retake. Sharing copies only the public title and entry link, without scores or responses.",
+          "zh": "十题七级回答全部有效才计算；缺答不补零、不填中点，也不猜测。4表示既不同意也不赞同。若无法或不想评价某对，可以退出并清除，不必选虚假回答。可选标签页草稿24小时失效，完成或重测即清除。分享只复制公开标题与入口，不含均值或回答。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Author permission, source and limitations",
+        "zh": "作者许可、来源与局限"
+      },
+      "url": "https://gosling.psy.utexas.edu/scales-weve-developed/ten-item-personality-measure-tipi/"
+    },
+    {
+      "title": {
+        "en": "Original ten items and scoring key",
+        "zh": "原十题与计分键"
+      },
+      "url": "https://gosling.psy.utexas.edu/scales-weve-developed/ten-item-personality-measure-tipi/ten-item-personality-inventory-tipi/"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the original TIPI-10?",
+        "zh": "这是原TIPI-10吗？"
+      },
+      "answer": {
+        "en": "The English ten trait pairs, seven anchors and five source scoring pairs are retained. Chinese is FermatMind’s independent working translation and has not established validation or language equivalence. The full explanations are original editorial content.",
+        "zh": "英文保留十组原特质、七级选项及五对原计分。中文为费马独立工作译文，尚未建立验证或跨语言等价。完整解释是本站原创编辑内容。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is Emotional Stability the same score as Neuroticism?",
+        "zh": "情绪稳定性就是神经质分吗？"
+      },
+      "answer": {
+        "en": "This TIPI edition reports Emotional Stability in the source direction: item 4 reversed and item 9 direct. It does not relabel that number Neuroticism. Other Big Five instruments may use a different direction and cannot be compared by the raw number alone.",
+        "zh": "本版按原方向报告情绪稳定性：第4题反向、第9题正向，不把该数值改叫神经质。其他大五题本可能采用不同方向，不能只按原数值比较。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can ten items give thirty facet scores?",
+        "zh": "十题能给三十面向分吗？"
+      },
+      "answer": {
+        "en": "No. TIPI gives five broad two-item means. A longer Big Five instrument requires a separate complete attempt and its own scoring; this result does not unlock, infer or fill its facet scores.",
+        "zh": "不能。TIPI提供五项宽泛两题均值。较长大五题本须另行完整作答并按其方法计分；本结果不解锁、推断或补填面向分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these percentiles or personality types?",
+        "zh": "这是百分位或人格类型吗？"
+      },
+      "answer": {
+        "en": "No. These are raw 1–7 pair means without a combined total, population ranks, assigned types or diagnostic cutoffs. Equal means need no tie-break, and a midpoint may come from very different answer pairs.",
+        "zh": "不是。这是1至7的原始两题均值，不合总分、不做人群排名、不派类型或设诊断界值。相同均值不用打破并列，中点也可能来自很不同的回答组合。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Progress saving is optional and limited to this browser tab for 24 hours. Completion, clearing or retaking removes that draft. The share action copies only the public test title and entry link, with no personal ratings or means.",
+        "zh": "进度保存可自行选择，仅在当前浏览器标签页保留24小时；完成、清除或重测会删除草稿。分享只复制公开测试标题和入口，不含个人评分或均值。"
+      }
+    }
+  ]
+}
