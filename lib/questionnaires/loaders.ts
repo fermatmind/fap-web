@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "watson-glaser-practice-test": async () => (await import("./data/watson-glaser-practice-test.json")).default as Questionnaire,
   "social-attitudes-reflection": async () => (await import("./data/social-attitudes-reflection.json")).default as Questionnaire,
   "employer-reasoning-practice-test": async () => (await import("./data/employer-reasoning-practice-test.json")).default as Questionnaire,
   "interpersonal-preferences": async () => (await import("./data/interpersonal-preferences.json")).default as Questionnaire,

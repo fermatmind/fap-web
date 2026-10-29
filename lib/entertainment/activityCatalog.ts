@@ -2,7 +2,7 @@ import native from "@/lib/questionnaires/catalog.json";
 import legacy from "@/lib/entertainment/catalog.json";
 import { ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS } from "@/lib/tracking/privacy";
 
-const privateActivity = new Set(["employer-reasoning-practice-test", "asvab-science-mechanical-practice-test", "asvab-practice-test", "anger-issues-screener", "sensory-sensitivity", "misophonia-screener", "synesthesia-test", "aphantasia-test", "imposter-syndrome", "masking-test", "caliper-style-assessment-test", "career-match", "conflict-boundary-behaviors-test", "coping-rhythm-test", "dark-triad", "data-entry", "four-axes-test", "habit-patterns-test", "inner-critic-voice-test", "intimacy-preference-test", "life-path-number", "natal-chart", "nine-star-ki", "stress-response-patterns-test", "ten-key-test", "typing-speed"]);
+const privateActivity = new Set(["watson-glaser-practice-test", "employer-reasoning-practice-test", "asvab-science-mechanical-practice-test", "asvab-practice-test", "anger-issues-screener", "sensory-sensitivity", "misophonia-screener", "synesthesia-test", "aphantasia-test", "imposter-syndrome", "masking-test", "caliper-style-assessment-test", "career-match", "conflict-boundary-behaviors-test", "coping-rhythm-test", "dark-triad", "data-entry", "four-axes-test", "habit-patterns-test", "inner-critic-voice-test", "intimacy-preference-test", "life-path-number", "natal-chart", "nine-star-ki", "stress-response-patterns-test", "ten-key-test", "typing-speed"]);
 const disabledPaths = new Set<string>(ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS);
 const definitions = new Map(legacy.map(item => [item.slug, {
   slug: item.slug, title: item.title, path: `/tests/play/${item.slug}`,

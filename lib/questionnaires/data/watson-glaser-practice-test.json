@@ -1,0 +1,2142 @@
+{
+  "slug": "watson-glaser-practice-test",
+  "code": "FM_CRITICAL30",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "critical30",
+  "minutes": 35,
+  "title": {
+    "en": "Watson–Glaser-Style Critical Thinking Practice",
+    "zh": "Watson–Glaser风格批判性思维练习"
+  },
+  "seoTitle": {
+    "en": "Watson–Glaser-Style Practice: 30 Original Questions, Five Parts",
+    "zh": "Watson–Glaser风格练习：30道原创题、五部分完整指南"
+  },
+  "description": {
+    "en": "Practise 30 original English questions in inference, assumptions, deduction, interpretation and arguments. One 30-minute site clock or untimed study; five full bilingual guides free.",
+    "zh": "免费练习推断、假设、演绎、解读和论证评价五部分的30道原创英文题。可选本站30分钟整卷连续计时或不计时学习，五篇完整双语指南免费。"
+  },
+  "introduction": {
+    "en": "Work through five question families with their distinct response rules: five-option inference and two-option assumptions, deduction, interpretation and arguments. This is an independently written fixed learning edition, not an official Watson–Glaser form, validated measure or employer simulation. Its six-per-part allocation, explicit probability conventions and site clock belong to this edition. Actual provider instructions take priority.",
+    "zh": "练习五种不同答题规则：五选一推断，以及二选一假设、演绎、解读和论证评价。本独立固定学习版不是正式Watson–Glaser题本、验证测量或招聘模拟。每部分六题、明确概率约定及本站计时均属本版，实际提供方说明优先。"
+  },
+  "instructions": {
+    "en": "After one explicit start, a single clock runs across all five parts, including rule reading and navigation. You can revisit any question before finishing, select an offered answer or explicitly leave it unanswered. A final submission or deadline locks the whole attempt; blank items stay unanswered, separately from wrong selections. Both interfaces use English stems and options, with bilingual guidance and explanations. Paper and a calculator are allowed here; actual assessment rules may differ.",
+    "zh": "明确开始后，同一时钟贯穿五段，读规则和换题也计时。结束前可返回任题、选给定项或明确留空。提交或到时关闭整份，空白保留未答并与错选分开。两界面均英文题干选项，说明解析双语。本练习允许纸笔和计算器，实际测评规则可能不同。"
+  },
+  "resultHeading": {
+    "en": "Your five raw practice records and all worked answers",
+    "zh": "五项原始练习记录与全部题解"
+  },
+  "critical30": {
+    "sections": [
+      {
+        "id": "inference",
+        "code": "INF",
+        "count": 6,
+        "title": {
+          "en": "Inference",
+          "zh": "推断"
+        }
+      },
+      {
+        "id": "assumptions",
+        "code": "ASM",
+        "count": 6,
+        "title": {
+          "en": "Recognising assumptions",
+          "zh": "识别假设"
+        }
+      },
+      {
+        "id": "deduction",
+        "code": "DED",
+        "count": 6,
+        "title": {
+          "en": "Deduction",
+          "zh": "演绎"
+        }
+      },
+      {
+        "id": "interpretation",
+        "code": "INT",
+        "count": 6,
+        "title": {
+          "en": "Interpretation",
+          "zh": "解读"
+        }
+      },
+      {
+        "id": "arguments",
+        "code": "ARG",
+        "count": 6,
+        "title": {
+          "en": "Evaluating arguments",
+          "zh": "论证评价"
+        }
+      }
+    ],
+    "limitSeconds": 1800,
+    "subtitle": {
+      "en": "Choose how to practise these 30 English questions",
+      "zh": "选择这30道英文题的练习方式"
+    },
+    "privacy": {
+      "en": "Responses and counts stay in this page’s memory and clear on restart, refresh, leaving or language change. No saved draft or private-result URL is created. Optional anonymous activity counts require a separate consent choice and contain no answers or scores.",
+      "zh": "答案与计数只留本页内存，重测、刷新、离开或换语言清除，无保存草稿或私人结果URL。可选匿名活动计数单独征得同意，不含答案或成绩。"
+    },
+    "editionNotice": {
+      "en": "Original fixed learning bank. Not validated or equated to any publisher form. One site-selected 30-minute clock, not an official limit; no adaptive selection, norm, percentile, performance band, pass prediction, IQ or individual guessing diagnosis. Parts differ in option count and have not been equated.",
+      "zh": "原创固定学习题本，未经验证或与提供方题本等值。本站选定一个30分钟整卷时钟，不是正式时限；无自适应选题、常模、百分位、表现档、通过预测、IQ或个人猜测诊断。各段选项数不同且未等值。"
+    },
+    "attribution": {
+      "en": "FermatMind independently authored every passage, premise, argument, option, explanation and guide. Linked Pearson pages describe limited format background; their test items, examples and instruction wording are not reproduced. Watson–Glaser is a Pearson assessment name. FermatMind is not affiliated with or endorsed by Pearson.",
+      "zh": "全部短文、前提、论证、选项、解析和指南由费马测试独立编写。Pearson链接只说明有限题式背景，不复制试题、示例或指令措辞。Watson–Glaser为Pearson测评名称，费马测试与Pearson无隶属关系，亦未获认可。"
+    }
+  },
+  "directions": [
+    {
+      "id": "inference",
+      "itemCount": 6,
+      "title": {
+        "en": "Inference",
+        "zh": "推断"
+      }
+    },
+    {
+      "id": "assumptions",
+      "itemCount": 6,
+      "title": {
+        "en": "Recognising assumptions",
+        "zh": "识别假设"
+      }
+    },
+    {
+      "id": "deduction",
+      "itemCount": 6,
+      "title": {
+        "en": "Deduction",
+        "zh": "演绎"
+      }
+    },
+    {
+      "id": "interpretation",
+      "itemCount": 6,
+      "title": {
+        "en": "Interpretation",
+        "zh": "解读"
+      }
+    },
+    {
+      "id": "arguments",
+      "itemCount": 6,
+      "title": {
+        "en": "Evaluating arguments",
+        "zh": "论证评价"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "CRIT_1_01",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA closed register lists twelve parcels. Every listed parcel has a dated receipt, including parcel Q7. Proposed inference: Parcel Q7 has a dated receipt.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA closed register lists twelve parcels. Every listed parcel has a dated receipt, including parcel Q7. Proposed inference: Parcel Q7 has a dated receipt."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The universal statement includes Q7 explicitly, so the inference is certain within the given record. It is not merely a likely outcome of sampling. No assumption about unlisted parcels is required.",
+        "zh": "给定全称陈述明确包含Q7，因此在此记录内确定为真，不是抽样中的较可能结果，也无需假设未列包裹。"
+      }
+    },
+    {
+      "id": "CRIT_1_02",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA container holds seven amber tokens and three violet tokens. One token is selected uniformly at random without anyone seeing it. Proposed inference: The selected token is amber.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA container holds seven amber tokens and three violet tokens. One token is selected uniformly at random without anyone seeing it. Proposed inference: The selected token is amber."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The stated model gives probability 7/10, greater than one half but below one. Amber is therefore probably true under this exercise’s explicit rule, not certain. The key does not predict an actual unseen draw.",
+        "zh": "题设模型给琥珀色概率7/10，大于一半但小于一，按本练习明示规则为可能真而非确定。答案不预测实际未知抽取。"
+      }
+    },
+    {
+      "id": "CRIT_1_03",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nThree departments each scheduled a workshop. The note gives no names or attendance lists and says nothing about Pat. Proposed inference: Pat attended one of these workshops.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nThree departments each scheduled a workshop. The note gives no names or attendance lists and says nothing about Pat. Proposed inference: Pat attended one of these workshops."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "There is no fact or sampling model connecting Pat to attendance. Both attendance and non-attendance fit the note, with no justified likelihood direction. Unknown is not automatically probably false.",
+        "zh": "没有事实或抽样模型把Pat与参加联系起来，参加、不参加都符合且无合理概率方向。未知不自动等于可能假。"
+      }
+    },
+    {
+      "id": "CRIT_1_04",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nTen sealed boxes contain two green markers and eight silver markers, one marker per box. Select one box uniformly at random without opening it. Proposed inference: Its marker is green.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nTen sealed boxes contain two green markers and eight silver markers, one marker per box. Select one box uniformly at random without opening it. Proposed inference: Its marker is green."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Green has stated probability 2/10, below one half but above zero. The inference is probably false under the declared model. A green result remains possible, so definitely false would overstate the evidence.",
+        "zh": "绿色题设概率2/10，低于一半但大于零，因此按模型为可能假。仍可能抽中绿色，判确定假会夸大证据。"
+      }
+    },
+    {
+      "id": "CRIT_1_05",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nIn this fictional collection every striped disk is wooden, and at least one striped disk exists. Proposed inference: No striped disk is wooden.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nIn this fictional collection every striped disk is wooden, and at least one striped disk exists. Proposed inference: No striped disk is wooden."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "E",
+      "explanation": {
+        "en": "The existing striped disk must be wooden, contradicting the claim that none is wooden. This is definitely false under the supplied facts; no real-world claim about all disks is made.",
+        "zh": "题目保证存在的条纹圆片必为木质，与“没有木质条纹圆片”冲突，所以在给定事实下确定假，不是在断言现实全部圆片。"
+      }
+    },
+    {
+      "id": "CRIT_1_06",
+      "prompt": {
+        "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA simulation is explicitly defined to produce an intact label with probability 0.8 on each run. Nothing further is observed about its next run. Proposed inference: Its next label will be intact.",
+        "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA simulation is explicitly defined to produce an intact label with probability 0.8 on each run. Nothing further is observed about its next run. Proposed inference: Its next label will be intact."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Probably true",
+            "zh": "Probably true"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Insufficient data",
+            "zh": "Insufficient data"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Probably false",
+            "zh": "Probably false"
+          },
+          "directionId": "inference"
+        },
+        {
+          "id": "E",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "inference"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Under the stated simulation model the next-run probability is 0.8: above one half, below certainty. This supports probably true. The given probability is a fictional model input, not an empirical reliability claim about a real device.",
+        "zh": "题设仿真下下一次概率0.8，大于一半但非必然，所以可能真。该概率是虚构模型输入，不是现实设备可靠性数据。"
+      }
+    },
+    {
+      "id": "CRIT_2_01",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “This online link will be the only route for applications, and every eligible person will be able to apply.” Proposed assumption: Every eligible person can access that link.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “This online link will be the only route for applications, and every eligible person will be able to apply.” Proposed assumption: Every eligible person can access that link."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "If an eligible person cannot access the sole route, the coordinator’s stated expectation that everyone can apply fails. Access is therefore taken for granted by this plan. This does not prove access actually exists.",
+        "zh": "若合资格者不能访问唯一渠道，“每个人都能申请”的预期就失败，所以计划预设可访问。这不证明现实中确实可访问。"
+      }
+    },
+    {
+      "id": "CRIT_2_02",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “Use the online link as the only route for applications.” Proposed assumption: The link must be displayed in blue text.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “Use the online link as the only route for applications.” Proposed assumption: The link must be displayed in blue text."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The route can function with another text colour. No colour claim is needed for the stated application plan, so blue text is not necessarily taken for granted. Familiar web conventions do not supply a missing premise.",
+        "zh": "换文字颜色渠道仍可运作，申请计划不需要颜色主张，所以并未必然预设蓝色。常见网页习惯不补成缺失前提。"
+      }
+    },
+    {
+      "id": "CRIT_2_03",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA planner says: “To reduce our purchases of new paper, we will use legible sheets from the reuse tray for some internal drafts.” Proposed assumption: The tray supplies at least some usable sheets.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA planner says: “To reduce our purchases of new paper, we will use legible sheets from the reuse tray for some internal drafts.” Proposed assumption: The tray supplies at least some usable sheets."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Without any usable sheet, this proposed reuse method cannot replace any new-paper purchase. Some usable supply is therefore assumed. The claim does not require enough reused paper for every document or any particular tray size.",
+        "zh": "若一张可用纸也没有，此再用方法就不能替代任何新纸采购，所以预设至少有一些可用纸。不要求覆盖全部文件或特定纸盘大小。"
+      }
+    },
+    {
+      "id": "CRIT_2_04",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA trainer says: “We will teach the new filing procedure with a short demonstration so that the team can understand it.” Proposed assumption: Everyone already understands every step before the demonstration.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA trainer says: “We will teach the new filing procedure with a short demonstration so that the team can understand it.” Proposed assumption: Everyone already understands every step before the demonstration."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Teaching for understanding does not require complete prior understanding; lack of it is compatible with the purpose. The proposed assumption is not necessary merely because some team members may already know a step.",
+        "zh": "为理解而教学不要求事先完全理解，尚未理解与目的相容。有人也许已知某步，不表示这个拟议假设必需。"
+      }
+    },
+    {
+      "id": "CRIT_2_05",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nAn organiser says: “The meeting will be Tuesday at 14:00, and all required participants will attend at that time.” Proposed assumption: All required participants are available to attend then.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nAn organiser says: “The meeting will be Tuesday at 14:00, and all required participants will attend at that time.” Proposed assumption: All required participants are available to attend then."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "If a required participant is unavailable at that time, the organiser’s unqualified attendance expectation cannot hold as stated. Availability is taken for granted. This identifies an information gap; it does not verify anyone’s actual calendar.",
+        "zh": "若必需参加者当时不能出席，无保留的全员出席预期就不成立，所以预设有空。这识别信息缺口，不核验实际日历。"
+      }
+    },
+    {
+      "id": "CRIT_2_06",
+      "prompt": {
+        "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA host says: “Reserve Room B because its twenty seats are enough for our group.” Proposed assumption: Room B is in the newest building on the site.",
+        "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA host says: “Reserve Room B because its twenty seats are enough for our group.” Proposed assumption: Room B is in the newest building on the site."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Taken for granted",
+            "zh": "Taken for granted"
+          },
+          "directionId": "assumptions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not taken for granted",
+            "zh": "Not taken for granted"
+          },
+          "directionId": "assumptions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The stated reason concerns seating capacity, which does not depend on building age. A room in an older building could satisfy exactly the same reason. Newness is not taken for granted by this argument.",
+        "zh": "所给理由是座位容量，与建筑新旧无必然关系。旧楼房间也可满足同一理由，所以不预设新楼。"
+      }
+    },
+    {
+      "id": "CRIT_3_01",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery stamped entry has been reviewed. At least one stamped entry exists. Conclusion: At least one reviewed entry is stamped.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery stamped entry has been reviewed. At least one stamped entry exists. Conclusion: At least one reviewed entry is stamped."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Take the stamped entry whose existence is given. The universal premise makes it reviewed, so it is both reviewed and stamped. The existence statement is essential; a universal condition alone would not supply an instance.",
+        "zh": "取保证存在的已盖章条目，按全称前提它已审核，故兼有二属性。存在陈述很关键，单有全称条件不保证实例。"
+      }
+    },
+    {
+      "id": "CRIT_3_02",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery green badge has been checked. Conclusion: Every checked badge is green.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery green badge has been checked. Conclusion: Every checked badge is green."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A checked red badge can coexist with every green badge being checked. That counterexample satisfies the premise but falsifies the conclusion. The one-way inclusion does not reverse.",
+        "zh": "一个已检查红徽章可与全部绿徽章已检查并存，满足前提却使结论为假，单向包含不能倒转。"
+      }
+    },
+    {
+      "id": "CRIT_3_03",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf a ticket is valid, its entry is logged. Ticket Z is valid. Conclusion: Ticket Z’s entry is logged.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf a ticket is valid, its entry is logged. Ticket Z is valid. Conclusion: Ticket Z’s entry is logged."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The stated condition applies to Z because its required premise, validity, is supplied. The logged conclusion follows directly. No claim is made that logging proves validity in the reverse direction.",
+        "zh": "已提供Z有效，所以题定条件适用，直接推出记录。不主张反向由已记录证明有效。"
+      }
+    },
+    {
+      "id": "CRIT_3_04",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf sensor S is active, indicator L is lit. Indicator L is lit. Conclusion: Sensor S is active.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf sensor S is active, indicator L is lit. Indicator L is lit. Conclusion: Sensor S is active."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The premise allows L to be lit for another reason while S is inactive. That arrangement satisfies the rule and observation but contradicts the conclusion. Observing a consequence does not establish its sufficient condition.",
+        "zh": "规则允许S不活跃而L因另一原因亮着。该情况符合前提和观察却反驳结论，看到结果不能确认其充分条件。"
+      }
+    },
+    {
+      "id": "CRIT_3_05",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nNo triangular token is round. Token P is round. Conclusion: Token P is not triangular.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nNo triangular token is round. Token P is round. Conclusion: Token P is not triangular."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "If P were triangular, the first premise would make it not round, contradicting its supplied roundness. Therefore P cannot be triangular under these premises. The labels are fictional categories used for the logical relation.",
+        "zh": "若P为三角类，第一前提使其不圆，与已知圆冲突，因此在这些前提下P不为三角类。标签是用于逻辑关系的虚构分类。"
+      }
+    },
+    {
+      "id": "CRIT_3_06",
+      "prompt": {
+        "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nExactly three distinct cards U, V and W are ordered left to right. U precedes V, and V precedes W. Conclusion: W is first.",
+        "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nExactly three distinct cards U, V and W are ordered left to right. U precedes V, and V precedes W. Conclusion: W is first."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Follows necessarily",
+            "zh": "Follows necessarily"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Does not follow necessarily",
+            "zh": "Does not follow necessarily"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The constraints fix U-V-W. W must be last, so the proposed conclusion is not a necessary consequence and in fact conflicts with the chain. No unstated fourth card is available.",
+        "zh": "约束固定U-V-W，W必在最后，所以结论不必然且实际冲突，不能补第四张牌。"
+      }
+    },
+    {
+      "id": "CRIT_4_01",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA complete log covers twelve deliveries. Every one has a signed receipt dated either 15 May or 16 May. Conclusion: At least one of those twelve deliveries has a receipt dated in that two-day period.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA complete log covers twelve deliveries. Every one has a signed receipt dated either 15 May or 16 May. Conclusion: At least one of those twelve deliveries has a receipt dated in that two-day period."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The log supplies twelve actual instances and gives every receipt a date inside the stated two days. The narrower “at least one” conclusion is supported. It does not require an inference about any other delivery period.",
+        "zh": "记录给十二个实际实例，且每份收据日期均在两日内，所以更窄的“至少一个”有据，无需推论其他日期。"
+      }
+    },
+    {
+      "id": "CRIT_4_02",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA voluntary survey contains 100 responses, of which 60 favour Plan R. No information is provided about non-respondents or the town’s total population. Conclusion: Most people in the town favour Plan R.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA voluntary survey contains 100 responses, of which 60 favour Plan R. No information is provided about non-respondents or the town’s total population. Conclusion: Most people in the town favour Plan R."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Sixty of the 100 volunteers is a majority of that responding group. Without information linking that group to the town, the town-wide majority is not established. The conclusion changes the population beyond the described evidence.",
+        "zh": "60是100名自愿回复者中的多数，但缺少该组与全镇的联系，不能确立全镇多数，结论擅自扩大人群。"
+      }
+    },
+    {
+      "id": "CRIT_4_03",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nTwo auditors independently checked the same ten files against one checklist. The report records identical checklist results from the auditors on all ten files. Conclusion: For those ten files, the recorded checklist results agree between auditors.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nTwo auditors independently checked the same ten files against one checklist. The report records identical checklist results from the auditors on all ten files. Conclusion: For those ten files, the recorded checklist results agree between auditors."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "This conclusion stays within the explicitly reported ten-file agreement. It does not claim either auditor is always accurate or that future files will agree. Agreement and correctness are different questions.",
+        "zh": "结论仅限明确报告的十份文件一致，不声称审核者总正确或未来也一致。一致与正确是不同问题。"
+      }
+    },
+    {
+      "id": "CRIT_4_04",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nFive machines produced fewer misprints after a workshop. The report also says their software and paper supply changed at the same time, with no comparison group. Conclusion: The workshop alone caused the reduction.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nFive machines produced fewer misprints after a workshop. The report also says their software and paper supply changed at the same time, with no comparison group. Conclusion: The workshop alone caused the reduction."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Multiple conditions changed and no design is described that separates their effects. The record supports a before-after observation, not this workshop-only causal conclusion. It also does not prove the workshop had no effect.",
+        "zh": "多条件同时变化且未述分离影响的设计，记录支持前后观察，不支持培训单独造成改善，也不证明培训完全无效。"
+      }
+    },
+    {
+      "id": "CRIT_4_05",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nAn otherwise complete task register records 18 completed tasks in April and 23 completed tasks in May. Conclusion: This register contains more completed tasks in May than in April.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nAn otherwise complete task register records 18 completed tasks in April and 23 completed tasks in May. Conclusion: This register contains more completed tasks in May than in April."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The conclusion compares the two supplied counts, 23 and 18, within the same stated register. It does not change the denominator to working hours or claim why output differed. The direct count comparison is supported.",
+        "zh": "结论在同一给定记录中比较23与18，不改成每小时分母或主张原因，直接数量比较有据。"
+      }
+    },
+    {
+      "id": "CRIT_4_06",
+      "prompt": {
+        "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA chart shows higher recorded sales on Day 2 than on Day 1. It supplies no other dates, model or guarantee. Conclusion: Sales will increase on every day next year.",
+        "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA chart shows higher recorded sales on Day 2 than on Day 1. It supplies no other dates, model or guarantee. Conclusion: Sales will increase on every day next year."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Supported by the described evidence",
+            "zh": "Supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Not supported by the described evidence",
+            "zh": "Not supported by the described evidence"
+          },
+          "directionId": "interpretation"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Two observed days do not establish an uninterrupted future trend across another year. The proposed claim adds both a much longer period and universal certainty absent from the evidence.",
+        "zh": "两天观察不能确立另一年天天增长，结论添加很长时期与证据未给的全称确定性。"
+      }
+    },
+    {
+      "id": "CRIT_5_01",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; the stipulated audit shows the replacement maintains the same output and reduces this energy expense by twenty percent.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; the stipulated audit shows the replacement maintains the same output and reduces this energy expense by twenty percent."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Assuming the offered audit claim is true, it directly addresses both the output requirement and a material reduction in the expense named in the goal. That is a strong reason for this specified decision, not a recommendation about real equipment.",
+        "zh": "按题设视审核主张为真，它直接涉及产出要求及目标所指费用的实质下降，因此对此限定决定理由有力，不是现实设备建议。"
+      }
+    },
+    {
+      "id": "CRIT_5_02",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; one operator prefers the typeface on the replacement’s printed instruction booklet.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; one operator prefers the typeface on the replacement’s printed instruction booklet."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A preferred booklet typeface is not evidence of reduced energy expense or maintained output, and is trivial for this stated goal. Its truth does not make it a strong reason for replacement.",
+        "zh": "喜欢说明书字体不说明能源费降低或维持产出，且对此目标是小事，真实也不会使更换理由有力。"
+      }
+    },
+    {
+      "id": "CRIT_5_03",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: Yes; the slot would accept the hundreds of returns readers currently cannot make during those closed hours.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: Yes; the slot would accept the hundreds of returns readers currently cannot make during those closed hours."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "If accepted as true, the reason describes a substantial benefit directly matching the access goal. It is strong for that question even though a real purchasing decision would also need costs and other evidence. Each offered reason is evaluated separately here.",
+        "zh": "按题设为真，理由给出直接对应目标的实质便利，因此对该问题有力。真实采购还需成本等资料，但本题逐项单独评价给定理由。"
+      }
+    },
+    {
+      "id": "CRIT_5_04",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: No; the library’s weekday opening-hours sign has a blue border.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: No; the library’s weekday opening-hours sign has a blue border."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The border colour does not materially bear on whether readers can return books during closed hours. It is unrelated to the decision goal, so the offered reason is weak even when its colour statement is taken as true.",
+        "zh": "边框颜色不实质影响闭馆退书，与目标无关，所以即使颜色陈述为真，理由仍弱。"
+      }
+    },
+    {
+      "id": "CRIT_5_05",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should outdoor archive boxes receive covers to prevent rain damage to the documents inside? Reason offered: Yes; the specified covers prevent the rainwater entry responsible for that document damage.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should outdoor archive boxes receive covers to prevent rain damage to the documents inside? Reason offered: Yes; the specified covers prevent the rainwater entry responsible for that document damage."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Under the given truth assumption, the reason connects the proposed cover to preventing the exact damage the goal names. It is materially relevant and strong for that bounded question. No real product performance is asserted.",
+        "zh": "视给定理由为真，它将拟议罩子与阻止目标所指损坏直接相连，具实质相关性，因此有力。不主张现实产品性能。"
+      }
+    },
+    {
+      "id": "CRIT_5_06",
+      "prompt": {
+        "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library extend evening opening to improve students’ access to its study space? Reason offered: Yes; the request for longer hours was written entirely in capital letters.",
+        "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library extend evening opening to improve students’ access to its study space? Reason offered: Yes; the request for longer hours was written entirely in capital letters."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Strong for this decision",
+            "zh": "Strong for this decision"
+          },
+          "directionId": "arguments"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weak for this decision",
+            "zh": "Weak for this decision"
+          },
+          "directionId": "arguments"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Capitalisation expresses presentation or emphasis, not a material access benefit. The reason is weak for the stated goal even if the request really used capitals. Evaluate the content’s relevance rather than the forcefulness of its appearance.",
+        "zh": "全大写是呈现或强调，不是实质可达性收益。即使确实大写，对目标的理由仍弱，应看内容相关性而非外观强烈程度。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "inference",
+      "directionIds": [
+        "inference"
+      ],
+      "title": {
+        "en": "Inference: Certainty, Likelihood and Missing Evidence",
+        "zh": "推断完整指南：确定性、可能性与缺失证据"
+      },
+      "headline": {
+        "en": "Inference: Certainty, Likelihood and Missing Evidence",
+        "zh": "推断完整指南：确定性、可能性与缺失证据"
+      },
+      "summary": {
+        "en": "Separate certain conclusions from model-based likelihood and unresolved information, using a five-option response rule and checkable original examples.",
+        "zh": "用五选一规则与可核查原创例，区分确定结论、模型中的可能性和未解决信息。"
+      },
+      "scoreReading": {
+        "en": "This complete public guide is identical for everyone and available before answering. Your separate private page record shows correct, wrong and unanswered out of six. No percentile, pass band or weakest ability is inferred from these unequated parts.",
+        "zh": "本完整公开指南对所有人相同，无需作答。私人本页记录另外显示六题中的正确、错误、未答，不由未等值各段推出百分位、通过档或最弱能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Inference: Certainty, Likelihood and Missing Evidence | Critical Thinking Practice",
+          "zh": "推断完整指南：确定性、可能性与缺失证据｜批判性思维练习"
+        },
+        "description": {
+          "en": "Separate certain conclusions from model-based likelihood and unresolved information, using a five-option response rule and checkable original examples.",
+          "zh": "用五选一规则与可核查原创例，区分确定结论、模型中的可能性和未解决信息。"
+        }
+      },
+      "sections": [
+        {
+          "id": "inference-1",
+          "title": {
+            "en": "Understand this original rule",
+            "zh": "理解本版原创规则"
+          },
+          "paragraphs": [
+            {
+              "en": "This part uses five choices: True, Probably true, Insufficient data, Probably false and False. In this original edition, certain means the supplied facts settle the claim, while probable choices use an explicit sampling model or probability supplied in the prompt. The bank does not ask you to import an unstated social stereotype or personal impression to estimate likelihood. Read the rule before applying a familiar label from another practice test.",
+              "zh": "本段五选一：真、可能真、信息不足、可能假、假。本原创版中，确定是给定事实解决断言，可能性来自题干明确的抽样模型或概率，不要求引入未声明的社会印象或个人感觉。先读规则，再使用从别处练习认识的标签。"
+            },
+            {
+              "en": "The distinction is a deliberate boundary, not a reconstruction of a publisher’s scoring system. Historical Watson–Glaser practice instructions illustrate five response categories, but the scenarios, probability conventions and short six-item allocation here are independently authored. An employer invitation may specify different instructions or forms. Use this page to practise matching evidence to a claim, not to infer what score you would receive on a named commercial assessment.",
+              "zh": "这是刻意限定的规则，不是重建提供方计分。历史Watson–Glaser练习说明展示五类反应，但本站场景、概率约定和六题配置均独立编写。招聘邀请可能使用不同规则或题式。本页练证据与断言匹配，不推算商业测评分数。"
+            }
+          ]
+        },
+        {
+          "id": "inference-2",
+          "title": {
+            "en": "Identify a certain conclusion",
+            "zh": "识别确定结论"
+          },
+          "paragraphs": [
+            {
+              "en": "A conclusion is certain within the exercise when every situation allowed by the supplied facts supports it. If a complete list says every tagged package was weighed and package K is tagged, K was weighed. You need not know whether the statement describes a real warehouse; the exercise tells you to use it as given. Keep the conclusion within that list instead of extending it to packages never mentioned.",
+              "zh": "若给定事实允许的所有情况都支持结论，它就在练习内确定。如完整清单说所有贴签包裹已称重，K已贴签，就能推出K称过。不必知道现实仓库是否如此，题设要求视为给定；结论仍应限于清单，不扩至未述包裹。"
+            },
+            {
+              "en": "A claim can also be certainly false when it directly contradicts a supplied fact or a necessary consequence. If an actual tagged, weighed package exists, “no tagged package was weighed” is false. Notice the existence statement: a universal rule without any instance does not automatically establish that an object exists. Write the small chain supporting your decision rather than selecting True because the statement sounds ordinary or reassuring.",
+              "zh": "与事实或必然后果冲突可确定假。若保证存在一个贴签且称过的包裹，“没有贴签包裹称过”就是假。注意存在前提：全称规则不自动保证对象存在。写出支持判断的小链，不因断言日常、令人放心而选真。"
+            }
+          ]
+        },
+        {
+          "id": "inference-3",
+          "title": {
+            "en": "Use the declared sampling model",
+            "zh": "使用明示抽样模型"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh model, imagine a closed bag with six circles and four squares, one token selected uniformly. “The next token is a circle” has probability six tenths, so it is more likely true than false, but not certain. A square remains possible. Uniform selection is an essential stated assumption; without it, merely knowing the inventory would not necessarily determine how a person chooses a token.",
+              "zh": "新模型：封闭袋六圆四方，等概率抽一个。下一枚为圆的概率六成，较可能真但不确定，仍可能方。等概率是重要明示假设；若没此条件，仅知道库存未必决定人如何挑选。"
+            },
+            {
+              "en": "Likewise, if a stated model gives a proposed event probability one quarter, Probably false is the bounded choice: the event is less likely than its complement, yet possible. Do not replace a known probability with certainty because the event happened several times in your imagination. The fictional probabilities here are task inputs, not evidence about actual device reliability, employee behaviour or the future performance of a real organisation.",
+              "zh": "若明示模型给事件四分之一概率，应选可能假：比反事件少但仍可能。不因想象它反复发生就把已知概率换成确定。本页虚构概率是题设输入，不是现实设备可靠性、员工行为或组织未来表现的证据。"
+            }
+          ]
+        },
+        {
+          "id": "inference-4",
+          "title": {
+            "en": "Leave missing information unresolved",
+            "zh": "让缺失信息保持未定"
+          },
+          "paragraphs": [
+            {
+              "en": "Insufficient data means the passage supplies no justified direction for this particular inference. A note that several teams held meetings does not establish whether a named person attended when no person or attendance information is given. Attendance and non-attendance both fit. Missing information should remain missing; a plausible story about what usually happens is not a fact supplied by the exercise.",
+              "zh": "信息不足指原文未给此断言合理判断方向。只说几个团队开会、没有人名或出席资料，不能确定某人参加，参加与没参加都相容。缺资料应保持缺失，关于通常情况的合理故事不是题中事实。"
+            },
+            {
+              "en": "Ask exactly what extra information would change the classification: an attendance list, a complete inventory, an operating duration or a defined selection process. Naming that missing input is a useful reasoning skill. It prevents a common shortcut in which unfamiliar claims are labelled probably false merely because they are unfamiliar. Your own confidence and the evidence’s ability to resolve a claim are related questions, but they are not interchangeable.",
+              "zh": "问清多什么资料会改变分类：出席表、完整库存、工作时长或明确选择过程。指出缺失输入是有用技能，可防止把陌生断言只因陌生就判可能假。个人信心与证据能否解决断言有关，但不能互换。"
+            }
+          ]
+        },
+        {
+          "id": "inference-5",
+          "title": {
+            "en": "Check the scope before the label",
+            "zh": "选标签前检查范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Underline words that change strength: every, some, none, next, always and exactly. A statement about one observed event may support “at least one” without supporting “every event”. A known chance for one defined draw is not a guarantee about every future draw. Copy the smallest evidence phrase that supports the scope of your proposed answer, then check whether you silently added a wider population or time period.",
+              "zh": "标出改变强度的词：每个、有些、没有、下一次、总是、恰好。一次观察可支持至少一个，不支持所有事件；某次明确抽取的概率也不保证未来每次。摘记支持范围的最小证据，再核是否暗增人群或时期。"
+            },
+            {
+              "en": "Try changing just one word in a fresh claim. Replace “some recorded items” with “all items ever produced”, or “more likely” with “certain”. The required evidence often changes sharply. This exercise is not about choosing cautious language automatically: an explicit contradiction deserves False, and an explicit fact can deserve True. Good restraint means matching the strength of the evidence, including when that evidence is decisive.",
+              "zh": "在新断言里只改一个词，如“部分记录项”改“历来所有产品”，“较可能”改“确定”，所需证据常明显改变。这不是自动选保守措辞：明确矛盾应判假，明确事实可判真。克制是匹配证据强度，包括证据决定性很强时。"
+            }
+          ]
+        },
+        {
+          "id": "inference-6",
+          "title": {
+            "en": "Use the shared clock thoughtfully",
+            "zh": "有意识使用共享时钟"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode uses one site-selected thirty-minute clock for all thirty questions across five parts. Moving between parts, reading their rules or returning to an earlier item does not pause it. There is no separate inference timer. Six minutes per part is a rough planning division, not a measured target, equal-difficulty claim or instruction to spend the same amount on every question. Untimed study uses the same bank without a deadline.",
+              "zh": "计时模式对五段三十题共用本站选定三十分钟，换段、读规则、返回旧题均不暂停，没有独立推断段时钟。每段六分钟只是粗分计划，非实测目标、难度等值主张或逐题均时要求。不计时学习同题无截止。"
+            },
+            {
+              "en": "You can explicitly leave an item unanswered and revisit it before finishing. At the deadline, the whole attempt closes and blanks remain separate from selected wrong answers. A detected device-clock inconsistency clears the attempt rather than producing a timed result. These controls support local practice, not invigilation. Follow the exact instructions in an actual invitation for navigation, permitted help, equipment and accessibility arrangements.",
+              "zh": "可明确留空，结束前返回。到时关闭整份，未答与错选分开。检测到设备时钟不一致会清空而非生成计时结果。控制只支持本地练习，不是监考。实际邀请里的导航、帮助、设备及无障碍安排须另行遵照。"
+            }
+          ]
+        },
+        {
+          "id": "inference-7",
+          "title": {
+            "en": "Review the reason behind each choice",
+            "zh": "复盘每个选择的依据"
+          },
+          "paragraphs": [
+            {
+              "en": "After finishing, inspect the explanation even for a correct choice. Was your answer supported by an explicit fact, a probability comparison or the absence of a justified direction? Build a new small example for each label and explain why the neighbouring labels do not fit. This is more informative than memorising option letters. A correct selection alone cannot reveal whether you reasoned, guessed or recognised a previous question.",
+              "zh": "结束后答对也看解析：依据是事实、概率比较还是缺合理方向？为每标签造小新例，并说明相邻标签为什么不符，比背选项字母更有信息。单次选对不能显示你是推理、猜测还是认出旧题。"
+            },
+            {
+              "en": "The record shows correct, wrong and unanswered out of six, with no calibrated inference level or percentile. Five-option items differ from the two-option parts, and difficulty is not equated. Do not diagnose a weakest ability from the smallest count or call an individual count proof of guessing. This full public guide is the same for everyone; sharing its link shares learning content rather than private responses or results.",
+              "zh": "记录以六题列正确、错误、未答，无校准推断等级或百分位。五选一与二选一段不同，难度未等值，不由最低数诊断最弱能力，也不由个人数量证明猜测。本完整公开指南人人相同，分享只分享资料，不带私人答案结果。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assumptions",
+      "directionIds": [
+        "assumptions"
+      ],
+      "title": {
+        "en": "Assumptions: What a Plan Takes for Granted",
+        "zh": "假设识别完整指南：计划预设了什么"
+      },
+      "headline": {
+        "en": "Assumptions: What a Plan Takes for Granted",
+        "zh": "假设识别完整指南：计划预设了什么"
+      },
+      "summary": {
+        "en": "Distinguish a premise a specific plan relies on from a plausible extra belief, then test it with a bounded counterfactual and a concrete next check.",
+        "zh": "区分具体计划依赖的前提与仅合理的额外信念，用有限反事实与实际核查复盘。"
+      },
+      "scoreReading": {
+        "en": "This complete public guide is identical for everyone and available before answering. Your separate private page record shows correct, wrong and unanswered out of six. No percentile, pass band or weakest ability is inferred from these unequated parts.",
+        "zh": "本完整公开指南对所有人相同，无需作答。私人本页记录另外显示六题中的正确、错误、未答，不由未等值各段推出百分位、通过档或最弱能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Assumptions: What a Plan Takes for Granted | Critical Thinking Practice",
+          "zh": "假设识别完整指南：计划预设了什么｜批判性思维练习"
+        },
+        "description": {
+          "en": "Distinguish a premise a specific plan relies on from a plausible extra belief, then test it with a bounded counterfactual and a concrete next check.",
+          "zh": "区分具体计划依赖的前提与仅合理的额外信念，用有限反事实与实际核查复盘。"
+        }
+      },
+      "sections": [
+        {
+          "id": "assumptions-1",
+          "title": {
+            "en": "Focus on the stated plan",
+            "zh": "聚焦所述计划"
+          },
+          "paragraphs": [
+            {
+              "en": "An assumption is something the speaker takes for granted for the particular statement, plan or reason to work as presented. This part asks whether a proposed assumption is taken for granted, not whether you personally agree with it. Read the speaker’s goal and mechanism first. A proposal to reach everyone through one channel relies on different conditions from a proposal merely to offer that channel as one optional route among several.",
+              "zh": "假设是说话者为具体陈述、计划或理由成立而预设的东西。本段问拟议假设是否被预设，不问你个人同意与否。先读目标与机制：只用一个渠道触达所有人，与把渠道作为多条可选路之一，依赖条件不同。"
+            },
+            {
+              "en": "All six items use original workplace or everyday plans, with two response options. The short edition is not a licensed Watson–Glaser form or a validation of general judgement. The provider name identifies the preparation topic only. Your choices are interpreted against the wording supplied here; no employer standard, personality trait or real-world honesty classification is inferred from a correct or incorrect answer.",
+              "zh": "六题使用原创工作或日常计划，均二选一。短版非授权Watson–Glaser题本，也不验证一般判断力；名称只说明备考主题。选择按本站措辞解释，不从对错推出招聘标准、人格或现实诚信分类。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-2",
+          "title": {
+            "en": "Separate assumptions from stated facts",
+            "zh": "区分假设与已述事实"
+          },
+          "paragraphs": [
+            {
+              "en": "A supplied fact is explicitly asserted in the exercise; a proposed assumption is a condition the plan relies on without establishing it. If a host says a room’s sixteen seats are enough, the seating claim is part of the stated reason. That does not establish the room is available at the intended time, nor imply that it is in a recently built wing. Track which question you are actually being asked to judge.",
+              "zh": "题设事实是明确断言，拟议假设是计划依赖但未确立的条件。如主持人说十六座够用，容量主张是所述理由；这不确立房间届时可用，也不暗示位于新楼。应追踪本题具体要求判断哪件事。"
+            },
+            {
+              "en": "Do not convert a claim about what is needed into proof that the need is satisfied. Identifying that a plan assumes access to a link does not verify anyone’s internet access. In real work, the insight would lead to a check, an alternative route or a revised expectation. In this practice, it leads only to the appropriate response category and an explanation of why that particular condition matters to the stated mechanism.",
+              "zh": "不把“需要什么”变成“需求已满足”的证据。识别计划预设能访问链接，不核验任何人的网络。真实工作可因此核查、提供替代路或改预期；本练习只据此分类并解释具体条件为何与机制有关。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-3",
+          "title": {
+            "en": "Try a bounded denial test",
+            "zh": "尝试有限否定检验"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful check is to deny the proposed assumption while holding the rest of the statement steady. Suppose a plan expects every invited person to submit a form through a single kiosk. If an invited person cannot use that kiosk and no alternative is allowed, the expectation fails as stated. The denial exposes reliance. Write this small counterfactual explicitly rather than making a broad claim that every imaginable detail must be assumed.",
+              "zh": "可否定拟议假设、保持其余陈述不动。如计划期待全部受邀者只用一台终端交表，若有人无法使用且无替代路，原预期失败。否定暴露依赖；应明确写此小反事实，不泛称每个可想细节都被预设。"
+            },
+            {
+              "en": "The test is a reasoning aid, not a universal shortcut that makes every helpful condition necessary. A plan might have several stated ways to reach its goal. Denying one convenience may leave another route intact. Stay inside the wording, including any alternatives, exceptions and limited goals. Otherwise you can mistakenly label a useful bonus, a likely background fact or your preferred solution as something the speaker necessarily takes for granted.",
+              "zh": "此检验是辅助，不使所有有帮助条件都必需。计划可能有数条已述达标路，否定一种便利仍有别路。须保留原文的替代、例外与有限目标，否则会把额外好处、可能背景或偏爱方案误当说话者必然预设。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-4",
+          "title": {
+            "en": "Reject plausible but unnecessary extras",
+            "zh": "排除合理但非必需的附加项"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar feature can be plausible without being required. An application link might be blue, but a plan to accept applications through it can work with another colour. A meeting room might be new, but its age need not support a claim about adequate seating. The question is not whether the detail could be true or might be desirable. Ask whether the statement’s stated reason actually depends on that detail.",
+              "zh": "熟悉特征可合理却不必需。申请链接可能蓝色，但别色也能收申请；会议室可能新，楼龄却未必支持容量够用。不问细节可能真或可取与否，而问陈述所给理由是否依赖它。"
+            },
+            {
+              "en": "Similarly, a proposal to teach a procedure does not require everyone to know every step already. Some people might know parts of it, and teaching could still be useful, but complete prior knowledge is not taken for granted by a goal of improving understanding. When reviewing, name the exact mismatch: appearance versus access, building age versus capacity, or prior mastery versus learning. Concrete contrasts make the reasoning transferable.",
+              "zh": "同样，教流程不要求每人已会全部步骤。有人会一部分、教学仍有用，但提升理解的目标不预设完全掌握。复盘要说清错配：外观与访问、楼龄与容量、既有掌握与学习。具体区别才便于迁移。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-5",
+          "title": {
+            "en": "Respect scope and modal strength",
+            "zh": "保留范围与语气强度"
+          },
+          "paragraphs": [
+            {
+              "en": "Words such as every, some, only, can and will change the necessary background. “Some drafts will use reused paper” needs some usable supply; it does not require enough reused paper for all documents forever. “Every required person will attend” is stronger than “we will invite them”. Compare the proposed assumption with the exact strength of the promise rather than with a softened or exaggerated version you silently substitute.",
+              "zh": "每个、有些、仅、能、将会改变必要背景。“部分草稿用再用纸”需要一些可用供应，不需永远覆盖全部文件；“每个必需者会出席”强于“将邀请他们”。拟议假设须与承诺确切强度比较，不暗中软化或夸大。"
+            },
+            {
+              "en": "A practical review method is to write two columns: what the statement actually commits to and what the proposed assumption adds. Draw a link only when the added condition supports the specified mechanism or reason. If you cannot explain the link without inventing another objective, the assumption may be unnecessary. This does not make it false in real life; Not taken for granted is a relationship judgement, not a factual denial.",
+              "zh": "可列两栏：陈述真正承诺什么，拟议假设添加什么。仅当新增条件支持指定机制或理由时连线。若须另造目标才能解释连接，它可能非必需。现实中不一定假；未被预设是关系判断，不是事实否定。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-6",
+          "title": {
+            "en": "Use one clock across all parts",
+            "zh": "全卷使用同一时钟"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed practice starts one thirty-minute site clock for the whole original bank. Reading assumption instructions, moving to another part or revisiting an earlier question does not restart or pause it. There are no separately timed assumption items. Use the clock to organise a local practice session, with no claim that these limits reproduce a particular provider invitation or provide a standard measure of reasoning speed.",
+              "zh": "计时练习全原创题本共用本站三十分钟，读假设说明、换段、返回均不重启或暂停，假设题没有独立计时。时钟用于安排本地练习，不宣称复刻某邀请时限或提供标准速度测量。"
+            },
+            {
+              "en": "You may explicitly leave a question unanswered and return before submission. When the whole attempt finishes or expires, blank responses stay separate from selected wrong answers. Untimed study keeps the same content and response rule with no deadline. A clock inconsistency clears the attempt without a timed score. In a real assessment, independently check its navigation, equipment, permitted assistance and accessibility arrangements instead of assuming this site’s rules apply.",
+              "zh": "可明确留空并在提交前返回，结束或到时后空白与错选分开。不计时保留同内容规则而无截止，计时不一致会清除本次、不生成计时分。真实测评须另核导航、设备、允许帮助与无障碍安排，不假定本站规则适用。"
+            }
+          ]
+        },
+        {
+          "id": "assumptions-7",
+          "title": {
+            "en": "Turn the result into a concrete check",
+            "zh": "把复盘变成具体核查"
+          },
+          "paragraphs": [
+            {
+              "en": "After finishing, explain why each keyed assumption matters, then identify one way to check it in a new fictional scenario. You might verify channel access, usable supply or participant availability rather than declare that a plan is simply good or bad. For a Not taken for granted response, construct a version where the statement remains true while the proposed assumption is false. That witness is more useful than memorising Yes or No.",
+              "zh": "结束后解释每个被预设条件为何重要，再在新虚构场景指出核查方法，如验证渠道可达、可用供应或参加者有空，而非仅说计划好坏。未被预设题可构造陈述仍真、拟议假设却假的版本，比背是或否更有用。"
+            },
+            {
+              "en": "The six-item record is raw practice information, not a calibrated assumptions score, percentile or evidence of a stable personal flaw. Binary items permit lucky correct selections; an individual count cannot identify guessing. The parts differ in content and option count, so do not diagnose a weakest ability by ranking their counts. This complete public guide stays the same for every reader, without personal answers in its link or text.",
+              "zh": "六题记录是原始练习信息，不是校准假设识别分、百分位或稳定个人缺陷证据。二选一可能幸运答对，个人数量不能识别猜测。各段内容和选项数不同，不由数量排序诊断最弱能力。完整公开指南人人相同，链接正文不带个人答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction",
+      "directionIds": [
+        "deduction"
+      ],
+      "title": {
+        "en": "Deduction: Necessary Conclusions and Counterexamples",
+        "zh": "演绎完整指南：必然结论与反例"
+      },
+      "headline": {
+        "en": "Deduction: Necessary Conclusions and Counterexamples",
+        "zh": "演绎完整指南：必然结论与反例"
+      },
+      "summary": {
+        "en": "Follow explicit premises, preserve existence and implication direction, and use small countermodels to check whether a conclusion is necessary.",
+        "zh": "遵循明确前提、保留存在条件和蕴含方向，用小反例模型核查结论是否必然。"
+      },
+      "scoreReading": {
+        "en": "This complete public guide is identical for everyone and available before answering. Your separate private page record shows correct, wrong and unanswered out of six. No percentile, pass band or weakest ability is inferred from these unequated parts.",
+        "zh": "本完整公开指南对所有人相同，无需作答。私人本页记录另外显示六题中的正确、错误、未答，不由未等值各段推出百分位、通过档或最弱能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Deduction: Necessary Conclusions and Counterexamples | Critical Thinking Practice",
+          "zh": "演绎完整指南：必然结论与反例｜批判性思维练习"
+        },
+        "description": {
+          "en": "Follow explicit premises, preserve existence and implication direction, and use small countermodels to check whether a conclusion is necessary.",
+          "zh": "遵循明确前提、保留存在条件和蕴含方向，用小反例模型核查结论是否必然。"
+        }
+      },
+      "sections": [
+        {
+          "id": "deduction-1",
+          "title": {
+            "en": "Ask what must follow",
+            "zh": "先问什么必然成立"
+          },
+          "paragraphs": [
+            {
+              "en": "Deduction asks whether a conclusion holds in every situation that satisfies the supplied premises. Treat those premises as true for this fictional task, even if their labels do not describe ordinary objects. A conclusion that sounds plausible, usually happens or matches your experience need not be necessary. Start by restating the premises as short relationships, then check whether the proposed conclusion has stronger scope than those relationships support.",
+              "zh": "演绎问在满足给定前提的每种情况下结论是否成立。即使标签不描述日常对象，也按虚构题设视前提为真。合理、通常发生或符合经验的结论未必必然。先简写关系，再核结论是否超出关系支持的范围。"
+            },
+            {
+              "en": "This original six-item part uses Follows necessarily and Does not follow necessarily. It is one component of a fixed learning bank, not a calibrated deductive ability scale or an official Watson–Glaser form. The distinction is about what follows from stated premises, not a judgement that a person who misses an item is illogical in general. Keep the response rule separate from the interpretation of a private raw practice count.",
+              "zh": "本原创六题用必然推出／并非必然推出，是固定学习题本的一部分，非校准演绎能力量表或正式Watson–Glaser题本。区别在于前提能否推出结论，不是在判断答错的人总体不讲逻辑。答题规则与私人原始计数的解释应分开。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-2",
+          "title": {
+            "en": "Track inclusion without reversing it",
+            "zh": "追踪包含而不倒转"
+          },
+          "paragraphs": [
+            {
+              "en": "If every copper marker is numbered, the copper group sits within the numbered group. That does not place every numbered marker inside the copper group. A numbered paper marker is a simple counterexample to the reversed claim. Sketching two nested circles or writing copper implies numbered can make the one-way relationship visible before the answer options encourage a reversal that sounds superficially similar to the premise.",
+              "zh": "若每个铜标记有编号，铜类包含于编号类，不意味着编号类全在铜类内。一个有编号纸标记即可反驳倒转。可画套圈或写“铜⇒有编号”，先看清单向关系，避免选项用近似措辞诱导倒转。"
+            },
+            {
+              "en": "A stronger conclusion needs a stronger premise, such as an explicit statement that every numbered marker is also copper. Without that second direction, do not silently add it. This habit extends to eligibility rules, category descriptions and access conditions, but this exercise does not decide any real entitlement or permission. Its fictional labels keep attention on the logical relationship rather than on whether you like or recognise a real-world category.",
+              "zh": "更强结论需要更强前提，如另外明确所有编号标记也为铜。缺第二方向就不能补。此习惯适用于资格、类别与访问条件，但本练习不裁定现实权益或权限。虚构标签让你聚焦逻辑关系，而非喜欢或认识某现实类别。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-3",
+          "title": {
+            "en": "Keep existence visible",
+            "zh": "让存在条件可见"
+          },
+          "paragraphs": [
+            {
+              "en": "Some means at least one in this edition. If some hexagonal tiles exist and every hexagonal tile is stamped, at least one stamped tile is hexagonal. Take the existing tile and follow the rule. In contrast, “every hexagonal tile is stamped” alone can hold when no hexagonal tile exists. A universal condition describes the instances if there are any; it does not always supply an instance by itself.",
+              "zh": "本版“有些”指至少一个。若保证有六角砖且每块六角砖已盖章，可取该实例推出有已盖章六角砖。若只说所有六角砖已盖章，在没有六角砖时也可成立。全称条件描述若有实例时怎样，不总能自己提供实例。"
+            },
+            {
+              "en": "A useful working mark is a small dot for an explicitly existing object and an arrow for each rule it satisfies. Do not manufacture dots merely because a category name appears in a sentence. When reviewing an error, ask whether you reversed a group relation or assumed an object existed without evidence. Those are different mistakes and call for different fresh examples, even when both lead to the same wrong answer letter.",
+              "zh": "可用点标明确存在的对象、箭头标适用规则，不因句中出现类别名就造实例。复盘应分清是倒转类别关系，还是无据假设对象存在。两错不同，即使导致同一错选字母，也应各造新例练习。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-4",
+          "title": {
+            "en": "Respect conditional direction",
+            "zh": "保留条件方向"
+          },
+          "paragraphs": [
+            {
+              "en": "For a rule “if P then Q”, supplying P allows Q. Supplying Q does not by itself allow P, because Q may occur through another route. A fresh example is: if a switch is raised, a display glows. Seeing a glowing display does not prove that switch is raised unless the prompt also excludes other causes or supplies the reverse condition. Write the direction instead of treating two mentioned events as equivalent.",
+              "zh": "规则“若P则Q”，给P可得Q，给Q不能独自得P，因为Q可能另有途径。如开关抬起则屏显发光，见发光不能证明开关抬起，除非题目排除其他原因或给反向条件。应写方向，不把同时提及的事件当等价。"
+            },
+            {
+              "en": "A denial can also be decisive: with P implies Q and not Q, P cannot hold under those premises. Do not confuse that valid move with inferring not Q from not P. Build a small truth table if the wording becomes tangled. The aim is not to memorise a slogan, but to check which assignments to the two propositions remain possible after every stated premise is applied.",
+              "zh": "否定也可决定：P推出Q且非Q，就不能P。但不能混同为从非P推出非Q。措辞复杂可列小真值表，目的非背口号，而是看应用全部前提后哪些真假赋值仍可能。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-5",
+          "title": {
+            "en": "Use a genuine counterexample",
+            "zh": "使用真正满足前提的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "To show that a conclusion is not necessary, construct one situation where all premises hold and the conclusion fails. It is not enough to describe a situation that also violates the premises. For a complete ordering chain, use each named object once and respect every arrow; an invented extra card does not refute an order defined for exactly three cards. A counterexample must obey the same boundaries as the original task.",
+              "zh": "证明结论非必然，只需构造全部前提成立、结论失败的一种情况。连前提也违背的情况不算反例。完整排序链须每对象一次、遵从每箭头；为恰好三张牌的题另造第四张不算反驳。反例须守相同题设边界。"
+            },
+            {
+              "en": "A proposed conclusion may be definitely false under the premises or merely unresolved by them. Both belong to Does not follow necessarily in this binary part. Do not import the five inference labels here just because you used them earlier. This is why each question repeats its rule: the same informal phrase can demand a different response action in another part, and changing the rule mid-item changes the exercise rather than solving it.",
+              "zh": "结论可与前提确定冲突，也可仅未被解决；在本二选一段都属非必然推出。别因前段用五类推断就带过来。本题逐题重述规则，正因另一段的相近词可要求不同动作；中途换规则是在改题而非解题。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-6",
+          "title": {
+            "en": "Plan within the whole-test clock",
+            "zh": "在整卷时钟内安排"
+          },
+          "paragraphs": [
+            {
+              "en": "All five parts share the site-selected thirty-minute clock in timed mode. There is no reset when you enter deduction or return to a previous item. A compact diagram can reduce the memory burden, but these questions are not a speed norm and their difficulty has not been equated with the other parts. Decide on a simple working method before accelerating; hurriedly reversing a rule is not evidence that the rule itself is difficult.",
+              "zh": "计时模式五段共用本站三十分钟，进入演绎或返回不重置。小图能减轻记忆负担，但题目不是速度常模，也未与其他段等值。加速前先选简单过程，匆忙倒转规则不证明规则本身难。"
+            },
+            {
+              "en": "You can mark an item unanswered and revisit it before the whole attempt closes. After expiry or early finish, the record distinguishes blanks from selected wrong answers. Untimed study allows the same premise checks without a deadline. Use actual provider instructions for a real assessment’s navigation, permitted notes and assistance. Neither the local timer nor a completed raw count certifies that you worked under an employer’s examination conditions.",
+              "zh": "可留空并在整卷关闭前返回，到时或提前结束后分开显示未答与错选。不计时允许无截止核前提。真实测评的导航、纸笔与帮助以提供方说明为准，本地计时或完成计数不认证招聘考试条件。"
+            }
+          ]
+        },
+        {
+          "id": "deduction-7",
+          "title": {
+            "en": "Review the logical witness",
+            "zh": "复盘逻辑证据"
+          },
+          "paragraphs": [
+            {
+              "en": "For each correct conclusion, write the shortest chain that makes it unavoidable. For each non-necessary conclusion, write an admissible countermodel or identify its explicit contradiction. Then change one premise in a fresh task and see whether your answer changes. This tests whether you understood the dependency, rather than recognised a repeated sentence. It also makes an explanation more useful than simply circling the correct binary option after submission.",
+              "zh": "必然结论写最短不可避免的链；非必然结论写合规反例或明确冲突。再在新题只改一前提，观察答案变化。这检查依赖理解，而非认出重句，也比提交后只圈二选一正确项更有用。"
+            },
+            {
+              "en": "The six-item result is raw information on this fixed bank, not an IQ, population percentile or stable deductive level. Binary items can be guessed correctly, and a count alone cannot distinguish that from reasoning. Do not diagnose a weakest ability by comparing unequated part counts. This full public guide is identical for everyone; no personal answers, attempt identifier or hiring prediction appear in the guide URL.",
+              "zh": "六题结果是固定题本原始信息，非IQ、人口百分位或稳定演绎水平。二选一可能猜对，数量本身不能与推理区分；未等值各段不用于诊断最弱能力。本完整公开指南人人相同，URL不含私人答案、答卷标识或录用预测。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interpretation",
+      "directionIds": [
+        "interpretation"
+      ],
+      "title": {
+        "en": "Interpretation: What the Observations Support",
+        "zh": "解读完整指南：观察资料支持什么"
+      },
+      "headline": {
+        "en": "Interpretation: What the Observations Support",
+        "zh": "解读完整指南：观察资料支持什么"
+      },
+      "summary": {
+        "en": "Keep conclusions within the described sample, time and conditions; distinguish observation, agreement, generalisation and causal explanation.",
+        "zh": "让结论限于所述样本、时期和条件，区分观察、一致、推广与因果解释。"
+      },
+      "scoreReading": {
+        "en": "This complete public guide is identical for everyone and available before answering. Your separate private page record shows correct, wrong and unanswered out of six. No percentile, pass band or weakest ability is inferred from these unequated parts.",
+        "zh": "本完整公开指南对所有人相同，无需作答。私人本页记录另外显示六题中的正确、错误、未答，不由未等值各段推出百分位、通过档或最弱能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Interpretation: What the Observations Support | Critical Thinking Practice",
+          "zh": "解读完整指南：观察资料支持什么｜批判性思维练习"
+        },
+        "description": {
+          "en": "Keep conclusions within the described sample, time and conditions; distinguish observation, agreement, generalisation and causal explanation.",
+          "zh": "让结论限于所述样本、时期和条件，区分观察、一致、推广与因果解释。"
+        }
+      },
+      "sections": [
+        {
+          "id": "interpretation-1",
+          "title": {
+            "en": "Read the claim against the evidence",
+            "zh": "把主张对照证据"
+          },
+          "paragraphs": [
+            {
+              "en": "Interpretation asks whether the described evidence supports a particular conclusion beyond reasonable doubt within the task’s context. Treat the observations as accurately reported, but do not invent missing observations. Start by identifying who or what was observed, which period was covered and what the proposed conclusion actually claims. A conclusion about those ten records is different from a conclusion about every record an organisation has ever produced.",
+              "zh": "解读问在题定情境中，所述证据是否使具体结论有充分支持。把观察视为准确报告，但不编缺观察。先辨对象、时期与主张具体内容；关于这十条记录的结论，不同于关于组织历来全部记录。"
+            },
+            {
+              "en": "This original part uses Supported by the described evidence and Not supported by the described evidence. It does not ask you to certify a real research study or predict a recruiting result. Its six written tasks exercise boundaries in reading data and reports. They do not establish a calibrated interpretation scale, and their wording should not be treated as the instructions for every Watson–Glaser or other publisher assessment you might encounter.",
+              "zh": "本原创段用所述证据支持／所述证据未支持，不让你认证现实研究或预测招聘。六道文字题练读数据报告的边界，未形成校准解读量表，措辞也不代表所有Watson–Glaser或其他提供方测评说明。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-2",
+          "title": {
+            "en": "Preserve the observed population",
+            "zh": "保留观察人群"
+          },
+          "paragraphs": [
+            {
+              "en": "A majority of respondents is not automatically a majority of everyone eligible to respond. If eighty volunteers answer a question, their answers describe those volunteers unless the problem supplies a justified way to generalise. A fresh example is fifty workshop sign-ups choosing between two sessions: their choices need not describe the preferences of every employee. Check whether the proposed conclusion changes its population without acknowledging that change.",
+              "zh": "回复者多数不自动是全部可回复者多数。八十志愿者的答案先描述志愿者，除非题目给有据推广路径。新例五十培训报名者在两时段中选择，未必代表全员偏好。核结论是否未说明就换人群。"
+            },
+            {
+              "en": "This does not mean every survey is unusable or no generalisation can ever be justified. It means the necessary support must come from the described design and evidence rather than from the word survey alone. In this short bank, missing sample links are intentionally visible. Name the absent connection instead of making an unbounded criticism of all research or choosing an answer based on whether you like the survey’s conclusion.",
+              "zh": "这不意味着所有调查无用或绝不能推广，而是支持须来自所述设计与证据，不能只凭“调查”二字。本短题本刻意显露缺样本连接，应说清缺哪一环，不无限批评研究，也不按是否喜欢结论来选。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-3",
+          "title": {
+            "en": "Keep counts separate from rates",
+            "zh": "区分数量与速率"
+          },
+          "paragraphs": [
+            {
+              "en": "Two counts can support a direct count comparison within the same register. If a fictional log records fourteen completions in one month and nineteen in the next, the latter count is larger. That does not establish higher completions per working hour without hours, or higher productivity without a defined input measure. Read the units in the proposed conclusion as carefully as the numbers supplied in the passage.",
+              "zh": "同一记录中两个数量可直接比大小。如某虚构记录前月十四项完成、后月十九项，后数更大；没小时数不能推出每小时更高，没定义投入也不能说生产率提高。结论单位须与题给数字同样认真读。"
+            },
+            {
+              "en": "A common error is to reject a modest supported statement because it does not prove a stronger interesting one. You can accept the direct count comparison while declining a rate or causal interpretation. Good interpretation does not always mean choosing the most sceptical option. It means keeping each conclusion at the level the evidence earns, including accepting a narrow observation when that observation is plainly recorded.",
+              "zh": "常见错是因资料没证明更强、更有趣主张，就拒绝温和有据陈述。可接受直接数量比较，同时不接受速率或因果解读。好解读并非总选最怀疑项，而是让每结论停在证据支持层级，明确记录的窄观察也应接受。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-4",
+          "title": {
+            "en": "Do not replace sequence with cause",
+            "zh": "不把先后变成因果"
+          },
+          "paragraphs": [
+            {
+              "en": "An improvement after a change does not isolate the cause when several conditions changed together. For a fresh example, a team changes its software, shift schedule and training materials before errors fall. The before-after record is compatible with several explanations. Saying the software alone caused the improvement requires support not supplied by that description. It is equally unwarranted to claim that software therefore had no effect at all.",
+              "zh": "多条件同时变时，某变化之后改善不能分离原因。如团队换软件、班表和教材后错误降低，前后记录可有多种解释。软件单独造成改善需额外支持；因此说软件毫无作用也同样无据。"
+            },
+            {
+              "en": "When reviewing, list the other changed conditions and ask what comparison would separate the proposed explanation. The exercise does not require you to design a complete experiment, but naming the confounding changes makes the boundary concrete. Keep the distinction between “the report observed a reduction” and “the report established this sole cause”. A cautious causal conclusion need not dismiss the value of recording what happened.",
+              "zh": "复盘列其他变化条件，问什么比较能分离拟议解释。不要求设计完整实验，但说出混杂变化能让边界具体。区分报告观察到下降与报告确立单一原因；谨慎因果结论不等于否认记录发生何事的价值。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-5",
+          "title": {
+            "en": "Distinguish agreement from accuracy",
+            "zh": "区分一致与正确"
+          },
+          "paragraphs": [
+            {
+              "en": "If two reviewers independently produce identical checklist results on a specified set of files, the report can support agreement on that set. It does not by itself show their answers are correct, that the checklist measures everything important or that they will agree on future files. Those additional claims need other evidence. State exactly what the agreement record does establish before evaluating what remains unknown.",
+              "zh": "若两位审核者对指定文件独立产生同一清单结果，可支持该组一致，但不独自说明答案正确、清单涵盖全部重要内容或未来也一致。新增主张需别的证据；先准确说一致记录确立什么，再评未知。"
+            },
+            {
+              "en": "The same discipline applies to trends. Two successive days cannot establish that every day next year will continue rising. A trend projection needs a model and evidence for using it over the new period, not merely a larger second number. Mark words such as always, every and alone when they appear in a proposed conclusion; they often demand more support than a short passage provides.",
+              "zh": "趋势也如此。连续两日不能确立下一年天天上升；外推需模型及跨期使用依据，不只是第二数更大。标出结论中的总是、每个、单独等词，常比短文能给的支持更强。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-6",
+          "title": {
+            "en": "Allocate attention under one clock",
+            "zh": "在同一时钟下分配注意"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode uses one site-selected thirty-minute clock for the thirty-question bank, including time spent reading rules and moving between parts. Interpretation has no separate restart. Use a quick population-time-unit-cause check before selecting an option, and revisit a marked blank if time remains. This is a practical checklist for this edition, not a validated strategy guaranteed to raise performance on an employer’s test.",
+              "zh": "三十题共用本站三十分钟，含读规则和换段，解读段不独立重启。可先快核人群、时期、单位、原因再选择，有余时再回空白。这是本版实用检查法，不是验证过、保证提高招聘测评表现的策略。"
+            },
+            {
+              "en": "Untimed study lets you state the evidence boundary in a full sentence before choosing. In either mode, the finished record separates unanswered items from selected wrong answers. A detected clock inconsistency clears rather than certifies a timed attempt. Actual invitations may limit navigation or assistance differently, so consult their instructions. The local practice record neither confirms examination conditions nor supplies a general measure of reasoning speed.",
+              "zh": "不计时可先用完整句说证据边界再选。两模式结束后未答与错选分开，时钟不一致会清空而非认证。实际邀请可能不同限制导航与帮助，应读其说明；本地记录不确认考试条件，也不是一般速度测量。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation-7",
+          "title": {
+            "en": "Review a supported boundary",
+            "zh": "复盘有据的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "For every item, write one sentence that the evidence clearly supports and one stronger sentence it does not support. Then explain the added population, time, unit or causal claim in the stronger version. Use a fresh set of fictional numbers or records when repeating the exercise. This approach checks whether you can preserve the boundary, rather than remember that a particular report in the fixed bank has answer B.",
+              "zh": "逐题写一句证据明确支持的话及一句更强但未支持的话，说清强版本加了人群、时期、单位或因果哪项。重练时用新虚构数字或记录，检查能否保留边界，而非记住固定题某报告选B。"
+            },
+            {
+              "en": "The six-item count is raw practice information, with no percentile, pass label or calibrated interpretation level. Repeated counts can change through recognition as well as understanding, and binary choices allow chance success. Do not use a low relative part count to diagnose your weakest ability or a person’s tendency to guess. This full public guide remains identical for all readers, with no private answer or score included in shared links.",
+              "zh": "六题数量是原始练习信息，无百分位、通过标签或校准解读等级。重测可因识别或理解变化，二选一也可幸运成功。不用相对低数诊断最弱能力或个人猜测倾向。本完整公开指南人人相同，分享链接不带私人答案或成绩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arguments",
+      "directionIds": [
+        "arguments"
+      ],
+      "title": {
+        "en": "Arguments: Relevance, Importance and Decision Goals",
+        "zh": "论证评价完整指南：相关性、重要性与决定目标"
+      },
+      "headline": {
+        "en": "Arguments: Relevance, Importance and Decision Goals",
+        "zh": "论证评价完整指南：相关性、重要性与决定目标"
+      },
+      "summary": {
+        "en": "Evaluate a stipulated reason against its stated decision goal, separating material relevance from truth checking, presentation and personal agreement.",
+        "zh": "把题定理由对照所述决定目标，区分实质相关性、真假核验、呈现方式与个人赞同。"
+      },
+      "scoreReading": {
+        "en": "This complete public guide is identical for everyone and available before answering. Your separate private page record shows correct, wrong and unanswered out of six. No percentile, pass band or weakest ability is inferred from these unequated parts.",
+        "zh": "本完整公开指南对所有人相同，无需作答。私人本页记录另外显示六题中的正确、错误、未答，不由未等值各段推出百分位、通过档或最弱能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Arguments: Relevance, Importance and Decision Goals | Critical Thinking Practice",
+          "zh": "论证评价完整指南：相关性、重要性与决定目标｜批判性思维练习"
+        },
+        "description": {
+          "en": "Evaluate a stipulated reason against its stated decision goal, separating material relevance from truth checking, presentation and personal agreement.",
+          "zh": "把题定理由对照所述决定目标，区分实质相关性、真假核验、呈现方式与个人赞同。"
+        }
+      },
+      "sections": [
+        {
+          "id": "arguments-1",
+          "title": {
+            "en": "Judge the offered reason",
+            "zh": "评价给出的理由"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks whether one offered reason is strong or weak for a specific decision goal. Treat the offered reason as true because that is the declared exercise rule, then evaluate whether it is directly relevant and materially important to that goal. You are not asked whether the reason has been verified in real life, whether you like the proposal or whether every possible advantage and cost has been considered.",
+              "zh": "本段问一个给定理由对具体决定目标是否有力。按声明规则先视理由为真，再看是否直接相关且具实质重要性。不问现实已核实与否、你喜不喜欢提案或是否考虑全部利弊。"
+            },
+            {
+              "en": "The six scenarios and decision goals are independently authored. Their two response choices do not reconstruct a commercial scoring algorithm or establish a calibrated argument-evaluation level. The Watson–Glaser name identifies the preparation topic; these are not official items or an endorsed training method. Read the printed goal each time, since a reason can matter greatly to one question while being largely irrelevant to another question with different aims.",
+              "zh": "六场景及目标均独立编写，二选一不重建商业计分，也不建立校准论证评价等级。Watson–Glaser名称只说明备考主题，并非官方题或获认可训练。每题读所印目标：同一理由对某问题很重要，对目标不同的另一问题可能无关。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-2",
+          "title": {
+            "en": "Separate truth from relevance",
+            "zh": "分开真假与相关性"
+          },
+          "paragraphs": [
+            {
+              "en": "A true detail is not automatically a strong reason. The colour of a notice can be correctly described yet have no material bearing on whether a return slot gives readers access outside opening hours. Conversely, a reason that describes a substantial access benefit is relevant under the stipulated truth assumption even though a real project would still require evidence that the benefit will occur. Keep the two stages distinct rather than using one as a substitute for the other.",
+              "zh": "真细节不自动是强理由。告示颜色可描述正确，却与闭馆退书可达性无实质联系；描述实质便利的理由按题定为真时相关，尽管现实项目仍需验证收益能否发生。应分开两阶段，不相互替代。"
+            },
+            {
+              "en": "In real work, both truth checking and relevance checking are important. This exercise isolates the second task by supplying the first as an assumption. If you reject a reason solely because you distrust its fictional audit, you have changed the task. If you accept a reason solely because its factual sentence is true, you have also missed the relevance test. Write what connection links the reason to the decision goal.",
+              "zh": "现实真假核验和相关性都重要；本练习把真假作为假设，单独练后者。只因不信虚构审核就拒理由，是换任务；只因句子为真就接受，也漏相关检验。应写明理由与决定目标的连接。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-3",
+          "title": {
+            "en": "Look for a material connection",
+            "zh": "寻找实质连接"
+          },
+          "paragraphs": [
+            {
+              "en": "A strong reason addresses something central to the named goal. If a fictional office is deciding how to reduce late document returns, a stated reduction in those late returns is materially relevant. A decorative preference about the new reminder card may not be. Name the outcome in the goal, name the effect claimed by the reason, and compare them. Do not rely on the emotional force or length of the argument’s wording.",
+              "zh": "强理由涉及目标核心。如虚构办公室决定如何减少逾期交件，题述逾期减少实质相关；新提醒卡装饰偏好可能无关。分别命名目标结果与理由所述作用，再比较，不依措辞情绪或长度判断。"
+            },
+            {
+              "en": "Importance is also bounded by the question. A typeface might matter in a decision about readability, but a personal preference for the typeface on an instruction booklet is trivial when the stated goal is lower energy expense at unchanged output. The detail is not universally worthless. It is weak for this particular decision as framed. That contextual judgement is more precise than making a blanket claim that appearance never matters.",
+              "zh": "重要性也由问题限定。字体在可读性决定中可能重要，但目标是同产出降能耗费时，个人喜欢说明书字体是小事。细节非普遍无价值，只对此限定决定理由弱，比泛称外观从不重要更准确。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-4",
+          "title": {
+            "en": "Do not confuse strong with a final recommendation",
+            "zh": "不把有力等同最终建议"
+          },
+          "paragraphs": [
+            {
+              "en": "A materially relevant reason can support a proposal without settling the entire decision. An after-hours service may improve access, while a real decision also needs costs, maintenance, staffing or other requirements. This part evaluates each supplied reason on its own merits; it does not aggregate an unseen list of trade-offs into a yes-or-no policy recommendation. Strong means important and directly relevant under the exercise rule, not automatically decisive in every real setting.",
+              "zh": "实质相关理由可支持提案，却未解决全部决定。延时服务可改善访问，现实仍需成本、维护、人手等。本段逐一评给定理由，不汇总未见取舍作政策是非建议。有力指按规则重要且直接相关，不在所有现实情境自动决定行动。"
+            },
+            {
+              "en": "The same applies to a strong reason against a proposal. Judge the connection to the stated side and goal rather than automatically favouring Yes, change, caution or the status quo. In fresh practice, write one substantial reason for and one against the same fictional goal, then distinguish both from a decorative or unrelated detail. This helps separate evaluation quality from a habit of always endorsing a preferred position.",
+              "zh": "反对提案也可有强理由，应看其与立场目标的联系，不自动偏好是、变革、谨慎或现状。新练习可对同一虚构目标各写一项实质赞成与反对理由，再与装饰或无关细节区分，有助把评价质量与总赞同偏爱立场的习惯分开。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-5",
+          "title": {
+            "en": "Ignore forceful presentation as evidence",
+            "zh": "不把强势呈现当证据"
+          },
+          "paragraphs": [
+            {
+              "en": "Capital letters, repetition, prestige or a confident tone can change how persuasive a statement feels without changing its relevance. A request written entirely in capitals does not by itself show an access benefit from longer opening hours. A long argument can be weak, and a short one can be strong. Strip away its presentation and restate the claimed effect in a plain sentence before comparing that effect with the decision goal.",
+              "zh": "大写、重复、声望或自信语气可改说服感，却未改相关性。全大写请求本身不说明延时开放的访问收益；长论证可弱，短论证可强。先去呈现包装，用普通句重述声称作用，再对照目标。"
+            },
+            {
+              "en": "Also avoid accepting a reason merely because it confirms a view you already hold. Under the supplied truth assumption, ask the same relevance and importance questions for a proposal you favour and one you dislike. You need not disclose political beliefs, personal experiences or sensitive workplace details to practise this. The fictional scenarios provide all the context needed for the keyed response, and your private count is not a measure of your values or moral worth.",
+              "zh": "也不因理由符合既有看法就接受。按题定为真，对喜欢和不喜欢的提案都问相同相关与重要性问题。练习无需透露政治观点、经历或敏感工作细节；虚构场景给全部答题情境，私人计数不测价值观或道德价值。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-6",
+          "title": {
+            "en": "Work within one continuous clock",
+            "zh": "在连续时钟下作答"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode uses one site-selected thirty-minute clock across all thirty questions and all five parts. The arguments part does not receive a new clock, and reading its rule does not pause the existing one. A compact goal-effect-importance check can organise your working, but it is not a validated shortcut or a guarantee of improved scores. Untimed study lets you articulate that connection fully before adding time pressure.",
+              "zh": "三十题五段共用本站三十分钟，论证段没有新时钟，读规则也不停。目标—作用—重要性小检查可组织过程，但不是验证过的捷径或提分保证。不计时让你先完整说明连接，再加时间压力。"
+            },
+            {
+              "en": "Before the whole attempt closes you may revisit any item or explicitly leave it unanswered. At expiry or early finish, blanks and selected wrong answers remain separate. A detected clock inconsistency clears the attempt instead of creating a timed result. Use your actual invitation’s instructions for permitted notes, navigation and help; this local learning flow does not certify examination conditions, professional competence or readiness for a hiring decision.",
+              "zh": "整卷关闭前可返回任题或明确留空，到时或提前结束后空白与错选分开。时钟不一致会清空而非生成计时结果。纸笔、导航与帮助依实际邀请；本地学习流程不认证考试条件、专业胜任力或招聘就绪。"
+            }
+          ]
+        },
+        {
+          "id": "arguments-7",
+          "title": {
+            "en": "Review the connection, then make a new case",
+            "zh": "复盘连接，再造新例"
+          },
+          "paragraphs": [
+            {
+              "en": "After finishing, state why the offered effect is central, trivial or unrelated to the goal. Then make a new fictional question where the same detail changes relevance: for example, a colour choice may matter to a visual-identification goal but not to counting returned books. Explain the changed connection. This checks understanding more directly than memorising that an archive-cover scenario has the first option or that a capital-letter scenario has the second.",
+              "zh": "结束后说明所述作用对目标为何核心、微小或无关，再造新虚构题，让同细节相关性改变，如颜色对视觉识别目标重要、对数退书未必重要。解释连接变化，比背档案罩子选第一、大写选第二更直接核理解。"
+            },
+            {
+              "en": "The six-item record is raw practice information, not a percentile, pass band or stable argument-evaluation level. Binary choices can be correct by chance, and an individual count cannot identify guessing. The five parts have not been equated, so do not diagnose a weakest ability by comparing counts. This complete guide is public and identical for everyone; shared links carry no answers, private result identifier or personal recruiting recommendation.",
+              "zh": "六题记录是原始练习信息，非百分位、通过档或稳定论证评价水平。二选一可偶然正确，个人数量不能识别猜测；五段未等值，不由计数比较诊断最弱能力。完整指南公开且人人相同，分享不带答案、私人结果标识或个人招聘建议。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_five_part_critical_thinking_practice",
+    "formCode": "fm_critical30_original_english_v1",
+    "itemBankVersion": "fm_critical30_five_response_rules_english_v1",
+    "scoringVersion": "raw_correct_wrong_unanswered_5x6_single_site_clock_or_study_v1",
+    "resultContentVersion": "fm_critical30_five_full_guides_v1",
+    "itemBankSha256": "0389aee0f860f2bc43becb1391cb3cbbe374954e7fb81a85eb1c879a9c519a6b",
+    "resultContentSha256": "12170b0af079ac034d7351037e7a8d349c5b442dd49667cfbb5a137694015654",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Pearson TalentLens: practice purpose and limits of untrialled scores",
+        "zh": "Pearson TalentLens：练习目的与未试测成绩的局限"
+      },
+      "url": "https://www.talentlens.com/practice-tests.html"
+    },
+    {
+      "title": {
+        "en": "Pearson historical UK practice booklet: five response-rule families; no items reproduced",
+        "zh": "Pearson历史英国练习册：五种反应规则，不复制试题"
+      },
+      "url": "https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/clients/phnro/wg_practice.pdf"
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Five response rules in one original edition",
+        "zh": "同一原创版的五种答题规则"
+      },
+      "paragraphs": [
+        {
+          "en": "Each part has six original questions. Inference uses True / Probably true / Insufficient data / Probably false / False under explicit facts or sampling models. The four binary parts ask separately about assumptions, necessary conclusions, supported interpretations and material arguments. Each prompt repeats its own rule.",
+          "zh": "每段六道原创题，推断按明确事实或抽样模型用真／可能真／信息不足／可能假／假。四个二选一段分别问假设、必然结论、有据解读及实质论证，每题重复自己的规则。"
+        },
+        {
+          "en": "This is a fixed learning bank, not a reconstruction of an official form. Inference probability conventions are explicitly bounded for checkable original keys; they do not claim to reproduce historical or current publisher scoring. All questions stay English in both interfaces; instructions, explanations and full guides are bilingual.",
+          "zh": "本固定学习题本不重建正式题式。推断概率约定为原创答案可核查而明确限定，不冒称复刻历史或当前提供方计分。两界面题目保持英文，说明、解析与完整指南为双语。"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "title": {
+        "en": "One continuous whole-attempt clock",
+        "zh": "一个连续整卷时钟"
+      },
+      "paragraphs": [
+        {
+          "en": "Timed mode starts once at 30:00. Moving between parts, reading instructions, returning or using a background tab does not pause or restart it. You may explicitly leave blanks and revise any question until the whole attempt ends. At expiry it locks with unanswered items retained. Untimed study has no deadline.",
+          "zh": "计时模式从30:00只开始一次，换段、读指令、返回或切后台均不停、不重启。整卷结束前可明确留空和改任题，到时锁定并保留未答；不计时无截止。"
+        },
+        {
+          "en": "A device-clock inconsistency clears the attempt instead of creating a timed result. This is a local practice clock, not proctoring. Thirty-five minutes including instructions is an editorial planning estimate, not observed completion data. Your actual invitation controls its timing, navigation, equipment and permitted help.",
+          "zh": "设备时钟不一致会清空而非生成计时结果。这是本地练习时钟，不是监考。含说明约三十五分钟是编辑安排估计，非实测完成数据。真实邀请决定时限、导航、设备与允许帮助。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Raw counts without a performance label",
+        "zh": "原始计数不派表现标签"
+      },
+      "paragraphs": [
+        {
+          "en": "A correct offered selection adds one correct count; another offered selection adds one wrong count. Missing and skipped responses add one unanswered count. The three counts sum to six per part and thirty overall. No time bonus, guessing adjustment, norm, percentile, performance band, weighted composite or employer cutoff is supplied.",
+          "zh": "选对计一正确，选其他给定项计一错误，缺答和跳过计一未答。各段三数合六、总体合三十，无时间奖励、猜测修正、常模、百分位、表现档、加权综合或招聘门槛。"
+        },
+        {
+          "en": "Binary and five-option items have different response sets; difficulty has not been equated. A count cannot diagnose guessing, general critical-thinking ability or a weakest part. After finishing, every question, key and explanation is free, even with all blanks. Five complete public guides are available before answering and identical for everyone.",
+          "zh": "二选一和五选一反应集合不同，难度未等值。计数不诊断猜测、一般批判思维能力或最弱部分。结束后全部题、答案与解析免费，哪怕全留空。五篇完整公开指南无需作答，且对人人相同。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Review the first unsupported reasoning move",
+        "zh": "复盘第一个无据推理步骤"
+      },
+      "paragraphs": [
+        {
+          "en": "For each item, name the first missing premise, reversed implication, population change or irrelevant reason in your working. Make one fresh example before returning to the fixed bank. Recognition and changed conditions can improve repeat counts as well as learning; this exercise does not separate those causes or guarantee transfer.",
+          "zh": "逐题说清过程里第一个缺前提、倒蕴含、换人群或无关理由，先造新例再回固定题。识别与条件变化也可像学习一样提高重测数量，本练习不区分原因或保证迁移。"
+        },
+        {
+          "en": "Use the public provider material as background and your invitation for the exact assessment you will take. This practice does not predict selection, qualification or legal/professional competence. Shared URLs lead only to complete public guides, without answers, counts or attempt identifiers; refreshing or leaving clears the private on-page record.",
+          "zh": "公开提供方资料用于背景，具体将参加的测评以邀请为准。本练习不预测录用、资格或法律／专业胜任力。分享URL仅通完整公开指南，不带答案、计数或答卷标识；刷新或离开清除本页私人记录。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an official Watson–Glaser form?",
+        "zh": "是正式Watson–Glaser题本吗？"
+      },
+      "answer": {
+        "en": "No. All 30 questions and five full guides are independently written. The name identifies a preparation topic, with no publisher item bank, endorsement, score conversion or claim of form equivalence.",
+        "zh": "不是。三十题及五篇完整指南均独立编写，名称说明备考主题，不提供提供方题库、认可、分数转换或题本等值主张。"
+      }
+    },
+    {
+      "question": {
+        "en": "What are the five answer rules?",
+        "zh": "五种答题规则是什么？"
+      },
+      "answer": {
+        "en": "Inference has five certainty/likelihood choices under the prompt’s explicit model. Assumptions, deduction, interpretation and arguments each use their own two-choice rule. Every question repeats its instruction so you can check which decision it asks for.",
+        "zh": "推断按题干明确模型选五种确定／可能性反应；假设、演绎、解读和论证各有自己的二选一规则。逐题重述指令，便于确认所问动作。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does switching parts pause or reset the clock?",
+        "zh": "换部分会暂停或重置时钟吗？"
+      },
+      "answer": {
+        "en": "No. Timed mode uses one site-selected thirty-minute clock, including reading and navigation. You may revise any item before the whole attempt ends. Untimed study uses the same bank without deadlines. Actual tests may have different rules.",
+        "zh": "不会。计时模式同一本站三十分钟，含阅读与导航，整卷结束前可改任题。不计时同题无截止，真实测评可能规则不同。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do blanks count as wrong or show a weak ability?",
+        "zh": "空白算错或代表能力弱吗？"
+      },
+      "answer": {
+        "en": "Blanks remain unanswered, separate from selected wrong answers. Parts are not equated, and their option counts differ. Raw counts do not establish a weakest ability, guessing, a percentile, a pass band or an employer prediction.",
+        "zh": "空白保留未答，与错选分开。各段未等值、选项数也不同，原始数不确定最弱能力、猜测、百分位、通过档或招聘预测。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all explanations and complete guides free?",
+        "zh": "全部解析和完整指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 30 explanations appear when the whole attempt closes, including with zero correct. All five full public guides can be read before answering, without registration, a payment or a score threshold.",
+        "zh": "是。整卷关闭后显示三十题解析，零题正确也可看。五篇完整公开指南无需先作答、注册、支付或达到分数线。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can shared links reveal my responses?",
+        "zh": "分享会暴露答案吗？"
+      },
+      "answer": {
+        "en": "Shared links contain only public guide addresses, never responses, counts or private attempt identifiers. The private record stays in page memory and clears on restart, refresh, leaving or language change. Optional anonymous activity counts have separate consent.",
+        "zh": "链接只含公开指南地址，不含答案、计数或私人答卷标识。私人记录只留本页内存，重测、刷新、离开或换语言清除。可选匿名活动计数另征同意。"
+      }
+    }
+  ]
+}

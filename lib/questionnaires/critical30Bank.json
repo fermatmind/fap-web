@@ -1,0 +1,1076 @@
+[
+  {
+    "id": "CRIT_1_01",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA closed register lists twelve parcels. Every listed parcel has a dated receipt, including parcel Q7. Proposed inference: Parcel Q7 has a dated receipt.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA closed register lists twelve parcels. Every listed parcel has a dated receipt, including parcel Q7. Proposed inference: Parcel Q7 has a dated receipt."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The universal statement includes Q7 explicitly, so the inference is certain within the given record. It is not merely a likely outcome of sampling. No assumption about unlisted parcels is required.",
+      "zh": "给定全称陈述明确包含Q7，因此在此记录内确定为真，不是抽样中的较可能结果，也无需假设未列包裹。"
+    }
+  },
+  {
+    "id": "CRIT_1_02",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA container holds seven amber tokens and three violet tokens. One token is selected uniformly at random without anyone seeing it. Proposed inference: The selected token is amber.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA container holds seven amber tokens and three violet tokens. One token is selected uniformly at random without anyone seeing it. Proposed inference: The selected token is amber."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The stated model gives probability 7/10, greater than one half but below one. Amber is therefore probably true under this exercise’s explicit rule, not certain. The key does not predict an actual unseen draw.",
+      "zh": "题设模型给琥珀色概率7/10，大于一半但小于一，按本练习明示规则为可能真而非确定。答案不预测实际未知抽取。"
+    }
+  },
+  {
+    "id": "CRIT_1_03",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nThree departments each scheduled a workshop. The note gives no names or attendance lists and says nothing about Pat. Proposed inference: Pat attended one of these workshops.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nThree departments each scheduled a workshop. The note gives no names or attendance lists and says nothing about Pat. Proposed inference: Pat attended one of these workshops."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "There is no fact or sampling model connecting Pat to attendance. Both attendance and non-attendance fit the note, with no justified likelihood direction. Unknown is not automatically probably false.",
+      "zh": "没有事实或抽样模型把Pat与参加联系起来，参加、不参加都符合且无合理概率方向。未知不自动等于可能假。"
+    }
+  },
+  {
+    "id": "CRIT_1_04",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nTen sealed boxes contain two green markers and eight silver markers, one marker per box. Select one box uniformly at random without opening it. Proposed inference: Its marker is green.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nTen sealed boxes contain two green markers and eight silver markers, one marker per box. Select one box uniformly at random without opening it. Proposed inference: Its marker is green."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Green has stated probability 2/10, below one half but above zero. The inference is probably false under the declared model. A green result remains possible, so definitely false would overstate the evidence.",
+      "zh": "绿色题设概率2/10，低于一半但大于零，因此按模型为可能假。仍可能抽中绿色，判确定假会夸大证据。"
+    }
+  },
+  {
+    "id": "CRIT_1_05",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nIn this fictional collection every striped disk is wooden, and at least one striped disk exists. Proposed inference: No striped disk is wooden.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nIn this fictional collection every striped disk is wooden, and at least one striped disk exists. Proposed inference: No striped disk is wooden."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "E",
+    "explanation": {
+      "en": "The existing striped disk must be wooden, contradicting the claim that none is wooden. This is definitely false under the supplied facts; no real-world claim about all disks is made.",
+      "zh": "题目保证存在的条纹圆片必为木质，与“没有木质条纹圆片”冲突，所以在给定事实下确定假，不是在断言现实全部圆片。"
+    }
+  },
+  {
+    "id": "CRIT_1_06",
+    "prompt": {
+      "en": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA simulation is explicitly defined to produce an intact label with probability 0.8 on each run. Nothing further is observed about its next run. Proposed inference: Its next label will be intact.",
+      "zh": "For this original exercise, classify only from the stated facts or explicit sampling model. True/False means certain; Probably true/false means a known probability above/below one half, short of certainty. Use Insufficient data when the information gives no justified direction.\n\nA simulation is explicitly defined to produce an intact label with probability 0.8 on each run. Nothing further is observed about its next run. Proposed inference: Its next label will be intact."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Probably true",
+          "zh": "Probably true"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Insufficient data",
+          "zh": "Insufficient data"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Probably false",
+          "zh": "Probably false"
+        },
+        "directionId": "inference"
+      },
+      {
+        "id": "E",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "inference"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Under the stated simulation model the next-run probability is 0.8: above one half, below certainty. This supports probably true. The given probability is a fictional model input, not an empirical reliability claim about a real device.",
+      "zh": "题设仿真下下一次概率0.8，大于一半但非必然，所以可能真。该概率是虚构模型输入，不是现实设备可靠性数据。"
+    }
+  },
+  {
+    "id": "CRIT_2_01",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “This online link will be the only route for applications, and every eligible person will be able to apply.” Proposed assumption: Every eligible person can access that link.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “This online link will be the only route for applications, and every eligible person will be able to apply.” Proposed assumption: Every eligible person can access that link."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "If an eligible person cannot access the sole route, the coordinator’s stated expectation that everyone can apply fails. Access is therefore taken for granted by this plan. This does not prove access actually exists.",
+      "zh": "若合资格者不能访问唯一渠道，“每个人都能申请”的预期就失败，所以计划预设可访问。这不证明现实中确实可访问。"
+    }
+  },
+  {
+    "id": "CRIT_2_02",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “Use the online link as the only route for applications.” Proposed assumption: The link must be displayed in blue text.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA coordinator says: “Use the online link as the only route for applications.” Proposed assumption: The link must be displayed in blue text."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The route can function with another text colour. No colour claim is needed for the stated application plan, so blue text is not necessarily taken for granted. Familiar web conventions do not supply a missing premise.",
+      "zh": "换文字颜色渠道仍可运作，申请计划不需要颜色主张，所以并未必然预设蓝色。常见网页习惯不补成缺失前提。"
+    }
+  },
+  {
+    "id": "CRIT_2_03",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA planner says: “To reduce our purchases of new paper, we will use legible sheets from the reuse tray for some internal drafts.” Proposed assumption: The tray supplies at least some usable sheets.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA planner says: “To reduce our purchases of new paper, we will use legible sheets from the reuse tray for some internal drafts.” Proposed assumption: The tray supplies at least some usable sheets."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Without any usable sheet, this proposed reuse method cannot replace any new-paper purchase. Some usable supply is therefore assumed. The claim does not require enough reused paper for every document or any particular tray size.",
+      "zh": "若一张可用纸也没有，此再用方法就不能替代任何新纸采购，所以预设至少有一些可用纸。不要求覆盖全部文件或特定纸盘大小。"
+    }
+  },
+  {
+    "id": "CRIT_2_04",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA trainer says: “We will teach the new filing procedure with a short demonstration so that the team can understand it.” Proposed assumption: Everyone already understands every step before the demonstration.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA trainer says: “We will teach the new filing procedure with a short demonstration so that the team can understand it.” Proposed assumption: Everyone already understands every step before the demonstration."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Teaching for understanding does not require complete prior understanding; lack of it is compatible with the purpose. The proposed assumption is not necessary merely because some team members may already know a step.",
+      "zh": "为理解而教学不要求事先完全理解，尚未理解与目的相容。有人也许已知某步，不表示这个拟议假设必需。"
+    }
+  },
+  {
+    "id": "CRIT_2_05",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nAn organiser says: “The meeting will be Tuesday at 14:00, and all required participants will attend at that time.” Proposed assumption: All required participants are available to attend then.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nAn organiser says: “The meeting will be Tuesday at 14:00, and all required participants will attend at that time.” Proposed assumption: All required participants are available to attend then."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "If a required participant is unavailable at that time, the organiser’s unqualified attendance expectation cannot hold as stated. Availability is taken for granted. This identifies an information gap; it does not verify anyone’s actual calendar.",
+      "zh": "若必需参加者当时不能出席，无保留的全员出席预期就不成立，所以预设有空。这识别信息缺口，不核验实际日历。"
+    }
+  },
+  {
+    "id": "CRIT_2_06",
+    "prompt": {
+      "en": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA host says: “Reserve Room B because its twenty seats are enough for our group.” Proposed assumption: Room B is in the newest building on the site.",
+      "zh": "Decide whether the speaker must be taking the proposed assumption for granted for this particular plan or reason to work as stated. A statement that is merely plausible, desirable or unrelated is not necessarily assumed.\n\nA host says: “Reserve Room B because its twenty seats are enough for our group.” Proposed assumption: Room B is in the newest building on the site."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Taken for granted",
+          "zh": "Taken for granted"
+        },
+        "directionId": "assumptions"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not taken for granted",
+          "zh": "Not taken for granted"
+        },
+        "directionId": "assumptions"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The stated reason concerns seating capacity, which does not depend on building age. A room in an older building could satisfy exactly the same reason. Newness is not taken for granted by this argument.",
+      "zh": "所给理由是座位容量，与建筑新旧无必然关系。旧楼房间也可满足同一理由，所以不预设新楼。"
+    }
+  },
+  {
+    "id": "CRIT_3_01",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery stamped entry has been reviewed. At least one stamped entry exists. Conclusion: At least one reviewed entry is stamped.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery stamped entry has been reviewed. At least one stamped entry exists. Conclusion: At least one reviewed entry is stamped."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Take the stamped entry whose existence is given. The universal premise makes it reviewed, so it is both reviewed and stamped. The existence statement is essential; a universal condition alone would not supply an instance.",
+      "zh": "取保证存在的已盖章条目，按全称前提它已审核，故兼有二属性。存在陈述很关键，单有全称条件不保证实例。"
+    }
+  },
+  {
+    "id": "CRIT_3_02",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery green badge has been checked. Conclusion: Every checked badge is green.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nEvery green badge has been checked. Conclusion: Every checked badge is green."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "A checked red badge can coexist with every green badge being checked. That counterexample satisfies the premise but falsifies the conclusion. The one-way inclusion does not reverse.",
+      "zh": "一个已检查红徽章可与全部绿徽章已检查并存，满足前提却使结论为假，单向包含不能倒转。"
+    }
+  },
+  {
+    "id": "CRIT_3_03",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf a ticket is valid, its entry is logged. Ticket Z is valid. Conclusion: Ticket Z’s entry is logged.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf a ticket is valid, its entry is logged. Ticket Z is valid. Conclusion: Ticket Z’s entry is logged."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The stated condition applies to Z because its required premise, validity, is supplied. The logged conclusion follows directly. No claim is made that logging proves validity in the reverse direction.",
+      "zh": "已提供Z有效，所以题定条件适用，直接推出记录。不主张反向由已记录证明有效。"
+    }
+  },
+  {
+    "id": "CRIT_3_04",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf sensor S is active, indicator L is lit. Indicator L is lit. Conclusion: Sensor S is active.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nIf sensor S is active, indicator L is lit. Indicator L is lit. Conclusion: Sensor S is active."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The premise allows L to be lit for another reason while S is inactive. That arrangement satisfies the rule and observation but contradicts the conclusion. Observing a consequence does not establish its sufficient condition.",
+      "zh": "规则允许S不活跃而L因另一原因亮着。该情况符合前提和观察却反驳结论，看到结果不能确认其充分条件。"
+    }
+  },
+  {
+    "id": "CRIT_3_05",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nNo triangular token is round. Token P is round. Conclusion: Token P is not triangular.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nNo triangular token is round. Token P is round. Conclusion: Token P is not triangular."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "If P were triangular, the first premise would make it not round, contradicting its supplied roundness. Therefore P cannot be triangular under these premises. The labels are fictional categories used for the logical relation.",
+      "zh": "若P为三角类，第一前提使其不圆，与已知圆冲突，因此在这些前提下P不为三角类。标签是用于逻辑关系的虚构分类。"
+    }
+  },
+  {
+    "id": "CRIT_3_06",
+    "prompt": {
+      "en": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nExactly three distinct cards U, V and W are ordered left to right. U precedes V, and V precedes W. Conclusion: W is first.",
+      "zh": "Treat every supplied premise as true. Select Follows necessarily only when the conclusion holds in every arrangement satisfying those premises. Some means at least one; do not reverse an implication.\n\nExactly three distinct cards U, V and W are ordered left to right. U precedes V, and V precedes W. Conclusion: W is first."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Follows necessarily",
+          "zh": "Follows necessarily"
+        },
+        "directionId": "deduction"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Does not follow necessarily",
+          "zh": "Does not follow necessarily"
+        },
+        "directionId": "deduction"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The constraints fix U-V-W. W must be last, so the proposed conclusion is not a necessary consequence and in fact conflicts with the chain. No unstated fourth card is available.",
+      "zh": "约束固定U-V-W，W必在最后，所以结论不必然且实际冲突，不能补第四张牌。"
+    }
+  },
+  {
+    "id": "CRIT_4_01",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA complete log covers twelve deliveries. Every one has a signed receipt dated either 15 May or 16 May. Conclusion: At least one of those twelve deliveries has a receipt dated in that two-day period.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA complete log covers twelve deliveries. Every one has a signed receipt dated either 15 May or 16 May. Conclusion: At least one of those twelve deliveries has a receipt dated in that two-day period."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The log supplies twelve actual instances and gives every receipt a date inside the stated two days. The narrower “at least one” conclusion is supported. It does not require an inference about any other delivery period.",
+      "zh": "记录给十二个实际实例，且每份收据日期均在两日内，所以更窄的“至少一个”有据，无需推论其他日期。"
+    }
+  },
+  {
+    "id": "CRIT_4_02",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA voluntary survey contains 100 responses, of which 60 favour Plan R. No information is provided about non-respondents or the town’s total population. Conclusion: Most people in the town favour Plan R.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA voluntary survey contains 100 responses, of which 60 favour Plan R. No information is provided about non-respondents or the town’s total population. Conclusion: Most people in the town favour Plan R."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Sixty of the 100 volunteers is a majority of that responding group. Without information linking that group to the town, the town-wide majority is not established. The conclusion changes the population beyond the described evidence.",
+      "zh": "60是100名自愿回复者中的多数，但缺少该组与全镇的联系，不能确立全镇多数，结论擅自扩大人群。"
+    }
+  },
+  {
+    "id": "CRIT_4_03",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nTwo auditors independently checked the same ten files against one checklist. The report records identical checklist results from the auditors on all ten files. Conclusion: For those ten files, the recorded checklist results agree between auditors.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nTwo auditors independently checked the same ten files against one checklist. The report records identical checklist results from the auditors on all ten files. Conclusion: For those ten files, the recorded checklist results agree between auditors."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "This conclusion stays within the explicitly reported ten-file agreement. It does not claim either auditor is always accurate or that future files will agree. Agreement and correctness are different questions.",
+      "zh": "结论仅限明确报告的十份文件一致，不声称审核者总正确或未来也一致。一致与正确是不同问题。"
+    }
+  },
+  {
+    "id": "CRIT_4_04",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nFive machines produced fewer misprints after a workshop. The report also says their software and paper supply changed at the same time, with no comparison group. Conclusion: The workshop alone caused the reduction.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nFive machines produced fewer misprints after a workshop. The report also says their software and paper supply changed at the same time, with no comparison group. Conclusion: The workshop alone caused the reduction."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Multiple conditions changed and no design is described that separates their effects. The record supports a before-after observation, not this workshop-only causal conclusion. It also does not prove the workshop had no effect.",
+      "zh": "多条件同时变化且未述分离影响的设计，记录支持前后观察，不支持培训单独造成改善，也不证明培训完全无效。"
+    }
+  },
+  {
+    "id": "CRIT_4_05",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nAn otherwise complete task register records 18 completed tasks in April and 23 completed tasks in May. Conclusion: This register contains more completed tasks in May than in April.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nAn otherwise complete task register records 18 completed tasks in April and 23 completed tasks in May. Conclusion: This register contains more completed tasks in May than in April."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The conclusion compares the two supplied counts, 23 and 18, within the same stated register. It does not change the denominator to working hours or claim why output differed. The direct count comparison is supported.",
+      "zh": "结论在同一给定记录中比较23与18，不改成每小时分母或主张原因，直接数量比较有据。"
+    }
+  },
+  {
+    "id": "CRIT_4_06",
+    "prompt": {
+      "en": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA chart shows higher recorded sales on Day 2 than on Day 1. It supplies no other dates, model or guarantee. Conclusion: Sales will increase on every day next year.",
+      "zh": "Treat the supplied observations as accurately reported. Decide whether they support this particular conclusion beyond reasonable doubt in the described setting. Do not add a population, a cause or a future trend the evidence does not establish.\n\nA chart shows higher recorded sales on Day 2 than on Day 1. It supplies no other dates, model or guarantee. Conclusion: Sales will increase on every day next year."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Supported by the described evidence",
+          "zh": "Supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Not supported by the described evidence",
+          "zh": "Not supported by the described evidence"
+        },
+        "directionId": "interpretation"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Two observed days do not establish an uninterrupted future trend across another year. The proposed claim adds both a much longer period and universal certainty absent from the evidence.",
+      "zh": "两天观察不能确立另一年天天增长，结论添加很长时期与证据未给的全称确定性。"
+    }
+  },
+  {
+    "id": "CRIT_5_01",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; the stipulated audit shows the replacement maintains the same output and reduces this energy expense by twenty percent.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; the stipulated audit shows the replacement maintains the same output and reduces this energy expense by twenty percent."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Assuming the offered audit claim is true, it directly addresses both the output requirement and a material reduction in the expense named in the goal. That is a strong reason for this specified decision, not a recommendation about real equipment.",
+      "zh": "按题设视审核主张为真，它直接涉及产出要求及目标所指费用的实质下降，因此对此限定决定理由有力，不是现实设备建议。"
+    }
+  },
+  {
+    "id": "CRIT_5_02",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; one operator prefers the typeface on the replacement’s printed instruction booklet.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a fictional print room replace its old machine to reduce energy expense while maintaining current output? Reason offered: Yes; one operator prefers the typeface on the replacement’s printed instruction booklet."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "A preferred booklet typeface is not evidence of reduced energy expense or maintained output, and is trivial for this stated goal. Its truth does not make it a strong reason for replacement.",
+      "zh": "喜欢说明书字体不说明能源费降低或维持产出，且对此目标是小事，真实也不会使更换理由有力。"
+    }
+  },
+  {
+    "id": "CRIT_5_03",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: Yes; the slot would accept the hundreds of returns readers currently cannot make during those closed hours.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: Yes; the slot would accept the hundreds of returns readers currently cannot make during those closed hours."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "If accepted as true, the reason describes a substantial benefit directly matching the access goal. It is strong for that question even though a real purchasing decision would also need costs and other evidence. Each offered reason is evaluated separately here.",
+      "zh": "按题设为真，理由给出直接对应目标的实质便利，因此对该问题有力。真实采购还需成本等资料，但本题逐项单独评价给定理由。"
+    }
+  },
+  {
+    "id": "CRIT_5_04",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: No; the library’s weekday opening-hours sign has a blue border.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library install an after-hours return slot to let readers return books while the building is closed? Reason offered: No; the library’s weekday opening-hours sign has a blue border."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The border colour does not materially bear on whether readers can return books during closed hours. It is unrelated to the decision goal, so the offered reason is weak even when its colour statement is taken as true.",
+      "zh": "边框颜色不实质影响闭馆退书，与目标无关，所以即使颜色陈述为真，理由仍弱。"
+    }
+  },
+  {
+    "id": "CRIT_5_05",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should outdoor archive boxes receive covers to prevent rain damage to the documents inside? Reason offered: Yes; the specified covers prevent the rainwater entry responsible for that document damage.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should outdoor archive boxes receive covers to prevent rain damage to the documents inside? Reason offered: Yes; the specified covers prevent the rainwater entry responsible for that document damage."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Under the given truth assumption, the reason connects the proposed cover to preventing the exact damage the goal names. It is materially relevant and strong for that bounded question. No real product performance is asserted.",
+      "zh": "视给定理由为真，它将拟议罩子与阻止目标所指损坏直接相连，具实质相关性，因此有力。不主张现实产品性能。"
+    }
+  },
+  {
+    "id": "CRIT_5_06",
+    "prompt": {
+      "en": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library extend evening opening to improve students’ access to its study space? Reason offered: Yes; the request for longer hours was written entirely in capital letters.",
+      "zh": "Assume the offered reason is true. Judge it against the stated decision goal, not your personal preference: a strong reason is directly relevant and materially affects that goal; a trivial or unrelated reason is weak.\n\nDecision goal: Should a library extend evening opening to improve students’ access to its study space? Reason offered: Yes; the request for longer hours was written entirely in capital letters."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Strong for this decision",
+          "zh": "Strong for this decision"
+        },
+        "directionId": "arguments"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Weak for this decision",
+          "zh": "Weak for this decision"
+        },
+        "directionId": "arguments"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Capitalisation expresses presentation or emphasis, not a material access benefit. The reason is weak for the stated goal even if the request really used capitals. Evaluate the content’s relevance rather than the forcefulness of its appearance.",
+      "zh": "全大写是呈现或强调，不是实质可达性收益。即使确实大写，对目标的理由仍弱，应看内容相关性而非外观强烈程度。"
+    }
+  }
+]
