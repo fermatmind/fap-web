@@ -6334,5 +6334,33 @@
       "giving-for-connection",
       "indirect-checks"
     ]
+  },
+  {
+    "slug": "work-traits-reflection",
+    "code": "FM_WORK_THEMES42",
+    "version": "fm_work_themes42_v1",
+    "updated": "2026-10-29",
+    "category": "everyday",
+    "title": {
+      "en": "Seven Work Themes Reflection",
+      "zh": "七类工作主题回顾"
+    },
+    "description": {
+      "en": "Reflect on forty-two recent work behaviors across seven themes. Read separate frequency summaries and seven full guides, without a winning trait or hiring score.",
+      "zh": "回看七类主题中的四十二项近期工作行为，分别阅读频率概括与七份完整指南，不选胜出特质，也不提供招聘分数。"
+    },
+    "minutes": 7,
+    "formCode": "fm_work_themes42_v1",
+    "questionCount": 42,
+    "resultSlugs": [
+      "composure-reading",
+      "initiative-reading",
+      "follow-through-reading",
+      "social-contact-reading",
+      "consideration-reading",
+      "dependability-reading",
+      "curiosity-reading"
+    ],
+    "collection": "explore"
   }
 ]

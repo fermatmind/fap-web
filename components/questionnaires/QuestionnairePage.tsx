@@ -1,3 +1,4 @@
+import { WorkTraitsContext } from "./WorkTraitsReport";
 import { isWorkRole12ConfigurationValid } from "@/lib/questionnaires/workRole12";
 import { WorkActivityContext } from "./WorkActivityInterestsReport";
 import { isSbti31ConfigurationValid } from "@/lib/questionnaires/sbti31";
@@ -249,6 +250,7 @@ export default async function QuestionnairePage({ params }: Props) {
     {quiz.kind === "ctl41" && <QuestionnaireCtl41Attribution locale={locale} />}
     {quiz.kind === "tipi10" && <Tipi10Attribution locale={locale} />}
     {quiz.kind === "saps" && <QuestionnaireSapsAttribution locale={locale} />}
+    {quiz.slug === "work-traits-reflection" && <WorkTraitsContext locale={locale} />}
     {quiz.slug === "work-activity-interests" && <WorkActivityContext locale={locale} />}
     {quiz.kind === "mini-orientation" ? <QuestionnaireOrientationClient quiz={quiz} locale={locale} /> : quiz.kind === "mini-conflict" ? <QuestionnaireConflictClient quiz={quiz} locale={locale} /> : quiz.kind === "stress-reflection4" ? <QuestionnaireStressCheckInClient quiz={quiz} locale={locale} /> : quiz.kind === "four-axes" ? <QuestionnaireFourAxesClient quiz={quiz} locale={locale} /> : quiz.kind === "mini-shadow" ? <QuestionnaireShadowClient quiz={quiz} locale={locale} /> : quiz.kind === "mini-coping" ? <QuestionnaireCopingClient quiz={quiz} locale={locale} /> : quiz.kind === "mini-habit" ? <QuestionnaireHabitClient quiz={quiz} locale={locale} /> : quiz.kind === "mini-intimacy" ? <QuestionnaireIntimacyClient quiz={quiz} locale={locale} /> : quiz.kind === "fscrs22" ? <><QuestionnaireFscrs22Attribution quiz={quiz} locale={locale} /><QuestionnaireFscrs22Client quiz={quiz} locale={locale} /></> : quiz.slug === "dark-triad" ? <QuestionnaireDarkTriadClient key={`${slug}:${locale}`} quiz={quiz} locale={locale} /> : <QuestionnaireClient quiz={quiz} locale={locale} />}
     <section className="my-8 space-y-4 leading-8" aria-labelledby="questionnaire-purpose"><h2 id="questionnaire-purpose" className="text-2xl font-semibold">{quiz.kind === "practice" ? (zh ? "这套练习覆盖什么？" : "What does this practice cover?") : (zh ? "这份问卷探索什么？" : "What does this test explore?")}</h2><p>{quiz.introduction[locale]}</p></section>

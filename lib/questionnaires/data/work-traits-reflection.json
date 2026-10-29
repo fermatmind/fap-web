@@ -1,0 +1,4030 @@
+{
+  "slug": "work-traits-reflection",
+  "code": "FM_WORK_THEMES42",
+  "version": "fm_work_themes42_v1",
+  "updated": "2026-10-29",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 5,
+  "references": [
+    {
+      "title": {
+        "en": "Hogan: current HPI product description, for distinction only",
+        "zh": "Hogan：当前HPI产品说明，仅用于区分"
+      },
+      "url": "https://www.hoganassessments.com/assessment/hogan-personality-inventory/"
+    },
+    {
+      "title": {
+        "en": "IPIP: item-pool and scale overview",
+        "zh": "IPIP：题库与量表概览"
+      },
+      "url": "https://ipip.ori.org/"
+    },
+    {
+      "title": {
+        "en": "IPIP: preliminary comparison with HPI constructs",
+        "zh": "IPIP：与HPI概念的初步对应研究"
+      },
+      "url": "https://ipip.ori.org/newHPITable.htm"
+    }
+  ],
+  "instructions": {
+    "en": "Choose one ordinary work, study or volunteer setting from the past four weeks. For each behavior, rate how often it occurred when a relevant opportunity and room to choose existed. Never means an opportunity existed and the behavior did not occur. Use unscored for no relevant opportunity, uncertainty or choosing not to answer. Report what you recall rather than guessing what an employer wants. Do not enter an employer, task, client or personal example. All forty-two prompts need a choice; unscored is valid. More frequent does not prove that an action was appropriate or effective.",
+    "zh": "选择过去四周一个普通工作、学习或志愿活动情境。在出现相关机会、且有现实选择空间时，题述行为出现得多频繁？“从未”表示确实有机会，但没有这样做。没有机会、无法判断或不愿回答时选未评分。按记得的情况作答，不猜雇主希望看到什么。不需要输入雇主、任务、客户或私人实例。四十二题都需选择，未评分也是有效回应；更频繁不证明行动适当或有效。"
+  },
+  "title": {
+    "en": "Seven Work Themes Reflection",
+    "zh": "七类工作主题回顾"
+  },
+  "description": {
+    "en": "Reflect on forty-two recent work behaviors across seven themes. Read separate frequency summaries and seven full guides, without a winning trait or hiring score.",
+    "zh": "回看七类主题中的四十二项近期工作行为，分别阅读频率概括与七份完整指南，不选胜出特质，也不提供招聘分数。"
+  },
+  "resultHeading": {
+    "en": "Seven separate work-behavior records",
+    "zh": "七组分别呈现的工作行为记录"
+  },
+  "seoTitle": {
+    "en": "Seven Work Themes: 42 Prompts and Full Guides",
+    "zh": "七类工作主题回顾：四十二题与完整指南"
+  },
+  "minutes": 7,
+  "introduction": {
+    "en": "Think about one recent work, study or volunteer setting. Explore responses under pressure, initiative, follow-through, contact, consideration, agreements and curiosity. Seven original self-report summaries stay separate, and every full reading is public before answering.",
+    "zh": "选择一个近期工作、学习或志愿情境，回看压力回应、主动行动、接续推进、联系、他人视角、约定和好奇探索。七组原创自报分别呈现，全部完整读法在作答前就公开。"
+  },
+  "source": {
+    "kind": "FermatMind original42contextual work-behavior frequency items;Hogan/IPIP conceptual background only;notHPI/HDS/MVPI/IPIP-HPI",
+    "formCode": "fm_work_themes42_v1",
+    "itemBankVersion": "original42_bilingual_seven_work_themes_v1",
+    "scoringVersion": "seven_sixitem_equal_means_min5_1dp_no_rank_v1",
+    "resultContentVersion": "seven_full_work_theme_readings_v1",
+    "itemBankSha256": "5f8c388d6c1b90681f403a802ce2356ae7299dc0ca58f5e011d969acb303c16c",
+    "resultContentSha256": "fb09fca6dc91d00f0c1f3085cd7a03599cc3f599e65db7122c307f217c64f857",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "composure",
+      "title": {
+        "en": "Responding under pressure",
+        "zh": "压力下的回应"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "initiative",
+      "title": {
+        "en": "Starting agreed action",
+        "zh": "主动提出并开始行动"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "follow-through",
+      "title": {
+        "en": "Following through on a task",
+        "zh": "接续推进任务"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "social-contact",
+      "title": {
+        "en": "Making work-related contact",
+        "zh": "发起工作中的联系"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "consideration",
+      "title": {
+        "en": "Considering other perspectives",
+        "zh": "考虑他人视角"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "dependability",
+      "title": {
+        "en": "Keeping and clarifying agreements",
+        "zh": "履行与澄清约定"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "curiosity",
+      "title": {
+        "en": "Exploring and learning",
+        "zh": "探索与学习"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "WTR_01",
+      "prompt": {
+        "en": "In a tense work exchange, I gave myself a moment to identify the issue before responding.",
+        "zh": "工作交流紧张时，我先留一点时间辨认问题，再作回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_02",
+      "prompt": {
+        "en": "When a group needed a next step, I offered a specific proposal for discussion.",
+        "zh": "小组需要下一步时，我提出一个具体建议供讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_03",
+      "prompt": {
+        "en": "I kept working toward the defined stopping point of a small task within the time available.",
+        "zh": "我在可用时间内继续推进小任务，朝明确的阶段终点靠近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_04",
+      "prompt": {
+        "en": "I initiated a brief introduction when joining an appropriate work or study group.",
+        "zh": "加入合适的工作或学习小组时，我主动做简短介绍。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_05",
+      "prompt": {
+        "en": "Before settling a shared choice, I invited a relevant person to explain their perspective.",
+        "zh": "共同选择定下来前，我邀请相关的人说明自己的视角。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_06",
+      "prompt": {
+        "en": "I kept an accessible reminder of a commitment I had actually agreed to.",
+        "zh": "对实际同意的承诺，我留有方便查看的提醒。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_07",
+      "prompt": {
+        "en": "I asked why a procedure or decision worked as it did when that understanding was relevant to the task.",
+        "zh": "理解原理与任务相关时，我询问流程或决定为什么这样运作。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_08",
+      "prompt": {
+        "en": "After an unexpected change, I separated confirmed information from what I was only anticipating.",
+        "zh": "出现意外变化后，我把已确认信息与自己预想的情况分开。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_09",
+      "prompt": {
+        "en": "After agreeing what I could take on, I began the first permitted step without another reminder.",
+        "zh": "约定自己能承担的部分后，我不等再次提醒就开始获准的第一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_10",
+      "prompt": {
+        "en": "After a manageable interruption, I identified where to resume the task.",
+        "zh": "经历可以处理的中断后，我找出任务从哪里接着做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_11",
+      "prompt": {
+        "en": "I made the first contact needed to clarify a shared task.",
+        "zh": "需要澄清共同任务时，我先发起联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_12",
+      "prompt": {
+        "en": "I checked which communication format would make the task easier for the other person to follow.",
+        "zh": "我核对哪种沟通方式更方便对方跟进任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_13",
+      "prompt": {
+        "en": "Before adding a promise, I checked it against the work I had already taken on.",
+        "zh": "增加承诺前，我把它与已有任务放在一起核对。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_14",
+      "prompt": {
+        "en": "I explored an unfamiliar work topic through material I was permitted to use.",
+        "zh": "我用获准使用的材料，探索不熟悉的工作主题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_15",
+      "prompt": {
+        "en": "When feedback stung, I looked for the specific point being raised before choosing a next step.",
+        "zh": "反馈让我不舒服时，我先找出其中的具体问题，再决定下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_16",
+      "prompt": {
+        "en": "I raised a task issue that had not yet been put on the shared agenda.",
+        "zh": "我提出一项还没有进入共同议程的任务问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_17",
+      "prompt": {
+        "en": "When progress was slower than expected, I selected a feasible next piece rather than only watching the delay.",
+        "zh": "进度慢于预期时，我选一小段可行的后续工作，而不只是看着延误。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_18",
+      "prompt": {
+        "en": "I contributed to a voluntary discussion when I had something relevant to add.",
+        "zh": "自愿参与的讨论中，有相关内容时我主动补充。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_19",
+      "prompt": {
+        "en": "I left room for someone to respond without assuming that silence meant agreement.",
+        "zh": "我给对方回应空间，不默认沉默就表示同意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_20",
+      "prompt": {
+        "en": "When a commitment needed changing, I told the affected person while there was still room to discuss it.",
+        "zh": "承诺需要变化时，我在仍有商量余地时告知受影响的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_21",
+      "prompt": {
+        "en": "When two explanations differed, I looked for an observation that could help distinguish them.",
+        "zh": "两种解释不一致时，我寻找能帮助区分它们的观察。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_22",
+      "prompt": {
+        "en": "Under time pressure, I brought my reply back to the task that needed attention.",
+        "zh": "时间紧迫时，我把回应重新带回需要处理的任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_23",
+      "prompt": {
+        "en": "When a change seemed useful, I suggested a small reversible trial within the agreed scope.",
+        "zh": "某项变化可能有用时，我在约定范围内建议一个可撤回的小试验。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_24",
+      "prompt": {
+        "en": "Before moving to an optional addition, I brought the agreed small deliverable to a usable state.",
+        "zh": "转向可选补充前，我先把约定的小交付做到可用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_25",
+      "prompt": {
+        "en": "I opened a low-pressure exchange with a collaborator rather than waiting for them to begin.",
+        "zh": "与协作者交流时，我先发起一个压力较小的话题，而不总等对方开口。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_26",
+      "prompt": {
+        "en": "When proposing a change, I considered how it would affect someone who depended on the current arrangement.",
+        "zh": "提出变化时，我考虑它会怎样影响依赖现有安排的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_27",
+      "prompt": {
+        "en": "Before handing over work, I checked a detail the recipient needed in order to use it.",
+        "zh": "交接成果前，我核对接收方使用它所需的一项细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_28",
+      "prompt": {
+        "en": "I tried a small learning activity to understand a tool or approach before making a larger commitment.",
+        "zh": "较大投入前，我先用一个小型学习活动了解工具或办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_29",
+      "prompt": {
+        "en": "After frustration interrupted a task, I used a reasonable pause before returning when possible.",
+        "zh": "受挫影响任务后，有条件时我先适当暂停，再回到任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_30",
+      "prompt": {
+        "en": "I asked which part of an unresolved task I could appropriately help move forward.",
+        "zh": "任务尚未解决时，我询问自己适合协助推进哪一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_31",
+      "prompt": {
+        "en": "When I had to pause a task, I left a clear place from which it could be continued.",
+        "zh": "需要暂停任务时，我留下一个清楚的接续位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_32",
+      "prompt": {
+        "en": "I reconnected with a collaborator through the channel and timing we had agreed.",
+        "zh": "我按约定的渠道和时段，主动与协作者重新取得联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_33",
+      "prompt": {
+        "en": "During disagreement, I addressed the work issue without claiming to know the other person’s motives.",
+        "zh": "出现分歧时，我围绕工作问题回应，不断定对方的动机。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_34",
+      "prompt": {
+        "en": "In an update, I distinguished what I had completed from what I still needed to do.",
+        "zh": "说明进展时，我把已经完成与仍需处理的部分分开。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_35",
+      "prompt": {
+        "en": "I examined an alternative interpretation instead of treating the familiar explanation as settled.",
+        "zh": "我查看另一种解释，而不把熟悉的解释直接当成定论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_36",
+      "prompt": {
+        "en": "When several demands felt overwhelming, I identified one issue to clarify or seek help with.",
+        "zh": "多项要求让我难以应付时，我找出一项可以澄清或求助的问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "composure",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "composure",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "composure",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "composure",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "composure",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "composure",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_37",
+      "prompt": {
+        "en": "I brought a possible improvement together with the permission or discussion it would need.",
+        "zh": "提出可能的改进时，我一并说明需要什么许可或讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "initiative",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "initiative",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "initiative",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "initiative",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "initiative",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "initiative",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_38",
+      "prompt": {
+        "en": "When the current approach stalled, I considered an affordable adjustment that could keep the task moving.",
+        "zh": "当前做法受阻时，我考虑在可承担范围内调整，让任务继续推进。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "follow-through",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "follow-through",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_39",
+      "prompt": {
+        "en": "When a new participant arrived, I offered an appropriate way for them to join the conversation.",
+        "zh": "有新参与者加入时，我提供合适的方式让对方参与交流。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "social-contact",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "social-contact",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_40",
+      "prompt": {
+        "en": "When someone set a reasonable boundary, I adjusted the request without pressing for private details.",
+        "zh": "对方提出合理边界时，我调整请求，不追问私人细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "consideration",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "consideration",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "consideration",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "consideration",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "consideration",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "consideration",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_41",
+      "prompt": {
+        "en": "After agreeing to correct my part of a problem, I followed up on that specific correction.",
+        "zh": "同意修正问题中自己的部分后，我继续跟进那项具体修正。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "dependability",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "dependability",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "dependability",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "dependability",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "dependability",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "dependability",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WTR_42",
+      "prompt": {
+        "en": "After finding new information, I revisited an assumption behind my way of working.",
+        "zh": "发现新信息后，我重新核对做事方式背后的一个假设。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "curiosity",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "curiosity",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／不愿回答——未评分"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "composure-reading",
+      "directionIds": [
+        "composure"
+      ],
+      "title": {
+        "en": "Responding Under Pressure",
+        "zh": "压力下的回应"
+      },
+      "headline": {
+        "en": "Notice the task and your available options before interpreting the number.",
+        "zh": "理解数字前，先看任务与可选做法。"
+      },
+      "summary": {
+        "en": "Read six recent response practices without diagnosing stress or treating calmness as a work qualification.",
+        "zh": "回看六项近期回应做法，不诊断压力，也不把沉着当成工作资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Responding Under Pressure | Work Theme Guide",
+          "zh": "压力下的回应：完整工作主题指南"
+        },
+        "description": {
+          "en": "Read six recent response practices without diagnosing stress or treating calmness as a work qualification.",
+          "zh": "回看六项近期回应做法，不诊断压力，也不把沉着当成工作资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A response practice is not a health label",
+            "zh": "回应做法不等于健康标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A tense exchange, an unexpected change and uncomfortable feedback can create different demands. This theme asks about six reported practices, such as pausing when possible, identifying the actual issue and distinguishing known information from anticipation. It does not observe your emotional state or measure whether you felt calm. Keep the selected work, study or volunteer setting in view rather than turning a few recollections into a claim about your general personality.",
+              "zh": "紧张交流、意外变化和难受的反馈，会带来不同要求。本组回看有条件时暂停、辨认具体问题、区分已知与预想等六项自报做法，没有观察情绪状态，也不测是否感到平静。应保留选定工作、学习或志愿情境，不把少量回忆变成整体人格判断。"
+            },
+            {
+              "en": "The reference period is the past four weeks, and every rating depends on a relevant opportunity and room to choose. You might have had a quiet month, clear support or little exposure to the situations described. Another person might have faced repeated changes with few resources. Those conditions affect what the answers can describe. The record cannot diagnose stress, anxiety or a disorder, and it cannot certify that someone is suitable for high-pressure work.",
+              "zh": "参照范围是近四周，每项评分都以相关机会和现实选择空间为前提。一个月可能较平稳、支持清楚，或很少遇到题述情况；别人可能在资源有限时反复面对变化。这些条件影响回答含义。记录不能诊断压力、焦虑或障碍，也不能认证高压岗位适合性。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "Pausing and acting both depend on the task",
+            "zh": "暂停和行动都要看任务"
+          },
+          "paragraphs": [
+            {
+              "en": "A brief pause can be useful when it helps you understand an ordinary request before answering. It is not a universal instruction to delay. An urgent situation may require prompt action under an existing procedure, and a routine discussion may allow more time. Rate what you recall without rewriting the task’s requirements to fit an attractive answer. More frequent use of a practice does not by itself establish that it was timely, safe or effective.",
+              "zh": "短暂停顿若能帮助理解普通请求，可能有用，但不是普遍要求延迟。紧急情况可能要按既有流程及时行动，常规讨论则可能允许更多时间。应按回忆作答，不为好看的答案改写任务要求。更常使用一种做法，不证明它当时及时、安全或有效。"
+            },
+            {
+              "en": "This theme also differs from simply suppressing disagreement or appearing untroubled. Naming an unresolved issue, acknowledging uncertainty or asking for help can be part of a measured response. Remaining silent while a problem grows is not automatically evidence of composure. The inventory does not check these outcomes; it provides a place to ask what happened in one instance, what options were available and what the relevant working agreement required of you.",
+              "zh": "本组也不等于压下分歧或显得毫不受影响。指出待解问题、承认不确定或求助，都可能属于经过考虑的回应。问题扩大时保持沉默，也不自动证明沉着。本表不核实后果，只帮助回看一次实例、可用选择及相关工作约定。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A changed deadline creates two separate questions",
+            "zh": "期限变化后，先分开两个问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional design group receiving a shortened deadline. One member first checks whether the change affects the whole project or only a demonstration draft. They then ask which requirement can be reviewed with the coordinator. The practice is about making the task clearer while responding to pressure. It does not show that the person felt no frustration, and it does not authorize them to alter the deadline or scope on their own.",
+              "zh": "例如，虚构设计小组收到提前交付要求。一位成员先核对，是整个项目提前，还是只要演示草稿，再询问哪些要求可与协调者重谈。这是在压力下澄清任务，不证明当事人没有挫折感，也不授权其自行改期限或范围。"
+            },
+            {
+              "en": "Suppose the same member later replies sharply to a confusing message. That instance does not erase the earlier practice, nor does the earlier example prove a stable strength. The six ratings summarize selected recollections across the chosen period. If you want to learn from the situation, privately identify the specific message, the missing information and the next useful conversation. No real messages, names or confidential project details need to be entered here.",
+              "zh": "若同一个人后来对模糊信息语气急促，那次实例不会抹去先前做法，先前实例也不证明稳定优势。六项回答只是选定时期的回忆概括。若想从中学习，可私下辨认具体信息、缺失内容和下一次有用讨论，无需输入真实消息、姓名或项目机密。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read coverage before the mean",
+            "zh": "先看覆盖，再看均值"
+          },
+          "paragraphs": [
+            {
+              "en": "At least five of the six items need numeric ratings before a mean appears. A Sometimes response is a valid three; unscored remains separate. For example, ratings of two, three, three, four and three sum to fifteen and yield a mean of 3.0, with one item unscored. The unscored item is not assumed to have the same frequency. With four or fewer numeric ratings, the page withholds the mean while keeping this complete guide open.",
+              "zh": "六项至少五项数字才显示均值。“有时”是有效的3，未评分独立保留。例如2、3、3、4、3合计15，均值3.0，另有一项未评分；不会假定那一项频率相同。四项及以下数字时不显示均值，但完整指南仍开放。"
+            },
+            {
+              "en": "The mean describes only the rated practices, not the severity of pressure or the quality of a response. Equal means can come from very different patterns. They also cannot establish that this theme is stronger or weaker than another theme, because the groups have not been calibrated for that comparison. Start with the actual items and relevant opportunities before considering whether there is one specific response you would like to review with a willing person.",
+              "zh": "均值只描述所评做法，不表示压力严重程度或回应质量。相同均值可能来自不同组合，也不能证明本主题比另一主题强或弱，因为各组未为这种比较校准。应先看具体条目与机会，再决定是否有一项回应值得与愿意讨论的人回顾。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Try a small, ordinary response exercise",
+            "zh": "试做一个普通小练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a fictional, non-urgent request and write two lines: what is known and what still needs clarification. Draft a short reply that asks one focused question. If a partner is willing, ask whether the reply makes the next action clearer. This is a low-stakes communication exercise, not a way to test your stress tolerance. You can change the wording, pause the exercise or choose a different example if the situation does not suit you.",
+              "zh": "可用一条虚构、非紧急请求练习，写两行：已经知道什么、还需澄清什么，再草拟只问一个具体问题的回复。愿意的话，可请协助者判断下一步是否更清楚。这是低风险沟通练习，不测试抗压；可以改措辞、暂停或换例子。"
+            },
+            {
+              "en": "For real work, use the permissions, escalation routes and safety procedures that already apply. Do not create pressure, provoke a conflict or postpone a necessary action in order to obtain a better example. A useful next step may be asking for clearer instructions, a different response window or help with a specific blocker. The point is to make an ordinary choice more deliberate within the actual conditions, not to become unaffected by every difficult situation.",
+              "zh": "真实工作沿用适用权限、升级路径与安全流程，不为获得更好实例而制造压力、挑起冲突或推迟必要行动。下一步也许是要求更清楚的指引、调整回应时间或就具体阻塞求助。目标是在实际条件中更清楚地选择，不是对所有困难都毫无反应。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Available support belongs in the interpretation",
+            "zh": "解释时应保留支持条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeated interruptions, unclear authority and conflicting requests may limit your options. The questionnaire cannot determine who created those conditions or how they should be resolved. Avoid using a low frequency as proof that the problem belongs to the individual. If you discuss an instance, separate your response from the workload, information and support around it. A concrete description is more useful than assigning yourself a fixed label such as calm, difficult or unsuitable.",
+              "zh": "反复中断、权限不清和冲突要求可能限制选择。本表不能判断由谁造成这些条件，也不决定怎样解决。不要把低频率当成问题属于个人的证明。讨论实例时，应把自己的回应与周围工作量、信息和支持分开；具体描述比给自己贴固定标签更有用。"
+            },
+            {
+              "en": "You do not need to disclose distress, health history or private feedback to use this reading. If the form does not fit your current circumstances, an unscored response preserves that limitation. This original work reflection is not a health assessment or a substitute for appropriate support. Reading the guide does not require continuing the questionnaire, gathering evidence from an employer or demonstrating that you can tolerate conditions you consider unreasonable or unsafe.",
+              "zh": "使用本读法不需披露痛苦、健康史或私人反馈。当前情境不适用时，未评分可以保留限制。本原创工作回顾不是健康评估，也不替代适当支持；阅读不要求继续答题、向雇主收集证明，或展示自己能忍受认为不合理或不安全的条件。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the conclusion smaller than the evidence",
+            "zh": "结论应小于证据范围"
+          },
+          "paragraphs": [
+            {
+              "en": "These six prompts are original FermatMind content and are not an official HPI adjustment score, a preliminary IPIP scale or a validated measure of emotional stability. No norm group or hiring prediction has been established for this composition. Its useful output is a record of reported practices that can support a focused question. It cannot determine whether you are a better employee, more resilient person or appropriate candidate for a particular role.",
+              "zh": "六题由费马原创，不是官方HPI调整性分数、初步IPIP量表或已验证的情绪稳定测量。本组合没有已建立的常模群体或招聘预测证据。有用产出是能支持具体提问的自报做法记录，不能判断是否更好的员工、更有韧性的人或某岗位的合适候选。"
+            },
+            {
+              "en": "You can finish by choosing one issue to clarify, or simply by recognizing that the available information is insufficient. All seven full readings are public before answering and remain open for forty-two unscored choices. If you return later, notice changes in the setting and opportunities as well as the ratings. A changed mean is not, by itself, measured personality growth, and the right amount of support can differ from one task to the next.",
+              "zh": "可以在选定一项待澄清问题后结束，也可以承认现有资料不足。七篇全文在作答前就公开，四十二题全部未评分也开放。以后回顾时，应同时留意情境和机会变化；均值变化本身不等于已测量的人格成长，不同任务需要的支持也可能不同。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "initiative-reading",
+      "directionIds": [
+        "initiative"
+      ],
+      "title": {
+        "en": "Starting Agreed Action",
+        "zh": "主动提出并开始行动"
+      },
+      "headline": {
+        "en": "Make a useful proposal while keeping permission and ownership clear.",
+        "zh": "提出有用建议，同时看清许可与责任。"
+      },
+      "summary": {
+        "en": "Explore six ways of proposing or beginning work without equating initiative with rank, leadership or unlimited availability.",
+        "zh": "回看六种提出或开始行动的做法，不把主动与职级、领导力或无限待命等同。"
+      },
+      "seo": {
+        "title": {
+          "en": "Starting Agreed Action | Work Theme Guide",
+          "zh": "主动提出并开始行动：完整工作主题指南"
+        },
+        "description": {
+          "en": "Explore six ways of proposing or beginning work without equating initiative with rank, leadership or unlimited availability.",
+          "zh": "回看六种提出或开始行动的做法，不把主动与职级、领导力或无限待命等同。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Initiative can be a small, agreed step",
+            "zh": "主动可以是一个商定的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme concerns proposing a next step, raising an overlooked issue and beginning work that you have agreed to take on. It does not require a formal leadership role or a dramatic intervention. A useful action can be small, such as asking which part of an unresolved task you can help with. Rate the practices you recall in the selected setting rather than deciding whether you are generally an ambitious or passive person.",
+              "zh": "本组关注提出下一步、指出尚未讨论的问题，以及开始已经同意承担的工作。不要求正式领导角色或重大介入；询问自己能协助哪部分任务，也可能有用。应按选定情境中记得的做法作答，不判断自己整体是否有野心或被动。"
+            },
+            {
+              "en": "The questions use the past four weeks and depend on relevant opportunities. A role with clear procedures may leave little need to propose changes, while a temporary project may create many openings. That difference does not establish a difference in capability or motivation. Keep the actual task, your permission to act and the resources available alongside the answer. The mean cannot determine whether an employer would value or accept the initiative you described.",
+              "zh": "题目参照近四周，并依赖相关机会。流程清楚的角色可能很少需要提出变化，临时项目却可能有很多空间，这不证明能力或动机有差别。回答应连同任务、行动许可与可用资源阅读；均值不能决定雇主是否重视或接受题述行动。"
+            }
+          ]
+        },
+        {
+          "id": "permission",
+          "title": {
+            "en": "A proposal is different from an authorization",
+            "zh": "建议与授权是两回事"
+          },
+          "paragraphs": [
+            {
+              "en": "Offering a specific proposal allows others to understand and discuss a possible next step. It does not mean that the proposal has been accepted. Beginning a permitted step after an agreement is different from taking over someone else’s task or changing a shared system without approval. The wording deliberately includes permission and scope. Do not treat acting outside those boundaries as a way to obtain a higher number or a more impressive self-description.",
+              "zh": "具体建议让别人能理解并讨论下一步，但不表示已经获得同意。约定后开始获准步骤，与接管他人任务或未经同意改共享系统不同。题目特意包含许可与范围，不应把越过边界当成提高数字或美化自我描述的办法。"
+            },
+            {
+              "en": "Likewise, asking what you can appropriately help move forward is not the same as volunteering for every unfinished piece of work. You may need to clarify ownership, time, dependencies or a decision that belongs elsewhere. Sometimes the useful initiative is to identify that uncertainty rather than begin implementation. The inventory records reported frequency, not whether a particular proposal was wise, welcomed or effective. Those questions need evidence from the actual situation and the people involved.",
+              "zh": "询问适合协助推进什么，也不等于接下所有未完成工作。可能先要澄清责任、时间、依赖，或由别人负责的决定。有时，指出不确定性本身就是有用的主动行动。本表记录自报频率，不判断某项建议是否明智、受欢迎或有效；这些需要真实情境证据。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A volunteer group needs a manageable next step",
+            "zh": "志愿小组需要一个可处理的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional group preparing a community reading event. The team has a broad list of ideas but has not decided how participants will choose a session. One volunteer suggests testing a simple paper signup sheet with dummy names. They explain that the coordinator should confirm the information needed before any real participant details are collected. This is a specific proposal with a decision boundary, not proof of leadership potential or an invitation to collect personal data.",
+              "zh": "例如，虚构志愿小组筹备阅读活动，有许多想法，却未决定怎样选择场次。一位成员建议用虚构姓名试一张简单报名表，并说明采集真实资料前需由协调者确认必要信息。这是带决定边界的具体建议，不证明领导潜力，也不授权收集个人资料。"
+            },
+            {
+              "en": "The coordinator may prefer another approach or may not have time to discuss it yet. Those responses do not automatically make the proposal good or bad, and they do not determine the volunteer’s personality. If you use a real instance for reflection, privately separate the proposal, the permission it required and what happened afterward. A brief account is enough; no names, internal plans or private conversations need to be entered into the questionnaire.",
+              "zh": "协调者可能选择另一办法，或暂时没时间讨论；这不自动说明建议好坏，也不决定提议者的人格。回顾真实实例时，可私下把建议、所需许可和后续情况分开。简短描述即可，不需输入姓名、内部计划或私人沟通。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "The six ratings are not a leadership ladder",
+            "zh": "六项评分不是领导力阶梯"
+          },
+          "paragraphs": [
+            {
+              "en": "Each numeric choice is an ordered frequency label from Never to Almost always. At least five of six are required for the arithmetic mean. A Sometimes response counts as three, while unscored remains missing. For example, three, four, four, four and four total nineteen and display 3.8, with one unscored item. That summary does not count successful initiatives, measure their difficulty or show how much authority you held when they occurred.",
+              "zh": "数字选项是从“从未”到“几乎每次”的有序频率标签，六项至少五项数字才算均值。“有时”为3，未评分保持缺失。例如3、4、4、4、4合计19，显示3.8，另有一项未评分；它不统计成功建议、不测难度，也不说明当时拥有多少权限。"
+            },
+            {
+              "en": "A different set of five answers can produce the same mean, and a month with fewer relevant opportunities can produce a different record without any change in motivation. There is no cutoff for initiative, no ranking against colleagues and no highest work trait. Read the six practices separately before asking whether one useful step could become clearer. Even a very frequent pattern cannot establish readiness for management, promotion or a consequential responsibility that has not been assessed.",
+              "zh": "另一组五项答案可能得到相同均值；相关机会少的月份，也可能在动机未变时形成不同记录。这里没有主动性的分界、同事排名或最高特质。应先分别看六项做法，再考虑哪一步可更清楚。高频率也不能证明已适合管理、晋升或未经评估的重要责任。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Draft a bounded proposal",
+            "zh": "草拟一个有边界的建议"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes exercise, choose a fictional task with a small unresolved issue. Write the issue, one possible next step, a reversible way to try it and who would need to agree. Keep the proposal short enough that a willing partner can understand what decision is being requested. Ask what is unclear, then revise one part. The exercise is about making an option discussable, not persuading someone to approve it or demonstrating that you can act without support.",
+              "zh": "可选一个有小问题待解的虚构任务练习，写出问题、一个下一步、可撤回的试法，以及需要谁同意。让建议足够简短，使愿意协助的人能理解要作什么决定；询问哪里不清楚，再改一处。目标是让选项可讨论，不是说服批准或展示无需支持。"
+            },
+            {
+              "en": "If you apply the idea to real work, stay within the actual permission and information-sharing rules. Do not contact clients, commit shared resources or change a production process merely to create an example of initiative. A useful proposal might identify that no action should begin until a requirement is clarified. It is also acceptable to conclude that the current task is already well specified and that no additional experiment or suggestion is needed.",
+              "zh": "若用于真实工作，应遵守权限和信息分享规则，不为制造主动实例而联系客户、承诺共享资源或改变生产流程。有用建议也可以是先澄清要求、暂不行动；同样可以得出当前任务已足够明确，不需要增加试验或建议的结论。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Opportunity and access shape what is possible",
+            "zh": "机会与接入条件影响可能性"
+          },
+          "paragraphs": [
+            {
+              "en": "People have different access to information, decision makers and time. A student, a new employee and a project owner may reasonably have different permission to propose or begin work. The questionnaire does not correct for those differences or establish that they are fair. If the result raises a concern, identify the particular channel or agreement that could be clarified rather than treating a lower frequency as proof of poor ambition or a higher one as evidence of superior drive.",
+              "zh": "信息、决定者和时间的可及性各不相同。学生、新员工与项目负责人，合理可提出或开始的行动可能不同。本表不校正这些差异，也不判断是否公平。若记录引出问题，应找出待澄清渠道或约定，不把低频率证明为没有进取心，也不把高频率证明为更有驱动力。"
+            },
+            {
+              "en": "Feedback can focus on whether the proposal named a real issue, respected ownership and made the requested decision clear. Ask for an example the other person is willing and permitted to discuss. They do not owe a private explanation for every response, and the absence of feedback does not verify success or failure. You can keep uncertainty in the record and choose non-assessment when there was no relevant opportunity or the available recollection is too limited.",
+              "zh": "反馈可围绕建议是否指向真实问题、尊重责任，以及把待决定事项说清。只讨论对方愿意且允许分享的实例。对方不必为每次回应提供私人解释，没有反馈也不证明成败。可保留不确定；没有机会或回忆有限时，选未评分。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the next step proportional",
+            "zh": "让下一步与证据相称"
+          },
+          "paragraphs": [
+            {
+              "en": "This original six-item theme is not an official ambition scale, a leadership assessment or a measure of employment potential. Its frequency labels and arithmetic have no established hiring validity or norms. They cannot identify a correct response for a real employer’s assessment. A useful personal conclusion is narrower: you may notice one way that proposals, permission or the first agreed action could be discussed more clearly within the setting you selected.",
+              "zh": "本原创六项主题不是官方抱负量表、领导力评估或雇佣潜力测量，频率标签与算术没有已建立的招聘效度或常模，也不能提供正式雇主评估的正确答案。较合适的个人结论是：发现一处可以把建议、许可或第一步商量得更清楚的地方。"
+            },
+            {
+              "en": "All seven full readings are available before answering and after any pattern, including forty-two unscored choices. You can finish with a small clarification or with no further action. If you return to the inventory, consider whether your role, responsibilities or opportunities have changed before interpreting a different mean. More proposals are not automatically progress, and declining an unbounded commitment can remain compatible with thoughtful participation in shared work.",
+              "zh": "七篇全文在作答前后都开放，包括四十二项全部未评分。可以在澄清一处问题后结束，也可以不采取后续行动。再次回顾时，先看角色、责任或机会是否变化，再解释均值。更多建议不自动代表进步，拒绝无边界承诺也可以与认真参与共同工作相容。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "follow-through-reading",
+      "directionIds": [
+        "follow-through"
+      ],
+      "title": {
+        "en": "Following Through on a Task",
+        "zh": "接续推进任务"
+      },
+      "headline": {
+        "en": "Look for the next feasible piece while keeping the stopping condition clear.",
+        "zh": "寻找下一段可行工作，同时保留完成边界。"
+      },
+      "summary": {
+        "en": "Read six recent task-continuation practices without predicting achievement or requiring persistence at any cost.",
+        "zh": "回看六项近期接续做法，不预测成就，也不要求不计代价地坚持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Following Through on a Task | Work Theme Guide",
+          "zh": "接续推进任务：完整工作主题指南"
+        },
+        "description": {
+          "en": "Read six recent task-continuation practices without predicting achievement or requiring persistence at any cost.",
+          "zh": "回看六项近期接续做法，不预测成就，也不要求不计代价地坚持。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Keep the task small enough to describe",
+            "zh": "把任务落到可描述的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Following through can mean finishing a small draft, returning after an interruption or leaving a usable checkpoint when work must pause. This theme concerns those ordinary practices within the past four weeks. Keep one work, study or volunteer setting in mind. The record does not establish how much you achieved, how difficult the task was or whether its original goal remained worth pursuing.",
+              "zh": "接续推进可以是完成小草稿、中断后返回，或暂停时留下可用检查点。本组回看近四周的这些普通做法，始终使用同一工作、学习或志愿情境。记录不证明完成了多少、任务多难，或原目标是否仍值得继续。"
+            },
+            {
+              "en": "A short task and a long-term ambition have different demands. Returning to an agreed piece of work this week cannot establish a stable capacity to persist for years. This form also does not verify the quality of the completed output. Use a concrete instance to identify what the next step was, what interrupted it and what conditions made further work possible or inappropriate.",
+              "zh": "短任务与长期愿望的要求不同，本周回到一项约定工作，不能证明多年坚持的稳定能力；本表也不核实产出质量。可用具体实例辨认下一步是什么、受到什么中断，以及哪些条件让继续推进可行或不再适当。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "Continuation can include changing the approach",
+            "zh": "接续推进可以包含调整"
+          },
+          "paragraphs": [
+            {
+              "en": "Continuing does not require repeating a method that has stopped working. A feasible adjustment may be to reduce the next piece, request an input or clarify a changed requirement. Pausing can also preserve progress when it leaves a clear handover or restart point. Rate the stated behaviors rather than treating uninterrupted activity as the only acceptable pattern. The inventory does not know whether continuing was actually the best choice.",
+              "zh": "接续不要求重复已经失效的方法。可行调整可能是缩小下一段、请求输入或澄清变化后的要求；暂停若留下清楚交接或重启点，也可能保留进展。应按题述行为作答，不把不停活动当成唯一模式。本表不知道继续是否最佳选择。"
+            },
+            {
+              "en": "There are also meaningful reasons to stop or renegotiate a task. Resources can disappear, priorities can change and an agreement may no longer be feasible. A higher frequency of task-continuation practices does not override those conditions. Do not interpret a low mean as a personal failure without examining opportunity and scope. Sometimes responsible follow-through means making the stopping decision explicit rather than silently continuing beyond the agreed boundary.",
+              "zh": "停止或重谈也可能有充分理由：资源消失、优先级变化，或约定不再可行。较高接续频率不能推翻这些条件；解释低均值前也应查看机会与范围。有时负责任的接续，是明确停止决定，而不是默默超出原边界。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A draft pauses at a usable checkpoint",
+            "zh": "草稿在可用检查点暂停"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional student group preparing a short exhibition note. One member has enough information for the introduction but is waiting for a source before completing the final paragraph. They finish the bounded draft, mark the unresolved point and leave a clear next action. That sequence can support continuation, even though the whole note is unfinished. It does not prove exceptional perseverance or permission to invent the missing source.",
+              "zh": "例如，虚构学生小组准备展览短文。一人已有引言资料，结尾却要等来源，便完成有边界的草稿、标明待解处并留下下一步。全文未完，这些做法仍可能有助接续；它不证明超常毅力，也不授权编造缺失来源。"
+            },
+            {
+              "en": "If the group later changes the exhibition’s purpose, the draft may need revision or may no longer be useful. Evaluate the task against the new agreement rather than defending earlier effort merely because time has already been spent. For a real example, keep any documents and private feedback outside the questionnaire. A brief private description of the checkpoint, dependency and decision can support reflection without disclosing the actual work.",
+              "zh": "若小组后来改变展览目的，草稿可能需修改或不再有用。应按新约定判断，而不只是因为投入了时间就维护旧稿。真实工作文件与私人反馈留在问卷之外；私下简述检查点、依赖和决定即可支持回顾。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "A mean summarizes selected practices",
+            "zh": "均值概括的是所选做法"
+          },
+          "paragraphs": [
+            {
+              "en": "Five of six numeric ratings are required for this group’s mean. For example, five ratings of four give a sum of twenty and a mean of 4.0; an unscored sixth item stays missing. A Sometimes rating is a valid three. With four or fewer numeric ratings, the mean is withheld. The complete reading remains available, and missing information is not counted as a failed task or zero persistence.",
+              "zh": "本组六项至少五项数字才有均值。例如五项4合计20，均值4.0，第六项未评分仍是缺失。“有时”是有效的3；四项及以下数字不显示均值。完整读法仍开放，缺失不算任务失败或零坚持。"
+            },
+            {
+              "en": "The arithmetic does not measure hours worked, completed outputs or the value of continuing. Different answer patterns can produce the same mean, and another group’s number is not a calibrated comparison. Read the actual items and the opportunities behind them. If one practice seems worth discussing, ask what made it easier or harder in a specific situation rather than using the mean to assign yourself a fixed work trait.",
+              "zh": "算术不测工作时长、完成件数或继续的价值。不同组合可能均值相同，另一组数字也不是经过校准的比较。应看具体条目及机会；若某项值得讨论，就问特定情境中什么让它更易或更难，不凭均值分配固定特质。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Rehearse a small restart",
+            "zh": "试演一次小型接续"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a fictional task that can be paused safely, such as outlining a reading list. Work on one bounded piece, then leave a short note identifying what is usable, what remains open and the next permitted action. Return to the note later and see whether you can resume without reconstructing the whole task. The exercise concerns the clarity of the checkpoint, not how long you can work without stopping.",
+              "zh": "可选能安全暂停的虚构任务，如拟阅读清单。完成一小段后，记录哪些可用、哪些待解，以及获准的下一步；稍后返回，看能否不重建全部背景就接续。练习关注检查点清楚程度，不关注能连续工作多久。"
+            },
+            {
+              "en": "If you ask a willing partner to try the restart, let them identify missing context and revise one useful detail. Do not create an interruption in safety-critical work or remove required supervision for practice. Real tasks should keep their existing review, ownership and resource agreements. A manageable next step can be clarifying a dependency or handing over a part, rather than taking on more work or committing to finish regardless of conditions.",
+              "zh": "愿意的话，可请协助者尝试接续，指出缺失背景，再改一个有用细节。不要在安全关键工作中制造中断，也不撤去必要监督。真实任务保留既有复核、责任与资源约定；下一步可以是澄清依赖或交接一部分，而非接更多工作。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Resources and ownership affect continuation",
+            "zh": "资源与责任影响接续"
+          },
+          "paragraphs": [
+            {
+              "en": "A task can depend on information, tools, permission or another person’s work. The inventory cannot determine whether a delay was avoidable or who was responsible for it. Consider what you actually controlled before interpreting your ratings. An unscored answer may reflect a missing opportunity, not a lack of effort. Likewise, frequent continuation may be enabled by clear procedures and support that are not captured in the number.",
+              "zh": "任务可能依赖信息、工具、许可或他人的工作。本表不能判断延误是否可避免，或由谁负责；解释评分前应看自己实际控制什么。未评分可能来自机会缺失，而不是不努力；频繁接续也可能得益于数字未显示的清楚流程与支持。"
+            },
+            {
+              "en": "Useful feedback might concern whether a checkpoint was usable, whether a dependency was raised in time or whether a revised approach addressed the actual blocker. Keep the discussion specific and respect what others can share. Neither praise nor criticism from one instance establishes a general achievement capacity. If the setting changes, revisit the task agreement before comparing a later mean with this one.",
+              "zh": "反馈可围绕检查点是否可用、依赖是否及时提出，或调整是否处理真实阻塞。讨论应具体，并尊重他人可分享的范围。一次赞扬或批评都不证明整体成就能力；情境改变后，先重看约定，再比较以后均值。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Persistence is not the only useful outcome",
+            "zh": "有用结果不只有继续"
+          },
+          "paragraphs": [
+            {
+              "en": "These six original prompts are not a published grit scale or an official work-performance assessment. They have no established norms, predictive validity or success cutoff. The four-week context also differs from the long-term goal setting used by the separate FermatMind Grit Test. Neither form certifies an outcome. This reading is most useful when it helps you describe one practical continuation, handover or renegotiation choice with appropriate limits.",
+              "zh": "这六项原创题不是发表的毅力量表或官方表现评估，没有已建立的常模、预测效度或成功分界。四周情境也不同于费马另一个长期目标毅力回顾，两者都不认证结果。本读法可用于带着边界说明一次接续、交接或重谈选择。"
+            },
+            {
+              "en": "All seven full guides remain open before answering and after any response pattern, including forty-two unscored choices. You can finish by identifying a clear restart point, a needed input or a reason to stop. No purchase, employer disclosure or further assessment is required. A later change in the mean should be read alongside changes in task demands and opportunities, without assuming that more frequent continuation always represents personal growth.",
+              "zh": "七篇全文在作答前后及所有组合下都开放，包括四十二项全部未评分。可以在找到重启点、所需输入或停止理由后结束，不要求消费、雇主披露或继续测试。以后均值变化应连同任务和机会变化阅读，不默认更常继续就代表成长。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social-contact-reading",
+      "directionIds": [
+        "social-contact"
+      ],
+      "title": {
+        "en": "Making Work-Related Contact",
+        "zh": "发起工作中的联系"
+      },
+      "headline": {
+        "en": "Read who, why and how contact happened before interpreting its frequency.",
+        "zh": "解释频率前，先看与谁、为什么及怎样联系。"
+      },
+      "summary": {
+        "en": "Explore six contact practices in a chosen setting without ranking quiet or outgoing people or measuring social skill.",
+        "zh": "回看选定情境中的六种联系做法，不给安静或外向的人排名，也不测社交技能。"
+      },
+      "seo": {
+        "title": {
+          "en": "Making Work-Related Contact | Work Theme Guide",
+          "zh": "发起工作中的联系：完整工作主题指南"
+        },
+        "description": {
+          "en": "Explore six contact practices in a chosen setting without ranking quiet or outgoing people or measuring social skill.",
+          "zh": "回看选定情境中的六种联系做法，不给安静或外向的人排名，也不测社交技能。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Contact is tied to a setting",
+            "zh": "联系要放在具体情境中看"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme asks about initiating appropriate introductions, clarifying shared work, contributing to voluntary discussion and reconnecting through an agreed channel. It describes six reported practices in the past four weeks. It does not count friends, assess popularity or establish a general level of extraversion. A brief written message may fit the task better than a meeting, and the form of contact alone cannot tell us whether it was useful.",
+              "zh": "本组涉及适当介绍、澄清共同工作、自愿讨论和按约定渠道重新联系，描述近四周六项自报做法。不数朋友、不评受欢迎程度，也不判整体外向水平。简短文字可能比会议更适合任务，联系形式本身不说明是否有用。"
+            },
+            {
+              "en": "Choose the same ordinary work, study or volunteer context used for the other themes. Some roles create frequent opportunities to approach people, while others involve independent work or established communication routines. Those differences matter before interpreting a frequency. The inventory does not observe the interaction, the recipient’s experience or your communication skill. If there was no relevant opportunity, an unscored answer preserves that information instead of treating absence of contact as a personal deficit.",
+              "zh": "沿用其他主题的普通工作、学习或志愿背景。有些角色经常需要主动接触，有些以独立工作或既定沟通为主，解释频率前须考虑这些差异。本表不观察互动、接收方体验或沟通技能；无相关机会时，未评分保留该信息，不把没有联系视为个人缺陷。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "Initiating contact differs from being always available",
+            "zh": "发起联系不同于随时在线"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful contact has a purpose, an appropriate channel and a reasonable timing expectation. Initiating it does not require monitoring someone continuously or responding outside every agreed boundary. Equally, allowing a new participant to join a conversation does not mean demanding that they speak or disclose personal information. Rate the stated practice in the actual setting rather than assuming that more messages, more meetings or more visibility are inherently better.",
+              "zh": "有用联系应有目的、合适渠道和合理时机，不要求持续关注别人或随时越过约定边界回应。为新人提供参与方式，也不表示要求开口或披露私事。应按实际情境作答，不默认消息、会议或曝光越多越好。"
+            },
+            {
+              "en": "Quiet participation can include a carefully prepared note or a focused question at the right moment. Frequent speaking can still fail to clarify the task. This form does not compare those outcomes or determine which style an employer should prefer. A personal reflection can ask whether the people involved understood the purpose, whether the channel was accessible and whether there was room to decline or respond later when the matter was not urgent.",
+              "zh": "安静参与可以是准备好的说明或适时具体提问；频繁发言也可能未澄清任务。本表不比较这些后果，也不决定雇主应偏好哪种风格。可回看大家是否理解联系目的、渠道是否方便，以及非紧急事项是否允许拒绝或稍后回应。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A new collaborator needs one clear question",
+            "zh": "新协作者需要一个清楚问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional group compiling a public reading list. A new member is unsure which version to use. Another participant sends a short introduction and asks the coordinator where the current list is maintained. The contact has a concrete task purpose and can happen through a written channel. It does not demonstrate that the sender is socially confident in every situation or that a person who did not send the message lacked interest.",
+              "zh": "例如，虚构小组整理公开阅读清单，新成员不确定该用哪个版本。另一人简短介绍后，询问协调者当前清单在哪里维护。这次联系有具体目的，也可用文字进行；它不证明发起者在所有场合自信，也不说明没发消息的人缺乏兴趣。"
+            },
+            {
+              "en": "If the coordinator has already published a clear instruction, checking that instruction may be more appropriate than sending another request. If the channel is inaccessible, a different agreed format may be needed. Use the example to notice purpose and conditions, not to collect contacts as evidence of a stronger trait. For real work, keep identities, messages and organizational information outside the questionnaire; only the selected frequency response is needed.",
+              "zh": "若协调者已有清楚说明，先查看可能比再发请求更合适；渠道不方便时，也许需约定另一形式。应借例子留意目的和条件，不把积累联系次数当作更强特质的证据。真实身份、消息和组织信息留在表外，本表只需频率选择。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Six ratings cannot measure social success",
+            "zh": "六项评分不能测社交成功"
+          },
+          "paragraphs": [
+            {
+              "en": "At least five of six numeric choices are required for a mean. For example, two, two, three, three and five total fifteen and display 3.0, with one item unscored. A Sometimes response is three; missing opportunity remains unscored. The arithmetic does not count successful conversations, people reached or the value of a message. With insufficient coverage, no personal mean appears and this complete guide remains available.",
+              "zh": "六项至少五项数字才有均值。例如2、2、3、3、5合计15，显示3.0，另有一项未评分。“有时”为3，机会缺失保持未评分。算术不统计成功交流、接触人数或消息价值；覆盖不足时不显示个人均值，全文仍可阅读。"
+            },
+            {
+              "en": "Different contact patterns can produce equal means, and the same person may answer differently in another role. The seven themes have not been calibrated for comparing their numerical heights, so a higher value here does not identify your dominant personality. Read the individual practices alongside opportunity and purpose. If a particular contact was difficult or useful, consider that instance directly rather than drawing a general conclusion about attractiveness, confidence, social anxiety or employability.",
+              "zh": "不同联系组合可能均值相同，同一个人换角色也可能回答不同。七组未为比较数字高低校准，较高数值不识别主导人格。应结合机会和目的看逐项做法；某次联系困难或有用，可直接回看，不推断吸引力、自信、社交焦虑或就业能力。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Draft a contact that respects the recipient",
+            "zh": "草拟一条尊重接收方的联系"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes exercise, write a fictional message with a short introduction, one task question and a reasonable response expectation. Remove details the recipient does not need. A willing partner can tell you whether the purpose and requested next step are clear. They can respond in a format that suits them. The exercise examines the message’s usefulness, not whether either person is sufficiently outgoing or able to perform a social role.",
+              "zh": "可草拟虚构消息，包含简短介绍、一个任务问题和合理回应预期，再删掉对方不需要的细节。请愿意协助的人核对目的与下一步是否清楚，并用方便的方式回应。练习检查消息是否有用，不判断双方是否足够外向或能胜任社交角色。"
+            },
+            {
+              "en": "If you try a real contact, use an appropriate existing channel and respect permission, availability and privacy. Do not message strangers, pressure a colleague for an immediate reply or create extra meetings just to improve a questionnaire response. A useful next step can be finding the agreed place for questions, clarifying a contact window or choosing an asynchronous format. It can also be deciding that the available written information already answers the question.",
+              "zh": "若尝试真实联系，应使用适当既有渠道，尊重许可、可联系时间与隐私。不为改善回答而联系陌生人、催同事立即回复或增加会议。下一步可以是找到约定提问位置、核对联系时段、选择异步形式，也可以发现已有书面信息足以回答。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Access and expectations are part of the record",
+            "zh": "接入与预期也是记录背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Contact opportunities can vary with language, time zones, workload, accessibility and the way a group organizes participation. The questionnaire does not diagnose a reason for low frequency or establish that the arrangements are fair. If the record points to a concern, identify the specific condition that could be discussed. Avoid turning a resource or access constraint into a fixed label about your personality or making assumptions about someone else’s willingness to connect.",
+              "zh": "联系机会可能随语言、时区、工作量、无障碍条件和组织方式变化。本表不诊断低频率原因，也不判断安排公平性。若记录引出问题，应找出可讨论的具体条件，不把资源或接入限制化为固定人格标签，也不猜别人是否愿意联系。"
+            },
+            {
+              "en": "Feedback can focus on whether a message made the task clearer, reached the right person or offered a workable way to participate. A reply, silence or a declined invitation needs its own context; none proves how much a person likes or values you. Keep private conversations outside the form. You can mark uncertainty honestly and finish the reflection without requiring another person to explain their personal circumstances.",
+              "zh": "反馈可关注消息是否澄清任务、找到适当的人，或提供可行参与方式。回应、沉默或拒绝邀请都需具体背景，不能证明对方多喜欢或重视自己。私人沟通留在表外；可以如实标记不确定，并在不要求别人解释私事的情况下结束回顾。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep frequency separate from identity",
+            "zh": "把频率与身份判断分开"
+          },
+          "paragraphs": [
+            {
+              "en": "This original group is not an official sociability scale, a social-skill test or a measure of introversion or a health condition. It has no established norms, hiring validity or interpersonal outcome prediction. The six prompts can help organize a conversation about recent contact practices. They cannot determine the best team role, whether you should be more visible or how an employer will interpret a different questionnaire with its own items and scoring.",
+              "zh": "本原创组不是官方社交性量表、社交技能测试，也不测内向或健康状况，没有已建立的常模、招聘效度或互动结果预测。六题可组织一次近期联系做法讨论，不能决定最佳团队角色、是否应更显眼，或雇主怎样解释另一套题本。"
+            },
+            {
+              "en": "All seven complete readings remain open before answering and with every response pattern, including forty-two unscored choices. You may finish by clarifying one useful contact or by deciding that no additional contact is needed. When revisiting the form, notice changes in the role and opportunities before comparing means. A quieter period or a different communication format is not automatically a decline, just as more contact is not automatically personal growth.",
+              "zh": "七份全文在作答前后和所有组合下开放，包括四十二项全部未评分。可以在澄清一次有用联系后结束，也可以判断无需增加联系。以后重做，应先看角色与机会变化；较安静或换一种沟通形式，不自动是退步，更多联系也不自动是成长。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consideration-reading",
+      "directionIds": [
+        "consideration"
+      ],
+      "title": {
+        "en": "Considering Other Perspectives",
+        "zh": "考虑他人视角"
+      },
+      "headline": {
+        "en": "Understand the other person’s account without assuming their motives.",
+        "zh": "理解对方的说明，不代猜动机。"
+      },
+      "summary": {
+        "en": "Review six ways of making room for others in a shared task, without treating agreement or self-sacrifice as a virtue score.",
+        "zh": "回看共同任务中为他人保留空间的六种做法，不把赞同或自我牺牲算作品德分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Considering Other Perspectives | Work Theme Guide",
+          "zh": "考虑他人视角：完整工作主题指南"
+        },
+        "description": {
+          "en": "Review six ways of making room for others in a shared task, without treating agreement or self-sacrifice as a virtue score.",
+          "zh": "回看共同任务中为他人保留空间的六种做法，不把赞同或自我牺牲算作品德分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A perspective needs an actual opportunity to be heard",
+            "zh": "听取视角需要真实的表达机会"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme concerns inviting a relevant view, checking a useful communication format, allowing a response and considering who a change affects. It also asks about addressing a work disagreement without assigning motives and respecting a reasonable boundary. These are six reported practices in one recent setting. The form does not observe the other person or determine whether you understood them correctly. Their own account remains important even when your intention was considerate.",
+              "zh": "本组涉及邀请相关意见、核对沟通方式、留出回应时间、考虑变更影响，以及不猜动机地处理分歧、尊重合理边界。这是近期某一情境中的六项自报做法。本表没有观察对方，也不能判断理解是否准确；即使出于好意，对方的实际说明仍重要。"
+            },
+            {
+              "en": "Keep the past four weeks and the selected work, study or volunteer setting in view. Opportunities differ with responsibility, access and how decisions are made. Someone doing independent work may have little occasion to consult another person; a coordinator may have many. No relevant opportunity belongs in the unscored option, rather than becoming evidence of low empathy. This is neither an emotional-intelligence assessment nor a moral evaluation.",
+              "zh": "保留近四周及选定工作、学习或志愿背景。职责、渠道和决策方式会改变机会；独立工作者可能很少需咨询他人，协调者则经常需要。没有相关机会应选未评分，不能据此认定缺乏共情。本表不是情商测评或道德评价。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "Listening does not require automatic agreement",
+            "zh": "倾听不要求自动赞同"
+          },
+          "paragraphs": [
+            {
+              "en": "Making room for a perspective can help clarify a disagreement without settling it. You can accurately describe a concern and still explain why a request cannot be met. Likewise, checking a preferred format does not promise every accommodation regardless of feasibility. Separate the act of considering information from the eventual decision, its authority and the resources available. A frequency rating cannot show whether the outcome was fair or whether everyone felt heard.",
+              "zh": "为视角留空间可以澄清分歧，但不必解决分歧。准确描述关切后，仍可以解释无法满足请求；核对偏好形式，也不等于承诺不计可行性满足所有调整。应把考虑信息与最终决定、权限和资源分开。频率不能证明结果公平或每个人都觉得被听见。"
+            },
+            {
+              "en": "This theme does not reward guessing feelings, extracting personal explanations or avoiding all conflict. Silence may reflect many things, and the questionnaire cannot identify which one applies. A useful work question might be whether the proposed change creates a practical difficulty, with room for the person to decline personal disclosure. Boundaries belong to you as well as to others; taking another view seriously does not require surrendering your own reasonable limits.",
+              "zh": "本组不奖励猜情绪、索取私人解释或回避所有冲突。沉默可能有多种原因，问卷无法辨认。可以询问变更是否带来实际困难，同时允许对方不披露私事。你也有边界；认真考虑他人意见，不要求放弃自己的合理限制。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A meeting change has several practical effects",
+            "zh": "会议调整会带来多种实际影响"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional volunteer group considering a different meeting time. One member asks affected participants which parts of the current arrangement they depend on and offers a written response channel. A participant explains that the proposed time conflicts with an existing commitment, without disclosing its details. The group now has relevant information. The invitation itself does not determine the final schedule or prove that the person who asked is universally considerate.",
+              "zh": "例如，虚构志愿小组考虑调整会议时间。一人询问受影响者依赖现有安排的哪些部分，并提供书面回应渠道。参与者说明新时间与既有安排冲突，无须披露详情。小组由此得到相关信息，但邀请本身不决定最终时段，也不证明发问者总是体贴。"
+            },
+            {
+              "en": "If the meeting cannot move, the group might explore an agreed alternative for receiving the necessary information. It might also find that no workable solution is currently available. Do not turn either outcome into a personality conclusion. For your own reflection, notice what was asked, which options were available and whether the response actually informed the discussion. Keep names, private arrangements and the content of real conversations outside this questionnaire.",
+              "zh": "若无法改时间，可探索约定的替代信息渠道，也可能暂时没有可行解法。不要把任何结果变成人格结论。回顾时可留意问了什么、有何选择、回答是否进入讨论；姓名、私人安排和真实对话内容都留在问卷之外。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Count the rated items before interpreting frequency",
+            "zh": "先核对有效项，再解释频率"
+          },
+          "paragraphs": [
+            {
+              "en": "Five of six numeric ratings are needed for this group’s mean. A Sometimes response contributes three; unscored contributes neither a value nor an item to the denominator. Five ratings of three sum to fifteen and give a mean of 3.0, while the remaining item stays unscored. Four numeric ratings do not produce a mean, even if they are all five. The complete guide remains available in either case.",
+              "zh": "六项至少五项数字才有本组均值。“有时”计3；未评分既不加数值，也不计入分母。五项3合计15，均值3.0，剩下一项仍未评分。只有四项数字时，即使全为5也不出均值；两种情况下完整指南均可阅读。"
+            },
+            {
+              "en": "The arithmetic is a summary of ordered response labels, not a measured rate of considerate interactions. Two people can report the same mean while facing very different tasks, resources and relationships. Nor can this number be ranked against the other six themes: the groups were not calibrated for that purpose. Read the individual prompts and the opportunities behind them before deciding whether one conversation would be useful to revisit.",
+              "zh": "这是有序选项的算术概括，不是实际体贴互动发生率。相同均值可能对应完全不同的任务、资源和关系，也不能拿它与另六组排名，各组未为此校准。应先读条目和背后机会，再决定是否值得回看一次沟通。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Invite one bounded work perspective",
+            "zh": "邀请一项有边界的工作意见"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes exercise, use a fictional shared task and draft a question about one practical effect of a proposed change. Include a clear way to respond and an appropriate time window. A willing partner can check whether the question is understandable and leaves room for disagreement. The exercise is about making the invitation usable, rather than persuading the partner to endorse the change or disclose something personal.",
+              "zh": "可用虚构共同任务练习，草拟一个只问变更某项实际影响的问题，并提供清楚回应方式和合适时间。愿意协助的人可检查问题是否易懂、是否允许分歧。练习关注邀请是否可用，不是说服对方赞成变化或披露私事。"
+            },
+            {
+              "en": "In a real setting, consult only through channels and permissions that apply. Avoid repeatedly asking after someone has declined, promising confidentiality you cannot provide or collecting explanations unrelated to the task. You can also ask whether a summary accurately reflects what the person chose to share. A correction can be useful information; it is not proof that either person lacks consideration or that a particular score was wrong.",
+              "zh": "真实情境中，只用适用渠道和权限咨询；对方拒绝后不要反复追问，不承诺无法提供的保密，也不收集与任务无关的解释。可核对概括是否准确反映对方愿意分享的内容。修正是有用信息，不证明谁缺乏体谅或哪个分数错误。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Participation depends on access and power",
+            "zh": "参与受渠道与权力关系影响"
+          },
+          "paragraphs": [
+            {
+              "en": "An invitation can mean different things when one person controls another person’s workload or evaluation. Language, format, time pressure and accessibility may also affect whether a response is realistic. This inventory does not assess those conditions or settle organizational responsibilities. Include them in any private review rather than assuming that a low response rate means unwillingness. Sometimes the useful action is clarifying a process or offering a genuinely usable channel.",
+              "zh": "一方掌握另一方工作量或评价时，邀请的含义可能不同。语言、形式、时间压力和无障碍条件也会影响能否回应。本表不评估这些条件或裁定组织责任。私下回顾时应保留它们，不把少回应默认成不愿参与；有时应澄清流程或提供真正可用的渠道。"
+            },
+            {
+              "en": "You are not required to resolve structural problems through greater personal effort or to gather evidence from colleagues to complete the form. If a prompt does not fit your circumstances, preserve that limit with an unscored answer. It is also reasonable to stop after reading. Useful reflection can consist of naming what remains unknown and identifying who has appropriate authority to address a task-specific issue.",
+              "zh": "不要求靠加倍个人努力解决结构问题，也不要求向同事搜集作答证明。不适用时可用未评分保留限制，也可读到这里就结束。有用回顾可以只是指出未知之处，辨认谁有适当权限处理具体任务问题。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the account separate from a character verdict",
+            "zh": "把行为记录与品格判决分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These six original prompts have not established a validated interpersonal-sensitivity scale, an HPI score or English–Chinese measurement equivalence. They cannot certify kindness, empathy, fairness or suitability for managing people. The useful output is a small record of reported practices in a chosen period, which can support a concrete question. Any claim about another person’s experience still needs their account and appropriate context, rather than your questionnaire mean.",
+              "zh": "这六项原创题目未建立已验证的人际敏感性量表、HPI分数或英中文测量等值，不能认证善良、共情、公平或管理适任。有用产出是选定时期的一小份自报做法记录，可支持具体提问；他人体验仍需对方说明与适当背景，不能由你的均值代表。"
+            },
+            {
+              "en": "All seven readings are public before answering, and they remain complete when every item is unscored. They do not select a best trait or assign a personal type. If you later repeat the reflection, consider changes in responsibility and opportunity alongside the answers. A change in frequency alone does not establish improved relationships, validated personal growth or a reason for an employer to compare applicants.",
+              "zh": "七篇在作答前公开，全部未评分时也保留全文，不选最佳特质、不派个人类型。日后重做时，应把职责和机会变化与回答一起考虑；频率改变本身不证明关系改善、已验证的个人成长或雇主可比较应聘者。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dependability-reading",
+      "directionIds": [
+        "dependability"
+      ],
+      "title": {
+        "en": "Keeping and Clarifying Agreements",
+        "zh": "履行与澄清约定"
+      },
+      "headline": {
+        "en": "Read the actual commitment and its conditions before judging the record.",
+        "zh": "先看真实承诺和条件，再理解记录。"
+      },
+      "summary": {
+        "en": "Review six agreement practices without treating availability, obedience or a questionnaire mean as proof of trustworthiness.",
+        "zh": "回看六种约定管理做法，不把随时待命、服从或问卷均值当成可信证明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Keeping and Clarifying Agreements | Work Theme Guide",
+          "zh": "履行与澄清约定：完整工作主题指南"
+        },
+        "description": {
+          "en": "Review six agreement practices without treating availability, obedience or a questionnaire mean as proof of trustworthiness.",
+          "zh": "回看六种约定管理做法，不把随时待命、服从或问卷均值当成可信证明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Start with something actually agreed",
+            "zh": "从真正同意的事项开始"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme asks about keeping a reminder, checking capacity before promising, communicating a necessary change, checking a useful handover detail, separating completed from remaining work and following an agreed correction. The reference is the past four weeks in the selected setting. It does not count every demand as a commitment. An agreement needs enough clarity about the task and your part for you to know what you accepted.",
+              "zh": "本组涉及保留提醒、承诺前核对容量、沟通必要变化、检查交接细节、区分已完与待办、跟进约定修正。参照近四周选定情境，不把每个要求都算承诺。约定需对任务及你的部分足够清楚，让你知道接受了什么。"
+            },
+            {
+              "en": "The six ratings describe recalled practices, not verified delivery records. They do not establish honesty, loyalty or moral worth, and they cannot tell whether someone else relied on your account. A numeric answer requires a relevant opportunity and room to choose. When no commitment or handover of that kind occurred, unscored keeps the absence visible instead of converting it to a low frequency or a judgment about character.",
+              "zh": "六项数字描述回忆中的做法，不是已核实交付记录，不能判诚实、忠诚或道德价值，也不能说明别人是否据此行事。数字回答需有相关机会与选择空间；没有该类承诺或交接时，用未评分保留缺失，不转成低频率或品格判断。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "Renegotiating can be part of keeping an agreement clear",
+            "zh": "重新商定也能使约定更清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "A responsible update can explain that a deadline or deliverable needs discussion before the recipient depends on an outdated expectation. That does not guarantee a satisfactory resolution, but it distinguishes a changed plan from an undisclosed change. Likewise, declining a new promise after checking capacity can be more informative than accepting work you cannot realistically take on. The form does not reward unlimited availability or demand that every request become a personal obligation.",
+              "zh": "在接收方依赖过时预期前，说明期限或交付需要讨论，可以是有责任的更新，虽不保证圆满解决，却把计划变化与未告知变化分开。同样，核对容量后拒绝新承诺，可能比接受无法承担的工作更有信息。本表不奖励无限待命，也不要求把每个请求变成义务。"
+            },
+            {
+              "en": "Following through on a correction refers to the particular part you agreed to address. It does not require accepting blame for every problem or promising a result outside your authority. Keep task ownership, dependencies and access separate from personal effort. A high reported frequency cannot establish that a commitment was sensible, that an update was accurate or that the recipient received everything they needed in the actual situation.",
+              "zh": "跟进修正只指约定处理的具体部分，不要求为全部问题担责或承诺权限以外的结果。任务归属、依赖和渠道应与个人努力分开。自报高频不能证明承诺合理、更新准确，或接收方实际获得全部所需。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A handover has a stated usable outcome",
+            "zh": "交接需要说明可用的终点"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional community group preparing a room-use checklist. A member agrees to deliver a draft with the current opening times. Before sharing it, they check that the date and source are visible, and they distinguish confirmed information from an unresolved question. These actions can make the handover clearer. They do not certify the checklist as correct or establish the person’s general reliability across unrelated tasks and periods.",
+              "zh": "例如，虚构社区小组准备场地使用清单，一人同意交付含当前开放时间的草稿。分享前核对日期、来源可见，并把已确认信息和待解问题分开。这些行动能让交接更清楚，但不认证清单正确，也不证明此人在所有任务和时期可靠。"
+            },
+            {
+              "en": "Suppose the source changes before delivery. The person can explain the change and ask whether a revised draft or a later check would serve the group. The answer depends on the task and agreed authority, not on which option would look better on a questionnaire. For your own example, privately note the commitment, change and communication; there is no need to upload a real checklist, name or message.",
+              "zh": "若交付前来源变化，可以说明变化，询问修改草稿还是稍后核查更有用。答案取决于任务和约定权限，不取决于哪个选择让问卷更好看。自己的例子可私下记录承诺、变化和沟通，不必上传真实清单、姓名或消息。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Coverage limits what the mean can say",
+            "zh": "覆盖数量限制均值含义"
+          },
+          "paragraphs": [
+            {
+              "en": "This group needs five numeric answers out of six for a mean. Ratings of one, two, three, four and five sum to fifteen and yield 3.0; an unscored sixth item is not included or guessed. Sometimes remains a real three. With four or fewer numeric answers, the page shows insufficient information for a mean while keeping all fourteen paragraphs of this guide available for reading.",
+              "zh": "本组六项至少五项数字才有均值。1、2、3、4、5合计15，均值3.0；第六项未评分，不纳入也不猜补。“有时”是有效3。四项及以下数字显示均值资料不足，同时保留本指南全部十四段。"
+            },
+            {
+              "en": "The mean is an arithmetic description of ordered labels for the rated practices, rather than a verified completion percentage or integrity score. Similar means can conceal different item patterns and different agreements. The seven groups also have no established common scale for comparing their heights. Review which items had opportunities and what happened in one actual instance before drawing a conclusion or choosing a practical next step.",
+              "zh": "均值只是所评做法有序选项的算术描述，不是已核实完成率或诚信分。相似均值可能掩盖不同条目组合和约定；七组也没有可比数字高低的已建立共同尺度。应先看哪些条目有机会，再回顾一次实际情况，才考虑结论或行动。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Make one ordinary agreement easier to inspect",
+            "zh": "让一个普通约定更容易核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Try a fictional task with a small deliverable and write what is being promised, when it is needed and what would make it usable. Add a short update that distinguishes completed work from an open dependency. A willing partner can check whether the statement is understandable. This is a practice in clarity, not an integrity test or an instruction to impose new reporting routines on people around you.",
+              "zh": "可用有小交付的虚构任务练习，写明承诺内容、需要时间和可用条件，再写一则把已完与未解依赖分开的短更新。愿意协助的人可检查是否易懂。这是澄清练习，不是诚信测试，也不要求给周围人增加汇报程序。"
+            },
+            {
+              "en": "For real work, choose reminders and channels already permitted for the task. Do not put confidential work in a personal application to create a better record. If capacity or a dependency changes, consider who needs to know and which discussion is actually authorized. A useful next action may be narrowing the promise, asking for a priority decision or explaining a specific uncertainty, rather than committing to more work.",
+              "zh": "真实工作使用任务允许的提醒和渠道，不把机密放入私人应用以改善记录。容量或依赖变化时，考虑谁需知情、哪些讨论获准。下一步可能是缩小承诺、请求优先级决定或说明具体不确定，而不是再承诺更多工作。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Resources and authority shape delivery",
+            "zh": "资源和权限影响交付"
+          },
+          "paragraphs": [
+            {
+              "en": "An unavailable input, an inaccessible tool or an unclear decision can prevent a task from reaching its agreed endpoint. The inventory cannot determine responsibility or resolve that dependency. Avoid treating every unfinished task as a defect in the person who answered. Separate the action within your control from what required another role, a resource or a decision, and keep those conditions visible when reflecting on the reported practices.",
+              "zh": "输入缺失、工具不可用或决定不清，可能阻止达到约定终点。本表不能裁定责任或解决依赖，不应把每个未完任务视为答题者缺陷。应把可控制的行动与需要其他角色、资源或决定的部分分开，解释自报做法时保留这些条件。"
+            },
+            {
+              "en": "You do not have to prove loyalty by working beyond every agreed limit, disclose private reasons for a boundary or accept tasks you lack permission to perform. An unscored answer is valid when the prompt does not fit. Discussion can remain focused on a bounded agreement and a practical question. This reflection does not decide disciplinary action, settle workplace disputes or replace a fair process for evaluating actual performance.",
+              "zh": "不要求越过所有约定限制来证明忠诚，不要求披露边界背后的私事，也不要求接受无权执行的任务。不适用时未评分有效；讨论可以只围绕有限约定和实际问题。本回顾不决定处分、不解决职场争议，也不替代公平的实际表现评估。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "A work record cannot certify trustworthiness",
+            "zh": "工作记录不能认证可信度"
+          },
+          "paragraphs": [
+            {
+              "en": "The six prompts are FermatMind originals, with no established hiring validity, norms or measurement equivalence between English and Chinese. They are not a complete IPIP scale or an official HPI prudence result. A reminder, an update and a handover check are specific behaviors; their reported frequency cannot certify someone as honest, conscientious or suitable for a role. These claims require different evidence and an appropriately designed assessment.",
+              "zh": "六题由费马原创，未建立招聘效度、常模或英中文测量等值，不是完整IPIP量表或官方HPI审慎性结果。提醒、更新和交接检查是具体行为，其自报频率不能认证诚实、尽责或岗位适合；这些主张需要不同证据和适当设计的评估。"
+            },
+            {
+              "en": "All seven full readings remain open before answering and after an entirely unscored attempt. You can finish with one clearer agreement or decide there is not enough information to say more. Repeating the form later may document a different period, but a changed mean alone is not validated growth or a measure of improved delivery. Consider what changed in the tasks and available support as well as the answers.",
+              "zh": "作答前和全部未评分后，七篇完整读法均开放。可在澄清一个约定后结束，也可承认资料不足。日后重复能记录另一时期，但均值变化本身不是已验证成长或交付改善指标；应同时看任务、支持和回答如何变化。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curiosity-reading",
+      "directionIds": [
+        "curiosity"
+      ],
+      "title": {
+        "en": "Exploring and Learning",
+        "zh": "探索与学习"
+      },
+      "headline": {
+        "en": "Connect a question to a useful observation and a bounded learning step.",
+        "zh": "把问题连到有用观察与有限学习步骤。"
+      },
+      "summary": {
+        "en": "Explore six recent learning practices without inferring intelligence, creativity, qualifications or a need to investigate everything.",
+        "zh": "回看六种近期学习做法，不推断智力、创造力或资格，也不要求调查一切。"
+      },
+      "seo": {
+        "title": {
+          "en": "Exploring and Learning | Work Theme Guide",
+          "zh": "探索与学习：完整工作主题指南"
+        },
+        "description": {
+          "en": "Explore six recent learning practices without inferring intelligence, creativity, qualifications or a need to investigate everything.",
+          "zh": "回看六种近期学习做法，不推断智力、创造力或资格，也不要求调查一切。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six reported behaviors need at least five numeric ratings for their own mean. Read the actual items and opportunities; the mean is not a trait rank, norm or hiring score.",
+        "zh": "六项自报行为至少五项数字，才显示本组均值。应结合具体条目与机会阅读；均值不是特质排名、常模或招聘分数。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Learning begins with a particular question",
+            "zh": "学习从具体问题开始"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme asks about seeking a relevant explanation, exploring permitted material, distinguishing two accounts, trying a small learning activity, considering an alternative and revisiting an assumption. The reference is one work, study or volunteer setting during the past four weeks. These six practices describe reported actions, not the amount you know or the quality of your reasoning. A question can be useful without leading to a novel discovery or a formal qualification.",
+              "zh": "本组涉及寻求相关解释、探索获准材料、区分两种说法、试做小学习活动、考虑其他解释和重看假设。参照近四周某一工作、学习或志愿背景。六种做法描述自报行动，不是知识量或推理质量。有用问题不一定带来新发现或正式资格。"
+            },
+            {
+              "en": "A numeric rating needs an opportunity and some room to choose. An unfamiliar task may create many questions, while a familiar routine may require little new exploration during a particular month. Neither situation directly reveals a curious personality. No relevant opportunity, uncertainty or a preference not to answer can stay unscored. This is not an IQ test, a creativity assessment or a test of academic achievement.",
+              "zh": "数字回答需要机会和一定选择空间。不熟悉任务可能带来许多问题，熟悉流程在某个月则可能很少需要探索；两种情况都不直接证明好奇人格。无机会、无法判断或不愿答可保持未评分。本表不是IQ、创造力或学业成绩测试。"
+            }
+          ]
+        },
+        {
+          "id": "distinction",
+          "title": {
+            "en": "More investigation is not always the useful choice",
+            "zh": "更多调查不总是有用选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Exploration is useful when it serves a question and respects the task’s limits. Rechecking a familiar explanation can reveal a missing assumption, but continually reopening a settled decision may also consume time without helping the work. The questionnaire does not observe which happened. Rate the stated practice rather than treating the highest frequency as a target. Sometimes following an established procedure is the appropriate action even when a topic remains interesting.",
+              "zh": "探索若服务于问题并尊重任务限制，可能有用。重看熟悉解释可发现遗漏假设，但不断重开已定决定也可能只消耗时间；问卷不观察是哪一种。应按题述做法回答，不把最高频率当目标。有时即使话题有趣，遵循既定流程仍是适当行动。"
+            },
+            {
+              "en": "Learning also differs from seeking unauthorized information or experimenting beyond your role. A permitted public example may be enough for a small exercise; confidential material or a live operational system is not needed. Nor does considering another account mean every account deserves equal confidence. The useful question is what observation could distinguish them and whether obtaining it is appropriate, feasible and within the authority available for the task.",
+              "zh": "学习不同于索取未授权信息或越权实验。小练习可只用获准公开例子，不需要机密或真实运行系统。考虑其他解释，也不代表各种说法同样可信；要问什么观察能区分它们，以及获取观察是否适当、可行、在任务权限内。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Two explanations suggest different checks",
+            "zh": "两种解释对应不同核查"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional group using a sample spreadsheet. A total differs from the expected value. One member considers two explanations: a selected range may omit a row, or the sample may use a different rule. They inspect the permitted example and compare the calculation with its written description. This can help clarify the particular discrepancy. It does not establish superior intelligence or certify that every conclusion they draw is correct.",
+              "zh": "例如，虚构小组使用示例表格，总数与预期不同。一人考虑两种解释：范围遗漏一行，或示例用了另一规则，于是查看获准例子并对照文字说明。这能帮助澄清具体差异，不证明更高智力，也不认证其所有结论正确。"
+            },
+            {
+              "en": "If the description is ambiguous, the next step may be asking its owner rather than conducting an unlimited search. If the needed information is private or inaccessible, that limit can remain explicit. For your own reflection, identify the question, the permitted material and what would change your view. Keep actual documents and sensitive details outside this questionnaire; the form asks for a response category, not the evidence from your work.",
+              "zh": "说明模糊时，下一步可能是询问负责人，而不是无限搜索；需要的信息私密或不可用时，可明确保留限制。回顾时可辨认问题、获准材料和什么会改变看法。真实文件与敏感细节留在问卷之外，本表只需选项，不收工作证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Frequency and correctness are different records",
+            "zh": "频率与正确性是不同记录"
+          },
+          "paragraphs": [
+            {
+              "en": "At least five of six numeric answers are required for the mean. For example, two, three, four, three and three sum to fifteen, producing 3.0 with one item unscored. Sometimes counts as three; unscored is not a neutral response or a zero. With fewer than five numeric answers the mean stays unavailable, while the complete reading still explains the theme and its limits for everyone.",
+              "zh": "六项至少五项数字才有均值。例如2、3、4、3、3合计15，一项未评分时均值3.0。“有时”计3，未评分不是中立或零；不足五项不显示均值，但完整读法仍为所有人说明主题及限制。"
+            },
+            {
+              "en": "The arithmetic summarizes ordered labels for how frequently you recall the rated practices. It is not an event rate, a knowledge score or a calibrated amount of curiosity. Similar means can arise from different questions and different opportunities, and the groups cannot be ranked against each other. A more informative review asks whether an exploration helped answer the actual question and what uncertainty remained afterward, without assuming that a frequent practice was effective.",
+              "zh": "算术概括的是所评做法回忆频率的有序选项，不是事件发生率、知识分或校准后的好奇水平。相似均值可能来自不同问题与机会，各组不能互相排名。更有信息的回顾是看探索是否帮助回答实际问题、还剩什么未知，不假定频繁就有效。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Try a small comparison with a stopping point",
+            "zh": "用停止条件做一次小比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a fictional everyday problem with two plausible explanations. Write what each account would lead you to expect, then identify one permitted observation that could distinguish them. Decide in advance how much time the exercise should take and what would count as enough information. You may discover that neither account can be checked with the available material. Recording that limit can be more useful than inventing confidence to complete the exercise.",
+              "zh": "选一个有两种合理解释的虚构日常问题，写各自预期，再找一项获准观察帮助区分。事先决定投入时间与足够信息的条件。也可能发现现有材料无法核查任何解释；记录限制比为完成练习而制造信心更有用。"
+            },
+            {
+              "en": "If you try a tool, use an authorized sample or practice environment and avoid entering private work data. A willing partner can question the assumption or check whether the observation actually distinguishes the accounts. You can revise the question, stop or seek appropriate help. The aim is a bounded learning step, not a performance demonstration, an obligation to master every tool or a reason to keep investigating after the task no longer needs it.",
+              "zh": "试用工具时，用获准示例或练习环境，不输入私人工作数据。愿意协助的人可质疑假设，或核对观察是否真能区分说法。可以改问题、停止或适当求助。目标是有限学习，不是表演能力、掌握所有工具，或任务不再需要后仍持续调查。"
+            }
+          ]
+        },
+        {
+          "id": "conditions",
+          "title": {
+            "en": "Time and access belong in the interpretation",
+            "zh": "解释应包括时间与渠道"
+          },
+          "paragraphs": [
+            {
+              "en": "Learning opportunities depend on access to materials, time, support and the permission to ask questions. A person facing an unfamiliar process without guidance may report frequent searching because the instructions are unclear. Another person may need little searching because the task is well documented. The inventory cannot distinguish these situations from the number alone. Avoid using a low frequency to blame an individual or a high frequency to praise an organization’s learning environment.",
+              "zh": "学习机会取决于材料、时间、支持与提问许可。缺乏指引的人可能因说明不清而频繁搜索；文档清楚的人可能很少需要搜索。数字本身无法区分，不应凭低频责备个人，或凭高频赞扬组织的学习环境。"
+            },
+            {
+              "en": "A useful next step may be requesting a clearer explanation, identifying a legitimate source or arranging time for an appropriate practice task. You do not need to disclose qualifications, school history or private feedback to use this guide. If the selected setting gave no relevant opportunity, keep that limit visible with unscored responses. Reading the theme is optional and does not require enrolling in a course or buying a report.",
+              "zh": "有用下一步可能是请求更清楚解释、找合法来源或安排适当练习时间。阅读不需披露资格、学业经历或私人反馈。选定情境没有机会时，用未评分保留限制。读法可自由选择，不要求报课或购买报告。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "An original learning theme has a narrow claim",
+            "zh": "原创学习主题的主张有限"
+          },
+          "paragraphs": [
+            {
+              "en": "These six prompts have not established a validated inquisitiveness or learning-approach scale. They are not official HPI scores or a complete preliminary IPIP comparison scale, and their evidence cannot be borrowed from those instruments. No reliability, validity, norm group or English–Chinese equivalence has been established for this composition. The output is a contextual record of reported practices, not a measure of potential, achievement or suitability for research work.",
+              "zh": "这六题未建立已验证的好奇性或学习方式量表，不是官方HPI分数或完整初步IPIP对应量表，不能借用其证据。本组合未建立信效度、常模或英中文等值。有用产出是有情境的自报做法记录，不是潜力、成就或研究岗位适合度。"
+            },
+            {
+              "en": "All seven complete guides are public before answering and stay open for forty-two unscored responses. They do not assign a winning theme or a fixed work-personality type. You can finish by naming one useful question or by deciding that no further inquiry is needed. If you repeat the form later, compare the questions, resources and opportunities as well as the answers; a changed mean alone does not establish measured personal growth.",
+              "zh": "七份完整指南在作答前公开，四十二项全部未评分也开放，不选胜出主题或固定工作人格。可以提出一个有用问题后结束，也可决定无需继续调查。日后重复时，应同时比较问题、资源、机会与回答；均值变化本身不证明已测量的个人成长。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Seven separate six-item summaries",
+        "zh": "七组各六项，分别汇总"
+      },
+      "paragraphs": [
+        {
+          "en": "For each theme, add only numeric ratings and count how many were rated. At least five of six numeric ratings are needed for that theme’s mean, rounded to one decimal. For example, 1 + 2 + 3 + 4 + 5 = 15; with one unscored item, 15 ÷ 5 = 3.0. With four or fewer numeric ratings, the mean is withheld. There is no imputation, zero for missing, overall sum or cross-group compensation. The arithmetic summarizes ordered labels; it is not an observed event rate or an established equal-interval personality scale.",
+          "zh": "每组只把有效数字相加，并计算有效项数。六项至少五项数字，才显示本组保留一位小数的均值。例如1＋2＋3＋4＋5＝15，另有一项未评分时，15÷5＝3.0；四项及以下数字则不显示均值。不补缺失、不把未评分算零、不算总体和，也不用别组抵消。数字只算术概括有序选项，不是实际事件发生率或已建立的等距人格尺度。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Frequency is not a calibrated personality level",
+        "zh": "频率不等于已校准的人格水平"
+      },
+      "paragraphs": [
+        {
+          "en": "The display keeps all seven groups in a fixed order. A 3 is Sometimes, not missing. Equal means can arise from different answers, opportunities and tasks. A higher mean only describes more frequent endorsement of the rated behaviors in that group. It does not establish a highest trait, norm percentile, employer fit, leadership potential or superiority over another person. Groups have not been calibrated for comparing their numerical heights.",
+          "zh": "七组按固定顺序展示。3表示“有时”，不是缺失；相同均值可能来自不同回答、机会和任务。较高均值只描述本组所评行为更频繁的自报，不证明最高特质、常模百分位、雇主匹配、领导潜力或优于他人。各组没有为比较数字高低进行校准。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "All seven full readings remain open",
+        "zh": "七份完整读法始终开放"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete every prompt with a numeric or unscored choice before the page creates the local record. All forty-two unscored responses still lead to all seven full guides. Every guide is also public before answering and contains the same complete text for everyone. These are seven reading themes, not seven personal types or employer categories.",
+          "zh": "全部题目以数字或未评分回应后，页面才生成本地记录。四十二题全部未评分，仍可读七份全文；每篇也在作答前公开，对所有人显示相同完整正文。这是七个阅读主题，不是七种个人类型或雇主分类。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep work details outside the questionnaire",
+        "zh": "工作细节留在问卷之外"
+      },
+      "paragraphs": [
+        {
+          "en": "Only the selected options are needed. Answers are calculated locally and stay in memory unless you explicitly choose a tab draft. Saved drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Ordinary page analytics are disabled; optional anonymous activity counts require a separate explicit opt-in. Public sharing contains the general title and entry link, without answers or means. No work files, names, private feedback or health information are requested.",
+          "zh": "本表只需所选选项，在页面内计算；默认仅留在内存，主动选择后才保存标签页草稿。草稿24小时失效，完成、重测或退出并清除时删除。普通页面分析关闭，可选匿名活动计数需要另行主动开启。公开分享仅含通用标题与入口链接，不含回答或均值。不要求工作文件、姓名、私人反馈或健康资料。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original work themes with limited conceptual references",
+        "zh": "原创工作主题与有限概念参考"
+      },
+      "paragraphs": [
+        {
+          "en": "The current HPI product description and IPIP materials provide background for distinguishing broad personality ideas from a particular questionnaire. These forty-two prompts, seven groups, response rules and complete readings are original FermatMind content, not copied HPI or IPIP-HPI items. HPI and preliminary IPIP comparison evidence does not validate this form. No reliability, validity, norms or English–Chinese measurement equivalence has been established for this original composition.",
+          "zh": "当前HPI产品说明与IPIP材料，为区分广义人格概念和具体问卷提供背景。本表四十二题、七组、回应规则与完整读法由费马原创，没有复制HPI或IPIP-HPI条目。HPI或初步IPIP对应研究的证据不能验证本表。本原创组合尚未建立信效度、常模或英中文测量等值。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Use a task example, not a hiring verdict",
+        "zh": "围绕任务实例讨论"
+      },
+      "paragraphs": [
+        {
+          "en": "You can privately review one situation and ask what your action, available support and task conditions were. The result does not decide hiring, promotion, job suitability or whether a person is trustworthy. It cannot substitute for an organization’s appropriately designed assessment or a professional evaluation. You can stop after reading; no further test, paid report, course or employer disclosure is required.",
+          "zh": "可私下回看一个情境，分清自己的行动、可用支持与任务条件。结果不决定招聘、晋升、岗位适合度或一个人是否值得信任，也不能代替组织适当设计的评估或专业判断。阅读后即可结束，不要求继续测试、购买报告或课程，也不要求向雇主披露。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Hogan Personality Inventory or an official preparation test?",
+        "zh": "这是Hogan人格问卷或官方备考测试吗？"
+      },
+      "answer": {
+        "en": "No. This is an original forty-two-item frequency reflection with seven work themes. It is not HPI, HDS, MVPI or the preliminary IPIP-HPI scales, does not provide their scores and is not affiliated with or endorsed by their owners. Follow the instructions of any real assessment rather than trying to optimize these answers.",
+        "zh": "不是。这是四十二项原创频率回顾，包含七类工作主题；不是HPI、HDS、MVPI或初步IPIP-HPI量表，不提供它们的分数，也没有相关权利方的关联或背书。正式评估应遵循其自身说明，不应靠优化本表回答来准备。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does my highest mean show my strongest work trait?",
+        "zh": "最高均值代表最强工作特质吗？"
+      },
+      "answer": {
+        "en": "No. Means summarize different sets of six behaviors that have not been calibrated to a common personality scale. Read each theme’s items, rated count and context separately. There is no winning trait, rank or overall work-personality score.",
+        "zh": "不能。各均值概括不同的六项行为，未在统一人格尺度上校准。应分别看题目、有效项数与情境，不选胜出特质、不排名，也没有整体工作人格分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I had no chance to do a behavior?",
+        "zh": "没有机会做出某项行为怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored. Never is for a relevant opportunity where the behavior did not occur. Unscored stays missing and is not replaced with zero or Sometimes. A theme needs five of six numeric ratings for its own mean; every full guide remains open.",
+        "zh": "选未评分。“从未”适用于有相关机会但没有这样做。未评分保持缺失，不换成零或“有时”。每组六项至少五项数字才有均值，完整指南仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is more frequent always better?",
+        "zh": "更频繁就总是更好吗？"
+      },
+      "answer": {
+        "en": "No. The behavior’s usefulness depends on the task, permission, timing, others’ needs and resources. A high frequency cannot establish appropriateness or effectiveness, and a low frequency may reflect limited opportunities.",
+        "zh": "不是。行为是否有用取决于任务、许可、时机、他人需要和资源；高频率不证明适当或有效，低频率也可能来自机会有限。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can employers use this to compare applicants?",
+        "zh": "雇主可以用它比较应聘者吗？"
+      },
+      "answer": {
+        "en": "This original form has no established hiring validity, norms or verified performance evidence. It cannot determine job fit, leadership potential or promotion. It is a personal reflection and does not request employer information.",
+        "zh": "本原创题本没有已建立的招聘效度、常模或已核实表现证据，不能判断岗位匹配、领导潜力或晋升，只用于个人回顾，也不要求雇主资料。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I mark all forty-two items unscored?",
+        "zh": "四十二项全部未评分会怎样？"
+      },
+      "answer": {
+        "en": "All seven groups show insufficient information for a mean, without a personal trait conclusion. The seven complete readings remain available before and after answering, and you may finish without taking another assessment.",
+        "zh": "七组均显示均值资料不足，不给个人特质结论。七份完整读法在作答前后都可阅读，也可以在此结束，不需继续其他评估。"
+      }
+    }
+  ]
+}
