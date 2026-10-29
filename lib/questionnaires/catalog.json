@@ -5782,5 +5782,31 @@
       "motion"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "synesthesia-test",
+    "code": "FM_SYNES15",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Synesthesia Test",
+      "zh": "联觉测试"
+    },
+    "description": {
+      "en": "Recall 15 everyday descriptions of colours, sounds, sequences, personification, taste and touch. See literal response records and five free full guides, without a diagnosis or consistency score.",
+      "zh": "回顾15条日常颜色、声音、序列、人格化、味道与触觉样体验描述，查看字面回答记录及五篇免费完整指南。不作诊断，不提供一致性实验分数。"
+    },
+    "minutes": 5,
+    "formCode": "fm_synes15_original_v1",
+    "questionCount": 15,
+    "resultSlugs": [
+      "symbol-color",
+      "sound-color",
+      "sequence-space",
+      "personification",
+      "taste-touch"
+    ],
+    "collection": "explore"
   }
 ]

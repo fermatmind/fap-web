@@ -1,0 +1,1717 @@
+{
+  "slug": "synesthesia-test",
+  "code": "FM_SYNES15",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "synes15",
+  "title": {
+    "en": "Synesthesia Test",
+    "zh": "联觉测试"
+  },
+  "seoTitle": {
+    "en": "Synesthesia Test: 15 Original Prompts and Five Free Full Guides",
+    "zh": "联觉测试｜15条原创体验记录与五篇免费完整指南"
+  },
+  "description": {
+    "en": "Recall 15 everyday descriptions of colours, sounds, sequences, personification, taste and touch. See literal response records and five free full guides, without a diagnosis or consistency score.",
+    "zh": "回顾15条日常颜色、声音、序列、人格化、味道与触觉样体验描述，查看字面回答记录及五篇免费完整指南。不作诊断，不提供一致性实验分数。"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Do particular symbols seem linked with colours, or familiar sequences with spatial layouts? This original synesthesia test (also spelled synaesthesia) helps you describe recalled experiences. It is a self-reflection checklist, not a laboratory battery, a type classifier or a confirmation of synaesthesia. Every complete guide is available before answering.",
+    "zh": "符号是否仿佛连着颜色，熟悉序列是否带有空间布局？这份原创联觉测试帮助描述回忆中的体验，是自我反思清单，不是实验题组、类型分类或联觉确认。作答前即可读全部完整指南。"
+  },
+  "instructions": {
+    "en": "For adults aged 18 and over. Think only about ordinary occasions in the past three months; this is a site-selected recall window. Do not play sounds, taste food, touch anyone or induce sensations for the test. For each description choose: recalls it; had relevant occasions but does not recall it; unsure; or no relevant opportunity / prefer not to answer. You do not need to explain an experience or enter personal examples.",
+    "zh": "面向18岁及以上成年人，仅回顾近三个月已发生的普通场合，这是本站选定的回忆范围。不为测试播放声音、品尝食物、触碰他人或诱发感觉。逐条选择：记得有过；有相关机会但未记得；不确定；或没有机会／不愿回答。不需要解释体验或输入私人例子。"
+  },
+  "resultHeading": {
+    "en": "Your five separate response records",
+    "zh": "你的五组独立回答记录"
+  },
+  "source": {
+    "kind": "fermatmind_original_synesthetic_experience_checklist",
+    "formCode": "fm_synes15_original_v1",
+    "itemBankVersion": "fm_synes15_original_bilingual_v1",
+    "scoringVersion": "five_families_3_literal_fourchoice_counts_and_item_readback_no_scale_v1",
+    "resultContentVersion": "fm_synes15_five_full_guides_v1",
+    "itemBankSha256": "11fd17bf232878dbde4ad36249f8211d7aad2304e85568a1f37e016bbbe4221d",
+    "resultContentSha256": "b29836a14756092c273c122e9b3dfd346131784bfe17a11674a6ad00a9b5c7a5",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "symbol-color",
+      "title": {
+        "en": "Symbols and colour impressions",
+        "zh": "符号与颜色印象"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "sound-color",
+      "title": {
+        "en": "Sounds, colours and shapes",
+        "zh": "声音、颜色与形状"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "sequence-space",
+      "title": {
+        "en": "Sequences and spatial layouts",
+        "zh": "序列与空间布局"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "personification",
+      "title": {
+        "en": "Symbols with person-like qualities",
+        "zh": "符号的人格化印象"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "taste-touch",
+      "title": {
+        "en": "Words, taste and touch-like impressions",
+        "zh": "词语、味道与触觉样印象"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "SYX_01",
+      "prompt": {
+        "en": "Without choosing a colour on purpose, a familiar written character or number brought a particular colour to mind.",
+        "zh": "没有刻意选择颜色时，一个熟悉的书写字符或数字会自行带出某种颜色印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_02",
+      "prompt": {
+        "en": "On separate ordinary occasions, I noticed the same written character or number bringing a similar colour impression.",
+        "zh": "在不同的普通场合，我注意到同一个书写字符或数字带来相似的颜色印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_03",
+      "prompt": {
+        "en": "Thinking about a familiar written symbol brought a colour impression even when I was not looking at a coloured version of it.",
+        "zh": "即使没有看着彩色版本，只是想到一个熟悉的书写符号，也会带出颜色印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "symbol-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "symbol-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_04",
+      "prompt": {
+        "en": "An ordinary sound was accompanied by a colour-like impression that I had not deliberately invented.",
+        "zh": "听到普通声音时，伴随出现了并非我刻意编造的颜色样印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_05",
+      "prompt": {
+        "en": "A familiar voice or musical sound brought a shape-like impression alongside the sound.",
+        "zh": "熟悉的人声或音乐声音出现时，同时伴随某种形状样印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_06",
+      "prompt": {
+        "en": "On another occasion, a similar sound brought a recognizably similar colour or shape impression without my planning it.",
+        "zh": "另一次听到相似声音时，没有事先安排，也出现了可辨认的相似颜色或形状印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sound-color",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sound-color",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_07",
+      "prompt": {
+        "en": "A familiar ordered sequence, such as weekdays or numbers, seemed to occupy particular positions in an imagined space.",
+        "zh": "熟悉的有序序列，例如星期或数字，仿佛在脑中空间里占据某些位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_08",
+      "prompt": {
+        "en": "The spatial layout of one familiar sequence came to mind without my choosing how to arrange it.",
+        "zh": "某个熟悉序列的空间布局会自行浮现，并非我当时选择怎样排列。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_09",
+      "prompt": {
+        "en": "I noticed a similar spatial layout for the same familiar sequence on separate occasions.",
+        "zh": "在不同场合，我注意到同一个熟悉序列具有相似的空间布局。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "sequence-space",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "sequence-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_10",
+      "prompt": {
+        "en": "A familiar letter, number or weekday seemed to have a personality-like quality without my inventing a story about it.",
+        "zh": "没有编故事时，一个熟悉的字母、数字或星期会带有某种类似性格的特征。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "personification",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "personification",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "personification",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "personification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_11",
+      "prompt": {
+        "en": "A particular symbol or sequence member felt characteristically serious, playful or otherwise person-like on more than one occasion.",
+        "zh": "某个符号或序列成员不止一次显得严肃、活泼，或具有其他类似人的特征。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "personification",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "personification",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "personification",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "personification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_12",
+      "prompt": {
+        "en": "A personality-like impression came with a familiar symbol even when the task was simply reading or counting.",
+        "zh": "即使只是在阅读或计数，熟悉的符号也会同时带来类似性格的印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "personification",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "personification",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "personification",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "personification",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_13",
+      "prompt": {
+        "en": "A familiar word was accompanied by a taste-like or mouth-texture impression without my deliberately recalling a meal.",
+        "zh": "没有刻意回想某顿饭时，一个熟悉词语会伴随味道样或口腔质感样印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_14",
+      "prompt": {
+        "en": "Seeing someone receive an ordinary, non-painful touch was accompanied by a touch-like impression on my own body.",
+        "zh": "看到别人受到普通且不疼痛的触碰时，我自己身体上也会伴随某种触觉样印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SYX_15",
+      "prompt": {
+        "en": "A familiar word or written symbol brought a specific touch-like or bodily-location impression without deliberate visualization.",
+        "zh": "没有刻意想象时，一个熟悉词语或书写符号会带出某种具体触觉样或身体位置印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes — I can recall this experience",
+            "zh": "记得有过这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No — I had relevant occasions, but did not recall this experience",
+            "zh": "有相关机会，但未记得出现这种体验"
+          },
+          "directionId": "taste-touch",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure how to answer",
+            "zh": "不确定如何回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer",
+            "zh": "没有相关机会／不愿回答"
+          },
+          "directionId": "taste-touch",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "symbol-color",
+      "directionIds": [
+        "symbol-color"
+      ],
+      "title": {
+        "en": "Symbols and colour impressions",
+        "zh": "符号与颜色印象"
+      },
+      "headline": {
+        "en": "When a symbol seems to carry a colour",
+        "zh": "当符号仿佛带有颜色"
+      },
+      "summary": {
+        "en": "Understand recalled colour impressions accompanying written symbols, including internal impressions, deliberate associations and the limits of a three-item record.",
+        "zh": "理解伴随书写符号的颜色印象回忆，区分内在印象、刻意联想与三条记录的边界。"
+      },
+      "scoreReading": {
+        "en": "Read the three chosen responses separately. Counts describe recollection within this original checklist, without a strength scale, type assignment or confirmation of synaesthesia.",
+        "zh": "分别阅读三条所选回答。计数仅描述这份原创清单中的回忆，不是强度量表、类型分配或联觉确认。"
+      },
+      "seo": {
+        "title": {
+          "en": "Symbols and colour impressions | Synesthesia Test Full Guide",
+          "zh": "符号与颜色印象｜联觉测试完整指南"
+        },
+        "description": {
+          "en": "Understand recalled colour impressions accompanying written symbols, including internal impressions, deliberate associations and the limits of a three-item record.",
+          "zh": "理解伴随书写符号的颜色印象回忆，区分内在印象、刻意联想与三条记录的边界。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What these three prompts describe",
+            "zh": "这三条描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The first group asks whether a familiar written character or number brought a colour impression to mind without a deliberate decision. The other prompts concern a similar impression on separate occasions and an impression while thinking of a symbol without looking at a coloured version. Each question describes a particular experience, rather than asking whether you like colourful writing.",
+              "zh": "第一组询问熟悉字符或数字是否在没有刻意决定时带出颜色印象，另外两条涉及不同场合的相似印象，以及未看彩色版本时想到符号的体验。每条描述具体体验，不是询问你是否喜欢彩色文字。"
+            },
+            {
+              "en": "For example, someone might remember that an ordinary printed character seemed linked with a colour even on a plain page. Another person might understand the description but recall no such occasion. You do not need to enter which character or colour was involved, and the page does not collect a personal colour map.",
+              "zh": "例如，有人记得普通印刷字符即使在素色页面上也似乎连着颜色；另一些人理解描述，却记不起这样的场合。不需要输入具体字符或颜色，本页不收个人颜色对应图。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Internal impressions and external colour",
+            "zh": "内在印象与外部颜色"
+          },
+          "paragraphs": [
+            {
+              "en": "A colour association need not appear as ink on the page or as an object projected into the room. Research descriptions include internally experienced associations. The wording here leaves room for a colour impression without requiring an external visual event, but it cannot determine the perceptual properties of what someone reports.",
+              "zh": "颜色联想不必像纸上墨迹或房间内投影。研究描述包括内部体验到的联想。本题允许报告颜色印象，不要求外部视觉事件，但无法判定所报告体验的知觉性质。"
+            },
+            {
+              "en": "A printed red digit is already coloured by its designer. Remembering that visible ink is different from an additional impression accompanying the digit. Similarly, choosing a colour because it matches a favourite team is an intentional association. If the distinction is unclear in your recollection, the unsure option is more accurate than forcing a yes or no.",
+              "zh": "设计者印成红色的数字本身就有颜色。记住墨色不同于数字额外伴随的印象；因喜欢的球队而选择颜色也是刻意联想。若回忆中分不清，选不确定比强行选有或没有更准确。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Recall is not a consistency task",
+            "zh": "回忆不是一致性实验"
+          },
+          "paragraphs": [
+            {
+              "en": "One prompt mentions a similar association across occasions. Answering yes only records your recollection of similarity. This website does not ask you to choose colours repeatedly, randomize the same symbols or measure the distance between selected colours. A remembered pattern is not an objective consistency score, whatever the final counts look like.",
+              "zh": "一条题目提到跨场合相似联想，选有只记录你记得相似。本网站不让你反复选颜色、不随机重复符号，也不测所选颜色的距离。无论计数如何，记得某种模式都不是客观一致性分数。"
+            },
+            {
+              "en": "Controlled grapheme-colour studies use specific stimuli, repetition procedures and comparison groups. A method studied for one association family cannot automatically validate other families or these fifteen new questions. Published experimental thresholds are therefore not applied here, and a high number of recalled experiences does not confirm a research classification.",
+              "zh": "受控字符颜色研究使用特定刺激、重复流程和比较组。一类联想的方法不能自动验证其他类别或本站十五条新题。因此不移用实验阈值；记得多种体验也不能确认研究分类。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Read the literal record",
+            "zh": "阅读字面记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group contains three explicit responses. A record with one yes, one no and one unsure means exactly that: one description was recalled, one was not recalled despite relevant opportunities, and one could not be judged. None is converted into an intensity, probability or percentage of being a synaesthete.",
+              "zh": "每组三个明确回答。一有、一没有、一不确定，只表示记得一条描述，有相关机会却未记得一条，还有一条无法判断。不换算强度、概率或属于联觉者的百分比。"
+            },
+            {
+              "en": "No relevant opportunity and prefer not to answer share a separate skip choice. The result keeps that count alongside the other three choices and repeats each selected answer beside its prompt. Skips and uncertainty are never treated as no. There is no requirement to produce a positive answer before reading the complete guide.",
+              "zh": "没有相关机会与不愿回答使用单独跳过选项。结果同时保留四种计数，并在各题旁重复所选回答。跳过、不确定都不当作没有；阅读完整指南不要求先给肯定答案。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "The time window changes the question",
+            "zh": "时间范围改变问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The past three months provide a common editorial recall window, not a scientific boundary for lifelong experience. You might remember an association from years ago but have no relevant recent occasion. Use the choice that fits the requested window rather than stretching an older memory into it or trying to recreate the experience now.",
+              "zh": "近三个月是统一的编辑性回忆范围，不是终身体验的科学分界。可能记得多年前的联想，却近期没有相关机会；按指定时段选择，不把旧回忆挪进来，也不必现在重现。"
+            },
+            {
+              "en": "Changes between two attempts could reflect memory, context, interpretation or chance. Repeating this checklist does not turn it into a validated consistency battery or a way to prove automaticity. The site does not provide a waiting interval, a diagnostic retest rule or a target number that you should try to maintain.",
+              "zh": "两次回答变化可能来自记忆、情境、理解或偶然。重复本清单不会使其成为经验证一致性题组，也不能证明自动性。本页不提供复测间隔、诊断规则或需要维持的目标数。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "A useful observation without a label",
+            "zh": "不贴标签的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If the distinction interests you, simply notice an ordinary reading occasion that already occurs in daily life. You can privately distinguish what was printed, what you intentionally imagined and what seemed to accompany the symbol. There is no need to create a spreadsheet of colour mappings or share identifying examples with the website.",
+              "zh": "若对此感兴趣，可以留意日常本就发生的阅读，在自己心里区分印刷内容、刻意想象及似乎伴随符号的体验。不必制作颜色对应表或向网站分享可识别例子。"
+            },
+            {
+              "en": "This is an optional observation, not an exercise to develop synaesthesia, improve memory or establish an advantage. Colour experiences do not authorize conclusions about intelligence, artistic ability or how someone should learn. When choosing a practical aid, judge its usefulness in the actual task rather than a questionnaire label.",
+              "zh": "这只是可选观察，不是培养联觉、改善记忆或确立优势的训练。颜色体验不能推断智力、艺术能力或学习方式；选择实际辅助时，按任务中的用途判断，不靠问卷标签。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Boundaries and private use",
+            "zh": "边界与私人使用"
+          },
+          "paragraphs": [
+            {
+              "en": "These original prompts were written by FermatMind Editorial and have not undergone psychometric validation. The five families are an editorial organization of varied experiences, not five measured factors. Research references explain relevant distinctions; they do not supply a licence for another test or validate the wording and translations used here.",
+              "zh": "这些题目由费马测试编辑部原创，尚未经心理测量验证。五类只是对多种体验的编辑组织，不是五个测量因子。研究来源解释相关区别，不替其他测试提供许可，也不验证本站措辞与译文。"
+            },
+            {
+              "en": "Responses remain in page memory and clear on refresh, language change, leaving or retaking. Shared links contain all five public guides, without selected answers or a preferred family. If an experience is new, distressing or affecting everyday functioning, appropriate advice can address what happened without relying on these counts as a diagnosis.",
+              "zh": "答案留在页面内存，刷新、换语言、离开或重测即清除。分享包含全部五篇公开指南，不带答案或偏好类别。若体验是新出现、令人不安或影响日常，可就实际情况寻求适当意见，不把计数当诊断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sound-color",
+      "directionIds": [
+        "sound-color"
+      ],
+      "title": {
+        "en": "Sounds, colours and shapes",
+        "zh": "声音、颜色与形状"
+      },
+      "headline": {
+        "en": "An accompanying impression, rather than a musical score",
+        "zh": "伴随印象，而非音乐能力分数"
+      },
+      "summary": {
+        "en": "Read reports of colours or shapes accompanying ordinary sounds without treating mood, metaphor, hearing ability or deliberate imagery as proof of synaesthesia.",
+        "zh": "理解普通声音伴随颜色或形状的报告，不把情绪、比喻、听力或刻意想象当成联觉证明。"
+      },
+      "scoreReading": {
+        "en": "Read the three chosen responses separately. Counts describe recollection within this original checklist, without a strength scale, type assignment or confirmation of synaesthesia.",
+        "zh": "分别阅读三条所选回答。计数仅描述这份原创清单中的回忆，不是强度量表、类型分配或联觉确认。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sounds, colours and shapes | Synesthesia Test Full Guide",
+          "zh": "声音、颜色与形状｜联觉测试完整指南"
+        },
+        "description": {
+          "en": "Read reports of colours or shapes accompanying ordinary sounds without treating mood, metaphor, hearing ability or deliberate imagery as proof of synaesthesia.",
+          "zh": "理解普通声音伴随颜色或形状的报告，不把情绪、比喻、听力或刻意想象当成联觉证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Three different recollections",
+            "zh": "三种不同回忆"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns a colour-like impression alongside an ordinary sound, a shape-like impression with a familiar voice or musical sound, and a recognizable similarity on another occasion. These are three descriptions to consider separately. Hearing a voice does not require having a shape impression, and recalling one kind of experience does not oblige you to endorse the others.",
+              "zh": "本组涉及普通声音伴随颜色样印象、熟悉人声或音乐伴随形状样印象，以及另一次出现可辨的相似体验。三条需分别考虑；听人声不要求有形状印象，记得一种也不必肯定其他条。"
+            },
+            {
+              "en": "Imagine a routine occasion such as listening to a familiar spoken announcement, without playing anything for the test. You may remember an accompanying impression, remember none despite relevant opportunities, remain unsure or have no suitable occasion. All four answers are available. The questionnaire never needs a recording, a playlist or the identity of a speaker.",
+              "zh": "只需回顾听熟悉播报等普通场合，不用为测试播放声音。可记得伴随印象、有机会却未记得、不确定或没有适当机会；四种回答均可。本页不需要录音、歌单或说话者身份。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Metaphor can sound similar",
+            "zh": "比喻听起来可能相似"
+          },
+          "paragraphs": [
+            {
+              "en": "People commonly describe a voice as warm or a sound as bright. Such language can communicate mood, timbre or an ordinary cross-sensory correspondence without describing a particular colour experience. The words alone cannot establish the mechanism. This checklist asks what you recall experiencing, rather than whether a familiar metaphor makes sense to you.",
+              "zh": "人们常说声音温暖、明亮，这可表达情绪、音色或普通跨感官对应，不一定描述具体颜色体验。单凭用语不能确定机制。本清单问实际回忆，不是问能否理解熟悉比喻。"
+            },
+            {
+              "en": "A scene imagined while choosing a music-video concept is also different from an unplanned accompanying impression. Both can be meaningful experiences, but they answer different questions. You do not need to decide which mechanism is correct before answering unsure, and the page cannot settle that distinction merely from your choice.",
+              "zh": "设计音乐视频时刻意想象场景，也不同于未计划的伴随印象；两者都可有意义，但回答不同问题。选不确定前不必先判断机制，本页也无法仅凭选择解决这个区别。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Not a hearing or talent assessment",
+            "zh": "不评听力或天赋"
+          },
+          "paragraphs": [
+            {
+              "en": "Nothing here measures pitch discrimination, hearing thresholds, rhythm, composition or performance. Someone who recalls a colour impression can have any level of musical experience; someone who recalls none can still enjoy and understand music. The three responses must not be used to recommend a career, judge talent or rank whose sensory life is richer.",
+              "zh": "这里不测音高辨别、听阈、节奏、作曲或演奏。记得颜色印象者可有各种音乐经历；没有者也可欣赏、理解音乐。不能据此推荐职业、判断天赋或排列谁的感官生活更丰富。"
+            },
+            {
+              "en": "The site does not play tones, ask you to raise the volume, request headphones or test reactions to unpleasant sounds. No sound exposure is needed to obtain a result. If you do not recall a relevant occasion within the past three months, the opportunity or skip option preserves that limitation instead of turning it into a negative finding.",
+              "zh": "本页不播放音调、不要求提高音量或戴耳机，也不测令人不适声音的反应。取得结果无需声音暴露。近三个月若想不起相关机会，可用无机会或跳过保留限制，不转成否定发现。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "What the four counts retain",
+            "zh": "四种计数保留什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The readout lists yes, no, unsure and skipped out of three, followed by the selected response to every prompt. Two yes answers are two recalled descriptions, not twice the strength of one. A no means you had relevant opportunities but do not recall that description within the window; it does not prove a lifelong absence.",
+              "zh": "读数按三条列出有、没有、不确定、跳过，并逐题显示所选回答。两个有只是记得两条描述，不是一条的双倍强度。没有指有相关机会却近期未记得，不证明终身缺失。"
+            },
+            {
+              "en": "Mixed choices are retained without choosing a dominant family. The same person can remember a shape-like accompaniment but remain uncertain about colours or recurrence. Adding unrelated prompts across groups would conceal these differences, so there is no overall sum, mean, likelihood estimate, diagnostic cutoff or winning type on this page.",
+              "zh": "混合选择照实保留，不选主导类别。同一个人可能记得形状伴随，却对颜色或重复出现不确定。跨组相加会遮住差别，因此没有总分、均分、可能性估计、诊断切点或获胜类型。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Similarity recalled and similarity tested",
+            "zh": "记得相似与测出相似"
+          },
+          "paragraphs": [
+            {
+              "en": "A remembered similarity across occasions may be interesting, but recollection is influenced by how an event was noticed and remembered. Controlled research may use repeated stimuli, specific response tasks and comparison conditions. This page uses none of those procedures, and does not claim to separate automatic associations from deliberate ones experimentally.",
+              "zh": "跨场合相似回忆可能有趣，但受事件当时如何被注意、记住影响。受控研究可能使用重复刺激、特定任务及比较条件；本页没有这些流程，也不声称实验区分自动与刻意联想。"
+            },
+            {
+              "en": "Research about grapheme-colour consistency cannot simply be transferred to sound-colour, shape experiences or these new questions. Likewise, a conceptual continuum of multisensory experiences is not a scale on which this record can place you. The sources offer background and boundaries, rather than a validation certificate for the checklist.",
+              "zh": "字符颜色一致性研究不能直接移到声音颜色、形状体验或本站新题。多感官体验的概念连续体，也不是能用本记录定位你的量尺。来源提供背景和边界，不是本清单的验证证书。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "Optional everyday distinctions",
+            "zh": "可选的日常区分"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a clearer description for yourself, distinguish the physical sound, the emotion it brought, an intentional mental scene and any impression that seemed to accompany it. You can do this privately during an ordinary comfortable occasion. No deliberate exposure, repeated listening or attempt to make an experience stronger is required.",
+              "zh": "若想给自己描述得更清楚，可区分实际声音、所带情绪、刻意脑内场景及似乎伴随的印象。只需在普通舒适场合私下观察，不要求刻意暴露、反复播放或加强体验。"
+            },
+            {
+              "en": "The purpose is accurate language, not training or proving a special ability. You can enjoy music without adopting a sensory identity, and you can stop reflecting at any point. For a new or troubling experience, describe the actual circumstances to an appropriate professional rather than using a positive checklist answer as its explanation.",
+              "zh": "目的是用语准确，不是训练或证明特殊能力。欣赏音乐无需认领感官身份，也可随时停止反思。新出现或困扰体验可向适当专业人士描述实际情境，不以肯定答案作为原因解释。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Original content and privacy",
+            "zh": "原创内容与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "These three prompts belong to an original fifteen-item checklist for adults, with a site-selected three-month recall window. Neither the items nor the English and Chinese versions have been validated as equivalent measurement forms. The five editorial families help organize reading; they are not established factors or separate verified tests.",
+              "zh": "这三条属于面向成年人的原创十五条清单，三个月范围由本站编辑选定。题目及中英文尚未经等值测量验证。五个编辑类别帮助组织阅读，不是已确立因子或单独验证测试。"
+            },
+            {
+              "en": "Answers stay only in page memory and clear when you leave, refresh, change language or retake. Copying public links shares all five complete guides without sound examples, answers or counts. Optional anonymous action counts require the page permission and global analytics consent; the website does not need a private sensory history.",
+              "zh": "答案仅留在页面内存，离开、刷新、换语言或重测即清除。复制公开链接分享全部五篇指南，不含声音例子、答案或计数。可选匿名动作计数需本页许可及全站分析同意，网站不需要私人感官史。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequence-space",
+      "directionIds": [
+        "sequence-space"
+      ],
+      "title": {
+        "en": "Sequences and spatial layouts",
+        "zh": "序列与空间布局"
+      },
+      "headline": {
+        "en": "When an order seems to have a location",
+        "zh": "当顺序仿佛有空间位置"
+      },
+      "summary": {
+        "en": "Explore recalled spatial layouts for numbers, weekdays or other familiar sequences, without confusing a mental calendar, navigation skill and objective consistency.",
+        "zh": "观察数字、星期等熟悉序列的空间布局回忆，区分脑内日历、导航能力与客观一致性。"
+      },
+      "scoreReading": {
+        "en": "Read the three chosen responses separately. Counts describe recollection within this original checklist, without a strength scale, type assignment or confirmation of synaesthesia.",
+        "zh": "分别阅读三条所选回答。计数仅描述这份原创清单中的回忆，不是强度量表、类型分配或联觉确认。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sequences and spatial layouts | Synesthesia Test Full Guide",
+          "zh": "序列与空间布局｜联觉测试完整指南"
+        },
+        "description": {
+          "en": "Explore recalled spatial layouts for numbers, weekdays or other familiar sequences, without confusing a mental calendar, navigation skill and objective consistency.",
+          "zh": "观察数字、星期等熟悉序列的空间布局回忆，区分脑内日历、导航能力与客观一致性。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "The focus is an ordered sequence",
+            "zh": "重点是有序序列"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about familiar sequences that seemed to occupy positions in an imagined space, a layout that appeared without a deliberate arrangement, and a similar layout noticed on separate occasions. A sequence could be weekdays or numbers. The questions concern how an order was experienced, not how accurately you can remember or recite it.",
+              "zh": "本组问熟悉序列仿佛占据脑中空间位置、布局并非刻意安排，以及不同场合注意到相似布局。序列可如星期或数字；重点是如何体验顺序，不是能否准确记忆或背诵。"
+            },
+            {
+              "en": "Someone might recall that part of a familiar sequence seemed to extend around a corner or lie at a particular relative location. Someone else might simply know what comes next without any spatial appearance. Neither person needs to draw a diagram here. The site asks for a response to the description, not an address or a personal calendar.",
+              "zh": "有人可能记得熟悉序列的一部分仿佛转弯或位于某个相对位置，另一些人只知道下一项而没有空间外观。不必画图；本页收对描述的回答，不收住址或私人日历。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "A useful planner is a different object",
+            "zh": "实用计划表是另一件事"
+          },
+          "paragraphs": [
+            {
+              "en": "A calendar grid on a screen has a layout chosen by its designer. Remembering that layout or deliberately placing tasks on it is not automatically the unplanned experience described here. An internal sequence layout can also be described without seeing anything outside the mind. The checklist cannot determine the mechanism from a brief recollection.",
+              "zh": "屏幕日历网格由设计者安排，记住布局或刻意往上放任务，不自动等于本题所说未计划体验。内部序列布局也不要求看见脑外物体；简短回忆不能判定机制。"
+            },
+            {
+              "en": "Memory techniques can intentionally assign locations to information. They may be useful in a particular task, but this questionnaire does not ask whether you can learn such a technique. If your only example was a layout you deliberately constructed, read the spontaneous wording carefully and choose unsure when you cannot distinguish the two in memory.",
+              "zh": "记忆方法可能刻意给信息分配位置，这在特定任务中或有用途，但本问卷不问能否学会。如果唯一例子是主动建立的布局，应仔细看自行浮现的措辞；回忆分不清可选不确定。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Spatial experience is not spatial ability",
+            "zh": "空间体验不是空间能力"
+          },
+          "paragraphs": [
+            {
+              "en": "No item tests mental rotation, map reading, navigation, mathematical achievement or how efficiently you plan a week. An experienced arrangement might feel clear without helping any of those tasks. Conversely, having no recalled layout says nothing about whether you can solve a spatial problem, organize work or remember an important appointment.",
+              "zh": "这里不测心理旋转、读地图、找路、数学成绩或每周规划效率。体验到清楚布局不必帮助这些任务；没有回忆也不能说明能否解空间题、安排工作或记住约定。"
+            },
+            {
+              "en": "There is no timer, diagram-matching exercise or right answer about where a particular day should be located. The group does not establish an optimal learning style or a superior way to think about time. Practical tools can be chosen by whether they help with the actual requirement, independently of how this checklist is answered.",
+              "zh": "没有计时、图形匹配或某天应位于何处的标准答案。本组不建立最佳学习风格或更优时间思考方式。实用工具可按是否有助实际要求选择，与本清单回答独立。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Three choices remain three choices",
+            "zh": "三个选择仍是三个选择"
+          },
+          "paragraphs": [
+            {
+              "en": "The readout preserves counts for yes, no, unsure and skipped, with all three selected answers repeated. A person can recall a layout but be unsure whether it appeared without planning, or whether it was similar on another occasion. These differences are useful to retain instead of replacing the answers with a single positive or negative identity.",
+              "zh": "读数保留有、没有、不确定、跳过四种计数，并重复全部三条所选回答。可能记得布局，却不确定是否未经安排或跨场合相似。应保留这些区别，不用单一正负身份替代。"
+            },
+            {
+              "en": "A no requires relevant opportunities in the past three months but no recalled matching experience. A skip records lack of opportunity or a decision not to answer. Neither uncertainty nor a skip is changed into no, and no combination creates a percentage, a dominant family or a diagnostic conclusion. You can finish with all uncertain or skipped choices.",
+              "zh": "没有指近三个月有相关机会却未记得匹配体验；跳过保留无机会或不愿回答。不确定与跳过都不改成没有，任何组合都不产生百分比、主导类别或诊断。全部不确定或跳过也能完成。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Remembered recurrence is limited evidence",
+            "zh": "记得重复出现的证据有限"
+          },
+          "paragraphs": [
+            {
+              "en": "Remembering a similar layout twice is not the same as measuring consistency under a research procedure. This site does not collect repeated diagrams, compare positions across trials or assess interference and automaticity. The wording about recurrence invites a recollection, without turning the response into an experimental finding or a criterion for confirmation.",
+              "zh": "记得两次布局相似不同于研究流程下测量一致性。本页不收重复图、不比较多次位置，也不测干扰与自动性。重复出现的措辞只是邀请回忆，不把回答变为实验发现或确认标准。"
+            },
+            {
+              "en": "A later answer may differ because the sequence, context or interpretation changed, not because an ability improved or declined. The checklist has no validated change score and no retest schedule for proving an experience. Research about other association families cannot supply a missing validation for this three-item spatial record.",
+              "zh": "以后回答不同可能因序列、情境或理解变化，不代表能力升降。本清单没有验证后的变化分数，也没有证明体验的复测日程；其他联想类别研究不能补上这三条空间记录的验证。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "Keep the observation ordinary",
+            "zh": "保持普通的观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you are curious, you can notice how an already familiar sequence comes to mind in an everyday task. Privately separate the order you know, a diagram you intentionally picture and any layout that seems to be present without arranging it. No special environment, repeated exercise or effort to manufacture a spatial sensation is needed.",
+              "zh": "若好奇，可在日常任务中留意熟悉序列如何浮现，私下区分知道的顺序、刻意想的图及似乎无需安排的布局。不需要特殊环境、反复练习或努力制造空间感觉。"
+            },
+            {
+              "en": "This suggestion is optional and does not promise better memory, time management or spatial skills. An external calendar remains a practical tool whether or not you have an internal layout. If a new experience causes concern or disrupts everyday life, the appropriate next step depends on the actual situation, rather than a label inferred from this questionnaire.",
+              "zh": "这是可选观察，不承诺改善记忆、时间管理或空间技能。有无内部布局，外部日历仍可实用。新体验若造成担忧或干扰日常，下一步应按实际情况判断，不靠问卷推断标签。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "What the guide can claim",
+            "zh": "本指南能说到哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind Editorial authored this group as part of an original fifteen-item checklist. The categories organize content rather than define measured factors. The three-month window is a site recall convention; it does not establish when an experience began or its lifetime stability. English and Chinese are accessible versions, without a demonstrated measurement-equivalence claim.",
+              "zh": "本组由费马测试编辑部原创，属于十五条清单。分类组织内容，不定义测量因子。三个月是本站回忆约定，不确立体验起点或终身稳定性；中英文供阅读，尚未证明测量等值。"
+            },
+            {
+              "en": "No personal diagrams, histories or names are requested. Responses stay in page memory and clear on refresh, language change, leaving or retaking. Public sharing copies all five guides without revealing which family you endorsed. You can read every guide before answering, or leave without completing any item.",
+              "zh": "不要求私人图示、历史或姓名。答案留在页面内存，刷新、换语言、离开或重测清除。公开分享复制全部五篇指南，不透露肯定了哪类；作答前即可阅读，也可不完成任何条目就离开。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "personification",
+      "directionIds": [
+        "personification"
+      ],
+      "title": {
+        "en": "Symbols with person-like qualities",
+        "zh": "符号的人格化印象"
+      },
+      "headline": {
+        "en": "A quality accompanying a symbol",
+        "zh": "伴随符号的类似性格印象"
+      },
+      "summary": {
+        "en": "Read recollections of personality-like qualities attached to letters, numbers or weekdays, while keeping storytelling, cultural symbolism and judgments about real people separate.",
+        "zh": "阅读字母、数字或星期伴随类似性格特征的回忆，区分故事创作、文化象征与真实人物判断。"
+      },
+      "scoreReading": {
+        "en": "Read the three chosen responses separately. Counts describe recollection within this original checklist, without a strength scale, type assignment or confirmation of synaesthesia.",
+        "zh": "分别阅读三条所选回答。计数仅描述这份原创清单中的回忆，不是强度量表、类型分配或联觉确认。"
+      },
+      "seo": {
+        "title": {
+          "en": "Symbols with person-like qualities | Synesthesia Test Full Guide",
+          "zh": "符号的人格化印象｜联觉测试完整指南"
+        },
+        "description": {
+          "en": "Read recollections of personality-like qualities attached to letters, numbers or weekdays, while keeping storytelling, cultural symbolism and judgments about real people separate.",
+          "zh": "阅读字母、数字或星期伴随类似性格特征的回忆，区分故事创作、文化象征与真实人物判断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "What person-like means here",
+            "zh": "这里的类似人格指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These prompts ask whether a familiar letter, number or weekday seemed to have a personality-like quality without inventing a story, whether a quality recurred, and whether it accompanied a simple reading or counting task. The description concerns a subjective impression associated with a symbol. It is not a claim that the symbol has thoughts, intentions or a real personality.",
+              "zh": "本组询问字母、数字或星期是否无需编故事就带有类似性格特征、特征是否重复，以及简单阅读计数时是否伴随出现。描述的是符号关联的主观印象，不声称符号有思想、意图或真实人格。"
+            },
+            {
+              "en": "For example, a particular sequence member might seem characteristically playful while another seems reserved. The questionnaire does not ask you to name the symbol, describe a private story or justify the impression. Someone who remembers no such experience can choose no when there were relevant opportunities, and uncertainty can remain explicit rather than being guessed away.",
+              "zh": "例如某个序列成员似乎一贯活泼，另一个拘谨。不要求指出符号、讲私人故事或证明印象。有相关机会但不记得可选没有；不确定可明确保留，不必猜掉。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Stories and learned meanings",
+            "zh": "故事与习得含义"
+          },
+          "paragraphs": [
+            {
+              "en": "Writers often create characters for letters or numbers, and teaching materials sometimes personify them deliberately. Those activities use imagination for a purpose. A learned story that comes to mind may be different from the unplanned quality described by a prompt. This checklist cannot establish the origin of an association or separate memory and automaticity with experimental precision.",
+              "zh": "作者常为字母数字创作角色，教材也会有意人格化，这是有目的的想象。想起学过的故事可能不同于题目所说未计划特征。本清单不能确定联想起源，也不能以实验精度区分记忆与自动性。"
+            },
+            {
+              "en": "A culturally familiar meaning, such as a lucky number or a disliked weekday, can also influence language about symbols. Disliking a busy day does not by itself imply a personality-like experience of that day. If you cannot separate these possibilities in your recollection, the unsure option accurately records the limitation without treating it as a failed answer.",
+              "zh": "幸运数字或不喜欢的星期等文化含义也会影响说法。不喜欢忙碌的一天，本身不等于体验到这天的人格特征。回忆分不清这些可能时，选不确定准确保留限制，不是作答失败。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "It does not describe your personality",
+            "zh": "不描述你的人格"
+          },
+          "paragraphs": [
+            {
+              "en": "A symbol seeming serious does not mean that you are serious, and a symbol seeming playful is not evidence of creativity, empathy or a personality type. The prompts do not measure a trait of the respondent. They record whether particular subjective descriptions were recalled, without drawing a character judgment from the content of the association.",
+              "zh": "符号显得严肃不代表你严肃，显得活泼也不能证明创造力、共情或人格类型。本题不测答题者特质，只记录是否记得特定主观描述，不从联想内容评价品格。"
+            },
+            {
+              "en": "The wording is also unrelated to deciding what a real person intends or feels. It provides no evidence about social insight, relationships or mental health. A separate Big Five questionnaire explores broader preferences under its own methods; it cannot verify these symbol experiences, explain their cause or be combined with this record as a diagnostic pathway.",
+              "zh": "这些措辞也不用于判断真实他人的意图、感受，不能推断社会洞察、关系或心理健康。单独的大五问卷按自身方法探索更广偏好，不能验证符号体验、解释原因或与本记录拼成诊断路径。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "An explicit answer for each description",
+            "zh": "逐条给明确回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Yes means that you can recall the experience described during the past three months. No means that there were relevant occasions but you do not recall that experience. Unsure means you cannot judge the description or recollection. The fourth option covers no relevant opportunity or declining to answer. Each choice remains visible next to its original prompt in the readout.",
+              "zh": "有指近三个月记得描述中的体验；没有指有相关场合却未记得；不确定指无法判断描述或回忆；第四项涵盖无机会或不愿回答。读数在各原题旁保留所选回答。"
+            },
+            {
+              "en": "The four counts sum to three for this group, but that arithmetic is not a psychological scale. Two recalled descriptions do not mean a stronger personality association than one, and three no answers do not prove a lifetime absence. There is no score threshold, majority rule, comparison with strangers or resulting assignment to a personification type.",
+              "zh": "四种计数相加为三，但这不是心理量尺。记得两条不代表比一条更强，三条没有也不证明终身缺失。没有分数阈值、多数表决、与陌生人比较或人格化类型分配。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "What recurrence can and cannot show",
+            "zh": "重复出现说明到哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "One description asks whether an impression occurred more than once. Recalling recurrence can help describe your experience, but it does not demonstrate that a response was automatic or stable under controlled testing. The website does not time your decisions, introduce interfering tasks or compare repeated blinded responses. It has no objective personification-consistency result to report.",
+              "zh": "一条询问是否不止一次。记得重复可帮助描述体验，但不能证明自动性或受控测试中的稳定性。本页不计时、不设干扰任务或比较多次盲测回答，没有客观人格化一致性结果。"
+            },
+            {
+              "en": "Research references discuss different families and the boundaries between subjective reports and experimental evidence. They do not validate these three original prompts or give them a population norm. Repeating the checklist later cannot supply that missing validation, and different choices should not be described as improvement, loss of ability or a change in mental health.",
+              "zh": "研究来源讨论不同类别及主观报告与实验证据边界，不验证本站三条新题，也不提供人口常模。以后重做不能补上验证；选择变化不应称为改善、能力丧失或心理健康变化。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "Describe rather than cultivate",
+            "zh": "描述而非培养"
+          },
+          "paragraphs": [
+            {
+              "en": "If this topic interests you, you may privately distinguish a learned story, an intentional description and an impression that seems to accompany a symbol during normal reading. You do not need to invent additional characters, search for a more unusual association or keep answering until the record looks distinctive. No positive answer is required to access the guides.",
+              "zh": "若感兴趣，可在普通阅读中私下区分学过的故事、刻意描述及似乎伴随符号的印象。不必再编角色、寻找更罕见联想或反复答到结果特别；阅读指南不要求肯定答案。"
+            },
+            {
+              "en": "This is an optional language aid, not a training programme or a claim of special talent. Associations can be described without building an identity around them. When an experience is distressing, newly changed or disruptive, advice should address the actual circumstances and needs rather than treating a checklist family as the explanation.",
+              "zh": "这只是可选描述辅助，不是训练项目或特殊天赋声明。可以描述联想而不围绕它建立身份。体验令人不安、新近变化或干扰日常时，意见应针对实际情况与需要，不把清单类别当原因。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Editorial scope and privacy",
+            "zh": "编辑范围与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "The five families organize an original fifteen-item checklist for adults, not five validated factors. The three-month recall window and the literal response display are editorial choices. Neither language version has been validated as a measurement equivalent of the other, and the checklist is not a licensed translation of a published diagnostic or laboratory instrument.",
+              "zh": "五类组织面向成年人的原创十五条清单，不是五个验证因子。三个月范围与字面回答展示是编辑选择。两种语言尚未经测量等值验证，本清单不是已发表诊断或实验工具的授权译本。"
+            },
+            {
+              "en": "No symbol histories, private examples or identities are requested. Responses stay in page memory and clear on refresh, language change, leaving or retaking. Sharing provides all five public guide links without responses or counts, so recipients cannot infer an endorsed family from a selected result link. All public reading remains available without finishing the checklist.",
+              "zh": "不收符号历史、私人例子或身份。答案留在页面内存，刷新、换语言、离开或重测即清除。分享提供全部五篇公开链接，不带回答计数，收件人不能从单个结果链接推断肯定类别；无需完成也可读全部内容。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taste-touch",
+      "directionIds": [
+        "taste-touch"
+      ],
+      "title": {
+        "en": "Words, taste and touch-like impressions",
+        "zh": "词语、味道与触觉样印象"
+      },
+      "headline": {
+        "en": "Several experiences, kept distinct",
+        "zh": "几种体验，分别保留"
+      },
+      "summary": {
+        "en": "Keep word-related taste or texture, observed-touch impressions and symbol-related bodily impressions distinct; this editorial group is not a single measured sensory trait.",
+        "zh": "区分词语相关味道质感、观察触碰时的印象及符号相关身体印象；这一编辑分组不是单一测量感官特质。"
+      },
+      "scoreReading": {
+        "en": "Read the three chosen responses separately. Counts describe recollection within this original checklist, without a strength scale, type assignment or confirmation of synaesthesia.",
+        "zh": "分别阅读三条所选回答。计数仅描述这份原创清单中的回忆，不是强度量表、类型分配或联觉确认。"
+      },
+      "seo": {
+        "title": {
+          "en": "Words, taste and touch-like impressions | Synesthesia Test Full Guide",
+          "zh": "词语、味道与触觉样印象｜联觉测试完整指南"
+        },
+        "description": {
+          "en": "Keep word-related taste or texture, observed-touch impressions and symbol-related bodily impressions distinct; this editorial group is not a single measured sensory trait.",
+          "zh": "区分词语相关味道质感、观察触碰时的印象及符号相关身体印象；这一编辑分组不是单一测量感官特质。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Three prompts with different subjects",
+            "zh": "三条涉及不同体验"
+          },
+          "paragraphs": [
+            {
+              "en": "The first prompt concerns a taste-like or mouth-texture impression accompanying a familiar word, without deliberately recalling a meal. The second concerns a touch-like impression on your own body when seeing an ordinary non-painful touch to someone else. The third concerns a specific touch-like or bodily-location impression accompanying a word or written symbol without deliberate visualization.",
+              "zh": "第一条涉及熟悉词语伴随味道或口腔质感样印象，且未刻意回想用餐；第二条涉及看到别人受普通、不疼痛触碰时自身伴随触觉样印象；第三条涉及词语或符号伴随具体触觉样或身体位置印象，且未刻意想象。"
+            },
+            {
+              "en": "These are different reported phenomena, placed together only to organize a short reading collection. A yes to a word-related taste description does not imply a response to observed touch, and the reverse is equally true. Always read the individual chosen responses rather than interpreting the group as one taste-touch ability or a single sensory mechanism.",
+              "zh": "这些是不同报告现象，只为组织简短阅读而放在一起。肯定词语味道不代表肯定观察触碰，反之亦然。务必看逐项回答，不把本组解释为一种味觉触觉能力或单一机制。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Ordinary recollection, without exposure",
+            "zh": "普通回忆，无需暴露"
+          },
+          "paragraphs": [
+            {
+              "en": "Nothing needs to be tasted, eaten, touched or acted out for this checklist. Do not seek a painful scene, touch another person or expose yourself to an uncomfortable sensation to answer. The past three months are a recall window for ordinary occasions that already happened, rather than a request to create new experiences during the test.",
+              "zh": "无需品尝、进食、触碰或表演。不用寻找疼痛画面、触碰他人或接触不舒服感觉来作答。近三个月用于回顾已发生普通场合，不是要求测试中制造新体验。"
+            },
+            {
+              "en": "No food preferences, bodily locations or personal examples are entered on the page. You may understand a prompt but have no relevant occasion, or prefer not to consider it. The separate opportunity or skip choice retains that information. It is valid even if other prompts in the same group have clear yes or no answers.",
+              "zh": "不需要输入食物偏好、身体位置或私人例子。可以理解题目却没有相关机会，或不愿考虑；单独的无机会或跳过保留这些信息，即使同组其他条有明确有无也有效。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Related words do not establish the same event",
+            "zh": "相近说法不确立同一事件"
+          },
+          "paragraphs": [
+            {
+              "en": "A food word can intentionally remind someone of a meal, and seeing touch can invite a deliberate image of how it might feel. Those familiar possibilities differ from the unplanned accompaniment described here. Language such as a bitter remark can also be metaphorical. The checklist cannot determine the source of an impression merely because the wording seems familiar.",
+              "zh": "食物词可使人刻意回想一餐，看到触碰可使人有意想象感觉，这些不同于本题的未计划伴随；苦涩话语也可能是比喻。措辞熟悉不能使本清单确定印象来源。"
+            },
+            {
+              "en": "Watching another person receive touch is not by itself a measure of empathy, compassion or understanding their emotions. A bodily impression does not show what that person actually feels. This guide makes no inference about relationship quality, pain sensitivity, health status or moral character from any selected answer. It also provides no explanation for a new physical symptom.",
+              "zh": "看他人被触碰本身不测共情、关怀或情绪理解；身体印象不表明对方实际感觉。本指南不从选择推断关系质量、疼痛敏感、健康或品格，也不解释新身体症状。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "The record keeps the distinctions visible",
+            "zh": "记录保留区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Each response appears beside its own prompt, followed by four literal counts for the group: yes, no, unsure and skipped out of three. Those counts describe recalled answers only. Because the prompts concern distinct experiences, a combined strength, average, majority label or percentage would obscure the differences. None is calculated.",
+              "zh": "每条回答与原题并列，同时列出三条中的有、没有、不确定、跳过四种字面计数。计数只描述回忆选择。由于三条体验不同，综合强度、均分、多数标签或百分比会遮住差别，因此均不计算。"
+            },
+            {
+              "en": "No means you had relevant opportunities but do not recall the described experience within the requested window. It does not prove that an experience has never happened. Unsure and skipped are never counted as no, and every prompt requires an explicit choice. You may finish with all fifteen unsure or skipped responses and still access every complete public guide.",
+              "zh": "没有指指定时段有相关机会却未记得，不证明从未发生。不确定、跳过不算没有，每题需明确选择。十五条全选不确定或跳过仍可完成，并读全部完整公开指南。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "No experiment hidden in the checklist",
+            "zh": "清单中没有隐藏实验"
+          },
+          "paragraphs": [
+            {
+              "en": "The website does not deliver controlled touch, taste stimuli, observer tasks or repeated response trials. It therefore cannot test sensory consistency, automaticity or an underlying neural mechanism. A positive recollection is useful as a description, without establishing that it meets research criteria or belongs to one particular scientific category.",
+              "zh": "网站不提供受控触碰、味觉刺激、观察者任务或重复试验，因此不能测试感官一致性、自动性或神经机制。肯定回忆可用于描述，不确立其符合研究标准或某个科学类别。"
+            },
+            {
+              "en": "Research about a different family, such as grapheme-colour associations, does not automatically validate these items. A conceptual theory relating multisensory experiences is background, not an empirical scoring rule for an individual. The source links explain why these distinctions matter; they do not endorse these new questions or validate their English and Chinese wording.",
+              "zh": "字符颜色等其他类别研究不会自动验证本题。联系多感官体验的概念理论是背景，不是个人实证计分规则。来源解释区别为何有用，不背书新题，也不验证中英文措辞。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "An optional description for yourself",
+            "zh": "给自己的可选描述"
+          },
+          "paragraphs": [
+            {
+              "en": "If you already notice such an experience during a comfortable everyday occasion, you can privately distinguish the word or observation, any deliberate recall, and the impression that seemed to accompany it. There is no need to collect examples or make the experience recur. The website does not offer induction exercises, exposure tasks or a programme for increasing these responses.",
+              "zh": "若舒适日常场合已经注意到体验，可私下区分词语或观察、刻意回忆及似乎伴随的印象。不必收集例子或使其重现；网站不提供诱发、暴露任务或增加反应的训练。"
+            },
+            {
+              "en": "You can stop reflecting or leave any prompt unanswered until you decide whether to continue. This original checklist is not a treatment, a health assessment or a way to monitor improvement. For new, distressing or disruptive sensations, seek appropriate advice based on the experience itself and its circumstances, rather than using a checklist count to determine the cause.",
+              "zh": "可停止反思或暂留空，自己决定是否继续。本原创清单不是治疗、健康评估或改善监测。新出现、困扰或干扰生活的感觉，可按体验及其情境寻求适当意见，不用清单计数确定原因。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "A short editorial map, used privately",
+            "zh": "私人使用的简短编辑地图"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind Editorial wrote all fifteen prompts and five complete guides independently. The families are content groups, not validated dimensions; the three-month window is an editorial recall policy. There is no norm, probability, cutoff, condition classification or confirmation of synaesthesia. Different answers on a later occasion do not constitute a validated measurement of change.",
+              "zh": "十五条题目及五篇指南由费马测试编辑部独立写作。类别是内容组，不是验证维度；三个月是编辑性回忆政策。没有常模、概率、切点、状况分类或联觉确认。以后回答不同不构成经验证变化测量。"
+            },
+            {
+              "en": "Responses remain only in page memory and clear on refresh, language change, leaving or retaking. Public sharing copies all five guide links without bodily details, selected responses or counts. Optional anonymous action counts need both page permission and global analytics consent. You can read every guide free before answering, with no account or sensory history required.",
+              "zh": "答案仅留在页面内存，刷新、换语言、离开或重测即清除。公开分享复制五篇指南，不含身体细节、选择或计数。可选匿名动作计数需本页许可和全站分析同意。作答前即可免费阅读，无需账户或感官史。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "An original checklist, not a consistency battery",
+        "zh": "原创清单，不是一致性实验题组"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind Editorial independently authored the fifteen prompts, four response labels and five complete bilingual guides. Each editorial family has three prompts. They are not validated factors, a shortened published test or a licensed translation of another battery. Taste-touch groups distinct reported phenomena for navigation only; individual responses remain visible.",
+          "zh": "十五条题目、四种选项及五篇双语完整指南由费马测试编辑部独立写作。每个编辑类别三条，不是验证因子、已发表测试短版或其他题组授权译本。味道触觉组只为导航放在一起，保留不同现象的逐项回答。"
+        },
+        {
+          "en": "The references explain reported phenomena and the difference between subjective recall and controlled tasks. They do not validate this checklist. We do not reproduce Synesthesia Battery stimuli, code, colour-distance methods, cutoffs or research classifications. A conceptual continuum is not used as a personal measurement scale.",
+          "zh": "来源说明报告的现象及主观回忆与受控任务的区别，不验证本清单。不复现Synesthesia Battery刺激、代码、色距方法、切点或研究分类；概念连续体不作为个人测量量尺。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Exactly what is counted",
+        "zh": "具体记录什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Every prompt needs an explicit choice. Yes records a recalled matching experience. No records relevant opportunities but no recalled matching experience in the past three months; it does not establish lifetime absence. Unsure and no opportunity / decline remain separate. Blank is incomplete, while explicit unsure or skip is valid.",
+          "zh": "每题需明确选择。有记录记得匹配体验；没有记录近三个月有相关机会却未记得，不确立终身缺失。不确定与无机会／不愿回答分别保留。空白是未完成，明确不确定或跳过是有效选择。"
+        },
+        {
+          "en": "For each family, display the four literal counts out of three and repeat all three chosen answers. The counts sum to three without imputing missing information or treating uncertainty and skips as no. All-uncertain and all-skip responses can finish. No overall sum, mean, strength, percentage, winner, type, threshold, probability, norm or diagnosis is calculated.",
+          "zh": "每组显示三条中的四种字面计数，并重复全部三个选择；计数相加为三，不补值，也不将不确定或跳过当没有。全不确定或全跳过均可完成。不计算总分、均分、强度、百分比、赢家、类型、阈值、概率、常模或诊断。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Scope, comfort and uncertainty",
+        "zh": "范围、舒适度与不确定性"
+      },
+      "paragraphs": [
+        {
+          "en": "Use ordinary recollections only. No sounds, foods, observed-touch videos, images, flashing patterns or exposure tasks are supplied or required. There is no camera, recording, bodily map, colour picker or timer. You may skip or leave whenever you prefer; a positive response is not required to read the guides.",
+          "zh": "只用普通回忆。不提供也不要求声音、食物、观察触碰视频、图像、闪烁图案或暴露任务。没有摄像头、录音、身体图、选色器或计时器。可随时跳过或离开，阅读指南不要求肯定答案。"
+        },
+        {
+          "en": "The three-month window is editorial rather than a criterion for lifelong experience. English and Chinese have not been validated as equivalent forms. Repeating the checklist does not test consistency or automaticity and is not validated for tracking change. Counts do not establish intelligence, empathy, creativity, hearing, memory or health.",
+          "zh": "三个月是编辑范围，不是终身体验标准。中英文尚未经等值验证。重复本清单不测一致性或自动性，未验证用于追踪变化。计数不确立智力、共情、创造力、听力、记忆或健康。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Five full guides, freely available",
+        "zh": "五篇完整指南免费开放"
+      },
+      "paragraphs": [
+        {
+          "en": "All five complete guides explain concrete descriptions, nearby experiences, response rules, research limits and optional everyday distinctions. They are identical public explanations for everyone, free before answering and expandable after the record. These are five guides within one checklist, not five independent tests or hidden personalized reports.",
+          "zh": "五篇完整指南解释具体描述、相近体验、回答规则、研究限制及可选日常区分。它们是对所有人相同的公开解释，作答前免费开放，查看记录后可展开；是同一清单的五篇指南，不是五个独立测试或隐藏个人报告。"
+        },
+        {
+          "en": "Sharing copies all five public links without selected responses or counts. Separate aphantasia and Big Five entries are optional, with their own scope and methods; neither verifies synaesthesia or explains its cause. If an experience is new, distressing or disruptive, seek appropriate advice based on what happened rather than a checklist category.",
+          "zh": "分享复制全部五个公开链接，不带选择或计数。单独心盲与大五入口是可选阅读，各有范围和方法，均不验证联觉或解释原因。新出现、令人不安或干扰生活的体验，可按实际情况寻求适当意见，不依赖清单类别。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I have synaesthesia?",
+        "zh": "这能确认我是否有联觉吗？"
+      },
+      "answer": {
+        "en": "No. It records recollections of fifteen original descriptions. It does not reproduce controlled consistency, automaticity or interference testing, assign a type or diagnose a condition. Synesthesia Test is the topic name, not a confirmation claim.",
+        "zh": "不能。它记录十五条原创描述的回忆，不复现受控一致性、自动性或干扰实验，不分配类型、不诊断状况。“联觉测试”是主题名称，不是确认声明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are synesthesia and synaesthesia different tests?",
+        "zh": "synesthesia与synaesthesia是不同测试吗？"
+      },
+      "answer": {
+        "en": "They are spelling variants for the same topic here and share this single entry. This is an original self-reflection checklist, not the Synesthesia Battery or a validated short form of it.",
+        "zh": "在此是同一主题的不同拼写，共用一个入口。本页是原创自我反思清单，不是Synesthesia Battery或其经验证短版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to see colours outside my mind?",
+        "zh": "必须在脑外真的看到颜色吗？"
+      },
+      "answer": {
+        "en": "No external projection is required by these descriptions. An internal colour-like impression can be reported. Deliberate imagery, visible ink and metaphor may be different experiences; unsure is available when you cannot distinguish them.",
+        "zh": "这些描述不要求脑外投影，可报告内在颜色样印象。刻意想象、可见墨色和比喻可能是不同体验，分不清可选不确定。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are no, unsure and skipped answers handled?",
+        "zh": "没有、不确定和跳过怎样处理？"
+      },
+      "answer": {
+        "en": "No means relevant opportunities but no recalled matching experience in the window, not lifetime absence. Unsure and no opportunity / decline remain distinct counts. Every prompt needs a choice; all-uncertain or all-skip responses can finish without a classification.",
+        "zh": "没有指时段内有机会却未记得，不是终身缺失。不确定与无机会／不愿回答分别计数。每题需选择，全部不确定或跳过也可完成，不分配类别。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will retaking prove consistency or special ability?",
+        "zh": "重测能证明一致性或特殊能力吗？"
+      },
+      "answer": {
+        "en": "No. Recollection and repeated controlled responses are different evidence. This checklist has no validated retest rule, change score, population norm or talent inference. No sensory exposure or induction exercise is needed.",
+        "zh": "不能。回忆与受控重复反应是不同证据。本清单没有验证后的复测规则、变化分数、人口常模或天赋推断。不需要感官暴露或诱发练习。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are responses saved or included in public links?",
+        "zh": "答案会保存或进入公开链接吗？"
+      },
+      "answer": {
+        "en": "Responses stay in page memory and clear on refresh, language change, leaving or retaking. Sharing contains all five public guides only. Optional anonymous action counts require both page permission and global analytics consent, without responses or family counts.",
+        "zh": "答案留在页面内存，刷新、换语言、离开或重测清除。分享仅含全部五篇公开指南。可选匿名动作计数需本页许可及全站分析同意，不带答案或类别计数。"
+      }
+    }
+  ],
+  "synes15": {
+    "subtitle": {
+      "en": "Describe recalled experiences, without a type",
+      "zh": "描述回忆中的体验，不分配类型"
+    },
+    "privacy": {
+      "en": "Responses stay only in page memory and clear on refresh, language change, leaving or retaking. No draft, account, sensory example, colour map or response-bearing share link is created.",
+      "zh": "答案仅留在页面内存，刷新、换语言、离开或重测即清除。不建立草稿或账户，不收感官例子、颜色图，也不生成带回答的分享链接。"
+    },
+    "editionNotice": {
+      "en": "FermatMind original 15-prompt checklist · Not validated · Ages 18+ · No diagnosis, consistency score, norms or type assignment.",
+      "zh": "费马测试原创15条清单 · 尚未验证 · 18岁及以上 · 无诊断、一致性分数、常模或类型分配。"
+    },
+    "attribution": {
+      "en": "Prompts and guides: FermatMind Editorial, 2026. The sources provide research background and measurement boundaries; they do not supply, endorse or validate these original questions.",
+      "zh": "题目与指南：费马测试编辑部，2026。来源提供研究背景与测量边界，不提供、背书或验证本站原创题目。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "University of Sussex: synaesthesia FAQ",
+        "zh": "萨塞克斯大学：联觉常见问题"
+      },
+      "url": "https://www.sussex.ac.uk/synaesthesia/faq"
+    },
+    {
+      "title": {
+        "en": "Perceptual Dissimilarity Analysis Distinguishes Grapheme-Color Synesthetes from Nonsynesthetes (2022)",
+        "zh": "字符颜色联觉的知觉差异分析研究（2022）"
+      },
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.13189"
+    },
+    {
+      "title": {
+        "en": "From multisensory integration to synaesthesia: a boundary-preserving continuum and research framework (2026 theory)",
+        "zh": "从多感官整合到联觉：保留边界的连续体与研究框架（2026年理论）"
+      },
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1893904/full"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import { isSynes15ConfigurationValid } from "@/lib/questionnaires/synes15";
+import { Synes15GuidePage } from "./Synes15Page";
 import { isImagery12ConfigurationValid } from "@/lib/questionnaires/imagery12";
 import { Imagery12GuidePage } from "./Imagery12Page";
 import { isImposter20ConfigurationValid } from "@/lib/questionnaires/imposter20";
@@ -72,6 +74,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imagery12" && !isImagery12ConfigurationValid(quiz)) return { title: "Imagery guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imposter20" && !isImposter20ConfigurationValid(quiz)) return { title: "Reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "catq25" && !isCatQ25ConfigurationValid(quiz)) return { title: "CAT-Q unavailable", robots: { index: false, follow: false } };
@@ -106,6 +109,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "synes15") {
+    if (!isSynes15ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <Synes15GuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "imagery12") {
     if (!isImagery12ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
