@@ -6284,5 +6284,30 @@
       "shared-contribution-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "face-self-image",
+    "code": "FM_FACE_SELF_IMAGE16",
+    "version": "fm_face_self_image16_v1",
+    "updated": "2026-10-29",
+    "category": "everyday",
+    "title": {
+      "en": "Face Self-Image Test",
+      "zh": "面部自我形象观察"
+    },
+    "description": {
+      "en": "Explore how you see your face, chosen care, photo ease and attention around people with 16 original prompts. Four full guides free; no beauty score.",
+      "zh": "用16条原创题观察面部看法、自选打理、照片自在感与人群中的注意体验。四篇完整指南免费，不算颜值分。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_face_self_image16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "face-view",
+      "chosen-care",
+      "photo-ease",
+      "appearance-attention"
+    ]
   }
 ]

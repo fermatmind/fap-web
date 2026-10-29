@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "face-self-image": async () => (await import("./data/face-self-image.json")).default as Questionnaire,
   "work-role-reflection": async () => (await import("./data/work-role-reflection.json")).default as Questionnaire,
   "dating-outlook": async () => (await import("./data/dating-outlook.json")).default as Questionnaire,
   "relationship-habits": async () => (await import("./data/relationship-habits.json")).default as Questionnaire,

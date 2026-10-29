@@ -1,0 +1,1738 @@
+{
+  "slug": "face-self-image",
+  "code": "FM_FACE_SELF_IMAGE16",
+  "version": "fm_face_self_image16_v1",
+  "updated": "2026-10-29",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Face Self-Image Test",
+    "zh": "面部自我形象观察"
+  },
+  "description": {
+    "en": "Explore how you see your face, chosen care, photo ease and attention around people with 16 original prompts. Four full guides free; no beauty score.",
+    "zh": "用16条原创题观察面部看法、自选打理、照片自在感与人群中的注意体验。四篇完整指南免费，不算颜值分。"
+  },
+  "seoTitle": {
+    "en": "Face Self-Image Test: Four Full Guides Free",
+    "zh": "面部自我形象观察：四篇完整指南免费"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "For adults, answer about your own experience during the past month. No photo, camera, measurement or other person’s assessment is needed. Rate frequency from 1 never to 5 almost always; 3 means sometimes, while uncertainty, unsuitable experiences and declined answers stay unscored. All sixteen prompts need a response. Each group of four needs three numeric ratings. Four separate means and complete guides appear, without an overall face score, tier or rank. You may stop or read every guide without answering.",
+    "zh": "面向成年人，只回答过去一个月自己的体验。不需要照片、相机、测量或别人的评价。按1从不到5几乎每次评价频率；3是有时，不确定、不适用或不愿回答保持未评分。16题均需响应，每组四题至少三条数字。分别显示四项均值与完整指南，不合颜值总分、不分等级或排名。可随时停止，也可不作答直接读全部指南。"
+  },
+  "introduction": {
+    "en": "This original reflection keeps four experiences separate: seeing your own face, choosing care and styling, feeling at ease in photos and directing attention around people. It records self-reported moments rather than facial attractiveness, someone else’s impression or a reason to change your appearance. There is no hensachi scale or average-person comparison. Every full reading is free.",
+    "zh": "本原创反思把四种体验分开：怎样看自己的脸、自主选择打理、照片中的自在感，以及在人群中怎样分配注意。它记录自报时刻，不测面部吸引力、不推断别人印象，也不提供改变外表的理由。不使用偏差值或平均人群比较。完整读法全部免费。"
+  },
+  "resultHeading": {
+    "en": "Your four self-image observations",
+    "zh": "本次四项自我形象观察"
+  },
+  "source": {
+    "kind": "fermatmind_original_face_self_image16",
+    "formCode": "fm_face_self_image16_v1",
+    "itemBankVersion": "fm_face_self_image16_v1",
+    "scoringVersion": "fsi16_frequency1_5_na_min3_four4_complete16_v1",
+    "resultContentVersion": "fm_face_self_image_four_full8_20261029_v1",
+    "itemBankSha256": "182e994626eba66ee3d0359d5ecc4c3e73ee5e678363bde02e117f8bc904317c",
+    "resultContentSha256": "3ac35c6353ca2adcc57a8babcfdce9e0c6244772ae248792de7c1c667acf372d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "face-view",
+      "title": {
+        "en": "How I see my own face",
+        "zh": "怎样看待自己的面部"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "chosen-care",
+      "title": {
+        "en": "Care and styling I chose",
+        "zh": "自己选择的打理"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "photo-ease",
+      "title": {
+        "en": "Ease in photos",
+        "zh": "照片中的自在感"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "appearance-attention",
+      "title": {
+        "en": "Ease around people",
+        "zh": "与人相处时的外表自在感"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FSI_01",
+      "prompt": {
+        "en": "Over the past month, when I looked in a mirror, I noticed a facial detail I liked.",
+        "zh": "过去一个月，照镜子时，我会注意到一个自己喜欢的面部细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "face-view",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "face-view",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "face-view",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "face-view",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "face-view",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "face-view",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_02",
+      "prompt": {
+        "en": "Over the past month, I set aside a moment to groom or arrange my appearance in a way I chose.",
+        "zh": "过去一个月，我会留一点时间，按自己的选择打理外表。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "chosen-care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "chosen-care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "chosen-care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "chosen-care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "chosen-care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "chosen-care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_03",
+      "prompt": {
+        "en": "Over the past month, when a photo was being taken, I could use an expression that felt like my own.",
+        "zh": "过去一个月，拍照时，我能使用一个感觉像自己的表情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "photo-ease",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "photo-ease",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "photo-ease",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "photo-ease",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "photo-ease",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "photo-ease",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_04",
+      "prompt": {
+        "en": "Over the past month, when meeting someone, I could attend to the conversation rather than keep checking how my face looked.",
+        "zh": "过去一个月，与人见面时，我能把注意放在谈话上，而不是一直检查脸看起来怎样。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "appearance-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "appearance-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "appearance-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "appearance-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "appearance-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "appearance-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_05",
+      "prompt": {
+        "en": "Over the past month, I saw a balance or combination in my facial features that felt pleasant to me.",
+        "zh": "过去一个月，我会在自己的五官中看到令自己觉得舒服的平衡或组合。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "face-view",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "face-view",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "face-view",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "face-view",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "face-view",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "face-view",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_06",
+      "prompt": {
+        "en": "Over the past month, I followed a simple appearance-care routine that I had chosen for myself.",
+        "zh": "过去一个月，我会按自己选定的简单方式做日常仪表打理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "chosen-care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "chosen-care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "chosen-care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "chosen-care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "chosen-care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "chosen-care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_07",
+      "prompt": {
+        "en": "Over the past month, looking at an ordinary photo of myself, I found an expression I felt comfortable recognising.",
+        "zh": "过去一个月，看自己的普通照片时，我能看到一个认得出、也觉得舒服的表情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "photo-ease",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "photo-ease",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "photo-ease",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "photo-ease",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "photo-ease",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "photo-ease",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_08",
+      "prompt": {
+        "en": "Over the past month, entering an ordinary social setting, I felt able to let my face be seen as it was.",
+        "zh": "过去一个月，进入普通社交场合时，我觉得可以让别人看到自己当时的面部状态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "appearance-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "appearance-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "appearance-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "appearance-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "appearance-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "appearance-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_09",
+      "prompt": {
+        "en": "Over the past month, looking at my face, I found something familiar that I felt glad to recognise.",
+        "zh": "过去一个月，看自己的脸时，我会认出一个熟悉、也乐于看到的特点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "face-view",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "face-view",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "face-view",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "face-view",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "face-view",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "face-view",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_10",
+      "prompt": {
+        "en": "Over the past month, before an ordinary activity, I adjusted my hair or another appearance detail because I wanted to.",
+        "zh": "过去一个月，普通活动前，我会因为自己想这样做，调整头发或另一个外表细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "chosen-care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "chosen-care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "chosen-care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "chosen-care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "chosen-care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "chosen-care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_11",
+      "prompt": {
+        "en": "Over the past month, after choosing a photo, I could leave the choice without repeatedly inspecting my face.",
+        "zh": "过去一个月，选好照片后，我能先放下，不反复检查自己的面部。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "photo-ease",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "photo-ease",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "photo-ease",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "photo-ease",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "photo-ease",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "photo-ease",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_12",
+      "prompt": {
+        "en": "Over the past month, while doing something around other people, I could keep my attention on the activity.",
+        "zh": "过去一个月，在别人身边做事时，我能把注意留在活动本身。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "appearance-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "appearance-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "appearance-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "appearance-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "appearance-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "appearance-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_13",
+      "prompt": {
+        "en": "Over the past month, I could appreciate something about my face without comparing it with another person’s.",
+        "zh": "过去一个月，我能欣赏自己面部的一点特点，而不拿它与别人比较。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "face-view",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "face-view",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "face-view",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "face-view",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "face-view",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "face-view",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_14",
+      "prompt": {
+        "en": "Over the past month, I tried a small styling choice that I was curious about.",
+        "zh": "过去一个月，我会尝试一个自己好奇的小造型选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "chosen-care",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "chosen-care",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "chosen-care",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "chosen-care",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "chosen-care",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "chosen-care",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_15",
+      "prompt": {
+        "en": "Over the past month, while being photographed, I stayed involved in the moment I was sharing.",
+        "zh": "过去一个月，被拍照时，我仍能投入正在参与的那个时刻。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "photo-ease",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "photo-ease",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "photo-ease",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "photo-ease",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "photo-ease",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "photo-ease",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FSI_16",
+      "prompt": {
+        "en": "Over the past month, even when my appearance was different from what I had planned, I felt able to stay involved around others.",
+        "zh": "过去一个月，即使外表与原先打算的不同，我仍觉得可以留在与人的互动中。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "appearance-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "appearance-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "appearance-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "appearance-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "appearance-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "appearance-attention",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "face-view",
+      "directionIds": [
+        "face-view"
+      ],
+      "title": {
+        "en": "Seeing My Own Face: Full Self-Image Guide",
+        "zh": "怎样看待自己的面部：完整指南"
+      },
+      "headline": {
+        "en": "Read your own experience in a specific setting.",
+        "zh": "结合具体场合阅读自己一侧的体验。"
+      },
+      "summary": {
+        "en": "An original full guide with ordinary examples, mixed answers and independent raw frequency. No face ranking or attractiveness score.",
+        "zh": "通过普通例子、混合回答与独立原始频率，完整阅读这一原创观察。不排面部等级，不算吸引力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Seeing My Own Face: Face Self-Image Guide",
+          "zh": "怎样看待自己的面部｜面部自我形象指南"
+        },
+        "description": {
+          "en": "Read this self-image observation through examples, separate raw frequency, missing answers and optional reflection. No photo or beauty score.",
+          "zh": "通过具体例子、独立原始频率、缺失回答和可选反思，完整阅读这一自我形象观察。不拍照，不算颜值分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; three numeric ratings needed for a raw 1–5 mean. Unscored is not zero. No overall face score, tier or percentile.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不生成颜值总分、等级或百分位。"
+      },
+      "sections": [
+        {
+          "id": "face-view-1",
+          "title": {
+            "en": "Your view is the subject of this reading",
+            "zh": "这里阅读的是你的看法"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records moments when you noticed something you liked, recognised a familiar detail or appreciated a combination in your own face. It asks about your experience of looking, not the physical quality of a face. A higher mean describes more frequent endorsement of these moments in the past month. It cannot establish balance, symmetry, beauty or how anyone else sees you. A lower mean does not establish a defect.",
+              "zh": "这一部分记录你注意到喜欢的特点、认出熟悉细节，或欣赏自己面部组合的时刻。它问的是观看时的体验，不评定面部的物理质量。较高只表示过去一个月更常认同这些时刻，不能确定平衡、对称、美，或别人怎么看你；较低也不能证明存在缺陷。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-2",
+          "title": {
+            "en": "A familiar detail in a mirror",
+            "zh": "镜子里的熟悉细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine noticing a familiar expression while getting ready for an ordinary day. You may like that expression without forming an opinion about your whole face. On another day, a photograph or different lighting may draw attention elsewhere. The example concerns what caught your attention, without explaining why it did. No image is collected, and the questionnaire cannot compare what you saw with a photograph, measurement or another observer’s assessment.",
+              "zh": "例如，准备普通一天时，在镜子里看到一个熟悉表情。你可能喜欢这个表情，却不必对整张脸作判断；另一天，照片或不同光线又可能让注意落在别处。例子只谈注意到了什么，不解释原因。不收集图片，也不能把你看到的内容与照片、测量或他人评价比较。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-3",
+          "title": {
+            "en": "Appreciation can stay specific",
+            "zh": "欣赏可以只停留在具体之处"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is noticing an aspect of your face without needing a complete positive verdict. A possible cost is turning that moment into a standard you feel you must reproduce every day. Neither consequence is proved by a higher mean. You do not need to like every detail, feel consistently positive or change a feature because of a result. There is no target score for acceptable self-image.",
+              "zh": "一种可能用途，是注意面部的一点特点，而不必作出整体正面判定；一种可能代价，是把这个时刻变成每天都必须复制的标准。较高不证明任何后果。无需喜欢每个细节、一直保持正面，或因结果改变五官。这里没有自我形象合格线。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-4",
+          "title": {
+            "en": "Several ways of seeing can produce one mean",
+            "zh": "不同观看方式可能得到同一均值"
+          },
+          "paragraphs": [
+            {
+              "en": "You might recognise a familiar expression easily while rarely considering facial balance. Another person may enjoy a particular feature yet find it difficult not to compare faces. Their means can be similar. The four prompts sample different observations, so read them separately. They do not identify a hidden level of attractiveness or reveal whether your view is more accurate than someone else’s. A comparison with another person’s answers is not provided.",
+              "zh": "你可能很容易认出熟悉表情，却很少想到五官平衡；另一人可能喜欢某个特点，却难以不比较。均值可能接近。四题取不同观察，请分别阅读，不寻找隐藏的颜值等级，也不判断谁的看法更准确。这里不比较你与另一个人的回答。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-5",
+          "title": {
+            "en": "Face perception and chosen care are separate",
+            "zh": "面部看法与自主打理分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Noticing something you like does not require an elaborate care routine. You may enjoy styling and still feel uncertain about a mirror impression, or do very little styling while feeling comfortable with familiar features. Photo ease and attention around people add different settings. All four parts stay independent. They are not a recipe for improvement, a ranking of which side is carrying you or a combined face score.",
+              "zh": "注意到喜欢的特点，不要求复杂打理。你可能喜欢造型，却仍不确定镜中印象；也可能很少打理，却对熟悉特点感到自在。照片与人群中的注意又补充不同场合。四项独立，不构成改进配方，不排哪项“带飞”或“拖累”，也不合出颜值分。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-6",
+          "title": {
+            "en": "Keep one ordinary observation",
+            "zh": "保留一个普通观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, name one detail you noticed without adding an adjective about how attractive it should be. You might note an expression, a familiar shape or simply where your attention went. No mirror exercise, photograph, comparison or change of appearance is required. You can keep the note private, decide that nothing useful comes to mind or stop after reading. The report does not need an action to be complete.",
+              "zh": "如果有用，可以记一个注意到的细节，不加“应该多好看”的形容。可以写表情、熟悉的形状，或注意落在哪里。不要求照镜练习、拍照、比较或改变外表。笔记可以保密，也可觉得没有合适内容，读完就结束。报告不需要行动才算完成。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-7",
+          "title": {
+            "en": "Raw frequency and missing experiences",
+            "zh": "原始频率与缺失经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always for the past month. Three is a frequency answer, not uncertainty. Use unscored for an unsuitable experience, uncertainty or a choice not to answer. After all sixteen responses, each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3. With fewer ratings it shows insufficient information. Bars locate the raw 1–5 mean rather than a percentage or population position.",
+              "zh": "按过去一个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答时选未评分。16题均响应后，每部分四条中至少三条数字。例如2、3、5加一条未评分得10/3，显示3.3；不足时显示资料不足。条形只定位原始1至5均值，不是百分比或人群位置。"
+            }
+          ]
+        },
+        {
+          "id": "face-view-8",
+          "title": {
+            "en": "An original self-image reflection",
+            "zh": "原创自我形象反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four full readings. They have no established reliability, validity, norms or language equivalence. This is not a face-attractiveness measure, a Japanese hensachi score, a body-appreciation research instrument or an assessment of health. No photograph, camera or AI analysis is used. There is no overall tier, average-person comparison or advice to buy, groom or change a feature. Every guide stays open even if all answers are unscored; sharing contains only a public title and entry link.",
+              "zh": "费马原创这16条题与四篇完整读法，尚未建立信效度、常模或跨语言等价。它不是面部吸引力测量、日本偏差值、身体欣赏研究工具或健康评估，不使用照片、相机或AI分析。没有整体等级、平均人群比较，也不建议购买、打理或改变五官。全部未评分仍开放全部指南；分享只含公开标题和入口。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chosen-care",
+      "directionIds": [
+        "chosen-care"
+      ],
+      "title": {
+        "en": "Chosen Care and Styling: Full Self-Image Guide",
+        "zh": "自己选择的打理：完整指南"
+      },
+      "headline": {
+        "en": "Read your own experience in a specific setting.",
+        "zh": "结合具体场合阅读自己一侧的体验。"
+      },
+      "summary": {
+        "en": "An original full guide with ordinary examples, mixed answers and independent raw frequency. No face ranking or attractiveness score.",
+        "zh": "通过普通例子、混合回答与独立原始频率，完整阅读这一原创观察。不排面部等级，不算吸引力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Chosen Care and Styling: Face Self-Image Guide",
+          "zh": "自己选择的打理｜面部自我形象指南"
+        },
+        "description": {
+          "en": "Read this self-image observation through examples, separate raw frequency, missing answers and optional reflection. No photo or beauty score.",
+          "zh": "通过具体例子、独立原始频率、缺失回答和可选反思，完整阅读这一自我形象观察。不拍照，不算颜值分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; three numeric ratings needed for a raw 1–5 mean. Unscored is not zero. No overall face score, tier or percentile.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不生成颜值总分、等级或百分位。"
+      },
+      "sections": [
+        {
+          "id": "chosen-care-1",
+          "title": {
+            "en": "Frequency of chosen care, not a beauty standard",
+            "zh": "记录自主打理的频率，不设美的标准"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records setting aside a moment for grooming, following a chosen routine, adjusting an appearance detail or trying a small styling choice. It concerns actions you selected for yourself during the past month. A higher mean does not establish good hygiene, effective products, a better-looking face or greater self-respect. A lower mean may simply reflect a different routine or fewer suitable occasions; the questionnaire does not establish the reason.",
+              "zh": "这一部分记录留时间打理、按自选方式保持日常、调整外表细节或尝试小造型。它关注过去一个月你为自己选择的行动。较高不证明卫生更好、产品有效、脸更好看或更尊重自己；较低也许只是安排不同或适合场合较少，但问卷不能确定原因。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-2",
+          "title": {
+            "en": "Preparing for an ordinary activity",
+            "zh": "为普通活动做一点准备"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine arranging your hair before meeting a friend because you enjoy the result. On another day, you may prefer to leave it as it is and use the time elsewhere. Both are choices, and neither lets the questionnaire judge the amount of care you need. This example does not prescribe a product, spending level, cosmetic practice or appearance rule. It only makes a small voluntary action easier to recognise.",
+              "zh": "例如，见朋友前整理头发，因为自己喜欢这样；另一天，也可能更愿意保持原样，把时间用在别处。两者都是选择，问卷不能据此判定你需要多少打理。例子不规定产品、花费、化妆做法或外表规则，只帮助辨认一个自主小行动。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-3",
+          "title": {
+            "en": "Enjoyment and obligation are different",
+            "zh": "享受与义务是不同事情"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is giving some space to a detail you enjoy choosing. A possible cost is feeling that the routine has become something you must complete to be acceptable around others. Neither is measured by the mean. More frequent care is not automatically better, and no result recommends adding steps or purchases. You retain the option to simplify a routine or leave your current choices unchanged.",
+              "zh": "一种可能用途，是给喜欢自主选择的细节留一点空间；一种可能代价，是感觉必须完成某套步骤，才适合出现在别人身边。均值不测这两种后果。更频繁不自动更好，结果不建议增加步骤或购买东西。可以简化，也可以保持当前选择。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-4",
+          "title": {
+            "en": "Routine and experimentation need not match",
+            "zh": "保持日常与尝试造型不必相同"
+          },
+          "paragraphs": [
+            {
+              "en": "You may regularly follow a simple routine but rarely try something new. Another person may experiment with a detail now and then without a stable routine. Their means could be equal. The four statements should not be read as a checklist for an ideal appearance. They also do not distinguish opportunity, available time, resources or cultural expectations. Leave an experience unscored when it does not provide a suitable observation.",
+              "zh": "你可能常按简单方式打理，却很少试新东西；另一人可能偶尔试细节，却没有固定日常。均值可能相同。四句话不是理想外表清单，也不能区分机会、时间、资源或文化预期。没有适合观察时，可以保留未评分。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-5",
+          "title": {
+            "en": "Care does not determine confidence",
+            "zh": "打理不决定自信"
+          },
+          "paragraphs": [
+            {
+              "en": "Chosen care is separate from how you see your face, feel in photos or direct attention around other people. Someone may enjoy grooming while feeling awkward in front of a camera. Another may feel relaxed in a room without making any particular styling choice. No formula converts one part into another, and no overall tier rewards a particular combination. Read the circumstances behind each answer rather than treating care as an explanation of everything.",
+              "zh": "自主打理与怎样看自己的脸、拍照是否自在、在人群中怎样分配注意分别保留。有人享受打理，却在镜头前不自在；另一人没有特别造型，也能在场合里放松。不相互换算，不用总体等级奖励某种组合。请回看场合，不用打理解释一切。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-6",
+          "title": {
+            "en": "Notice which choices are yours",
+            "zh": "看看哪些选择属于自己"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, identify one small appearance choice that felt voluntary and one step you could comfortably omit. You do not need to omit it, add a replacement or tell anyone about the note. This optional reflection is about how you describe your own routine, not advice about skin, hair, health or treatment. You can stop with the observation, leave the questions unscored or read another guide without taking any action.",
+              "zh": "如果有用，可辨认一个感觉自主的小选择，以及一个可以放心省略的步骤。并不要求真的省略、添加替代步骤或把笔记告诉别人。这里只帮助描述日常，不提供皮肤、头发、健康或治疗建议。可以停在观察，保留未评分，或不行动直接读另一篇。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-7",
+          "title": {
+            "en": "Raw frequency and missing experiences",
+            "zh": "原始频率与缺失经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always for the past month. Three is a frequency answer, not uncertainty. Use unscored for an unsuitable experience, uncertainty or a choice not to answer. After all sixteen responses, each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3. With fewer ratings it shows insufficient information. Bars locate the raw 1–5 mean rather than a percentage or population position.",
+              "zh": "按过去一个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答时选未评分。16题均响应后，每部分四条中至少三条数字。例如2、3、5加一条未评分得10/3，显示3.3；不足时显示资料不足。条形只定位原始1至5均值，不是百分比或人群位置。"
+            }
+          ]
+        },
+        {
+          "id": "chosen-care-8",
+          "title": {
+            "en": "An original self-image reflection",
+            "zh": "原创自我形象反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four full readings. They have no established reliability, validity, norms or language equivalence. This is not a face-attractiveness measure, a Japanese hensachi score, a body-appreciation research instrument or an assessment of health. No photograph, camera or AI analysis is used. There is no overall tier, average-person comparison or advice to buy, groom or change a feature. Every guide stays open even if all answers are unscored; sharing contains only a public title and entry link.",
+              "zh": "费马原创这16条题与四篇完整读法，尚未建立信效度、常模或跨语言等价。它不是面部吸引力测量、日本偏差值、身体欣赏研究工具或健康评估，不使用照片、相机或AI分析。没有整体等级、平均人群比较，也不建议购买、打理或改变五官。全部未评分仍开放全部指南；分享只含公开标题和入口。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "photo-ease",
+      "directionIds": [
+        "photo-ease"
+      ],
+      "title": {
+        "en": "Ease in Photos: Full Self-Image Guide",
+        "zh": "照片中的自在感：完整指南"
+      },
+      "headline": {
+        "en": "Read your own experience in a specific setting.",
+        "zh": "结合具体场合阅读自己一侧的体验。"
+      },
+      "summary": {
+        "en": "An original full guide with ordinary examples, mixed answers and independent raw frequency. No face ranking or attractiveness score.",
+        "zh": "通过普通例子、混合回答与独立原始频率，完整阅读这一原创观察。不排面部等级，不算吸引力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ease in Photos: Face Self-Image Guide",
+          "zh": "照片中的自在感｜面部自我形象指南"
+        },
+        "description": {
+          "en": "Read this self-image observation through examples, separate raw frequency, missing answers and optional reflection. No photo or beauty score.",
+          "zh": "通过具体例子、独立原始频率、缺失回答和可选反思，完整阅读这一自我形象观察。不拍照，不算颜值分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; three numeric ratings needed for a raw 1–5 mean. Unscored is not zero. No overall face score, tier or percentile.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不生成颜值总分、等级或百分位。"
+      },
+      "sections": [
+        {
+          "id": "photo-ease-1",
+          "title": {
+            "en": "The camera setting is part of the context",
+            "zh": "镜头场合也是背景的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records using an expression that felt like your own, recognising an expression comfortably, leaving a photo choice without repeated inspection and staying involved while a photo was taken. A higher mean concerns your experience in those settings, not how photogenic you are. A lower mean cannot establish a problem with your face or explain an uncomfortable photograph. No image, facial measurement or comparison with other people is used.",
+              "zh": "这一部分记录拍照时用像自己的表情、自在地认出表情、选图后不反复检查，以及被拍时仍投入当下。较高只描述这些场合里的体验，不测上镜程度。较低不能证明脸有问题，也不能解释一张不自在的照片。不使用图片、面部测量或与人的比较。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-2",
+          "title": {
+            "en": "A group photograph during an outing",
+            "zh": "一次外出中的合照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a group pausing for a photograph during an ordinary outing. You may stay engaged with the shared moment and later find that the picture does not look as you expected. Another person may feel awkward during the photograph yet like the result afterwards. These experiences need not match. The questionnaire asks about your side of the moment and cannot determine whether the photo captured you accurately or what others thought of it.",
+              "zh": "例如，一次普通外出中大家停下来合照。你可能当时仍投入共同活动，后来却觉得照片与预想不同；另一人可能拍时尴尬，事后却喜欢结果。两种体验不必一致。问卷只问自己一侧，不能判断照片是否准确呈现你，也不知道别人怎样看。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-3",
+          "title": {
+            "en": "Comfort does not need a perfect picture",
+            "zh": "自在不需要一张完美照片"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is leaving room for the event beyond the picture. A possible cost is assuming that a comfortable moment must produce a photo you will like, and feeling let down when it does not. Neither outcome is proved by a mean. No result requires you to pose, publish a picture or accept being photographed. Participation and image sharing remain separate choices that the score does not make for you.",
+              "zh": "一种可能用途，是给照片之外的活动留空间；一种可能代价，是认为当时自在就一定会拍出喜欢的照片，结果不符时感到失落。均值不证明任何后果。结果不要求摆姿势、公开照片或接受拍摄。参与和分享图片是分开的选择，分数不替你决定。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-4",
+          "title": {
+            "en": "Taking a picture and viewing it are different moments",
+            "zh": "拍照与看图是不同的时刻"
+          },
+          "paragraphs": [
+            {
+              "en": "You might feel natural while a photo is taken but spend a long time inspecting it later. Someone else may feel unsure about an expression in the moment and quickly move on after choosing a picture. Equal means can conceal this difference. Read the statements individually. They do not reveal an objective camera presence, the quality of an image or whether you ought to change how you present yourself.",
+              "zh": "你可能拍时觉得自然，之后却检查很久；另一人可能当下不确定表情，选完图后却很快放下。相同均值会遮住差异。请逐句阅读，不寻找客观镜头气场、图片质量或应该怎样改变呈现方式的结论。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-5",
+          "title": {
+            "en": "Camera ease is not every kind of confidence",
+            "zh": "镜头自在感不是所有自信"
+          },
+          "paragraphs": [
+            {
+              "en": "Photo ease differs from noticing facial details in a mirror and from attending to an activity around other people. A person can enjoy face-to-face conversation while preferring not to be photographed. Another may enjoy photos while feeling self-conscious entering a room. The four parts retain those differences without assigning a main-character tier, a below-average category or an explanation of your personality. An unscored answer remains available if a photo setting did not arise.",
+              "zh": "照片自在感不同于镜中细节，也不同于在人群中专注活动。一个人可以享受面对面谈话，却不想被拍；另一人可能喜欢照片，却在进场时注意外表。四项保留差异，不分主角等级、低于平均类别或人格解释。没遇到拍照场合时可保留未评分。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-6",
+          "title": {
+            "en": "Choose what you want from a photo moment",
+            "zh": "看看自己想从拍照时刻得到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, think of what mattered in an ordinary photo moment: remembering an event, choosing whether to join or simply keeping attention on what you were doing. No new photo, camera practice, public post or request for reassurance is needed. The reflection may end with a sentence or no note at all. You can also decide that this setting is not useful to rate and keep the relevant prompts unscored.",
+              "zh": "如果有用，可想一次普通拍照时刻，自己在意的是纪念活动、决定是否加入，还是把注意留在原来的事上。不需要新拍照片、练镜头、发帖子或请别人安慰。可以只留一句，也可不记；觉得场合不适合评价时，相关题目可以保持未评分。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-7",
+          "title": {
+            "en": "Raw frequency and missing experiences",
+            "zh": "原始频率与缺失经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always for the past month. Three is a frequency answer, not uncertainty. Use unscored for an unsuitable experience, uncertainty or a choice not to answer. After all sixteen responses, each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3. With fewer ratings it shows insufficient information. Bars locate the raw 1–5 mean rather than a percentage or population position.",
+              "zh": "按过去一个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答时选未评分。16题均响应后，每部分四条中至少三条数字。例如2、3、5加一条未评分得10/3，显示3.3；不足时显示资料不足。条形只定位原始1至5均值，不是百分比或人群位置。"
+            }
+          ]
+        },
+        {
+          "id": "photo-ease-8",
+          "title": {
+            "en": "An original self-image reflection",
+            "zh": "原创自我形象反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four full readings. They have no established reliability, validity, norms or language equivalence. This is not a face-attractiveness measure, a Japanese hensachi score, a body-appreciation research instrument or an assessment of health. No photograph, camera or AI analysis is used. There is no overall tier, average-person comparison or advice to buy, groom or change a feature. Every guide stays open even if all answers are unscored; sharing contains only a public title and entry link.",
+              "zh": "费马原创这16条题与四篇完整读法，尚未建立信效度、常模或跨语言等价。它不是面部吸引力测量、日本偏差值、身体欣赏研究工具或健康评估，不使用照片、相机或AI分析。没有整体等级、平均人群比较，也不建议购买、打理或改变五官。全部未评分仍开放全部指南；分享只含公开标题和入口。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "appearance-attention",
+      "directionIds": [
+        "appearance-attention"
+      ],
+      "title": {
+        "en": "Appearance Ease Around People: Full Self-Image Guide",
+        "zh": "与人相处时的外表自在感：完整指南"
+      },
+      "headline": {
+        "en": "Read your own experience in a specific setting.",
+        "zh": "结合具体场合阅读自己一侧的体验。"
+      },
+      "summary": {
+        "en": "An original full guide with ordinary examples, mixed answers and independent raw frequency. No face ranking or attractiveness score.",
+        "zh": "通过普通例子、混合回答与独立原始频率，完整阅读这一原创观察。不排面部等级，不算吸引力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Appearance Ease Around People: Face Self-Image Guide",
+          "zh": "与人相处时的外表自在感｜面部自我形象指南"
+        },
+        "description": {
+          "en": "Read this self-image observation through examples, separate raw frequency, missing answers and optional reflection. No photo or beauty score.",
+          "zh": "通过具体例子、独立原始频率、缺失回答和可选反思，完整阅读这一自我形象观察。不拍照，不算颜值分。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; three numeric ratings needed for a raw 1–5 mean. Unscored is not zero. No overall face score, tier or percentile.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不生成颜值总分、等级或百分位。"
+      },
+      "sections": [
+        {
+          "id": "appearance-attention-1",
+          "title": {
+            "en": "Where your attention went around people",
+            "zh": "在别人身边时，注意去了哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records attending to conversation, letting your face be seen as it was, staying with an activity and remaining involved when appearance differed from a plan. It describes your reported experience around people in the past month. A higher mean does not prove that others saw confidence, and a lower mean does not establish social anxiety or low self-esteem. The questionnaire observes neither the setting nor anyone else’s response.",
+              "zh": "这一部分记录专注谈话、让当时的面部状态被看见、投入活动，以及外表与计划不同仍参与的时刻。它描述过去一个月在别人身边的自报体验。较高不证明别人看见了自信，较低不确定社交焦虑或自尊低。问卷不观察场合，也不记录他人反应。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-2",
+          "title": {
+            "en": "A conversation after a change of plan",
+            "zh": "安排变化后的一次谈话"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine arriving to meet someone after your day has changed and your appearance is not what you had planned. You may still become absorbed in the conversation, or you may notice your face more than usual. Neither moment reveals how you actually looked to the other person. This example separates attention during an encounter from a judgment of your appearance, and it does not require you to explain why your attention shifted.",
+              "zh": "例如，一天的安排有变化，见人时外表不是原先计划的样子。你可能仍投入谈话，也可能比平时更留意自己的脸。任何一种时刻都不能说明别人眼中实际怎样。例子把互动中的注意与外表判定分开，也不要求解释注意为什么转移。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-3",
+          "title": {
+            "en": "Involvement can matter without becoming a duty",
+            "zh": "参与可以重要，也无需成为义务"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is having room to engage with something beyond appearance. A possible cost is treating any moment of self-consciousness as a failure to be confident enough. Neither follows from a mean. There is no obligation to remain visible, sociable or comfortable in every setting. No result recommends ignoring a boundary, staying at an event or proving that you can manage a particular social situation.",
+              "zh": "一种可能用途，是给外表之外的事情留出参与空间；一种可能代价，是把每次注意外表都当成自信不够的失败。均值不证明这些后果。没有义务在所有场合都被看见、善于社交或自在；结果不建议忽略边界、留在活动中或证明自己能应付某个场面。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-4",
+          "title": {
+            "en": "Different settings can pull attention differently",
+            "zh": "不同场合可能以不同方式牵引注意"
+          },
+          "paragraphs": [
+            {
+              "en": "You might stay focused when doing a familiar activity but think more about appearance when meeting someone new. Another person may enter a room easily yet become self-conscious after an unexpected change to a plan. The same mean may cover either pattern. Four prompts cannot distinguish every situation, resource, preference or reason. They provide no diagnosis and no way to tell which environment should feel comfortable to you.",
+              "zh": "你可能做熟悉活动时很专注，初次见人时却更注意外表；另一人可能容易进场，计划意外变化后却开始不自在。两种模式可得同一均值。四题不能区分所有场合、资源、偏好或原因，不作诊断，也不能规定哪种环境应该让你自在。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-5",
+          "title": {
+            "en": "Read attention alongside the other three settings",
+            "zh": "把注意体验与另外三项并列阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "Ease around people does not require liking every facial detail, using a particular care routine or enjoying photographs. You can appreciate a feature while still noticing appearance in a new setting, or feel involved in a group while disliking a picture. No part proves or cancels another. The report preserves the four observations without adding a face score, identifying a weak side or ranking you against other people.",
+              "zh": "与人相处自在，不要求喜欢每个面部细节、采用某种打理或享受拍照。你可以欣赏特点，同时在新场合注意外表；也可投入群体，却不喜欢某张照片。各项不证明或抵消其他项，不合颜值分、不认定弱项，也不与人排名。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-6",
+          "title": {
+            "en": "Describe a setting rather than a flaw",
+            "zh": "描述场合，不寻找缺陷"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, recall one ordinary setting and note what helped you attend to the activity, such as a familiar task or a conversation you wanted to hear. You do not need to change your face, ask for evaluations or repeat the setting as an exercise. This is an optional observation about context. Keep it private, leave it unwritten or end the questionnaire without taking another step.",
+              "zh": "如果有用，可回想一个普通场合，记下什么让注意留在活动上，例如熟悉的任务或想听的谈话。无需改变面部、征求评价或把场合重做为练习。这只是可选背景观察，可以保密、不写，或不再继续。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-7",
+          "title": {
+            "en": "Raw frequency and missing experiences",
+            "zh": "原始频率与缺失经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always for the past month. Three is a frequency answer, not uncertainty. Use unscored for an unsuitable experience, uncertainty or a choice not to answer. After all sixteen responses, each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3. With fewer ratings it shows insufficient information. Bars locate the raw 1–5 mean rather than a percentage or population position.",
+              "zh": "按过去一个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答时选未评分。16题均响应后，每部分四条中至少三条数字。例如2、3、5加一条未评分得10/3，显示3.3；不足时显示资料不足。条形只定位原始1至5均值，不是百分比或人群位置。"
+            }
+          ]
+        },
+        {
+          "id": "appearance-attention-8",
+          "title": {
+            "en": "An original self-image reflection",
+            "zh": "原创自我形象反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four full readings. They have no established reliability, validity, norms or language equivalence. This is not a face-attractiveness measure, a Japanese hensachi score, a body-appreciation research instrument or an assessment of health. No photograph, camera or AI analysis is used. There is no overall tier, average-person comparison or advice to buy, groom or change a feature. Every guide stays open even if all answers are unscored; sharing contains only a public title and entry link.",
+              "zh": "费马原创这16条题与四篇完整读法，尚未建立信效度、常模或跨语言等价。它不是面部吸引力测量、日本偏差值、身体欣赏研究工具或健康评估，不使用照片、相机或AI分析。没有整体等级、平均人群比较，也不建议购买、打理或改变五官。全部未评分仍开放全部指南；分享只含公开标题和入口。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Raw frequency and missing experiences",
+        "zh": "原始频率与缺失经历"
+      },
+      "paragraphs": [
+        {
+          "en": "Use 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always for the past month. Three is a frequency answer, not uncertainty. Use unscored for an unsuitable experience, uncertainty or a choice not to answer. After all sixteen responses, each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3. With fewer ratings it shows insufficient information. Bars locate the raw 1–5 mean rather than a percentage or population position.",
+          "zh": "按过去一个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答时选未评分。16题均响应后，每部分四条中至少三条数字。例如2、3、5加一条未评分得10/3，显示3.3；不足时显示资料不足。条形只定位原始1至5均值，不是百分比或人群位置。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "An original self-image reflection",
+        "zh": "原创自我形象反思"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these sixteen statements and four full readings. They have no established reliability, validity, norms or language equivalence. This is not a face-attractiveness measure, a Japanese hensachi score, a body-appreciation research instrument or an assessment of health. No photograph, camera or AI analysis is used. There is no overall tier, average-person comparison or advice to buy, groom or change a feature. Every guide stays open even if all answers are unscored; sharing contains only a public title and entry link.",
+          "zh": "费马原创这16条题与四篇完整读法，尚未建立信效度、常模或跨语言等价。它不是面部吸引力测量、日本偏差值、身体欣赏研究工具或健康评估，不使用照片、相机或AI分析。没有整体等级、平均人群比较，也不建议购买、打理或改变五官。全部未评分仍开放全部指南；分享只含公开标题和入口。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a face score or Japanese hensachi test?",
+        "zh": "这是颜值偏差值测试吗？"
+      },
+      "answer": {
+        "en": "It addresses the self-reflection part of that search: how you see your own face and experience ordinary presentation settings. It calculates four independent raw frequency means, without facial attractiveness, a hensachi scale, tiers, averages or percentiles.",
+        "zh": "它回应这类搜索中的自我反思部分：怎样看自己的脸，以及普通呈现场合的体验。只计算四项独立原始频率均值，不算面部吸引力，不设偏差值、等级、平均人群或百分位。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a photo or camera?",
+        "zh": "需要照片或相机吗？"
+      },
+      "answer": {
+        "en": "No. There is no upload, camera permission, image analysis, facial measurement or request for another person to rate you. All questions concern your own reported experience.",
+        "zh": "不需要。没有上传、相机权限、图片分析、面部测量，也不要求别人给你打分。所有题目只问自己的自报体验。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher mean mean better looks?",
+        "zh": "均值更高表示更好看吗？"
+      },
+      "answer": {
+        "en": "No. It records more frequent endorsement of those moments. It does not establish beauty, confidence as seen by others, a health condition or a need to change appearance. All four means remain separate.",
+        "zh": "不是。它只记录更常认同本组时刻，不确定美、别人眼中的自信、健康状况或改变外表的必要。四项均值始终分开。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if a setting did not arise?",
+        "zh": "没有遇到相应场合怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored if an experience is unsuitable, uncertain or private. A part needs three numeric ratings out of four, otherwise it shows insufficient information. Missing answers are not zero and every full guide remains available.",
+        "zh": "经历不适用、不确定或不愿评价时选未评分。每部分四条至少三条数字，否则显示资料不足。缺失不补零，全部完整指南仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Optional progress stays in this browser tab for up to 24 hours and clears on completion, clearing or retake. Sharing copies only the public title and entry link. Personal answers and means do not enter URLs, public sharing or ordinary analytics.",
+        "zh": "可选进度仅在当前标签页最多保留24小时，完成、清除或重测即删除。分享只复制公开标题和入口。个人答案与均值不进入URL、公开分享或普通分析。"
+      }
+    }
+  ]
+}
