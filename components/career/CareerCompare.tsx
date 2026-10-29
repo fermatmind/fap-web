@@ -112,6 +112,7 @@ export function CareerCompare({ locale }: { locale: Locale }) {
       <aside className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7">
         <h2 className="text-lg font-semibold">{zh ? '下一步：找到一项差异，保留一个待核问题' : 'Next: identify one difference and one open question'}</h2>
         <p>{zh ? '根据上表说清两种职业的一项任务差异，再选一个当地真实岗位核对工作环境、作品要求或执业资格。资格边界因地区与岗位而异；职业平均薪资不代表你的收入，跨地区、年份或统计口径不能直接排序。' : 'Use the table to explain one task difference, then check a real local vacancy for its work setting, portfolio requirements or practice credentials. Credential rules vary by place and role. Occupational pay is not your expected income; different regions, years or measures cannot be ranked directly.'}</p>
+        <p className="mt-3">{zh ? '考虑在这两个职业之间转行？' : 'Considering a move between these careers? '}<Link href={`/${locale}/career/guides/career-transition-playbook`} className="inline-flex min-h-11 items-center font-semibold text-teal-800 underline">{zh ? '使用职业转行指南' : 'Use the career transition playbook'}</Link>{zh ? '，先区分可迁移的工作证据、技术缺口和入行要求，再选择培训。' : ' to separate transferable work evidence, technical gaps and entry requirements before choosing training.'}</p>
         <p>{zh ? '本工具不保存你的判断或私人文字。尚未提供的信息保持未知。' : 'This tool does not store your conclusions or private notes. Missing evidence remains unknown.'}</p>
       </aside>
     </> : null}

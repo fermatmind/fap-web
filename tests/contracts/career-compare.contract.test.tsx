@@ -93,9 +93,12 @@ describe('two-slot task flow', () => {
   it.each(['en', 'zh'] as const)('selects, replaces, removes and restores focus in %s without tracking before consent', async locale => {
     respond(); render(<CareerCompare locale={locale} />);
     const selects = screen.getAllByRole('combobox');
+    const transitionLinkName = locale === 'zh' ? '使用职业转行指南' : 'Use the career transition playbook';
+    expect(screen.queryByRole('link', { name: transitionLinkName })).not.toBeInTheDocument();
     fireEvent.change(selects[0], { target: { value: 'industrial-designers' } });
     fireEvent.change(selects[1], { target: { value: 'graphic-designers' } });
     await screen.findByTestId('career-compare-table');
+    expect(screen.getByRole('link', { name: transitionLinkName })).toHaveAttribute('href', `/${locale}/career/guides/career-transition-playbook`);
     expect(screen.getByText('Published task for industrial-designers')).toBeInTheDocument();
     expect(screen.getAllByText(locale === 'zh' ? /未知：/ : /Unknown:/).length).toBeGreaterThan(0);
     expect(trackCareerToolEvent).not.toHaveBeenCalled();
@@ -113,6 +116,7 @@ describe('two-slot task flow', () => {
     fireEvent.click(screen.getByRole('button', { name: locale === 'zh' ? '移除职业 1' : 'Remove career 1' }));
     expect(selects[0]).toHaveFocus();
     expect(screen.queryByTestId('career-compare-table')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: transitionLinkName })).not.toBeInTheDocument();
   });
   it('supports keyboard selection and exposes an accessible comparison table', async () => {
     respond(); const user = userEvent.setup();
@@ -141,9 +145,11 @@ describe('two-slot task flow', () => {
     vi.mocked(apiClient.getPublic).mockRejectedValueOnce(new Error('offline'));
     fireEvent.change(selects[1], { target: { value: 'industrial-designers' } });
     const retry = await screen.findByRole('button', { name: 'Retry loading' });
+    expect(screen.queryByRole('link', { name: 'Use the career transition playbook' })).not.toBeInTheDocument();
     fireEvent.click(retry);
     expect(selects[1]).toHaveFocus();
     await screen.findByTestId('career-compare-table');
+    expect(screen.getByRole('link', { name: 'Use the career transition playbook' })).toHaveAttribute('href', '/en/career/guides/career-transition-playbook');
     expect(normalizeCareerPage(bundle('industrial-designers').career_page, 'en', 'industrial-designers')).not.toBeNull();
   });
 });
