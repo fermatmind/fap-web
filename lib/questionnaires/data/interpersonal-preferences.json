@@ -1,0 +1,2431 @@
+{
+  "slug": "interpersonal-preferences",
+  "code": "FM_INTERPERSONAL_PREFERENCES24",
+  "version": "fm_interpersonal_preferences24_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Interpersonal Preferences Reflection Test",
+    "zh": "人际偏好反思测试"
+  },
+  "seoTitle": {
+    "en": "Interpersonal Preferences: Your Actions and What You Want",
+    "zh": "人际偏好反思测试：主动表达与期望回应，六项完整读法"
+  },
+  "description": {
+    "en": "Explore invitations, coordination and personal warmth through 24 original items. Six free full guides separate your actions from what you want others to offer.",
+    "zh": "用24条原创题分别回顾参与、协调、个人关心中的主动行为与期望回应。六篇完整指南免费，保留独立均分与资料不足，不派人际类型。"
+  },
+  "resultHeading": {
+    "en": "Your six separate readings and full guides",
+    "zh": "六项独立读法与完整指南"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "What you offer others can differ from what you hope they will offer you. Explore initiating and wanting invitations, coordination and personal warmth in one ordinary context. This original reflection keeps six readings separate and makes every complete guide freely available. It assigns no interpersonal type and does not administer FIRO-B.",
+    "zh": "你主动向别人提供什么，可能与希望别人怎样回应自己不同。以一个普通情境，分别回顾主动与期望的邀请、协调和个人关心。这份原创反思保留六项独立读法，全部完整指南免费；不派人际类型，也不施测正式FIRO-B。"
+  },
+  "instructions": {
+    "en": "Keep one ordinary voluntary group or familiar interaction context in mind over the past four weeks. Rate how often each action or wish occurred, from Never to Very often. Use the unscored option for absent context or declining to answer. Respond to all 24 prompts; each part requires three of four numeric ratings for its own mean. Your wishes do not establish what others did or owed you. You may stop or read every guide without answering.",
+    "zh": "以过去四周一个普通、自愿参与的小组或熟悉互动情境为参照。按从不到非常经常，评价每项行动或期望的出现频率；情境缺失或不愿回答可选未评分选项。全部24条均需回应，各部分四条至少三条数字才计算独立均分。你的期望不证明别人做了什么或欠你什么；可以随时停止，或不作答直接读全部指南。"
+  },
+  "source": {
+    "kind": "FermatMind original24contextual action/wish frequency items;conceptual background only;not FIRO-B/FIROBusiness/JobCannon36",
+    "formCode": "fm_interpersonal_preferences24_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "four_items_equal_mean_min3_no_reverse_v1",
+    "resultContentVersion": "six_full_paired_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "47767d4a058aec36558e03861c6955bee044c99cce69b01a1406298de33ee1f7",
+    "resultContentSha256": "3b3a138d2a3877b50213195534b83fe2471848f258c67e174d5945afd879a5c7"
+  },
+  "directions": [
+    {
+      "id": "invite",
+      "title": {
+        "en": "Initiating participation",
+        "zh": "主动邀请参与"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "be-included",
+      "title": {
+        "en": "Wanting invitations",
+        "zh": "期望收到邀请"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "coordinate",
+      "title": {
+        "en": "Initiating coordination",
+        "zh": "主动提出协调"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "receive-coordination",
+      "title": {
+        "en": "Wanting coordination from others",
+        "zh": "期望别人提供协调"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "offer-warmth",
+      "title": {
+        "en": "Initiating personal warmth",
+        "zh": "主动表达个人关心"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "receive-warmth",
+      "title": {
+        "en": "Wanting personal warmth",
+        "zh": "期望获得个人关心"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPR_01",
+      "prompt": {
+        "en": "I invited someone to join an ordinary group activity.",
+        "zh": "我邀请别人参加一项普通集体活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invite",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invite",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invite",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invite",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "invite",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "invite",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_02",
+      "prompt": {
+        "en": "I wanted someone to let me know about a group activity I could join.",
+        "zh": "我希望别人告诉我有哪些可以参加的集体活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "be-included",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "be-included",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "be-included",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "be-included",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "be-included",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "be-included",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_03",
+      "prompt": {
+        "en": "I offered a practical next step when a shared plan needed organising.",
+        "zh": "共同安排需要组织时，我主动提出一个可行的下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "coordinate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "coordinate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "coordinate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "coordinate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "coordinate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "coordinate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_04",
+      "prompt": {
+        "en": "I wanted someone to propose a practical next step for a shared task.",
+        "zh": "我希望别人为一项共同任务提出可行的下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_05",
+      "prompt": {
+        "en": "I offered a personal word of encouragement in a one-to-one conversation.",
+        "zh": "一对一交谈时，我主动说了一句个人鼓励的话。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "offer-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "offer-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "offer-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "offer-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_06",
+      "prompt": {
+        "en": "I wanted someone I knew to offer a personal word of encouragement.",
+        "zh": "我希望一位认识的人给我一句个人鼓励。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_07",
+      "prompt": {
+        "en": "I opened a group conversation so another person could join in.",
+        "zh": "我开启了一段小组交谈，让别人有机会加入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invite",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invite",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invite",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invite",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "invite",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "invite",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_08",
+      "prompt": {
+        "en": "I wanted someone to invite me into an ongoing group conversation.",
+        "zh": "我希望别人邀请我加入正在进行的小组交谈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "be-included",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "be-included",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "be-included",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "be-included",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "be-included",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "be-included",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_09",
+      "prompt": {
+        "en": "I volunteered to coordinate a small task after checking that others agreed.",
+        "zh": "确认别人同意后，我主动承担一件小任务的协调工作。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "coordinate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "coordinate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "coordinate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "coordinate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "coordinate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "coordinate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_10",
+      "prompt": {
+        "en": "I wanted someone to make an agreed division of responsibilities clear.",
+        "zh": "我希望别人把已经同意的职责分工说清楚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_11",
+      "prompt": {
+        "en": "I checked whether someone I knew wanted a friendly conversation.",
+        "zh": "我问一位认识的人是否愿意聊一会儿。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "offer-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "offer-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "offer-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "offer-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_12",
+      "prompt": {
+        "en": "I wanted someone to check whether I would welcome a friendly conversation.",
+        "zh": "我希望别人问问我是否想聊一会儿。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_13",
+      "prompt": {
+        "en": "I let someone know there was room to take part in a shared activity.",
+        "zh": "我告诉别人，一项共同活动仍可以参与。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invite",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invite",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invite",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invite",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "invite",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "invite",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_14",
+      "prompt": {
+        "en": "I wanted someone to check whether I wished to join an informal plan.",
+        "zh": "我希望别人问问我是否想加入一项非正式安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "be-included",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "be-included",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "be-included",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "be-included",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "be-included",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "be-included",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_15",
+      "prompt": {
+        "en": "I suggested how to divide a shared task for others to consider.",
+        "zh": "我提出共同任务可以怎样分工，供别人考虑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "coordinate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "coordinate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "coordinate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "coordinate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "coordinate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "coordinate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_16",
+      "prompt": {
+        "en": "I wanted someone to offer an outline for an ordinary group activity.",
+        "zh": "我希望别人为一项普通集体活动提供安排提纲。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_17",
+      "prompt": {
+        "en": "I expressed appreciation directly to someone for an ordinary kindness.",
+        "zh": "别人做了一件日常善意的小事后，我直接表达了感谢。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "offer-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "offer-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "offer-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "offer-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_18",
+      "prompt": {
+        "en": "I wanted someone to express appreciation to me directly.",
+        "zh": "我希望别人直接向我表达感谢或欣赏。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_19",
+      "prompt": {
+        "en": "I asked someone whether they wanted to be included in an informal plan.",
+        "zh": "我问别人是否想参加一项非正式安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invite",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invite",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invite",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invite",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "invite",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "invite",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_20",
+      "prompt": {
+        "en": "I wanted someone to offer me a place in a shared activity.",
+        "zh": "我希望别人在一项共同活动中给我参与机会。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "be-included",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "be-included",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "be-included",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "be-included",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "be-included",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "be-included",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_21",
+      "prompt": {
+        "en": "I offered to keep track of an agreed plan.",
+        "zh": "我主动提出跟进一项已商定的安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "coordinate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "coordinate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "coordinate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "coordinate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "coordinate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "coordinate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_22",
+      "prompt": {
+        "en": "I wanted someone to keep track of a plan we had agreed on.",
+        "zh": "我希望别人跟进一项我们已经同意的计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-coordination",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-coordination",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-coordination",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-coordination",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-coordination",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_23",
+      "prompt": {
+        "en": "I offered to listen after checking that the other person wanted to talk.",
+        "zh": "确认对方愿意交谈后，我主动提出听一听。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "offer-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "offer-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "offer-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "offer-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "offer-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPR_24",
+      "prompt": {
+        "en": "I wanted someone to offer to listen, while leaving me free not to talk.",
+        "zh": "我希望别人提出愿意倾听，同时允许我不说。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "receive-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "receive-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "receive-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "receive-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant context / prefer not to rate",
+            "zh": "没有相关情境／不想评价"
+          },
+          "directionId": "receive-warmth",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "invite",
+      "directionIds": [
+        "invite"
+      ],
+      "title": {
+        "en": "Initiating participation: Full Interpersonal Preferences Guide",
+        "zh": "主动邀请参与：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Initiating participation",
+        "zh": "主动邀请参与"
+      },
+      "summary": {
+        "en": "Explore initiating participation with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解主动邀请参与这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Initiating participation | Interpersonal Preferences",
+          "zh": "主动邀请参与｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to initiating participation: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读主动邀请参与：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "invite-1",
+          "title": {
+            "en": "Inviting without deciding for someone",
+            "zh": "邀请，但不替人决定"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns invitations you report initiating. The four statements cover an activity, a conversation, an available place and an informal plan. They record how often you remember offering an opening in one context over four weeks. They do not establish that others felt included or that your invitation was accessible. An invitation is an offer; it leaves the other person free to decline, delay or ask about the arrangement.",
+              "zh": "这一部分记录你自报主动发出邀请的频率。四条陈述涉及活动、交谈、可参与的位置与非正式安排，只回顾四周内同一情境中，你记得多常提供参与机会。不证明别人感到被接纳，也不证明邀请方式适合对方。邀请是一种提议；别人仍可拒绝、稍后决定或询问具体安排。"
+            }
+          ]
+        },
+        {
+          "id": "invite-2",
+          "title": {
+            "en": "An ordinary invitation",
+            "zh": "一次普通邀请"
+          },
+          "paragraphs": [
+            {
+              "en": "A hobby group is meeting on Saturday. You tell a newcomer what the activity involves and ask whether they would like to join. You can also say how to find practical information without asking for an immediate commitment. Repeated messages after a refusal are a different interaction, even if you describe them as welcoming. This questionnaire does not observe that distinction directly; consider the actual response and whether there was room to say no.",
+              "zh": "爱好小组周六有活动。你向一位新成员说明活动内容，问对方是否想加入，也可以告诉对方去哪里了解细节，而不要求立刻承诺。被拒绝后反复发消息是另一种互动，即使自己把它理解为热情。本问卷无法直接观察这种区别，仍需要考虑对方实际怎样回应，以及是否有拒绝空间。"
+            }
+          ]
+        },
+        {
+          "id": "invite-3",
+          "title": {
+            "en": "Read opportunity alongside frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "Fewer invitations can reflect a quiet month, a group that was already settled or a setting where somebody else handles invitations. It does not establish shyness, exclusion or poor social skills. A higher mean can reflect a temporary organising role rather than a lasting preference. Read the rated count first. No relevant opportunity is missing information, and it should not be turned into a judgement about how welcoming you are.",
+              "zh": "邀请较少，可能是这个月活动少、小组人员已确定，或一直由别人负责邀约，不表示害羞、排斥他人或社交能力弱。较高均分也可能来自临时组织职责，而不是长期偏好。先看有效项数；没有相关机会就是缺少信息，不能变成对你是否友善的判断。"
+            }
+          ]
+        },
+        {
+          "id": "invite-4",
+          "title": {
+            "en": "Compare with wanting an invitation",
+            "zh": "与期望收到邀请比较"
+          },
+          "paragraphs": [
+            {
+              "en": "You may often invite others yet prefer not to receive many invitations yourself. You may want more invitations while rarely organising activities. Both patterns are possible because initiating participation and wanting others to include you ask different questions. The two means do not have to match and are not subtracted into a mismatch score. They cannot tell you what a friend wants; that requires their own freely offered account.",
+              "zh": "你可能常邀请别人，却不希望自己收到很多邀约；也可能很少组织活动，但希望别人多邀请自己。两种组合都可能出现，因为主动邀请与期望被邀请问的是不同的事。两项均分无需一致，也不会相减计算错配分数。它们不能告诉你朋友想要什么；那需要对方自愿表达。"
+            }
+          ]
+        },
+        {
+          "id": "invite-5",
+          "title": {
+            "en": "A small, optional experiment",
+            "zh": "一个可选的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary activity, offer the details once and make declining easy: “We are doing this; you are welcome if it suits you.” Notice whether your wording provides a real choice. You do not owe anyone an invitation, and no one owes you acceptance. You can simply read this guide and finish. The result supplies no obligation to widen your group or share personal information.",
+              "zh": "可以在一次普通活动中说明细节，再让拒绝变得容易：“我们会做这件事，合适的话欢迎参加。”留意表达是否保留真实选择。你不因此必须邀请谁，别人也不欠你接受。你可以读完结束；结果不要求扩大社交圈或分享私人信息。"
+            }
+          ]
+        },
+        {
+          "id": "invite-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be-included",
+      "directionIds": [
+        "be-included"
+      ],
+      "title": {
+        "en": "Wanting invitations: Full Interpersonal Preferences Guide",
+        "zh": "期望收到邀请：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Wanting invitations",
+        "zh": "期望收到邀请"
+      },
+      "summary": {
+        "en": "Explore wanting invitations with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解期望收到邀请这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Wanting invitations | Interpersonal Preferences",
+          "zh": "期望收到邀请｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to wanting invitations: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读期望收到邀请：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "be-included-1",
+          "title": {
+            "en": "A wish is different from an event",
+            "zh": "期望与实际事件不同"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks how often you wanted invitations in the chosen context. It does not ask how many invitations arrived or whether anyone had a duty to include you. You might want an opening to an activity while still deciding not to attend. Wanting the choice, accepting it and enjoying the event are three different experiences. These statements do not measure loneliness, popularity or your value to a group.",
+              "zh": "这一部分问你在选定情境中多常希望收到邀请，不问实际收到多少次，也不判断别人是否有义务邀请你。你可能希望保留参与机会，最后仍决定不去。想有选择、接受邀请和享受活动，是三种不同体验。这些陈述不测量孤独、受欢迎程度或你对小组的价值。"
+            }
+          ]
+        },
+        {
+          "id": "be-included-2",
+          "title": {
+            "en": "The chance to decide for yourself",
+            "zh": "自己决定是否参加"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine learning that friends had planned a casual walk. You might have preferred an invitation even though you were busy that day. The wish can concern being offered a choice rather than attending every plan. Another person may genuinely prefer fewer invitations. Neither account is a better way to belong. An unanswered message does not tell us which account applies, and a questionnaire cannot recover another person’s reasons.",
+              "zh": "例如，后来得知朋友安排了一次散步，即使那天很忙，你也可能希望他们先问过自己。你在意的可能是获得选择，而不是每次都参加。另一个人也可能更希望少收到邀约。两种感受没有高下；一条未回复的信息，不能说明对方属于哪一种，问卷也无法还原别人的原因。"
+            }
+          ]
+        },
+        {
+          "id": "be-included-3",
+          "title": {
+            "en": "Context changes the meaning",
+            "zh": "情境会改变含义"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean records more frequent wishes of this kind, not evidence that your needs went unmet. A lower mean may reflect enough invitations already, a wish for quiet or few relevant activities. Wanting fewer invitations does not establish rejection of friendship. If there was no group context, use the unscored response. You do not need to invent a social situation to obtain a personal result.",
+              "zh": "较高均分只记录这类期望更常出现，不证明需要未被满足。较低均分可能是已获得足够邀请、希望安静，或近期没有多少相关活动。希望少些邀请不表示拒绝友谊。没有集体情境时，可用未评分选项，不必编造社交经历来取得个人结果。"
+            }
+          ]
+        },
+        {
+          "id": "be-included-4",
+          "title": {
+            "en": "Compare offers with wishes",
+            "zh": "比较主动提议与自己的期望"
+          },
+          "paragraphs": [
+            {
+              "en": "Initiating participation records your own offers; wanting invitations records what you wished others would offer. Similar numbers do not prove balance, and different numbers do not prove conflict. Group size, accessibility and the kind of event may matter more than either mean. Keep the two readings visible without averaging them. They provide a vocabulary for your reflection rather than a prediction of who will get along.",
+              "zh": "主动邀请记录你发出的提议；期望收到邀请记录你希望别人提供什么。数字相近不证明平衡，数字不同也不证明冲突。小组规模、参与条件或活动内容，可能比均分更重要。分别阅读这两项，不取合并平均。它们提供自我思考的词汇，不预测谁与谁合得来。"
+            }
+          ]
+        },
+        {
+          "id": "be-included-5",
+          "title": {
+            "en": "Express a limited preference",
+            "zh": "表达有限、具体的偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to, describe one manageable preference to someone you already trust: “You can invite me to the next walk; I may still need to decline.” That communicates an opening without promising attendance. Nobody has to disclose why they accept or decline. You may keep the reflection private, change your mind later or end here. A lower or higher score creates no obligation to socialise.",
+              "zh": "如果愿意，可以向已信任的人表达一个小偏好：“下次散步可以问问我，不过我仍可能没空。”这样既表达期待，也不承诺一定参加。任何人都不必解释接受或拒绝的原因。你可以保留私人思考、以后改变主意，或在这里结束；分数不构成社交义务。"
+            }
+          ]
+        },
+        {
+          "id": "be-included-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coordinate",
+      "directionIds": [
+        "coordinate"
+      ],
+      "title": {
+        "en": "Initiating coordination: Full Interpersonal Preferences Guide",
+        "zh": "主动提出协调：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Initiating coordination",
+        "zh": "主动提出协调"
+      },
+      "summary": {
+        "en": "Explore initiating coordination with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解主动提出协调这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Initiating coordination | Interpersonal Preferences",
+          "zh": "主动提出协调｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to initiating coordination: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读主动提出协调：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "coordinate-1",
+          "title": {
+            "en": "Offering structure within an agreement",
+            "zh": "在约定内提供安排"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records how often you offered coordination in ordinary shared plans. The statements concern suggesting a step, volunteering with agreement, proposing a division and tracking an agreed plan. They do not measure authority, leadership competence or a wish to control people. An offer can be accepted, changed or declined. The relevant boundary is what people actually agreed, rather than a questionnaire label or a higher number.",
+              "zh": "这一部分记录你在普通共同安排中主动提供协调的频率，包括提下一步、经同意自愿协调、建议分工和跟进约定。不测量权力、领导能力或控制他人的愿望。提议可以被接受、修改或拒绝；真正的边界取决于大家实际同意了什么，而不是问卷标签或更高数字。"
+            }
+          ]
+        },
+        {
+          "id": "coordinate-2",
+          "title": {
+            "en": "An agreed coordinating role",
+            "zh": "一项商定的协调职责"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends are arranging a small outing. You offer to collect possible dates and send back a short summary, while everyone keeps their own choice about attending. That is a bounded task. Deciding everyone’s schedule without checking is different. The questions cannot establish whether an agreement was voluntary or whether the plan worked. Consider the real conversation and keep other people’s choices separate from your wish to make progress.",
+              "zh": "朋友们筹划一次小型出行，你提出收集可选日期，再整理一份简短汇总，每个人仍自己决定是否参加。这是一项有限职责。未经询问就决定所有人的时间，是另一回事。题目不能证明约定是否自愿或计划是否有效，仍需回到实际交谈，区分推进事情的愿望与别人的选择。"
+            }
+          ]
+        },
+        {
+          "id": "coordinate-3",
+          "title": {
+            "en": "Roles and available opportunities",
+            "zh": "职责与机会的影响"
+          },
+          "paragraphs": [
+            {
+              "en": "A month with several group tasks can produce many such actions. A month of independent work may produce few. Neither pattern by itself establishes initiative or passivity as a personality. A lower mean might mean someone else was already coordinating effectively. It might also mean you preferred another role. Choosing no relevant opportunity protects that distinction; the unscored option is not treated as failure to contribute.",
+              "zh": "共同任务多的月份，这些行为可能经常出现；独立做事的月份则可能很少。单凭这些都不能确定主动或被动人格。较低均分可能因为已有别人协调得很好，也可能因为你更愿意承担其他职责。“没有相关机会”保留这种区别，不会被当成没有贡献。"
+            }
+          ]
+        },
+        {
+          "id": "coordinate-4",
+          "title": {
+            "en": "Compare coordinating with wanting help",
+            "zh": "与期望别人协调比较"
+          },
+          "paragraphs": [
+            {
+              "en": "You can offer structure and still welcome someone else organising a different part. Wanting coordination is not the opposite of initiating it. For example, you may track materials while hoping another person sets out the meeting sequence. Both means may be frequent. Do not subtract them into a dominance score, use them to allocate power or decide that one person should always lead. Actual responsibilities need a separate conversation.",
+              "zh": "你可以主动安排一部分，同时欢迎别人组织另一部分。期望别人协调，不是主动协调的反面。例如你负责跟进材料，却希望别人说明会议顺序；两项都可以常见。不把它们相减生成支配分数，也不用它们分配权力或确定谁应该一直带领。真实职责仍需另行讨论。"
+            }
+          ]
+        },
+        {
+          "id": "coordinate-5",
+          "title": {
+            "en": "An offer with an exit",
+            "zh": "带有退出空间的提议"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small reversible task, try an offer with a clear boundary: “I can collect the dates; does that work for everyone?” Specify what you are offering and leave room for an alternative. Notice whether the task still fits your time. You may withdraw or renegotiate an offer rather than continuing because a result suggests that you coordinate often. Reading alone is also a complete use of this guide.",
+              "zh": "可以为一项可撤回的小任务提出有限提议：“我可以收集日期，大家觉得合适吗？”说明自己愿意做什么，也留出其他方案。留意这件事是否仍符合自己的时间。你可以撤回或重新商定提议，不必因为结果显示常协调，就一直承担下去。只读指南也是完整使用方式。"
+            }
+          ]
+        },
+        {
+          "id": "coordinate-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "receive-coordination",
+      "directionIds": [
+        "receive-coordination"
+      ],
+      "title": {
+        "en": "Wanting coordination from others: Full Interpersonal Preferences Guide",
+        "zh": "期望别人提供协调：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Wanting coordination from others",
+        "zh": "期望别人提供协调"
+      },
+      "summary": {
+        "en": "Explore wanting coordination from others with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解期望别人提供协调这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Wanting coordination from others | Interpersonal Preferences",
+          "zh": "期望别人提供协调｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to wanting coordination from others: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读期望别人提供协调：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "receive-coordination-1",
+          "title": {
+            "en": "Wanting practical structure",
+            "zh": "期望获得具体安排"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks how often you wanted others to offer practical coordination. It concerns next steps, clear responsibilities, an outline and follow-up in the context you chose. Wanting such help does not mean wanting someone to decide your life. It is not a measure of dependence, obedience or ability. You can want a proposed structure while retaining the right to question it, change your role or decline participation.",
+              "zh": "这一部分问你多常希望别人提供具体协调，包括下一步、清晰职责、安排提纲和后续跟进，均限于选定情境。希望获得这些帮助，不等于希望别人决定自己的人生，也不是依赖、服从或能力指标。你可以希望有人提出安排，同时保留询问、改变职责或不参加的权利。"
+            }
+          ]
+        },
+        {
+          "id": "receive-coordination-2",
+          "title": {
+            "en": "Clarification without surrendering choice",
+            "zh": "澄清安排并保留选择"
+          },
+          "paragraphs": [
+            {
+              "en": "You join a volunteer activity and want a short explanation of who will do which task. A clear outline can help you decide what you can offer. That is different from agreeing to every instruction or giving someone unrestricted authority. The mean cannot distinguish helpful coordination from pressure in an actual event. Consider what was requested, what alternatives were available and whether you could freely say that a task did not fit.",
+              "zh": "参加一项志愿活动时，你希望先了解谁负责什么。清楚的提纲可以帮助你决定自己愿意承担哪部分。这与接受每项指令或授予无限权力不同。均分不能分清某次活动中的协调是帮助还是施压，仍要考虑实际请求、可选方案，以及能否自由表示某项工作不适合自己。"
+            }
+          ]
+        },
+        {
+          "id": "receive-coordination-3",
+          "title": {
+            "en": "What the frequency leaves open",
+            "zh": "频率没有说明的事"
+          },
+          "paragraphs": [
+            {
+              "en": "Frequent wishes may accompany an unfamiliar project, changing arrangements or a busy period. They do not prove that others failed you. Fewer wishes may reflect clear plans already, a preference for improvising or little shared work. None of these explanations can be selected from the number alone. An unscored response remains missing information, and a low mean is not evidence of resistance to all guidance.",
+              "zh": "期望经常出现，可能因为项目陌生、安排经常变化或近期忙碌，不证明别人辜负了你。期望较少，可能是计划已经清楚、偏好临场调整，或共同任务少。数字本身不能选定原因。未评分保持缺失，低均分也不意味着拒绝一切指引。"
+            }
+          ]
+        },
+        {
+          "id": "receive-coordination-4",
+          "title": {
+            "en": "Read alongside your own offers",
+            "zh": "与自己的协调提议一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting others to coordinate and initiating coordination describe different directions of an interaction. Someone might frequently organise familiar tasks and want an outline for unfamiliar ones. The shared four-week context helps comparison but does not remove differences in responsibility or opportunity. Keep both means and rated counts separate. They are not a compatibility algorithm, and matching numbers would not establish trust, fairness or a good working relationship.",
+              "zh": "期望别人协调与主动协调，描述互动的不同方向。有人可能经常组织熟悉任务，却希望陌生任务先有提纲。采用同一四周情境便于比较，但不会消除职责和机会差异。两项均分与有效项数分别保留；这不是匹配算法，数字相同也不证明信任、公平或合作良好。"
+            }
+          ]
+        },
+        {
+          "id": "receive-coordination-5",
+          "title": {
+            "en": "Ask for one useful detail",
+            "zh": "只问一个有用细节"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, ask one concrete question in a routine task: “What is the next agreed step, and who is handling it?” You can explain what information would help rather than asking someone to manage everything. The other person may not know yet; a shared pause or another arrangement may be reasonable. This optional prompt does not require you to accept an unwanted instruction or stay in an uncomfortable interaction.",
+              "zh": "如果愿意，可以在普通任务里问一个具体问题：“商定的下一步是什么，由谁负责？”说清需要哪条信息，而不是要求别人管理一切。对方可能也还不知道，暂缓或换一种安排都可能合理。这是可选提示，不要求接受不愿接受的指令，或留在不舒服的互动里。"
+            }
+          ]
+        },
+        {
+          "id": "receive-coordination-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "offer-warmth",
+      "directionIds": [
+        "offer-warmth"
+      ],
+      "title": {
+        "en": "Initiating personal warmth: Full Interpersonal Preferences Guide",
+        "zh": "主动表达个人关心：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Initiating personal warmth",
+        "zh": "主动表达个人关心"
+      },
+      "summary": {
+        "en": "Explore initiating personal warmth with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解主动表达个人关心这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Initiating personal warmth | Interpersonal Preferences",
+          "zh": "主动表达个人关心｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to initiating personal warmth: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读主动表达个人关心：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "offer-warmth-1",
+          "title": {
+            "en": "Everyday warmth in one-to-one contact",
+            "zh": "一对一接触中的日常关心"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records self-reported offers of personal warmth: encouragement, checking whether someone wants to chat, appreciation and offering to listen. It concerns ordinary one-to-one contact. It does not measure love, empathy, intimacy or emotional intelligence. A warm intention does not establish that the other person experienced an interaction as welcome. The relevant details include their response, the setting and whether a boundary was respected.",
+              "zh": "这一部分记录自报的个人关心表达：鼓励、询问是否愿意聊天、感谢和主动倾听，限于普通一对一接触。不测量爱、共情、亲密程度或情商。怀着善意不证明对方觉得互动受欢迎，仍需要看对方回应、当时场合，以及边界是否得到尊重。"
+            }
+          ]
+        },
+        {
+          "id": "offer-warmth-2",
+          "title": {
+            "en": "Offering a conversation",
+            "zh": "提出聊一会儿"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend has had an ordinary tiring day. You ask whether they would like company or a short chat, then accept their answer. The offer may matter even if they prefer quiet. Uninvited advice, repeated questions or pressure to disclose feelings are different actions. This questionnaire does not observe a conversation or rate its quality. Another person’s account may differ from your memory without either account being captured by a single score.",
+              "zh": "朋友度过了普通而疲惫的一天，你问是否需要陪伴或聊一会儿，然后接受对方回答。即使对方更想安静，这仍是一次提议。未经邀请的建议、反复追问或要求披露感受，是不同的行为。问卷不观察交谈，也不评质量；别人的体验可能与你记忆不同，单个分数无法涵盖这些。"
+            }
+          ]
+        },
+        {
+          "id": "offer-warmth-3",
+          "title": {
+            "en": "More is not automatically better",
+            "zh": "更多不自动表示更好"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean can reflect frequent contact or a role where encouragement is common. A lower mean may reflect privacy, formal boundaries, fewer opportunities or other ways of showing care. It does not establish coldness or a lack of affection. You are not required to express personal warmth in every setting. Choosing not to rate an item is also valid; the calculation does not fill that answer with a low score.",
+              "zh": "较高均分可能来自接触频繁，或某项职责本来常需鼓励别人。较低均分可能涉及隐私、正式边界、机会少或其他关心方式，不表示冷漠或缺少感情。你不必在每个场合表达个人关心。不评价某一条也有效，计算不会把它填成低分。"
+            }
+          ]
+        },
+        {
+          "id": "offer-warmth-4",
+          "title": {
+            "en": "Giving and wanting are separate",
+            "zh": "表达与期望分别理解"
+          },
+          "paragraphs": [
+            {
+              "en": "You may enjoy offering encouragement while preferring little personal attention yourself. You may want someone to check in while finding it difficult to initiate a conversation. Neither combination determines a fixed relationship style. Compare this part with wanting personal warmth as two separate accounts. Do not infer that someone owes you the same frequency of attention, and do not read the means as a test of how much either person cares.",
+              "zh": "你可能愿意鼓励别人，却不希望自己受到很多个人关注；也可能希望有人问候，但不容易主动开口。两种组合都不能决定固定关系类型。与期望获得关心一项比较时，把它们视为两份独立自报。不能据此认为别人欠自己同样频率的关注，也不把均分当成双方在乎程度的测验。"
+            }
+          ]
+        },
+        {
+          "id": "offer-warmth-5",
+          "title": {
+            "en": "An offer that leaves room",
+            "zh": "保留余地的关心"
+          },
+          "paragraphs": [
+            {
+              "en": "If a small experiment feels appropriate, ask someone you already know: “Would a chat help, or would you rather have quiet?” Accept either answer without asking them to justify it. You may also decide that no action is useful now. A reflection score is not a reason to cross a professional or personal boundary, and nobody needs to reveal private feelings to make this exercise complete.",
+              "zh": "如果觉得适合，可以向认识的人问：“聊一会儿有帮助吗，还是更想安静？”接受任何回答，不要求解释。你也可以决定现在无需行动。反思分数不是跨越职业或私人边界的理由，也没有人需要披露私密感受，才能完成这个练习。"
+            }
+          ]
+        },
+        {
+          "id": "offer-warmth-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "receive-warmth",
+      "directionIds": [
+        "receive-warmth"
+      ],
+      "title": {
+        "en": "Wanting personal warmth: Full Interpersonal Preferences Guide",
+        "zh": "期望获得个人关心：人际偏好完整读法"
+      },
+      "headline": {
+        "en": "Wanting personal warmth",
+        "zh": "期望获得个人关心"
+      },
+      "summary": {
+        "en": "Explore wanting personal warmth with everyday examples, its paired reading and one optional conversation prompt.",
+        "zh": "用日常例子、配对读法和一个可选交谈提示，理解期望获得个人关心这一部分。"
+      },
+      "scoreReading": {
+        "en": "Read this mean with its rated count, separately from the other five parts.",
+        "zh": "结合有效项数，独立阅读本项均分，不与其他五项合成。"
+      },
+      "seo": {
+        "title": {
+          "en": "Wanting personal warmth | Interpersonal Preferences",
+          "zh": "期望获得个人关心｜人际偏好反思测试"
+        },
+        "description": {
+          "en": "Full free guide to wanting personal warmth: original self-reflection, examples, limits and a paired comparison. No official FIRO-B score.",
+          "zh": "免费完整阅读期望获得个人关心：原创自我反思、例子、边界与配对比较，不生成正式FIRO-B分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "receive-warmth-1",
+          "title": {
+            "en": "Wanting a personal response",
+            "zh": "期望得到个人回应"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns how often you wanted encouragement, a friendly check-in, appreciation or an offer to listen in the selected context. It does not measure how much care you actually received or how close a relationship is. Wanting warmth can coexist with wanting privacy. An offer to listen can be welcome without any obligation to tell a personal story. The four items do not establish an attachment style or emotional need level.",
+              "zh": "这一部分问你在选定情境中多常期望鼓励、友好问候、感谢或倾听提议。不测量实际获得多少关心，也不测关系有多亲密。期望温暖可以与重视隐私并存，欢迎别人提出倾听，也不表示必须讲私人经历。四条题目不能确定依恋类型或情感需要等级。"
+            }
+          ]
+        },
+        {
+          "id": "receive-warmth-2",
+          "title": {
+            "en": "A particular kind of support",
+            "zh": "一种具体的支持"
+          },
+          "paragraphs": [
+            {
+              "en": "After finishing a shared task, you might want a direct thank-you rather than a group announcement. On another day, you might prefer no personal attention. The wish depends on what response would feel useful to you in that situation. It cannot be recovered from how much you talk or how outgoing you seem. The questionnaire only records your own account; other people are not expected to guess it from your result.",
+              "zh": "完成共同任务后，你可能希望收到直接感谢，而不是小组公告；另一天则可能不想受到个人关注。期望取决于当时什么回应对你有用，不能根据你说话多少或看起来外向与否推断。问卷只记录你自己的描述，不要求别人从结果猜出你的想法。"
+            }
+          ]
+        },
+        {
+          "id": "receive-warmth-3",
+          "title": {
+            "en": "Avoid turning a wish into a deficit",
+            "zh": "不把期望解释成缺陷"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean does not prove unmet needs, insecurity or that someone is withholding affection. A lower mean does not prove emotional distance. Existing support, the chosen setting and how much contact occurred may all affect the response. If the situations do not apply, an unscored answer preserves that uncertainty. There is no required amount of personal attention and no threshold that decides whether your response is healthy.",
+              "zh": "较高均分不证明需要未满足、缺乏安全感或别人没有给予感情；较低均分也不证明疏离。已有支持、选定场合和实际接触多少，都可能影响回答。情境不适用时，未评分选项保留不确定性。个人关注没有规定数量，也没有判断回答是否健康的阈值。"
+            }
+          ]
+        },
+        {
+          "id": "receive-warmth-4",
+          "title": {
+            "en": "Compare with what you offer",
+            "zh": "与自己的表达比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Your own offers of warmth and your wishes for others’ warmth can be similar or different. They are not credits and debts. A person who gives encouragement often is not automatically requesting the same response, and a person who wants encouragement may express care in another way. Keep both means separate. No subtraction, combined relationship grade or partner-matching conclusion is justified by this original reflection.",
+              "zh": "自己表达关心与希望获得关心，可以相近，也可以不同，不能当成收支账目。经常鼓励别人的人，不自动表示也要求同样回应；希望获得鼓励的人，也可能用另一种方式关心别人。两项均分分别保留，这份原创反思不支持相减、综合关系评分或伴侣匹配结论。"
+            }
+          ]
+        },
+        {
+          "id": "receive-warmth-5",
+          "title": {
+            "en": "A request that can be declined",
+            "zh": "允许被拒绝的请求"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, make one limited request to someone you trust: “Would you have a few minutes to listen? It is okay if now does not work.” Decide in advance what you want to keep private. They may have their own limits, and you can choose another time or simply end the reflection. You do not need to seek reassurance, contact someone or disclose a result because a score is higher.",
+              "zh": "如果愿意，可以向信任的人提出有限请求：“能听我说几分钟吗？现在不方便也没关系。”先想清楚哪些内容自己想保留。对方也有边界，你可以改时间，或只在这里结束反思。较高分数不要求寻求确认、联系谁或公开结果。"
+            }
+          ]
+        },
+        {
+          "id": "receive-warmth-6",
+          "title": {
+            "en": "Calculation and uncertainty",
+            "zh": "计算与不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Read the raw sum and rated count before the displayed one-decimal mean. Each part has four items; at least three numeric answers are needed. For example, 2, 3, 4 and an unscored answer give a sum of 9, three ratings and a mean of 3.0. Two ratings produce insufficient information instead. All guides remain available in either case. There are no norms, cutoffs, overall totals or fixed types.",
+              "zh": "先看原始和与有效项数，再看一位小数均分。每组四条，至少三条数字才计算。例如2、3、4与一条未评分，原始和为9、有效三条、均分3.0；只有两条有效时呈现资料不足。无论哪种情况都能读全部指南，不设常模、阈值、总体分或固定类型。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "edition",
+      "title": {
+        "en": "Actions and wishes in three everyday areas",
+        "zh": "三类日常互动里的行动与期望"
+      },
+      "paragraphs": [
+        {
+          "en": "This original reflection separates your offers from what you want others to offer: participation, practical coordination and one-to-one warmth. It is a conversation vocabulary, not a measure of underlying psychological needs. Every part has its own complete guide.",
+          "zh": "这份原创反思分别记录自己主动做什么，以及希望别人做什么，涵盖参与、具体协调和一对一关心。它提供交谈词汇，不测量潜在心理需要；六部分各有完整指南。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Choose one context, keep six readings separate",
+        "zh": "选同一情境，保留六项独立读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Think about one ordinary voluntary group or set of familiar interactions over the past four weeks. Keep that context throughout; do not enter names or private details. Rate how often each action or wish occurred. All 24 items need a response; each four-item part needs at least three numeric ratings. NA remains missing. No items are reversed, and no paired differences, totals, rankings or compatibility scores are calculated.",
+          "zh": "回想过去四周一个普通、自愿参与的小组或一类熟悉互动，全程沿用该情境，无需输入姓名或私事。评价每种行动或期望出现的频率。全部24条均需回应；每组四条至少三条数字才显示均分，NA保留缺失。无反向题，不计算配对差、总体分、排名或匹配分数。"
+        }
+      ]
+    },
+    {
+      "id": "framework",
+      "title": {
+        "en": "How this differs from FIRO-B",
+        "zh": "与FIRO-B的区别"
+      },
+      "paragraphs": [
+        {
+          "en": "FIRO-B, associated with William Schutz, distinguishes expressed and wanted aspects of inclusion, control and affection. Its publisher describes a restricted 54-item assessment requiring certification. This page does not administer that instrument, FIRO Business or another website’s 36-item version. FermatMind independently wrote these 24 statements and six guides, uses no proprietary items or report text, and produces no official FIRO scores or norms. The public references explain the conceptual background only.",
+          "zh": "与William Schutz相关的FIRO-B区分包容、控制和情感的表达与期望。出版方将正式54题工具列为需认证使用的受限评估。本页不施测该工具、FIRO Business或其他网站的36题版。费马独立撰写24条陈述与六篇指南，不使用其专有题目或报告正文，也不生成正式FIRO分数或常模；下方公开来源仅说明概念背景。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What the numbers can establish",
+        "zh": "数字能说明什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Means summarise your answers in this context. They do not establish what others experienced, whether a wish was met, a cause, a fixed personality or how two people will get along. Reliability, validity, norms and English–Chinese measurement equivalence have not been established for this edition. It is not for selection, clinical decisions or relationship screening. You can stop without acting on any prompt.",
+          "zh": "均分只概括此情境中的自报，不证明他人体验、期望是否满足、原因、固定人格或两个人能否相处。本版尚未建立信度、效度、常模或英中文测量等值，不用于选拔、临床决定或关系筛选。你可以读完停止，不采用行动提示。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers and public reading",
+        "zh": "私人回答与公开阅读"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are calculated on this page without uploading a response sheet or including answers in URLs or analytics events. Optional tab drafts require opt-in, expire after 24 hours and clear on completion, exit-and-clear or retake. Public guides and share cards contain general text, never your answers or means. You can read every guide without answering or sharing.",
+          "zh": "回答在当前页面计算，不上传答卷，不把答案放进网址或分析事件。可选标签页草稿需主动选择，24小时失效，完成、退出清除或重测时删除。公开指南和分享图只有通用文字，不含答案或均分。无需作答或分享，也可读全部指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an official FIRO-B assessment?",
+        "zh": "这是正式FIRO-B评估吗？"
+      },
+      "answer": {
+        "en": "No. This is a separately authored reflection. The publisher’s restricted FIRO-B instrument, scoring and reports are not administered here. Public framework references do not transfer validation or licensing.",
+        "zh": "不是。这是一份独立原创反思，不施测出版方受限的FIRO-B工具、计分或报告。公开概念来源不转移效度或许可。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must actions and wishes match?",
+        "zh": "行动与期望必须相同吗？"
+      },
+      "answer": {
+        "en": "No. You may offer one kind of interaction and want a different amount yourself. Keep paired readings separate; neither a difference nor a match determines a problem or compatibility.",
+        "zh": "无需相同。你可能提供某类互动，却希望自己获得不同频率的回应。配对读法分别保留，差异或一致都不能确定问题或匹配。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does wanting warmth mean I lack support?",
+        "zh": "希望得到关心代表缺少支持吗？"
+      },
+      "answer": {
+        "en": "No. Frequency of a wish does not establish whether it was met or why it arose. The result is your own account in a chosen context, not an assessment of another person.",
+        "zh": "不代表。期望的频率不能证明是否得到满足或为什么出现。结果只是你在选定情境中的自报，不评估另一个人。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read without sharing personal experiences?",
+        "zh": "不分享私人经历也能阅读吗？"
+      },
+      "answer": {
+        "en": "Yes. All six complete guides are public and free. You may choose unscored responses, stop at any time and keep any reflection private.",
+        "zh": "可以。全部六篇完整指南公开免费，可以选择未评分选项、随时停止，并保留私人思考。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Publisher: FIRO instruments and access requirements",
+        "zh": "出版方：FIRO工具与使用要求"
+      },
+      "url": "https://ap.themyersbriggs.com/overview/FIRO-2"
+    },
+    {
+      "title": {
+        "en": "Publisher: expressed and wanted conceptual background",
+        "zh": "出版方：表达与期望的概念背景"
+      },
+      "url": "https://asia.themyersbriggs.com/instruments/firo/history-reliability-and-validity-of-the-firo-b-instrument/"
+    }
+  ]
+}

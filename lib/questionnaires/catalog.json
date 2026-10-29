@@ -5960,5 +5960,32 @@
       "assembling"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "interpersonal-preferences",
+    "code": "FM_INTERPERSONAL_PREFERENCES24",
+    "version": "fm_interpersonal_preferences24_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Interpersonal Preferences Reflection Test",
+      "zh": "人际偏好反思测试"
+    },
+    "description": {
+      "en": "Explore invitations, coordination and personal warmth through 24 original items. Six free full guides separate your actions from what you want others to offer.",
+      "zh": "用24条原创题分别回顾参与、协调、个人关心中的主动行为与期望回应。六篇完整指南免费，保留独立均分与资料不足，不派人际类型。"
+    },
+    "minutes": 5,
+    "formCode": "fm_interpersonal_preferences24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "invite",
+      "be-included",
+      "coordinate",
+      "receive-coordination",
+      "offer-warmth",
+      "receive-warmth"
+    ],
+    "collection": "explore"
   }
 ]
