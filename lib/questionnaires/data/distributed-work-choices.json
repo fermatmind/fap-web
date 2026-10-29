@@ -1,0 +1,1585 @@
+{
+  "slug": "distributed-work-choices",
+  "code": "FM_DISTRIBUTED_WORK_CHOICES24",
+  "kind": "distributed-work24",
+  "version": "fm_distributed_work24_choices_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "title": {
+    "en": "Distributed Work Choices Reflection",
+    "zh": "分布式协作选择回顾"
+  },
+  "seoTitle": {
+    "en": "Distributed Work Choices: 24 Original Pairs | FermatMind",
+    "zh": "分布式协作选择：24组原创配对｜费马测试"
+  },
+  "description": {
+    "en": "Compare two useful coordination actions across 24 original pairs. Read separate counts for handover, visible task state, help requests and reply windows, with four complete public guides.",
+    "zh": "用24组原创配对比较两项有用协作行动，分别阅读交接、状态可见、求助请求和回复窗口的选择数量，并免费阅读四篇完整公开指南。"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "Choose one work, study or volunteer arrangement and recall the past four weeks. About 6 minutes is an editorial estimate for the instructions and 24 pairs; reading all four complete guides takes additional time. Counts describe this original choice set, with no established norms or psychometric validation.",
+    "zh": "先选定一种工作、学习或志愿协作安排，回想过去四周。约6分钟是阅读说明与完成24组配对的编辑估计，阅读四篇完整指南需要额外时间。这些数量只描述本原创选择集合，尚未建立常模或心理测量学验证。"
+  },
+  "instructions": {
+    "en": "For each pair, choose the useful action that more closely describes where your attention usually went first in the selected arrangement during the past four weeks. Neither option is a wrong answer. Use the unscored option if neither fits, both fit equally, no relevant instance occurred, you cannot compare, or you prefer not to answer. All 24 explicit responses, including unscored choices, are needed before counts appear.",
+    "zh": "每组选择一项更接近你在选定安排中过去四周通常先关注的有用行动。两项都不是错误答案。两项都不符合、同样符合、没有相关实例、无法比较或不愿回答时，请选未计分选项。24组都须明确回应，包括未计分选择，之后才展示计数。"
+  },
+  "resultHeading": {
+    "en": "Your four separate coordination-choice records",
+    "zh": "四个分别阅读的协作选择记录"
+  },
+  "source": {
+    "kind": "fermatmind_original_distributed_work_relative_choices",
+    "formCode": "fm_distributed_work24_choices_v1",
+    "itemBankVersion": "original24_bilingual_balanced_tradeoff_pairs_v1",
+    "scoringVersion": "four_twelve_appearance_selected_other_unscored_counts_v1",
+    "resultContentVersion": "four_full_bilingual_distributed_work_readings_v1",
+    "itemBankSha256": "dae434af8f77db95e513d951560cdc6a4cf40e12ab39e5bad958f0818b51ac9d",
+    "resultContentSha256": "0f5dffea2005e563470ee1c5140a5f37876d1878ede96b1db890c45e1ae305f0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "handover",
+      "title": {
+        "en": "Handover context",
+        "zh": "交接背景"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "visibility",
+      "title": {
+        "en": "Visible task state",
+        "zh": "任务状态可见"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "blockers",
+      "title": {
+        "en": "Answerable help requests",
+        "zh": "可回答的求助请求"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "time-windows",
+      "title": {
+        "en": "Workable reply windows",
+        "zh": "可行回复窗口"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DWC_01",
+      "prompt": {
+        "en": "At the end of an ordinary work block, which action more often gets your first few minutes?",
+        "zh": "一段普通工作结束时，哪件事更常获得你最先留出的几分钟？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Leave the next person a short note on what remains to be done.",
+            "zh": "给下一位接手者留一段尚待处理事项的简要说明。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Update the shared task record so others can see its current state.",
+            "zh": "更新共享任务记录，让其他人看到当前状态。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_02",
+      "prompt": {
+        "en": "When moving a task forward needs coordination, which do you more often do first?",
+        "zh": "推进任务需要协作时，你更常先做哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Organize the background so another person can pick it up without a call.",
+            "zh": "整理背景，让别人无需通话也能接着处理。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send a focused question about the specific decision holding it up.",
+            "zh": "针对阻碍推进的具体决定发出一个聚焦的问题。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_03",
+      "prompt": {
+        "en": "Before going offline while colleagues continue working, which gets more of your attention?",
+        "zh": "你将下线而同事还会继续工作时，哪件事更常获得你的关注？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Make the next action and its supporting material easy to find.",
+            "zh": "让下一步行动及其所需材料容易找到。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "State when you can next respond and check whether that window works.",
+            "zh": "说明下一次能回应的时间，并核对这个时段是否合适。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_04",
+      "prompt": {
+        "en": "When progress has slowed, which action more often comes first for you?",
+        "zh": "进展放慢时，你更常先采取哪个行动？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Make the current state and completed work visible in the shared record.",
+            "zh": "在共享记录中写明当前状态和已完成的工作。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ask the relevant person a bounded question about the obstacle.",
+            "zh": "向相关的人提出一个范围明确的阻碍问题。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_05",
+      "prompt": {
+        "en": "When sharing work with someone on a different schedule, which do you more often establish first?",
+        "zh": "与作息不同的人共享工作时，你更常先明确哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A shared place where they can see the latest task state.",
+            "zh": "一个能看到任务最新状态的共享位置。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A response window that respects both working schedules.",
+            "zh": "一个同时照顾双方工作时段的回应窗口。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_06",
+      "prompt": {
+        "en": "When a non-urgent dependency appears, which do you more often arrange first?",
+        "zh": "出现一项不紧急的依赖条件时，你更常先安排哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A clear question identifying what help or decision is needed.",
+            "zh": "一个说明需要什么帮助或决定的清晰问题。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A realistic reply time that fits the other person’s working day.",
+            "zh": "一个符合对方工作日安排的可行回复时间。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_07",
+      "prompt": {
+        "en": "After revising a shared document, which do you more often attend to first?",
+        "zh": "修改共享文档后，你更常先关注哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Mark the current version and update the task’s visible state.",
+            "zh": "标明当前版本，并更新任务的可见状态。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Explain the change and the next step for whoever uses it next.",
+            "zh": "向下一位使用者解释改动及后续步骤。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_08",
+      "prompt": {
+        "en": "When an unfamiliar issue interrupts a task, which better describes your usual first move?",
+        "zh": "不熟悉的问题打断任务时，哪一项更像你通常的第一步？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Form a small answerable request for the person who can unblock it.",
+            "zh": "向能帮助解除阻碍的人提出一个小而可回答的请求。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Write enough context that someone else could continue the investigation.",
+            "zh": "写下足够背景，让别人能接着排查。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_09",
+      "prompt": {
+        "en": "For a task continuing after your workday ends, which do you more often check first?",
+        "zh": "一项任务将在你结束工作后继续时，你更常先核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Whether the next exchange has a workable time and stated timezone.",
+            "zh": "下一次交流是否有可行时间并注明时区。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Whether the next person has a usable handover note.",
+            "zh": "下一位接手者是否有可用的交接说明。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_10",
+      "prompt": {
+        "en": "When several people rely on your task, which more often receives your first update?",
+        "zh": "几个人都依赖你的任务时，你更常优先更新哪方面？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The specific request needed to resolve a blocking dependency.",
+            "zh": "解除一项阻塞依赖所需的具体请求。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The shared task status and what has changed since the last update.",
+            "zh": "共享任务状态，以及自上次更新以来的变化。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_11",
+      "prompt": {
+        "en": "When joining an ongoing collaboration, which do you more often set up first?",
+        "zh": "加入一项正在进行的协作时，你更常先建立什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "An agreed window for replies across the schedules involved.",
+            "zh": "一个照顾相关人员作息、经过约定的回复窗口。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A simple way for others to find your current work status.",
+            "zh": "一种让别人方便找到你当前工作状态的方式。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_12",
+      "prompt": {
+        "en": "When you need a colleague’s input before continuing, which do you more often clarify first?",
+        "zh": "继续推进前需要同事提供信息时，你更常先明确哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a reply would be useful and whether their schedule allows it.",
+            "zh": "何时回复才有用，以及对方的工作安排是否允许。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The exact input needed and what you have already tried.",
+            "zh": "具体需要什么信息，以及你已经试过什么。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_13",
+      "prompt": {
+        "en": "Before leaving a shared task for a while, which action more often gets your attention first?",
+        "zh": "暂时离开一项共享任务前，哪个行动更常先得到你的关注？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Record the reasoning behind the current approach for the next person.",
+            "zh": "记录当前做法背后的理由，方便下一位处理者理解。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Show which parts are finished, in progress or waiting.",
+            "zh": "展示哪些部分已完成、处理中或等待处理。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_14",
+      "prompt": {
+        "en": "When an incomplete task may need another person, which do you more often prepare first?",
+        "zh": "一项未完成任务可能需要别人参与时，你更常先准备什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A compact handover of context, materials and the next action.",
+            "zh": "一份简明的背景、材料和下一步交接说明。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A targeted request explaining the obstacle and needed assistance.",
+            "zh": "一个说明阻碍及所需协助的针对性请求。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_15",
+      "prompt": {
+        "en": "When collaborators will read your work while you are away, which do you more often prioritize first?",
+        "zh": "协作者将在你不在线时阅读你的工作材料，你更常先关注什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Make the material understandable without an immediate follow-up.",
+            "zh": "让材料无需立刻补问也能被理解。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Make your next available reply window clear.",
+            "zh": "明确你下一次可以回复的时段。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_16",
+      "prompt": {
+        "en": "When a plan no longer matches what is happening, which do you more often do first?",
+        "zh": "计划与实际情况不再一致时，你更常先做哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Update the common record to reflect the actual task state.",
+            "zh": "更新公共记录，使其反映任务实际状态。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ask for the decision or resource needed to address the obstacle.",
+            "zh": "请求处理阻碍所需的决定或资源。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_17",
+      "prompt": {
+        "en": "When a colleague will check your work later, which do you more often make clear first?",
+        "zh": "同事将在稍后查看你的工作时，你更常先说明什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Where the latest status and relevant updates can be found.",
+            "zh": "到哪里可以找到最新状态和相关更新。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Which working window you will use to review their response.",
+            "zh": "你会在哪个工作时段查看对方的回复。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_18",
+      "prompt": {
+        "en": "When work depends on a later reply, which do you more often settle first?",
+        "zh": "工作依赖一条稍后的回复时，你更常先确定什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A concise question that separates the obstacle from other background.",
+            "zh": "一个把阻碍与其他背景分开的简洁问题。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A clear deadline and timezone that the recipient can realistically use.",
+            "zh": "一个注明时区、接收者能够实际使用的明确期限。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_19",
+      "prompt": {
+        "en": "When completing your part of a shared task, which do you more often spend time on first?",
+        "zh": "完成共享任务中自己负责的部分时，你更常先花时间做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Update the common record to show what is complete and available.",
+            "zh": "更新公共记录，展示哪些内容已经完成并可供使用。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Explain how the next person can use or continue the output.",
+            "zh": "解释下一位协作者如何使用或继续处理产出。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_20",
+      "prompt": {
+        "en": "When a task needs to pass between people, which more often comes first for you?",
+        "zh": "一项任务需要在人与人之间传递时，你更常先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Identify the one unresolved question that needs another person’s answer.",
+            "zh": "指出其中一个需要别人回答的未决问题。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Capture the context that the next person will otherwise need to reconstruct.",
+            "zh": "记录下一位处理者原本需要重新梳理的背景。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_21",
+      "prompt": {
+        "en": "When planning an offline period during collaboration, which do you more often arrange first?",
+        "zh": "在协作期间安排一段离线时间时，你更常先安排哪件事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Coordinate when the next exchange will happen across the relevant clocks.",
+            "zh": "结合相关人员的时间安排，约定下一次交流何时发生。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Leave a usable path for others to continue the work.",
+            "zh": "为别人留下可以继续推进工作的路径。"
+          },
+          "directionId": "handover"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_22",
+      "prompt": {
+        "en": "When another person asks how a task is going, which response more often comes first?",
+        "zh": "别人问任务进展如何时，你更常先回应哪方面？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Name the obstacle and the concrete decision needed to move forward.",
+            "zh": "说明阻碍，以及继续推进所需的具体决定。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Point to an up-to-date shared record of the current state.",
+            "zh": "指出一份反映当前情况的最新共享记录。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_23",
+      "prompt": {
+        "en": "When you expect work to be reviewed asynchronously, which do you more often check first?",
+        "zh": "预计别人会异步检查你的工作时，你更常先核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Whether the review and reply windows fit each person’s work schedule.",
+            "zh": "检查和回复时段是否适合各自的工作安排。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Whether the reviewer can locate the current state without asking you.",
+            "zh": "检查者能否无需询问就找到当前状态。"
+          },
+          "directionId": "visibility"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DWC_24",
+      "prompt": {
+        "en": "When seeking ordinary help from someone who is currently offline, which do you more often prepare first?",
+        "zh": "向当前离线的人寻求一般协助时，你更常先准备什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A contact and reply window that avoids assuming immediate availability.",
+            "zh": "一个不以对方立即在线为前提的联系和回复时段。"
+          },
+          "directionId": "time-windows"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "An answerable request that identifies what would unblock the task.",
+            "zh": "一个可以回答、且说明什么能解除阻碍的请求。"
+          },
+          "directionId": "blockers"
+        },
+        {
+          "id": "skip",
+          "label": {
+            "en": "Neither / both equally / no relevant instance / cannot compare / prefer not to answer",
+            "zh": "两项都不符合／同样符合／没有相关实例／无法比较／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "handover-reading",
+      "directionIds": [
+        "handover"
+      ],
+      "title": {
+        "en": "Handover context — Full Reading",
+        "zh": "交接背景：完整读法"
+      },
+      "headline": {
+        "en": "One coordination theme in a shared set of relative choices",
+        "zh": "共享相对选择中的一个协作主题"
+      },
+      "summary": {
+        "en": "Read the original selection counts with opportunities, unscored pairs and one concrete working example. Full text is open without answers.",
+        "zh": "结合出现机会、未计分配对和一个具体协作实例，阅读本原创题组的选择数量；无需答题即可阅读全文。"
+      },
+      "scoreReading": {
+        "en": "Read selected, other action selected, and left unscored out of twelve appearances together. No overall, independent trait score, population rank, performance band or hiring conclusion is generated.",
+        "zh": "把选择本主题、选择另一行动和未计分放在十二次出现机会中一起阅读；不生成总分、独立特质分、人群排名、表现区间或招聘结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Handover context | Full Distributed Work Choices Guide | FermatMind",
+          "zh": "交接背景完整指南｜分布式协作选择｜费马测试"
+        },
+        "description": {
+          "en": "Complete free guide to handover context: original relative-choice counts, working examples, practical questions and limits. Not a performance evaluation.",
+          "zh": "免费完整阅读交接背景：原创相对选择的计数、协作实例、实践问题与限制，不用于表现评价。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What this count records",
+            "zh": "这个数量记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The handover theme counts how often you selected a handover action when it appeared beside another useful action in these original pairs. Each theme appears twelve times, including six left-hand and six right-hand options. A selection is one choice in that particular comparison. It does not establish that you performed the action well, performed it frequently in every situation, or performed it more often than another person. All four themes describe work that a team may need; choosing one leaves the other unselected for that pair only.",
+              "zh": "交接主题记录的是：在这些原创配对中，当交接行动与另一项有用行动并列时，你选择交接行动的次数。每个主题出现十二次，左右两侧各六次。每一次选择都属于当时那个具体比较。它不能证明你把该行动做得很好、在所有情境中都经常这样做，或比别人做得更多。四个主题都涉及团队可能需要的工作；在一道配对中选择一方，只表示另一方在这次比较中没有被选中。"
+            },
+            {
+              "en": "Read selected, other action selected, and left unscored together. If several pairs did not fit your recent experience, the missing opportunities matter as much as the recorded selections. The twelve appearances are the design of this small inventory, not a population standard. A larger count can reflect current responsibilities, the alternatives presented, or the kind of work you recalled. A smaller count is not a deficit classification. There is no passing number, overall readiness score, strongest habit award, or established meaningful difference between two counts.",
+              "zh": "请把“选择本主题”“选择另一行动”和“未计分”放在一起看。如果多组配对不符合你近期经历，这些缺少的观察机会与已记录的选择同样重要。十二次出现只是这份小型盘点的题面设计，并非人群标准。数量较多可能与当前职责、题目提供的另一选项或你回想的工作内容有关；数量较少不构成缺陷分类。这里没有合格次数、准备程度总分、最强习惯评选，也没有经过确立的两项数量差异解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Look for a usable next step",
+            "zh": "找一个可继续的下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "A practical handover gives its next reader a way to continue. For example, a fictional shared schedule might say which draft is current, which assumption remains undecided, and what the recipient can do next. The useful question is whether the intended person can use that information under the access and time available to them. Length alone does not answer it. A long account can bury a decision, while a short note can work when the background is already shared. Choose one ordinary handover rather than judging your entire communication style.",
+              "zh": "实用的交接应让下一位阅读者有办法继续处理。例如，一份虚构的共享日程说明可以写出当前草案、尚未决定的假设，以及接收者下一步能做什么。真正值得核对的是：在接收者实际拥有的权限和时间条件下，这些信息能否被使用。字数本身不能回答这个问题。长篇经过可能埋没决定；双方已有共同背景时，简短说明也可能有效。先选一次普通交接观察，不必据此评价自己的整体沟通风格。"
+            },
+            {
+              "en": "Ask a willing collaborator to identify the next action from that note, without using confidential examples in this site. Notice what they could infer and where they needed clarification. Perhaps the action was clear but the relevant file was inaccessible. Perhaps the file was available but nobody had authority to decide. These are different problems, and more explanatory prose may not solve either one. Keep any actual work material within the approved systems for that arrangement. The reflection can remain entirely private and still produce a useful adjustment.",
+              "zh": "可以请一位愿意配合的协作者根据说明指出下一步行动，但不要把保密案例输入本站。观察对方能直接理解什么，又在哪里需要补问。也许行动很清楚，但相关文件无法访问；也许文件可用，却没有人具备决定权限。这些是不同的问题，增加说明文字未必能解决。实际工作材料应留在该安排获准使用的系统中。反思完全保持私密，也一样可以带来有用的调整。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Distinguish handover from visibility",
+            "zh": "区分交接与状态可见"
+          },
+          "paragraphs": [
+            {
+              "en": "Handover and visible progress often share a document, but they answer different questions. A status line tells people where a task stands. A handover helps someone else take the next step. In a small fictional publishing task, a green status marker might show that a draft is ready, while the handover explains which version to read and which question remains open. Neither function makes the other unnecessary. A pair that asks which gets attention first does not test whether you know this distinction or can perform both.",
+              "zh": "交接与进度可见经常共用一份文档，却回答不同问题。状态行告诉别人任务进行到哪里；交接说明帮助别人迈出下一步。例如，在一个虚构的小型发布任务中，绿色状态标记可以表示草案已备好，交接则解释应阅读哪个版本、还有什么问题未定。两种功能并不会互相取代。询问你更常先关注哪一项的配对，并没有检验你是否懂得这种区别，或是否有能力把两项都做好。"
+            },
+            {
+              "en": "If you selected the status action in several comparisons, inspect whether your actual handovers are already routine or whether they are being omitted. The count cannot choose between those explanations. Equally, choosing handover does not mean your progress is invisible. A single recent artifact and a concrete recipient question provide better follow-up than assigning yourself a stable label. The purpose is to make a conversation more specific: what did the reader need, what was available, and what small change would reduce avoidable reconstruction?",
+              "zh": "如果你在若干比较中选择了状态行动，可以查看真实交接是否早已成为常规，还是确实被省略。数量本身无法在这两种解释之间作出选择。同样，选择交接也不表示你的进度不可见。查看一份近期材料、提出一个具体的接收者问题，比给自己贴稳定标签更有帮助。目的是让讨论更具体：阅读者需要什么、当时实际能取得什么、哪一个小改动可以减少不必要的重新梳理？"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Account for the working arrangement",
+            "zh": "把工作安排放进解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Different roles create different opportunities to hand work over. Someone completing a self-contained task may need little transfer, while a rotating support arrangement may need a reliable note every shift. Access restrictions, language differences, assistive tools, and the experience of the recipient can change what a usable note requires. These conditions should be named before treating the count as a personal characteristic. A lack of handover opportunities is a reason to leave a pair unscored, not evidence that someone cannot collaborate remotely.",
+              "zh": "不同职责提供的交接机会不同。完成独立闭环任务的人可能很少需要移交；轮班支持安排则可能每班都需要可靠说明。权限限制、语言差异、辅助工具和接收者经验，也会改变一份可用说明需要包含什么。在把数量当作个人特点之前，应先说明这些条件。没有交接机会，是把配对留为未计分的理由，不能证明一个人不具备远程协作能力。"
+            },
+            {
+              "en": "Choose one arrangement when recalling the past four weeks. Mixing paid work, a study group, and a volunteer shift can make the comparisons difficult to interpret because their expectations differ. If your circumstances changed during that period, keep the change in mind rather than forcing a single story. You may repeat the inventory later for another arrangement, but there is no validated rule for comparing the two results. The circumstances, examples, and unanswered pairs deserve to remain visible alongside any new set of counts.",
+              "zh": "回想过去四周时，选定一种工作、学习或志愿协作安排。把有偿工作、学习小组与志愿轮班混在一起，可能因要求不同而使比较难以解释。如果期间条件发生变化，可以记住这项变化，不必强行给出一个统一故事。以后可以针对另一安排再做一次，但这里没有经过验证的跨安排比较规则。条件、具体实例和未计分配对，都应与新的数量一起被保留在解释中。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Try one bounded change",
+            "zh": "试一个有边界的小改动"
+          },
+          "paragraphs": [
+            {
+              "en": "A small experiment might be to finish one ordinary task with three short lines: the current state, the next action, and the unresolved question. This is an example to adapt, not a universal template or a promise of improved performance. Use the format your collaborators can actually access and understand. Agree beforehand what would make the note useful, such as whether the next person can locate the right version without messaging you. Do not turn the experiment into monitoring how quickly colleagues reply outside their working hours.",
+              "zh": "一个小尝试可以是在结束一项普通任务时写三行：当前状态、下一步行动、尚未解决的问题。这只是可调整的例子，并非通用模板，也不保证提升表现。请使用协作者实际能够访问和理解的格式。事先约定怎样才算有用，例如下一位处理者能否不发消息询问就找到正确版本。不要把尝试变成对同事非工作时段回复速度的监控。"
+            },
+            {
+              "en": "After a real opportunity, review what the note enabled and what still required discussion. If the recipient needed a conversation, that does not automatically make the handover unsuccessful. Some ambiguous or consequential questions are better resolved together. Record whether the written context made that conversation easier to enter and whether the decision was captured afterwards. Keep the experiment separate from this inventory’s count: a favorable anecdote is not validation of the questionnaire, and a changed count is not proof that the experiment caused an improvement.",
+              "zh": "出现真实机会后，回顾这份说明帮助完成了什么，以及哪些问题仍需要讨论。接收者需要一次交谈，并不自动表示交接失败。有些模糊或影响较大的问题，确实适合共同解决。可以记录书面背景是否使讨论更容易进入，以及之后有没有留下决定。把这次尝试与盘点数量分开：一个顺利的个案不能验证问卷，数量变化也不能证明改动造成了改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Protect people and boundaries",
+            "zh": "保护人员与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Good handover is not a demand to document private circumstances, medical information, personal contact details, or every minute of someone’s work. Include what is necessary for the task and follow the relevant access rules. A recipient should not have to disclose why a particular contact window is unavailable in order to receive a usable handover. Where resources or permissions are missing, raise that constraint through the appropriate channel rather than treating it as an individual effort problem. This inventory cannot determine compliance, reliability, or suitability for a role.",
+              "zh": "良好交接并不要求记录私人处境、医疗信息、个人联系方式，或逐分钟记录别人的工作。只包含任务所需内容，并遵守相关访问规则。接收者不应为了获得可用交接而必须解释某个联系时段为何不可用。缺少资源或权限时，应通过合适渠道说明条件限制，不要把它当作个人努力问题。本盘点不能判断合规性、可靠性或岗位适任程度。"
+            },
+            {
+              "en": "Do not use another person’s answers to assign shifts, reject an applicant, or rank a team. The comparisons are self-reports from a small original item set, with no established criterion study or population norms. If an organization needs to evaluate a task, it needs an appropriate process with clear job requirements, accessible participation, and evidence suitable for that decision. A private conversation about one recent handover serves a different purpose. Keep that purpose modest: understanding an example and agreeing on a workable next step.",
+              "zh": "不要用别人的答案安排班次、拒绝求职者或给团队排名。这些比较来自一组小型原创题目的自报，没有已确立的效标研究或人群常模。组织若需要评价某项任务，应采用符合该决策需要的流程，明确岗位要求、提供无障碍参与，并取得适用证据。围绕一次近期交接进行私下讨论，是另一种用途。请把目标保持具体：理解一个实例，并约定一个可行的下一步。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use the reading without a label",
+            "zh": "不贴标签地使用这篇读法"
+          },
+          "paragraphs": [
+            {
+              "en": "You can use this whole reading without answering any pair. Select a recent handover, identify its recipient, and ask what they needed to continue. If no relevant opportunity comes to mind, there is no need to manufacture one merely to obtain a number. The other three readings describe different coordination questions and remain available regardless of your choices. No count selects a hidden result, a high or low band, or a special report tier. All readers receive the same complete explanation of the theme and its limits.",
+              "zh": "无需回答任何配对，也可以使用这篇完整读法。选一次近期交接，明确接收者，再问对方继续处理需要什么。如果想不到相关机会，不必为了获得数量而虚构一次。另三篇读法讨论不同的协作问题，无论你如何选择都可以阅读。没有任何数量会选中隐藏结果、高低区间或特别报告等级。所有阅读者看到的都是同一份完整主题解释与边界。"
+            },
+            {
+              "en": "If you return later, focus first on whether you have a clearer example and a more usable agreement with the people involved. A repeated questionnaire can prompt recall, but it cannot by itself show a stable trait or a causal training effect. Keep the selected arrangement, available opportunities, and actual handover needs in view. The most useful outcome may be one clearer sentence or an agreed location for a current file. Neither needs to become a score, identity, or conclusion about who deserves to work remotely.",
+              "zh": "以后再来时，先关注自己是否有了更清晰的实例、是否与相关人员形成了更可用的约定。重复问卷可以提示回忆，却不能单独证明稳定特质或训练的因果效果。继续把选定的安排、实际机会和真实交接需要放在眼前。最有用的产出也许只是一句更清楚的话，或一个约定好的当前文件位置。它们都不需要变成分数、身份，或谁值得获得远程工作机会的结论。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visibility-reading",
+      "directionIds": [
+        "visibility"
+      ],
+      "title": {
+        "en": "Visible task state — Full Reading",
+        "zh": "任务状态可见：完整读法"
+      },
+      "headline": {
+        "en": "One coordination theme in a shared set of relative choices",
+        "zh": "共享相对选择中的一个协作主题"
+      },
+      "summary": {
+        "en": "Read the original selection counts with opportunities, unscored pairs and one concrete working example. Full text is open without answers.",
+        "zh": "结合出现机会、未计分配对和一个具体协作实例，阅读本原创题组的选择数量；无需答题即可阅读全文。"
+      },
+      "scoreReading": {
+        "en": "Read selected, other action selected, and left unscored out of twelve appearances together. No overall, independent trait score, population rank, performance band or hiring conclusion is generated.",
+        "zh": "把选择本主题、选择另一行动和未计分放在十二次出现机会中一起阅读；不生成总分、独立特质分、人群排名、表现区间或招聘结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Visible task state | Full Distributed Work Choices Guide | FermatMind",
+          "zh": "任务状态可见完整指南｜分布式协作选择｜费马测试"
+        },
+        "description": {
+          "en": "Complete free guide to visible task state: original relative-choice counts, working examples, practical questions and limits. Not a performance evaluation.",
+          "zh": "免费完整阅读任务状态可见：原创相对选择的计数、协作实例、实践问题与限制，不用于表现评价。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A record of relative choices",
+            "zh": "相对选择的记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Visible progress means that another person can find the current state of a task without reconstructing it through repeated messages. In this inventory, the count records selections of a visibility action beside a different useful action. There are twelve appearances, split equally between the left and right sides. It is a count of these self-reported comparisons, not a measurement of how productive, dependable, honest, or engaged you are. No observation of your actual work has occurred, and the item set has no established population norms or criterion validity.",
+              "zh": "进度可见是指：别人无需反复发消息重新梳理，也能找到任务当前状态。本盘点记录的是，当状态可见行动与另一项有用行动并列时，你选择前者的次数。该主题共出现十二次，左右各六次。这是这些自报比较的数量，不是对生产力、可靠性、诚实程度或投入程度的测量。这里没有观察你的实际工作，题组也没有已确立的人群常模或效标效度。"
+            },
+            {
+              "en": "Read the count with the alternatives chosen and the appearances left unscored. A low selection count could occur because you first attended to a blocker, a handover, or another person’s working window. It does not establish that status updates were absent. A high count cannot establish that the updates were accurate or useful. All four themes can matter in the same task. Their counts share a fixed set of choices, so they should not be treated as independent trait scores or added into a general readiness number.",
+              "zh": "请结合选择另一行动的次数和未计分次数一起阅读。选择本主题较少，可能是因为你先关注了阻碍、交接或别人的工作时段，并不能证明没有更新状态。选择较多，也不能证明更新准确或有用。同一任务中四个主题都可能重要。它们的数量来自同一组固定选择，因此不能当作互相独立的特质分数，更不能相加成一个准备程度总分。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Find the current state",
+            "zh": "找到当前状态"
+          },
+          "paragraphs": [
+            {
+              "en": "Start with one ordinary task that another person depends on. Can that person locate the current state, identify the relevant version, and distinguish work that is complete from work that is waiting? In a fictional shared document review, a short record might separate a finished draft from a pending decision. The useful unit is the task state, not the number of messages posted. Several updates can still leave a reader uncertain if each is in a different place or does not say what changed.",
+              "zh": "先选一项别人依赖的普通任务。对方能否找到当前状态、辨认相关版本，并区分已完成工作与等待事项？例如，在一次虚构的共享文档检查中，一条简短记录可以把已完成的草案和等待中的决定分开。这里有用的单位是任务状态，而不是发出了多少条消息。即使更新很多，如果散落在不同位置或没有说明变化，阅读者仍可能不清楚情况。"
+            },
+            {
+              "en": "Ask what the recipient needs in order to make their own next decision. Perhaps they need a date, a named dependency, or a link to an approved shared artifact. Include only the information needed for that purpose and use the system agreed for the work. You do not need to enter real task text, names, links, or confidential details in this site. A private note about what was difficult to find is enough to support the reflection. The questionnaire itself does not need evidence uploads.",
+              "zh": "可以问接收者：为了作出自己的下一步决定，他需要知道什么？也许是日期、明确的依赖条件，或指向获准共享材料的链接。只包含为此所需的信息，并使用工作中约定的系统。你不需要把真实任务内容、姓名、链接或保密细节输入本站。私下记下什么信息难以找到，就足以支持反思。问卷本身不需要上传证明材料。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Visibility is not continuous availability",
+            "zh": "可见不等于持续在线"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful status record can reduce the need for interruptions. It should not become a requirement to demonstrate presence every few minutes. An individual can leave a clear update and then work without checking messages constantly. Similarly, an offline period can coexist with an accessible task record. If a team confuses frequent posting with contribution, this inventory cannot correct that evaluation merely by producing another number. Discuss the purpose of an update and the decisions it is meant to support.",
+              "zh": "有用的状态记录可以减少打断，不应变成每隔几分钟证明自己在场的要求。一个人留下清楚更新后，可以不必持续查看消息。同样，离线时段也可以与可访问的任务记录并存。如果团队把频繁发消息与实际贡献混为一谈，这份盘点无法靠再给出一个数量纠正评价方式。应讨论更新的用途，以及它要支持哪些决定。"
+            },
+            {
+              "en": "Do not interpret a selected visibility action as a preference for surveillance, or an unselected one as avoidance of accountability. The pairs do not investigate either conclusion. They ask for a relative choice within a small set of recent-work descriptions. If a particular description does not fit your arrangement, leave it unscored. A transparent gap is more informative than forcing yourself into an option that would imply an experience you did not have. The complete reading remains available even if every pair is left unscored.",
+              "zh": "不要把选择状态可见行动解释为偏好监控，也不要把未选择它解释为逃避责任。配对并没有调查这些结论，只是在一组近期工作描述中要求作相对选择。如果某个描述不适合当前安排，可以留为未计分。坦诚保留缺口，比强行选择一个暗示自己有过相关经历的选项更有信息价值。即使全部配对都未计分，也能阅读完整说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Separate status from explanation",
+            "zh": "区分状态与解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A visible task state answers where the work stands. An explanation answers why it stands there and may belong in a linked note rather than in every status line. For a fictional review task, “waiting for an agreed decision” might be a useful state, while a longer note describes the options. Distinguishing these layers can help a reader find the right detail. It does not mean every team should use the same labels, tool, or update schedule; those choices depend on the task and collaborators.",
+              "zh": "可见任务状态回答的是工作处于哪里；解释则回答为何处于该状态，可能适合放在关联说明中，而不是每条状态行里。例如，一项虚构检查任务可以用“等待约定的决定”表示状态，再用较长说明介绍备选方案。区分这些层次，有助于阅读者找到合适细节，但这并不意味着所有团队都应使用相同标签、工具或更新频率；这些选择取决于任务与协作者。"
+            },
+            {
+              "en": "Review one update with a willing recipient. Did the state match what was actually available? Could the recipient tell which date or version it referred to? If the answer is uncertain, adjust one element and try again in an ordinary task. Avoid treating a single successful exchange as proof of a general communication skill. It is evidence about that exchange only. When a task has no shared record because access is unavailable or the workflow is unclear, the constraint should be addressed at the arrangement level.",
+              "zh": "可以和一位愿意配合的接收者回顾一次更新：状态是否符合实际可用的内容？对方能否看出所指日期或版本？如果不确定，调整一个元素，再在普通任务中试用。不要把一次顺利交流当成一般沟通能力的证明，它只提供那次交流的证据。如果缺少共享记录是因为没有权限或流程不清，应在工作安排层面处理条件限制。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose a proportionate update",
+            "zh": "选择适度的更新"
+          },
+          "paragraphs": [
+            {
+              "en": "A small experiment could be to update a shared record when a task changes state rather than whenever you have worked for a fixed number of minutes. This is an example to discuss, not a universal recommendation for every role. Agree what counts as a relevant change and who needs to know. Some work requires frequent formal reporting; other work is better served by a concise update at a handover. Follow the actual requirements rather than using this reading to replace organizational or safety procedures.",
+              "zh": "一种可讨论的小尝试是：在任务状态改变时更新共享记录，而不是每工作固定分钟数就更新。这只是讨论例子，不是适用于所有岗位的通用建议。先约定什么算有关变化，以及谁需要知道。有些工作要求频繁正式报告；另一些工作更适合在交接时简要更新。应遵循真实要求，不要用本文替代组织流程或安全程序。"
+            },
+            {
+              "en": "After the next relevant opportunity, ask whether the update helped another person act without unnecessary follow-up. If it did not, find the specific reason: the wrong place, missing permissions, an unclear label, or an unresolved decision can each require a different response. The aim is a workable agreement, not more activity for its own sake. A change in questionnaire count cannot show that the experiment caused improvement, and no particular count establishes that the arrangement is working well.",
+              "zh": "下一次出现相关机会后，可以问更新是否帮助别人行动，并减少了不必要的补问。如果没有，寻找具体原因：位置不合适、缺少权限、标签含糊或决定未定，分别可能需要不同处理。目标是可用的约定，而不是为活动量增加活动量。问卷数量变化不能证明尝试造成了改善，任何特定数量也不能证明安排运作良好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Keep evaluation and reflection apart",
+            "zh": "把评价与反思分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These choices should not be used to rank colleagues, screen applicants, set performance targets, or decide who may work remotely. The inventory does not establish job performance, and differences may reflect roles, opportunities, interpretation, or the alternatives presented. A genuine work evaluation requires an appropriate process and evidence for that decision. Accessible participation and clear expectations also matter. A self-report exercise with no established norms cannot supply those requirements simply because its topics sound relevant to work.",
+              "zh": "不要用这些选择给同事排名、筛选求职者、设定绩效目标，或决定谁可以远程工作。本盘点不能确立工作表现，差异可能反映职责、机会、理解方式或题面另一选项。真实工作评价需要合适流程和适用于该决定的证据，也需要无障碍参与和明确期待。一项没有已确立常模的自报练习，不能因为主题与工作相关就满足这些要求。"
+            },
+            {
+              "en": "Keep actual updates in approved work systems and avoid unnecessary personal information. A task record need not disclose someone’s health, caring arrangements, private contact details, or reasons for being offline. If a process makes status visibility difficult, identify the process issue rather than inferring unwillingness from a questionnaire response. Privacy and practical coordination can be considered together: people may need a usable state and a next contact window without needing a detailed account of another person’s life.",
+              "zh": "实际更新应保留在获准工作系统中，避免不必要的个人信息。任务记录不需要披露健康情况、照护安排、私人联系方式或离线原因。如果某个流程使状态难以保持可见，应指出流程问题，不要从问卷答案推断本人不愿配合。隐私与实际协作可以一并考虑：人们可能需要可用状态和下次联系窗口，却不需要了解另一个人的详细生活情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Return to one useful example",
+            "zh": "回到一个有用实例"
+          },
+          "paragraphs": [
+            {
+              "en": "The most useful follow-up may be a single status line that another person can interpret reliably. Choose an example and check what it enabled, what it omitted, and whether it was accessible at the needed time. You can do this without answering the inventory or comparing counts. If you do answer, keep the chosen arrangement and the past-four-week window consistent. A different arrangement may produce different choices without implying that your personality or capability has changed.",
+              "zh": "最有用的后续也许只是一条别人能可靠理解的状态说明。选一个实例，检查它支持了什么、遗漏了什么、在需要时能否访问。无需答题或比较数量，也可以完成这一步。如果选择答题，请保持所选安排和过去四周回想范围一致。换一种安排可能产生不同选择，并不表示人格或能力发生变化。"
+            },
+            {
+              "en": "All four complete readings remain available to everyone. No selection chooses a special type, overall level, or hidden personalized text. A repeated attempt can remind you to revisit examples, but it is not a validated change measure. Let the practical question stay specific: what does the next person need to know about this task, where can they find it, and when will the record need updating? An agreed answer can be useful even when no score is produced.",
+              "zh": "所有人都能阅读四篇完整读法。任何选择都不会选中某种特别类型、总体等级或隐藏个性化文本。再次作答可以提醒你回顾实例，却不是经过验证的变化测量。请把实际问题保持具体：下一位协作者需要知道任务的什么信息、到哪里找、何时需要更新？即使不产生分数，形成约定的答案也可以有用。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blockers-reading",
+      "directionIds": [
+        "blockers"
+      ],
+      "title": {
+        "en": "Answerable help requests — Full Reading",
+        "zh": "可回答的求助请求：完整读法"
+      },
+      "headline": {
+        "en": "One coordination theme in a shared set of relative choices",
+        "zh": "共享相对选择中的一个协作主题"
+      },
+      "summary": {
+        "en": "Read the original selection counts with opportunities, unscored pairs and one concrete working example. Full text is open without answers.",
+        "zh": "结合出现机会、未计分配对和一个具体协作实例，阅读本原创题组的选择数量；无需答题即可阅读全文。"
+      },
+      "scoreReading": {
+        "en": "Read selected, other action selected, and left unscored out of twelve appearances together. No overall, independent trait score, population rank, performance band or hiring conclusion is generated.",
+        "zh": "把选择本主题、选择另一行动和未计分放在十二次出现机会中一起阅读；不生成总分、独立特质分、人群排名、表现区间或招聘结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Answerable help requests | Full Distributed Work Choices Guide | FermatMind",
+          "zh": "可回答的求助请求完整指南｜分布式协作选择｜费马测试"
+        },
+        "description": {
+          "en": "Complete free guide to answerable help requests: original relative-choice counts, working examples, practical questions and limits. Not a performance evaluation.",
+          "zh": "免费完整阅读可回答的求助请求：原创相对选择的计数、协作实例、实践问题与限制，不用于表现评价。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What asking for help records",
+            "zh": "求助数量记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme records selections of an action that turns an obstacle into a focused request. Each theme appears in twelve pairs, equally often on each side. The count concerns your relative selections in these original descriptions, not observed escalation speed. The inventory does not time how long you remain stuck, judge whether a request was justified, or establish whether another person answered it well. Read the count alongside the other actions selected and the appearances left unscored. There is no benchmark for how many selections a competent collaborator should make.",
+              "zh": "这个主题记录的是：你选择把阻碍转成聚焦请求这一行动的次数。每个主题在十二组配对中出现，左右各半。数量涉及你在这些原创描述中的相对选择，并不是对实际升级速度的观察。盘点没有计时你卡住多久，没有判断请求是否必要，也没有确定别人是否妥善回应。请结合选择另一行动的次数和未计分次数阅读，不存在称职协作者应选择多少次的基准。"
+            },
+            {
+              "en": "Choosing a request over a status update in one pair does not mean you neglect updates in real work. Leaving it unselected does not mean you refuse help. Different responsibilities, permissions, and recent opportunities can change the comparison. If neither description fits, both fit equally, or you cannot make the comparison, leave that pair unscored. A missing observation is different from selecting the other action. All four themes can be useful together, and their shared choice counts should not be treated as independent ability measures or combined into an overall score.",
+              "zh": "在一道配对中选择请求而非状态更新，并不表示你在真实工作中忽略更新；没有选择请求，也不表示拒绝求助。不同职责、权限和近期机会都会改变比较。两项都不符合、同样符合或无法比较时，可以留为未计分。缺少观察不同于选择另一行动。四个主题可以同时有用，来自同一选择集合的数量不能当作独立能力测量，也不能合成总分。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Name the actual obstacle",
+            "zh": "说明实际阻碍"
+          },
+          "paragraphs": [
+            {
+              "en": "Start with a recent ordinary task, not a confidential or emergency example. What prevented the next step: missing information, unclear authority, a resource, an unresolved decision, or a dependency on another task? These possibilities invite different requests. “I am stuck” may be an accurate feeling but can leave a recipient guessing about what action is needed. A more specific description could separate what is known from what remains undecided. Keep that description short enough that the person receiving it can identify the issue without reconstructing your entire workday.",
+              "zh": "先选一项近期普通任务，不用保密事项或紧急事件。阻止下一步的究竟是信息不足、权限不明、资源缺少、决定未定，还是依赖另一任务？不同情况需要不同请求。“我卡住了”可能准确表达感受，却可能让接收者猜测需要什么行动。更具体的描述可以区分已知内容和未定事项。说明应足够简洁，让接收者无需重建你的整个工作日也能识别问题。"
+            },
+            {
+              "en": "For example, in a fictional shared schedule, the obstacle might be choosing between two available dates. Asking an appropriate decision owner to select a date differs from asking a colleague to explain how the schedule works. Neither request is universally better; each fits a different need. You do not need to paste an actual schedule or identify anyone in this site. The reflection can be a private exercise in naming the next decision. If the arrangement has a formal escalation procedure, that procedure remains authoritative for the work.",
+              "zh": "例如，在一个虚构的共享日程中，阻碍可能是在两个可用日期之间作决定。请有权决定的人选择日期，与请同事解释日程如何运作，是不同请求。没有哪个普遍更好，它们适合不同需要。你不必在本站粘贴真实日程或指明任何人。反思可以只是私下练习说明下一项决定。如果当前安排有正式升级程序，工作中仍应以该程序为准。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Make a request answerable",
+            "zh": "让请求可以回答"
+          },
+          "paragraphs": [
+            {
+              "en": "An answerable request often identifies the task, the obstacle, and the smallest useful response. You might explain what you already checked so the recipient does not repeat it, while avoiding a long list of every unsuccessful thought. Consider whether the person has the context and authority needed to help. A clearly written question sent to someone without access to the relevant material may still fail. The issue then includes access or routing, rather than simply a need for you to write more persuasively or ask more frequently.",
+              "zh": "可以回答的请求通常会说明任务、阻碍和最小有用回应。可以交代已经核对过什么，减少对方重复处理，但不必列出所有失败思路。还应考虑对方是否具备帮助所需的背景和权限。一个写得很清楚的问题，如果发给无法访问相关材料的人，也可能无法解决。此时问题包括访问或转达路径，而不只是要求你写得更有说服力、问得更频繁。"
+            },
+            {
+              "en": "A small practice is to draft the question and then state what you would do after receiving each plausible answer. If none of the answers would let you continue, the question may not yet target the real dependency. Adjust it before asking a willing collaborator for feedback. This is a discussion exercise, not a validated technique with a promised outcome. The useful evidence is whether the particular recipient can identify a response they are able to provide, or tell you clearly who else needs to be involved.",
+              "zh": "一个小练习是先写出问题，再说明得到每种可能回答后自己会做什么。如果所有回答都不能让你继续，问题可能还没有对准真实依赖。可以先调整，再请愿意配合的协作者反馈。这只是讨论练习，不是保证效果的已验证技术。有用的证据是：这位具体接收者能否识别自己能够提供的回应，或清楚说明还需要谁参与。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Treat timing as a coordination problem",
+            "zh": "把时机当作协作问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Faster is not automatically better in every task. An unnecessary interruption can create costs, while waiting without an agreed boundary can allow a dependency to grow. Discuss a proportionate point for asking in the arrangement involved. The appropriate point may depend on consequences, available alternatives, the recipient’s working window, and any established procedure. This inventory cannot determine a universal number of minutes before escalation. It also cannot evaluate emergency judgment; use the relevant trained process for consequential or urgent situations.",
+              "zh": "并非所有任务都越快求助越好。不必要的打断会产生代价；没有约定边界地一直等待，也可能使依赖扩大。应结合当前安排讨论一个适度的求助时点。它可能取决于后果、可行替代办法、接收者工作时段和既有程序。本盘点不能确定统一的“卡住几分钟就升级”，也不能评价紧急判断；涉及后果较大或紧急情况时，应遵循相关受训流程。"
+            },
+            {
+              "en": "For an ordinary non-urgent dependency, you could agree what to do while waiting and when to review the lack of a reply. That agreement might allow a different independent task to continue, clarify who can make the decision, or establish a next contact window. A delayed response does not by itself reveal unwillingness, low ability, or poor character. Workload, access, time differences, and unclear responsibility may all matter. Keep the discussion about the actual dependency and the next workable step rather than using a questionnaire count to assign blame.",
+              "zh": "对于一般非紧急依赖，可以约定等待期间做什么，以及何时检查仍未收到回复的情况。约定可能允许另一项独立任务继续、明确谁能决定，或确定下次联系窗口。回复较迟本身不能揭示不愿帮助、能力低或品格有问题。工作量、权限、时差和职责不清都可能有关。讨论应围绕实际依赖和可行下一步，不要用问卷数量分配责任。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Follow a request through",
+            "zh": "把请求跟进到底"
+          },
+          "paragraphs": [
+            {
+              "en": "A request is not complete merely because it has been sent. When a response arrives, check whether it resolves the question you asked and whether the next action is now clear. If the response changes an assumption, update the relevant shared record so someone else does not continue from outdated context. In a fictional scheduling task, an answer selecting one date might need to be reflected in the current draft. This example links asking for help with handover and visible progress, rather than treating the four themes as competing permanent traits.",
+              "zh": "请求并不会因为发出就自动完成。收到回应后，检查它是否解决了所问问题，以及下一步是否明确。如果回应改变了某项假设，应更新相关共享记录，避免别人继续依据过期背景处理。例如，在虚构日程任务中，选定日期的回答可能需要写入当前草案。这个例子把求助与交接、状态可见连接起来，而不是把四个主题当作互相竞争的永久特质。"
+            },
+            {
+              "en": "If the response does not resolve the obstacle, identify what remains uncertain before sending another message. A follow-up can acknowledge what was clarified and isolate the remaining decision. Ask a collaborator whether that distinction is easy to understand. Review one complete exchange rather than counting how many messages you sent. A useful next step might be changing the recipient, clarifying authority, or agreeing a response window. More messages alone do not establish better coordination, and a questionnaire selection count cannot measure the quality of that exchange.",
+              "zh": "如果回应没有解除阻碍，先明确还剩什么不确定，再发下一条消息。跟进可以先承认已澄清的部分，再单独提出剩余决定。可以请协作者判断这个区别是否容易理解。回顾一次完整交流，比统计发送了多少消息更有用。下一步也许是换合适接收者、澄清权限或约定回复时段。消息更多本身不能证明协作更好，问卷选择数量也无法测量那次交流的质量。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Keep boundaries and support visible",
+            "zh": "看见边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "Some people work in arrangements where asking questions is discouraged or where the right contact is difficult to identify. Others have access or accessibility barriers that make a written request harder to prepare or receive. These conditions should not be converted into an individual deficit label. An unscored pair may simply mean the necessary opportunity was absent. If a team wants clearer requests, it also needs to make responsibilities, contact routes, and acceptable response expectations understandable. This inventory cannot determine whether those conditions are present.",
+              "zh": "有些工作安排不鼓励提问，或者很难识别合适联系人；也有人面临权限或无障碍条件限制，难以准备或接收书面请求。不能把这些条件转成人的缺陷标签。一组未计分配对，可能只是缺少必要机会。团队若希望请求更清楚，也需要让职责、联系路径和合理回应期待容易理解。本盘点不能确定这些条件是否具备。"
+            },
+            {
+              "en": "Do not use these self-reported choices to judge another person’s honesty, suitability for employment, or willingness to cooperate. No fictional-method familiarity trap or integrity score is included. Actual task evaluation needs evidence appropriate to its purpose and an accessible process. Keep private information out of practice examples and use approved channels for work material. A conversation about one ordinary obstacle can remain useful without producing a ranking, a performance target, or a conclusion about who deserves support.",
+              "zh": "不要用这些自报选择判断别人的诚实、就业适任或合作意愿。这里没有虚构工作方法的熟悉度陷阱，也没有诚信分数。真实任务评价需要适合用途的证据和可无障碍参与的流程。练习案例应避开私人信息，工作材料使用获准渠道。讨论一个普通阻碍就可以有用，不必产生排名、绩效目标或谁值得获得支持的结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use a concrete next question",
+            "zh": "形成一个具体问题"
+          },
+          "paragraphs": [
+            {
+              "en": "You can use this reading before answering any pair. Choose a recent ordinary obstacle and write the smallest question that could help someone respond. Check the recipient, the necessary context, and the timing separately. If no suitable recent example exists, there is no need to manufacture one to complete the inventory. All four complete readings are the same for everyone, and no count unlocks a different report, assigns a high or low band, or selects a personal type.",
+              "zh": "无需先答题，也可以使用本篇。选一个近期普通阻碍，写出最小、能帮助别人回应的问题，分别核对接收者、必要背景和时机。如果没有合适近期实例，不必为完成盘点而虚构一个。所有人看到的四篇完整读法相同，没有任何数量会解锁另一份报告、分配高低区间或选择个人类型。"
+            },
+            {
+              "en": "When you revisit the exercise, compare the clarity of the example and the usefulness of the agreement rather than treating a count change as proof of improvement. Different tasks and alternatives can change relative selections. There is no established reliable-change threshold or causal training claim for this original inventory. The modest outcome is practical: one obstacle described more clearly, one recipient better able to answer, and one agreed next step. Each can be worthwhile without becoming a psychological score or a general judgment about your working ability.",
+              "zh": "再次使用时，可以比较实例是否更清楚、约定是否更有用，不要把数量变化当成改善的证明。不同任务和备选行动都会改变相对选择。这份原创盘点没有已确立的可靠变化阈值，也不宣称训练因果效果。目标可以很具体：把一个阻碍说得更清楚，让一位接收者更容易回答，并约定一个下一步。即使不变成心理分数或工作能力总评，这些也可以值得完成。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time-windows-reading",
+      "directionIds": [
+        "time-windows"
+      ],
+      "title": {
+        "en": "Workable reply windows — Full Reading",
+        "zh": "可行回复窗口：完整读法"
+      },
+      "headline": {
+        "en": "One coordination theme in a shared set of relative choices",
+        "zh": "共享相对选择中的一个协作主题"
+      },
+      "summary": {
+        "en": "Read the original selection counts with opportunities, unscored pairs and one concrete working example. Full text is open without answers.",
+        "zh": "结合出现机会、未计分配对和一个具体协作实例，阅读本原创题组的选择数量；无需答题即可阅读全文。"
+      },
+      "scoreReading": {
+        "en": "Read selected, other action selected, and left unscored out of twelve appearances together. No overall, independent trait score, population rank, performance band or hiring conclusion is generated.",
+        "zh": "把选择本主题、选择另一行动和未计分放在十二次出现机会中一起阅读；不生成总分、独立特质分、人群排名、表现区间或招聘结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Workable reply windows | Full Distributed Work Choices Guide | FermatMind",
+          "zh": "可行回复窗口完整指南｜分布式协作选择｜费马测试"
+        },
+        "description": {
+          "en": "Complete free guide to workable reply windows: original relative-choice counts, working examples, practical questions and limits. Not a performance evaluation.",
+          "zh": "免费完整阅读可行回复窗口：原创相对选择的计数、协作实例、实践问题与限制，不用于表现评价。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What the time-window choices mean",
+            "zh": "时段选择代表什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme records how often you selected an action about workable contact and reply windows when it appeared beside another useful coordination action. There are twelve appearances, balanced between left and right options. The count is about these particular relative choices in the arrangement you recalled. It does not measure timezone knowledge, availability, punctuality, willingness to work unusual hours, or suitability for remote work. No task performance has been observed. Read the selected count together with other actions selected and pairs left unscored, without assigning a high or low level.",
+              "zh": "这个主题记录的是：当有关可行联系及回复时段的行动与另一项有用协作行动并列时，你选择前者的次数。该主题共出现十二次，左右选项均衡。数量涉及你在所回想安排中对这些具体配对的相对选择，并不测量时区知识、在线时间、守时程度、是否愿意在特殊时段工作或远程工作适任性。这里没有观察实际任务表现。请结合选择另一行动的次数和未计分配对阅读，不分配高低等级。"
+            },
+            {
+              "en": "A person may choose another action first because timing agreements already exist, because a task is independent, or because a different need was more salient in the comparison. A larger count does not establish that any agreement was fair or followed. These explanations require actual examples rather than a number alone. The inventory has no established norms, criterion study, or reliable-change threshold. All four counts arise from the same limited choice set and should not be treated as independent traits or added into an overall readiness score.",
+              "zh": "一个人先选择另一行动，可能是因为时段约定早已存在、任务本身独立，或另一需要在这次比较中更突出。数量较多，也不能确定约定公平或得到遵守。这些解释需要真实实例，而不能只看数量。本盘点没有已确立的常模、效标研究或可靠变化阈值。四项数量来自同一组有限选择，不能当作独立特质或相加成准备程度总分。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Make one window understandable",
+            "zh": "让一个窗口容易理解"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an ordinary non-urgent exchange involving people on different schedules. Can each person tell when a reply is useful and what the other person expects while waiting? A fictional document review might have a stated review date and a separate decision deadline. “Tomorrow morning” can be ambiguous if the participants mean different local mornings. Instead of guessing which clock another person has in mind, use the agreed scheduling system and check that the date, timezone, and intended response window are understandable to the people involved.",
+              "zh": "选一次不同作息人员之间的普通非紧急交流。每个人能否看懂何时回复才有用，以及等待期间对方期待什么？一次虚构文档检查可以分别注明检查日期和决定期限。如果双方所指的当地上午不同，“明早”就可能含糊。不必猜对方想的是哪个时间，应使用约定的排期系统，并核对相关人员是否能理解日期、时区和预期回应窗口。"
+            },
+            {
+              "en": "Do not turn this reflection into a memory test of offsets or a requirement to disclose personal schedules. The useful question concerns the exchange, not every hour of someone’s life. An agreed work window can provide enough information without explaining why other hours are unavailable. Keep actual calendars and contact information in approved systems rather than entering them here. If you cannot recall a relevant exchange in the past four weeks, leave the pair unscored. No recent opportunity is different from an inability to coordinate across schedules.",
+              "zh": "不要把反思变成时差记忆测验，也不要求披露私人日程。有用的问题针对这次交流，而不是一个人生活中的每个小时。约定工作窗口可以提供足够信息，不需要解释其他时段为何不可用。真实日历和联系信息应留在获准系统中，不要输入本站。如果想不起过去四周的相关交流，可以把配对留为未计分。没有近期机会不同于缺乏跨时段协作能力。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Separate the need from the meeting",
+            "zh": "区分需要与会议"
+          },
+          "paragraphs": [
+            {
+              "en": "A coordination need does not automatically require everyone to meet at the same time. For one fictional review task, a shared note with an answerable question may allow different people to contribute during their own work windows. For another task, a short conversation may help resolve ambiguity. The appropriate arrangement depends on the work, access, consequences, and participants. This reading does not prescribe an asynchronous method for every situation or claim that meetings are inherently poor. It asks whether the chosen form makes the needed exchange possible and understandable.",
+              "zh": "协作需要并不自动要求所有人同时开会。在某个虚构检查任务中，一份带有可回答问题的共享说明，可能让不同人在各自工作窗口参与；另一个任务则可能适合用短暂交谈澄清歧义。合适安排取决于工作、权限、后果及参与者。本文不要求所有情境都采用异步方式，也不宣称会议本身不好，而是问所选形式能否让需要的交流实际发生且容易理解。"
+            },
+            {
+              "en": "If a simultaneous discussion is needed, check whether the people who must contribute can participate accessibly and whether those absent can understand the resulting decision. If a written exchange is used, check where the current question and answer will be recorded. These checks connect timing with handover and visible progress. A selection in one pair cannot show that you consistently balance all three. Use a concrete recent example to discover which detail was missing and which agreement would be helpful next time.",
+              "zh": "需要同步讨论时，核对必须贡献意见的人能否以无障碍方式参与，以及缺席者能否理解最后决定。采用书面交流时，核对当前问题和答案会记录在哪里。这些核对把时段安排与交接、状态可见连接起来。一次配对选择不能证明你始终平衡了这三方面。应使用近期具体实例，找出缺少什么细节，以及下次哪项约定会有帮助。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Do not reward unlimited availability",
+            "zh": "不奖励无限可用"
+          },
+          "paragraphs": [
+            {
+              "en": "Being available outside an agreed working window is not a higher score or a better type in this inventory. People have different responsibilities, access needs, caring arrangements, and conditions for sustainable work. A useful agreement should clarify ordinary expectations without assuming that every message demands an immediate response. If the work includes genuine urgent coverage, use its established staffing and escalation process. A general reflection about ordinary contact windows cannot evaluate or replace that process, and no questionnaire count can determine who should absorb its burden.",
+              "zh": "在本盘点中，超出约定工作窗口仍在线，并不会得到更高分或更好类型。人们的职责、无障碍需求、照护安排和持续工作条件不同。有用约定应说明一般期待，而不默认每条消息都要立即回应。工作若确有紧急值守需要，应采用既有排班与升级流程。关于普通联系窗口的一般反思不能评价或替代该流程，任何问卷数量也不能决定谁应承担相关负担。"
+            },
+            {
+              "en": "When someone cannot use a proposed window, ask for a workable alternative or another way to contribute rather than an account of their private reasons. A task may allow a later written response, a different reviewer, or a clear handover before an offline period. Not every constraint has an easy solution, and the inventory cannot supply missing staffing or resources. Naming the constraint is still more informative than interpreting a choice as inflexibility, low commitment, or a failure of personal time management.",
+              "zh": "有人无法使用拟定时段时，可以寻找可行替代时段或另一种参与方式，不必要求解释私人原因。任务也许允许稍后书面回应、另一位检查者参与，或在离线前清楚交接。并非所有限制都容易解决，盘点也不能补足人员和资源。明确限制，仍比把一个选择解释为不灵活、不投入或个人时间管理失败更有信息价值。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Try a small scheduling agreement",
+            "zh": "试一项小排期约定"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded experiment could be to make the next ordinary request explicit about three things: what response is needed, the date and window in which it is useful, and what will happen if no reply arrives by then. This is an example to adapt, not a universal template. Agree it with the people involved and follow the actual requirements for the work. The aim is to reduce guessing, not to add a deadline to every message or create pressure for faster replies.",
+              "zh": "一种有边界的小尝试是：在下一次普通请求中说明三件事——需要什么回应、在哪个日期和时段回应才有用、届时仍无回复会怎么处理。这只是可调整例子，并非通用模板。应与相关人员约定，并遵循真实工作要求。目的是减少猜测，不是给每条消息都加期限，也不是施压要求更快回复。"
+            },
+            {
+              "en": "After the exchange, review whether everyone understood the same window and whether the agreed next step was feasible. Perhaps the date was clear but the recipient could not access the document. Perhaps the task could have continued independently during the wait. These are different findings and may call for different changes. Keep one useful observation rather than grading the person. A questionnaire count cannot tell whether this experiment succeeded, and a changed count on a repeat attempt is not evidence that the experiment caused improvement.",
+              "zh": "交流结束后，回顾大家是否理解了同一个窗口，以及约定下一步是否可行。也许日期很清楚，但接收者无法访问文档；也许等待期间本可以继续一项独立任务。这些发现不同，可能需要不同改动。留下一个有用观察即可，不必给人评分。问卷数量不能判断此次尝试是否成功，再次作答时的数量变化也不能证明尝试造成了改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Use examples without ranking people",
+            "zh": "使用实例而不排名"
+          },
+          "paragraphs": [
+            {
+              "en": "Differences in counts may reflect the alternatives in the pairs, recent projects, role expectations, or the particular arrangement recalled. They do not justify ranking teammates, rejecting applicants, deciding who may work remotely, or assigning inconvenient hours. This original inventory is a self-reflection tool, not a job-performance or integrity assessment. If an organization needs to make a consequential decision, it needs an appropriate process and evidence for that purpose. A familiar work topic does not turn these relative choices into validated selection criteria.",
+              "zh": "数量差异可能反映配对中的另一选项、近期项目、职责期待或回想的具体安排，不能据此给队友排名、拒绝求职者、决定谁可远程工作，或分配不方便的时段。这份原创盘点用于自我反思，并非工作表现或诚信评价。组织若要作出影响较大的决定，需要合适流程和适合该用途的证据。主题听起来熟悉，并不能把这些相对选择变成经过验证的筛选标准。"
+            },
+            {
+              "en": "If a team discusses the themes, participation should not require people to reveal their answers or private circumstances. It can be enough to examine a fictional request and agree what makes its window clear. Keep confidential calendar entries, customer details, and personal contact information out of the exercise. No hidden familiarity questions or fabricated work methods are used to infer truthfulness here. Transparent uncertainty and unscored responses remain legitimate, including when the past four weeks did not provide a useful example.",
+              "zh": "团队讨论这些主题时，不应要求人们披露答案或私人处境。检查一个虚构请求、约定怎样才算时段清楚，就可能足够。练习应避开保密日历、客户细节和个人联系信息。这里不使用隐藏熟悉度题或虚构工作方法推断诚实程度。坦诚表达不确定和未计分回应都合理，包括过去四周没有合适实例的情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Leave with one workable agreement",
+            "zh": "形成一个可行约定"
+          },
+          "paragraphs": [
+            {
+              "en": "You can read all four guides without answering the inventory, and the same complete text is available whatever your choices. No count chooses a hidden type, rank, pass band, or special report. For this theme, a useful next step is to pick one ordinary exchange and agree what response window the participants can actually use. Notice whether the agreement reduces uncertainty while preserving offline boundaries. That concrete observation is more informative than trying to maximize selections of the time-window option.",
+              "zh": "无需答题即可阅读四篇指南，无论如何选择，完整文本都相同。没有数量会选中隐藏类型、排名、合格区间或特别报告。对于本主题，一个有用下一步是选一次普通交流，约定参与者实际能使用的回应窗口。观察约定是否减少不确定，同时保留离线边界。这个具体观察比追求尽量多选择时段选项更有信息价值。"
+            },
+            {
+              "en": "If you return later, keep the chosen arrangement, recall period, and available opportunities in mind. Changed duties can legitimately change what you prioritize. A repeated count is not a stable identity and has no established threshold for meaningful improvement. The modest purpose is to make one exchange easier to coordinate: a clear request, an understandable window, and a workable plan while waiting. None requires constant availability, disclosure of private reasons, or a general conclusion about someone’s capability or commitment.",
+              "zh": "以后再来时，请记住所选安排、回想范围和实际机会。职责变化可以合理地改变优先关注。重复作答的数量不是稳定身份，也没有已确立的有意义改善阈值。目标可以很具体：让一次交流更容易协作，包括清楚请求、容易理解的窗口和等待期间可行计划。这些都不要求持续在线、披露私人原因，或对一个人的能力及投入程度下总体结论。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "How the 24 pairs become four records",
+        "zh": "24组配对如何整理成四项记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme appears twelve times, six on each side. For each theme the record separates selected, the other action selected, and left unscored; those three counts sum to twelve. The same pair contributes one appearance to each of its two themes. A skipped pair remains unscored for both. There is no overall number, winner, high/low band, independent trait score, norm or hiring rule.",
+          "zh": "每个主题出现十二次，左右各六次。每项记录分别展示选择本主题、选择另一行动和未计分，三者合计十二。同一配对为涉及的两个主题各提供一次出现机会，跳过时两项都记为未计分。不产生总数、胜出项、高低区间、独立特质分、常模或招聘规则。"
+        },
+        {
+          "en": "These are relative self-reported choices, not observations of work quality or timed escalation. Choosing one useful action does not mean the other was absent. Consider the selected arrangement and opportunities before interpreting a difference. All four full guides are public before answering and remain available when every pair is unscored.",
+          "zh": "这是相对选择的自报，不是工作质量观察或升级速度计时。选择一项有用行动，不表示另一行动没有发生。解释差异前，请考虑选定安排及实际机会。四篇完整指南答题前即公开，全部未计分时仍可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original edition and method boundary",
+        "zh": "原创版本与方法边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these 24 pairs and four bilingual readings. Each of the six possible theme pairings occurs four times, giving twelve appearances per theme. This is an original reflection, not a published standardized scale. The public work-practice reference supplies background only; it did not supply the items or a scoring key and does not validate or endorse the inventory.",
+          "zh": "这24组配对与四篇双语读法由费马原创。六种可能的主题配对各出现四次，使每个主题获得十二次出现机会。这是原创回顾，并非已发表的标准化量表。公开工作实践参考仅提供背景，没有提供题目或计分键，也不验证或背书本盘点。"
+        },
+        {
+          "en": "The Chinese and English were written together for this edition. No local validation, cross-language equivalence, training effect or criterion relationship has been established. Use examples for private discussion; the counts cannot evaluate honesty, job performance or suitability for remote work.",
+          "zh": "本版中文和英文同时撰写，尚未建立本地验证、跨语言等价、训练效果或效标关系。可以围绕实例私下讨论，计数不能评价诚实、工作表现或远程工作适任。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep real work details private",
+        "zh": "真实工作资料保持私密"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose only the supplied options. No names, task documents, calendar entries or private work examples are needed. Answers stay in page memory by default. You can explicitly save progress in this tab for up to 24 hours; completion, exit-and-clear and retake delete that saved progress. Shared text contains only the public title and entry.",
+          "zh": "只需选择题目提供的选项，不需要姓名、任务文档、日历或私人工作案例。答案默认仅在页面内存中；你可以明确选择在本标签页保存最多24小时，完成、退出并清除或重测会删除已保存进度。分享文本仅含公开标题与入口。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What do the counts measure?",
+        "zh": "这些数量测量什么？"
+      },
+      "answer": {
+        "en": "They record choices within 24 original pairs, not verified behavior quality, independent abilities, personality types or population positions. The four themes share the same choices and are read separately.",
+        "zh": "它们记录24组原创配对内的选择，不是已核实行为质量、独立能力、人格类型或人群位置；四个主题共享选择集合，分别阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if both actions fit or neither occurred?",
+        "zh": "两项都符合或都没有发生怎么办？"
+      },
+      "answer": {
+        "en": "Use the explicit unscored option. Unscored appearances are shown separately and are never converted into a low score or an honesty conclusion.",
+        "zh": "选择明确的未计分选项，未计分出现次数会单独展示，不转成低分或诚实结论。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the full guides without answering?",
+        "zh": "可以不答题直接读完整指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All four complete bilingual guides are public and remain available before answers and for an entirely unscored attempt. No count unlocks a different text.",
+        "zh": "可以。四篇双语全文都公开，答题前及全部未计分时都可阅读，没有数量会解锁不同文本。"
+      }
+    },
+    {
+      "question": {
+        "en": "How is this different from remote preparation?",
+        "zh": "与远程准备回顾有什么不同？"
+      },
+      "answer": {
+        "en": "The existing Remote Work Readiness Test records stages of twenty preparation actions. This separate reflection records relative selections between two useful coordination actions. Their question formats and readouts differ; do not combine the numbers or interpret either as certification.",
+        "zh": "既有的远程工作准备程度测试记录二十项准备行动的阶段，本回顾则记录两项有用协作行动之间的相对选择。两者题式与读数不同，不应合并数量，也不把任何一份当作认证。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "GitLab Handbook: All-Remote Meetings — public work-practice background",
+        "zh": "GitLab手册：远程会议——公开工作实践背景"
+      },
+      "url": "https://handbook.gitlab.com/handbook/company/culture/all-remote/meetings/"
+    }
+  ]
+}

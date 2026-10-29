@@ -1,3 +1,5 @@
+import { isDistributedWork24ConfigurationValid } from "@/lib/questionnaires/distributedWork24";
+import { DistributedWorkPage } from "./DistributedWorkPage";
 import { isWrittenCoordinationConfigurationValid } from "@/lib/questionnaires/writtenCoordination";
 import { WrittenCoordinationPage } from "./WrittenCoordinationPage";
 import { WorkTraitsContext } from "./WorkTraitsReport";
@@ -119,6 +121,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "distributed-work24" && !isDistributedWork24ConfigurationValid(quiz)) return { title: "Coordination reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-coordination" && !isWrittenCoordinationConfigurationValid(quiz)) return { title: "Written practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sbti31" && !isSbti31ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mattering10" && !isMattering10ConfigurationValid(quiz)) return { title: "Mattering unavailable", robots: { index: false, follow: false } };
@@ -148,6 +151,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "distributed-work24") {
+    if (!isDistributedWork24ConfigurationValid(quiz)) notFound();
+    return <DistributedWorkPage quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "written-coordination") {
     if (!isWrittenCoordinationConfigurationValid(quiz)) notFound();
     return <WrittenCoordinationPage quiz={quiz} locale={locale} />;

@@ -6440,5 +6440,30 @@
       "summary"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "distributed-work-choices",
+    "code": "FM_DISTRIBUTED_WORK_CHOICES24",
+    "version": "fm_distributed_work24_choices_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Distributed Work Choices Reflection",
+      "zh": "分布式协作选择回顾"
+    },
+    "description": {
+      "en": "Compare two useful coordination actions across 24 original pairs. Read separate counts for handover, visible task state, help requests and reply windows, with four complete public guides.",
+      "zh": "用24组原创配对比较两项有用协作行动，分别阅读交接、状态可见、求助请求和回复窗口的选择数量，并免费阅读四篇完整公开指南。"
+    },
+    "minutes": 6,
+    "formCode": "fm_distributed_work24_choices_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "handover-reading",
+      "visibility-reading",
+      "blockers-reading",
+      "time-windows-reading"
+    ],
+    "collection": "explore"
   }
 ]
