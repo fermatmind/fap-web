@@ -1,0 +1,1934 @@
+{
+  "slug": "trauma-response-reflection",
+  "code": "FM_TRAUMA_RESPONSE20_OBSERVATIONS",
+  "kind": "trauma-response20",
+  "version": "fm_trauma_response20_observations_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "title": {
+    "en": "Reactions After a Difficult Experience",
+    "zh": "困难经历后的反应回顾"
+  },
+  "seoTitle": {
+    "en": "Reactions After a Difficult Experience: 20 Original Observations | FermatMind",
+    "zh": "困难经历后的反应回顾：20条原创观察｜费马测试"
+  },
+  "description": {
+    "en": "Record 20 original observations from the past four weeks, with separate category counts and four complete public guides. Private, optional reflection with no PTSD score or diagnostic result.",
+    "zh": "回顾过去四周的20条原创观察，分别查看类别计数，免费阅读四篇完整公开指南。私人、自愿的反思，不生成PTSD分数或诊断结论。"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "For adults who want an optional way to describe reactions after a difficult experience. No event details are requested. About five minutes is an editorial estimate for the statements; the four full guides take additional time. This original exercise has no established psychometric validation or English–Chinese measurement equivalence.",
+    "zh": "供成年人自愿描述困难经历后的反应。不要求事件细节。约五分钟是完成陈述的编辑估计，四篇全文需额外阅读时间。本原创练习尚无已确立的心理测量学验证或英中文测量等值。"
+  },
+  "instructions": {
+    "en": "Consider the past four weeks. For each observation, choose the frequency category that fits what you noticed. Select unscored when there was no relevant opportunity, recall is unclear or you prefer not to answer. All 20 explicit responses, including unscored, are needed to organize a record. You may pause or exit at any time; no event narrative or deliberate contact with reminders is needed.",
+    "zh": "回想过去四周，为每条观察选择符合自己注意情况的频率类别。没有相关机会、回想不清或不愿回答时，请选未计分。20条都须明确回应，包括未计分，之后才整理记录。可以随时暂停或退出；无需讲述事件，也无需故意接触提醒材料。"
+  },
+  "resultHeading": {
+    "en": "Your four separate observation records",
+    "zh": "四个分别阅读的观察记录"
+  },
+  "directions": [
+    {
+      "id": "unwanted-reminders",
+      "title": {
+        "en": "Unwanted reminders",
+        "zh": "不想要的提醒"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "keeping-distance",
+      "title": {
+        "en": "Keeping some distance",
+        "zh": "保持一些距离"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "mood-and-connection",
+      "title": {
+        "en": "Mood and connection",
+        "zh": "情绪与联系"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "feeling-on-edge",
+      "title": {
+        "en": "Feeling on edge",
+        "zh": "紧绷与警觉"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "TRO_01",
+      "prompt": {
+        "en": "An unwelcome reminder drew my attention away from an ordinary activity.",
+        "zh": "不想要的提醒把我的注意力从一项日常活动中带走。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_02",
+      "prompt": {
+        "en": "A sound, image or object brought back feelings connected with the difficult experience.",
+        "zh": "某个声音、画面或物品带回了与那段困难经历有关的感受。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_03",
+      "prompt": {
+        "en": "A dream connected with the experience left me unsettled after waking.",
+        "zh": "与那段经历有关的梦，让我醒来后仍感到不安。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_04",
+      "prompt": {
+        "en": "A reminder brought a body reaction that I found difficult to settle.",
+        "zh": "某个提醒引起了让我难以平复的身体反应。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_05",
+      "prompt": {
+        "en": "Thoughts about part of the experience returned when I wanted to rest or focus elsewhere.",
+        "zh": "当我想休息或留意别的事情时，对那段经历某些部分的想法又回来了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "unwanted-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_06",
+      "prompt": {
+        "en": "I steered away from an optional conversation because it might bring up reminders.",
+        "zh": "我避开了一次并非必须的谈话，因为它可能唤起相关提醒。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_07",
+      "prompt": {
+        "en": "I changed a usual activity to keep some distance from reminders of the experience.",
+        "zh": "我改变了一项平常活动，以便与那段经历的提醒保持一些距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_08",
+      "prompt": {
+        "en": "I put off a practical follow-up because thinking about the experience felt difficult.",
+        "zh": "因为想起那段经历让我感到困难，我推迟了一件实际的后续事务。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_09",
+      "prompt": {
+        "en": "I tried to set aside feelings about the experience when they began to surface.",
+        "zh": "与那段经历有关的感受开始出现时，我试着把它们暂时放到一边。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_10",
+      "prompt": {
+        "en": "I stayed away from a reminder even when part of me wanted to do the related activity.",
+        "zh": "即使有一部分自己想参加相关活动，我还是与某个提醒保持了距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "keeping-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_11",
+      "prompt": {
+        "en": "I noticed harsh judgments about myself when thinking about the experience.",
+        "zh": "想起那段经历时，我注意到自己对自己有苛刻的评价。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_12",
+      "prompt": {
+        "en": "Activities I usually value felt harder to take an interest in.",
+        "zh": "对那些平常重视的活动，我更难提起兴趣。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_13",
+      "prompt": {
+        "en": "I felt distant from people even when I wanted some connection.",
+        "zh": "即使希望与人有些联系，我还是感到与人疏远。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_14",
+      "prompt": {
+        "en": "It was difficult to imagine a near-future plan feeling worthwhile.",
+        "zh": "我很难想象一个近期计划会让我觉得值得期待。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_15",
+      "prompt": {
+        "en": "Comfort or reassurance was difficult to take in when someone offered it.",
+        "zh": "别人提供安慰或支持时，我感到难以真正接收到。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "mood-and-connection"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_16",
+      "prompt": {
+        "en": "My body stayed tense when I would have preferred to feel at ease.",
+        "zh": "当我希望放松一点时，身体仍保持紧绷。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_17",
+      "prompt": {
+        "en": "An ordinary unexpected sound or movement startled me strongly.",
+        "zh": "日常中意外的声音或动作让我明显受惊。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_18",
+      "prompt": {
+        "en": "Feeling on guard made it harder to settle for sleep.",
+        "zh": "保持警觉的感觉让我更难安稳下来准备睡觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_19",
+      "prompt": {
+        "en": "Watching what was happening around me interrupted my attention to a chosen task.",
+        "zh": "留意周围动静打断了我对一项原本想做的任务的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "TRO_20",
+      "prompt": {
+        "en": "I noticed an irritable response that was difficult to soften in the moment.",
+        "zh": "我注意到自己当时有一种难以缓和的烦躁反应。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feeling-on-edge"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "unwanted-reminders-reading",
+      "directionIds": [
+        "unwanted-reminders"
+      ],
+      "title": {
+        "en": "Unwanted reminders — Complete Reading",
+        "zh": "不想要的提醒：完整读法"
+      },
+      "headline": {
+        "en": "Five original observations, six separate category counts",
+        "zh": "五条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+        "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+      },
+      "scoreReading": {
+        "en": "Counts add to five because there are five statements. Category IDs are not points. There is no total, mean, ranking, risk band, clinical cutoff or diagnosis.",
+        "zh": "计数合计为五，因为共有五条陈述。类别标识不是点数，不生成总分、均值、排名、风险区间、临床阈值或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Unwanted reminders After a Difficult Experience | FermatMind",
+          "zh": "不想要的提醒：困难经历后的观察｜费马测试"
+        },
+        "description": {
+          "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+          "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What these five observations record",
+            "zh": "这五项观察记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This original theme concerns unwanted reminders during a four-week reflection period. The five statements ask about attention, feelings, dreams, body reactions and returning thoughts, using the same five frequency categories and an unscored option. The result is a count of how many statements you placed in each category. It is not a count of events, a symptom severity score, a memory test, or a finding that an experience meets a clinical definition of trauma. A single statement may involve several occasions, while another may have had no relevant opportunity.",
+              "zh": "这个原创主题关注四周回想范围内不想要的提醒。五条陈述涉及注意、感受、梦、身体反应和再次出现的想法，共用五种主观频率类别和一个未计分选项。结果记录你把多少条陈述放入每个类别，不统计事件次数，不是症状严重程度分、记忆测试，也不判定某段经历符合临床创伤定义。一条陈述可能涉及多次情境，另一条则可能没有相关机会。"
+            },
+            {
+              "en": "Read all six category counts together. They add to five because there are five statements in this theme. An unscored response is not converted into “did not notice,” and a selection of “did not notice” does not establish that every relevant reaction was absent. The item set has no established diagnostic accuracy or population norms. No number assigns PTSD, rules it out, ranks your reaction, or determines whether support is deserved. The other three complete readings remain available for every possible set of choices.",
+              "zh": "请把六种类别计数一起看，它们合计为五，只因为本主题有五条陈述。未计分不会变成“没有注意到”，选择“没有注意到”也不能证明所有相关反应都不存在。本题组没有已确立的诊断准确性或人群常模。任何数量都不诊断或排除PTSD，不给反应排名，也不决定你是否值得获得支持。无论如何选择，另三篇完整读法都可以阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Notice the interruption without retelling the event",
+            "zh": "留意被打断的片刻，不必重述事件"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional example, someone notices that an ordinary sound interrupts a routine activity and leaves an uncomfortable feeling. A private observation might simply say what was interrupted and what the person needed next. It does not need to describe the original experience, identify anyone involved, or prove why the sound mattered. Different statements in this theme may refer to the same moment, so adding their frequency labels would not produce a meaningful event total. The record keeps the categories separate rather than turning overlapping descriptions into a clinical score.",
+              "zh": "例如，一个虚构人物发现，普通声音打断了日常活动，并留下不舒服的感受。私下观察可以只记住什么活动被打断、当时接下来需要什么，不必描述原经历、指明相关人员，或证明声音为何有影响。本主题的不同陈述可能指向同一片刻，因此把频率标签相加，并不能得到有意义的事件总数。记录将类别分开，不把可能重叠的描述转成临床分数。"
+            },
+            {
+              "en": "You can use this reading without bringing a particular event to mind. If recalling an example feels difficult, you may leave it unscored, pause, or stop. There is no task here that requires deliberately finding reminders, repeatedly reviewing a memory, or staying with an upsetting experience. A reflection page is not a treatment exercise. Protecting privacy and choosing what to share are legitimate parts of deciding whether this activity is useful to you. Completing every item is not a condition for reading any of the guides.",
+              "zh": "你可以不特意唤起某个事件，也照样阅读。如果回想实例让你感到困难，可以留为未计分、暂停或停止。这里没有要求你刻意寻找提醒、反复回顾记忆，或持续停留在令人难受经历中的任务。反思页面不是治疗练习。保护隐私、决定分享什么，都是判断这项活动是否适合自己的合理部分。完成全部陈述并不是阅读任何指南的条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep the surrounding circumstances in view",
+            "zh": "看见周围条件"
+          },
+          "paragraphs": [
+            {
+              "en": "A category chosen for the past four weeks cannot explain the cause of a reaction. Sleep, current demands, relationships, physical health and the setting may also matter, and this inventory does not sort among them. You do not need to decide on a cause before asking a qualified professional a question. If you want a private example for a conversation, it can be enough to identify the kind of interruption and its effect on an ordinary activity, without reproducing detailed or distressing material.",
+              "zh": "过去四周所选的频率类别，不能解释反应的原因。睡眠、当前要求、关系、身体健康和具体环境也可能有关，本盘点不在这些因素之间作鉴别。向合格专业人士提问前，你不必先确定原因。如果想为谈话准备一个私下实例，可以只说明是哪一种打断、它怎样影响普通活动，无需复现详细或令人难受的材料。"
+            },
+            {
+              "en": "For example, two people may select the same category while describing very different situations. One might have noticed a brief interruption that passed, while another might describe difficulty returning to an important activity. Their matching category labels do not establish matching needs. Conversely, a person with few recorded observations can still want help with something this small set does not ask about. The record should remain a conversation aid rather than a reason to compare people or dismiss an experience that does not fit the statements.",
+              "zh": "例如，两个人可能选了同一个类别，却描述完全不同的情况。一位注意到很快过去的短暂打断，另一位则描述难以回到重要活动中。相同类别不等于相同需要。反过来，记录很少的人，也仍可能希望为本小题组没有询问的事情获得帮助。记录应帮助展开谈话，而不是成为比较人、或否定不符合陈述的经历的理由。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Use your own pace and choices",
+            "zh": "按自己的节奏选择"
+          },
+          "paragraphs": [
+            {
+              "en": "You may stop this page, move to another ordinary activity if that is workable, or contact someone you trust when you want support. The inventory does not require disclosure, contact with anyone connected to the experience, or changing a boundary. If there is immediate danger or you cannot stay safe, seek local emergency help rather than waiting for a questionnaire result. No frequency label changes that priority. This page cannot assess immediate safety, and its counts must not be used as an all-clear message.",
+              "zh": "你可以停止浏览，在条件允许时转向另一项普通活动，或在希望获得支持时联系信任的人。盘点不要求披露经历、联系与经历有关的人，或改变边界。如果存在立即危险，或你无法保持安全，应寻求当地紧急帮助，而不是等待问卷结果。频率标签不会改变这一优先事项。本页不能评估即时安全，其数量也不能被当成“一切没事”的信号。"
+            },
+            {
+              "en": "If you decide to continue, choose the option that best reflects your own recollection rather than trying to produce a particular result. “Cannot recall” and “prefer not to answer” remain valid reasons for leaving a statement unscored. You do not need to make a difficult experience sound more serious or less serious to use the public readings. The purpose is modest: noticing what you are willing to notice and identifying a question or need that matters to you, without claiming that a website has evaluated your health.",
+              "zh": "如果决定继续，请按自己的回想选择，不必为了得到某个结果而作答。“无法回想”和“不愿回答”都可以是未计分的合理原因。你不需要把困难经历说得更严重或更轻，才有资格阅读公开内容。目标可以保持具体：留意自己愿意留意的部分，辨认一个对自己重要的问题或需要，而不声称网站已经评价了你的健康。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Prepare one question for a professional",
+            "zh": "为专业谈话准备一个问题"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible question is whether the interruptions you noticed are worth discussing in a fuller assessment. A provider can explain what an assessment involves and how its information will be used. You can ask what you would be expected to share, request a break, or ask about the provider’s relevant experience. Those choices concern the conversation itself; they do not require you to arrive with a questionnaire score or prove that your experiences meet a threshold before you are allowed to ask.",
+              "zh": "一个可以提出的问题是：自己注意到的打断，是否值得在更完整的评估中讨论。提供服务的专业人士可以解释评估会包含什么、信息将怎样使用。你可以问需要分享哪些内容、提出休息，或询问对方的相关经验。这些选择属于谈话本身，不要求先带着问卷分数，也不要求证明经历达到某个阈值才允许提问。"
+            },
+            {
+              "en": "If writing a private note helps you organize that question, keep it brief and within your control. It might mention the reflection period, an activity that became difficult, and what you would like help understanding. Do not upload event narratives or identifying material to this inventory. You may also choose not to use a note at all. The complete public guide can serve as a list of questions to consider, while decisions about assessment or treatment belong in an appropriate professional conversation rather than in this record of categories.",
+              "zh": "如果简短私下记录有助于整理问题，可以把内容控制在自己愿意掌握的范围内，例如回想时段、变困难的一项活动，以及希望得到什么解释。不要向本盘点上传事件叙述或可识别材料。也可以完全不使用笔记。这篇公开全文可以作为考虑问题的清单；评估或治疗决定应放在合适的专业谈话中，而不是由类别记录决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Separate this original record from clinical measures",
+            "zh": "区分原创记录与临床工具"
+          },
+          "paragraphs": [
+            {
+              "en": "The PCL-5 is a separate standardized self-report measure with its own instructions, response format and professional interpretation. These five original observations do not reproduce its form or scoring. Similar topic words do not transfer diagnostic accuracy, a cutoff, or a validated interpretation to this website. A professional assessment can include information that a short reflection does not collect. Using a category in this record is therefore not equivalent to endorsing a PCL-5 item or meeting a PTSD criterion.",
+              "zh": "PCL-5是另一份标准化自报工具，有自己的说明、回应格式和专业解释。这五项原创观察没有复现其题表或计分。主题用词相近，不会把诊断准确性、阈值或经过验证的解释转给本站。专业评估可以包含短反思并未收集的信息，因此在本记录中选择某一类别，不等于对某个PCL-5条目作出肯定，也不等于满足PTSD标准。"
+            },
+            {
+              "en": "The four themes are organizing topics, not four independent clinical scales. No total, mean, symptom count, risk band or probable diagnosis is generated. The Chinese and English wording has no established cross-language equivalence or validation. Keep these limits visible if you discuss the page with someone else, and do not use another person’s choices to label them. What can be useful is the concrete question a person chooses to bring forward, including a question that does not match any statement here.",
+              "zh": "四个主题用于组织内容，并不是四个独立临床分量表。这里不生成总分、均值、症状数、风险区间或可能诊断。中文和英文措辞没有已确立的跨语言等价或验证。与别人讨论时应保留这些边界，也不要用别人的选择给对方贴标签。真正可能有用的是本人愿意提出的具体问题，包括本页没有任何陈述与之对应的问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Support is not unlocked by a count",
+            "zh": "支持不由数量解锁"
+          },
+          "paragraphs": [
+            {
+              "en": "You can seek support at any time. You do not need to wait until a reaction has lasted a month, choose the highest frequency category, or finish the inventory. If an experience is troubling you or affecting something important, that is a reason you may want to speak with a qualified professional. This original record cannot determine the right kind or urgency of care. Its public readings remain open before answers, after an entirely unscored attempt, and whenever you choose to leave the page.",
+              "zh": "任何时候都可以寻求支持，不必等反应持续一个月、不必选择最高频率类别，也不必完成盘点。某段经历让你难受或影响了重要事情时，你就可以考虑与合格专业人士谈谈。本原创记录不能判断何种照护最合适或有多紧急。答题前、全部未计分之后，以及你决定离开页面时，公开读法都一直开放。"
+            },
+            {
+              "en": "If you return later, notice whether you have a clearer question or a more workable support arrangement rather than treating a changed category count as evidence of recovery or deterioration. Circumstances and recall can change, and this inventory is not a validated change measure. You may leave every statement unscored and still use the reading to protect privacy, identify what you would like to ask, and decide whether to pause or seek support. None of those choices needs a score or a diagnostic label.",
+              "zh": "以后再次使用时，可以留意自己是否有了更清楚的问题、是否形成了更可行的支持安排，不要把类别数量变化当作恢复或恶化的证据。条件和回想都可能变化，本盘点不是经过验证的变化测量。即使所有陈述都留为未计分，也仍可用本文来保护隐私、辨认想问什么，并决定暂停还是寻求支持。这些选择都不需要分数或诊断标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keeping-distance-reading",
+      "directionIds": [
+        "keeping-distance"
+      ],
+      "title": {
+        "en": "Keeping some distance — Complete Reading",
+        "zh": "保持一些距离：完整读法"
+      },
+      "headline": {
+        "en": "Five original observations, six separate category counts",
+        "zh": "五条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+        "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+      },
+      "scoreReading": {
+        "en": "Counts add to five because there are five statements. Category IDs are not points. There is no total, mean, ranking, risk band, clinical cutoff or diagnosis.",
+        "zh": "计数合计为五，因为共有五条陈述。类别标识不是点数，不生成总分、均值、排名、风险区间、临床阈值或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Keeping some distance After a Difficult Experience | FermatMind",
+          "zh": "保持一些距离：困难经历后的观察｜费马测试"
+        },
+        "description": {
+          "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+          "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What keeping some distance can describe",
+            "zh": "保持一些距离可以描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme records how you described five ordinary ways of keeping some distance from reminders during the past four weeks. The statements concern an optional conversation, a usual activity, a practical follow-up, emerging feelings and an activity that part of you wanted to do. They are original observations rather than a clinical avoidance scale. A selected category tells us what you chose for that statement; it does not explain why you made a choice in life, whether it was safe, or whether a different action would have been appropriate.",
+              "zh": "这个主题记录你怎样描述过去四周与提醒保持一些距离的五种日常情况。陈述涉及非必须的谈话、平常活动、实际后续事务、开始出现的感受，以及有一部分自己想参加的活动。它们是原创观察，并非临床回避量表。选择类别只记录你对该陈述选了什么，不能解释生活中的选择原因、当时是否安全，或采取另一行动是否合适。"
+            },
+            {
+              "en": "The six counts add to five because there are five statements. “Did not notice” is one recorded frequency category; unscored is a separate record for an unavailable, unclear or withheld response. Neither is an all-clear finding about health. The categories are not added into points, a mean or a risk band. Keeping them separate also prevents a large number in one theme from deciding what the other three themes mean. All four complete public readings remain available even when every statement is unscored.",
+              "zh": "六种计数合计为五，是因为共有五条陈述。“没有注意到”是一个已记录的频率类别；未计分则另行记录没有机会、无法判断或保留回答的情况。两者都不是关于健康的“一切没事”结论。类别不会相加成点数、均值或风险区间。分开呈现，也避免某主题中的较多数量决定另外三个主题的意义。即使全部陈述都未计分，四篇公开全文仍可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Distinguish a boundary from a conclusion",
+            "zh": "把边界与结论分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Declining a conversation can protect privacy. Leaving a place can protect physical safety. Postponing a task can create needed room, while at other times postponement can become a practical difficulty. The same outward action can therefore have different purposes and consequences. This small inventory cannot tell them apart from a frequency label. If you consider an example privately, ask what the action protected and whether there is something you would like help understanding. You do not have to decide that the action was a symptom before asking that question.",
+              "zh": "拒绝一次谈话可以保护隐私，离开一个地方可以保护人身安全。推迟任务有时能够留出需要的空间，另一些时候则可能带来实际困难。因此，同一种外在行动可以有不同目的与后果。本小题组无法根据频率标签加以区分。私下考虑实例时，可以问这个行动保护了什么，以及自己是否有想得到帮助理解的部分。提出问题前，不必先把该行动判定为症状。"
+            },
+            {
+              "en": "For a fictional example, someone declines an optional social invitation because they do not want questions about a difficult experience. A useful discussion might concern privacy and how to answer future invitations. Another person might want to attend an activity but feel unable to approach it, raising a different question about support. The two examples should not be collapsed into one high or low score. They also do not justify asking anyone to reveal an event, contact a particular person, or abandon a protective boundary.",
+              "zh": "例如，一个虚构人物不希望被问起困难经历，于是拒绝了非必须的社交邀请。有用讨论可能涉及隐私，以及以后如何回应邀请。另一个人可能想参加活动，却感到无法接近它，提出的支持问题就不同。这两个实例不应被压成一个高低分，也不能成为要求人披露事件、联系特定对象或放弃保护性边界的理由。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Consider one ordinary consequence",
+            "zh": "考虑一个普通后果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to reflect further, choose a manageable example rather than the most difficult one. What activity was affected, and is there a practical question you would like to raise? Perhaps an optional plan needs changing, or a routine follow-up needs help from an appropriate person. Keep the question focused on what you want now. A reflection can be useful without rehearsing the event in detail. You may also decide that looking at the example is not useful today and leave the statement unscored.",
+              "zh": "想继续反思时，可以选一个自己愿意掌握的实例，而不必选最困难的那个。哪项活动受到影响？有没有想提出的实际问题？也许需要调整非必须的计划，或请合适的人协助一件日常后续事务。让问题聚焦于现在希望得到什么即可。反思可以不详细复述事件，也仍然有用。也可以决定今天不适合查看实例，把陈述留为未计分。"
+            },
+            {
+              "en": "A count alone cannot show whether a pattern is expanding, easing or staying the same. The statements do not track every situation, and the recall period can contain changing circumstances. A private example is therefore more informative than interpreting one category as a stable identity. If you revisit the inventory, a changed count should not be treated as evidence that a particular action caused recovery or worsening. This original exercise has no validated change threshold or method for making that conclusion.",
+              "zh": "单靠数量无法判断某种模式正在扩大、缓和还是保持不变。陈述没有追踪全部情境，回想范围内的条件也可能变化。因此，私下具体实例比把一个类别当作稳定身份更有信息价值。以后再做时，数量变化不能证明某项行动造成了恢复或恶化。本原创练习没有经过验证的变化阈值，也没有作出此类结论的方法。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep safety and choice together",
+            "zh": "同时保留安全与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no instruction here to seek out reminders, enter a place that feels unsafe, contact someone connected to the experience, or push through distress. Those actions are not needed to complete a reflection. You may pause, skip a statement or leave the page. If immediate danger is present or you cannot stay safe, seek local emergency help rather than waiting for a result. A low count or an unscored attempt cannot assess that situation and should never be used to delay a response to immediate safety needs.",
+              "zh": "这里没有要求寻找提醒、进入让自己感到不安全的地点、联系与经历有关的人，或强行承受难受。这些行动都不是完成反思所需条件。你可以暂停、跳过陈述或离开页面。如果存在立即危险，或无法保持安全，应寻求当地紧急帮助，而不是等结果。较少数量或全部未计分，都不能评估这种情况，也不应被用来推迟对即时安全需要的回应。"
+            },
+            {
+              "en": "If someone supports you in discussing this theme, you can tell them what kind of conversation you want and what you prefer to keep private. They can listen without interpreting the category counts as a diagnosis. You remain free to stop that discussion. A practical agreement might concern an ordinary task, a contact boundary or a question for a qualified professional. It does not need to become a plan to confront reminders, and this page is not a substitute for an appropriately supported assessment or treatment discussion.",
+              "zh": "有人支持你讨论本主题时，可以说明自己希望怎样谈、哪些内容想保留私密。对方可以倾听，而不把类别数量解释成诊断。你仍然可以停止讨论。一个实际约定也许涉及日常任务、联系边界，或准备向合格专业人士提出的问题；不必变成面对提醒的行动计划。本页也不能替代有合适支持的评估或治疗讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask what support would make a difference",
+            "zh": "问清自己需要什么支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible professional-conversation question is: “I have been putting distance between myself and some reminders; can we discuss what is happening and what support would fit?” You can choose how much context to provide and ask what an assessment would include. You do not need to establish a diagnosis before starting that conversation. It can help to distinguish a question about practical arrangements from a question about distress, but you do not have to solve that distinction on your own before seeking help.",
+              "zh": "一个可以在专业谈话中提出的问题是：“最近我与一些提醒保持距离，能否讨论这是怎么回事，以及什么支持比较合适？”你可以选择提供多少背景，并询问评估会包含什么。开始谈话前不需要先确定诊断。区分实际安排方面的问题与难受方面的问题可能有帮助，但寻求帮助之前，不必要求自己独立完成这种区分。"
+            },
+            {
+              "en": "If you make a private note, it might identify an activity that matters to you, what has become difficult, and what you would like to ask. Avoid uploading event details, names or identifying work to this page. No written narrative is required by the inventory. The record of categories can be kept out of the conversation entirely if it is not useful. A person’s own question and preferences are enough to begin discussing what an appropriate next step might look like.",
+              "zh": "如果准备私下笔记，可以只写一项对自己重要的活动、哪里变困难，以及想问什么。不要向本页上传事件细节、姓名或可识别材料。盘点不要求书面叙述。如果类别记录没有帮助，也可以完全不把它带入谈话。本人提出的问题和偏好，已经足以开始讨论合适的下一步可能是什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Read this as an original observation theme",
+            "zh": "把它作为原创观察主题阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "Clinical measures and assessments have their own instructions, evidence and interpretation. These five original statements do not reproduce the PCL-5 and do not apply its symptom-cluster rules. The broad word “avoidance” is not enough to establish equivalence between two questionnaires. This page records subjective frequency categories and offers a public reading, without determining whether an experience qualifies as clinical trauma or whether someone has PTSD. Similarity of topic cannot supply the missing assessment information.",
+              "zh": "临床工具与评估有各自的说明、证据和解释。这五条原创陈述没有复现PCL-5，也不使用其症状集群规则。仅凭“回避”这个宽泛词语，不能确立两份问卷等价。本页记录主观频率类别并提供公开读法，不判定某段经历是否符合临床创伤定义，也不判断是否存在PTSD。主题相近，不能补足缺少的评估信息。"
+            },
+            {
+              "en": "The four themes should be read separately, with opportunities and unscored responses visible. None becomes a total, rank, probable diagnosis or prediction. The bilingual wording has no established validation or cross-language equivalence. If another person sees your record, those limits should remain part of what they see. It would be inappropriate to use these choices to pressure a disclosure, discredit a boundary or claim that you must act in a particular way because of a website result.",
+              "zh": "四个主题应分别阅读，同时保留机会和未计分回应。它们不会变成总分、排名、可能诊断或预测。双语措辞尚未建立验证或跨语言等价。别人看到记录时，也应一并看到这些边界。不能利用选择去施压要求披露、否定边界，或声称一个人因为网站结果就必须采取某种行动。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Choose a next step without a threshold",
+            "zh": "选择下一步，不必先达到阈值"
+          },
+          "paragraphs": [
+            {
+              "en": "You may seek support whenever you want it, including before completing any statement. You do not need to wait for a month to pass, select “very often,” or produce a certain number of observations. If something is troubling you or interfering with an important part of life, you can raise that concern with a qualified professional. This page cannot determine the right care or its urgency. The public guide is available to help frame questions, not to decide whether you are entitled to ask them.",
+              "zh": "任何时候想要支持，都可以寻求，包括尚未完成任何陈述时。不必等待一个月、不必选择“经常”，也不必产生特定数量的观察。如果某件事让你难受，或影响生活中的重要部分，就可以向合格专业人士提出。本页无法判断应当获得哪种照护或有多紧急。公开指南用于帮助整理问题，不负责决定你有没有资格提出问题。"
+            },
+            {
+              "en": "A useful outcome might be one clearer boundary, a practical question about a postponed task, or a decision to pause the reflection and talk with someone appropriate. You may also choose no action today. All four complete readings remain open, and no answer unlocks a different text or result tier. Keep the purpose personal and modest: understanding what you are willing to notice, while preserving safety, privacy and the freedom to decide what comes next. That purpose does not require a diagnostic label or an arithmetic score.",
+              "zh": "有用的产出也许是一条更清晰的边界、一个关于延后任务的实际问题，或决定先暂停反思、与合适的人谈谈。今天也可以不采取任何行动。四篇完整读法一直开放，没有答案会解锁不同文本或结果等级。目标可以保持个人化且具体：理解自己愿意留意的部分，同时保留安全、隐私和决定下一步的自由。这个目标不需要诊断标签，也不需要算术分数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mood-and-connection-reading",
+      "directionIds": [
+        "mood-and-connection"
+      ],
+      "title": {
+        "en": "Mood and connection — Complete Reading",
+        "zh": "情绪与联系：完整读法"
+      },
+      "headline": {
+        "en": "Five original observations, six separate category counts",
+        "zh": "五条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+        "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+      },
+      "scoreReading": {
+        "en": "Counts add to five because there are five statements. Category IDs are not points. There is no total, mean, ranking, risk band, clinical cutoff or diagnosis.",
+        "zh": "计数合计为五，因为共有五条陈述。类别标识不是点数，不生成总分、均值、排名、风险区间、临床阈值或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mood and connection After a Difficult Experience | FermatMind",
+          "zh": "情绪与联系：困难经历后的观察｜费马测试"
+        },
+        "description": {
+          "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+          "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What this small set records",
+            "zh": "这一小组记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original statements ask about self-judgment, interest in valued activities, feeling connected, a near-future plan and receiving comfort. They concern what you noticed during the past four weeks. They do not measure a single underlying trait, identify a disorder or establish that a difficult experience caused a change. A record can help you name an area you want to discuss while leaving its explanation open. Your life contains more than these five statements, and a response that does not fit them still matters.",
+              "zh": "这五条原创陈述询问自我评价、对重视活动的兴趣、联系感、近期计划和接收安慰，关注过去四周注意到的情况。它们不测量单一潜在特质，不判定障碍，也不能确定变化由困难经历造成。记录可以帮助说出想讨论的方面，同时保留对原因的开放理解。你的生活超出这五条陈述，不符合它们的反应也仍然值得关注。"
+            },
+            {
+              "en": "Each statement contributes to one of six category counts, so those counts add to five. “Did not notice” records a chosen category; unscored records no relevant opportunity, uncertain recall or a choice not to answer. No category becomes a point value. There is no combined mood score, risk band, comparison with a population or preferred pattern. Reading the counts alongside the individual statements can prevent a broad theme title from becoming a judgment about your personality or your capacity to connect with others.",
+              "zh": "每条陈述进入六个类别计数之一，因此合计为五。“没有注意到”记录一个已选类别；未计分记录没有相关机会、回想不清或选择保留回答。类别不会变成点数，也没有综合情绪分、风险区间、人群比较或理想模式。把计数与逐条陈述一起看，有助于避免把宽泛的主题名称变成对人格或与人联系能力的判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Separate a thought from a verdict",
+            "zh": "把想法与判决分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Selecting a category for harsh self-judgment means you noticed a kind of thought. It does not establish that the judgment is accurate or deserved. The inventory cannot decide responsibility for an event, assess evidence about another person or settle a personal dispute. You do not need to write an account of what happened to use the page. If you want to bring something to a conversation with a qualified professional, a sentence about the thought and its effect on an ordinary activity can be enough to begin.",
+              "zh": "为苛刻自我评价选择类别，表示你注意到一种想法，不代表评价准确或应得。本盘点不能判定事件责任、评估另一个人的证据，或裁决私人争议。使用页面不必写下事情经过。想与合格专业人士谈谈时，可以先用一句话说明这种想法以及它对普通活动的影响。"
+            },
+            {
+              "en": "For a fictional example, someone notices a self-critical thought while considering a routine invitation. The useful question might concern how much attention the thought takes and what support they want, rather than whether the category label proves anything about their character. Another person may not notice that thought but still struggle with an issue outside this inventory. These different situations should stay different. Neither a frequent selection nor a blank response supplies enough information for a conclusion about blame, credibility or personal worth.",
+              "zh": "例如，一个虚构人物在考虑日常邀请时注意到自我批评。可以讨论这种想法占去多少注意力，以及希望获得何种支持，而不是用类别标签证明其品格。另一个人也许没有这种想法，却仍被题组之外的问题困扰。这些情况应保留差异。频繁选择或空缺回答，都不足以判断责任、可信度或个人价值。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Look at interest and opportunity together",
+            "zh": "同时看兴趣与机会"
+          },
+          "paragraphs": [
+            {
+              "en": "An activity can feel less appealing for many reasons, and a four-week response does not sort among them. There may have been little time, a change in access, demands from work or care, a physical health concern or something else. You may consider one activity you actually value, if doing so feels manageable, and ask what has made participation different. This is a question for understanding context. It is not an instruction to push through distress or to demonstrate wellness by completing an activity.",
+              "zh": "活动吸引力变化可能有多种原因，四周内的回答不能加以鉴别。时间有限、参与条件变化、工作或照护要求、身体健康问题等都可能有关。若愿意且可以掌握，可以考虑一项自己确实重视的活动，问参与条件发生了什么变化。这用于理解背景，不是要求顶着难受坚持活动，也不是让完成活动成为证明健康的任务。"
+            },
+            {
+              "en": "Suppose a person has not attended a regular group because its schedule changed. Another has time available but finds it difficult to feel interested. The same response category could conceal those different circumstances. If there was no relevant opportunity, the unscored option preserves that gap instead of converting it into a reassuring answer. A practical note kept privately can identify the difference without giving this website a history of the experience, the people involved or any details you would rather keep to yourself.",
+              "zh": "假设一人因时间表改变没有参加固定小组，另一人有空却难以产生兴趣，同一类别可能掩盖不同条件。没有相关机会时，未计分保留这一缺口，不会变成令人放心的回答。可以私下记住其中差别，无需向网站提供经历历史、相关人物或不愿透露的细节。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Connection does not require disclosure",
+            "zh": "联系不要求披露"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting connection and wanting privacy can exist together. This inventory does not require you to tell a friend, relative, employer or anyone connected with the experience what happened. You may think about the kind of contact you want now, including practical company, an ordinary conversation or a question for a professional. You may also decide not to contact someone. The relevant issue is what feels workable and safe in your circumstances, not whether a questionnaire says you should become more open.",
+              "zh": "希望与人联系和希望保留隐私可以同时存在。本盘点不要求告诉朋友、亲属、雇主或与经历有关的人事情经过。可以考虑现在希望有何种联系，例如实际陪伴、普通谈话，或向专业人士提问，也可以决定不联系某个人。重点是自己情境中什么可行且安全，而不是问卷要求更开放。"
+            },
+            {
+              "en": "Receiving reassurance is also more specific than accepting every message offered. Some responses may not fit what you need, and a category cannot tell whether the support was appropriate. A private reflection might distinguish the kind of help offered from the kind you wanted. That distinction can support a request such as asking someone to listen without asking for details. It should not become a duty to comfort the person offering help, endorse their interpretation or continue a conversation you do not want.",
+              "zh": "接收安慰也不等于接受所有被提供的信息。有些回应可能不符合需要，类别无法判断支持是否合适。私下反思可以区分别人提供的帮助与自己希望得到的帮助，据此提出只希望对方倾听、不问细节等请求。这不应成为安慰帮助者、认可其解释或继续不想进行的谈话的义务。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Bring an ordinary question to support",
+            "zh": "带着普通问题寻求支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful question for a qualified health professional can be concrete and limited: what you have noticed, which daily activity is affected and what you want to understand. You can ask about the assessment process before deciding how much detail to share. This original inventory does not replace that conversation or choose a treatment. You do not need to complete it, select a particular frequency or prove that an experience qualifies under a diagnostic definition before asking for help with something that concerns you.",
+              "zh": "向合格健康专业人士提出的问题可以具体而有限：注意到什么，哪项日常活动受到影响，以及希望理解什么。决定分享多少细节前，可以先询问评估流程。本原创盘点不能替代谈话，也不选择治疗。为在意的问题寻求帮助前，不必完成题组、选到某种频率，或证明经历符合诊断定义。"
+            },
+            {
+              "en": "If near-future plans feel difficult to consider, the page cannot tell why or how urgent your situation is. Do not use an unscored response or a small count to dismiss a concern. If you are in immediate danger or cannot stay safe, seek local emergency help rather than continuing this exercise. For other concerns, you can contact a qualified professional when you want support. Those choices remain available before answering and do not depend on a total, a waiting period or a result label.",
+              "zh": "如果难以考虑近期计划，本页无法判断原因或紧急程度。不要因为未计分或计数少而否定困扰。若正处于即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续练习。其他困扰可以在希望得到支持时联系合格专业人士。这些选择在答题前就存在，不依赖总分、等待期或结果标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Keep clinical tools separate",
+            "zh": "把临床工具单独对待"
+          },
+          "paragraphs": [
+            {
+              "en": "The PCL-5 is a separate professional assessment instrument with its own items, instructions and interpretation. This page does not administer it. Sharing broad topics such as mood or connection does not make this inventory a translation, substitute or shortened clinical scale. There is no mapping from these six category counts to a PCL-5 total, a diagnostic cluster or a clinical cutoff. If a professional uses a formal assessment, its results need to be understood under that instrument’s own conditions and in the wider assessment context.",
+              "zh": "PCL-5是独立的专业评估工具，有自己的题目、指导语和解释。本页不施测该工具。都涉及情绪或联系等宽泛主题，并不让本盘点成为译本、替代品或临床短表。这里的六个类别计数不能换算成PCL-5总分、诊断簇或临床阈值。专业人士采用正式评估时，需要按该工具自己的条件及更完整的评估背景理解结果。"
+            },
+            {
+              "en": "The same separation applies when this theme resembles an item on another mental health questionnaire. Similar wording about daily experiences is not evidence of measurement equivalence, validation or a diagnosis. These five observations were selected for an educational conversation, not a validated screening rule. The four themes also have equal lengths for a simple layout, not because they represent equal clinical weights. Keep the individual record, the original public explanation and any formal professional assessment distinct when discussing what the page can show.",
+              "zh": "这一主题即使与其他心理健康问卷的某题相似，也要保持区分。都描述日常经历，不证明测量等值、经过验证或能够诊断。五条观察用于教育性谈话，没有经过验证的筛查规则。四个主题题数相同是为了简明呈现，不代表相同临床权重。讨论页面能说明什么时，应分开逐条记录、原创公开读法和正式专业评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use the record without making an identity",
+            "zh": "使用记录，不把它变成身份"
+          },
+          "paragraphs": [
+            {
+              "en": "You can leave with one question you want to explore, or simply decide that this was enough for today. The record is a description of selected responses over one recall period. It is not a label for who you are, a forecast of relationships or a measure of resilience. Returning later can produce different responses because circumstances and recall change. The inventory has no validated rule for interpreting that difference as improvement, deterioration or the effect of a particular action.",
+              "zh": "可以带着一个想探索的问题离开，也可以决定今天到这里就够了。记录描述一个回想时段内所选的回答，不是身份标签、关系预测或韧性指标。以后再做时，条件和回忆变化可能带来不同回答。本盘点没有经过验证的规则，不能把差异解释成改善、恶化或特定行动的效果。"
+            },
+            {
+              "en": "All four complete readings remain public whether you answer, leave everything unscored or stop halfway. The private answers stay only in the current page’s memory and are cleared when you exit, retake or leave the page; there is no saved draft or answer submission for this exercise. Copying the public entry shares only its title and address. If you choose to talk with someone, decide separately what you want to share. A public guide link does not reveal your responses or authorize another person to interpret them for you.",
+              "zh": "无论答题、全部未计分还是中途停止，四篇完整读法都公开可读。私人回答只在当前页面内存中保留，退出、重做或离开页面时清除；本练习没有草稿保存或回答提交。复制公开入口只分享标题和网址。若想与人谈谈，请另行决定愿意分享什么。公开指南链接不会透露回答，也不授权他人替你解释私人记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feeling-on-edge-reading",
+      "directionIds": [
+        "feeling-on-edge"
+      ],
+      "title": {
+        "en": "Feeling on edge — Complete Reading",
+        "zh": "紧绷与警觉：完整读法"
+      },
+      "headline": {
+        "en": "Five original observations, six separate category counts",
+        "zh": "五条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+        "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+      },
+      "scoreReading": {
+        "en": "Counts add to five because there are five statements. Category IDs are not points. There is no total, mean, ranking, risk band, clinical cutoff or diagnosis.",
+        "zh": "计数合计为五，因为共有五条陈述。类别标识不是点数，不生成总分、均值、排名、风险区间、临床阈值或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feeling on edge After a Difficult Experience | FermatMind",
+          "zh": "紧绷与警觉：困难经历后的观察｜费马测试"
+        },
+        "description": {
+          "en": "Understand this original observation theme, the meaning of unscored responses, practical context and how to ask for support without a score threshold.",
+          "zh": "理解这一原创观察主题、未计分回答的意义、实际背景，以及怎样不依赖分数阈值寻求支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What feeling on edge means on this page",
+            "zh": "本页的紧绷警觉指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme groups five original observations about tension, being startled, settling for sleep, attention to surroundings and an irritable response. It asks what you noticed during the past four weeks without asking for a narrative of a difficult experience. These observations do not form a validated arousal scale and do not determine what caused a reaction. They can supply ordinary words for a question you want to raise. They cannot decide whether a situation was objectively safe, whether a physical symptom has a medical cause or whether you have a disorder.",
+              "zh": "本主题把紧绷、受惊、入睡前安定、留意环境及烦躁反应这五条原创观察放在一起，询问过去四周注意到的情况，不要求讲述困难经历。它们并非经过验证的唤醒量表，也不确定反应原因。可以用它们组织想提出的普通问题，但不能据此判断环境客观安全、身体感受是否有医学原因，或自己是否患有障碍。"
+            },
+            {
+              "en": "Five statements lead to six separate category counts whose sum is five. These are counts of selected labels, not symptom points. “Did not notice” stays separate from the unscored option for no relevant opportunity, uncertain recall or choosing not to answer. There is no total severity, mean, risk band or highest theme. A person can want support with one observation even if the other four were not noticed. Someone who leaves all five unscored receives the same complete public reading and the same support information.",
+              "zh": "五条陈述产生六个独立类别计数，合计为五。它们记录所选标签，不是症状点数。“没有注意到”与没有机会、回想不清或不愿回答的未计分选项分开。这里没有总严重程度、均值、风险区间或最高主题。即使另外四条都未注意到，也可以希望为其中一条获得支持。全部未计分的人同样能阅读公开全文和支持信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Start with context rather than a cause",
+            "zh": "从背景开始，不急于认定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "The same description can occur in different settings. An unexpected noise in a busy place, an ongoing unsafe situation, a disrupted routine or a physical health concern can raise different questions. This inventory does not distinguish among those possibilities, and selecting a category does not make a difficult experience the proven cause. If you want to reflect, identify one manageable setting and the ordinary effect you noticed. You do not need to revisit the most distressing event or collect evidence for a diagnostic explanation.",
+              "zh": "相同描述可能出现在不同环境：繁忙场所的意外声响、持续的不安全处境、被打乱的日常安排或身体健康问题，所提出的问题各不相同。本盘点不作鉴别，选择类别也不能证明困难经历就是原因。愿意反思时，可以选择一个能掌握的环境和注意到的日常影响，无需重访最难受的事件，也不必为诊断解释收集证据。"
+            },
+            {
+              "en": "For a fictional example, a person notices tension while preparing to travel through a noisy station. They may want to ask about the practical situation, the tension itself or a concern this inventory does not cover. Another person selects the same category in a very different setting. Matching answers do not show matching health needs. Do not use a shared theme title to compare how serious people’s experiences were, decide whose account is credible or conclude that one person should manage without help.",
+              "zh": "例如，一个虚构人物准备经过嘈杂车站时注意到紧绷，可能希望讨论实际处境、紧绷本身，或题组未涉及的问题。另一个人在很不同的环境选了相同类别，并不代表健康需要相同。不要根据共同主题比较经历严重性、判断谁的讲述可信，或认定某人应当自己应付。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Sleep and attention need their own questions",
+            "zh": "睡眠与注意力有各自的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The sleep statement concerns finding it harder to settle while feeling on guard. It does not measure total sleep, diagnose insomnia or ask everything a clinician may need to know. The attention statement likewise describes an interruption while watching the surroundings rather than a general attention ability. A concrete question might describe which ordinary task became difficult and what you would like help understanding. You may keep event details private and ask what information would be useful before deciding whether to share more.",
+              "zh": "睡眠陈述涉及警觉感使安稳准备睡觉变难，不测总睡眠，不诊断失眠，也未询问临床判断所需的全部情况。注意力陈述描述留意周围时受到打断，并不测一般注意能力。可以具体说哪项普通任务变难，以及希望得到什么帮助。事件细节可以保留，决定多说之前，可以先问哪些信息有助于理解。"
+            },
+            {
+              "en": "A frequency label cannot show duration, intensity or the wider conditions around an interruption. Two selections of “Sometimes” can refer to experiences with very different practical consequences. The page therefore keeps the statement and category together instead of converting them to a percentage. If sleep, attention or another concern is affecting daily life, you can seek professional support without waiting for more statements to be endorsed. This inventory is not a device for ruling out a physical condition or deciding which type of care is required.",
+              "zh": "频率标签不显示持续时间、强度或打断发生的更广背景。两次“有时”可能对应实际后果很不同的经历，因此页面把陈述与类别放在一起，不换算百分比。如果睡眠、注意力或其他困扰影响日常生活，可以寻求专业支持，无需等更多条目得到肯定回答。本盘点不能排除身体疾病，也不能决定需要哪类照护。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Notice an action without judging a person",
+            "zh": "留意行动，不评判整个人"
+          },
+          "paragraphs": [
+            {
+              "en": "The irritability statement asks whether you noticed a response that was difficult to soften in the moment. It does not establish aggression, intent to harm or a fixed personality characteristic. If you wish, a private example can distinguish a feeling, an action and its consequence. Those are different kinds of information. You may choose a small, manageable situation and consider what question you want to raise, without turning the exercise into an investigation of yourself or another person. No event narrative is collected by this page.",
+              "zh": "烦躁陈述询问是否注意到当时难以缓和的反应，不证明攻击性、伤害意图或稳定人格。愿意时，可以通过私下实例区分感受、行动和后果，它们是不同信息。可以选一个小而能掌握的情况，考虑想提出什么问题，无需把练习变成对自己或他人的调查。本页不收集事件叙述。"
+            },
+            {
+              "en": "A chosen category neither excuses harmful actions nor establishes that harm occurred. Decisions about safety and responsibility need more information than an inventory response. If a situation is currently dangerous or you cannot stay safe, seek local emergency help instead of completing the page. Otherwise, support can focus on what you want to understand or change in everyday life. The inventory does not require contact with a particular person, confrontation, disclosure or any action that would put you at risk.",
+              "zh": "所选类别既不为有害行动开脱，也不证明伤害已经发生。安全与责任判断需要比题组回答更多的信息。如果当前有危险或无法保障自身安全，请寻求当地紧急援助，而不是继续完成页面。其他情况下，支持可以聚焦希望理解或改变的日常问题。本盘点不要求联系某人、对质、披露经历或采取可能带来风险的行动。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep pace and choice under your control",
+            "zh": "由自己控制节奏与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "You can pause, skip a statement, return to a previous response or leave the page. There is no requirement to continue when reading or answering feels unhelpful. This exercise does not instruct you to deliberately trigger reactions, test whether a place is safe or practise exposure to reminders. Those activities are not needed to make a record. If you want support, you can ask a qualified professional about an appropriate assessment and discuss how much information you feel ready to share.",
+              "zh": "可以暂停、跳过陈述、回看回答或离开页面。阅读或回答无益时，没有必须继续的要求。本练习不让你故意触发反应、测试地点是否安全或接触提醒材料；作记录无需这些活动。想得到支持时，可以询问合格专业人士适合怎样评估，以及自己准备分享多少信息。"
+            },
+            {
+              "en": "The recall period is only a way to give the original statements a common frame. It is not a requirement to wait four weeks, to experience something for a minimum duration or to obtain a particular count before seeking help. A person can ask for support today with a concern that this inventory does not mention. Conversely, a low count should not be used as a medical clearance or a reason to ignore changes that matter to you. Help is independent of completing or interpreting this exercise.",
+              "zh": "回想范围只是给原创陈述提供共同背景，不要求等满四周、经历达到最短时长或计数达到某个值才寻求帮助。今天就可以为题组没提到的困扰寻求支持。反过来，计数低也不等于医学排除结论，不能成为忽略重要变化的理由。获得帮助不依赖完成或解释练习。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Understand the limits of the measurement",
+            "zh": "理解测量的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This original set uses four equal-sized themes to make a short educational record. It does not reproduce the PCL-5, its cluster structure, scoring anchors or diagnostic interpretation. The PCL-5 is a separate professional instrument; a proper assessment may consider information beyond a questionnaire. These category counts cannot be converted to its total or a clinical threshold. No score here establishes whether an experience meets a trauma definition, and no pattern identifies a probable diagnosis or excludes one.",
+              "zh": "本原创题组用四个等长主题组织简短教育性记录，不复现PCL-5、它的分簇结构、计分锚点或诊断解释。PCL-5是独立专业工具，合适的评估也可能考虑问卷以外的信息。这里的类别计数不能换算成它的总分或临床阈值。任何记录都不能判定经历是否符合创伤定义，任何模式都不判定可能诊断或将其排除。"
+            },
+            {
+              "en": "There are no population norms, validated change thresholds or established English–Chinese measurement equivalence for this exercise. The bilingual text is provided for access to the original educational content. If you revisit it, differences can reflect recall, opportunity or circumstances as well as what you noticed. Do not interpret a changed category as proof that a particular action worked or failed. A qualified professional can help explore concerns using an assessment suited to the question, rather than a conversion rule invented for this inventory.",
+              "zh": "本练习没有人群常模、经过验证的变化阈值或已确立的英中文测量等值。双语文本用于理解原创教育内容。再次填写时，差异可能来自回忆、机会、条件和注意到的情况。类别变化不能证明某个行动有效或无效。合格专业人士可以选择适合问题的评估帮助理解，而不是使用为本盘点凭空设定的换算规则。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Leave with a question you choose",
+            "zh": "带着自己选择的问题离开"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next step is to identify one question about an ordinary activity or the kind of support you want. You can also close the page without making a plan. The public guides remain readable before answering, for an entirely unscored record and after completion. They explain topics rather than assign you to a category of person. No highest theme, performance level or reassurance label is waiting at the end, and nothing in the count determines your entitlement to support.",
+              "zh": "可选的下一步，是确定一个关于普通活动或希望获得何种支持的问题，也可以不制定计划就关闭页面。公开指南在答题前、全部未计分及完成后都能阅读。它们解释主题，不把人分成类别。结尾没有最高主题、表现等级或令人安心的标签，计数也不决定你是否有资格获得支持。"
+            },
+            {
+              "en": "Private answers stay only in the memory of the current page. Exit, retake or leaving clears the record; this exercise has no draft storage or answer submission. Copying the public entry copies its title and address without the responses. If you decide to talk with someone, you control which details to share separately. You can begin with a practical question and ask about the conversation process. The page is a small optional aid to that choice, not a prerequisite or a replacement for care.",
+              "zh": "私人回答仅保留在当前页面内存。退出、重做或离开即清除，本练习没有草稿存储或回答提交。复制公开入口只复制标题和地址，不带回答。决定与人谈谈时，另行控制分享哪些细节，可以从实际问题开始，也可以先问谈话流程。本页只是帮助选择的可选小工具，不是获得照护的前提或替代品。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "How the record works",
+        "zh": "记录怎样整理"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme contains five original statements. Each statement enters exactly one of six category counts: did not notice, rarely, sometimes, often, very often or unscored. The categories are not added as points. Unscored stays separate from did not notice. The individual observation and selected label are shown together. No combined number, highest theme or risk band is calculated.",
+          "zh": "每个主题有五条原创陈述，每条进入六种类别计数之一：没有注意到、很少、有时、较常、经常或未计分。类别不会相加成点数，未计分与没有注意到分开。逐条观察与所选标签一起展示。不计算综合数字、最高主题或风险档位。"
+        },
+        {
+          "en": "Four equal-length themes organize an educational record, not a validated clinical cluster structure. This page does not administer the PCL-5, qualify a trauma exposure, diagnose PTSD or rule out any condition. Seek support whenever you want help; do not wait for a count or for the four-week recall period to pass.",
+          "zh": "四个等长主题只组织教育性记录，不是经过验证的临床分簇结构。本页不施测PCL-5，不判定创伤暴露资格，不诊断PTSD，也不排除任何状况。希望得到帮助时就可以寻求支持，不必等某种计数，也不必等四周回想范围结束。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private responses and public reading",
+        "zh": "私人回答与公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers remain only in the current page’s memory. There is no draft storage, answer submission, result URL or questionnaire analytics. Exit, retake, page leave or reload clears the record. The copy button shares only the public title and entry address.",
+          "zh": "回答仅保留在当前页面内存中，没有草稿存储、回答提交、结果网址或问卷分析。退出、重做、离开或刷新页面即清除记录。复制按钮仅分享公开标题和入口地址。"
+        },
+        {
+          "en": "All four complete bilingual readings are public before answering, when everything is unscored and after completion. They explain topics rather than assign personal types. A public guide never contains your responses and no frequency unlocks another level of text.",
+          "zh": "四篇双语全文在答题前、全部未计分及完成后都公开。它们解释主题，不分配个人类型。公开指南不含你的回答，没有频率会解锁另一档文本。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a PTSD or PCL-5 test?",
+        "zh": "这是PTSD或PCL-5测试吗？"
+      },
+      "answer": {
+        "en": "No. It is an original educational observation exercise, without a diagnostic rule, clinical cutoff or conversion to a professional scale. Broad topic overlap does not establish equivalence.",
+        "zh": "不是。这是原创教育性观察练习，没有诊断规则、临床阈值或专业量表换算；宽泛主题相似不代表等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to describe what happened?",
+        "zh": "需要描述发生了什么吗？"
+      },
+      "answer": {
+        "en": "No. No event narrative is collected. You may skip any statement or stop. Do not seek out reminders or disclose details to complete this page.",
+        "zh": "不需要。页面不收集事件叙述，可以跳过任何陈述或停止，无需寻找提醒材料或披露细节来完成页面。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a low count mean I do not need help?",
+        "zh": "数量少就不需要帮助吗？"
+      },
+      "answer": {
+        "en": "No. The record cannot determine your needs. Support is available independently of answers, including an entirely unscored record.",
+        "zh": "不是。记录不能确定需要何种帮助。获得支持不依赖回答，全部未计分时也一样。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read the complete guides without answering?",
+        "zh": "可以不答题读完整指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All four full guides are free and public. Answers never unlock, restrict or personalize the public text.",
+        "zh": "可以。四篇全文免费公开，回答不会解锁、限制或个性化公开文本。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "VA National Center for PTSD: How PTSD is measured",
+        "zh": "美国退伍军人事务部国家PTSD中心：怎样评估PTSD"
+      },
+      "url": "https://www.ptsd.va.gov/understand/isitptsd/measured_how.asp"
+    },
+    {
+      "title": {
+        "en": "VA National Center for PTSD: Common reactions after trauma",
+        "zh": "美国退伍军人事务部国家PTSD中心：创伤后的常见反应"
+      },
+      "url": "https://www.ptsd.va.gov/understand/isitptsd/common_reactions.asp"
+    },
+    {
+      "title": {
+        "en": "VA National Center for PTSD: PCL-5 professional assessment information",
+        "zh": "美国退伍军人事务部国家PTSD中心：PCL-5专业评估信息"
+      },
+      "url": "https://www.ptsd.va.gov/professional/assessment/adult-sr/ptsd-checklist.asp"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_trauma_response_observations",
+    "formCode": "fm_trauma_response20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_observations_v1",
+    "scoringVersion": "six_categorical_counts_per_five_items_no_points_v1",
+    "resultContentVersion": "four_full_bilingual_observation_readings_v1",
+    "itemBankSha256": "9a484f0a4df4df58e3cad81417c8452297916d969e5be91f294c7edcd2be21a8",
+    "resultContentSha256": "51c3ab1f560899f79f897b8392e147440a9413c95c5659754b4c3f5a7506acc5",
+    "psychometricValidationCompleted": false
+  }
+}

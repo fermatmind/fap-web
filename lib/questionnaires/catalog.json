@@ -6491,5 +6491,30 @@
       "soft-drape"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "trauma-response-reflection",
+    "code": "FM_TRAUMA_RESPONSE20_OBSERVATIONS",
+    "version": "fm_trauma_response20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Reactions After a Difficult Experience",
+      "zh": "困难经历后的反应回顾"
+    },
+    "description": {
+      "en": "Record 20 original observations from the past four weeks, with separate category counts and four complete public guides. Private, optional reflection with no PTSD score or diagnostic result.",
+      "zh": "回顾过去四周的20条原创观察，分别查看类别计数，免费阅读四篇完整公开指南。私人、自愿的反思，不生成PTSD分数或诊断结论。"
+    },
+    "minutes": 5,
+    "formCode": "fm_trauma_response20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "unwanted-reminders-reading",
+      "keeping-distance-reading",
+      "mood-and-connection-reading",
+      "feeling-on-edge-reading"
+    ],
+    "collection": "explore"
   }
 ]

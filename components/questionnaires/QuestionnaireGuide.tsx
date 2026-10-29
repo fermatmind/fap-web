@@ -1,3 +1,5 @@
+import { isTraumaResponse20ConfigurationValid } from "@/lib/questionnaires/traumaResponse20";
+import { TraumaResponseGuidePage } from "./TraumaResponsePage";
 import { isDistributedWork24ConfigurationValid } from "@/lib/questionnaires/distributedWork24";
 import { DistributedWorkGuidePage } from "./DistributedWorkPage";
 import { isWrittenCoordinationConfigurationValid } from "@/lib/questionnaires/writtenCoordination";
@@ -104,6 +106,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "trauma-response20" && !isTraumaResponse20ConfigurationValid(quiz)) return { title: "Observation reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "distributed-work24" && !isDistributedWork24ConfigurationValid(quiz)) return { title: "Coordination reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-coordination" && !isWrittenCoordinationConfigurationValid(quiz)) return { title: "Written practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sbti31" && !isSbti31ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
@@ -151,6 +154,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "trauma-response20") {
+    if (!isTraumaResponse20ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <TraumaResponseGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "distributed-work24") {
     if (!isDistributedWork24ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
