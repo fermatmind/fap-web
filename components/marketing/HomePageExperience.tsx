@@ -797,7 +797,7 @@ function ArticleCoverVisual({ article }: { article: HomeArticle }) {
       height={article.coverImageHeight}
       variants={article.coverImageVariants}
       mode="card"
-      className="h-40"
+      className="aspect-[16/9]"
     />
   );
 }
