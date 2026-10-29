@@ -1261,7 +1261,7 @@
     },
     "description": {
       "zh": "用20条原创题分别观察时间催促、竞争比较、普通等待烦躁与自选活动难停下。四项均分及完整解释免费，保留资料不足；不派固定A/B类型，不评健康或职业。",
-      "en": "Use 20 original ratings for four separate A/B-related behaviour reflections. Full guides free; no fixed type, overall score, health or career verdict."
+      "en": "Explore time urgency, competitive comparison, waiting irritation and difficulty stopping. 20 original ratings, four free guides; no fixed A/B label."
     },
     "minutes": 5,
     "collection": "explore",
@@ -1286,7 +1286,7 @@
     },
     "description": {
       "zh": "用24条原创题分别观察自主、胜任、联结的满足与受阻体验。六项均分、资料不足和完整解释免费；不派固定动机型，不评能力、健康或职业。",
-      "en": "Explore six separate SDT need experiences with 24 original ratings and free full guides. No fixed motivation type, ability, health or career verdict."
+      "en": "Self-Determination Theory reflection: 24 original ratings on autonomy, competence and relatedness. Six free guides separate satisfaction from frustration."
     },
     "minutes": 6,
     "collection": "explore",
@@ -2621,7 +2621,7 @@
     "updated": "2026-10-27",
     "category": "fantasy",
     "title": {
-      "en": "Blue Lock Test",
+      "en": "Blue Lock Character Quiz",
       "zh": "《蓝色监狱》角色测试"
     },
     "description": {
@@ -2701,7 +2701,7 @@
     "updated": "2026-10-27",
     "category": "fantasy",
     "title": {
-      "en": "Which Hundred Acre Wood Friend Are You?",
+      "en": "Which Winnie the Pooh Character Are You?",
       "zh": "故事书朋友测验"
     },
     "description": {
