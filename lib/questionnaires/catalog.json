@@ -6696,5 +6696,31 @@
       "questions-about-care-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "connection-meaning-reflection",
+    "code": "FM_CONNECTION_MEANING15",
+    "version": "fm_connection_meaning15_v1",
+    "updated": "2026-10-30",
+    "category": "relationships",
+    "title": {
+      "en": "Twin Flame Reflection",
+      "zh": "双生火焰话题反思"
+    },
+    "description": {
+      "en": "Reflect on one adult connection through 15 original prompts about familiarity, similarities, pace, checking and personal meaning. Five full guides free, without a soul-bond assignment or relationship verdict.",
+      "zh": "通过15条原创陈述，回顾一段成年连接中的熟悉感、相似处、节奏、确认与个人意义。五篇全文免费，不分配灵魂连接身份，不裁决关系。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_connection_meaning15",
+    "questionCount": 15,
+    "resultSlugs": [
+      "felt-familiarity",
+      "noticing-similarities",
+      "pausing-after-intensity",
+      "checking-understanding",
+      "reflecting-on-meaning"
+    ],
+    "collection": "explore"
   }
 ]

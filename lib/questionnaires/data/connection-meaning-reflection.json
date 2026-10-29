@@ -1,0 +1,1855 @@
+{
+  "slug": "connection-meaning-reflection",
+  "code": "FM_CONNECTION_MEANING15",
+  "version": "fm_connection_meaning15_v1",
+  "updated": "2026-10-30",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Twin Flame Reflection",
+    "zh": "双生火焰话题反思"
+  },
+  "description": {
+    "en": "Reflect on one adult connection through 15 original prompts about familiarity, similarities, pace, checking and personal meaning. Five full guides free, without a soul-bond assignment or relationship verdict.",
+    "zh": "通过15条原创陈述，回顾一段成年连接中的熟悉感、相似处、节奏、确认与个人意义。五篇全文免费，不分配灵魂连接身份，不裁决关系。"
+  },
+  "seoTitle": {
+    "en": "Free Twin Flame Reflection: 15 Original Prompts, Five Full Guides",
+    "zh": "免费双生火焰话题反思：15条原创陈述与五篇全文"
+  },
+  "minutes": 4,
+  "resultHeading": {
+    "en": "Your recent connection experiences, in five parts",
+    "zh": "你的近期连接体验：五部分分别阅读"
+  },
+  "instructions": {
+    "en": "For adults, keep one connection with another adult in mind and recall only your own experience over the past three months. The three-month window is editorial. Use 1, Never, to 5, Almost always; 3 means Sometimes. No relevant opportunity, unclear recall or a declined answer stays unscored, rather than automatically Never. All fifteen response choices finish the form. Each three-item part requires all three numeric ratings for a separate mean; no value is substituted for unscored. All five complete guides remain open. Do not answer for the other person, enter private messages or use this result to identify a soul bond. You may stop or read every guide without answering.",
+    "zh": "面向成年人，始终以与另一位成年人的同一段连接为参照，只回想自己过去三个月的体验；三个月是编辑选择的窗口。1从不，5几乎每次，3是有时。没有相关机会、记忆不清或不愿回答保持未评分，不自动算从不。十五项均选择即可完成，每部分三条全部数值有效才显示独立均值，未评分不补值；五份完整指南始终开放。不替对方作答，不填写私人消息，不据此识别灵魂连接。可随时停止，或不作答直接阅读全文。"
+  },
+  "introduction": {
+    "en": "If twin-flame stories made you curious about closeness and recognition, this original reflection offers a smaller task: describing your own recent experiences. Its fifteen prompts form five editorial groups, without reproducing another quiz’s twelve-item bank or assigning spiritual archetypes. Familiarity and meaning can matter without proving destiny.",
+    "zh": "如果双生火焰故事让你对亲近与熟悉感好奇，这份原创反思采用一个更小的任务：描述自己的近期体验。十五条分为五个编辑组，不复现其他测试的十二题，也不派灵性原型。熟悉与意义可以重要，同时不证明命定。"
+  },
+  "source": {
+    "kind": "fermatmind-original-recent-connection-meaning-frequency-reflection",
+    "formCode": "fermatmind_connection_meaning15",
+    "itemBankVersion": "fm-connection-meaning15-v1",
+    "scoringVersion": "five-separate-means-all3numeric-na-unimputed-v1",
+    "resultContentVersion": "fm-connection-meaning-five-guides-v1",
+    "itemBankSha256": "ea9d958a4bf1e19c452c4b33b8286ae049160db1a6b672b12445a12aa1e85991",
+    "resultContentSha256": "0a30a19947342ac46355c605fe478f72d59ec5afe0c71c02ebefcbea24d22595",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "felt-familiarity",
+      "title": {
+        "en": "Feeling Familiarity",
+        "zh": "感到熟悉"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "noticing-similarities",
+      "title": {
+        "en": "Noticing Similarities",
+        "zh": "注意相似处"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "pausing-after-intensity",
+      "title": {
+        "en": "Pausing After Strong Exchanges",
+        "zh": "强烈交流后放慢"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "checking-understanding",
+      "title": {
+        "en": "Checking Mutual Understanding",
+        "zh": "确认彼此理解"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "reflecting-on-meaning",
+      "title": {
+        "en": "Reflecting on Personal Meaning",
+        "zh": "回看个人意义"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "CMR_001",
+      "prompt": {
+        "en": "During an ordinary exchange, a way of speaking felt familiar to me even though the particular conversation was new.",
+        "zh": "在普通交流里，即使谈话内容是新的，一种说话方式仍让我感到熟悉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "felt-familiarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-familiarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-familiarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "felt-familiarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "felt-familiarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "felt-familiarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_002",
+      "prompt": {
+        "en": "A moment in this connection reminded me of an experience I already knew from my own life.",
+        "zh": "这段连接中的某个片刻，让我想起自己生活里已熟悉的经历。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "felt-familiarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-familiarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-familiarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "felt-familiarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "felt-familiarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "felt-familiarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_003",
+      "prompt": {
+        "en": "I noticed a feeling of familiarity before I had put into words which detail had prompted it.",
+        "zh": "还没说清是什么细节触发时，我先注意到一种熟悉感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "felt-familiarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-familiarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-familiarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "felt-familiarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "felt-familiarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "felt-familiarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_004",
+      "prompt": {
+        "en": "I noticed an interest we had both expressed in the conversations available to me.",
+        "zh": "在自己实际参与的交流中，我注意到双方表达过的一项共同兴趣。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "noticing-similarities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-similarities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-similarities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-similarities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "noticing-similarities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "noticing-similarities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_005",
+      "prompt": {
+        "en": "A small reaction in an exchange reminded me of a way I also respond in a similar situation.",
+        "zh": "交流里的一个小反应，让我想到自己在类似场景下也会有的回应方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "noticing-similarities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-similarities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-similarities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-similarities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "noticing-similarities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "noticing-similarities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_006",
+      "prompt": {
+        "en": "I noticed an everyday priority that both of us had actually said mattered to us.",
+        "zh": "我注意到一项日常重点，是双方实际说过自己在意的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "noticing-similarities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-similarities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-similarities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-similarities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "noticing-similarities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "noticing-similarities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_007",
+      "prompt": {
+        "en": "After an exchange felt emotionally strong to me, I wanted time before continuing it.",
+        "zh": "一次交流在自己看来情绪较强烈后，我想先留一点时间，再继续。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_008",
+      "prompt": {
+        "en": "After a vivid interaction, I preferred a quieter pace for the next contact.",
+        "zh": "一次感受鲜明的互动后，我更愿意让下一次联系节奏慢一点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_009",
+      "prompt": {
+        "en": "When I had a strong reaction, I wanted to sort out my own view before deciding what the exchange meant.",
+        "zh": "自己反应强烈时，我想先整理看法，再决定怎样理解这次交流。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "pausing-after-intensity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_010",
+      "prompt": {
+        "en": "When an exchange could have several meanings, I checked what had actually been meant rather than relying only on my first impression.",
+        "zh": "一次交流可能有几种意思时，我会确认实际想表达什么，而不只靠第一印象。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "checking-understanding",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-understanding",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-understanding",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "checking-understanding",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "checking-understanding",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "checking-understanding",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_011",
+      "prompt": {
+        "en": "When considering another conversation, I checked whether its timing or pace was welcome to both people.",
+        "zh": "考虑下一次交流时，我会确认时间或节奏是否双方都愿意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "checking-understanding",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-understanding",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-understanding",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "checking-understanding",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "checking-understanding",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "checking-understanding",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_012",
+      "prompt": {
+        "en": "I checked whether a word or small agreement had the same meaning for each of us.",
+        "zh": "我会确认一个词或小约定，对双方是否指同样的事情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "checking-understanding",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "checking-understanding",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "checking-understanding",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "checking-understanding",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "checking-understanding",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "checking-understanding",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_013",
+      "prompt": {
+        "en": "After an interaction, I reflected on what it helped me notice about my own preferences.",
+        "zh": "一次互动后，我会回想它让我注意到自己的什么偏好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_014",
+      "prompt": {
+        "en": "I considered what I wanted to keep doing for myself, separately from how the other person might respond.",
+        "zh": "我会想想自己还想继续做什么，并把它与对方可能怎样回应分开。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CMR_015",
+      "prompt": {
+        "en": "I put a personal meaning into words without needing to assign the other person a special role in my life.",
+        "zh": "我会把一种个人意义说出来，同时不需要为对方指定在人生里的特殊角色。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no relevant opportunity, unsure or prefer not to answer",
+            "zh": "未评分：没有相关机会、不确定，或不愿回答"
+          },
+          "directionId": "reflecting-on-meaning",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "felt-familiarity",
+      "directionIds": [
+        "felt-familiarity"
+      ],
+      "title": {
+        "en": "Feeling Familiarity",
+        "zh": "感到熟悉"
+      },
+      "headline": {
+        "en": "Notice a familiar feeling without making it a prediction",
+        "zh": "注意熟悉的感受，不把它变成预测"
+      },
+      "summary": {
+        "en": "Reflect on moments that felt familiar to you, while keeping remembered experience separate from evidence about a soul bond or another person.",
+        "zh": "回顾让自己感到熟悉的片刻，并区分自己的体验、灵魂连接的证据与对他人的判断。"
+      },
+      "scoreReading": {
+        "en": "Three direct frequency ratings over an editorial three-month window. All three numeric responses are required for a separate mean; unscored stays unscored. No highest type, soul bond or relationship total.",
+        "zh": "编辑设定的三个月窗口内三条直接频率题；三条全部数值有效才显示独立均值，未评分不补值。不挑最高类型，不派灵魂连接，不合关系总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feeling Familiarity: Connection Meaning Full Guide",
+          "zh": "感到熟悉：连接体验与意义完整指南"
+        },
+        "description": {
+          "en": "Reflect on moments that felt familiar to you, while keeping remembered experience separate from evidence about a soul bond or another person.",
+          "zh": "回顾让自己感到熟悉的片刻，并区分自己的体验、灵魂连接的证据与对他人的判断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一部分观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling Familiarity observes how often you noticed a familiar quality in an exchange, a reminder of your own experience or a familiar feeling before you could name its trigger. It records the experience as you remember it. It does not determine where the feeling came from, whether you had met someone before or what the other person felt. A higher mean means that these three descriptions occurred more often in the opportunities you considered. It does not show a deeper connection, a stronger intuition or a more accurate understanding of another person.",
+              "zh": "感到熟悉，观察自己多常在交流中注意到一种熟悉特点、想起自己的经历，或还没说清触发细节就先有熟悉感。它按记忆记录体验，不确定感受从哪里来、是否曾见过谁，或对方感觉怎样。均值较高，只表示在考虑的机会里，这三种描述更常出现；不表示连接更深、直觉更强，或对他人的理解更准确。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary moment to recognise",
+            "zh": "一个可以辨认的普通片刻"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine hearing someone describe an ordinary difficulty in a way that reminds you of a conversation from your own past. The phrasing feels familiar, even though the present exchange is new. You might recognise the detail immediately or simply notice that something has a familiar quality. Either experience can be described without claiming a hidden shared history. The scene need not be romantic, intense or important to the other person. The useful starting point is a modest statement about your experience: that part of this moment felt familiar to me.",
+              "zh": "想象听到一个人用某种方式描述普通难题，让你想起过去的一次谈话。眼前交流是新的，措辞却显得熟悉。可以马上认出细节，也可以只注意到一点熟悉特点；两种体验都能描述，无需声称有隐藏的共同历史。场景不必浪漫、强烈或对对方同样重要。有用的起点只是：“这个片刻的一部分，让我感到熟悉。”"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the experience separate from its interpretation",
+            "zh": "区分体验与对体验的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A feeling and an explanation of that feeling are different things. You can acknowledge familiarity while leaving its cause uncertain. This short reflection cannot test a memory, verify an intuition or decide whether an interpretation is correct. It also cannot turn a personally meaningful moment into evidence that another person has the same understanding. If several explanations are possible, keeping more than one open is compatible with valuing the experience. You do not have to prove or dismiss the feeling in order to describe it in ordinary, first-person language.",
+              "zh": "感受与解释感受，是不同的事。可以承认熟悉，同时不确定其原因。本反思不能检验记忆、验证直觉或裁定解释正确，也不能把对自己有意义的片刻，转成对方同样理解的证据。有几种可能解释时，暂时保留多种可能，也不妨碍珍惜体验。不必先证明或否定感受，才能用普通的第一人称语言描述它。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other reflection parts",
+            "zh": "与其他反思部分比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Noticing Similarities concerns details actually expressed or observed in available exchanges, such as a shared interest. Feeling Familiarity can arise before you have identified such a detail. Reflecting on Personal Meaning concerns what you take from an interaction for your own preferences and choices. Checking Mutual Understanding concerns clarifying something that could mean different things. These parts can overlap without confirming one another as evidence of a special bond. Close or high means are reading prompts, not a pattern that identifies a Seeker, Mirror or other spiritual archetype.",
+              "zh": "注意相似处，关注实际交流里表达或观察到的细节，例如共同兴趣；熟悉感可以在认出这种细节之前出现。回看个人意义关注互动让自己对偏好与选择有什么理解，确认彼此理解则关注澄清可能不同的意思。几部分可以重叠，却不会互相认证特殊连接。相近或较高均值只是阅读提示，不识别寻求者、镜像或其他灵性原型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small private reflection",
+            "zh": "一个私下的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, choose one ordinary moment you are comfortable recalling. Write two short lines: what you actually noticed, and what you later understood it to mean. You may discover that the first line is clear while the second remains open. That is a complete observation, not a problem that requires more information about the other person. There is no need to search private material, send a message, ask for confirmation of a special connection or share the result. You can leave the reflection at the level of your own remembered experience.",
+              "zh": "可以私下选一个愿意回想的普通片刻，写两句话：实际注意到什么，以及后来把它理解成什么。也许第一句很清楚，第二句仍未确定；这已是完整观察，不是必须获取更多对方信息才能解决的问题。不需要搜寻私人资料、发信息、索要特殊连接的确认或分享结果，反思可以停在自己记得的体验层面。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Context and the limits of a short form",
+            "zh": "情境与短题本的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Familiarity can be present in many kinds of encounters, and this form does not tell you which circumstances shaped a particular response. A quiet period with few exchanges may also provide little opportunity to notice it. Use unscored when you lack an applicable experience or cannot recall clearly, rather than converting uncertainty into never. A lower mean does not make a connection less worthwhile, and a higher one does not override actual wishes or conduct. There is no ideal target to reach and no reason to recreate an intense moment for a different result.",
+              "zh": "许多相遇都可能带有熟悉感，本表不能说明某次回应受哪些条件影响。交流少的阶段，也可能缺少注意到它的机会。没有适用经历或记不清时选未评分，不把不确定换成从不。均值低不使连接价值低，均值高也不能覆盖真实意愿与行为；没有需要达到的理想目标，也不必为了另一个结果重现强烈片刻。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the three-item frequency mean",
+            "zh": "阅读三条频率均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this original edition, keep one adult connection in mind and recall your own experience over the past three months. This is an editorial time window. Each part contains three direct frequency prompts, with one meaning never, three sometimes and five almost always. All three numeric ratings are required for that part’s mean: add them, divide by three and display one decimal. An unscored response is not zero, sometimes or an assumed lack of experience. If any item is unscored, withhold the part’s mean while keeping its full guide open. All fifteen response choices, including unscored, can complete the form.",
+              "zh": "本原创版本始终以同一段成年人的连接为参照，回想自己过去三个月的体验；三个月是编辑选择的窗口。每部分三条直接频率题，1从不、3有时、5几乎每次。该部分三条全部数值有效才有均值：相加除以三，显示一位小数。未评分不是零、有时，也不自动表示从未经历；一条未评分就不显示该部分均值，但全文仍开放。十五项包括未评分在内都选择，即可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "No soul-bond assignment or relationship verdict",
+            "zh": "不派灵魂连接身份，不裁决关系"
+          },
+          "paragraphs": [
+            {
+              "en": "These five editorial groups do not identify a twin flame, establish a spiritual rank or reveal another person’s thoughts. Familiarity, similarities, pauses, checking and personal meaning can coexist without becoming a single type or a total relationship score. The result cannot predict a reunion, prove telepathy, decide whether to stay or leave, or make an unwanted interaction necessary for growth. Your own feelings can matter without supplying evidence of destiny or mutual agreement. Every guide is free to compare, and you can stop without contacting anyone, sharing personal details or assigning somebody a special role.",
+              "zh": "五个编辑分组不识别双生火焰，不建立灵性等级，也不揭示别人怎么想。熟悉、相似、放慢、确认与个人意义可以并存，不合成单一类型或关系总分。结果不预测重逢、不证明心灵感应、不决定留下或离开，也不把不想要的互动说成成长必需。自己的感受可以有意义，同时不构成命定或双方同意的证据。全部指南免费可比较，可以不联系任何人、不分享隐私、不为谁指定特殊角色而结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "noticing-similarities",
+      "directionIds": [
+        "noticing-similarities"
+      ],
+      "title": {
+        "en": "Noticing Similarities",
+        "zh": "注意相似处"
+      },
+      "headline": {
+        "en": "Describe the shared detail you actually encountered",
+        "zh": "描述实际遇见的那一点相似"
+      },
+      "summary": {
+        "en": "Read about expressed interests, familiar reactions and stated priorities, without treating similarity as compatibility or access to someone’s inner world.",
+        "zh": "回顾表达过的兴趣、熟悉反应与说过的重点，不把相似等同于相容，或当成进入他人内心的途径。"
+      },
+      "scoreReading": {
+        "en": "Three direct frequency ratings over an editorial three-month window. All three numeric responses are required for a separate mean; unscored stays unscored. No highest type, soul bond or relationship total.",
+        "zh": "编辑设定的三个月窗口内三条直接频率题；三条全部数值有效才显示独立均值，未评分不补值。不挑最高类型，不派灵魂连接，不合关系总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Noticing Similarities: Connection Meaning Full Guide",
+          "zh": "注意相似处：连接体验与意义完整指南"
+        },
+        "description": {
+          "en": "Read about expressed interests, familiar reactions and stated priorities, without treating similarity as compatibility or access to someone’s inner world.",
+          "zh": "回顾表达过的兴趣、熟悉反应与说过的重点，不把相似等同于相容，或当成进入他人内心的途径。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一部分观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Noticing Similarities observes three kinds of detail available in an exchange: an interest both people expressed, a reaction that reminded you of your own response and an everyday priority both actually mentioned. The group concerns what you noticed, not a complete inventory of either person. A higher mean means that those descriptions appeared more often in the circumstances you recalled. It does not show that you are essentially alike, agree on everything or have matching lives. The form also cannot verify the accuracy or completeness of your recollection.",
+              "zh": "注意相似处，观察交流中能接触到的三类细节：双方表达过的兴趣、让你想到自己回应方式的反应，以及双方实际说过的日常重点。它关心注意到什么，不是任何一方的完整档案。均值高，只表示这些描述在回想的情境里更常出现；不表示本质一样、事事同意或人生匹配，也不能验证记忆准确或完整。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary moment to recognise",
+            "zh": "一个可以辨认的普通片刻"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a conversation about a small hobby. Both people say they enjoy some part of it, but each has a different reason and a different amount of time available. The shared interest is real within the conversation, while much about their experience remains separate. A similar reaction during another exchange can be noticed just as modestly. You need not convert the detail into a larger identity. Nor do you need to inspect somebody’s private messages or online history to make the observation more complete; the form concerns the exchanges already available to you.",
+              "zh": "想象聊起一个小爱好，双方都说喜欢其中某一部分，但理由与可用时间不同。共同兴趣在这次谈话里真实存在，各自体验却仍有许多不同。另一场交流里的相似反应，也可以这样朴素地注意到，不必升级为更大的身份。也无需查看私人消息或网络历史来让观察更完整，题本只回顾自己已参与的交流。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the experience separate from its interpretation",
+            "zh": "区分体验与对体验的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Similarity is specific to what was shared. Agreeing about one interest does not establish agreement about boundaries, timing, commitments or any other topic that did not arise. Likewise, a difference you notice elsewhere need not cancel a pleasant point of overlap. This guide does not calculate compatibility from either similarities or differences. A useful description stays close to the available detail: we both said this mattered, or that reaction reminded me of my own. Such wording leaves room for the other person to describe their experience differently.",
+              "zh": "相似有具体范围：同意一个兴趣，不证明在边界、时间、承诺或其他未谈话题上也同意；别处的不同，也不必抹掉一个愉快交集。本指南不根据相似或差异计算相容性。有用的描述靠近实际细节，例如“我们都说这一点重要”或“那个反应让我想到自己”，并为对方不同的自述留出空间。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other reflection parts",
+            "zh": "与其他反思部分比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling Familiarity records a recognisable feeling, which may occur before a shared detail has been identified. Noticing Similarities asks about a detail you believe was actually present in the exchange. Checking Mutual Understanding can help you distinguish whether a word or small agreement was being used in the same way, but its frequency is not a certificate that every similarity is accurate. Reflecting on Personal Meaning concerns your own interpretation afterward. These groups stay separate; their means are not combined into a mirror-soul index or a ranking of how deeply two people resemble each other.",
+              "zh": "感到熟悉记录一种体验，它可能先于共同细节的辨认；注意相似处则问自己认为交流中实际出现的细节。确认彼此理解，可以用于区分一个词或约定是否同义，但其频率不是所有相似都准确的证书。回看个人意义关注事后的个人理解。几组分开，不合成镜像灵魂指数，也不排名两个人多像。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small private reflection",
+            "zh": "一个私下的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, write one shared detail and one thing that the detail does not tell you. For example, a shared hobby does not tell you how either person wants to arrange their time. You can keep the positive observation while leaving the unknown genuinely unknown. You need not ask the other person a new set of questions, compare quiz results or seek a special label for the connection. The exercise is complete when your own description becomes more precise, even if it is shorter and less dramatic than the story you first imagined.",
+              "zh": "私下写下一项相似细节，再写一件它不能告诉你的事。例如，共同爱好不能说明双方想怎样安排时间。可以保留积极观察，也让未知继续是未知。不需要向对方追加一套问题、比测试结果或寻找特殊连接名称；自己的描述更准确，就可以完成这个练习，即使它比最初想象的故事短一些、平常一些。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Context and the limits of a short form",
+            "zh": "情境与短题本的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "The amount and kind of contact affect which details are available to notice. A shared setting may offer many chances to discuss one interest and few chances to encounter a different topic. This form does not adjust for those opportunities or establish a norm for how many similarities should exist. Choose unscored when a prompt lacks an applicable experience or clear recall. Neither a low nor a high mean is a verdict on a person. Actual agreements and freely expressed preferences still need to be understood on their own terms.",
+              "zh": "联系的数量和形式，会影响能注意到哪些细节。共同场景可能提供许多谈一个兴趣的机会，却很少碰到另一个话题。本表不校正这些机会，也不建立应该有多少相似的人群常模。某条缺少适用经历或清楚记忆，就未评分。均值高低都不裁决一个人，真实约定与自由表达的偏好仍需按其自身内容理解。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the three-item frequency mean",
+            "zh": "阅读三条频率均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this original edition, keep one adult connection in mind and recall your own experience over the past three months. This is an editorial time window. Each part contains three direct frequency prompts, with one meaning never, three sometimes and five almost always. All three numeric ratings are required for that part’s mean: add them, divide by three and display one decimal. An unscored response is not zero, sometimes or an assumed lack of experience. If any item is unscored, withhold the part’s mean while keeping its full guide open. All fifteen response choices, including unscored, can complete the form.",
+              "zh": "本原创版本始终以同一段成年人的连接为参照，回想自己过去三个月的体验；三个月是编辑选择的窗口。每部分三条直接频率题，1从不、3有时、5几乎每次。该部分三条全部数值有效才有均值：相加除以三，显示一位小数。未评分不是零、有时，也不自动表示从未经历；一条未评分就不显示该部分均值，但全文仍开放。十五项包括未评分在内都选择，即可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "No soul-bond assignment or relationship verdict",
+            "zh": "不派灵魂连接身份，不裁决关系"
+          },
+          "paragraphs": [
+            {
+              "en": "These five editorial groups do not identify a twin flame, establish a spiritual rank or reveal another person’s thoughts. Familiarity, similarities, pauses, checking and personal meaning can coexist without becoming a single type or a total relationship score. The result cannot predict a reunion, prove telepathy, decide whether to stay or leave, or make an unwanted interaction necessary for growth. Your own feelings can matter without supplying evidence of destiny or mutual agreement. Every guide is free to compare, and you can stop without contacting anyone, sharing personal details or assigning somebody a special role.",
+              "zh": "五个编辑分组不识别双生火焰，不建立灵性等级，也不揭示别人怎么想。熟悉、相似、放慢、确认与个人意义可以并存，不合成单一类型或关系总分。结果不预测重逢、不证明心灵感应、不决定留下或离开，也不把不想要的互动说成成长必需。自己的感受可以有意义，同时不构成命定或双方同意的证据。全部指南免费可比较，可以不联系任何人、不分享隐私、不为谁指定特殊角色而结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pausing-after-intensity",
+      "directionIds": [
+        "pausing-after-intensity"
+      ],
+      "title": {
+        "en": "Pausing After Strong Exchanges",
+        "zh": "强烈交流后放慢"
+      },
+      "headline": {
+        "en": "Wanting a slower pace after a strong exchange",
+        "zh": "强烈交流之后，想要更慢一点的节奏"
+      },
+      "summary": {
+        "en": "Reflect on time, quieter contact and sorting out your own reaction, without assigning a Runner role or treating pauses as proof of a special bond.",
+        "zh": "回顾留时间、放慢联系与整理自身反应，不分配逃避者角色，也不把暂停当成特殊连接的证明。"
+      },
+      "scoreReading": {
+        "en": "Three direct frequency ratings over an editorial three-month window. All three numeric responses are required for a separate mean; unscored stays unscored. No highest type, soul bond or relationship total.",
+        "zh": "编辑设定的三个月窗口内三条直接频率题；三条全部数值有效才显示独立均值，未评分不补值。不挑最高类型，不派灵魂连接，不合关系总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pausing After Strong Exchanges: Connection Meaning Full Guide",
+          "zh": "强烈交流后放慢：连接体验与意义完整指南"
+        },
+        "description": {
+          "en": "Reflect on time, quieter contact and sorting out your own reaction, without assigning a Runner role or treating pauses as proof of a special bond.",
+          "zh": "回顾留时间、放慢联系与整理自身反应，不分配逃避者角色，也不把暂停当成特殊连接的证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一部分观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Pausing After Strong Exchanges observes how often you wanted time, a quieter pace or room to sort out your own view after an interaction felt vivid to you. It records your remembered response, without deciding why the exchange felt strong. A higher mean is not a diagnosis, an attachment category or evidence that someone is a Runner in a spiritual story. It also does not show that pausing was always possible, communicated or helpful. The three prompts concern wanting a pace, rather than evaluating the quality of a relationship or another person’s behaviour.",
+              "zh": "强烈交流后放慢，观察一次互动对自己显得鲜明后，多常想留时间、放缓节奏或整理自己的看法。它记录记得的反应，不决定交流为何强烈。均值高不是诊断、依恋类别，也不证明谁是灵性故事里的逃避者；它还不说明暂停是否总做得到、说清楚或有帮助。三条问的是想要的节奏，不评价关系质量或对方行为。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary moment to recognise",
+            "zh": "一个可以辨认的普通片刻"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a conversation that leaves you with many thoughts. You may want to wait before deciding what to say next, return to an ordinary activity or choose a shorter exchange later. Those are different ways a wish for a slower pace can appear. The scene does not need to involve a crisis or a dramatic relationship event. A personally strong response can arise in an otherwise ordinary interaction. The reflection asks what you noticed in yourself, not whether the other person caused it deliberately or understood it in the same way.",
+              "zh": "想象一次谈话后思绪很多，也许想等一会儿再决定说什么、回到普通活动，或下次交流短一些。这些都是放慢愿望的不同样子。场景不必涉及危机或戏剧性关系事件，普通互动也可能带来鲜明的个人反应。反思只问注意到自己什么，不判断对方是否故意造成，或是否同样理解。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the experience separate from its interpretation",
+            "zh": "区分体验与对体验的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting space and knowing what the space means are separate questions. This form cannot tell whether a pause reflects tiredness, a preference, uncertainty, circumstances or some combination you have not identified. It cannot interpret silence on another person’s behalf. Nor does a strong reaction make a connection fated or create an obligation to continue contact. You can acknowledge the reaction while leaving its explanation open. A low mean is not evidence that you lack boundaries, and a high one is not proof that you should withdraw or follow a particular relationship strategy.",
+              "zh": "想要空间与知道空间意味着什么，是两回事。本表不能判断暂停源于疲惫、偏好、不确定、条件，或尚未理清的组合；也不能替别人解释沉默。反应强烈，不会让连接变成命定，也不产生必须继续联系的义务。可以承认反应，同时保留解释。均值低不证明缺少边界，均值高也不证明应该退开或遵循某种关系策略。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other reflection parts",
+            "zh": "与其他反思部分比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking Mutual Understanding concerns clarifying what was meant or whether another conversation is welcome. It is different from the wish to slow down, even if you sometimes communicate that wish. Reflecting on Personal Meaning concerns what you take from an experience for your own choices. Feeling Familiarity concerns a recognisable quality in the moment. These groups are not stages of a twin-flame journey. Their means do not predict a separation, pursuit, reunion or transformation, and one part does not need to rise or fall in order for another part to be meaningful.",
+              "zh": "确认彼此理解，关注澄清意思或下次交流是否被欢迎；即使有时会说出想放慢，它仍与放慢的愿望不同。回看个人意义关注从经历中理解自己的选择，感到熟悉关注片刻中的熟悉特点。这些不是双生火焰旅程的阶段，均值不预测分离、追逐、重逢或转化，也不要求某一项升降，另一项才有意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small private reflection",
+            "zh": "一个私下的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, describe the size of a pause you imagined wanting in one ordinary moment. Separate the wish itself from any action you took and from whatever you assumed another person would think. You may find that you knew the first part but not the others. No new contact is required to finish this exercise. You do not need to recreate a charged conversation, test whether somebody will pursue you or wait for a predicted return. A short, first-person description of your own preferred pace is enough.",
+              "zh": "私下可以描述某个普通片刻里，想要的暂停大概有多长。把愿望本身、实际做过什么，以及猜测对方会怎么想分开。也许第一部分清楚，其他仍不知道；完成练习不要求新联系，不必重现情绪浓的谈话、测试谁会不会追来，或等待预测中的回归。用第一人称简短描述想要的节奏，就足够了。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Context and the limits of a short form",
+            "zh": "情境与短题本的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Opportunities differ. A period with few strong exchanges may provide little basis for rating these prompts, while another period may make them easy to recall. This form does not adjust for the number or intensity of interactions. Use unscored when you cannot identify a relevant opportunity or do not wish to revisit it. You can read the guide without answering. Nothing in the result makes unwanted conduct acceptable, assigns blame or tells you that discomfort is necessary growth. The meaning of an actual situation remains broader than a three-item frequency mean.",
+              "zh": "机会不同：鲜明交流少的阶段，可能缺少评分依据；另一个阶段则容易回想。本表不按互动数量或强度校正。找不到相关机会、不想再回看时，就未评分，也可不作答读指南。结果不会让不愿接受的行为变得可接受，不分配责任，也不说不舒服是成长必需。真实处境的意义，比三条频率均值更宽。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the three-item frequency mean",
+            "zh": "阅读三条频率均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this original edition, keep one adult connection in mind and recall your own experience over the past three months. This is an editorial time window. Each part contains three direct frequency prompts, with one meaning never, three sometimes and five almost always. All three numeric ratings are required for that part’s mean: add them, divide by three and display one decimal. An unscored response is not zero, sometimes or an assumed lack of experience. If any item is unscored, withhold the part’s mean while keeping its full guide open. All fifteen response choices, including unscored, can complete the form.",
+              "zh": "本原创版本始终以同一段成年人的连接为参照，回想自己过去三个月的体验；三个月是编辑选择的窗口。每部分三条直接频率题，1从不、3有时、5几乎每次。该部分三条全部数值有效才有均值：相加除以三，显示一位小数。未评分不是零、有时，也不自动表示从未经历；一条未评分就不显示该部分均值，但全文仍开放。十五项包括未评分在内都选择，即可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "No soul-bond assignment or relationship verdict",
+            "zh": "不派灵魂连接身份，不裁决关系"
+          },
+          "paragraphs": [
+            {
+              "en": "These five editorial groups do not identify a twin flame, establish a spiritual rank or reveal another person’s thoughts. Familiarity, similarities, pauses, checking and personal meaning can coexist without becoming a single type or a total relationship score. The result cannot predict a reunion, prove telepathy, decide whether to stay or leave, or make an unwanted interaction necessary for growth. Your own feelings can matter without supplying evidence of destiny or mutual agreement. Every guide is free to compare, and you can stop without contacting anyone, sharing personal details or assigning somebody a special role.",
+              "zh": "五个编辑分组不识别双生火焰，不建立灵性等级，也不揭示别人怎么想。熟悉、相似、放慢、确认与个人意义可以并存，不合成单一类型或关系总分。结果不预测重逢、不证明心灵感应、不决定留下或离开，也不把不想要的互动说成成长必需。自己的感受可以有意义，同时不构成命定或双方同意的证据。全部指南免费可比较，可以不联系任何人、不分享隐私、不为谁指定特殊角色而结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checking-understanding",
+      "directionIds": [
+        "checking-understanding"
+      ],
+      "title": {
+        "en": "Checking Mutual Understanding",
+        "zh": "确认彼此理解"
+      },
+      "headline": {
+        "en": "Make room for more than one meaning",
+        "zh": "为不止一种理解留出空间"
+      },
+      "summary": {
+        "en": "Read about checking words, welcome timing and small agreements, without turning clarification into a certainty score or a demand for repeated reassurance.",
+        "zh": "回顾确认用词、交流时间与小约定，不把澄清转成确定性分数，也不要求反复安抚。"
+      },
+      "scoreReading": {
+        "en": "Three direct frequency ratings over an editorial three-month window. All three numeric responses are required for a separate mean; unscored stays unscored. No highest type, soul bond or relationship total.",
+        "zh": "编辑设定的三个月窗口内三条直接频率题；三条全部数值有效才显示独立均值，未评分不补值。不挑最高类型，不派灵魂连接，不合关系总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Checking Mutual Understanding: Connection Meaning Full Guide",
+          "zh": "确认彼此理解：连接体验与意义完整指南"
+        },
+        "description": {
+          "en": "Read about checking words, welcome timing and small agreements, without turning clarification into a certainty score or a demand for repeated reassurance.",
+          "zh": "回顾确认用词、交流时间与小约定，不把澄清转成确定性分数，也不要求反复安抚。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一部分观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking Mutual Understanding observes how often you checked the meaning of an exchange, whether another conversation was welcome in its timing or pace, and whether a word or small agreement meant the same thing to each person. It records these actions as you remember them. A higher mean is not a communication ability score, proof of mutual understanding or a guarantee that a relationship is healthy. A lower mean is not automatically a deficit. The group does not measure how much information was available, what was agreed or how either person experienced the conversation.",
+              "zh": "确认彼此理解，观察自己多常确认交流的意思、下一次谈话的时间节奏是否双方愿意，以及一个词或小约定是否同义。它按记忆记录这些行动；均值高不是沟通能力分数，不证明已互相理解，也不保证关系健康。均值低也不自动表示欠缺。本组不测信息多少、最后约定什么，或双方怎样体验谈话。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary moment to recognise",
+            "zh": "一个可以辨认的普通片刻"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine someone saying that they would like more time. That might refer to a later meeting, a shorter conversation or room to think before making a choice. A brief clarification can distinguish those possibilities without insisting on one preferred answer. A similar check may concern whether an invitation is welcome or what a modest plan includes. The appealing feature in such an example is room for each person’s meaning, not obtaining unlimited certainty. This reflection does not require you to ask any new question or reopen an exchange that you do not want to revisit.",
+              "zh": "想象有人说想多一点时间，可能指晚点见面、谈话短一些，或作选择前先思考。简短确认，可以区分这些可能，而不坚持自己偏好的答案。类似确认也可关于邀请是否被欢迎，或一个小计划包含什么。例子里有用的是双方的意思有空间，不是获得无限确定；本反思不要求提出新问题，或重开不想再回看的交流。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the experience separate from its interpretation",
+            "zh": "区分体验与对体验的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Checking is an action; understanding is not guaranteed by counting how often the action occurred. A response may remain unclear, a topic may not be available for discussion or two people may simply want different things. The form cannot resolve those circumstances, decide whose interpretation is right or tell you that more checking would fix the situation. You can keep an uncertainty open without treating it as a puzzle that demands another person’s answer. Actual wishes and limits still matter independently of the mean, including a wish not to continue a conversation.",
+              "zh": "确认是一种行动，多常做这件事，并不保证理解。回应可能仍不清楚，话题可能暂时不能谈，双方也可能就是想要不同东西。本表不能解决这些处境、裁定谁理解正确，或保证多确认就能修好。可以保留不确定，不把它当作必须索取他人答案的谜题。真实意愿与限制，仍独立于均值而重要，包括不想继续谈的意愿。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other reflection parts",
+            "zh": "与其他反思部分比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Noticing Similarities concerns a detail that seemed shared, while Checking Mutual Understanding concerns an effort to clarify a meaning or arrangement. Pausing After Strong Exchanges concerns the pace you wanted after a vivid interaction. Reflecting on Personal Meaning concerns your own interpretation for your life. None of these parts certifies the others or forms a ladder of spiritual development. A high checking mean can coexist with uncertainty, and a quiet period may need little checking at all. Read each part in relation to its actual opportunities rather than trying to create an ideal pattern.",
+              "zh": "注意相似处关注看起来共享的细节，确认彼此理解关注澄清意思或安排的努力；强烈交流后放慢关注想要的节奏，回看个人意义关注对自身生活的理解。几部分不互相认证，也不构成灵性发展阶梯。确认频率高，也可能仍不确定；平静阶段也许无需多确认。结合实际机会阅读，不必创造理想组合。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small private reflection",
+            "zh": "一个私下的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, choose a small word or arrangement from a comfortable ordinary example. Write what you understood and what remained unspecified. You may decide that the unspecified part was unimportant, could wait or was not yours to resolve. No message needs to be sent to make the reflection useful. Do not use the result as a script for testing somebody, requesting proof of a special bond or repeatedly seeking an answer they have not chosen to give. The exercise can end with clearer language about your own understanding and its limits.",
+              "zh": "私下选一个舒服的普通例子里的词或小安排，写下理解了什么，还有什么没说清。未指定部分可以不重要、可以以后再说，也可能不归自己解决。反思有用，不需要发信息；不要把结果当作测试谁、索取特殊连接证明，或反复索要别人没选择给出的答案的脚本。用更清楚的话描述自己理解的范围，就可以结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Context and the limits of a short form",
+            "zh": "情境与短题本的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "The three prompts cover a narrow selection of actions rather than every form of respectful communication. They do not record the tone, context or consequences of an exchange, and the frequency categories are not counts of individual events. Unscored remains appropriate when an experience is unavailable, unclear or something you prefer not to answer. There is no norm telling you how often clarification should occur. A useful result helps you recognise what you recalled, without turning a descriptive mean into a performance target for yourself or a demand placed on another person.",
+              "zh": "三条题只涵盖一小部分行动，不代表尊重沟通的所有形式，也不记录语气、背景或结果；频率类别不是逐次事件计数。经历不可用、不清楚或不愿回答，就保持未评分。本版没有常模规定应该多常澄清。有用的结果帮助辨认回想了什么，不把描述均值转成自己的绩效目标，或加在别人身上的要求。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the three-item frequency mean",
+            "zh": "阅读三条频率均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this original edition, keep one adult connection in mind and recall your own experience over the past three months. This is an editorial time window. Each part contains three direct frequency prompts, with one meaning never, three sometimes and five almost always. All three numeric ratings are required for that part’s mean: add them, divide by three and display one decimal. An unscored response is not zero, sometimes or an assumed lack of experience. If any item is unscored, withhold the part’s mean while keeping its full guide open. All fifteen response choices, including unscored, can complete the form.",
+              "zh": "本原创版本始终以同一段成年人的连接为参照，回想自己过去三个月的体验；三个月是编辑选择的窗口。每部分三条直接频率题，1从不、3有时、5几乎每次。该部分三条全部数值有效才有均值：相加除以三，显示一位小数。未评分不是零、有时，也不自动表示从未经历；一条未评分就不显示该部分均值，但全文仍开放。十五项包括未评分在内都选择，即可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "No soul-bond assignment or relationship verdict",
+            "zh": "不派灵魂连接身份，不裁决关系"
+          },
+          "paragraphs": [
+            {
+              "en": "These five editorial groups do not identify a twin flame, establish a spiritual rank or reveal another person’s thoughts. Familiarity, similarities, pauses, checking and personal meaning can coexist without becoming a single type or a total relationship score. The result cannot predict a reunion, prove telepathy, decide whether to stay or leave, or make an unwanted interaction necessary for growth. Your own feelings can matter without supplying evidence of destiny or mutual agreement. Every guide is free to compare, and you can stop without contacting anyone, sharing personal details or assigning somebody a special role.",
+              "zh": "五个编辑分组不识别双生火焰，不建立灵性等级，也不揭示别人怎么想。熟悉、相似、放慢、确认与个人意义可以并存，不合成单一类型或关系总分。结果不预测重逢、不证明心灵感应、不决定留下或离开，也不把不想要的互动说成成长必需。自己的感受可以有意义，同时不构成命定或双方同意的证据。全部指南免费可比较，可以不联系任何人、不分享隐私、不为谁指定特殊角色而结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflecting-on-meaning",
+      "directionIds": [
+        "reflecting-on-meaning"
+      ],
+      "title": {
+        "en": "Reflecting on Personal Meaning",
+        "zh": "回看个人意义"
+      },
+      "headline": {
+        "en": "Keep a personal meaning without assigning somebody a destiny role",
+        "zh": "保留个人意义，不为谁指定命定角色"
+      },
+      "summary": {
+        "en": "Reflect on what an interaction helped you notice about your own preferences and choices, without making another person responsible for your growth.",
+        "zh": "回顾互动让自己注意到哪些偏好与选择，不让另一个人负责自己的成长。"
+      },
+      "scoreReading": {
+        "en": "Three direct frequency ratings over an editorial three-month window. All three numeric responses are required for a separate mean; unscored stays unscored. No highest type, soul bond or relationship total.",
+        "zh": "编辑设定的三个月窗口内三条直接频率题；三条全部数值有效才显示独立均值，未评分不补值。不挑最高类型，不派灵魂连接，不合关系总分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reflecting on Personal Meaning: Connection Meaning Full Guide",
+          "zh": "回看个人意义：连接体验与意义完整指南"
+        },
+        "description": {
+          "en": "Reflect on what an interaction helped you notice about your own preferences and choices, without making another person responsible for your growth.",
+          "zh": "回顾互动让自己注意到哪些偏好与选择，不让另一个人负责自己的成长。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一部分观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Reflecting on Personal Meaning observes how often you considered what an interaction helped you notice about your preferences, what you wanted to keep doing for yourself and how to express a meaning without assigning the other person a special role. It records a reflective activity rather than measuring wisdom, maturity or spiritual progress. A higher mean means that the descriptions occurred more often in the opportunities you recalled. It does not show that the interpretation was accurate, that an encounter happened for a reason or that a particular connection is necessary for your development.",
+              "zh": "回看个人意义，观察自己多常想一想：互动让自己注意到什么偏好、还想为自己继续做什么，以及怎样表达意义而不给对方特殊角色。它记录反思活动，不测智慧、成熟或灵性进度。均值高，只表示这些描述在回想的机会里更常出现；不证明解释准确、相遇必有原因，或某段连接是个人发展必需。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary moment to recognise",
+            "zh": "一个可以辨认的普通片刻"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary exchange about how to spend free time. Afterward, you realise that you value having an unhurried hour of your own, or that a small shared activity appealed more than you expected. That can be a meaningful observation about your preference without turning the other person into a teacher, healer or catalyst. They may have experienced the conversation differently. The reflection can stay with what became clearer to you and what you choose next for yourself, without requiring agreement about a larger story.",
+              "zh": "想象一次普通的空闲安排交流，之后发现自己珍惜不赶时间的独处小时，或比预想更喜欢一种小小共同活动。这可以是对偏好的有意义观察，不必把对方变成老师、疗愈者或催化者；对方也可能有不同体验。反思可以停在自己更清楚了什么，以及接下来为自己选什么，无需双方同意一个更大的故事。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the experience separate from its interpretation",
+            "zh": "区分体验与对体验的解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A personal meaning is an interpretation you can revise. It does not need to explain why another person acted, predict their next choice or turn every part of an experience into a lesson. You may find an observation useful today and describe it differently later. This form cannot decide which interpretation is true or establish that suffering produces growth. You can value something you learned while also recognising that an interaction was unwanted or that a connection does not need to continue. Those judgements are not made by the mean.",
+              "zh": "个人意义是一种可以修改的解释，不必说明别人为何行动、预测其下一步，或把经历的每部分都变成一课。今天觉得某个观察有用，以后也可以不同地描述。本表不能决定解释真假，也不证明痛苦带来成长。可以珍惜了解到的一点东西，同时承认某次互动并非所愿，或连接无需继续；均值不会替你作这些判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other reflection parts",
+            "zh": "与其他反思部分比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling Familiarity concerns a familiar quality you noticed in a moment. Noticing Similarities concerns a detail that appeared shared. Pausing After Strong Exchanges concerns a pace you wanted, and Checking Mutual Understanding concerns an effort to clarify an exchange or arrangement. Reflecting on Personal Meaning concerns what you make of your own experience afterward. These can occur together or separately, without forming a sequence of awakening or a five-stage journey. No group is a superior destination, and a higher meaning-reflection mean does not make the other four groups less important or more desirable.",
+              "zh": "感到熟悉，关注片刻中的熟悉特点；注意相似处，关注看起来共享的细节；强烈交流后放慢，关注想要的节奏；确认彼此理解，关注澄清交流或安排的努力。回看个人意义，关注之后怎样理解自己的体验。它们可同时或分别出现，不构成觉醒顺序或五阶段旅程。没有哪个组是更高级终点，意义反思均值高，也不让其他组更重要或更值得追求。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small private reflection",
+            "zh": "一个私下的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, finish a modest sentence: “This interaction helped me notice that I prefer…” Then add a choice you can make without needing a particular response from the other person. It might be keeping a familiar activity, leaving an interpretation open or deciding that no action is needed. The reflection need not be shared or turned into a conversation. You do not need to return to an unwanted situation, seek another intense experience or convince somebody that they played a special part in your life for your observation to remain meaningful.",
+              "zh": "私下补完一句朴素的话：“这次互动让我注意到，我偏好……”再加一个不依赖对方特定回应就能作的选择，例如保留熟悉活动、暂不确定解释，或认为无需行动。反思不必分享或转成谈话。无需回到不想要的处境、寻找另一次强烈体验，或说服别人承认在人生里扮演特殊角色，观察也可以有意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Context and the limits of a short form",
+            "zh": "情境与短题本的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Time and circumstances affect how much reflection you recall. Some ordinary periods leave little to interpret, and not every interaction needs analysis. The frequency categories are not an ideal target for journalling or thinking about a connection. A low mean does not imply that you failed to grow, while a high one does not tell you whether reflection was useful or repetitive. Use unscored when a prompt is unclear, lacks an applicable experience or is something you prefer not to answer. All complete guides remain available without a personal mean.",
+              "zh": "时间与条件会影响能回想多少反思。有些普通阶段没什么需要解释，也不是每次互动都需要分析。频率类别不是记录日记或思考关系的理想目标；均值低不表示没有成长，均值高也不说明反思究竟有用还是重复。描述不清、缺少适用经历或不愿回答，就未评分；即使没有个人均值，全部全文仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the three-item frequency mean",
+            "zh": "阅读三条频率均值"
+          },
+          "paragraphs": [
+            {
+              "en": "For this original edition, keep one adult connection in mind and recall your own experience over the past three months. This is an editorial time window. Each part contains three direct frequency prompts, with one meaning never, three sometimes and five almost always. All three numeric ratings are required for that part’s mean: add them, divide by three and display one decimal. An unscored response is not zero, sometimes or an assumed lack of experience. If any item is unscored, withhold the part’s mean while keeping its full guide open. All fifteen response choices, including unscored, can complete the form.",
+              "zh": "本原创版本始终以同一段成年人的连接为参照，回想自己过去三个月的体验；三个月是编辑选择的窗口。每部分三条直接频率题，1从不、3有时、5几乎每次。该部分三条全部数值有效才有均值：相加除以三，显示一位小数。未评分不是零、有时，也不自动表示从未经历；一条未评分就不显示该部分均值，但全文仍开放。十五项包括未评分在内都选择，即可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "No soul-bond assignment or relationship verdict",
+            "zh": "不派灵魂连接身份，不裁决关系"
+          },
+          "paragraphs": [
+            {
+              "en": "These five editorial groups do not identify a twin flame, establish a spiritual rank or reveal another person’s thoughts. Familiarity, similarities, pauses, checking and personal meaning can coexist without becoming a single type or a total relationship score. The result cannot predict a reunion, prove telepathy, decide whether to stay or leave, or make an unwanted interaction necessary for growth. Your own feelings can matter without supplying evidence of destiny or mutual agreement. Every guide is free to compare, and you can stop without contacting anyone, sharing personal details or assigning somebody a special role.",
+              "zh": "五个编辑分组不识别双生火焰，不建立灵性等级，也不揭示别人怎么想。熟悉、相似、放慢、确认与个人意义可以并存，不合成单一类型或关系总分。结果不预测重逢、不证明心灵感应、不决定留下或离开，也不把不想要的互动说成成长必需。自己的感受可以有意义，同时不构成命定或双方同意的证据。全部指南免费可比较，可以不联系任何人、不分享隐私、不为谁指定特殊角色而结束。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Franiuk, Cohen & Pomerantz (2002): relationship beliefs research, not validation of these five groups",
+        "zh": "Franiuk、Cohen与Pomerantz（2002）：关系信念研究，不是本版五组的验证"
+      },
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/1475-6811.09401"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "An original reflection with a limited claim",
+        "zh": "范围明确的原创反思"
+      },
+      "paragraphs": [
+        {
+          "en": "The five groups describe familiarity, noticed similarities, wanted pauses, checking and personal meaning in your own recent experience. They are editorial groupings, not five independent validated dimensions or spiritual types. No result identifies a twin flame, reads somebody’s mind or establishes that a relationship is meant to be.",
+          "zh": "五组描述自己近期的熟悉感、注意到的相似、想要的放慢、确认与个人意义。它们是编辑分组，不是五个经过独立验证的维度或灵性类型。结果不识别双生火焰、不读取别人内心，也不确立关系命中注定。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Five separate frequency means, with no imputation",
+        "zh": "五项频率均值分别阅读，不填补数值"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group has three direct prompts over an editorial three-month window. Rate 1, Never, through 5, Almost always, with 3, Sometimes, and a separate unscored choice. All fifteen choices complete the form; all three numeric ratings are needed in each group. Add the raw values, divide by three and show one decimal. Otherwise show insufficient information. Every eight-section guide remains available, without a total, highest group or fixed label.",
+          "zh": "每组三条直接题，使用编辑设定的三个月窗口。1从不到5几乎每次，3是有时，未评分单独保留。十五项均选择即可完成，每组三条全部数字才显示均值：原始值相加除以三，显示一位小数，否则说明信息不足。八节全文均保留，不加总、不挑最高组、不固定标签。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private page memory and an exit you control",
+        "zh": "私有页面内存与自主退出"
+      },
+      "paragraphs": [
+        {
+          "en": "No name, birth details, photograph or private conversation is needed. Answers stay in this page’s memory without saved drafts, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; exit and clear discards current progress. You can compare every public full guide without answering or signing up.",
+          "zh": "不需要姓名、出生资料、照片或私人谈话。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果。刷新或换语言会重新开始，退出并清除会放弃进度。无需作答或注册，即可比较全部公开全文。"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "en": "Keep relationship-belief research separate from this edition",
+        "zh": "区分关系信念研究与本版本"
+      },
+      "paragraphs": [
+        {
+          "en": "The cited study examines beliefs about relationships and perceived partner fit. It does not validate these five editorial groups, establish a twin-flame classifier or provide this edition’s item bank. The fifteen prompts and five guides are original; the three-month window, completeness rule and mean display are editorial choices rather than inherited norms.",
+          "zh": "所列研究讨论关系信念与主观伴侣适合感，不验证本版五个编辑组，不建立双生火焰分类器，也不提供本版题目。十五条与五份指南均为原创，三个月窗口、完整性规则与均值呈现是编辑选择，不是继承的常模。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this identify a twin flame or a destined person?",
+        "zh": "能识别双生火焰或命定之人吗？"
+      },
+      "answer": {
+        "en": "No. It records your own reported experiences in one connection. It cannot identify a soul bond, prove telepathy, read another person’s intentions, predict reunion or decide what relationship you should pursue.",
+        "zh": "不能。它记录自己对一段连接的体验自述，不能识别灵魂连接、证明心灵感应、读取他人意图、预测重逢或决定应该追求哪段关系。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the source twelve-question spiritual archetype quiz?",
+        "zh": "这是来源里的十二题灵性原型测试吗？"
+      },
+      "answer": {
+        "en": "No. This is an original fifteen-prompt reflection with five nonexclusive editorial groups. It does not reproduce that bank or assign Seeker, Mirror, Runner, Harmoniser or Transcendent labels.",
+        "zh": "不是。这是十五条原创反思，分为五个可并存的编辑组，不复现来源题本，也不分配寻求者、镜像、逃避者、调和者或超越者标签。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I have no recent connection or cannot judge?",
+        "zh": "没有近期连接，或无法判断怎么办？"
+      },
+      "answer": {
+        "en": "You can read every guide without answering, or use unscored where no relevant opportunity, clear recall or willing answer is available. All fifteen choices can complete without any personal mean. No missing value becomes Never or Sometimes.",
+        "zh": "可以不作答阅读所有指南，或在没有相关机会、清楚记忆或作答意愿时选未评分。十五项均选择即可完成，也可以不生成任何个人均值；缺值不会变成从不或有时。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a high mean show a better or more spiritual relationship?",
+        "zh": "均值高表示关系更好或更有灵性吗？"
+      },
+      "answer": {
+        "en": "No. It describes frequency in the opportunities you considered, without norms, ability ranks or a relationship total. Five high or low means do not form an ideal pattern or a spiritual stage.",
+        "zh": "不是。它只描述所考虑机会中的频率，没有常模、能力排名或关系总分。五项高低不构成理想组合或灵性阶段。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the result to interpret the other person or make contact?",
+        "zh": "可以用结果解释对方，或决定联系吗？"
+      },
+      "answer": {
+        "en": "The result cannot assess the other person or authorise unwanted contact. Actual wishes, limits and conduct matter independently. No result requires waiting, returning, pursuing or enduring a situation for personal growth.",
+        "zh": "结果不能评估对方，也不授权不被欢迎的联系。实际意愿、限制与行为，独立于结果而重要；任何结果都不要求为了成长而等待、回去、追逐或忍受处境。"
+      }
+    }
+  ]
+}
