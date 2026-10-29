@@ -2,7 +2,7 @@
   "slug": "cognitive-functions-test",
   "code": "FM_COGNITIVE_FUNCTIONS32",
   "version": "fm_cognitive_functions32_v1",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "category": "framework",
   "kind": "likert",
   "minimumRatedItems": 3,
@@ -11,12 +11,12 @@
     "zh": "认知功能测试"
   },
   "seoTitle": {
-    "en": "Cognitive Functions Test: 32 Questions & Eight Full Readings",
-    "zh": "认知功能测试：32道原创题与八份完整免费读法"
+    "en": "Cognitive Functions Test: 56 Choices or 32 Ratings, Free",
+    "zh": "认知功能测试：56题二选一或32题自评，完整解释免费"
   },
   "description": {
-    "en": "Explore Ni, Ne, Si, Se, Ti, Te, Fi and Fe with 32 original prompts. Eight full readings free; no function stack, ability score or signup.",
-    "zh": "用32道原创题探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe。八份完整读法免费，无需注册；分别呈现自报均值，不推功能栈、不测认知能力。"
+    "en": "Explore Ni, Ne, Si, Se, Ti, Te, Fi and Fe: choose 56 A/B questions or 32 ratings. Full readings free; no function stack, ability score or signup.",
+    "zh": "探索Ni、Ne、Si、Se、Ti、Te、Fi、Fe：可选56题二选一或32题自评，分别阅读选择次数或均值。完整解释免费，无需注册，不推功能栈或认知能力。"
   },
   "minutes": 10,
   "instructions": {
@@ -3443,8 +3443,8 @@
       },
       "paragraphs": [
         {
-          "en": "The Myers & Briggs Foundation’s explanation of the eight dominant processes supplies background terminology and distinguishes the process attitudes. The wording, question bank, keyed averages, examples and complete readings here are original FermatMind work. This is not an official or endorsed instrument, a copy of a competitor bank, or a migration of the unpublished Mini Jung forced-choice pilot.",
-          "zh": "Myers & Briggs Foundation关于八种主导过程的说明提供背景术语与方向区别。本页题文、题本、换算均值、例子和完整读法为费马原创；不是官方或获背书工具，不复制竞品题本，也不是尚未公开的Mini Jung强迫选择试点迁移版。"
+          "en": "The Myers & Briggs Foundation’s explanation of the eight dominant processes supplies background terminology. The 32-rating bank, keyed means, examples and readings remain independent original FermatMind work. A separately selectable 56-choice edition now migrates our Mini public-preview bank and raw selection counts. It uses a different response method, not a longer form of these ratings. Neither is official, endorsed or copied from a competitor.",
+          "zh": "Myers & Briggs Foundation关于八种主导过程的说明提供背景术语。32题自评题本、换算均值、例子与读法仍为费马独立原创。现在可另选56题二选一版，迁移自有小程序公开试用题本与原始选择次数；它是不同作答方法，不是本自评版的加长题本。两版均非官方或获背书工具，不复制竞品。"
         },
         {
           "en": "This edition does not borrow the validity, norms or results of another assessment. English and Chinese are working versions without demonstrated measurement equivalence. The results are for your own reflection and should not decide recruitment, school placement, treatment or another person’s role. The references do not supply evidence that this bank measures abilities or predicts behavior.",
@@ -3473,8 +3473,8 @@
         "zh": "认知功能测试完整结果免费吗？"
       },
       "answer": {
-        "en": "Yes. All 32 original prompts, eight separate summaries and eight complete public guides are free, without an account or email.",
-        "zh": "免费。32道原创题、八组独立汇总与八份公开完整指南都可直接使用，无需账户或邮箱。"
+        "en": "Yes. Both the 32-rating and 56-choice editions, all eight direction explanations and public guides are free, without an account or email. Choose one method at the entry.",
+        "zh": "免费。32题自评与56题二选一、八个方向解释及公开完整指南均免费，无需账户或邮箱；在入口选择一种方法。"
       }
     },
     {
@@ -3493,18 +3493,18 @@
         "zh": "会得到主导功能或功能栈吗？"
       },
       "answer": {
-        "en": "No. You get eight descriptive means in a fixed order. Different item sets are not calibrated for ranking, so we do not infer a dominant, auxiliary or inferior function, stack or four-letter type.",
-        "zh": "不会。结果是固定顺序的八组描述性均值。不同题组没有经过排序标定，不据此推主导、辅助、劣势功能、功能栈或四字母类型。"
+        "en": "No. The 32-rating edition gives eight means in a fixed order without ranking. The 56-choice edition gives raw selection counts and retains every tie. Neither produces a dominant, auxiliary or inferior function, a function stack or a four-letter type.",
+        "zh": "不会。32题版按固定顺序给八组均值，不排序；56题版给原始选择次数并保留所有并列。两版均不推主导、辅助、劣势功能、功能栈或四字母类型。"
       }
     },
     {
       "question": {
-        "en": "How does reverse scoring work?",
-        "zh": "反向计分怎么算？"
+        "en": "How does scoring differ between editions?",
+        "zh": "两版计分有什么区别？"
       },
       "answer": {
-        "en": "The fourth prompt in each group contributes 6 minus your numeric response; the other three keep the selected numbers. Unscored items are excluded. At least three numeric responses are needed for a one-decimal mean.",
-        "zh": "每组第四题贡献为6减所选数字，其余三题保留数字。不评分排除，至少三项数字才给一位小数均值。"
+        "en": "In the 32-rating edition, the fourth prompt per group contributes 6 minus your rating; at least three numeric responses give a one-decimal mean. In the 56-choice edition, each A/B choice adds one to its selected direction, with 14 appearances per direction and 56 selections overall. Do not convert the numbers between editions.",
+        "zh": "32题版每组第四题按6减所选数，至少三项数字才给一位小数均值。56题版每次A/B选择只为所选方向加一次，每方向出现14次，共56次选择；两版数字不相互换算。"
       }
     },
     {
@@ -3513,8 +3513,8 @@
         "zh": "某组数字回答不足怎么办？"
       },
       "answer": {
-        "en": "It displays insufficient information and no mean. Other sufficiently rated topics remain, and every complete guide is still readable. Unscored responses never become zero.",
-        "zh": "该组显示资料不足，不给均值；其他评分足够的组保留，全部完整指南仍可读。不评分不会变成零。"
+        "en": "For 32 ratings, a topic with fewer than three numeric responses shows no mean; sufficiently rated topics and all guides remain. For 56 choices, all 56 valid responses are required before any ranking or interpretation. You can go back to finish or exit and clear.",
+        "zh": "32题版某组少于三项数字则不给均值，其他足够评分的组与全部指南仍可读；56题版需全部56个有效回答才给排序与解释，可返回补全或退出清除。"
       }
     },
     {
@@ -3523,28 +3523,28 @@
         "zh": "本版经过科学验证或属于官方MBTI吗？"
       },
       "answer": {
-        "en": "No. These are original framework-reflection prompts, without established psychometric validity, reliability, norms or language equivalence. The background source explains terminology and does not endorse the bank.",
-        "zh": "不是。这是原创框架反思题本，尚无已建立的心理测量效度、信度、常模或语言等值；背景来源解释术语，不代表其为题本背书。"
+        "en": "No. Neither original edition has established psychometric validity, reliability, norms or language equivalence. The background reference explains terminology and does not endorse either bank.",
+        "zh": "不是。两种原创版本均尚无已建立的心理测量效度、信度、常模或语言等值；背景来源只解释术语，不为任一题本背书。"
       }
     },
     {
       "question": {
-        "en": "How do I read equal or close means?",
-        "zh": "相等或相近均值怎样读？"
+        "en": "How should I read ties and small differences?",
+        "zh": "并列和小差异怎样读？"
       },
       "answer": {
-        "en": "Keep the equality or ambiguity. Means concern different statements; there is no validated meaningful-difference cutoff. Review your responses and the separate guides without assigning a function hierarchy.",
-        "zh": "保留相等或不明确。均值涉及不同题文，没有经过验证的有意义差异截点；回看回答和分组指南，不分配功能等级。"
+        "en": "For 32 ratings, equal or close means have no validated meaningful-difference cutoff and are not ranked. For 56 choices, equal raw counts stay tied; no tie is broken by option position or code. Neither method turns small differences into a function hierarchy or population ranking.",
+        "zh": "32题版相等或相近均值没有经过验证的有意义差异截点，也不排序；56题版相同原始次数保留并列，不按选项位置或代码破同分。两种方法均不把小差异变成功能等级或人群排名。"
       }
     },
     {
       "question": {
-        "en": "Is this the Mini Jung pilot?",
-        "zh": "这是Mini Jung试点吗？"
+        "en": "Which edition comes from the Mini Jung test?",
+        "zh": "哪一版来自小程序荣格测试？"
       },
       "answer": {
-        "en": "No. This independent original web edition does not unlock or reuse that unpublished forced-choice pilot and is not counted as its migration.",
-        "zh": "不是。这是独立原创网页版本，不解锁或复用尚未公开的强迫选择试点，也不计为该Mini产品迁移。"
+        "en": "The 56-choice edition reuses our Mini Jung public-preview bank, raw-wins rule and all eight direction explanations, with a new working English translation. The 32-rating edition is a separate original web bank. Mini publication does not establish scientific validation or language equivalence.",
+        "zh": "56题二选一版复用自有小程序荣格公开试用题本、原始胜次规则和全部八方向解释，英文为新的工作译本。32题版是另一份原创网页题本。小程序公开发布不等于科学验证或语言等值已成立。"
       }
     }
   ],

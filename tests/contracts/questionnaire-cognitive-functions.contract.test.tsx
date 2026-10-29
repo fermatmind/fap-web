@@ -12,7 +12,7 @@ const answers = (values: string[]) => Object.fromEntries(quiz.questions.map((q, 
 const complete = (values: string[]) => { const r = scoreQuestionnaire(quiz, answers(values)); if (r.status !== "complete" || !("facets" in r)) throw Error("Expected eight independent summaries"); return r; };
 const hash = (v: unknown) => createHash("sha256").update(JSON.stringify(v)).digest("hex");
 
-describe("T012 original eight-function reflection, independent of unpublished Mini pilot", () => {
+describe("T012 original eight-function reflection, preserved original32 alongside the separate Mini56 edition", () => {
   it("registers 32 original bilingual prompts with three direct and one reverse item per function", async () => {
     expect(await loadQuestionnaire(quiz.slug)).toEqual(quiz); expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);
     expect(quiz.kind).toBe("likert"); expect(quiz.minimumRatedItems).toBe(3); expect(quiz.questions).toHaveLength(32);

@@ -4,7 +4,7 @@ type Locale = "en" | "zh";
 const path = (l: Locale) => `/${l}/tests/explore/cognitive-functions-test`;
 const label = (l: Locale, en: string, zh: string) => l === "zh" ? zh : en;
 async function consent(page: Page, l: Locale) { const b = page.getByRole("button", { name: label(l, "Decline", "拒绝"), exact: true }); if (await b.isVisible()) await b.click(); }
-async function button(page: Page, l: Locale, en: string, zh: string) { await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
+async function button(page: Page, l: Locale, en: string, zh: string) { if (["Start test", "Resume this tab's progress"].includes(en)) { const choice = page.locator('[data-cognitive-method="ratings32"]'); await choice.click(); } await page.getByRole("button", { name: label(l, en, zh), exact: true }).click(); }
 async function finish(page: Page, l: Locale, values: string[]) {
   for (let i = 0; i < 32; i++) {
     const q = quiz.questions[i], radio = page.locator(`input[name="${q.id}"][value="${values[i]}"]`);
@@ -26,7 +26,7 @@ for (const l of ["en", "zh"] as const) {
   test(`@release cognitive-functions-test ${l}: native hub, keyboard, eight separate means, partial data and allNA full guides`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); const leaked: string[] = []; page.on("request", r => { if (r.method() === "POST" && /CF_[A-Z]+_|"facets"|"answers"|"mean"/.test(r.postData() ?? "")) leaked.push(r.url()); });
     await page.goto(`/${l}/tests`); await consent(page, l); await page.locator("#more-tests").getByRole("link", { name: quiz.title[l], exact: true }).click(); await expect(page.locator("h1")).toHaveText(quiz.title[l]); await expect(page).toHaveTitle(`${quiz.seoTitle[l]} | FermatMind`); await button(page, l, "Start test", "开始测试");
-    await button(page, l, "Next", "下一题"); await expect(page.getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
+    await button(page, l, "Next", "下一题"); await expect(page.locator("#take-test").getByRole("status")).toContainText(label(l, "Choose an option", "请选择"));
     const patterns = [Array(32).fill("5"), ["4", "3", "5", "2", "4", "na", "5", "2", "5", "5", "na", "na", "1", "2", "3", "4", ...Array(16).fill("3")], Array(32).fill("na")];
     for (const [i, values] of patterns.entries()) { if (i) await button(page, l, "Retake test", "重新测试"); await finish(page, l, values); }
     expect(leaked).toEqual([]); expect(await page.evaluate(() => sessionStorage.getItem("fm_questionnaire_draft:cognitive-functions-test"))).toBeNull(); await page.screenshot({ path: test.info().outputPath(`${l}-result.png`) }); await button(page, l, "Retake test", "重新测试"); await expect(page.locator("[data-cognitive-functions-report]")).toHaveCount(0); await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);

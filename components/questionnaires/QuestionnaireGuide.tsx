@@ -1,3 +1,4 @@
+import { CognitiveFunctionsGuidePage, isCognitiveFunctionsPageAvailable } from "./CognitiveFunctionsPage";
 import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
 import { Dvmsq18GuidePage } from "./Dvmsq18Page";
 import { isSynes15ConfigurationValid } from "@/lib/questionnaires/synes15";
@@ -82,6 +83,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "afqt32" && !isAfqt32ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
@@ -121,6 +123,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.slug === "cognitive-functions-test") {
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <CognitiveFunctionsGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+
   if (quiz?.kind === "dvmsq18") {
     if (!isDvmsq18ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);

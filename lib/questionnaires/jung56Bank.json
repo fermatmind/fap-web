@@ -1,0 +1,1698 @@
+{
+  "edition": "fm_jung56_mini_public_preview_working_en_v1",
+  "source": {
+    "testId": "JUNG_PERSONALITY",
+    "formCode": "jung_function_attitude_56",
+    "itemBankVersion": "0.2.0-draft",
+    "scoringVersion": "0.2.0-draft",
+    "modelStatus": "provisional_raw_wins_not_validated",
+    "miniPublicReleaseCommit": "d5d9f71a37079d46557528407c50e46f82ef4f68",
+    "miniSourceBankSha256": "e4964a31c709e5b6b2c4ab4c8f65357a409bd59908402e8ed41147d8165ff471",
+    "miniSourceResultContentSha256": "dcc202f3cf210b7a45c16b6dc608244d79502e6be2837f71efa3cf8cbe8d2ed5",
+    "itemBankSha256": "819c211a154e89136c3a48dc488ea72e1e5b591e0002c2b4c817542f72af5829",
+    "psychometricValidationCompleted": false,
+    "languageEquivalenceEstablished": false
+  },
+  "questions": [
+    {
+      "id": "JUNG_FC_001",
+      "pairCode": "SE_SI",
+      "pairOccurrence": 1,
+      "contextCode": "RESPONDING_TO_CHANGE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "环境刚发生变化时，我通常先看现场出现了哪些新情况。",
+            "en": "When my surroundings have just changed, I usually first look at the new developments happening there."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "环境刚发生变化时，我通常先拿它和熟悉的具体经验作比较。",
+            "en": "When my surroundings have just changed, I usually first compare them with familiar concrete experiences."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_002",
+      "pairCode": "SE_SI",
+      "pairOccurrence": 2,
+      "contextCode": "GATHERING_INFORMATION",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "了解一个新地方时，我通常先寻找它与过去具体印象之间的对应。",
+            "en": "When getting to know a new place, I usually first look for connections with concrete impressions from the past."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "了解一个新地方时，我通常先留意眼前可直接看到和接触到的细节。",
+            "en": "When getting to know a new place, I usually first notice details I can directly see and encounter."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_003",
+      "pairCode": "SE_NE",
+      "pairOccurrence": 1,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "遇到新问题时，我通常先动手接触现有材料，看看会出现什么反馈。",
+            "en": "When facing a new problem, I usually first work directly with the available material to see what feedback it produces."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "遇到新问题时，我通常先从现有线索想出几种可以尝试的方向。",
+            "en": "When facing a new problem, I usually first use the available clues to think of several directions to try."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_004",
+      "pairCode": "SE_NE",
+      "pairOccurrence": 2,
+      "contextCode": "RESPONDING_TO_CHANGE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "局面变化时，我通常先寻找这些变化可能打开的其他路径。",
+            "en": "When a situation changes, I usually first look for other paths those changes might open."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "局面变化时，我通常先跟进眼前最具体的新情况。",
+            "en": "When a situation changes, I usually first follow the most concrete new developments in front of me."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_005",
+      "pairCode": "SE_NI",
+      "pairOccurrence": 1,
+      "contextCode": "INTERPRETING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "信息还很零散时，我通常先留意其中可直接确认的现场迹象。",
+            "en": "When information is still scattered, I usually first notice signs in the situation that I can directly confirm."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "信息还很零散时，我通常先等待它们在心里形成一个整体方向。",
+            "en": "When information is still scattered, I usually first wait for an overall direction to take shape in my mind."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_006",
+      "pairCode": "SE_NI",
+      "pairOccurrence": 2,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "开始规划前，我通常先在心里形成事情可能走向的整体图景。",
+            "en": "Before I start planning, I usually first form an overall picture in my mind of where things might lead."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "开始规划前，我通常先查看当前实际条件有什么变化。",
+            "en": "Before I start planning, I usually first look at changes in the actual conditions at present."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_007",
+      "pairCode": "SE_TE",
+      "pairOccurrence": 1,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "处理实际问题时，我通常先接触现状并根据即时反馈调整。",
+            "en": "When dealing with a practical problem, I usually first engage with the present situation and adjust to immediate feedback."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "处理实际问题时，我通常先明确可检查的目标、条件和步骤。",
+            "en": "When dealing with a practical problem, I usually first clarify goals, conditions and steps that can be checked."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_008",
+      "pairCode": "SE_TE",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "比较方案时，我通常先看它是否符合明确标准并能稳定执行。",
+            "en": "When comparing options, I usually first consider whether an option meets explicit criteria and can be carried out consistently."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "比较方案时，我通常先看它在实际环境中会产生什么直接反应。",
+            "en": "When comparing options, I usually first consider the direct response an option would produce in the actual setting."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_009",
+      "pairCode": "SE_TI",
+      "pairOccurrence": 1,
+      "contextCode": "LEARNING_NEW_CONTENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "学习一个新工具时，我通常先实际操作，观察每一步产生的反馈。",
+            "en": "When learning a new tool, I usually first operate it and observe the feedback from each step."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "学习一个新工具时，我通常先弄清它各部分之间的工作原理。",
+            "en": "When learning a new tool, I usually first understand how its parts work together."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_010",
+      "pairCode": "SE_TI",
+      "pairOccurrence": 2,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "问题不清楚时，我通常先把关键概念和前提在心里理顺。",
+            "en": "When a problem is unclear, I usually first sort out the key concepts and assumptions in my mind."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "问题不清楚时，我通常先从可直接尝试的部分入手。",
+            "en": "When a problem is unclear, I usually first start with the parts I can directly try out."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_011",
+      "pairCode": "SE_FE",
+      "pairOccurrence": 1,
+      "contextCode": "COORDINATING_WITH_OTHERS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "进入一个共同活动时，我通常先观察现场节奏并跟着实际变化行动。",
+            "en": "When joining a shared activity, I usually first observe its pace on the spot and act with the actual changes."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "进入一个共同活动时，我通常先观察大家的关系状态和共同关切。",
+            "en": "When joining a shared activity, I usually first observe the state of relationships and people’s shared concerns."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_012",
+      "pairCode": "SE_FE",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "讨论出现变化时，我通常先回应它对共同理解和互动气氛的影响。",
+            "en": "When a discussion changes, I usually first respond to its effects on shared understanding and the atmosphere of the interaction."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "讨论出现变化时，我通常先回应当下最具体的新信息。",
+            "en": "When a discussion changes, I usually first respond to the most concrete new information at that moment."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_013",
+      "pairCode": "SE_FI",
+      "pairOccurrence": 1,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "面对一个新选择时，我通常先感受实际接触后带来的直接反馈。",
+            "en": "When facing a new choice, I usually first attend to the direct feedback I get from actually encountering it."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "面对一个新选择时，我通常先确认它是否符合自己当前重视的内容。",
+            "en": "When facing a new choice, I usually first check whether it fits what I currently value."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_014",
+      "pairCode": "SE_FI",
+      "pairOccurrence": 2,
+      "contextCode": "RESPONDING_TO_CHANGE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "情况突然改变时，我通常先确认哪些个人边界仍不希望越过。",
+            "en": "When circumstances change suddenly, I usually first check which personal boundaries I still do not want to cross."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "se",
+          "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+          "label": {
+            "zh": "情况突然改变时，我通常先顺着当前条件看看实际会发生什么。",
+            "en": "When circumstances change suddenly, I usually first follow the current conditions to see what actually happens."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_015",
+      "pairCode": "SI_NE",
+      "pairOccurrence": 1,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "开始安排一件事时，我通常先参考过去哪些具体做法行得通。",
+            "en": "When starting to arrange something, I usually first refer to concrete approaches that have worked in the past."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "开始安排一件事时，我通常先看看现有条件还能发展出哪些新做法。",
+            "en": "When starting to arrange something, I usually first look at new approaches the available conditions could support."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_016",
+      "pairCode": "SI_NE",
+      "pairOccurrence": 2,
+      "contextCode": "LEARNING_NEW_CONTENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "理解新内容时，我通常先把它和其他线索连接，展开不同可能。",
+            "en": "When understanding new material, I usually first connect it with other clues and explore different possibilities."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "理解新内容时，我通常先把它放进已有的具体经验中比较。",
+            "en": "When understanding new material, I usually first compare it with concrete experiences I already have."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_017",
+      "pairCode": "SI_NI",
+      "pairOccurrence": 1,
+      "contextCode": "INTERPRETING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "回想一段经历时，我通常先从具体印象和熟悉参照中整理它。",
+            "en": "When recalling an experience, I usually first organise it through concrete impressions and familiar reference points."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "回想一段经历时，我通常先寻找它在心里逐渐形成的整体主题。",
+            "en": "When recalling an experience, I usually first look for the overall theme gradually forming in my mind."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_018",
+      "pairCode": "SI_NI",
+      "pairOccurrence": 2,
+      "contextCode": "GATHERING_INFORMATION",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "信息逐渐增加时，我通常先观察一个整体走向是否正在形成。",
+            "en": "As information accumulates, I usually first notice whether an overall direction is taking shape."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "信息逐渐增加时，我通常先比较它与已有具体印象的差异。",
+            "en": "As information accumulates, I usually first compare it with the concrete impressions I already have, looking for differences."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_019",
+      "pairCode": "SI_TE",
+      "pairOccurrence": 1,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "安排重复任务时，我通常先沿用已经熟悉且可参照的具体流程。",
+            "en": "When arranging a recurring task, I usually first use a concrete process I already know and can refer to."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "安排重复任务时，我通常先按当前目标重新列出条件和步骤。",
+            "en": "When arranging a recurring task, I usually first list the conditions and steps afresh around the current goal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_020",
+      "pairCode": "SI_TE",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "判断一种做法是否合适时，我通常先检查它是否符合当前明确标准。",
+            "en": "When judging whether an approach fits, I usually first check it against the explicit criteria that apply now."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "判断一种做法是否合适时，我通常先比较它和过去实际经验是否一致。",
+            "en": "When judging whether an approach fits, I usually first check whether it is consistent with my actual past experience."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_021",
+      "pairCode": "SI_TI",
+      "pairOccurrence": 1,
+      "contextCode": "LEARNING_NEW_CONTENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "理解一个新概念时，我通常先找过去经历过的具体例子作参照。",
+            "en": "When understanding a new concept, I usually first find concrete examples from my past experience as reference points."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "理解一个新概念时，我通常先检查它的定义和前提是否自洽。",
+            "en": "When understanding a new concept, I usually first check whether its definitions and assumptions are internally consistent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_022",
+      "pairCode": "SI_TI",
+      "pairOccurrence": 2,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "遇到似曾相识的问题时，我通常先重新拆解问题内部的逻辑关系。",
+            "en": "When facing a problem that seems familiar, I usually first break down its internal logical relationships again."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "遇到似曾相识的问题时，我通常先恢复过去处理时的具体线索。",
+            "en": "When facing a problem that seems familiar, I usually first recall concrete details of how I handled it before."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_023",
+      "pairCode": "SI_FE",
+      "pairOccurrence": 1,
+      "contextCode": "COORDINATING_WITH_OTHERS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "参加熟悉的协作时，我通常先依据过去形成的具体配合经验。",
+            "en": "When joining familiar collaborative work, I usually first draw on concrete experience of working together in the past."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "参加熟悉的协作时，我通常先依据大家当前共同接受的互动方式。",
+            "en": "When joining familiar collaborative work, I usually first follow ways of interacting that everyone currently accepts."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_024",
+      "pairCode": "SI_FE",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "分歧出现时，我通常先判断怎样表达更便于维持共同理解。",
+            "en": "When a disagreement arises, I usually first consider how to express myself in a way that maintains shared understanding."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "分歧出现时，我通常先回想过去类似交流留下的具体印象。",
+            "en": "When a disagreement arises, I usually first recall concrete impressions left by similar exchanges in the past."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_025",
+      "pairCode": "SI_FI",
+      "pairOccurrence": 1,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "面对个人选择时，我通常先参考过去相似经历留下的具体感受。",
+            "en": "When making a personal choice, I usually first refer to the concrete feelings left by similar past experiences."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "面对个人选择时，我通常先确认哪一项更符合自己重视的价值。",
+            "en": "When making a personal choice, I usually first check which option fits the values I consider important."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_026",
+      "pairCode": "SI_FI",
+      "pairOccurrence": 2,
+      "contextCode": "REVIEWING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "回看一个决定时，我通常先判断它是否守住了自己的重要边界。",
+            "en": "When looking back at a decision, I usually first judge whether it respected my important boundaries."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "si",
+          "sourceDirectionCode": "INTROVERTED_SENSATION",
+          "label": {
+            "zh": "回看一个决定时，我通常先想起当时具体经历了什么。",
+            "en": "When looking back at a decision, I usually first recall what I concretely experienced at the time."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_027",
+      "pairCode": "NE_NI",
+      "pairOccurrence": 1,
+      "contextCode": "INTERPRETING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "线索还不完整时，我通常先展开几种可能的解释。",
+            "en": "When the clues are incomplete, I usually first explore several possible explanations."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "线索还不完整时，我通常先等待一个较集中的整体解释逐渐成形。",
+            "en": "When the clues are incomplete, I usually first wait for one more focused overall explanation to take shape."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_028",
+      "pairCode": "NE_NI",
+      "pairOccurrence": 2,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "设想未来时，我通常先聚合信息，形成一个主要走向。",
+            "en": "When imagining the future, I usually first bring information together into one main direction."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "设想未来时，我通常先打开多个可继续探索的方向。",
+            "en": "When imagining the future, I usually first open up several directions to explore further."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_029",
+      "pairCode": "NE_TE",
+      "pairOccurrence": 1,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "开始一个新项目时，我通常先展开现有资源可能支持的多种方向。",
+            "en": "When starting a new project, I usually first explore the different directions the available resources might support."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "开始一个新项目时，我通常先把目标、资源和步骤整理成可执行结构。",
+            "en": "When starting a new project, I usually first organise goals, resources and steps into a structure I can carry out."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_030",
+      "pairCode": "NE_TE",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "比较方案时，我通常先按统一标准检查每个方案的可行条件。",
+            "en": "When comparing plans, I usually first use consistent criteria to check the conditions each plan needs to be feasible."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "比较方案时，我通常先寻找每个方案还能延伸出的可能。",
+            "en": "When comparing plans, I usually first look for possibilities that each plan could lead to."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_031",
+      "pairCode": "NE_TI",
+      "pairOccurrence": 1,
+      "contextCode": "LEARNING_NEW_CONTENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "遇到一个新观点时，我通常先联想到它还能连接哪些其他想法。",
+            "en": "When encountering a new idea, I usually first think of other ideas it could connect with."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "遇到一个新观点时，我通常先检查它的定义和推理是否一致。",
+            "en": "When encountering a new idea, I usually first check whether its definitions and reasoning are consistent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_032",
+      "pairCode": "NE_TI",
+      "pairOccurrence": 2,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "问题卡住时，我通常先回到前提，重新整理内部逻辑。",
+            "en": "When a problem gets stuck, I usually first return to the assumptions and reorganise the internal logic."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "问题卡住时，我通常先换几个相关方向继续尝试。",
+            "en": "When a problem gets stuck, I usually first try a few related directions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_033",
+      "pairCode": "NE_FE",
+      "pairOccurrence": 1,
+      "contextCode": "COORDINATING_WITH_OTHERS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "共同讨论时，我通常先从大家提供的线索扩展出更多备选方向。",
+            "en": "In a group discussion, I usually first expand the clues people offer into more possible directions."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "共同讨论时，我通常先关注哪些方向更符合大家共同在意的部分。",
+            "en": "In a group discussion, I usually first focus on which directions fit what people care about together."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_034",
+      "pairCode": "NE_FE",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "意见不同时，我通常先寻找能维持共同理解的表达方式。",
+            "en": "When opinions differ, I usually first look for a way to express them that maintains shared understanding."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "意见不同时，我通常先寻找这些差异还能带来哪些新理解。",
+            "en": "When opinions differ, I usually first look for new understandings those differences could bring."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_035",
+      "pairCode": "NE_FI",
+      "pairOccurrence": 1,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "出现几个新选项时，我通常先看看它们分别还能发展到哪里。",
+            "en": "When several new options appear, I usually first consider where each could develop."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "出现几个新选项时，我通常先感受哪一个更符合自己重视的方向。",
+            "en": "When several new options appear, I usually first sense which one fits the direction I value."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_036",
+      "pairCode": "NE_FI",
+      "pairOccurrence": 2,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "规划个人项目时，我通常先围绕最重要的个人价值确定取舍。",
+            "en": "When planning a personal project, I usually first make trade-offs around my most important personal values."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ne",
+          "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+          "label": {
+            "zh": "规划个人项目时，我通常先保留多种可以继续探索的路径。",
+            "en": "When planning a personal project, I usually first keep several paths open for further exploration."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_037",
+      "pairCode": "NI_TE",
+      "pairOccurrence": 1,
+      "contextCode": "PLANNING",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "面对长期任务时，我通常先在心里形成它可能走向何处的整体图景。",
+            "en": "When facing a long-term task, I usually first form an overall picture in my mind of where it might lead."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "面对长期任务时，我通常先建立目标、节点和可检查的推进方式。",
+            "en": "When facing a long-term task, I usually first establish goals, milestones and ways to check progress."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_038",
+      "pairCode": "NI_TE",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "判断复杂方案时，我通常先看它是否满足明确条件并能落实。",
+            "en": "When judging a complex plan, I usually first consider whether it meets explicit conditions and can be put into practice."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "判断复杂方案时，我通常先看零散信息最终汇成的主要方向。",
+            "en": "When judging a complex plan, I usually first consider the main direction the scattered information eventually forms."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_039",
+      "pairCode": "NI_TI",
+      "pairOccurrence": 1,
+      "contextCode": "INTERPRETING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "理解复杂经历时，我通常先把零散部分汇成一个整体主题。",
+            "en": "When understanding a complex experience, I usually first bring its scattered parts together into an overall theme."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "理解复杂经历时，我通常先检查解释中的概念和前提是否一致。",
+            "en": "When understanding a complex experience, I usually first check whether the concepts and assumptions in an explanation are consistent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_040",
+      "pairCode": "NI_TI",
+      "pairOccurrence": 2,
+      "contextCode": "LEARNING_NEW_CONTENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "学习复杂理论时，我通常先厘清定义之间如何相互支持。",
+            "en": "When learning a complex theory, I usually first clarify how its definitions support one another."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "学习复杂理论时，我通常先感受它最终指向的核心图景。",
+            "en": "When learning a complex theory, I usually first sense the central picture it ultimately points towards."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_041",
+      "pairCode": "NI_FE",
+      "pairOccurrence": 1,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "面对复杂的人际事件时，我通常先在心里形成对整体走向的理解。",
+            "en": "When facing a complex interpersonal event, I usually first form an understanding in my mind of its overall direction."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "面对复杂的人际事件时，我通常先考虑各方共同关切和关系影响。",
+            "en": "When facing a complex interpersonal event, I usually first consider the parties’ shared concerns and the effects on relationships."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_042",
+      "pairCode": "NI_FE",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "讨论背后含义时，我通常先寻找大家能够共同接受的价值落点。",
+            "en": "When discussing underlying meanings, I usually first look for a value position everyone can accept."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "讨论背后含义时，我通常先表达自己逐渐形成的核心理解。",
+            "en": "When discussing underlying meanings, I usually first express the central understanding gradually taking shape for me."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_043",
+      "pairCode": "NI_FI",
+      "pairOccurrence": 1,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "面对重要选择时，我通常先等待一个整体方向在心里变得清楚。",
+            "en": "When facing an important choice, I usually first wait for an overall direction to become clear in my mind."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "面对重要选择时，我通常先确认哪些选项符合自己的核心价值。",
+            "en": "When facing an important choice, I usually first check which options fit my core values."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_044",
+      "pairCode": "NI_FI",
+      "pairOccurrence": 2,
+      "contextCode": "INTERPRETING_EXPERIENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "理解一段重要经历时，我通常先辨认它触及了自己哪些重要价值。",
+            "en": "When understanding an important experience, I usually first identify which of my important values it touches."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ni",
+          "sourceDirectionCode": "INTROVERTED_INTUITION",
+          "label": {
+            "zh": "理解一段重要经历时，我通常先寻找它最终指向的整体意义。",
+            "en": "When understanding an important experience, I usually first look for the overall meaning it ultimately points towards."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_045",
+      "pairCode": "TE_TI",
+      "pairOccurrence": 1,
+      "contextCode": "SOLVING_NEW_PROBLEM",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "分析问题时，我通常先建立可检查的条件、规则和处理步骤。",
+            "en": "When analysing a problem, I usually first establish conditions, rules and steps that can be checked."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "分析问题时，我通常先澄清概念、前提和推理之间是否自洽。",
+            "en": "When analysing a problem, I usually first clarify whether the concepts, assumptions and reasoning are internally consistent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_046",
+      "pairCode": "TE_TI",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "评价方案时，我通常先用内部逻辑检查方案解释是否成立。",
+            "en": "When evaluating a plan, I usually first use internal logic to check whether its explanation holds together."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "评价方案时，我通常先用统一外部标准比较实际可行性。",
+            "en": "When evaluating a plan, I usually first use consistent external criteria to compare practical feasibility."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_047",
+      "pairCode": "TE_FE",
+      "pairOccurrence": 1,
+      "contextCode": "COORDINATING_WITH_OTHERS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "多人协作时，我通常先明确目标、分工和可检查的推进条件。",
+            "en": "When collaborating with several people, I usually first clarify goals, responsibilities and conditions for checking progress."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "多人协作时，我通常先明确大家共同关切和可接受的互动方式。",
+            "en": "When collaborating with several people, I usually first clarify shared concerns and acceptable ways of interacting."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_048",
+      "pairCode": "TE_FE",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "处理分歧时，我通常先寻找能回应关系影响和共同价值的做法。",
+            "en": "When dealing with a disagreement, I usually first look for an approach that addresses effects on relationships and shared values."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "处理分歧时，我通常先寻找能一致应用的标准和规则。",
+            "en": "When dealing with a disagreement, I usually first look for standards and rules that can be applied consistently."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_049",
+      "pairCode": "TE_FI",
+      "pairOccurrence": 1,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "做重要取舍时，我通常先看哪项更符合明确目标和现实条件。",
+            "en": "When making an important trade-off, I usually first consider which option fits explicit goals and actual conditions better."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "做重要取舍时，我通常先看哪项更符合自己当前重视的原则。",
+            "en": "When making an important trade-off, I usually first consider which option fits the principles I currently value better."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_050",
+      "pairCode": "TE_FI",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "评价一个决定时，我通常先检查它是否越过自己的价值边界。",
+            "en": "When evaluating a decision, I usually first check whether it crosses my value boundaries."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "te",
+          "sourceDirectionCode": "EXTRAVERTED_THINKING",
+          "label": {
+            "zh": "评价一个决定时，我通常先检查执行标准和结果是否清楚。",
+            "en": "When evaluating a decision, I usually first check whether the standards for carrying it out and its outcomes are clear."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_051",
+      "pairCode": "TI_FE",
+      "pairOccurrence": 1,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "意见不一致时，我通常先厘清各方说法中的概念和前提。",
+            "en": "When opinions do not agree, I usually first clarify the concepts and assumptions in what each party says."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "意见不一致时，我通常先厘清各方共同关切和关系影响。",
+            "en": "When opinions do not agree, I usually first clarify the parties’ shared concerns and the effects on relationships."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_052",
+      "pairCode": "TI_FE",
+      "pairOccurrence": 2,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "理解一项共同决定时，我通常先检查它是否回应共同价值和可接受性。",
+            "en": "When understanding a shared decision, I usually first check whether it addresses shared values and acceptability."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "理解一项共同决定时，我通常先检查其理由是否内部一致。",
+            "en": "When understanding a shared decision, I usually first check whether its reasons are internally consistent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_053",
+      "pairCode": "TI_FI",
+      "pairOccurrence": 1,
+      "contextCode": "INDEPENDENT_REFLECTION",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "独自权衡时，我通常先检查自己的理由和前提是否自洽。",
+            "en": "When weighing something on my own, I usually first check whether my reasons and assumptions are internally consistent."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "独自权衡时，我通常先检查选择是否符合自己当前重视的价值。",
+            "en": "When weighing something on my own, I usually first check whether the choice fits the values I currently consider important."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_054",
+      "pairCode": "TI_FI",
+      "pairOccurrence": 2,
+      "contextCode": "EVALUATING_OPTIONS",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "面对两种解释时，我通常先判断哪一种更贴近自己的价值感受。",
+            "en": "When facing two explanations, I usually first judge which one is closer to my sense of what I value."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ti",
+          "sourceDirectionCode": "INTROVERTED_THINKING",
+          "label": {
+            "zh": "面对两种解释时，我通常先判断哪一种内部逻辑更完整。",
+            "en": "When facing two explanations, I usually first judge which one has more complete internal logic."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_055",
+      "pairCode": "FE_FI",
+      "pairOccurrence": 1,
+      "contextCode": "FORMING_JUDGMENT",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "面对关系中的选择时，我通常先考虑各方共同在意和能够接受的部分。",
+            "en": "When facing a choice involving relationships, I usually first consider what the parties care about together and can accept."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "面对关系中的选择时，我通常先确认它是否符合自己的重要价值和边界。",
+            "en": "When facing a choice involving relationships, I usually first check whether it fits my important values and boundaries."
+          }
+        }
+      ]
+    },
+    {
+      "id": "JUNG_FC_056",
+      "pairCode": "FE_FI",
+      "pairOccurrence": 2,
+      "contextCode": "DISCUSSING_DIFFERENCE",
+      "instruction": {
+        "zh": "当两种情况都可能发生时，请选择通常更自然或更先出现的一项。",
+        "en": "When both could apply, choose the one that is usually more natural or comes first for you."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fi",
+          "sourceDirectionCode": "INTROVERTED_FEELING",
+          "label": {
+            "zh": "表达不同意见时，我通常先确保没有省略自己当前重视的立场。",
+            "en": "When expressing a different opinion, I usually first make sure I have not left out the position I currently consider important."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fe",
+          "sourceDirectionCode": "EXTRAVERTED_FEELING",
+          "label": {
+            "zh": "表达不同意见时，我通常先调整表达，使彼此仍能维持共同理解。",
+            "en": "When expressing a different opinion, I usually first adjust my expression so that we can maintain shared understanding."
+          }
+        }
+      ]
+    }
+  ]
+}

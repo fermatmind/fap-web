@@ -1,0 +1,1140 @@
+{
+  "edition": "fm_jung56_eight_public_cards_working_en_v1",
+  "sourceAssetVersion": "0.2.0-draft",
+  "sourceContentSha256": "dcc202f3cf210b7a45c16b6dc608244d79502e6be2837f71efa3cf8cbe8d2ed5",
+  "contentSha256": "9da9533fa6d300241b516eba6452b5ec82cd7ef91033801c38a2f17cfe1cb300",
+  "psychometricValidationCompleted": false,
+  "languageEquivalenceEstablished": false,
+  "common": {
+    "how_to_read": {
+      "zh": "结果展示八个方向的相对选择情况。请把它看作一组观察线索：哪些方向在本次题组中更常被你选择，哪些较少被选。阅读时不要只盯着最高的方向，也可以看看各方向之间的相对差异，以及并列的情况。较少被选的方向不代表缺失或缺陷。",
+      "en": "The result shows relative choices across eight directions. Treat them as observations: which directions you selected more and less often within this question set. Do not focus only on the highest; consider relative differences and ties too. Being selected less often does not indicate an absence or a flaw."
+    },
+    "forced_choice_method": {
+      "zh": "本测试的每题都给出两个情境陈述，请你选择通常更自然或更先出现的一项。每次选择只给被选中的方向记一次选择次数，因此各方向的次数彼此相关：一个方向次数高，通常意味着另一些方向次数相对低。",
+      "en": "Each question gives two situational statements. Choose the one that is usually more natural or comes first for you. Each choice adds one selection only to the selected direction. The counts therefore depend on one another: a higher count for one direction usually means lower relative counts for some others."
+    },
+    "relative_score_explanation": {
+      "zh": "较高的选择次数只表示在本次二选一题目中，该方向相对于其他方向更常被选择，不代表这个方向在人群中的绝对强度。",
+      "en": "A higher count only means that this direction was selected more often relative to other directions in this two-option question set. It does not indicate absolute strength compared with a population."
+    },
+    "tie_explanation": {
+      "zh": "并列是允许出现的真实结果。当两个或以上方向次数相同时，系统会完整保留并列，不按题目顺序、选项位置或方向代码强行破同分。并列不代表测试出错，也不代表你介于两个方向之间需要被归类。",
+      "en": "Ties are permitted results. When two or more directions have the same count, all ties are retained. Question order, option position and direction codes never break a tie. A tie is not an error and does not mean you need to be classified between two directions."
+    },
+    "no_norms_or_percentiles": {
+      "zh": "当前版本不提供常模、人群百分位或与其他人比较的结论。结果只描述你自己在本次题组中的相对选择，不说明你在人群中的位置。",
+      "en": "This version provides no norms, population percentiles or comparisons with other people. It only describes your relative choices within this attempt and does not locate you within a population."
+    },
+    "not_a_fixed_identity": {
+      "zh": "方向偏好不是固定身份。同一个人在不同阶段、不同情境下可能调用不同方式，本次结果只是当下题组中的一帧观察。",
+      "en": "A directional preference is not a fixed identity. The same person may use different approaches at different stages and in different settings. This result is only one snapshot of choices within the present question set."
+    },
+    "not_a_diagnosis": {
+      "zh": "本结果不是心理测评诊断，也不反映心理健康状态。它不能用于识别心理问题，也不能作为任何医疗或心理咨询的依据。",
+      "en": "This result is not a psychological diagnosis and does not describe mental health. It cannot identify psychological problems or serve as grounds for medical care or psychological counselling."
+    },
+    "high_stakes_use_boundary": {
+      "zh": "请不要用本结果做职业选择、关系判断、升学录用或任何重要决策的依据。方向偏好描述的是注意与判断的倾向，不预测表现，也不决定结果。",
+      "en": "Do not use this result as a basis for career choices, relationship judgements, admission, recruitment or other important decisions. A directional preference describes an inclination in attention or judgement; it neither predicts performance nor determines outcomes."
+    },
+    "evidence_status": {
+      "zh": "本测试用于娱乐与自我探索，尚未完成信度、效度、常模或准确率验证。",
+      "en": "This test is for entertainment and self-exploration. Reliability, validity, norms and accuracy have not been established."
+    },
+    "version_explanation": {
+      "zh": "结果仅反映本次作答中的相对选择，请结合具体情境阅读，不把它当作固定身份或能力判断。",
+      "en": "The result only reflects relative choices in this attempt. Read it in light of specific situations rather than as a fixed identity or an ability judgement."
+    },
+    "retest_guidance": {
+      "zh": "如果你想知道相对选择是否稳定，可以隔一段时间后重新作答并对比两次结果。重测之间请尽量保持相近的作答条件。结果即使变化，也不代表某一次更正确。",
+      "en": "To observe whether relative choices are stable, you can answer again after some time and compare results. Try to keep answering conditions similar. A change does not mean either attempt was more correct."
+    },
+    "web_privacy": {
+      "zh": "56题版只在本页内存保存回答；刷新、离开、换语言、切换方法、清除或重测都会删除。不会自动保存草稿或账户记录；如需比较，请自行在私人位置记录。公开指南与复制入口不含本次回答或次数。32题版仍可自愿在当前标签页保存最多24小时，切换方法时会尝试清除该草稿，若浏览器拒绝访问会提示。",
+      "en": "The 56-choice edition keeps responses only in this page’s memory. Refreshing, leaving, changing language or method, clearing or retaking removes them. It creates no automatic draft or account record; make your own private note if you want a comparison. Public guides and copied entry links contain no responses or counts. The 32-rating edition still offers an optional draft in this tab for up to 24 hours; switching methods attempts to clear that draft and shows a notice if the browser blocks access."
+    }
+  },
+  "cards": [
+    {
+      "id": "se",
+      "sourceDirectionCode": "EXTRAVERTED_SENSATION",
+      "display_name": {
+        "zh": "外倾感觉",
+        "en": "Extraverted sensing"
+      },
+      "short_label": {
+        "zh": "外倾感觉",
+        "en": "Extraverted sensing"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是外倾感觉：注意力更容易先落在眼前正在发生、可以直接观察和确认的事情上。",
+        "en": "The direction chosen more often in this attempt is extraverted sensing: attention may first turn to what is happening now and can be directly observed and checked."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，外倾感觉选择次数较多：注意力更容易先落在当下可观察、可确认的具体信息上，再据此调整。",
+        "en": "In this attempt, extraverted sensing was chosen more often: attention may first turn to concrete information that can be observed and confirmed now, followed by adjustments."
+      },
+      "construct_definition": {
+        "zh": "外倾感觉指在本次题组中，注意和知觉更常以当前外部环境中可直接观察、确认的具体对象、变化和反馈为入口，并据此持续调整注意与行动。它是一种知觉入口的组合描述，不属于能力或个性的描述。",
+        "en": "In this question set, extraverted sensing describes attention and perception that more often begin with concrete objects, changes and feedback that can be directly observed and confirmed in the current external setting, with attention and action adjusting accordingly. This combines descriptions of an entry point for perception; it does not describe ability or personality traits."
+      },
+      "attention_focus": {
+        "zh": "注意力通常更容易先落在眼前现场：正在发生的具体变化、可以看见和核对的细节、以及与对象直接接触后的即时反馈。它描述的是知觉经常从哪里进入，而不是你在所有场合的全部行为。",
+        "en": "Attention may usually first turn to the immediate scene: concrete changes taking place, details that can be seen and checked, and immediate feedback from direct contact with an object. This describes where perception often begins, rather than everything you do in every setting."
+      },
+      "processing_pattern": {
+        "zh": "知觉的展开方式偏向直接接收：先看清当下正在发生什么、条件变成什么样，再让注意跟着现场信息走。外倾感觉是知觉方向，本身不包含好坏的判断，也不等同于情绪反应。",
+        "en": "Perception tends to unfold through direct reception: first seeing what is happening and how conditions have changed, then following information from the scene. Extraverted sensing is a perceptual direction; it does not itself judge something as good or bad and is not the same as an emotional reaction."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "面对新环境时，可能更容易先注意到现场具体的变化和可确认的细节。",
+          "en": "In a new setting, you might first notice concrete changes in the scene and details that can be confirmed."
+        },
+        {
+          "zh": "处理现场任务时，通常更容易依赖眼前可观察的信息做即时调整。",
+          "en": "When handling a task on the spot, you might more readily adjust to information you can observe directly."
+        },
+        {
+          "zh": "与他人接触时，可能更常记住对方当下的言行细节而不是事后评价。",
+          "en": "When meeting others, you might more often remember details of what they said and did at the time rather than later evaluations."
+        },
+        {
+          "zh": "事情进展与预期不符时，可能更容易先回到当下实际情况找依据。",
+          "en": "When events differ from expectations, you might first return to the actual situation at hand for evidence."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在讨论偏离事实时，可能帮助把对话拉回到眼前可核对的具体情况。",
+          "en": "When a discussion drifts away from the facts, this approach might help bring it back to concrete circumstances that can be checked."
+        },
+        {
+          "zh": "在环境发生变化时，可能较早察觉可观察的变化信号并提示调整。",
+          "en": "When a setting changes, it might help notice observable signals of change early and suggest adjustments."
+        },
+        {
+          "zh": "在执行现场任务时，可能提供及时、具体的操作反馈。",
+          "en": "When carrying out a task on the spot, it might provide timely, concrete feedback on the work."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少为尚未显现的整体走向预留注意空间。",
+          "en": "Relying on this direction alone might leave less attention for an overall direction that has not yet become visible."
+        },
+        {
+          "zh": "可能较少主动整理内部形成的长期印象与熟悉参照。",
+          "en": "You might be less likely to organise internally formed long-term impressions and familiar reference points."
+        },
+        {
+          "zh": "当问题出在概念或价值层面时，可能难以仅靠现场信息发现。",
+          "en": "When a problem concerns concepts or values, observing the scene alone might not reveal it."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "每天留三分钟，把眼前的现场信息放到一边，写下一个反复浮现的画面或主题，练习把信息在内部连成整体。",
+          "en": "Set aside three minutes each day to put immediate information aside and write down a recurring image or theme, practising the internal integration of information."
+        },
+        {
+          "zh": "听完别人的描述后，先追问一句你印象里最像哪个熟悉的场景，再给出对现场的判断。",
+          "en": "After hearing someone describe something, first ask which familiar scene it most resembles in their memory, before judging the current scene."
+        },
+        {
+          "zh": "做决定前先问自己这件事对我真正重要的是什么，再依据现场条件行动。",
+          "en": "Before deciding, first ask what really matters to you about this, then act in light of current conditions."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "今天有哪些现场细节是你注意到、但平时容易忽略的？",
+          "en": "Which details in today’s scene did you notice that you might usually overlook?"
+        },
+        {
+          "zh": "哪些时候你发现自己放下眼前信息、先去整理整体走向？",
+          "en": "When do you find yourself setting immediate information aside to organise an overall direction first?"
+        },
+        {
+          "zh": "如果一周内只练习一次不依赖现场信息的判断，你会选哪个场景？",
+          "en": "If you practised one judgement this week without relying on immediate information, which situation would you choose?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于爱冒险或喜欢刺激（能力与行为层面的误解）。",
+          "en": "It does not mean enjoying risk or stimulation: that would confuse a perceptual entry point with ability or behaviour."
+        },
+        {
+          "zh": "不等于冲动或缺少规划（把知觉入口误读成行为风格）。",
+          "en": "It does not mean being impulsive or lacking plans: that would turn a perceptual entry point into a behavioural style."
+        },
+        {
+          "zh": "不等于动手能力强或反应快（把注意方向误读成技能）。",
+          "en": "It does not mean strong practical skills or fast reactions: attention direction is not a skill."
+        },
+        {
+          "zh": "不等于活泼外向或喜欢社交（外倾不等于社交性）。",
+          "en": "It does not mean being lively, outgoing or sociable: extraversion here is not sociability."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样接收信息（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of receiving information."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "si",
+      "sourceDirectionCode": "INTROVERTED_SENSATION",
+      "display_name": {
+        "zh": "内倾感觉",
+        "en": "Introverted sensing"
+      },
+      "short_label": {
+        "zh": "内倾感觉",
+        "en": "Introverted sensing"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是内倾感觉：注意力更容易先落在外部刺激在内部唤起的具体印象上。",
+        "en": "The direction chosen more often in this attempt is introverted sensing: attention may first turn to concrete impressions that external stimuli evoke internally."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，内倾感觉选择次数较多：新信息更容易先在内部形成具体印象，再与熟悉的经验参照比对。",
+        "en": "In this attempt, introverted sensing was chosen more often: new information may first form a concrete internal impression and then be compared with familiar experience."
+      },
+      "construct_definition": {
+        "zh": "内倾感觉指在本次题组中，注意和知觉更常以外部刺激在主体内部形成的具体印象为参照，通过熟悉的具体经验痕迹与连续性来组织当下。它是知觉入口的组合描述，不指记忆力或性格特点。",
+        "en": "In this question set, introverted sensing describes attention and perception that more often take concrete internal impressions formed by external stimuli as reference points, organising the present through traces of familiar concrete experience and continuity. It combines descriptions of a perceptual entry point, rather than memory ability or character traits."
+      },
+      "attention_focus": {
+        "zh": "注意力通常更容易先落在此刻经验在自己心里形成的具体印象：这件事像什么、和哪些熟悉的具体经历对得上、细节上的熟悉感从哪里来。它描述知觉经常从哪里进入，而不是在回忆往事。",
+        "en": "Attention may usually first turn to the concrete impression that a present experience creates in your mind: what it resembles, which familiar specific experiences it matches, and where a sense of familiar detail comes from. This describes where perception often begins, rather than reminiscing about the past."
+      },
+      "processing_pattern": {
+        "zh": "知觉的展开方式偏向以内部印象为坐标：当前刺激先被放在已有具体印象和连续性里比较，注意当下与熟悉印象的差异，再决定怎样组织。内倾感觉是知觉方向，本身不包含对变化或传统的好坏判断。",
+        "en": "Perception tends to unfold with internal impressions as coordinates: current stimuli are first compared with existing concrete impressions and continuity, noticing differences between the present and familiar impressions before deciding how to organise them. Introverted sensing is a perceptual direction; it does not itself judge change or tradition as good or bad."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "接收新信息时，可能更容易先在心里形成具体印象，并与熟悉的经历作参照。",
+          "en": "When receiving new information, you might first form a concrete internal impression and refer to familiar experiences."
+        },
+        {
+          "zh": "面对重复任务时，通常更容易依赖已经熟悉的流程连续性来组织操作。",
+          "en": "When facing a recurring task, you might more readily organise your actions through continuity with a familiar process."
+        },
+        {
+          "zh": "评估变化时，可能更常注意它与熟悉状态之间的具体差异。",
+          "en": "When assessing a change, you might more often notice concrete differences from a familiar state."
+        },
+        {
+          "zh": "描述经历时，可能更常用具体的画面、气味或场景细节来表达。",
+          "en": "When describing an experience, you might more often use specific images, smells or details of a scene."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在项目推进中，可能帮助保持具体过程的连续性和一致性，减少重复出错。",
+          "en": "During a project, this approach might help maintain continuity and consistency in concrete processes and reduce repeated mistakes."
+        },
+        {
+          "zh": "在讨论经验话题时，可能提供细致、具体的个人印象参照。",
+          "en": "When discussing experience, it might provide detailed, concrete personal impressions as reference points."
+        },
+        {
+          "zh": "在变化来临时，可能较早指出哪些部分与既有情况不同，值得单独确认。",
+          "en": "When change arrives, it might help identify which parts differ from the previous situation and need separate checking."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少注意全新信息里无法用经验解释的部分。",
+          "en": "Relying on this direction alone might leave less attention for parts of new information that experience cannot explain."
+        },
+        {
+          "zh": "可能较少主动扩展尚未出现的多种可能方向。",
+          "en": "You might be less likely to explore several possibilities that have not yet appeared."
+        },
+        {
+          "zh": "当判断需要外部共享标准时，仅凭内部印象可能难以形成共同语言。",
+          "en": "When a judgement needs shared external criteria, internal impressions alone might make it hard to find a common language."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "选一件熟悉的事，刻意用第一次见到的眼光重看现场三分钟，只记录眼前发生的事实。",
+          "en": "Choose something familiar and deliberately observe the scene for three minutes as if seeing it for the first time, recording only what is happening now."
+        },
+        {
+          "zh": "面对变化时，先写下眼下新出现的三个具体事实，再与熟悉经验对照。",
+          "en": "When facing a change, first write down three concrete new facts, then compare them with familiar experience."
+        },
+        {
+          "zh": "每周记录一条此前没想到的可能性，练习从线索向外延伸。",
+          "en": "Each week, note one possibility you had not previously considered, practising outward exploration from clues."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "哪些新信息曾经让你觉得陌生又新鲜，但后来证明很有价值？",
+          "en": "Which information once seemed unfamiliar and fresh but later proved valuable?"
+        },
+        {
+          "zh": "你通常在什么情况下会发现仅凭熟悉印象判断并不够？",
+          "en": "When do you usually find that familiar impressions alone are not enough for a judgement?"
+        },
+        {
+          "zh": "如果刻意忽略熟悉感一次，你会更先注意到什么？",
+          "en": "If you deliberately ignored familiarity once, what would you notice first instead?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于记忆力好（把知觉入口误读成记忆能力）。",
+          "en": "It does not mean having a good memory: that would confuse a perceptual entry point with memory ability."
+        },
+        {
+          "zh": "不等于怀旧或守旧（把参照经验误读成对过去的态度）。",
+          "en": "It does not mean nostalgia or conservatism: referring to experience is not an attitude towards the past."
+        },
+        {
+          "zh": "不等于抗拒变化或遵循传统（不涉及对变化或传统的好坏判断）。",
+          "en": "It does not mean resisting change or following tradition: no judgement about the merits of change or tradition is involved."
+        },
+        {
+          "zh": "不等于做事刻板或缺少灵活性（身份与行为层面的误解）。",
+          "en": "It does not mean being rigid or inflexible: those would be interpretations about identity and behaviour."
+        },
+        {
+          "zh": "不等于把注意力放在回忆往事上（本项目定义明确不简化成回忆过去）。",
+          "en": "It does not mean focusing on memories of the past: this project explicitly does not reduce the direction to reminiscing."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "ne",
+      "sourceDirectionCode": "EXTRAVERTED_INTUITION",
+      "display_name": {
+        "zh": "外倾直觉",
+        "en": "Extraverted intuition"
+      },
+      "short_label": {
+        "zh": "外倾直觉",
+        "en": "Extraverted intuition"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是外倾直觉：注意力更容易先从外部线索延伸出多个尚未展开的可能方向。",
+        "en": "The direction chosen more often in this attempt is extraverted intuition: attention may first extend external clues into several possibilities that have not yet unfolded."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，外倾直觉选择次数较多：面对外部线索，注意力更容易先扩展出多种可能和可尝试的方向。",
+        "en": "In this attempt, extraverted intuition was chosen more often: external clues may first draw attention towards several possibilities and directions to try."
+      },
+      "construct_definition": {
+        "zh": "外倾直觉指在本次题组中，注意和知觉更常从当前外部线索向外扩展，连接不同信息，发现多个联系、可尝试方向和仍可发展的可能性。它是知觉入口的组合描述，不指创造力或预测能力。",
+        "en": "In this question set, extraverted intuition describes attention and perception that more often expand outward from current external clues, connecting information and finding several relationships, directions to try and possibilities that could still develop. It combines descriptions of a perceptual entry point, rather than creativity or predictive ability."
+      },
+      "attention_focus": {
+        "zh": "注意力通常更容易先落在线索还能通向哪里：眼前的信号、材料或对话里还有哪些联系没有展开，哪些方向值得一试。它描述知觉经常从哪里进入，而不是把所有想法都当作事实。",
+        "en": "Attention may usually first turn to where a clue could lead: which connections in a signal, material or conversation have not yet unfolded and which directions are worth trying. This describes where perception often begins, rather than treating every idea as a fact."
+      },
+      "processing_pattern": {
+        "zh": "知觉的展开方式偏向发散扩展：从一处线索顺藤摸到多个联系，随新信息不断更新探索路径，先保留选项再谈确定。外倾直觉是知觉方向，本身不包含对点子好坏或现实与否的判断。",
+        "en": "Perception tends to unfold through divergent exploration: following one clue into several connections, updating paths as information arrives, and keeping options open before seeking certainty. Extraverted intuition is a perceptual direction; it does not itself judge whether ideas are good, bad or realistic."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "面对开放问题时，可能更容易先想到多个可尝试的方向而不是单个答案。",
+          "en": "With an open-ended problem, you might first think of several directions to try rather than one answer."
+        },
+        {
+          "zh": "接收新信息时，可能更常注意到它与别的事情之间的新联系。",
+          "en": "When receiving new information, you might more often notice new connections with other things."
+        },
+        {
+          "zh": "方案推进中，通常更容易随新线索调整探索路径。",
+          "en": "As a plan progresses, you might more readily adjust your exploratory path in response to new clues."
+        },
+        {
+          "zh": "讨论话题时，可能更常把不同领域的信息连接起来。",
+          "en": "When discussing a topic, you might more often connect information from different fields."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在方案停滞时，可能帮助打开新的选项和可尝试路径。",
+          "en": "When a plan stalls, this approach might help open new options and paths to try."
+        },
+        {
+          "zh": "在信息分散时，可能帮助发现不同线索之间的新连接。",
+          "en": "When information is scattered, it might help find new connections among different clues."
+        },
+        {
+          "zh": "在计划需要调整时，可能较早提出可供尝试的新方向。",
+          "en": "When a plan needs adjustment, it might help suggest new directions to try early."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少核对可能性背后的现实限制条件。",
+          "en": "Relying on this direction alone might leave less attention for the practical constraints behind possibilities."
+        },
+        {
+          "zh": "可能较少停留整理内部形成的整体印象。",
+          "en": "You might be less likely to pause and organise internally formed overall impressions."
+        },
+        {
+          "zh": "当判断需要共享标准和明确步骤时，扩展出的选项未必都可行。",
+          "en": "When a judgement needs shared criteria and clear steps, the options generated might not all be feasible."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "把一个想法搁置十分钟，回头写下它在内部逐渐形成的整体轮廓，练习内部整合。",
+          "en": "Put an idea aside for ten minutes, then write down the overall outline gradually forming internally, practising internal integration."
+        },
+        {
+          "zh": "选定一个方向后，列出现场可检查的三条证据再推进，练习核对具体事实。",
+          "en": "After selecting a direction, list three pieces of evidence that can be checked on the spot before proceeding, practising attention to concrete facts."
+        },
+        {
+          "zh": "向他人复述方案时，先问这对你们的共同关切有什么帮助，再谈可能性。",
+          "en": "When explaining a plan to others, first ask how it helps with your shared concerns, then discuss possibilities."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "你通常怎么判断一个可能性值得继续探索，还是应该放下？",
+          "en": "How do you usually decide whether a possibility deserves further exploration or should be set aside?"
+        },
+        {
+          "zh": "哪些时候你会发现选项太多反而让决定更难？",
+          "en": "When have you found that too many options make deciding harder?"
+        },
+        {
+          "zh": "如果只允许你沿着一条线索走到底，你会选哪条？",
+          "en": "If you could follow only one clue all the way through, which would you choose?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于创造力一定更高（把知觉方向误读成能力等级）。",
+          "en": "It does not mean greater creativity: a perceptual direction is not an ability level."
+        },
+        {
+          "zh": "不等于想法一定更正确或更有价值（不涉及对点子好坏的判断）。",
+          "en": "It does not mean ideas are more correct or valuable: this direction does not judge their merits."
+        },
+        {
+          "zh": "不等于喜新厌旧或注意力不集中（行为风格层面的误解）。",
+          "en": "It does not mean constantly seeking novelty or lacking attention: those would be interpretations about behavioural style."
+        },
+        {
+          "zh": "不等于不切实际（不涉及现实判断能力）。",
+          "en": "It does not mean being unrealistic: judgement of realism is not measured."
+        },
+        {
+          "zh": "不等于能预测未来（本项目定义明确不涉及预测）。",
+          "en": "It does not mean predicting the future: the project definition explicitly excludes prediction."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样接收信息（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of receiving information."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "ni",
+      "sourceDirectionCode": "INTROVERTED_INTUITION",
+      "display_name": {
+        "zh": "内倾直觉",
+        "en": "Introverted intuition"
+      },
+      "short_label": {
+        "zh": "内倾直觉",
+        "en": "Introverted intuition"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是内倾直觉：注意力更容易跟随内部逐渐形成的图像、关联和整体走向。",
+        "en": "The direction chosen more often in this attempt is introverted intuition: attention may follow internally forming images, connections and an overall direction."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，内倾直觉选择次数较多：零散信息更容易在内部逐渐整合成整体图像和一条可能走向。",
+        "en": "In this attempt, introverted intuition was chosen more often: scattered information may gradually integrate internally into an overall image and one possible direction."
+      },
+      "construct_definition": {
+        "zh": "内倾直觉指在本次题组中，注意和知觉更常跟随主体内部逐渐形成的图像、关联和整体走向，把零散信息压缩整合，等待整体理解成形。它是知觉入口的组合描述，不指预知或洞察能力。",
+        "en": "In this question set, introverted intuition describes attention and perception that more often follow internally forming images, connections and an overall direction, compressing and integrating scattered information while waiting for an overall understanding to take shape. It combines descriptions of a perceptual entry point, rather than foresight or insight as an ability."
+      },
+      "attention_focus": {
+        "zh": "注意力通常更容易先落在信息内部的关系上：这些材料在整体里如何连接、核心主题是什么、它们可能通向哪个方向。它描述知觉经常从哪里进入，而不是对未来的预言。",
+        "en": "Attention may usually first turn to relationships within information: how the material connects within a whole, what its central theme is and where it might lead. This describes where perception often begins, rather than a prediction of the future."
+      },
+      "processing_pattern": {
+        "zh": "知觉的展开方式偏向内部收束：零散线索先被压缩整合，核心关联逐渐浮现，通常等到整体图景大致成形才表达。内倾直觉是知觉方向，本身不包含对走向正确与否的证明。",
+        "en": "Perception tends to unfold through internal convergence: scattered clues are first compressed and integrated, central connections gradually emerge, and expression usually waits until an overall picture has roughly formed. Introverted intuition is a perceptual direction; it does not itself prove a direction is correct."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "面对复杂材料时，可能更容易先在内部整理出整体轮廓再表态。",
+          "en": "With complex material, you might first organise an overall outline internally before expressing a view."
+        },
+        {
+          "zh": "解释线索时，可能更常先形成一个核心主题或意象。",
+          "en": "When explaining clues, you might more often first form a central theme or image."
+        },
+        {
+          "zh": "讨论方向时，可能更常收束为一个可能走向而不是罗列全部选项。",
+          "en": "When discussing direction, you might more often converge on one possible course rather than list every option."
+        },
+        {
+          "zh": "表达判断时，可能更常给出结论而非完整的推理过程。",
+          "en": "When expressing a judgement, you might more often state the conclusion rather than the full reasoning process."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在信息零散时，可能帮助把线索整合成一个可讨论的整体图景。",
+          "en": "When information is scattered, this approach might help integrate clues into an overall picture that can be discussed."
+        },
+        {
+          "zh": "在方向不明时，可能较早提出一个值得核验的可能走向。",
+          "en": "When the direction is unclear, it might help suggest a possible course worth checking early."
+        },
+        {
+          "zh": "在复杂材料面前，可能帮助识别核心主题、避免被细节淹没。",
+          "en": "With complex material, it might help identify the central theme and avoid becoming overwhelmed by details."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能过早收束，把尚不确定的走向当作确定结论。",
+          "en": "Relying on this direction alone might lead to converging too early and treating an uncertain direction as a settled conclusion."
+        },
+        {
+          "zh": "可能较少展开多个外部可尝试选项。",
+          "en": "You might be less likely to explore several options that could be tried externally."
+        },
+        {
+          "zh": "当需要给出可检查的依据时，内部形成的图景未必能及时被说明和验证。",
+          "en": "When checkable evidence is needed, an internally formed picture might not be explained and verified in time."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "把一个内部形成的走向写下来，然后核对眼前可观察的三个具体事实，练习现场核对。",
+          "en": "Write down an internally formed direction, then check three concrete facts you can observe now, practising attention to the scene."
+        },
+        {
+          "zh": "就同一件事问两个人他们看到的具体情况是什么，先不评价，练习收集外部线索。",
+          "en": "Ask two people what concrete circumstances they see in the same situation, without evaluating them first, practising collection of external clues."
+        },
+        {
+          "zh": "用一个公开标准和三步步骤把小计划写清楚，练习外部可检查的表达。",
+          "en": "Write a small plan using one public criterion and three clear steps, practising expression that others can check."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "你形成的整体图景，通常靠什么来判断它值得信任？",
+          "en": "What do you usually use to decide whether an overall picture you have formed deserves trust?"
+        },
+        {
+          "zh": "哪些时候你发现自己的走向判断需要更多外部证据？",
+          "en": "When have you found that your judgement about a direction needs more external evidence?"
+        },
+        {
+          "zh": "如果必须把结论的依据一步步说给别人听，你会从哪里开始？",
+          "en": "If you had to explain the basis of a conclusion step by step, where would you start?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于能预知未来（把知觉方向误读成预测能力）。",
+          "en": "It does not mean foreseeing the future: a perceptual direction is not predictive ability."
+        },
+        {
+          "zh": "不等于看穿真相或第六感准确（神秘化误解）。",
+          "en": "It does not mean seeing through to the truth or having an accurate sixth sense: those would mystify the direction."
+        },
+        {
+          "zh": "不等于拥有神秘能力（不涉及任何超常属性）。",
+          "en": "It does not mean possessing mysterious powers: no paranormal attribute is involved."
+        },
+        {
+          "zh": "不等于战略能力一定更强（能力层面的误解）。",
+          "en": "It does not mean stronger strategic ability: this is not an ability judgement."
+        },
+        {
+          "zh": "不等于更有智慧或更有洞察力（道德与能力层面的误解）。",
+          "en": "It does not mean greater wisdom or insight: those would be moral or ability interpretations."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样接收信息（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of receiving information."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "te",
+      "sourceDirectionCode": "EXTRAVERTED_THINKING",
+      "display_name": {
+        "zh": "外倾思维",
+        "en": "Extraverted thinking"
+      },
+      "short_label": {
+        "zh": "外倾思维",
+        "en": "Extraverted thinking"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是外倾思维：判断时更容易先借助外部可检查的事实、标准和步骤。",
+        "en": "The direction chosen more often in this attempt is extraverted thinking: judgement may first draw on externally checkable facts, criteria and steps."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，外倾思维选择次数较多：形成判断时，注意力更容易先落在可共享的标准、条件和执行步骤上。",
+        "en": "In this attempt, extraverted thinking was chosen more often: when forming a judgement, attention may first turn to shared criteria, conditions and steps for carrying it out."
+      },
+      "construct_definition": {
+        "zh": "外倾思维指在本次题组中，判断更常以外部可说明的标准、结构、程序、证据条件和执行关系为入口，把问题转成可检查、可执行的形式。它是判断方向的组合描述，不指智力或管理能力。",
+        "en": "In this question set, extraverted thinking describes judgement that more often begins with externally explainable criteria, structures, procedures, evidential conditions and relationships involved in carrying out a task, turning a problem into a form that can be checked and acted on. It combines descriptions of a judgement direction, rather than intelligence or management ability."
+      },
+      "attention_focus": {
+        "zh": "形成判断时，注意力通常更容易先落在外部可检查的东西上：有哪些共享标准、条件是什么、步骤怎么排、结果可不可核对。它描述判断经常从哪里进入，而不是在评断别人。",
+        "en": "When forming a judgement, attention may usually first turn to externally checkable matters: which criteria are shared, what the conditions are, how to arrange the steps and whether the outcome can be checked. This describes where judgement often begins, rather than judging other people."
+      },
+      "processing_pattern": {
+        "zh": "判断的展开方式偏向外部结构化：先明确目标与规则，把问题拆成可执行的步骤，依据可检查的结果调整。外倾思维是判断方向，本身不包含对冷酷或强硬的评价。",
+        "en": "Judgement tends to unfold through external structuring: first clarifying goals and rules, breaking a problem into actionable steps, and adjusting to checkable outcomes. Extraverted thinking is a judgement direction; it does not itself imply being cold or forceful."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "评价方案时，可能更容易先按共享标准逐条核对。",
+          "en": "When evaluating a plan, you might first check it point by point against shared criteria."
+        },
+        {
+          "zh": "推进任务时，通常更容易先把目标拆成明确的步骤和条件。",
+          "en": "When moving a task forward, you might more readily break the goal into explicit steps and conditions."
+        },
+        {
+          "zh": "讨论分歧时，可能更常引用可检查的事实和规则作依据。",
+          "en": "When discussing a disagreement, you might more often refer to checkable facts and rules as grounds."
+        },
+        {
+          "zh": "结果与预期不符时，可能更常依据可核对的结果调整做法。",
+          "en": "When results differ from expectations, you might more often adjust your approach using outcomes that can be checked."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在目标模糊时，可能帮助把它转成可执行、可检查的步骤。",
+          "en": "When a goal is vague, this approach might help turn it into actionable, checkable steps."
+        },
+        {
+          "zh": "在讨论分歧时，可能提供共享标准和可核对的事实作为共同语言。",
+          "en": "When discussing a disagreement, it might provide shared criteria and checkable facts as a common language."
+        },
+        {
+          "zh": "在任务收尾时，可能依据可检查结果帮助校准完成度。",
+          "en": "When finishing a task, it might help assess completion against checkable outcomes."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少注意无法标准化的个人价值与关系因素。",
+          "en": "Relying on this direction alone might leave less attention for personal values and relationship factors that cannot be standardised."
+        },
+        {
+          "zh": "可能较少停留整理内部形成的整体价值排序。",
+          "en": "You might be less likely to pause and organise an internally formed ordering of values."
+        },
+        {
+          "zh": "当判断依赖内部概念一致性时，仅靠外部标准可能缺乏解释深度。",
+          "en": "When a judgement depends on consistency among internal concepts, external criteria alone might provide too little explanatory depth."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "先不问标准是什么，写下这件事对我真正重要的地方，练习内部价值参照。",
+          "en": "Before asking what the criteria are, write down what really matters to you about the situation, practising reference to internal values."
+        },
+        {
+          "zh": "面对新方案，先说它还可能通向什么，再谈执行，练习扩展可能。",
+          "en": "With a new plan, first say where else it could lead before discussing execution, practising expansion of possibilities."
+        },
+        {
+          "zh": "评价前先复述对方的内在逻辑框架，确认一致后再给结论，练习内部逻辑。",
+          "en": "Before evaluating, first restate the other person’s internal logical framework and check your understanding before giving a conclusion, practising internal logic."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "哪些决定是你按标准做对了、但事后仍觉得缺了点什么？",
+          "en": "Which decisions met the criteria but still seemed to be missing something afterwards?"
+        },
+        {
+          "zh": "你通常在什么情况下会主动放下标准，先听感受或价值？",
+          "en": "When do you usually choose to set criteria aside and first listen to feelings or values?"
+        },
+        {
+          "zh": "如果标准本身互相冲突，你会怎么排序？",
+          "en": "If the criteria themselves conflict, how would you order them?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于智商更高（把判断方向误读成智力）。",
+          "en": "It does not mean a higher IQ: a judgement direction is not intelligence."
+        },
+        {
+          "zh": "不等于效率一定更高或更擅长管理（能力层面的误解）。",
+          "en": "It does not mean greater efficiency or management skill: those would be ability interpretations."
+        },
+        {
+          "zh": "不等于冷酷或缺少感情（道德与情绪层面的误解）。",
+          "en": "It does not mean being cold or lacking feelings: those would be moral or emotional interpretations."
+        },
+        {
+          "zh": "不等于强势或控制欲强（行为风格层面的误解）。",
+          "en": "It does not mean being domineering or controlling: those would be interpretations about behavioural style."
+        },
+        {
+          "zh": "不等于更理性或更正确（不涉及理性程度与正确性）。",
+          "en": "It does not mean being more rational or correct: degree of rationality and correctness are not measured."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样形成判断（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of forming a judgement."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "ti",
+      "sourceDirectionCode": "INTROVERTED_THINKING",
+      "display_name": {
+        "zh": "内倾思维",
+        "en": "Introverted thinking"
+      },
+      "short_label": {
+        "zh": "内倾思维",
+        "en": "Introverted thinking"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是内倾思维：判断时更容易先澄清概念、前提和内部逻辑关系。",
+        "en": "The direction chosen more often in this attempt is introverted thinking: judgement may first clarify concepts, assumptions and internal logical relationships."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，内倾思维选择次数较多：形成判断前，注意力更容易先落在概念、前提和逻辑关系是否自洽上。",
+        "en": "In this attempt, introverted thinking was chosen more often: before forming a judgement, attention may first turn to whether concepts, assumptions and logical relationships are internally consistent."
+      },
+      "construct_definition": {
+        "zh": "内倾思维指在本次题组中，判断更常以内部概念、定义、前提与推理关系为入口，先检验它们能否自洽，再重组解释框架。它是判断方向的组合描述，不指智力高低，也不指逻辑能力等级。",
+        "en": "In this question set, introverted thinking describes judgement that more often begins with internal concepts, definitions, assumptions and relationships in reasoning, first testing whether they are internally consistent and then reorganising an explanatory framework. It combines descriptions of a judgement direction, rather than intelligence or a level of logical ability."
+      },
+      "attention_focus": {
+        "zh": "形成判断时，注意力通常更容易先落在概念和前提上：这个词到底指什么、这句话的依据是什么、前后逻辑是否一致。它描述判断经常从哪里进入，而不是在挑剔别人。",
+        "en": "When forming a judgement, attention may usually first turn to concepts and assumptions: what a term actually means, what grounds a statement rests on and whether the logic is consistent. This describes where judgement often begins, rather than finding fault with others."
+      },
+      "processing_pattern": {
+        "zh": "判断的展开方式偏向内部澄清：先界定概念与前提，检查推理关系，必要时重组整个解释框架，想清楚原理后再表态。内倾思维是判断方向，本身不包含对聪明或迟钝的评价。",
+        "en": "Judgement tends to unfold through internal clarification: first defining concepts and assumptions, checking the relationships in reasoning, and reorganising the entire explanatory framework if needed, before expressing a view once the principle is understood. Introverted thinking is a judgement direction; it does not itself judge someone as clever or slow."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "讨论问题时，可能更容易先澄清概念和前提再进入结论。",
+          "en": "When discussing a problem, you might first clarify concepts and assumptions before moving to conclusions."
+        },
+        {
+          "zh": "发现矛盾时，通常更容易先检查逻辑关系哪里不一致。",
+          "en": "When finding a contradiction, you might more readily first check where logical relationships are inconsistent."
+        },
+        {
+          "zh": "学习新内容时，可能更常先理解原理再接受结论。",
+          "en": "When learning something new, you might more often understand the principle before accepting a conclusion."
+        },
+        {
+          "zh": "解释立场时，可能更常给出自己重组过的框架而不是现成说法。",
+          "en": "When explaining a position, you might more often present a framework you have reorganised yourself rather than a ready-made account."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在概念模糊时，可能帮助把定义和前提说清楚。",
+          "en": "When concepts are vague, this approach might help clarify definitions and assumptions."
+        },
+        {
+          "zh": "在论证矛盾时，可能帮助定位不一致之处并重建解释框架。",
+          "en": "When arguments conflict, it might help locate inconsistencies and rebuild an explanatory framework."
+        },
+        {
+          "zh": "在结论被轻易接受时，可能帮助检验依据是否成立。",
+          "en": "When a conclusion is readily accepted, it might help check whether its grounds hold."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少注意现实执行条件和外部标准。",
+          "en": "Relying on this direction alone might leave less attention for practical conditions for carrying something out and for external criteria."
+        },
+        {
+          "zh": "可能较少停留整理内部形成的价值排序。",
+          "en": "You might be less likely to pause and organise an internally formed ordering of values."
+        },
+        {
+          "zh": "当需要快速给出共同可执行的方案时，内部澄清的节奏可能显得慢。",
+          "en": "When a shared, actionable plan is needed quickly, the pace of internal clarification might seem slow."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "把推理放到一边，直接观察眼前正在发生的一个具体变化并记录，练习现场感知。",
+          "en": "Put reasoning aside and directly observe and record one concrete change taking place now, practising perception of the scene."
+        },
+        {
+          "zh": "给他人复述时，先说按我们的共同目标这一步应满足什么，再谈逻辑，练习共享标准。",
+          "en": "When explaining something to others, first say what this step should satisfy in light of your shared goal, then discuss the logic, practising shared criteria."
+        },
+        {
+          "zh": "讨论时主动问大家的共同关切是什么，再回到逻辑，练习共享价值。",
+          "en": "During a discussion, actively ask what everyone’s shared concerns are before returning to the logic, practising shared values."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "哪些你逻辑上想得很清楚的事，实际执行时却卡在了别的地方？",
+          "en": "Which things were logically clear to you but became stuck on something else when you tried to carry them out?"
+        },
+        {
+          "zh": "你通常怎么分辨前提真的成立，而不是自己希望它成立？",
+          "en": "How do you usually distinguish an assumption that really holds from one you merely want to hold?"
+        },
+        {
+          "zh": "如果必须先给出行动而不是解释，你会怎么做？",
+          "en": "If you had to give an action first rather than an explanation, what would you do?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于更聪明（把判断方向误读成智力高低）。",
+          "en": "It does not mean being more intelligent: a judgement direction is not an intelligence level."
+        },
+        {
+          "zh": "不等于逻辑能力一定更强（能力层面的误解，本项目不测量逻辑能力）。",
+          "en": "It does not mean stronger logical ability: this project does not measure logical ability."
+        },
+        {
+          "zh": "不等于喜欢独处或不合群（把内倾误读成社交偏好）。",
+          "en": "It does not mean enjoying solitude or failing to fit in: introversion here is not a social preference."
+        },
+        {
+          "zh": "不等于不善表达或难以沟通（表达层面的误解）。",
+          "en": "It does not mean difficulty expressing yourself or communicating: those would be interpretations about expression."
+        },
+        {
+          "zh": "不等于脱离现实或空谈理论（不涉及现实适应）。",
+          "en": "It does not mean being detached from reality or merely theorising: adaptation to reality is not measured."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样形成判断（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of forming a judgement."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "fe",
+      "sourceDirectionCode": "EXTRAVERTED_FEELING",
+      "display_name": {
+        "zh": "外倾情感",
+        "en": "Extraverted feeling"
+      },
+      "short_label": {
+        "zh": "外倾情感",
+        "en": "Extraverted feeling"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是外倾情感：价值判断时更容易先参照共同价值和关系情境。",
+        "en": "The direction chosen more often in this attempt is extraverted feeling: value judgement may first refer to shared values and the relationship setting."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，外倾情感选择次数较多：形成价值判断时，注意力更容易先落在共同关切、氛围和对他人的影响上。",
+        "en": "In this attempt, extraverted feeling was chosen more often: when forming a value judgement, attention may first turn to shared concerns, the atmosphere and effects on others."
+      },
+      "construct_definition": {
+        "zh": "外倾情感指在本次题组中，价值判断更常以共享规范、关系状态、他人可感知的影响和共同可接受性为入口，推动形成共同可行的取舍。它是判断方向的组合描述，不指善良或情绪强度。",
+        "en": "In this question set, extraverted feeling describes value judgement that more often begins with shared norms, the state of relationships, effects others can perceive and mutual acceptability, helping form trade-offs that can work for everyone involved. It combines descriptions of a judgement direction, rather than kindness or emotional intensity."
+      },
+      "attention_focus": {
+        "zh": "形成价值判断时，注意力通常更容易先落在关系情境上：大家共同在乎什么、现在的氛围如何、这样说或做会对他人产生什么可感知的影响。它描述判断经常从哪里进入，而不是在讨好谁。",
+        "en": "When forming a value judgement, attention may usually first turn to the relationship setting: what people care about together, the current atmosphere and the perceptible effects your words or actions could have on others. This describes where judgement often begins, rather than pleasing someone."
+      },
+      "processing_pattern": {
+        "zh": "判断的展开方式偏向共享校准：先辨认共同关切与共享价值，考虑表达在关系中的影响，再推动形成共同可接受的方案。外倾情感是判断方向，本身不包含情绪高涨或低落的含义。",
+        "en": "Judgement tends to unfold through shared calibration: first identifying shared concerns and values, considering how expression affects relationships, and then helping form a mutually acceptable plan. Extraverted feeling is a judgement direction; it does not itself mean elevated or low emotion."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "多人协作时，可能更容易先留意大家共同的关切与氛围。",
+          "en": "When collaborating with several people, you might first notice shared concerns and the atmosphere."
+        },
+        {
+          "zh": "表达意见时，通常更容易考虑这样说对他人可感知的影响。",
+          "en": "When expressing an opinion, you might more readily consider the effects others can perceive from your wording."
+        },
+        {
+          "zh": "协调分歧时，可能更常推动形成共同可接受的方案。",
+          "en": "When coordinating a disagreement, you might more often work towards a mutually acceptable plan."
+        },
+        {
+          "zh": "评价事情时，可能更常参考共享的价值和规范。",
+          "en": "When evaluating something, you might more often refer to shared values and norms."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在分歧出现时，可能帮助辨认大家共同在乎什么，减少误伤。",
+          "en": "When a disagreement arises, this approach might help identify what people care about together and reduce unintended hurt."
+        },
+        {
+          "zh": "在表达敏感话题时，可能帮助考虑表达方式对关系的影响。",
+          "en": "When expressing sensitive topics, it might help consider how wording affects relationships."
+        },
+        {
+          "zh": "在形成集体决定时，可能帮助推动一个共同可接受的方案。",
+          "en": "When making a group decision, it might help move towards a mutually acceptable plan."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少核对可检查的事实与标准。",
+          "en": "Relying on this direction alone might leave less attention for checkable facts and criteria."
+        },
+        {
+          "zh": "可能较少停留整理自己未说出的个人价值底线。",
+          "en": "You might be less likely to pause and organise personal value boundaries you have not expressed."
+        },
+        {
+          "zh": "当共同氛围掩盖真实分歧时，仅维护氛围可能推迟问题暴露。",
+          "en": "When a shared atmosphere conceals real disagreement, maintaining that atmosphere alone might delay the problem becoming visible."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "先写下自己真正重视什么，再回应他人的期待，练习内部价值参照。",
+          "en": "First write down what you truly value before responding to others’ expectations, practising reference to internal values."
+        },
+        {
+          "zh": "不看关系氛围，先核对可检查的事实和步骤再表态，练习外部标准。",
+          "en": "Set the relationship atmosphere aside and first check facts and steps that can be verified before expressing a view, practising external criteria."
+        },
+        {
+          "zh": "面对新方案，先说它还可能通向什么，再谈共同接受度，练习扩展可能。",
+          "en": "With a new plan, first say where else it might lead before discussing mutual acceptability, practising expansion of possibilities."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "你通常怎么分辨照顾大家感受与压抑自己想法之间的界限？",
+          "en": "How do you usually distinguish consideration for everyone’s feelings from suppressing your own thoughts?"
+        },
+        {
+          "zh": "哪些时候共同可接受的方案反而让你事后不太安心？",
+          "en": "When has a mutually acceptable plan left you feeling uneasy afterwards?"
+        },
+        {
+          "zh": "如果氛围很好的讨论其实方向不对，你会怎么处理？",
+          "en": "If a discussion has a good atmosphere but is heading in the wrong direction, how would you handle it?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于情商更高（把判断方向误读成能力等级）。",
+          "en": "It does not mean higher emotional intelligence: a judgement direction is not an ability level."
+        },
+        {
+          "zh": "不等于更善良或更有同理心（道德层面的误解）。",
+          "en": "It does not mean greater kindness or empathy: those would be moral interpretations."
+        },
+        {
+          "zh": "不等于讨好别人或没有个人立场（行为层面的误解）。",
+          "en": "It does not mean pleasing others or having no position of your own: those would be behavioural interpretations."
+        },
+        {
+          "zh": "不等于情绪更丰富或更情绪化（把价值判断误读成情绪强度）。",
+          "en": "It does not mean richer emotions or being more emotional: value judgement is not emotional intensity."
+        },
+        {
+          "zh": "不等于一定擅长社交（把外倾误读成社交能力）。",
+          "en": "It does not mean social skill: extraversion here is not social ability."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样形成判断（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of forming a judgement."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    },
+    {
+      "id": "fi",
+      "sourceDirectionCode": "INTROVERTED_FEELING",
+      "display_name": {
+        "zh": "内倾情感",
+        "en": "Introverted feeling"
+      },
+      "short_label": {
+        "zh": "内倾情感",
+        "en": "Introverted feeling"
+      },
+      "result_headline": {
+        "zh": "本次选择次数较多的方向是内倾情感：价值判断时更容易先参照自己真正重视和在意的东西。",
+        "en": "The direction chosen more often in this attempt is introverted feeling: value judgement may first refer to what you personally value and care about."
+      },
+      "one_sentence_summary": {
+        "zh": "本次作答中，内倾情感选择次数较多：形成价值判断时，注意力更容易先落在自己重视什么、什么与自己一致上。",
+        "en": "In this attempt, introverted feeling was chosen more often: when forming a value judgement, attention may first turn to what you value and what feels consistent with it."
+      },
+      "construct_definition": {
+        "zh": "内倾情感指在本次题组中，价值判断更常以主体内部的重要程度、个人价值、意义感和可接受边界为入口，依据内在一致性形成取舍。它是判断方向的组合描述，不指真实程度或道德水平。",
+        "en": "In this question set, introverted feeling describes value judgement that more often begins with internal importance, personal values, a sense of meaning and acceptable boundaries, making trade-offs through inner consistency. It combines descriptions of a judgement direction, rather than authenticity or moral standing."
+      },
+      "attention_focus": {
+        "zh": "形成价值判断时，注意力通常更容易先落在自己心里：这件事对我真正重要吗、它和我重视的东西一致吗、哪里越过了我的边界。它描述判断经常从哪里进入，而不代表冷漠或自我中心。",
+        "en": "When forming a value judgement, attention may usually first turn inward: whether this really matters to you, whether it fits what you value and where it crosses your boundaries. This describes where judgement often begins and does not imply indifference or self-centredness."
+      },
+      "processing_pattern": {
+        "zh": "判断的展开方式偏向内部校准：先辨认个人真正重视的内容，按内在价值排序，检查选择是否越过自己的边界，取舍标准不一定立刻外显。内倾情感是判断方向，本身不包含情绪外露的强度。",
+        "en": "Judgement tends to unfold through internal calibration: first identifying what you personally value, ordering internal values and checking whether a choice crosses your boundaries. The basis of a trade-off may not be immediately expressed. Introverted feeling is a judgement direction; it does not itself describe the intensity of outward emotional expression."
+      },
+      "observable_tendencies": [
+        {
+          "zh": "面对取舍时，可能更容易先问自己这件事对我真正重要的程度。",
+          "en": "When making trade-offs, you might first ask how much the matter truly means to you."
+        },
+        {
+          "zh": "表达立场时，通常更容易先确认它和自己重视的东西一致。",
+          "en": "When expressing a position, you might more readily first check that it fits what you value."
+        },
+        {
+          "zh": "面对价值冲突时，可能更常依据个人边界来判断能否接受。",
+          "en": "When facing a conflict of values, you might more often use personal boundaries to judge acceptability."
+        },
+        {
+          "zh": "在不被要求表态时，可能更常把价值判断放在心里而不是立即说出。",
+          "en": "When not asked to state a position, you might more often keep a value judgement internal rather than express it immediately."
+        }
+      ],
+      "possible_contributions": [
+        {
+          "zh": "在众说纷纭时，可能帮助辨认哪些选择真正重要而不是随大流。",
+          "en": "When opinions differ widely, this approach might help identify which choices really matter rather than follow the crowd."
+        },
+        {
+          "zh": "在需要守住边界时，可能帮助识别哪里越过了自己可接受的范围。",
+          "en": "When boundaries need to be maintained, it might help identify where an acceptable limit has been crossed."
+        },
+        {
+          "zh": "在为选择提供内在尺度时，可能帮助保持与自己重视之物的连贯性。",
+          "en": "When providing an internal measure for a choice, it might help maintain continuity with what you value."
+        }
+      ],
+      "possible_blind_spots": [
+        {
+          "zh": "单一依赖这个方向时，可能较少考虑共同价值和外部可接受性。",
+          "en": "Relying on this direction alone might leave less attention for shared values and external acceptability."
+        },
+        {
+          "zh": "可能较少核对可检查的事实与标准。",
+          "en": "You might be less likely to check facts and criteria that can be verified."
+        },
+        {
+          "zh": "当个人判断没有及时表达时，可能让他人难以理解你的取舍依据。",
+          "en": "When a personal judgement is not expressed in time, others might find it difficult to understand the grounds of your trade-off."
+        }
+      ],
+      "balance_practices": [
+        {
+          "zh": "先把内心判断放到一边，观察现场正在发生的具体事实并描述，练习现场感知。",
+          "en": "First put an internal judgement aside and observe and describe concrete facts taking place on the scene, practising direct perception."
+        },
+        {
+          "zh": "主动问一次大家的共同关切是什么，再谈个人立场，练习共享价值。",
+          "en": "Actively ask once what everyone’s shared concerns are before discussing your personal position, practising shared values."
+        },
+        {
+          "zh": "把一条个人标准翻译成三步可检查的做法，练习外部可表达。",
+          "en": "Translate one personal criterion into three checkable steps, practising expression in an external form."
+        }
+      ],
+      "reflection_questions": [
+        {
+          "zh": "你通常靠什么确认一件事对你真的重要，而不是被氛围带动？",
+          "en": "How do you usually confirm that something truly matters to you rather than being drawn along by the atmosphere?"
+        },
+        {
+          "zh": "哪些时候你发现不表达反而造成了更多误解？",
+          "en": "When have you found that not expressing yourself actually caused more misunderstanding?"
+        },
+        {
+          "zh": "如果必须用大家都能听懂的话说明你的取舍，你会怎么说？",
+          "en": "If you had to explain a trade-off in words everyone could understand, how would you say it?"
+        }
+      ],
+      "does_not_mean": [
+        {
+          "zh": "不等于更真实或更表里如一（道德层面的误解，本项目不测量真实性）。",
+          "en": "It does not mean greater authenticity or consistency between inner and outer life: this project does not measure authenticity."
+        },
+        {
+          "zh": "不等于更有原则或更有道德（道德层面的误解）。",
+          "en": "It does not mean being more principled or moral: those would be moral interpretations."
+        },
+        {
+          "zh": "不等于更善良或更敏感脆弱（情绪与道德层面的误解）。",
+          "en": "It does not mean greater kindness or emotional sensitivity and vulnerability: those would be emotional or moral interpretations."
+        },
+        {
+          "zh": "不等于自私或不在乎别人（把内部参照误读成不顾他人）。",
+          "en": "It does not mean being selfish or not caring about others: internal reference is not disregard for others."
+        },
+        {
+          "zh": "不等于情绪更丰富或更情绪化（把价值判断误读成情绪强度）。",
+          "en": "It does not mean richer emotions or being more emotional: value judgement is not emotional intensity."
+        },
+        {
+          "zh": "不等于你的固定身份，也不代表你只能这样形成判断（身份层面的误解）。",
+          "en": "It is not a fixed identity and does not mean this is your only way of forming a judgement."
+        }
+      ],
+      "interpretation_boundary": {
+        "zh": "本描述只说明本次二选一题组中该方向的相对选择情况，不代表你只能使用这一方向，不是固定人格标签，也不是心理诊断，不能据此作职业、关系、健康等高风险决策。",
+        "en": "This description only concerns relative choices for this direction within this two-option question set. It does not mean you can only use this direction, is not a fixed personality label or psychological diagnosis, and must not be used to make high-stakes career, relationship or health decisions."
+      }
+    }
+  ]
+}
