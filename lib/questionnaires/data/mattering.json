@@ -1,0 +1,952 @@
+{
+  "slug": "mattering",
+  "code": "GMS5_AMS5_WORKING_EDITION",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "everyday",
+  "kind": "mattering10",
+  "title": {
+    "en": "Mattering Test (GMS/AMS)",
+    "zh": "被重视感测试（GMS/AMS）"
+  },
+  "seoTitle": {
+    "en": "Mattering Test (GMS/AMS): Two Scores & Full Free Guides",
+    "zh": "被重视感测试（GMS/AMS）：双维分数与免费完整解读"
+  },
+  "description": {
+    "en": "Answer all 10 GMS/AMS questions and read two separate 5–20 scores, worked examples and complete free guides. No signup, diagnosis or combined worth score.",
+    "zh": "免费完成GMS与AMS共10题，分别查看5–20分及完整解读、算例和可选行动。无需注册，不诊断，不生成个人价值总分。"
+  },
+  "minutes": 3,
+  "introduction": {
+    "en": "Explore feeling important to others and feeling insignificant as two related experiences. Neither score defines your value or establishes what others really think. Chinese is a new, unvalidated working translation.",
+    "zh": "从被他人看重与感到无足轻重两个相关体验观察人际关系。分数不定义个人价值，也不能确定他人的真实想法。中文为未经验证的新工作译本。"
+  },
+  "instructions": {
+    "en": "Consider your experiences with people in general, without a fixed recall period. Choose how much each question applies. All ten questions are needed for both totals; you can exit and read either guide instead.",
+    "zh": "请回顾与一般人相处的体验，不设固定回忆时间窗。选择每题符合你的程度；两份总分需各自五题完整。也可以退出，直接阅读任一指南。"
+  },
+  "resultHeading": {
+    "en": "Your two separate readouts",
+    "zh": "本次两份独立读数"
+  },
+  "source": {
+    "kind": "published_gms5_ams5_working_translation",
+    "formCode": "gms5_ams5_flett2022_table2",
+    "itemBankVersion": "gms5_ams5_flett2022_table2_zh_working_v1",
+    "scoringVersion": "two_separate_five_1to4_sums_all5_no_reverse_v1",
+    "resultContentVersion": "gms_ams_two_complete_guides_v1",
+    "itemBankSha256": "cdc1ee94609045a5562d984e2e240358027d8801cf71a189768de1668f389b7f",
+    "resultContentSha256": "fc44ddf083b1845467425eedaa3ab52d460ddee2fb1abc1a461bcc59b3cb68a9",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "GMS",
+      "title": {
+        "en": "General mattering",
+        "zh": "一般被重视感"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "AMS",
+      "title": {
+        "en": "Anti-mattering",
+        "zh": "不被重视感"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "gms-01",
+      "prompt": {
+        "en": "How important are you to others?",
+        "zh": "你对他人有多重要？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-02",
+      "prompt": {
+        "en": "How much do others pay attention to you?",
+        "zh": "他人有多关注你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-03",
+      "prompt": {
+        "en": "How much would you be missed if you went away?",
+        "zh": "如果你离开了，他人会有多想念你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-04",
+      "prompt": {
+        "en": "How interested are others in what you have to say?",
+        "zh": "他人对你想说的话有多感兴趣？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-05",
+      "prompt": {
+        "en": "How much do other people depend upon you?",
+        "zh": "其他人有多依赖你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-01",
+      "prompt": {
+        "en": "How much do you feel like you don’t matter?",
+        "zh": "你觉得自己不被重视的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-02",
+      "prompt": {
+        "en": "How often have you been treated in a way that makes you feel like you are insignificant?",
+        "zh": "你有多常受到让你觉得自己无足轻重的对待？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-03",
+      "prompt": {
+        "en": "To what extent have you been made to feel like you are invisible?",
+        "zh": "你被他人弄得觉得自己仿佛不存在的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-04",
+      "prompt": {
+        "en": "How much do you feel like you will never matter to certain people?",
+        "zh": "你觉得自己永远不会被某些人重视的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-05",
+      "prompt": {
+        "en": "How often have you been made to feel by someone that they don’t care what you think or what you have to say?",
+        "zh": "你有多常被人弄得觉得，对方不在乎你的想法或你想说的话？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "general-mattering",
+      "directionIds": [
+        "GMS"
+      ],
+      "title": {
+        "en": "General Mattering (GMS): Reading Your Score",
+        "zh": "一般被重视感（GMS）：分数怎样读"
+      },
+      "headline": {
+        "en": "Feeling noticed, important and missed",
+        "zh": "感到被关注、被看重、被想念"
+      },
+      "summary": {
+        "en": "Read the five-item General Mattering Scale separately: what 5–20 means, why being relied on is not the same as being cared for, and how to reflect on real interactions.",
+        "zh": "单独阅读五题GMS的5–20分：理解关注、重要感与依赖的差别，用具体互动核对感受，不把分数当个人价值。"
+      },
+      "scoreReading": {
+        "en": "Five ratings of 1–4 are added without reversal. A larger total means more reported mattering on these questions. There are no website low/high labels, percentiles or diagnostic cutoffs.",
+        "zh": "五题各1–4分直接相加，不反向。总分越大，表示在这些题目中报告的被重视感越多。本站不设高低档、百分位或诊断切点。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the five questions capture",
+            "zh": "五题在观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The GMS asks about importance, attention, being missed, interest in your words and others depending on you. It records your perception of relationships with people in general. It does not ask those people to rate you or verify their intentions.",
+              "zh": "GMS关注重要感、关注、被想念、自己的话是否引起兴趣，以及他人是否依赖自己。它记录你对一般人际关系的感受，并未请他人评价你，也不能核实他人的真实想法。"
+            },
+            {
+              "en": "You may think of different people for different questions. Someone can feel appreciated by a close friend and overlooked in a meeting. Keep that context alongside the score instead of reducing every relationship to one judgment.",
+              "zh": "不同题目可能让你想到不同的人。一个人可以在朋友面前感到被珍惜，却在会议里被忽略。请把这种情境差异与分数一起保留，不必用一个判断概括所有关系。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Calculation and missing responses",
+            "zh": "计算与缺答"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, ratings 2, 3, 2, 4 and 1 sum to 12 out of a possible 5–20. The endpoints are the lowest and highest possible totals, not normality boundaries. A score of 12 is not 60% liked.",
+              "zh": "例如2、3、2、4、1相加为12分，可得范围是5–20。端点只是可能的最小和最大总分，不是正常与异常的边界。12分也不是“60%被喜欢”。"
+            },
+            {
+              "en": "This website requires all five GMS responses before showing its total. A missing response is not zero, and it is not replaced with your other responses. This is a website completeness rule; the cited study does not supply a general missing-item scoring rule.",
+              "zh": "本站要求GMS五题全部作答才显示该维度总分。缺答不按0分处理，也不由其他回答填补。这是网站完整度规则；所引研究未提供可普遍套用的缺题计分方案。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A concrete example and a counterexample",
+            "zh": "例子与反例"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend remembers a detail you mentioned, asks how it went and makes room to hear your answer. Those actions can help you examine attention and interest. They do not prove that every other person feels the same way about you.",
+              "zh": "朋友记得你之前提过的事，主动问进展，并留出时间听你回答。这些行动可以帮助观察关注与兴趣，却不能证明所有其他人都对你抱有同样感受。"
+            },
+            {
+              "en": "A team depends on you for every urgent task but overlooks your need for rest. That may raise the dependence response while leaving you feeling uncared for. Being useful, being liked and being valued are overlapping experiences, not interchangeable facts.",
+              "zh": "团队遇到急事都依赖你，却忽视你的休息需要。你可能在依赖题上选得较高，同时仍感到缺乏关心。有用、被喜欢与被看重可能重叠，却不能互相替代。"
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "title": {
+            "en": "Read alongside AMS without cancelling it",
+            "zh": "与AMS并列阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "GMS and AMS are related but distinct. A person may report mattering in some relationships and repeated insignificance in others. Both totals can be substantial; neither total should be subtracted from the other or turned into a combined index.",
+              "zh": "GMS与AMS有关，但不同。你可能在某些关系中被重视，在另一些关系中反复感到无足轻重。两项分数都可能较大；不要相减，也不把它们组成一个综合指数。"
+            },
+            {
+              "en": "If the two totals happen to be equal, that equality has no special psychological meaning. They have different questions and measure different experiences. Read both full guides regardless of which number is larger.",
+              "zh": "两项总分碰巧相等，并没有特殊心理学含义。它们询问不同体验；无论哪个数字更大，都可以阅读两份完整指南。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "An optional observation to try",
+            "zh": "可选的观察行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one relationship you feel safe reflecting on. Write down one recent moment when your words were heard and one moment when you wanted more attention. Separate the visible action, your interpretation and what you would like to ask for.",
+              "zh": "选择一段让你感到安全、可以复盘的关系。写下一次自己的话被听见的时刻，以及一次希望得到更多关注的时刻。分别记录看得见的行动、自己的理解和想提出的具体需要。"
+            },
+            {
+              "en": "If useful, make a small request such as: “Could you put your phone down for five minutes while I explain this?” Notice the response over time. You do not need to earn care by becoming indispensable or by taking on more work.",
+              "zh": "如果合适，可以提出一个小请求：“我说这件事时，你能先放下手机听我五分钟吗？”随后观察对方一段时间里的回应。你不必靠成为不可替代的人，或承担更多任务，来换取关心。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Limits, comparisons and support",
+            "zh": "边界、比较与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "This raw score does not measure your worth, popularity, attachment type or a mental health diagnosis. The English published items have research history, but that does not validate this web presentation or the new Chinese working translation.",
+              "zh": "原始分数不衡量个人价值、受欢迎程度、依恋类型，也不是心理健康诊断。发表英文题目有研究历史，但不意味着本网页呈现或新中文工作译文已经得到验证。"
+            },
+            {
+              "en": "For a later personal reflection, use the same language and response anchors and note changes in who came to mind. There is no established change threshold here. If feeling unseen is persistent or affecting daily life, consider talking with someone you trust or a qualified professional.",
+              "zh": "以后再次自我观察时，尽量保持语言与选项一致，并记下想到的人是否变化。本站没有确定的变化阈值。如果不被看见的感受持续存在、影响日常生活，可以考虑与信任的人或合格专业人士讨论。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "General Mattering (GMS): Reading Your Score",
+          "zh": "一般被重视感（GMS）：分数怎样读"
+        },
+        "description": {
+          "en": "Read the five-item General Mattering Scale separately: what 5–20 means, why being relied on is not the same as being cared for, and how to reflect on real interactions.",
+          "zh": "单独阅读五题GMS的5–20分：理解关注、重要感与依赖的差别，用具体互动核对感受，不把分数当个人价值。"
+        }
+      }
+    },
+    {
+      "id": "anti-mattering",
+      "directionIds": [
+        "AMS"
+      ],
+      "title": {
+        "en": "Anti-Mattering (AMS): Reading Your Score",
+        "zh": "不被重视感（AMS）：分数怎样读"
+      },
+      "headline": {
+        "en": "Taking feelings of insignificance seriously",
+        "zh": "认真对待无足轻重的感受"
+      },
+      "summary": {
+        "en": "Read the five-item Anti-Mattering Scale independently: its 5–20 total, examples of feeling invisible, mixed relationship experiences, limits and optional next steps.",
+        "zh": "单独阅读五题AMS的5–20分，理解仿佛不存在、想法不被在乎等体验，结合关系差异、限制与可选行动，不作诊断。"
+      },
+      "scoreReading": {
+        "en": "Five ratings of 1–4 are added without reversal. A larger total means more reported anti-mattering on these questions. It does not mean that you matter less as a person or establish what other people really think.",
+        "zh": "五题各1–4分直接相加，不反向。总分越大，表示在这些题目中报告的不被重视体验越多。它不表示你这个人价值更低，也不能确定他人真正如何看你。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What anti-mattering describes",
+            "zh": "不被重视感描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "AMS asks about feeling unimportant, being treated as insignificant or invisible, believing you will never matter to certain people, and feeling that someone does not care about your views. It asks about your experiences with people in general, without a fixed last-week or last-month period.",
+              "zh": "AMS询问不被重视、被当作无足轻重或仿佛不存在、觉得某些人永远不会重视自己，以及感到他人不在乎自己的观点。这是对一般人际体验的回顾，没有指定过去一周或一个月。"
+            },
+            {
+              "en": "These responses deserve attention as experiences. They are not evidence that you truly are insignificant, that every relationship is unsafe, or that a particular person intends harm. A fuller conversation can explore both actual treatment and how it was interpreted.",
+              "zh": "这些回答所反映的体验值得被认真听见。它们不能证明你真的无足轻重，也不能证明所有关系都不安全或某个人有意伤害你。更完整的讨论可以同时了解实际对待方式和你对它的理解。"
+            }
+          ]
+        },
+        {
+          "id": "calculation",
+          "title": {
+            "en": "Calculation and missing responses",
+            "zh": "计算与缺答"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, ratings 4, 2, 3, 1 and 2 sum to an AMS total of 12 within the 5–20 range. All five items retain their direction: stronger endorsement adds more. Negatively worded does not mean reverse scored for this scale.",
+              "zh": "例如4、2、3、1、2相加得到AMS总分12，可得范围为5–20。五题均保留方向：程度越大，加分越多。对这份量表而言，负向题文并不意味着需要反向计分。"
+            },
+            {
+              "en": "All five AMS answers are required on this website. Incomplete AMS answers withhold the AMS total independently of GMS. The website does not impute, prorate or add the two scales; it supplies no diagnostic thresholds or population rankings.",
+              "zh": "本站要求AMS五题全部作答；缺题时单独暂不显示AMS总分，不影响GMS的完整度判断。网站不填补、不折算，也不合并两份量表；不提供诊断阈值或人口排名。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Examples without jumping to conclusions",
+            "zh": "例子与避免过度推断"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeatedly being interrupted, having an idea credited to someone else, or receiving responses that dismiss what you said may be relevant examples to reflect on. Describe what happened and how often, rather than using the total to label yourself or another person.",
+              "zh": "反复被打断、自己的想法被算到他人名下，或表达后总被轻描淡写地打发，都可以成为复盘的具体例子。记录发生了什么及频率，比用总分给自己或他人贴标签更有帮助。"
+            },
+            {
+              "en": "One delayed reply during a busy day is not enough to establish that someone does not care. On the other hand, a reasonable explanation for one incident does not erase a repeated pattern. Look for context and repeated actions while respecting your own experience.",
+              "zh": "忙碌一天里的一次延迟回复，不足以确定对方不在乎你。另一方面，对单次事件的合理解释也不能抹去反复出现的模式。可以结合情境与重复行动，同时尊重自己的感受。"
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "title": {
+            "en": "Why GMS is not its reverse",
+            "zh": "为什么不把GMS当反向题"
+          },
+          "paragraphs": [
+            {
+              "en": "A supportive friend and a dismissive workplace can coexist. GMS can reflect the former while AMS reflects the latter. The original research treats the constructs as correlated but distinct, so this website presents two independent totals and both full readings.",
+              "zh": "支持你的朋友与忽视你的工作环境可以同时存在。GMS可能反映前者，AMS则反映后者。原研究把两者视为相关但不同的构念，因此本站并列呈现两个独立总分和两份全文解释。"
+            },
+            {
+              "en": "Do not calculate GMS minus AMS, rank the two scores, or read equal numbers as balance. A lower AMS total also does not prove that all relationships are fulfilling. Consider the actual people and situations that came to mind.",
+              "zh": "不要计算GMS减AMS，不对两项排名，也不把相等数字解读成平衡。AMS分数较小同样不能证明所有关系都令人满意。请回到作答时想到的人和情境。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "One small, optional next step",
+            "zh": "一个可选的小行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a safe situation and identify what would help you feel heard: a turn to speak, a clear reply, acknowledgement of your contribution, or time with a trusted person. Make a concrete request if that feels appropriate; you can also decline a conversation or set a boundary.",
+              "zh": "选择一个安全的情境，想一想什么会帮助你感到被听见：一次发言机会、明确回复、贡献得到承认，或与信任的人相处。如果合适，可以提出具体请求；你也可以不谈这件事，或设立边界。"
+            },
+            {
+              "en": "If an interaction repeatedly leaves you feeling small, seek perspective and support beyond that interaction. You do not have to prove your value to the person involved, increase your usefulness, or remain in an unsafe situation in order to improve a score.",
+              "zh": "如果一类互动反复让你感到渺小，可以从这段互动之外寻找视角与支持。你不必向当事人证明价值、让自己更有用，或为了改善分数继续留在不安全的情境里。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What the score cannot decide",
+            "zh": "分数不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "AMS is not a diagnosis, a prediction of self-harm, a proof of neglect or abuse, or a judgment of personal worth. Research associations at group level cannot be converted into your individual risk. This website and its new Chinese working translation have not been psychometrically validated.",
+              "zh": "AMS不是诊断、自伤预测、忽视或虐待的证明，也不判断个人价值。群体研究中的关联不能换算成你的个人风险。本网页和新中文工作译文尚未经过心理测量验证。"
+            },
+            {
+              "en": "You can seek support at any score. If these feelings persist, interfere with sleep, relationships or everyday functioning, consider a trusted person or qualified mental health professional. If you are in immediate danger, contact local emergency services; the questionnaire does not provide crisis assessment.",
+              "zh": "无论分数多少，都可以寻求支持。如果这些感受持续，影响睡眠、人际或日常功能，可以考虑联系信任的人或合格心理健康专业人士。若正处于迫在眉睫的危险中，请联系当地紧急服务；问卷不承担危机评估。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Anti-Mattering (AMS): Reading Your Score",
+          "zh": "不被重视感（AMS）：分数怎样读"
+        },
+        "description": {
+          "en": "Read the five-item Anti-Mattering Scale independently: its 5–20 total, examples of feeling invisible, mixed relationship experiences, limits and optional next steps.",
+          "zh": "单独阅读五题AMS的5–20分，理解仿佛不存在、想法不被在乎等体验，结合关系差异、限制与可选行动，不作诊断。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Two scales, ten published questions",
+        "zh": "两份量表、十道发表题目"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition retains the five GMS questions credited to Marcus and Rosenberg (1987) and the five AMS questions in Flett et al. (2022), Table 2. The four response anchors and separate sums follow the joint-scale protocol described by Krygsman et al. (2022). It is not GMS-6, a ten-item single scale, or a diagnostic assessment.",
+          "zh": "本版保留归于Marcus与Rosenberg（1987）的五题GMS，以及Flett等（2022）表2的五题AMS。四个选项锚点和分别加总的方法参考Krygsman等（2022）同时使用两表的方案。它不是GMS-6，也不是十题单量表或诊断测评。"
+        },
+        {
+          "en": "Answer based on your experiences with people in general. No fixed recent-week or month is imposed. Select 1 Not at all, 2 A little, 3 Somewhat or 4 A lot. You may exit without answering; reading the public guides does not require a score.",
+          "zh": "请根据与一般人相处的体验作答，不另加过去一周或一个月的时间窗。选项为1完全没有、2有一点、3有些、4很多。可以退出不答，阅读公开指南不需要分数。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Separate 5–20 sums; no reverse keys",
+        "zh": "分别5–20分，不反向"
+      },
+      "paragraphs": [
+        {
+          "en": "Add the five GMS ratings and separately add the five AMS ratings. Each total ranges from 5 to 20; no item is reversed. Larger GMS means more reported mattering; larger AMS means more reported not mattering. Do not combine, subtract or rank the totals.",
+          "zh": "GMS五题相加，AMS另外五题相加，各为5–20分，没有反向题。GMS越大表示报告的被重视感越多，AMS越大表示报告的不被重视体验越多。不要合并、相减或跨维度排名。"
+        },
+        {
+          "en": "Each scale requires all five valid responses under this website’s stricter completeness rule. No response is inferred from the other scale. The source articles do not establish a general missing-item rule, website cutoffs, individual risk probabilities or meaningful-change thresholds.",
+          "zh": "按本站较严格的完整度规则，每份表需五个有效回答，不从另一份表推测缺答。来源论文未确定通用缺题规则、本站分档、个人风险概率或有意义的变化阈值。"
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "en": "Source, attribution and working translation",
+        "zh": "来源、署名与工作译本"
+      },
+      "paragraphs": [
+        {
+          "en": "GMS: Marcus, R. F., & Rosenberg, M. (1987), General Mattering Scale; wording as reproduced in Flett et al. (2022), Table 2. AMS: Flett, G. L., Nepon, T., Goldberg, J. O., Rose, A. L., Atkey, S. K., & Zaki-Azat, J. (2022), The Anti-Mattering Scale, Journal of Psychoeducational Assessment, 40(1), 37–59. DOI: 10.1177/07342829211050544. The AMS source article is published under CC BY 4.0.",
+          "zh": "GMS：Marcus, R. F.与Rosenberg, M.（1987），General Mattering Scale；题文见Flett等（2022）表2。AMS：Flett, G. L.、Nepon, T.、Goldberg, J. O.、Rose, A. L.、Atkey, S. K.与Zaki-Azat, J.（2022），The Anti-Mattering Scale，Journal of Psychoeducational Assessment, 40(1), 37–59。DOI：10.1177/07342829211050544。AMS源论文采用CC BY 4.0。"
+        },
+        {
+          "en": "The Chinese wording is a new FermatMind working translation of the selected English items and anchors. Instructions are adapted for web controls; explanations and examples are FermatMind editorial content. Neither language of this website, the translation nor the presentation has independent validation or original-author endorsement.",
+          "zh": "中文为费马依据所选英文题目与锚点新作的工作译文；操作说明按网页控件调整，解释与例子由费马编辑撰写。本网页的中英文呈现、翻译尚无独立验证或原作者背书。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Privacy, retaking and sharing",
+        "zh": "隐私、重测与分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses and scores remain in current-page memory. There is no account record or automatic draft. Refreshing, leaving, changing language, clearing or retaking removes them. Copy only the public explanation links; they contain no personal responses or scores.",
+          "zh": "回答与分数只保留在当前页面内存中，不生成账户记录或自动草稿。刷新、离开、换语言、清除或重测会移除回答。分享只复制公开解释链接，不含个人回答或分数。"
+        },
+        {
+          "en": "A later attempt is a fresh reflection, not a clinical follow-up. If you want to compare privately, make your own note of language, date and the relationships you considered. You can read both full guides without starting the test, paying or registering.",
+          "zh": "以后重做是一次新的观察，不是临床随访。若想私下比较，可以自行记下语言、日期和当时想到的关系。不开始作答、不付费、不注册，也能阅读两份完整指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Are the two scores opposites?",
+        "zh": "两项分数互为相反数吗？"
+      },
+      "answer": {
+        "en": "No. They are related but distinct experiences. Both can be present, and equal scores do not have a special meaning. Read both without ranking or subtracting them.",
+        "zh": "不是。它们是相关但不同的体验，可能同时存在；数字相等也没有特殊含义。请分别阅读，不排名或相减。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this measure how much I am worth?",
+        "zh": "它衡量我有多少价值吗？"
+      },
+      "answer": {
+        "en": "No. It records your responses about relationships, not your value, popularity or other people’s verified opinions.",
+        "zh": "不衡量。它记录你对人际关系的回答，不是个人价值、受欢迎程度或经核实的他人评价。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I leave an item unanswered?",
+        "zh": "有题目没有回答怎么办？"
+      },
+      "answer": {
+        "en": "The affected five-item total is withheld. The website does not insert zero or estimate a missing answer. You may exit and read the guides without a score.",
+        "zh": "该题所属五题维度暂不显示总分，不补0分，也不估算缺答。可以退出，无分阅读指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese version validated?",
+        "zh": "中文版经过验证了吗？"
+      },
+      "answer": {
+        "en": "No. This is a new working translation. Evidence for other Chinese versions or for published English items does not validate this edition.",
+        "zh": "没有。这是新的工作译本；其他中文版本或发表英文题目的研究证据不能验证本版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which timeframe should I use?",
+        "zh": "按什么时间范围回答？"
+      },
+      "answer": {
+        "en": "Consider experiences with people in general, as in the selected AMS instructions. This edition does not impose a past-week or past-month timeframe.",
+        "zh": "按所选AMS说明，回顾与一般人的相处体验。本版不另加过去一周或一个月的时间窗。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I share my result privately?",
+        "zh": "分享会带上我的答案或分数吗？"
+      },
+      "answer": {
+        "en": "The copy button shares public guides only, without your answers or scores. No automatic draft is stored; retaking or leaving clears the current attempt.",
+        "zh": "复制按钮只分享公开指南，不包含个人答案或分数。不保存自动草稿，重测或离开会清除本次回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Flett et al. (2022): AMS development; Table 2 GMS and AMS items",
+        "zh": "Flett等（2022）：AMS开发与表2两表题目"
+      },
+      "url": "https://doi.org/10.1177/07342829211050544"
+    },
+    {
+      "title": {
+        "en": "Krygsman et al. (2022): Four anchors and separate five-item sums",
+        "zh": "Krygsman等（2022）：四锚点与各自五题加总"
+      },
+      "url": "https://doi.org/10.1177/07342829211050519"
+    },
+    {
+      "title": {
+        "en": "Creative Commons Attribution 4.0",
+        "zh": "知识共享署名4.0"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

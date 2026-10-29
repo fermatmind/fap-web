@@ -2,7 +2,7 @@ const REDACTED_TRACKING_VALUE = "redacted";
 const PRIVATE_ANALYTICS_ROUTE_MARKER_PREFIX = "private_route:";
 
 // These questionnaires' source contracts disable analytics, including public arrivals.
-export const ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS = ["/tests/explore/asvab-science-mechanical-practice-test", "/tests/explore/asvab-practice-test", "/tests/explore/anger-issues-screener", "/tests/explore/sensory-sensitivity", "/tests/explore/misophonia-screener", "/tests/explore/synesthesia-test", "/tests/explore/aphantasia-test", "/tests/explore/imposter-syndrome", "/tests/explore/masking-test", "/tests/explore/orientation-exploration-test", "/tests/explore/stress-check-in-test", "/tests/explore/four-axes-test", "/tests/explore/dark-triad", "/tests/explore/habit-patterns-test", "/tests/explore/conflict-boundary-behaviors-test"] as const;
+export const ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS = ["/tests/explore/mattering", "/tests/explore/asvab-science-mechanical-practice-test", "/tests/explore/asvab-practice-test", "/tests/explore/anger-issues-screener", "/tests/explore/sensory-sensitivity", "/tests/explore/misophonia-screener", "/tests/explore/synesthesia-test", "/tests/explore/aphantasia-test", "/tests/explore/imposter-syndrome", "/tests/explore/masking-test", "/tests/explore/orientation-exploration-test", "/tests/explore/stress-check-in-test", "/tests/explore/four-axes-test", "/tests/explore/dark-triad", "/tests/explore/habit-patterns-test", "/tests/explore/conflict-boundary-behaviors-test"] as const;
 
 export type PrivateAnalyticsRouteFamily =
   | "history"

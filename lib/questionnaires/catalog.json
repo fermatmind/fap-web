@@ -5987,5 +5987,28 @@
       "receive-warmth"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "mattering",
+    "code": "GMS5_AMS5_WORKING_EDITION",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "everyday",
+    "title": {
+      "en": "Mattering Test (GMS/AMS)",
+      "zh": "被重视感测试（GMS/AMS）"
+    },
+    "description": {
+      "en": "Answer all 10 GMS/AMS questions and read two separate 5–20 scores, worked examples and complete free guides. No signup, diagnosis or combined worth score.",
+      "zh": "免费完成GMS与AMS共10题，分别查看5–20分及完整解读、算例和可选行动。无需注册，不诊断，不生成个人价值总分。"
+    },
+    "minutes": 3,
+    "formCode": "gms5_ams5_flett2022_table2",
+    "questionCount": 10,
+    "resultSlugs": [
+      "general-mattering",
+      "anti-mattering"
+    ],
+    "collection": "explore"
   }
 ]

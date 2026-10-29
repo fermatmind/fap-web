@@ -1,0 +1,502 @@
+{
+  "source": "Flett et al.2022 Table2 DOI10.1177/07342829211050544; Krygsman et al.2022 methods DOI10.1177/07342829211050519",
+  "questions": [
+    {
+      "id": "gms-01",
+      "prompt": {
+        "en": "How important are you to others?",
+        "zh": "你对他人有多重要？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-02",
+      "prompt": {
+        "en": "How much do others pay attention to you?",
+        "zh": "他人有多关注你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-03",
+      "prompt": {
+        "en": "How much would you be missed if you went away?",
+        "zh": "如果你离开了，他人会有多想念你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-04",
+      "prompt": {
+        "en": "How interested are others in what you have to say?",
+        "zh": "他人对你想说的话有多感兴趣？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gms-05",
+      "prompt": {
+        "en": "How much do other people depend upon you?",
+        "zh": "其他人有多依赖你？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "GMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "GMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "GMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "GMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-01",
+      "prompt": {
+        "en": "How much do you feel like you don’t matter?",
+        "zh": "你觉得自己不被重视的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-02",
+      "prompt": {
+        "en": "How often have you been treated in a way that makes you feel like you are insignificant?",
+        "zh": "你有多常受到让你觉得自己无足轻重的对待？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-03",
+      "prompt": {
+        "en": "To what extent have you been made to feel like you are invisible?",
+        "zh": "你被他人弄得觉得自己仿佛不存在的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-04",
+      "prompt": {
+        "en": "How much do you feel like you will never matter to certain people?",
+        "zh": "你觉得自己永远不会被某些人重视的程度有多大？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ams-05",
+      "prompt": {
+        "en": "How often have you been made to feel by someone that they don’t care what you think or what you have to say?",
+        "zh": "你有多常被人弄得觉得，对方不在乎你的想法或你想说的话？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "AMS",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "AMS",
+          "label": {
+            "en": "A little",
+            "zh": "有一点"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "AMS",
+          "label": {
+            "en": "Somewhat",
+            "zh": "有些"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "AMS",
+          "label": {
+            "en": "A lot",
+            "zh": "很多"
+          }
+        }
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "en": "Not at all",
+      "zh": "完全没有"
+    },
+    {
+      "en": "A little",
+      "zh": "有一点"
+    },
+    {
+      "en": "Somewhat",
+      "zh": "有些"
+    },
+    {
+      "en": "A lot",
+      "zh": "很多"
+    }
+  ],
+  "reverse": [],
+  "scales": {
+    "GMS": [
+      "gms-01",
+      "gms-02",
+      "gms-03",
+      "gms-04",
+      "gms-05"
+    ],
+    "AMS": [
+      "ams-01",
+      "ams-02",
+      "ams-03",
+      "ams-04",
+      "ams-05"
+    ]
+  },
+  "missing": "Website rule: require all5 per scale; no imputation; no universal source missing rule established.",
+  "translation": "New FermatMind working Chinese; not validated; no author endorsement."
+}

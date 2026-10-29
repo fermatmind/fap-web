@@ -1,3 +1,5 @@
+import { isMattering10ConfigurationValid } from "@/lib/questionnaires/mattering10";
+import { Mattering10GuidePage } from "./Mattering10Page";
 import { isTechnical30ConfigurationValid } from "@/lib/questionnaires/technical30";
 import { Technical30GuidePage } from "./Technical30Page";
 import { CognitiveFunctionsGuidePage, isCognitiveFunctionsPageAvailable } from "./CognitiveFunctionsPage";
@@ -85,6 +87,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "mattering10" && !isMattering10ConfigurationValid(quiz)) return { title: "Mattering unavailable", robots: { index: false, follow: false } };
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
@@ -126,6 +129,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "mattering10") {
+    if (!isMattering10ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <Mattering10GuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.slug === "cognitive-functions-test") {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
