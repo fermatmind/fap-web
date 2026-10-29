@@ -1,0 +1,2473 @@
+{
+  "slug": "intimacy-values",
+  "code": "FM_INTIMACY_VALUES25",
+  "version": "fm_intimacy_values25_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "instructions": {
+    "en": "For your own view of adult, voluntary intimacy, rate how important each condition is when discussing communication, expectations and personal boundaries. Rate what matters to you, without judging a partner or describing private acts. Consent and respect are baseline conditions, not points to trade. Choose unscored if uncertain, without a suitable context or unwilling to rate. Respond to all 25 prompts; each part needs at least four numeric ratings for a separate raw mean. No total, ranking or type is generated. You can stop or read every guide without answering.",
+    "zh": "从自己对成年、自愿亲密关系的看法出发，评价讨论沟通、预期与个人边界时，各条件有多重要。只评自己在意什么，不评价伴侣，不描述私密行为。同意与尊重是底线，不参与积分取舍。不确定、缺少合适情境或不愿评价时，选择未评分。全部25题需要响应，每部分至少四条数字才显示独立原始均值；不合总分、不排名或派型。可随时停止，也可不作答直接读全部指南。"
+  },
+  "title": {
+    "en": "Intimacy Values Test",
+    "zh": "亲密关系价值观测试"
+  },
+  "description": {
+    "en": "Reflect on five intimacy priorities with 25 original statements and full guides. Separate importance from uncertainty, without a type or partner rating.",
+    "zh": "用25条原创题，分别反思隐私、轻松、稳定、信任与情感靠近的重要程度。五篇完整指南免费，区分重要程度与未评分，不派型或评价伴侣。"
+  },
+  "seoTitle": {
+    "en": "Intimacy Values Test: Five Priorities & Full Guides",
+    "zh": "亲密关系价值观测试：五项优先事项与完整读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "This original reflection considers privacy, playfulness, steadiness, trust and emotional closeness when adults discuss voluntary intimate relationships. It asks about the importance of stated conditions, not sexual acts, history, identity or the quality of a partnership. All five priorities can matter at once. Every full guide is free, and personal responses do not enter public links or ordinary analytics.",
+    "zh": "本原创反思关注：成年人讨论自愿亲密关系时，怎样看待隐私、轻松、稳定、信任与情感靠近。它只问所述条件的重要程度，不询问性行为、经历、身份或关系质量。五项可以同时重要。完整指南均免费，个人回答不进入公开链接或普通分析。"
+  },
+  "resultHeading": {
+    "en": "Five separate intimacy priorities",
+    "zh": "五项独立的亲密关系优先事项"
+  },
+  "source": {
+    "kind": "fermatmind_original_intimacy_priorities25",
+    "formCode": "fm_intimacy_values25_v1",
+    "itemBankVersion": "fm_intimacy_values25_v1",
+    "scoringVersion": "intimacy25_importance1_5_na_min4_separate5_complete25_v1",
+    "resultContentVersion": "fm_intimacy_values_five_full8_20261029_v1",
+    "itemBankSha256": "da5299fd4a30dab55a5e89815dc28084634d7ab5560ce54a1b7ae62893b4e2a9",
+    "resultContentSha256": "1454fdd3e00ead0e0b7d47f1177e46288eb72ee84f5816cc26531014cc408c90",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Privacy and personal space",
+        "zh": "隐私与个人空间"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "play",
+      "title": {
+        "en": "Playfulness and variety",
+        "zh": "轻松与变化"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "steadiness",
+      "title": {
+        "en": "Steadiness and predictability",
+        "zh": "稳定与可预期"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "trust",
+      "title": {
+        "en": "Trust through clear expectations",
+        "zh": "清楚预期中的信任"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "closeness",
+      "title": {
+        "en": "Emotional closeness",
+        "zh": "情感靠近"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "IV_01",
+      "prompt": {
+        "en": "How important is the following to you? Choosing together who may hear private information about the relationship.",
+        "zh": "以下条件对你有多重要？共同商量，关系中的私人信息可以告诉谁。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_02",
+      "prompt": {
+        "en": "How important is the following to you? Room for a lighthearted mood without feeling I must perform for someone.",
+        "zh": "以下条件对你有多重要？相处中可以轻松，不觉得必须表演给对方看。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "play",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "play",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "play",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "play",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "play",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "play",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_03",
+      "prompt": {
+        "en": "How important is the following to you? Having a reasonably predictable time to check in with one another.",
+        "zh": "以下条件对你有多重要？有一个大致可预期的时间，彼此联系和了解近况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "steadiness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "steadiness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "steadiness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "steadiness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "steadiness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "steadiness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_04",
+      "prompt": {
+        "en": "How important is the following to you? Hearing intentions in clear words rather than having to guess what they mean.",
+        "zh": "以下条件对你有多重要？能听到清楚表达的意图，而不必靠猜测理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "trust",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "trust",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "trust",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "trust",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "trust",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "trust",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_05",
+      "prompt": {
+        "en": "How important is the following to you? Feeling emotionally understood without needing constant contact.",
+        "zh": "以下条件对你有多重要？感到情绪被理解，而不一定要一直保持联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "closeness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "closeness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "closeness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "closeness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "closeness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "closeness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_06",
+      "prompt": {
+        "en": "How important is the following to you? Having a choice about which personal topics I share beyond the relationship.",
+        "zh": "以下条件对你有多重要？对要向关系之外分享哪些个人话题，我有选择空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_07",
+      "prompt": {
+        "en": "How important is the following to you? Room for an unexpected small gesture that we both find welcome.",
+        "zh": "以下条件对你有多重要？给双方都欢迎的、出乎意料的小举动留一点空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "play",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "play",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "play",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "play",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "play",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "play",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_08",
+      "prompt": {
+        "en": "How important is the following to you? Knowing what a shared arrangement means for the near future.",
+        "zh": "以下条件对你有多重要？知道共同安排对近期相处意味着什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "steadiness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "steadiness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "steadiness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "steadiness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "steadiness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "steadiness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_09",
+      "prompt": {
+        "en": "How important is the following to you? Being honest about uncertainty instead of making promises that cannot yet be kept.",
+        "zh": "以下条件对你有多重要？对尚不确定的事情如实说明，而不是先作无法确定能否兑现的承诺。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "trust",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "trust",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "trust",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "trust",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "trust",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "trust",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_10",
+      "prompt": {
+        "en": "How important is the following to you? Having unhurried moments of focused attention together.",
+        "zh": "以下条件对你有多重要？有一些不匆忙、能专心关注彼此的时刻。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "closeness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "closeness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "closeness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "closeness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "closeness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "closeness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_11",
+      "prompt": {
+        "en": "How important is the following to you? Keeping some personal space without automatically treating it as rejection.",
+        "zh": "以下条件对你有多重要？保留一些个人空间，而不自动把它理解为拒绝。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_12",
+      "prompt": {
+        "en": "How important is the following to you? Occasionally choosing a different shared experience when we both want it.",
+        "zh": "以下条件对你有多重要？双方都愿意时，偶尔选择不一样的共同体验。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "play",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "play",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "play",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "play",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "play",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "play",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_13",
+      "prompt": {
+        "en": "How important is the following to you? Having consistency in how ordinary shared plans are followed through.",
+        "zh": "以下条件对你有多重要？普通共同计划的落实方式有一定连续性。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "steadiness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "steadiness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "steadiness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "steadiness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "steadiness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "steadiness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_14",
+      "prompt": {
+        "en": "How important is the following to you? Being able to explain when an expectation has changed.",
+        "zh": "以下条件对你有多重要？预期改变时，可以把变化说明白。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "trust",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "trust",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "trust",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "trust",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "trust",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "trust",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_15",
+      "prompt": {
+        "en": "How important is the following to you? Expressing affection in ways we both find comfortable.",
+        "zh": "以下条件对你有多重要？以双方都自在的方式表达关心与亲近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "closeness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "closeness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "closeness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "closeness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "closeness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "closeness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_16",
+      "prompt": {
+        "en": "How important is the following to you? Having a private setting when a conversation concerns personal matters.",
+        "zh": "以下条件对你有多重要？涉及私人事情时，能在有隐私的场合交谈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_17",
+      "prompt": {
+        "en": "How important is the following to you? Being able to laugh together about an awkward moment when both feel comfortable.",
+        "zh": "以下条件对你有多重要？在双方都自在的情况下，能一起轻松看待某个尴尬时刻。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "play",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "play",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "play",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "play",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "play",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "play",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_18",
+      "prompt": {
+        "en": "How important is the following to you? Feeling continuity between shared moments rather than starting from uncertainty each time.",
+        "zh": "以下条件对你有多重要？共同相处的时刻之间有延续感，而不是每次都从不确定重新开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "steadiness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "steadiness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "steadiness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "steadiness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "steadiness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "steadiness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_19",
+      "prompt": {
+        "en": "How important is the following to you? Checking what an agreement means when we appear to understand it differently.",
+        "zh": "以下条件对你有多重要？发现对约定的理解不同后，可以确认各自的意思。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "trust",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "trust",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "trust",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "trust",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "trust",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "trust",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_20",
+      "prompt": {
+        "en": "How important is the following to you? Talking about what the connection means beyond routine arrangements.",
+        "zh": "以下条件对你有多重要？除了日常安排，也能谈谈这段联结对各自意味着什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "closeness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "closeness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "closeness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "closeness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "closeness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "closeness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_21",
+      "prompt": {
+        "en": "How important is the following to you? Understanding expectations about messages or photos before choosing to share them.",
+        "zh": "以下条件对你有多重要？在自主选择分享消息或照片前，先了解彼此对保密和使用方式的预期。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_22",
+      "prompt": {
+        "en": "How important is the following to you? Having some variety within arrangements we have already discussed.",
+        "zh": "以下条件对你有多重要？在已经商量的相处安排里，保留一些变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "play",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "play",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "play",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "play",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "play",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "play",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_23",
+      "prompt": {
+        "en": "How important is the following to you? Having a familiar rhythm that can still be discussed again when needs change.",
+        "zh": "以下条件对你有多重要？有熟悉的相处节奏，也能在需要改变时重新商量。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "steadiness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "steadiness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "steadiness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "steadiness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "steadiness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "steadiness",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_24",
+      "prompt": {
+        "en": "How important is the following to you? Seeing reasonable promises matched by ordinary follow-through.",
+        "zh": "以下条件对你有多重要？合理的承诺与日常落实相互一致。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "trust",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "trust",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "trust",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "trust",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "trust",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "trust",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IV_25",
+      "prompt": {
+        "en": "How important is the following to you? Feeling an exchange of care while still keeping room for individual interests.",
+        "zh": "以下条件对你有多重要？彼此交换关心，同时仍给各自兴趣留出空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not important to me",
+            "zh": "对我不重要"
+          },
+          "directionId": "closeness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A little important to me",
+            "zh": "对我有一点重要"
+          },
+          "directionId": "closeness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Moderately important to me",
+            "zh": "对我中等重要"
+          },
+          "directionId": "closeness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very important to me",
+            "zh": "对我很重要"
+          },
+          "directionId": "closeness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely important to me",
+            "zh": "对我极其重要"
+          },
+          "directionId": "closeness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Uncertain, no suitable context, or prefer not to rate",
+            "zh": "不确定、缺少合适情境，或不愿评价"
+          },
+          "directionId": "closeness",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "privacy",
+      "directionIds": [
+        "privacy"
+      ],
+      "title": {
+        "en": "Privacy and Personal Space: Full Intimacy Values Guide",
+        "zh": "隐私与个人空间：亲密关系价值观完整读法"
+      },
+      "headline": {
+        "en": "Read importance in context, without assigning a type.",
+        "zh": "结合场合阅读重要程度，不派发类型。"
+      },
+      "summary": {
+        "en": "A complete original reading of privacy and personal space, with concrete examples, mixed ratings and clear limits.",
+        "zh": "完整阅读隐私与个人空间这一项，以具体例子、混合评分和清楚局限反思。"
+      },
+      "seo": {
+        "title": {
+          "en": "Privacy and Personal Space: Intimacy Values Guide",
+          "zh": "隐私与个人空间｜亲密关系价值观完整指南"
+        },
+        "description": {
+          "en": "Privacy and personal space: raw importance, examples, missing data and limits. Full intimacy values guide, without types or partner ratings.",
+          "zh": "完整阅读隐私与个人空间：重要程度原始均值、场景、混合回答、未评分与局限。不强派类型或评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five original importance prompts, each rated 1–5 or unscored. At least four numeric ratings are required; raw sum divided by rated items, displayed to one decimal. No total, cutoff, rank or assigned type.",
+        "zh": "五条原创重要程度题，每条1至5或未评分。至少四条数字才显示：原始和除以有效题数，保留一位小数。不合总分、不设界值、排名或派型。"
+      },
+      "sections": [
+        {
+          "id": "privacy-1",
+          "title": {
+            "en": "What privacy means in this reflection",
+            "zh": "本反思中的隐私指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Privacy here concerns choosing who hears personal information, which topics remain within a relationship, when to have a private conversation and what space each person keeps. These five conditions are about preferences you want to discuss, not a right to decide for someone else. A rating says how much the stated condition matters to you in the context you imagined. It does not reveal how much information you actually share.",
+              "zh": "这里的隐私涉及：个人信息可以告诉谁、哪些话题留在关系之内、何时需要私密交谈，以及彼此保留什么空间。这五个条件是你希望讨论的偏好，不是替别人决定的权利。评分只表示所想到的场合中，这个条件对你有多重要，不揭示实际分享了多少信息。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-2",
+          "title": {
+            "en": "A story shared beyond the relationship",
+            "zh": "向关系之外讲述一件事"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine wanting to tell a friend an amusing story from a shared evening. The other person may regard one detail as private even if the whole event seems ordinary to you. A useful conversation could identify which part is yours to tell and which part concerns them. This example is about making expectations visible; it does not ask you to submit the story, name anyone or disclose what happened.",
+              "zh": "例如，你想向朋友讲共同度过某个晚上的趣事。整件事对你可能很普通，其中一个细节对另一人却属于隐私。可以讨论哪些部分是自己的经历、哪些也涉及对方。这个例子只帮助把预期说清，不要求提交故事、提供姓名或披露经过。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-3",
+          "title": {
+            "en": "Greater or lesser importance is contextual",
+            "zh": "重视程度要结合场合阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean records greater importance placed on these privacy conditions. It does not prove secrecy, avoidance or a lack of trust. A lower mean does not mean that anyone may publish messages, images or personal information without agreement. Consent and respect remain baseline conditions for every response. Someone may place less emphasis on one wording because an expectation already feels clear, or because the example does not fit their situation.",
+              "zh": "较高均值表示更重视所列隐私条件，不证明隐瞒、回避或缺乏信任。较低不表示任何人可以未经商量发布消息、图片或个人信息。无论选什么，同意与尊重都是底线。某种说法可能不太符合当前场合，也可能因为预期已很清楚，使人对该句强调得较少。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-4",
+          "title": {
+            "en": "A mixed pattern can be more useful than a label",
+            "zh": "混合回答可能比标签更有用"
+          },
+          "paragraphs": [
+            {
+              "en": "You might rate control over information shared with others as extremely important while placing less importance on having time alone. Those answers concern different aspects of privacy and need not conflict. Another person could value personal space highly while comfortably sharing ordinary relationship news. The same mean can describe both patterns. Read the actual five conditions before choosing one question to discuss; this result assigns neither a private nor an open personality type.",
+              "zh": "你可能非常重视对外分享信息的选择权，却不太强调独处时间；两者涉及隐私不同方面，并不矛盾。另一人可能很重视个人空间，同时自在地分享普通关系近况。相同均值可能描述这两种模式。选择讨论问题前，先回看五个条件；本结果不派发隐私型或开放型人格。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-5",
+          "title": {
+            "en": "Compare privacy with trust and closeness",
+            "zh": "比较隐私、信任与靠近"
+          },
+          "paragraphs": [
+            {
+              "en": "Privacy and Trust are separate readings in this set. Trust concerns how intentions, uncertainty and agreements become clear; privacy concerns the boundaries of information and personal space. Emotional Closeness concerns feeling understood and connected. You may value all three strongly. There is no rule that closeness requires complete disclosure, or that privacy must reduce connection. The five means are not competing shares of a fixed allowance.",
+              "zh": "本题组把隐私与信任分别保留。信任涉及意图、不确定和约定怎样说清，隐私涉及信息与个人空间的边界；情感靠近则涉及被理解与联结感。三者可以同时很重要。没有规则要求亲近必须完全披露，也不认为隐私必然减少联结。五个均值不分割固定总额。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-6",
+          "title": {
+            "en": "One optional question about expectations",
+            "zh": "一个可选的预期问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one ordinary category of information and write the expectation you would want understood before sharing it. You need not disclose the information itself or ask anyone to explain a boundary. You can keep the note private, leave this topic unscored or stop here. The aim is to make one preference clearer, rather than negotiate away another person’s privacy or raise your result.",
+              "zh": "如果有用，可选一类普通信息，写下分享前希望对方理解的预期。无需披露信息本身，也不必要求谁解释其边界。笔记可保密，这个主题可以未评分，也可以到此结束。目的在于澄清一项偏好，而不是让别人让出隐私或提高结果。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-7",
+          "title": {
+            "en": "Read the raw mean with its coverage",
+            "zh": "结合有效题数读原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains five importance ratings from 1 to 5. All twenty-five prompts need a response, but an uncertain, unsuitable or declined item may remain unscored. At least four numeric ratings are needed within a part. For example, ratings of 2, 3, 4 and 5 plus one unscored response yield 14 / 4 = 3.5, not 14 / 5. With only three numeric ratings, the part shows insufficient information. Means are displayed to one decimal, without a combined score or ranking.",
+              "zh": "每部分五条，重要程度从1至5。全部25题都需要响应，但不确定、场合不合适或不愿评价时可选未评分。每部分至少四条数字才显示均值。例如2、3、4、5加一条未评分，得14/4＝3.5，不是14/5。只有三条数字时，明确显示资料不足。均值显示一位小数，不合总分、不排名。"
+            }
+          ]
+        },
+        {
+          "id": "privacy-8",
+          "title": {
+            "en": "An original reflection with a limited scope",
+            "zh": "范围有限的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts and guides for reflection on adult, voluntary intimacy, communication and expectations. This is not another website’s five-persona classifier or a published sexual-values instrument. Reliability, validity, norms and language equivalence have not been established. Importance ratings do not establish behaviour, orientation, relationship quality or another person’s experience. Consent and respect are baseline conditions rather than competing scored priorities. Every complete guide stays open, including when every response is unscored.",
+              "zh": "费马原创这些题目与读法，用来反思成年、自愿亲密关系中的沟通与预期。本版不是另一网站的五种人格分类，也不是已发表的性价值观量表，尚未建立信效度、常模或跨语言等价。重要程度不证明行为、取向、关系质量或他人体验。同意与尊重是底线，不作为竞争计分的优先事项。所有完整指南始终开放，包括全部选未评分时。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "play",
+      "directionIds": [
+        "play"
+      ],
+      "title": {
+        "en": "Playfulness and Variety: Full Intimacy Values Guide",
+        "zh": "轻松与变化：亲密关系价值观完整读法"
+      },
+      "headline": {
+        "en": "Read importance in context, without assigning a type.",
+        "zh": "结合场合阅读重要程度，不派发类型。"
+      },
+      "summary": {
+        "en": "A complete original reading of playfulness and variety, with concrete examples, mixed ratings and clear limits.",
+        "zh": "完整阅读轻松与变化这一项，以具体例子、混合评分和清楚局限反思。"
+      },
+      "seo": {
+        "title": {
+          "en": "Playfulness and Variety: Intimacy Values Guide",
+          "zh": "轻松与变化｜亲密关系价值观完整指南"
+        },
+        "description": {
+          "en": "Playfulness and variety: raw importance, examples, missing data and limits. Full intimacy values guide, without types or partner ratings.",
+          "zh": "完整阅读轻松与变化：重要程度原始均值、场景、混合回答、未评分与局限。不强派类型或评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five original importance prompts, each rated 1–5 or unscored. At least four numeric ratings are required; raw sum divided by rated items, displayed to one decimal. No total, cutoff, rank or assigned type.",
+        "zh": "五条原创重要程度题，每条1至5或未评分。至少四条数字才显示：原始和除以有效题数，保留一位小数。不合总分、不设界值、排名或派型。"
+      },
+      "sections": [
+        {
+          "id": "play-1",
+          "title": {
+            "en": "Lightness without a performance requirement",
+            "zh": "轻松不等于表演要求"
+          },
+          "paragraphs": [
+            {
+              "en": "Playfulness here concerns a lighthearted mood, welcome small surprises, variety and mutually comfortable humour. It does not ask about particular acts, how adventurous you are or what another person should provide. The conditions are deliberately ordinary and can be expressed in many ways. A preference for a familiar routine can coexist with enjoying a spontaneous moment; neither response defines your identity, experience or capacity for intimacy.",
+              "zh": "这里的轻松与变化涉及轻松气氛、双方欢迎的小惊喜、变化及彼此自在的幽默。不询问具体行为、冒险程度或别人应该提供什么。这些条件刻意保持日常，可以有多种表达。偏好熟悉常规，也能享受自发时刻；任何回答都不定义身份、经历或亲密能力。"
+            }
+          ]
+        },
+        {
+          "id": "play-2",
+          "title": {
+            "en": "A small change in an ordinary plan",
+            "zh": "普通安排里的一点变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a familiar shared evening. One person suggests a different meal or a short game; the other prefers the usual plan. Either preference can be stated without treating surprise as an obligation. The example asks what makes a change welcome in the context you pictured. It does not establish that novelty improves a relationship, and a rating cannot tell whether a real suggestion was comfortable for both people.",
+              "zh": "例如，一个熟悉的共处晚上，有人提议换种晚餐或玩个小游戏，另一人却更想按原安排。双方都可以说明偏好，不把惊喜当义务。例子只询问你想到的场合中，什么使变化受欢迎，不主张新奇必然改善关系；评分也不能证明某个真实提议让双方自在。"
+            }
+          ]
+        },
+        {
+          "id": "play-3",
+          "title": {
+            "en": "Read importance without ranking people",
+            "zh": "阅读重要程度，不排名别人"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater importance placed on these forms of lightness and variety. It does not prove confidence, attraction or greater openness to every experience. A lower mean cannot establish dullness, inhibition or lack of care. Fatigue, predictability and the meaning of the word play may shape how you read an item. These are possible contexts to consider, not explanations the questionnaire can diagnose from a number.",
+              "zh": "较高表示更重视所列轻松与变化形式，不证明自信、吸引力或对所有体验都更开放。较低不能证明无趣、受抑制或缺少关心。疲劳、对可预期的需要及对轻松一词的理解，都可能影响读题；这些只是可考虑的场合，不是问卷能凭数值诊断的原因。"
+            }
+          ]
+        },
+        {
+          "id": "play-4",
+          "title": {
+            "en": "Variety and comfortable humour need not match",
+            "zh": "变化与自在幽默不必同分"
+          },
+          "paragraphs": [
+            {
+              "en": "You may value humour during an awkward moment but place little importance on changing a familiar arrangement. Or you may enjoy variety while preferring to approach awkward moments seriously. A single mean hides that distinction. Both patterns are possible within this original set, and neither is assigned a playful or serious type. An unscored item stays unscored; it is not evidence that you secretly prefer one end.",
+              "zh": "你可能重视尴尬时自在的幽默，却不太强调改变熟悉安排；也可能喜欢变化，但更愿意严肃对待尴尬时刻。一个均值会隐藏这种区别。原题组可以出现两种模式，都不会被派成轻松型或严肃型。未评分保持未评分，不说明暗中偏好某一端。"
+            }
+          ]
+        },
+        {
+          "id": "play-5",
+          "title": {
+            "en": "Playfulness can coexist with steadiness",
+            "zh": "轻松也可以与稳定并存"
+          },
+          "paragraphs": [
+            {
+              "en": "Steadiness concerns continuity and knowing what to expect; Playfulness concerns room for lightness and welcome variation. A regular routine could include a freely chosen small surprise, so both means may be high. Trust and Privacy still concern separate expectations. Do not treat one high value as permission to ignore an agreement, ask for disclosure or push another person beyond what they welcome. No trade-off of consent is scored.",
+              "zh": "稳定涉及延续感和知道可以预期什么，轻松与变化涉及为轻松气氛及受欢迎的变化留空间。固定常规也可以包含自主选择的小惊喜，因此两项均值都可较高。信任和隐私仍是不同预期。不要因某项高，就忽略约定、要求披露或推动别人超出其欢迎范围。同意不参与取舍计分。"
+            }
+          ]
+        },
+        {
+          "id": "play-6",
+          "title": {
+            "en": "An optional observation about what feels welcome",
+            "zh": "可选观察：什么让变化受欢迎"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall one ordinary shared moment that felt pleasantly light, if you want to. Identify the setting or freedom to decline that made it comfortable, without describing private details. You might keep one idea for a future conversation, or prefer to make no change. This reflection sets no novelty target and asks for no experiment. It is complete even if you simply read the guide and stop.",
+              "zh": "愿意的话，可以回想一个普通而轻松的共处时刻，辨认是怎样的场合或拒绝空间让它自在，不必描述私密细节。可以保留一个未来想谈的问题，也可以不改变任何事。本反思不设新奇目标，不要求实验；即使只是读完并结束，也已完整。"
+            }
+          ]
+        },
+        {
+          "id": "play-7",
+          "title": {
+            "en": "Read the raw mean with its coverage",
+            "zh": "结合有效题数读原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains five importance ratings from 1 to 5. All twenty-five prompts need a response, but an uncertain, unsuitable or declined item may remain unscored. At least four numeric ratings are needed within a part. For example, ratings of 2, 3, 4 and 5 plus one unscored response yield 14 / 4 = 3.5, not 14 / 5. With only three numeric ratings, the part shows insufficient information. Means are displayed to one decimal, without a combined score or ranking.",
+              "zh": "每部分五条，重要程度从1至5。全部25题都需要响应，但不确定、场合不合适或不愿评价时可选未评分。每部分至少四条数字才显示均值。例如2、3、4、5加一条未评分，得14/4＝3.5，不是14/5。只有三条数字时，明确显示资料不足。均值显示一位小数，不合总分、不排名。"
+            }
+          ]
+        },
+        {
+          "id": "play-8",
+          "title": {
+            "en": "An original reflection with a limited scope",
+            "zh": "范围有限的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts and guides for reflection on adult, voluntary intimacy, communication and expectations. This is not another website’s five-persona classifier or a published sexual-values instrument. Reliability, validity, norms and language equivalence have not been established. Importance ratings do not establish behaviour, orientation, relationship quality or another person’s experience. Consent and respect are baseline conditions rather than competing scored priorities. Every complete guide stays open, including when every response is unscored.",
+              "zh": "费马原创这些题目与读法，用来反思成年、自愿亲密关系中的沟通与预期。本版不是另一网站的五种人格分类，也不是已发表的性价值观量表，尚未建立信效度、常模或跨语言等价。重要程度不证明行为、取向、关系质量或他人体验。同意与尊重是底线，不作为竞争计分的优先事项。所有完整指南始终开放，包括全部选未评分时。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steadiness",
+      "directionIds": [
+        "steadiness"
+      ],
+      "title": {
+        "en": "Steadiness and Predictability: Full Intimacy Values Guide",
+        "zh": "稳定与可预期：亲密关系价值观完整读法"
+      },
+      "headline": {
+        "en": "Read importance in context, without assigning a type.",
+        "zh": "结合场合阅读重要程度，不派发类型。"
+      },
+      "summary": {
+        "en": "A complete original reading of steadiness and predictability, with concrete examples, mixed ratings and clear limits.",
+        "zh": "完整阅读稳定与可预期这一项，以具体例子、混合评分和清楚局限反思。"
+      },
+      "seo": {
+        "title": {
+          "en": "Steadiness and Predictability: Intimacy Values Guide",
+          "zh": "稳定与可预期｜亲密关系价值观完整指南"
+        },
+        "description": {
+          "en": "Steadiness and predictability: raw importance, examples, missing data and limits. Full intimacy values guide, without types or partner ratings.",
+          "zh": "完整阅读稳定与可预期：重要程度原始均值、场景、混合回答、未评分与局限。不强派类型或评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five original importance prompts, each rated 1–5 or unscored. At least four numeric ratings are required; raw sum divided by rated items, displayed to one decimal. No total, cutoff, rank or assigned type.",
+        "zh": "五条原创重要程度题，每条1至5或未评分。至少四条数字才显示：原始和除以有效题数，保留一位小数。不合总分、不设界值、排名或派型。"
+      },
+      "sections": [
+        {
+          "id": "steadiness-1",
+          "title": {
+            "en": "Continuity rather than a fixed identity",
+            "zh": "看延续感，不确定固定身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Steadiness here concerns a reasonably predictable check-in time, shared understanding of near-future arrangements, continuity and a familiar rhythm that can be discussed again. The five prompts ask how important these conditions are to you. They do not establish commitment, relationship status or whether a partnership will last. A preference for predictability does not require an unchanging routine, and an interest in flexibility does not automatically reduce care.",
+              "zh": "这里的稳定与可预期涉及大致固定的联系时间、对近期安排的共同理解、延续感，以及可以重新商量的熟悉节奏。五题只问这些条件对你有多重要，不确定承诺、关系状态或能否长久。偏好可预期不要求常规永不改变；喜欢灵活也不自动代表关心较少。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-2",
+          "title": {
+            "en": "A busy week with different schedules",
+            "zh": "日程不同的忙碌一周"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that both people have a busy week. Knowing when the next conversation is likely to happen may matter to you more than keeping every evening identical. Someone else may prefer deciding day by day while clearly explaining changes. The example separates continuity from strict scheduling. The questionnaire cannot determine which arrangement would work for two particular people, and it asks for no information about anyone’s actual schedule.",
+              "zh": "例如，双方都有忙碌的一周。知道下次大概何时交谈，可能比每天晚上安排相同更重要；另一人可能偏好逐日决定，同时把变化说明白。例子把延续感与严格排期分开。问卷不能决定哪种安排适合特定两人，也不要求提供谁的真实日程。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-3",
+          "title": {
+            "en": "Avoid turning importance into a reliability verdict",
+            "zh": "不要把重要程度变成可靠性判定"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater importance placed on these predictable conditions, not proof that you are reliable or that another person is unreliable. A lower mean does not imply disinterest, a wish to leave or inability to maintain a relationship. You may already have clear arrangements, imagine a temporary situation or value flexibility in the examples. Those possibilities require context; a score cannot select an explanation.",
+              "zh": "较高表示更重视所列可预期条件，不证明自己可靠或别人不可靠。较低不表示不在意、想离开或无法维持关系。你可能已有清楚安排、想到临时场合，或在这些例子中更看重灵活。这些可能性都需要场合信息，数值不能替你选原因。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-4",
+          "title": {
+            "en": "Specific routines can matter differently",
+            "zh": "不同常规可以有不同重要程度"
+          },
+          "paragraphs": [
+            {
+              "en": "You could rate continuity between meetings as extremely important while caring less about a familiar daily rhythm. Another person could value a regular routine but place less emphasis on planning the near future. Their means may be equal even though the useful conversation is different. Read the individual conditions rather than assuming the result calls for more contact, a stricter timetable or a different kind of partnership.",
+              "zh": "你可能非常重视见面之间的延续感，却不太强调熟悉日常节奏；另一人可能重视固定常规，但较少强调近期规划。两者均值可能相同，值得讨论的事情却不同。请回看具体条件，不要以为结果要求更多联系、更严格排期或改变关系形式。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-5",
+          "title": {
+            "en": "Compare steadiness with play and trust",
+            "zh": "比较稳定、变化与信任"
+          },
+          "paragraphs": [
+            {
+              "en": "Playfulness describes room for lightness and welcome variation. Trust describes clear intentions and the meaning of agreements. Steadiness describes continuity in the arrangement you picture. A predictable check-in can make room for a freely chosen change, so all three priorities may be important together. No part wins a fixed amount of importance from another, and no combination produces an attachment label or a compatibility percentage.",
+              "zh": "轻松与变化涉及为自在气氛及受欢迎的变化留空间；信任涉及清楚的意图和约定含义；稳定则描述你想到的安排中是否有延续感。可预期的联系，也可以给自主选择的变化留空间。三项可同时重要，不争夺固定额度，任何组合都不生成依恋标签或匹配百分比。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-6",
+          "title": {
+            "en": "One optional note about continuity",
+            "zh": "一条可选的延续感笔记"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, identify one ordinary arrangement that would feel clearer with a simple expectation about timing or changes. Describe the expectation, not a demand that someone be continuously available. You can leave the note private, decide the present arrangement is suitable or make no change. The reflection asks you to clarify what matters, not to secure a promise, predict the future or increase a score.",
+              "zh": "如果有用，可找一项普通安排，看看是否用一句关于时间或变化的预期就能说得更清楚。描述预期即可，不要求别人一直在线。可以保留私密笔记、认为现有安排已合适，或什么都不改。反思只帮助澄清在意什么，不要求索取保证、预测未来或提高分数。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-7",
+          "title": {
+            "en": "Read the raw mean with its coverage",
+            "zh": "结合有效题数读原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains five importance ratings from 1 to 5. All twenty-five prompts need a response, but an uncertain, unsuitable or declined item may remain unscored. At least four numeric ratings are needed within a part. For example, ratings of 2, 3, 4 and 5 plus one unscored response yield 14 / 4 = 3.5, not 14 / 5. With only three numeric ratings, the part shows insufficient information. Means are displayed to one decimal, without a combined score or ranking.",
+              "zh": "每部分五条，重要程度从1至5。全部25题都需要响应，但不确定、场合不合适或不愿评价时可选未评分。每部分至少四条数字才显示均值。例如2、3、4、5加一条未评分，得14/4＝3.5，不是14/5。只有三条数字时，明确显示资料不足。均值显示一位小数，不合总分、不排名。"
+            }
+          ]
+        },
+        {
+          "id": "steadiness-8",
+          "title": {
+            "en": "An original reflection with a limited scope",
+            "zh": "范围有限的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts and guides for reflection on adult, voluntary intimacy, communication and expectations. This is not another website’s five-persona classifier or a published sexual-values instrument. Reliability, validity, norms and language equivalence have not been established. Importance ratings do not establish behaviour, orientation, relationship quality or another person’s experience. Consent and respect are baseline conditions rather than competing scored priorities. Every complete guide stays open, including when every response is unscored.",
+              "zh": "费马原创这些题目与读法，用来反思成年、自愿亲密关系中的沟通与预期。本版不是另一网站的五种人格分类，也不是已发表的性价值观量表，尚未建立信效度、常模或跨语言等价。重要程度不证明行为、取向、关系质量或他人体验。同意与尊重是底线，不作为竞争计分的优先事项。所有完整指南始终开放，包括全部选未评分时。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trust",
+      "directionIds": [
+        "trust"
+      ],
+      "title": {
+        "en": "Trust and Clear Expectations: Full Intimacy Values Guide",
+        "zh": "清楚预期中的信任：亲密关系价值观完整读法"
+      },
+      "headline": {
+        "en": "Read importance in context, without assigning a type.",
+        "zh": "结合场合阅读重要程度，不派发类型。"
+      },
+      "summary": {
+        "en": "A complete original reading of trust through clear expectations, with concrete examples, mixed ratings and clear limits.",
+        "zh": "完整阅读清楚预期中的信任这一项，以具体例子、混合评分和清楚局限反思。"
+      },
+      "seo": {
+        "title": {
+          "en": "Trust and Clear Expectations: Intimacy Values Guide",
+          "zh": "清楚预期中的信任｜亲密关系价值观完整指南"
+        },
+        "description": {
+          "en": "Trust through clear expectations: raw importance, examples, missing data and limits. Full intimacy values guide, without types or partner ratings.",
+          "zh": "完整阅读清楚预期中的信任：重要程度原始均值、场景、混合回答、未评分与局限。不强派类型或评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five original importance prompts, each rated 1–5 or unscored. At least four numeric ratings are required; raw sum divided by rated items, displayed to one decimal. No total, cutoff, rank or assigned type.",
+        "zh": "五条原创重要程度题，每条1至5或未评分。至少四条数字才显示：原始和除以有效题数，保留一位小数。不合总分、不设界值、排名或派型。"
+      },
+      "sections": [
+        {
+          "id": "trust-1",
+          "title": {
+            "en": "Trust as a discussion of expectations",
+            "zh": "把信任放在预期讨论中阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "Trust in this reflection concerns clear intentions, honest acknowledgement of uncertainty, explaining changed expectations and checking what an agreement means. It is a set of conditions you may value when discussing intimacy. It does not test whether you or another person deserve trust, tell you whom to believe or measure the truth of a statement. The importance of an expectation and whether it is actually met are different questions.",
+              "zh": "本反思中的信任涉及清楚意图、如实说明不确定、解释预期变化，以及确认约定含义。它是一组讨论亲密关系时你可能重视的条件，不测试自己或别人是否值得信任，不替你决定相信谁，也不测一句话是否真实。预期有多重要，与现实中是否满足，是不同问题。"
+            }
+          ]
+        },
+        {
+          "id": "trust-2",
+          "title": {
+            "en": "When an arrangement has two meanings",
+            "zh": "同一安排有两种理解时"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that two people agree to keep in touch during a busy period. One imagines a brief daily message; the other imagines a longer conversation later in the week. Neither meaning is visible in the words keep in touch. Clarifying the phrase can reveal the difference without using a questionnaire to decide who is at fault. This example needs no private history or assessment of anyone’s honesty.",
+              "zh": "例如，双方说好忙碌阶段保持联系。一人想到每天一句简短消息，另一人想到周内晚些时候长谈。保持联系这几个字没有显示差别。澄清措辞可以看见不同理解，无需用问卷裁定谁有错。例子不需要私密经历，也不评价任何人的诚实程度。"
+            }
+          ]
+        },
+        {
+          "id": "trust-3",
+          "title": {
+            "en": "A larger mean is not greater trustworthiness",
+            "zh": "较高不等于更值得信任"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that these conditions matter more in the context you pictured. It does not prove that you trust easily, trust cautiously or behave more honestly. A lower mean does not authorise broken agreements or disregard for another person. It may reflect the wording, an already clear expectation or an unsuitable example. Consent and respect remain baseline conditions, whatever numeric answer or unscored option you choose.",
+              "zh": "较高表示在所想到的场合里，这些条件更重要，不证明容易信任、谨慎信任或更诚实。较低不授权违背约定或忽视别人，也可能反映措辞、已经清楚的预期或不合适的例子。无论选什么数字或未评分，同意与尊重都保持为底线。"
+            }
+          ]
+        },
+        {
+          "id": "trust-4",
+          "title": {
+            "en": "Uncertainty and follow-through can matter differently",
+            "zh": "说明不确定与落实承诺可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might place greatest importance on clearly stating uncertainty, while another person places greatest importance on following through with ordinary promises. Equal means can therefore point toward different practical questions. An answer about what matters does not reveal what either person has done. The result does not compare two people, establish a trust deficit or require anyone to disclose information to demonstrate commitment.",
+              "zh": "你可能最重视把不确定说清，另一人最重视落实普通承诺，因此相同均值也可能指向不同实际问题。关于在意什么的回答，不揭示任何人实际做过什么。结果不比较两个人、不认定信任缺口，也不要求谁靠披露信息证明承诺。"
+            }
+          ]
+        },
+        {
+          "id": "trust-5",
+          "title": {
+            "en": "Trust does not replace privacy or closeness",
+            "zh": "信任不替代隐私或靠近"
+          },
+          "paragraphs": [
+            {
+              "en": "Privacy concerns information and personal space, whereas this Trust reading concerns clarity about expectations. Emotional Closeness concerns feeling understood and connected. A person can want clear agreements while keeping private topics private, and can value warmth without knowing every detail. These priorities may reinforce one another in an example, but the questionnaire does not claim a causal relationship or calculate a combined relationship-quality score.",
+              "zh": "隐私关乎信息与个人空间，这里的信任读法关乎预期是否清楚；情感靠近涉及被理解与联结感。一个人可以想把约定说清，同时保留私人话题；也可以重视温暖，而不需要知道每个细节。在某个例子中，这些优先事项可彼此配合，但问卷不主张因果，也不合成关系质量分。"
+            }
+          ]
+        },
+        {
+          "id": "trust-6",
+          "title": {
+            "en": "An optional clarification in ordinary words",
+            "zh": "用普通话澄清一项意思"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one everyday phrase whose meaning you would want made clearer, such as later, private or keeping a plan. Write what you mean without attaching the result to another person or demanding an immediate agreement. The other person’s interpretation is not available from your ratings. You can keep the note, read another guide or finish here. No score requires you to continue a relationship or end one.",
+              "zh": "如果有用，可选一句你希望更清楚的日常措辞，例如晚些时候、保密或按计划，写下自己是什么意思。不要把结果贴给别人，也不必要求立即达成约定。你的评分无法提供对方的理解。可以保留笔记、阅读其他指南或到此结束。任何分数都不要求继续或结束关系。"
+            }
+          ]
+        },
+        {
+          "id": "trust-7",
+          "title": {
+            "en": "Read the raw mean with its coverage",
+            "zh": "结合有效题数读原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains five importance ratings from 1 to 5. All twenty-five prompts need a response, but an uncertain, unsuitable or declined item may remain unscored. At least four numeric ratings are needed within a part. For example, ratings of 2, 3, 4 and 5 plus one unscored response yield 14 / 4 = 3.5, not 14 / 5. With only three numeric ratings, the part shows insufficient information. Means are displayed to one decimal, without a combined score or ranking.",
+              "zh": "每部分五条，重要程度从1至5。全部25题都需要响应，但不确定、场合不合适或不愿评价时可选未评分。每部分至少四条数字才显示均值。例如2、3、4、5加一条未评分，得14/4＝3.5，不是14/5。只有三条数字时，明确显示资料不足。均值显示一位小数，不合总分、不排名。"
+            }
+          ]
+        },
+        {
+          "id": "trust-8",
+          "title": {
+            "en": "An original reflection with a limited scope",
+            "zh": "范围有限的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts and guides for reflection on adult, voluntary intimacy, communication and expectations. This is not another website’s five-persona classifier or a published sexual-values instrument. Reliability, validity, norms and language equivalence have not been established. Importance ratings do not establish behaviour, orientation, relationship quality or another person’s experience. Consent and respect are baseline conditions rather than competing scored priorities. Every complete guide stays open, including when every response is unscored.",
+              "zh": "费马原创这些题目与读法，用来反思成年、自愿亲密关系中的沟通与预期。本版不是另一网站的五种人格分类，也不是已发表的性价值观量表，尚未建立信效度、常模或跨语言等价。重要程度不证明行为、取向、关系质量或他人体验。同意与尊重是底线，不作为竞争计分的优先事项。所有完整指南始终开放，包括全部选未评分时。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "closeness",
+      "directionIds": [
+        "closeness"
+      ],
+      "title": {
+        "en": "Emotional Closeness: Full Intimacy Values Guide",
+        "zh": "情感靠近：亲密关系价值观完整读法"
+      },
+      "headline": {
+        "en": "Read importance in context, without assigning a type.",
+        "zh": "结合场合阅读重要程度，不派发类型。"
+      },
+      "summary": {
+        "en": "A complete original reading of emotional closeness, with concrete examples, mixed ratings and clear limits.",
+        "zh": "完整阅读情感靠近这一项，以具体例子、混合评分和清楚局限反思。"
+      },
+      "seo": {
+        "title": {
+          "en": "Emotional Closeness: Intimacy Values Guide",
+          "zh": "情感靠近｜亲密关系价值观完整指南"
+        },
+        "description": {
+          "en": "Emotional closeness: raw importance, examples, missing data and limits. Full intimacy values guide, without types or partner ratings.",
+          "zh": "完整阅读情感靠近：重要程度原始均值、场景、混合回答、未评分与局限。不强派类型或评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five original importance prompts, each rated 1–5 or unscored. At least four numeric ratings are required; raw sum divided by rated items, displayed to one decimal. No total, cutoff, rank or assigned type.",
+        "zh": "五条原创重要程度题，每条1至5或未评分。至少四条数字才显示：原始和除以有效题数，保留一位小数。不合总分、不设界值、排名或派型。"
+      },
+      "sections": [
+        {
+          "id": "closeness-1",
+          "title": {
+            "en": "Emotional connection as a stated preference",
+            "zh": "把情感联结作为所述偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Emotional Closeness here concerns feeling understood, unhurried attention, mutually comfortable expressions of care and discussing what a connection means. It also leaves room for individual interests. These five statements ask how important the conditions are to you, not how much closeness you currently experience. They do not measure love, attachment security or the ability to have a relationship, and they reveal nothing about another person’s feelings.",
+              "zh": "这里的情感靠近涉及被理解、从容专注的相处、双方自在的关心表达，以及谈论联结的意义，也给个人兴趣留空间。五题只问这些条件对你有多重要，不测当前亲近程度，不衡量爱情、依恋安全或建立关系的能力，也不揭示别人的感受。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-2",
+          "title": {
+            "en": "Attention without continuous contact",
+            "zh": "专注不等于持续联系"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a short conversation in which both people can focus, followed by time spent on separate interests. Someone may value that exchange more than frequent messages throughout a day. Another may picture emotional understanding through a different arrangement. This example separates the quality of attention you want from the amount of contact. The questionnaire does not identify an ideal frequency or decide what a particular relationship needs.",
+              "zh": "例如，先进行一段双方都能专注的短交谈，再分别投入各自兴趣。有人可能比起一天频繁发消息，更重视这次交流；另一人可能通过不同安排理解情绪被接住的感觉。例子区分想要的专注方式与联系数量，问卷不确定理想频率，也不替某段关系判断需要什么。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-3",
+          "title": {
+            "en": "No measure of neediness or independence",
+            "zh": "不测黏人或独立程度"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater importance placed on these forms of emotional connection. It does not prove greater love, dependence or a need for constant reassurance. A lower mean does not establish coldness, lack of empathy or unwillingness to connect. The examples may fit some situations better than others, and people can express care in ways outside this set. The score cannot explain an answer without your context.",
+              "zh": "较高表示更重视所列情感联结形式，不证明爱更多、依赖更强或需要不断保证。较低不能证明冷漠、缺少共情或不愿联结。这些例子对不同场合的适用程度不同，人们也可用题组之外的方式表达关心。没有你的场合信息，数值解释不了选择原因。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-4",
+          "title": {
+            "en": "Focused time and expression can differ",
+            "zh": "专注时间与表达方式可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You may rate unhurried attention highly but place less importance on talking explicitly about what the connection means. Another person may value that conversation while preferring shorter shared moments. Their means can be equal even though the underlying preferences differ. Keep the conditions separate before deciding whether any observation is useful. No pattern assigns a closeness type, and an unscored response is never converted into an absence of affection.",
+              "zh": "你可能很重视从容专注的时间，却较少强调直接谈联结意义；另一人可能重视那种交谈，同时更喜欢短一些的共处时刻。即使均值相同，偏好也不同。先分别看条件，再决定是否有值得保留的观察。任何模式都不派靠近类型，未评分也不被换成缺少感情。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-5",
+          "title": {
+            "en": "Closeness can include private space",
+            "zh": "亲近也可以包含私人空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Privacy and Emotional Closeness need not oppose one another. Someone can feel understood without disclosing every personal detail or giving up individual plans. Steadiness concerns continuity, while this part concerns the kind of connection you value during an exchange. All five priorities may be important together. They are not percentages that must add to one hundred, and no combination predicts a partner’s suitability or the future of a relationship.",
+              "zh": "隐私与情感靠近不必对立。有人不披露每个细节、不放弃个人计划，也能感到被理解。稳定关乎延续感，这一部分关乎交流中重视怎样的联结。五项可以同时重要，不是加起来必须百分之百的比例，任何组合也不预测伴侣适合度或关系未来。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-6",
+          "title": {
+            "en": "One optional description of a meaningful moment",
+            "zh": "一条可选的有意义时刻描述"
+          },
+          "paragraphs": [
+            {
+              "en": "If comfortable, recall an ordinary moment of feeling understood and name the condition that mattered, such as attention, time or room to speak. You need not share the memory or use the result to ask someone for more disclosure. Keep the observation only if it helps you describe a preference. You can finish here; a score is not a demand for more closeness, contact or emotional expression.",
+              "zh": "若自在，可回想一个普通的被理解时刻，写下当时重要的条件，例如专注、时间或说话空间。无需分享记忆，也不必拿结果要求别人披露更多。只有当观察有助于描述偏好时才保留它。可以到此结束，分数不要求增加亲近、联系或情感表达。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-7",
+          "title": {
+            "en": "Read the raw mean with its coverage",
+            "zh": "结合有效题数读原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains five importance ratings from 1 to 5. All twenty-five prompts need a response, but an uncertain, unsuitable or declined item may remain unscored. At least four numeric ratings are needed within a part. For example, ratings of 2, 3, 4 and 5 plus one unscored response yield 14 / 4 = 3.5, not 14 / 5. With only three numeric ratings, the part shows insufficient information. Means are displayed to one decimal, without a combined score or ranking.",
+              "zh": "每部分五条，重要程度从1至5。全部25题都需要响应，但不确定、场合不合适或不愿评价时可选未评分。每部分至少四条数字才显示均值。例如2、3、4、5加一条未评分，得14/4＝3.5，不是14/5。只有三条数字时，明确显示资料不足。均值显示一位小数，不合总分、不排名。"
+            }
+          ]
+        },
+        {
+          "id": "closeness-8",
+          "title": {
+            "en": "An original reflection with a limited scope",
+            "zh": "范围有限的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts and guides for reflection on adult, voluntary intimacy, communication and expectations. This is not another website’s five-persona classifier or a published sexual-values instrument. Reliability, validity, norms and language equivalence have not been established. Importance ratings do not establish behaviour, orientation, relationship quality or another person’s experience. Consent and respect are baseline conditions rather than competing scored priorities. Every complete guide stays open, including when every response is unscored.",
+              "zh": "费马原创这些题目与读法，用来反思成年、自愿亲密关系中的沟通与预期。本版不是另一网站的五种人格分类，也不是已发表的性价值观量表，尚未建立信效度、常模或跨语言等价。重要程度不证明行为、取向、关系质量或他人体验。同意与尊重是底线，不作为竞争计分的优先事项。所有完整指南始终开放，包括全部选未评分时。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Separate importance from unscored responses",
+        "zh": "区分重要程度与未评分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each of five parts has five original prompts. Rate importance from 1, not important to me, to 5, extremely important to me; 3 means moderately important, not missing or neutral about agreement. An uncertain, unsuitable or declined item stays unscored. After all 25 responses, a part needs at least four numeric ratings: sum divided by rated items, rounded to one decimal. With three or fewer, it shows insufficient information instead of a guessed value.",
+          "zh": "五部分各五条原创题，从1对我不重要至5对我极其重要。3表示中等重要，不是缺答或认同度中立。不确定、场合不合适或不愿评价时，保持未评分。全部25题响应后，每部分至少四条数字才显示原始和除以有效题数的均值，保留一位小数；三条或更少明确显示资料不足，不猜测补值。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Compatible priorities, without a forced winner",
+        "zh": "优先事项可以并存，不强找赢家"
+      },
+      "paragraphs": [
+        {
+          "en": "A larger mean records more importance placed on that set of conditions, not a better relationship or a more desirable person. All five parts can be high or equal. No total, percentile, compatibility score or persona is assigned. The same mean can come from different item patterns. Consent and respect remain baseline conditions for every response; no score justifies pressure, disclosure or ignoring another person’s boundaries.",
+          "zh": "均值较高只表示更重视本组条件，不表示关系更好或人更可取。五项可同时较高或相同；不合总分、不生成百分位、匹配分或人格标签。相同均值可能来自不同回答模式。无论如何回答，同意与尊重都保持为底线，任何分数都不授权施压、要求披露或忽视他人边界。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "An original context, distinct from relationship roles",
+        "zh": "与关系角色不同的原创场合反思"
+      },
+      "paragraphs": [
+        {
+          "en": "These original conditions focus on intimacy communication, expectations and boundaries. The separate Relationship Values test compares romantic rituals, practical cooperation, emotional companionship and growth/autonomy through forced choices. Its role counts are not converted into privacy or trust means here. Neither test measures orientation, private acts, actual partner behaviour or whether a relationship should continue. This original method has no established psychometric norms or cross-language equivalence.",
+          "zh": "这些原创条件关注亲密关系沟通、预期与边界。另一个关系价值观测试通过二选一比较浪漫仪式、务实协作、情感陪伴及成长独立；其角色次数不会在这里换成隐私或信任均值。两者都不测取向、私密行为、伴侣真实表现或是否应继续关系。本原创方法尚未建立心理测量常模或跨语言等价。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a sexual values or behaviour test?",
+        "zh": "这是性价值观或行为测试吗？"
+      },
+      "answer": {
+        "en": "It is an original reflection on the importance of intimacy conditions: privacy, playfulness, steadiness, trust and emotional closeness. It asks no sexual history or private acts and infers no orientation, identity, behaviour or partner quality. It is not a published sexual-values scale.",
+        "zh": "这是对亲密条件重要程度的原创反思，涵盖隐私、轻松、稳定、信任与情感靠近。不询问性经历或私密行为，不推断取向、身份、行为或伴侣质量，也不是已发表的性价值观量表。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which priority wins if several means are equal?",
+        "zh": "多项均值相同时，哪项胜出？"
+      },
+      "answer": {
+        "en": "None needs to win. All five raw means remain separate, and every complete guide stays available. Equal or high importance across all five is valid; no tie-break, rank or assigned type is used.",
+        "zh": "不需要找赢家。五项原始均值分别保留，完整指南始终开放。五项相同或都很重要都是有效回答，不打破并列、不排名或派型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a low rating remove consent or privacy boundaries?",
+        "zh": "较低评分会取消同意或隐私边界吗？"
+      },
+      "answer": {
+        "en": "No. Consent and respect are baseline conditions, not scored trade-offs. An importance rating is not permission to pressure someone, publish private information or disregard an agreement. Uncertainty and declining a rating can remain unscored.",
+        "zh": "不会。同意与尊重是底线，不参与得分取舍。重要程度不授权向他人施压、公开私人信息或忽视约定。不确定与不愿评价可保持未评分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why can a part show insufficient information?",
+        "zh": "为什么有的部分显示资料不足？"
+      },
+      "answer": {
+        "en": "All 25 prompts require a response, but a part needs four numeric ratings out of five for a mean. With fewer, its missing data are not filled with zero or the midpoint. You can still read the full general guide without a personal mean.",
+        "zh": "全部25题需要响应，但一部分五条中至少四条为数字才显示均值。少于四条时，不补零或中点；仍可阅读完整通用指南，而不生成个人均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Optional drafts stay in this browser tab for up to 24 hours and clear on completion, clearing or retake. Sharing copies only the public test title and entry link. Answers and raw means are not put in URLs, public shares or ordinary analytics.",
+        "zh": "草稿可自行选择，仅在当前浏览器标签页最多保存24小时，完成、清除或重测即删除。分享只复制公开测试标题和入口，回答与原始均值不进入URL、公开分享或普通分析。"
+      }
+    }
+  ]
+}

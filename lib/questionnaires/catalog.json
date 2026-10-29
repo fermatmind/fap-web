@@ -6184,5 +6184,31 @@
       "initiative-tasks",
       "organizing-tasks"
     ]
+  },
+  {
+    "slug": "intimacy-values",
+    "code": "FM_INTIMACY_VALUES25",
+    "version": "fm_intimacy_values25_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Intimacy Values Test",
+      "zh": "亲密关系价值观测试"
+    },
+    "description": {
+      "en": "Reflect on five intimacy priorities with 25 original statements and full guides. Separate importance from uncertainty, without a type or partner rating.",
+      "zh": "用25条原创题，分别反思隐私、轻松、稳定、信任与情感靠近的重要程度。五篇完整指南免费，区分重要程度与未评分，不派型或评价伴侣。"
+    },
+    "minutes": 5,
+    "formCode": "fm_intimacy_values25_v1",
+    "questionCount": 25,
+    "resultSlugs": [
+      "privacy",
+      "play",
+      "steadiness",
+      "trust",
+      "closeness"
+    ],
+    "collection": "explore"
   }
 ]
