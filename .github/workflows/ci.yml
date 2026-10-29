@@ -269,7 +269,7 @@ jobs:
     name: browser-${{ matrix.server_mode }}
     needs: [classify, build, contracts]
     if: ${{ !cancelled() && needs.classify.result == 'success' && needs.build.result == 'success' && needs.contracts.result == 'success' && contains(needs.classify.outputs.classification, 'tests/e2e/') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     strategy:
       fail-fast: true
