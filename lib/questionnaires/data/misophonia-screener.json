@@ -1,0 +1,1920 @@
+{
+  "slug": "misophonia-screener",
+  "code": "DVMSQ18_WILLIAMS2022_CC_BY_SA",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "dvmsq18",
+  "title": {
+    "en": "Sound Sensitivity Check-In",
+    "zh": "声音敏感自评"
+  },
+  "seoTitle": {
+    "en": "Misophonia Test (DVMSQ): Sound Sensitivity Check-In, Free Guides",
+    "zh": "厌声症测试（DVMSQ）｜声音敏感自评与免费完整读法"
+  },
+  "description": {
+    "en": "Explore sound-linked reactions and everyday impact with the DVMSQ v1.5: one screening question and up to 18 source prompts. Raw sums and three full guides are free, without a diagnosis or signup.",
+    "zh": "按DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多再答18条源题。原始合计和三篇完整读法免费，不作诊断，无需注册。"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "When particular sounds are extremely bothersome even at a low volume, describing reactions and their effects can be useful. This sound sensitivity check-in uses a clearly identified published source form, with a new Chinese working translation and disclosed website adaptations. It does not classify misophonia, measure hearing or reproduce an audio experiment.",
+    "zh": "某些声音即使不响也极其困扰时，可以描述自己的反应及其影响。本声音敏感自评使用明确标识的已发表源表，另有新中文工作译文及披露的网页改编。不分类厌声症，不测听力，也不复现声音实验。"
+  },
+  "instructions": {
+    "en": "For adults aged 18 and over. Answer the initial question first; a no ends the source form, while yes opens 18 prompts. Added unsure or decline choices can end without a score. Reflect on existing experience only: no sound exposure, recording or physical task is needed. The source frequency questions do not specify a recent window; items 12–15 ask about the past seven days, and items 16–18 use general impact wording without a stated window. Every presented item needs a choice, including added unscored options.",
+    "zh": "面向18岁及以上成年人，先答前置题；否按源表结束，是进入18题。新增不确定或不愿回答可结束但不计分。只按已有经验回答，不需声音暴露、录音或实际任务。来源频率题没有指定近期时段；第12—15题问过去7天，第16—18题按一般影响措辞，未指定时段。每条展示题需明确选择，包括新增不计分选项。"
+  },
+  "resultHeading": {
+    "en": "Your source-based response record",
+    "zh": "你的源表回答记录"
+  },
+  "source": {
+    "kind": "dvmsq18_v15_cc_by_sa_working_zh_web_adaptation",
+    "formCode": "dvmsq_v15_18plusgate_fmzh_web_v1",
+    "itemBankVersion": "dvmsq_v15_source18plusgate_bilingual_skips_v1",
+    "scoringVersion": "dvmsq_v15_strict10_7_total17_exclude3_gate_no_zero_no_algorithm_v1",
+    "resultContentVersion": "dvmsq_v15_three_full_guides_v1",
+    "itemBankSha256": "829a55b4dc2644a7bc9e144bf341559e46e54aa6342760390c97ec07ceaf3bdf",
+    "resultContentSha256": "b3ce0b96fa18cd6addfd323b2ad9490adb380233653de45d4638ea217c79792a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "symptom",
+      "title": {
+        "en": "Symptom responses",
+        "zh": "反应题"
+      },
+      "itemCount": 10
+    },
+    {
+      "id": "impairment",
+      "title": {
+        "en": "Impact responses",
+        "zh": "影响题"
+      },
+      "itemCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": "DV_S1",
+      "prompt": {
+        "en": "Are there specific sounds that you are extremely bothered by, even if they are not loud?",
+        "zh": "是否有某些特定声音，即使不响，也会让你极其困扰？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "yes",
+          "label": {
+            "en": "Yes",
+            "zh": "是"
+          },
+          "directionId": "gate",
+          "score": 1
+        },
+        {
+          "id": "no",
+          "label": {
+            "en": "No",
+            "zh": "否"
+          },
+          "directionId": "gate",
+          "score": 0
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "I am not sure (added unscored option)",
+            "zh": "不确定（本页新增，不计分）"
+          },
+          "directionId": "gate",
+          "score": null
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer (added unscored option)",
+            "zh": "不愿回答（本页新增，不计分）"
+          },
+          "directionId": "gate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_01",
+      "prompt": {
+        "en": "Intense feelings of irritation or annoyance?",
+        "zh": "强烈的烦躁或恼怒感？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_02",
+      "prompt": {
+        "en": "Feelings of anger or rage?",
+        "zh": "愤怒或暴怒的感觉？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_03",
+      "prompt": {
+        "en": "Feelings of fear or panic?",
+        "zh": "恐惧或惊恐的感觉？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "fear-unscored",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "fear-unscored",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "fear-unscored",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "fear-unscored",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "fear-unscored",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "fear-unscored",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_04",
+      "prompt": {
+        "en": "Feelings of disgust?",
+        "zh": "厌恶的感觉？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_05",
+      "prompt": {
+        "en": "Urges to run away from the sound?",
+        "zh": "想要逃离这种声音的冲动？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_06",
+      "prompt": {
+        "en": "Urges to cover your ears or block out the sound in some other way?",
+        "zh": "想要捂住耳朵或用其他方式隔绝这种声音的冲动？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_07",
+      "prompt": {
+        "en": "Urges to lash out violently at the person or object making the sound?",
+        "zh": "想要猛烈攻击发出这种声音的人或物的冲动？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_08",
+      "prompt": {
+        "en": "Feeling like you cannot control your response to the sound?",
+        "zh": "感觉自己无法控制对这种声音的反应？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_09",
+      "prompt": {
+        "en": "Difficulty focusing on anything except the sound?",
+        "zh": "难以把注意力放在这种声音以外的任何事物上？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_10",
+      "prompt": {
+        "en": "Some sort of immediate physical response? (e.g., tensing of muscles, heart racing, warmth, tingling, pain, or tightening of stomach)",
+        "zh": "某种即时的身体反应？（例如肌肉绷紧、心跳加快、发热、刺麻、疼痛或胃部发紧）"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_11",
+      "prompt": {
+        "en": "How often do you avoid situations where you may potentially hear these bothersome sounds?",
+        "zh": "你多常避开可能听到这些困扰声音的情境？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "symptom",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "symptom",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "symptom",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "symptom",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "symptom",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "symptom",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_12",
+      "prompt": {
+        "en": "Your ability to interact with other people?",
+        "zh": "你与他人互动的能力？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_13",
+      "prompt": {
+        "en": "Your ability to be productive at work or school?",
+        "zh": "你在工作或学习中有效完成事情的能力？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_14",
+      "prompt": {
+        "en": "Your ability to take care of your household responsibilities?",
+        "zh": "你履行家务责任的能力？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_15",
+      "prompt": {
+        "en": "Your ability to participate in community activities (for example, festivities, religious, or other activities)?",
+        "zh": "你参加社区活动的能力（例如节庆、宗教或其他活动）？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_16",
+      "prompt": {
+        "en": "To what degree have your sound sensitivities negatively impacted your mental or emotional health?",
+        "zh": "你的声音敏感在多大程度上对心理或情绪健康产生了负面影响？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_17",
+      "prompt": {
+        "en": "To what degree do you believe that your sound sensitivities have created problems for you?",
+        "zh": "你认为自己的声音敏感在多大程度上给你带来了问题？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DV_18",
+      "prompt": {
+        "en": "To what degree do you believe that your sound sensitivities have made your entire life worse?",
+        "zh": "你认为自己的声音敏感在多大程度上使整体生活变差？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Not at all",
+            "zh": "完全没有"
+          },
+          "directionId": "impairment",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "A little bit",
+            "zh": "一点"
+          },
+          "directionId": "impairment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "A moderate amount",
+            "zh": "中等程度"
+          },
+          "directionId": "impairment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Very much",
+            "zh": "很大程度"
+          },
+          "directionId": "impairment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "An extreme amount",
+            "zh": "极大程度"
+          },
+          "directionId": "impairment",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / no relevant opportunity / prefer not to answer (unscored)",
+            "zh": "无法判断／没有相关机会／不愿回答（不计分）"
+          },
+          "directionId": "impairment",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "overall",
+      "directionIds": [
+        "symptom",
+        "impairment"
+      ],
+      "title": {
+        "en": "DVMSQ Raw Total: What It Includes",
+        "zh": "DVMSQ原始总分：包含什么"
+      },
+      "headline": {
+        "en": "A bounded record of selected responses",
+        "zh": "有边界的回答记录"
+      },
+      "summary": {
+        "en": "Understand the published DVMSQ v1.5 total, its screening branch, the excluded fear item and the difference between a raw sum and a diagnosis.",
+        "zh": "理解DVMSQ v1.5原始总分、前置分支、不计入的恐惧题，以及原始合计与诊断的区别。"
+      },
+      "scoreReading": {
+        "en": "Read raw sums with the exact administered items, missing-answer rules and source version. These are not diagnostic categories, population norms or a measure of treatment success.",
+        "zh": "结合实际施测条目、缺答规则及来源版本阅读原始合计。它们不是诊断类别、人口常模或疗效测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "DVMSQ Raw Total: What It Includes | Sound Sensitivity Check-In",
+          "zh": "DVMSQ原始总分：包含什么｜声音敏感自评完整读法"
+        },
+        "description": {
+          "en": "Understand the published DVMSQ v1.5 total, its screening branch, the excluded fear item and the difference between a raw sum and a diagnosis.",
+          "zh": "理解DVMSQ v1.5原始总分、前置分支、不计入的恐惧题，以及原始合计与诊断的区别。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "One source version, clearly identified",
+            "zh": "明确标识同一个来源版本"
+          },
+          "paragraphs": [
+            {
+              "en": "This website uses the eighteen-item DVMSQ v1.5 form with its initial yes-or-no screening question. The publication also shows an earlier twenty-item pool, while the broader Duke Misophonia Questionnaire has eighty-six items. Those are different versions or instruments. The item numbers and arithmetic on this page follow the three-page v1.5 source form, rather than mixing keys from those other materials.",
+              "zh": "本页使用十八题DVMSQ v1.5及其前置是否问题。论文还展示过早期二十题题池，较广的Duke Misophonia Questionnaire则有八十六题，它们是不同版本或工具。本页题号和算术按三页v1.5源表，不混用其他材料的计分键。"
+            },
+            {
+              "en": "The source questions concern reactions to particular bothersome sounds and their impact. This is not a hearing-threshold test, a task that plays trigger sounds or an assessment of someone’s character. English source wording is retained, while Chinese is a new working translation. Neither a familiar instrument name nor a research citation establishes that this web adaptation has been validated.",
+              "zh": "源题涉及特定困扰声音的反应及影响，不是听阈测试、播放触发音的任务或品格评估。英文保留源措辞，中文是新工作译文。熟悉工具名称或研究引用，都不使网页改编自动获得验证。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Seventeen scored items, not eighteen",
+            "zh": "计入十七题，不是十八题"
+          },
+          "paragraphs": [
+            {
+              "en": "After a yes to the initial question, all eighteen source prompts are presented. The fear-or-panic item, number three, is kept as a response record but contributes to neither the total nor either subscore. The total adds items one, two and four through eighteen, with each numerical answer ranging from zero to four. Its possible raw range is zero to sixty-eight.",
+              "zh": "前置选是后展示全部十八题。第三题恐惧或惊恐保留为回答记录，却不进入总分或任一分项。总分相加第一、二及第四至十八题，每条数字为零至四，原始范围零至六十八。"
+            },
+            {
+              "en": "For example, choosing two on every scored item gives thirty-four: twenty on the ten symptom items and fourteen on the seven impact items. Changing only the fear response from zero to four leaves all three sums unchanged. That arithmetic does not mean fear is unimportant; it preserves the specific key selected by the source authors.",
+              "zh": "例如计入的每题均选二，总分三十四，其中十条反应题二十、七条影响题十四。只把恐惧回答从零改为四，不改变三个合计。这不表示恐惧不重要，而是保留来源作者所选计分键。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "What an early zero actually means",
+            "zh": "提前结束的零具体表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The initial question asks about particular sounds that are extremely bothersome even when not loud. Its clarification excludes sounds that bother you only because they are too loud or physically painful. If you answer no, the source ends the questionnaire and assigns a total of zero. The other eighteen items have not been administered; their individual answers and subscores are not invented as zeros.",
+              "zh": "前置题问某些声音是否即使不响也极其困扰，并说明排除仅因太响或身体疼痛而困扰的声音。选否时来源结束问卷、总分记零。其余十八题尚未施测，不能替它们编造零答案或分项分数。"
+            },
+            {
+              "en": "This branch is a questionnaire rule, not proof that you have no sound-related difficulty or no need for advice. The website also offers added unsure and decline choices. Those can end without a number, rather than being converted into no. A changed screening answer clears downstream responses so that an earlier completed set cannot silently accompany a different branch.",
+              "zh": "这个分支是问卷规则，不证明没有声音相关困难或不需要意见。网页另加不确定和不愿回答，可结束但不产生数字，不换成否。修改前置答案会清掉后续回答，避免旧答卷悄悄留在另一个分支。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Missing is not the lowest response",
+            "zh": "缺答不是最低反应"
+          },
+          "paragraphs": [
+            {
+              "en": "Every presented item needs an explicit numerical choice or the added unscored option. A numerical zero means the source’s lowest response, such as never or not at all. An unscored answer means you cannot judge, had no relevant opportunity or prefer not to answer. These statements describe different information and are never merged.",
+              "zh": "每个展示条目需明确选数字或新增不计分项。数字零是来源最低回答，如从不或完全没有；不计分是无法判断、无机会或不愿回答。两者信息不同，不能合并。"
+            },
+            {
+              "en": "Any unscored answer among the seventeen counted items withholds the total. A complete subscore can still be shown if every item in that subscore is numerical. An unscored fear item alone does not prevent a total, because it is excluded from the key. All eighteen explicit unscored choices can finish without a numerical result, and every public guide remains readable.",
+              "zh": "十七条计入题中任一不计分，都暂不显示总分。某分项全部为数字时，仍可显示该分项。只有恐惧题不计分不会挡住总分，因为它本就不在键内。十八条全部明确不计分也能完成且读全部指南。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "A raw sum does not classify you",
+            "zh": "原始合计不为你分类"
+          },
+          "paragraphs": [
+            {
+              "en": "The source study investigated the questionnaire’s structure and relationships with other measures. Its authors also described a provisional criteria-based algorithm, while noting that an interview-based diagnostic standard had not been used in that study. This website does not run that algorithm, assume a symptom duration or assign clinical and subclinical labels.",
+              "zh": "源研究考察结构及与其他测量的关系，也描述临时的标准式算法，同时指出该研究未使用访谈诊断标准。本网站不运行该算法、不假定症状持续时间，也不分临床或亚临床标签。"
+            },
+            {
+              "en": "A total is not a probability of a condition, a percentage of normal hearing or a rank against other people. Two equal totals can combine different reaction and impact responses. The Chinese translation, added skip choices, private treatment of free-text prompts and digital presentation have not been validated together as an equivalent form. Research findings are not transferred as accuracy claims for this page.",
+              "zh": "总分不是患某状况的概率、正常听力百分比或人际排名。相同总分可来自不同反应和影响组合。中文译文、新增跳过、自由文字改为私下考虑及数字呈现，尚未经整体验证为等值版本，不转移研究发现作为网页准确率。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "Useful context beyond the number",
+            "zh": "数字之外的有用情境"
+          },
+          "paragraphs": [
+            {
+              "en": "You might privately notice whether a sound reaction changed a meal, a conversation or an ordinary responsibility, without replaying the sound or trying to provoke a reaction. Describe the actual circumstances rather than trying to raise or lower a total. The questionnaire does not determine what another person intended, who is at fault or which intervention will help.",
+              "zh": "可私下留意声音反应是否影响一餐、一次谈话或普通责任，不回放声音或刻意诱发。描述实际情境，不追求升降总分。问卷不判断他人意图、谁有错或哪种干预有效。"
+            },
+            {
+              "en": "If reactions are concerning or interfere with everyday life, an appropriate health professional can discuss the experiences and possible alternatives. Hearing-related pain or loudness difficulty may call for a different assessment, and this check-in cannot separate all possible causes. You do not need to reach a threshold on this page before discussing a difficulty or deciding to stop answering.",
+              "zh": "若反应令人担忧或干扰日常，可与适当健康专业人士讨论体验及其他可能。声音疼痛或响度困难或需不同评估，本页不能分清所有原因。不必先达到某个网页阈值才可讨论困难或停止作答。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Attribution, adaptation and private use",
+            "zh": "署名、改编与私人使用"
+          },
+          "paragraphs": [
+            {
+              "en": "DVMSQ v1.5 is copyrighted by Zachary J. Williams, 2022, and the source PDF links to CC BY-SA 4.0. The questionnaire adaptation and working translation on this site are offered under the same licence, with the changes identified in the source notice. This is not author endorsement, a clinical service or the unchanged paper form.",
+              "zh": "DVMSQ v1.5版权属于Zachary J. Williams，2022，源PDF链接CC BY-SA 4.0。本网站问卷改编与工作译文按相同许可提供，改动见来源说明。这不是作者背书、临床服务或未改动纸本。"
+            },
+            {
+              "en": "Responses stay in page memory and clear on refresh, language change, leaving or retaking. No personal sound list, bodily description, identity or account is collected. Sharing copies all three public guides without answers or sums. You can read the complete content before responding; optional anonymous action counts require both the page permission and global analytics consent.",
+              "zh": "答案留在页面内存，刷新、换语言、离开或重测清除。不收个人声音清单、身体描述、身份或账户。分享只复制三篇公开指南，不带答案或合计。作答前即可读完整内容；可选匿名动作计数需本页许可及全站分析同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "symptom",
+      "directionIds": [
+        "symptom"
+      ],
+      "title": {
+        "en": "DVMSQ Symptom Responses: Reading Ten Items",
+        "zh": "DVMSQ反应题：阅读十条计分条目"
+      },
+      "headline": {
+        "en": "Keep different reactions visible",
+        "zh": "保留不同反应的区别"
+      },
+      "summary": {
+        "en": "Read the ten-item symptom sum, the separately retained fear response and sound-linked attention, bodily reactions and avoidance without a clinical label.",
+        "zh": "阅读十条反应题的合计、单独保留的恐惧回答，以及声音相关注意、身体反应与回避，不分配临床标签。"
+      },
+      "scoreReading": {
+        "en": "Read raw sums with the exact administered items, missing-answer rules and source version. These are not diagnostic categories, population norms or a measure of treatment success.",
+        "zh": "结合实际施测条目、缺答规则及来源版本阅读原始合计。它们不是诊断类别、人口常模或疗效测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "DVMSQ Symptom Responses: Reading Ten Items | Sound Sensitivity Check-In",
+          "zh": "DVMSQ反应题：阅读十条计分条目｜声音敏感自评完整读法"
+        },
+        "description": {
+          "en": "Read the ten-item symptom sum, the separately retained fear response and sound-linked attention, bodily reactions and avoidance without a clinical label.",
+          "zh": "阅读十条反应题的合计、单独保留的恐惧回答，以及声音相关注意、身体反应与回避，不分配临床标签。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Reactions to a specified context",
+            "zh": "针对明确情境的反应"
+          },
+          "paragraphs": [
+            {
+              "en": "The symptom prompts refer to the particular bothersome sounds you considered at the initial question, rather than every noise or an abstract sensitivity trait. The original wording asks about reactions when exposed; it does not impose a blanket recent-month recall window on these items. Reflect on existing experience without seeking a sound or putting yourself in an uncomfortable situation.",
+              "zh": "反应题针对前置题私下考虑的特定困扰声音，不是所有噪声或抽象敏感特质。源措辞问接触时的反应，没有给这些条目统一加近一个月范围。仅按已有经验回答，不寻找声音或让自己不舒服。"
+            },
+            {
+              "en": "The source clarification distinguishes these sounds from ones that are bothersome only because of loudness or physical pain. That distinction does not establish a diagnosis, and several kinds of sound intolerance can overlap. If you cannot apply the wording to your situation, an explicit unscored choice preserves the uncertainty instead of forcing an account that seems to fit the questionnaire.",
+              "zh": "源说明区分这些声音与仅因响度或身体疼痛而困扰的声音，但这不确立诊断，多种声音耐受困难可能重叠。无法将措辞用于自身情况时，明确不计分可保留不确定性，不必强编符合题目的叙述。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "What the ten-item sum contains",
+            "zh": "十条合计包含什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Items one, two and four through eleven contribute to the symptom sum. They include irritation, anger, disgust, urges to leave or block a sound, aggressive urges, perceived control, attentional capture, immediate bodily responses and avoidance. These are varied reports. Their inclusion in a source sum does not turn them into ten independent conditions or make any one response a character judgment.",
+              "zh": "第一、二及第四至十一题计入反应合计，涉及烦躁、愤怒、厌恶、离开或隔绝声音冲动、攻击冲动、控制感、注意占据、即时身体反应和回避。这些报告不同，纳入来源合计不使其变成十种独立状况，也不以单条评价品格。"
+            },
+            {
+              "en": "Each numerical frequency choice is scored directly from zero to four, with no reverse items. All ten must be numerical for a raw sum from zero to forty. Ten sometimes responses give twenty. The range is an arithmetic property of this key, not a percentage, a severity band or a comparison with how most people would respond.",
+              "zh": "每条频率数字直接计零至四，无反向题。十条均为数字才显示零至四十合计，十条有时得到二十。范围只是计分键的算术性质，不是百分比、严重程度分段或与多数人反应比较。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "Fear is asked but not added",
+            "zh": "询问恐惧，但不相加"
+          },
+          "paragraphs": [
+            {
+              "en": "Item three asks about fear or panic. The source retains it in the form while excluding it from the seventeen-item total and ten-item symptom score. On this website its chosen response remains visible, without inventing a new fear subscale. Raising only that item does not raise the symptom sum or the overall total.",
+              "zh": "第三题询问恐惧或惊恐，来源保留题目但将其排除于十七条总分及十条反应分之外。本页照样显示所选回答，不新造恐惧分量表；只提高该题不提高反应合计或总分。"
+            },
+            {
+              "en": "The exclusion is a particular scoring decision, not a statement that an experience is insignificant or belongs to a different diagnosis. The website does not classify a person from this item, and it cannot decide whether fear, anger and a bodily reaction share the same cause. A description can matter in a professional conversation even when it contributes no points.",
+              "zh": "排除是特定计分决定，不表示体验不重要或属于另一诊断。本页不从单题为人分类，也不判断恐惧、愤怒及身体反应是否同因。即使不贡献分数，描述在专业沟通中仍可能有用。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "Distinguish attention, urge and action",
+            "zh": "区分注意、冲动与行动"
+          },
+          "paragraphs": [
+            {
+              "en": "A sound drawing attention is different from an urge to leave, and an urge is different from an action actually taken. The source wording about aggressive urges is a question about experience; it is not an instruction or permission to act against someone. None of the answers reveals what another person intended by making a sound.",
+              "zh": "声音吸引注意不同于离开冲动，冲动也不同于实际行动。源题攻击冲动是在询问体验，不是行动指令或许可。任何回答都不能揭示发声者意图。"
+            },
+            {
+              "en": "For example, someone might recall strong annoyance during a shared activity but no urge to lash out. Another person may remember arranging distance from a sound without the same bodily response. Reading the individual answers retains these distinctions, whereas treating a single sum as a complete personal portrait would erase them.",
+              "zh": "例如有人记得共同行动时很烦，却没有攻击冲动；另一些人记得拉开距离，却没有同样身体反应。逐项阅读可保留区别，若把一个合计当完整个人画像，就会抹去这些信息。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "An unscored response stays unscored",
+            "zh": "不计分保持不计分"
+          },
+          "paragraphs": [
+            {
+              "en": "If any of the ten scored symptom items is marked cannot judge, no relevant opportunity or prefer not to answer, this sum is withheld. The other numerical answers are not averaged, scaled up or used to fill the gap. You can still read every guide, and a fully numerical impact group can be displayed separately.",
+              "zh": "十条计分反应题中任一选无法判断、无机会或不愿回答，这个合计暂不显示。不对其他数字取均值、放大或补缺。仍可阅读所有指南，全部为数字的影响组也可单独显示。"
+            },
+            {
+              "en": "All presented prompts need explicit choices before completing the longer branch, including the separate fear item and added unscored choices. Blank means you have not decided yet, not that the experience never occurs. If only the fear item is unscored and all seventeen scored items are numerical, the source sums remain available without substituting a fear value.",
+              "zh": "较长分支完成前，所有展示题需明确选择，包括独立恐惧题和新增不计分项。空白表示尚未决定，不表示从不发生。若仅恐惧不计分，十七条计入题均为数字，来源合计仍可显示，不替恐惧填值。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "What a practical next step can use",
+            "zh": "实际下一步可以用什么"
+          },
+          "paragraphs": [
+            {
+              "en": "You can privately describe one ordinary situation in terms of the sound, the reaction and what happened next, without replaying the sound or collecting evidence against another person. The aim is accurate description, not proving a label. The website does not prescribe exposure, sound masking, ear protection, psychotherapy or a method for changing the score.",
+              "zh": "可私下把一个普通情境分为声音、反应和之后发生的事，不回放声音或收集针对他人的证据。目的是准确描述，不是证明标签。本页不处方暴露、掩蔽、护耳、心理治疗或改变分数的方法。"
+            },
+            {
+              "en": "If reactions are distressing or disrupt everyday activity, a qualified professional familiar with sound-related difficulties can help consider the actual circumstances. Support does not depend on reaching a number here. A low or unavailable sum cannot rule out other difficulties, while a large sum cannot establish a cause, a diagnosis or which intervention would be appropriate.",
+              "zh": "反应令人困扰或干扰日常时，熟悉声音困难的合格专业人士可帮助考虑实际情况。支持不取决于本页数字。小合计或无法计分不能排除其他困难，大合计也不能确立原因、诊断或适合的干预。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Use and attribution limits",
+            "zh": "使用与署名边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a web adaptation of DVMSQ v1.5, Copyright 2022 Zachary J. Williams, with a new unvalidated Chinese working translation. The adapted questionnaire content is available under CC BY-SA 4.0. Added unscored choices, private handling of free-text requests and omitted optional material are disclosed; the website does not claim author endorsement or unchanged-form validation.",
+              "zh": "这是DVMSQ v1.5网页改编，版权2022 Zachary J. Williams，中文为未经验证的新工作译文。问卷改编内容按CC BY-SA 4.0提供，并披露新增不计分、自由文字改为私下考虑及省略可选材料；不声称作者背书或未改版验证。"
+            },
+            {
+              "en": "Responses stay in page memory and clear when you refresh, change language, leave or retake. No sound list, physical description or identity is collected. Public sharing contains all three complete guides without responses or sums, and the optional separate sensory-processing entry has its own ninety-two-item scope rather than verifying this symptom record.",
+              "zh": "答案留在页面内存，刷新、换语言、离开或重测即清除。不收声音清单、身体描述或身份。公开分享仅含三篇完整指南，不带回答或合计；可选感觉加工入口有自己的九十二题范围，不验证本反应记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impairment",
+      "directionIds": [
+        "impairment"
+      ],
+      "title": {
+        "en": "DVMSQ Impact Responses: Life Contexts and Limits",
+        "zh": "DVMSQ影响题：生活情境与边界"
+      },
+      "headline": {
+        "en": "Describe interference without assigning blame",
+        "zh": "描述干扰，不分配责任"
+      },
+      "summary": {
+        "en": "Understand the seven-item impact sum, the source’s recent and general wording, different life contexts and why functional difficulty is not a diagnosis.",
+        "zh": "理解七条影响合计、来源中的近期与一般措辞、不同生活情境，以及功能困难为何不等于诊断。"
+      },
+      "scoreReading": {
+        "en": "Read raw sums with the exact administered items, missing-answer rules and source version. These are not diagnostic categories, population norms or a measure of treatment success.",
+        "zh": "结合实际施测条目、缺答规则及来源版本阅读原始合计。它们不是诊断类别、人口常模或疗效测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "DVMSQ Impact Responses: Life Contexts and Limits | Sound Sensitivity Check-In",
+          "zh": "DVMSQ影响题：生活情境与边界｜声音敏感自评完整读法"
+        },
+        "description": {
+          "en": "Understand the seven-item impact sum, the source’s recent and general wording, different life contexts and why functional difficulty is not a diagnosis.",
+          "zh": "理解七条影响合计、来源中的近期与一般措辞、不同生活情境，以及功能困难为何不等于诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "title": {
+            "en": "Seven impact prompts with specific wording",
+            "zh": "七条措辞明确的影响题"
+          },
+          "paragraphs": [
+            {
+              "en": "The impact sum uses items twelve through eighteen in the selected DVMSQ v1.5 form. Four ask how sound sensitivities interfered with interacting with people, being productive at work or school, household responsibilities and community activities. Three further questions concern perceived effects on mental or emotional health, problems and one’s life overall. These are subjective reports, not an audit of performance.",
+              "zh": "所选DVMSQ v1.5以第十二至十八题组成影响合计。四条问声音敏感如何干扰人际互动、工作学习成效、家务责任及社区活动，另三条涉及自觉心理情绪健康、问题及整体生活影响。这些是主观报告，不是表现审计。"
+            },
+            {
+              "en": "The source introduces the first four interference questions with a past-seven-days window, then presents the three global-impact questions in their own wording without a specified window. This page keeps that distinction. It does not quietly impose a month on the entire form or describe every impact response as a measured frequency over the same period.",
+              "zh": "来源在前四条干扰题前指定过去七天，随后三条整体影响按各自措辞呈现，未指定时段。本页保留区别，不悄悄给整份加一个月，也不把所有影响回答称为同一时段的测量频率。"
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "title": {
+            "en": "Different opportunities can shape answers",
+            "zh": "不同机会可能影响回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider two people who find the same particular sound bothersome. One may have encountered it during a shared meal and an important conversation; the other may have spent the week away from those settings. Their opportunities to report interference differ. The questionnaire does not measure exposure equally or infer that an absent activity would have gone well.",
+              "zh": "设想两人都被同一声音困扰，一人在共餐和重要谈话中遇到，另一人本周没有进入这些场合。两者报告干扰的机会不同。问卷不使暴露机会相等，也不推断没做的活动一定顺利。"
+            },
+            {
+              "en": "If you cannot judge a life context or had no relevant opportunity, the added unscored choice preserves the limitation. It is not converted into not at all. You need not arrange a social event, return to an uncomfortable setting or attempt a task simply to generate an answer. The form asks for existing experience, without any sensory or functional challenge.",
+              "zh": "无法判断某生活情境或无相关机会时，新增不计分可保留限制，不转成完全没有。不必安排社交、重返不舒服场合或尝试任务来制造答案。本表只问已有经验，没有感官或功能挑战。"
+            }
+          ]
+        },
+        {
+          "id": "s3",
+          "title": {
+            "en": "How the raw sum is computed",
+            "zh": "原始合计如何计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the seven impact items uses zero through four, corresponding to the source descriptions from not at all to an extreme amount. All seven numerical responses are required for the raw range zero to twenty-eight. Seven choices of two give fourteen. Nothing is reversed, and the impact sum joins the ten-item symptom sum to form the seventeen-item total.",
+              "zh": "七条影响题各用零至四，对应来源从完全没有到极大程度。七条均为数字才显示零至二十八，七条选二为十四。没有反向题；它与十条反应合计共同组成十七条总分。"
+            },
+            {
+              "en": "The impact sum does not include the fear-or-panic item, and it is not split into seven separately validated domain scores. Equal totals can arise from different settings: interference in a conversation and difficulties with household responsibilities are not interchangeable events. The individual selected answers therefore remain available beside the original prompts.",
+              "zh": "影响合计不含恐惧或惊恐题，也不拆为七个单独验证领域分数。相同合计可来自不同场景，谈话干扰与家务困难不是可互换事件。因此原题旁保留各自选择。"
+            }
+          ]
+        },
+        {
+          "id": "s4",
+          "title": {
+            "en": "No completion by filling gaps",
+            "zh": "不靠填补缺口完成数字"
+          },
+          "paragraphs": [
+            {
+              "en": "One unscored answer among these seven withholds the impact sum and the overall total, without averaging the remaining responses or replacing a missing context with zero. A complete symptom group can still display its own sum. A result with no impact number is a description of incomplete numerical coverage, not evidence of little or no impact.",
+              "zh": "七条中任一不计分会暂不显示影响合计及总分，不把其余回答取均值，也不以零代替缺少情境。完整反应组仍可显示自己的合计。没有影响数字表示数字覆盖不足，不是影响小或没有影响的证据。"
+            },
+            {
+              "en": "If the initial screening answer was no, none of these seven questions was administered and the website does not invent an impact subscore. The source’s early total of zero is displayed with that branch explanation. Added unsure and decline answers to the initial question end without a number. These paths remain different from seven explicit not-at-all responses.",
+              "zh": "前置选否时，这七题均未施测，本页不编影响分项；来源提前总分零会连同分支说明展示。前置新增不确定、不愿回答则结束但无数字。这些路径不同于七条明确选完全没有。"
+            }
+          ]
+        },
+        {
+          "id": "s5",
+          "title": {
+            "en": "Impact does not establish a cause",
+            "zh": "影响不确立原因"
+          },
+          "paragraphs": [
+            {
+              "en": "The original study found that impact responses overlapped with other forms of decreased sound tolerance. A questionnaire about sound-linked difficulty cannot by itself separate misophonia, loudness intolerance, fear, pain or other contributing circumstances. The website therefore does not turn the impact sum into a diagnostic label, a probability or an explanation of a physical symptom.",
+              "zh": "源研究发现影响回答与其他声音耐受下降存在重叠。声音相关困难问卷不能独自区分厌声、响度耐受、恐惧、疼痛或其他情况。因此本页不把影响合计转成诊断标签、概率或身体症状原因。"
+            },
+            {
+              "en": "Nor does the sum determine whether someone is considerate, resilient, cooperative or suited for a job. A response about interactions records perceived interference, without deciding who caused a conflict or what another person should change. The score is not a justification for controlling others and should not be used as evidence in a hiring or relationship judgment.",
+              "zh": "合计也不判断是否体贴、坚韧、合作或适合工作。人际题记录自觉干扰，不裁定谁导致冲突或他人该改什么。分数不为控制别人提供理由，也不应用于招聘或关系判断。"
+            }
+          ]
+        },
+        {
+          "id": "s6",
+          "title": {
+            "en": "A conversation can start with a situation",
+            "zh": "沟通可从具体情境开始"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next step is to describe an ordinary situation privately: what activity was happening, how the sound-related reaction affected it and what support you would like to discuss. Keep that description outside this website. You do not need to collect recordings, identify another person or expose yourself again to demonstrate that the difficulty matters.",
+              "zh": "可选下一步是私下描述普通情境：正在做什么、声音相关反应如何影响、希望讨论什么支持。描述留在网站之外。不必收录音、指出他人身份或再次暴露，来证明困难值得关注。"
+            },
+            {
+              "en": "If daily functioning is affected or an experience is concerning, an appropriate professional can consider the broader circumstances with you. This guide does not prescribe an intervention or promise that a smaller future sum means recovery. Different opportunities, recall and interpretation can change answers, and this web adaptation has not been validated as a tool for tracking treatment response.",
+              "zh": "日常功能受影响或体验令人担忧时，可由适当专业人士共同考虑更广情境。本指南不处方干预，也不承诺以后合计小就表示恢复。机会、回忆及理解变化会改变答案，网页改编未验证为疗效追踪工具。"
+            }
+          ]
+        },
+        {
+          "id": "s7",
+          "title": {
+            "en": "Source rights and privacy",
+            "zh": "来源权利与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "The source is DVMSQ v1.5, Copyright 2022 Zachary J. Williams, linked in its PDF to CC BY-SA 4.0. This questionnaire adaptation and new Chinese working translation retain that licence and identify the changes. The three complete guides explain the site’s use of the form; neither a source citation nor the licence implies author endorsement or clinical validation of the adaptation.",
+              "zh": "来源为DVMSQ v1.5，版权2022 Zachary J. Williams，PDF链接CC BY-SA 4.0。本问卷改编与新中文工作译文保留该许可并标改动。三篇指南解释本站用法，引用及许可不代表作者背书或网页改编临床验证。"
+            },
+            {
+              "en": "Responses stay only in page memory and clear on refresh, language change, leaving or retaking. Personal examples, sound lists and bodily descriptions are not collected. All three guides are public and free before answering, while sharing includes only those public links, without responses or sums. Optional anonymous action counts need both page permission and global analytics consent.",
+              "zh": "答案仅留在页面内存，刷新、换语言、离开或重测即清除。不收私人例子、声音清单或身体描述。三篇指南作答前公开免费，分享仅含这些链接，不带回答或合计。可选匿名动作计数需本页许可及全站分析同意。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Source version and adaptations",
+        "zh": "来源版本与改编"
+      },
+      "paragraphs": [
+        {
+          "en": "DVMSQ v1.5, Copyright © 2022 Zachary J. Williams, has a screening question followed by 18 prompts. We retain the English source prompts and numerical labels; Chinese is a new, unvalidated FermatMind working translation. This is not the earlier 20-item pool, the 86-item DMQ, an Amsterdam scale or a competitor’s original questionnaire.",
+          "zh": "DVMSQ v1.5版权©2022 Zachary J. Williams，包含前置题和随后18条。本页保留英文源题及数字选项；中文是费马新工作译文，尚未验证。这不是早期20题题池、86题DMQ、阿姆斯特丹量表或竞品原创问卷。"
+        },
+        {
+          "en": "Changes: added unsure/decline at the gate and unscored options on items; sound-list and physical-description requests are privately considered without collection; the optional trigger checklist and exposure-frequency item are omitted. The adapted questionnaire content and working translation are shared under CC BY-SA 4.0, as-is, without author endorsement. The source links and changes notice appear on every public page.",
+          "zh": "改动：前置新增不确定／不愿回答，条目新增不计分；声音清单和身体描述改为私下考虑，不收集；省略可选触发清单及暴露频率题。问卷改编内容与工作译文按CC BY-SA 4.0、以现状提供，不代表作者背书。每个公开页面均有来源、许可和改动说明。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Exact raw-score rules",
+        "zh": "原始计分的准确规则"
+      },
+      "paragraphs": [
+        {
+          "en": "After yes, add numerical responses to items 1, 2 and 4–11 for the symptom sum (0–40), items 12–18 for impact (0–28), and both for the total (0–68). Item 3, fear or panic, is shown as an individual response but excluded from every sum. No reverse scoring is used. All 18 presented items need explicit choices.",
+          "zh": "前置选是后，第1、2及4—11题数字相加为反应合计0—40，第12—18题为影响合计0—28，两者合为总分0—68。第3题恐惧或惊恐仅显示单条回答，不进任何合计，无反向计分。展示的18条均需明确选择。"
+        },
+        {
+          "en": "A group needs all its scored items numerical; any unscored counted item withholds that group and total without filling gaps. A complete other group remains readable. Fear alone unscored does not withhold the 17-item total. A no at the initial question ends with the source total 0; other items and subscores are not administered. Added gate uncertainty/decline ends without a number. No diagnostic algorithm, duration assumption, cutoff, severity band, probability or norm is applied.",
+          "zh": "每组需其全部计入条目为数字；任一计入题不计分，暂不显示本组与总分，不补缺，另一完整组仍可读。仅恐惧不计分不挡十七条总分。前置选否按来源总分0结束，其他题和分项均未施测；新增前置不确定／不愿回答则无数字。不运行诊断算法、不假定持续时间，也无切点、严重程度分段、概率或常模。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Comfort, scope and interpretation",
+        "zh": "舒适度、范围与解释"
+      },
+      "paragraphs": [
+        {
+          "en": "No audio, images, exposure exercises, hearing test, recordings or physical tasks are supplied or required. Keep any examples private, and skip or leave whenever preferred. This form does not assess children or determine a cause of pain, hearing difficulty, aggression, distress or relationship conflict. A questionnaire response is not a character judgment or permission to act against someone.",
+          "zh": "不提供也不要求音频、图像、暴露练习、听力测试、录音或实际任务。例子留在自己心里，可随时跳过或离开。不评估儿童，不判断疼痛、听觉困难、攻击冲动、困扰或关系冲突的原因。回答不是品格判断或对他人行动的许可。"
+        },
+        {
+          "en": "The original study examined measurement properties in adults and described limitations, including the absence of an interview-based diagnostic standard in that study. Its findings do not validate this adaptation or establish English–Chinese equivalence, diagnostic accuracy or sensitivity to change. If sound-related experiences concern you or affect daily life, appropriate advice can address the actual circumstances without depending on a score threshold.",
+          "zh": "原研究在成年人中考察测量性质，并指出包括该研究未用访谈诊断标准在内的限制。研究不验证本改编，也不确立中英文等值、诊断准确性或变化敏感性。若声音体验令人担忧或影响日常，可以按实际情境寻求适当意见，不依赖分数阈值。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Full guides and private use",
+        "zh": "完整指南与私人使用"
+      },
+      "paragraphs": [
+        {
+          "en": "Three complete public guides cover the total, symptom responses and impact responses, with concrete examples, missing-answer rules, source differences and interpretation limits. All are free before answering and expandable afterward. They are public explanations for everyone, not hidden personalized reports or three independent tests.",
+          "zh": "三篇完整公开指南覆盖总分、反应及影响，包含具体例子、缺答规则、来源差异和解释边界。作答前免费开放，之后可展开。它们是对所有人相同的公开说明，不是隐藏个人报告或三个独立测试。"
+        },
+        {
+          "en": "Responses stay in page memory and clear on refresh, language change, leaving, browser return or retaking. No drafts, private text, identity or account are collected. Sharing copies all three public links, without responses or sums. A separate 92-item SPQ entry is optional and covers broader sensory self-reports; it does not verify or explain this result.",
+          "zh": "答案仅留页面内存，刷新、换语言、离开、浏览器返回或重测清除。不建草稿，不收私人文字、身份或账户。分享仅复制全部三个公开链接，不带回答或合计。另做92题SPQ是了解更广感觉自述的可选入口，不验证或解释本结果。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this misophonia test diagnose me?",
+        "zh": "这项厌声症测试能诊断吗？"
+      },
+      "answer": {
+        "en": "No. It presents selected-source raw sums and response records, without applying the source’s provisional diagnostic algorithm, assuming duration or assigning a condition, severity band or probability. Misophonia test describes the search topic, not a diagnosis.",
+        "zh": "不能。本页展示所选源表的原始合计及回答记录，不运行来源临时诊断算法、不假定持续时间，也不分配状况、严重程度或概率。“厌声症测试”是搜索主题名称，不是诊断声明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the 86-item Duke Misophonia Questionnaire?",
+        "zh": "这是86题Duke Misophonia Questionnaire吗？"
+      },
+      "answer": {
+        "en": "No. This is an adaptation of DVMSQ v1.5, with one gate and up to 18 source prompts, of which 17 are scored. It is also different from the earlier 20-item pool and competitor self-reflections.",
+        "zh": "不是。这是DVMSQ v1.5改编，一个前置题加最多18条源题，其中17条计分；也不同于早期20题题池及竞品自编反思。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I answer no or unsure at the first question?",
+        "zh": "前置选否或不确定会怎样？"
+      },
+      "answer": {
+        "en": "No ends the source form with total 0; the other items and subscores are not administered, and this is not an all-clear diagnosis. Added unsure or decline choices end without a number. Editing the gate clears downstream answers.",
+        "zh": "否按源规则以总分0结束，其他题及分项未施测，不表示诊断排除。新增不确定、不愿回答结束但无数字。修改前置会清除后续答案。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why does the fear item not change the total?",
+        "zh": "恐惧题为何不改变总分？"
+      },
+      "answer": {
+        "en": "DVMSQ v1.5 retains fear or panic as item 3 but excludes it from the total and subscores. Its chosen response remains visible. This scoring decision does not mean fear is unimportant or identify a different diagnosis.",
+        "zh": "DVMSQ v1.5保留第3题恐惧或惊恐，却不把它计入总分及分项；本页保留所选回答。这不表示恐惧不重要，也不识别另一诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are skipped items and time windows handled?",
+        "zh": "跳过与时间范围如何处理？"
+      },
+      "answer": {
+        "en": "Unscored is never zero. Any missing numerical counted item withholds its group and total; fear alone skipped does not affect the 17-item total. Frequency items have no stated recent window, items 12–15 use seven days, and 16–18 keep the source’s general wording.",
+        "zh": "不计分不作零。计入题中缺任何数字会暂不显示本组及总分；仅恐惧跳过不影响十七条总分。频率题未设近期时段，第12—15题为七天，第16—18题保持来源一般措辞。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are responses saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Responses stay in page memory and clear when you refresh, change language, leave or retake. No personal sound lists or bodily descriptions are collected. Sharing contains only all three public guides. Optional anonymous action counts require page permission and global analytics consent.",
+        "zh": "答案留在页面内存，刷新、换语言、离开或重测清除。不收个人声音清单或身体描述。分享只含全部三篇公开指南。可选匿名动作计数需本页许可与全站分析同意。"
+      }
+    }
+  ],
+  "dvmsq18": {
+    "subtitle": {
+      "en": "Published source prompts, raw sums only",
+      "zh": "已发表源题，仅显示原始合计"
+    },
+    "privacy": {
+      "en": "Responses stay only in page memory and clear on refresh, language change, leaving or retaking. No draft, account, sound list, bodily description or score-bearing share link is created.",
+      "zh": "答案仅留页面内存，刷新、换语言、离开或重测清除。不建草稿或账户，不收声音清单或身体描述，也不生成带分数的分享链接。"
+    },
+    "editionNotice": {
+      "en": "DVMSQ v1.5 web adaptation · 1 screening question + up to 18 source prompts · New unvalidated Chinese working translation · Ages 18+ · No diagnostic classification.",
+      "zh": "DVMSQ v1.5网页改编 · 1个前置问题＋最多18条源题 · 中文为未经验证的新工作译文 · 18岁及以上 · 无诊断分类。"
+    },
+    "attribution": {
+      "en": "DVMSQ v1.5: Copyright © 2022 Zachary J. Williams. Source form and this questionnaire adaptation, including the FermatMind Editorial Chinese working translation (2026), are provided as-is under CC BY-SA 4.0. Changes: added unscored choices; sound-list and physical-description requests handled privately without collection; optional trigger list and exposure-frequency question omitted; raw sums only, without the provisional diagnostic algorithm. No endorsement by the author or institutions is implied.",
+      "zh": "DVMSQ v1.5：版权©2022 Zachary J. Williams。源表及本问卷改编（含费马测试编辑部2026中文工作译文）按CC BY-SA 4.0以现状提供。改动：新增不计分选项；声音清单和身体描述改为私下考虑、不收集；省略可选触发清单与暴露频率题；只显示原始合计，不运行临时诊断算法。不暗示作者或机构背书。"
+    },
+    "gateExamples": {
+      "en": "Examples include: chewing, slurping, crunching, throat clearing, finger tapping, foot shuffling, keyboard tapping, rustling, nasal sounds, pen clicking, appliance humming, clock ticking, and animal sounds.",
+      "zh": "例如：咀嚼、啜饮、嚼脆食、清嗓、手指敲击、脚步拖动、键盘敲击、窸窣声、鼻部声音、按笔声、电器嗡声、时钟滴答和动物声音。"
+    },
+    "gateClarification": {
+      "en": "These sounds should cause significant emotional distress (e.g., extreme irritation, anger, disgust, rage, anxiety, or panic). Do NOT count sounds that bother you only because you find them too loud or physically painful.",
+      "zh": "这些声音应造成显著情绪困扰（例如极度烦躁、愤怒、厌恶、暴怒、焦虑或惊恐）。不要把仅仅因为太响或造成身体疼痛而让你困扰的声音算在内。"
+    },
+    "frequencyContext": {
+      "en": "When you are exposed to the bothersome sounds listed above, how often do you experience...",
+      "zh": "当你接触上面这些困扰声音时，你多常经历……"
+    },
+    "interferenceContext": {
+      "en": "In the past 7 days, how much did your sound sensitivities interfere with...",
+      "zh": "过去7天，你的声音敏感在多大程度上干扰了……"
+    },
+    "globalContext": {
+      "en": "For the following source questions, consider the general impact as worded; no specific time window is stated.",
+      "zh": "以下源题按一般影响措辞回答，未指定具体时段。"
+    },
+    "privateContext": {
+      "en": "Privately consider the particular bothersome sounds you had in mind. The source asks for a sound list and a physical description; this adaptation does not collect them. Do not play or recreate a sound.",
+      "zh": "在心里考虑刚才所指的特定困扰声音。来源要求声音清单与身体描述，本改编不收集这些文字。不要播放或重现声音。"
+    }
+  },
+  "references": [
+    {
+      "title": {
+        "en": "DVMSQ v1.5 source form, scoring and permission — Zachary J. Williams, 2022",
+        "zh": "DVMSQ v1.5源表、计分与许可—Zachary J. Williams，2022"
+      },
+      "url": "https://public-pages-files-2025.frontiersin.org/articles/897901/file/data_sheet_2.pdf/897901_supplementary-materials_datasheets_2_pdf/1"
+    },
+    {
+      "title": {
+        "en": "Williams, Cascio and Woynaroski (2022): DVMSQ psychometric study",
+        "zh": "Williams、Cascio与Woynaroski（2022）：DVMSQ测量研究"
+      },
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.897901/full"
+    },
+    {
+      "title": {
+        "en": "CC BY-SA 4.0: source and adapted questionnaire content, with changes identified",
+        "zh": "CC BY-SA 4.0：源题与改编问卷内容，已标明改动"
+      },
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+}

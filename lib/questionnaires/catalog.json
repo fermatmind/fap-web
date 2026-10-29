@@ -5808,5 +5808,29 @@
       "taste-touch"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "misophonia-screener",
+    "code": "DVMSQ18_WILLIAMS2022_CC_BY_SA",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "Sound Sensitivity Check-In",
+      "zh": "声音敏感自评"
+    },
+    "description": {
+      "en": "Explore sound-linked reactions and everyday impact with the DVMSQ v1.5: one screening question and up to 18 source prompts. Raw sums and three full guides are free, without a diagnosis or signup.",
+      "zh": "按DVMSQ v1.5回顾声音相关反应与日常影响：一个前置问题，最多再答18条源题。原始合计和三篇完整读法免费，不作诊断，无需注册。"
+    },
+    "minutes": 5,
+    "formCode": "dvmsq_v15_18plusgate_fmzh_web_v1",
+    "questionCount": 19,
+    "resultSlugs": [
+      "overall",
+      "symptom",
+      "impairment"
+    ],
+    "collection": "explore"
   }
 ]

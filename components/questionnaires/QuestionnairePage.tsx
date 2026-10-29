@@ -1,3 +1,5 @@
+import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
+import { Dvmsq18Page } from "./Dvmsq18Page";
 import { isSynes15ConfigurationValid } from "@/lib/questionnaires/synes15";
 import { Synes15Page } from "./Synes15Page";
 import { isImagery12ConfigurationValid } from "@/lib/questionnaires/imagery12";
@@ -89,6 +91,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imagery12" && !isImagery12ConfigurationValid(quiz)) return { title: "Imagery reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imposter20" && !isImposter20ConfigurationValid(quiz)) return { title: "Reflection unavailable", robots: { index: false, follow: false } };
@@ -107,6 +110,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "dvmsq18") {
+    if (!isDvmsq18ConfigurationValid(quiz)) notFound();
+    return <Dvmsq18Page quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "synes15") {
     if (!isSynes15ConfigurationValid(quiz)) notFound();
     return <Synes15Page quiz={quiz} locale={locale} />;
