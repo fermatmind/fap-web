@@ -1,0 +1,2115 @@
+{
+  "slug": "sleep-experiences-reflection",
+  "title": {
+    "en": "Sleep Experiences: Personal Reflection",
+    "zh": "睡眠经历：个人回顾"
+  },
+  "questions": [
+    {
+      "id": "SLP_01",
+      "prompt": {
+        "en": "When I had an opportunity to sleep, I remained awake longer than I had wanted.",
+        "zh": "有机会睡觉时，我清醒的时间比自己希望的更长。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_02",
+      "prompt": {
+        "en": "After I had settled down for my main sleep, I noticed thoughts continuing while I wanted to drift off.",
+        "zh": "准备好进入主要睡眠时，我想睡去，却注意到思绪仍在继续。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_03",
+      "prompt": {
+        "en": "I felt physically unsettled while trying to begin my main sleep.",
+        "zh": "尝试开始主要睡眠时，我感到身体难以安定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_04",
+      "prompt": {
+        "en": "I started to feel sleepy, then became more alert again before falling asleep.",
+        "zh": "入睡前，我开始有了睡意，随后又变得更清醒。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "settling-to-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_05",
+      "prompt": {
+        "en": "I became aware of being awake partway through my main sleep.",
+        "zh": "在主要睡眠过程中，我意识到自己醒着。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_06",
+      "prompt": {
+        "en": "After waking during my main sleep, I wanted to sleep again but stayed awake.",
+        "zh": "在主要睡眠中醒来后，我还想继续睡，却保持清醒。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_07",
+      "prompt": {
+        "en": "I returned to sleep and then noticed another waking before I intended to get up.",
+        "zh": "重新睡着后，还没到打算起身的时候，我又注意到一次醒来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_08",
+      "prompt": {
+        "en": "My main sleep felt broken into separate stretches when I thought back on it.",
+        "zh": "回想自己的主要睡眠时，我觉得它被分成了几段。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-during-rest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_09",
+      "prompt": {
+        "en": "I woke before the time I had intended to finish my main sleep.",
+        "zh": "我在原本打算结束主要睡眠的时间之前醒来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_10",
+      "prompt": {
+        "en": "After waking earlier than intended, I still wanted more sleep but could not return to it.",
+        "zh": "比打算更早醒来后，我还想再睡，却没能重新睡去。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_11",
+      "prompt": {
+        "en": "I got up earlier than I wanted because I had remained awake near the end of my main sleep.",
+        "zh": "主要睡眠接近末尾时，我一直醒着，因此比自己希望的更早起身。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_12",
+      "prompt": {
+        "en": "An earlier-than-planned waking left me feeling that my rest had ended too soon.",
+        "zh": "一次比计划更早的醒来让我觉得休息结束得太早。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "waking-before-planned"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_13",
+      "prompt": {
+        "en": "During my waking day, I struggled to keep my eyes open when I wanted to stay alert.",
+        "zh": "在自己清醒活动的时段，我想保持警醒，却费力才能睁着眼睛。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_14",
+      "prompt": {
+        "en": "I found it harder to keep attention on an ordinary task after rest that I experienced as disrupted.",
+        "zh": "经历了自认为断续的休息后，我更难把注意力放在普通任务上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_15",
+      "prompt": {
+        "en": "An ordinary activity took more effort while I was feeling tired after my main sleep.",
+        "zh": "主要睡眠过后感到疲倦时，一项普通活动需要我付出更多力气。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_16",
+      "prompt": {
+        "en": "I noticed irritability during a day when I also felt poorly rested.",
+        "zh": "在同时觉得没有休息好的日子里，我注意到自己容易烦躁。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "daytime-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_17",
+      "prompt": {
+        "en": "Thinking about my next opportunity to sleep brought up worry.",
+        "zh": "想到下一次可以睡觉的机会时，我产生了担忧。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_18",
+      "prompt": {
+        "en": "I checked the time because I was concerned about being awake when I wanted to sleep.",
+        "zh": "想睡却醒着时，我因在意这件事而查看时间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_19",
+      "prompt": {
+        "en": "While awake during a planned rest, I worried about managing my next waking day.",
+        "zh": "计划休息时仍醒着，我担心接下来清醒活动的时段该如何应付。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SLP_20",
+      "prompt": {
+        "en": "I felt frustrated with myself when sleep did not happen as I had hoped.",
+        "zh": "睡眠没有像自己希望的那样发生时，我对自己感到沮丧。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "thoughts-about-sleep"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "code": "FM_SLEEP20_OBSERVATIONS",
+  "version": "fm_sleep20_observations_v1",
+  "kind": "sleep-experiences20",
+  "directions": [
+    {
+      "id": "settling-to-sleep",
+      "title": {
+        "en": "Settling to sleep",
+        "zh": "准备入睡时"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "waking-during-rest",
+      "title": {
+        "en": "Waking during rest",
+        "zh": "睡眠中醒来"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "waking-before-planned",
+      "title": {
+        "en": "Waking before planned",
+        "zh": "比计划更早醒来"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "daytime-experiences",
+      "title": {
+        "en": "Daytime experiences",
+        "zh": "白天的经历"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "thoughts-about-sleep",
+      "title": {
+        "en": "Thoughts about sleep",
+        "zh": "围绕睡眠的想法"
+      },
+      "itemCount": 4
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Sleep Reflection: 20 Original Observations and Five Full Guides | FermatMind",
+    "zh": "睡眠经历回顾：20条原创观察与五篇完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Reflect on 20 original observations about settling to sleep, interruptions, earlier waking, daytime experiences and sleep concerns. Private category records with five full public guides, without a severity score or diagnosis.",
+    "zh": "用20条原创观察回顾入睡、睡眠中断、比计划早醒、白天经历及睡眠相关想法。类别记录留在本页，五篇全文公开，不生成严重程度分数或诊断。"
+  },
+  "introduction": {
+    "en": "This adult reflection keeps five overlapping reading topics separate. It is not the Insomnia Severity Index, a sleep diary or a clinical assessment. It does not determine causes, sufficient sleep, fitness for an activity or a treatment plan. Read all five complete guides without answering.",
+    "zh": "这份成年人回顾分别呈现五个可能重叠的阅读主题，不是失眠严重程度指数、睡眠日记或临床评估，不确定原因、睡眠是否足够、活动是否安全或治疗方案。不答题也能读五篇全文。"
+  },
+  "instructions": {
+    "en": "Consider the past two weeks, including your main sleep whenever it takes place. Choose how often you noticed each description. No relevant experience, unclear recall or withholding an answer can remain unscored. Categories are labels, not points, counts of nights or measurements of time. You do not need to check a clock, upload a device record or reconstruct durations. You may pause or leave at any time.",
+    "zh": "回顾过去两周，包括自己在任何时段进行的主要睡眠。选择多常注意到每条描述；没有相关经历、回想不清或保留回答可选未计分。类别是标签，不是点数、夜晚次数或时间测量。不必看钟、上传设备记录或重建时长，可以随时暂停或离开。"
+  },
+  "resultHeading": {
+    "en": "Your five separate sleep-observation records",
+    "zh": "五个分别阅读的睡眠观察记录"
+  },
+  "profiles": [
+    {
+      "id": "settling-to-sleep-reading",
+      "directionIds": [
+        "settling-to-sleep"
+      ],
+      "title": {
+        "en": "Settling to sleep — Complete Reading",
+        "zh": "准备入睡时：完整读法"
+      },
+      "headline": {
+        "en": "Settling to sleep — Complete Reading",
+        "zh": "准备入睡时：完整读法"
+      },
+      "summary": {
+        "en": "Describe settling to sleep without estimating minutes, blaming effort or assigning an onset score.",
+        "zh": "描述准备入睡时的经历，不估分钟、不归咎努力，也不算入睡分数。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to four original observations, with each selected label retained. IDs are not points. There is no total, mean, severity, highest theme or diagnosis; the counts do not measure awakenings, nights or hours.",
+        "zh": "六类计数合计四条原创观察，并保留逐条标签。标识不是点数，不生成总分、均值、严重程度、最高主题或诊断；计数不测醒来次数、夜晚或小时。"
+      },
+      "seo": {
+        "title": {
+          "en": "Settling to sleep: Full Sleep Reflection Guide | FermatMind",
+          "zh": "准备入睡时：睡眠回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe settling to sleep without estimating minutes, blaming effort or assigning an onset score.",
+          "zh": "描述准备入睡时的经历，不估分钟、不归咎努力，也不算入睡分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An opportunity to sleep is part of the context",
+            "zh": "有机会睡觉，也是背景的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains four original observations about remaining awake when you wanted sleep, continuing thoughts after settling down, feeling physically unsettled and becoming alert again after initial sleepiness. It asks adults to consider the past two weeks. Main sleep means your principal period of rest whenever it takes place, including daytime rest around a work schedule. The page does not assume that everyone sleeps at night, has a quiet room or can choose when other responsibilities end.",
+              "zh": "本主题有四条原创观察：想睡时仍醒着、安定下来后思绪仍在继续、身体难以安定，以及初有睡意后又变清醒。成年人可回顾过去两周。主要睡眠指自己主要的休息时段，包括工作安排中的白天睡眠。本页不假定人人都在夜间睡、有安静房间，或能自由决定责任何时结束。"
+            },
+            {
+              "en": "Having too little opportunity to rest and remaining awake despite an opportunity are different descriptions, although both can be present. These statements do not establish which applies to you. If a description does not fit your circumstances, you can leave it unscored rather than translating an unavailable opportunity into a personal difficulty. You do not need to estimate minutes, reveal your timetable or explain your household in order to read the guide or ask someone about support.",
+              "zh": "休息机会不足，与有机会时仍醒着，是不同描述，也可能同时存在。四条不能确定你属于哪种。描述不适用时，可以保持未计分，无需把缺少机会换算成个人困难。阅读指南或询问支持，都不用估计分钟、交出作息表或解释家庭情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four selections remain four descriptions",
+            "zh": "四项选择，保留为四项描述"
+          },
+          "paragraphs": [
+            {
+              "en": "The six category counts add to four observations. They show how many statements you placed under did not notice, rarely, sometimes, often, very often or unscored. Option identifiers are labels rather than points. For example, two sometimes, one often and one unscored stays that exact pattern. It is not converted into a sleep-onset score, a mild or severe band, an average waiting time or a conclusion about the amount of sleep you obtained.",
+              "zh": "六类计数合计四条，分别显示选择没有注意到、很少、有时、较常、经常或未计分的条目数。选项标识不是点数。例如两条有时、一条较常、一条未计分，就保留该组合，不换算成入睡分数、轻重档位、平均等待时间或实际睡了多久的结论。"
+            },
+            {
+              "en": "An unscored selection can mean that the situation did not occur, recall is unclear or you prefer not to answer. It is not the same as did not notice. If all four are unscored, there is no personal finding about settling to sleep. A did-not-notice choice is also limited to one description and one period of recall. No category establishes healthy sleep, excludes an illness or makes your wish for help less legitimate than another person's.",
+              "zh": "未计分可能表示没有相关情境、回想不清或不愿回答，与没有注意到分别显示。四条全部未计分，不提供能否入睡的个人发现。没有注意到，也只限于这条描述和回顾时段。任何类别都不证明睡眠健康、不排除疾病，也不让求助意愿比别人的更不正当。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Two fictional evenings can look similar from outside",
+            "zh": "两个虚构的休息场景，外表可能相似"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a person who has finally finished caring tasks but hears repeated noise while trying to rest. Imagine another who has a quiet opportunity and notices thoughts about unfinished work. Both may describe remaining awake, yet the questionnaire cannot identify a shared cause. Neither example makes wakefulness a failure of effort. They are illustrations of why a short description needs context, not an invitation to track every sound or thought or to analyse yourself while trying to sleep.",
+              "zh": "设想一个人终于完成照护事务，却在休息时不断听到噪声；另一个人有安静的机会，却注意到未完成工作的想法。两者都可能描述仍醒着，问卷却无法找到共同原因。例子不把清醒视作努力失败；它们只说明短描述需要背景，不要求睡觉时追踪每个声音、思绪或分析自己。"
+            },
+            {
+              "en": "A third person may feel physically uncomfortable, while someone else cannot recall how falling asleep happened at all. The page does not label the first person's discomfort as anxiety or infer that the second slept well. It cannot observe breathing, movement, pain, medication effects or the sleeping environment. Your selected category is an account of what you noticed, with all of those questions still open. A professional conversation can consider relevant circumstances that this reflection deliberately does not collect.",
+              "zh": "第三个人可能身体不舒服，另一个人可能完全想不起怎样入睡。本页不把前者的不适标为焦虑，也不推断后者睡得好，不能观察呼吸、动作、疼痛、药物作用或环境。所选类别只是注意到的经历，这些问题依然开放。专业谈话可以考虑相关背景，而本练习特意不收集它们。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Recall does not provide a stopwatch",
+            "zh": "回忆不是秒表"
+          },
+          "paragraphs": [
+            {
+              "en": "The exercise asks for broad recollections, not measured sleep latency. There is no clock-reading requirement, diary entry or device upload. Feeling that a period was long does not provide its duration, and not remembering the transition does not establish an exact time. Choosing often describes how this statement fits your recollection across the stated period; it does not mean that a clinician's frequency or duration requirement has been met. You do not need to supply a more precise answer than you have.",
+              "zh": "练习只问宽泛回忆，不测入睡潜伏时间，不要求看钟、填日记或上传设备记录。觉得很久不提供实际时长，想不起转换也不建立准确时间。选择较常，只描述该陈述与回顾时段的相符频率，不表示已满足临床次数或持续时间要求。无需给出比自己掌握的更精确的答案。"
+            },
+            {
+              "en": "If repeatedly thinking about sleep or completing the page feels burdensome, you may stop. Finishing all observations is necessary only for this page to organise a private record, not for access to information or care. You can read any of the five complete guides without answering. The page offers no challenge to fall asleep faster, no target to beat on a later visit and no comparison between your recollection and another person's bedtime or sleeping routine.",
+              "zh": "反复考虑睡眠或完成页面令人负担时，可以停止。完成观察只关系到本页能否整理私人记录，不关系到阅读或获得支持。五篇全文均无需答题。页面不设置更快入睡挑战、下次必须突破的目标，也不比较你与别人的就寝时间或惯例。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep a record separate from a treatment plan",
+            "zh": "记录与治疗计划分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These four descriptions cannot select a treatment or show that a particular routine will solve the problem. They do not administer the Insomnia Severity Index, diagnose insomnia or assess whether another sleep or medical condition is present. The five topics organise everyday accounts and may overlap; they are not validated independent dimensions. An onset observation should not be treated as evidence that worry caused wakefulness or that a physical, environmental or scheduling factor has been ruled out.",
+              "zh": "四条不能选择治疗，也不能证明某种惯例能解决问题；不施测失眠严重程度指数、不诊断失眠，也不评估是否存在其他睡眠或身体状况。五个主题整理日常描述，可能重叠，尚不是已验证的独立维度。入睡观察不证明担忧导致清醒，也不排除身体、环境或作息因素。"
+            },
+            {
+              "en": "No answer instructs you to restrict time in bed, stay awake, change a medicine or try a sleeping aid. Decisions about existing treatment belong in an appropriate healthcare conversation. If you choose to ask about sleep, one description such as “I want to sleep but remain awake after settling down” may be enough to begin. You can ask how assessment works before deciding what personal detail to share, and you do not need a numerical result to justify the conversation.",
+              "zh": "任何回答都不要求限制卧床时间、保持清醒、改变药物或试用助眠品。既有治疗的决定应放在适当的医疗谈话中。愿意询问时，“安定下来后想睡却仍醒着”这样一条描述就可以作为开始。可以先问评估流程再决定分享细节，无需用数字结果证明谈话的正当性。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not wait for a category or a calendar",
+            "zh": "支持不等待类别或日历"
+          },
+          "paragraphs": [
+            {
+              "en": "You can contact a qualified healthcare professional when sleep is troubling, affects ordinary activities or is something you want to discuss. This exercise sets no minimum number of nights, elapsed months or selected categories before that conversation. Public health sources describe broader assessment involving sleep patterns, health and other circumstances; they do not validate this original bank. The reflection cannot decide whether a new or changing experience is harmless, what is causing it or how quickly it needs professional attention.",
+              "zh": "睡眠让你困扰、影响普通活动，或只是希望谈谈时，可以联系合格医疗专业人士。本练习不规定须先达到几晚、几个月或几项选择。公共健康资料讨论睡眠模式、健康和其他背景的更广评估，并不验证原创题本。练习不能判断新的或变化中的经历无害、由什么造成，或应多快获得专业关注。"
+            },
+            {
+              "en": "If you feel sleepy, do not drive or carry out an activity in which reduced alertness could endanger you or others; pause and seek an appropriate safe alternative. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing the questionnaire. The page cannot monitor you or provide an emergency response. These messages are available before answers, for every category pattern and on every public guide, rather than appearing only after a high count.",
+              "zh": "感到困倦时，不要驾车或进行警醒不足可能危及自己或他人的活动；先暂停，寻找合适的安全替代。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续问卷。本页不能监测你或作紧急响应。这些说明在答题前、任何类别组合及每篇公开指南都能读，不是高计数后才出现。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use only the description that helps you",
+            "zh": "只使用对你有帮助的描述"
+          },
+          "paragraphs": [
+            {
+              "en": "The original observations have no established diagnostic threshold, population norm or demonstrated English–Chinese measurement equivalence. Repeating the exercise does not measure treatment response or recovery: circumstances, recall and interpretation may change. A comparison of category counts cannot separate those possibilities. You may take one useful phrase into a conversation, ignore a description that does not fit or read without keeping a record. The page does not determine how a successful night should feel or assign responsibility for a difficult one.",
+              "zh": "原创观察尚无诊断阈值、群体常模或经验证的中英文测量等值。重做不测治疗反应或恢复，因为背景、回忆和理解可能变化；比较计数不能区分这些可能。可以只带一句有用描述去谈话、忽略不适用的描述，或阅读而不保留记录。页面不决定成功的睡眠该是什么感受，也不为困难的一次睡眠分配责任。"
+            },
+            {
+              "en": "Answers stay in current-page memory, with no draft storage, submission or personal result address. Exit, retake, reload and leaving clear the private record. Copying the public entry shares only the title and address. All five full guides are the same public reading for everyone. You can leave at any point, return for information without answering and ask about sleep without presenting a score, a device record or proof that you have tried hard enough to rest.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交，也没有个人结果地址。退出、重做、刷新或离页会清除私人记录。复制公开入口只含标题和地址。所有人都能读同样的五篇全文，可以随时离开、回来只读资料，并在不出示分数、设备记录或足够努力休息的证明时询问睡眠问题。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waking-during-rest-reading",
+      "directionIds": [
+        "waking-during-rest"
+      ],
+      "title": {
+        "en": "Waking during rest — Complete Reading",
+        "zh": "睡眠中醒来：完整读法"
+      },
+      "headline": {
+        "en": "Waking during rest — Complete Reading",
+        "zh": "睡眠中醒来：完整读法"
+      },
+      "summary": {
+        "en": "Read interruptions as recollections rather than measured awakenings, sleep stages or an identified cause.",
+        "zh": "把中断读作回忆，不当作测得的醒来次数、睡眠阶段或已确定原因。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to four original observations, with each selected label retained. IDs are not points. There is no total, mean, severity, highest theme or diagnosis; the counts do not measure awakenings, nights or hours.",
+        "zh": "六类计数合计四条原创观察，并保留逐条标签。标识不是点数，不生成总分、均值、严重程度、最高主题或诊断；计数不测醒来次数、夜晚或小时。"
+      },
+      "seo": {
+        "title": {
+          "en": "Waking during rest: Full Sleep Reflection Guide | FermatMind",
+          "zh": "睡眠中醒来：睡眠回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read interruptions as recollections rather than measured awakenings, sleep stages or an identified cause.",
+          "zh": "把中断读作回忆，不当作测得的醒来次数、睡眠阶段或已确定原因。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Notice an interruption without deciding its cause",
+            "zh": "注意到中断，不先决定原因"
+          },
+          "paragraphs": [
+            {
+              "en": "The four observations in this theme concern becoming aware of wakefulness during main sleep, remaining awake when you wanted to return to sleep, noticing another waking after sleeping again and remembering rest as separate stretches. Adults can consider the past two weeks. Main sleep refers to your principal rest period wherever it sits in your schedule. A daytime rest after a shift can be your main sleep; the wording does not require a conventional night or an uninterrupted household.",
+              "zh": "本主题四条关注主要睡眠中意识到醒着、想继续睡却醒着、重睡后再次醒来，以及回想时觉得睡眠分成几段。成年人可回顾过去两周。主要睡眠是作息中自己的主要休息时段；轮班后的白天休息也包括在内。表述不要求通常的夜间睡眠或没有中断的家庭环境。"
+            },
+            {
+              "en": "The statements describe awareness and recollection, not recorded sleep stages. Noticing that you were awake does not reveal why it happened, how long it lasted or whether a particular sleep disorder is present. The page cannot distinguish an external interruption from a bodily sensation or another explanation. It also cannot infer restful sleep when a person recalls no waking. A short account may help identify a topic you want to discuss while leaving the cause and significance open.",
+              "zh": "陈述描述觉察和回忆，不记录睡眠阶段。注意到醒着，不说明原因、时长或某种睡眠障碍是否存在。页面无法区分外部中断、身体感觉或其他解释，也不能从想不起醒来推断休息良好。简短记录可以帮你选一个想谈的话题，同时保留原因和意义的开放性。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "The counts concern statements, not awakenings",
+            "zh": "计数算陈述，不算醒来次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each of the four statements receives a category: did not notice, rarely, sometimes, often, very often or unscored. The six counts add to four statements, not to the number of times you woke. If two statements are often and two are unscored, that pattern says nothing about two awakenings, two nights or two hours. The option identifiers are never added as points, and the page does not calculate a maintenance score, average, severity level or sleep efficiency.",
+              "zh": "每条进入没有注意到、很少、有时、较常、经常或未计分之一。六类计数合计四条陈述，不是醒来次数。两条较常、两条未计分，不等于醒了两次、两晚或两小时。选项标识不作点数相加，页面不算睡眠维持分数、均值、严重程度或睡眠效率。"
+            },
+            {
+              "en": "Unscored remains separate from did not notice. It can express no relevant experience, uncertain recall or a preference to withhold an answer. An entirely unscored theme yields no personal finding about interruptions. A did-not-notice answer is also confined to its particular description. No response pattern proves that sleep is healthy or that support is unnecessary. Individual selections remain visible so that a small count cannot hide what a statement actually asked or replace a description with a general label.",
+              "zh": "未计分与没有注意到分开，可表示没有相关经历、回想不清或保留回答。全未计分不提供睡眠是否中断的个人发现。没有注意到也只限于具体描述。任何组合都不证明睡眠健康或无需支持。逐条选择保持可见，避免小计数遮住实际问题，或用概括标签代替描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Similar records can come from different circumstances",
+            "zh": "相似记录可能来自不同背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional person whose rest is interrupted by a household responsibility, and another who wakes without noticing an external event. Both may select a category for wanting to return to sleep while remaining awake. Those matching selections do not establish a matching problem or an identical solution. The examples do not judge whether an interruption was avoidable or ask a caregiver to ignore a responsibility. They illustrate how much information a category leaves outside the record.",
+              "zh": "设想一个人的休息被家庭责任中断，另一个人醒来时没有注意到外部事件。两者都可能在想重睡却仍清醒的描述中选同一类，但相同选择不建立相同问题或解法。例子不判断中断是否可避免，也不要求照护者忽略责任，只说明类别之外仍有大量信息。"
+            },
+            {
+              "en": "A person may remember one long unsettled stretch, while another remembers several brief ones. This page requests neither exact durations nor a reconstruction of every waking. It does not use a device to check your account. You can leave an observation unscored when recall does not support a description, rather than guessing a precise history. If you decide to discuss sleep with a professional, they can explain which details are useful and what assessment involves in your circumstances.",
+              "zh": "有人记得一段漫长的不安定，另一个人记得几次短暂的清醒。本页不要求准确时长或重建每次醒来，也不用设备检查叙述。回忆不足以支持描述时，可以选未计分，而不是猜出精确历史。若决定与专业人士谈睡眠，可以先听他们说明哪些细节有用，以及自己的背景下评估怎样进行。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A main rest period has practical boundaries",
+            "zh": "主要休息时段有现实边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Sleep can sit within work, caregiving, shared living arrangements and changing schedules. A reflection should not convert those constraints into a verdict about discipline or character. These four observations do not measure how much control you have over the environment or whether you had enough time available to rest. They also do not establish that reducing an interruption is possible, safe or solely your responsibility. You can leave a statement unscored when its assumptions do not fit.",
+              "zh": "睡眠处在工作、照护、共同居住和变化作息之中，回顾不应把这些约束变成自律或品格判断。四条不测你能控制多少环境、是否有足够休息机会，也不证明减少中断可行、安全或完全属于你的责任。陈述的前提不合适时，可以保持未计分。"
+            },
+            {
+              "en": "The other topics describe settling to sleep, waking earlier than intended, daytime experiences and thoughts about sleep. They may overlap in one person's account and are not validated independent dimensions. An interruption near the end of rest could be described in more than one topic, without proving two separate conditions. There is no highest topic, combined burden total or sequence of steps to pass. The separation helps readers find relevant text rather than explaining how one experience caused another.",
+              "zh": "另几个主题谈入睡、比计划早醒、白天经历和睡眠相关想法；同一个人的描述可能重叠，并非经验证的独立维度。接近休息末尾的一次中断可能对应不止一个主题，不证明两种独立状况。没有最高主题、合并负担总分或必经步骤；分类帮助找相关文字，不解释一项如何造成另一项。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "The page cannot rule out a health question",
+            "zh": "页面不能排除健康问题"
+          },
+          "paragraphs": [
+            {
+              "en": "A healthcare assessment can consider sleep patterns alongside health, medicines and experiences such as breathing difficulties. This reflection does not collect that history or examine you. It cannot attribute a waking to stress, diagnose sleep apnoea, exclude another condition or decide that an experience is ordinary because a count is small. Public background sources describe a broader clinical conversation; they provide neither the original statements nor a validation of their categories or a personalised interpretation of your record.",
+              "zh": "医疗评估可以把睡眠模式与健康、药物及呼吸方面的经历一并考虑。本练习不收集病史或检查你，不能把醒来归因为压力、诊断睡眠呼吸暂停、排除其他状况，或因计数小就判断普通。公开背景资料讨论更广的临床谈话，不提供这些原创陈述、不验证类别，也不作个人解释。"
+            },
+            {
+              "en": "No selection advises stopping a medicine, taking a sleep product, staying awake or limiting time in bed. It does not administer the Insomnia Severity Index or create a substitute treatment protocol. If a description concerns you, you can ask a qualified healthcare professional about it without completing the rest of the page. A short opening could be “I keep noticing wakefulness during the rest I intended to have; I would like to understand what is relevant to discuss.”",
+              "zh": "任何选择都不建议停药、服助眠品、保持清醒或限制卧床时间；不施测失眠严重程度指数，也不建立替代治疗方案。某条让你在意时，可以直接询问合格医疗专业人士，无需完成页面。例如：“我反复注意到计划休息时醒着，想了解哪些情况值得讨论。”"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support and safety are available before a result",
+            "zh": "支持与安全不等结果"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about sleep when it troubles you, affects ordinary activities or is simply something you want help understanding. The exercise sets no category threshold, number of nights or minimum elapsed period before support is worth considering. An all-unscored record changes none of that. You may ask about an appointment process first and decide later what to share. The page cannot determine a service's availability, arrange care or assess urgency from a record of four observations.",
+              "zh": "睡眠使你困扰、影响普通活动，或只是想有人帮助理解时，都可以询问。本练习不设置类别阈值、几晚或最低持续时间，才允许考虑支持；全未计分也一样。可以先问预约流程，之后再决定分享什么。本页不能确定服务可用性、安排照护，或从四条记录评估紧急程度。"
+            },
+            {
+              "en": "Do not drive when you feel sleepy. Pause activities in which reduced alertness could endanger you or another person and seek an appropriate safe alternative. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing to answer. The page cannot observe your condition or respond to an emergency. This information remains public on the entry and every guide and is not unlocked by a particular answer, a completed record or a longer history.",
+              "zh": "感到困倦时不要驾车；警醒不足可能危及自己或他人的活动应先暂停，寻找合适的安全替代。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续回答。页面不能观察状况或应对紧急事件。说明在入口和每篇指南均公开，不由某项回答、完成记录或更长历史解锁。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A useful account can stay small and private",
+            "zh": "有用的记录可以很简短，也可以保密"
+          },
+          "paragraphs": [
+            {
+              "en": "These original observations have no established norms, diagnostic cutoff or demonstrated English–Chinese measurement equivalence. A later record can differ because recall, circumstances or interpretation changed. Comparing category counts does not measure recovery, worsening or the effect of a routine. You may use a single description without treating the record as a report to prove to anyone. There is no requirement to monitor awakenings repeatedly, bring a partner into the exercise or describe private circumstances on this page.",
+              "zh": "原创观察尚无常模、诊断界值或经验证的中英文测量等值。后来记录不同，可能是回忆、背景或理解改变；比较类别计数不测恢复、恶化或惯例效果。可以只使用一条描述，无需把记录当作向谁证明的报告。不要求反复监测醒来、让伴侣参与，或在页面披露私人背景。"
+            },
+            {
+              "en": "Answers remain only in current-page memory. There is no saved draft, answer submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the private record, while copying the public entry shares its title and address only. All five complete guides are available before answering and remain the same for every pattern. Reading, stopping, keeping a description private and asking a professional about sleep can all be choices without a numerical verdict from this exercise.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除私人记录，复制公开入口只分享标题及地址。五篇全文在答题前可读，对任何组合均相同。阅读、停止、保留描述或询问专业人士，都不需要本练习给数字结论。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waking-before-planned-reading",
+      "directionIds": [
+        "waking-before-planned"
+      ],
+      "title": {
+        "en": "Waking before planned — Complete Reading",
+        "zh": "比计划更早醒来：完整读法"
+      },
+      "headline": {
+        "en": "Waking before planned — Complete Reading",
+        "zh": "比计划更早醒来：完整读法"
+      },
+      "summary": {
+        "en": "Keep an earlier-than-planned ending distinct from a universal morning hour or a required schedule.",
+        "zh": "区分比自己计划更早结束休息，与统一早晨钟点或必须遵守的作息。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to four original observations, with each selected label retained. IDs are not points. There is no total, mean, severity, highest theme or diagnosis; the counts do not measure awakenings, nights or hours.",
+        "zh": "六类计数合计四条原创观察，并保留逐条标签。标识不是点数，不生成总分、均值、严重程度、最高主题或诊断；计数不测醒来次数、夜晚或小时。"
+      },
+      "seo": {
+        "title": {
+          "en": "Waking before planned: Full Sleep Reflection Guide | FermatMind",
+          "zh": "比计划更早醒来：睡眠回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep an earlier-than-planned ending distinct from a universal morning hour or a required schedule.",
+          "zh": "区分比自己计划更早结束休息，与统一早晨钟点或必须遵守的作息。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Earlier than planned refers to your intended rest",
+            "zh": "更早，是相对于自己打算的休息"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme concerns waking before you intended to finish main sleep, wanting more sleep without returning to it, getting up earlier because you remained awake and feeling that rest ended too soon. These four original observations ask adults about the past two weeks. Earlier refers to your own intended ending, not a universal morning hour. Your main rest might take place at night, during the day or around a changing schedule. There is no preferred clock time hidden in the categories.",
+              "zh": "本主题四条原创观察关注比打算结束主要睡眠的时间更早醒来、想再睡却没睡去、因为一直醒着而提前起身，以及觉得休息结束太早。成年人回顾过去两周。更早相对于自己打算的结束时间，不是统一的早晨时刻。主要休息可能在夜间、白天或变化的作息中，类别不隐藏一个更好的钟点。"
+            },
+            {
+              "en": "An early start that suits you is different from waking earlier than you wanted, but the page cannot decide how your schedule or feelings should be described. You may leave a statement unscored when it does not fit. The exercise does not diagnose a body-clock disorder, attribute an early waking to mood or identify a medical cause. It also does not infer that a person who wakes later, or recalls no early waking, has had enough restorative sleep.",
+              "zh": "适合自己的早起，与比自己希望的更早醒来不同，但页面不能替你决定作息或感受该怎样描述。陈述不合适时可以未计分。练习不诊断生物钟问题、不把早醒归因为情绪，也不找身体原因；更晚醒来或不记得早醒，也不代表得到了足够的恢复性睡眠。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Count the descriptions without counting lost sleep",
+            "zh": "统计描述，不统计失去多少睡眠"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement has six possible categories: did not notice, rarely, sometimes, often, very often and unscored. The counts add to four descriptions, and the result also retains each selection. One rarely, one often and two unscored does not become an average early-waking level, an estimate of missing hours or a score of sleep quality. Option identifiers are not points. The page offers no overall total, dominant theme, risk band or recommendation based on a count.",
+              "zh": "每条有六类：没有注意到、很少、有时、较常、经常和未计分。计数合计四条描述，同时保留逐条选择。一条很少、一条较常、两条未计分，不变成平均早醒程度、少睡小时估计或睡眠质量分数。标识不是点数，不提供总分、主导主题、风险档或按计数给的建议。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and choosing not to answer stay unscored rather than becoming absence. A fully unscored theme provides no personal finding, and did not notice remains limited to a particular recollection. Neither response cancels a concern you already have. The record cannot tell whether a later visit shows improvement: an intended schedule, an external interruption or the way a statement is understood may have changed without a change in health.",
+              "zh": "没有相关经历、回想不清和不愿回答保持未计分，不变成没有发生。全未计分不提供个人发现，没有注意到也只限于这次回忆；两者都不取消已有的担忧。后来再来，记录不能说明是否改善，因为打算的作息、外部中断或对陈述的理解可能变了，而健康并未改变。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A chosen early start and an unwanted ending differ",
+            "zh": "自选的早开始，与不愿结束的休息不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who changes a work shift and intends to finish rest earlier than before. Another hopes to continue sleeping but stays awake before the planned ending. The same clock reading could fit these two different accounts. This guide does not tell either person that an early hour is inherently healthy or unhealthy. It asks only whether the particular description matches their recollection, leaving intentions, opportunities and constraints outside any numerical judgment.",
+              "zh": "设想一个人换班后，打算比以前更早结束休息；另一个人希望继续睡，却在计划结束前醒着。同一钟点可以对应两个不同叙述。指南不说某个早时刻本身健康或不健康，只问具体描述是否符合回忆，不用数字评判意图、机会和约束。"
+            },
+            {
+              "en": "A household event may bring rest to an end, or you may wake without noticing what prompted it. The page cannot separate these possibilities or decide that a difference in intention caused a difference in sleep. You do not need to supply a timestamp, compare yourself with another person's morning or reconstruct a precise sequence. If the categories feel too broad to represent your experience, leaving an observation unscored is preferable to treating a guess as a measured finding.",
+              "zh": "家庭事件可能结束休息，也可能醒来却没注意到诱因。页面不能区分这些可能，也不决定意图差异造成了睡眠差异。无需提供时间戳、与别人的早晨比较或重建准确顺序。类别太宽泛，无法表达经历时，可以保留未计分，而不把猜测当成测量发现。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Describe the ending without prescribing a routine",
+            "zh": "描述结束，不规定作息方案"
+          },
+          "paragraphs": [
+            {
+              "en": "An earlier waking may matter because it leaves you wanting more rest, changes a plan or makes the day feel harder. Those meanings are individual and cannot be read from the category alone. The questionnaire does not ask whether you should get up or remain in bed, how long to wait or when to move a bedtime. It does not prescribe a light schedule, a sleep restriction programme or a target number of hours to recover after a difficult rest.",
+              "zh": "较早醒来可能因为还想休息、改变计划或让白天更费力而值得在意。这些意义因人而异，不能从类别读出。问卷不决定应该起身还是留在床上、等多久、何时改变就寝，也不规定光照安排、睡眠限制方案，或困难一次后要补回几小时。"
+            },
+            {
+              "en": "The five public topics are organising aids, not established independent sleep dimensions. Waking before planned can overlap with waking during rest or with worry about what follows. Selecting observations in more than one topic does not establish multiple conditions or a chain of causes. You may find one description useful without answering the others. All five complete guides remain available, including for an entirely unscored record, and no topic is presented as the one you must address first.",
+              "zh": "五个公开主题只帮助整理，尚不是已建立的独立睡眠维度。比计划早醒可与睡眠中醒来、担心接下来时段重叠；多个主题有选择，不建立多种疾病或因果链。只使用一条也可以，无需答其他条。全未计分也能读五篇全文，没有一个主题被指定为必须先处理。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A private phrase can start a broader conversation",
+            "zh": "一句私人描述，可以开始更广的谈话"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to ask about sleep, a possible opening is “My rest has been ending before I want it to, and I would like to discuss it.” That phrase needs no score or diagnosis. You can ask a qualified healthcare professional what information would be helpful and how an assessment works before deciding what to share. The page does not require you to give your routine, health history, medicines or private circumstances to another reader or to the website.",
+              "zh": "想询问睡眠时，可以说：“最近休息比自己希望的更早结束，我想谈谈。”这句话不需要分数或诊断。可以先问合格医疗专业人士哪些信息有用、评估怎样进行，再决定分享多少。页面不要求向其他读者或网站交出惯例、病史、药物或私人背景。"
+            },
+            {
+              "en": "A broader healthcare conversation can consider other symptoms, changes in health and practical sleep opportunities. Four original descriptions cannot replace that assessment, rule out another sleep condition or decide that a new pattern has a harmless cause. Public health references offer background about those broader questions, not validation or endorsement of this exercise. No selection tells you to begin, stop or change a medicine, use a sleeping aid or alter an existing treatment plan.",
+              "zh": "更广的医疗谈话可以考虑其他症状、健康变化和实际休息机会；四条原创描述不能取代评估、排除其他睡眠状况，或判断新模式的原因无害。公共健康资料只介绍这些背景，不验证或背书本练习。任何选择都不要求开始、停用、改变药物、试助眠品或调整已有治疗。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Do not make support depend on waiting longer",
+            "zh": "不把支持放在更久等待之后"
+          },
+          "paragraphs": [
+            {
+              "en": "You can seek an appropriate healthcare conversation when sleep troubles you, affects ordinary activities or is something you want help understanding. The reflection sets no minimum duration, number of mornings or category count. You do not have to keep answering until the pattern looks serious enough. A professional can discuss timing and circumstances beyond what this page knows. This exercise cannot arrange a service, verify its availability or assess your individual urgency from a set of selections.",
+              "zh": "睡眠让你困扰、影响普通活动，或只是想得到帮助理解时，可以寻求适当的医疗谈话。本练习不规定最低时长、几个早晨或几项计数，不必一直答到模式显得足够严重。专业人士可讨论本页不知道的时间和背景；练习不安排服务、不核实可用性，也不从选择判断个人紧急程度。"
+            },
+            {
+              "en": "If you feel sleepy, do not drive or continue an activity where reduced alertness could endanger you or others. Pause and seek an appropriate safe alternative. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing here. This page does not monitor your condition or provide an emergency response. The same safety and support information is public before answering, after any response pattern and on every complete guide.",
+              "zh": "困倦时不要驾车，也不要继续警醒不足可能危及自己或他人的活动；先暂停，寻找合适的安全替代。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续本页。页面不监测状况、不作紧急响应。同样的安全与支持说明在答题前、任何回答后及每篇全文均公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A record does not define your morning or recovery",
+            "zh": "记录不定义早晨，也不定义恢复"
+          },
+          "paragraphs": [
+            {
+              "en": "The observations are original descriptions, not the Insomnia Severity Index or a diagnostic interview. They have no established population norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. A different count later cannot show recovery, deterioration or the effect of a new routine. Recall and circumstances remain possible explanations. You can use a description in a conversation without treating it as evidence of a condition, a personal failure or a requirement to adopt a particular sleep schedule.",
+              "zh": "这些是原创描述，不是失眠严重程度指数或诊断访谈，尚无群体常模、临床界值或经验证的中英文测量等值。之后计数不同不能证明恢复、恶化或新惯例效果，回忆和背景仍是可能解释。可以带描述去谈话，不把它当成疾病、个人失败或必须采用某种作息的证据。"
+            },
+            {
+              "en": "Your answers stay only in current-page memory. There is no saved draft, answer submission, questionnaire analytics or personal result address. Exiting, retaking, reloading or leaving clears the record; copying the public entry shares only its title and address. All five complete guides are the same public text for everyone. Reading without answers, stopping partway and asking about support are valid choices without having a result determine whether an early waking deserves your attention.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除记录；复制公开入口只分享标题及地址。五篇全文对所有人相同。不答题阅读、中途停止或询问支持，都不需要结果决定一次早醒是否值得在意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daytime-experiences-reading",
+      "directionIds": [
+        "daytime-experiences"
+      ],
+      "title": {
+        "en": "Daytime experiences — Complete Reading",
+        "zh": "白天的经历：完整读法"
+      },
+      "headline": {
+        "en": "Daytime experiences — Complete Reading",
+        "zh": "白天的经历：完整读法"
+      },
+      "summary": {
+        "en": "Describe ordinary daytime experiences without a performance rating, causal verdict or safety clearance.",
+        "zh": "描述普通清醒时段的经历，不评价表现、不判原因，也不作安全放行。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to four original observations, with each selected label retained. IDs are not points. There is no total, mean, severity, highest theme or diagnosis; the counts do not measure awakenings, nights or hours.",
+        "zh": "六类计数合计四条原创观察，并保留逐条标签。标识不是点数，不生成总分、均值、严重程度、最高主题或诊断；计数不测醒来次数、夜晚或小时。"
+      },
+      "seo": {
+        "title": {
+          "en": "Daytime experiences: Full Sleep Reflection Guide | FermatMind",
+          "zh": "白天的经历：睡眠回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe ordinary daytime experiences without a performance rating, causal verdict or safety clearance.",
+          "zh": "描述普通清醒时段的经历，不评价表现、不判原因，也不作安全放行。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe your waking day without a productivity verdict",
+            "zh": "描述清醒时段，不评价生产力"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme has four original observations about struggling to keep your eyes open, attention on an ordinary task, effort during an activity and irritability on a day when you also felt poorly rested. Adults can consider the past two weeks. Waking day means the time when you are awake and going about activities, even if your main sleep takes place during daylight. The statements do not assume paid work, a particular household role or a conventional daytime schedule.",
+              "zh": "本主题四条原创观察关注费力睁眼、普通任务中的注意力、活动所需力气，以及同时觉得没休息好的日子里容易烦躁。成年人回顾过去两周。清醒活动时段包括主要睡眠在白天时自己的活动时段。陈述不假定有偿工作、特定家庭角色或通常的白天作息。"
+            },
+            {
+              "en": "The wording describes experiences occurring together or after rest as you remember it; it does not establish that sleep caused the daytime experience. Tiredness, sleepiness, concentration and mood cannot be reduced to one explanation by four prompts. The page cannot assess health, medicines, workload or other circumstances. It also cannot decide whether you are working hard enough, whether another person should expect more from you or whether a practical request for support is justified by a count.",
+              "zh": "表述只描述回忆中同时发生或休息之后的经历，不建立睡眠造成白天表现的因果关系。疲倦、困倦、注意力和情绪不能由四条压成一个解释，页面不评估健康、药物、负荷或其他背景，也不判断够不够努力、别人是否该期待更多，或实际支持请求能否被计数证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Six category counts are not a functioning score",
+            "zh": "六类计数，不是功能分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each observation receives one label: did not notice, rarely, sometimes, often, very often or unscored. Their counts add to four statements, with the original selections shown alongside them. Two often, one rarely and one unscored remains a record of those particular descriptions. It is not an impairment total, a work-performance rating, a measure of alertness or a severity band. The option identifiers are labels rather than points, and there is no average or overall result across the five topics.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分之一，计数合计四条，同时显示逐条选择。两条较常、一条很少、一条未计分，就保留具体描述，不是功能受损总分、工作表现评分、警醒测量或轻重档。选项标识不是点数，五个主题没有均值或总结果。"
+            },
+            {
+              "en": "An unscored answer may mean no relevant experience, uncertain recall or a wish not to answer. It does not become did not notice. If the whole theme is unscored, there is no personal finding about daily functioning. A did-not-notice selection is equally limited to one statement and recollection period. Neither an all-unscored record nor a small count establishes that an activity is safe, that sleep is sufficient or that a concern deserves no professional attention.",
+              "zh": "未计分可以表示没有相关经历、回忆不清或不想回答，不换成没有注意到。整个主题未计分，不提供日常功能的个人发现。没有注意到，也限于一条和回顾时段。全未计分或计数小，都不证明活动安全、睡眠足够或担忧无需专业关注。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Two tasks can reveal different parts of a day",
+            "zh": "两个任务，可以呈现一天的不同片段"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who rereads an ordinary message several times after rest they experienced as broken. Another manages a conversation but finds a routine household task unusually effortful. Their descriptions can differ without one person's day being more legitimate or difficult overall. The questionnaire has no performance task, observation by another person or way to compare demands. These examples illustrate possible meanings of the statements; they are not exercises to test your attention or endurance.",
+              "zh": "设想一个人在自认为断续的休息后反复读一条普通消息；另一个人能完成谈话，却觉得惯常家务格外费力。描述不同，不代表谁的一天整体更正当或更困难。问卷没有表现任务、他人观察或比较任务要求的方法。例子只是说明陈述的可能含义，不是测试注意力或耐力的练习。"
+            },
+            {
+              "en": "A third person may notice irritation while another feels sleepy, and neither description tells the page what caused it. Feeling low on energy is not automatically the same account as struggling to keep your eyes open. You can use the wording that fits and leave another observation unscored. You do not have to demonstrate reduced output, complete a difficult task or ask someone else to judge you before taking your experience seriously or choosing to discuss it.",
+              "zh": "第三个人可能注意到烦躁，另一个人感到困倦，两种描述都不说明原因。精力不足，不自动等同于费力睁眼。可以用符合自己的表述，将另一条保持未计分。认真对待经历或决定谈谈之前，不用证明产出下降、完成困难任务，或请别人评判。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Safety is not something the result can clear",
+            "zh": "结果不能作安全放行"
+          },
+          "paragraphs": [
+            {
+              "en": "No category pattern can establish fitness to drive, operate equipment or continue a safety-sensitive task. Even one experience that matters in a particular activity deserves attention outside the questionnaire. If you feel sleepy, do not drive. Pause an activity where reduced alertness could endanger you or others and seek an appropriate safe alternative. These precautions do not depend on an often selection, a completed theme or a longer period of difficulty recorded on this page.",
+              "zh": "任何类别组合都不能证明适合驾车、操作设备或继续涉及安全的任务。即使一次经历对某项活动很关键，也应在问卷之外处理。困倦时不要驾车；警醒不足可能危及自己或他人的活动应先暂停，寻找合适安全替代。这些不取决于选较常、完成主题或在页面记录更长困难历史。"
+            },
+            {
+              "en": "The page cannot observe you, monitor changing alertness or provide emergency help. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. A did-not-notice or unscored record does not cancel that need. Support and safety information is public before the exercise, after all response patterns and on every full guide. You do not need a numerical result as permission to stop an unsafe activity or ask for help.",
+              "zh": "页面不能观察你、监测警醒变化或提供紧急帮助。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答。没有注意到或未计分，都不取消这种需要。安全和支持说明在练习前、任何结果及每篇全文均公开，无需数字结果才获准停止不安全活动或询问帮助。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A practical request need not include a report",
+            "zh": "实际请求，不必附上报告"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to talk with someone, you might say “I am finding this ordinary task harder today” or “I need to pause before continuing.” The guide does not require disclosing sleep details to an employer, relative or another reader. A request can concern one immediate practical need while you decide whether a separate healthcare conversation would be useful. The page cannot promise that another person will respond in a particular way or determine the arrangements available in your setting.",
+              "zh": "愿意与人谈时，可以说：“今天做这件普通事更费力”，或“继续之前我需要暂停”。指南不要求向雇主、亲属或其他读者披露睡眠细节。请求可以只涉及眼前一项需要，再决定另一次医疗谈话是否有用。页面不承诺别人怎样回应，也不决定自己所处环境能作何安排。"
+            },
+            {
+              "en": "For a healthcare conversation, a concrete description can be more useful than treating these categories as a diagnostic label. You can ask what information is relevant and how an assessment works before sharing further detail. Sleep and daytime experiences can be discussed together without assuming a single cause. No answer advises changing a medicine, using a sleeping aid, forcing yourself to stay awake or adopting a sleep restriction programme. Existing treatment decisions belong with an appropriate professional.",
+              "zh": "医疗谈话中，具体描述可以帮助交流，无需把类别当诊断标签。可以先问哪些信息相关、评估怎样进行，再分享更多。睡眠与白天经历可一起讨论，不必假定单一原因。任何回答都不建议改药、用助眠品、强撑清醒或采用睡眠限制方案，既有治疗决定应与合适专业人士商量。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Professional questions are broader than these four prompts",
+            "zh": "专业问题，比四条陈述更广"
+          },
+          "paragraphs": [
+            {
+              "en": "You can contact a qualified healthcare professional when sleep or daytime experiences trouble you, affect ordinary activities or are something you want help understanding. This reflection sets no minimum count, number of nights or elapsed months for seeking support. A broader assessment can consider health, medicines, sleep patterns and other circumstances that the page does not collect. The original observations cannot rule out another condition, establish a medical cause or decide how urgently a new experience should be assessed.",
+              "zh": "睡眠或白天经历让你困扰、影响普通活动，或只是想得到帮助理解时，可以联系合格医疗专业人士。本练习不规定求助前最低计数、几晚或几个月。更广的评估可以考虑本页不收集的健康、药物、睡眠模式和其他背景。原创观察不能排除其他状况、建立医学原因，或决定新经历应多紧急评估。"
+            },
+            {
+              "en": "The public references provide background about sleep difficulties and clinical assessment, not the items or scoring key for this exercise. This is not the Insomnia Severity Index or a measure of workplace impairment. The five overlapping topics organise reading and are not validated independent dimensions. There is no highest problem to prioritise from the record, and an entirely unscored theme cannot reassure you that another account of difficulty is unimportant or that a conversation should wait.",
+              "zh": "公开参考只提供睡眠困难和临床评估背景，不提供本练习题目或计分键。它不是失眠严重程度指数，也不测工作受损。五个可能重叠的主题帮助阅读，尚非验证独立维度。记录没有最高问题供排序，全未计分也不能保证其他困难叙述不重要或谈话应该等待。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a description separate from personal worth",
+            "zh": "描述与个人价值分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The original bank has no established population norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. Different counts over time do not prove recovery, worsening or the effect of a changed routine; recall, circumstances and interpretation can change too. Your categories do not measure competence, effort, reliability or worth. You can use one useful phrase, decline to answer or stop reading without a result deciding whether your day was productive enough or your difficulty was valid.",
+              "zh": "原创题本尚无群体常模、临床界值或经验证的中英文测量等值。计数随时间不同，不证明恢复、恶化或改惯例的效果，回忆、背景和理解也会变。类别不测能力、努力、可靠性或价值。可以只用一句、拒绝回答或停止阅读，不让结果决定一天是否够有产出或困难是否成立。"
+            },
+            {
+              "en": "Answers remain only in current-page memory. There is no draft storage, answer submission, questionnaire analytics or personal result address. Exiting, retaking, reloading or leaving clears the record. Copying the public entry includes only its title and address. All five full guides are the same public reading for everyone and remain available before answering. You may keep the whole account private and still ask for practical or professional support without producing a score or sharing this page.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除记录。复制公开入口只含标题及地址。五篇全文对所有人相同，答题前即可读。可以把整段经历保密，依然在不提供分数、不分享页面时询问实际或专业支持。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thoughts-about-sleep-reading",
+      "directionIds": [
+        "thoughts-about-sleep"
+      ],
+      "title": {
+        "en": "Thoughts about sleep — Complete Reading",
+        "zh": "围绕睡眠的想法：完整读法"
+      },
+      "headline": {
+        "en": "Thoughts about sleep — Complete Reading",
+        "zh": "围绕睡眠的想法：完整读法"
+      },
+      "summary": {
+        "en": "Read thoughts and frustration without a worry score, a psychological cause or a task to control thinking.",
+        "zh": "阅读担忧与沮丧，不算担忧分数、不判心理原因，也不安排控制想法的任务。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to four original observations, with each selected label retained. IDs are not points. There is no total, mean, severity, highest theme or diagnosis; the counts do not measure awakenings, nights or hours.",
+        "zh": "六类计数合计四条原创观察，并保留逐条标签。标识不是点数，不生成总分、均值、严重程度、最高主题或诊断；计数不测醒来次数、夜晚或小时。"
+      },
+      "seo": {
+        "title": {
+          "en": "Thoughts about sleep: Full Sleep Reflection Guide | FermatMind",
+          "zh": "围绕睡眠的想法：睡眠回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read thoughts and frustration without a worry score, a psychological cause or a task to control thinking.",
+          "zh": "阅读担忧与沮丧，不算担忧分数、不判心理原因，也不安排控制想法的任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Notice thoughts without making them an explanation",
+            "zh": "注意想法，不把想法直接当解释"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains four original observations about worry when thinking of the next opportunity to sleep, checking the time because you are concerned about wakefulness, worrying about the following waking day and feeling frustrated with yourself when sleep differs from what you hoped. Adults can consider the past two weeks. The descriptions concern what you noticed, not whether a thought was rational, whether you were trying too hard or whether your attitude caused a sleep difficulty.",
+              "zh": "本主题四条原创观察关注想到下一次睡眠机会时担忧、因在意清醒而查看时间、担心接下来清醒活动的时段，以及睡眠不如希望时对自己沮丧。成年人回顾过去两周。描述只关注注意到什么，不判想法理不理性、是否太用力，或态度是否造成了睡眠困难。"
+            },
+            {
+              "en": "A concern about sleep and wakefulness can occur together without the page establishing which came first or what sustains either experience. Four selections cannot separate practical pressures, health questions and other circumstances. They do not diagnose an anxiety condition, identify a psychological cause or show that someone should simply stop thinking. You may recognise one description, find another irrelevant or decide not to answer. None of those choices determines whether your concern is reasonable or deserves support.",
+              "zh": "睡眠相关担心与清醒可以同时出现，页面不能确定先后或维持因素。四项选择无法区分实际压力、健康问题和其他背景，不诊断焦虑状况、不确定心理原因，也不要求只要停止思考。可以认出一条、觉得另一条无关或不回答；都不决定担忧是否合理、是否值得支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Categories preserve a pattern without a worry score",
+            "zh": "类别保留组合，不生成担忧分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored for each observation. The six counts add to four statements, not to the number of worries, minutes awake or nights with a problem. For example, one sometimes, two often and one unscored remains that pattern with individual labels visible. The identifiers are not points. There is no average, sleep-distress total, severity band, clinical threshold or combined score across the five public topics.",
+              "zh": "每条可选没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条，不是担心次数、清醒分钟或困难夜晚数。一条有时、两条较常、一条未计分，就保持该组合和逐条标签。标识不是点数，没有均值、睡眠困扰总分、轻重档、临床阈值或五主题合并分数。"
+            },
+            {
+              "en": "An unscored choice may express no relevant experience, unclear recall or withholding an answer. It stays separate from did not notice. If all four are unscored, the page has no personal finding about thoughts around sleep. Did not notice is also limited to the wording and recollection period. A small count does not establish an absence of difficulty, and a frequent selection does not prove that worry is the main problem or that a specific psychological treatment is suitable.",
+              "zh": "未计分可以表示没有相关经历、回想不清或保留回答，与没有注意到分开。全未计分不提供睡眠相关想法的个人发现。没有注意到也只限于表述和回顾时段。计数小不证明没有困难，选择频繁也不证明担忧是主要问题或某种心理治疗适用。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A practical concern need not be a personal failure",
+            "zh": "现实担忧，不必变成个人失败"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person concerned about an early responsibility after a rest that has not gone as planned. Another worries about being able to manage a journey, while someone else feels frustration but cannot identify a specific thought. Their concerns differ, and the categories cannot compare the demands they face. These examples are not instructions to rehearse the following day or check whether a concern is justified. They illustrate why the same category can contain quite different personal accounts.",
+              "zh": "设想一个人休息不如计划，担心接下来的早班责任；另一个人担心一段行程，还有人只是沮丧，找不出具体想法。担忧不同，类别不能比较各自要求。例子不要求排练次日或检查担忧是否成立，只说明同一个类别可容纳很不同的个人叙述。"
+            },
+            {
+              "en": "Checking the time may be something you remember, but this page cannot decide why it happened or what effect it had on sleep. It does not ask you to monitor checking, remove a clock or prove that you can avoid a thought. The observations are a one-time opportunity to describe a recollection if you want to. If reading or answering makes you feel more caught up in sleep concerns, you may stop without losing access to the public information.",
+              "zh": "也许记得看时间，但页面不能决定原因或它对睡眠的效果，不要求监控查看、移走时钟或证明能避开想法。观察只是愿意时描述一次回忆的机会。如果阅读或回答使自己更陷入睡眠担忧，可以停止，仍能读公开资料。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A reflection is not a task to control your thoughts",
+            "zh": "回顾不是控制想法的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no requirement to challenge a thought, replace it with reassurance, stay with an uncomfortable feeling or force yourself to relax. The guide does not provide a cognitive treatment protocol or decide that a concern should be dismissed. It also does not ask you to collect evidence that the next day will go well. You can leave a description as it is, decline to explain it or use it only as a starting phrase for a conversation you choose.",
+              "zh": "不要求质疑想法、用安慰替换、停留在不适感受中或强迫放松。指南不提供认知治疗方案，不决定担忧应该被忽略，也不让你收集次日会顺利的证据。可以让描述保持原样、不解释，或只用作自选谈话的开头。"
+            },
+            {
+              "en": "The other topics discuss settling to sleep, waking during rest, waking earlier than intended and daytime experiences. They can overlap and are not validated independent dimensions. A worry observation cannot explain another topic's count, and no highest theme identifies what to fix first. The page does not classify you as an anxious sleeper, a poor sleeper or a particular personality. All five complete guides are public before answering and remain unchanged for every combination of selections.",
+              "zh": "其他主题谈入睡、睡眠中醒来、比计划早醒和白天经历；可能重叠，尚非验证独立维度。担忧观察不能解释另一主题的计数，没有最高主题决定先修什么。页面不把你分类为焦虑型睡眠者、差睡眠者或某种人格。五篇全文答题前公开，对所有组合都相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One phrase can be enough to ask about support",
+            "zh": "询问支持，一句话也可以开始"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to speak with a qualified healthcare professional, you might start with “I am spending time worrying about sleep and would like to discuss it.” You do not need to decide in advance whether the concern is physical or psychological. A broader conversation can consider sleep patterns, health, medicines and practical circumstances. You can ask how assessment works before choosing what to share. The questionnaire deliberately does not collect that history or make a diagnosis from your selected categories.",
+              "zh": "愿意与合格医疗专业人士谈时，可以先说：“我花了一些时间担心睡眠，想谈谈。”不用预先判定是身体还是心理问题。更广谈话可考虑睡眠模式、健康、药物和实际背景；可以先问评估流程再决定分享多少。问卷特意不收集这些历史，也不从类别诊断。"
+            },
+            {
+              "en": "You can also make a limited request for listening or practical company without showing anyone your answers. Another person may have their own capacity, and this page cannot promise a particular response. No selection requires disclosing concerns to an employer, relative or partner. No answer advises changing medicine, taking a sleeping product, restricting time in bed or deliberately staying awake. Questions about an existing treatment or a new intervention belong with an appropriate healthcare professional rather than a categorical record.",
+              "zh": "也可以有限地请求倾听或实际陪伴，不必给谁看回答。对方有自己的余力，页面不保证某种回应。不要求向雇主、亲属或伴侣披露。任何回答都不建议改药、服助眠品、限制卧床或故意保持清醒。既有治疗或新干预的问题应与合适医疗专业人士谈，不由类别记录决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Care and safety do not depend on finishing",
+            "zh": "照护与安全，不依赖做完"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask for professional support when sleep or the concern around it troubles you, affects ordinary activities or is something you want help understanding. The reflection sets no minimum number of nights, elapsed months or category count. An entirely unscored record changes none of those options. Public health references explain broader sleep assessment; they do not validate this original exercise, identify your cause or establish that waiting is safe when a pattern is new or changing.",
+              "zh": "睡眠或周围担忧让你困扰、影响普通活动，或只是希望得到帮助理解时，可以询问专业支持。本练习不规定最低几晚、几个月或几项计数，全未计分也一样。公共健康资料介绍更广评估，不验证本原创练习、不确定个人原因，也不保证新模式或变化时等待安全。"
+            },
+            {
+              "en": "If you feel sleepy, do not drive or continue an activity where reduced alertness could endanger you or others; pause and seek an appropriate safe alternative. If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing here. The page cannot observe you or provide an emergency response. This information remains public on the entry and every guide for every response pattern, with no requirement to disclose a private concern or obtain a result first.",
+              "zh": "困倦时不要驾车，也不要继续警醒不足可能危及自己或他人的活动；先暂停，寻找合适安全替代。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续本页。页面不观察你、不作紧急响应。说明在入口和每篇指南均公开，适用于任何回答，无需先披露私人担忧或得到结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "The page does not measure how well you are coping",
+            "zh": "页面不测应对得够不够好"
+          },
+          "paragraphs": [
+            {
+              "en": "The original statements are not the Insomnia Severity Index, an anxiety scale or a clinical interview. They have no established population norms, diagnostic cutoff or demonstrated English–Chinese measurement equivalence. A lower count on a later visit would not prove recovery or a treatment effect, just as a higher one would not by itself establish deterioration. Recall, interpretation and circumstances can change. The descriptions do not assess emotional strength or make you responsible for sleep occurring on demand.",
+              "zh": "原创陈述不是失眠严重程度指数、焦虑量表或临床访谈，尚无群体常模、诊断界值或经验证的中英文测量等值。后来计数低不证明恢复或治疗效果，高也不单独建立恶化；回忆、理解和背景都可能变化。描述不评估情绪强度，也不让你为按要求睡着承担责任。"
+            },
+            {
+              "en": "Answers stay only in current-page memory. There is no stored draft, answer submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the private record. Copying the public entry shares its title and address only. All five full guides remain the same public reading for everyone. You may leave a statement unscored, read without answering, stop partway or seek a professional conversation without a result deciding what your thoughts mean or whether they merit attention.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除私人记录。复制公开入口只含标题及地址。五篇全文对所有人相同。可以未计分、不答题阅读、中途停止或寻求专业谈话，不由结果决定想法的意义或是否值得关注。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Five topics, six separate categories",
+        "zh": "五个主题，六类分别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each of the five original topics contains four observations. Selections enter did not notice, rarely, sometimes, often, very often or unscored. Six counts add to four descriptions, with individual labels retained. The IDs are not points, and the counts are not awakenings, nights, minutes or hours. Themes are not added, averaged or ranked.",
+          "zh": "五个原创主题各含四条观察，选择进入没有注意到、很少、有时、较常、经常或未计分；六类计数合计四条，并保留逐条标签。标识不是点数，计数不是醒来次数、夜晚、分钟或小时；主题不相加、不平均、不排名。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored record gives no personal finding and does not imply healthy sleep. The overlapping topics are reading categories rather than validated independent dimensions. No severity band, insomnia diagnosis, sleep-efficiency calculation or treatment recommendation is produced.",
+          "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供个人发现，也不暗示睡眠健康。可能重叠的主题是阅读分类，不是验证独立维度，不产生严重档位、失眠诊断、睡眠效率计算或治疗建议。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "A recollection cannot establish a clinical cause",
+        "zh": "回忆不能建立临床原因"
+      },
+      "paragraphs": [
+        {
+          "en": "This is an original adult reflection over the past two weeks, not the Insomnia Severity Index, a diary, a device measure or diagnostic criteria. Main sleep can take place at any time. The exercise cannot establish sleep opportunity, duration, causes, other health conditions or safety for an activity. There are no established norms, clinical thresholds or demonstrated English–Chinese measurement equivalence.",
+          "zh": "这是回顾过去两周的成年人原创练习，不是失眠严重程度指数、日记、设备测量或诊断标准。主要睡眠可在任何时段。练习不能确定休息机会、时长、原因、其他健康状况或活动安全性，尚无常模、临床阈值或验证中英文测量等值。"
+        },
+        {
+          "en": "You can ask a qualified healthcare professional about sleep or daytime experiences without a minimum count, number of nights or elapsed period. No answer directs medicine changes, sleep restriction or deliberately staying awake. If you feel sleepy, do not drive. Pause unsafe activities and seek an appropriate safe alternative. Immediate danger or inability to stay safe calls for local emergency assistance, not more answers.",
+          "zh": "询问合格医疗专业人士关于睡眠或白天经历，无需达到最低计数、几晚或经过某段时间。任何回答都不要求改药、限制睡眠或故意保持清醒。困倦时不要驾车，先暂停不安全活动，寻找合适安全替代。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续答题。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private memory, full public reading",
+        "zh": "私人内存，完整公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay only in current-page memory. No drafts, answer submission, questionnaire analytics or personal result address are created. Exit, retake, reload and leaving clear the record. Copying the public entry shares the title and address without answers or counts. No device uploads, exact times or health history are requested.",
+          "zh": "回答只留在当前页面内存，不存草稿、不提交回答、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除记录。复制公开入口只含标题及地址，不含回答或计数。不要求设备上传、准确时间或病史。"
+        },
+        {
+          "en": "All five full bilingual guides are public before answers and after every response pattern, including entirely unscored records. Support information is unconditional. You may pause, withhold an answer or seek support without completing the reflection. The page cannot observe your circumstances, arrange care or respond to an emergency.",
+          "zh": "五篇双语全文在答题前、任何组合后都公开，包括全部未计分时。支持说明无条件可读。可以暂停、保留回答，或不完成回顾就寻求支持。页面不能观察处境、安排照护或响应紧急情况。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Insomnia Severity Index or an insomnia diagnosis?",
+        "zh": "这是失眠严重程度指数或失眠诊断吗？"
+      },
+      "answer": {
+        "en": "No. It contains 20 original descriptions, not ISI items, clinical criteria or a validated severity score. A healthcare assessment involves more than these categories.",
+        "zh": "不是。这是20条原创描述，不是ISI题目、临床标准或已验证严重程度分数。医疗评估不只看这些类别。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a count tell me how many times I woke or how long I slept?",
+        "zh": "计数能告诉我醒几次或睡多久吗？"
+      },
+      "answer": {
+        "en": "No. Counts describe how many statements received a category. They do not count events or nights or measure sleep duration, latency or efficiency.",
+        "zh": "不能。计数只统计多少陈述被选入某类，不算事件或夜晚，不测睡眠时长、入睡潜伏时间或效率。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I sleep during the day or cannot recall a description?",
+        "zh": "白天睡觉或想不起描述时怎么办？"
+      },
+      "answer": {
+        "en": "Main sleep means your principal rest period whenever it takes place. No relevant experience, unclear recall or not wanting to answer can remain unscored, distinct from did not notice.",
+        "zh": "主要睡眠指自己主要的休息时段，不限钟点。没有相关经历、回想不清或不愿回答可选未计分，与没有注意到分开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a low count mean an activity is safe or I should wait for help?",
+        "zh": "计数低表示活动安全或应该等一等再求助吗？"
+      },
+      "answer": {
+        "en": "No. The reflection cannot clear an activity as safe or set a waiting period for support. Do not drive when sleepy. You can discuss a troubling experience with a qualified professional without a score.",
+        "zh": "不表示。练习不能作活动安全放行或设置求助等待期。困倦时不要驾车；不需要分数，也可以向合格专业人士谈困扰。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read all guides without answering or saving a record?",
+        "zh": "不答题、不保存记录也能读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All five complete guides and support information remain public for every response pattern. Answers stay only in current-page memory and clear on exit, retake, reload or leaving.",
+        "zh": "可以。五篇全文和支持说明对任何组合均公开。回答仅留在当前页面内存，退出、重做、刷新或离页会清除。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NHS: Insomnia — public sleep background",
+        "zh": "NHS：失眠——公开睡眠背景"
+      },
+      "url": "https://www.nhs.uk/conditions/insomnia/"
+    },
+    {
+      "title": {
+        "en": "NHLBI: Insomnia diagnosis — broader clinical assessment",
+        "zh": "NHLBI：失眠诊断——更广的临床评估"
+      },
+      "url": "https://www.nhlbi.nih.gov/health/insomnia/diagnosis"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_sleep_observations",
+    "formCode": "fm_sleep20_observations_v1",
+    "itemBankVersion": "original20_bilingual_v1",
+    "scoringVersion": "five_separate_categorical_counts_no_clinical_score_v1",
+    "resultContentVersion": "five_full_bilingual_sleep_readings_v1",
+    "itemBankSha256": "831e165dc0c9e08715c720a7bc95617c555ae6cd6ce6067495b6354c6f54639c",
+    "resultContentSha256": "41e866d5c96274c23c7c3b4470afc397437079894970dfe6859d0b52a6c3211c",
+    "psychometricValidationCompleted": false
+  }
+}

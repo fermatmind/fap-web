@@ -6772,5 +6772,31 @@
       "kapha"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sleep-experiences-reflection",
+    "code": "FM_SLEEP20_OBSERVATIONS",
+    "version": "fm_sleep20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Sleep Experiences: Personal Reflection",
+      "zh": "睡眠经历：个人回顾"
+    },
+    "description": {
+      "en": "Reflect on 20 original observations about settling to sleep, interruptions, earlier waking, daytime experiences and sleep concerns. Private category records with five full public guides, without a severity score or diagnosis.",
+      "zh": "用20条原创观察回顾入睡、睡眠中断、比计划早醒、白天经历及睡眠相关想法。类别记录留在本页，五篇全文公开，不生成严重程度分数或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_sleep20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "settling-to-sleep-reading",
+      "waking-during-rest-reading",
+      "waking-before-planned-reading",
+      "daytime-experiences-reading",
+      "thoughts-about-sleep-reading"
+    ],
+    "collection": "explore"
   }
 ]

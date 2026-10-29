@@ -1,4 +1,6 @@
 import { isBpi21ConfigurationValid } from "@/lib/questionnaires/bpi21";
+import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
+import { SleepExperiencesGuidePage } from "./SleepExperiencesPage";
 import { isBereavement16ConfigurationValid } from "@/lib/questionnaires/bereavement16";
 import { BereavementGuidePage } from "./BereavementPage";
 import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
@@ -115,6 +117,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) return { title: "BPI-21 unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
@@ -168,6 +171,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sleep-experiences20") {
+    if (!isSleepExperiences20ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <SleepExperiencesGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "bereavement16") {
     if (!isBereavement16ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
