@@ -1,0 +1,1859 @@
+{
+  "slug": "attraction-experiences",
+  "code": "FM_ATTRACTION_EXPERIENCES15",
+  "version": "fm_attraction_experiences15_v1",
+  "updated": "2026-10-30",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Attraction Experiences Reflection",
+    "zh": "吸引体验观察"
+  },
+  "description": {
+    "en": "Reflect on romantic recurrence and bond context, plus sexual attraction across time and settings. 15 original prompts and five full guides, without labels.",
+    "zh": "用十五条原创陈述，观察浪漫吸引的再次出现与联结先后，以及性吸引的延续、情境和特质范围。五篇全文免费，不分配身份。"
+  },
+  "seoTitle": {
+    "en": "Attraction Patterns Test: Romantic and Sexual Experiences",
+    "zh": "吸引体验测试：浪漫吸引与性吸引的五项独立观察"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Adults answering only for yourself: think about the past twelve months. Rate agreement with experiences, not your ability to name them. For bond-first statements, no romantic attraction means no onset to compare: choose unscored. Sexual-pattern comparisons also need suitable experiences; uncertainty or no basis for comparison stays unscored. No romantic attraction can be meaningful disagreement with recurrence statements. All fifteen response choices finish the form; each three-item part needs all three numeric ratings for a mean.",
+    "zh": "仅供成年人为自己作答，回想过去十二个月。评价对体验陈述的认同，不评价能否说清感受。联结先后题中，没有浪漫吸引就没有可比较的起点，请选未评分；性吸引比较也需要合适经历，不确定或无比较依据时保留未评分。没有浪漫吸引，可以是对再次出现陈述有意义的不同意。十五条均选择即可完成，每项三条全部数值有效才有均值。"
+  },
+  "resultHeading": {
+    "en": "Your five separate experience readings",
+    "zh": "你的五项独立体验读法"
+  },
+  "introduction": {
+    "en": "An original reflection on experiences you report, with romantic and sexual parts kept separate. It does not identify an aromantic position or sexual orientation, administer a Kinsey or Klein scale, or convert the separate Mini 20-item reflection. All five full guides are free; answers remain only in current page memory.",
+    "zh": "这是对自报体验的原创观察，浪漫与性吸引部分分别保留。不识别无浪漫光谱位置或性取向，不实施金赛或Klein量表，不换算独立Mini 20题观察。五篇全文免费，答案仅留当前页面内存。"
+  },
+  "source": {
+    "kind": "fermatmind-original-nonclassifying-attraction-experience-reflection",
+    "formCode": "fermatmind_attraction_experiences15",
+    "itemBankVersion": "fm-attraction-experiences-15-v1",
+    "scoringVersion": "five-three-item-direct-agreement-means-all3-web-v1",
+    "resultContentVersion": "fm-attraction-experiences-five-guides-v1",
+    "itemBankSha256": "18ebdb9e51c693f92573f42ea3c071c999ad45ee5d3eb9af0964206adc6f6cc8",
+    "resultContentSha256": "9002e56b137367d36e2cd4efce87dd70c6bb49cbc5fc7e70aa10dc590ebab9e7",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "romantic-presence",
+      "title": {
+        "en": "Romantic Attraction",
+        "zh": "浪漫吸引的再次出现"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "bond-first-context",
+      "title": {
+        "en": "Bond Before Attraction",
+        "zh": "联结在浪漫吸引之前"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "sexual-continuity",
+      "title": {
+        "en": "Sexual Continuity",
+        "zh": "性吸引模式的延续"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "sexual-context-variation",
+      "title": {
+        "en": "Context Variation",
+        "zh": "不同情境中的性吸引"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "sexual-attraction-breadth",
+      "title": {
+        "en": "Breadth of Attraction",
+        "zh": "吸引特质的多样范围"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "ATR_001",
+      "prompt": {
+        "en": "Romantic attraction toward a particular person was a recurring part of my experience.",
+        "zh": "对某个具体人的浪漫吸引，是我反复有过的体验。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "romantic-presence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "romantic-presence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_002",
+      "prompt": {
+        "en": "Romantic attraction toward someone returned after the first moment had passed.",
+        "zh": "对某个人的浪漫吸引，在最初的瞬间过去后还会再次出现。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "romantic-presence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "romantic-presence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_003",
+      "prompt": {
+        "en": "Romantic attraction was present at different points throughout the year.",
+        "zh": "这一年不同时间里，我都体验过浪漫吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "romantic-presence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "romantic-presence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "romantic-presence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_004",
+      "prompt": {
+        "en": "An emotional bond was already in place before my romantic attraction toward the person began.",
+        "zh": "在我开始对某人产生浪漫吸引之前，我们之间已经有了情感联结。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "bond-first-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "bond-first-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_005",
+      "prompt": {
+        "en": "Romantic attraction developed after emotional closeness grew, rather than preceding it.",
+        "zh": "浪漫吸引是在情感亲近增长之后发展出来，而不是在此前出现。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "bond-first-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "bond-first-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_006",
+      "prompt": {
+        "en": "Someone I had known without romantic attraction became romantically attractive to me after we had formed a close emotional bond.",
+        "zh": "原本认识却没有浪漫吸引的某个人，在我们建立亲近情感联结后，开始对我有浪漫吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "bond-first-context",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "bond-first-context",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "bond-first-context",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_007",
+      "prompt": {
+        "en": "The qualities involved in my sexual attraction stayed similar at different points during the year.",
+        "zh": "这一年不同时间里，让我产生性吸引的特质保持相近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-continuity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-continuity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_008",
+      "prompt": {
+        "en": "What I found sexually attractive later in the year resembled what drew me earlier.",
+        "zh": "这一年较后时间里让我感到性吸引的特质，与较早时吸引我的相近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-continuity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-continuity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_009",
+      "prompt": {
+        "en": "Across separate experiences, my sexual attraction involved a familiar kind of appeal.",
+        "zh": "在不同经历之间，我的性吸引涉及一种熟悉的吸引力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-continuity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-continuity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-continuity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_010",
+      "prompt": {
+        "en": "What I experienced as sexually attractive differed between situations.",
+        "zh": "在不同情境中，我体验为有性吸引的特质有所不同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-context-variation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_011",
+      "prompt": {
+        "en": "A quality that was sexually attractive in one setting did not have the same appeal in another.",
+        "zh": "某个特质在一个场合让我感到性吸引，换个场合却没有相同吸引力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-context-variation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_012",
+      "prompt": {
+        "en": "My sexual attraction took a different shape in different emotional contexts.",
+        "zh": "在不同情感情境中，我的性吸引呈现出不同模式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-context-variation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-context-variation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_013",
+      "prompt": {
+        "en": "People with markedly different qualities were sexually attractive to me.",
+        "zh": "特质明显不同的人，也曾对我有性吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_014",
+      "prompt": {
+        "en": "I experienced sexual attraction toward someone who did not fit my previous usual pattern.",
+        "zh": "我曾对一个不符合自己以往惯常模式的人产生性吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ATR_015",
+      "prompt": {
+        "en": "Across my experiences, the qualities I found sexually attractive were varied rather than all alike.",
+        "zh": "在不同经历中，我觉得有性吸引的特质多种多样，并非全都相似。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable experience, unsure or prefer not to answer",
+            "zh": "未评分：没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "sexual-attraction-breadth",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "romantic-presence",
+      "directionIds": [
+        "romantic-presence"
+      ],
+      "title": {
+        "en": "Romantic Attraction",
+        "zh": "浪漫吸引的再次出现"
+      },
+      "headline": {
+        "en": "A description of selected experiences, not an identity",
+        "zh": "描述选定体验，不分配身份"
+      },
+      "summary": {
+        "en": "Read the specific statements, their context and missing information. Five separate readings remain open without assigning an orientation or type.",
+        "zh": "结合具体陈述、情境与缺失资料阅读，五项分别开放，不分配取向或类型。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with the statements, not an attraction count, probability or population rank.",
+        "zh": "需要三条数值有效，原始和除以3；表示对陈述的认同，不是吸引次数、概率或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Romantic Attraction: Attraction Experiences Guide",
+          "zh": "浪漫吸引的再次出现：吸引体验完整说明"
+        },
+        "description": {
+          "en": "Read this original attraction-experience pattern with examples, missing-answer rules and limits. Full guide free; no orientation or type assigned.",
+          "zh": "结合例子、缺失规则与局限，阅读原创吸引体验观察的这一部分。完整指南免费，不分配取向或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Agreement with recurring experiences",
+            "zh": "对再次出现的体验有多认同"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks whether romantic attraction toward a particular person recurred, returned after an initial moment and appeared at different points during the past twelve months. A higher mean records stronger agreement with those three descriptions. It is not a count of crushes, a measured frequency or a place on an aromantic spectrum. Answer from what you experienced as romantic attraction, rather than from whether you dated, wanted companionship or thought you ought to want a relationship.",
+              "zh": "这一部分问过去十二个月中，对具体人的浪漫吸引是否反复出现、在最初瞬间之后再次出现，以及是否在不同时间出现。均值较高记录对这三种描述更认同，不是心动次数、测得的频率或无浪漫光谱上的位置。请依据自己体验为浪漫吸引的感受，而不是是否约会、想有人陪伴，或觉得自己理应想谈恋爱。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A feeling returning during an ordinary week",
+            "zh": "普通一周里再次出现的感受"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a romantic feeling toward someone returning while you are occupied with an ordinary week. That is different from simply enjoying the idea of being in a relationship or liking a romantic story. The example does not decide what your feeling was; you supply your own understanding. The prompts also do not ask whether the feeling was returned, whether you acted on it or whether the person was available. None of those circumstances is required to report an experience of attraction.",
+              "zh": "例如，忙着过普通一周时，对某个人的浪漫感受又出现了。这与单纯喜欢恋爱这个想法，或喜欢浪漫故事不同。例子不替你判定感受是什么，而由你依据自己的理解回答。题目也不问感受是否被回应、你是否行动或对方是否有可能发展关系；报告吸引体验并不需要这些条件。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A lower mean is not a chosen identity",
+            "zh": "较低均值不替你选择身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Disagreeing with recurring-attraction statements may fit a year with little or no romantic attraction. It may also reflect how you understood recurrence or the particular period you considered. The mean does not distinguish every possibility, assign an aromantic identity or certify that you are strongly romantic. Care, friendship, commitment and a satisfying life are not measured by these statements. Only you choose whether any identity language is useful, and a questionnaire number is not a requirement for using or declining a word.",
+              "zh": "不认同吸引反复出现的陈述，可能符合较少或没有浪漫吸引的一年，也可能与怎样理解再次出现或所选时段有关。均值不区分所有可能，不分配无浪漫身份，也不认证强烈浪漫倾向。关心、友谊、承诺和令人满意的生活都不由这些陈述测量。是否使用任何身份词由你选择，使用或不使用某个词都不需要问卷数字作条件。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Recurrence does not reveal its whole pattern",
+            "zh": "再次出现不揭示完整模式"
+          },
+          "paragraphs": [
+            {
+              "en": "A recurring feeling could concern one person or different people, and this form does not collect their identities or a number of attractions. Two people can give similar ratings while having very different experiences of duration, intensity and opportunity. The past twelve months also leave out earlier life and do not predict the next year. If you cannot identify a relevant experience or do not want to rate it, an unscored response preserves that uncertainty instead of turning it into a low value.",
+              "zh": "再次出现的感受可能涉及同一个人或不同的人，表单不收集其身份或吸引次数。两个人可以给相近评分，却在持续时间、强度与接触机会方面很不同。过去十二个月也没有涵盖更早人生，不能预测下一年。无法辨认相关经历或不愿评价时，未评分会保留不确定性，而不把它变成低值。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Romantic and sexual readings remain separate",
+            "zh": "浪漫与性吸引分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "The bond-before-attraction part asks about the order of emotional closeness and romantic attraction. It cannot be inferred from this recurrence mean. The three sexual-attraction parts concern a different kind of experience and do not complete or correct the romantic reading. Different patterns across the two are possible. The separate Mini 20-item reflection asks about noticing, describing, labels and privacy; being comfortable describing a feeling is not evidence that the feeling occurred often or followed a particular pattern.",
+              "zh": "联结先于吸引部分问情感亲近与浪漫吸引的先后，不能从再次出现的均值推断。三个性吸引部分涉及另一种体验，不会补全或纠正浪漫读法；两者可能不同。独立Mini 20题观察涉及辨认、描述、标签和隐私，能够舒服地描述感受，并不证明感受经常出现或遵循某个模式。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "An optional private reminder of the period",
+            "zh": "可选地私下回想时段"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, think of one ordinary point in the selected year and whether a romantic feeling was present, absent or unclear to you then. There is no need to record a person’s name, disclose the memory or search for another example to make the result look consistent. You do not need to date, seek a crush or test yourself through a relationship. You may keep every answer unscored, read a guide and finish without choosing an identity or taking another assessment.",
+              "zh": "如有用，可回想所选一年中的一个普通时点，当时浪漫感受对你而言是存在、不存在还是不清楚。无需记录人名、披露记忆，或为了让结果一致而寻找更多例子。不需要约会、寻找心动对象或通过关系测试自己。可以全部未评分，读完指南就结束，不选身份，也不再作答其他测评。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three agreement ratings, with missing information retained",
+            "zh": "三条认同评分，保留缺失资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree or 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty or missing experience. Each part needs all three numeric ratings; its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored response withholds that part’s mean without zero, midpoint substitution or inference. All fifteen prompts need a response choice to finish, including unscored choices. No total, rank or dominant part is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定或缺少经历。每项三条全部数值有效才显示原始和除以3的一位小数，例如1、2、4之和7，除以3显示2.3。任何未评分都使所属项不显示均值，不补零、中点或推断。十五条都选一个选项即可完成，包括未评分；不计算总分、排名或主导项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original reflection, not a standard orientation scale",
+            "zh": "原创观察，不是标准取向量表"
+          },
+          "paragraphs": [
+            {
+              "en": "These fifteen bilingual statements and five guides are original FermatMind content, without psychometric validation or population norms. AUREA and AVEN community resources inform the background distinction between romantic attraction, sexual attraction, identity, behaviour and arousal; their pages do not supply this bank or a scoring key. This is not an administration of Kinsey, Klein or another published instrument. Identity language remains your choice. Answers stay in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. Public guides remain available even when every part is unscored.",
+              "zh": "这十五条双语陈述和五篇指南由费马原创，尚无心理测量验证或人群常模。AUREA与AVEN社群资源为浪漫吸引、性吸引、身份、行为和唤起之间的背景区分提供参考，不提供本题库或计分键。本页不是金赛、Klein或其他发表工具的实施，身份语言由你选择。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果；全部未评分也可读公开指南。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bond-first-context",
+      "directionIds": [
+        "bond-first-context"
+      ],
+      "title": {
+        "en": "Bond Before Attraction",
+        "zh": "联结在浪漫吸引之前"
+      },
+      "headline": {
+        "en": "A description of selected experiences, not an identity",
+        "zh": "描述选定体验，不分配身份"
+      },
+      "summary": {
+        "en": "Read the specific statements, their context and missing information. Five separate readings remain open without assigning an orientation or type.",
+        "zh": "结合具体陈述、情境与缺失资料阅读，五项分别开放，不分配取向或类型。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with the statements, not an attraction count, probability or population rank.",
+        "zh": "需要三条数值有效，原始和除以3；表示对陈述的认同，不是吸引次数、概率或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Bond Before Attraction: Attraction Experiences Guide",
+          "zh": "联结在浪漫吸引之前：吸引体验完整说明"
+        },
+        "description": {
+          "en": "Read this original attraction-experience pattern with examples, missing-answer rules and limits. Full guide free; no orientation or type assigned.",
+          "zh": "结合例子、缺失规则与局限，阅读原创吸引体验观察的这一部分。完整指南免费，不分配取向或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The order described in the statements",
+            "zh": "陈述中的先后顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns experiences in which an emotional bond was already present before romantic attraction began, closeness grew before the attraction, or someone previously known without romantic attraction became attractive after a close bond developed. A higher mean records agreement with that reported order. It does not establish that the bond caused attraction, that a bond is always required or that closeness will eventually produce attraction. The questions describe your experience rather than a rule another person can use to obtain a romantic response.",
+              "zh": "这一部分涉及情感联结已存在后才开始浪漫吸引、亲近先于吸引增长，或原本认识却没有浪漫吸引的人在建立亲近联结后开始有吸引。较高均值记录对这种自报先后更认同，不确定联结造成了吸引、联结始终必要，或亲近最终一定带来吸引。题目描述你的体验，不是别人用来获得浪漫回应的规则。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A familiar connection taking on another feeling",
+            "zh": "熟悉联结中出现另一种感受"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine knowing someone without romantic attraction and later experiencing it after emotional closeness has grown. That sequence is one possible example, without implying that the relationship should change or that either person owes a response. Other experiences might involve romantic attraction before a bond or no attraction despite a close bond. The form asks about the sequence you actually experienced. It does not rank these possibilities or assume that friendship is incomplete until romance appears.",
+              "zh": "例如，认识某人时没有浪漫吸引，情感亲近增长之后才体验到吸引。这只是一种可能顺序，不表示关系应该改变，也不表示任何一方欠回应。其他经历可能是吸引先于联结，或亲近却没有吸引。表单问实际体验过的顺序，不给可能性排序，也不假设友谊在出现浪漫之前就不完整。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "No relevant experience means unscored",
+            "zh": "没有相关经历就保留未评分"
+          },
+          "paragraphs": [
+            {
+              "en": "If you experienced no romantic attraction in the selected year, there is no attraction onset here to place before or after a bond. Choose unscored for these statements rather than automatically choosing the lowest number. If attraction did arise before closeness, disagreement may be a meaningful answer. These situations differ. Every subscale needs all three numeric ratings, so an unsuitable item can leave this part without a mean while all five full guides remain open and the attempt can still be completed.",
+              "zh": "若所选一年没有浪漫吸引，就没有本题可放到联结之前或之后的吸引起点。请选择未评分，不自动选最低数字。如果吸引确实先于亲近，表示不同意可能是有意义的回答，这两种情况不同。每项都需要三条数值有效，不适用的题可以使本项没有均值，但五篇全文继续开放，本次仍可完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An association is not an identity test",
+            "zh": "这种关联不是身份测试"
+          },
+          "paragraphs": [
+            {
+              "en": "Community descriptions include people whose romantic attraction is associated with an established emotional bond. These three original statements do not administer a community identity test or decide whether a particular label fits you. They also do not test every necessary condition, exception or earlier life experience. A high mean cannot turn a pattern in one year into a permanent identity, and a low mean cannot rule an identity out. You are free to use your own language without seeking the questionnaire’s permission.",
+              "zh": "社群描述中包括浪漫吸引与已有情感联结相关的人。这三条原创陈述并不实施社群身份测试，也不判定某个标签是否适合；它们没有检验每种必要条件、例外或早年经历。高均值不能把一年模式变成永久身份，低均值不能排除身份。你可以使用自己的语言，不必得到问卷许可。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Closeness, care and attraction are not exchanged",
+            "zh": "亲近、关心与吸引不是交换物"
+          },
+          "paragraphs": [
+            {
+              "en": "This part does not measure the quality of a bond, how much care someone gave or whether a person waited long enough. Emotional closeness does not create a claim to attraction, dating, intimacy or a relationship. The romantic-presence mean remains separate, as do the sexual-attraction readings. A pattern of bond-first experiences does not determine sexual attraction or a preferred relationship arrangement. Do not use either person’s generosity, patience or friendship as a substitute for the experience asked about in these statements.",
+              "zh": "这一项不测量联结质量、别人付出多少关心，或是否等待得够久。情感亲近不产生索取吸引、约会、亲密或关系的权利。浪漫吸引再次出现的均值、各项性吸引读法仍分别保留。联结先于吸引的模式不决定性吸引或偏好的关系安排。不要用任何一方的慷慨、耐心或友谊替代陈述实际询问的体验。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Reflect on a sequence without making a plan",
+            "zh": "只看先后，不必制订计划"
+          },
+          "paragraphs": [
+            {
+              "en": "If there is a suitable memory, you could privately distinguish when closeness and romantic attraction first appeared. It is fine if the order is uncertain or no clear beginning exists. You do not need to recreate the sequence, deepen a connection in hopes of attraction or ask someone else to account for their feelings. No action follows from the mean. You may end here, read another part or leave the entire comparison unscored without supplying a personal story.",
+              "zh": "若有合适记忆，可以私下分开亲近与浪漫吸引最初出现的时间。顺序不确定或没有明确起点都可以。无需重现顺序、为了吸引而加深联结，或请别人解释感受。均值不导出行动；可以在此结束、读另一项，或让整个比较未评分，不提供个人故事。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three agreement ratings, with missing information retained",
+            "zh": "三条认同评分，保留缺失资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree or 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty or missing experience. Each part needs all three numeric ratings; its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored response withholds that part’s mean without zero, midpoint substitution or inference. All fifteen prompts need a response choice to finish, including unscored choices. No total, rank or dominant part is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定或缺少经历。每项三条全部数值有效才显示原始和除以3的一位小数，例如1、2、4之和7，除以3显示2.3。任何未评分都使所属项不显示均值，不补零、中点或推断。十五条都选一个选项即可完成，包括未评分；不计算总分、排名或主导项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original reflection, not a standard orientation scale",
+            "zh": "原创观察，不是标准取向量表"
+          },
+          "paragraphs": [
+            {
+              "en": "These fifteen bilingual statements and five guides are original FermatMind content, without psychometric validation or population norms. AUREA and AVEN community resources inform the background distinction between romantic attraction, sexual attraction, identity, behaviour and arousal; their pages do not supply this bank or a scoring key. This is not an administration of Kinsey, Klein or another published instrument. Identity language remains your choice. Answers stay in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. Public guides remain available even when every part is unscored.",
+              "zh": "这十五条双语陈述和五篇指南由费马原创，尚无心理测量验证或人群常模。AUREA与AVEN社群资源为浪漫吸引、性吸引、身份、行为和唤起之间的背景区分提供参考，不提供本题库或计分键。本页不是金赛、Klein或其他发表工具的实施，身份语言由你选择。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果；全部未评分也可读公开指南。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sexual-continuity",
+      "directionIds": [
+        "sexual-continuity"
+      ],
+      "title": {
+        "en": "Sexual Continuity",
+        "zh": "性吸引模式的延续"
+      },
+      "headline": {
+        "en": "A description of selected experiences, not an identity",
+        "zh": "描述选定体验，不分配身份"
+      },
+      "summary": {
+        "en": "Read the specific statements, their context and missing information. Five separate readings remain open without assigning an orientation or type.",
+        "zh": "结合具体陈述、情境与缺失资料阅读，五项分别开放，不分配取向或类型。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with the statements, not an attraction count, probability or population rank.",
+        "zh": "需要三条数值有效，原始和除以3；表示对陈述的认同，不是吸引次数、概率或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sexual Continuity: Attraction Experiences Guide",
+          "zh": "性吸引模式的延续：吸引体验完整说明"
+        },
+        "description": {
+          "en": "Read this original attraction-experience pattern with examples, missing-answer rules and limits. Full guide free; no orientation or type assigned.",
+          "zh": "结合例子、缺失规则与局限，阅读原创吸引体验观察的这一部分。完整指南免费，不分配取向或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Similarity across your own experiences",
+            "zh": "自己不同体验之间的相近"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks whether qualities involved in sexual attraction remained similar at different points in the selected year, whether later attraction resembled earlier attraction and whether separate experiences had a familiar kind of appeal. A higher mean records agreement with continuity in those descriptions. It is not a measure of a fixed sexual orientation, lifelong stability or predictability. The form does not ask which genders, individuals or physical features were involved, and it cannot reconstruct those details from the number.",
+              "zh": "这一项问所选一年不同时间里，性吸引涉及的特质是否相近，较后时间是否类似较早时间，以及不同经历是否有熟悉的吸引力。高均值记录对这些延续描述更认同，不测量固定性取向、终身稳定或可预测性。表单不问涉及哪些性别、个人或外貌特征，也不能从数字重建这些细节。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Familiar appeal in a different encounter",
+            "zh": "不同相遇中的熟悉吸引力"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you might experience attraction to different people while recognising a familiar quality of appeal across those experiences. This does not require attraction to the same person or a particular relationship history. The example is about your subjective experience of sexual attraction, not sexual activity, desire for an activity or bodily arousal alone. If those experiences are not distinguishable to you in a relevant situation, choosing unscored is more accurate than rating what you think should have occurred.",
+              "zh": "例如，你可能对不同的人体验到吸引，却在这些经历之间有一种熟悉的吸引力。这不要求吸引对象相同，也不要求特定关系史。例子关注主观性吸引，不是性行为、想进行某种行为或单独的身体唤起。如果在相关情境中不能分开这些体验，选未评分比评价自己觉得应该发生的事更准确。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A comparison needs experiences to compare",
+            "zh": "比较需要可比较的经历"
+          },
+          "paragraphs": [
+            {
+              "en": "If no suitable sexual-attraction experiences occurred, or if the year offers no meaningful earlier and later comparison, leave the relevant statements unscored. An absence of comparison is not proof of a narrow, steady, fluid or absent orientation. Each part requires three numeric answers, so one missing rating withholds only that part’s mean. The website does not ask you to seek new experiences or reveal a history to fill the gap. The full explanation is available whether or not a number appears.",
+              "zh": "若没有合适性吸引经历，或这一年没有有意义的前后比较，就让相关陈述未评分。缺乏比较不证明取向狭窄、稳定、流动或不存在。每项需要三条数值回答，一条缺失只让所属项不显示均值。网站不要求寻找新经历或披露历史来补齐；有无数字都可读完整解释。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "The average does not preserve every change",
+            "zh": "平均不能保留每个变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Some qualities might feel familiar while others change, and the three statements may receive different ratings. Similar means can therefore conceal different individual patterns. A single year also excludes much of a person’s life and includes unequal opportunities to experience attraction. The form supplies no norm, percentile or reliable-change threshold. A later attempt with a different set of experiences cannot establish whether any difference is permanent, caused by a situation or large enough to have a particular meaning.",
+              "zh": "有些特质可能熟悉，其他特质却改变，三条评分因此可能不同；相近均值可以遮蔽不同的逐题模式。一年也没有涵盖大部分人生，各人体验吸引的机会并不相同。表单不提供常模、百分位或可靠变化阈值。以后依据不同经历重做，不能确定差异是否永久、由情境造成，或大到具有某种特定意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Continuity can coexist with variation and breadth",
+            "zh": "延续可以与变化和多样同时出现"
+          },
+          "paragraphs": [
+            {
+              "en": "You could report a familiar range of appeal over time while experiencing different attraction in different emotional contexts. You could also have a varied range that remains consistently varied. The context-variation and breadth parts are not reverse scores for this mean. None is a dominant identity or a better result. The separate Mini reflection asks about recognising and describing a pattern; clarity about a pattern is different from reporting that it actually stayed similar across experiences.",
+              "zh": "你可以在时间上有熟悉的吸引范围，同时在不同情感情境中体验到不同吸引；也可以一直有多样范围，并持续保持这种多样。情境变化与特质多样项不是本项的反向分数，没有哪项是主要身份或更好的结果。独立Mini观察问能否辨认和描述模式；清楚模式是什么，与报告模式实际保持相近不同。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "An optional note about a familiar quality",
+            "zh": "可选地想一个熟悉特质"
+          },
+          "paragraphs": [
+            {
+              "en": "If reflection would help, privately consider one quality that felt familiar across two suitable experiences. You need not name the people, describe bodies or acts, retain a note or compare yourself with anyone else. It is equally fine not to find a useful example. This activity is not an exercise in preserving an orientation or proving consistency. You may stop after reading, leave the part unscored or return to your own words rather than use the questionnaire’s topic names.",
+              "zh": "如果有帮助，可私下想一个在两次合适经历中都感到熟悉的特质。无需写人名、描述身体或行为、保留笔记或与别人比较。找不到有用例子也可以。这不是保持取向或证明一致性的练习，可以读完结束、让本项未评分，或回到自己的语言，不使用问卷主题名称。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three agreement ratings, with missing information retained",
+            "zh": "三条认同评分，保留缺失资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree or 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty or missing experience. Each part needs all three numeric ratings; its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored response withholds that part’s mean without zero, midpoint substitution or inference. All fifteen prompts need a response choice to finish, including unscored choices. No total, rank or dominant part is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定或缺少经历。每项三条全部数值有效才显示原始和除以3的一位小数，例如1、2、4之和7，除以3显示2.3。任何未评分都使所属项不显示均值，不补零、中点或推断。十五条都选一个选项即可完成，包括未评分；不计算总分、排名或主导项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original reflection, not a standard orientation scale",
+            "zh": "原创观察，不是标准取向量表"
+          },
+          "paragraphs": [
+            {
+              "en": "These fifteen bilingual statements and five guides are original FermatMind content, without psychometric validation or population norms. AUREA and AVEN community resources inform the background distinction between romantic attraction, sexual attraction, identity, behaviour and arousal; their pages do not supply this bank or a scoring key. This is not an administration of Kinsey, Klein or another published instrument. Identity language remains your choice. Answers stay in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. Public guides remain available even when every part is unscored.",
+              "zh": "这十五条双语陈述和五篇指南由费马原创，尚无心理测量验证或人群常模。AUREA与AVEN社群资源为浪漫吸引、性吸引、身份、行为和唤起之间的背景区分提供参考，不提供本题库或计分键。本页不是金赛、Klein或其他发表工具的实施，身份语言由你选择。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果；全部未评分也可读公开指南。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sexual-context-variation",
+      "directionIds": [
+        "sexual-context-variation"
+      ],
+      "title": {
+        "en": "Context Variation",
+        "zh": "不同情境中的性吸引"
+      },
+      "headline": {
+        "en": "A description of selected experiences, not an identity",
+        "zh": "描述选定体验，不分配身份"
+      },
+      "summary": {
+        "en": "Read the specific statements, their context and missing information. Five separate readings remain open without assigning an orientation or type.",
+        "zh": "结合具体陈述、情境与缺失资料阅读，五项分别开放，不分配取向或类型。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with the statements, not an attraction count, probability or population rank.",
+        "zh": "需要三条数值有效，原始和除以3；表示对陈述的认同，不是吸引次数、概率或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Context Variation: Attraction Experiences Guide",
+          "zh": "不同情境中的性吸引：吸引体验完整说明"
+        },
+        "description": {
+          "en": "Read this original attraction-experience pattern with examples, missing-answer rules and limits. Full guide free; no orientation or type assigned.",
+          "zh": "结合例子、缺失规则与局限，阅读原创吸引体验观察的这一部分。完整指南免费，不分配取向或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Different settings in a reported pattern",
+            "zh": "自报模式中的不同情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks whether what you experienced as sexually attractive differed between situations, whether a quality had different appeal in different settings and whether attraction took a different shape in different emotional contexts. A higher mean records agreement with those contextual differences. It does not identify the cause of a change or claim that all attraction is controlled by circumstances. The questions concern your own experience, without asking you to rate another person’s orientation or infer it from how they acted.",
+              "zh": "这一项问体验为有性吸引的特质是否随情境不同、同一特质在不同场合是否有不同吸引力，以及不同情感情境中是否呈现不同模式。较高记录对这些情境差异更认同，不识别变化原因，也不宣称所有吸引都由环境控制。题目只涉及自己，不让你评价他人取向或从行为推断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One quality, two ordinary contexts",
+            "zh": "一个特质与两个普通场合"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a quality feeling sexually attractive in one ordinary social setting but not having the same appeal in another. This could concern the setting, your understanding, the person or an aspect the form does not capture. The example does not settle the explanation. It also does not replace sexual attraction with a change in comfort, libido, arousal or willingness to do something. If you cannot tell which experience the statement fits, the unscored response keeps that uncertainty visible.",
+              "zh": "例如，一个特质在某个普通社交场合让你感到性吸引，换个场合却没有相同吸引力。这可能涉及场合、理解、对方或表单未覆盖的因素，例子不裁定解释，也不以舒适度、性欲、身体唤起或行动意愿的变化替代性吸引。若无法确定陈述适合哪种体验，未评分可以保留不确定性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Variation is not a request to change yourself",
+            "zh": "变化不要求你改变自己"
+          },
+          "paragraphs": [
+            {
+              "en": "Neither a higher nor a lower mean is an instruction to seek different settings, test attraction or make yourself feel something. The form does not recommend changing a sexual orientation or recreating an experience to obtain a preferred result. It supplies no evidence that a person’s feelings can or should be changed by someone else. You can accept, decline or leave uncertain any description without making a commitment to a relationship, an identity or a next action.",
+              "zh": "较高或较低都不要求寻找不同场合、测试吸引或强迫自己产生感受。表单不建议改变性取向，也不建议重现经历来获得想要的结果；它不提供别人能够或应该改变某人感受的证据。可以接受、不接受或不确定任何描述，不必承诺关系、身份或下一步行动。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Similar means can describe different differences",
+            "zh": "相似均值可能对应不同差异"
+          },
+          "paragraphs": [
+            {
+              "en": "A difference across social settings may be prominent for one person, while an emotional context matters more in another person’s selected experiences. Their means can be similar even if the individual answers differ. The three statements do not inventory every possible context, determine its importance or show how often a particular event occurred. The fixed twelve-month window also cannot establish a lifelong pattern. Read the specific statements and keep unknown explanations separate from the differences you remember experiencing.",
+              "zh": "对一个人而言，社交场合差异突出；对另一人，所选经历中的情感情境更相关。即使逐题不同，也可能均值相近。三条陈述没有列举所有情境、判定重要程度或记录某事件发生次数。固定十二个月也不能建立终身模式。请读具体题意，把未知解释与记得体验到的差异分开。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Context and range answer different questions",
+            "zh": "情境与范围回答不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Context variation concerns differences between situations. Breadth concerns the variety of qualities across your experiences, while continuity concerns similarity across points in time and separate experiences. A familiar broad range can vary by context without being contradictory. The report therefore preserves all five means independently and assigns no leading pattern. The original Mini’s confidence in describing patterns is a separate topic again; confidence does not establish the degree of variation you actually experienced.",
+              "zh": "情境变化涉及场合之间的差异；多样范围涉及不同经历中有哪些特质；延续涉及时间和经历之间的相近。熟悉的广范围也可以随情境变化，并不矛盾。因此报告独立保留五项，不分配领先模式。原Mini描述模式的信心又是另一主题，有信心不证明实际变化程度。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Notice context without running an experiment",
+            "zh": "留意情境，不做实验"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could privately distinguish a remembered context from the attraction you experienced there. No person, location or private incident needs to be recorded. You do not need to revisit a place, change a relationship, initiate contact or attempt a sexual activity to clarify the result. The aim is only to make your own interpretation less automatic. You may decide no suitable comparison exists and finish with unscored answers; the complete guides require no personal score to unlock.",
+              "zh": "若有用，可私下分开记忆中的情境与其中体验到的吸引。不必记录人物、地点或私事，无需重返场所、改变关系、主动联系或尝试性行为来澄清结果。这里只帮助不那么自动地解释自己的感受。没有合适比较时可以未评分完成，完整指南不需要个人分数解锁。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three agreement ratings, with missing information retained",
+            "zh": "三条认同评分，保留缺失资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree or 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty or missing experience. Each part needs all three numeric ratings; its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored response withholds that part’s mean without zero, midpoint substitution or inference. All fifteen prompts need a response choice to finish, including unscored choices. No total, rank or dominant part is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定或缺少经历。每项三条全部数值有效才显示原始和除以3的一位小数，例如1、2、4之和7，除以3显示2.3。任何未评分都使所属项不显示均值，不补零、中点或推断。十五条都选一个选项即可完成，包括未评分；不计算总分、排名或主导项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original reflection, not a standard orientation scale",
+            "zh": "原创观察，不是标准取向量表"
+          },
+          "paragraphs": [
+            {
+              "en": "These fifteen bilingual statements and five guides are original FermatMind content, without psychometric validation or population norms. AUREA and AVEN community resources inform the background distinction between romantic attraction, sexual attraction, identity, behaviour and arousal; their pages do not supply this bank or a scoring key. This is not an administration of Kinsey, Klein or another published instrument. Identity language remains your choice. Answers stay in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. Public guides remain available even when every part is unscored.",
+              "zh": "这十五条双语陈述和五篇指南由费马原创，尚无心理测量验证或人群常模。AUREA与AVEN社群资源为浪漫吸引、性吸引、身份、行为和唤起之间的背景区分提供参考，不提供本题库或计分键。本页不是金赛、Klein或其他发表工具的实施，身份语言由你选择。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果；全部未评分也可读公开指南。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sexual-attraction-breadth",
+      "directionIds": [
+        "sexual-attraction-breadth"
+      ],
+      "title": {
+        "en": "Breadth of Attraction",
+        "zh": "吸引特质的多样范围"
+      },
+      "headline": {
+        "en": "A description of selected experiences, not an identity",
+        "zh": "描述选定体验，不分配身份"
+      },
+      "summary": {
+        "en": "Read the specific statements, their context and missing information. Five separate readings remain open without assigning an orientation or type.",
+        "zh": "结合具体陈述、情境与缺失资料阅读，五项分别开放，不分配取向或类型。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with the statements, not an attraction count, probability or population rank.",
+        "zh": "需要三条数值有效，原始和除以3；表示对陈述的认同，不是吸引次数、概率或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "Breadth of Attraction: Attraction Experiences Guide",
+          "zh": "吸引特质的多样范围：吸引体验完整说明"
+        },
+        "description": {
+          "en": "Read this original attraction-experience pattern with examples, missing-answer rules and limits. Full guide free; no orientation or type assigned.",
+          "zh": "结合例子、缺失规则与局限，阅读原创吸引体验观察的这一部分。完整指南免费，不分配取向或类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Variety of qualities, without a direction label",
+            "zh": "特质多样，不分配方向标签"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about attraction to people with markedly different qualities, an experience outside a previous usual pattern and a varied rather than uniform set of appealing qualities. A higher mean records agreement with those statements during the selected year. The form does not ask which genders or categories of people attract you, and its number cannot identify them. Breadth here is an original reflection on your own described experiences, not a Kinsey score, a Klein grid or a sexual-orientation classification.",
+              "zh": "这一项涉及特质明显不同的人、不符合以往惯常模式的经历，以及有吸引力的特质是否多样而非相似。高均值记录所选一年中对这些陈述的认同。表单不问吸引你的性别或人群类别，数字也无法识别它们。这里的范围是对自述体验的原创观察，不是金赛分数、Klein格表或性取向分类。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Different qualities in different people",
+            "zh": "不同人身上的不同特质"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, two people might each feel sexually attractive to you for quite different qualities. Alternatively, a person outside a familiar pattern might become attractive while many other qualities remain familiar. This example does not require a relationship, an action or a description of the people involved. It also does not assume that appreciating a quality is necessarily sexual attraction. You decide whether the experience matches the wording and can choose unscored when the distinction is unclear.",
+              "zh": "例如，两个人可能因很不同的特质分别让你感到性吸引；也可能某个人不符合熟悉模式，却仍有许多熟悉特质。例子不要求关系、行动或描述相关人物，也不假设欣赏某特质必然是性吸引。由你判断体验是否符合题意，分不清时可以选未评分。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Broader and narrower are not personal ranks",
+            "zh": "较广与较窄不是个人排名"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean does not make someone more open, adventurous, available or likely to act on an attraction. A lower mean does not establish loyalty, rigidity, selectiveness or a fixed identity. Attraction and chosen behaviour remain different, and a range of experiences creates no obligation to explore, disclose or change anything. The report assigns neither an explorer nor an anchored archetype. It describes agreement with three original statements without turning a memorable topic name into a judgement about your character.",
+              "zh": "高均值不让人更开放、爱冒险、可接近或更可能行动；低均值不确定忠诚、僵化、挑剔或固定身份。吸引与选择的行为仍是两回事，经历范围不带来探索、公开或改变的义务。报告不分配探索者或锚定者原型，只描述对三条原创陈述的认同，不把醒目主题变成品格评价。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Opportunity and missing experience matter",
+            "zh": "机会与缺少经历仍然重要"
+          },
+          "paragraphs": [
+            {
+              "en": "A year with few suitable experiences may provide little basis for describing a range. Do not treat a lack of comparisons as proof that attraction is narrow or absent. One unscored answer withholds this part’s mean because all three numeric ratings are required. Even a complete set does not adjust for social opportunity, memory or how broadly you understood a quality. Different people’s averages therefore do not provide an evidence-based ranking of their sexuality or a fair comparison of life experience.",
+              "zh": "一年中合适经历很少时，可能没有足够依据描述范围。不要把缺少比较当成吸引狭窄或不存在的证明。每项需要三条数值，一条未评分就不显示本项均值。即使完整，也没有校正社交机会、记忆或你怎样界定特质，因此不同人的平均不能用来给性特征排序，也不是人生经历的公平比较。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A varied range may also stay familiar",
+            "zh": "多样范围也可能保持熟悉"
+          },
+          "paragraphs": [
+            {
+              "en": "Breadth does not automatically mean change across time. A varied range may remain similar throughout the year, or a relatively narrow range may shift between contexts. The continuity and context parts remain separate for this reason. Romantic attraction can follow another pattern entirely. No combined mean or largest-score rule resolves these differences into a single type. The existing Mini reflection concerns noticing and describing feelings, labels and privacy; it is not a substitute for these experience statements and the scores do not convert.",
+              "zh": "多样不自动表示随时间改变；多样范围可能整年相近，较窄范围也可能随场合转变，所以延续和情境部分分别保留。浪漫吸引可能又是另一模式，没有总均值或最高分规则把差异压成一个类型。现有Mini观察涉及辨认和描述、标签和隐私，不替代这些体验陈述，分数也不换算。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Reflect without listing or categorising people",
+            "zh": "观察时不用列人或分类别人"
+          },
+          "paragraphs": [
+            {
+              "en": "If it would help, think privately about whether two suitable experiences involved similar or different qualities. There is no need to list names, genders, body descriptions or private behaviour, and the website provides no field for them. You do not need to seek an unfamiliar experience to broaden a result or avoid one to preserve it. You can stop without choosing a label, discussing a score or deciding that any part should become more or less prominent in your life.",
+              "zh": "若有帮助，可私下想两次合适经历涉及相近还是不同特质。不需要列人名、性别、身体描述或私下行为，网站也不设填写栏。无需寻找陌生体验来扩大结果，也不必避开体验来保持结果。可以不选标签、不讨论分数、不决定哪一项该在生活中更突出或更少，就结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three agreement ratings, with missing information retained",
+            "zh": "三条认同评分，保留缺失资料"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree or 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty or missing experience. Each part needs all three numeric ratings; its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored response withholds that part’s mean without zero, midpoint substitution or inference. All fifteen prompts need a response choice to finish, including unscored choices. No total, rank or dominant part is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定或缺少经历。每项三条全部数值有效才显示原始和除以3的一位小数，例如1、2、4之和7，除以3显示2.3。任何未评分都使所属项不显示均值，不补零、中点或推断。十五条都选一个选项即可完成，包括未评分；不计算总分、排名或主导项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original reflection, not a standard orientation scale",
+            "zh": "原创观察，不是标准取向量表"
+          },
+          "paragraphs": [
+            {
+              "en": "These fifteen bilingual statements and five guides are original FermatMind content, without psychometric validation or population norms. AUREA and AVEN community resources inform the background distinction between romantic attraction, sexual attraction, identity, behaviour and arousal; their pages do not supply this bank or a scoring key. This is not an administration of Kinsey, Klein or another published instrument. Identity language remains your choice. Answers stay in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. Public guides remain available even when every part is unscored.",
+              "zh": "这十五条双语陈述和五篇指南由费马原创，尚无心理测量验证或人群常模。AUREA与AVEN社群资源为浪漫吸引、性吸引、身份、行为和唤起之间的背景区分提供参考，不提供本题库或计分键。本页不是金赛、Klein或其他发表工具的实施，身份语言由你选择。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果；全部未评分也可读公开指南。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Reported patterns, with different experiences preserved",
+        "zh": "记录模式，保留不同体验"
+      },
+      "paragraphs": [
+        {
+          "en": "The first two parts concern romantic attraction and the other three sexual attraction. Five means describe agreement with different statements; they are not event frequencies, a common scale of sexuality or competing identities. Continuity and variation can coexist across different qualities or contexts.",
+          "zh": "前两项涉及浪漫吸引，后三项涉及性吸引。五项均值描述对不同陈述的认同，不是事件频率、共同的性特征尺度或竞争的身份；不同特质或情境中，延续与变化可以并存。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "No basis for a comparison stays unscored",
+        "zh": "无比较依据时保留未评分"
+      },
+      "paragraphs": [
+        {
+          "en": "If no attraction occurred, do not invent a bond order or a sexual-pattern comparison. Recurrence statements can be disagreed with when no romantic attraction occurred, while bond-order statements need an onset to compare. All-unscored answers can finish without any personal mean and still open every guide.",
+          "zh": "没有吸引时，不编造联结先后或性吸引模式的比较。没有浪漫吸引，可以不同意再次出现的陈述，但联结先后题需要吸引起点。全部未评分仍可完成，没有个人均值也能读所有指南。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Current page memory only",
+        "zh": "仅当前页面内存"
+      },
+      "paragraphs": [
+        {
+          "en": "No saved drafts, quiz-flow statistics, personal-result URLs or personal-result sharing. Refreshing, changing language or leaving discards the attempt. You are never asked for people’s names, genders, body descriptions or sexual acts.",
+          "zh": "不保存草稿、不发送测试流程统计、不生成个人结果URL、不分享个人结果。刷新、换语言或离开会丢弃作答；不要求人名、性别、身体描述或性行为。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I am aromantic or assign an orientation?",
+        "zh": "能判断我是否无浪漫或分配性取向吗？"
+      },
+      "answer": {
+        "en": "No. It records agreement with fifteen original experience statements and keeps five readings separate. It assigns no identity, spectrum position, main type or total. Identity language remains your choice.",
+        "zh": "不能。它记录对十五条原创体验陈述的认同，五项分别保留，不分配身份、光谱位置、主要类型或总分。身份语言由你选择。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I experienced no romantic attraction?",
+        "zh": "没有体验到浪漫吸引怎么办？"
+      },
+      "answer": {
+        "en": "You may meaningfully disagree with statements that romantic attraction recurred. Bond-before-attraction statements need an attraction onset to compare, so no such experience should stay unscored. Uncertainty can always stay unscored.",
+        "zh": "可以有意义地不同意吸引再次出现的陈述。但联结先于吸引题需要可比较的吸引起点，没有这种经历应保留未评分；不确定也始终可以未评分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I have no sexual-attraction experiences to compare?",
+        "zh": "没有可比较的性吸引经历怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored for the relevant statements. A missing comparison is not a low score or an identity. Each part needs all three numeric ratings; any unscored item withholds only that mean and every full guide remains open.",
+        "zh": "相关陈述请选择未评分。缺乏比较不是低分或身份；每项需要三条数值，一条未评分只让所属项没有均值，所有全文继续开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does three mean unsure?",
+        "zh": "3代表不确定吗？"
+      },
+      "answer": {
+        "en": "No. Three is the numeric Neutral agreement anchor. Use the separate unscored response for uncertainty, unsuitable experience or a choice not to answer. No missing answer becomes zero or three.",
+        "zh": "不代表。3是数值中立认同选项；不确定、经历不适合或不愿回答另选未评分，缺失不补0或3。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the Kinsey scale, Klein grid or Mini 20-item version?",
+        "zh": "这是金赛、Klein或Mini 20题版本吗？"
+      },
+      "answer": {
+        "en": "No. These are original FermatMind experience statements without psychometric validation. Community sources provide background distinctions, not this bank or key. Mini 20 concerns recognising and describing feelings, labels and privacy; scores do not convert.",
+        "zh": "不是。这是未经心理测量验证的费马原创体验陈述。社群来源提供背景区分，不提供本题库或计分键；Mini 20涉及辨认、描述、标签和隐私，分数不换算。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers remain in current page memory. No drafts, quiz-flow statistics or personal-result sharing are offered. Refreshing, changing language or leaving loses the attempt. Public guides contain no personal answers or means.",
+        "zh": "答案只留当前页面内存，不提供草稿、测试流程统计或个人结果分享。刷新、换语言或离开会丢失作答，公开指南不含个人答案或均值。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "AUREA: romantic attraction and questioning",
+        "zh": "AUREA：浪漫吸引与探索中的疑问"
+      },
+      "url": "https://www.aromanticism.org/en/faq"
+    },
+    {
+      "title": {
+        "en": "AVEN: attraction, identity and experience",
+        "zh": "AVEN：吸引、身份与体验"
+      },
+      "url": "https://asexuality.org/?q=general.html"
+    }
+  ]
+}

@@ -6387,5 +6387,31 @@
       "sadism"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "attraction-experiences",
+    "code": "FM_ATTRACTION_EXPERIENCES15",
+    "version": "fm_attraction_experiences15_v1",
+    "updated": "2026-10-30",
+    "category": "relationships",
+    "title": {
+      "en": "Attraction Experiences Reflection",
+      "zh": "吸引体验观察"
+    },
+    "description": {
+      "en": "Reflect on romantic recurrence and bond context, plus sexual attraction across time and settings. 15 original prompts and five full guides, without labels.",
+      "zh": "用十五条原创陈述，观察浪漫吸引的再次出现与联结先后，以及性吸引的延续、情境和特质范围。五篇全文免费，不分配身份。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_attraction_experiences15",
+    "questionCount": 15,
+    "resultSlugs": [
+      "romantic-presence",
+      "bond-first-context",
+      "sexual-continuity",
+      "sexual-context-variation",
+      "sexual-attraction-breadth"
+    ],
+    "collection": "explore"
   }
 ]
