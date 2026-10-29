@@ -6111,5 +6111,51 @@
       "openness-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sbti-test",
+    "code": "FM_SBTI50_WEB_REPAIR",
+    "version": "fm_sbti50_web_repair_v1",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "SBTI Test: FermatMind 50-Choice Edition",
+      "zh": "SBTI趣味测试：费马50组修订版"
+    },
+    "description": {
+      "en": "Try fifty original paired choices and explore twenty-five SBTI-inspired themes with complete free guides. Raw counts and all ties; no signup or fixed personality claim.",
+      "zh": "用五十组原创成对选择，探索二十五个SBTI来源主题。原始次数、全部并列与完整指南免费，无需注册，不确定固定人格。"
+    },
+    "minutes": 8,
+    "formCode": "fm_sbti50_web_repair_v1",
+    "questionCount": 50,
+    "resultSlugs": [
+      "self-critic",
+      "initiator",
+      "caregiver",
+      "social-adapter",
+      "detached-observer",
+      "pause-taker",
+      "action-starter",
+      "pressure-speaker",
+      "contingency-planner",
+      "lightener",
+      "expressive-styler",
+      "easygoing",
+      "resource-keeper",
+      "risk-watcher",
+      "quiet-observer",
+      "venting-fixer",
+      "appreciator",
+      "improviser",
+      "giver",
+      "reflective-thinker",
+      "independent-walker",
+      "romantic-connector",
+      "surprised-commentator",
+      "atmosphere-seeker",
+      "low-battery-rebuilder"
+    ],
+    "collection": "explore"
   }
 ]

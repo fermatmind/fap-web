@@ -1,3 +1,5 @@
+import { isSbti50ConfigurationValid } from "@/lib/questionnaires/sbti50";
+import { Sbti50Page } from "./Sbti50Page";
 import { isCritical30ConfigurationValid } from "@/lib/questionnaires/critical30";
 import { Critical30Page } from "./Critical30Page";
 import { isReasoning18ConfigurationValid } from "@/lib/questionnaires/reasoning18";
@@ -108,6 +110,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sbti50" && !isSbti50ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mattering10" && !isMattering10ConfigurationValid(quiz)) return { title: "Mattering unavailable", robots: { index: false, follow: false } };
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
@@ -135,6 +138,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "sbti50") {
+    if (!isSbti50ConfigurationValid(quiz)) notFound();
+    return <Sbti50Page quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "mattering10") {
     if (!isMattering10ConfigurationValid(quiz)) notFound();
     return <Mattering10Page quiz={quiz} locale={locale} />;
