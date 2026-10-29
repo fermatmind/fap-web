@@ -6235,5 +6235,30 @@
       "overextension"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "dating-outlook",
+    "code": "FM_DATING_OUTLOOK16",
+    "version": "fm_dating_outlook16_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Dating Outlook Test",
+      "zh": "恋爱心态测试"
+    },
+    "description": {
+      "en": "Explore possibility, learnable skills, guarded expectations and fixed conditions with 16 original statements and four full guides. No identity label.",
+      "zh": "用16条原创题反思联结可能、可学习技巧、保留期待与固定条件。四篇完整指南免费，不分配身份标签。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_dating_outlook16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "possibility",
+      "practice",
+      "guarded-expectations",
+      "fixed-conditions"
+    ]
   }
 ]

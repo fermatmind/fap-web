@@ -1,0 +1,1760 @@
+{
+  "slug": "dating-outlook",
+  "code": "FM_DATING_OUTLOOK16",
+  "version": "fm_dating_outlook16_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Dating Outlook Test",
+    "zh": "恋爱心态测试"
+  },
+  "description": {
+    "en": "Explore possibility, learnable skills, guarded expectations and fixed conditions with 16 original statements and four full guides. No identity label.",
+    "zh": "用16条原创题反思联结可能、可学习技巧、保留期待与固定条件。四篇完整指南免费，不分配身份标签。"
+  },
+  "seoTitle": {
+    "en": "Dating Outlook Test: Four Beliefs, Full Guides Free",
+    "zh": "恋爱心态测试：四项信念与免费完整指南"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "For adults, reflect on your own current beliefs about dating rather than assessing someone else. Any gender or relationship status is welcome. Rate agreement from 1 to 5; 3 is neutral, while unsure, unsuitable or declined responses stay unscored. All sixteen prompts need a response. Each group of four needs three numeric ratings for a raw mean. No total, winner or main outlook is assigned. You can stop or read every full guide without answering.",
+    "zh": "面向成年人，只反思自己当前对恋爱交往的看法，不测试别人。不限性别或关系状态。按1至5评价认同程度；3是中立，不确定、不适用或不愿回答则保持未评分。16题均需响应，每组四题至少三条数字才显示原始均值。不合总分、不找赢家或主要心态；可随时停止，也可不回答直接读全部指南。"
+  },
+  "introduction": {
+    "en": "An original reflection on four dating beliefs: leaving possibilities open, seeing skills as learnable, keeping expectations guarded and seeing conditions as largely fixed. Separate readings retain mixed answers. Effort never creates an entitlement to interest or contact, and no result measures worth, masculinity, sexuality or membership in an online group. All four full guides are free.",
+    "zh": "原创反思四项恋爱信念：允许联结的不同可能、相信交往方式可学习、保留期待，以及认为条件多已固定。读法分别保留混合回答。努力从不带来获得兴趣或联系的资格；结果不测个人价值、男性气质、性取向或网络群体成员身份。四篇完整指南免费。"
+  },
+  "resultHeading": {
+    "en": "Your four dating-belief readings",
+    "zh": "本次四项恋爱信念读法"
+  },
+  "source": {
+    "kind": "fermatmind_original_dating_beliefs16",
+    "formCode": "fm_dating_outlook16_v1",
+    "itemBankVersion": "fm_dating_outlook16_v1",
+    "scoringVersion": "do16_agreement1_5_na_min3_four4_complete16_v1",
+    "resultContentVersion": "fm_dating_outlook_four_full8_20261029_v1",
+    "itemBankSha256": "f24e011fcddd46cc3a691bfe7a4d38e82c9998fdc374c2ae4c0ae2403d3fcd7a",
+    "resultContentSha256": "7d07f5c6082711608661ba2137f5c9542573e3263a572596e58085fee8170c49",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "possibility",
+      "title": {
+        "en": "Openness to connection",
+        "zh": "对联结可能性的开放"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "practice",
+      "title": {
+        "en": "Belief in learnable dating skills",
+        "zh": "相信交往方式可以学习"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "guarded-expectations",
+      "title": {
+        "en": "Keeping expectations guarded",
+        "zh": "保留期待与感受"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fixed-conditions",
+      "title": {
+        "en": "Belief in largely fixed dating conditions",
+        "zh": "认为交往条件多已固定"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "DO_01",
+      "prompt": {
+        "en": "I see a disappointing dating experience as one experience rather than a complete forecast.",
+        "zh": "我把一次不顺的约会看作一次经历，而不是对以后所有关系的预报。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "possibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "possibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "possibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "possibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "possibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "possibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_02",
+      "prompt": {
+        "en": "I think practising how I listen can change the quality of a dating conversation.",
+        "zh": "我认为练习倾听，可能改变约会谈话的质量。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "practice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "practice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "practice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "practice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "practice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "practice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_03",
+      "prompt": {
+        "en": "I prefer to keep hopes modest until I have seen a consistent pattern of interest.",
+        "zh": "我倾向先把期待放低，等看到持续的兴趣再说。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "guarded-expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "guarded-expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_04",
+      "prompt": {
+        "en": "I think looks and chance largely set someone’s dating possibilities before an interaction starts.",
+        "zh": "我认为互动开始前，外貌和机遇已经大致设定了一个人的恋爱可能。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "fixed-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "fixed-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_05",
+      "prompt": {
+        "en": "I think connection can develop even when an early interaction feels ordinary.",
+        "zh": "我认为即使最初互动很普通，之后也可能慢慢建立联结。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "possibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "possibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "possibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "possibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "possibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "possibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_06",
+      "prompt": {
+        "en": "I see expressing what I want clearly as something I can learn.",
+        "zh": "我把清楚表达自己想要什么，看作可以学习的事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "practice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "practice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "practice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "practice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "practice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "practice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_07",
+      "prompt": {
+        "en": "When I like someone, I hold back from showing how much it matters to me.",
+        "zh": "喜欢一个人时，我会先保留，不让对方看出这对我有多重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "guarded-expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "guarded-expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_08",
+      "prompt": {
+        "en": "I tend to see my dating prospects as difficult to change through my own choices.",
+        "zh": "我倾向认为自己的恋爱前景，很难通过自己的选择改变。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "fixed-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "fixed-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_09",
+      "prompt": {
+        "en": "I can imagine more than one path by which a relationship might begin.",
+        "zh": "我能想到不止一种可能开始关系的途径。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "possibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "possibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "possibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "possibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "possibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "possibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_10",
+      "prompt": {
+        "en": "I believe I can revise my approach after reflecting on an awkward interaction.",
+        "zh": "我相信回看一次尴尬互动后，可以调整自己的交往方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "practice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "practice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "practice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "practice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "practice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "practice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_11",
+      "prompt": {
+        "en": "I avoid picturing a shared future because I do not want disappointment to feel sharper.",
+        "zh": "我会避免想象共同未来，因为不希望失望来时更难受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "guarded-expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "guarded-expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_12",
+      "prompt": {
+        "en": "I think first impressions usually leave little room for later connection to develop.",
+        "zh": "我认为第一印象通常不会为之后发展联结留下太多空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "fixed-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "fixed-conditions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_13",
+      "prompt": {
+        "en": "I regard a lack of mutual interest with one person as compatible with future connection elsewhere.",
+        "zh": "我认为与某个人没有相互兴趣，并不排除以后在别处建立联结。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "possibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "possibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "possibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "possibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "possibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "possibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_14",
+      "prompt": {
+        "en": "I think useful effort can improve my participation even when it cannot secure another person’s interest.",
+        "zh": "我认为有用的努力可以改善自己的参与方式，即使不能确保别人感兴趣。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "practice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "practice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "practice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "practice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "practice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "practice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_15",
+      "prompt": {
+        "en": "I prefer emotional distance while I am unsure how an interaction will develop.",
+        "zh": "不确定互动会怎样发展时，我倾向先保留一点情感距离。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "guarded-expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "guarded-expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "guarded-expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "DO_16",
+      "prompt": {
+        "en": "I see timing and circumstances as outweighing what I can learn about relating to someone.",
+        "zh": "我认为时机和处境的影响，大过自己能学到的与人相处方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "强烈不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不同意也不反对"
+          },
+          "directionId": "fixed-conditions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "强烈同意"
+          },
+          "directionId": "fixed-conditions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unsure, not suitable or prefer not to answer",
+            "zh": "不确定、不适用，或不愿回答"
+          },
+          "directionId": "fixed-conditions",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "possibility",
+      "directionIds": [
+        "possibility"
+      ],
+      "title": {
+        "en": "Openness to Connection: Full Dating Outlook Guide",
+        "zh": "对联结可能性的开放：完整指南"
+      },
+      "headline": {
+        "en": "Read a belief in context, with a useful possibility and a cost.",
+        "zh": "结合场合阅读一种信念，以及可能用途与代价。"
+      },
+      "summary": {
+        "en": "Read this original dating-belief theme through examples, mixed answers, independent raw means and a private optional reflection.",
+        "zh": "通过具体场景、混合回答、独立原始均值和可选私下反思，完整阅读这一原创恋爱信念主题。"
+      },
+      "seo": {
+        "title": {
+          "en": "Openness to Connection: Dating Outlook Guide",
+          "zh": "对联结可能性的开放｜恋爱心态完整指南"
+        },
+        "description": {
+          "en": "Explore this dating belief with full examples, raw agreement means, mixed answers and clear limits. No assigned identity or prediction.",
+          "zh": "完整阅读这一恋爱信念：原始认同均值、普通场景、混合回答与清楚局限。不分配身份，不预测关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original agreement statements; at least three numeric ratings for a raw mean. Unscored is not zero. No overall score or main outlook.",
+        "zh": "四条原创认同题，至少三条数字才显示原始均值。未评分不补零，不合总分或分配主要心态。"
+      },
+      "sections": [
+        {
+          "id": "possibility-1",
+          "title": {
+            "en": "What possibility means here",
+            "zh": "这里的可能性指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part describes agreement with the idea that an unsatisfying encounter leaves room for other outcomes. It includes allowing a slow beginning and imagining several ways connection might arise. A higher mean is a record of your present answers, rather than evidence that a relationship is near. A lower mean may describe your current expectations without defining your whole outlook on life or your ability to care for someone.",
+              "zh": "这一部分记录你多认同这样的想法：一次不理想的相遇之外，仍可能有其他结果；开始可以慢些，建立联结也可能有不同途径。较高只记录当前回答，不证明一段关系即将出现。较低可能描述此刻的预期，不定义整个人生观或关心他人的能力。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-2",
+          "title": {
+            "en": "One unanswered message",
+            "zh": "一条没有回复的消息"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine sending a message and receiving no reply. You might keep several explanations open while also deciding not to send another message. Someone else might feel that the silence confirms a wider expectation about dating. The questionnaire cannot establish why a reply did not arrive. This example separates leaving possibilities open from pursuing a particular person, interpreting silence as interest or expecting anyone to respond.",
+              "zh": "例如，发出的消息没有回复，你可能保留不同解释，同时决定不再发下一条；另一人可能感觉沉默印证了自己对约会的整体预期。问卷不能确定为什么没有回复。例子把保留可能性与追求某个具体的人分开，也不把沉默解释为兴趣，不要求别人回应。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-3",
+          "title": {
+            "en": "Hope can leave room without becoming a promise",
+            "zh": "保留希望，无需变成保证"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is being able to hold one disappointment without turning it into a universal conclusion. A possible cost is overlooking a concrete mismatch while waiting for a connection that has not developed. Neither consequence follows automatically from a mean. Openness does not require repeated attempts, constant optimism or remaining in a setting you do not want. The result offers a description, not a target to reach.",
+              "zh": "一种可能用途，是经历失望时不立即把它推成普遍结论；一种可能代价，是等联结发展时忽略眼前的不合适。均值不自动证明任何后果。开放不要求反复尝试、一直乐观或留在不想待的场合。结果提供一种描述，不规定必须达到的目标。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-4",
+          "title": {
+            "en": "Slow beginnings and several paths may differ",
+            "zh": "慢慢开始与多种途径可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might readily imagine meeting someone through different settings yet believe that interest must be immediate. Another person may allow a gradual beginning but see very few opportunities in their current routine. Their means could be similar despite those different answers. The four statements do not measure actual opportunity, access to social settings or desire for a relationship. Read the individual beliefs before using a single number to summarize them.",
+              "zh": "你可能容易想到在不同场合认识人，却觉得兴趣必须立刻出现；另一人允许慢慢开始，却觉得当前生活里的机会很少。回答不同，均值仍可能接近。四句话不测实际机会、社交场所的可及性或是否想谈恋爱。用一个数字概括前，请先阅读具体信念。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-5",
+          "title": {
+            "en": "Openness can coexist with caution",
+            "zh": "开放也能与谨慎并存"
+          },
+          "paragraphs": [
+            {
+              "en": "Openness to connection and keeping expectations guarded are separate parts. You can believe future connection is possible while choosing to reveal feelings slowly. You may also believe skills can be learned while feeling that circumstances have a strong influence. These combinations are retained rather than collapsed into a main outlook. No mix decides whether you should date, disclose interest, lower a boundary or continue an exchange with a particular person.",
+              "zh": "对联结开放与保留期待是不同部分。你可以相信未来有可能，同时选择慢慢披露感受；也可以相信方式能学习，同时觉得处境影响很大。这些组合会被保留，不压成一种主要心态。任何组合都不决定你该不该约会、表达兴趣、放低边界或继续与某个人交流。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-6",
+          "title": {
+            "en": "A small observation to keep",
+            "zh": "可保留的一点观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one statement and write what would make its wording fit your own present situation more precisely. You might distinguish wanting a connection from expecting one soon, or being open in principle from having time to meet people. No names, messages or relationship history are needed. This optional note stays outside the questionnaire; you can keep it private, leave it unfinished or end after reading.",
+              "zh": "如果有用，可选一句，写写怎样改写才更贴近当前情况。例如分开“想有联结”与“预期很快遇到”，或分开原则上的开放与现实中是否有时间认识人。无需姓名、聊天记录或关系经历。这份可选笔记不属于问卷，可以保密、不写完，或读到这里就结束。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-7",
+          "title": {
+            "en": "How four statements become a raw mean",
+            "zh": "四句话怎样形成原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose 1 strongly disagree, 2 disagree, 3 neither agree nor disagree, 4 agree or 5 strongly agree. Uncertain, unsuitable or declined answers stay unscored; they are not neutral answers or zeroes. All sixteen prompts require a response. Each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored answer give 10 divided by 3, displayed as 3.3. Fewer ratings show insufficient information. Means remain separate and are not percentages, probabilities or normative ranks.",
+              "zh": "1强烈不同意、2不同意、3既不同意也不反对、4同意、5强烈同意。不确定、不适用或不愿回答时保持未评分，不当作中立或零分。16题均需响应，每部分四题中至少三条数字。例如2、3、5加一条未评分得10除以3，显示3.3；不足时显示资料不足。均值独立保留，不是百分比、概率或常模排名。"
+            }
+          ]
+        },
+        {
+          "id": "possibility-8",
+          "title": {
+            "en": "Original reflection and its limits",
+            "zh": "原创反思及其局限"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts, four editorial themes and full guides. They are not an administered research instrument or an established four-type model. Reliability, validity, norms and language equivalence have not been established. The report assigns no identity, membership, main outlook, diagnosis or desirability score, and predicts no relationship outcome. It concerns your current beliefs, without assessing another person. All four guides remain free and available even with every answer unscored. No disclosure, contact, dating activity or further test is required.",
+              "zh": "费马原创题目、四项编辑主题及完整指南，不是已施测研究工具或已建立的四类型模型，尚未建立信效度、常模或跨语言等价。报告不分配身份、成员资格、主要心态、诊断或吸引力分，不预测关系结果。只看自己的当前信念，不测别人；全部未评分时仍开放四篇免费完整指南，不要求披露、联系、约会活动或继续测试。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "directionIds": [
+        "practice"
+      ],
+      "title": {
+        "en": "Learnable Dating Skills: Full Dating Outlook Guide",
+        "zh": "相信交往方式可以学习：完整指南"
+      },
+      "headline": {
+        "en": "Read a belief in context, with a useful possibility and a cost.",
+        "zh": "结合场合阅读一种信念，以及可能用途与代价。"
+      },
+      "summary": {
+        "en": "Read this original dating-belief theme through examples, mixed answers, independent raw means and a private optional reflection.",
+        "zh": "通过具体场景、混合回答、独立原始均值和可选私下反思，完整阅读这一原创恋爱信念主题。"
+      },
+      "seo": {
+        "title": {
+          "en": "Learnable Dating Skills: Dating Outlook Guide",
+          "zh": "相信交往方式可以学习｜恋爱心态完整指南"
+        },
+        "description": {
+          "en": "Explore this dating belief with full examples, raw agreement means, mixed answers and clear limits. No assigned identity or prediction.",
+          "zh": "完整阅读这一恋爱信念：原始认同均值、普通场景、混合回答与清楚局限。不分配身份，不预测关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original agreement statements; at least three numeric ratings for a raw mean. Unscored is not zero. No overall score or main outlook.",
+        "zh": "四条原创认同题，至少三条数字才显示原始均值。未评分不补零，不合总分或分配主要心态。"
+      },
+      "sections": [
+        {
+          "id": "practice-1",
+          "title": {
+            "en": "Beliefs about what can be learned",
+            "zh": "关于哪些事能学习的信念"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks whether you see listening, clear expression and revising an approach as learnable aspects of dating. It also separates useful effort from securing another person’s interest. A higher mean describes agreement with those ideas; it does not show that you already use particular skills. A lower mean does not establish inability or unwillingness to learn. The questionnaire collects beliefs rather than observing a real interaction or assessing its quality.",
+              "zh": "这一部分问你是否把倾听、清楚表达和调整方式看作交往中可学习的部分，也把有用努力与确保别人兴趣分开。较高表示更认同这些观点，不说明已经具备相应技巧；较低不证明没有能力或不愿学习。问卷收集信念，不观察真实互动或评定互动质量。"
+            }
+          ]
+        },
+        {
+          "id": "practice-2",
+          "title": {
+            "en": "Looking back at an awkward conversation",
+            "zh": "回看一次尴尬谈话"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a conversation in which you spoke quickly and left little room for questions. You might think a different pace would change your own participation, without knowing whether attraction would change. Another person may regard the encounter as mostly about chemistry or timing. This example distinguishes something you could practise from something you cannot decide for someone else. It does not infer what actually happened from your rating.",
+              "zh": "例如，一次谈话里自己说得很快，没留下多少提问空间。你可能觉得放慢节奏能改变自己的参与方式，却不知道吸引力是否会改变；另一人可能主要想到感觉或时机。例子分开自己可练习的事与无法替别人决定的事，不从评分推断真实发生了什么。"
+            }
+          ]
+        },
+        {
+          "id": "practice-3",
+          "title": {
+            "en": "Agency has limits",
+            "zh": "能行动，也有边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is noticing an aspect of your own participation that you can reconsider. A possible cost is treating every disappointing outcome as proof that you failed to work hard enough. Effort cannot purchase affection, consent or continued contact. Agreement with learning is not a duty to keep improving for another person. Equally, disagreeing with a statement does not mean that someone lacks effort, care or personal responsibility.",
+              "zh": "一种可能用途，是发现自己参与方式中可以重新考虑的部分；一种可能代价，是把每次失望都当成自己努力不够的证明。努力不能购买感情、同意或继续联系。认同学习不等于有义务不断为别人改进；不认同某句话，也不表示缺少努力、关心或责任。"
+            }
+          ]
+        },
+        {
+          "id": "practice-4",
+          "title": {
+            "en": "Listening and expressing yourself are distinct",
+            "zh": "倾听与表达自己是不同事情"
+          },
+          "paragraphs": [
+            {
+              "en": "You may strongly believe that listening can be practised but feel unsure about changing how you state what you want. Another person may readily revise an approach after an awkward meeting while doubting that any change affects a conversation’s quality. A shared mean can hide that difference. These statements sample several beliefs; they do not form a training plan or reveal which practical skill, if any, would be useful to you.",
+              "zh": "你可能很相信倾听能练习，却不确定怎样改变表达需求的方式；另一人可能容易在尴尬见面后调整方式，却不相信改变会影响谈话质量。相同均值可能隐藏这些差异。题目只取几项信念，不构成训练计划，也不确定什么实际技巧对你有用。"
+            }
+          ]
+        },
+        {
+          "id": "practice-5",
+          "title": {
+            "en": "Learning and fixed conditions are not mirror images",
+            "zh": "学习与固定条件不是镜像"
+          },
+          "paragraphs": [
+            {
+              "en": "Believing in learnable skills does not require denying the influence of timing, circumstances or initial impressions. The two parts can both receive high ratings. Keeping expectations modest may also coexist with a belief in learning. No subtraction turns these beliefs into a winner or a percentage of personal agency. The report keeps each reading separate so you can consider the actual statement rather than defend a single identity.",
+              "zh": "相信技巧能学习，不要求否认时机、处境或第一印象的影响，两部分都可能较高。保留期待也可与相信学习同时存在。不用相减来确定赢家或个人能动性的百分比。报告分别保留读法，便于阅读具体句子，无需捍卫一种身份。"
+            }
+          ]
+        },
+        {
+          "id": "practice-6",
+          "title": {
+            "en": "Choose one manageable question",
+            "zh": "选一个可以考虑的小问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, name one aspect of an ordinary conversation that is under your control, such as leaving room for a question. Separately name something that remains outside your control, such as whether another person feels interested. This is a private reflection rather than an assignment to practise, contact anyone or seek feedback. You can decide that no action is useful and stop without changing your answers.",
+              "zh": "如果有用，可以写一个普通谈话中自己能决定的部分，例如给提问留空间；再写一个仍由别人决定的部分，例如对方是否感兴趣。这是私下反思，不布置练习，不要求联系任何人或寻求反馈。也可以认为无需行动，保留原回答，到此结束。"
+            }
+          ]
+        },
+        {
+          "id": "practice-7",
+          "title": {
+            "en": "How four statements become a raw mean",
+            "zh": "四句话怎样形成原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose 1 strongly disagree, 2 disagree, 3 neither agree nor disagree, 4 agree or 5 strongly agree. Uncertain, unsuitable or declined answers stay unscored; they are not neutral answers or zeroes. All sixteen prompts require a response. Each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored answer give 10 divided by 3, displayed as 3.3. Fewer ratings show insufficient information. Means remain separate and are not percentages, probabilities or normative ranks.",
+              "zh": "1强烈不同意、2不同意、3既不同意也不反对、4同意、5强烈同意。不确定、不适用或不愿回答时保持未评分，不当作中立或零分。16题均需响应，每部分四题中至少三条数字。例如2、3、5加一条未评分得10除以3，显示3.3；不足时显示资料不足。均值独立保留，不是百分比、概率或常模排名。"
+            }
+          ]
+        },
+        {
+          "id": "practice-8",
+          "title": {
+            "en": "Original reflection and its limits",
+            "zh": "原创反思及其局限"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts, four editorial themes and full guides. They are not an administered research instrument or an established four-type model. Reliability, validity, norms and language equivalence have not been established. The report assigns no identity, membership, main outlook, diagnosis or desirability score, and predicts no relationship outcome. It concerns your current beliefs, without assessing another person. All four guides remain free and available even with every answer unscored. No disclosure, contact, dating activity or further test is required.",
+              "zh": "费马原创题目、四项编辑主题及完整指南，不是已施测研究工具或已建立的四类型模型，尚未建立信效度、常模或跨语言等价。报告不分配身份、成员资格、主要心态、诊断或吸引力分，不预测关系结果。只看自己的当前信念，不测别人；全部未评分时仍开放四篇免费完整指南，不要求披露、联系、约会活动或继续测试。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guarded-expectations",
+      "directionIds": [
+        "guarded-expectations"
+      ],
+      "title": {
+        "en": "Guarded Expectations: Full Dating Outlook Guide",
+        "zh": "保留期待与感受：完整指南"
+      },
+      "headline": {
+        "en": "Read a belief in context, with a useful possibility and a cost.",
+        "zh": "结合场合阅读一种信念，以及可能用途与代价。"
+      },
+      "summary": {
+        "en": "Read this original dating-belief theme through examples, mixed answers, independent raw means and a private optional reflection.",
+        "zh": "通过具体场景、混合回答、独立原始均值和可选私下反思，完整阅读这一原创恋爱信念主题。"
+      },
+      "seo": {
+        "title": {
+          "en": "Guarded Expectations: Dating Outlook Guide",
+          "zh": "保留期待与感受｜恋爱心态完整指南"
+        },
+        "description": {
+          "en": "Explore this dating belief with full examples, raw agreement means, mixed answers and clear limits. No assigned identity or prediction.",
+          "zh": "完整阅读这一恋爱信念：原始认同均值、普通场景、混合回答与清楚局限。不分配身份，不预测关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original agreement statements; at least three numeric ratings for a raw mean. Unscored is not zero. No overall score or main outlook.",
+        "zh": "四条原创认同题，至少三条数字才显示原始均值。未评分不补零，不合总分或分配主要心态。"
+      },
+      "sections": [
+        {
+          "id": "guarded-expectations-1",
+          "title": {
+            "en": "Holding hope and feelings back",
+            "zh": "暂时保留希望与感受"
+          },
+          "paragraphs": [
+            {
+              "en": "This part describes agreement with keeping hopes modest, showing less of how much an encounter matters, avoiding imagined futures and maintaining emotional distance while unsure. A higher mean records endorsement of those statements. It does not establish an attachment style, a history of hurt or a reason for being cautious. A lower mean does not prove trust or openness in every setting. Your current view may fit some situations better than others.",
+              "zh": "这一部分描述你多认同降低期待、少表现一次相遇对自己的重要性、避免想象未来，以及不确定时保持情感距离。较高只记录对句子的认同，不确定依恋类型、受伤经历或谨慎原因；较低不证明在所有场合都信任或开放。当前看法可能适合某些场景，而不适合另一些。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-2",
+          "title": {
+            "en": "A plan mentioned before it is settled",
+            "zh": "尚未确定的共同安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine someone suggesting a future outing before a date or time has been settled. You may prefer not to imagine it in detail until a plan exists. Someone else may enjoy the thought while accepting that it might not happen. Neither response alone explains the relationship. This example concerns how you hold expectations, without asking you to reveal private plans, test someone’s intentions or change the pace of contact.",
+              "zh": "例如，有人提出以后一起出去，但日期和时间都没定。你可能更愿意等安排落实再想细节；另一人可能享受想象，同时接受也许不会发生。任何一种回应都不能单独解释关系。例子只谈怎样保留期待，不要求披露私下计划、测试别人意图或改变联系节奏。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-3",
+          "title": {
+            "en": "Protection and distance can have different costs",
+            "zh": "保护与距离可能有不同代价"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is allowing expectations to develop at a pace you can tolerate. A possible cost is making your interest difficult for another person to understand when you would have wanted it understood. Those are examples to consider, not measured effects. A high mean does not make caution wrong, and a low mean is not a recommendation to disclose more. You retain the right to choose what remains private.",
+              "zh": "一种可能用途，是让期待按自己能承受的节奏发展；一种可能代价，是本想被理解的兴趣变得难以看出。这些是可考虑的例子，不是测得的后果。较高不使谨慎变错，较低也不是多披露的建议。哪些事保密，仍由你决定。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-4",
+          "title": {
+            "en": "Modest hopes need not mean hidden feelings",
+            "zh": "期待不高，不等于感受隐蔽"
+          },
+          "paragraphs": [
+            {
+              "en": "You might keep future expectations modest while being clear about enjoying the present exchange. Another person may imagine a future easily but reveal little about how much it matters. Their answers can produce a similar mean. Read the four statements individually before concluding that they describe one protective strategy. The questionnaire does not measure whether another person understood you, whether distance helped or whether disclosure would have been welcome.",
+              "zh": "你可能对未来期待不高，却清楚表达享受眼前交流；另一人可能容易想象未来，却很少表露它有多重要。均值可能接近。认定四题描述同一种保护方式前，请逐句阅读。问卷不测别人是否理解、距离是否有帮助，或披露是否会受到欢迎。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-5",
+          "title": {
+            "en": "A guarded view can still allow possibilities",
+            "zh": "保留期待，仍可允许可能性"
+          },
+          "paragraphs": [
+            {
+              "en": "Guarded expectations can sit alongside openness to connection. A person might believe there are several ways to meet someone and still prefer a slow pace for sharing feelings. Belief in learnable skills and belief in fixed conditions add other considerations. No combination identifies an incel, a relationship risk or a level of desirability. These are separate descriptions of selected beliefs, without deciding what another person should expect from you.",
+              "zh": "保留期待可以与联结开放并存。一个人可能相信有不同相遇途径，也偏好慢慢分享感受。相信学习和固定条件又补充其他考虑。任何组合都不识别incel身份、关系风险或吸引力高低。它们分别描述选定信念，不决定别人应该对你有什么预期。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-6",
+          "title": {
+            "en": "Clarify what you wish to keep private",
+            "zh": "澄清自己想保留什么"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, distinguish a hope you prefer not to build yet from a feeling you already know but want to keep private. You need not explain either to anyone. This distinction may simply make one statement easier to answer next time. The optional reflection does not require approaching someone, changing a boundary or continuing to date. You can leave all items unscored if none provides a suitable way to describe your experience.",
+              "zh": "如果有用，可以分开尚不想建立的期待，与已经知道却想保密的感受。两者都不必向谁解释。这种区分可能只是让下次更容易回答一句题目，不要求接近别人、改变边界或继续约会。若题目都不适合描述经历，也可以全部留为未评分。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-7",
+          "title": {
+            "en": "How four statements become a raw mean",
+            "zh": "四句话怎样形成原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose 1 strongly disagree, 2 disagree, 3 neither agree nor disagree, 4 agree or 5 strongly agree. Uncertain, unsuitable or declined answers stay unscored; they are not neutral answers or zeroes. All sixteen prompts require a response. Each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored answer give 10 divided by 3, displayed as 3.3. Fewer ratings show insufficient information. Means remain separate and are not percentages, probabilities or normative ranks.",
+              "zh": "1强烈不同意、2不同意、3既不同意也不反对、4同意、5强烈同意。不确定、不适用或不愿回答时保持未评分，不当作中立或零分。16题均需响应，每部分四题中至少三条数字。例如2、3、5加一条未评分得10除以3，显示3.3；不足时显示资料不足。均值独立保留，不是百分比、概率或常模排名。"
+            }
+          ]
+        },
+        {
+          "id": "guarded-expectations-8",
+          "title": {
+            "en": "Original reflection and its limits",
+            "zh": "原创反思及其局限"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts, four editorial themes and full guides. They are not an administered research instrument or an established four-type model. Reliability, validity, norms and language equivalence have not been established. The report assigns no identity, membership, main outlook, diagnosis or desirability score, and predicts no relationship outcome. It concerns your current beliefs, without assessing another person. All four guides remain free and available even with every answer unscored. No disclosure, contact, dating activity or further test is required.",
+              "zh": "费马原创题目、四项编辑主题及完整指南，不是已施测研究工具或已建立的四类型模型，尚未建立信效度、常模或跨语言等价。报告不分配身份、成员资格、主要心态、诊断或吸引力分，不预测关系结果。只看自己的当前信念，不测别人；全部未评分时仍开放四篇免费完整指南，不要求披露、联系、约会活动或继续测试。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixed-conditions",
+      "directionIds": [
+        "fixed-conditions"
+      ],
+      "title": {
+        "en": "Fixed Dating Conditions: Full Dating Outlook Guide",
+        "zh": "认为交往条件多已固定：完整指南"
+      },
+      "headline": {
+        "en": "Read a belief in context, with a useful possibility and a cost.",
+        "zh": "结合场合阅读一种信念，以及可能用途与代价。"
+      },
+      "summary": {
+        "en": "Read this original dating-belief theme through examples, mixed answers, independent raw means and a private optional reflection.",
+        "zh": "通过具体场景、混合回答、独立原始均值和可选私下反思，完整阅读这一原创恋爱信念主题。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fixed Dating Conditions: Dating Outlook Guide",
+          "zh": "认为交往条件多已固定｜恋爱心态完整指南"
+        },
+        "description": {
+          "en": "Explore this dating belief with full examples, raw agreement means, mixed answers and clear limits. No assigned identity or prediction.",
+          "zh": "完整阅读这一恋爱信念：原始认同均值、普通场景、混合回答与清楚局限。不分配身份，不预测关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original agreement statements; at least three numeric ratings for a raw mean. Unscored is not zero. No overall score or main outlook.",
+        "zh": "四条原创认同题，至少三条数字才显示原始均值。未评分不补零，不合总分或分配主要心态。"
+      },
+      "sections": [
+        {
+          "id": "fixed-conditions-1",
+          "title": {
+            "en": "A belief about conditions, not a forecast",
+            "zh": "这是对条件的看法，不是预报"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks how much you agree that looks, chance, initial impressions, timing or circumstances largely determine dating possibilities. A higher mean describes that belief rather than verifying it. The questionnaire has no evidence about your appearance, opportunities or future. A lower mean does not establish that circumstances are easy to change. These are your present judgments about influence, not an objective calculation of the causes of attraction.",
+              "zh": "这一部分问你多认同外貌、机遇、第一印象、时机或处境大致决定交往可能。较高描述这种信念，不验证它。问卷没有关于你外貌、机会或未来的证据；较低也不证明处境容易改变。它记录你当前怎样看影响因素，不客观计算吸引力的原因。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-2",
+          "title": {
+            "en": "An early impression that seems decisive",
+            "zh": "感觉很关键的第一印象"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a short first meeting after which you feel the outcome was already settled. You might attribute that impression to appearance, timing, a particular setting or something else. The test cannot separate those explanations or determine what the other person thought. This example makes the belief concrete without turning it into a prediction. A moment that felt decisive to you may still leave many facts outside your knowledge.",
+              "zh": "例如，短暂初见后，你感觉结果已经定了，可能想到外貌、时机、某个场合或其他因素。测试不能分开这些解释，也不知道别人怎么想。例子让信念更具体，却不把它变成预测。一个你感觉关键的时刻，仍可能留下许多不知道的事实。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-3",
+          "title": {
+            "en": "Recognising limits without fixing a person’s value",
+            "zh": "承认限制，不固定人的价值"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is recognising that individual effort cannot control every outcome. A possible cost is treating a current expectation as an unchangeable rule and overlooking information that does not fit. Neither possibility is established by a higher mean. No score supports a hierarchy of people based on appearance, gender or relationship status. Not having a relationship is not evidence of low worth, and the questionnaire never estimates anyone’s worth.",
+              "zh": "一种可能用途，是看见个人努力不能控制所有结果；一种可能代价，是把当前预期当作不可变规律，漏看不符合预期的信息。较高不确定任何后果。分数不支持按外貌、性别或关系状态给人排等级。没有关系不代表价值低，问卷也从不估计任何人的价值。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-4",
+          "title": {
+            "en": "Circumstances and appearance are not one belief",
+            "zh": "处境与外貌不是同一个信念"
+          },
+          "paragraphs": [
+            {
+              "en": "You may see timing as influential while disagreeing that initial impressions leave little room for later connection. Another person may feel their own choices have limited effect while remaining unsure about appearance. Equal means can conceal these distinctions. The four statements are not a demographic model or an explanation of another person’s preferences. Read them separately, and use the unscored option whenever the wording does not capture a view you can rate.",
+              "zh": "你可能认为时机很重要，却不认同第一印象几乎不给后续联结留空间；另一人可能觉得自己选择影响有限，却不确定外貌的作用。相同均值会遮住差异。四句话不是人口模型，也不解释别人的偏好。请分开读，不能评价时使用未评分。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-5",
+          "title": {
+            "en": "Conditions can matter while learning remains possible",
+            "zh": "条件重要，仍可能相信学习"
+          },
+          "paragraphs": [
+            {
+              "en": "Belief in fixed conditions and belief in learnable skills are scored independently. You might consider timing powerful and still think listening practice changes how you participate. You can also be open to connection while doubtful about your current circumstances. No difference score turns these beliefs into fate versus effort. The result does not recommend persistence with someone who has declined or imply that a person owes interest in return for work.",
+              "zh": "固定条件与可学习技巧分别计分。你可能觉得时机影响很大，同时相信倾听练习能改变自己的参与；也可对联结开放，却怀疑当前处境。不相减来划分命运或努力。结果不建议对已经拒绝的人继续坚持，也不暗示别人应当用兴趣回报付出。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-6",
+          "title": {
+            "en": "Separate an observation from a general rule",
+            "zh": "分开观察与普遍规律"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one belief and ask what part comes from a specific observation and what part is an expectation extending beyond it. You need not replace the expectation with optimism or gather more dating experiences to challenge it. The aim is only to describe what the sentence means to you today. Keep any example anonymous and private, or finish without writing, sharing or acting on the result.",
+              "zh": "如果有用，可选一种信念，看看哪部分来自具体观察，哪部分是超出观察的预期。不必用乐观替代预期，也不必增加约会经历去挑战它。这里只帮助描述今天这句话对你的含义。例子可以匿名保密，也可以不写、不分享、不行动，直接结束。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-7",
+          "title": {
+            "en": "How four statements become a raw mean",
+            "zh": "四句话怎样形成原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose 1 strongly disagree, 2 disagree, 3 neither agree nor disagree, 4 agree or 5 strongly agree. Uncertain, unsuitable or declined answers stay unscored; they are not neutral answers or zeroes. All sixteen prompts require a response. Each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored answer give 10 divided by 3, displayed as 3.3. Fewer ratings show insufficient information. Means remain separate and are not percentages, probabilities or normative ranks.",
+              "zh": "1强烈不同意、2不同意、3既不同意也不反对、4同意、5强烈同意。不确定、不适用或不愿回答时保持未评分，不当作中立或零分。16题均需响应，每部分四题中至少三条数字。例如2、3、5加一条未评分得10除以3，显示3.3；不足时显示资料不足。均值独立保留，不是百分比、概率或常模排名。"
+            }
+          ]
+        },
+        {
+          "id": "fixed-conditions-8",
+          "title": {
+            "en": "Original reflection and its limits",
+            "zh": "原创反思及其局限"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these prompts, four editorial themes and full guides. They are not an administered research instrument or an established four-type model. Reliability, validity, norms and language equivalence have not been established. The report assigns no identity, membership, main outlook, diagnosis or desirability score, and predicts no relationship outcome. It concerns your current beliefs, without assessing another person. All four guides remain free and available even with every answer unscored. No disclosure, contact, dating activity or further test is required.",
+              "zh": "费马原创题目、四项编辑主题及完整指南，不是已施测研究工具或已建立的四类型模型，尚未建立信效度、常模或跨语言等价。报告不分配身份、成员资格、主要心态、诊断或吸引力分，不预测关系结果。只看自己的当前信念，不测别人；全部未评分时仍开放四篇免费完整指南，不要求披露、联系、约会活动或继续测试。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four independent raw readings",
+        "zh": "四项独立原始读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose 1 strongly disagree, 2 disagree, 3 neither agree nor disagree, 4 agree or 5 strongly agree. Uncertain, unsuitable or declined answers stay unscored; they are not neutral answers or zeroes. All sixteen prompts require a response. Each part needs three numeric ratings out of four. For example, 2, 3 and 5 with one unscored answer give 10 divided by 3, displayed as 3.3. Fewer ratings show insufficient information. Means remain separate and are not percentages, probabilities or normative ranks.",
+          "zh": "1强烈不同意、2不同意、3既不同意也不反对、4同意、5强烈同意。不确定、不适用或不愿回答时保持未评分，不当作中立或零分。16题均需响应，每部分四题中至少三条数字。例如2、3、5加一条未评分得10除以3，显示3.3；不足时显示资料不足。均值独立保留，不是百分比、概率或常模排名。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "A reflection without an identity verdict",
+        "zh": "不作身份判定的反思"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these prompts, four editorial themes and full guides. They are not an administered research instrument or an established four-type model. Reliability, validity, norms and language equivalence have not been established. The report assigns no identity, membership, main outlook, diagnosis or desirability score, and predicts no relationship outcome. It concerns your current beliefs, without assessing another person. All four guides remain free and available even with every answer unscored. No disclosure, contact, dating activity or further test is required.",
+          "zh": "费马原创题目、四项编辑主题及完整指南，不是已施测研究工具或已建立的四类型模型，尚未建立信效度、常模或跨语言等价。报告不分配身份、成员资格、主要心态、诊断或吸引力分，不预测关系结果。只看自己的当前信念，不测别人；全部未评分时仍开放四篇免费完整指南，不要求披露、联系、约会活动或继续测试。"
+        }
+      ]
+    },
+    {
+      "id": "research-distinction",
+      "title": {
+        "en": "These editorial themes are not research-scale scores",
+        "zh": "编辑主题不是研究量表分数"
+      },
+      "paragraphs": [
+        {
+          "en": "Relationship research distinguishes beliefs about destiny and growth. This original four-theme reflection does not administer those research scales, inherit their findings or convert answers to their scores. General optimism, attachment-related worry and self-worth are also different tasks and are not inferred here.",
+          "zh": "关系研究会区分命运与成长信念。本原创四主题反思不施测这些研究量表，不继承其研究结果，也不把回答换算成其分数。一般乐观、依恋中的担心与自我价值也是不同任务，这里不作推断。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an incel test?",
+        "zh": "这是incel测试吗？"
+      },
+      "answer": {
+        "en": "It addresses the self-reflection task of examining dating beliefs. It never assigns that contested label, a group identity or a level of worth. The sixteen prompts and four full readings are original and do not reproduce another site’s quiz.",
+        "zh": "它回应检视恋爱观念的自我反思任务，从不分配这个有争议的标签、群体身份或价值高低。16题和四篇完整读法为原创，不复刻别的网站题本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does effort guarantee attraction?",
+        "zh": "努力能保证吸引力吗？"
+      },
+      "answer": {
+        "en": "No. The practice theme concerns what you believe can be learned about your own participation. It never grants a right to another person’s interest, affection, reply or continued contact.",
+        "zh": "不能。学习主题只问你认为自己参与方式中哪些事可学习，从不赋予获得别人兴趣、感情、回应或继续联系的权利。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can several parts be high or equal?",
+        "zh": "几项可以同时高或相同吗？"
+      },
+      "answer": {
+        "en": "Yes. Each part keeps its own raw mean. There is no main outlook, total, ranking, probability or type, and means are not required to add to one hundred.",
+        "zh": "可以。各项保留自己的原始均值，不生成主要心态、总分、排名、概率或类型，也不需要加到百分之百。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I leave an answer unscored?",
+        "zh": "可以保留未评分吗？"
+      },
+      "answer": {
+        "en": "Yes. Uncertain, unsuitable or declined responses stay missing rather than neutral or zero. A part needs three numeric ratings out of four, otherwise it shows insufficient information. Every full guide stays available.",
+        "zh": "可以。不确定、不适用或不愿回答的内容保留缺失，不当中立或零分。每部分四题至少三条数字，否则显示资料不足；全部完整指南始终开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Optional progress stays in this browser tab for up to 24 hours and clears on completion, clearing or retake. Sharing copies only the public title and entry link. No personal answers or means enter the URL, share text or ordinary analytics.",
+        "zh": "可选进度仅在当前标签页最多保留24小时，完成、清除或重测即删除。分享只复制公开标题和入口；个人答案与均值不进入URL、分享文本或普通分析。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "University of Houston: relationship research perspectives (background only)",
+        "zh": "休斯敦大学：关系研究视角（仅背景）"
+      },
+      "url": "https://www.uh.edu/class/psychology/social-psych/research/interpersonal-relations/projects/index.php"
+    }
+  ]
+}
