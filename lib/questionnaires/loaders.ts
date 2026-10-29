@@ -4,6 +4,7 @@ const loaders = {
   "activity-engagement-patterns": async () => (await import("./data/activity-engagement-patterns.json")).default as Questionnaire,
   "style-impression-preferences": async () => (await import("./data/style-impression-preferences.json")).default as Questionnaire,
   "outfit-line-preferences": async () => (await import("./data/outfit-line-preferences.json")).default as Questionnaire,
+  "pressure-response-actions": async () => (await import("./data/pressure-response-actions.json")).default as Questionnaire,
   "trauma-response-reflection": async () => (await import("./data/trauma-response-reflection.json")).default as Questionnaire,
   "distributed-work-choices": async () => (await import("./data/distributed-work-choices.json")).default as Questionnaire,
   "attraction-experiences": async () => (await import("./data/attraction-experiences.json")).default as Questionnaire,

@@ -1,0 +1,1498 @@
+{
+  "slug": "pressure-response-actions",
+  "code": "FM_PRESSURE_ACTIONS12_OBSERVATIONS",
+  "kind": "pressure-actions12",
+  "version": "fm_pressure_actions12_observations_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "title": {
+    "en": "Actions Under Pressure",
+    "zh": "压力下的行动观察"
+  },
+  "seoTitle": {
+    "en": "Actions Under Pressure: 12 Original Observations | FermatMind",
+    "zh": "压力下的行动观察：12条原创描述｜费马测试"
+  },
+  "description": {
+    "en": "Recall 12 original observations about defending a view, moving away, getting stuck and agreeing early. Read separate category counts and four complete public guides, without assigning a default response type.",
+    "zh": "回顾维护立场、退开、回应卡住和先答应的12条原创观察，分别查看类别计数，并免费阅读四篇公开全文。不分配默认反应类型。"
+  },
+  "minutes": 3,
+  "introduction": {
+    "en": "An optional private reflection for adults about ordinary pressured interactions during the past four weeks. No event narrative is collected. About three minutes is an editorial estimate for the statements; reading the four full guides takes additional time. The original bilingual wording has no established psychometric validation or measurement equivalence.",
+    "zh": "供成年人自愿、私下回顾过去四周普通压力互动，不收集事件叙述。约三分钟是完成陈述的编辑估计，四篇全文需额外阅读时间。原创双语措辞没有已确立的心理测量学验证或测量等值。"
+  },
+  "instructions": {
+    "en": "Consider ordinary situations from the past four weeks, without seeking out a difficult event. For each observation choose what you noticed, or select unscored for no relevant opportunity, unclear recall or preferring not to answer. All 12 explicit responses, including unscored, are needed to organize a private record. You can stop or exit at any time and read all four complete guides without answering.",
+    "zh": "回想过去四周的普通情境，无需寻找困难事件。为每条观察选择自己注意到的频率；没有相关机会、回想不清或不愿回答时，选择未计分。12条都须明确回应，包括未计分，之后才整理私人记录。可随时停止或退出，不答题也能读四篇全文。"
+  },
+  "resultHeading": {
+    "en": "Your four separate action-observation records",
+    "zh": "四个分别阅读的行动观察记录"
+  },
+  "directions": [
+    {
+      "id": "protecting-a-position",
+      "title": {
+        "en": "Protecting a position",
+        "zh": "维护立场"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "moving-away",
+      "title": {
+        "en": "Moving away",
+        "zh": "退开一些"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "getting-stuck",
+      "title": {
+        "en": "Getting stuck in a response",
+        "zh": "回应时卡住"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "agreeing-early",
+      "title": {
+        "en": "Agreeing early",
+        "zh": "先答应"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "PRA_01",
+      "prompt": {
+        "en": "I started defending my view before I had taken in the full question.",
+        "zh": "我还没听完对方的问题，就开始为自己的看法辩解。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_02",
+      "prompt": {
+        "en": "When an exchange became tense, I repeated my position before checking what needed deciding.",
+        "zh": "交流变紧张时，我先重申了立场，还没有核对到底需要决定什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_03",
+      "prompt": {
+        "en": "I pressed for my preferred arrangement before asking what alternatives were possible.",
+        "zh": "我先推动自己希望的安排，还没有询问有哪些可选方案。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "protecting-a-position"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_04",
+      "prompt": {
+        "en": "I turned to a different task when a pressured exchange was waiting for my response.",
+        "zh": "一段有压力的交流还在等我回应时，我转去做了别的任务。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_05",
+      "prompt": {
+        "en": "I delayed opening a message because I expected an uncomfortable discussion.",
+        "zh": "因为预期会有不舒服的讨论，我推迟了打开一条消息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_06",
+      "prompt": {
+        "en": "I stepped out of an optional exchange to put some distance between myself and the pressure.",
+        "zh": "我离开了一段非必须的交流，让自己与当时的压力保持一点距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "moving-away"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_07",
+      "prompt": {
+        "en": "I wanted to answer but could not put my first sentence together in the moment.",
+        "zh": "我想回答，却在当时无法组织出第一句话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_08",
+      "prompt": {
+        "en": "I wanted to make an ordinary choice but felt unable to choose in the moment.",
+        "zh": "我想作出一个普通选择，却在当时感到无法选定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_09",
+      "prompt": {
+        "en": "I knew a small next step was available but felt unable to begin it while the pressure was present.",
+        "zh": "我知道有一个可以做的小步骤，但压力存在时仍感到无法开始。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "getting-stuck"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_10",
+      "prompt": {
+        "en": "I said yes to an arrangement before considering whether it worked for me.",
+        "zh": "我还没考虑某项安排是否适合自己，就先答应了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_11",
+      "prompt": {
+        "en": "I said an option was fine while privately wanting a different option.",
+        "zh": "我心里想选另一项，却先说某个选项也可以。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "PRA_12",
+      "prompt": {
+        "en": "I tried to settle another person’s feelings before mentioning a limit that mattered to me.",
+        "zh": "我先试着安抚对方的感受，还没有说出一条对自己重要的限制。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "agreeing-early"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "protecting-a-position-reading",
+      "directionIds": [
+        "protecting-a-position"
+      ],
+      "title": {
+        "en": "Protecting a position — Complete Reading",
+        "zh": "维护立场：完整读法"
+      },
+      "headline": {
+        "en": "Three original observations, six separate category counts",
+        "zh": "三条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Read three original observations about defending a view, the limits of frequency categories and practical questions that preserve boundaries and choice.",
+        "zh": "阅读维护立场的三条原创观察、频率类别的限制，以及保留边界与选择的实际问题。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to three statements. Category IDs are labels, not points. There is no total, mean, ranking, dominant type, risk band, physiological finding or diagnosis.",
+        "zh": "六类计数合计三条陈述。类别标识是标签，不是点数；没有总分、均值、排名、主导类型、风险区间、生理发现或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Protecting a position Under Pressure: Complete Guide | FermatMind",
+          "zh": "维护立场：压力下行动完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read three original observations about defending a view, the limits of frequency categories and practical questions that preserve boundaries and choice.",
+          "zh": "阅读维护立场的三条原创观察、频率类别的限制，以及保留边界与选择的实际问题。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What protecting a position describes",
+            "zh": "维护立场描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These three original observations concern defending a view before hearing a full question, repeating a position before checking what needs deciding, and pressing for a preferred arrangement before asking about alternatives. The four-week record describes what you remember noticing. It does not establish aggression, confidence, assertiveness, intent to harm or a physiological fight response. Read the exact statement rather than giving every disagreement the same explanation. A person can have a reason to maintain a position without any of these three observations applying.",
+              "zh": "三条原创观察涉及还没听完问题就辩解、未核对待决定事项就重申立场，以及未询问替代方案就推动偏好安排。四周记录描述回想中注意到的情况，不证明攻击性、自信、坚定、伤害意图或生理战斗反应。应看具体陈述，不给所有分歧同一种解释。一个人有理由坚持立场，也可能不符合其中任何一条。"
+            },
+            {
+              "en": "The six category counts add to three because each statement enters one category. They are not points. “Did not notice” is different from no relevant opportunity, uncertain recall or choosing not to answer, which remain unscored. A record with three unscored statements cannot establish that there was no disagreement or that a person is calm. All four complete public readings remain available before answers and for an entirely unscored record; no response count unlocks a better explanation.",
+              "zh": "每条陈述进入一个类别，因此六类计数合计三条，而不是点数。“没有注意到”与没有机会、回想不清或保留回答不同，后三者保持未计分。三条全部未计分，不能证明没有分歧或一个人平静。四篇公开全文在答题前及全部未计分时都能读，计数不会解锁更好的解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Distinguish a boundary from a quick reply",
+            "zh": "区分边界与快速回应"
+          },
+          "paragraphs": [
+            {
+              "en": "Maintaining a boundary can be necessary. Agreeing with a statement about a quick reply does not show that a boundary was wrong, and a low count does not show that it was well protected. The inventory has no account of the full exchange, responsibilities or power differences. You may consider whether the statement fits one manageable event, if you wish. You do not have to justify a refusal, soften a safety boundary or accept someone else’s account in order to complete a reflection.",
+              "zh": "维护边界可能必要。认可快速回应的陈述，不证明边界不对；计数低也不证明边界受到良好保护。盘点不知道完整交流、职责或权力差异。愿意时，可以考虑某条描述是否符合一件能掌握的小事。完成反思无需为拒绝辩护、弱化安全边界或接受他人的讲述。"
+            },
+            {
+              "en": "For a fictional example, a person answers a project question by defending an earlier plan before the question is complete. A useful review might clarify which decision was being discussed and what information was missing. That is different from a person declining an intrusive question about private matters. The outward speed of a response does not decide whether it was justified. Keep those situations distinct, and do not use a theme label to demand that someone stay in a conversation they want to leave.",
+              "zh": "例如，一个虚构人物还没听完项目问题，就为原计划辩解，可以回看当时在讨论哪个决定、缺少哪些信息。另一个人拒绝涉及隐私的冒犯提问，则是不同情况。外在回应速度不决定是否有理。应区分这些情境，不用主题标签要求他人继续不想进行的谈话。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Check what the exchange actually required",
+            "zh": "核对交流实际需要什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The three statements mention a question, a decision and an arrangement. These are different tasks. A question may seek information without asking you to change a view. A decision may involve requirements that are not negotiable. An arrangement may need agreement from several people. This exercise cannot determine which applied. If you choose to reflect, identify the practical issue before interpreting your reaction. A disagreement should not automatically become evidence that a person was threatened, controlling or unwilling to cooperate.",
+              "zh": "三条陈述分别涉及问题、决定和安排，是不同任务。问题可能只是询问信息，未要求改变看法；决定可能有不可协商的要求；安排可能需要多人同意。本练习不确定是哪一种。愿意反思时，可以先辨认实际事项，再解释反应。分歧不自动证明一个人受到威胁、想控制别人或不愿合作。"
+            },
+            {
+              "en": "A private example can separate what was asked, what you replied and what happened next. Keep an observed consequence separate from a prediction about what others felt. Perhaps the issue was clarified, perhaps it remained unresolved, or perhaps you do not know. Those are all possible records. There is no need to invent a cost or a hidden benefit to fit the reading. You may leave the example alone if considering it would add a burden or expose information you want to keep private.",
+              "zh": "私下实例可以分开记录对方问什么、自己答什么以及后来发生什么，把观察到的后果与对他人感受的预测分开。事项可能得到澄清、仍未解决，或自己并不知道。无需为了符合读法而补出代价或隐藏好处。若回看增加负担或暴露想保留的信息，可以不作这项观察。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Read the three statements separately",
+            "zh": "分别阅读三条陈述"
+          },
+          "paragraphs": [
+            {
+              "en": "A person might notice the first statement often and the other two rarely. Another person might use the same category for all three. The counts summarize those labels but cannot explain their different circumstances. The individual observations remain useful because the same overall pattern of category counts can come from different item selections. There is no sum, average, high or low band, dominant reaction or comparison with other people. The website does not determine a personal style from the most frequent label.",
+              "zh": "一人可能经常注意到第一条、很少注意到另两条，另一人可能三条都选相同类别。计数只汇总标签，不解释不同条件。相同类别分布也可能来自不同条目，因此逐条观察仍有价值。这里没有总分、平均值、高低区间、主导反应或人与人比较，网站不根据最频繁标签判定个人风格。"
+            },
+            {
+              "en": "The recall window is a common frame for this original exercise, not a diagnostic duration or a requirement to wait before seeking support. If you return later, different opportunities and recollections can change the categories. There is no validated threshold for declaring improvement, deterioration or a treatment effect. A count should not become a target to lower by withholding a necessary response, abandoning a responsibility or changing what you honestly remember. You may choose not to use the private record at all.",
+              "zh": "回想范围是原创练习的共同背景，不是诊断时长，也不要求等待后才寻求支持。再次填写时，机会与回忆不同可能改变类别。没有经过验证的阈值可判定改善、恶化或治疗效果。不要为了降低计数而不作必要回应、放弃责任或改变真实回忆，也可以完全不使用私人记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Consider an optional practical question",
+            "zh": "考虑一个可选实际问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a next question in an ordinary and safe setting, it might concern what needs deciding or which information was missing. You can also decide that no further discussion is useful. These are practical options rather than instructions to reduce a reaction or repair a personality. The inventory cannot tell whether speaking, writing, pausing or leaving would be appropriate in your situation. Established safety, health, payment or access procedures should be handled through their actual responsibilities rather than adjusted to change a questionnaire result.",
+              "zh": "在普通且安全的环境中，若想提出下一步问题，可以问到底需要决定什么、缺少哪些信息，也可以决定继续讨论没有益处。这些是实际选项，不是要求减少反应或修复人格。盘点不知道说话、写下、暂停还是离开更合适。安全、健康、支付或权限程序应按真实职责处理，不能为了改变问卷结果而调整。"
+            },
+            {
+              "en": "If something concerns you, a qualified professional can help explore it in a fuller conversation. You can ask what that process would involve before deciding what to share. Support does not depend on selecting a particular category or completing twelve statements. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing. Nothing here requires confrontation, deliberate contact with reminders, disclosure of a difficult event or continued contact with a person you do not want to engage.",
+              "zh": "存在困扰时，可以与合格专业人士作更完整的讨论；决定分享多少之前，可以先询问流程。获得支持不依赖某个类别，也不依赖完成十二条陈述。若有即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续。这里不要求对抗、主动接触提醒材料、披露困难事件或与不想接触的人继续联系。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Keep the interpretation modest",
+            "zh": "让解释保持有限"
+          },
+          "paragraphs": [
+            {
+              "en": "“Fight” is sometimes used as a broad popular label for pushing back under pressure. This theme does not assign it and does not infer an automatic nervous-system response. It records three original descriptions of conversational sequence. Similar topic words do not turn those descriptions into a formal 4F questionnaire, a trauma assessment or evidence about childhood causes. The page does not measure a clinical defense, establish an exposure or diagnose a condition. It also cannot decide responsibility for an exchange.",
+              "zh": "人们有时用“战斗”宽泛形容压力下反驳。本主题不分配这一标签，也不推断神经系统自动反应，只记录三条关于交流先后顺序的原创描述。主题用词相近，不让它们成为正式4F问卷、创伤评估或童年成因证据。本页不测临床防御、不判定暴露资格、不诊断状况，也不裁决交流责任。"
+            },
+            {
+              "en": "The original Chinese and English content has no established psychometric validation, norms or cross-language measurement equivalence. Do not use a record for hiring, partner screening, educational or security access, credibility judgments or a prediction of behavior in danger. Violence, coercion and threats require attention to actual circumstances; a category cannot minimize them or assign their cause to another person’s response. These limits remain relevant even when all three statements seem to fit strongly in one period.",
+              "zh": "原创中文与英文内容没有已确立的心理测量学验证、常模或跨语言测量等值。不要用于招聘、伴侣筛选、教育或安全权限、可信度判断或危险时行为预测。暴力、胁迫和威胁需要根据现实情况处理，类别不能淡化它们，也不能把原因归到他人的回应上。即使某时段三条都很符合，这些限制仍然适用。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep privacy and choice together",
+            "zh": "同时保留隐私与选择"
+          },
+          "paragraphs": [
+            {
+              "en": "You can read all four complete guides without answering, pause a record or leave any statement unscored. No result assigns an identity or requires a plan. An optional outcome is one clearer question about a situation you choose; another is deciding that you have reflected enough today. There is no need to compare yourself with the other themes or claim that a frequent response defines who you are. A person’s own account, preferences and circumstances remain more informative than a short theme title.",
+              "zh": "可以不答题就读四篇全文，暂停记录，或把任何陈述留为未计分。没有结果会分配身份或要求制定计划。可选产出可以是一个关于自选情况的更清楚问题，也可以是决定今天反思到这里。不必与其他主题比较，也不必认定频繁回应定义了自己。本人讲述、偏好和环境，比简短主题标题更有信息价值。"
+            },
+            {
+              "en": "Your answers and category records remain only in the current page’s memory. There is no draft storage or answer submission, and exit, retake, reload or leaving clears the record. A copied public link contains only the page title and address. Decide separately whether to share any personal details with someone else. A guide link does not show how you answered and does not give another person authority to interpret your experience, demand a response or cancel a boundary.",
+              "zh": "回答与类别记录只留在当前页面内存，没有草稿存储或回答提交，退出、重做、刷新或离开即清除。公开复制只包含页面标题与地址。是否向别人分享个人细节应另行决定。指南链接不会显示怎样作答，也不授权他人解释经历、要求回应或取消边界。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moving-away-reading",
+      "directionIds": [
+        "moving-away"
+      ],
+      "title": {
+        "en": "Moving away — Complete Reading",
+        "zh": "退开一些：完整读法"
+      },
+      "headline": {
+        "en": "Three original observations, six separate category counts",
+        "zh": "三条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Read three original observations about creating distance from pressure, with context, practical consequences and an explanation of what the counts cannot show.",
+        "zh": "阅读与压力保持距离的三条原创观察，理解背景、实际后果及计数不能说明什么。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to three statements. Category IDs are labels, not points. There is no total, mean, ranking, dominant type, risk band, physiological finding or diagnosis.",
+        "zh": "六类计数合计三条陈述。类别标识是标签，不是点数；没有总分、均值、排名、主导类型、风险区间、生理发现或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Moving away Under Pressure: Complete Guide | FermatMind",
+          "zh": "退开一些：压力下行动完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read three original observations about creating distance from pressure, with context, practical consequences and an explanation of what the counts cannot show.",
+          "zh": "阅读与压力保持距离的三条原创观察，理解背景、实际后果及计数不能说明什么。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What moving away records here",
+            "zh": "这里的退开记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This original theme asks about turning to another task while an exchange awaits a response, delaying opening a message because an uncomfortable discussion is expected, and stepping out of an optional exchange to create distance from pressure. It concerns three specific descriptions over the past four weeks. It does not measure a flight instinct, establish an avoidance disorder or identify the reason for a departure. Your own account of the situation remains necessary, and no statement requires a detailed story about a difficult experience.",
+              "zh": "本原创主题询问交流尚待回应时转做其他任务、预期有不舒服的讨论而延后打开消息，以及离开非必须的交流以与压力保持距离，关注过去四周的三条具体描述。它不测逃跑本能，不判定回避障碍，也不识别离开原因。理解情况仍需本人讲述，陈述不要求详细叙述困难经历。"
+            },
+            {
+              "en": "Each statement contributes to one of six category counts. Those counts add to three, not to a score. “Did not notice” is a chosen category; no relevant opportunity, uncertain recall or preferring not to answer remain unscored. All three can be unscored without restricting the public reading. The page does not infer calmness, readiness or the absence of a concern from a small count, and it does not require a frequent response before you may ask for support.",
+              "zh": "每条陈述进入六类计数之一，合计三条，不形成分数。“没有注意到”是已选类别；没有相关机会、回想不清或不愿回答则保持未计分。全部未计分也不限制公开阅读。页面不根据数量少推断平静、准备充分或没有困扰，也不要求频繁回应后才有资格寻求支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Leaving can have different meanings",
+            "zh": "离开可以有不同意义"
+          },
+          "paragraphs": [
+            {
+              "en": "Stepping away can protect privacy, give someone room to think, meet another responsibility or concern actual safety. It may also leave a practical issue unresolved. The inventory cannot decide which explanation applies from a frequency category. An optional conversation is not an obligation created by the questionnaire. You do not need to remain available, explain a departure or return to contact with someone in order to complete a reflection. Keep the purpose and conditions of an action separate from its outward appearance.",
+              "zh": "退开可以保护隐私、留出思考空间、履行其他责任，或涉及现实安全，也可能使实际事项未解决。盘点不能根据频率类别决定是哪种解释。非必须的谈话不会因问卷变成义务。完成反思无需始终待命、解释离开原因或重新与某人联系。应把行动的目的与条件和外在表现分开。"
+            },
+            {
+              "en": "For a fictional example, a person leaves a voluntary discussion because they do not want to disclose private information. Another postpones an ordinary project reply and later finds an unclear handover. Those examples raise different questions about privacy and practical coordination. They should not be collapsed into a high or low avoidance label. A brief record cannot determine whether either person should have stayed, and it never makes a threatened person’s reaction responsible for another person’s conduct.",
+              "zh": "例如，一人因不想披露隐私而离开自愿讨论，另一人延后普通项目回复，后来发现交接不清。两个虚构实例分别提出隐私和实际协作问题，不应压成高低回避标签。简短记录不能决定哪一人本该留下，也不会让受威胁者的反应成为他人行为的责任来源。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Examine an ordinary consequence without inventing one",
+            "zh": "查看普通后果，不补出后果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to understand one event, consider what was waiting, what else needed attention and what happened afterward. A task may have remained open, been handled by someone else or no longer needed a reply. You may not know its outcome. These possibilities should stay visible instead of assuming that a delay caused harm. The page does not record timing, workload, agreements or another person’s interpretation, so a category cannot establish the actual consequence of turning away.",
+              "zh": "想理解一件事时，可以考虑当时有什么在等待、还有什么需要留意，以及后来发生什么。事项可能仍开放、被别人处理，或已不需要回复，也可能不知道后果。应保留这些可能，而不是假定延后造成伤害。页面未记录时间、工作量、约定或他人解释，因此类别无法确定退开后的实际后果。"
+            },
+            {
+              "en": "A private example might distinguish an observed missed handover from a worry that someone was upset. Those are different kinds of information. You can keep both as questions without deciding on a motive. There is no need to search for a hidden strength or a problem in every response. If the example would reveal private information, add a burden or draw you back to an unsafe exchange, leave it aside. The public reading does not require a completed practical exercise.",
+              "zh": "私下实例可以区分观察到的交接遗漏，与担心别人不高兴，两者是不同信息，可以都保留为问题，不必确定动机。无需在每次回应中寻找隐藏优点或问题。如果实例会暴露隐私、增加负担或把自己带回不安全交流，可以放到一边。公开读法不要求完成实际练习。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Read categories in their limited frame",
+            "zh": "在有限背景中阅读类别"
+          },
+          "paragraphs": [
+            {
+              "en": "The frequency labels summarize what you chose for these three statements during one recall window. They do not count messages, hours, departures or opportunities. The same label can describe very different settings, and the same category counts can arise from different individual answers. This is why the record keeps each observation and its selected category together. There is no total, mean, norm, high or low band or comparison that decides which of the four themes is your dominant response.",
+              "zh": "频率标签汇总一个回想范围内对三条陈述的选择，不计算消息、小时、离开次数或机会数。同一标签可以描述不同环境，相同类别分布也可能来自不同逐条回答，因此记录保留观察与所选类别。没有总分、均值、常模、高低区间，也没有比较决定四个主题中哪一个是主导反应。"
+            },
+            {
+              "en": "A low count here does not show that you always respond promptly, while a frequent category does not show that you are unreliable or unwilling to cooperate. You may have had different responsibilities and freedom across situations. A later change cannot establish improvement, deterioration or the effect of a particular action because this original exercise has no validated change rule. Do not try to change a record by giving up needed distance, accepting unwanted contact or altering what you honestly remember.",
+              "zh": "这里数量少不证明总能及时回应，频繁类别也不证明不可靠或不愿合作。不同情境中的职责和自由可能不同。本原创练习没有经过验证的变化规则，后来的变化不能证明改善、恶化或某项行动的效果。不要通过放弃需要的距离、接受不想要的联系或改变真实回忆来改变记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose whether a practical arrangement needs attention",
+            "zh": "自行决定是否需处理实际安排"
+          },
+          "paragraphs": [
+            {
+              "en": "In an ordinary and safe setting, you might want to clarify who handles a task or whether a reply is still needed. That is an optional practical question, not a treatment instruction or a requirement to stay in an uncomfortable conversation. The right arrangement depends on actual roles, agreements and constraints. A questionnaire cannot authorize bypassing a safety, health, access or payment procedure. It also cannot impose a duty to provide personal information or change a boundary in order to make coordination easier for someone else.",
+              "zh": "在普通且安全的环境中，也许想澄清任务由谁处理、是否仍需回应。这是可选实际问题，不是治疗指导，也不要求留在不舒服的谈话中。合适安排取决于真实职责、约定和限制。问卷不授权绕过安全、健康、权限或支付程序，也不强加提供个人信息或改变边界以方便他人的义务。"
+            },
+            {
+              "en": "You may decide that nothing more is useful today. If you want support with a concern, you can contact a qualified professional and ask about the conversation or assessment process before sharing details. There is no need to complete the record or reach a category count. In immediate danger, or if you cannot stay safe, seek local emergency help instead of continuing the exercise. The page cannot assess urgency or determine the care that would fit your circumstances.",
+              "zh": "也可以决定今天无需再做什么。希望得到支持时，可以联系合格专业人士，在分享细节前先问谈话或评估流程，无需完成记录或达到某种计数。若有即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续练习。页面无法评估紧急程度，也不能判断何种照护适合自己的情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A popular word is not a physiological finding",
+            "zh": "流行用词不等于生理发现"
+          },
+          "paragraphs": [
+            {
+              "en": "People sometimes use “flight” to describe distancing or becoming busy under pressure. This theme does not assign that label or determine an automatic response. It records three original action descriptions. The 4Fs have a separate explanatory history, and similarity of topic does not make this a formal 4F instrument, a clinical assessment or evidence that a person experienced trauma. The inventory does not measure an instinct, a defense mechanism, an attachment type or a default nervous-system pattern.",
+              "zh": "人们有时用“逃跑”描述压力下拉开距离或变得忙碌。本主题不分配标签，不判定自动反应，只记录三条原创行动描述。4F有单独的解释历史，主题相似不让它成为正式4F工具、临床评估或曾遭遇创伤的证据。盘点不测本能、防御机制、依恋类型或神经系统默认模式。"
+            },
+            {
+              "en": "The Chinese and English statements have no established psychometric validation, norms or cross-language measurement equivalence. Do not use their category counts to hire people, screen partners, decide educational or security access, assess credibility or assign blame. A person’s practical choices and situation require more information than these statements collect. Violence, threats and coercion should be considered according to actual safety; a self-report response cannot excuse them, establish that they happened or decide responsibility for them.",
+              "zh": "中文和英文陈述没有已确立的心理测量学验证、常模或跨语言测量等值。不用类别计数招聘、筛选伴侣、决定教育或安全权限、判断可信度或归责。实际选择与处境需要比这些陈述更多的信息。暴力、威胁和胁迫应根据现实安全处理，自报回应不能将其合理化、证明发生或裁决责任。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep the record optional and private",
+            "zh": "让记录保持自愿与私人"
+          },
+          "paragraphs": [
+            {
+              "en": "You may pause, leave any observation unscored or read the four complete public guides without answering. No count unlocks a result tier or assigns a personal type. An optional outcome can be one clearer question about an activity you choose. It can also be a decision to stop reflecting for now. Neither outcome requires deliberately contacting reminders, returning to an unwanted relationship or sharing an event narrative. Your right to choose distance remains separate from the categories recorded on a website.",
+              "zh": "可以暂停、把任何观察留为未计分，或不答题就读四篇公开全文。计数不解锁结果档位，也不分配个人类型。可选产出可以是关于自选活动的一个更清楚问题，也可以决定暂时停止反思。两者都无需主动接触提醒、回到不想要的关系或分享事件叙述。选择距离的权利与网站记录的类别分开。"
+            },
+            {
+              "en": "Your private responses stay in the current page’s memory, without saved drafts or answer submission. Exit, retake, reload or leaving clears them. Public links contain only the title and address, with no answers or counts. Decide separately whether anything in your record is useful to share with a person you choose. A public reading can suggest questions to consider; it does not authorize someone else to interpret your silence, cancel a refusal or decide what you should do next.",
+              "zh": "私人回答仅留在当前页面内存，没有草稿保存或回答提交，退出、重做、刷新或离开即清除。公开链接只有标题与地址，不含回答或计数。是否把记录中的某些内容分享给自选对象，应另行决定。公开读法可以提供考虑问题，但不授权他人解释沉默、取消拒绝或决定下一步该做什么。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "getting-stuck-reading",
+      "directionIds": [
+        "getting-stuck"
+      ],
+      "title": {
+        "en": "Getting stuck in a response — Complete Reading",
+        "zh": "回应时卡住：完整读法"
+      },
+      "headline": {
+        "en": "Three original observations, six separate category counts",
+        "zh": "三条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Read three original observations about wanting to respond while finding it hard to begin, without interpreting the record as clinical freezing or a diagnosis.",
+        "zh": "阅读想回应却难以开始的三条原创观察，不把记录解释为临床冻僵或诊断。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to three statements. Category IDs are labels, not points. There is no total, mean, ranking, dominant type, risk band, physiological finding or diagnosis.",
+        "zh": "六类计数合计三条陈述。类别标识是标签，不是点数；没有总分、均值、排名、主导类型、风险区间、生理发现或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Getting stuck in a response Under Pressure: Complete Guide | FermatMind",
+          "zh": "回应时卡住：压力下行动完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read three original observations about wanting to respond while finding it hard to begin, without interpreting the record as clinical freezing or a diagnosis.",
+          "zh": "阅读想回应却难以开始的三条原创观察，不把记录解释为临床冻僵或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What these three observations ask",
+            "zh": "这三条观察询问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This original theme concerns wanting to respond while finding it difficult to begin in a pressured situation. The three statements ask about forming a first sentence, making an ordinary choice and starting an available small step. They describe your recollection during the past four weeks, not an observed test of movement, speech, decision-making or attention. A selected frequency category can help identify a question you want to raise. It cannot show what your nervous system was doing or establish why a response felt unavailable at the time.",
+              "zh": "本原创主题关注有压力时想回应、却难以开始的情况。三条陈述分别问组织第一句话、作普通选择和开始一个可以做的小步骤。它们描述过去四周的回想，不是对运动、语言、决策或注意力的客观测试。所选频率类别可以帮助提出问题，但不能显示当时神经系统正在做什么，也不能确定为什么感觉无法回应。"
+            },
+            {
+              "en": "There are three statements and six response categories, including an explicit unscored option. The six category counts therefore add to three. They are not points, a severity measure or a clinical symptom count. No relevant opportunity, uncertain recall and choosing not to answer remain unscored rather than becoming “Did not notice.” If all three are unscored, this entire reading remains available. An unavailable record should not be used to claim that nothing happened or that someone does not need support.",
+              "zh": "三条陈述各有六个回应类别，包括明确的未计分选项，因此六类计数合计三条。它们不是点数、严重程度指标或临床症状数。没有相关机会、回想不清和保留回答，仍然记为未计分，不变成“没有注意到”。全部未计分时也能阅读本文全文。记录缺口不能证明什么都没发生，或一个人不需要支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Distinguish difficulty from a decision to stay quiet",
+            "zh": "区分困难与主动暂不说话"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting to speak but not finding a beginning is different from deciding to keep a thought private. Both can lead to silence, but silence alone does not tell us which occurred. It can also accompany listening, a language barrier, uncertainty about a task or a safety concern. This small inventory does not distinguish every possibility. Read the actual statement you answered rather than turning the theme title into an explanation for every quiet moment. You may reject a description that does not fit your situation.",
+              "zh": "想说话却找不到开头，与决定把想法留给自己不同。两者都可能呈现为沉默，但沉默本身不能说明是哪一种，也可能与倾听、语言障碍、任务不清或安全问题并存。本小题组不鉴别所有可能。应看自己回答的具体陈述，不把主题标题当成每次安静的解释。不符合实际的描述，可以不采用。"
+            },
+            {
+              "en": "For example, someone may choose not to answer a question because it asks for private information. Another person may want to answer an ordinary question but feel unable to organize a first sentence in that moment. Those accounts should remain separate. Neither account establishes weakness, agreement, a hidden motive or an automatic trauma response. A record of three chosen labels is too narrow to replace a person’s own explanation, and it never authorizes another person to demand speech or disclosure.",
+              "zh": "例如，一人因问题涉及隐私而决定不回答，另一人想回答普通问题，却在当时感到无法组织第一句话。这两种讲述应保持区分。它们都不证明软弱、同意、隐藏动机或自动创伤反应。三个所选标签过于有限，不能取代本人解释，也不授权他人要求说话或披露经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep the setting in the account",
+            "zh": "在讲述中保留环境"
+          },
+          "paragraphs": [
+            {
+              "en": "An ordinary decision can become difficult in a setting with unfamiliar instructions, several demands or little opportunity to ask questions. There may also be concerns this page does not cover. These are possible questions about context, not causes inferred by the inventory. If you want to reflect, choose one manageable situation and separate what you wanted to do from what you remember being able to start. You do not need to decide on a diagnosis or reconstruct a distressing event to make that distinction.",
+              "zh": "指令陌生、要求同时出现，或缺少提问机会的环境，可能使普通决定变难，也可能存在本页未覆盖的困扰。这些是关于背景的可能问题，不是盘点推断出的原因。愿意反思时，可以选一个能够掌握的情况，区分想做什么与回想中能开始什么。作这一区分，无需先确定诊断或重现令人难受的事件。"
+            },
+            {
+              "en": "Consider a fictional study discussion where a person wants to ask a question but cannot find a starting sentence. They might later realize that the instructions were unclear, or they might still not know what made the moment difficult. The useful outcome can simply be a clearer question about the experience. The example does not establish that a pause was clinical freezing, dissociation or a trauma memory. If a health concern is present, this exercise cannot rule it out or determine the care it needs.",
+              "zh": "假设一次虚构的学习讨论中，有人想提问却找不到开头。后来也许发现指令不清，也可能仍不知道当时为何困难。有用产出可以仅仅是一个更清楚的问题。实例不证明暂停属于临床冻僵、解离或创伤记忆。存在健康困扰时，本练习不能将其排除，也不能判断需要哪种照护。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Read frequency without making a scale",
+            "zh": "阅读频率，不建立一条量尺"
+          },
+          "paragraphs": [
+            {
+              "en": "“Sometimes” and “Often” are selected category labels in this original exercise. They do not supply a duration, a count of episodes or an objective measure of how difficult a situation was. The same label can cover different experiences. Keeping the individual statements beside the counts makes that limitation visible. There is no formula that turns the categories into a freeze score, a probability, a population position or a dominant response type. The four themes are organizing topics and are not ranked.",
+              "zh": "“有时”和“较常”是本原创练习中的所选类别，不提供持续时间、事件次数或情况有多困难的客观指标。同一标签可以涵盖不同经历。把逐条陈述与计数放在一起，有助于保留这一限制。没有公式会把类别换算成冻僵分数、概率、人群位置或主导反应类型。四个主题用于组织内容，不作排名。"
+            },
+            {
+              "en": "A person can select “Did not notice” here and still want help with something outside these three statements. Another can select a frequent category without the page knowing its consequences. Comparing the counts does not identify who is stronger, safer or more resilient. If you revisit the exercise, a changed category may reflect a different setting, opportunity or recollection. This original record has no validated change threshold and cannot show that a particular action caused improvement or deterioration.",
+              "zh": "有人在这里选择“没有注意到”，仍可能希望为三条陈述之外的事情得到帮助。另一个人选了频繁类别，页面也不知道其后果。比较计数不判定谁更坚强、安全或有韧性。再次填写时，类别变化可能反映环境、机会或回忆不同。本原创记录没有经过验证的变化阈值，不能证明某项行动造成改善或恶化。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose an ordinary support question",
+            "zh": "选择一个日常支持问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If it is useful and safe, a next question can concern the setting rather than changing yourself to fit a result. You might want to understand an instruction, ask whether a question can be provided in writing or decide that you do not want to answer. These are optional practical choices, not a treatment plan or a requirement to practise a difficult interaction. A workplace, study or family context may set different constraints, and the inventory does not know which arrangement would be workable for you.",
+              "zh": "若有用且安全，下一步问题可以针对环境，而不是为了符合结果而改变自己。例如希望弄清指令、问能否以书面提供问题，或决定不想回答。这些是可选的实际选择，不是治疗计划，也不要求练习困难互动。工作、学习或家庭环境可能有不同限制，盘点不知道哪种安排对你可行。"
+            },
+            {
+              "en": "You can also ask a qualified health professional about a concern, including how an assessment would proceed and what information you would be expected to share. You do not need to finish this exercise or reach a count first. If immediate danger is present or you cannot stay safe, seek local emergency help rather than continuing. A question about support belongs to you; a website label should not decide whether you are allowed to ask it or make you disclose more than you choose.",
+              "zh": "也可以向合格健康专业人士询问困扰，包括评估怎样进行、预计需要分享哪些信息。无需先完成练习或达到某个计数。如果有即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续。是否提出支持问题由你决定，网站标签不应决定你是否有资格提问，也不应让你披露超过自己愿意分享的内容。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Separate popular labels from this record",
+            "zh": "把流行标签与记录分开"
+          },
+          "paragraphs": [
+            {
+              "en": "People sometimes use “freeze” as a broad description of getting stuck under pressure. This inventory does not assign that label or treat an ordinary pause as a physiological finding. The 4Fs are a separate popular explanatory framework with a specific author history, not the scoring model of these twelve original observations. Similar words do not establish that this exercise measures a clinical defensive response, trauma exposure or a person’s default nervous-system pattern. The record remains a set of self-reported categories.",
+              "zh": "人们有时用“冻僵”宽泛描述压力下卡住。本盘点不分配这一标签，也不把日常暂停当成生理发现。4F是另一个有特定作者背景的流行解释框架，并非这十二条原创观察的计分模型。用词相近，不证明本练习测得临床防御反应、创伤暴露或神经系统默认模式。记录始终只是自报类别集合。"
+            },
+            {
+              "en": "The original Chinese and English statements have no established psychometric validation or cross-language measurement equivalence. No clinical scale, formal 4F questionnaire, diagnostic rule or treatment protocol is administered. These limits should remain visible when discussing the page with someone else. Do not use another person’s record to explain their childhood, assess consent, judge credibility, assign blame or predict how they would respond in danger. Those conclusions require information this small exercise does not collect.",
+              "zh": "原创中文与英文陈述没有已确立的心理测量学验证或跨语言测量等值。本页不施测临床量表、正式4F问卷、诊断规则或治疗方案。与人讨论页面时应保留这些限制。不要利用别人的记录解释童年、判断同意或可信度、归责，或预测其危险时的反应。本小练习没有收集作出这些结论所需的信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Leave the exercise under your control",
+            "zh": "由自己决定怎样结束"
+          },
+          "paragraphs": [
+            {
+              "en": "You may stop, leave statements unscored or read all four complete public guides without answering. There is no requirement to make a particular response appear less often, return to an unsafe setting or contact someone connected with a difficult experience. A useful outcome might be one clearer question, but no action is also an available choice. The purpose is limited to observing what you are willing to notice, while preserving privacy, safety and your freedom to choose what happens next.",
+              "zh": "可以停止、把陈述留为未计分，或完全不答题就读四篇公开全文。没有要求某种回应更少出现、返回不安全环境或联系与困难经历有关的人。有用产出也许是一个更清楚的问题，但不采取行动也是一种选择。目的只在观察愿意留意的部分，同时保留隐私、安全和决定下一步的自由。"
+            },
+            {
+              "en": "Your private record stays only in the current page’s memory, without draft storage or answer submission. Exit, retake, reload or leaving clears it; public links contain no personal answers or category counts. Decide separately what, if anything, you want to share with another person. A guide can be read as a list of optional questions rather than an account of who you are. Neither an incomplete record nor a frequent response removes your right to decline a conversation or seek support.",
+              "zh": "私人记录只保留在当前页面内存，不保存草稿、不提交回答。退出、重做、刷新或离开即清除；公开链接不含个人回答或类别计数。是否向别人分享、分享什么，应另行决定。可以把指南当成可选问题清单，而不是关于自己是什么人的说明。未完成记录或频繁回应，都不会取消拒绝谈话或寻求支持的权利。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agreeing-early-reading",
+      "directionIds": [
+        "agreeing-early"
+      ],
+      "title": {
+        "en": "Agreeing early — Complete Reading",
+        "zh": "先答应：完整读法"
+      },
+      "headline": {
+        "en": "Three original observations, six separate category counts",
+        "zh": "三条原创观察，六种独立类别计数"
+      },
+      "summary": {
+        "en": "Read three original observations about agreeing before checking a preference or limit, with privacy, consent and the freedom to change a choice kept visible.",
+        "zh": "阅读尚未核对偏好或限制就先答应的三条原创观察，同时保留隐私、同意及改变选择的自由。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to three statements. Category IDs are labels, not points. There is no total, mean, ranking, dominant type, risk band, physiological finding or diagnosis.",
+        "zh": "六类计数合计三条陈述。类别标识是标签，不是点数；没有总分、均值、排名、主导类型、风险区间、生理发现或诊断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Agreeing early Under Pressure: Complete Guide | FermatMind",
+          "zh": "先答应：压力下行动完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read three original observations about agreeing before checking a preference or limit, with privacy, consent and the freedom to change a choice kept visible.",
+          "zh": "阅读尚未核对偏好或限制就先答应的三条原创观察，同时保留隐私、同意及改变选择的自由。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "What agreeing early describes",
+            "zh": "先答应描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This original theme groups three descriptions: saying yes before considering whether an arrangement works for you, saying an option is fine while wanting another option, and trying to settle another person’s feelings before mentioning an important limit. It asks what you noticed over the past four weeks. The statements do not establish people-pleasing, fear, consent, a trauma history or an automatic response. They describe parts of an exchange rather than explain a person’s identity or why an agreement occurred.",
+              "zh": "本原创主题把三种描述放在一起：尚未考虑安排是否适合自己就先答应、想选另一项却先说也可以，以及先安抚对方感受而未说明重要限制。它询问过去四周注意到的情况，不证明讨好、恐惧、同意、创伤经历或自动反应。陈述描述交流的一部分，不解释身份或答应的原因。"
+            },
+            {
+              "en": "The six category counts add to three because each statement is placed in one category. They do not form a score. “Did not notice” stays separate from unscored responses for no relevant opportunity, uncertain recall or choosing not to answer. A small count cannot establish strong boundaries or a lack of concern. All three statements can remain unscored while the same complete public reading stays available. Nothing in a record determines whether you are entitled to change your mind, keep information private or seek support.",
+              "zh": "每条陈述进入一个类别，因此六类计数合计三条，不形成分数。“没有注意到”与没有相关机会、回想不清或保留回答的未计分分开。数量少不能证明边界有力或没有困扰。三条都可未计分，同时阅读同一公开全文。记录不决定你有没有资格改变想法、保留信息或寻求支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "An answer is not permission for someone else",
+            "zh": "回答不向别人授予许可"
+          },
+          "paragraphs": [
+            {
+              "en": "A questionnaire response cannot establish that you agreed to a real arrangement, wanted contact or gave permission for anything. Actual choices must be understood in their own circumstances and may change. A category about saying yes early does not make an earlier agreement permanent. Another person cannot use this theme to say that you should accept a request, remain agreeable or continue a conversation. The website also cannot determine what another person meant by an expression or whether they were free to choose.",
+              "zh": "问卷回答不能证明你同意真实安排、希望接触或授权任何事情。实际选择应在自身情境中理解，也可能改变。关于先答应的类别，不会使早先答应永久有效。别人不能利用本主题要求接受请求、始终顺从或继续谈话。网站也不能确定他人表达的意义，或其是否能够自由选择。"
+            },
+            {
+              "en": "For a fictional example, someone accepts a meeting time before checking a caring responsibility, then wants to change the arrangement. The practical question might concern the timing and what can be agreed now. Another person may say yes in a threatening setting, which cannot be treated as an ordinary scheduling issue. These different situations should not be combined into one personal type. A short inventory does not decide responsibility, dismiss a refusal or require anyone to confront another person to prove a boundary.",
+              "zh": "例如，一个虚构人物还没核对照护责任，就答应见面时间，后来希望调整，可讨论现在能怎样安排。另一个人在受威胁环境中说了“是”，不能当成普通约时间问题。两种情况不应合成一种个人类型。简短盘点不裁决责任、不否定拒绝，也不要求靠对抗他人来证明边界。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep preference, resources and setting distinct",
+            "zh": "区分偏好、资源与环境"
+          },
+          "paragraphs": [
+            {
+              "en": "The first statement concerns checking whether an arrangement works for you. What works can depend on time, resources, responsibilities and preferences. The inventory does not ask enough to sort among them. If you want to review a manageable example, distinguish what you knew at the time from what became clear later. A later change of view does not establish that the earlier answer was dishonest, and a category cannot decide whether a request was reasonable or whether an agreement could safely be revisited.",
+              "zh": "第一条涉及核对安排是否适合自己，可能取决于时间、资源、责任和偏好。盘点没有询问足够信息来鉴别。愿意回看能掌握的实例时，可以区分当时知道什么、后来才明确什么。想法后来改变，不证明早先回答不诚实；类别也不决定请求是否合理，或是否能安全重谈安排。"
+            },
+            {
+              "en": "The second statement concerns a private preference that differed from the option described as fine. Preferences can also be unclear or change. You do not need to invent a hidden wish to fit the statement. The third concerns the sequence of attending to feelings and expressing a limit, without establishing anyone’s actual feelings or motives. Read these differences alongside the individual answers. Three observations are too narrow to explain a relationship, judge someone’s confidence or decide what another person expected.",
+              "zh": "第二条涉及私人偏好与口头说可以的选项不同，但偏好也可能不清楚或改变，无需补出隐藏愿望来符合陈述。第三条关注顾及感受与表达限制的顺序，不确定任何人的真实感受或动机。应把这些差别与逐条回答一起看。三条观察不足以解释关系、判断自信或决定他人期待什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Read frequency without a moral ranking",
+            "zh": "阅读频率，不作道德排名"
+          },
+          "paragraphs": [
+            {
+              "en": "A frequent category records your selection for a statement in one period. It does not show weakness, kindness, maturity, dishonesty or dependence. A less frequent category does not prove that you always know and express your needs. Different situations provide different room to speak and decide. The six counts retain those limited labels without becoming an overall people-pleasing score. There is no mean, norm, high or low band or dominant theme, and the four topics are not ranked against each other.",
+              "zh": "频繁类别记录某时段对陈述的选择，不说明软弱、善良、成熟、不诚实或依赖。较少出现也不证明总能知道并表达需要。不同情境提供不同的表达和选择空间。六类计数保留有限标签，不形成总体讨好分数。没有均值、常模、高低区间或主导主题，四个主题之间不排名。"
+            },
+            {
+              "en": "The same category distribution can come from different individual statements. Keep the statement and selected label together when considering the record. If you return later, a change can reflect opportunity, setting or recollection, and this original exercise has no validated rule for interpreting it as improvement or deterioration. Do not try to produce a preferred result by refusing an ordinary request you wanted to accept, accepting an unwanted request or altering what you honestly recall. You may choose not to make a record at all.",
+              "zh": "相同类别分布可以来自不同条目，应把陈述和所选标签一起看。再次填写时，变化可能反映机会、环境或回忆，本原创练习没有经过验证的规则将其解释为改善或恶化。不要为了理想结果，拒绝本想接受的普通请求、接受不想要的请求，或改变真实回忆，也可以完全不作记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose a question without an obligation to act",
+            "zh": "选择问题，不强加行动义务"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish and it is safe, a practical question might concern whether an arrangement is workable now or which information you need before deciding. You may also choose not to discuss it. These are optional questions, not a script for confrontation or a treatment plan. The page cannot know whether a conversation would be useful or safe. No result requires direct refusal, disclosure, contact with someone connected to a difficult experience or a change to a protective boundary.",
+              "zh": "若愿意且安全，可以考虑安排现在是否可行，或作决定前需要哪些信息，也可以选择不讨论。这些是可选问题，不是对抗话术或治疗计划。页面不知道谈话是否有用或安全，没有结果要求直接拒绝、披露信息、联系与困难经历有关的人，或改变保护性边界。"
+            },
+            {
+              "en": "If something is troubling you, a qualified professional can help explore the concern more fully. You can ask about the process before deciding how much to share. You do not need to finish twelve statements, select “Very often” or wait for the recall period to pass. If immediate danger is present or you cannot stay safe, seek local emergency help rather than continuing the exercise. A count cannot assess urgency, choose appropriate care or decide whether another person’s behavior was acceptable.",
+              "zh": "存在困扰时，可以与合格专业人士更完整地讨论，在决定分享多少前先问流程。无需做完十二条、选择“经常”或等回想范围结束。如果有即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续练习。计数不能评估紧急程度、选择合适照护或判断他人行为是否可接受。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Do not turn a popular label into a diagnosis",
+            "zh": "不把流行标签变成诊断"
+          },
+          "paragraphs": [
+            {
+              "en": "“Fawn” is sometimes used as a popular description of appeasing others under pressure. This original theme does not assign that label or establish its cause. It records three descriptions of timing and private preference. The 4Fs are a separate explanatory framework, not the scoring model here. Similarity of language does not establish trauma, a clinical defensive structure, an attachment type or a default nervous-system pattern. This exercise does not measure automatic physiology, diagnose a condition or explain a person’s childhood.",
+              "zh": "人们有时用“安抚”宽泛描述压力下迁就他人。本原创主题不分配这一标签，也不判定原因，只记录三条关于先后顺序与私人偏好的描述。4F是另一个解释框架，并非本页计分模型。用词相近，不证明创伤、临床防御结构、依恋类型或神经系统默认模式。本练习不测自动生理、不诊断状况，也不解释童年。"
+            },
+            {
+              "en": "The Chinese and English statements have no established psychometric validation, norms or cross-language measurement equivalence. Do not use a record for hiring, partner screening, educational or security access, credibility judgments or assigning blame. Violence, coercion and threats need attention to actual safety; a person’s reaction style does not make them responsible for someone else’s harmful conduct. The inventory cannot establish that such conduct occurred or determine responsibility, and it must not be used to minimize a concern or pressure a disclosure.",
+              "zh": "中文与英文陈述没有已确立的心理测量学验证、常模或跨语言测量等值。不用于招聘、伴侣筛选、教育或安全权限、可信度判断或归责。暴力、胁迫和威胁需根据现实安全处理，回应风格不让人对他人的有害行为负责。盘点不能证明行为发生或裁决责任，也不能用来淡化困扰或施压披露。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep the reflection optional and private",
+            "zh": "让反思保持自愿与私人"
+          },
+          "paragraphs": [
+            {
+              "en": "You can stop, leave statements unscored or read all four complete public guides without answering. No count unlocks another text or assigns an identity. A useful outcome can be one clearer question about a situation you choose, but no plan is required. You remain free to change a decision or decide that you do not want to continue. The purpose is modest: noticing what you are willing to notice while retaining safety, privacy and choice, rather than satisfying an expectation about how a person should react.",
+              "zh": "可以停止、把陈述留为未计分，或不答题就读四篇公开全文。计数不解锁另一文本，也不分配身份。有用产出可以是关于自选情况的一个更清楚问题，但没有必须制定的计划。仍可改变决定，或决定不继续。目标只是观察愿意留意的部分，同时保留安全、隐私与选择，而不是满足某种应当怎样回应的期待。"
+            },
+            {
+              "en": "Your answers and category records remain only in the current page’s memory, without saved drafts or answer submission. Exit, retake, reload or leaving clears them. Public links share the title and address without answers or counts. Decide separately whether you want to share anything with another person. A public guide does not reveal what you selected or authorize another person to speak for you, cancel a refusal, demand an explanation or decide whether you deserve support. Those rights do not depend on a questionnaire.",
+              "zh": "回答与类别记录仅在当前页面内存保留，没有草稿保存或回答提交，退出、重做、刷新或离开即清除。公开链接只分享标题与地址，不含回答或计数。是否向别人分享任何内容，应另行决定。公开指南不会透露选择，也不授权他人代言、取消拒绝、要求解释或决定你是否值得获得支持。这些权利不依赖问卷。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "How twelve observations become four records",
+        "zh": "十二条观察怎样整理成四项记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme has three original statements. Each statement enters one of six category counts: did not notice, rarely, sometimes, often, very often or unscored. The counts add to three, not to a score. Individual observations and selected categories are shown together. Unscored is not converted to zero, and no total, mean, rank or dominant response is produced.",
+          "zh": "每个主题有三条原创陈述，每条进入没有注意到、很少、有时、较常、经常或未计分这六类计数之一。合计三条，不形成分数。逐条观察与所选类别一起展示，未计分不转换为零，不产生总分、均值、排名或主导反应。"
+        },
+        {
+          "en": "Frequency labels do not count events or determine causes. A low count is not an all-clear finding, and an entirely unscored record does not establish that nothing happened. All four full public readings remain available before answers, midway and after completion. Support does not depend on a category or on finishing this exercise.",
+          "zh": "频率标签不计算事件次数，也不判定原因。数量少不是“一切没事”的结论，全部未计分也不证明什么都没发生。四篇公开全文在答题前、中途及完成后均可阅读；获得支持不依赖某个类别或完成练习。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original action descriptions and the four-F vocabulary",
+        "zh": "原创行动描述与四种反应用词"
+      },
+      "paragraphs": [
+        {
+          "en": "Pete Walker describes a four-F trauma typology in his clinical writing. This page is a separate original inventory of everyday action descriptions. It does not adopt that article’s causal, diagnostic or treatment claims, test physiology or verify a default nervous-system pattern. Similar topic words do not establish measurement equivalence or a trauma history.",
+          "zh": "Pete Walker在临床写作中描述四种创伤反应类型。本页是另一份日常行动描述原创盘点，不采用该文的成因、诊断或治疗主张，不测试生理，也不核实神经系统默认模式。主题用词相近，不证明测量等值或创伤经历。"
+        },
+        {
+          "en": "The existing Stress Response Patterns Test preserves twenty original Mini statements in five groups and records agreement over three months. This twelve-statement exercise uses four-week frequency categories, including an unscored option, and distinguishes wanting to begin from deliberately holding back. Its counts cannot be combined with the Mini form’s values or used to rename its five groups as four physiological types.",
+          "zh": "现有压力反应观察测试保留原创小程序二十条描述、五组结构，记录近三个月的符合程度。本十二条练习使用四周频率类别及未计分选项，并区分想开始却卡住与主动暂不回应。计数不能与小程序题本的数值合并，也不能把其五组改称四种生理类型。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Memory-only answers and complete public text",
+        "zh": "仅页面内存的回答与完整公开正文"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay only in the current page’s memory. There is no draft storage, answer submission, result URL or questionnaire analytics. Exit, retake, reload or leaving clears the record. Copying the public entry shares its title and address without answers or counts.",
+          "zh": "回答仅留在当前页面内存，不保存草稿、不提交回答、不生成结果网址，也没有问卷分析。退出、重做、刷新或离开即清除记录。复制公开入口只分享标题和地址，不含回答或计数。"
+        },
+        {
+          "en": "The four complete bilingual guides explain topics rather than assign identities. Each remains public for any response pattern, including an entirely unscored record. You may pause, decline a question or seek support without disclosing an event. The exercise does not require confrontation, deliberate reminders or unwanted contact.",
+          "zh": "四篇双语完整指南解释主题，不分配身份。任何回答模式下都能公开阅读，包括全部未计分。可以暂停、保留回答或寻求支持，无需披露事件；练习不要求对抗、主动接触提醒材料或不想要的联系。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this identify my fight, flight, freeze or fawn type?",
+        "zh": "会判定战斗、逃跑、冻僵或安抚类型吗？"
+      },
+      "answer": {
+        "en": "No. Those popular labels do not become a scoring rule here. The record describes twelve original self-reported action observations, without a default type, physiological measurement, trauma-history inference or diagnosis.",
+        "zh": "不会。流行用词不会在这里变成计分规则。记录描述十二条原创自报行动观察，不分配默认类型，不测生理，不推断创伤经历或作诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are unscored and did not notice separate?",
+        "zh": "为什么未计分与没有注意到分开？"
+      },
+      "answer": {
+        "en": "No relevant opportunity, unclear recall and withholding an answer are gaps in the record. They do not establish that an action was absent, so they are never converted to the did-not-notice category or a low score.",
+        "zh": "没有相关机会、回想不清和保留回答，是记录缺口，不证明行动没有发生，因此不转换成没有注意到或低分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every full guide before answering?",
+        "zh": "能在答题前读全部完整指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All four complete guides are free and public. Answers do not unlock another tier or restrict the text.",
+        "zh": "可以。四篇全文免费公开，回答不解锁另一档内容，也不限制正文。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does agreeing early establish real consent?",
+        "zh": "先答应能证明实际同意吗？"
+      },
+      "answer": {
+        "en": "No. A questionnaire category cannot establish permission, willingness or a permanent agreement, cancel a refusal or authorize someone to speak for another person. Actual choices must be understood in their own circumstances.",
+        "zh": "不能。问卷类别不能证明许可、愿意或永久同意，不能取消拒绝，也不授权替他人代言。实际选择应在自身情境中理解。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a replacement for professional support?",
+        "zh": "可以替代专业支持吗？"
+      },
+      "answer": {
+        "en": "No. You may ask a qualified professional about a concern without completing the exercise or reaching a count. Immediate danger or inability to stay safe calls for local emergency help rather than continuing a reflection.",
+        "zh": "不能。存在困扰时可以向合格专业人士提问，无需完成练习或达到某种计数。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续反思。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Pete Walker: The 4Fs — a separate clinical explanatory typology",
+        "zh": "Pete Walker：4F——另一种临床解释框架"
+      },
+      "url": "https://www.pete-walker.com/fourFs_TraumaTypologyComplexPTSD.htm"
+    },
+    {
+      "title": {
+        "en": "VA National Center for PTSD: Common reactions after trauma — professional background",
+        "zh": "美国退伍军人事务部国家PTSD中心：创伤后的常见反应——专业背景"
+      },
+      "url": "https://www.ptsd.va.gov/understand/isitptsd/common_reactions.asp"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_under_pressure_action_observations",
+    "formCode": "fm_pressure_actions12_observations_v1",
+    "itemBankVersion": "original12_bilingual_four_by_three_observations_v1",
+    "scoringVersion": "six_categorical_counts_per_three_items_no_points_v1",
+    "resultContentVersion": "four_full_bilingual_pressure_action_readings_v1",
+    "itemBankSha256": "ef0ad817225ec69f8b1334642f2b0147d67c4220e8932082c1be34f75d755cb0",
+    "resultContentSha256": "8bb6273f2e7f40b75089b449a96361f7e55a88170fe9bdd9a1fcc2edd407d3c0",
+    "psychometricValidationCompleted": false
+  }
+}

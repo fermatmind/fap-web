@@ -6571,5 +6571,30 @@
       "observing-the-setting"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "pressure-response-actions",
+    "code": "FM_PRESSURE_ACTIONS12_OBSERVATIONS",
+    "version": "fm_pressure_actions12_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Actions Under Pressure",
+      "zh": "压力下的行动观察"
+    },
+    "description": {
+      "en": "Recall 12 original observations about defending a view, moving away, getting stuck and agreeing early. Read separate category counts and four complete public guides, without assigning a default response type.",
+      "zh": "回顾维护立场、退开、回应卡住和先答应的12条原创观察，分别查看类别计数，并免费阅读四篇公开全文。不分配默认反应类型。"
+    },
+    "minutes": 3,
+    "formCode": "fm_pressure_actions12_observations_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "protecting-a-position-reading",
+      "moving-away-reading",
+      "getting-stuck-reading",
+      "agreeing-early-reading"
+    ],
+    "collection": "explore"
   }
 ]
