@@ -1,0 +1,6605 @@
+{
+  "scope": "OriginalMiniSource31parityfixtures;syntheticnotpopulationvalidation",
+  "sourceHashes": {
+    "historical_engine.js": "51a658b20df1c2e035320b9126b6495a792ccf92ab9102e21a9ffe2b612d3dbc",
+    "scorer.js": "2a797c2a2aa8d5de9f72eb1dbc56ef18216301dd3de98599e74abbf5d752e0b8",
+    "item_bank.js": "490ef657e3d9639350ef945e85e48e4e092cfda1a1f74727b685f6aa6b270d0c",
+    "scoring_spec.js": "e331f20bed2d769ba7f175ad87e47826a7baba843475e5d5b7559dd92e09758f",
+    "product.js": "8c01c1881c25ed0ab02a4e367e318bb3de54aa6a919999ec494d9f8c3889714c",
+    "result_content.js": "01dba15f4179a231ae1e033e4a6e41a3410b80704d67fe359e22f7b6c89c93fd",
+    "result_presenter.js": "775da7d0ef31a5dc985b7952e16edaa74cc7bb4d5c5c339dd28a1fea8750b96f"
+  },
+  "form": "sbti_entertainment_31",
+  "scoringVersion": "sbti-web-v1-43cc2f7f",
+  "questions": [
+    {
+      "id": "q01",
+      "order": 1,
+      "prompt": {
+        "zh": "我希望自己一直往上走，变得更强一点。",
+        "en": "我希望自己一直往上走，变得更强一点。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "initiative": 28,
+            "stability": 44
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "initiative": 52,
+            "stability": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "initiative": 84,
+            "novelty_seeking": 64,
+            "rhythm_control": 68
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q02",
+      "order": 2,
+      "prompt": {
+        "zh": "我心里一直有想认真追求的东西。",
+        "en": "我心里一直有想认真追求的东西。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "initiative": 24,
+            "reflection": 42
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "initiative": 50,
+            "reflection": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "initiative": 82,
+            "reflection": 70,
+            "stability": 66
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q03",
+      "order": 3,
+      "prompt": {
+        "zh": "我做事更在意成果和成长，而不是一味躲风险。",
+        "en": "我做事更在意成果和成长，而不是一味躲风险。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "novelty_seeking": 34,
+            "stability": 62
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "novelty_seeking": 54,
+            "stability": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "novelty_seeking": 78,
+            "initiative": 76,
+            "ambiguity_tolerance": 62
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q04",
+      "order": 4,
+      "prompt": {
+        "zh": "我做决定通常比较果断，不太喜欢拖着不定。",
+        "en": "我做决定通常比较果断，不太喜欢拖着不定。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "expression_directness": 34,
+            "reflection": 70
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "expression_directness": 54,
+            "reflection": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "expression_directness": 82,
+            "initiative": 72
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q05",
+      "order": 5,
+      "prompt": {
+        "zh": "你在路上遇到一个很可爱的小女孩，她笑着递给你一根棒棒糖，你第一反应更像：",
+        "en": "你在路上遇到一个很可爱的小女孩，她笑着递给你一根棒棒糖，你第一反应更像："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哇，她也太可爱了吧，还给我糖！",
+            "en": "哇，她也太可爱了吧，还给我糖！"
+          },
+          "impacts": {
+            "warmth": 84,
+            "emotional_openness": 76,
+            "social_drive": 68
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有点懵，先愣一下再说。",
+            "en": "有点懵，先愣一下再说。"
+          },
+          "impacts": {
+            "reflection": 64,
+            "signal_sensitivity": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这不会是什么新型整活吧，先保持距离。",
+            "en": "这不会是什么新型整活吧，先保持距离。"
+          },
+          "impacts": {
+            "boundary_awareness": 84,
+            "stability": 72
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q06",
+      "order": 6,
+      "prompt": {
+        "zh": "谈恋爱后，如果对方特别黏人，你更接近：",
+        "en": "谈恋爱后，如果对方特别黏人，你更接近："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我会觉得挺甜的。",
+            "en": "我会觉得挺甜的。"
+          },
+          "impacts": {
+            "warmth": 82,
+            "emotional_openness": 74
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "都行，看状态。",
+            "en": "都行，看状态。"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 60,
+            "warmth": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我还是更需要自己的独处空间。",
+            "en": "我还是更需要自己的独处空间。"
+          },
+          "impacts": {
+            "boundary_awareness": 84,
+            "reflection": 68
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q07",
+      "order": 7,
+      "prompt": {
+        "zh": "你平时更偏向哪类爱好？",
+        "en": "你平时更偏向哪类爱好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "吃吃喝喝，到处逛逛",
+            "en": "吃吃喝喝，到处逛逛"
+          },
+          "impacts": {
+            "social_drive": 70,
+            "playfulness": 74
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "艺术或审美类兴趣",
+            "en": "艺术或审美类兴趣"
+          },
+          "impacts": {
+            "aesthetic_showcase": 88,
+            "reflection": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "小酌或夜生活",
+            "en": "小酌或夜生活"
+          },
+          "impacts": {
+            "novelty_seeking": 78,
+            "group_energy": 72,
+            "playfulness": 70
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "运动或健身",
+            "en": "运动或健身"
+          },
+          "impacts": {
+            "stability": 72,
+            "rhythm_control": 78,
+            "initiative": 62
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q08",
+      "order": 8,
+      "prompt": {
+        "zh": "别人说你“执行力强”，你心里更像哪句？",
+        "en": "别人说你“执行力强”，你心里更像哪句？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "真到最后关头，我确实能硬着头皮推进。",
+            "en": "真到最后关头，我确实能硬着头皮推进。"
+          },
+          "impacts": {
+            "initiative": 66,
+            "stability": 56
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有时候是这样。",
+            "en": "有时候是这样。"
+          },
+          "impacts": {
+            "initiative": 52,
+            "stability": 52
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是的，事情本来就该往前推。",
+            "en": "是的，事情本来就该往前推。"
+          },
+          "impacts": {
+            "initiative": 86,
+            "expression_directness": 70
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q09",
+      "order": 9,
+      "prompt": {
+        "zh": "在感情里，我会担心自己被对方丢下。",
+        "en": "在感情里，我会担心自己被对方丢下。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "是的",
+            "en": "是的"
+          },
+          "impacts": {
+            "signal_sensitivity": 82,
+            "emotional_openness": 76
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "偶尔",
+            "en": "偶尔"
+          },
+          "impacts": {
+            "signal_sensitivity": 58,
+            "emotional_openness": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不是",
+            "en": "不是"
+          },
+          "impacts": {
+            "stability": 74,
+            "boundary_awareness": 68
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q10",
+      "order": 10,
+      "prompt": {
+        "zh": "我很渴望和信任的人快速熟起来，像认识很久一样。",
+        "en": "我很渴望和信任的人快速熟起来，像认识很久一样。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "social_drive": 78,
+            "warmth": 86,
+            "emotional_openness": 78
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "warmth": 58,
+            "social_drive": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "boundary_awareness": 76,
+            "reflection": 66
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q11",
+      "order": 11,
+      "prompt": {
+        "zh": "这题没有标准题干，请凭感觉选一项：",
+        "en": "这题没有标准题干，请凭感觉选一项："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想来想去，还是 A 吧",
+            "en": "想来想去，还是 A 吧"
+          },
+          "impacts": {
+            "reflection": 74
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "要不就 B？",
+            "en": "要不就 B？"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 58,
+            "playfulness": 48
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不会就先选 C",
+            "en": "不会就先选 C"
+          },
+          "impacts": {
+            "initiative": 60,
+            "expression_directness": 56
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q12",
+      "order": 12,
+      "prompt": {
+        "zh": "朋友带了 ta 的朋友一起来玩，你更可能处于哪种状态？",
+        "en": "朋友带了 ta 的朋友一起来玩，你更可能处于哪种状态？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "会有点不适应，像原本的二人局被打断了",
+            "en": "会有点不适应，像原本的二人局被打断了"
+          },
+          "impacts": {
+            "boundary_awareness": 76,
+            "stability": 70
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看现场感觉，能玩就玩",
+            "en": "看现场感觉，能玩就玩"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 58,
+            "group_energy": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "会主动把对方也当成新朋友认识一下",
+            "en": "会主动把对方也当成新朋友认识一下"
+          },
+          "impacts": {
+            "social_drive": 84,
+            "group_energy": 80,
+            "warmth": 70
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q13",
+      "order": 13,
+      "prompt": {
+        "zh": "如果你很喜欢的人同时具备很多理想特质，你会更接近：",
+        "en": "如果你很喜欢的人同时具备很多理想特质，你会更接近："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "会开心，但仍会提醒自己别陷太深",
+            "en": "会开心，但仍会提醒自己别陷太深"
+          },
+          "impacts": {
+            "boundary_awareness": 80,
+            "reflection": 68
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大概会在理智和心动之间来回摇摆",
+            "en": "大概会在理智和心动之间来回摇摆"
+          },
+          "impacts": {
+            "emotional_openness": 62,
+            "reflection": 62
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "会非常珍惜，甚至容易有点恋爱脑",
+            "en": "会非常珍惜，甚至容易有点恋爱脑"
+          },
+          "impacts": {
+            "emotional_openness": 82,
+            "warmth": 78,
+            "signal_sensitivity": 70
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q14",
+      "order": 14,
+      "prompt": {
+        "zh": "我不喜欢纯发散式空谈，对一些哲学或人生问题会认真想一想。",
+        "en": "我不喜欢纯发散式空谈，对一些哲学或人生问题会认真想一想。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "并没有",
+            "en": "并没有"
+          },
+          "impacts": {
+            "reflection": 24,
+            "playfulness": 58
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有一点",
+            "en": "有一点"
+          },
+          "impacts": {
+            "reflection": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是的",
+            "en": "是的"
+          },
+          "impacts": {
+            "reflection": 88,
+            "ambiguity_tolerance": 66
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q15",
+      "order": 15,
+      "prompt": {
+        "zh": "我其实很清楚“真正的自己”大概是什么样。",
+        "en": "我其实很清楚“真正的自己”大概是什么样。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "stability": 30,
+            "reflection": 48
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "stability": 56,
+            "reflection": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "stability": 84,
+            "reflection": 78
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q16",
+      "order": 16,
+      "prompt": {
+        "zh": "对方五个多小时没回消息，后来解释说睡着了，你更可能怎么想？",
+        "en": "对方五个多小时没回消息，后来解释说睡着了，你更可能怎么想？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这么久没回，我很难完全不多想",
+            "en": "这么久没回，我很难完全不多想"
+          },
+          "impacts": {
+            "signal_sensitivity": 82,
+            "emotional_openness": 72
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "会在信任和怀疑之间摇摆",
+            "en": "会在信任和怀疑之间摇摆"
+          },
+          "impacts": {
+            "signal_sensitivity": 64,
+            "reflection": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "也许 ta 今天真的太累了",
+            "en": "也许 ta 今天真的太累了"
+          },
+          "impacts": {
+            "warmth": 76,
+            "stability": 68
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q17",
+      "order": 17,
+      "prompt": {
+        "zh": "如果你看到一段很长、很丧、很自我否定的独白，你第一反应更接近：",
+        "en": "如果你看到一段很长、很丧、很自我否定的独白，你第一反应更接近："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我有点被戳到了",
+            "en": "我有点被戳到了"
+          },
+          "impacts": {
+            "emotional_openness": 84,
+            "signal_sensitivity": 76
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我有点懵，先看看再说",
+            "en": "我有点懵，先看看再说"
+          },
+          "impacts": {
+            "reflection": 58,
+            "ambiguity_tolerance": 48
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这不是我的状态",
+            "en": "这不是我的状态"
+          },
+          "impacts": {
+            "stability": 74,
+            "boundary_awareness": 58
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q18",
+      "order": 18,
+      "prompt": {
+        "zh": "我做事通常是有明确目标的。",
+        "en": "我做事通常是有明确目标的。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "rhythm_control": 24,
+            "initiative": 32
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "rhythm_control": 52,
+            "initiative": 50
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "rhythm_control": 84,
+            "initiative": 82
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q19",
+      "order": 19,
+      "prompt": {
+        "zh": "临近考试，晚上本该复习，但有人约你出去玩，你更接近：",
+        "en": "临近考试，晚上本该复习，但有人约你出去玩，你更接近："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "就这一次，先出去再说",
+            "en": "就这一次，先出去再说"
+          },
+          "impacts": {
+            "novelty_seeking": 80,
+            "playfulness": 68,
+            "rhythm_control": 30
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看情况，可能会请个假或调整一下",
+            "en": "看情况，可能会请个假或调整一下"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 58,
+            "rhythm_control": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "都快考试了，还是先把正事处理完",
+            "en": "都快考试了，还是先把正事处理完"
+          },
+          "impacts": {
+            "stability": 82,
+            "rhythm_control": 84
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q20",
+      "order": 20,
+      "prompt": {
+        "zh": "你会觉得大多数人本质上是善良的吗？",
+        "en": "你会觉得大多数人本质上是善良的吗？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我没那么乐观，很多人只是守规矩",
+            "en": "我没那么乐观，很多人只是守规矩"
+          },
+          "impacts": {
+            "boundary_awareness": 72,
+            "warmth": 34
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "也许吧",
+            "en": "也许吧"
+          },
+          "impacts": {
+            "warmth": 54,
+            "ambiguity_tolerance": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我还是愿意相信好人更多",
+            "en": "我还是愿意相信好人更多"
+          },
+          "impacts": {
+            "warmth": 84,
+            "emotional_openness": 60
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q21",
+      "order": 21,
+      "prompt": {
+        "zh": "有时我会突然觉得，人生未必真有一个确定答案，人也常常被欲望推着走。",
+        "en": "有时我会突然觉得，人生未必真有一个确定答案，人也常常被欲望推着走。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我很能共鸣",
+            "en": "我很能共鸣"
+          },
+          "impacts": {
+            "reflection": 84,
+            "ambiguity_tolerance": 76
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有时会这样想，但不绝对",
+            "en": "有时会这样想，但不绝对"
+          },
+          "impacts": {
+            "reflection": 60,
+            "ambiguity_tolerance": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我不太认同这种看法",
+            "en": "我不太认同这种看法"
+          },
+          "impacts": {
+            "stability": 72,
+            "rhythm_control": 64
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q22",
+      "order": 22,
+      "prompt": {
+        "zh": "我常常会因为一个特别鲜明的点，迅速记住一个人。",
+        "en": "我常常会因为一个特别鲜明的点，迅速记住一个人。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "signal_sensitivity": 84,
+            "aesthetic_showcase": 64
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "signal_sensitivity": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "reflection": 40,
+            "signal_sensitivity": 30
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q23",
+      "order": 23,
+      "prompt": {
+        "zh": "在不同的人和场景面前，我会表现出不太一样的自己。",
+        "en": "在不同的人和场景面前，我会表现出不太一样的自己。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "stability": 80,
+            "expression_directness": 66
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "stability": 56,
+            "ambiguity_tolerance": 52
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "group_energy": 64,
+            "social_drive": 58,
+            "ambiguity_tolerance": 70
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q24",
+      "order": 24,
+      "prompt": {
+        "zh": "说到计划这件事，我更像：",
+        "en": "说到计划这件事，我更像："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "变化通常比计划来得更快",
+            "en": "变化通常比计划来得更快"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 76,
+            "rhythm_control": 34
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有时会计划，有时随缘",
+            "en": "有时会计划，有时随缘"
+          },
+          "impacts": {
+            "rhythm_control": 54,
+            "ambiguity_tolerance": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我其实不太爱做计划",
+            "en": "我其实不太爱做计划"
+          },
+          "impacts": {
+            "novelty_seeking": 62,
+            "rhythm_control": 22
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q25",
+      "order": 25,
+      "prompt": {
+        "zh": "在任何关系里，我都希望保留一块稳定的个人空间。",
+        "en": "在任何关系里，我都希望保留一块稳定的个人空间。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "很认同",
+            "en": "很认同"
+          },
+          "impacts": {
+            "boundary_awareness": 88,
+            "reflection": 68
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看情况",
+            "en": "看情况"
+          },
+          "impacts": {
+            "boundary_awareness": 58,
+            "ambiguity_tolerance": 56
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不太认同",
+            "en": "不太认同"
+          },
+          "impacts": {
+            "warmth": 74,
+            "emotional_openness": 62
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q26",
+      "order": 26,
+      "prompt": {
+        "zh": "我会觉得自己不够好，身边很多人都比我更优秀。",
+        "en": "我会觉得自己不够好，身边很多人都比我更优秀。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "确实",
+            "en": "确实"
+          },
+          "impacts": {
+            "signal_sensitivity": 80,
+            "stability": 26
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "有时",
+            "en": "有时"
+          },
+          "impacts": {
+            "signal_sensitivity": 60,
+            "stability": 48
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不是",
+            "en": "不是"
+          },
+          "impacts": {
+            "stability": 82,
+            "initiative": 62
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q27",
+      "order": 27,
+      "prompt": {
+        "zh": "你已经在马桶上坐了很久，还是没结果，这时你更像：",
+        "en": "你已经在马桶上坐了很久，还是没结果，这时你更像："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "再等等，说不定下一分钟就成了",
+            "en": "再等等，说不定下一分钟就成了"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 70,
+            "stability": 42
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一边给自己打气，一边继续努力",
+            "en": "一边给自己打气，一边继续努力"
+          },
+          "impacts": {
+            "initiative": 68,
+            "stability": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "直接用最有效的办法赶紧解决",
+            "en": "直接用最有效的办法赶紧解决"
+          },
+          "impacts": {
+            "expression_directness": 76,
+            "rhythm_control": 82
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q28",
+      "order": 28,
+      "prompt": {
+        "zh": "我喜欢把话说直，不太爱绕圈子。",
+        "en": "我喜欢把话说直，不太爱绕圈子。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "expression_directness": 88,
+            "initiative": 64
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "偏中立",
+            "en": "偏中立"
+          },
+          "impacts": {
+            "expression_directness": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "warmth": 62,
+            "reflection": 66
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q29",
+      "order": 29,
+      "prompt": {
+        "zh": "你和网友聊得不错，对方提议线下见一面，你更可能：",
+        "en": "你和网友聊得不错，对方提议线下见一面，你更可能："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "网上聊聊可以，真见面我还是会谨慎",
+            "en": "网上聊聊可以，真见面我还是会谨慎"
+          },
+          "impacts": {
+            "boundary_awareness": 82,
+            "reflection": 60
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "见也行，顺其自然",
+            "en": "见也行，顺其自然"
+          },
+          "impacts": {
+            "ambiguity_tolerance": 60,
+            "social_drive": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我会认真准备一下，甚至有点期待",
+            "en": "我会认真准备一下，甚至有点期待"
+          },
+          "impacts": {
+            "social_drive": 78,
+            "aesthetic_showcase": 68,
+            "emotional_openness": 62
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q30",
+      "order": 30,
+      "prompt": {
+        "zh": "有时候我明明已经意识到某件事不太对，但还是不太愿意说破。更接近你的原因是：",
+        "en": "有时候我明明已经意识到某件事不太对，但还是不太愿意说破。更接近你的原因是："
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这种情况比较少",
+            "en": "这种情况比较少"
+          },
+          "impacts": {
+            "expression_directness": 80,
+            "boundary_awareness": 68
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "可能是顾及关系和场面",
+            "en": "可能是顾及关系和场面"
+          },
+          "impacts": {
+            "warmth": 74,
+            "boundary_awareness": 58
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我不想显得自己太拧巴或太敏感",
+            "en": "我不想显得自己太拧巴或太敏感"
+          },
+          "impacts": {
+            "signal_sensitivity": 80,
+            "reflection": 64
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    },
+    {
+      "id": "q31",
+      "order": 31,
+      "prompt": {
+        "zh": "外界对我的评价，很多时候并不会真正左右我。",
+        "en": "外界对我的评价，很多时候并不会真正左右我。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不认同",
+            "en": "不认同"
+          },
+          "impacts": {
+            "signal_sensitivity": 80,
+            "stability": 34
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "中立",
+            "en": "中立"
+          },
+          "impacts": {
+            "stability": 54,
+            "reflection": 54
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "认同",
+            "en": "认同"
+          },
+          "impacts": {
+            "stability": 82,
+            "boundary_awareness": 70
+          }
+        }
+      ],
+      "dimensionWeights": {}
+    }
+  ],
+  "profiles": [
+    {
+      "code": "IMSB",
+      "id": "self-critic",
+      "displayNameZh": "自我攻击者",
+      "overview": "恭喜您，您测出了百万年一遇的【IMSB】人格。IMSB 不是简单的“自卑”，而是一种把自己当项目经理、审计员、甲方和黑粉同时使用的顶级内耗体质。别人做错事会安慰自己“没事，下次再来”，您做错一点点，脑内已经自动召开事故复盘会：事故经过、责任划分、整改方案、永久警示，全都给自己安排得明明白白。您最大的特长，就是在事情还没开始之前，先把自己骂到像已经失败了三次。但神奇的是，您并不是真的躺平。恰恰相反，您对“变强”这件事极其认真，只是方式过于残暴。别人靠鼓励，您靠自我拷打；别人靠外部监督，您靠灵魂皮鞭。面对喜欢的人，您心里能同时住着两个极端角色：一个喊“冲啊，去要微信，去吃饭，去大声说出来”，另一个冷笑着说“人家凭什么看得上你，你过去就是自取其辱”。结果通常是：站在原地，看着机会路过，再默默打开搜索框输入“如何克服社交恐惧和过度自我怀疑”。您不是废，您只是把自己要求得像军工验收。",
+      "heroTagline": "认真的吗？我真的是傻逼吗？",
+      "summaryNote": "维度命中度较高，当前结果可视为你的第一人格画像。"
+    },
+    {
+      "code": "BOSS",
+      "id": "initiator",
+      "displayNameZh": "领导者",
+      "overview": "恭喜您，您测出了【BOSS】人格。BOSS 型人格手里仿佛永远拿着一个无形方向盘：哪怕油箱见红，导航乱报，路况稀烂，您也会很平静地吐出三个字，“我来开”。别人看到混乱会头大，您看到混乱会起精神；别人问“怎么办”，您已经在脑内排完优先级、资源表和风险列表。您不是喜欢命令人，您只是对“事情烂在眼前”这件事过敏。BOSS 看世界，很像满级玩家在看新手教程。效率是您的宗教，秩序是您的呼吸，自我突破则是您的日常小零食。普通人学一门新技能，您会顺手再报两个证、开三个表、做一份路线图，还觉得这只是“正常推进”。您身上的压迫感并不一定来自脾气，而是来自一种天然的“向上定律”：您一出场，空气都会自动进入 KPI 模式。您不是在卷，您只是觉得“能做更好为什么不做”。别人说您狠，您会淡淡看他一眼：不是我太猛，是你太松。",
+      "heroTagline": "不是我想控场，是这个场子离了我真不行。",
+      "summaryNote": "行动和决策维度更突出，结果稳定性较强。"
+    },
+    {
+      "code": "MUM",
+      "id": "caregiver",
+      "displayNameZh": "妈妈",
+      "overview": "恭喜您，您测出了【MUM】人格。MUM 型人格最大的特点，就是无论走到哪里，都会自动长出一种“照顾全场”的功能。朋友发呆，您先问是不是累了；对象沉默，您先想是不是今天受委屈了；连刚认识的人打个喷嚏，您都想顺手把纸递过去。别人来人间是来体验生活，您来人间像是来担任临时生活后勤部长的。您并不一定刻意讨好，也不是见谁都想当妈，而是您真的很容易把别人装进自己的雷达范围。谁饿了、谁冷了、谁没台阶下、谁情绪快炸了，您常常比对方自己还先发现。您像人形托底系统，稳定、柔软、好使，还经常自带一句“没事，我来”。问题也在这里：您太会接别人了，于是有时候反而没人来接您。别人把您的靠谱当空气，把您的体贴当默认，您嘴上说“没关系”，心里其实也会偷偷累。MUM 人格的厉害之处，在于能用极温柔的方式把一屋子人的状态托住；难点则在于，别把自己托丢了。",
+      "heroTagline": "你坐着，我给你拿水，顺便把你情绪也哄好。",
+      "summaryNote": "情感与关系维度更集中，亲密倾向明显。"
+    },
+    {
+      "code": "FAKE",
+      "id": "social-adapter",
+      "displayNameZh": "伪人",
+      "overview": "恭喜您，您测出了【FAKE】人格。所谓“伪人”，并不是说您坏，也不是说您爱演，而是您对场景的适配能力高得有点不像人。见甲方一个版本，见朋友一个版本，见家里长辈一个版本，到了喜欢的人面前又自动切成另一个版本。别人换脸靠滤镜，您换脸靠生存本能。您不是没有真心，您只是很早就学会：在不同语境里，说最合适的话、摆最安全的姿势，往往比原样直出更有效。久而久之，您会发展出一种非常高级的能力，观察空气。空气一紧，您马上收；气氛一松，您立刻放；谁喜欢热闹，谁吃冷淡，谁要被照顾面子，谁要被给台阶，您看一眼就懂。别人觉得您会做人，您自己其实知道，这一套是练出来的。代价也很明显：切得太熟练了，有时连您自己都要愣一下，我现在这版，到底是不是我？答案通常是：都是。您不是没真我，您只是拥有一整个工具箱。",
+      "heroTagline": "我不是假，我只是版本很多。",
+      "summaryNote": "场景适配能力较强，表达与真实度更复杂。"
+    },
+    {
+      "code": "DEAD",
+      "id": "detached-observer",
+      "displayNameZh": "停机者",
+      "overview": "恭喜您，您测出了全中国最稀有的【DEAD】人格。请注意，这里的“死者”并不是字面意思，而是一种灵魂层面的“我看过了，我懂了，我不想再激动了”。别人还在为了目标、爱恨、成败、输赢、热搜、脸面和未来疯狂上头时，您已经像顶级玩家删档重开 999 次后一样，平静地对世界说：也就那样吧。不是没有兴趣，是兴趣被透支得差不多了。您看世界的眼神，像凌晨三点坐在窗边的 NPC：知道剧情、看穿套路、理解机制，但不太想参与。有人会觉得您丧、您冷、您像没电；其实您只是对很多“必须燃起来”的叙事免疫了。目标当然有过，热爱当然也不是没出现过，只是后来发现，很多东西追到头也未必会给人一个真正稳的答案。于是您逐渐修炼成一种高阶抽离：不再轻易被口号鼓动，不再轻易被别人的热情拖走。DEAD 人格不是废墟，是一种对过度意义生产的沉默抗议。别人活得像现场直播，您活得像幕后旁白。",
+      "heroTagline": "不是我没反应，是我已经把这游戏打通关了。",
+      "summaryNote": "动机和意义感维度偏低，整体更抽离。"
+    },
+    {
+      "code": "ZZZZ",
+      "id": "pause-taker",
+      "displayNameZh": "休眠者",
+      "overview": "恭喜您，您测出了【ZZZZ】人格。装死者的伟大之处，在于把“暂时不回应”发展成了一门带有东方神秘主义色彩的高阶技能。群里 99+ 消息，您可以视而不见；日程排山倒海地压过来，您也能先把自己折起来；别人越急，您越想先静一静，像一只自动钻进洞里的谨慎生物。您不是不负责，也不是故意冷暴力，您只是非常懂得：当电量不足时，强行运行只会死机。有趣的是，您虽然平时像休眠仓里的神秘乘客，但一旦“死线”二字出现，您又会像古墓开棺般缓缓苏醒，先发一个“收到”，再在最后时刻交出一份勉强及格甚至突然惊艳的成果。您向宇宙证明了一个朴素真理：有时候什么都不做，就不会做错；但真到必须动的时候，您也并不是一点都不行。ZZZZ 人格的核心不是懒，而是能量管理极端依赖感觉。您像一台老旧但可靠的机器：平时省电、偶尔沉睡、关键时刻会响，然后一响惊人。",
+      "heroTagline": "我不是消失，我只是进入了离线省电模式。",
+      "summaryNote": "关系和行动维度波动较大，回避倾向偏明显。"
+    },
+    {
+      "code": "GOGO",
+      "id": "action-starter",
+      "displayNameZh": "行者",
+      "overview": "恭喜您，您测出了【GOGO】人格。GOGO 最大的特点，就是对“原地分析”这件事耐心极低。别人还在列利弊、画流程、做情绪准备，您已经把鞋穿好准备出门了。对您来说，很多问题不是想清楚才能解决，而是先动起来，路才会自己长出来。您看上去像冲动选手，实际上只是比大多数人更能忍受不完美的开局。GOGO 人格的生活像一条不断延长的跑道。哪怕路线不确定，哪怕中途要改三次，哪怕前方还有一堵墙，您也更愿意先迈出那一步。别人怕出错，您怕停住；别人担心翻车，您担心错过。您不一定是最细的人，但往往是最先见到风景、最早摸到下一阶段门把手的人。撞墙当然会撞，甚至还会摔得挺响，但您最厉害的地方就在于：摔完拍拍土，继续跑。您不是鲁莽，您只是比很多人更相信行动会带来答案。",
+      "heroTagline": "先冲，撞墙了再拐弯。",
+      "summaryNote": "执行与推进维度更高，停滞容忍度较低。"
+    },
+    {
+      "code": "FUCK",
+      "id": "pressure-speaker",
+      "displayNameZh": "高压者",
+      "overview": "恭喜您，您测出了【FUCK】人格。草者不是植物学意义上的草，而是一种“情绪上来就能从头顶长出来”的原生态生命力。开心了就笑，烦了就写在脸上，受不了了直接爆句，憋是憋不住一点。您对这个世界最大的贡献，就是让“我现在真的很有意见”这句话拥有了实体化形态。别人还在琢磨怎么体面表达，您已经把真实感像杂草一样从水泥缝里顶出来了。您不是故意要和谁对着干，也不是每天都想炸场子，您只是懒得把情绪打磨成对别人安全、对自己憋屈的版本。看不惯的事，您会皱眉；不舒服的人，您会拉开边界；必须怼的时候，您也很少给自己做情绪 P 图。您像那种春天里不受控猛长的草，野、快、生命力极强，有时还带点“你爱咋咋地”的自然嚣张。别人说您冲，您会想：我只是没空演。",
+      "heroTagline": "我不是情绪外露，我是情绪长草了。",
+      "summaryNote": "表达冲劲和即时反应更强，边界感也更硬。"
+    },
+    {
+      "code": "CTRL",
+      "id": "contingency-planner",
+      "displayNameZh": "拿捏者",
+      "overview": "恭喜您，您测出了【CTRL】人格。CTRL 型人格的核心诉求很简单：事情最好在可控范围内，人也最好别给我突然掉线。您不一定非要站在正中央，但至少要知道现在发生了什么、接下来可能出什么岔子，以及最坏情况来了要往哪儿拐。别人把随机性当生活情趣，您把随机性当事故源头。别人追求惊喜，您更喜欢“我早就知道会这样”。您很擅长做风险预判，也很擅长留后手。Plan A、Plan B、Plan C 不是您故意复杂，而是您的安全感本来就建立在“我心里有数”之上。您看起来很会控场、很会拿捏、很有分寸，本质上是因为您太不喜欢把自己交给混乱。您甚至连别人的情绪走向、关系升温、场面冷掉都想顺手管一管。CTRL 人格的可怕之处，在于它并不总是高调，而是安安静静地把一切都调到了自己能接受的频率。别人说您会拿捏，您心想：不拿捏，难道等着被局面拿捏吗？",
+      "heroTagline": "局面最好别失控，最好还在我手里。",
+      "summaryNote": "掌控感需求更高，风险预判也更强。"
+    },
+    {
+      "code": "HHHH",
+      "id": "lightener",
+      "displayNameZh": "傻乐者",
+      "overview": "恭喜您，您测出了【HHHH】人格。傻乐者不是傻，重点在“乐”。您像那种生活里自带缓冲棉的人，很多别人马上会紧起来的事，到了您这里会先被乐子感过滤一遍。现场尴尬？先哈哈。计划翻车？先哈哈。自己倒霉？也能先哈哈两声再说。别人觉得您没心没肺，您其实只是懂得：人类如果什么都认真到骨头里，那很快就会提前报废。您并不是不痛，也不是看不懂沉重，而是知道很多事认真半天也未必能立刻改变，不如先给自己留口气。您像生活的自救浮板，情绪来了先把自己托住，别急着沉。您身边的人也常常会被这种能力传染：本来快要窒息的气氛，被您一句轻描淡写的玩笑就缓过来了。傻乐者最厉害的地方，不是永远快乐，而是在一地鸡毛里还能找出一点能笑的东西。别人靠鸡汤活，您靠哈哈哈续命。",
+      "heroTagline": "先笑一下，天塌下来再说。",
+      "summaryNote": "情绪缓冲能力较高，轻松感更显著。"
+    },
+    {
+      "code": "SEXY",
+      "id": "expressive-styler",
+      "displayNameZh": "吸睛者",
+      "overview": "恭喜您，您测出了【SEXY】人格。所谓尤物，不一定是教科书意义上的浓颜大美人，也不一定是标准模板里的“性感”。您更像一种会自动聚光的气场：站在人群里，很容易被看到；说一句话，氛围会自己发生变化；哪怕什么都不做，也有一种“这人很有画面”的存在感。别人靠补光灯，您靠自身磁场。SEXY 人格往往很懂氛围，也很懂分寸。您知道什么时候该收，什么时候该放，什么时候一个眼神就够，什么时候一句话就能把现场气温抬高两度。别人会说您“很会”，但您不一定是刻意经营的，因为这种吸引力很多时候是天然的，来自气质、来自表达、来自审美、来自对自己身体和存在感的直觉。您不是每时每刻都在发光，但您有一种让人记住的能力：别人走了只剩背影，您走了还能留下余温。",
+      "heroTagline": "你往那一站，空气都会自动调成柔焦。",
+      "summaryNote": "外显魅力和氛围感维度更高，辨识度强。"
+    },
+    {
+      "code": "OJBK",
+      "id": "easygoing",
+      "displayNameZh": "无所谓人",
+      "overview": "恭喜您，您测出了【OJBK】人格。无所谓人不是没有态度，而是对很多事情的态度都相当稳定：没必要太较真。别人对一个座位、一个输赢、一个小细节耿耿于怀时，您大概率会在旁边淡淡来一句：“行吧，也不是不行。”您不是绝对佛，也不是完全没追求，只是您非常清楚：人类每天需要较真的事情已经够多了，没必要把自己所有精力都耗在鸡毛蒜皮上。OJBK 最大的优势，就是松。别人卷得像要发射火箭，您可以默默坐在旁边喝水；别人因为一点风吹草动情绪翻车，您通常也能给自己留出缓冲空间。您对外界节奏有天然的抽离感，不是进不去，而是懒得每次都全力投入。您未必是赢面最大的人，但通常也不是输得最惨的那个。因为您天生懂得一个简单道理：很多事如果不把它当成天塌了，它就真的塌不下来。",
+      "heroTagline": "也行，都行，差不多得了。",
+      "summaryNote": "情绪起伏不算高，抽离和松弛感更明显。"
+    },
+    {
+      "code": "POOR",
+      "id": "resource-keeper",
+      "displayNameZh": "穷忙者",
+      "overview": "恭喜您，您测出了【POOR】人格。贫穷者并不只是钱包的状态，更是一种对“资源够不够”的超高敏感雷达。钱够不够，时间够不够，精力够不够，人情够不够，明天顶不顶得住，别人还在凭感觉活，您已经默默在脑内做完一轮资产负债表。您不是现实，是您太知道现实会在什么时候给人一闷棍。您对生活有很强的成本意识，也因此显得谨慎、克制、偶尔甚至有点抠搜。可说到底，这不是因为您不想大方，而是因为您太清楚：很多热血和浪漫，最后都要靠具体资源来买单。别人用“冲动消费”证明活着，您用“先算一下”确保明天还能活。贫穷者人格的厉害，不在于多会享受，而在于哪怕资源有限，也会一边咬牙一边继续把日子撑住。您不是不想松，是现实总提醒您先别松。",
+      "heroTagline": "我的人生预算表里，安全感永远最贵。",
+      "summaryNote": "资源感知更强，安全感经常和现实条件绑定。"
+    },
+    {
+      "code": "OH-NO",
+      "id": "risk-watcher",
+      "displayNameZh": "哦不人",
+      "overview": "恭喜您，您测出了【OH-NO】人格。您最大的天赋，不是乐观，而是预警。别人刚开始兴奋，您已经开始想这事会不会出 bug；别人说“应该没问题”，您脑内已经连续播放三版最坏结局。您不是天生扫兴，也不一定是悲观主义哲学家，您只是风险雷达开得特别早、特别响、特别不肯下班。世界在您眼里，永远带着一点“哦不，这不会又要出事吧”的熟悉底色。这种人格看起来有点累，但也确实管用。很多人因为太敢冲而反复摔跤，而您虽然紧绷，却常常能提前绕开坑。您对关系、计划、突发状况和微妙气氛都格外敏锐，别人还在傻乐时，您可能已经闻到了空气里一丝不对劲。OH-NO 人格不是唱衰，而是一种高频预警机制：您嘴里的“哦不”，其实是在替未来的自己提前报警。别人笑您想太多，您只会安静地记下：等下翻车了你别来找我。",
+      "heroTagline": "别人看到可能性，你先看到翻车点。",
+      "summaryNote": "负面预判更快，风险雷达更灵。"
+    },
+    {
+      "code": "MONK",
+      "id": "quiet-observer",
+      "displayNameZh": "僧人",
+      "overview": "恭喜您，您测出了【MONK】人格。僧人型人格最大的魅力，就是对很多让普通人上头的东西天然免疫。不是完全没有欲望，而是那种“非要得到不可”的劲，在您身上不太常见。名利、热闹、攀比、过度亲密、激烈情绪，这些在人群里疯狂搅动的东西，到了您这里像是被自动调低了音量。别人忙着争抢和纠缠，您像坐在一旁的旁听僧，偶尔抬眼看一眼，心里想：就这？这并不意味着您永远快乐，或者对世界毫无兴趣。您只是比大多数人更擅长和自己待在一起，也更擅长在热闹边缘保持清醒。很多人活得像被欲望驱赶的兽群，您更像一个已经知道自己不需要所有东西的人。MONK 人格的强，不在于赢很多，而在于不容易被拖着走；不在于占有很多，而在于失去一点也不至于崩。别人靠刺激确认自己还活着，您靠安静确认自己没丢。",
+      "heroTagline": "没有那种世俗的欲望。",
+      "summaryNote": "欲望驱动较弱，抽离感和稳定感更明显。"
+    },
+    {
+      "code": "SHIT",
+      "id": "venting-fixer",
+      "displayNameZh": "失序者",
+      "overview": "恭喜您，您测出了宇宙中已知的唯一一种【SHIT】人格。所谓狗屎，不是单纯在抱怨，而是一种把崩溃、无语、烦躁和责任感同时混合后，压缩发酵成的高级人类形态。您的嘴上常年挂着“这事真他妈离谱”“这项目真是一坨”“这人怎么能这样”，但手上并不会闲着。别人边骂边摆，您边骂边救；别人边崩边躺，您边崩边把 Excel 打开继续做。嘴上是一座垃圾填埋场，行动上却像凌晨四点还在补锅的城市维护系统。SHIT 人格最离谱的地方在于：您明明每天都像在和这个世界绝交，却又总能在关键时刻把它从坑里往外捞一点。您对混乱不陌生，对荒谬也没幻想，甚至已经形成了一套黑色幽默式的生存哲学：世界就是这样一坨，但活还是得干，锅还是得背，明天还是得起床挤地铁。别人可能以为您满身戾气，实际上那更像是一种燃料，如果不吐槽，不骂两句，您根本没法把这些破事继续扛下去。别怕，您嘴里的“屎”，未必是末日警报，也可能只是开工前的鸣笛。",
+      "heroTagline": "一边骂世界是坨屎，一边准时起床继续救火。",
+      "summaryNote": "挫败感与混乱感偏高，对现实的无语值上升。"
+    },
+    {
+      "code": "THAN-K",
+      "id": "appreciator",
+      "displayNameZh": "感恩者",
+      "overview": "恭喜您，您测出了【THAN-K】人格。感恩者不是每天双手合十活得像心灵博主，而是您真的很容易先看到好的一面。别人对您一点小好，您会记很久；一次被接住、一句暖话、一点体面，都会在您心里留下痕迹。您看世界的滤镜并不一定粉红，但它至少没那么黑。您更愿意理解别人为什么这样做，也更容易把注意力放在那些“还不错”的细节上。这种人格在关系里通常让人舒服。因为您不会动不动就把人往坏处想，也不会轻易把一次失误定义成整段关系的死刑。您愿意给解释的机会，愿意给余地，也愿意承认别人曾经真心对您好过。当然，副作用也存在：您有时候会理解别人理解得太快，宽容别人宽容得太顺，以至于自己的委屈要延迟半拍才反应过来。但不管怎样，THAN-K 人格像一种温和的空气净化器，能在很多乌烟瘴气的关系里，保留一点人类相处的善意浓度。",
+      "heroTagline": "先谢谢，再说别的。",
+      "summaryNote": "温和与善意维度较高，关系里更愿意正向理解。"
+    },
+    {
+      "code": "MALO",
+      "id": "improviser",
+      "displayNameZh": "忙乱者",
+      "overview": "恭喜您，您测出了【MALO】人格。吗喽不是贬义，它更像一种城市生存灵长类的最高形态：反应快、转身快、求生欲强、哪里有缝往哪里钻。您不一定最体面、最稳重、最像成年人模板，但您通常很能活，也很会在复杂现实里给自己找出路。别人遇事先慌，您会先动；别人想着面子，您想着怎么先把命续上。您的人生节奏看起来有点蹿、有点碎、有点随机，但偏偏总能越过大部分障碍。您像那种同时开了很多标签页的操作系统：看着乱，实际每一个都在跑。别人以为您瞎忙，您自己知道这是一种高密度应对生活的方式。您不靠高贵感活着，也不靠完美感撑场，而是靠灵活、靠机敏、靠一股子“今天不管怎样先混过去再说”的生命韧劲。吗喽人格的可爱之处就在于，它不一定优雅，但非常顽强；不一定高级，但特别能续航。别人追求高配人生，您擅长低电量模式下继续开机。",
+      "heroTagline": "忙忙叨叨，但总能活下来。",
+      "summaryNote": "动作快、反应快、生活感强，偶尔也显得乱。"
+    },
+    {
+      "code": "ATM",
+      "id": "giver",
+      "displayNameZh": "付出者",
+      "overview": "恭喜您，您测出了【ATM-er】人格。送钱者未必真的天天送钱，但一定常年在“支付”。支付时间、支付精力、支付耐心、支付情绪价值、支付那句“没事，我来”。别人还在斟酌要不要帮，您已经把钱、力气、注意力和责任感一起掏出来了。您在关系里的出厂设置就像自动扣款：只要把某个人或某件事划进“自己人”范围，付出就会变得异常顺手。这类人格给人的感觉通常很可靠，像一台老旧但坚固的 ATM 机，别人把焦虑、麻烦和缺口塞进去，您再“吐”出一点解决方案、一点兜底和一点安心。但问题也很明显：您太容易在关系里多掏一点，于是慢慢活成了人形结算中心。表面看您很大方、很够意思，实际上也会在深夜对着心里的账单叹一口气：为什么每次都是我？ATM-er 的伟大之处，在于真的能把很多关系撑住；危险之处，在于您有时会忘了，自己也不是无限额度。",
+      "heroTagline": "你以为我是提款机，其实我是人形兜底系统。",
+      "summaryNote": "付出型倾向明显，资源和情感都偏愿意给人。"
+    },
+    {
+      "code": "THIN-K",
+      "id": "reflective-thinker",
+      "displayNameZh": "思考者",
+      "overview": "恭喜您，您测出了【THIN-K】人格。思考者的人生常常不是现场直播，而是延迟播出。别人看到一个现象就做反应，您看到一个现象先会问：为什么？还有没有别的解释？这事背后的逻辑是不是另一个逻辑的影子？您处理世界的方式不是“看见，行动”，而是“看见，思考，拆分，复盘，再思考，谨慎行动”。别人说您慢，您会觉得：急什么，我只是把脑子该走的流程走完。这种人格很强，因为它意味着您理解世界的深度往往比一般人更高。很多人只停留在表面感受，您却会本能地往深处再挖一层。副作用也很明显：您很容易把简单问题想复杂，把复杂问题想成论文，把关系里的小波动想出一个完整的精神宇宙。您脑子里的标签页经常多到能把自己电脑风扇烧起来。可也正因为如此，您一旦想明白，通常会比别人看得更远、更细、更不容易被表面带偏。别人靠直觉冲，您靠内部计算出手。",
+      "heroTagline": "别催，我脑子里还在开会。",
+      "summaryNote": "认知加工深度更高，但也更容易过度分析。"
+    },
+    {
+      "code": "SOLO",
+      "id": "independent-walker",
+      "displayNameZh": "独行者",
+      "overview": "恭喜您，您测出了【SOLO】人格。孤儿人格并不等于字面意义上的孤苦伶仃，而是一种很早就习惯“凡事自己来”的生存模式。遇到问题，您第一反应往往不是求助，而是先自己扛；情绪上来，您通常不是马上找人说，而是先关门、消化、整理、撑过去。您不是完全不需要别人，只是您太熟悉“最后还是得靠自己”这件事，所以很多依赖在您身上都自动被降级了。别人看您，会觉得您独、冷、边界重、不太好靠近，甚至有一点“你根本不需要谁”的气质。可事实上，SOLO 人格并不是什么都不想要，而是想要也不会轻易说。您很擅长在独处里完成自我修复，也很擅长在没人能接的时候把自己慢慢拎起来。您像一个长期单机运行的系统，不一定最热闹，但稳定性很高。别人靠群居回血，您靠沉默续命。别人说您不好亲近，您心里可能只会淡淡回一句：不是不想靠近，是我已经习惯先自己走一段。",
+      "heroTagline": "很多时候，还是自己靠得住。",
+      "summaryNote": "独处需求高，关系上的自给自足倾向更强。"
+    },
+    {
+      "code": "LOVE-R",
+      "id": "romantic-connector",
+      "displayNameZh": "多情者",
+      "overview": "恭喜您，您测出了【LOVE-R】人格。多情者最大的特点，就是对“心动”这件事反应很快，而且很真。别人还在观察，您已经开始代入；别人还在想要不要靠近，您脑子里已经闪过一起压马路、一起吃饭、一起闹脾气再和好的完整剧情。您不是一定恋爱脑，而是您对人与人的连接真的很有感觉。只要某个人身上刚好点中了您，您的情绪系统就会自动给他开绿色通道。LOVE-R 的可爱之处在于真诚，危险之处也在于真诚。您不太擅长“随便玩玩”，一旦认真就容易多放进去一点，多期待一点，多想象一点。别人谈关系像投资，先观望后入场；您更像点了确认键才想起来看合同。可即便如此，您还是愿意冒险，因为您知道没有投入就没有真正的火花。多情者不是轻浮，而是比很多人更敢承认：我就是会动心，我就是想靠近，我就是想要一点真的热。",
+      "heroTagline": "心一动，整个人就开始写连续剧。",
+      "summaryNote": "情感投入度较高，心动阈值偏低但也偏真。"
+    },
+    {
+      "code": "WOC",
+      "id": "surprised-commentator",
+      "displayNameZh": "震惊体",
+      "overview": "恭喜您，您测出了【WOC!】人格。握草人的日常体验就是：世界每天都能给我整点新花活。别人还在理解发生了什么，您已经先震惊完、吐槽完、拉长语调感叹完，甚至顺手把这件事剪成了一个脑内短视频。您的反应系统非常实时，对离谱、荒诞、突变、反转、意外都特别敏感，所以人生里总有一种“我靠还能这样”的现场感。但这并不是坏事。因为您对世界的反应强，说明您一直在认真接收生活，而不是麻木地路过。您会因为一点奇怪的事刷新三观，也会因为一点好笑的事当场活过来。别人可能觉得您戏多，可您的戏很多时候都是真实感受的外放，不是装的。WOC! 人格像一个自带弹幕系统的人类，事情只要稍微拐一下，您脑子里就会立刻刷屏。您不是夸张，您只是比别人更早、更快、更诚实地表达“这也太离谱了吧”。",
+      "heroTagline": "你不是活在世界里，你是活在世界的持续震惊里。",
+      "summaryNote": "惊讶阈值低，反应夸张但很真实。"
+    },
+    {
+      "code": "DRUNK",
+      "id": "atmosphere-seeker",
+      "displayNameZh": "微醺者",
+      "overview": "恭喜您，您测出了【DRUN-K】人格。酒鬼型人格不一定真的离不开酒，重点是那种“微醺式的松动感”。您比很多人更懂得当下体验的重要：夜色、音乐、气氛、灯光、碰杯声、一群人突然莫名其妙敞开心扉的瞬间，这些对您来说都很有吸引力。您不是每时每刻都想自律到像一台表格生成器，您更懂得什么时候该收，什么时候该松，什么时候该让自己稍微飘一点。这种人格通常很会感受，也很会活。别人把快乐当奖励，您更容易把快乐当生活组成部分。您对节奏、氛围和身体感受很敏感，所以也容易在“放松”和“放过头”之间来回横跳。DRUN-K 并不只是喝酒，而是一种对严格规训的临时脱轨：今天别绷这么紧，今晚先活一点。别人觉得您有点飘，您会觉得：我不是不清醒，我只是知道人不能永远像根拉满的弦。",
+      "heroTagline": "你不一定真爱喝，但你很懂怎么让自己松下来。",
+      "summaryNote": "感官和当下体验更突出，控制感相对放松。"
+    },
+    {
+      "code": "IMFW",
+      "id": "low-battery-rebuilder",
+      "displayNameZh": "低电量者",
+      "overview": "恭喜您，您测出了【IMFW】人格。废物人格最经典的一幕，就是事情刚一不顺，您已经先一步在心里给自己下达了判决书：完了，我是真的不行。拖延一下，骂自己废；失误一下，骂自己废；状态差一点，还是骂自己废。您这套系统运行得极其熟练，熟练到别人刚想安慰您，您已经把自己审判到第三轮。别人说“你没那么差”，您心里会想：你懂什么，我对自己可是有完整材料。但真相往往没有那么简单。您不是没有能力，而是非常容易在能量最低、最崩、最想躺平的时候，给自己下最重的结论。您像一台一边报警一边还能继续运转的机器，明明还在往前跑，却天天把自己叫成报废品。某种意义上，这是一种先自嘲再自保的生存方式：我先说自己烂，就没人能比我说得更狠。IMFW 的搞笑之处，在于嘴上天天宣布自己完蛋，第二天却还会继续爬起来办事。您不是废，您只是对自己太不客气。",
+      "heroTagline": "你骂自己废物的速度，通常比别人夸你还快。",
+      "summaryNote": "自我否定和无力感偏高，恢复速度受环境影响大。"
+    }
+  ],
+  "cases": [
+    {
+      "label": "first",
+      "answers": {
+        "q01": "A",
+        "q02": "A",
+        "q03": "A",
+        "q04": "A",
+        "q05": "A",
+        "q06": "A",
+        "q07": "A",
+        "q08": "A",
+        "q09": "A",
+        "q10": "A",
+        "q11": "A",
+        "q12": "A",
+        "q13": "A",
+        "q14": "A",
+        "q15": "A",
+        "q16": "A",
+        "q17": "A",
+        "q18": "A",
+        "q19": "A",
+        "q20": "A",
+        "q21": "A",
+        "q22": "A",
+        "q23": "A",
+        "q24": "A",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "A",
+        "q29": "A",
+        "q30": "A",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "DEAD",
+        "matchPercent": 71,
+        "similarity": 0.465,
+        "mismatchCount": 10,
+        "distance": 88.1646,
+        "scores": {
+          "social_drive": 72,
+          "expression_directness": 67,
+          "novelty_seeking": 57,
+          "boundary_awareness": 77.67,
+          "emotional_openness": 76.67,
+          "playfulness": 66.67,
+          "stability": 49.33,
+          "initiative": 42.8,
+          "signal_sensitivity": 80.67,
+          "group_energy": 50,
+          "reflection": 59.78,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 74,
+          "warmth": 71.5,
+          "rhythm_control": 29.33
+        },
+        "resultScores": {
+          "S1": 37,
+          "S2": 55,
+          "S3": 40,
+          "E1": 49,
+          "E2": 73,
+          "E3": 50,
+          "A1": 71,
+          "A2": 56,
+          "A3": 46,
+          "Ac1": 57,
+          "Ac2": 68,
+          "Ac3": 40,
+          "So1": 63,
+          "So2": 69,
+          "So3": 69
+        },
+        "presetRarity": "0.3536%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 37,
+            "band": "L",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 40,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 49,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 50,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你一旦没电，连想解释都嫌麻烦，先停机比先沟通更自然。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 40,
+            "band": "M",
+            "oneLiner": "你的执行状态容易受能量值影响，高低波动会比较明显。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你社交主动性会跟着电量走，没电时几乎瞬间隐身。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "last",
+      "answers": {
+        "q01": "C",
+        "q02": "C",
+        "q03": "C",
+        "q04": "C",
+        "q05": "C",
+        "q06": "C",
+        "q07": "D",
+        "q08": "C",
+        "q09": "C",
+        "q10": "C",
+        "q11": "C",
+        "q12": "C",
+        "q13": "C",
+        "q14": "C",
+        "q15": "C",
+        "q16": "C",
+        "q17": "C",
+        "q18": "C",
+        "q19": "C",
+        "q20": "C",
+        "q21": "C",
+        "q22": "C",
+        "q23": "C",
+        "q24": "C",
+        "q25": "C",
+        "q26": "C",
+        "q27": "C",
+        "q28": "C",
+        "q29": "C",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "FAKE",
+        "matchPercent": 72,
+        "similarity": 0.4844,
+        "mismatchCount": 10,
+        "distance": 63.2218,
+        "scores": {
+          "social_drive": 73.33,
+          "expression_directness": 71,
+          "novelty_seeking": 68,
+          "boundary_awareness": 73.33,
+          "emotional_openness": 66.5,
+          "playfulness": 50,
+          "stability": 75.27,
+          "initiative": 74,
+          "signal_sensitivity": 60,
+          "group_energy": 72,
+          "reflection": 67.5,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 66,
+          "warmth": 74,
+          "rhythm_control": 68.86
+        },
+        "resultScores": {
+          "S1": 63,
+          "S2": 71,
+          "S3": 73,
+          "E1": 63,
+          "E2": 71,
+          "E3": 61,
+          "A1": 67,
+          "A2": 41,
+          "A3": 71,
+          "Ac1": 72,
+          "Ac2": 71,
+          "Ac3": 73,
+          "So1": 65,
+          "So2": 70,
+          "So3": 69
+        },
+        "presetRarity": "6.0681%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你对自我感并非没有，只是会随着场景切换不同模式。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 41,
+            "band": "M",
+            "oneLiner": "你对规则和气氛的适配度很高，知道什么时候该调频道。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你很会控制表达的浓度，不会在所有地方都把自己端到最满。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "cycle",
+      "answers": {
+        "q01": "A",
+        "q02": "B",
+        "q03": "C",
+        "q04": "A",
+        "q05": "B",
+        "q06": "C",
+        "q07": "C",
+        "q08": "B",
+        "q09": "C",
+        "q10": "A",
+        "q11": "B",
+        "q12": "C",
+        "q13": "A",
+        "q14": "B",
+        "q15": "C",
+        "q16": "A",
+        "q17": "B",
+        "q18": "C",
+        "q19": "A",
+        "q20": "B",
+        "q21": "C",
+        "q22": "A",
+        "q23": "B",
+        "q24": "C",
+        "q25": "A",
+        "q26": "B",
+        "q27": "C",
+        "q28": "A",
+        "q29": "B",
+        "q30": "C",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "MALO",
+        "matchPercent": 83,
+        "similarity": 0.7148,
+        "mismatchCount": 5,
+        "distance": 66.9328,
+        "scores": {
+          "social_drive": 72,
+          "expression_directness": 66,
+          "novelty_seeking": 74.5,
+          "boundary_awareness": 80,
+          "emotional_openness": 75,
+          "playfulness": 62,
+          "stability": 58,
+          "initiative": 58.67,
+          "signal_sensitivity": 73.67,
+          "group_energy": 76,
+          "reflection": 64.8,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 55.67,
+          "warmth": 70,
+          "rhythm_control": 56.4
+        },
+        "resultScores": {
+          "S1": 48,
+          "S2": 61,
+          "S3": 58,
+          "E1": 55,
+          "E2": 72,
+          "E3": 54,
+          "A1": 69,
+          "A2": 40,
+          "A3": 60,
+          "Ac1": 68,
+          "Ac2": 70,
+          "Ac3": 58,
+          "So1": 70,
+          "So2": 71,
+          "So3": 68
+        },
+        "presetRarity": "14.8161%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 40,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "忙感很足，但这类命名本轮仍留在内部识别层。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "IMFW",
+      "answers": {
+        "q01": "A",
+        "q02": "C",
+        "q03": "A",
+        "q04": "A",
+        "q05": "A",
+        "q06": "B",
+        "q07": "C",
+        "q08": "A",
+        "q09": "B",
+        "q10": "A",
+        "q11": "A",
+        "q12": "C",
+        "q13": "B",
+        "q14": "A",
+        "q15": "C",
+        "q16": "B",
+        "q17": "C",
+        "q18": "C",
+        "q19": "A",
+        "q20": "B",
+        "q21": "A",
+        "q22": "A",
+        "q23": "A",
+        "q24": "A",
+        "q25": "C",
+        "q26": "B",
+        "q27": "A",
+        "q28": "B",
+        "q29": "B",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "IMFW",
+        "matchPercent": 68,
+        "similarity": 0.3933,
+        "mismatchCount": 11,
+        "distance": 120.4741,
+        "scores": {
+          "social_drive": 71,
+          "expression_directness": 51.33,
+          "novelty_seeking": 64,
+          "boundary_awareness": 64,
+          "emotional_openness": 66.8,
+          "playfulness": 65.33,
+          "stability": 63.8,
+          "initiative": 64.5,
+          "signal_sensitivity": 69.2,
+          "group_energy": 76,
+          "reflection": 64.89,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 66,
+          "warmth": 70.67,
+          "rhythm_control": 49.33
+        },
+        "resultScores": {
+          "S1": 53,
+          "S2": 64,
+          "S3": 59,
+          "E1": 53,
+          "E2": 69,
+          "E3": 54,
+          "A1": 68,
+          "A2": 51,
+          "A3": 59,
+          "Ac1": 67,
+          "Ac2": 60,
+          "Ac3": 59,
+          "So1": 71,
+          "So2": 66,
+          "So3": 61
+        },
+        "presetRarity": "0.0952%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "动机和电量都偏低，但这类命名本轮不前台直出。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "ZZZZ",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "A",
+        "q04": "B",
+        "q05": "A",
+        "q06": "C",
+        "q07": "D",
+        "q08": "C",
+        "q09": "B",
+        "q10": "A",
+        "q11": "B",
+        "q12": "A",
+        "q13": "B",
+        "q14": "A",
+        "q15": "C",
+        "q16": "A",
+        "q17": "C",
+        "q18": "A",
+        "q19": "A",
+        "q20": "A",
+        "q21": "B",
+        "q22": "B",
+        "q23": "A",
+        "q24": "A",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "A",
+        "q29": "C",
+        "q30": "A",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "ZZZZ",
+        "matchPercent": 78,
+        "similarity": 0.6087,
+        "mismatchCount": 7,
+        "distance": 83.4206,
+        "scores": {
+          "social_drive": 74.67,
+          "expression_directness": 71.6,
+          "novelty_seeking": 59.33,
+          "boundary_awareness": 74.33,
+          "emotional_openness": 67.67,
+          "playfulness": 58,
+          "stability": 60.44,
+          "initiative": 63,
+          "signal_sensitivity": 71.6,
+          "group_energy": 50,
+          "reflection": 59,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 65.5,
+          "warmth": 68,
+          "rhythm_control": 46.8
+        },
+        "resultScores": {
+          "S1": 51,
+          "S2": 60,
+          "S3": 57,
+          "E1": 54,
+          "E2": 70,
+          "E3": 56,
+          "A1": 66,
+          "A2": 48,
+          "A3": 55,
+          "Ac1": 66,
+          "Ac2": 68,
+          "Ac3": 57,
+          "So1": 61,
+          "So2": 69,
+          "So3": 69
+        },
+        "presetRarity": "0.6933%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你在关系里遇到压力时，更习惯往后撤，而不是当场说破。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定会先避开噪音，拖一拖对你来说有时就是缓冲。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你的人际边界感很强，只是表达方式更像消失而不是宣布。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "BOSS",
+      "answers": {
+        "q01": "C",
+        "q02": "A",
+        "q03": "C",
+        "q04": "A",
+        "q05": "B",
+        "q06": "C",
+        "q07": "C",
+        "q08": "A",
+        "q09": "C",
+        "q10": "C",
+        "q11": "C",
+        "q12": "B",
+        "q13": "C",
+        "q14": "C",
+        "q15": "B",
+        "q16": "A",
+        "q17": "A",
+        "q18": "A",
+        "q19": "B",
+        "q20": "A",
+        "q21": "C",
+        "q22": "C",
+        "q23": "C",
+        "q24": "B",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "C",
+        "q29": "C",
+        "q30": "B",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "BOSS",
+        "matchPercent": 72,
+        "similarity": 0.4713,
+        "mismatchCount": 10,
+        "distance": 80.0875,
+        "scores": {
+          "social_drive": 68,
+          "expression_directness": 45,
+          "novelty_seeking": 73.33,
+          "boundary_awareness": 74.33,
+          "emotional_openness": 75,
+          "playfulness": 70,
+          "stability": 54.29,
+          "initiative": 57,
+          "signal_sensitivity": 65.67,
+          "group_energy": 63.33,
+          "reflection": 62.18,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 62.86,
+          "warmth": 62,
+          "rhythm_control": 52.8
+        },
+        "resultScores": {
+          "S1": 49,
+          "S2": 58,
+          "S3": 55,
+          "E1": 54,
+          "E2": 68,
+          "E3": 51,
+          "A1": 63,
+          "A2": 45,
+          "A3": 56,
+          "Ac1": 66,
+          "Ac2": 61,
+          "Ac3": 55,
+          "So1": 67,
+          "So2": 65,
+          "So3": 63
+        },
+        "presetRarity": "0.3559%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 49,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 45,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你做事的发力感很明确，不太习惯一直等别人先动。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你做决定偏果断，卡住太久反而会让你烦。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你在社交里常常是先发起、先定调的那个人。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "IMSB",
+      "answers": {
+        "q01": "C",
+        "q02": "A",
+        "q03": "C",
+        "q04": "B",
+        "q05": "C",
+        "q06": "B",
+        "q07": "C",
+        "q08": "A",
+        "q09": "A",
+        "q10": "B",
+        "q11": "A",
+        "q12": "B",
+        "q13": "A",
+        "q14": "B",
+        "q15": "A",
+        "q16": "A",
+        "q17": "B",
+        "q18": "C",
+        "q19": "B",
+        "q20": "B",
+        "q21": "A",
+        "q22": "B",
+        "q23": "C",
+        "q24": "C",
+        "q25": "A",
+        "q26": "C",
+        "q27": "C",
+        "q28": "A",
+        "q29": "C",
+        "q30": "A",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "IMSB",
+        "matchPercent": 79,
+        "similarity": 0.6199,
+        "mismatchCount": 7,
+        "distance": 69.0435,
+        "scores": {
+          "social_drive": 63.33,
+          "expression_directness": 74.5,
+          "novelty_seeking": 70.5,
+          "boundary_awareness": 80,
+          "emotional_openness": 70,
+          "playfulness": 70,
+          "stability": 54.8,
+          "initiative": 65.43,
+          "signal_sensitivity": 75.5,
+          "group_energy": 63.33,
+          "reflection": 61.33,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 60.75,
+          "warmth": 56,
+          "rhythm_control": 62
+        },
+        "resultScores": {
+          "S1": 48,
+          "S2": 58,
+          "S3": 61,
+          "E1": 53,
+          "E2": 63,
+          "E3": 55,
+          "A1": 64,
+          "A2": 40,
+          "A3": 59,
+          "Ac1": 66,
+          "Ac2": 72,
+          "Ac3": 61,
+          "So1": 66,
+          "So2": 70,
+          "So3": 71
+        },
+        "presetRarity": "0.8963%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对自己的评价标准偏高，容易把小波动也读成大问题。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 40,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你会认真想人生和意义，只是有时想太多也会把自己绕进去。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你表达真实感时会留白，很多想法更习惯先在心里过一遍。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "ATM",
+      "answers": {
+        "q01": "A",
+        "q02": "C",
+        "q03": "A",
+        "q04": "B",
+        "q05": "B",
+        "q06": "A",
+        "q07": "C",
+        "q08": "A",
+        "q09": "B",
+        "q10": "B",
+        "q11": "B",
+        "q12": "A",
+        "q13": "B",
+        "q14": "B",
+        "q15": "C",
+        "q16": "B",
+        "q17": "C",
+        "q18": "C",
+        "q19": "B",
+        "q20": "A",
+        "q21": "C",
+        "q22": "A",
+        "q23": "C",
+        "q24": "A",
+        "q25": "C",
+        "q26": "B",
+        "q27": "B",
+        "q28": "A",
+        "q29": "B",
+        "q30": "B",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "ATM",
+        "matchPercent": 90,
+        "similarity": 0.875,
+        "mismatchCount": 2,
+        "distance": 40.9023,
+        "scores": {
+          "social_drive": 55.33,
+          "expression_directness": 71,
+          "novelty_seeking": 56,
+          "boundary_awareness": 66,
+          "emotional_openness": 63.5,
+          "playfulness": 59,
+          "stability": 60.73,
+          "initiative": 65,
+          "signal_sensitivity": 67,
+          "group_energy": 68,
+          "reflection": 63.14,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 64.4,
+          "warmth": 64.4,
+          "rhythm_control": 59
+        },
+        "resultScores": {
+          "S1": 53,
+          "S2": 62,
+          "S3": 62,
+          "E1": 53,
+          "E2": 61,
+          "E3": 54,
+          "A1": 65,
+          "A2": 46,
+          "A3": 61,
+          "Ac1": 59,
+          "Ac2": 67,
+          "Ac3": 62,
+          "So1": 61,
+          "So2": 65,
+          "So3": 66
+        },
+        "presetRarity": "14.0385%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你在情感投入上不算吝啬，容易先拿行动表达诚意。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你边界感并非没有，只是付出时会先把自己往后排一点。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你在关系里会主动给资源，不一定只是嘴上说说。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "DRUNK",
+      "answers": {
+        "q01": "A",
+        "q02": "B",
+        "q03": "B",
+        "q04": "B",
+        "q05": "A",
+        "q06": "C",
+        "q07": "B",
+        "q08": "C",
+        "q09": "C",
+        "q10": "C",
+        "q11": "B",
+        "q12": "A",
+        "q13": "A",
+        "q14": "A",
+        "q15": "B",
+        "q16": "C",
+        "q17": "A",
+        "q18": "A",
+        "q19": "B",
+        "q20": "C",
+        "q21": "C",
+        "q22": "B",
+        "q23": "C",
+        "q24": "C",
+        "q25": "C",
+        "q26": "C",
+        "q27": "C",
+        "q28": "A",
+        "q29": "C",
+        "q30": "B",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "DRUNK",
+        "matchPercent": 83,
+        "similarity": 0.7201,
+        "mismatchCount": 5,
+        "distance": 60.1664,
+        "scores": {
+          "social_drive": 68,
+          "expression_directness": 72,
+          "novelty_seeking": 58,
+          "boundary_awareness": 73.67,
+          "emotional_openness": 68.8,
+          "playfulness": 53,
+          "stability": 63.78,
+          "initiative": 53.67,
+          "signal_sensitivity": 67,
+          "group_energy": 64,
+          "reflection": 56.44,
+          "aesthetic_showcase": 78,
+          "ambiguity_tolerance": 62,
+          "warmth": 78.4,
+          "rhythm_control": 49.2
+        },
+        "resultScores": {
+          "S1": 50,
+          "S2": 60,
+          "S3": 56,
+          "E1": 57,
+          "E2": 72,
+          "E3": 56,
+          "A1": 67,
+          "A2": 46,
+          "A3": 56,
+          "Ac1": 60,
+          "Ac2": 67,
+          "Ac3": 56,
+          "So1": 62,
+          "So2": 68,
+          "So3": 73
+        },
+        "presetRarity": "3.0496%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 50,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你对规则和灵活度更偏向即兴，不太喜欢把状态卡太死。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你执行模式比较随流，舒服时很顺，不舒服时就容易原地散开。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你社交时更容易被气氛带动，太紧的场子会让你想先拧松一点。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "POOR",
+      "answers": {
+        "q01": "A",
+        "q02": "B",
+        "q03": "A",
+        "q04": "A",
+        "q05": "C",
+        "q06": "C",
+        "q07": "A",
+        "q08": "B",
+        "q09": "A",
+        "q10": "B",
+        "q11": "C",
+        "q12": "C",
+        "q13": "A",
+        "q14": "C",
+        "q15": "A",
+        "q16": "A",
+        "q17": "B",
+        "q18": "B",
+        "q19": "C",
+        "q20": "B",
+        "q21": "B",
+        "q22": "C",
+        "q23": "A",
+        "q24": "B",
+        "q25": "C",
+        "q26": "A",
+        "q27": "C",
+        "q28": "C",
+        "q29": "B",
+        "q30": "C",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "POOR",
+        "matchPercent": 88,
+        "similarity": 0.8189,
+        "mismatchCount": 3,
+        "distance": 53.0848,
+        "scores": {
+          "social_drive": 65.5,
+          "expression_directness": 58,
+          "novelty_seeking": 34,
+          "boundary_awareness": 82.67,
+          "emotional_openness": 70,
+          "playfulness": 74,
+          "stability": 53.56,
+          "initiative": 48,
+          "signal_sensitivity": 72.33,
+          "group_energy": 80,
+          "reflection": 62.36,
+          "aesthetic_showcase": 50,
+          "ambiguity_tolerance": 57,
+          "warmth": 63.6,
+          "rhythm_control": 68
+        },
+        "resultScores": {
+          "S1": 43,
+          "S2": 58,
+          "S3": 57,
+          "E1": 55,
+          "E2": 66,
+          "E3": 55,
+          "A1": 66,
+          "A2": 35,
+          "A3": 61,
+          "Ac1": 49,
+          "Ac2": 68,
+          "Ac3": 57,
+          "So1": 73,
+          "So2": 70,
+          "So3": 59
+        },
+        "presetRarity": "15.4990%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对自己状态的评价容易被现实消耗拖低，不一定是真不行。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 35,
+            "band": "L",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 49,
+            "band": "M",
+            "oneLiner": "你其实有动机，只是资源和精力常常跟不上想法。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你的执行模式容易卡在忙碌和耗竭之间来回横跳。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "OH-NO",
+      "answers": {
+        "q01": "C",
+        "q02": "A",
+        "q03": "A",
+        "q04": "A",
+        "q05": "B",
+        "q06": "C",
+        "q07": "D",
+        "q08": "A",
+        "q09": "A",
+        "q10": "C",
+        "q11": "A",
+        "q12": "C",
+        "q13": "A",
+        "q14": "C",
+        "q15": "C",
+        "q16": "A",
+        "q17": "B",
+        "q18": "B",
+        "q19": "B",
+        "q20": "A",
+        "q21": "A",
+        "q22": "A",
+        "q23": "C",
+        "q24": "B",
+        "q25": "B",
+        "q26": "A",
+        "q27": "B",
+        "q28": "A",
+        "q29": "C",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "OH-NO",
+        "matchPercent": 90,
+        "similarity": 0.8673,
+        "mismatchCount": 2,
+        "distance": 50.8331,
+        "scores": {
+          "social_drive": 73.33,
+          "expression_directness": 61,
+          "novelty_seeking": 49,
+          "boundary_awareness": 73.33,
+          "emotional_openness": 70,
+          "playfulness": 50,
+          "stability": 62.86,
+          "initiative": 59.71,
+          "signal_sensitivity": 77.33,
+          "group_energy": 72,
+          "reflection": 68.67,
+          "aesthetic_showcase": 66,
+          "ambiguity_tolerance": 61.43,
+          "warmth": 52,
+          "rhythm_control": 61.2
+        },
+        "resultScores": {
+          "S1": 48,
+          "S2": 66,
+          "S3": 61,
+          "E1": 53,
+          "E2": 65,
+          "E3": 55,
+          "A1": 66,
+          "A2": 42,
+          "A3": 64,
+          "Ac1": 61,
+          "Ac2": 68,
+          "Ac3": 61,
+          "So1": 65,
+          "So2": 71,
+          "So3": 66
+        },
+        "presetRarity": "3.3400%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你在关系安全感上会先多想一步，很多预警都来得比较早。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 42,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你容易认真思考事情的后果和意义，脑内预演能力很强。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你进入社交不会太莽，先观察气氛再决定往前多少。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "THAN-K",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "A",
+        "q04": "B",
+        "q05": "B",
+        "q06": "B",
+        "q07": "C",
+        "q08": "C",
+        "q09": "B",
+        "q10": "C",
+        "q11": "C",
+        "q12": "A",
+        "q13": "C",
+        "q14": "A",
+        "q15": "B",
+        "q16": "C",
+        "q17": "C",
+        "q18": "B",
+        "q19": "C",
+        "q20": "C",
+        "q21": "B",
+        "q22": "A",
+        "q23": "C",
+        "q24": "B",
+        "q25": "B",
+        "q26": "B",
+        "q27": "C",
+        "q28": "C",
+        "q29": "A",
+        "q30": "C",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "THAN-K",
+        "matchPercent": 88,
+        "similarity": 0.8287,
+        "mismatchCount": 3,
+        "distance": 40.4722,
+        "scores": {
+          "social_drive": 58,
+          "expression_directness": 64,
+          "novelty_seeking": 58.67,
+          "boundary_awareness": 70,
+          "emotional_openness": 66,
+          "playfulness": 64,
+          "stability": 64.25,
+          "initiative": 66,
+          "signal_sensitivity": 68,
+          "group_energy": 68,
+          "reflection": 57.09,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 60,
+          "warmth": 71.2,
+          "rhythm_control": 68
+        },
+        "resultScores": {
+          "S1": 54,
+          "S2": 61,
+          "S3": 66,
+          "E1": 55,
+          "E2": 65,
+          "E3": 56,
+          "A1": 65,
+          "A2": 41,
+          "A3": 63,
+          "Ac1": 61,
+          "Ac2": 64,
+          "Ac3": 66,
+          "So1": 63,
+          "So2": 67,
+          "So3": 65
+        },
+        "presetRarity": "5.8393%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你在关系里更容易往善意方向理解别人，安全感偏温和型。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你愿意投入感情，也会把感谢和回应表达出来。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你看世界时会给人性和善意保留一点信用额度。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 41,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "THIN-K",
+      "answers": {
+        "q01": "B",
+        "q02": "B",
+        "q03": "C",
+        "q04": "A",
+        "q05": "C",
+        "q06": "B",
+        "q07": "C",
+        "q08": "B",
+        "q09": "A",
+        "q10": "C",
+        "q11": "C",
+        "q12": "C",
+        "q13": "C",
+        "q14": "A",
+        "q15": "C",
+        "q16": "B",
+        "q17": "B",
+        "q18": "A",
+        "q19": "C",
+        "q20": "B",
+        "q21": "C",
+        "q22": "C",
+        "q23": "B",
+        "q24": "C",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "A",
+        "q29": "B",
+        "q30": "A",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "THIN-K",
+        "matchPercent": 76,
+        "similarity": 0.5666,
+        "mismatchCount": 8,
+        "distance": 77.5951,
+        "scores": {
+          "social_drive": 69,
+          "expression_directness": 64.5,
+          "novelty_seeking": 72.67,
+          "boundary_awareness": 79,
+          "emotional_openness": 79,
+          "playfulness": 64,
+          "stability": 59.6,
+          "initiative": 55.14,
+          "signal_sensitivity": 65.2,
+          "group_energy": 76,
+          "reflection": 57.2,
+          "aesthetic_showcase": 50,
+          "ambiguity_tolerance": 58,
+          "warmth": 64.5,
+          "rhythm_control": 48.5
+        },
+        "resultScores": {
+          "S1": 50,
+          "S2": 58,
+          "S3": 54,
+          "E1": 58,
+          "E2": 71,
+          "E3": 53,
+          "A1": 62,
+          "A2": 44,
+          "A3": 55,
+          "Ac1": 66,
+          "Ac2": 67,
+          "Ac3": 54,
+          "So1": 70,
+          "So2": 68,
+          "So3": 65
+        },
+        "presetRarity": "0.6275%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 50,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你对自己和自己在意的东西通常会想得比较深。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 44,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对人生意义、判断依据和底层逻辑的兴趣明显高于平均线。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你做决定时会先拉出脑内分析面板，不太会闭眼莽。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "SEXY",
+      "answers": {
+        "q01": "C",
+        "q02": "A",
+        "q03": "A",
+        "q04": "C",
+        "q05": "B",
+        "q06": "C",
+        "q07": "A",
+        "q08": "C",
+        "q09": "B",
+        "q10": "B",
+        "q11": "C",
+        "q12": "C",
+        "q13": "C",
+        "q14": "C",
+        "q15": "C",
+        "q16": "C",
+        "q17": "A",
+        "q18": "A",
+        "q19": "A",
+        "q20": "C",
+        "q21": "A",
+        "q22": "A",
+        "q23": "A",
+        "q24": "B",
+        "q25": "C",
+        "q26": "B",
+        "q27": "B",
+        "q28": "C",
+        "q29": "B",
+        "q30": "A",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "SEXY",
+        "matchPercent": 86,
+        "similarity": 0.7814,
+        "mismatchCount": 4,
+        "distance": 41.2311,
+        "scores": {
+          "social_drive": 65.5,
+          "expression_directness": 70.8,
+          "novelty_seeking": 59.33,
+          "boundary_awareness": 76,
+          "emotional_openness": 68.8,
+          "playfulness": 71,
+          "stability": 64.86,
+          "initiative": 60.86,
+          "signal_sensitivity": 67.33,
+          "group_energy": 80,
+          "reflection": 68,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 64.5,
+          "warmth": 71.71,
+          "rhythm_control": 44
+        },
+        "resultScores": {
+          "S1": 53,
+          "S2": 66,
+          "S3": 57,
+          "E1": 58,
+          "E2": 69,
+          "E3": 57,
+          "A1": 69,
+          "A2": 48,
+          "A3": 59,
+          "Ac1": 62,
+          "Ac2": 72,
+          "Ac3": 57,
+          "So1": 72,
+          "So2": 69,
+          "So3": 68
+        },
+        "presetRarity": "5.8171%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你投入情绪时会带着氛围感，别人很容易感觉到你的存在温度。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你在社交场里有天然存在感，不用太用力也能被注意到。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你的表达真实度会混着风格感一起出来，辨识度比较高。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "CTRL",
+      "answers": {
+        "q01": "B",
+        "q02": "B",
+        "q03": "A",
+        "q04": "C",
+        "q05": "B",
+        "q06": "B",
+        "q07": "D",
+        "q08": "B",
+        "q09": "A",
+        "q10": "A",
+        "q11": "C",
+        "q12": "B",
+        "q13": "C",
+        "q14": "A",
+        "q15": "B",
+        "q16": "A",
+        "q17": "C",
+        "q18": "C",
+        "q19": "A",
+        "q20": "B",
+        "q21": "A",
+        "q22": "A",
+        "q23": "A",
+        "q24": "C",
+        "q25": "A",
+        "q26": "A",
+        "q27": "C",
+        "q28": "B",
+        "q29": "A",
+        "q30": "C",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "CTRL",
+        "matchPercent": 74,
+        "similarity": 0.5261,
+        "mismatchCount": 9,
+        "distance": 69.5342,
+        "scores": {
+          "social_drive": 78,
+          "expression_directness": 66.8,
+          "novelty_seeking": 58.67,
+          "boundary_awareness": 76,
+          "emotional_openness": 77,
+          "playfulness": 63,
+          "stability": 56.89,
+          "initiative": 61.43,
+          "signal_sensitivity": 76.75,
+          "group_energy": 54,
+          "reflection": 59.75,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 62,
+          "warmth": 68.5,
+          "rhythm_control": 59.2
+        },
+        "resultScores": {
+          "S1": 47,
+          "S2": 58,
+          "S3": 59,
+          "E1": 52,
+          "E2": 75,
+          "E3": 52,
+          "A1": 68,
+          "A2": 42,
+          "A3": 59,
+          "Ac1": 66,
+          "Ac2": 68,
+          "Ac3": 59,
+          "So1": 65,
+          "So2": 70,
+          "So3": 69
+        },
+        "presetRarity": "0.5548%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 47,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 75,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的分寸感很强，不太会轻易失去掌控。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 42,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你执行时偏稳，擅长把散掉的东西重新捋顺。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你在人际里很懂分寸，知道该近一点还是该收一点。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "FUCK",
+      "answers": {
+        "q01": "C",
+        "q02": "A",
+        "q03": "C",
+        "q04": "A",
+        "q05": "A",
+        "q06": "A",
+        "q07": "B",
+        "q08": "A",
+        "q09": "C",
+        "q10": "B",
+        "q11": "C",
+        "q12": "A",
+        "q13": "B",
+        "q14": "A",
+        "q15": "B",
+        "q16": "C",
+        "q17": "B",
+        "q18": "B",
+        "q19": "C",
+        "q20": "B",
+        "q21": "A",
+        "q22": "C",
+        "q23": "A",
+        "q24": "C",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "B",
+        "q29": "A",
+        "q30": "A",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "FUCK",
+        "matchPercent": 76,
+        "similarity": 0.5701,
+        "mismatchCount": 8,
+        "distance": 73.0479,
+        "scores": {
+          "social_drive": 61,
+          "expression_directness": 58,
+          "novelty_seeking": 68,
+          "boundary_awareness": 75.33,
+          "emotional_openness": 70.67,
+          "playfulness": 58,
+          "stability": 63.6,
+          "initiative": 60,
+          "signal_sensitivity": 55,
+          "group_energy": 50,
+          "reflection": 56.73,
+          "aesthetic_showcase": 88,
+          "ambiguity_tolerance": 62,
+          "warmth": 70.8,
+          "rhythm_control": 56.5
+        },
+        "resultScores": {
+          "S1": 56,
+          "S2": 60,
+          "S3": 60,
+          "E1": 61,
+          "E2": 67,
+          "E3": 56,
+          "A1": 61,
+          "A2": 43,
+          "A3": 59,
+          "Ac1": 63,
+          "Ac2": 63,
+          "Ac3": 60,
+          "So1": 56,
+          "So2": 65,
+          "So3": 72
+        },
+        "presetRarity": "0.8193%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "表达强度很高，但这类命名本轮不前台直出。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "LOVE-R",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "B",
+        "q04": "C",
+        "q05": "B",
+        "q06": "A",
+        "q07": "A",
+        "q08": "A",
+        "q09": "C",
+        "q10": "A",
+        "q11": "A",
+        "q12": "B",
+        "q13": "B",
+        "q14": "C",
+        "q15": "A",
+        "q16": "B",
+        "q17": "B",
+        "q18": "C",
+        "q19": "A",
+        "q20": "B",
+        "q21": "B",
+        "q22": "B",
+        "q23": "B",
+        "q24": "B",
+        "q25": "C",
+        "q26": "A",
+        "q27": "A",
+        "q28": "C",
+        "q29": "B",
+        "q30": "A",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "LOVE-R",
+        "matchPercent": 88,
+        "similarity": 0.828,
+        "mismatchCount": 3,
+        "distance": 41.3159,
+        "scores": {
+          "social_drive": 67.33,
+          "expression_directness": 81,
+          "novelty_seeking": 66,
+          "boundary_awareness": 68,
+          "emotional_openness": 69,
+          "playfulness": 71,
+          "stability": 49,
+          "initiative": 70.8,
+          "signal_sensitivity": 64.5,
+          "group_energy": 54,
+          "reflection": 62.55,
+          "aesthetic_showcase": 50,
+          "ambiguity_tolerance": 58,
+          "warmth": 71.6,
+          "rhythm_control": 59
+        },
+        "resultScores": {
+          "S1": 52,
+          "S2": 56,
+          "S3": 60,
+          "E1": 51,
+          "E2": 69,
+          "E3": 49,
+          "A1": 66,
+          "A2": 44,
+          "A3": 57,
+          "Ac1": 68,
+          "Ac2": 71,
+          "Ac3": 60,
+          "So1": 64,
+          "So2": 61,
+          "So3": 67
+        },
+        "presetRarity": "9.3095%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你的安全感会受到反馈影响，但这也让你更会感受关系温度。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你在情感投入上偏高，真的心动时不会只有一点点。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 49,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 44,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你靠近人的速度可能比理智更快一点，场上温度会先被你感知到。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "OJBK",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "A",
+        "q04": "C",
+        "q05": "A",
+        "q06": "C",
+        "q07": "D",
+        "q08": "C",
+        "q09": "C",
+        "q10": "B",
+        "q11": "B",
+        "q12": "B",
+        "q13": "A",
+        "q14": "A",
+        "q15": "A",
+        "q16": "C",
+        "q17": "C",
+        "q18": "B",
+        "q19": "B",
+        "q20": "A",
+        "q21": "A",
+        "q22": "A",
+        "q23": "B",
+        "q24": "B",
+        "q25": "A",
+        "q26": "B",
+        "q27": "A",
+        "q28": "C",
+        "q29": "A",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "OJBK",
+        "matchPercent": 83,
+        "similarity": 0.712,
+        "mismatchCount": 5,
+        "distance": 70.5762,
+        "scores": {
+          "social_drive": 61,
+          "expression_directness": 76,
+          "novelty_seeking": 49,
+          "boundary_awareness": 75.25,
+          "emotional_openness": 76,
+          "playfulness": 53,
+          "stability": 60.8,
+          "initiative": 67.33,
+          "signal_sensitivity": 74.67,
+          "group_energy": 54,
+          "reflection": 60.6,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 61.14,
+          "warmth": 62.8,
+          "rhythm_control": 61.2
+        },
+        "resultScores": {
+          "S1": 51,
+          "S2": 61,
+          "S3": 63,
+          "E1": 54,
+          "E2": 67,
+          "E3": 53,
+          "A1": 66,
+          "A2": 42,
+          "A3": 61,
+          "Ac1": 59,
+          "Ac2": 71,
+          "Ac3": 63,
+          "So1": 56,
+          "So2": 70,
+          "So3": 72
+        },
+        "presetRarity": "1.5731%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你关系里的安全感相对稳定，不太容易被一点风吹草动带跑。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 42,
+            "band": "M",
+            "oneLiner": "你对规则和灵活度的容忍区间比较宽，不太爱死磕。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你边界感清楚，很多事能划开就划开，不硬扛。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "SOLO",
+      "answers": {
+        "q01": "B",
+        "q02": "A",
+        "q03": "C",
+        "q04": "A",
+        "q05": "C",
+        "q06": "B",
+        "q07": "B",
+        "q08": "C",
+        "q09": "B",
+        "q10": "B",
+        "q11": "C",
+        "q12": "A",
+        "q13": "C",
+        "q14": "B",
+        "q15": "A",
+        "q16": "A",
+        "q17": "C",
+        "q18": "A",
+        "q19": "B",
+        "q20": "A",
+        "q21": "A",
+        "q22": "C",
+        "q23": "A",
+        "q24": "C",
+        "q25": "C",
+        "q26": "C",
+        "q27": "B",
+        "q28": "B",
+        "q29": "C",
+        "q30": "C",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "SOLO",
+        "matchPercent": 76,
+        "similarity": 0.5655,
+        "mismatchCount": 8,
+        "distance": 78.9494,
+        "scores": {
+          "social_drive": 66,
+          "expression_directness": 56,
+          "novelty_seeking": 70,
+          "boundary_awareness": 72.5,
+          "emotional_openness": 66.8,
+          "playfulness": 50,
+          "stability": 64,
+          "initiative": 57.5,
+          "signal_sensitivity": 64,
+          "group_energy": 50,
+          "reflection": 57.11,
+          "aesthetic_showcase": 78,
+          "ambiguity_tolerance": 64,
+          "warmth": 60,
+          "rhythm_control": 33.33
+        },
+        "resultScores": {
+          "S1": 53,
+          "S2": 61,
+          "S3": 52,
+          "E1": 58,
+          "E2": 64,
+          "E3": 57,
+          "A1": 60,
+          "A2": 53,
+          "A3": 51,
+          "Ac1": 65,
+          "Ac2": 62,
+          "Ac3": 52,
+          "So1": 55,
+          "So2": 67,
+          "So3": 67
+        },
+        "presetRarity": "0.3047%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "边界和独立感都很高，但这类命名本轮不前台直出。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "SHIT",
+      "answers": {
+        "q01": "C",
+        "q02": "C",
+        "q03": "A",
+        "q04": "B",
+        "q05": "A",
+        "q06": "A",
+        "q07": "A",
+        "q08": "A",
+        "q09": "C",
+        "q10": "B",
+        "q11": "B",
+        "q12": "A",
+        "q13": "B",
+        "q14": "C",
+        "q15": "A",
+        "q16": "B",
+        "q17": "B",
+        "q18": "B",
+        "q19": "C",
+        "q20": "B",
+        "q21": "A",
+        "q22": "C",
+        "q23": "C",
+        "q24": "C",
+        "q25": "B",
+        "q26": "A",
+        "q27": "B",
+        "q28": "C",
+        "q29": "C",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "SHIT",
+        "matchPercent": 71,
+        "similarity": 0.4619,
+        "mismatchCount": 10,
+        "distance": 92.2226,
+        "scores": {
+          "social_drive": 65.6,
+          "expression_directness": 54,
+          "novelty_seeking": 53.33,
+          "boundary_awareness": 68,
+          "emotional_openness": 68.5,
+          "playfulness": 61,
+          "stability": 60.6,
+          "initiative": 70,
+          "signal_sensitivity": 63.5,
+          "group_energy": 64,
+          "reflection": 63.09,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 61.14,
+          "warmth": 68,
+          "rhythm_control": 56.5
+        },
+        "resultScores": {
+          "S1": 56,
+          "S2": 62,
+          "S3": 62,
+          "E1": 55,
+          "E2": 67,
+          "E3": 53,
+          "A1": 65,
+          "A2": 46,
+          "A3": 60,
+          "Ac1": 63,
+          "Ac2": 62,
+          "Ac3": 62,
+          "So1": 64,
+          "So2": 64,
+          "So3": 64
+        },
+        "presetRarity": "0.1570%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 53,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "执行和收束感偏弱，但这类命名本轮不前台直出。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "GOGO",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "A",
+        "q04": "C",
+        "q05": "C",
+        "q06": "C",
+        "q07": "D",
+        "q08": "A",
+        "q09": "B",
+        "q10": "A",
+        "q11": "C",
+        "q12": "B",
+        "q13": "B",
+        "q14": "C",
+        "q15": "A",
+        "q16": "B",
+        "q17": "A",
+        "q18": "B",
+        "q19": "B",
+        "q20": "B",
+        "q21": "B",
+        "q22": "C",
+        "q23": "C",
+        "q24": "B",
+        "q25": "C",
+        "q26": "B",
+        "q27": "B",
+        "q28": "B",
+        "q29": "B",
+        "q30": "A",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "GOGO",
+        "matchPercent": 79,
+        "similarity": 0.6278,
+        "mismatchCount": 7,
+        "distance": 58.8048,
+        "scores": {
+          "social_drive": 63.33,
+          "expression_directness": 68,
+          "novelty_seeking": 49,
+          "boundary_awareness": 76.5,
+          "emotional_openness": 68.4,
+          "playfulness": 50,
+          "stability": 60,
+          "initiative": 64,
+          "signal_sensitivity": 57.6,
+          "group_energy": 59,
+          "reflection": 60,
+          "aesthetic_showcase": 50,
+          "ambiguity_tolerance": 60,
+          "warmth": 71.33,
+          "rhythm_control": 61.2
+        },
+        "resultScores": {
+          "S1": 55,
+          "S2": 60,
+          "S3": 62,
+          "E1": 60,
+          "E2": 68,
+          "E3": 56,
+          "A1": 63,
+          "A2": 41,
+          "A3": 60,
+          "Ac1": 59,
+          "Ac2": 68,
+          "Ac3": 62,
+          "So1": 57,
+          "So2": 65,
+          "So3": 62
+        },
+        "presetRarity": "1.2356%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 41,
+            "band": "M",
+            "oneLiner": "你对计划和规则更偏灵活，边走边调是你的常态。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 60,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你对动起来这件事有天然偏好，静止太久会让你烦。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你社交时不太怕开场，很多关系都是先迈出那一步才发生的。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "WOC",
+      "answers": {
+        "q01": "A",
+        "q02": "B",
+        "q03": "B",
+        "q04": "A",
+        "q05": "B",
+        "q06": "B",
+        "q07": "B",
+        "q08": "A",
+        "q09": "B",
+        "q10": "B",
+        "q11": "B",
+        "q12": "C",
+        "q13": "A",
+        "q14": "C",
+        "q15": "B",
+        "q16": "C",
+        "q17": "C",
+        "q18": "A",
+        "q19": "B",
+        "q20": "B",
+        "q21": "C",
+        "q22": "B",
+        "q23": "A",
+        "q24": "C",
+        "q25": "A",
+        "q26": "A",
+        "q27": "C",
+        "q28": "C",
+        "q29": "C",
+        "q30": "A",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "WOC",
+        "matchPercent": 90,
+        "similarity": 0.872,
+        "mismatchCount": 2,
+        "distance": 44.699,
+        "scores": {
+          "social_drive": 72,
+          "expression_directness": 64,
+          "novelty_seeking": 58,
+          "boundary_awareness": 73.5,
+          "emotional_openness": 59,
+          "playfulness": 48,
+          "stability": 58.4,
+          "initiative": 44,
+          "signal_sensitivity": 63,
+          "group_energy": 80,
+          "reflection": 65,
+          "aesthetic_showcase": 78,
+          "ambiguity_tolerance": 59.2,
+          "warmth": 62.67,
+          "rhythm_control": 49.2
+        },
+        "resultScores": {
+          "S1": 46,
+          "S2": 62,
+          "S3": 51,
+          "E1": 56,
+          "E2": 65,
+          "E3": 58,
+          "A1": 64,
+          "A2": 46,
+          "A3": 58,
+          "Ac1": 58,
+          "Ac2": 68,
+          "Ac3": 51,
+          "So1": 67,
+          "So2": 65,
+          "So3": 67
+        },
+        "presetRarity": "5.4633%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 56,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 46,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 58,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "反应强度偏高，但这类命名本轮不前台直出。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "HHHH",
+      "answers": {
+        "q01": "B",
+        "q02": "A",
+        "q03": "B",
+        "q04": "A",
+        "q05": "A",
+        "q06": "A",
+        "q07": "B",
+        "q08": "A",
+        "q09": "A",
+        "q10": "B",
+        "q11": "A",
+        "q12": "A",
+        "q13": "B",
+        "q14": "C",
+        "q15": "C",
+        "q16": "A",
+        "q17": "A",
+        "q18": "B",
+        "q19": "C",
+        "q20": "C",
+        "q21": "A",
+        "q22": "A",
+        "q23": "A",
+        "q24": "B",
+        "q25": "A",
+        "q26": "A",
+        "q27": "A",
+        "q28": "B",
+        "q29": "A",
+        "q30": "B",
+        "q31": "B"
+      },
+      "expected": {
+        "profileCode": "HHHH",
+        "matchPercent": 81,
+        "similarity": 0.6728,
+        "mismatchCount": 6,
+        "distance": 60.9508,
+        "scores": {
+          "social_drive": 61,
+          "expression_directness": 51.33,
+          "novelty_seeking": 54,
+          "boundary_awareness": 76,
+          "emotional_openness": 72,
+          "playfulness": 50,
+          "stability": 60.4,
+          "initiative": 48,
+          "signal_sensitivity": 80.8,
+          "group_energy": 50,
+          "reflection": 67.09,
+          "aesthetic_showcase": 76,
+          "ambiguity_tolerance": 67,
+          "warmth": 76.4,
+          "rhythm_control": 63.33
+        },
+        "resultScores": {
+          "S1": 43,
+          "S2": 64,
+          "S3": 57,
+          "E1": 52,
+          "E2": 70,
+          "E3": 55,
+          "A1": 75,
+          "A2": 43,
+          "A3": 64,
+          "Ac1": 54,
+          "Ac2": 65,
+          "Ac3": 57,
+          "So1": 54,
+          "So2": 72,
+          "So3": 66
+        },
+        "presetRarity": "5.1250%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 52,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 75,
+            "band": "H",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 64,
+            "band": "M",
+            "oneLiner": "你对意义感没那么执着，很多时候先活得轻一点比较重要。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你在社交里更容易靠轻松感打开局面。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 72,
+            "band": "H",
+            "oneLiner": "你的人际边界感基本在线，知道什么时候靠近、什么时候退开。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你表达自己时比较自然，容易把场子从紧绷拉回松弛。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "MUM",
+      "answers": {
+        "q01": "C",
+        "q02": "B",
+        "q03": "A",
+        "q04": "A",
+        "q05": "C",
+        "q06": "A",
+        "q07": "D",
+        "q08": "C",
+        "q09": "C",
+        "q10": "C",
+        "q11": "C",
+        "q12": "C",
+        "q13": "A",
+        "q14": "C",
+        "q15": "A",
+        "q16": "A",
+        "q17": "A",
+        "q18": "B",
+        "q19": "B",
+        "q20": "A",
+        "q21": "C",
+        "q22": "A",
+        "q23": "B",
+        "q24": "A",
+        "q25": "C",
+        "q26": "A",
+        "q27": "A",
+        "q28": "A",
+        "q29": "B",
+        "q30": "C",
+        "q31": "C"
+      },
+      "expected": {
+        "profileCode": "MUM",
+        "matchPercent": 86,
+        "similarity": 0.7752,
+        "mismatchCount": 4,
+        "distance": 49.2341,
+        "scores": {
+          "social_drive": 69,
+          "expression_directness": 62,
+          "novelty_seeking": 49,
+          "boundary_awareness": 75,
+          "emotional_openness": 73,
+          "playfulness": 50,
+          "stability": 58.8,
+          "initiative": 65.14,
+          "signal_sensitivity": 80.4,
+          "group_energy": 80,
+          "reflection": 65.71,
+          "aesthetic_showcase": 64,
+          "ambiguity_tolerance": 63.67,
+          "warmth": 65,
+          "rhythm_control": 58.33
+        },
+        "resultScores": {
+          "S1": 48,
+          "S2": 62,
+          "S3": 61,
+          "E1": 51,
+          "E2": 69,
+          "E3": 54,
+          "A1": 70,
+          "A2": 43,
+          "A3": 61,
+          "Ac1": 61,
+          "Ac2": 68,
+          "Ac3": 61,
+          "So1": 66,
+          "So2": 71,
+          "So3": 66
+        },
+        "presetRarity": "3.7678%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 62,
+            "band": "M",
+            "oneLiner": "你大致知道自己是什么路数，只是偶尔会在情绪上打个晃。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 51,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 69,
+            "band": "M",
+            "oneLiner": "你在关系里愿意投入，看到别人有情绪时很难完全无动于衷。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你边界感不是没有，只是容易在照顾人时往后退一步。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 70,
+            "band": "H",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你会想人为什么这样活着，但还不至于天天把自己想进死胡同。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 68,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 61,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 71,
+            "band": "H",
+            "oneLiner": "你会照顾关系氛围，也更容易去兜那些快掉出来的情绪。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 66,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    },
+    {
+      "label": "MONK",
+      "answers": {
+        "q01": "A",
+        "q02": "A",
+        "q03": "B",
+        "q04": "C",
+        "q05": "B",
+        "q06": "A",
+        "q07": "D",
+        "q08": "B",
+        "q09": "B",
+        "q10": "A",
+        "q11": "B",
+        "q12": "A",
+        "q13": "B",
+        "q14": "A",
+        "q15": "A",
+        "q16": "A",
+        "q17": "C",
+        "q18": "B",
+        "q19": "B",
+        "q20": "C",
+        "q21": "C",
+        "q22": "B",
+        "q23": "C",
+        "q24": "B",
+        "q25": "A",
+        "q26": "C",
+        "q27": "B",
+        "q28": "B",
+        "q29": "C",
+        "q30": "B",
+        "q31": "A"
+      },
+      "expected": {
+        "profileCode": "MONK",
+        "matchPercent": 69,
+        "similarity": 0.4135,
+        "mismatchCount": 11,
+        "distance": 94.4034,
+        "scores": {
+          "social_drive": 71.33,
+          "expression_directness": 68,
+          "novelty_seeking": 54,
+          "boundary_awareness": 70,
+          "emotional_openness": 66.29,
+          "playfulness": 53,
+          "stability": 58.36,
+          "initiative": 52.25,
+          "signal_sensitivity": 66.8,
+          "group_energy": 64,
+          "reflection": 51.33,
+          "aesthetic_showcase": 68,
+          "ambiguity_tolerance": 60.5,
+          "warmth": 81.5,
+          "rhythm_control": 60.4
+        },
+        "resultScores": {
+          "S1": 48,
+          "S2": 55,
+          "S3": 57,
+          "E1": 54,
+          "E2": 73,
+          "E3": 54,
+          "A1": 67,
+          "A2": 43,
+          "A3": 57,
+          "Ac1": 59,
+          "Ac2": 63,
+          "Ac3": 57,
+          "So1": 63,
+          "So2": 65,
+          "So3": 67
+        },
+        "presetRarity": "0.2004%",
+        "dimensionCards": [
+          {
+            "key": "S1",
+            "nameZh": "自尊自信",
+            "group": "S",
+            "score": 48,
+            "band": "M",
+            "oneLiner": "你对自己的底盘感有自己的判断，不太会完全被外界一句话拽走。"
+          },
+          {
+            "key": "S2",
+            "nameZh": "自我清晰度",
+            "group": "S",
+            "score": 55,
+            "band": "M",
+            "oneLiner": "你对自己是什么路数有相对稳定的判断，不太爱被外界带着乱跑。"
+          },
+          {
+            "key": "S3",
+            "nameZh": "核心价值",
+            "group": "S",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你心里通常有一套自己的排序，做事不会完全靠别人推着走。"
+          },
+          {
+            "key": "E1",
+            "nameZh": "依恋安全感",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你在关系里的安全感有波动，但整体还算能把自己拉回来。"
+          },
+          {
+            "key": "E2",
+            "nameZh": "情感投入度",
+            "group": "E",
+            "score": 73,
+            "band": "H",
+            "oneLiner": "你愿意投入情绪，但也会给自己留一点回旋空间。"
+          },
+          {
+            "key": "E3",
+            "nameZh": "边界与依赖",
+            "group": "E",
+            "score": 54,
+            "band": "M",
+            "oneLiner": "你对边界和依赖的拿捏，不会一路失控，也不会完全无感。"
+          },
+          {
+            "key": "A1",
+            "nameZh": "世界观倾向",
+            "group": "A",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你看世界时既会带入感受，也会保留一点自己的判断。"
+          },
+          {
+            "key": "A2",
+            "nameZh": "规则与灵活度",
+            "group": "A",
+            "score": 43,
+            "band": "M",
+            "oneLiner": "你对规则不是死守，也不是彻底摆烂，更多是按场景调节。"
+          },
+          {
+            "key": "A3",
+            "nameZh": "人生意义感",
+            "group": "A",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你会认真想意义、秩序和自己真正想要什么，精神内耗和精神修行只有一线之隔。"
+          },
+          {
+            "key": "Ac1",
+            "nameZh": "动机导向",
+            "group": "Ac",
+            "score": 59,
+            "band": "M",
+            "oneLiner": "你有自己的动机来源，只是发力方式不总是同一种。"
+          },
+          {
+            "key": "Ac2",
+            "nameZh": "决策风格",
+            "group": "Ac",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你做决定时会混合理性、直觉和当下状态，不算单线程。"
+          },
+          {
+            "key": "Ac3",
+            "nameZh": "执行模式",
+            "group": "Ac",
+            "score": 57,
+            "band": "M",
+            "oneLiner": "你推进事情的方式有弹性，能冲也能缓，不是一种节奏打天下。"
+          },
+          {
+            "key": "So1",
+            "nameZh": "社交主动性",
+            "group": "So",
+            "score": 63,
+            "band": "M",
+            "oneLiner": "你社交时不一定最响，但会按照自己舒服的方式进入场子。"
+          },
+          {
+            "key": "So2",
+            "nameZh": "人际边界感",
+            "group": "So",
+            "score": 65,
+            "band": "M",
+            "oneLiner": "你的人际边界感很强，亲近可以，但要留出自己的气口。"
+          },
+          {
+            "key": "So3",
+            "nameZh": "表达与真实度",
+            "group": "So",
+            "score": 67,
+            "band": "M",
+            "oneLiner": "你表达自己时有筛选，不会把所有想法一次性全摊出来。"
+          }
+        ]
+      }
+    }
+  ],
+  "generatedOriginalCases": 79,
+  "all25CodesRepresented": true
+}

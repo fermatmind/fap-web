@@ -1,0 +1,14 @@
+export type Sbti31Vector = Record<string, number>;
+export type Sbti31SourceQuestion = { id: string; order: number; prompt: { zh: string; en: string }; options: { id: string; label: { zh: string; en: string }; impacts: Sbti31Vector }[] };
+export type Sbti31SourceProfile = { code: string; nameZh: string; safeNameZh: string; launchStatus: string; riskLevel: string; heroTagline: string; summaryNote: string; overview: string; centroid: Sbti31Vector; dimensionCopy: Record<string, string> };
+export type Sbti31DimensionCard = { key: string; nameZh: string; group: string; score: number; band: "L" | "M" | "H"; oneLiner: string };
+export const SBTI_QUESTIONS: Sbti31SourceQuestion[];
+export const SBTI_RESULT_PROFILES: Sbti31SourceProfile[];
+export const SBTI_RESULT_DIMENSIONS: { key: string; nameZh: string; group: string }[];
+export const SBTI_RESULT_DISCLAIMER: string;
+export function scoreSbtiAnswers(questions: Sbti31SourceQuestion[], answers: Record<string, string>): Sbti31Vector;
+export function mapSbtiScoreToResultDimensions(scores: Sbti31Vector): Sbti31Vector;
+export function resolveSbtiProfileFromResultScores(scores: Sbti31Vector, profiles: Sbti31SourceProfile[]): { primary: Sbti31SourceProfile; similarity: number; matchPercent: number; mismatchCount: number; distance: number };
+export function getSbtiDimensionCards(scores: Sbti31Vector, profile: Sbti31SourceProfile): Sbti31DimensionCard[];
+export function getSbtiDisplayName(profile: Sbti31SourceProfile): string;
+export function formatSbtiRarityPercent(code: string): string;

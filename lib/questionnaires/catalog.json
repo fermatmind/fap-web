@@ -6114,21 +6114,21 @@
   },
   {
     "slug": "sbti-test",
-    "code": "FM_SBTI50_WEB_REPAIR",
-    "version": "fm_sbti50_web_repair_v1",
+    "code": "SBTI",
+    "version": "sbti31_original_zh_working_en_web_v1",
     "updated": "2026-10-29",
     "category": "framework",
     "title": {
-      "en": "SBTI Test: FermatMind 50-Choice Edition",
-      "zh": "SBTI趣味测试：费马50组修订版"
+      "zh": "SBTI 娱乐人格测试：小程序原31题",
+      "en": "SBTI Test: Original 31 Questions"
     },
     "description": {
-      "en": "Try fifty original paired choices and explore twenty-five SBTI-inspired themes with complete free guides. Raw counts and all ties; no signup or fixed personality claim.",
-      "zh": "用五十组原创成对选择，探索二十五个SBTI来源主题。原始次数、全部并列与完整指南免费，无需注册，不确定固定人格。"
+      "zh": "沿用费马小程序原31题、原选项及原计分玩法。查看本次25种趣味画像之一、15维模型读数和完整双语说明，免费、无需注册。",
+      "en": "Take the original 31-question FermatMind Mini SBTI test with its original choices and scoring. Get one of 25 playful profiles, 15 model readouts and full free guides. No signup."
     },
-    "minutes": 8,
-    "formCode": "fm_sbti50_web_repair_v1",
-    "questionCount": 50,
+    "minutes": 6,
+    "formCode": "sbti_entertainment_31",
+    "questionCount": 31,
     "resultSlugs": [
       "self-critic",
       "initiator",

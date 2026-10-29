@@ -5,8 +5,8 @@ import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { MoreTests } from "@/components/entertainment/MoreTests";
 vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
-describe("SBTI50 complete bilingual public pages", () => {
-  it("renders both entries and all50 full guides with exact identity, body, metadata and no personal result", async () => {
+describe("SBTI31 complete bilingual public pages", () => {
+  it("renders both entries and all25 full guides in each language with exact identity, body, metadata and no personal result", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     const entry = await import("@/components/questionnaires/QuestionnairePage");
     const guide = await import("@/components/questionnaires/QuestionnaireGuide");
@@ -31,7 +31,7 @@ describe("SBTI50 complete bilingual public pages", () => {
           expect(gm.alternates?.canonical).toBe(`https://fermatmind.com${path}/results/${profile.id}`);
           expect(gm.alternates?.languages).toMatchObject({ en: `https://fermatmind.com/en/tests/explore/sbti-test/results/${profile.id}`, "zh-CN": `https://fermatmind.com/zh/tests/explore/sbti-test/results/${profile.id}` });
           for (const section of profile.sections) for (const p of section.paragraphs) expect(dom.textContent).toContain(p[locale]);
-          expect(dom.querySelector('[data-sbti50-counts]')).toBeNull();
+          expect(dom.querySelector('[data-sbti31-result]')).toBeNull();
           expect(dom.querySelector(`a[href='${path}#take-test']`)).not.toBeNull();
           if (locale === "en") expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);
         }

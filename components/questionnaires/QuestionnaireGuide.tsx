@@ -1,6 +1,6 @@
 import { WorkActivityContext } from "./WorkActivityInterestsReport";
-import { isSbti50ConfigurationValid } from "@/lib/questionnaires/sbti50";
-import { Sbti50GuidePage } from "./Sbti50Page";
+import { isSbti31ConfigurationValid } from "@/lib/questionnaires/sbti31";
+import { Sbti31GuidePage } from "./Sbti31Page";
 import { isCritical30ConfigurationValid } from "@/lib/questionnaires/critical30";
 import { Critical30GuidePage } from "./Critical30Page";
 import { isReasoning18ConfigurationValid } from "@/lib/questionnaires/reasoning18";
@@ -96,7 +96,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
-  if (quiz?.kind === "sbti50" && !isSbti50ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "sbti31" && !isSbti31ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mattering10" && !isMattering10ConfigurationValid(quiz)) return { title: "Mattering unavailable", robots: { index: false, follow: false } };
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
@@ -141,11 +141,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
-  if (quiz?.kind === "sbti50") {
-    if (!isSbti50ConfigurationValid(quiz)) notFound();
+  if (quiz?.kind === "sbti31") {
+    if (!isSbti31ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
-    return <Sbti50GuidePage quiz={quiz} profile={profile} locale={locale} />;
+    return <Sbti31GuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "mattering10") {
     if (!isMattering10ConfigurationValid(quiz)) notFound();
