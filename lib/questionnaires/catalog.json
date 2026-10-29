@@ -1,31 +1,5 @@
 [
   {
-    "slug": "asvab-science-mechanical-practice-test",
-    "code": "FM_TECHNICAL30",
-    "version": "1.0.0",
-    "updated": "2026-10-29",
-    "category": "framework",
-    "title": {
-      "en": "ASVAB-Style Science & Technical Practice",
-      "zh": "ASVAB风格科学与技术练习"
-    },
-    "description": {
-      "en": "Practise 30 original English questions across science, mechanics, circuits, auto/shop and written assembly. Section timers or untimed study; five full guides free.",
-      "zh": "免费练习科学、机械、电路、汽车车间与文字组装五领域的30道原创英文题。可选分段计时或不计时学习，提供双语解析与五份完整指南。"
-    },
-    "minutes": 24,
-    "formCode": "fm_technical30_original_english_v1",
-    "questionCount": 30,
-    "resultSlugs": [
-      "general-science",
-      "mechanical",
-      "electronics",
-      "auto-shop",
-      "assembling"
-    ],
-    "collection": "explore"
-  },
-  {
     "slug": "disc",
     "code": "DISC_BEHAVIOR",
     "version": "1.0.0",
@@ -5958,6 +5932,32 @@
       "agreements",
       "support",
       "handoffs"
+    ],
+    "collection": "explore"
+  },
+  {
+    "slug": "asvab-science-mechanical-practice-test",
+    "code": "FM_TECHNICAL30",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "ASVAB-Style Science & Technical Practice",
+      "zh": "ASVAB风格科学与技术练习"
+    },
+    "description": {
+      "en": "Practise 30 original English questions across science, mechanics, circuits, auto/shop and written assembly. Section timers or untimed study; five full guides free.",
+      "zh": "免费练习科学、机械、电路、汽车车间与文字组装五领域的30道原创英文题。可选分段计时或不计时学习，提供双语解析与五份完整指南。"
+    },
+    "minutes": 24,
+    "formCode": "fm_technical30_original_english_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "general-science",
+      "mechanical",
+      "electronics",
+      "auto-shop",
+      "assembling"
     ],
     "collection": "explore"
   }
