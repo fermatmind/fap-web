@@ -1,0 +1,824 @@
+[
+  {
+    "id": "REASON_1_01",
+    "prompt": {
+      "en": "Use only this passage. Luma archives a review only after it is complete. On Thursday, Luma archived one completed review. Statement: At least one completed review was archived on Thursday.",
+      "zh": "Use only this passage. Luma archives a review only after it is complete. On Thursday, Luma archived one completed review. Statement: At least one completed review was archived on Thursday."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Cannot say",
+          "zh": "Cannot say"
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The passage explicitly records one completed review archived on Thursday. That is sufficient for “at least one”; no claim about every review or other days is needed.",
+      "zh": "原文明确记载周四归档了一份已完成的审核，足以支持“至少一份”。不必推论所有审核或其他日期。"
+    }
+  },
+  {
+    "id": "REASON_1_02",
+    "prompt": {
+      "en": "Use only this passage. Places at a prototype workshop are reserved only through its online form. Email messages provide information but never reserve a place. Statement: Sending an email is sufficient to reserve a place.",
+      "zh": "Use only this passage. Places at a prototype workshop are reserved only through its online form. Email messages provide information but never reserve a place. Statement: Sending an email is sufficient to reserve a place."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Cannot say",
+          "zh": "Cannot say"
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "The statement conflicts with the explicit rule that email never reserves a place. This is False, rather than Cannot say: the relevant condition is stated directly.",
+      "zh": "原文明确说邮件不会预留名额，与断言直接冲突，所以为假而非无法判断。相关条件已明确给出。"
+    }
+  },
+  {
+    "id": "REASON_1_03",
+    "prompt": {
+      "en": "Use only this passage. A packing line completed 420 boxes on Tuesday and 480 on Wednesday, using the same machine. Statement: Its hourly output was higher on Wednesday.",
+      "zh": "Use only this passage. A packing line completed 420 boxes on Tuesday and 480 on Wednesday, using the same machine. Statement: Its hourly output was higher on Wednesday."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "True",
+          "zh": "True"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "False",
+          "zh": "False"
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Cannot say",
+          "zh": "Cannot say"
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Daily totals are given, but operating hours are not. Wednesday could have used more hours, fewer hours or the same hours. The hourly comparison cannot be determined from these totals alone.",
+      "zh": "只给每日总量，未给工作小时。周三可能用了更多、更少或相同小时，不能仅由总量判断每小时产量。"
+    }
+  },
+  {
+    "id": "REASON_1_04",
+    "prompt": {
+      "en": "Select the claim supported by this passage. Ten people signed up for training: four selected the morning session and six the afternoon session. The passage provides no information about people who did not sign up.",
+      "zh": "Select the claim supported by this passage. Ten people signed up for training: four selected the morning session and six the afternoon session. The passage provides no information about people who did not sign up."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Most employees prefer afternoons.",
+          "zh": "Most employees prefer afternoons."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Morning training produces better outcomes.",
+          "zh": "Morning training produces better outcomes."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Four people who signed up selected the morning session.",
+          "zh": "Four people who signed up selected the morning session."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "All employees signed up for training.",
+          "zh": "All employees signed up for training."
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Only the claim about four sign-ups selecting morning restates supplied evidence. The workforce denominator, training outcomes and participation of all employees are not supplied.",
+      "zh": "只有四名报名者选上午直接重述已知证据。未给全体员工人数、培训效果或所有员工是否参加。"
+    }
+  },
+  {
+    "id": "REASON_1_05",
+    "prompt": {
+      "en": "Select the action supported by this memo. Before changing any dispatch rule, compare the current schedule with shipment deadlines and list any conflicts. Until that list is complete, keep the existing rules.",
+      "zh": "Select the action supported by this memo. Before changing any dispatch rule, compare the current schedule with shipment deadlines and list any conflicts. Until that list is complete, keep the existing rules."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "Change the rules before making the comparison.",
+          "zh": "Change the rules before making the comparison."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Assume every shipment has already been delayed.",
+          "zh": "Assume every shipment has already been delayed."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Ignore deadlines whenever a schedule exists.",
+          "zh": "Ignore deadlines whenever a schedule exists."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "List schedule-deadline conflicts while keeping the existing rules.",
+          "zh": "List schedule-deadline conflicts while keeping the existing rules."
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "The memo requests a comparison and conflict list before any rule change. It neither reports actual delays nor authorises ignoring deadlines or changing rules first.",
+      "zh": "备忘录要求先比较并列冲突，暂时保留规则。它既没报告已发生延误，也没授权忽略期限或先改规则。"
+    }
+  },
+  {
+    "id": "REASON_1_06",
+    "prompt": {
+      "en": "Select the conclusion supported by this report. A trial used red labels in Room A and blue labels in Room B. Errors fell in Room A, but the rooms also differed in layout and staff training. The report says the change cannot be attributed solely to label colour.",
+      "zh": "Select the conclusion supported by this report. A trial used red labels in Room A and blue labels in Room B. Errors fell in Room A, but the rooms also differed in layout and staff training. The report says the change cannot be attributed solely to label colour."
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "This trial does not isolate the effect of label colour.",
+          "zh": "This trial does not isolate the effect of label colour."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "Red labels always prevent errors.",
+          "zh": "Red labels always prevent errors."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "Room B recorded no errors.",
+          "zh": "Room B recorded no errors."
+        },
+        "directionId": "verbal"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "Staff training has no effect on errors.",
+          "zh": "Staff training has no effect on errors."
+        },
+        "directionId": "verbal"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Several conditions changed between rooms, and the report explicitly declines a colour-only attribution. The other statements make universal or unreported claims. This does not prove colour has no effect.",
+      "zh": "房间间同时存在多个差别，报告明确不作颜色单一归因。其他选项是普遍化或未报告的主张；这也不证明颜色完全无效。"
+    }
+  },
+  {
+    "id": "REASON_2_01",
+    "prompt": {
+      "en": "A fictional depot processed 160 parcels in Week 1 and 200 in Week 2. Relative to Week 1, what was the percentage increase?",
+      "zh": "A fictional depot processed 160 parcels in Week 1 and 200 in Week 2. Relative to Week 1, what was the percentage increase?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "25%",
+          "zh": "25%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "20%",
+          "zh": "20%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "40%",
+          "zh": "40%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "125%",
+          "zh": "125%"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Increase = 200 − 160 = 40. Divide by the original 160, then multiply by 100: 25%. Using the new 200 as denominator answers a different question.",
+      "zh": "增加40，以原来160为分母，40÷160×100%=25%。用新总量200作分母回答的是另一问题。"
+    }
+  },
+  {
+    "id": "REASON_2_02",
+    "prompt": {
+      "en": "Five batches contain these numbers of units: three batches contain 10 units each and two contain 25 units each. What is the mean number of units per batch?",
+      "zh": "Five batches contain these numbers of units: three batches contain 10 units each and two contain 25 units each. What is the mean number of units per batch?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "14",
+          "zh": "14"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "16",
+          "zh": "16"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "17.5",
+          "zh": "17.5"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "20",
+          "zh": "20"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Total units = 3 × 10 + 2 × 25 = 80 across five batches, giving 16. The midpoint 17.5 gives the two batch sizes equal weight rather than weighting all five batches equally.",
+      "zh": "共3×10+2×25=80个单位，除以五批得16。17.5是两种批量大小的中点，未按实际批次数加权。"
+    }
+  },
+  {
+    "id": "REASON_2_03",
+    "prompt": {
+      "en": "A stock count begins at 200 units. It falls by 10%, then the remaining count rises by 20%. What is the final count?",
+      "zh": "A stock count begins at 200 units. It falls by 10%, then the remaining count rises by 20%. What is the final count?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "180",
+          "zh": "180"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "220",
+          "zh": "220"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "216",
+          "zh": "216"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "240",
+          "zh": "240"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "The first step leaves 200 × 0.90 = 180. The next step uses that new base: 180 × 1.20 = 216. Adding the percentages would miss the changed denominator.",
+      "zh": "先剩200×0.9=180，下一步以新基数计算180×1.2=216。直接加减百分比会忽略分母已变。"
+    }
+  },
+  {
+    "id": "REASON_2_04",
+    "prompt": {
+      "en": "For this fictional conversion only, 1 alpha equals 1.25 beta. Convert 80 alpha to beta, then add a fixed fee of 5 beta. What is the total in beta?",
+      "zh": "For this fictional conversion only, 1 alpha equals 1.25 beta. Convert 80 alpha to beta, then add a fixed fee of 5 beta. What is the total in beta?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "64",
+          "zh": "64"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "100",
+          "zh": "100"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "101.25",
+          "zh": "101.25"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "105",
+          "zh": "105"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "80 alpha × 1.25 beta per alpha = 100 beta. The fixed 5 beta fee is added once, after conversion, producing 105 beta. This is not a real currency quotation.",
+      "zh": "80×1.25=100 beta，换算后加一次5 beta固定费，得105 beta。不是任何真实货币报价。"
+    }
+  },
+  {
+    "id": "REASON_2_05",
+    "prompt": {
+      "en": "A fictional project logged 60 completed tasks in August and 90 in September. What percentage of the combined two-month total was completed in September?",
+      "zh": "A fictional project logged 60 completed tasks in August and 90 in September. What percentage of the combined two-month total was completed in September?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "60%",
+          "zh": "60%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "40%",
+          "zh": "40%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "50%",
+          "zh": "50%"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "150%",
+          "zh": "150%"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "The requested denominator is the combined total, 60 + 90 = 150. September contributes 90/150 = 60%. Comparing 90 to August alone gives a ratio to a different base.",
+      "zh": "分母是两月总计150，九月90÷150=60%。若用八月60作分母，则是另一种比较。"
+    }
+  },
+  {
+    "id": "REASON_2_06",
+    "prompt": {
+      "en": "An ideal conveyor moves at a constant 0.6 metres per second for 2.5 minutes without stopping. How far does it move?",
+      "zh": "An ideal conveyor moves at a constant 0.6 metres per second for 2.5 minutes without stopping. How far does it move?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "1.5 m",
+          "zh": "1.5 m"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "90 m",
+          "zh": "90 m"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "150 m",
+          "zh": "150 m"
+        },
+        "directionId": "numerical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "900 m",
+          "zh": "900 m"
+        },
+        "directionId": "numerical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "2.5 minutes is 150 seconds. Distance = 0.6 m/s × 150 s = 90 m. The units must agree before multiplying; the constant-speed, no-stop assumptions are stated.",
+      "zh": "2.5分钟为150秒，距离0.6×150=90米。先统一时间单位；题目已明确恒速且不停顿。"
+    }
+  },
+  {
+    "id": "REASON_3_01",
+    "prompt": {
+      "en": "Use the rule family in which consecutive differences increase by the same amount each time. Sequence: 3, 8, 15, 24, 35, __. Which number continues that rule?",
+      "zh": "Use the rule family in which consecutive differences increase by the same amount each time. Sequence: 3, 8, 15, 24, 35, __. Which number continues that rule?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "46",
+          "zh": "46"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "47",
+          "zh": "47"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "48",
+          "zh": "48"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "50",
+          "zh": "50"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "Differences are 5, 7, 9 and 11, increasing by 2. The next difference is 13, so 35 + 13 = 48. This is the answer within the explicitly stated rule family.",
+      "zh": "差依次5、7、9、11，每次增2，下一差为13，所以35+13=48。答案受题目明示的规则族约束。"
+    }
+  },
+  {
+    "id": "REASON_3_02",
+    "prompt": {
+      "en": "Odd-position terms follow one constant-step sequence; even-position terms follow another. Sequence: 3, 20, 6, 18, 9, 16, __. What is the next term?",
+      "zh": "Odd-position terms follow one constant-step sequence; even-position terms follow another. Sequence: 3, 20, 6, 18, 9, 16, __. What is the next term?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "6",
+          "zh": "6"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "10",
+          "zh": "10"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "14",
+          "zh": "14"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "12",
+          "zh": "12"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "Odd positions are 3, 6, 9, then 12; even positions are 20, 18, 16. The missing seventh term is in the odd-position series. Combining adjacent differences obscures the two given streams.",
+      "zh": "奇数位为3、6、9、12，偶数位为20、18、16。第七项属于奇数位数列；混算相邻差会遮蔽双轨规则。"
+    }
+  },
+  {
+    "id": "REASON_3_03",
+    "prompt": {
+      "en": "Letters move forward by a fixed alphabet step, without wrapping; numbers use one fixed multiplier. Sequence: B3, D6, F12, H24, __. Which pair is next?",
+      "zh": "Letters move forward by a fixed alphabet step, without wrapping; numbers use one fixed multiplier. Sequence: B3, D6, F12, H24, __. Which pair is next?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "J48",
+          "zh": "J48"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "I48",
+          "zh": "I48"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "J26",
+          "zh": "J26"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "L48",
+          "zh": "L48"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "A",
+    "explanation": {
+      "en": "Letters advance two places, B-D-F-H-J. Numbers double, 3-6-12-24-48. Both components must match; getting only the number right is insufficient.",
+      "zh": "字母每次前进两位到J，数字每次乘2到48。两部分都须符合，只算对数字不足以选对。"
+    }
+  },
+  {
+    "id": "REASON_3_04",
+    "prompt": {
+      "en": "In each row, apply the same operation to the first number and then the second number to obtain the third. Choose only from addition, subtraction, multiplication or division. Rows: (3, 5, 8); (4, 7, 11); (6, 9, __). What completes the final row?",
+      "zh": "In each row, apply the same operation to the first number and then the second number to obtain the third. Choose only from addition, subtraction, multiplication or division. Rows: (3, 5, 8); (4, 7, 11); (6, 9, __). What completes the final row?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "54",
+          "zh": "54"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "15",
+          "zh": "15"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "-3",
+          "zh": "-3"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "2/3",
+          "zh": "2/3"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "B",
+    "explanation": {
+      "en": "Addition fits both completed rows: 3 + 5 = 8 and 4 + 7 = 11. Subtraction, multiplication and division do not. Therefore use 6 + 9 = 15. The permitted operation set is finite and explicit.",
+      "zh": "加法同时符合两行，其余允许的三种运算均不符合，所以6+9=15。题目明确限定有限运算集。"
+    }
+  },
+  {
+    "id": "REASON_3_05",
+    "prompt": {
+      "en": "Four distinct cards U, R, S and T must be placed from left to right, with each card used once. U is left of R; R is left of S; S is left of T. Which card is second?",
+      "zh": "Four distinct cards U, R, S and T must be placed from left to right, with each card used once. U is left of R; R is left of S; S is left of T. Which card is second?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "U",
+          "zh": "U"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "S",
+          "zh": "S"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "R",
+          "zh": "R"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "T",
+          "zh": "T"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "C",
+    "explanation": {
+      "en": "The three constraints form the complete order U-R-S-T, so R is second. “Left of” gives order rather than necessarily adjacency, but with exactly these four cards the full chain fixes every position.",
+      "zh": "三条约束给出完整顺序U-R-S-T，因此第二为R。“左侧”本身不必相邻，但仅这四张牌的完整链固定全部位置。"
+    }
+  },
+  {
+    "id": "REASON_3_06",
+    "prompt": {
+      "en": "Letters alternate A, B throughout. Independently, numbers repeat the cycle 1, 2, 3. Sequence: A1, B2, A3, B1, A2, __. Which pair is next?",
+      "zh": "Letters alternate A, B throughout. Independently, numbers repeat the cycle 1, 2, 3. Sequence: A1, B2, A3, B1, A2, __. Which pair is next?"
+    },
+    "reverse": false,
+    "options": [
+      {
+        "id": "A",
+        "label": {
+          "en": "A3",
+          "zh": "A3"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "B",
+        "label": {
+          "en": "B2",
+          "zh": "B2"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "C",
+        "label": {
+          "en": "A1",
+          "zh": "A1"
+        },
+        "directionId": "logical"
+      },
+      {
+        "id": "D",
+        "label": {
+          "en": "B3",
+          "zh": "B3"
+        },
+        "directionId": "logical"
+      }
+    ],
+    "correctOptionId": "D",
+    "explanation": {
+      "en": "The sixth letter is B and the sixth number is 3. Combining the independent cycles gives B3. Track both streams rather than repeating the last whole pair.",
+      "zh": "第六个字母为B，第六个数字为3，合成B3。应分别追踪两条循环，不是重复最后一对。"
+    }
+  }
+]

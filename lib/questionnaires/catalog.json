@@ -6010,5 +6010,29 @@
       "anti-mattering"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "employer-reasoning-practice-test",
+    "code": "FM_REASONING18",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "SHL-Style & Korn Ferry-Style Reasoning Practice",
+      "zh": "SHL／Korn Ferry风格推理练习"
+    },
+    "description": {
+      "en": "Try 18 original English questions: passage decisions, numerical reasoning and logical patterns. Three section timers or untimed study; all explanations and three full guides free.",
+      "zh": "免费尝试18道原创英文题：阅读判断、数量推理与逻辑规律。可选三段计时或不计时学习，提供全部双语解析与三篇完整指南。"
+    },
+    "minutes": 16,
+    "formCode": "fm_reasoning18_original_english_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "verbal",
+      "numerical",
+      "logical"
+    ],
+    "collection": "explore"
   }
 ]

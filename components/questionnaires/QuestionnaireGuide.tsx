@@ -1,3 +1,5 @@
+import { isReasoning18ConfigurationValid } from "@/lib/questionnaires/reasoning18";
+import { Reasoning18GuidePage } from "./Reasoning18Page";
 import { isMattering10ConfigurationValid } from "@/lib/questionnaires/mattering10";
 import { Mattering10GuidePage } from "./Mattering10Page";
 import { isTechnical30ConfigurationValid } from "@/lib/questionnaires/technical30";
@@ -91,6 +93,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "reasoning18" && !isReasoning18ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "technical30" && !isTechnical30ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "afqt32" && !isAfqt32ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "anger20" && !isAnger20ConfigurationValid(quiz)) return { title: "Anger reflection unavailable", robots: { index: false, follow: false } };
@@ -152,6 +155,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <Synes15GuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "reasoning18") {
+    if (!isReasoning18ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <Reasoning18GuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "technical30") {
     if (!isTechnical30ConfigurationValid(quiz)) notFound();

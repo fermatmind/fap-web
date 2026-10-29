@@ -1,0 +1,1559 @@
+{
+  "slug": "employer-reasoning-practice-test",
+  "code": "FM_REASONING18",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "reasoning18",
+  "minutes": 16,
+  "title": {
+    "en": "SHL-Style & Korn Ferry-Style Reasoning Practice",
+    "zh": "SHL／Korn Ferry风格推理练习"
+  },
+  "seoTitle": {
+    "en": "SHL & Korn Ferry Reasoning Practice: 18 Original Questions",
+    "zh": "SHL与Korn Ferry推理练习：18道原创题、三篇完整指南"
+  },
+  "description": {
+    "en": "Try 18 original English questions: passage decisions, numerical reasoning and logical patterns. Three section timers or untimed study; all explanations and three full guides free.",
+    "zh": "免费尝试18道原创英文题：阅读判断、数量推理与逻辑规律。可选三段计时或不计时学习，提供全部双语解析与三篇完整指南。"
+  },
+  "introduction": {
+    "en": "Prepare common reasoning tasks through one short original bank. The verbal part mixes three True / False / Cannot say items and three four-option supported-claim items; numerical and logical parts have six four-option items each. SHL and Korn Ferry names identify preparation interests, not official items, forms, pacing or score conversions. Actual invitations and provider instructions take priority.",
+    "zh": "用一套原创短题本练习常见推理任务。阅读部分含三道真／假／无法判断三选一和三道有据判断四选一；数量、逻辑部分各六道四选一。SHL和Korn Ferry名称说明备考兴趣，不代表正式试题、题式、节奏或成绩转换；实际邀请与提供方说明优先。"
+  },
+  "instructions": {
+    "en": "Choose an offered option or explicitly leave a question unanswered. Each six-question part starts only when you click Start this part. You can go back within the active part; early finish or expiry locks it. Paper and a calculator are allowed here; your actual assessment may use other rules. Both interfaces keep English stems and options, with bilingual explanations and guides.",
+    "zh": "选择给定选项或明确留空。每部分六题，点击开始本部分才计时。当前部分可返回修改；提前结束或到时后锁定。本练习允许纸笔、计算器，实际测评可能有其他规则。两种界面题干选项均为英文，解析与指南为双语。"
+  },
+  "resultHeading": {
+    "en": "Your three practice records and every worked answer",
+    "zh": "三项练习记录与全部题解"
+  },
+  "reasoning18": {
+    "sections": [
+      {
+        "id": "verbal",
+        "code": "VR",
+        "count": 6,
+        "limitSeconds": 180,
+        "title": {
+          "en": "Passage reasoning",
+          "zh": "阅读推理"
+        }
+      },
+      {
+        "id": "numerical",
+        "code": "NR",
+        "count": 6,
+        "limitSeconds": 300,
+        "title": {
+          "en": "Numerical reasoning",
+          "zh": "数量推理"
+        }
+      },
+      {
+        "id": "logical",
+        "code": "LR",
+        "count": 6,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Logical and pattern reasoning",
+          "zh": "逻辑与规律推理"
+        }
+      }
+    ],
+    "subtitle": {
+      "en": "Choose how to practise these 18 English questions",
+      "zh": "选择这18道英文题的练习方式"
+    },
+    "privacy": {
+      "en": "Responses and counts stay in page memory. Refresh, leaving, language changes or restart clear them. No saved draft or public answer URL is created. Optional activity counts require a separate consent choice and contain no answers or scores.",
+      "zh": "答案与计数只留本页内存，刷新、离开、换语言或重测会清除，无保存草稿或公开答卷URL。可选活动计数单独征得同意，不含答案或成绩。"
+    },
+    "editionNotice": {
+      "en": "Original fixed mixed-format learning bank. Not validated or equated to any provider form. No adaptive selection, official simulation, percentile, pass band or job recommendation. The 3:00 / 5:00 / 4:00 caps are site-selected section limits, not provider limits.",
+      "zh": "原创固定混合题式学习题本，未经验证或与提供方题本等值。无自适应选题、正式模拟、百分位、通过分档或职位推荐。3:00／5:00／4:00由本站选定为分段上限，不是提供方时限。"
+    },
+    "attribution": {
+      "en": "FermatMind independently wrote all passages, questions, options, explanations and guides. Linked provider documents explain limited format background; their sample items and competitor banks are not reproduced. SHL and Korn Ferry are separate providers. This practice is not affiliated with or endorsed by either.",
+      "zh": "全部短文、题目、选项、解析和指南由费马测试独立编写。链接的提供方文档只说明有限题式背景，不复制其示例题或竞品题库。SHL与Korn Ferry是不同提供方，本练习与二者无隶属关系，亦未获认可。"
+    }
+  },
+  "directions": [
+    {
+      "id": "verbal",
+      "itemCount": 6,
+      "title": {
+        "en": "Passage reasoning",
+        "zh": "阅读推理"
+      }
+    },
+    {
+      "id": "numerical",
+      "itemCount": 6,
+      "title": {
+        "en": "Numerical reasoning",
+        "zh": "数量推理"
+      }
+    },
+    {
+      "id": "logical",
+      "itemCount": 6,
+      "title": {
+        "en": "Logical and pattern reasoning",
+        "zh": "逻辑与规律推理"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "REASON_1_01",
+      "prompt": {
+        "en": "Use only this passage. Luma archives a review only after it is complete. On Thursday, Luma archived one completed review. Statement: At least one completed review was archived on Thursday.",
+        "zh": "Use only this passage. Luma archives a review only after it is complete. On Thursday, Luma archived one completed review. Statement: At least one completed review was archived on Thursday."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Cannot say",
+            "zh": "Cannot say"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The passage explicitly records one completed review archived on Thursday. That is sufficient for “at least one”; no claim about every review or other days is needed.",
+        "zh": "原文明确记载周四归档了一份已完成的审核，足以支持“至少一份”。不必推论所有审核或其他日期。"
+      }
+    },
+    {
+      "id": "REASON_1_02",
+      "prompt": {
+        "en": "Use only this passage. Places at a prototype workshop are reserved only through its online form. Email messages provide information but never reserve a place. Statement: Sending an email is sufficient to reserve a place.",
+        "zh": "Use only this passage. Places at a prototype workshop are reserved only through its online form. Email messages provide information but never reserve a place. Statement: Sending an email is sufficient to reserve a place."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Cannot say",
+            "zh": "Cannot say"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The statement conflicts with the explicit rule that email never reserves a place. This is False, rather than Cannot say: the relevant condition is stated directly.",
+        "zh": "原文明确说邮件不会预留名额，与断言直接冲突，所以为假而非无法判断。相关条件已明确给出。"
+      }
+    },
+    {
+      "id": "REASON_1_03",
+      "prompt": {
+        "en": "Use only this passage. A packing line completed 420 boxes on Tuesday and 480 on Wednesday, using the same machine. Statement: Its hourly output was higher on Wednesday.",
+        "zh": "Use only this passage. A packing line completed 420 boxes on Tuesday and 480 on Wednesday, using the same machine. Statement: Its hourly output was higher on Wednesday."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "True"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "False"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Cannot say",
+            "zh": "Cannot say"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Daily totals are given, but operating hours are not. Wednesday could have used more hours, fewer hours or the same hours. The hourly comparison cannot be determined from these totals alone.",
+        "zh": "只给每日总量，未给工作小时。周三可能用了更多、更少或相同小时，不能仅由总量判断每小时产量。"
+      }
+    },
+    {
+      "id": "REASON_1_04",
+      "prompt": {
+        "en": "Select the claim supported by this passage. Ten people signed up for training: four selected the morning session and six the afternoon session. The passage provides no information about people who did not sign up.",
+        "zh": "Select the claim supported by this passage. Ten people signed up for training: four selected the morning session and six the afternoon session. The passage provides no information about people who did not sign up."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Most employees prefer afternoons.",
+            "zh": "Most employees prefer afternoons."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Morning training produces better outcomes.",
+            "zh": "Morning training produces better outcomes."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Four people who signed up selected the morning session.",
+            "zh": "Four people who signed up selected the morning session."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "All employees signed up for training.",
+            "zh": "All employees signed up for training."
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Only the claim about four sign-ups selecting morning restates supplied evidence. The workforce denominator, training outcomes and participation of all employees are not supplied.",
+        "zh": "只有四名报名者选上午直接重述已知证据。未给全体员工人数、培训效果或所有员工是否参加。"
+      }
+    },
+    {
+      "id": "REASON_1_05",
+      "prompt": {
+        "en": "Select the action supported by this memo. Before changing any dispatch rule, compare the current schedule with shipment deadlines and list any conflicts. Until that list is complete, keep the existing rules.",
+        "zh": "Select the action supported by this memo. Before changing any dispatch rule, compare the current schedule with shipment deadlines and list any conflicts. Until that list is complete, keep the existing rules."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Change the rules before making the comparison.",
+            "zh": "Change the rules before making the comparison."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Assume every shipment has already been delayed.",
+            "zh": "Assume every shipment has already been delayed."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ignore deadlines whenever a schedule exists.",
+            "zh": "Ignore deadlines whenever a schedule exists."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "List schedule-deadline conflicts while keeping the existing rules.",
+            "zh": "List schedule-deadline conflicts while keeping the existing rules."
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The memo requests a comparison and conflict list before any rule change. It neither reports actual delays nor authorises ignoring deadlines or changing rules first.",
+        "zh": "备忘录要求先比较并列冲突，暂时保留规则。它既没报告已发生延误，也没授权忽略期限或先改规则。"
+      }
+    },
+    {
+      "id": "REASON_1_06",
+      "prompt": {
+        "en": "Select the conclusion supported by this report. A trial used red labels in Room A and blue labels in Room B. Errors fell in Room A, but the rooms also differed in layout and staff training. The report says the change cannot be attributed solely to label colour.",
+        "zh": "Select the conclusion supported by this report. A trial used red labels in Room A and blue labels in Room B. Errors fell in Room A, but the rooms also differed in layout and staff training. The report says the change cannot be attributed solely to label colour."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "This trial does not isolate the effect of label colour.",
+            "zh": "This trial does not isolate the effect of label colour."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Red labels always prevent errors.",
+            "zh": "Red labels always prevent errors."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Room B recorded no errors.",
+            "zh": "Room B recorded no errors."
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Staff training has no effect on errors.",
+            "zh": "Staff training has no effect on errors."
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Several conditions changed between rooms, and the report explicitly declines a colour-only attribution. The other statements make universal or unreported claims. This does not prove colour has no effect.",
+        "zh": "房间间同时存在多个差别，报告明确不作颜色单一归因。其他选项是普遍化或未报告的主张；这也不证明颜色完全无效。"
+      }
+    },
+    {
+      "id": "REASON_2_01",
+      "prompt": {
+        "en": "A fictional depot processed 160 parcels in Week 1 and 200 in Week 2. Relative to Week 1, what was the percentage increase?",
+        "zh": "A fictional depot processed 160 parcels in Week 1 and 200 in Week 2. Relative to Week 1, what was the percentage increase?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "40%",
+            "zh": "40%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "125%",
+            "zh": "125%"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Increase = 200 − 160 = 40. Divide by the original 160, then multiply by 100: 25%. Using the new 200 as denominator answers a different question.",
+        "zh": "增加40，以原来160为分母，40÷160×100%=25%。用新总量200作分母回答的是另一问题。"
+      }
+    },
+    {
+      "id": "REASON_2_02",
+      "prompt": {
+        "en": "Five batches contain these numbers of units: three batches contain 10 units each and two contain 25 units each. What is the mean number of units per batch?",
+        "zh": "Five batches contain these numbers of units: three batches contain 10 units each and two contain 25 units each. What is the mean number of units per batch?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "17.5",
+            "zh": "17.5"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "20",
+            "zh": "20"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Total units = 3 × 10 + 2 × 25 = 80 across five batches, giving 16. The midpoint 17.5 gives the two batch sizes equal weight rather than weighting all five batches equally.",
+        "zh": "共3×10+2×25=80个单位，除以五批得16。17.5是两种批量大小的中点，未按实际批次数加权。"
+      }
+    },
+    {
+      "id": "REASON_2_03",
+      "prompt": {
+        "en": "A stock count begins at 200 units. It falls by 10%, then the remaining count rises by 20%. What is the final count?",
+        "zh": "A stock count begins at 200 units. It falls by 10%, then the remaining count rises by 20%. What is the final count?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "220",
+            "zh": "220"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "216",
+            "zh": "216"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "240",
+            "zh": "240"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The first step leaves 200 × 0.90 = 180. The next step uses that new base: 180 × 1.20 = 216. Adding the percentages would miss the changed denominator.",
+        "zh": "先剩200×0.9=180，下一步以新基数计算180×1.2=216。直接加减百分比会忽略分母已变。"
+      }
+    },
+    {
+      "id": "REASON_2_04",
+      "prompt": {
+        "en": "For this fictional conversion only, 1 alpha equals 1.25 beta. Convert 80 alpha to beta, then add a fixed fee of 5 beta. What is the total in beta?",
+        "zh": "For this fictional conversion only, 1 alpha equals 1.25 beta. Convert 80 alpha to beta, then add a fixed fee of 5 beta. What is the total in beta?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "64",
+            "zh": "64"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "100",
+            "zh": "100"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "101.25",
+            "zh": "101.25"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "105",
+            "zh": "105"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "80 alpha × 1.25 beta per alpha = 100 beta. The fixed 5 beta fee is added once, after conversion, producing 105 beta. This is not a real currency quotation.",
+        "zh": "80×1.25=100 beta，换算后加一次5 beta固定费，得105 beta。不是任何真实货币报价。"
+      }
+    },
+    {
+      "id": "REASON_2_05",
+      "prompt": {
+        "en": "A fictional project logged 60 completed tasks in August and 90 in September. What percentage of the combined two-month total was completed in September?",
+        "zh": "A fictional project logged 60 completed tasks in August and 90 in September. What percentage of the combined two-month total was completed in September?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "60%",
+            "zh": "60%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "40%",
+            "zh": "40%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "50%",
+            "zh": "50%"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "150%",
+            "zh": "150%"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The requested denominator is the combined total, 60 + 90 = 150. September contributes 90/150 = 60%. Comparing 90 to August alone gives a ratio to a different base.",
+        "zh": "分母是两月总计150，九月90÷150=60%。若用八月60作分母，则是另一种比较。"
+      }
+    },
+    {
+      "id": "REASON_2_06",
+      "prompt": {
+        "en": "An ideal conveyor moves at a constant 0.6 metres per second for 2.5 minutes without stopping. How far does it move?",
+        "zh": "An ideal conveyor moves at a constant 0.6 metres per second for 2.5 minutes without stopping. How far does it move?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1.5 m",
+            "zh": "1.5 m"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "90 m",
+            "zh": "90 m"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "150 m",
+            "zh": "150 m"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "900 m",
+            "zh": "900 m"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "2.5 minutes is 150 seconds. Distance = 0.6 m/s × 150 s = 90 m. The units must agree before multiplying; the constant-speed, no-stop assumptions are stated.",
+        "zh": "2.5分钟为150秒，距离0.6×150=90米。先统一时间单位；题目已明确恒速且不停顿。"
+      }
+    },
+    {
+      "id": "REASON_3_01",
+      "prompt": {
+        "en": "Use the rule family in which consecutive differences increase by the same amount each time. Sequence: 3, 8, 15, 24, 35, __. Which number continues that rule?",
+        "zh": "Use the rule family in which consecutive differences increase by the same amount each time. Sequence: 3, 8, 15, 24, 35, __. Which number continues that rule?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "46",
+            "zh": "46"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "47",
+            "zh": "47"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50",
+            "zh": "50"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Differences are 5, 7, 9 and 11, increasing by 2. The next difference is 13, so 35 + 13 = 48. This is the answer within the explicitly stated rule family.",
+        "zh": "差依次5、7、9、11，每次增2，下一差为13，所以35+13=48。答案受题目明示的规则族约束。"
+      }
+    },
+    {
+      "id": "REASON_3_02",
+      "prompt": {
+        "en": "Odd-position terms follow one constant-step sequence; even-position terms follow another. Sequence: 3, 20, 6, 18, 9, 16, __. What is the next term?",
+        "zh": "Odd-position terms follow one constant-step sequence; even-position terms follow another. Sequence: 3, 20, 6, 18, 9, 16, __. What is the next term?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Odd positions are 3, 6, 9, then 12; even positions are 20, 18, 16. The missing seventh term is in the odd-position series. Combining adjacent differences obscures the two given streams.",
+        "zh": "奇数位为3、6、9、12，偶数位为20、18、16。第七项属于奇数位数列；混算相邻差会遮蔽双轨规则。"
+      }
+    },
+    {
+      "id": "REASON_3_03",
+      "prompt": {
+        "en": "Letters move forward by a fixed alphabet step, without wrapping; numbers use one fixed multiplier. Sequence: B3, D6, F12, H24, __. Which pair is next?",
+        "zh": "Letters move forward by a fixed alphabet step, without wrapping; numbers use one fixed multiplier. Sequence: B3, D6, F12, H24, __. Which pair is next?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "J48",
+            "zh": "J48"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I48",
+            "zh": "I48"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "J26",
+            "zh": "J26"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "L48",
+            "zh": "L48"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Letters advance two places, B-D-F-H-J. Numbers double, 3-6-12-24-48. Both components must match; getting only the number right is insufficient.",
+        "zh": "字母每次前进两位到J，数字每次乘2到48。两部分都须符合，只算对数字不足以选对。"
+      }
+    },
+    {
+      "id": "REASON_3_04",
+      "prompt": {
+        "en": "In each row, apply the same operation to the first number and then the second number to obtain the third. Choose only from addition, subtraction, multiplication or division. Rows: (3, 5, 8); (4, 7, 11); (6, 9, __). What completes the final row?",
+        "zh": "In each row, apply the same operation to the first number and then the second number to obtain the third. Choose only from addition, subtraction, multiplication or division. Rows: (3, 5, 8); (4, 7, 11); (6, 9, __). What completes the final row?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "54",
+            "zh": "54"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "-3",
+            "zh": "-3"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2/3",
+            "zh": "2/3"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Addition fits both completed rows: 3 + 5 = 8 and 4 + 7 = 11. Subtraction, multiplication and division do not. Therefore use 6 + 9 = 15. The permitted operation set is finite and explicit.",
+        "zh": "加法同时符合两行，其余允许的三种运算均不符合，所以6+9=15。题目明确限定有限运算集。"
+      }
+    },
+    {
+      "id": "REASON_3_05",
+      "prompt": {
+        "en": "Four distinct cards U, R, S and T must be placed from left to right, with each card used once. U is left of R; R is left of S; S is left of T. Which card is second?",
+        "zh": "Four distinct cards U, R, S and T must be placed from left to right, with each card used once. U is left of R; R is left of S; S is left of T. Which card is second?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "U",
+            "zh": "U"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "S",
+            "zh": "S"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "R",
+            "zh": "R"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "T",
+            "zh": "T"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The three constraints form the complete order U-R-S-T, so R is second. “Left of” gives order rather than necessarily adjacency, but with exactly these four cards the full chain fixes every position.",
+        "zh": "三条约束给出完整顺序U-R-S-T，因此第二为R。“左侧”本身不必相邻，但仅这四张牌的完整链固定全部位置。"
+      }
+    },
+    {
+      "id": "REASON_3_06",
+      "prompt": {
+        "en": "Letters alternate A, B throughout. Independently, numbers repeat the cycle 1, 2, 3. Sequence: A1, B2, A3, B1, A2, __. Which pair is next?",
+        "zh": "Letters alternate A, B throughout. Independently, numbers repeat the cycle 1, 2, 3. Sequence: A1, B2, A3, B1, A2, __. Which pair is next?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A3",
+            "zh": "A3"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B2",
+            "zh": "B2"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A1",
+            "zh": "A1"
+          },
+          "directionId": "logical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "B3",
+            "zh": "B3"
+          },
+          "directionId": "logical"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The sixth letter is B and the sixth number is 3. Combining the independent cycles gives B3. Track both streams rather than repeating the last whole pair.",
+        "zh": "第六个字母为B，第六个数字为3，合成B3。应分别追踪两条循环，不是重复最后一对。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "verbal",
+      "directionIds": [
+        "verbal"
+      ],
+      "title": {
+        "en": "Passage Reasoning: Evidence, Scope and Uncertainty",
+        "zh": "阅读推理完整指南：证据、范围与不确定"
+      },
+      "headline": {
+        "en": "Passage Reasoning: Evidence, Scope and Uncertainty",
+        "zh": "阅读推理完整指南：证据、范围与不确定"
+      },
+      "summary": {
+        "en": "Learn to separate supported claims, contradictions and missing information; review both verbal formats with fresh examples and a practical evidence checklist.",
+        "zh": "区分有据结论、直接矛盾与缺少信息，结合新例复盘两种阅读答题格式与证据检查方法。"
+      },
+      "scoreReading": {
+        "en": "Read this full public learning guide before or after practice. It is identical for everyone. Your private on-page record separately shows correct, wrong and unanswered counts out of six; no percentile, employer cutoff or ability level is inferred.",
+        "zh": "练习前后均可阅读这篇对所有人相同的完整公开指南。本页私人练习记录另外显示六题中的正确、错误、未答数，不推算百分位、招聘门槛或能力等级。"
+      },
+      "seo": {
+        "title": {
+          "en": "Passage Reasoning: Evidence, Scope and Uncertainty | Employer Reasoning Practice",
+          "zh": "阅读推理完整指南：证据、范围与不确定｜职场推理练习"
+        },
+        "description": {
+          "en": "Learn to separate supported claims, contradictions and missing information; review both verbal formats with fresh examples and a practical evidence checklist.",
+          "zh": "区分有据结论、直接矛盾与缺少信息，结合新例复盘两种阅读答题格式与证据检查方法。"
+        }
+      },
+      "sections": [
+        {
+          "id": "verbal-1",
+          "title": {
+            "en": "Read the response rule first",
+            "zh": "先读答题规则"
+          },
+          "paragraphs": [
+            {
+              "en": "This part deliberately contains two response formats. For the first three items, decide whether a statement is True, False or Cannot say using only the passage. For the next three, choose the one supported claim among four options. Before reading quickly, identify the requested action. A familiar phrase such as “reasoning test” does not tell you whether you must classify a statement, select an inference or obey an instruction.",
+              "zh": "本段刻意包含两种形式。前三题仅按短文判断真、假或无法判断，后三题从四项选唯一有据结论。加快阅读前先确认所需动作。“推理测试”这个熟悉名称并不能告诉你本题是分类断言、选择推论还是执行指令。"
+            },
+            {
+              "en": "The bank is English in both interfaces; the Chinese interface translates guidance and explanations rather than offering a second measured verbal form. An unfamiliar word, language fluency, screen reading or fatigue can affect this short practice. Keep those conditions in your notes. Six answers do not isolate a general language ability, establish workplace communication competence or rank you against a reference population.",
+              "zh": "两界面均用英文题本，中文界面翻译说明与解析，并非另一套已测等值的言语题本。生词、熟练度、屏幕阅读与疲劳都可能影响短练习，请记录这些条件。六题不能分离一般语言能力、确认工作沟通胜任力或给人口排名。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-2",
+          "title": {
+            "en": "True, False and Cannot say",
+            "zh": "真、假与无法判断"
+          },
+          "paragraphs": [
+            {
+              "en": "True means the passage supplies enough evidence for the particular statement. False means it supplies evidence that conflicts with that statement. Cannot say means the supplied information leaves the statement unresolved. It is not the same as personally lacking confidence. A report can establish that a rule forbids email reservations, making “email is enough” false, even if you have never encountered that booking system in real life.",
+              "zh": "真是原文对具体断言提供充分依据，假是有与其冲突的依据，无法判断是给定信息仍未解决断言，不等同个人没信心。原文若明确禁止邮件预订，“发邮件足够”就为假，无需现实中用过这种系统。"
+            },
+            {
+              "en": "Try a fresh example: a desk records 18 enquiries in June and 24 in July but gives no opening hours. “July had more recorded enquiries” is supported. “June had more recorded enquiries” conflicts with the totals. “July had a higher hourly enquiry rate” is unresolved. Adding plausible working hours from your experience would change the task instead of resolving the missing denominator from the text.",
+              "zh": "另看新例：某窗口六月记录18次咨询、七月24次，但没营业小时。七月记录更多有据，六月更多与总量冲突，七月每小时更多仍不确定。从自身经验补合理营业时间是改变任务，而不是从文本解决缺失分母。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-3",
+          "title": {
+            "en": "Match scope and qualifiers",
+            "zh": "对齐范围与限定词"
+          },
+          "paragraphs": [
+            {
+              "en": "Underline the population, period and strength of each claim. “Some volunteers attended” cannot by itself establish that most employees prefer the event. “Only after approval” states a necessary condition, not a promise that every approved request will happen. Words such as all, always, only and at least change the claim. Compare their exact scope with the passage rather than selecting the option that sounds most generally reasonable.",
+              "zh": "标出断言的人群、时间和强度。“部分志愿者参加”本身不能证明大多数员工喜欢活动。“仅获批后”给必要条件，不承诺每份获批请求都会执行。所有、总是、仅、至少都会改动主张，须与原文具体范围比较，不选听起来最合理的泛泛结论。"
+            },
+            {
+              "en": "For example, a trial may describe results for participants who signed up, without describing everyone eligible. Keep that selection boundary visible. Do not turn an observation in one room into a universal recommendation, or confuse a request to investigate a delay with proof that a delay has occurred. A useful check is to copy the smallest phrase that justifies each important word in your candidate answer.",
+              "zh": "例如试验只描述报名者，不描述全部合资格人群，就应保留选择范围。不把一个房间的观察变成普遍建议，也不把调查延误的要求当已发生延误的证据。可逐一摘记能支持候选答案关键词的最小原文片段。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-4",
+          "title": {
+            "en": "Supported claims and causal restraint",
+            "zh": "有据结论与因果克制"
+          },
+          "paragraphs": [
+            {
+              "en": "In the four-option format, reject options that add facts, change a condition or overstate causation. If two rooms differ in labels, training and layout, an observed error difference does not isolate label colour. This does not prove that colour is irrelevant; it says the study as described does not separate its effect. Prefer the bounded conclusion actually justified, rather than the strongest interesting explanation you can imagine.",
+              "zh": "四选一时排除加事实、改条件或夸大因果的选项。两房间若标签、培训、布局均不同，错误差异就不能单独识别标签颜色作用。这不证明颜色无关，而是所述研究没分离其影响。应选证据支持的有限结论，不选最强、最有趣的想象解释。"
+            },
+            {
+              "en": "A second fresh example: two teams switch both software and shift schedules, after which response times fall. “The combined change was followed by faster responses” may describe the record. “The software alone caused the improvement” requires evidence not provided. When reviewing your choice, name the extra assumption rather than merely saying that an option felt too strong. That makes the error usable in another task.",
+              "zh": "再看新例：两队同时换软件与班表，随后响应更快。“联合变化后响应更快”可描述记录，“软件单独造成改善”则需要额外证据。复盘时说清额外假设，不只说某选项感觉太强，这样才可迁移到另一任务。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-5",
+          "title": {
+            "en": "Use the short section clock deliberately",
+            "zh": "有意识使用短段计时"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed practice gives this six-item part three minutes, a site-selected cap rather than an official pace. A rough thirty seconds per item is only a planning average; it is not an instruction to spend equal time on unequal passages. Read the response rule, locate the decisive evidence, choose or explicitly leave a blank, and move on. Backtracking remains possible within the active part until it closes.",
+              "zh": "本站给六题阅读三分钟，并非官方节奏。平均每题三十秒只是计划值，不要求不同短文平均耗时。先读规则，找决定性证据，选择或明确留空，再前进。活动段关闭前可返回修改。"
+            },
+            {
+              "en": "The next part waits for your Start button, so use the between-part pause to reset your attention. An active clock continues in the background. Untimed study is appropriate for checking how your inference follows the words before adding time pressure. A missed deadline is a local practice event, not evidence about an employer cutoff. For an actual assessment, read its own timing, navigation and accessibility instructions.",
+              "zh": "下一段等待点击开始，可在段间重置注意力；活动计时切后台继续。不计时适合先核推论如何来自文字，再增加压力。错过本站截止只是练习事件，不说明招聘门槛。实际测评应读自己的计时、导航与无障碍说明。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-6",
+          "title": {
+            "en": "Review the first unsupported step",
+            "zh": "复盘第一个无据步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "After all three parts close, open every explanation, including questions you got right. For a wrong selection, mark the first move that left the passage: adding a population, assuming equal hours, reversing a condition or claiming one cause. For a correct selection, check that your reason matches the evidence rather than an accidental guess. Keep wrong selections and unanswered items separate when choosing what to practise next.",
+              "zh": "三段关闭后打开全部解析，含答对题。错题标出首次偏离原文的动作：增人群、假设相同小时、倒转条件或指定单一原因。答对也检查理由是否来自证据，而非偶然猜中。选下一练习时分开看错选与未答。"
+            },
+            {
+              "en": "Write a new two-sentence passage and one claim for each of the three classifications. Then change just one condition and see whether the classification changes. An example that stays ambiguous after adding evidence may reveal a vague statement rather than a reasoning failure. This small construction exercise tests your rule understanding more directly than memorising that a particular fixed-bank question uses option C.",
+              "zh": "另写两句短文，为三种分类各造断言，再只改一个条件观察分类变化。补证据后仍模糊，可能是断言写得含糊，不一定推理失败。这种小构造比背固定题选C更直接检查规则理解。"
+            }
+          ]
+        },
+        {
+          "id": "verbal-7",
+          "title": {
+            "en": "Interpret repeats and public guidance",
+            "zh": "理解重测与公开指南"
+          },
+          "paragraphs": [
+            {
+              "en": "Your private record shows raw counts out of six, not a calibrated verbal score. Three-choice and four-choice questions have different response sets; neither has been equated for difficulty. A larger count on a repeat may reflect recognition, changed reading conditions or better reasoning. This practice cannot separate those contributions, and a lower count than the other parts does not establish your weakest underlying ability.",
+              "zh": "私人记录是六题原始数，并非校准言语分。三选一、四选一反应集合不同，难度未等值。重测增加可能是识别、阅读条件变化或推理改善，本练习不区分原因；比其他段低也不能确认最弱底层能力。"
+            },
+            {
+              "en": "This entire guide is public and identical for everyone. It contains no saved answers, private attempt link or personalised hiring recommendation. Sharing the public URL shares only learning material. If you want more reading practice, use fresh passages under a clear response rule and review the evidence for each answer. Provider preparation material and your exact invitation remain the authority for the assessment you will actually take.",
+              "zh": "本篇全文公开且对所有人相同，不含保存答案、私人答卷链接或个人招聘建议。分享公开URL只分享学习资料。继续阅读练习时选新短文、明确规则，并核每答证据；实际要参加的测评仍以提供方准备资料与具体邀请为准。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "numerical",
+      "directionIds": [
+        "numerical"
+      ],
+      "title": {
+        "en": "Numerical Reasoning: Bases, Units and Checks",
+        "zh": "数量推理完整指南：基数、单位与复核"
+      },
+      "headline": {
+        "en": "Numerical Reasoning: Bases, Units and Checks",
+        "zh": "数量推理完整指南：基数、单位与复核"
+      },
+      "summary": {
+        "en": "Work through percentages, weighted means, rate conversions and table shares using explicit denominators, unit labels and independent plausibility checks.",
+        "zh": "用明确分母、单位标签和独立合理性检查，复盘百分比、加权均值、速率换算与表格占比。"
+      },
+      "scoreReading": {
+        "en": "Read this full public learning guide before or after practice. It is identical for everyone. Your private on-page record separately shows correct, wrong and unanswered counts out of six; no percentile, employer cutoff or ability level is inferred.",
+        "zh": "练习前后均可阅读这篇对所有人相同的完整公开指南。本页私人练习记录另外显示六题中的正确、错误、未答数，不推算百分位、招聘门槛或能力等级。"
+      },
+      "seo": {
+        "title": {
+          "en": "Numerical Reasoning: Bases, Units and Checks | Employer Reasoning Practice",
+          "zh": "数量推理完整指南：基数、单位与复核｜职场推理练习"
+        },
+        "description": {
+          "en": "Work through percentages, weighted means, rate conversions and table shares using explicit denominators, unit labels and independent plausibility checks.",
+          "zh": "用明确分母、单位标签和独立合理性检查，复盘百分比、加权均值、速率换算与表格占比。"
+        }
+      },
+      "sections": [
+        {
+          "id": "numerical-1",
+          "title": {
+            "en": "Define the requested quantity",
+            "zh": "先定义所求数量"
+          },
+          "paragraphs": [
+            {
+              "en": "Before calculating, write a short label for what the question requests: percentage increase, mean per batch, final count, converted total, share of a combined total or distance. Similar-looking numbers can answer different questions. A percentage increase uses the earlier amount as its base; a share uses the specified whole. Copying the right values into the wrong relationship is still a reasoning error, even if every arithmetic step is accurate.",
+              "zh": "计算前简写所求：增长率、每批均值、最终数量、换算总额、合计占比或距离。相近数字可回答不同问题。增长以较早数量为基数，占比用指定整体；把正确数字放错关系，即使算术全对也仍是推理错误。"
+            },
+            {
+              "en": "All data in this part are fictional practice inputs. The alpha-to-beta conversion is a stated exercise rule, not a current exchange rate or financial recommendation. The conveyor uses ideal constant speed, not evidence that real equipment works without stops. Keep the model assumptions attached to the calculation. These six questions practise interpreting supplied information; they do not certify job performance, numeracy level or operational safety.",
+              "zh": "本段数据均为虚构练习输入。alpha换beta是题设规则，不是实时汇率或理财建议；输送带是理想恒速，不证明真实设备不停。计算须保留模型假设。六题练习解释给定信息，不认证工作表现、数量水平或操作安全。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-2",
+          "title": {
+            "en": "Percent change needs an original base",
+            "zh": "增长率需要原基数"
+          },
+          "paragraphs": [
+            {
+              "en": "Use (new minus old) divided by old for a percentage increase, then multiply by one hundred. A fresh example is a count rising from 120 to 150: the increase is 30, which is one quarter of 120, giving twenty-five percent. Dividing by 150 would instead describe the increase as a share of the final amount. State the denominator in words before reaching for a calculator.",
+              "zh": "增长率为新减旧再除旧、乘百分之百。新例从120增至150，增加30是120的四分之一，故百分之二十五。除以150是在描述增加量占最终量的比例。拿计算器前先用文字说清分母。"
+            },
+            {
+              "en": "Successive percentage changes use successive bases. If a fictional quantity of 100 falls by twenty percent and then rises by twenty percent, it becomes 80 and then 96. The equal percentages do not cancel because they multiply different amounts. A compact factor calculation, 100 × 0.8 × 1.2, preserves that structure and helps you spot the tempting but incorrect return to exactly 100.",
+              "zh": "连续百分比用连续基数。虚构数量100先降百分之二十到80，再增百分之二十到96；相同比例作用于不同数量，不能抵消。100×0.8×1.2保留结构，有助识别误以为回到100的诱惑。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-3",
+          "title": {
+            "en": "Count observations before averaging",
+            "zh": "平均前数清观察单位"
+          },
+          "paragraphs": [
+            {
+              "en": "A mean per batch weights each actual batch equally. If two batches hold 12 units and one holds 30, the total is 54 across three batches, giving 18. Averaging the two displayed sizes, 12 and 30, gives 21 but ignores their frequencies. Make a tiny frequency table or expand the observations when you are uncertain which units are being averaged. The denominator must count the requested observations.",
+              "zh": "每批均值应让每个实际批次等权。两批12个、一批30个，共54除三批得18。只平均两种显示大小12和30得21，忽略频数。不清平均单位时可列频数小表或展开观察值，分母须数所求观察单位。"
+            },
+            {
+              "en": "Check that an ordinary positive-weight mean lies between the smallest and largest inputs. This range check will not catch every error, but it can reject an impossible result quickly. Also distinguish a mean of individual rates from a combined rate: total output divided by total time is not always the unweighted average of separately reported rates. Use the relationship the prompt defines rather than assuming all displayed values carry equal weight.",
+              "zh": "正权重普通均值应在最小与最大输入之间。范围检查不能抓全部错误，但能快排不可能结果。也要区分各速率平均与总体速率：总产量除总时间不总等于各速率无权平均。使用题干定义关系，不假定所有显示数值等权。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-4",
+          "title": {
+            "en": "Carry units through conversions",
+            "zh": "换算全过程保留单位"
+          },
+          "paragraphs": [
+            {
+              "en": "A conversion factor should cancel the old unit and leave the requested one. If one fictional token equals two credits, five tokens become ten credits, not two and a half. A fixed credit fee is added in credits after conversion unless the prompt states another sequence. Writing token × credit per token exposes the direction and prevents multiplying an already converted fee a second time.",
+              "zh": "换算因子应抵消旧单位、留下目标单位。若一枚虚构token等于两credit，五token为十credit，不是二点五。固定credit费用按题设在换算后加，除非另有顺序。写token×credit/token能暴露方向，避免对已是目标单位的费再换一次。"
+            },
+            {
+              "en": "For rate problems, align time units before multiplication. A fresh example is 0.4 metres per second for one and a half minutes: ninety seconds times 0.4 gives thirty-six metres. Multiplying 0.4 by 1.5 would mix seconds and minutes. Keep enough precision during the working, then round only if the question explicitly requests a rounded value or the answer format makes that requirement clear.",
+              "zh": "速率问题先统一时间单位。新例0.4米每秒持续一分半，即九十秒乘0.4得三十六米。0.4直接乘1.5混用了秒与分钟。过程保留足够精度，只在题目明确要求或格式清楚规定时取整。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-5",
+          "title": {
+            "en": "Read totals and table shares",
+            "zh": "读清合计与表格占比"
+          },
+          "paragraphs": [
+            {
+              "en": "When asked what fraction of a two-period total belongs to one period, add both periods for the denominator. With 40 tasks in one month and 60 in another, the second month supplies sixty out of one hundred, or sixty percent. Dividing sixty by forty answers a comparison between months. Read the nouns attached to “of” and “relative to”; those words often identify the whole you need.",
+              "zh": "若问两期合计中某一期占比，分母应把两期相加。某月40任务、另月60，后一月占100中的60即百分之六十。60除40是在比较两月。“占……的”“相对于……”后的名词常直接说明所需整体。"
+            },
+            {
+              "en": "Check whether totals overlap, whether categories are exclusive and whether every row uses the same unit. This bank states simple non-overlapping inputs, but the habit matters when moving to a fresh table. Do not silently add people to transactions or treat cumulative figures as separate monthly counts. When necessary information is genuinely absent, name the missing definition rather than inventing a plausible number to finish an arithmetic routine.",
+              "zh": "还应检查总量是否重叠、类别互斥与各行单位一致。本题本给简单不重叠输入，但换新表仍需此习惯。不暗中把人数与交易相加，也不把累计数当独立月量。真正缺资料时应说出缺的定义，不为完成算术编合理数字。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-6",
+          "title": {
+            "en": "Use time without hiding assumptions",
+            "zh": "用时安排不隐藏假设"
+          },
+          "paragraphs": [
+            {
+              "en": "This site gives six numerical questions five minutes in timed mode, the longest cap in this mixed bank. It is an editorial practice choice, not a provider rule or measured target pace. Paper and a calculator are allowed here. Use them to externalise a relationship and check arithmetic, rather than letting calculator digits replace the decision about which numbers, units and denominator belong in the formula.",
+              "zh": "本站给六题数量五分钟，是本混合版最长段，仅编辑练习选择，非提供方规则或实测目标节奏。本练习允许纸笔、计算器，应借此写清关系和核算术，不让屏幕数字代替选择数字、单位、分母的判断。"
+            },
+            {
+              "en": "You can return within the active part, explicitly leave an item unanswered, or finish early. At expiry, untouched items remain unanswered rather than being recorded as selected wrong answers. Untimed study lets you inspect each relationship before practising with a cap. Your actual employer assessment may permit different equipment and navigation, so check its instructions instead of transferring this site’s rules into that setting.",
+              "zh": "活动段内可返回、明确留空或提前结束。到时未做题保留未答，不记为错选。不计时让你先审关系再加上限。真实招聘测评允许设备和导航可能不同，应核其说明，不把本站规则照搬。"
+            }
+          ]
+        },
+        {
+          "id": "numerical-7",
+          "title": {
+            "en": "Turn a wrong answer into a fresh example",
+            "zh": "把错答变成新例"
+          },
+          "paragraphs": [
+            {
+              "en": "After all parts close, inspect the worked explanation and classify the first error: base, frequency, conversion direction, time unit, sequence of changes or arithmetic. Then create one different-number example with the same relationship and solve it without looking at the original option letters. Check the result with a rough bound, a reverse calculation or a second representation. That review produces a specific practice target rather than a broad label.",
+              "zh": "三段关闭后看过程，分类第一个错处：基数、频数、换算方向、时间单位、变化顺序或算术。另换数字造同关系新例，不看原选项字母求解，再用粗界、逆算或另一表示检查。这样形成具体练习目标，而非泛能力标签。"
+            },
+            {
+              "en": "The raw record is out of six and contains no calibrated numerical score, percentile or pass band. Repeating a fixed bank can improve recognition; it cannot by itself demonstrate transfer to unfamiliar tasks. This public guide remains the same for every reader and carries no personal count in its URL. Use it to plan one bounded next exercise, while following the exact provider invitation for an actual assessment.",
+              "zh": "原始记录以六题为分母，无校准数量分、百分位或通过档。重复固定题会提高识别，不能单凭此证明迁移到陌生任务。本公开指南人人相同，URL不带个人数量，可据此安排一个有限新练习，实际测评仍遵照具体邀请。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "logical",
+      "directionIds": [
+        "logical"
+      ],
+      "title": {
+        "en": "Logical Reasoning: Rules, Constraints and Counterexamples",
+        "zh": "逻辑推理完整指南：规则、约束与反例"
+      },
+      "headline": {
+        "en": "Logical Reasoning: Rules, Constraints and Counterexamples",
+        "zh": "逻辑推理完整指南：规则、约束与反例"
+      },
+      "summary": {
+        "en": "Check finite rule families, alternating streams, letter-number pairs and ordering constraints without treating a short pattern record as a general intelligence score.",
+        "zh": "检查有限规则族、交替数列、字母数字组合与排序约束，不把短规律练习记录当一般智力成绩。"
+      },
+      "scoreReading": {
+        "en": "Read this full public learning guide before or after practice. It is identical for everyone. Your private on-page record separately shows correct, wrong and unanswered counts out of six; no percentile, employer cutoff or ability level is inferred.",
+        "zh": "练习前后均可阅读这篇对所有人相同的完整公开指南。本页私人练习记录另外显示六题中的正确、错误、未答数，不推算百分位、招聘门槛或能力等级。"
+      },
+      "seo": {
+        "title": {
+          "en": "Logical Reasoning: Rules, Constraints and Counterexamples | Employer Reasoning Practice",
+          "zh": "逻辑推理完整指南：规则、约束与反例｜职场推理练习"
+        },
+        "description": {
+          "en": "Check finite rule families, alternating streams, letter-number pairs and ordering constraints without treating a short pattern record as a general intelligence score.",
+          "zh": "检查有限规则族、交替数列、字母数字组合与排序约束，不把短规律练习记录当一般智力成绩。"
+        }
+      },
+      "sections": [
+        {
+          "id": "logical-1",
+          "title": {
+            "en": "Identify the stated rule family",
+            "zh": "识别题目明示的规则族"
+          },
+          "paragraphs": [
+            {
+              "en": "These original tasks use small written sequences, arithmetic rows and explicit ordering constraints. They do not reproduce a provider’s graphical item bank or adaptive test. A finite sequence can admit many imaginable continuations, so read the stated family: constant changes in differences, separate alternating streams, fixed letter steps, fixed multipliers or one operation from a specified set. The keyed answer follows those declared constraints rather than claiming a uniquely discoverable law of nature.",
+              "zh": "原创题使用文字数列、运算行与明确排序约束，不复制提供方图形题库或自适应测评。有限序列可有很多可想象续法，须读明示规则族：差的固定变化、交替双轨、字母定步、数字定倍或限定运算。答案遵从声明约束，不宣称发现唯一自然规律。"
+            },
+            {
+              "en": "This distinction matters when making new examples. If your proposed rule needs exceptions to fit early terms, check whether the prompt allows them. If two offered answers both satisfy every declared condition, the exercise needs repair rather than a story about which one feels more intelligent. In this bank, the rule families and finite answer sets make the selected continuation checkable against all supplied evidence.",
+              "zh": "造新例也应保留此区别。若规则要为前项设例外，核题目是否允许。若两个选项都符合全部条件，需修题，而非讲哪个更聪明。本题本明确规则族与有限选项，所选续项可对全部已知证据复核。"
+            }
+          ]
+        },
+        {
+          "id": "logical-2",
+          "title": {
+            "en": "Use differences only when allowed",
+            "zh": "在允许的规则内看差"
+          },
+          "paragraphs": [
+            {
+              "en": "For a sequence whose consecutive differences increase by a fixed amount, write a second row of first differences. A fresh example is 2, 6, 12, 20: differences are 4, 6 and 8. Their constant increase of two gives the next difference ten and next term thirty. Check the same procedure at every earlier transition before using it to predict the missing term.",
+              "zh": "若题设相邻差按固定量增加，可列一行差。新例2、6、12、20，差4、6、8，每次增2，下差10、下项30。预测前应检查同一程序是否适用此前每个转移。"
+            },
+            {
+              "en": "Do not choose an option merely because it is close to an intuitive estimate or because one late pair happens to fit. An answer should carry a short witness: the complete difference row and the stated next operation. That witness helps separate a calculation slip from a rule-selection error. It also shows why alternative continuations outside the specified family do not invalidate the bounded exercise as written.",
+              "zh": "不因选项接近直觉估计或仅最后两项碰巧符合就选。答案应带简短证据：完整差行和下一运算。这能区分算错与选错规则，也说明规则族外的其他续法不会推翻题目所限定的练习。"
+            }
+          ]
+        },
+        {
+          "id": "logical-3",
+          "title": {
+            "en": "Split independent streams",
+            "zh": "拆开独立序列"
+          },
+          "paragraphs": [
+            {
+              "en": "When odd and even positions follow separate rules, label positions before computing. For 5, 30, 9, 27, 13, 24, the odd stream rises by four and the even stream falls by three. The next odd term is seventeen. Mixing all adjacent differences would conceal the explicitly supplied two-stream structure. Write two short rows instead of holding both rules in memory while scanning the answer choices.",
+              "zh": "奇偶位各有规则时先标位置。5、30、9、27、13、24的奇数轨每次加4，偶数轨每次减3，所以下一奇数项17。混看全部相邻差会遮住明示双轨，写两行比边扫选项边记两规则更清楚。"
+            },
+            {
+              "en": "The same method works for a letter stream paired with an independent number cycle. Track each feature separately and recombine at the required position. Check both components of every option; a distractor can have the right letter and wrong number. A short written position index is particularly helpful when the repeating cycles have different lengths, because the most recent whole pair need not be the unit that repeats next.",
+              "zh": "字母轨与独立数字周期也可同法：各追踪，再于目标位置组合。每项两部分都核，干扰项可能字母对而数字错。周期长度不同时可写位置编号，因为下一次重复的单位未必是最近整对。"
+            }
+          ]
+        },
+        {
+          "id": "logical-4",
+          "title": {
+            "en": "Check every component and every row",
+            "zh": "检查每个组成与每行"
+          },
+          "paragraphs": [
+            {
+              "en": "For letter-number pairs, first specify the alphabet convention and whether wrapping is permitted. In this bank letters move forward without wrapping, while a separate fixed multiplier controls the numbers. For a fresh example, C2, F6, I18 uses a three-place letter step and multiplication by three; the next pair is L54. A rule that checks only the letters or only the numbers is incomplete.",
+              "zh": "字母数字对先确认字母表约定及能否循环。本题字母只向前不环回，数字另按固定倍数。新例C2、F6、I18，字母加三位、数字乘三，下一为L54。仅核字母或仅核数字都不完整。"
+            },
+            {
+              "en": "For arithmetic rows, test every permitted operation against every completed row. If addition alone fits two rows and the allowed set is addition, subtraction, multiplication and division, carry that same addition into the incomplete row. Do not invent powers, hidden constants or a different operation for each row. The finite operation set is part of the problem, just as important as the visible numerical values.",
+              "zh": "运算行须把每种允许运算对所有完整行测试。若限定加减乘除且只有加法符合两行，就把同一加法用于缺项行。不另造幂、隐藏常量或每行换运算。有限运算集是题设的一部分，与数值同样重要。"
+            }
+          ]
+        },
+        {
+          "id": "logical-5",
+          "title": {
+            "en": "Build a constraint chain",
+            "zh": "建立约束链"
+          },
+          "paragraphs": [
+            {
+              "en": "Ordering problems concern logical consequence rather than discovering a visual pattern. Translate each “left of” statement into an arrow, combine compatible arrows, and list every supplied object exactly once. With four objects in a complete strict chain, every position is fixed. Without a complete chain, some positions may remain undetermined; a plausible arrangement is not proof that it is the only permitted one.",
+              "zh": "排序题看逻辑后果，不是发现图形规律。把“左于”写成箭头，组合兼容箭头，每对象恰列一次。四对象完整严格链固定每位置；不完整链可能仍有位置不确定。合理摆法不证明它是唯一允许摆法。"
+            },
+            {
+              "en": "A useful check is to try constructing a counterexample. For example, if P must precede R and Q must also precede R, the relative order of P and Q is not fixed. Both P-Q-R and Q-P-R satisfy the statements. This fresh example contrasts with a complete chain. Checking an alternative valid arrangement protects you from assuming adjacency or an order the wording never supplied.",
+              "zh": "可尝试构造反例。例如P在R前、Q也在R前，并未固定P与Q顺序，P-Q-R和Q-P-R都符合。这与完整链不同。找另一有效排列可防止凭空假定相邻或原文未给顺序。"
+            }
+          ]
+        },
+        {
+          "id": "logical-6",
+          "title": {
+            "en": "Practise pacing with an explicit record",
+            "zh": "明确记录条件再练节奏"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode gives six logical items four minutes, chosen by this site for this short written edition. It is not an official provider limit. A rough forty seconds per item is only a planning average. Start by identifying the permitted family, write one compact witness and check it against the earlier terms. If you cannot justify a choice, you can explicitly leave it unanswered and revisit within the active part.",
+              "zh": "本站为六道文字逻辑题选四分钟，并非提供方正式时限。平均四十秒只是计划值。先识别允许规则族，写一个紧凑证据，回核前项。无法说明选择时可明确留空，在活动段内返回。"
+            },
+            {
+              "en": "Finishing early or reaching the deadline locks that part; the next clock starts only with your explicit action. Untimed study removes the deadline while retaining the same evidence rules. Clock limits are practice conditions, not a speed norm or a certification that you worked without help. Record use of notes, fatigue and familiarity when comparing your own attempts, and follow actual invitation rules for a real assessment.",
+              "zh": "提前结束或到时后锁段，下一段需主动开始。不计时移除截止，证据规则仍相同。时限是练习条件，非速度常模或无帮助认证。比较自身尝试时记纸笔、疲劳与熟悉度，真实测评遵照邀请规则。"
+            }
+          ]
+        },
+        {
+          "id": "logical-7",
+          "title": {
+            "en": "Review without turning counts into a label",
+            "zh": "复盘而不把数量变标签"
+          },
+          "paragraphs": [
+            {
+              "en": "After all parts close, open each explanation and recreate its witness without relying on the option letter. For an error, ask whether you missed the family, mixed streams, checked only one component, overlooked a row or added an unstated constraint. Then build a small fresh example and one deliberate distractor. Explain why the distractor fails a stated condition, rather than merely saying it looks less regular.",
+              "zh": "三段关闭后看解析，不依赖字母重建证据。错题核是否漏规则族、混双轨、只核一部分、漏一行或加约束。再造小新例及一个故意干扰项，解释它违反哪个声明条件，不只说看起来不规律。"
+            },
+            {
+              "en": "Your raw count out of six is not an IQ, calibrated reasoning level, percentile or hiring prediction. These parts have not been equated, so the smallest count does not diagnose a weakest ability. Repeated success can include memory for the fixed questions. This full public guide is identical for all readers and contains no private answer record; sharing its link shares only the learning material.",
+              "zh": "六题原始数不是IQ、校准推理等级、百分位或录用预测。各段未等值，最少数不能诊断最弱能力；重复成功也可能含固定题记忆。本完整公开指南人人相同，不含私人答卷，分享链接只分享学习资料。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_employer_reasoning_practice",
+    "formCode": "fm_reasoning18_original_english_v1",
+    "itemBankVersion": "fm_reasoning18_fixed_mixed_english_v1",
+    "scoringVersion": "raw_correct_wrong_unanswered_3x6_site_caps_or_study_v1",
+    "resultContentVersion": "fm_reasoning18_three_full_guides_v1",
+    "itemBankSha256": "29347832655c83c86e4314c31ffd586f3ddff9f7fd9482f59b8b1dc9b08bd47f",
+    "resultContentSha256": "ead7672fcb9987f2a6b617ef0962b10c22e5ad610f765a2ef8576db75a7a91f0",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "SHL support: retired Verify generation and replacement formats",
+        "zh": "SHL支持：旧代Verify停用与替代形式"
+      },
+      "url": "https://support.shl.com/viewArticle.html?c=10_91_13_107_157_&d=5205e217-dc3b-46b7-g76d-77ee64815473&hl=en"
+    },
+    {
+      "title": {
+        "en": "SHL 2018 Verbal Ability fact sheet: one documented format, not this practice edition",
+        "zh": "SHL 2018言语能力说明：一种有文档的形式，不是本练习题本"
+      },
+      "url": "https://service.shl.com/docs/Fact%20Sheet%20-%20Verify%20-%20Verbal%20Ability.pdf"
+    },
+    {
+      "title": {
+        "en": "Korn Ferry 2021 candidate guide: reasoning areas and assessment conditions",
+        "zh": "Korn Ferry 2021候选人指南：推理领域与测评条件"
+      },
+      "url": "https://www.kornferry.com/content/dam/kornferry-v2/pdf/careers/Candidate-Guide-Guide-to-taking-psychometric-assessments.pdf"
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "One original bank, three reasoning areas",
+        "zh": "同一原创题本，三个推理领域"
+      },
+      "paragraphs": [
+        {
+          "en": "The first three verbal questions use True, False and Cannot say; the next three ask for one supported claim among four options. Numerical and logical parts each contain six four-option tasks. All information needed for a keyed answer is in its prompt. This mixed edition is not a copy of either provider’s test.",
+          "zh": "阅读前三题是真、假、无法判断三选一，后三题从四项中选有据结论。数量与逻辑各六道四选一，答案所需信息在题干中。本混合版不复制任一提供方测评。"
+        },
+        {
+          "en": "Provider products differ and change over time. The linked SHL documents describe a retired generation and one 2018 format; the Korn Ferry guide is dated 2021. They do not establish a single current test format for every employer. Check the exact name and instructions in your invitation.",
+          "zh": "提供方产品有差异，也会变化。所引SHL文档说明旧代停用和2018年的一种形式，Korn Ferry指南为2021年版，不能据此认定每家雇主现在使用统一题式。请核对邀请中的具体名称与说明。"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "title": {
+        "en": "Explicit starts and site-selected caps",
+        "zh": "明确开始与本站分段上限"
+      },
+      "paragraphs": [
+        {
+          "en": "Timed practice uses 3:00 for verbal, 5:00 for numerical and 4:00 for logical reasoning: twelve active minutes. The next clock waits for your explicit start. Background tabs do not pause an active clock; expiry locks that part with blanks retained. Sixteen minutes including instructions is an editorial estimate.",
+          "zh": "阅读3:00、数量5:00、逻辑4:00，共十二分钟活动计时。下一段需点击才开始，切后台不暂停，到时锁定并保留空白。含说明约十六分钟是编辑估计。"
+        },
+        {
+          "en": "Untimed study uses the same questions with no deadline. Early finish is available in both modes. A detected device-clock inconsistency clears the attempt without creating a timed result. These local controls do not provide invigilation or certify performance under an employer’s conditions.",
+          "zh": "不计时学习使用同题，无截止；两模式都可提前结束。检测到设备时钟不一致会清空本次，不生成计时结果。本地控制不提供监考，也不认证招聘条件下的表现。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Keep correct, wrong and unanswered separate",
+        "zh": "分开保留正确、错误与未答"
+      },
+      "paragraphs": [
+        {
+          "en": "A correct selection counts once as correct, another offered selection once as wrong, and a missing or skipped selection once as unanswered. Counts sum to six per part and eighteen overall. There is no speed bonus, guessing correction, weighted composite, five-band label or normative comparison.",
+          "zh": "选对计一个正确，选其他给定项计一个错误，缺答或跳过计一个未答。每段三数合六，总体合十八。无速度奖励、猜测修正、加权综合、五档标签或常模比较。"
+        },
+        {
+          "en": "Parts are not equated, and the three-choice verbal items have a different option count. Do not diagnose a weakest ability from the smallest raw count. After all three parts close, every item and explanation is available, including blanks. Public guides are available before answering and contain no private results.",
+          "zh": "各段未做难度等值，三选一阅读题的选项数也不同，不能由最低原始数诊断最弱能力。三段结束后全部题解含未答题可读；公开指南无需作答，不含私人结果。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Review a method, then try a fresh task",
+        "zh": "复盘方法，再尝试新例"
+      },
+      "paragraphs": [
+        {
+          "en": "Record the first unsupported inference, denominator error or rule violation in your workings. Build one fresh example and check it before returning to this fixed bank. Higher repeat counts can reflect recognition and different conditions as well as learning; the exercise does not separate those explanations.",
+          "zh": "在过程里标出第一个无据推论、分母错误或规则违背点，另造一个新例并检查后再回本题本。重测提升可能来自识别、条件变化或学习，本练习不区分原因。"
+        },
+        {
+          "en": "Use the linked provider material for background and your actual invitation for equipment, timing, accessibility arrangements and permitted help. This practice does not predict a hiring decision or replace the provider’s own preparation instructions. All three full guides remain free, with no signup or score threshold.",
+          "zh": "提供方资料用于背景，设备、计时、无障碍安排与允许帮助以实际邀请为准。本练习不预测录用，也不替代官方准备说明。三篇完整指南始终免费，无注册或分数门槛。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an official SHL or Korn Ferry assessment?",
+        "zh": "是正式SHL或Korn Ferry测评吗？"
+      },
+      "answer": {
+        "en": "No. This is one independently authored mixed-format learning edition. The provider names describe preparation interests; no item bank, endorsement, adaptive engine or official score conversion is supplied.",
+        "zh": "不是。这是一套独立编写的混合形式学习版。提供方名称说明备考兴趣，不提供其题库、认可、自适应引擎或正式成绩转换。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are there three-choice and four-choice verbal questions?",
+        "zh": "为什么阅读同时有三选一与四选一？"
+      },
+      "answer": {
+        "en": "They exercise two explicit response rules: classifying a claim as true, false or undetermined, and selecting the one claim supported by a passage. Read each instruction; these formats are not interchangeable or a reconstruction of one provider form.",
+        "zh": "练习两种明确答题规则：判断真假或无法确定，以及选出短文支持的唯一结论。每题先看指令；两形式不可混同，也不构成某个官方题本的重建。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these official time limits?",
+        "zh": "使用正式考试时限吗？"
+      },
+      "answer": {
+        "en": "No. The site selected three, five and four minutes for its six-question parts. Actual tests can use different question counts, adaptive selection, part clocks or question clocks. Follow your own invitation.",
+        "zh": "不是。本站为六题段选了三、五、四分钟。实际测评可能题量、自适应方式、段计时或逐题计时都不同，以个人邀请为准。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a blank count as a wrong selection?",
+        "zh": "空白算错选吗？"
+      },
+      "answer": {
+        "en": "No. Wrong selections and unanswered items are displayed separately; all three raw counts are shown out of six and eighteen. There is no pass band, percentile or employer cutoff.",
+        "zh": "不算。错选与未答分别显示，各段以六题、总体以十八题列三种原始数量，无通过分档、百分位或招聘门槛。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read the full explanations and guides free?",
+        "zh": "完整解析与指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. Every explanation appears after three parts close, regardless of the counts. All three complete public guides are available before answering, without signup or a paid report. Questions stay English in both interfaces; guidance is bilingual.",
+        "zh": "是。三段结束后不论数量均提供全部解析；三篇完整公开指南无需先作答、注册或付费。两界面题目均为英文，说明为双语。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my responses saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "They stay in page memory and clear when you restart, reload, leave or change language. Shared links point only to identical public guides, without answers, counts or an attempt identifier. Optional activity counts have a separate consent choice.",
+        "zh": "只留本页内存，重测、刷新、离开或换语言会清除。分享链接只指向相同公开指南，不带答案、数量或答卷标识。可选活动计数另有同意选项。"
+      }
+    }
+  ]
+}
