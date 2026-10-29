@@ -5,10 +5,10 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>> = {
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: { zh: "MBTI 性格免费测试", en: "Free 16-Type MBTI-Style Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { zh: "大五人格免费测试（Big Five）", en: "Free Big Five Personality Test" },
-  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格免费测试（Enneagram）", en: "Free Enneagram Personality Test" },
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格测试（免费版）", en: "Free Enneagram Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "免费智商测试（IQ）", en: "Free IQ Test" },
   [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free Emotional Intelligence Test (EQ)" },
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣免费测试（RIASEC）", en: "Free Holland Code Career Interest Test (RIASEC)" },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣测试（免费版）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
 
 // English search copy is distinct from the concise on-page heading.
@@ -33,12 +33,12 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
     description: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
-    title: "免费霍兰德职业兴趣测试：RIASEC 六维与三字代码",
-    description: "免费完成霍兰德职业兴趣测试：60题约8分钟，140题约18分钟。查看六维兴趣与三字代码，用来探索工作活动、课程和职业方向；兴趣不等于能力或职业适配结论。",
+    title: "霍兰德职业兴趣测试免费版：60/140题与三字代码",
+    description: "在线免费完成霍兰德职业兴趣测试：60题约8分钟，140题约18分钟，测试与结果均免费。查看 RIASEC 六维兴趣与三字代码，结合结果示例探索工作活动和职业方向；兴趣不等于能力或职业适配结论。",
   },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: {
-    title: "九型人格免费测试（Enneagram）",
-    description: "免费九型人格测试：105 题程度选择约 12 分钟，144 题二选一约 18 分钟。查看九型分布与候选类型解释，结合真实经历理解自己的动机与反应。",
+    title: "九型人格测试免费版：105/144题与结果解读",
+    description: "在线免费完成九型人格测试：105题程度选择约12分钟，144题二选一约18分钟，测试与结果均免费。查看九型分布与候选类型解释，再按结果解读步骤对照自己的动机和具体经历。",
   },
 };
 

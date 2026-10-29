@@ -50,10 +50,11 @@ export default async function HollandPdfPage({ params }: Props) {
             {locale === "zh" ? "下载空白 PDF 工作表（2 页）" : "Download the blank PDF worksheet (2 pages)"}
           </a>
           <Link href={localizedPath("/tests/holland-career-interest-test-riasec", locale)} className={buttonVariants({ variant: "outline" })}>
-            {locale === "zh" ? "在线完成霍兰德职业兴趣测试" : "Take the online Holland Code interest test"}
+            {locale === "zh" ? "霍兰德职业兴趣测试免费版（60/140题）" : "Take the online Holland Code interest test"}
           </Link>
         </div>
       </header>
+      {locale === "zh" ? <p className="mx-auto max-w-4xl text-sm leading-7 text-slate-600">还没有自己的六维结果？上方免费测试入口提供60题与140题两个版本。已有结果可直接使用下方记录和合成示例，不必为了查看工作表重新测试。</p> : null}
       <RiasecWorksheet locale={locale} />
       <RiasecResultExamples locale={locale} />
       <section id="interpret-results" aria-labelledby="interpret-results-title" className="mx-auto max-w-4xl scroll-mt-24 space-y-4" data-testid="riasec-interpretation-path">

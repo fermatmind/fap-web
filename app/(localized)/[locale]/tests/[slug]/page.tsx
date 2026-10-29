@@ -2,6 +2,7 @@ import { getAssessmentEditorialLayout, getAssessmentLandingUi, resolveAssessment
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
+import { AssessmentReadingPaths } from "@/components/tests/AssessmentReadingPaths";
 import { IqLandingPreview } from "@/components/tests/IqLandingPreview";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import { MbtiResultExamples } from "@/components/tests/MbtiResultExamples";
@@ -1537,6 +1538,8 @@ export default async function TestLandingPage({
           </section>
           )}
 
+          <AssessmentReadingPaths slug={test.slug} locale={locale} />
+
           {showsMbtiActions && locale === "en" ? <MbtiResultExamples /> : null}
 
           {showsIqActions ? <IqLandingPreview
@@ -1564,11 +1567,11 @@ export default async function TestLandingPage({
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
-          {showsRiasecActions ? (
+          {showsRiasecActions && locale === "en" ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5" data-testid="riasec-result-example-entry">
-              <h2 className="m-0 text-lg font-semibold">{locale === "zh" ? "先看看结果怎样读" : "See how to read a result"}</h2>
-              <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{locale === "zh" ? "用明确标注的合成示例了解六维兴趣、Top 3 与接近/并列，再把结果带到真实职业任务中探索。" : "Explore clearly labeled synthetic examples of six interest dimensions, Top 3, and close or tied scores, then connect your result with real work tasks."}</p>
-              <Link className="mt-3 inline-block text-sm underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>{locale === "zh" ? "查看合成结果示例与解读步骤" : "View synthetic result examples and reading steps"}</Link>
+              <h2 className="m-0 text-lg font-semibold">See how to read a result</h2>
+              <p className="mb-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">Explore clearly labeled synthetic examples of six interest dimensions, Top 3, and close or tied scores, then connect your result with real work tasks.</p>
+              <Link className="mt-3 inline-block text-sm underline underline-offset-4" href={`${localizedPath("/holland-test/pdf-download", locale)}#result-examples`}>View synthetic result examples and reading steps</Link>
             </section>
           ) : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
