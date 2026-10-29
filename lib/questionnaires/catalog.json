@@ -6516,5 +6516,34 @@
       "feeling-on-edge-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "style-impression-preferences",
+    "code": "FM_STYLE_IMPRESSIONS16",
+    "version": "fm_style_impressions16_v1",
+    "updated": "2026-10-30",
+    "category": "everyday",
+    "title": {
+      "en": "Whole-Look Style Preferences",
+      "zh": "整体造型氛围偏好"
+    },
+    "description": {
+      "en": "Compare eight whole-look moods through sixteen original visual choices. Read every highest-count full guide free, without a photo or face-type assignment.",
+      "zh": "通过十六次原创视觉选择，比较八种整体造型氛围。每个最高并列都有免费全文，无需照片，不分配面部类型。"
+    },
+    "minutes": 3,
+    "formCode": "fermatmind_style_impressions16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    "collection": "explore"
   }
 ]

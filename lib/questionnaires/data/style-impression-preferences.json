@@ -1,0 +1,2225 @@
+{
+  "slug": "style-impression-preferences",
+  "code": "FM_STYLE_IMPRESSIONS16",
+  "version": "fm_style_impressions16_v1",
+  "updated": "2026-10-30",
+  "category": "everyday",
+  "kind": "archetype",
+  "minutes": 3,
+  "title": {
+    "en": "Whole-Look Style Preferences",
+    "zh": "整体造型氛围偏好"
+  },
+  "seoTitle": {
+    "en": "Style Preferences Test: Eight Whole-Look Guides",
+    "zh": "整体造型风格偏好测试：八篇完整氛围指南"
+  },
+  "description": {
+    "en": "Compare eight whole-look moods through sixteen original visual choices. Read every highest-count full guide free, without a photo or face-type assignment.",
+    "zh": "通过十六次原创视觉选择，比较八种整体造型氛围。每个最高并列都有免费全文，无需照片，不分配面部类型。"
+  },
+  "resultHeading": {
+    "en": "Your style-choice counts and complete guides",
+    "zh": "你的造型选择次数与完整指南"
+  },
+  "introduction": {
+    "en": "Explore colours, accents and the mood of an imagined whole outfit. These eight original themes concern what you would like to try, not what your face looks like or which identity you should adopt. All eight complete guides are free before answering. The separate Outfit Line Preferences form explores five line-related agreement means; the scores do not convert.",
+    "zh": "探索想象中整套穿搭的颜色、点缀与氛围。八个原创主题关注愿意尝试什么，不判断面部外观或应该采用哪种身份。八篇全文均可作答前免费阅读。独立的服装线条偏好题本记录五项线条认同均值，分数不换算。"
+  },
+  "instructions": {
+    "en": "Answer for yourself about a look you would like to try today. Imagine the written descriptions; you do not need to own, wear or photograph anything. In each comparison choose the closest of four offered whole-look ideas. Other themes are absent from that comparison, not rejected. Choosing an option is a relative preference, not a claim that every detail fits you. If none is useful, you may leave and read all eight guides without answering. All sixteen choices are required before counts appear. Each theme appears eight times and twice in each position; one selection adds one raw count. Every highest tie opens in full, without a hidden secondary type, match percentage, face analysis or body classification. Practical fit, comfort, budget and dress codes need your separate judgement.",
+    "zh": "为自己评价今天愿意尝试的造型，想象文字描述即可，不必拥有、穿上或拍摄任何东西。每次从给出的四个整体构思里选较接近偏好的一项；当次未出现的主题不算被拒绝。选项表示相对偏好，不宣称每个细节都适合自己。如果描述都无用，可以离开，不作答也能读八篇全文。十六次选择完成后才显示次数。每主题出现八次，在每个位置各两次；选中一次记一次原始计数。每个最高并列都完整展开，不设隐藏副型、匹配百分比、面部分析或身体分类。真实合身、舒适、预算与着装规定需另由自己判断。"
+  },
+  "source": {
+    "kind": "fermatmind-original-whole-look-style-preference-comparisons",
+    "formCode": "fermatmind_style_impressions16",
+    "itemBankVersion": "fm-whole-look-style-16-v1",
+    "scoringVersion": "equal-exposure-eight-theme-counts-all-highest-ties-v1",
+    "resultContentVersion": "fm-whole-look-style-eight-guides-v1",
+    "itemBankSha256": "30b1a5c83520db11691cdd47fad3cf81a69ccf160a5da7a515006c0db97c7437",
+    "resultContentSha256": "eeff781242894dae3f7fe2898423d8e9857ed8ffb5b5a8b7d9986f69503628e9",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "soft-play",
+      "title": {
+        "en": "Soft Play",
+        "zh": "柔软玩心"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "light-ease",
+      "title": {
+        "en": "Light Ease",
+        "zh": "轻快自在"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "clean-edge",
+      "title": {
+        "en": "Clean Edge",
+        "zh": "简洁锐线"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "flowing-detail",
+      "title": {
+        "en": "Flowing Detail",
+        "zh": "柔和点缀"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "quiet-polish",
+      "title": {
+        "en": "Quiet Polish",
+        "zh": "安静细致"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "formal-poise",
+      "title": {
+        "en": "Formal Poise",
+        "zh": "端整仪式"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "colour-play",
+      "title": {
+        "en": "Colour Play",
+        "zh": "跳色玩趣"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "relaxed-edge",
+      "title": {
+        "en": "Relaxed Edge",
+        "zh": "随性棱角"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "SIP_01",
+      "prompt": {
+        "en": "Imagine an optional afternoon outfit with no dress code. Which whole-look direction appeals most?",
+        "zh": "想象一套没有着装规定的自选午后穿搭。哪种整体方向最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "light-ease",
+          "label": {
+            "en": "Light neutrals, an uncluttered outline and one clear blue accent.",
+            "zh": "浅中性色、简明轮廓，配一处清蓝点缀。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A curved motif, softly blended colours and one delicate trailing detail.",
+            "zh": "弧形纹样、柔和相融的颜色，再加一处纤细延伸细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A deliberately coordinated set with a centred, clearly placed accent.",
+            "zh": "刻意协调成套的组合，把重点清楚放在中间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "A loose matte outline with a dark fastening and a slightly rough texture.",
+            "zh": "宽松哑光轮廓、深色扣饰，再加一点粗粝纹理。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_02",
+      "prompt": {
+        "en": "For an ordinary coffee stop, which combination would you most like to try for yourself?",
+        "zh": "普通地喝杯咖啡，你最想为自己尝试哪种组合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "Close mid-tones, a neat small finish and no single attention-grabbing piece.",
+            "zh": "相近中间色、整洁小收尾，不让某件单品特别抢眼。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A structured outline with a matched finish that feels ready for an occasion.",
+            "zh": "有组织的轮廓与配套收尾，显得为某个场合准备过。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A bright colour block, an oversized playful motif and a clear contrast.",
+            "zh": "明亮色块、放大的趣味图案，以及清楚对比。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "An easy dark layer with one substantial straight metallic accent.",
+            "zh": "轻松的深色叠层，配一个分量明确的直线金属点缀。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_03",
+      "prompt": {
+        "en": "You can rearrange clothes you already own into a fresh look. Which visual direction would you choose?",
+        "zh": "可以把已有衣服重新组合出新样子。你会选择哪种视觉方向？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "light-ease",
+          "label": {
+            "en": "An open, easy-looking combination with plain textures and few decorations.",
+            "zh": "开放舒展的组合、朴素纹理，少用装饰。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A narrow dark edge, one crisp angle and a very restrained palette.",
+            "zh": "细窄深色边线、一个利落角度，配色十分克制。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "An intentional pattern, a composed arrangement and one substantial detail.",
+            "zh": "有意选择的纹样、端整安排，以及一个分量明确的细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "colour-play",
+          "label": {
+            "en": "Two unexpected bright colours with one graphic detail that stands out.",
+            "zh": "两种出乎意料的亮色，配一个突出的图形细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_04",
+      "prompt": {
+        "en": "One detail will set the mood for an otherwise simple outfit. Which direction would you prefer?",
+        "zh": "用一个细节为原本简单的穿搭定下氛围。你更偏好哪种方向？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "Black and white shapes with a precise line and almost no decoration.",
+            "zh": "黑白块面、一条清楚线条，几乎不加装饰。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "light-ease",
+          "label": {
+            "en": "White and pale blue arranged with generous quiet areas between details.",
+            "zh": "白与浅蓝之间，让细节之间留出宽松的安静区域。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "Plain casual shapes mixed with a textured surface and a firm dark edge.",
+            "zh": "朴素休闲形状，混入纹理表面与明确深色边线。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "An even, low-contrast combination with one discreetly finished detail.",
+            "zh": "均匀低对比组合，配一处收拾细致的小细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_05",
+      "prompt": {
+        "en": "Picture a look for a relaxed visit with a friend. Which arrangement attracts you most?",
+        "zh": "想象一套轻松探访朋友时的造型。哪种安排最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A defined dark outline and one small straight metallic detail.",
+            "zh": "明确深色轮廓，配一个小巧直线金属细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "Fine decorative edges with a flowing pattern and a soft colour transition.",
+            "zh": "纤细装饰边、流动纹样，与柔和色彩过渡。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "Smooth plain surfaces linked by a small repeating colour or shape.",
+            "zh": "平滑素面之间，用小面积重复颜色或形状串联。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A symmetrical arrangement of accents and a finish that looks complete.",
+            "zh": "对称安排点缀，让收尾看起来完整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_06",
+      "prompt": {
+        "en": "You are planning an optional outfit on paper, without buying anything. Which whole-look idea would you keep?",
+        "zh": "只在纸上构思一套自选穿搭，不购买东西。你会保留哪种整体想法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "A relaxed charcoal combination with a visible zip or angular fastening.",
+            "zh": "随性炭灰组合，让拉链或有棱角扣饰清楚可见。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A lively small pattern mixed with a much larger, brightly coloured accent.",
+            "zh": "活泼小纹样，搭一个尺度更大的明亮点缀。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A cream base, one small rounded motif and a gentle pink accent.",
+            "zh": "米白底色、小巧圆润图案，配一处柔粉点缀。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "light-ease",
+          "label": {
+            "en": "A simple pale layer and a clean, unbusy finish to the whole look.",
+            "zh": "一层简单浅色衣物，让整体收尾清楚、不繁杂。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_07",
+      "prompt": {
+        "en": "For a different mood on an ordinary day, which mix of details would you most like to explore?",
+        "zh": "想让普通一天换种氛围，你最想探索哪种细节组合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A small floral suggestion and a gently folded detail in muted colours.",
+            "zh": "一点小花意象与轻柔折叠细节，配色柔和。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A bold badge-like detail against a contrasting, energetic colour.",
+            "zh": "醒目的徽章式细节，配对比鲜明的活跃颜色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "light-ease",
+          "label": {
+            "en": "A light stripe, a plain neutral piece and an easy, open arrangement.",
+            "zh": "浅色条纹、素净中性色单品，组合显得轻松开放。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "A little muted sheen and a carefully coordinated, quiet finish.",
+            "zh": "一点柔和光泽，让收尾协调而安静。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_08",
+      "prompt": {
+        "en": "Imagine finishing a plain outfit with a few available details. Which effect would you choose?",
+        "zh": "想象用几处现有细节，为素净穿搭收尾。你会选哪种效果？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A coordinated contrast that keeps an orderly, ceremonial-looking rhythm.",
+            "zh": "协调的对比，保留有秩序、略带仪式的节奏。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "An unpolished-looking texture set against a straightforward, dark detail.",
+            "zh": "略带未修饰感的纹理，对照一个直接的深色细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "soft-play",
+          "label": {
+            "en": "Softly curved details, a pale colour and a little playful decoration.",
+            "zh": "柔和弧形细节、浅色，再加一点俏皮装饰。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A clean diagonal, a smooth plain surface and a distinct angular finish.",
+            "zh": "干净斜线、平滑素面，收尾带清楚棱角。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_09",
+      "prompt": {
+        "en": "For a casual evening with people you know, which whole-look description appeals most?",
+        "zh": "和熟悉的人度过休闲夜晚，哪种整体造型描述最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A curved accessory line echoed by a fine, softly patterned surface.",
+            "zh": "让配饰弧线与细腻柔纹表面彼此呼应。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A deliberate focal piece with the surrounding colours carefully linked.",
+            "zh": "一个有意设置的焦点，周围颜色仔细衔接。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A crisp pop of colour repeated in an unexpected second place.",
+            "zh": "一处利落跳色，再在意外的位置呼应一次。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A tiny cloud-like motif against a simple, soft-looking outfit.",
+            "zh": "简单柔和的整套衣服里，放一个小云朵般的图案。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_10",
+      "prompt": {
+        "en": "You can connect parts of an outfit through colour and detail. Which connection would you prefer?",
+        "zh": "可以用颜色与细节把穿搭各部分串起来。你更偏好哪种联系？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "An unobtrusive texture with tidy, similar-scale details throughout.",
+            "zh": "不抢眼的纹理，配尺度相近、整洁的各处细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "soft-play",
+          "label": {
+            "en": "Rounded fastenings and a small pastel detail that keeps the look lighthearted.",
+            "zh": "圆形扣饰与小块浅彩细节，让整体带一点玩心。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "light-ease",
+          "label": {
+            "en": "Soft white, a clear light colour and details that feel uncomplicated.",
+            "zh": "柔白、清透浅色，加上不复杂的细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "An organised head-to-toe idea with a clear beginning and finish.",
+            "zh": "从上到下有组织的构思，起点与收尾都清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_11",
+      "prompt": {
+        "en": "Imagine a free-choice layered outfit. Which overall visual relationship would you enjoy most?",
+        "zh": "想象一套可以自由选择的叠穿。你最喜欢哪种整体视觉关系？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "A loose, simple arrangement with a bold matte accent and little shine.",
+            "zh": "宽松简单的安排，留一个醒目哑光点缀，少用光泽。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "Two neighbouring neutral shades and a very small polished accent.",
+            "zh": "相邻两种中性色，配极小的细致点缀。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "Subtle layered textures, a rounded flourish and colours that blend.",
+            "zh": "细微叠层纹理、一点圆润装饰，颜色自然衔接。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A compact curved pattern with a quiet, warm-coloured background.",
+            "zh": "小巧弧形纹样，配安静的暖色背景。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_12",
+      "prompt": {
+        "en": "You want to try a small change in your next everyday look. Which direction would you explore?",
+        "zh": "想在下一套日常造型里试一点变化。你会探索哪种方向？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A soft edge, a little circular accent and an otherwise simple combination.",
+            "zh": "柔和边缘、一点圆形点缀，其余组合保持简单。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "Two sharply separated tones and a single clear point of emphasis.",
+            "zh": "两个分隔明确的色调，只保留一个清楚重点。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A fine winding pattern with a soft draped accent and little sharp contrast.",
+            "zh": "细小蜿蜒纹样、柔和垂落点缀，少用锐利对比。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "light-ease",
+          "label": {
+            "en": "An airy-looking plain combination with a small, straightforward accent.",
+            "zh": "轻快的素净组合，只留一点直接清楚的点缀。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_13",
+      "prompt": {
+        "en": "For an unhurried weekend outing, which imagined combination would you most like to choose?",
+        "zh": "不赶时间的周末出行，你最想选哪种想象中的组合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "formal-poise",
+          "label": {
+            "en": "A composed matching detail that makes an ordinary outfit feel intentional.",
+            "zh": "一个端整呼应的细节，让日常穿搭显得经过构思。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "A restrained repeated motif and a softly consistent colour relationship.",
+            "zh": "克制的重复纹样，让颜色关系保持柔和平稳。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "A casual layered look with a sturdy-looking detail rather than fine decoration.",
+            "zh": "休闲叠层里，选结实有分量的细节，而非纤细装饰。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A playful clash of shapes with one saturated colour leading the look.",
+            "zh": "形状之间有趣碰撞，让一种饱和颜色带领整体。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_14",
+      "prompt": {
+        "en": "A familiar outfit can take on another mood through its details. Which mood-setting arrangement appeals most?",
+        "zh": "熟悉的穿搭可以通过细节换种氛围。哪种安排最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "colour-play",
+          "label": {
+            "en": "An exaggerated graphic accent that makes a simple outfit feel mischievous.",
+            "zh": "放大图形点缀，让简单穿搭带一点调皮意味。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "relaxed-edge",
+          "label": {
+            "en": "An easy outline with an off-centre dark contrast and a little raw texture.",
+            "zh": "轻松轮廓，配偏离中心的深色对比与一点原生纹理。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A spare outline with a fine straight stripe and a crisp dark accent.",
+            "zh": "简省轮廓、细直条纹，再加利落深色点缀。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A gentle decorative cluster carried through the outfit in two small places.",
+            "zh": "在穿搭两处小地方，呼应一组轻柔装饰。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_15",
+      "prompt": {
+        "en": "Before trying an outfit, you jot down the visual idea you want. Which note sounds most like your preference?",
+        "zh": "试穿前先记下想要的视觉构思。哪条笔记最像你的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "colour-play",
+          "label": {
+            "en": "A bright, bouncy combination that treats contrast as part of the fun.",
+            "zh": "明快有弹性的组合，把对比当成趣味的一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A small whimsical detail repeated gently rather than made very bold.",
+            "zh": "把一个小巧有趣的细节轻轻呼应，而不放得特别醒目。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "quiet-polish",
+          "label": {
+            "en": "A quiet, carefully finished combination whose details reward a second look.",
+            "zh": "安静且收尾细致的组合，细节适合再看一眼。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A compact angular detail against an otherwise very clean combination.",
+            "zh": "极简组合里，放一个小巧有棱角的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SIP_16",
+      "prompt": {
+        "en": "Leave practical constraints aside for this imagined comparison. Which whole-look direction would you choose today?",
+        "zh": "在这次想象比较中，先放下实际限制。今天你会选哪种整体造型方向？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "soft-play",
+          "label": {
+            "en": "A pale, rounded detail that gives an uncomplicated outfit a touch of play.",
+            "zh": "用浅色圆润小细节，为不复杂的穿搭添一点趣味。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "light-ease",
+          "label": {
+            "en": "A fresh-looking light palette with plain surfaces and little visual crowding.",
+            "zh": "清爽浅色盘、朴素表面，视觉上不拥挤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "clean-edge",
+          "label": {
+            "en": "A precise edge and a controlled, graphic contrast without extra flourishes.",
+            "zh": "清楚边线与受控的图形对比，不额外堆装饰。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "flowing-detail",
+          "label": {
+            "en": "A softly shaped detail with a delicate pattern rather than a graphic block.",
+            "zh": "用柔和造型与细腻纹样作细节，而非醒目的图形块面。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "soft-play",
+      "directionIds": [
+        "soft-play"
+      ],
+      "title": {
+        "en": "Soft Play",
+        "zh": "柔软玩心"
+      },
+      "headline": {
+        "en": "Small rounded details with a light touch of play",
+        "zh": "小巧圆润细节，带一点轻柔玩心"
+      },
+      "summary": {
+        "en": "A guide to gentle colours, compact curved motifs and understated visual play. Compare its cues with brighter Colour Play and the decorative flow of Flowing Detail.",
+        "zh": "观察柔和颜色、小巧弧形纹样与克制的视觉趣味，并与鲜明的跳色玩趣、装饰流动的柔和点缀比较。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#F5EEE6",
+          "name": {
+            "en": "Warm cream",
+            "zh": "暖米白"
+          }
+        },
+        {
+          "hex": "#E6B7C9",
+          "name": {
+            "en": "Soft pink",
+            "zh": "柔粉"
+          }
+        },
+        {
+          "hex": "#BFC9DC",
+          "name": {
+            "en": "Pale blue-grey",
+            "zh": "浅蓝灰"
+          }
+        },
+        {
+          "hex": "#927B78",
+          "name": {
+            "en": "Muted rose-brown",
+            "zh": "柔和玫棕"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Soft Play: Whole-Look Style Preferences Guide",
+          "zh": "柔软玩心：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Soft Play brings together a gentle background, rounded little shapes and a small note of visual amusement. The theme can be as simple as a tiny cloud-like motif on an otherwise plain combination. Its interest lies in the relationship between restraint and play: a detail can be cheerful without filling every part of the look. Choosing this description does not establish a youthful face, an affectionate personality or an obligation to dress in a particularly sweet way.",
+              "zh": "柔软玩心把轻柔背景、圆润小形状与一点视觉趣味放在一起。它可以简单到：在原本素净的组合上，加一个小云朵般的图案。重点是克制与玩心的关系，细节可以有趣，而不必填满整套造型。选中这类描述，不表示面部年轻、性格亲昵，也不要求穿得特别甜美。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "The example palette uses warm cream, soft pink, pale blue-grey and muted rose-brown. These are original colour examples, not a personal colour-season analysis. A small pink accent against cream may convey this theme without making the entire outfit pale. If you dislike pink, try a similarly quiet blue or another colour you already enjoy. What matters for the example is a gentle relationship between the background and the small rounded detail, rather than any supposedly compulsory colour.",
+              "zh": "示例使用暖米白、柔粉、浅蓝灰与柔和玫棕，这是原创配色举例，不是个人色彩季型分析。米白背景上的一点粉色，就可以表达这种构思，不需要全套浅色。不喜欢粉色，也可以换成同样安静的蓝色或你已有的喜爱颜色。示例关注背景与圆润小细节的柔和关系，没有任何规定必须使用的颜色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Scale is useful to observe here. A modest rounded fastening, a small repeated shape or one whimsical accent may set the mood more clearly than a large decorative cluster. Repeating that accent once can connect separate pieces, but many repetitions may make the result busier than you intended. These are descriptions of visual arrangements, not measurements of the wearer. A small motif can appeal to someone of any height, age or gender, and its actual placement is a personal choice.",
+              "zh": "可以留意细节的尺度。一枚不大的圆扣、小小重复形状，或一处有趣点缀，就可能比大组装饰更清楚地定下氛围。呼应一次能连接不同单品，重复太多则可能比原先打算的更繁忙。这些描述针对视觉安排，不测量穿着者。任何身高、年龄或性别的人都可能喜欢小纹样，实际放在哪儿由自己选择。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a plain cream top, a simple neutral lower piece and one small rounded accessory in a colour you like. The playful detail is the part to notice; the surrounding pieces give it room. You could instead make the accent a familiar button or a little motif already present on an item you own. The example is complete as a visual idea without specifying a body shape, a shopping list, a required haircut or a rule about which person should wear it.",
+              "zh": "想象一件素净米白上衣、简单中性色下装，再加一个自己喜欢颜色的小圆润配饰。值得留意的是那一点趣味，周围单品为它留出空间。也可以把重点换成已有衣物上的熟悉纽扣或小纹样。这个例子作为视觉构思已经完整，不需要指定身体形状、购物清单、固定发型，或规定哪种人才能穿。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare Soft Play with Colour Play by changing only the accent’s size or saturation in your imagination. A tiny quiet motif and a large bright graphic may both be playful, but they create different amounts of visual emphasis. Compare it with Flowing Detail by replacing the compact motif with a fine decorative line that trails across a surface. Neither neighbouring theme is a better version of this one. Similar counts may simply mean that more than one kind of playful or soft detail interests you.",
+              "zh": "想象只改变点缀的大小或饱和度，就能比较柔软玩心与跳色玩趣。安静小纹样与明亮大图形都可以有趣，但视觉重点的分量不同。再把小纹样换成沿表面延伸的纤细装饰线，可与柔和点缀比较。相近主题没有谁更高级；次数接近，可能只是你对不止一种玩心或柔和细节有兴趣。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small experiment, lay out an existing plain combination and add one rounded detail you already have. Compare the arrangement with and without it. Notice whether you enjoy the detail itself, the lighter overall mood or the contrast with the plain background. You can make a private written note rather than take a photograph. Keep, move or remove the detail according to your own preference; there is no need to complete an entire themed wardrobe or persuade yourself to like the result.",
+              "zh": "可以摆出一套已有的素净组合，加上一个现有圆润细节，比较加入前后的样子。留意喜欢的是细节本身、整体较轻快的氛围，还是它与素净背景的对照。可以只在私人笔记里记几句，不必拍照。按自己的偏好保留、移动或拿掉细节即可，无需凑齐一整套主题衣橱，也不用说服自己喜欢结果。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "light-ease",
+      "directionIds": [
+        "light-ease"
+      ],
+      "title": {
+        "en": "Light Ease",
+        "zh": "轻快自在"
+      },
+      "headline": {
+        "en": "Light, plain cues with room around the details",
+        "zh": "轻浅素净的线索，让细节留有余地"
+      },
+      "summary": {
+        "en": "Explore light palettes, uncomplicated surfaces and an open whole-look arrangement. This visual preference does not measure comfort, energy or how relaxed you are.",
+        "zh": "探索轻浅配色、简单表面与开放的整体安排；这种视觉偏好不测量舒适、能量或性格是否放松。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#F7F6EF",
+          "name": {
+            "en": "Soft white",
+            "zh": "柔白"
+          }
+        },
+        {
+          "hex": "#B8D5E5",
+          "name": {
+            "en": "Light sky blue",
+            "zh": "浅天空蓝"
+          }
+        },
+        {
+          "hex": "#9AB7A8",
+          "name": {
+            "en": "Quiet green",
+            "zh": "安静绿"
+          }
+        },
+        {
+          "hex": "#CECEC6",
+          "name": {
+            "en": "Pale neutral",
+            "zh": "浅中性色"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Light Ease: Whole-Look Style Preferences Guide",
+          "zh": "轻快自在：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Light Ease groups light-looking colours, plain surfaces and an uncluttered arrangement of details. An open visual relationship can be appealing even when a person wants a carefully planned outfit. The word ease names the look described by these options, not a finding about physical comfort or emotional relaxation. Choosing it does not tell the test how energetic you are, whether you spend time outdoors or what your natural facial features look like. Those questions are outside this preference comparison.",
+              "zh": "轻快自在把显得轻浅的颜色、朴素表面与不拥挤的细节安排组合起来。即使很认真地计划穿搭，也可能喜欢开放的视觉关系。这里的“自在”命名选项所描述的样子，不是身体舒适或情绪放松的测量。选中它，不会告诉测试你精力怎样、是否常在户外，或天然五官长什么样；这些都不在本次偏好比较范围内。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Soft white, light sky blue, quiet green and a pale neutral form one possible palette. Think of a small number of colours with enough plain area to let each remain legible. You do not need a pale wardrobe to explore the idea: a clear light accent can sit beside darker pieces you already use. The palette is an example of visual spacing and colour relationships. It has not been matched to your skin, hair or eyes, and no season or undertone is assigned.",
+              "zh": "柔白、浅天空蓝、安静绿与浅中性色，是一种可能的配色。可以想象少量颜色与足够素净的区域，让每种颜色都看得清楚。探索这个构思不需要浅色衣橱，也可以把清楚浅色点缀放在已有深色单品旁。这是视觉留白和颜色关系的例子，没有与你的皮肤、头发或眼睛匹配，也不分配季型或底调。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Notice how much space surrounds an accent and how many different details ask for attention. A simple stripe, a plain layer and one straightforward fastening can form a complete look without additional decoration. Light-looking does not mean that every item must be thin, loose or impractical. Actual fabric weight, movement and temperature need a separate real-world check. This guide describes what the written cues suggest visually, so a preference for the description is not evidence that a garment will feel comfortable when worn.",
+              "zh": "留意点缀周围有多少空间，以及多少不同细节同时要求注意。一条简单条纹、一层素净衣物和直接清楚的扣饰，就能组成完整造型，不必另加装饰。显得轻快，不表示每件衣物都必须薄、宽松或不实用。真实重量、活动和温度，需要另作实际检查；喜欢文字中的视觉线索，并不证明穿上某件衣服一定舒服。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a plain light top, an uncomplicated outer layer and one blue or green detail linking the two. A simple lower piece can let those relationships remain clear. You might make the linking detail a cuff, a familiar scarf or a small colour already present in an item you own. No particular cut is required for the wearer. The example is about the overall impression of a small, coherent set of cues, rather than a claim that light colours automatically look fresh on every person.",
+              "zh": "想象素净浅色上衣、简单外层，再用一点蓝或绿把两者串起来。下装保持简单，就能让这种关系清楚。呼应处可以是袖口、熟悉围巾，或已有单品里的一小块颜色，不要求穿着者采用某种剪裁。例子关注少量线索形成的整体印象，不声称浅色会自动令每个人看起来清爽。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Quiet Polish can also use an uncluttered palette, but its examples place more attention on close tones and a discreetly finished surface. Light Ease puts more emphasis on open, light-looking relationships and uncomplicated detail. Relaxed Edge can share a casual arrangement while introducing matte dark accents or a rougher visual texture. You can prefer a different neighbour in another context. These comparisons help identify which written details appealed, without turning a small difference in counts into a permanent styling identity.",
+              "zh": "安静细致也可以用简洁配色，但示例更关注相近色调和低调细致的表面。轻快自在更强调开放轻浅的关系与简单细节。随性棱角也可以休闲，但会加入哑光深色点缀或更粗粝的视觉纹理。换个情境，可能更喜欢相邻主题；比较只是帮助认出喜欢的文字细节，不把很小的次数差异固定成造型身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Try laying out two familiar pieces with a small linking colour, then remove one unnecessary detail from the arrangement. Compare whether the simpler version is more appealing to you. If it feels empty rather than open, you can put the detail back or borrow an accent from another guide. The exercise requires no purchase, public photograph or commitment to a minimalist lifestyle. A short note about what changed in the overall look is enough; the useful outcome is a preference you can describe in your own words.",
+              "zh": "可以摆出两件熟悉单品，用一点颜色呼应，再从组合里拿掉一个并不需要的细节，比较较简单的版本是否更吸引你。如果觉得空而非开放，就把细节放回，或借用另一篇的点缀。这不需要购物、公开照片，或承诺采用极简生活方式；简单记下整体发生了什么变化就够，收获是能用自己的话说清一种偏好。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clean-edge",
+      "directionIds": [
+        "clean-edge"
+      ],
+      "title": {
+        "en": "Clean Edge",
+        "zh": "简洁锐线"
+      },
+      "headline": {
+        "en": "Precise lines and deliberate graphic contrast",
+        "zh": "清楚线条与有意安排的图形对比"
+      },
+      "summary": {
+        "en": "Read about spare arrangements, crisp angles and defined contrasts. Sharp visual details describe the outfit idea, not a person’s temperament or facial structure.",
+        "zh": "观察简省安排、利落角度与明确对比。锐利的视觉细节描述穿搭构思，不判断性格或面部结构。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#F7F7F5",
+          "name": {
+            "en": "Off-white",
+            "zh": "灰白"
+          }
+        },
+        {
+          "hex": "#2B2D34",
+          "name": {
+            "en": "Deep charcoal",
+            "zh": "深炭灰"
+          }
+        },
+        {
+          "hex": "#8C939D",
+          "name": {
+            "en": "Cool grey",
+            "zh": "冷灰"
+          }
+        },
+        {
+          "hex": "#64717E",
+          "name": {
+            "en": "Muted steel blue",
+            "zh": "柔和钢蓝"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Clean Edge: Whole-Look Style Preferences Guide",
+          "zh": "简洁锐线：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Clean Edge groups precise outlines, angular details and controlled graphic contrasts. The interest may lie in a fine straight line rather than in a strongly dramatic whole outfit. A spare arrangement can make one edge easy to notice without adding many different objects. The name does not mean that you have sharp facial features, a cold personality or a powerful social presence. It identifies the written visual cues selected in these comparisons, not how other people actually see you.",
+              "zh": "简洁锐线把清楚轮廓、棱角细节与受控图形对比放在一起。吸引你的可能只是一条细直线，不一定是整套很戏剧化的造型。简省安排能让一处边缘被看清，而不必加很多物件。名称不表示五官锐利、性格冷淡或社交气场强大；它只识别本次比较中被选中的文字视觉线索，不测别人实际怎样看你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Off-white, deep charcoal, cool grey and muted steel blue provide one original palette. You can imagine the off-white and charcoal creating a clear boundary, while the intermediate shades keep the contrast from becoming the only feature. An equally useful comparison might use two colours already in your wardrobe. Black and white are examples rather than a requirement, and their presence does not establish that a particular contrast suits your colouring. The test has not observed skin, hair, eyes or any worn garment.",
+              "zh": "灰白、深炭灰、冷灰与柔和钢蓝组成一种原创示例。可以想象灰白与炭灰形成清楚边界，中间色让对比不至于成为唯一内容，也可以直接比较衣橱里已有的两种颜色。黑白只是例子，不是规定；使用它们不证明某种对比适合你的个人着色。测试没有观察皮肤、头发、眼睛或任何实际穿上的衣服。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Look at the thickness, direction and number of visible lines. One narrow dark edge can create a different impression from a broad block, even when the colours are identical. A small straight metallic accent might echo that edge without needing to be repeated everywhere. Crisp is a visual description here, not a material-quality grade. Actual fabric behaviour, a fastening’s comfort and the way a seam moves are practical matters that the word-based choices cannot inspect or settle.",
+              "zh": "可以留意可见线条的粗细、方向与数量。即使颜色相同，一条细窄深边与一大片色块，也会形成不同印象。一个小巧直线金属细节可以呼应边缘，不必到处重复。这里的“利落”是视觉描述，不是材质质量评分；真实布料表现、扣饰舒适度和接缝怎样活动，都是文字选择无法检查或决定的实际事项。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a plain top and a plain lower piece connected by one defined dark line or edge. Add a single angular detail only if you want the visual emphasis to be stronger. The arrangement can remain compact or extend across the outfit; Clean Edge does not prescribe a long silhouette. Compare what happens when the same pieces use a softer boundary or less contrast. The point is to notice the graphic relationship, without treating the imagined arrangement as a professional recommendation for your face or body.",
+              "zh": "想象素净上衣与下装，用一条明确深线或边缘连接。只有想让重点更强时，才加入一个棱角细节。安排可以小巧，也可以横跨整套穿搭，简洁锐线并不规定长轮廓。再比较同样单品采用较柔边界或较弱对比时的变化，重点是看清图形关系，不把想象组合当作针对面部或身体的专业建议。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Formal Poise may also involve clear arrangement, but its examples emphasise a coordinated set and a sense of deliberate occasion. Clean Edge can stay much more spare. Relaxed Edge combines some defined accents with a loose matte or rougher visual surface, while Clean Edge examples keep the surface and boundary more controlled. A preference for one does not rule out the others. Similar raw counts can arise because you like clean lines in one comparison and a more casual texture in another.",
+              "zh": "端整仪式也可能安排清楚，但示例更强调成套呼应和为某个场合有意准备的感觉；简洁锐线则可以更省。随性棱角把明确点缀与宽松哑光、较粗粝表面组合，简洁锐线的示例更控制表面与边界。喜欢其一不排除其他；次数接近，可能只是你在某次比较喜欢干净线条，在另一次喜欢休闲纹理。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "For a no-purchase trial, use two familiar pieces and move a dark accessory or visible edge from one position to another. Compare a narrow line with a broader patch of the same colour. You can also sketch the arrangement as simple shapes instead of wearing or photographing it. Record which version you would choose and which detail made the difference. If neither appeals, keep that observation too; the exercise does not ask you to prove that a crisp or minimal look belongs to you.",
+              "zh": "无需购买，可以用两件熟悉单品，把一个深色配饰或可见边缘移到别处，比较同色细线与宽色块。也可以只画简单形状，不必实际穿上或拍照。记下会选择哪个版本、哪个细节造成差别。如果都不喜欢，也保留这个观察；尝试并不要求证明利落或极简造型属于你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flowing-detail",
+      "directionIds": [
+        "flowing-detail"
+      ],
+      "title": {
+        "en": "Flowing Detail",
+        "zh": "柔和点缀"
+      },
+      "headline": {
+        "en": "Fine curves, decorative movement and blended colour",
+        "zh": "细腻弧线、装饰流动与相融颜色"
+      },
+      "summary": {
+        "en": "Explore delicately patterned surfaces, curved accents and soft transitions. These are styling cues, with no inference about gender, softness of character or facial features.",
+        "zh": "探索细腻纹样表面、弧形点缀与柔和过渡。这些是造型线索，不推断性别、性格是否柔软或面部特征。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#D9C0C6",
+          "name": {
+            "en": "Muted rose",
+            "zh": "柔和玫粉"
+          }
+        },
+        {
+          "hex": "#ACA8BF",
+          "name": {
+            "en": "Grey lilac",
+            "zh": "灰紫"
+          }
+        },
+        {
+          "hex": "#C9B6A2",
+          "name": {
+            "en": "Soft sand",
+            "zh": "柔沙色"
+          }
+        },
+        {
+          "hex": "#F1E7DE",
+          "name": {
+            "en": "Pale ivory",
+            "zh": "浅象牙色"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Flowing Detail: Whole-Look Style Preferences Guide",
+          "zh": "柔和点缀：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Flowing Detail brings together fine decorative lines, softly shaped accents and colours that blend rather than separate sharply. The movement is visual: a little winding pattern can lead the eye across an otherwise quiet surface. You might enjoy the pattern without wanting a whole outfit of elaborate decoration. The theme does not identify a gentle character, a feminine essence or any facial shape. It describes one combination of cues that can be chosen, changed or ignored by people of any gender.",
+              "zh": "柔和点缀把纤细装饰线、柔和造型与自然衔接的颜色放在一起。这里的流动是视觉关系：一小段蜿蜒纹样，也能在安静表面带来延伸。你可以只喜欢纹样，不想整套都复杂装饰。它不识别温柔性格、女性本质或某种脸形，只描述一组视觉线索；任何性别的人都可以选择、改变或不采用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Muted rose, grey lilac, soft sand and pale ivory offer one palette for imagining gentle transitions. The colours need not all appear together. Try thinking about two neighbouring shades with a fine pattern linking them, then compare a clearer separation between the same shades. A floral suggestion is one possible detail, not a requirement or a statement about romance. These examples were written for the guide and have not been selected through a personal skin-colour, face or body assessment.",
+              "zh": "柔和玫粉、灰紫、柔沙色与浅象牙色，提供一种想象柔和过渡的配色，不需要同时全部出现。可以先想两种相近色由细纹样串联，再比较同色之间分隔较清楚的版本。花意象只是可能的细节，不是规定，也不代表爱情倾向。示例为本指南原创，没有经过针对皮肤颜色、面部或身体的个人评估。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider where a decorative line begins and ends, how often it repeats and whether the surrounding area gives it enough room. A small curved accessory can echo a pattern without exactly copying it. Too many fine details may compete with the movement you wanted to notice, but whether that feels appealing is still your choice. Delicate describes the apparent scale of a cue; it does not establish that the item is expensive, fragile, comfortable or better made than a plainer alternative.",
+              "zh": "可以留意装饰线从哪里开始、在哪里结束、重复几次，以及周围是否为它留出空间。小弧形配饰能与纹样呼应，而不必完全复制。太多细节可能互相争夺注意，但喜欢这种繁复与否仍由你选择。“纤细”描述线索的视觉尺度，不证明物品昂贵、脆弱、舒适，或比朴素款式制作更好。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a softly patterned piece with a plain neutral item beside it and one small curved detail repeating part of the pattern’s movement. The complete idea comes from the relationship among those pieces, not from a required neckline, hairstyle or body contour. You can make the decorative area smaller if you prefer a quieter version. You can also enjoy a fine winding line in an imagined outfit without wanting to own the material, wear it daily or make it your signature style.",
+              "zh": "想象一件柔纹单品，旁边配素净中性色，再用一个小弧形细节呼应纹样的部分走向。完整构思来自单品关系，不依赖规定领口、发型或身体曲线。喜欢较安静的版本，可以缩小装饰区域；也可以仅欣赏想象穿搭中的细小蜿蜒线条，而不想拥有这种材质、每天穿它，或把它固定成个人标志。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Soft Play often uses a compact, gently amusing motif, while Flowing Detail puts more emphasis on decorative movement and fine transitions. Quiet Polish may share muted colours, but its examples generally keep the finish less decorative and more evenly restrained. A person can enjoy all three in different settings. Rather than asking which label is correct, compare the actual cues: a small rounded symbol, a trailing line or a discreetly repeated finish. Those concrete differences are more informative than the theme name alone.",
+              "zh": "柔软玩心常用小巧、轻松有趣的纹样，柔和点缀则更强调装饰走向与纤细过渡。安静细致也可能用柔和颜色，但示例收尾通常较少装饰、较均匀克制。同一个人可以在不同情境喜欢三者。不妨比较实际线索：小圆润符号、延伸线条，或低调重复收尾；这些具体差别，比单看名称更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an existing patterned item, a familiar curved accessory or a simple paper sketch to try one fine decorative echo. Compare the idea with a plain version and with a version that repeats the detail more often. Notice whether the pattern, the soft transition or the amount of repetition appeals most. You may keep only one small element from the experiment. There is no need to buy delicate fabrics, adopt an occasion-based wardrobe or explain your personality through the result.",
+              "zh": "可以用已有纹样单品、熟悉弧形配饰，或简单纸上草图，试一处细腻装饰呼应。与素净版本、重复更多次的版本比较，留意最喜欢的是纹样、柔和过渡，还是重复的分量。最后只保留一个小元素也可以，不需要购买纤细织物、改成某种场合衣橱，或用结果解释自己的性格。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quiet-polish",
+      "directionIds": [
+        "quiet-polish"
+      ],
+      "title": {
+        "en": "Quiet Polish",
+        "zh": "安静细致"
+      },
+      "headline": {
+        "en": "Close tones and details that stay quietly connected",
+        "zh": "相近色调，让细节安静相连"
+      },
+      "summary": {
+        "en": "A guide to low-contrast coordination, discreet repetition and an evenly finished look. Polish here is a visual arrangement, without a price, status or personal-worth ranking.",
+        "zh": "观察低对比协调、低调重复与均匀收尾。“细致”描述视觉安排，不排名价格、地位或个人价值。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#B8B0A5",
+          "name": {
+            "en": "Muted taupe",
+            "zh": "柔和灰褐"
+          }
+        },
+        {
+          "hex": "#D7D2C8",
+          "name": {
+            "en": "Pale stone",
+            "zh": "浅石色"
+          }
+        },
+        {
+          "hex": "#8D8B88",
+          "name": {
+            "en": "Soft grey",
+            "zh": "柔灰"
+          }
+        },
+        {
+          "hex": "#EAE6DD",
+          "name": {
+            "en": "Warm off-white",
+            "zh": "暖灰白"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Quiet Polish: Whole-Look Style Preferences Guide",
+          "zh": "安静细致：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Quiet Polish groups close colour relationships, discreet repeated details and an evenly finished arrangement. The idea is not to hide every feature but to let small connections become noticeable without one large accent taking over. The word polish describes the visual finish imagined in these options. It does not measure grooming habits, reliability, sophistication or the price of a wardrobe. A preference for these descriptions can coexist with interest in bright colours, rough textures or more decorative choices elsewhere.",
+              "zh": "安静细致把相近颜色关系、低调重复细节与均匀收尾组合起来。构思并不是藏起所有特点，而是让小联系被看见，同时不由某个大点缀接管整体。“细致”描述选项里想象的视觉收尾，不测量打理习惯、可靠性、修养或衣橱价格。喜欢这些描述，也可以同时对亮色、粗粝纹理或其他更有装饰感的选择感兴趣。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Muted taupe, pale stone, soft grey and warm off-white form one example palette. Their closeness can make a small variation in texture or sheen easier to notice. You could try the same relationship with neighbouring blues, greens or another colour family you prefer. Neutrals are examples, not a compulsory uniform, and low contrast has no automatic connection with quality or social standing. The guide does not know your personal colouring and cannot declare that these shades flatter your face.",
+              "zh": "柔和灰褐、浅石色、柔灰与暖灰白，是一种示例配色。颜色接近时，纹理或光泽的小变化可能更容易被注意，也可以换成相邻蓝色、绿色或自己偏爱的色系。中性色只是举例，不是制服规定；低对比与质量、社会地位没有自动联系。指南不知道你的个人着色，不能宣布这些颜色会衬托你的脸。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Watch how small details relate across an outfit. A repeated colour in a fastening and another small area may create a quiet link without requiring an exact matching set. Similar-scale details can hold attention evenly, while one much larger feature may change the emphasis. A carefully finished visual idea can use ordinary, familiar pieces. Words such as neat or polished in this guide refer to the described arrangement; they are not judgements about the wearer’s discipline, taste or ability to organise daily life.",
+              "zh": "可以看小细节怎样跨越整套穿搭发生联系。扣饰与另一小块区域重复同色，就能形成安静联系，不必完全配套。尺度相近的细节可以平均分配注意，一个大得多的元素则会改变重点。细致的视觉构思可以使用普通熟悉单品。文中的整洁、细致针对描述中的安排，不评价穿着者的自律、品位或日常组织能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a familiar top and lower piece in neighbouring tones, with one small accent that softly repeats a colour already present. Add a plain layer only if it helps connect the arrangement. The result can remain very ordinary in use; no special occasion or expensive material is implied. Compare a smooth surface with a quietly textured one while leaving the colours unchanged. That comparison helps separate an interest in close tones from an interest in a particular finish or type of decoration.",
+              "zh": "想象熟悉的上衣与下装采用相近色调，再用小点缀柔和呼应已有颜色。只有当素净外层能帮助连接整体时，才加入它；使用场景可以非常日常，不暗示特殊场合或昂贵材质。保持颜色不变，比较平滑与低调纹理表面，就能区分喜欢相近色调，还是喜欢某种收尾或装饰。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Light Ease can share an uncluttered arrangement, but it highlights an open, light-looking relationship between a few straightforward cues. Quiet Polish gives more attention to close tones, small repetitions and discreet finish. Formal Poise may be carefully coordinated too, yet its examples make the intentional, occasion-ready arrangement more visible. You do not need to choose one theme for every day. Different comparisons may reveal that you like a quiet palette in one setting and a more deliberate focal point in another.",
+              "zh": "轻快自在也可以简洁，但更强调少量直接线索之间开放、轻浅的关系。安静细致更关注相近色调、小重复与低调收尾。端整仪式也可能认真协调，但示例会更清楚地显出有意准备、适合某个场合的构思。不需要每天只选一个主题；不同对照可能说明，你在某情境喜欢安静配色，在另一情境想要更明确焦点。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose two items you already know and identify one small colour or shape that could connect them. Try a modest repetition, then remove it and compare the overall impression. If the first version feels too uniform, introduce one different surface or a slightly clearer accent. A private sketch or a short note is sufficient; no photograph, purchase or wardrobe replacement is required. Keep the element that is useful to you rather than treating a quiet finish as a standard you must maintain.",
+              "zh": "选两件熟悉物品，找一种能连接它们的小颜色或形状。试着少量重复，再拿掉，比较整体印象。如果第一个版本太一致，就加入一种不同表面或稍清楚的点缀。私人草图或简短笔记就够，不需要照片、购物或换衣橱。保留对自己有用的元素即可，不把安静收尾变成必须维持的标准。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formal-poise",
+      "directionIds": [
+        "formal-poise"
+      ],
+      "title": {
+        "en": "Formal Poise",
+        "zh": "端整仪式"
+      },
+      "headline": {
+        "en": "A coordinated whole with a deliberate focal point",
+        "zh": "协调的整体，留一个有意安排的焦点"
+      },
+      "summary": {
+        "en": "Explore matched visual links, organised accents and an intentional finish. This theme concerns an imagined look, without rating etiquette, confidence or readiness for a social role.",
+        "zh": "探索呼应联系、有组织的点缀与有意安排的收尾。这是对想象造型的偏好，不评分礼仪、自信或承担社会角色的能力。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#263A50",
+          "name": {
+            "en": "Deep navy",
+            "zh": "深海军蓝"
+          }
+        },
+        {
+          "hex": "#B7A6A4",
+          "name": {
+            "en": "Muted rose-grey",
+            "zh": "柔和玫灰"
+          }
+        },
+        {
+          "hex": "#E8DFD0",
+          "name": {
+            "en": "Pale parchment",
+            "zh": "浅纸色"
+          }
+        },
+        {
+          "hex": "#795E53",
+          "name": {
+            "en": "Soft dark brown",
+            "zh": "柔和深棕"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Formal Poise: Whole-Look Style Preferences Guide",
+          "zh": "端整仪式：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Formal Poise groups a deliberately coordinated whole, clearly placed accents and a finish that looks intentionally complete. A small ordinary outfit can express the idea through one repeated detail; it does not need to be ceremonial clothing. The word formal names a visual direction, not a judgement of manners, confidence or social competence. Choosing it does not make you more mature, authoritative or prepared for a particular role, and choosing another theme does not diminish any of those qualities.",
+              "zh": "端整仪式把有意协调的整体、位置清楚的点缀与完整收尾组合起来。一套普通小穿搭，也能通过一个重复细节表达这种构思，不需要礼服。“仪式”命名视觉方向，不评价礼貌、自信或社交能力。选中它，不让人更成熟、更有权威或更适合某个角色；选择其他主题，也不会减损这些品质。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Deep navy, muted rose-grey, pale parchment and soft dark brown provide one palette for imagining an organised contrast. A darker area can frame a lighter focal detail, or a repeated accent can connect separate pieces. These examples are not instructions for a workplace, wedding or other event. An actual dress code needs to be checked separately. You can use a different colour family while keeping the idea of an intentional set, and no shade is presented as a universal marker of elegance.",
+              "zh": "深海军蓝、柔和玫灰、浅纸色与柔和深棕，提供一种有组织对比的配色。深色区域可以衬出浅色焦点，也可以通过重复点缀连接单品。这不是针对办公室、婚礼或其他活动的着装指令，真实规定需要另行确认。换成其他色系也能保留有意成套的构思，没有哪种颜色被当作普遍优雅的标志。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether a focal detail sits centrally, whether two accents echo one another and how the arrangement reaches its finish. Symmetry is one possible device, but exact mirroring is not essential. One side can carry more detail while the rest of the outfit provides a clear relationship to it. A substantial-looking accent is a matter of visual scale, not a request to buy heavy jewellery or uncomfortable clothing. Its actual weight, movement and suitability remain separate practical decisions.",
+              "zh": "可以留意焦点是否居中、两处点缀是否呼应，以及整体怎样收尾。对称是一种办法，但不要求完全镜像；一边细节较多，另一边也能通过清楚关系回应。有分量感的点缀说的是视觉尺度，不要求购买沉重首饰或不舒服的衣服。真实重量、活动与是否适合，仍要另作实际决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a plain familiar outfit with one existing outer layer and a small coordinated accent. Repeat a colour or shape once so that the pieces seem deliberately connected. The look can feel more occasion-like without changing every item or adding expensive materials. Now imagine moving the accent away from the centre or removing the repeated detail. Comparing those versions can show whether you enjoy the organised whole, the focal point or simply the particular colour you chose for the experiment.",
+              "zh": "想象一套素净熟悉的衣服，配一件已有外层和一个协调小点缀。重复一次颜色或形状，让单品显得有意相连，不必替换所有衣物或加入昂贵材质，就能比较更有场合感的构思。再想象把重点移离中心，或拿掉重复细节，比较喜欢的是有组织的整体、焦点本身，还是尝试里选中的那种颜色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Quiet Polish may be equally coordinated but keeps the connections more discreet and the contrast lower in its examples. Clean Edge puts more emphasis on a precise line or graphic boundary and can be much more spare. Formal Poise is distinguished here by the visibly intentional relationship across the whole arrangement. You can borrow a crisp line or a quiet palette without having to switch identities. If themes tie, their complete guides remain available side by side rather than being blended into a new, unsupported personal category.",
+              "zh": "安静细致可能同样协调，但示例联系更低调、对比较弱。简洁锐线更强调清楚线条或图形边界，可以非常简省。端整仪式在这里的区别，是整个安排之间可见的有意联系。可以借一条利落线或一组安静颜色，不必转换身份。主题并列时，各篇完整指南并排保留，不混合成一个没有依据的新个人类别。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an ordinary set of clothes as the starting point and add one small visual connection between two areas. Compare a clearly centred version with a looser arrangement. You may discover that one little echo creates enough of an intentional finish, or that you prefer the less coordinated version. Either outcome is useful. This exercise asks what you enjoy trying, not how successfully you satisfy somebody else’s expectations. It needs no purchase, public presentation or commitment to dressing formally in everyday life.",
+              "zh": "从普通衣物组合出发，在两个区域加一处小联系，比较焦点明确居中的版本与较松散的安排。可能发现一点呼应就足够，也可能更喜欢不那么成套的版本，两种观察都有用。尝试关注愿意试什么，不检查是否成功满足别人期待；不需要购物、公开展示，或承诺日常都采用正式着装。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colour-play",
+      "directionIds": [
+        "colour-play"
+      ],
+      "title": {
+        "en": "Colour Play",
+        "zh": "跳色玩趣"
+      },
+      "headline": {
+        "en": "Bright contrasts and deliberately playful emphasis",
+        "zh": "明亮对比与有意放大的趣味重点"
+      },
+      "summary": {
+        "en": "Compare lively colour blocks, unexpected echoes and bolder graphic details. A bright visual preference does not determine sociability, confidence or a need to stand out.",
+        "zh": "比较活泼色块、意外呼应与较醒目的图形细节。明亮视觉偏好不决定社交性、自信或想出风头的程度。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#EE5962",
+          "name": {
+            "en": "Bright coral-red",
+            "zh": "明亮珊瑚红"
+          }
+        },
+        {
+          "hex": "#F1BE36",
+          "name": {
+            "en": "Golden yellow",
+            "zh": "金黄"
+          }
+        },
+        {
+          "hex": "#428BCB",
+          "name": {
+            "en": "Clear blue",
+            "zh": "清蓝"
+          }
+        },
+        {
+          "hex": "#F7F2E5",
+          "name": {
+            "en": "Warm pale cream",
+            "zh": "暖浅米白"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Colour Play: Whole-Look Style Preferences Guide",
+          "zh": "跳色玩趣：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Colour Play groups bright accents, unexpected combinations and a deliberately lively relationship between shapes. The detail can be a bold graphic or a colour that appears again in an unusual place. A higher count does not mean that you are more extroverted, confident or eager for attention. It records choices among descriptions in this edition. You might enjoy imagining a bright arrangement while usually wearing quiet clothes, and that difference does not make either preference less real or require an explanation through personality.",
+              "zh": "跳色玩趣把明亮点缀、意外组合与形状之间活泼的关系放在一起。重点可以是醒目图形，也可以是一种颜色在意外位置再次出现。次数较高，不表示更外向、更自信或更想被注意，只记录本版本描述之间的选择。平常穿得安静，也可以喜欢想象明亮组合；这种差别不让任何一种偏好失真，更不需要靠性格解释。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Bright coral-red, golden yellow, clear blue and warm pale cream form one original palette. One saturated accent against a plain background can be enough; using all the bright colours together is optional. You can also explore the relationship with a colour you already own, a written colour note or a simple outfit sketch. These choices have not been tested against your skin, hair or eyes. The palette proposes a contrast to imagine rather than a set of colours guaranteed to flatter you.",
+              "zh": "明亮珊瑚红、金黄、清蓝与暖浅米白，组成一种原创示例。素净背景前的一点饱和色可能已经足够，不必把所有亮色一起用。也可以用已有颜色、私人颜色笔记或简单穿搭草图探索同样关系。这些选择没有与你的皮肤、头发或眼睛比较；配色提出可想象的对比，不保证某组颜色一定衬你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Think about the size and spacing of the accent as well as its colour. A large playful motif, a small repeated pop and two contrasting blocks can create different rhythms. A quieter background may make the accent easy to read, while several bright areas may create the busier effect you enjoy. Neither arrangement is inherently better. Playfulness names a quality of the visual idea, not an age category or a judgement about how seriously a person approaches life or work.",
+              "zh": "除了颜色，也可以留意点缀的大小与间距。放大趣味纹样、小面积重复跳色，以及两个对比色块，会形成不同节奏。安静背景能让点缀清楚，几处明亮区域也可能形成你喜欢的繁忙效果，两者没有天然高低。“玩趣”描述视觉构思的性质，不是年龄类别，也不评价一个人对生活或工作的认真程度。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a simple neutral combination with one bright detail and a smaller echo of that colour elsewhere. The echo might already exist in a familiar item, so the idea needs no new purchase. Alternatively, replace the repeated colour with a contrasting graphic shape and compare the overall mood. You may prefer the first version because it feels connected, or the second because the contrast feels more playful. The example leaves the actual cut, comfort and occasion requirements to your own practical judgement.",
+              "zh": "想象一套简单中性色组合，放一处亮色细节，再在别处小小呼应一次。同色可能已存在于熟悉单品里，不需要新购；也可以把颜色呼应换成对比图形，比较整体氛围。可能因联系清楚而喜欢第一种，也可能因碰撞有趣而喜欢第二种。例子把真实剪裁、舒适度与场合要求，留给你实际判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Soft Play uses amusement too, but its examples tend toward compact rounded motifs and a gentler emphasis. Colour Play makes the contrast or visual scale more noticeable. Clean Edge may share a strong graphic boundary while keeping the palette and arrangement more spare. Looking at these differences can help you identify whether the attraction is to playfulness, saturation, scale or a particular shape. Tied counts do not demand that you choose a single correct label; every highest-count guide remains complete.",
+              "zh": "柔软玩心也有趣味，但示例偏向小巧圆润纹样与较轻的重点。跳色玩趣让对比或视觉尺度更醒目。简洁锐线也可能有强图形边界，但配色与安排更简省。比较能帮助认出吸引你的是玩心、饱和度、尺度，还是某个具体形状。次数并列不要求选唯一正确标签，每个最高并列的指南都完整保留。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Take one existing bright or patterned item and imagine it in two simple whole-outfit arrangements. In one, let it be the only clear accent; in the other, add a small echo or a deliberate contrast. Compare the versions privately and note which detail changes the mood for you. You can use a rough sketch if you do not want to wear the combination. A useful trial may end with keeping just one colour relationship, without buying more items or adopting a constantly bright public image.",
+              "zh": "用一件已有亮色或纹样单品，想象两种简单完整穿搭。第一种只让它作明确重点，第二种加一点呼应或有意对比。私下比较，记下哪个细节改变了自己感受到的氛围；不想穿上，也可以画粗略草图。有用的尝试可以只留下一个颜色关系，不必买更多东西或长期维持鲜亮的公开形象。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relaxed-edge",
+      "directionIds": [
+        "relaxed-edge"
+      ],
+      "title": {
+        "en": "Relaxed Edge",
+        "zh": "随性棱角"
+      },
+      "headline": {
+        "en": "Easy shapes with matte, grounded visual accents",
+        "zh": "轻松形状，配哑光而明确的视觉点缀"
+      },
+      "summary": {
+        "en": "Read about casual layers, textured surfaces and darker defined details. These visual cues do not reveal toughness, gender, a body frame or an authentic personal identity.",
+        "zh": "观察休闲叠层、纹理表面与较深的明确细节。这些视觉线索不揭示强悍程度、性别、身体框架或所谓真实身份。"
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#484B4A",
+          "name": {
+            "en": "Matte charcoal",
+            "zh": "哑光炭灰"
+          }
+        },
+        {
+          "hex": "#8A8D86",
+          "name": {
+            "en": "Muted grey-green",
+            "zh": "柔和灰绿"
+          }
+        },
+        {
+          "hex": "#BCB2A0",
+          "name": {
+            "en": "Warm stone",
+            "zh": "暖石色"
+          }
+        },
+        {
+          "hex": "#DDD8CE",
+          "name": {
+            "en": "Pale sand-grey",
+            "zh": "浅沙灰"
+          }
+        }
+      ],
+      "scoreReading": {
+        "en": "Sixteen four-way choices; each theme appears eight times and twice in each position. One raw count per selected description. Every highest tie receives its complete guide; no match percentage or face type.",
+        "zh": "十六次四选一，每主题出现八次、每位置各两次。每个选中描述记一次；每个最高并列都有全文，不显示匹配百分比或脸型身份。"
+      },
+      "seo": {
+        "title": {
+          "en": "Relaxed Edge: Whole-Look Style Preferences Guide",
+          "zh": "随性棱角：整体造型氛围偏好完整指南"
+        },
+        "description": {
+          "en": "Explore this original style theme through palettes, outfit details, comparisons and a no-purchase experiment. Full guide free, without face or body classification.",
+          "zh": "从示例配色、穿搭细节、主题比较与无需购买的小尝试理解这一原创造型主题。全文免费，不作面部或身体分类。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "The visual idea behind this theme",
+            "zh": "这一主题的视觉构思"
+          },
+          "paragraphs": [
+            {
+              "en": "Relaxed Edge groups an easy-looking arrangement with matte surfaces, a little rough-looking texture and clearly defined darker accents. The contrast between casual shapes and a firmer detail gives the theme its visual interest. It does not measure toughness, independence, masculinity or a particular body frame. The word relaxed describes the imagined arrangement, not how comfortable a garment will feel or how calm a person is. People can enjoy this combination without making it a statement about their social group or identity.",
+              "zh": "随性棱角把轻松的安排、哑光表面、少量粗粝视觉纹理与清楚深色点缀放在一起。休闲形状与较明确细节之间的对照，构成视觉兴趣。它不测量强悍、独立、男性气质或身体框架。“随性”描述想象组合，不保证衣物穿着舒服，也不判断人是否平静。喜欢这种构思，不需要把它当成群体或身份宣言。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An example palette and surface relationship",
+            "zh": "示例配色与表面关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Matte charcoal, muted grey-green, warm stone and pale sand-grey offer one possible palette. A dark accent against a quieter mid-tone may establish the relationship without making the whole outfit dark. If you prefer brighter colours, keep one of them and compare it with a matte or textured supporting area. These examples do not imply that darker shades suit everyone or that rough-looking surfaces are more authentic. Colour and surface relationships are visual possibilities, while actual personal colouring and garment performance remain unmeasured.",
+              "zh": "哑光炭灰、柔和灰绿、暖石色与浅沙灰，是一种可能的配色。在安静中间色旁放深色点缀，就能形成关系，不必全套深色。偏爱亮色，也可以保留一种，与哑光或纹理背景比较。示例不暗示深色适合所有人，也不认为粗粝表面更真实。颜色与表面关系只是视觉可能，没有测量个人着色或衣物的实际表现。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How details set the whole-look mood",
+            "zh": "细节怎样影响整体氛围"
+          },
+          "paragraphs": [
+            {
+              "en": "Notice the relationship between a loose outline and a visible fastening, straight metallic accent or firm dark boundary. One clearly placed detail may be enough to keep an easy arrangement from looking visually diffuse. A raw-looking texture is a description of appearance, not a promise about durability, comfort or the way a fabric touches skin. You may enjoy the image but dislike the actual material. That distinction is useful information about the difference between imagined visual preference and real-world use.",
+              "zh": "可以留意宽松轮廓与可见扣饰、直线金属点缀或明确深色边界之间的关系。一处位置清楚的细节，可能足以让轻松安排不至于视觉分散。原生或粗粝感描述表象，不承诺耐用、舒服或触肤感；也可能喜欢这种画面，却不喜欢真实材质。区分两者，有助于分开想象的视觉偏好与实际使用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One complete outfit idea to imagine",
+            "zh": "想象一个完整造型"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a familiar plain outfit with a casual outer layer and one dark fastening or angular accent. The layer gives the arrangement room, while the accent provides a clear point to notice. You could keep the same colours and compare a smoother surface with a more textured one. No particular material, brand or item of clothing is necessary to understand the idea. The guide does not infer what you already wear, how you move or whether the example is appropriate for an actual event.",
+              "zh": "想象熟悉的素净穿搭，配休闲外层和一个深色扣饰或棱角点缀。外层让安排舒展，点缀则提供清楚的注意点。保持颜色不变，还可以比较平滑与较有纹理的表面。不需要指定材质、品牌或某件衣物，才能理解构思；指南不推断平常穿什么、怎样活动，也不判断例子是否符合某次真实活动。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Compare neighbouring themes without a fixed label",
+            "zh": "比较相近主题，不固定标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Clean Edge may share the defined dark detail, but its examples usually keep the surface smoother and the graphic arrangement more controlled. Light Ease can share casual simplicity while using lighter, more open cues. Formal Poise places more emphasis on an intentionally coordinated whole. A detail from any of these neighbours can be combined with a relaxed layer if that appeals to you. Comparing the actual cues is more useful than deciding which theme is your permanent or most authentic style.",
+              "zh": "简洁锐线也可能用明确深色细节，但示例表面通常更平滑、图形安排更受控。轻快自在也可以休闲简单，不过线索更轻浅开放；端整仪式更强调有意协调的整体。只要喜欢，任何相近主题的细节都能与休闲外层组合。比较真实线索，比决定哪个才是永久或最真实的风格更有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small experiment using what you have",
+            "zh": "利用已有物品做一个小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Try arranging an existing casual layer with one darker, clearly shaped detail, then compare the version without that accent. You can also sketch a smooth and a textured version of the same outfit while keeping the colours constant. Notice whether the loose arrangement, the darker boundary or the surface texture is doing most of the work for you. Keep only the part you enjoy. This does not require buying hardware, changing your body, following a subculture or proving that you are a particular kind of person.",
+              "zh": "可以把已有休闲外层与一个深色、形状清楚的细节放在一起，再比较拿掉点缀的版本。也可以保持颜色不变，画出同套穿搭的平滑与纹理版本，留意最起作用的是宽松安排、深色边界，还是表面纹理。只保留自己喜欢的部分即可，不要求购买金属配件、改变身体、遵从某种亚文化，或证明自己是哪种人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读次数与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Each theme appears in eight of the sixteen four-way comparisons, twice in each option position. A selected option adds one count to its theme. Eight appearances do not mean that every comparison asks the same question or offers the same alternatives. For example, three selections mean three choices among the offered descriptions, not a 37.5 percent match with your face or personality. The result opens every theme sharing the highest count in full. No hidden rule breaks a tie, and nearby counts do not establish an officially meaningful primary or secondary type.",
+              "zh": "十六次四选一比较中，每个主题出现八次，在每个选项位置各两次。选中某个描述，就为其主题记一次。八次出现不表示每次问题或对照选项相同。例如，选中三次，只表示在所给描述中作了三次这种选择，不是你的面部或人格有37.5%的匹配。所有最高次数并列的主题都完整展开，不用隐藏规则拆开并列；相近次数也不构成官方意义的主型或副型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep preference, practical fit and identity separate",
+            "zh": "区分偏好、实际合适与身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the descriptions as optional styling ideas. This original edition does not inspect a photograph, facial proportions, age, gender, skin undertone or body frame. Its eight names describe combinations of visual cues rather than the eight categories in a professional face-feature system. It cannot determine what will fit, feel comfortable, meet a dress code or look attractive to somebody else. Those practical decisions remain yours. Changing your mind, borrowing a detail from another guide or deciding that none of these descriptions is useful does not require a new personal label.",
+              "zh": "把这些描述当成可选的造型构思。本原创版本不查看照片、面部比例、年龄、性别、皮肤底调或身体框架。八个名称描述视觉线索组合，不是专业面部特征体系中的八种类别。它不能确定衣服是否合身、舒服、符合着装规定，或是否令别人觉得好看；这些实际判断仍由你作出。改变主意、借用另一篇的细节，或认为这些描述都无用，都不需要换一个个人标签。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "An original styling-preference comparison",
+        "zh": "原创造型偏好比较"
+      },
+      "paragraphs": [
+        {
+          "en": "This form compares sixteen imagined whole-look choices across eight original themes. It does not analyse a photo or physical features. A professional face-feature system is a different task and uses its own format and observations; no official form, key, images or endorsement are adopted here. These themes also differ from the existing graphic Aesthetic forms, expression-behaviour ratings and the five separate garment-line means. A different name alone would not make their scores interchangeable.",
+          "zh": "本题本用十六次想象中的整体造型选择比较八个原创主题，不分析照片或身体特征。专业面部特征体系是不同任务，有其格式与观察方法；这里没有采用官方表格、计分键、图片或背书。八主题也不同于已有图形审美题本、表达行为评分与五项服装线条均值，名称不同并不使分数可以互换。"
+        }
+      ]
+    },
+    {
+      "id": "counting",
+      "title": {
+        "en": "Sixteen choices, equal appearances and all highest ties",
+        "zh": "十六次选择、均衡出现与全部最高并列"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme appears eight times, twice in each option position. One selected description adds one count to its theme. Complete all sixteen comparisons before reading the eight tallies. A theme missing from an item receives no negative point. Every theme tied for the highest count gets its complete guide; there is no alphabetical winner, random selection or hidden secondary type. Counts describe this set of offered alternatives, without a validated close-score threshold, population ranking or percentage match.",
+          "zh": "每主题出现八次、每位置各两次，选中某个描述就为其主题记一次。完成十六次比较后读取八项次数。当题没有出现的主题不扣分。所有最高次数并列主题都有完整指南，不按字母选冠军、不随机挑选，也没有隐藏副型。次数仅描述这组对照选项，没有经过验证的近分阈值、人群排名或匹配百分比。"
+        }
+      ]
+    },
+    {
+      "id": "free-private",
+      "title": {
+        "en": "Eight full guides, with page-memory answers only",
+        "zh": "八篇免费全文，答案仅留页面内存"
+      },
+      "paragraphs": [
+        {
+          "en": "All eight eight-section guides are open before answering. After a complete attempt, every highest-count guide is also shown in full inside the result. Answers stay in the current page memory, without draft storage, quiz-flow analytics or a personal-result share link. Refreshing, changing language or leaving loses the attempt. You can stop and clear progress, retake, compare another public guide or finish here. No signup, purchase or personality test is required to read the complete explanations.",
+          "zh": "八篇八节全文在作答前已全部开放。完整作答后，每个最高并列指南也在结果里全文呈现。答案只留当前页面内存，不存草稿、不发送测试流程统计、不生成个人结果分享链接；刷新、换语言或离开会丢失进度。可以停止并清除进度、重测、比较其他公开指南，或在此结束；阅读全文无需注册、购买或再做人格测试。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a face-type diagnosis or photo analysis?",
+        "zh": "这是面部类型诊断或照片分析吗？"
+      },
+      "answer": {
+        "en": "No. These are original whole-look styling preferences. The form does not inspect a face, photo, body, age or gender, and it does not use or reproduce an official eight-type assessment.",
+        "zh": "不是。这里观察原创的整体造型偏好，不检查面部、照片、身体、年龄或性别，也没有使用或复制官方八型评估。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the complete results free?",
+        "zh": "完整结果免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All eight complete guides are free before answering. Every highest-count guide is shown in full after a complete attempt, with no signup or purchase.",
+        "zh": "免费。八篇全文在作答前已开放，完整作答后每个最高并列也全文显示，无需注册或购买。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do the sixteen choices become counts?",
+        "zh": "十六次选择怎样成为次数？"
+      },
+      "answer": {
+        "en": "Choose one of four descriptions for every comparison. Each theme appears eight times, twice in each position. A chosen description adds one count; the eight counts sum to sixteen and are not a match percentage or personality total.",
+        "zh": "每次四个描述选一项。每主题出现八次、每位置各两次，选中一次记一次。八项次数之和为十六，不是匹配百分比或人格总分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when themes tie?",
+        "zh": "主题并列时怎样处理？"
+      },
+      "answer": {
+        "en": "Every theme sharing the highest count receives its complete eight-section guide. No hidden rule chooses a sole winner or assigns a secondary type. All other public guides remain free to compare.",
+        "zh": "每个最高次数并列主题都有完整八节指南，不用隐藏规则选唯一赢家或分配副型，其他公开全文仍可免费比较。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if none of the descriptions is useful?",
+        "zh": "描述都无用时怎么办？"
+      },
+      "answer": {
+        "en": "You may leave without completing the form and read any full guide. Partial attempts do not produce counts. A completed choice only means closest among those four alternatives, not absolute endorsement of every detail.",
+        "zh": "可以不完成题本就离开，并阅读任意全文。未完成不生成次数。完整选择也只表示当次四个对照里较接近偏好，不是绝对认同所有细节。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers stay in the current page memory, without a stored draft, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Public guides contain no one’s answers or counts.",
+        "zh": "答案只留当前页面内存，不存草稿、不发送测试流程统计、不分享个人结果。刷新、换语言或离开会丢失；公开指南不含任何人的答案或次数。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Japan Face Type Diagnosis Association: its separate feature-based method",
+        "zh": "日本顔タイプ診断协会：其独立面部特征方法"
+      },
+      "url": "https://kaotype.jp/kaotype/"
+    }
+  ]
+}

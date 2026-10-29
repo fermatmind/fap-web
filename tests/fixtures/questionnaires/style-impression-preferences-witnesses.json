@@ -1,0 +1,8113 @@
+{
+  "method": "independentlower-boundintegercirculation;onewitnessperfeasiblehighestset;not4^16individualanswerexecutionsorpsychometricvalidation",
+  "itemBankSHA256": "30b1a5c83520db11691cdd47fad3cf81a69ccf160a5da7a515006c0db97c7437",
+  "witnesses": [
+    {
+      "leaders": [
+        "soft-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "C",
+        "A",
+        "C",
+        "D",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "D",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "D",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "D",
+        "D",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 0,
+        "flowing-detail": 2,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "C",
+        "D",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "C",
+        "D",
+        "C",
+        "D",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "C",
+        "D",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "D",
+        "C",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "D",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "D",
+        "B",
+        "C",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "D",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "C",
+        "D",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "D",
+        "C",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "D",
+        "D",
+        "C",
+        "B",
+        "B",
+        "C",
+        "D",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "D",
+        "C",
+        "D",
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "D",
+        "C",
+        "B",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "C",
+        "D",
+        "C",
+        "A",
+        "A",
+        "B",
+        "C",
+        "D",
+        "B",
+        "B",
+        "B",
+        "A",
+        "D",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "D",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "D",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 2,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "D",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 2,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "D",
+        "C",
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "D",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 2,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "B",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "D",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D",
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "D",
+        "B",
+        "D",
+        "B",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "D",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D",
+        "D",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "D",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "D",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 2,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "D",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "D",
+        "D",
+        "B",
+        "B",
+        "A",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 2,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "D",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "D",
+        "A",
+        "A",
+        "C",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "D",
+        "C",
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "C",
+        "B",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "D",
+        "C",
+        "C",
+        "A",
+        "B",
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "D",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "C",
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "D",
+        "A",
+        "D",
+        "C",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "C",
+        "C",
+        "A",
+        "D",
+        "B",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "D",
+        "C",
+        "A",
+        "B",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 2
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 2,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "D",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "D",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 0,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 2,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 1,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 0,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "C",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 1,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "B",
+        "D",
+        "A",
+        "D",
+        "C",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 1,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 0,
+        "formal-poise": 1,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "D",
+        "A",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 3,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "D",
+        "B",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 1
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "D",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 1,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "clean-edge",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "D",
+        "C",
+        "B",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 1,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 1,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 3,
+        "light-ease": 0,
+        "clean-edge": 1,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "D",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 0,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "C",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "D",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 0,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 0,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 1,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "B",
+        "D",
+        "A",
+        "B",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "clean-edge",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "B",
+        "D",
+        "B",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "light-ease",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 3,
+        "clean-edge": 0,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 0
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 0,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 0,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "flowing-detail",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "C",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 3,
+        "quiet-polish": 0,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "clean-edge",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "C",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 3,
+        "flowing-detail": 0,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "B",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D"
+      ],
+      "counts": {
+        "soft-play": 1,
+        "light-ease": 0,
+        "clean-edge": 0,
+        "flowing-detail": 3,
+        "quiet-polish": 3,
+        "formal-poise": 3,
+        "colour-play": 3,
+        "relaxed-edge": 3
+      }
+    },
+    {
+      "leaders": [
+        "soft-play",
+        "light-ease",
+        "clean-edge",
+        "flowing-detail",
+        "quiet-polish",
+        "formal-poise",
+        "colour-play",
+        "relaxed-edge"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "soft-play": 2,
+        "light-ease": 2,
+        "clean-edge": 2,
+        "flowing-detail": 2,
+        "quiet-polish": 2,
+        "formal-poise": 2,
+        "colour-play": 2,
+        "relaxed-edge": 2
+      }
+    }
+  ],
+  "impossibleHighestSets": [
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "quiet-polish",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "quiet-polish",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "flowing-detail",
+      "quiet-polish",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "flowing-detail",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "flowing-detail",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "clean-edge",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "light-ease",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "soft-play",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ],
+    [
+      "light-ease",
+      "clean-edge",
+      "flowing-detail",
+      "quiet-polish",
+      "formal-poise",
+      "colour-play",
+      "relaxed-edge"
+    ]
+  ],
+  "impossibilityReason": "For6or7leaders,maximum1admitsatmost8choices;maximum2cannotreach16withstrictlylowernonleaders;maximum3orhigherexceeds16withleadersalone."
+}

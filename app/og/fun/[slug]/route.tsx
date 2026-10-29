@@ -190,6 +190,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.kind === "alignment" ? (zh ? "原创阵营问卷" : "Original alignment reflection")
     : questionnaire?.slug === "stupidity-test" ? (zh ? "原创日常乌龙选择" : "Original everyday mix-up choices")
     : questionnaire?.slug === "values-assessment" ? (zh ? "原创工作取舍" : "Original work-priority choices")
+    : questionnaire?.slug === "style-impression-preferences" ? (zh ? "原创造型偏好" : "Original style reflection")
     : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
     : questionnaire?.kind === "work-role12" ? (zh ? "原创任务情境回顾" : "Original task-context reflection")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
