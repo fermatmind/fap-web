@@ -6798,5 +6798,29 @@
       "thoughts-about-sleep-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "health-worries-reflection",
+    "code": "FM_HEALTH_WORRIES21_OBSERVATIONS",
+    "version": "fm_health_worries21_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Health Worries: Personal Reflection",
+      "zh": "健康担忧：个人回顾"
+    },
+    "description": {
+      "en": "Reflect on 21 original descriptions of bodily attention, questions and care decisions, and serious possibilities. Three full public guides and private category records, without a SHAI score, medical reassurance or diagnosis.",
+      "zh": "用21条原创描述回顾身体注意、提问与照护决定，以及想到严重可能性时的经历。三篇全文公开，类别记录留在本页，不生成SHAI分数、医学安心保证或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_health_worries21_observations_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "attention-to-sensations-reading",
+      "requests-and-care-decisions-reading",
+      "serious-possibilities-reading"
+    ],
+    "collection": "explore"
   }
 ]

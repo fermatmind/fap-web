@@ -8,6 +8,7 @@ const loaders = {
   "activity-engagement-patterns": async () => (await import("./data/activity-engagement-patterns.json")).default as Questionnaire,
   "style-impression-preferences": async () => (await import("./data/style-impression-preferences.json")).default as Questionnaire,
   "outfit-line-preferences": async () => (await import("./data/outfit-line-preferences.json")).default as Questionnaire,
+  "health-worries-reflection": async () => (await import("./data/health-worries-reflection.json")).default as Questionnaire,
   "sleep-experiences-reflection": async () => (await import("./data/sleep-experiences-reflection.json")).default as Questionnaire,
   "after-bereavement-reflection": async () => (await import("./data/after-bereavement-reflection.json")).default as Questionnaire,
   "considering-support-reflection": async () => (await import("./data/considering-support-reflection.json")).default as Questionnaire,

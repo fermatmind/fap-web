@@ -1,0 +1,1853 @@
+{
+  "slug": "health-worries-reflection",
+  "code": "FM_HEALTH_WORRIES21_OBSERVATIONS",
+  "version": "fm_health_worries21_observations_v1",
+  "kind": "health-worries21",
+  "title": {
+    "en": "Health Worries: Personal Reflection",
+    "zh": "健康担忧：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "attention-to-sensations",
+      "title": {
+        "en": "Attention to bodily sensations",
+        "zh": "对身体感觉的注意"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "requests-and-care-decisions",
+      "title": {
+        "en": "Questions, requests and care decisions",
+        "zh": "提问、请求与就医决定"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "serious-possibilities",
+      "title": {
+        "en": "Thinking about serious possibilities",
+        "zh": "想到严重可能性时"
+      },
+      "itemCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": "HLW_01",
+      "prompt": {
+        "en": "When I was worried about health, a bodily sensation kept drawing my attention.",
+        "zh": "担心健康时，某种身体感觉不断吸引我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_02",
+      "prompt": {
+        "en": "After noticing a physical feeling that worried me, I found it hard to keep attention on an ordinary task.",
+        "zh": "注意到让我担心的身体感觉后，我难把注意力保持在一项普通任务上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_03",
+      "prompt": {
+        "en": "My attention returned to a bodily sensation I had noticed earlier while I was doing something else.",
+        "zh": "做其他事情时，我的注意又回到早先注意到的身体感觉上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_04",
+      "prompt": {
+        "en": "While concerned about health, I compared how my body felt with how it had felt before.",
+        "zh": "担心健康时，我比较身体现在的感觉与之前的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_05",
+      "prompt": {
+        "en": "An unfamiliar bodily feeling brought up worry before I understood what it meant.",
+        "zh": "一种不熟悉的身体感觉，在我理解其含义之前引出了担忧。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_06",
+      "prompt": {
+        "en": "During a conversation, I noticed my attention returning to a physical feeling I was worried about.",
+        "zh": "谈话时，我注意到自己的注意力又回到担心的身体感觉上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_07",
+      "prompt": {
+        "en": "After a moment had passed, I mentally replayed how a bodily sensation had felt.",
+        "zh": "某个时刻过去后，我在脑中回想当时身体感觉是怎样的。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-to-sensations"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_08",
+      "prompt": {
+        "en": "I asked someone whether a health concern sounded serious because I wanted more certainty.",
+        "zh": "因为想更确定，我问别人某项健康担忧听起来是否严重。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_09",
+      "prompt": {
+        "en": "I returned to a health question after receiving an explanation because I still felt uncertain.",
+        "zh": "听过解释后，因为仍不确定，我又回到同一个健康问题上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_10",
+      "prompt": {
+        "en": "After an initial answer, I searched for more information because uncertainty about health continued.",
+        "zh": "有了初步回答后，因为健康方面仍不确定，我继续寻找信息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_11",
+      "prompt": {
+        "en": "I considered asking a healthcare professional a question, then put it off because I feared what I might hear.",
+        "zh": "我考虑向医疗专业人士提问，后来因害怕可能听到的回答而推迟。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_12",
+      "prompt": {
+        "en": "I hesitated to open a health-related message because I worried about what it might say.",
+        "zh": "因为担心内容，我犹豫是否打开一条与健康有关的消息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_13",
+      "prompt": {
+        "en": "After already discussing a health concern, I wanted another explanation of it.",
+        "zh": "已经谈过某项健康担忧后，我还想再听一次解释。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_14",
+      "prompt": {
+        "en": "I moved between wanting to ask a health question and wanting not to think about the answer.",
+        "zh": "我在想提出健康问题与不愿考虑回答之间来回犹豫。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "requests-and-care-decisions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_15",
+      "prompt": {
+        "en": "While reading general health information, I pictured a serious illness happening to me.",
+        "zh": "阅读一般健康信息时，我想到自己可能经历严重疾病。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_16",
+      "prompt": {
+        "en": "I focused on a frightening possible explanation without being able to tell how likely it was.",
+        "zh": "我把注意放在令人害怕的可能解释上，却无法判断它有多大可能。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_17",
+      "prompt": {
+        "en": "A story about another person’s health led me to imagine a similar outcome for myself.",
+        "zh": "听到别人的健康经历后，我想到自己也可能有类似结果。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_18",
+      "prompt": {
+        "en": "I found it hard to leave the meaning of a bodily feeling uncertain.",
+        "zh": "对一种身体感觉意味着什么，我难以让这个问题保持不确定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_19",
+      "prompt": {
+        "en": "From one piece of health information, I mentally mapped out several things that might go wrong.",
+        "zh": "从一条健康信息出发，我在脑中想到几种可能出问题的情况。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_20",
+      "prompt": {
+        "en": "Even without knowing which information applied to me, I kept thinking about a serious possibility.",
+        "zh": "还不知道哪些信息适用于自己时，我不断想到一种严重可能性。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "HLW_21",
+      "prompt": {
+        "en": "Thinking about a serious health possibility made it hard to attend to the task in front of me.",
+        "zh": "想到某种严重的健康可能性时，我难以注意眼前的任务。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "serious-possibilities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Health Worry Reflection: 21 Original Observations | FermatMind",
+    "zh": "健康担忧回顾：21条原创观察与完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Reflect on 21 original descriptions of bodily attention, questions and care decisions, and serious possibilities. Three full public guides and private category records, without a SHAI score, medical reassurance or diagnosis.",
+    "zh": "用21条原创描述回顾身体注意、提问与照护决定，以及想到严重可能性时的经历。三篇全文公开，类别记录留在本页，不生成SHAI分数、医学安心保证或诊断。"
+  },
+  "introduction": {
+    "en": "This adult reflection organises three overlapping reading topics. It cannot determine whether a physical experience is harmless, only anxiety or a medical condition. A health question and worry can both deserve attention. The record does not decide whether care is needed or urgent, or replace existing professional advice.",
+    "zh": "这份成年人回顾整理三个可能重叠的阅读主题，不能判断身体经历无害、只是焦虑或属于疾病。健康问题与担忧都可以值得关注。记录不决定照护是否需要、是否紧急，也不替代既有专业意见。"
+  },
+  "instructions": {
+    "en": "Recall the past four weeks, without examining your body, opening a health message or searching for information to answer. Choose how often you noticed each description. No relevant experience, unclear recall or withholding can remain unscored, separate from did not notice. IDs are labels, not points or counts of visits, searches or illnesses. Pause or leave whenever you want. Do not use the record to postpone assessment, cancel care or change medicine.",
+    "zh": "凭回忆回顾过去四周，不用为了答题检查身体、打开健康消息或搜索信息。选择多常注意到每条描述；没有相关经历、回想不清或保留回答可未计分，与没有注意到分开。标识是标签，不是点数，也不统计就诊、搜索或疾病次数。可随时暂停或离开，不用记录推迟评估、取消照护或改药。"
+  },
+  "resultHeading": {
+    "en": "Your three separate health-worry observation records",
+    "zh": "三个分别阅读的健康担忧观察记录"
+  },
+  "profiles": [
+    {
+      "id": "attention-to-sensations-reading",
+      "directionIds": [
+        "attention-to-sensations"
+      ],
+      "title": {
+        "en": "Attention to bodily sensations — Complete Reading",
+        "zh": "对身体感觉的注意：完整读法"
+      },
+      "headline": {
+        "en": "Attention to bodily sensations — Complete Reading",
+        "zh": "对身体感觉的注意：完整读法"
+      },
+      "summary": {
+        "en": "Describe remembered attention without examining a sensation, judging its cause or deciding that a symptom is harmless.",
+        "zh": "描述回忆中的注意，不检查感觉、不判原因，也不决定症状无害。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to seven original descriptions, with individual labels retained. IDs are not points. No total, mean, rank, risk, diagnosis or medical verdict is produced; counts do not measure visits, searches or illness probability.",
+        "zh": "六类计数合计七条原创描述，并保留逐条标签。标识不是点数，不产生总分、均值、排名、风险、诊断或医学结论；计数不测就诊、搜索或患病概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attention to bodily sensations: Full Health Worry Guide | FermatMind",
+          "zh": "对身体感觉的注意：健康担忧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe remembered attention without examining a sensation, judging its cause or deciding that a symptom is harmless.",
+          "zh": "描述回忆中的注意，不检查感觉、不判原因，也不决定症状无害。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An account of attention is not an examination",
+            "zh": "注意力的叙述，不是身体检查"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains seven original observations about attention returning to a bodily feeling during a period of health worry. They concern remembered attention, comparison and thoughts during ordinary activities, rather than a list of symptoms to look for. Adults can consider the past four weeks. Answer from recollection if you want to; none of the statements asks you to examine your body, reproduce a sensation or check whether something is present now. You can leave any observation unscored.",
+              "zh": "本主题有七条原创观察，描述担心健康时，注意力又回到某种身体感觉。关注回忆中的注意、比较和普通活动里的想法，不列出供寻找的症状。成年人可回顾过去四周；愿意时凭回忆回答。没有陈述要求检查身体、重现感觉或确认现在是否存在某种情况，任何一条都可以未计分。"
+            },
+            {
+              "en": "A selection cannot tell whether the sensation has a medical explanation, is connected with worry or needs assessment. The page has no examination, health history or access to your circumstances. It cannot label a symptom harmless, decide that a concern is only anxiety or show that attention caused a physical feeling. A record about worry and a medical question can both matter. Neither a frequent nor an infrequent category resolves the medical question or replaces appropriate healthcare advice.",
+              "zh": "选择不能说明感觉是否有医学解释、是否与担忧有关或需不需要评估。页面没有身体检查、病史或你的背景，不能把症状标成无害、判断只是焦虑，或证明注意造成了感觉。关于担忧的记录与医学问题都可以重要；频繁或较少的类别都不解决医学问题，也不替代合适的医疗意见。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Seven statements keep six categories separate",
+            "zh": "七条陈述，六类分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "The six labels are did not notice, rarely, sometimes, often, very often and unscored. Their counts add to seven observations, with each selected label retained. Two often, three sometimes and two unscored remains that exact description pattern. The identifiers are not points and are never summed into a health-anxiety score, a level of vigilance or a comparison with typical people. There is no average, highest theme, risk band or diagnostic threshold in this exercise.",
+              "zh": "六类为没有注意到、很少、有时、较常、经常和未计分，计数合计七条，并保留逐条标签。两条较常、三条有时、两条未计分，就保留这一描述组合。标识不是点数，不加成健康焦虑分数、警觉程度或与典型人群的比较。练习没有均值、最高主题、风险档或诊断阈值。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding an answer remain unscored rather than becoming absence. If all seven are unscored, there is no personal finding about attention or worry. Did not notice is also limited to the statement and the period you recalled. A small count cannot establish physical health or show that a concerning experience can be ignored. The full guides and support information are available before answers and remain the same for every possible response pattern.",
+              "zh": "没有相关经历、回想不清和保留回答都未计分，不换成没有发生。七条全未计分，不提供注意或担忧的个人发现。没有注意到，也仅限于该陈述和回顾时段。计数小不能证明身体健康，也不能说明令人担心的经历可以忽略。全文和支持说明在答题前可读，任何组合都相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Similar attention can sit in different circumstances",
+            "zh": "相似的注意，可以处于不同背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person remembering a bodily feeling during a conversation after receiving unfamiliar health information. Another is following an existing medical plan and has questions about an explanation. Both might recognise attention returning, but their circumstances and reasons need not match. The questionnaire cannot determine which attention is necessary, excessive or proportionate. These examples are descriptions rather than instructions to notice a sensation, repeat a check or compare your reactions with someone else's.",
+              "zh": "设想一个人在收到不熟悉的健康信息后，谈话时又想到身体感觉；另一个人正按已有医疗计划行事，对解释仍有问题。两者可能都认出注意返回的描述，但背景和理由不必相同。问卷不能判断哪些注意必要、过多或适度。例子只是描述，不要求注意某种感觉、重复检查或与别人反应比较。"
+            },
+            {
+              "en": "The record also cannot decide whether a worry is justified by information you have, by something the page does not know or by a mixture of circumstances. You do not need to defend a concern to complete the reflection. An ordinary task and a health question can compete for attention without either being dismissed. A useful account might stay as small as “I kept returning to this concern while doing something else,” without attaching a diagnosis or explanation to it.",
+              "zh": "记录也不能判定担忧是否由已知信息、页面不知道的情况或多种背景支持。完成回顾无需为担忧辩护。普通任务与健康问题可能同时需要注意，不必否定其中一个。有用叙述可以只是“做其他事情时，我又回到这项担忧”，不附加诊断或解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Do not turn the reflection into another checking task",
+            "zh": "不把回顾变成另一项检查任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to count how many times attention moved, inspect a body part or reconstruct every remembered sensation. The categories are broad recollections rather than measured events. If thinking through the statements becomes burdensome or pulls you into unwanted checking, you may pause or leave. Finishing the observations is necessary only for this page to organise a private record, not for reading the guides, asking a medical question or requesting support with worry.",
+              "zh": "不必数注意转移几次、查看身体部位或重建每次感觉。类别只是宽泛回忆，不是测得的事件。考虑陈述变得负担，或使自己陷入不愿进行的检查时，可以暂停或离开。完成观察只关系到本页整理私人记录，不关系到读指南、询问医学问题或请求担忧方面的支持。"
+            },
+            {
+              "en": "There is no assignment to suppress a thought, delay a medical enquiry or prove that you can tolerate uncertainty. The page does not prescribe exposure, a body scan, reassurance reduction or a treatment exercise. It cannot tell you to stop monitoring something a clinician has asked you to monitor. If you are uncertain about an existing care instruction, that question belongs with an appropriate healthcare professional. Your category record has no authority to change that instruction.",
+              "zh": "不分配压住想法、延迟医疗询问或证明能承受不确定的任务。不规定接触练习、身体扫描、减少安心请求或治疗作业，也不能要求停止专业人士安排的监测。对已有照护指示不确定时，应向合适医疗专业人士询问，类别记录没有更改指示的权威。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep questions about health and worry open together",
+            "zh": "健康与担忧的问题，都可以保持开放"
+          },
+          "paragraphs": [
+            {
+              "en": "A professional conversation can consider what a physical experience means and how worry is affecting your day without making the questionnaire choose between them. This page cannot assess symptoms, decide whether tests or appointments are needed or judge the quality of previous advice. It also cannot infer that a clinician missed something. If a health concern remains unclear to you, you can ask for an explanation of the assessment and what advice applies, without using this exercise as evidence for a conclusion.",
+              "zh": "专业谈话可同时考虑身体经历意味着什么，以及担忧怎样影响一天，无需问卷替二者取舍。本页不评估症状、不决定检查或预约是否需要，不判既往意见质量，也不推断专业人士漏了什么。健康问题仍不清楚时，可以询问评估解释和适用意见，不把本练习当成支持某个结论的证据。"
+            },
+            {
+              "en": "You might begin with “I have a question about this physical experience, and I am also finding it hard to move attention away from the worry.” That is an optional conversational example, not a script you must follow or a demand to disclose private information here. You can ask how an appointment works and what detail is useful before deciding what to share. The page requests no symptom narrative, health records, diagnosis, medication list or information about another person.",
+              "zh": "可以这样开头：“我对这项身体经历有问题，也发现自己难把注意力从担忧上移开。”这只是可选谈话例子，不是必须照读，也不要求在本页披露隐私。可先问预约怎样进行、哪些细节有用，再决定分享什么。页面不收症状叙述、病历、诊断、药物清单或他人信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is not unlocked by frequent observations",
+            "zh": "支持不由高频观察解锁"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare professional about a health concern or about worry without reaching a minimum category count or finishing this reflection. No result should be used to postpone medical assessment, cancel care or change medicine. The exercise cannot assess the need or urgency of healthcare and does not replace existing professional advice. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. The page cannot monitor you or respond to an emergency.",
+              "zh": "健康问题或担忧都可以向合格医疗专业人士询问，无需达到最低计数或完成回顾。不能用结果推迟医学评估、取消照护或改药。练习不评估医疗需要或紧急程度，也不替代已有专业意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；页面不监测你、不响应紧急事件。"
+            },
+            {
+              "en": "Public information about health anxiety describes possible worry patterns and routes to professional support. It does not provide a validation of these original observations or determine whether your physical concern is explained by anxiety. The three reading topics may overlap and are not established independent dimensions. No topic has priority over a medical concern, and an entirely unscored record does not make that concern less real. Support information is unconditional on the entry, every guide and every private response pattern.",
+              "zh": "健康焦虑公开资料介绍可能的担忧模式与专业支持途径，不验证这些原创观察，也不确定身体担忧是否由焦虑解释。三个阅读主题可能重叠，尚不是已建立的独立维度。没有主题优先于医学问题，全未计分也不让担忧变得不真实。支持说明在入口、每篇指南和任何私人组合下均无条件公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "The record does not define your body or character",
+            "zh": "记录不定义身体，也不定义品格"
+          },
+          "paragraphs": [
+            {
+              "en": "This is not the Short Health Anxiety Inventory or a diagnostic interview. The original bilingual descriptions have no established population norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. Repeating them does not measure recovery, illness probability or treatment response; circumstances, recall and interpretation can change. A description of attention does not establish that someone is irrational, demanding or responsible for a symptom. You can use a useful phrase without accepting any label about yourself or the meaning of a physical experience.",
+              "zh": "这不是简式健康焦虑量表或诊断访谈。原创双语描述尚无群体常模、临床界值或验证中英文测量等值。重做不测恢复、患病概率或治疗反应，背景、回忆和理解可能变化。注意力描述不证明人不理性、要求多或应为症状负责；可以用一句有用表述，不接受关于自己或身体经历的标签。"
+            },
+            {
+              "en": "Answers stay only in current-page memory. There is no stored draft, answer submission, questionnaire analytics or personal result address. Exiting, retaking, reloading or leaving clears the private record. Copying the public entry shares only its title and address. All three complete guides are public before answering and remain the same for everyone. You can read without answering, keep an account private or seek professional help without letting a set of categories decide what deserves care.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除私人记录。复制公开入口只含标题及地址。三篇全文答题前公开，对所有人相同。可以不答题阅读、保留叙述或寻求专业帮助，不让类别决定什么值得照护。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "requests-and-care-decisions-reading",
+      "directionIds": [
+        "requests-and-care-decisions"
+      ],
+      "title": {
+        "en": "Questions, requests and care decisions — Complete Reading",
+        "zh": "提问、请求与就医决定：完整读法"
+      },
+      "headline": {
+        "en": "Questions, requests and care decisions — Complete Reading",
+        "zh": "提问、请求与就医决定：完整读法"
+      },
+      "summary": {
+        "en": "Keep questions, requests and hesitation in context, without counting unnecessary care or telling you to postpone an assessment.",
+        "zh": "把提问、请求和犹豫放回背景，不统计不必要照护，也不要求推迟评估。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to seven original descriptions, with individual labels retained. IDs are not points. No total, mean, rank, risk, diagnosis or medical verdict is produced; counts do not measure visits, searches or illness probability.",
+        "zh": "六类计数合计七条原创描述，并保留逐条标签。标识不是点数，不产生总分、均值、排名、风险、诊断或医学结论；计数不测就诊、搜索或患病概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Questions, requests and care decisions: Full Health Worry Guide | FermatMind",
+          "zh": "提问、请求与就医决定：健康担忧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep questions, requests and hesitation in context, without counting unnecessary care or telling you to postpone an assessment.",
+          "zh": "把提问、请求和犹豫放回背景，不统计不必要照护，也不要求推迟评估。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Questions and hesitation can coexist",
+            "zh": "提问与犹豫，可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains seven original observations about asking for certainty, returning to an explanation, searching for information and hesitating over a health question or message. It also includes moving between wanting to ask and wanting not to think about an answer. Adults can recall the past four weeks if they wish. The observations are not a tally of appointments or a judgment about whether someone seeks too much or too little care. You do not need to describe a health concern here.",
+              "zh": "本主题有七条原创观察，关注想更确定而提问、再次回到解释、寻找信息，以及对健康问题或消息犹豫，也包括在想提问与不愿考虑回答之间摇摆。成年人可自愿回顾过去四周。观察不统计预约，也不判断就医过多或过少，无需在这里描述健康问题。"
+            },
+            {
+              "en": "Asking for an explanation, seeking another opinion and following a care plan can have many contexts that the page does not know. A category cannot classify any of them as compulsive, unnecessary or avoidant. Likewise, hesitation does not establish its cause or make a person irresponsible. Access, clarity, practical arrangements and personal circumstances are not measured. The record is a description of remembered selections and has no authority to decide whether a medical question deserves an answer.",
+              "zh": "请求解释、寻求另一意见和遵循照护计划，可以有页面不知道的多种背景。类别不能把它们归为强迫、不必要或回避；犹豫也不建立原因，不证明人不负责任。可及性、信息清晰度、实际安排和个人背景均未测量。记录只描述回忆中的选择，无权决定医学问题是否值得回答。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "A shared topic is not a single style",
+            "zh": "同一主题，不等于单一风格"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement receives did not notice, rarely, sometimes, often, very often or unscored. The six counts add to seven statements and do not count visits, questions, messages or searches. Individual selections remain visible. Some descriptions concern seeking an answer, others hesitation and one movement between the two. They are not opposite ends of a numerical scale. The page never subtracts hesitation from asking, assigns a reassurance-seeking type or declares a dominant way of using healthcare.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计七条，不算就诊、问题、消息或搜索次数，同时保留逐条选择。有些描述关注寻求回答，有些是犹豫，还有在两者之间摇摆；它们不是数值轴两端。页面不相减、不分寻求安心类型，也不宣布使用医疗服务的主导方式。"
+            },
+            {
+              "en": "For example, two sometimes, one often and four unscored stays that particular record. IDs are labels rather than points; there is no mean, total, risk band or norm comparison. No relevant experience, unclear recall and withholding remain unscored rather than becoming did not notice. An entirely unscored theme provides no personal finding. A low count cannot show that care is unnecessary, while a frequent selection cannot prove that a request for help is excessive or should be delayed.",
+              "zh": "例如两条有时、一条较常、四条未计分，就保留该记录。标识不是点数，没有均值、总分、风险档或常模比较。没有相关经历、回想不清和保留回答保持未计分，不变成没有注意到。全未计分不提供个人发现；计数低不说明无需照护，选择频繁也不证明请求过多或应被延迟。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An explanation can leave an honest question",
+            "zh": "解释之后，仍可能有真实的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who received unfamiliar medical information and wants a term explained again. Another feels uncertain about what an existing instruction means in a changed situation. Both may recognise returning to a question, without that telling the page whether the earlier explanation was sufficient or another assessment is needed. These examples do not label the requests as reassurance seeking. They show why a short category cannot replace the content of a conversation or the professional judgment it may require.",
+              "zh": "设想一个人收到不熟悉的医学信息，希望术语再解释一次；另一个人不确定已有指示在情况改变后意味着什么。两者可能认出再次回到问题的描述，但页面不知道之前解释是否足够、是否需另作评估。例子不把请求标为寻求安心，只说明短类别不能替代谈话内容或所需专业判断。"
+            },
+            {
+              "en": "A person can want an answer and fear hearing it in the same period. The exercise does not force those accounts into one preference or a contradiction. It also cannot decide why a message remains unopened, what it contains or whether a practical barrier is involved. You do not need to open a message, contact someone, book or cancel an appointment or repeat a search in order to answer. Recall is enough, and an observation can remain unscored.",
+              "zh": "同一时段可以既想知道又怕听到回答，练习不把两者硬分成偏好或矛盾，也不判断消息未打开的原因、内容或是否有实际障碍。答题不用打开消息、联系谁、预约或取消就诊，也不必再次搜索；凭回忆即可，可以未计分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The record must not become a rule for medical care",
+            "zh": "记录不能变成医疗规则"
+          },
+          "paragraphs": [
+            {
+              "en": "No selection tells you to postpone an assessment, cancel a visit, ignore a health message, change a medicine or reduce monitoring that a healthcare professional has asked you to do. The page cannot evaluate the need or urgency of care and does not replace existing advice. A reflection about worry is not evidence that a physical concern is harmless or only anxiety. It also cannot show that a previous assessment missed a condition or that more testing is needed.",
+              "zh": "任何选择都不要求推迟评估、取消就诊、忽略健康消息、改药，或减少专业人士要求的监测。页面不评估医疗需要或紧急程度，不替代既有意见。担忧回顾不证明身体问题无害或只是焦虑，也不能说明既往评估遗漏疾病或需要更多检查。"
+            },
+            {
+              "en": "If you have questions about the advice you received, an appropriate healthcare professional can explain what applies and what to do when circumstances change. This guide cannot supply an individual answer. It offers no exercise in delaying reassurance, exposing yourself to feared information or proving you can cope without asking. You may discuss worry alongside a medical question, without treating a category count as a reason to dismiss either one or as permission to alter an existing plan.",
+              "zh": "对收到的意见有问题时，可以请合适医疗专业人士说明哪些适用、背景改变时怎么办，指南不能给个人答案。不安排延迟安心请求、接触害怕信息或证明不提问也能应对的练习。可以把担忧与医学问题一起谈，不用类别计数否定其中一项，也不用它授权更改已有计划。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about a process without demanding certainty from a page",
+            "zh": "可以问流程，不向页面索取确定结论"
+          },
+          "paragraphs": [
+            {
+              "en": "One optional way to begin a professional conversation is “I still have questions about the explanation, and the uncertainty is taking up attention.” You can ask what an appointment involves or which information would help the conversation. That is different from asking this questionnaire to confirm that nothing is wrong or that something serious is present. The page cannot provide either assurance. It does not collect records, test results, diagnosis, medicines or a narrative about your physical experiences.",
+              "zh": "专业谈话可以这样开头：“对解释我还有问题，这份不确定也占据了注意力。”可以问预约怎样进行，或哪些信息有助交流。这不同于要求问卷确认一切没事，或确认存在严重状况；页面两种保证都不能给，也不收病历、检查结果、诊断、药物或身体经历叙述。"
+            },
+            {
+              "en": "If you choose an informal conversation, you might ask for company while you prepare a question, rather than requiring the other person to decide what a symptom means. They may have limits to their time or knowledge, and this guide cannot predict their response. You retain choices about privacy and detail. No result obliges you to show answers to a partner, employer, family member or another reader, or makes those people responsible for interpreting your health.",
+              "zh": "非正式谈话中，可以请求有人陪自己整理问题，而不要求对方判断症状意义。对方有时间和知识的限制，指南不能预测回应。隐私与细节仍由你决定。结果不要求给伴侣、雇主、家人或其他读者看回答，也不让他们负责解释健康状况。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is not earned by a particular pattern",
+            "zh": "支持不靠某种组合换取"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare professional about a health concern or about worry without finishing the reflection or reaching a minimum count. No pattern determines that a question should wait. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing here. This page cannot observe your circumstances, arrange care or respond to an emergency. An entirely unscored record changes none of these boundaries or your ability to ask for appropriate support.",
+              "zh": "健康问题或担忧可以向合格医疗专业人士询问，不用完成回顾或达到最低计数。任何组合都不决定问题应等待。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续本页。页面不观察处境、不安排照护、不作紧急响应；全未计分也不改变边界或询问合适支持的选择。"
+            },
+            {
+              "en": "The public background about health anxiety explains possible worry patterns and professional support, not a method for identifying unnecessary care in your case. It does not validate this original bank or determine what a physical symptom means. The three topics can overlap and are not established independent dimensions. Their separation helps readers locate text; it does not rank attention, requests and serious possibilities or make a combined judgment about whether your health concerns are reasonable.",
+              "zh": "健康焦虑公开背景介绍可能的担忧模式和专业支持，不提供识别个人不必要照护的方法，不验证原创题本，也不确定身体症状意义。三个主题可能重叠，尚非独立验证维度。分类只是帮助找文字，不排序注意、请求和严重可能性，也不合并判断健康担忧是否合理。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful question separate from a label",
+            "zh": "有用的问题，与标签分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These original observations are not the Short Health Anxiety Inventory, a diagnostic interview or a measure of healthcare use. They have no established norms, clinical threshold or demonstrated English–Chinese measurement equivalence. A later count cannot show recovery, deterioration or treatment effect because recall, circumstances and interpretation may also change. The page does not identify a demanding patient, a person who avoids care or a correct amount of reassurance. You may take one useful question into a conversation without accepting a personal label.",
+              "zh": "原创观察不是简式健康焦虑量表、诊断访谈或医疗使用测量，尚无常模、临床阈值或验证中英文测量等值。之后计数不说明恢复、恶化或治疗效果，回忆、背景和理解也可能变。页面不识别要求多的患者、回避照护的人或正确的安心量；可以只带一个有用问题去谈，不接受个人标签。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, with no saved draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares the title and address without answers. All three complete guides are public before answering and stay the same for every pattern. Reading without answers, leaving a question unscored and seeking a professional explanation are available without a category record deciding what care you should receive.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址，不含回答。三篇全文在答题前公开，任何组合都相同。不答题阅读、保留未计分或询问专业解释，都不由类别记录决定该获得什么照护。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serious-possibilities-reading",
+      "directionIds": [
+        "serious-possibilities"
+      ],
+      "title": {
+        "en": "Thinking about serious possibilities — Complete Reading",
+        "zh": "想到严重可能性时：完整读法"
+      },
+      "headline": {
+        "en": "Thinking about serious possibilities — Complete Reading",
+        "zh": "想到严重可能性时：完整读法"
+      },
+      "summary": {
+        "en": "Read remembered serious possibilities without estimating illness probability, assigning a worry level or replacing a professional explanation.",
+        "zh": "阅读记得的严重可能性，不估患病概率、不划担忧等级，也不替代专业解释。"
+      },
+      "scoreReading": {
+        "en": "The six counts add to seven original descriptions, with individual labels retained. IDs are not points. No total, mean, rank, risk, diagnosis or medical verdict is produced; counts do not measure visits, searches or illness probability.",
+        "zh": "六类计数合计七条原创描述，并保留逐条标签。标识不是点数，不产生总分、均值、排名、风险、诊断或医学结论；计数不测就诊、搜索或患病概率。"
+      },
+      "seo": {
+        "title": {
+          "en": "Thinking about serious possibilities: Full Health Worry Guide | FermatMind",
+          "zh": "想到严重可能性时：健康担忧完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read remembered serious possibilities without estimating illness probability, assigning a worry level or replacing a professional explanation.",
+          "zh": "阅读记得的严重可能性，不估患病概率、不划担忧等级，也不替代专业解释。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A possible explanation is not a finding",
+            "zh": "可能的解释，不是检查发现"
+          },
+          "paragraphs": [
+            {
+              "en": "The seven original observations in this theme concern imagining a serious illness, attending to a frightening explanation, connecting another person's story with yourself and finding uncertainty difficult to leave open. They also describe mentally following possible problems and losing attention to a present task while thinking about them. Adults can recall the past four weeks if they want to. The statements concern thoughts that you remember; they do not ask you to search for health information or produce a new feared scenario.",
+              "zh": "本主题七条原创观察关注想到严重疾病、注意令人害怕的解释、把别人的经历与自己相连，以及难让不确定保持开放，也描述推演可能问题、想到它们时难注意眼前任务。成年人可自愿回顾过去四周。陈述只问记得的想法，不要求搜索健康信息或想出新的害怕场景。"
+            },
+            {
+              "en": "A category cannot determine whether an explanation is medically plausible, likely, exaggerated or irrelevant. The page has no examination, history or evidence about your physical circumstances. It cannot establish that a symptom is harmless or only anxiety, and it cannot confirm a serious condition either. Thinking about a possibility and having evidence for it are different kinds of account, but this reflection cannot evaluate the evidence. A medical question remains a medical question regardless of how frequently a worry is selected.",
+              "zh": "类别不能确定解释在医学上是否合理、可能、夸大或无关。页面没有检查、病史或身体背景的证据，不能证明症状无害或只是焦虑，也不能确认严重疾病。想到一种可能与有证据支持是不同叙述，但练习不能评估证据。无论担忧选多频繁，医学问题仍是医学问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Seven labels do not estimate illness probability",
+            "zh": "七条选择，不估计患病概率"
+          },
+          "paragraphs": [
+            {
+              "en": "Each observation receives did not notice, rarely, sometimes, often, very often or unscored. The six counts add to seven descriptions, not seven illnesses, events or pieces of evidence. Individual selections remain visible. Three often, two sometimes and two unscored stays that exact pattern without becoming a probability, a catastrophizing score or a risk level. The identifiers are not points and are never added or averaged. There is no highest theme, overall total or comparison with typical people.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计七条描述，不是七种疾病、事件或证据，并保留逐条选择。三条较常、两条有时、两条未计分，就保持该组合，不变成概率、灾难化分数或风险等级。标识不是点数，不相加、不平均，没有最高主题、总分或与典型人群的比较。"
+            },
+            {
+              "en": "Unscored can mean no relevant experience, unclear recall or preferring not to answer. It stays separate from did not notice. An entirely unscored theme provides no personal finding about interpretation, worry or health. Did not notice is also confined to the wording and recollection period. Neither choice provides medical reassurance, excludes a condition or makes a concern unworthy of attention. The public guides and support information remain available before answers and unchanged for every possible selection pattern.",
+              "zh": "未计分可以表示没有相关经历、回想不清或不愿回答，与没有注意到分开。全未计分不提供解释方式、担忧或健康的个人发现。没有注意到也只限表述和回顾时段。两者都不提供医学安心保证、不排除疾病，也不让担忧不值得关注。全文和支持说明答题前可读，任何组合均相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A story and a personal assessment have different scope",
+            "zh": "一段故事，与个人评估范围不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person hearing a general health story and then picturing it happening to them. Another receives information intended for their own care and has questions about its meaning. Both could remember a serious possibility, while the relevance and available evidence differ. The exercise cannot compare those situations, decide whether a source is trustworthy or determine what information applies to you. These examples illustrate a boundary of the questionnaire rather than telling either person how to interpret the health information.",
+              "zh": "设想一个人听到一般健康故事后想到自己也经历；另一个人收到用于自身照护的信息，对含义有问题。两者都可能记得严重可能性，但相关性和证据不同。练习不能比较处境、判来源可信度或确定哪些信息适用。例子只说明问卷边界，不告诉任何一方该怎样解释健康信息。"
+            },
+            {
+              "en": "You do not need to look up another story, inspect a symptom list or test whether an explanation fits your body in order to answer. No location, sensation, disease or feared outcome needs to be entered on the page. You can leave an observation unscored when the recollection is unclear or private. If considering the statements draws you into unwanted searching or distress, you may pause or leave while retaining access to all three complete guides and unconditional support information.",
+              "zh": "答题不用再找故事、查看症状清单或检查解释是否符合身体，不必在页面输入部位、感觉、疾病或害怕结果。回忆不清或希望保密时可以未计分。考虑陈述使自己陷入不愿进行的搜索或难受时，可以暂停或离开，仍可读三篇全文与无条件支持说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The page does not adjudicate a frightening thought",
+            "zh": "页面不裁定一个可怕想法的对错"
+          },
+          "paragraphs": [
+            {
+              "en": "The record does not require you to challenge a thought, replace it with reassurance or prove that an outcome is unlikely. It is not a cognitive treatment exercise or a test of how well you tolerate uncertainty. No selection establishes that a worry is irrational or that the person having it is responsible for a physical feeling. You may keep a description without resolving it here. The questionnaire cannot supply a counter-explanation for a symptom or determine that waiting for an answer is safe.",
+              "zh": "记录不要求质疑想法、以安慰替换，或证明结果不太可能；不是认知治疗练习，也不测能否承受不确定。任何选择都不证明担忧不理性，或人应为身体感觉负责。可以保留描述，不必在这里解决。问卷不能为症状提供相反解释，也不能判断等待答案安全。"
+            },
+            {
+              "en": "A health concern can involve both a physical question and worry about what it might mean. These are not mutually exclusive categories that the page can choose between. The other guides discuss attention and questions or care decisions as overlapping reading topics, not validated independent dimensions. Selecting observations in more than one topic does not establish a cause, a disorder or multiple conditions. No count can tell you which question to prioritise over professional medical advice.",
+              "zh": "健康担忧可以同时涉及身体问题和对含义的担心，并非页面能二选一的类别。其他指南把注意、提问和照护决定作为可能重叠的阅读主题，并非验证独立维度。多个主题有选择，不建立原因、疾病或多种状况。计数不能决定哪个问题应优先于专业医疗意见。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An appropriate explanation comes from a broader conversation",
+            "zh": "合适解释，需要更广的谈话"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want professional help understanding a concern, you could say “I am unsure what this information means for me, and I keep thinking about a serious possibility.” That is an optional opening, not an instruction to repeat a feared scenario. A qualified healthcare professional can discuss relevant circumstances and existing advice. You can ask which information would help the conversation and how assessment works. The reflection does not collect health records, diagnoses, medicines, test results or a symptom narrative.",
+              "zh": "希望专业帮助理解时，可以说：“我不确定这条信息对自己意味着什么，也反复想到一种严重可能性。”这只是可选开头，不要求重复害怕场景。合格医疗专业人士可以讨论相关背景及已有意见；可先问哪些信息有助交流、评估怎样进行。练习不收病历、诊断、药物、检查结果或症状叙述。"
+            },
+            {
+              "en": "No answer advises postponing an assessment, cancelling care, ignoring a message or changing medicine. It also does not establish that more tests are needed or that a previous clinician missed something. If you have questions about an existing care plan, an appropriate professional can explain what applies in your circumstances. The category record has no authority to revise the plan. Asking about worry can sit alongside asking about a physical concern without using either question to invalidate the other.",
+              "zh": "任何回答都不建议推迟评估、取消照护、忽略消息或改药，也不证明需更多检查或之前专业人士遗漏了什么。对已有照护计划有问题时，可以请合适专业人士说明自己背景下哪些适用；类别记录无权修订。询问担忧可以与询问身体问题同时存在，不用其中一个否定另一个。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Care does not depend on how many thoughts were selected",
+            "zh": "照护不依赖选了多少想法"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare professional about a physical concern or about health worry without reaching a category threshold or completing this exercise. The page cannot assess the need or urgency of care or replace existing advice. No all-unscored or did-not-notice pattern cancels a concern you already have. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. This page cannot observe your situation, arrange care or provide an emergency response.",
+              "zh": "身体问题或健康担忧可以向合格医疗专业人士询问，不用达到类别阈值或完成练习。页面不评估照护需要、紧急程度，也不替代既有意见。全未计分或没有注意到都不取消已有的担忧。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续回答；页面不能观察处境、安排照护或作紧急响应。"
+            },
+            {
+              "en": "The public health-anxiety background describes possible patterns of worry and professional support. It does not supply the original items, validate the categories or determine whether a frightening interpretation is incorrect in your case. There is no normal-person comparison and no result that sorts health-conscious attention from a clinical condition. Support information remains public before answering, on every full guide and for every private record. You need not demonstrate enough worry to deserve a conversation or too little worry to deserve medical care.",
+              "zh": "健康焦虑公开背景介绍可能的担忧模式和专业支持，不提供原创题目、不验证类别，也不确定个人害怕的解释是否错误。没有正常人比较，也没有结果区分关注健康与临床状况。支持说明在答题前、每篇全文和任何私人记录下公开，无需证明担忧够多才配谈话，或够少才配医学照护。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful phrase without accepting a verdict",
+            "zh": "留下有用表述，不接受裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "The original observations are not the Short Health Anxiety Inventory or a diagnostic interview. They have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. A change in later selections cannot show recovery, worsening, illness probability or treatment response because recall, interpretation and circumstances may differ. You may use one helpful phrase and leave the rest. The record does not define your character, assess the reliability of your account or tell anyone else what your physical experiences mean.",
+              "zh": "原创观察不是简式健康焦虑量表或诊断访谈，尚无常模、临床界值或验证中英文测量等值。后来选择变化不说明恢复、恶化、患病概率或治疗反应，因为回忆、理解和背景可能不同。可以只留一句有用表述，放下其他内容。记录不定义品格、不评估叙述可靠性，也不告诉别人身体经历意味着什么。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no saved draft, submission, questionnaire analytics or personal result address. Exiting, retaking, reloading or leaving clears the record. Copying the public entry shares the title and address only. All three complete guides remain the same public text for everyone. Reading without answering, stopping partway, keeping an account private and asking a professional question are available without a result deciding which serious possibility you should believe or dismiss.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。三篇全文对所有人相同。不答题阅读、中途停止、保留隐私或向专业人士提问，都不由结果决定应相信或排除哪种严重可能性。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Three records of seven descriptions",
+        "zh": "三组各七条描述的记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each original topic has seven observations. Six counts retain did not notice, rarely, sometimes, often, very often and unscored, with the individual selections shown. Counts concern statements, not events, visits, searches or diagnoses. Option IDs are labels and are not added into points. There is no total, mean, highest theme, risk band or comparison with typical people.",
+          "zh": "每个原创主题有七条，六类计数保留没有注意到、很少、有时、较常、经常和未计分，并展示逐条选择。计数算陈述，不是事件、就诊、搜索或诊断；标识只是标签，不相加成点数。没有总分、均值、最高主题、风险档或与典型人群比较。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored record gives no personal finding and cannot establish health or safety. Questions, requests and hesitation are not subtracted or turned into a single care-seeking style. The topics overlap and are not validated independent dimensions.",
+          "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供个人发现，不能证明健康或安全。提问、请求和犹豫不相减，也不变成单一求医风格；主题可能重叠，尚非验证独立维度。"
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "title": {
+        "en": "A worry reflection cannot make a medical decision",
+        "zh": "担忧回顾不能作医疗决定"
+      },
+      "paragraphs": [
+        {
+          "en": "These are original adult observations, not the Short Health Anxiety Inventory, clinical criteria or a physical examination. They have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. The page cannot tell whether a symptom is harmless, only anxiety or a medical condition, judge previous care or decide that more tests are needed. Physical questions and worry can coexist.",
+          "zh": "这是成年人原创观察，不是简式健康焦虑量表、临床标准或身体检查，尚无常模、临床界值或验证中英文测量等值。页面不能判断症状无害、只是焦虑或属于疾病，不评判既往照护，也不决定需要更多检查。身体问题与担忧可以同时存在。"
+        },
+        {
+          "en": "You can ask a qualified healthcare professional about either concern without a count or completing the reflection. Do not use a result to postpone assessment, cancel care or change medicine, or to alter monitoring requested by a professional. This page cannot assess the need or urgency of care or replace existing advice. If there is immediate danger or you cannot stay safe, seek local emergency assistance rather than continuing here.",
+          "zh": "可以向合格医疗专业人士询问任一担忧，无需计数或完成回顾。不用结果推迟评估、取消照护、改药或调整专业人士要求的监测。页面不评估照护需要或紧急程度，也不替代已有意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续本页。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Recollection only, full public reading",
+        "zh": "只凭回忆，完整公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Answering requires no body examination, repeated checking, exposure to feared information, opening messages or description of symptoms. Answers stay only in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address.",
+          "zh": "答题不要求检查身体、重复查看、接触害怕信息、打开消息或描述症状。回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除，复制公开入口只含标题及地址。"
+        },
+        {
+          "en": "All three complete bilingual guides and support information are public before answers and after every pattern, including entirely unscored records. You may stop, withhold information or seek appropriate support without finishing. The page does not observe your situation, arrange care or provide an emergency response. A category record does not decide which concern deserves care.",
+          "zh": "三篇双语全文与支持说明在答题前及任何组合后都公开，包括全部未计分时。可停止、保留信息或不完成就寻求合适支持。页面不观察处境、不安排照护，也不提供紧急响应；类别记录不决定哪项担忧值得照护。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the SHAI or a health-anxiety diagnosis?",
+        "zh": "这是SHAI或健康焦虑诊断吗？"
+      },
+      "answer": {
+        "en": "No. It contains 21 original observations, not SHAI items or clinical criteria. Topic similarity does not establish item or measurement equivalence.",
+        "zh": "不是。这是21条原创观察，不是SHAI题目或临床标准；主题相似不建立题目或测量等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can a record show that a physical symptom is harmless or only anxiety?",
+        "zh": "记录能证明身体症状无害或只是焦虑吗？"
+      },
+      "answer": {
+        "en": "No. The page cannot assess a symptom, rule out a condition or estimate illness probability. A physical question and worry can both matter.",
+        "zh": "不能。页面不评估症状、不排除疾病，也不估患病概率；身体问题和担忧都可以重要。"
+      }
+    },
+    {
+      "question": {
+        "en": "Should I change care because of a count?",
+        "zh": "应该因计数改变照护吗？"
+      },
+      "answer": {
+        "en": "No. Do not use the reflection to postpone assessment, cancel care, change medicine or alter monitoring a professional requested. It cannot replace existing advice.",
+        "zh": "不应。不要用回顾推迟评估、取消照护、改药或调整专业人士要求的监测；它不替代已有意见。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does asking questions mean I am seeking too much care?",
+        "zh": "提问就表示寻求了过多照护吗？"
+      },
+      "answer": {
+        "en": "No. Counts cannot determine whether a question, appointment or request is necessary or excessive. They describe selected statements and do not judge healthcare use.",
+        "zh": "不是。计数不能决定问题、预约或请求必要还是过多；只描述所选陈述，不评判医疗使用。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I check my body or search for information to answer?",
+        "zh": "必须检查身体或搜索信息才能回答吗？"
+      },
+      "answer": {
+        "en": "No. Recall only if you want to. No relevant experience, unclear recall or withholding can stay unscored. There is no checking, exposure or message-opening task.",
+        "zh": "不必。愿意时只凭回忆，没有相关经历、回想不清或保留回答可未计分；不安排检查、接触或打开消息的任务。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read all guides without answering?",
+        "zh": "不答题也能读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All three full guides and unconditional support information remain public with every response pattern, including an entirely unscored record.",
+        "zh": "可以。三篇全文和无条件支持说明适用于任何组合，包括全部未计分时。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NHS: Health anxiety — public worry and support background",
+        "zh": "NHS：健康焦虑——公开担忧与支持背景"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/health-anxiety/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_health_worry_observations",
+    "formCode": "fm_health_worries21_observations_v1",
+    "itemBankVersion": "original21_bilingual_three_by_seven_v1",
+    "scoringVersion": "six_categorical_counts_per_seven_no_medical_verdict_v1",
+    "resultContentVersion": "three_full_bilingual_health_worry_readings_v1",
+    "itemBankSha256": "1d1cc6f7bfd4876dfad8da984ed6375a8f9d6d8d15e6c4a0a7394fd30c478602",
+    "resultContentSha256": "3d9f09e37b4f45fb42bf39a430bc993547150e5fd0873f52397edde72c34a07d",
+    "psychometricValidationCompleted": false
+  }
+}
