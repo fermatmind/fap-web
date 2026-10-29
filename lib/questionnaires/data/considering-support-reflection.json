@@ -1,0 +1,1833 @@
+{
+  "slug": "considering-support-reflection",
+  "code": "FM_SUPPORT_REFLECTION18_CURRENT_CATEGORIES",
+  "version": "fm_support_reflection18_current_v1",
+  "kind": "support-reflection18",
+  "title": {
+    "en": "Considering Support: Personal Reflection",
+    "zh": "考虑支持：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "concerns-carried",
+      "title": {
+        "en": "Concerns you have been carrying",
+        "zh": "最近承受的困扰"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "everyday-impact",
+      "title": {
+        "en": "Effects on everyday activities",
+        "zh": "对日常活动的影响"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "available-support",
+      "title": {
+        "en": "Support and practical conditions",
+        "zh": "支持与实际条件"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "questions-about-care",
+      "title": {
+        "en": "Questions about professional support",
+        "zh": "关于专业支持的疑问"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SUP_01",
+      "prompt": {
+        "en": "A concern repeatedly returned to my attention when I wanted to focus on other things.",
+        "zh": "想把注意力放在其他事情上时，一件困扰仍反复回到脑中。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_02",
+      "prompt": {
+        "en": "I found some feelings difficult to put into words on my own.",
+        "zh": "独自梳理时，有些感受让我难以说清。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_03",
+      "prompt": {
+        "en": "I carried a concern that I would have liked help to understand.",
+        "zh": "我有一件困扰，希望能有人帮助自己理解。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_04",
+      "prompt": {
+        "en": "Handling a concern took more effort than I wanted to keep managing alone.",
+        "zh": "应对一件困扰所需的精力，超过了我愿意继续独自承担的程度。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "concerns-carried"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_05",
+      "prompt": {
+        "en": "A concern interrupted part of a routine I had intended to follow.",
+        "zh": "一件困扰打断了我原本打算遵循的部分日常安排。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_06",
+      "prompt": {
+        "en": "I set aside an activity that mattered to me while preoccupied with a concern.",
+        "zh": "被一件困扰占据注意时，我暂时放下了自己重视的一项活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_07",
+      "prompt": {
+        "en": "Time spent handling a concern reduced the attention I could give to an ordinary responsibility.",
+        "zh": "处理困扰花去的时间，减少了我能投入一项日常责任的注意。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_08",
+      "prompt": {
+        "en": "A concern made some everyday conversations harder than usual for me.",
+        "zh": "一件困扰让某些日常交谈对我来说比平常更费力。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "everyday-impact"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_09",
+      "prompt": {
+        "en": "I can name a person or service I would consider asking for limited support.",
+        "zh": "我能想到一个可以考虑向其寻求有限支持的人或服务。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_10",
+      "prompt": {
+        "en": "I can identify a manageable activity that sometimes helps me through a difficult period.",
+        "zh": "我能想到一项可承受、且有时能帮助自己度过难熬时段的活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_11",
+      "prompt": {
+        "en": "Practical constraints make some support options difficult for me to access.",
+        "zh": "实际条件使我难以使用某些支持选项。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_12",
+      "prompt": {
+        "en": "I know which details I would prefer to keep private when first asking about support.",
+        "zh": "初次询问支持时，我知道自己希望暂时保留哪些细节。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_13",
+      "prompt": {
+        "en": "I would like to clarify what support is available before choosing an option.",
+        "zh": "选择之前，我希望先弄清有哪些支持可以考虑。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "available-support"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_14",
+      "prompt": {
+        "en": "I am curious about what an initial conversation with a qualified professional could involve.",
+        "zh": "我想了解，与合格专业人士最初的一次谈话可能包含什么。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_15",
+      "prompt": {
+        "en": "I would want information about privacy and its limits before deciding what to share.",
+        "zh": "决定分享多少之前，我希望了解隐私保护及其限制。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_16",
+      "prompt": {
+        "en": "I would want to understand practical arrangements such as timing, cost or access.",
+        "zh": "我希望了解时间、费用或参与条件等实际安排。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_17",
+      "prompt": {
+        "en": "I have questions or reservations I would want to discuss before deciding whether to try a service.",
+        "zh": "决定是否尝试一种服务之前，我有希望先讨论的疑问或顾虑。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SUP_18",
+      "prompt": {
+        "en": "I would want room to ask questions or pause rather than commit during a first enquiry.",
+        "zh": "最初询问时，我希望有提问或暂停的空间，而不必立即作出承诺。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my situation now",
+            "zh": "不符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my situation now",
+            "zh": "部分符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my situation now",
+            "zh": "符合我当前情况"
+          },
+          "directionId": "questions-about-care"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Considering Therapy? A Personal Support Reflection | FermatMind",
+    "zh": "考虑心理支持？18条个人回顾｜费马测试"
+  },
+  "description": {
+    "en": "Reflect on 18 original statements about concerns, everyday impact, support and questions about professional care. Four full public guides, private category records and no readiness score or therapy verdict.",
+    "zh": "用18条原创陈述回顾困扰、日常影响、支持条件和专业支持疑问。四篇完整指南公开，类别记录留在本页，不生成准备度分数或治疗结论。"
+  },
+  "introduction": {
+    "en": "You can ask about support without a test deciding that you are ready or that a concern is serious enough. This original reflection keeps four topics separate, including practical conditions and unanswered questions. It is not a clinical scale, diagnostic screen, triage rule or stage-of-change algorithm.",
+    "zh": "无需测试判定准备好或困扰足够严重，也能询问支持。本原创回顾把四个主题分开，包括现实条件和尚未说清的疑问；不是临床量表、诊断筛查、分流规则或改变阶段算法。"
+  },
+  "instructions": {
+    "en": "For adults. The first eight statements concern the past four weeks; the remaining ten concern your current support conditions and questions. Choose whether each description fits your current account, not a frequency or number of days. Partly describes differs from cannot judge. No relevant experience and prefer not to answer remain separate. Categories receive no points. You may pause or leave at any time.",
+    "zh": "适用于成年人。前八条回顾过去四周；后十条关注当前支持条件和疑问。选择描述是否符合自己的当前情况，不填频率或天数。部分符合不同于无法判断，没有相关经历和不愿回答也分别保留。类别不赋点数，可以随时暂停或离开。"
+  },
+  "resultHeading": {
+    "en": "Your four separate support-reflection records",
+    "zh": "四个分别阅读的支持回顾记录"
+  },
+  "profiles": [
+    {
+      "id": "concerns-carried-reading",
+      "directionIds": [
+        "concerns-carried"
+      ],
+      "title": {
+        "en": "Concerns you have been carrying — Complete Reading",
+        "zh": "最近承受的困扰：完整读法"
+      },
+      "headline": {
+        "en": "Concerns you have been carrying — Complete Reading",
+        "zh": "最近承受的困扰：完整读法"
+      },
+      "summary": {
+        "en": "Describe a concern you have been carrying without a diagnosis, severity threshold or need to prove that support is deserved.",
+        "zh": "说清最近承受的困扰，不诊断、不设严重门槛，也不要求证明值得支持。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to 4 statements, with each selected label kept visible. Categories are not points. There is no total, mean, ranking, readiness tier, diagnosis or therapy recommendation. Unknown and withheld answers stay separate.",
+        "zh": "六类计数合计4条，并保留逐条标签。类别不是点数，没有总分、均值、排名、准备档次、诊断或治疗建议。未知与保留回答分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Concerns you have been carrying: Full Support Guide | FermatMind",
+          "zh": "最近承受的困扰：支持回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe a concern you have been carrying without a diagnosis, severity threshold or need to prove that support is deserved.",
+          "zh": "说清最近承受的困扰，不诊断、不设严重门槛，也不要求证明值得支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Start with the concern, without a diagnosis",
+            "zh": "从困扰出发，不急着定性"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme covers four original statements about a concern returning to attention, feelings that are hard to describe, wanting help to understand something and the effort of handling a concern alone. For these statements, recall the past four weeks. They provide a way to name something you may want to discuss. They do not identify a disorder, determine how serious an experience is or decide whether psychotherapy, another service or a practical change is the appropriate response.",
+              "zh": "本主题有四条原创陈述，涉及困扰反复占据注意、感受难以说清、希望有人帮助理解，以及独自应对所需的精力。这四条请回想过去四周。它们帮助说清可能想讨论的事情，不识别疾病、不判经历有多严重，也不决定心理治疗、其他服务或实际调整哪种适合。"
+            },
+            {
+              "en": "A concern can be understandable in its circumstances and still be something you want support with. You do not need to settle its cause before asking a qualified professional a question. At the same time, this page cannot explain a physical symptom or rule out a medical issue. If you are unsure about a health concern, a health care professional can assess the situation. A personal reflection should not replace that conversation or turn uncertainty into an automatic psychological explanation.",
+              "zh": "困扰可以在自身背景中有其缘由，同时仍是你希望得到支持的事情。询问合格专业人士前，无需先确定原因。本页也不能解释身体症状或排除身体健康问题。对健康疑问不确定时，可由医疗专业人士评估；个人反思不替代这段谈话，也不把不确定自动解释成心理原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four statements enter six categories",
+            "zh": "四条陈述分别进入六类"
+          },
+          "paragraphs": [
+            {
+              "en": "The options describe whether a statement fits your current situation, not how many days it happened. You can choose does not describe, partly describes or describes; cannot judge, no relevant experience and prefer not to answer remain separate. The report shows six counts adding to four statements, together with each selected label. No category is given points. Four describes responses do not become a severity score, and four does-not-describe responses do not establish that support is unnecessary.",
+              "zh": "选项表达陈述是否符合当前情况，不计算发生了多少天。可以选不符合、部分符合或符合；无法判断、没有相关经历和不愿回答分别保留。报告显示合计四条的六类计数，以及逐条所选标签，类别不赋点数。四条符合不变成严重程度分数，四条不符合也不证明不需要支持。"
+            },
+            {
+              "en": "If all four responses are unknown or withheld, the record simply lacks an evaluable description for this theme. It is not filled with zero or converted into reassurance. The other themes contain four or five statements and mix descriptions of concerns, resources and questions. Their counts should not be ranked or added together. A larger count of fits in a resources theme does not cancel a concern here, and a smaller count cannot disqualify you from asking for help.",
+              "zh": "如果四条都无法判断、没有经历或保留回答，本主题只是缺少可供阅读的个人描述，不补成零，也不转换成安心结论。另几个主题有四条或五条，内容混合了困扰、资源和疑问，计数不排名、不相加。资源主题的符合数量较多，不抵消这里的困扰；数量较少也不取消求助资格。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A concrete sentence can be enough",
+            "zh": "一句具体描述可能已经够用"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who keeps returning to an unresolved family arrangement. They may say, “I am spending a lot of attention on this and would like help working out what matters.” Another person cannot yet name a feeling but knows that sorting it out alone is taking effort. Neither needs to produce a detailed life history in order to make an initial enquiry. An unfinished description can be a starting point, rather than evidence that the concern is too vague to discuss.",
+              "zh": "设想一个虚构人物，总在想一项尚未解决的家庭安排。他们可以说：“这件事占了不少注意，我想有人帮自己理清在意什么。”另一个人尚不能命名感受，但知道独自梳理很费力。初次询问时，两者都不必交出详细生活史。尚未说完整的描述可以成为起点，不证明困扰太含糊而不能讨论。"
+            },
+            {
+              "en": "If it helps, you can privately identify one recent example, what you were trying to do and what made it difficult. This is optional and need not be recorded on this page. Avoid turning the example into a test of whether you can justify needing support. You may also choose to ask only about a service's process before discussing the concern itself. The reflection does not require event details, private names, a diagnosis or a narrative that someone else can judge as sufficient.",
+              "zh": "愿意的话，可以私下想一个近期例子：原本想做什么，哪里让事情变难。这是可选的，无需记在本页。不要把例子变成“能否证明自己值得支持”的考试，也可以先只问服务流程，再考虑是否谈困扰。回顾不要求事件细节、私人姓名、诊断或一份供他人评判是否充分的叙述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Context and effort can change",
+            "zh": "背景与所需精力都可能变化"
+          },
+          "paragraphs": [
+            {
+              "en": "An unfamiliar responsibility, an uncertain arrangement or several ordinary demands arriving together can make a concern occupy more attention than usual. This example does not establish the cause of your own experience. You may know the circumstances clearly, partly or not at all. A four-week recollection cannot separate every influence, predict how long it will continue or establish that a particular event explains everything. You can keep uncertainty visible instead of resolving it through a questionnaire label.",
+              "zh": "陌生责任、不确定安排，或几件普通要求同时到来，都可能让一件困扰比平常更占注意。例子不建立你自身经历的原因。你可能清楚、部分清楚，或还不清楚背景。四周回想无法分开所有影响、预测持续多久，也不能判某个事件解释了一切。可以保留不确定，而不是用问卷标签消除它。"
+            },
+            {
+              "en": "Feeling able to carry out responsibilities does not prove that handling a concern has been easy. Likewise, a difficult week does not establish a permanent inability to cope. Consider the difference between completing a task and the effort it required, without needing to assign either a grade. If you want support, that distinction may help explain what you would like to discuss. The guide does not prescribe a workload change, a coping exercise or a treatment based on a category count.",
+              "zh": "能够履行责任，不证明应对困扰很轻松；难熬的一周也不建立永久的应对不足。可以区分事情做完了，与完成它花去多少精力，而不必给两者评分。想寻求支持时，这一区分可能帮助说清想讨论什么。指南不会根据类别计数安排工作量变化、应对练习或治疗。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask for a bounded kind of support",
+            "zh": "可以提出范围有限的支持请求"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is “Could we talk about this one concern for a short while?” Another is “Could you help me identify whom I could ask about the practical part?” Those requests seek different kinds of assistance. The other person can explain their capacity, and you can decide whether the offered help fits. You do not have to ask the closest person in your life or keep asking someone who is unavailable. This record creates no obligation for another person to provide support.",
+              "zh": "可以问：“能花一点时间谈谈这一件困扰吗？”也可以问：“实际安排的部分，我可以找谁询问，你能帮我理一下吗？”两种请求需要不同协助。对方可以说明余力，你再判断提供的帮助是否合适。不必找生活中最亲近的人，也不必持续找没空的人；记录不为他人建立提供支持的义务。"
+            },
+            {
+              "en": "If talking informally is not what you want, you can ask a qualified professional or an appropriate service about an initial conversation. You may begin with questions about credentials, confidentiality, practical arrangements and how the process works. Asking for information does not require immediately committing to a course of treatment. The service can explain its own conditions, which this page cannot verify. You can keep personal details private until you have enough information to decide what you want to share.",
+              "zh": "不想进行非正式交流时，可以向合格专业人士或合适服务询问最初谈话。先问资质、保密、实际安排和流程即可，不要求一询问信息就承诺接受一段治疗。具体条件应由服务说明，本页不能核实。可以先保留私人细节，等了解得足够后再决定分享多少。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support has no readiness or distress gate here",
+            "zh": "这里不设准备度或困扰门槛"
+          },
+          "paragraphs": [
+            {
+              "en": "The report does not decide that you are steady for now, should wait, strongly need therapy or have reached a stage of readiness. The four themes are not a triage algorithm. You can seek professional advice whether your answers mostly fit, partly fit, do not fit or remain unknown. You do not need a concern to last a required period or become worse before asking a question. Choosing an appropriate response requires your circumstances and, where relevant, an individual professional assessment.",
+              "zh": "报告不判“目前稳定”“应该等待”“强烈需要治疗”，也不划准备阶段。四个主题不是分流算法。无论回答主要为符合、部分符合、不符合或未知，都可以询问专业意见；无需等困扰达到规定时长或变得更糟。合适应对要结合自身情况，必要时由专业人士作个别评估。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing the reflection. An unanswered or withheld statement does not cancel that need, and finishing the page is not a prerequisite for help. The complete public guides and support information are available before any responses and remain available afterwards. This page cannot monitor your situation, contact a service for you or provide an emergency response, so its categories must never be used as an all-clear signal.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续回顾。未答或保留回答不取消这种需要，完成页面也不是获得帮助的前提。完整指南和支持说明在答题前就公开，之后仍可读。本页不能监测处境、代为联系服务或提供紧急响应，因此类别不能用作一切没事的信号。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a reflection separate from a decision",
+            "zh": "把回顾与决定分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These are FermatMind original statements, not a published clinical scale or a validated measure of therapy readiness. There are no established norms, diagnostic thresholds or demonstrated English–Chinese measurement equivalence. A later record can differ because the situation, recall or interpretation changed. Comparing counts does not establish improvement, deterioration or a treatment effect. If one description helps you explain a concern, it can remain an ordinary sentence rather than become a score to monitor.",
+              "zh": "这些是费马原创陈述，不是已发表临床量表或经验证的治疗准备度测量。尚无已建立常模、诊断阈值或经验证的中英文测量等值。之后记录不同，可能因为处境、回想或理解变化；比较计数不能建立改善、恶化或治疗效果。有助于表达的一句描述，可以就保持为普通句子，不必变成监测分数。"
+            },
+            {
+              "en": "Answers stay only in current-page memory. There is no draft storage, answer submission, questionnaire analytics or personal result address; exit, retake, reload and leaving clear the record. Copying the public entry shares its title and address only. All four complete guides remain the same public text for any response pattern. You can ask, pause, maintain boundaries or choose an appropriate next conversation without permission from the record and without treating it as a decision about your care.",
+              "zh": "回答仅留在当前页面内存，不存草稿、不提交回答、不作问卷分析，也没有个人结果地址；退出、重做、刷新及离页会清除。复制公开入口只含标题与地址。任何回答模式都能阅读同样的四篇公开全文。可以询问、暂停、保留边界或选择下一段合适谈话，无需记录许可，也不把记录当作照护决定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "everyday-impact-reading",
+      "directionIds": [
+        "everyday-impact"
+      ],
+      "title": {
+        "en": "Effects on everyday activities — Complete Reading",
+        "zh": "对日常活动的影响：完整读法"
+      },
+      "headline": {
+        "en": "Effects on everyday activities — Complete Reading",
+        "zh": "对日常活动的影响：完整读法"
+      },
+      "summary": {
+        "en": "Look at changes in particular activities without a functioning grade, overall score or prescribed activity plan.",
+        "zh": "观察具体活动变化，不评功能成绩、不算总分，也不安排活动计划。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to 4 statements, with each selected label kept visible. Categories are not points. There is no total, mean, ranking, readiness tier, diagnosis or therapy recommendation. Unknown and withheld answers stay separate.",
+        "zh": "六类计数合计4条，并保留逐条标签。类别不是点数，没有总分、均值、排名、准备档次、诊断或治疗建议。未知与保留回答分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Effects on everyday activities: Full Support Guide | FermatMind",
+          "zh": "对日常活动的影响：支持回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Look at changes in particular activities without a functioning grade, overall score or prescribed activity plan.",
+          "zh": "观察具体活动变化，不评功能成绩、不算总分，也不安排活动计划。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Look at an activity, not your worth",
+            "zh": "看具体活动，不评价自身价值"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains four original statements about a concern interrupting an intended routine, setting aside a valued activity, attention available for an ordinary responsibility and everyday conversations becoming harder. Recall the past four weeks. The statements describe possible effects you noticed; they do not measure overall functioning, productivity, disability or ability to meet a social standard. A change in an activity is information about a situation, not a grade for how well you are managing life.",
+              "zh": "本主题有四条原创陈述，涉及困扰打断原定安排、暂时放下重视的活动、日常责任可用的注意，以及平常交谈变得费力。请回想过去四周。它们描述可能注意到的影响，不测总体功能、生产力、残障或满足社会标准的能力。活动变化是情境信息，不是生活应对得好不好的成绩。"
+            },
+            {
+              "en": "You may complete an activity with considerable effort, change the way you do it or decide not to do it. These possibilities should not be collapsed into a simple success or failure. The check-in cannot determine what an activity requires, whether an expectation is reasonable or what accommodations would help. If a statement fits, the useful detail may be which part changed and what you wanted to be different, rather than whether you can still say that everything got done.",
+              "zh": "你可能花很大精力完成、改变做法，或决定暂时不做；这些可能性不能压成简单成败。回顾不知道活动要求、期待是否合理或何种适配有帮助。陈述符合时，有用的细节可能是哪里变了、希望哪里不同，而不是能否继续说所有事都做完了。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Partly fits is different from cannot judge",
+            "zh": "部分符合不同于无法判断"
+          },
+          "paragraphs": [
+            {
+              "en": "The options concern whether the description fits, rather than a day count or symptom frequency. Partly describes means that some of the statement fits your current account. Cannot judge preserves uncertainty instead of treating it as a middle amount. No relevant experience and prefer not to answer also remain separate. You do not have to force an uncertain memory into a fit label merely to produce a record, and an intentionally withheld response is not treated as a low score.",
+              "zh": "选项询问描述是否符合，不是天数或症状频率。部分符合表示陈述中有些部分符合当前回想；无法判断则保留不确定，不当作中等程度。没有相关经历和不愿回答也分开显示。无需为了生成记录，把不确定记忆硬放进符合类别；有意保留回答也不作为低分。"
+            },
+            {
+              "en": "The six counts add to four statements and are displayed with the individual selected labels. For example, one fits, one partly fits and two cannot judge remains that precise combination. It is not a functional-impact level. The full reflection has domains with four or five items, so counts from different themes have different denominators and different meanings. Adding them or choosing the largest would obscure that structure. The report supplies no total, average, readiness tier or prediction about therapy.",
+              "zh": "六类计数合计四条，并与逐条标签一起显示。例如一条符合、一条部分符合、两条无法判断，就保留这一具体组合，不是功能影响等级。整份回顾的主题有四条或五条，分母及含义不同，相加或选最大会遮住结构。报告没有总分、均值、准备度档次或治疗预测。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Describe one interruption in its circumstances",
+            "zh": "把一次中断放回当时背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person intending to make a routine call but repeatedly returning to an unresolved concern. The call is postponed. Another person also postpones a call because an appointment runs late, without noticing the kind of concern described here. The outward event is the same, but its context differs. Your selection reflects your own account; it does not establish a causal finding. A questionnaire cannot independently observe why a task changed or decide whether a concern was the only influence.",
+              "zh": "设想一个虚构人物打算做一次日常通话，却反复想到未解决的困扰，于是推迟了通话。另一个人也推迟通话，但只是因为前一个约见延迟，并没注意到这里描述的困扰。外在事件相同，背景不同。所选类别反映本人回想，不建立因果发现；问卷无法独立观察改变原因，也不能判困扰是唯一影响。"
+            },
+            {
+              "en": "If you want to prepare for a conversation, you might describe the activity, the change you noticed and the practical consequence. For example, “I postponed that call and now need help understanding what made it difficult.” You do not need to reconstruct every day, supply evidence of lost productivity or compare your situation with someone else's. A brief account can leave uncertainty explicit. It can also separate a practical request from a wish to discuss the concern behind the activity.",
+              "zh": "想为谈话做准备时，可以描述活动、注意到的变化及实际后果，例如：“我推迟了那次通话，想有人帮自己理解当时哪里难。”无需重建每天经过、提供效率损失证据或与别人比较。简短描述可以保留不确定，也可以把实际协助请求与想谈背后困扰的愿望分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A valued activity is not a performance requirement",
+            "zh": "重视的活动不是表现任务"
+          },
+          "paragraphs": [
+            {
+              "en": "A valued activity could be a hobby, an ordinary conversation, a personal routine or time with someone you choose. It need not be work, exercise or something an observer considers worthwhile. Setting it aside can have several explanations, including changing preferences and practical constraints. The statement asks about being preoccupied with a concern because that is the description being reflected on; it does not turn a missed activity into a symptom or establish a particular mental health condition.",
+              "zh": "重视的活动可以是爱好、普通交流、个人惯例或与自选对象相处，不必是工作、锻炼或旁人认为有价值的事。暂时放下可能有不同解释，包括偏好变化和现实限制。陈述提到被困扰占据注意，是因为本次回顾关注这段描述，不把一次缺席变成症状，也不建立特定心理健康状况。"
+            },
+            {
+              "en": "You may not want to restore the old routine exactly. A smaller version, different timing, practical assistance or leaving the activity aside may each be possibilities to consider in context. This page does not select among them or prescribe an activity plan. New or concerning physical changes also should not be explained away by the record; an appropriate health care professional can assess those separately. The reflection cannot rule out medical causes or decide that an effect is only psychological.",
+              "zh": "你也未必希望原样恢复旧安排。缩小活动、换时间、获得实际协助或继续暂放，都可能是结合情境考虑的选项，本页不替你选择或开活动计划。新的或令人担忧的身体变化，也不该被记录解释掉；合适医疗专业人士可以另行评估。回顾不能排除身体原因，也不判影响只是心理性的。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep practical help and personal discussion distinct",
+            "zh": "实际协助与私人讨论可以分开"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may want assistance with one responsibility without discussing why it has become difficult. Another may want to talk through the concern but keep the practical task under their own control. Both requests can be specific and voluntary. You might ask, “Could someone cover this one part today?” or “Could we talk privately about what has been taking my attention?” The recipient can state what is possible, while you retain a choice about disclosure and the kind of help you accept.",
+              "zh": "有人想得到一项责任上的协助，却不想解释为何变难；另一个人想讨论困扰，同时仍自行处理实际任务。两种请求都可以具体、自愿。例如“今天这一小部分有人能协助吗？”或“能私下谈谈最近占据我注意的事吗？”对方说明能做什么，你仍决定分享多少和接受哪种帮助。"
+            },
+            {
+              "en": "A personal record is not evidence that another person must change an arrangement or that you owe them an explanation. Workplaces, services and relationships have their own circumstances and procedures, which this reflection does not assess. If a practical barrier is central, asking about the relevant arrangement may be more direct than trying to interpret a theme count. You can choose an appropriate channel, ask a limited question or decide that discussing the matter in that setting is not comfortable.",
+              "zh": "私人记录不证明别人必须改变安排，也不表示你欠对方解释。工作场所、服务和关系各有具体情况与流程，本回顾不评估。关键是实际障碍时，直接询问相关安排，可能比解释主题计数更贴近问题。可以选择合适渠道、问有限问题，或判断在那个环境讨论并不自在。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "There is no required amount of impact before help",
+            "zh": "求助不需要达到规定影响量"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask a qualified professional about a concern without demonstrating that several parts of life have been affected. There is no required number of changed activities, no minimum count and no waiting period supplied by this reflection. A mostly does-not-describe record does not establish that you should wait, while a mostly fits record does not decide a treatment. Your priorities, circumstances and an individual assessment belong in a care decision, rather than a threshold invented from these four statements.",
+              "zh": "无需证明生活多个方面都受影响，也能向合格专业人士询问困扰。这里不规定活动变化数量、最低计数或等待期。主要不符合，不建立应该等待的结论；主要符合，也不决定治疗。照护决定应结合个人优先事项、处境和个别评估，而不是从四条陈述发明阈值。"
+            },
+            {
+              "en": "If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of finishing the check-in. Withholding a response does not remove that need. The public support information remains available before, during and after answering, including when every response is unknown or withheld. This page does not monitor changes or provide urgent care. Its record is a reflection aid only, so completing it must never delay an appropriate real-world conversation or response.",
+              "zh": "有即时危险或无法保障安全时，请寻求当地紧急援助，而不是完成回顾。保留回答不取消这种需要。支持说明在答题前、中途和之后均公开，包括所有回答都未知或保留时。本页不监测变化，也不提供紧急照护。记录只是反思辅助，完成它不能耽误合适的现实谈话或应对。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A limited description can remain limited",
+            "zh": "有限描述可以就保持有限"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original descriptions have no established functional-impairment scale, diagnostic threshold or population norms. They do not establish independence from the other themes or English–Chinese measurement equivalence. A different response later may reflect circumstances, recall or interpretation, rather than an objective change in ability. If you keep a private note elsewhere, consider whether an ordinary description serves your purpose. Repeated counts are not necessary and do not become proof that a service or a personal effort worked.",
+              "zh": "这四条原创描述没有已建立的功能损害量表、诊断阈值或常模，也不建立与其他主题的独立性或中英文测量等值。之后回答变化，可能反映处境、记忆或理解，而非能力客观变化。若在别处私下留笔记，可以看看普通描述是否已经够用；无需重复计数，它们也不成为服务或个人努力有效的证明。"
+            },
+            {
+              "en": "Answers stay only in current-page memory without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying the public entry includes only its title and address. All four complete guides remain available to everyone without answering. Whatever you choose next can be based on the activity and concern you want to discuss, with room for practical constraints, privacy and your preferences, rather than on an overall score or a readiness label.",
+              "zh": "回答仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址；退出、重做、刷新和离页会清除。复制公开入口只含标题及地址。所有人不答题也能读四篇全文。下一步可根据自己想谈的活动和困扰，给现实限制、隐私及偏好留空间，而非依据总体分数或准备度标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "available-support-reading",
+      "directionIds": [
+        "available-support"
+      ],
+      "title": {
+        "en": "Support and practical conditions — Complete Reading",
+        "zh": "支持与实际条件：完整读法"
+      },
+      "headline": {
+        "en": "Support and practical conditions — Complete Reading",
+        "zh": "支持与实际条件：完整读法"
+      },
+      "summary": {
+        "en": "Keep resources, access barriers and privacy preferences distinct. Having support and facing constraints can coexist without a resilience score.",
+        "zh": "区分资源、参与障碍和隐私偏好；有支持与有限制可以并存，不生成韧性分数。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to 5 statements, with each selected label kept visible. Categories are not points. There is no total, mean, ranking, readiness tier, diagnosis or therapy recommendation. Unknown and withheld answers stay separate.",
+        "zh": "六类计数合计5条，并保留逐条标签。类别不是点数，没有总分、均值、排名、准备档次、诊断或治疗建议。未知与保留回答分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Support and practical conditions: Full Support Guide | FermatMind",
+          "zh": "支持与实际条件：支持回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep resources, access barriers and privacy preferences distinct. Having support and facing constraints can coexist without a resilience score.",
+          "zh": "区分资源、参与障碍和隐私偏好；有支持与有限制可以并存，不生成韧性分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Consider what is available now",
+            "zh": "看当前能考虑哪些支持"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains five original statements about a person or service you might approach, an activity you sometimes find helpful, practical barriers, details you want to keep private and information you want before choosing support. Unlike the first eight statements in the reflection, these concern your current position rather than a count of events over four weeks. They are an inventory of descriptions and questions, not a measure of resilience, independence or how well you can manage without professional help.",
+              "zh": "本主题有五条原创陈述，涉及可能联系的人或服务、有时觉得有帮助的活动、现实障碍、希望保留的细节，以及选择支持前想知道的信息。不同于整份回顾的前八条，这里关注当前位置，不统计四周内事件。它们整理描述和问题，不测韧性、独立性，或没有专业帮助时能应对得多好。"
+            },
+            {
+              "en": "Having one possible source of support does not mean that every kind of help is available. A familiar person may offer company but not practical assistance, while a service may answer questions but have access conditions you need to understand. You may also have no suitable option in mind. None of these accounts establishes a personal strength or deficiency. The useful question is what a particular option can actually offer, whether you want it and what practical circumstances affect your ability to use it.",
+              "zh": "有一种可能支持，不等于各种帮助都能得到。熟人可能能陪伴，却无法实际协助；服务可能能答疑，但参与条件仍需了解。你也可能暂时想不到合适选项。这些描述都不建立个人优点或缺陷。更具体的问题是某个选项实际能提供什么、自己是否想要，以及哪些现实条件影响使用。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Mixed descriptions cannot become a resource score",
+            "zh": "不同描述不能合成资源分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Some statements describe a possible resource, one describes an access constraint and others describe privacy or information preferences. Several can fit at once. For example, you can name someone you would approach and also face a practical barrier to using a particular service. The report does not reverse a barrier into points or subtract it from a resource. More fits responses do not mean better or worse support, because the statements concern different things rather than one ordered resource quantity.",
+              "zh": "有些陈述描述可能资源，一条描述参与限制，还有些描述隐私或信息偏好，可以同时符合。例如，能想到愿意联系的人，同时也可能面临使用某项服务的实际障碍。报告不把障碍反向换成点数，也不从资源里扣除。符合数量更多，不表示支持更好或更差，因为这些陈述谈不同内容，不是同一条有序资源量。"
+            },
+            {
+              "en": "The six category counts add to five statements and are shown beside the individual selected labels. Partly describes is distinct from cannot judge; no relevant experience and prefer not to answer remain separate as well. An entirely unknown or withheld record means that no personal description is available here. It does not imply either a well-supported situation or a lack of support. Counts are not combined with the concerns, activity-impact or professional-questions themes to determine whether you qualify for help.",
+              "zh": "六类计数合计五条，与逐条标签一起呈现。部分符合不同于无法判断，没有相关经历和不愿回答也分别保留。全部未知或保留时，这里没有可读的个人描述，不推断支持充足或缺少支持。计数不与困扰、活动影响或专业支持疑问相加，也不决定能否求助。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Company, information and practical assistance differ",
+            "zh": "陪伴、信息与实际协助各不相同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who has a friend willing to listen but needs help with an appointment arrangement. The friendship can still matter, even if it does not solve that practical question. Another person can obtain information from a service while preferring not to discuss a concern with friends. The reflection does not rank these arrangements. An option can be useful for a limited purpose without becoming a complete support system, and no single person has to meet every possible need.",
+              "zh": "设想一个虚构人物有朋友愿意听，却需要约见安排上的协助。友谊仍然重要，即使没有解决这个实际问题。另一个人可以向服务获得信息，同时不想与朋友谈困扰。回顾不排列这些安排的优劣。一个选项可以只在有限用途上有用，不必成为完整支持系统，也不要求某个人满足所有可能需要。"
+            },
+            {
+              "en": "If you want to make a request, identify its scope: listening for a short time, explaining a process, sharing an activity or assisting with one task. You may ask whether the other person or service can offer that kind of help, leaving room for a real answer. A response of no does not judge your worth. You can keep looking, postpone a non-urgent enquiry or choose a different channel. The questionnaire cannot verify capacity or make an unavailable option available.",
+              "zh": "愿意提请求时，可以先界定范围：听一小会儿、说明流程、共同活动，或协助一项任务。可以询问对方或服务能否提供，并给真实回答留空间。回答不行，不评价你的价值。可以继续了解、推迟非紧急询问或换渠道。问卷不能核实余力，也不能让原本不可用的选项变得可用。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An activity can help without becoming a prescription",
+            "zh": "有帮助的活动不等于处方"
+          },
+          "paragraphs": [
+            {
+              "en": "The activity statement asks whether you can identify something manageable that you sometimes find helpful. It does not establish why it helps, whether it is safe in every circumstance or whether it is sufficient for a concern. An ordinary activity might provide company, structure or a welcome pause, but the report does not assign an activity plan. Your own recollection is not evidence that a treatment works, and a helpful activity does not remove the option of speaking with a qualified professional.",
+              "zh": "活动陈述只问能否想到一项可承受、且有时觉得有帮助的事，不建立为何有帮助、是否在任何情境都安全，或是否足以应对某件困扰。普通活动可能提供陪伴、安排感或愿意的暂停，但报告不制定活动计划。个人回想不成为治疗有效的证据，有帮助的活动也不取消找专业人士交谈的选项。"
+            },
+            {
+              "en": "You may be unable to name an activity right now, or an old option may no longer be practical or welcome. That does not establish failure or unwillingness. It may be useful simply to state what is not workable, without forcing yourself to produce a replacement immediately. This page does not ask you to repeat an unpleasant exercise, expose yourself to upsetting material or change medication or treatment. Questions about existing care belong with an appropriate professional who knows the situation.",
+              "zh": "现在想不到活动，或过去的选项已经不实际、不愿继续，都不建立失败或不愿尝试。可以先说清什么不可行，而不逼自己立即找替代。本页不要求重复不愉快练习、接触令人难受的材料，或改变药物及治疗。有关既有照护的问题，应与了解情况的合适专业人士讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Access barriers are not a readiness label",
+            "zh": "参与障碍不是准备度标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Timing, transport, cost, accessibility, language, privacy at home and other obligations can affect whether an option is usable. These are not interchangeable with interest in support. A person may be very interested and still unable to use a particular arrangement. Another may have access but want more information before deciding. The reflection does not collapse either situation into resistance, poor motivation or a readiness stage. It cannot know which services or accommodations exist in your location.",
+              "zh": "时间、交通、费用、无障碍条件、语言、家中隐私及其他责任，都可能影响选项能否使用，不等于对支持有没有兴趣。很想了解的人也可能无法使用某种安排；具备参与条件的人也可能先想多知道一点。回顾不把两种情况压成抗拒、动力不足或准备阶段，也不知道当地实际有哪些服务和适配。"
+            },
+            {
+              "en": "A bounded enquiry can ask about the particular barrier, such as available times, communication arrangements or whether information can be provided before an appointment. Do not assume a concession or an alternative exists until the service confirms it. You are not required to disclose your full circumstances merely to ask what options are offered. If an arrangement remains unsuitable, that does not establish that support in general is impossible or that you must accept an option that feels unsafe or unwelcome.",
+              "zh": "有限询问可以直接针对障碍，例如可用时段、沟通安排，或能否先在约见前了解信息。服务确认前，不预设一定有减免或替代。只问有哪些选项，无需披露全部处境。某种安排仍不合适，也不证明支持整体不可获得，更不要求接受让人不安全或不愿使用的选项。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Keep choice and support available together",
+            "zh": "选择与支持可以同时保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Knowing what you would rather keep private can help define an initial conversation, but uncertainty about privacy does not make you unready. You can ask a service how information is handled and what limits apply, then decide what to share. Different services have their own conditions; this reflection cannot promise confidentiality on their behalf. Asking for information is distinct from agreeing to every proposed step, and you can ask how choices, questions and pauses are handled in that setting.",
+              "zh": "知道希望保留什么，可以帮助界定最初谈话；对隐私不清楚也不意味着没准备好。可以先问服务如何处理信息、有哪些限制，再决定分享多少。各服务条件不同，回顾不能代为保证保密。询问信息不同于同意每个后续步骤，也可以问该环境怎样处理选择、疑问和暂停。"
+            },
+            {
+              "en": "You may seek professional support whether or not you can name informal resources. There is no requirement to exhaust friends, activities or other options first, and no count decides the timing. If there is immediate danger or you cannot stay safe, seek local emergency assistance rather than continuing this page. All four complete guides and support information remain public with every answer pattern. Unknown, inapplicable or withheld responses never become a reason to delay appropriate real-world help.",
+              "zh": "无论能否想到非正式资源，都可以询问专业支持；无需先用尽朋友、活动或其他选项，时机也不由计数决定。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续页面。四篇完整指南和支持说明对任何回答模式都公开；未知、不适用或保留回答，不成为耽误合适现实帮助的理由。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A current inventory stays open to revision",
+            "zh": "当前盘点可以随时修订"
+          },
+          "paragraphs": [
+            {
+              "en": "A resource can become available or unavailable, and a preference can change after you receive information. A later category difference does not by itself show greater resilience, declining support or improved readiness. These five original statements have no established norms or validated English–Chinese measurement equivalence, and the four themes are not proven independent dimensions. If a private note is useful, one specific question about an option may be more helpful than repeatedly counting how many statements fit.",
+              "zh": "资源可能变得可用或不可用，偏好也可能在获知信息后变化。之后类别不同，本身不证明韧性更强、支持变少或准备度提高。五条原创陈述没有已建立常模或经验证的中英文测量等值，四个主题也未证明为独立维度。若私下笔记有用，一个关于具体选项的问题，可能比反复计算符合几条更贴近目的。"
+            },
+            {
+              "en": "Your responses remain only in current-page memory, with no drafts, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares its title and address without answers or counts. These complete guides are available without a record. You can use information, keep boundaries, request a limited kind of help or decide to ask a different question, without treating the inventory as permission to receive support or an instruction to manage alone.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址；退出、重做、刷新或离页会清除。复制公开入口只含标题和地址，不含回答、计数。不生成记录也能读完整指南。可以使用信息、保留边界、请求有限协助或改问另一个问题，无需把盘点当作接受支持的许可或独自应对的指令。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questions-about-care-reading",
+      "directionIds": [
+        "questions-about-care"
+      ],
+      "title": {
+        "en": "Questions about professional support — Complete Reading",
+        "zh": "关于专业支持的疑问：完整读法"
+      },
+      "headline": {
+        "en": "Questions about professional support — Complete Reading",
+        "zh": "关于专业支持的疑问：完整读法"
+      },
+      "summary": {
+        "en": "Clarify questions about a professional conversation, privacy and practical terms, without assigning readiness or committing to treatment.",
+        "zh": "整理专业谈话、隐私和实际条件的疑问，不分配准备阶段，也不替本人承诺治疗。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to 5 statements, with each selected label kept visible. Categories are not points. There is no total, mean, ranking, readiness tier, diagnosis or therapy recommendation. Unknown and withheld answers stay separate.",
+        "zh": "六类计数合计5条，并保留逐条标签。类别不是点数，没有总分、均值、排名、准备档次、诊断或治疗建议。未知与保留回答分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Questions about professional support: Full Support Guide | FermatMind",
+          "zh": "关于专业支持的疑问：支持回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Clarify questions about a professional conversation, privacy and practical terms, without assigning readiness or committing to treatment.",
+          "zh": "整理专业谈话、隐私和实际条件的疑问，不分配准备阶段，也不替本人承诺治疗。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Questions are not a stage of readiness",
+            "zh": "有疑问，不等于处在某个准备阶段"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains five original statements about curiosity regarding an initial professional conversation, privacy information, practical arrangements, reservations and room to ask or pause. They concern your current position, not how often you have thought about therapy in four weeks. Several can fit together, and they need not point towards the same next step. Curiosity can coexist with caution, and having questions does not establish that you are ready, resistant, committed or unsuitable for a service.",
+              "zh": "本主题有五条原创陈述，涉及对最初专业谈话的好奇、隐私信息、实际安排、顾虑，以及提问或暂停的空间。它们关注当前位置，不统计四周里想过多少次治疗。几条可以同时符合，也未必指向同一下一步。好奇可以与谨慎并存，有疑问不建立已准备好、抗拒、承诺或不适合服务的结论。"
+            },
+            {
+              "en": "A wish to understand a process is different from deciding to begin treatment. You may already have experience of support, be considering a different service or be exploring the idea for the first time. This reflection does not assume a particular history. Its purpose is to make possible questions more specific while leaving the decision open. It cannot recommend a therapy, match a provider, estimate likely benefit or determine whether professional support is necessary for your circumstances.",
+              "zh": "想了解流程，不同于决定开始治疗。你可能已有接受支持的经历、正在考虑另一种服务，或第一次了解这一想法，回顾不预设历史。它让可能的问题更具体，同时让决定保持开放，不能推荐治疗、匹配服务者、估计受益可能，或判定自身情况是否必需专业支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five statements, six visible response categories",
+            "zh": "五条陈述，六种可见回答类别"
+          },
+          "paragraphs": [
+            {
+              "en": "For each statement, select does not describe, partly describes, describes, cannot judge, no relevant experience or prefer not to answer. The first three express fit with a description; the last three preserve different information gaps. They are not points on a readiness ladder. The six displayed counts add to five statements, and each selected label stays attached to its statement. There is no openness score, total, average, cutoff or comparison with people who have already used a service.",
+              "zh": "每条可选不符合、部分符合、符合、无法判断、没有相关经历或不愿回答。前三类表达与描述的符合关系，后三类保留不同信息缺口，不是准备阶梯上的点数。六类显示计数合计五条，逐条保留所选标签，没有开放程度分数、总分、均值、阈值或与已使用服务者的比较。"
+            },
+            {
+              "en": "All five fits responses could simply mean that several kinds of information matter to you. Mostly does-not-describe responses do not establish that you should not seek help. An unknown or withheld record supplies no personal finding at all. Counts from this theme are not combined with distress, everyday impact or resources to assign a recommendation tier. You can read every full guide, ask a professional a question or seek urgent assistance without obtaining a particular response pattern.",
+              "zh": "五条都符合，可能只是多种信息都对你重要；主要不符合，不建立不该求助的结论。未知或保留的记录不提供个人发现。本主题计数不与困扰、日常影响或资源相加来分配建议档次。无需取得特定回答模式，也能读所有全文、向专业人士提问或寻求紧急援助。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An enquiry can begin with process information",
+            "zh": "询问可以先从流程信息开始"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who wants to know what an initial appointment involves but is not ready to describe the concern itself. A limited enquiry might be, “Could you explain how a first conversation is arranged and what information you ask for beforehand?” Another person may want to ask which kinds of concerns a service works with. These are requests for information. This page does not send them, book an appointment or make any commitment on the person's behalf.",
+              "zh": "设想一个虚构人物想知道最初约见会怎样，但还不愿讲困扰本身。可以有限地询问：“第一次谈话怎样安排？事前会问哪些信息？”另一个人可能想问服务处理哪些类型的困扰。这些是信息请求，本页不会代发、预约，也不代本人作出承诺。"
+            },
+            {
+              "en": "A service can explain its own process, including whether an enquiry, assessment or treatment appointment is being offered. Those may have different purposes and practical conditions. You can ask what happens next and decide whether you have enough information to proceed. You do not have to use questionnaire language, share a category record or justify why you want the information. If the response is unclear, a follow-up question can be specific, or you can consider another appropriate source of information.",
+              "zh": "服务可以说明流程，包括提供的是信息询问、评估还是治疗约见；不同环节可能有不同目的和实际条件。可以问后续步骤，再决定信息是否足够。无需使用问卷用语、分享类别记录或证明为何想了解。回答不清楚时，可以具体追问，也可以考虑另一种合适的信息来源。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Ask what a provider can explain about their work",
+            "zh": "了解服务者能怎样说明自己的工作"
+          },
+          "paragraphs": [
+            {
+              "en": "The NIMH psychotherapy overview suggests preliminary questions about professional credentials, experience, approach, goals and confidentiality. These questions help clarify what is being offered; they do not make this reflection a provider-vetting tool. The relevant qualifications and service arrangements depend on your location and the type of care. A title or a reassuring description alone cannot be verified by this page, and it cannot certify a particular person, organisation, directory or treatment.",
+              "zh": "NIMH心理治疗概览建议，初步了解时可询问专业资质、经验、方法、目标和保密。这些问题帮助弄清提供什么，不使本回顾成为服务者审核工具。相关资格和服务安排取决于所在地及照护类型。本页无法核实一个头衔或令人安心的介绍，也不认证具体个人、机构、名录或治疗。"
+            },
+            {
+              "en": "You might choose one question that matters now, such as the purpose of the first meeting or how questions about the process are handled. You need not conduct an exhaustive interview before seeking help. Nor does finding a possible option mean that you must select it immediately. If a concern requires an individual clinical assessment, that assessment belongs with an appropriate qualified professional. These original statements provide no diagnosis and cannot choose between medical, psychological or practical explanations.",
+              "zh": "可以先选一个当前在意的问题，例如第一次见面的目的，或怎样处理关于流程的疑问。求助前无需完成穷尽访谈，找到一个可能选项也不等于必须立即选择。需要个别临床评估的困扰，应由合适的合格专业人士评估。原创陈述不诊断，也不在身体、心理或现实解释之间作选择。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Privacy and practical terms need their own answers",
+            "zh": "隐私和实际条件需要各自的答案"
+          },
+          "paragraphs": [
+            {
+              "en": "The privacy statement records that information about privacy and its limits matters to you. It does not promise that a service can keep every detail confidential in every circumstance. You can ask what information is recorded, who can access it and what limits or obligations apply, then decide what to share in that setting. This page cannot supply legal advice or verify the rules of a specific service. Keep the service's explanation separate from the privacy arrangements of this questionnaire.",
+              "zh": "隐私陈述只记录你在意保护方式及其限制，不保证某个服务在任何情境都能保密全部细节。可以问会记录什么、谁能接触、有哪些限制或义务，再决定在该环境分享多少。本页不提供法律意见，也不核实具体服务规则；应把服务自身说明与这份问卷的隐私安排分开。"
+            },
+            {
+              "en": "Timing, cost, accessibility, communication format and other practical terms can also matter before a decision. Ask the service for current information rather than relying on a general guide or assuming that an alternative is available. Fees, cancellation terms and eligibility conditions are not established by your category selections. Wanting to understand them does not imply reluctance or poor motivation. A genuine access barrier should not be renamed as low readiness, and you need not disclose unrelated personal details simply to ask about an arrangement.",
+              "zh": "时间、费用、无障碍条件、沟通形式和其他实际条款，都可能影响决定。应向服务询问当前信息，不依赖通用指南或预设替代一定存在。类别选择不建立收费、取消条款或使用资格。想了解这些不表示迟疑或动力不足；实际障碍不应改名为准备度低，也无需为询问安排而披露无关私人细节。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Curiosity and reservations can coexist",
+            "zh": "好奇与顾虑可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want to explore support and also have questions arising from uncertainty or a previous experience. This record does not establish why a reservation exists, whether it is justified or how it should be resolved. You can choose to name the question without giving a detailed history. For example, “I would like to understand how concerns about the process can be raised.” A conversation about an option can leave room for questions rather than demand an immediate statement of commitment.",
+              "zh": "可能想了解支持，同时也因不确定或既往经历而有疑问。记录不建立顾虑的原因、是否合理或应如何解决。可以只命名问题而不详述历史，例如：“我想知道，对流程有顾虑时可以怎样提出？”了解选项的谈话可以给疑问留空间，不必立即要求作出承诺。"
+            },
+            {
+              "en": "No readiness tier, concern count or period of waiting is required to ask for professional help. You do not need to finish the reflection or resolve every reservation first. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing here. This page is not an emergency response or an ongoing monitoring service. All four guides and support information remain public for every response pattern, including when you prefer not to answer any statement.",
+              "zh": "询问专业帮助不需要准备档次、困扰计数或等待期，无需先完成回顾或消除所有顾虑。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续本页。这里不是紧急响应或持续监测服务。任何回答模式都能读四篇指南和支持说明，包括不愿回答任何陈述时。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep information separate from an automatic recommendation",
+            "zh": "信息不等于自动建议"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original statements have not been validated as a measure of therapy readiness, a stage-of-change assignment or a prediction of treatment participation or benefit. They have no established norms, cutoff or demonstrated English–Chinese measurement equivalence. A later answer can change after learning something new, changing circumstances or interpreting a statement differently. That does not by itself prove that readiness improved or declined. A useful outcome may be one clear question, not a decision about care.",
+              "zh": "五条原创陈述未被验证为治疗准备度测量、改变阶段分配或治疗参与及受益预测，没有已建立常模、阈值或经验证的中英文测量等值。之后回答可能因新信息、处境变化或理解不同而改变，本身不证明准备度升降。有用的收获可以只是一个清楚问题，不必成为照护决定。"
+            },
+            {
+              "en": "Answers remain only in current-page memory: no drafts, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying the public entry shares its title and address without the record. The same complete guides are available before answering and afterwards. You can use a question, keep it private, ask for clarification or seek an appropriate real-world conversation without asking the questionnaire for permission and without allowing its categories to decide what you need.",
+              "zh": "回答仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址；退出、重做、刷新及离页会清除。复制公开入口只含标题与地址，不含记录。答题前后都能读同样的完整指南。可以使用问题、保留隐私、要求说明或寻找合适现实谈话，无需问卷许可，也不让类别决定你需要什么。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "categories",
+      "title": {
+        "en": "Eighteen statements without a readiness score",
+        "zh": "十八条陈述，不生成准备分数"
+      },
+      "paragraphs": [
+        {
+          "en": "The four topics contain four, four, five and five original statements. Each statement enters one of six categories: does not describe, partly describes, describes, cannot judge, no relevant experience or prefer not to answer. Category counts add to each topic’s item count. Individual selected labels remain visible; categories are not points and counts from different themes are not added or ranked.",
+          "zh": "四个主题分别有四、四、五、五条原创陈述。每条进入不符合、部分符合、符合、无法判断、没有相关经历或不愿回答六类之一。类别计数合计各主题条数，并保留逐条标签；类别不是点数，不把不同主题相加或排名。"
+        },
+        {
+          "en": "Some support statements concern resources, another concerns a practical barrier, and others concern questions or privacy. A fits label does not always mean more difficulty or better support. There is no reverse scoring, overall score, readiness stage, recommendation tier or verdict about whether you need therapy.",
+          "zh": "支持主题中有些描述资源，一条描述现实障碍，还有些描述疑问或隐私。符合并不总表示困难更多或支持更好，不做反向计分，也没有总体分数、准备阶段、建议档次或是否需要治疗的结论。"
+        }
+      ]
+    },
+    {
+      "id": "unknowns",
+      "title": {
+        "en": "Different information gaps remain different",
+        "zh": "不同的信息缺口分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Partly describes expresses partial fit. Cannot judge preserves uncertainty rather than a middle amount; no relevant experience and withholding a response remain separate. If all responses in a theme are unknown or withheld, no personal finding is inferred. Those categories are never replaced with zero or reassurance.",
+          "zh": "部分符合表达部分吻合。无法判断保留不确定，不表示中等程度；没有相关经历和保留回答也分开。一个主题全部未知或保留时，不推断个人发现，不替换成零或安心结论。"
+        },
+        {
+          "en": "The first eight statements concern four-week recollection. The remaining ten concern current support conditions and questions, not frequency over that period. These original bilingual statements have no established norms, diagnostic thresholds or demonstrated English–Chinese measurement equivalence. The topics may overlap and are not established independent dimensions.",
+          "zh": "前八条回顾四周，后十条关注当前支持条件和疑问，不统计那段时间的频率。原创双语陈述尚无已建立常模、诊断阈值或经验证的中英文测量等值；主题可以重叠，不是已建立的独立维度。"
+        }
+      ]
+    },
+    {
+      "id": "choice",
+      "title": {
+        "en": "Complete public text and support without a gate",
+        "zh": "完整正文与支持，不设答题门槛"
+      },
+      "paragraphs": [
+        {
+          "en": "All four full guides are free and public before answering and with any response pattern. You can ask a qualified professional about support without finishing, reaching a count or waiting a required period. A record does not replace an individual assessment or explain a physical health concern.",
+          "zh": "四篇全文免费公开，答题前和任何回答模式下都能读。无需完成、达到计数或等待规定时段，就能向合格专业人士询问支持。记录不替代个别评估，也不解释身体健康疑问。"
+        },
+        {
+          "en": "Answers stay in current-page memory only: no drafts, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear them. Copying the public entry shares only its title and address. This page cannot monitor your circumstances or provide an emergency response.",
+          "zh": "回答仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会清除。复制公开入口只含标题与地址；本页不能监测处境或提供紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this tell me whether I need therapy?",
+        "zh": "会判定我是否需要治疗吗？"
+      },
+      "answer": {
+        "en": "No. It gives separate categorical records for original statements, not a clinical decision, diagnosis, readiness stage or treatment recommendation. You may ask a professional without a particular result.",
+        "zh": "不会。它为原创陈述提供分开的类别记录，不作临床决定、诊断、准备阶段或治疗建议；无需特定结果也能询问专业人士。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are partly describes and cannot judge separate?",
+        "zh": "为什么部分符合与无法判断分开？"
+      },
+      "answer": {
+        "en": "Partial fit is different from uncertainty. No relevant experience and withholding an answer are also separate information gaps, not low points.",
+        "zh": "部分吻合不同于不确定；没有相关经历与保留回答也是分别保留的信息缺口，不是低分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does having resources mean I should manage alone?",
+        "zh": "有资源就应该独自应对吗？"
+      },
+      "answer": {
+        "en": "No. Resources do not cancel concerns or limit access to professional advice. Practical barriers do not establish low motivation or low readiness.",
+        "zh": "不是。资源不抵消困扰，也不限制询问专业意见；现实障碍不建立动力低或准备度低的结论。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these published clinical or stage-of-change items?",
+        "zh": "这些是已发表临床或改变阶段题目吗？"
+      },
+      "answer": {
+        "en": "No. All eighteen bilingual statements are FermatMind originals. They do not administer a published instrument or stage-assignment algorithm, and topic similarity does not establish equivalence.",
+        "zh": "不是。十八条双语陈述均为费马原创，不施测已发表工具或阶段分配算法；主题相近不建立等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every full guide without answering?",
+        "zh": "不答题也能读全部完整指南吗？"
+      },
+      "answer": {
+        "en": "Yes. All four complete guides and support information remain public, including with entirely unknown or withheld responses. Answers unlock no extra tier.",
+        "zh": "可以。四篇全文和支持说明始终公开，包括所有回答都未知或保留时；答题不解锁额外档次。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Psychotherapies — information about professional conversations",
+        "zh": "NIMH：心理治疗——专业谈话相关信息"
+      },
+      "url": "https://www.nimh.nih.gov/health/topics/psychotherapies"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_support_consideration_statements",
+    "formCode": "fm_support_reflection18_current_v1",
+    "itemBankVersion": "original18_bilingual_four_domains_4_4_5_5_v1",
+    "scoringVersion": "six_current_fit_category_counts_four_four_five_five_no_points_v1",
+    "resultContentVersion": "four_full_bilingual_support_readings_v1",
+    "itemBankSha256": "543dbd3ccee9d4259bc2d1298dc71d3b6e28292a6c47be45f28779784ff8277f",
+    "resultContentSha256": "23b89d1712501170d78deade802b2cc4029f58cfe00bd6c86fbab5b1d55fec7f",
+    "psychometricValidationCompleted": false
+  }
+}

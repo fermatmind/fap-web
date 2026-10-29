@@ -1,5 +1,7 @@
 import { BodyFrameObservationsClient } from "./BodyFrameObservationsClient";
 import { ConnectionIdealsClient } from "./ConnectionIdealsClient";
+import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
+import { SupportReflectionPage } from "./SupportReflectionPage";
 import { isConnectionCheckIn21ConfigurationValid } from "@/lib/questionnaires/connectionCheckIn21";
 import { ConnectionCheckInPage } from "./ConnectionCheckInPage";
 import { isPressureActions12ConfigurationValid } from "@/lib/questionnaires/pressureActions12";
@@ -132,6 +134,7 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "pressure-actions12" && !isPressureActions12ConfigurationValid(quiz)) return { title: "Action reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "trauma-response20" && !isTraumaResponse20ConfigurationValid(quiz)) return { title: "Observation reflection unavailable", robots: { index: false, follow: false } };
@@ -165,6 +168,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "support-reflection18") {
+    if (!isSupportReflection18ConfigurationValid(quiz)) notFound();
+    return <SupportReflectionPage quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "connection-checkin21") {
     if (!isConnectionCheckIn21ConfigurationValid(quiz)) notFound();
     return <ConnectionCheckInPage quiz={quiz} locale={locale} />;

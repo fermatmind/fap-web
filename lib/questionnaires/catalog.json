@@ -6671,5 +6671,30 @@
       "joint-landmarks"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "considering-support-reflection",
+    "code": "FM_SUPPORT_REFLECTION18_CURRENT_CATEGORIES",
+    "version": "fm_support_reflection18_current_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Considering Support: Personal Reflection",
+      "zh": "考虑支持：个人回顾"
+    },
+    "description": {
+      "en": "Reflect on 18 original statements about concerns, everyday impact, support and questions about professional care. Four full public guides, private category records and no readiness score or therapy verdict.",
+      "zh": "用18条原创陈述回顾困扰、日常影响、支持条件和专业支持疑问。四篇完整指南公开，类别记录留在本页，不生成准备度分数或治疗结论。"
+    },
+    "minutes": 5,
+    "formCode": "fm_support_reflection18_current_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "concerns-carried-reading",
+      "everyday-impact-reading",
+      "available-support-reading",
+      "questions-about-care-reading"
+    ],
+    "collection": "explore"
   }
 ]

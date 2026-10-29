@@ -1,3 +1,5 @@
+import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
+import { SupportReflectionGuidePage } from "./SupportReflectionPage";
 import { isConnectionCheckIn21ConfigurationValid } from "@/lib/questionnaires/connectionCheckIn21";
 import { ConnectionCheckInGuidePage } from "./ConnectionCheckInPage";
 import { isPressureActions12ConfigurationValid } from "@/lib/questionnaires/pressureActions12";
@@ -110,6 +112,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "pressure-actions12" && !isPressureActions12ConfigurationValid(quiz)) return { title: "Action reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "trauma-response20" && !isTraumaResponse20ConfigurationValid(quiz)) return { title: "Observation reflection unavailable", robots: { index: false, follow: false } };
@@ -160,6 +163,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "support-reflection18") {
+    if (!isSupportReflection18ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <SupportReflectionGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "connection-checkin21") {
     if (!isConnectionCheckIn21ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
