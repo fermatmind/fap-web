@@ -1,0 +1,1937 @@
+{
+  "slug": "after-bereavement-reflection",
+  "code": "FM_BEREAVEMENT16_OBSERVATIONS",
+  "version": "fm_bereavement16_observations_v1",
+  "kind": "bereavement16",
+  "title": {
+    "en": "After a Bereavement: Personal Reflection",
+    "zh": "重要的人去世之后：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "missing-the-person",
+      "title": {
+        "en": "Missing the person",
+        "zh": "想念去世的人"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "changed-roles",
+      "title": {
+        "en": "Changed roles and descriptions",
+        "zh": "变化的角色与自我描述"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "distance-from-reminders",
+      "title": {
+        "en": "Distance from reminders",
+        "zh": "与提醒材料保持距离"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "future-and-activities",
+      "title": {
+        "en": "Future plans and activities",
+        "zh": "之后的计划与活动"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "feelings-and-support",
+      "title": {
+        "en": "Feelings and receiving support",
+        "zh": "感受与接受支持"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "BRV_01",
+      "prompt": {
+        "en": "When something happened that I wanted to share, I found myself thinking of the person who had died.",
+        "zh": "发生一件想分享的事时，我发现自己想到了那位去世的人。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_02",
+      "prompt": {
+        "en": "I wished for an ordinary moment of company with the person who had died.",
+        "zh": "我希望还能与那位去世的人有一段普通的相伴时光。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_03",
+      "prompt": {
+        "en": "An everyday routine brought a strong sense of the person’s absence.",
+        "zh": "一项日常惯例让我鲜明地感到那个人已经不在。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_04",
+      "prompt": {
+        "en": "I noticed wanting to hear from the person, even while knowing they had died.",
+        "zh": "即使知道对方已经去世，我仍注意到自己想听到他们的消息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "missing-the-person"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_05",
+      "prompt": {
+        "en": "A role I had in relation to the person felt different or unclear.",
+        "zh": "我与那个人之间原有的一种角色，变得不同或难以说清。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_06",
+      "prompt": {
+        "en": "An ordinary decision made me notice how a shared role had changed.",
+        "zh": "一次普通决定让我注意到，原本共同承担的角色已经变了。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_07",
+      "prompt": {
+        "en": "When asked about part of my life, I was unsure how to describe my place since the death.",
+        "zh": "被问起生活的某一部分时，我不确定该怎样描述离世之后自己的位置。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changed-roles"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_08",
+      "prompt": {
+        "en": "I put aside an object or message connected with the person when it felt too much in that moment.",
+        "zh": "与那个人有关的物品或消息在当时让我难以承受时，我把它暂时放在一边。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_09",
+      "prompt": {
+        "en": "I chose not to visit a place or activity linked with the person because I wanted some distance from reminders.",
+        "zh": "由于想与提醒保持一点距离，我选择不去某个与那个人有关的地方或活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_10",
+      "prompt": {
+        "en": "I changed the subject when a conversation about the person felt too hard to stay with.",
+        "zh": "一段关于那个人的谈话让我觉得难以继续时，我转开了话题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "distance-from-reminders"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_11",
+      "prompt": {
+        "en": "A near-future plan felt difficult to imagine without the person.",
+        "zh": "想象一个没有那个人参与的近期计划，让我觉得困难。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_12",
+      "prompt": {
+        "en": "I paused an activity I might otherwise have considered because taking part without the person felt hard.",
+        "zh": "由于独自参与、少了那个人让我觉得难，我暂时放下了一项原本可能考虑的活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_13",
+      "prompt": {
+        "en": "When making a personal plan, I was unsure what would feel worth doing after the death.",
+        "zh": "安排自己的计划时，我不确定离世之后什么事会让我觉得值得去做。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "future-and-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_14",
+      "prompt": {
+        "en": "I noticed a flat or distant feeling when I had expected clearer emotions about the loss.",
+        "zh": "本以为对这次失去会有更清楚的情绪时，我却注意到平淡或隔着一层的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_15",
+      "prompt": {
+        "en": "I wanted comfort but found it difficult to let someone know what I needed.",
+        "zh": "我想得到安慰，却发现难以让别人知道自己需要什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "BRV_16",
+      "prompt": {
+        "en": "I was unsure about relying on someone even when I wanted support.",
+        "zh": "即使想要支持，我仍对依靠某个人感到不确定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-support"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "bereavementTimeContext": {
+    "id": "BRV_CONTEXT_TIME",
+    "question": {
+      "en": "If you want to add context, about how long has it been since the death?",
+      "zh": "如果愿意提供背景，离世距今大约多久？"
+    },
+    "optional": true,
+    "default": "withheld",
+    "options": [
+      {
+        "id": "under-three-months",
+        "label": {
+          "en": "Less than three months",
+          "zh": "不足三个月"
+        }
+      },
+      {
+        "id": "three-to-twenty-four-months",
+        "label": {
+          "en": "Three to twenty-four months",
+          "zh": "三至二十四个月"
+        }
+      },
+      {
+        "id": "over-twenty-four-months",
+        "label": {
+          "en": "More than twenty-four months",
+          "zh": "超过二十四个月"
+        }
+      },
+      {
+        "id": "uncertain",
+        "label": {
+          "en": "Cannot place the timing",
+          "zh": "无法判断时间"
+        }
+      },
+      {
+        "id": "withheld",
+        "label": {
+          "en": "Prefer not to answer",
+          "zh": "不愿回答"
+        }
+      }
+    ],
+    "boundary": {
+      "en": "These broad periods are optional context only. They are not clinical cutoffs, stages or a schedule for recovery, and do not change counts, public text or access to support. No dates, names or circumstances are requested.",
+      "zh": "这些宽泛时段仅为可选背景，不是临床界限、阶段或恢复日程，不改变计数、公开正文或获得支持的条件。不要求日期、姓名或离世经过。"
+    }
+  },
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Grief Reflection After a Death: Five Full Guides | FermatMind",
+    "zh": "重要的人去世之后：哀伤回顾与五篇完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Reflect on 16 original observations after a bereavement, with optional unscored timing and five full public guides. Private category records, without a grief score, diagnosis or timetable for support.",
+    "zh": "用16条原创观察回顾重要的人去世之后的经历，可选时间仅作背景，五篇完整指南公开。类别记录留在本页，不生成哀伤分数、诊断或求助时间表。"
+  },
+  "introduction": {
+    "en": "This adult reflection keeps missing the person, changed roles, distance from reminders, future activities and receiving support separate. It does not measure love, assign a stage or identify prolonged grief. You can read all five guides without answering or describing the death.",
+    "zh": "这份成年人回顾分别呈现想念、角色变化、与提醒保持距离、之后活动及接受支持，不衡量爱、不分阶段，也不识别延长哀伤。不答题、不描述离世经过，也能阅读五篇全文。"
+  },
+  "instructions": {
+    "en": "Recall the past four weeks after the death. If the death was more recent, consider only the days since it happened. If several losses are relevant, you may choose one privately without naming the person. Choose how often you noticed each description; no relevant experience, unclear recall or withholding an answer can remain unscored. Categories are labels, not points or event counts. Timing is optional and never changes support access. You may pause or leave at any time.",
+    "zh": "回顾过去四周中离世之后的日子；若离世更近，只看发生之后的时间。涉及多次失去时，可以私下选择一次，无需说出姓名。选择多常注意到每条描述；没有相关经历、回想不清或保留回答可选未计分。类别是标签，不是点数或事件次数。时间背景可不提供，也不改变获得支持的条件。可以随时暂停或离开。"
+  },
+  "resultHeading": {
+    "en": "Your five separate bereavement-observation records",
+    "zh": "五个分别阅读的丧失观察记录"
+  },
+  "profiles": [
+    {
+      "id": "missing-the-person-reading",
+      "directionIds": [
+        "missing-the-person"
+      ],
+      "title": {
+        "en": "Missing the person — Complete Reading",
+        "zh": "想念去世的人：完整读法"
+      },
+      "headline": {
+        "en": "Missing the person — Complete Reading",
+        "zh": "想念去世的人：完整读法"
+      },
+      "summary": {
+        "en": "Read ordinary moments of missing the person without measuring love, assigning a grief level or imposing a recovery timetable.",
+        "zh": "回看普通时刻的想念，不衡量爱、不划哀伤等级，也不设恢复日程。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to 4 observations, with each selected label retained. IDs are not points. No total, mean, highest theme, risk level or diagnosis is produced. Optional timing is unscored and does not alter these counts, public text or support access.",
+        "zh": "六类计数合计4条，保留逐条标签。标识不是点数，不生成总分、均值、最高主题、风险等级或诊断。可选时间不计分，不改变计数、公开正文或获得支持的条件。"
+      },
+      "seo": {
+        "title": {
+          "en": "Missing the person: Full Bereavement Guide | FermatMind",
+          "zh": "想念去世的人：丧失回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read ordinary moments of missing the person without measuring love, assigning a grief level or imposing a recovery timetable.",
+          "zh": "回看普通时刻的想念，不衡量爱、不划哀伤等级，也不设恢复日程。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Missing a person in ordinary moments",
+            "zh": "在普通时刻想念一个人"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains four original observations about thinking of someone who has died when you want to share something, wishing for ordinary company, noticing absence in a routine and wanting to hear from the person while knowing they have died. The exercise is for adults and asks about the past four weeks after the death. If the death was more recent, consider only the days since it happened. There is no need to count experiences from before the death or explain its circumstances.",
+              "zh": "本主题有四条原创观察：有事想分享时想到去世的人、希望有普通陪伴、在惯例中感到缺席，以及明知对方去世仍想听到消息。练习适用于成年人，回顾过去四周中离世之后的日子；若离世更近，只看发生之后的时间。无需把发生前的经历算进来，也不必说明离世经过。"
+            },
+            {
+              "en": "The descriptions do not measure how much you loved the person or decide whether a feeling is appropriate. A frequent observation is not a stronger relationship, and an infrequent one does not establish indifference. Your relationship, daily circumstances and way of remembering are not known to this page. The four statements cannot distinguish a clinical condition from other experiences of grief, predict a course of recovery or decide what kind of support would be suitable for you.",
+              "zh": "描述不衡量爱有多少，也不判感受是否合宜。观察频繁不代表关系更深，较少也不建立冷漠的结论。本页不知道你们的关系、日常背景或记忆方式。四条无法区分临床状况与其他哀伤经历、预测恢复过程，或决定何种支持适合你。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read categories without a grief score",
+            "zh": "读类别，不生成哀伤分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each observation receives one of six labels: did not notice, rarely, sometimes, often, very often or unscored. The six counts add to four observations, with the individual selections displayed alongside them. The identifiers used for the options are not points and are never added into a grief total. For example, one sometimes, one often and two unscored remains that particular record, rather than becoming a moderate level or a comparison with other bereaved people.",
+              "zh": "每条进入没有注意到、很少、有时、较常、经常或未计分六类之一。六类计数合计四条，并同时显示逐条选择。选项标识不是点数，不相加为哀伤总分。例如一条有时、一条较常、两条未计分，就保留这一具体记录，不变成中等程度，也不与其他失去重要之人的人比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding an answer remain unscored instead of being converted to absence. An entirely unscored theme provides no personal finding about whether missing the person has been present. A did-not-notice answer is also limited to the particular description and recollection period. There is no highest theme, diagnosis, risk band or score-based advice. All five complete guides and support information remain available before answers and for every possible response pattern.",
+              "zh": "没有相关经历、回想不清和保留回答都保持未计分，不换算成没有发生。全部未计分，不提供是否想念对方的个人发现。没有注意到，也只限于这条描述和回想时段。没有最高主题、诊断、风险档或按分数给的建议。五篇全文和支持说明在答题前及任何回答模式下都公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An ordinary event can make an absence noticeable",
+            "zh": "普通事情也会让缺席变得鲜明"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person finishing a small piece of work and briefly thinking of the person they used to tell. Another notices an absence while preparing a familiar meal. These examples are descriptions, not exercises to repeat. They do not imply that every routine should carry a reminder or that a bereaved person should seek one out. A different person may remember through an activity, a story, a quiet moment or no clear event at all.",
+              "zh": "设想一个虚构人物完成一件小事，短暂想到过去会告诉的那个人；另一个人在准备熟悉的饭食时感到缺席。例子是描述，不是要重复的练习，不暗示每项惯例都该有提醒，也不要求主动寻找提醒。另一个人可能通过活动、故事、安静片刻记起，也可能没有清楚的事件。"
+            },
+            {
+              "en": "You may notice wanting company and also wanting a pause from reminders at different times. Those accounts need not contradict each other. Missing someone does not require staying with every memory, sharing it publicly or maintaining an activity that feels too much. The other guides discuss roles, reminders, future activities and receiving support as separate reading topics. Their separation organises descriptions; it does not establish independent psychological dimensions or a sequence that you are meant to pass through.",
+              "zh": "不同时间里，可能既想有人相伴，也想与提醒暂时保持距离，两者不必矛盾。想念不要求停留在每段记忆中、公开分享，或继续难以承受的活动。另几篇分别谈角色、提醒、之后活动及接受支持；分类只是整理描述，不建立独立心理维度，也不是必须依次通过的过程。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Optional timing is context, not an eligibility rule",
+            "zh": "可选时间是背景，不是资格规则"
+          },
+          "paragraphs": [
+            {
+              "en": "The optional timing choice uses broad periods of less than three months, three to twenty-four months or more than twenty-four months, alongside uncertain and prefer not to answer. These periods are convenience categories for context, not diagnostic cutoffs or stages. No date, name or account of the death is requested. Leaving the choice withheld does not prevent organising the observations. Choosing any other period produces the same counting method, full public text and access to support.",
+              "zh": "可选时间使用不足三个月、三至二十四个月或超过二十四个月的宽泛时段，另有无法判断及不愿回答。它们只是方便提供背景的分类，不是诊断界限或阶段，不要求日期、姓名或离世经过。保留这一项不妨碍整理观察；选择任何时段，计数方式、公开全文和获得支持的条件都相同。"
+            },
+            {
+              "en": "Clinical assessment of prolonged grief involves more than elapsed time, and this exercise does not administer diagnostic criteria or a published grief instrument. A timing choice cannot classify your experience as normal, stuck or prolonged. Nor does time decide whether a concern deserves attention. You can ask for support soon after a death or much later, without waiting for an anniversary or reaching a response count. The record cannot establish how your feelings should change on a calendar.",
+              "zh": "延长哀伤的临床评估不只看经过多久，本练习不施测诊断标准或已发表哀伤工具。时间选择不能把经历分成正常、被困或延长，也不决定困扰是否值得关注。离世不久或很久之后，都可以询问支持，无需等周年或达到回答计数。记录不能规定感受该怎样随日历变化。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose what, if anything, you want to share",
+            "zh": "分享多少，或是否分享，由你选择"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to talk with someone, a limited request might be “I am missing this person today; could you listen for a short while?” You might instead ask for company without explaining a memory. The other person can say whether they have capacity, while you retain a choice about detail. This guide does not require contacting relatives, reconciling with someone, discussing a difficult relationship or sharing something that you would prefer to keep private.",
+              "zh": "愿意谈时，可以有限地请求：“今天我很想念这个人，能听我说一会儿吗？”也可以只想有人陪，而不解释记忆。对方说明有无余力，你仍决定细节多少。指南不要求联系亲属、与谁和解、讨论复杂关系，或分享自己希望保留的内容。"
+            },
+            {
+              "en": "A relationship may have included comfort, difficulty, mixed feelings or experiences you do not want to describe. The questionnaire does not reduce that history to affection or a single feeling. You may choose an appropriate professional conversation rather than an informal one, or ask about the process before discussing the loss. No category gives another person permission to question your relationship or to tell you that you should remember more, remember less or move on in a prescribed way.",
+              "zh": "关系可能包含安慰、困难、复杂感受或不愿描述的经历，问卷不把这些历史压成亲密或单一情绪。可以选择合适的专业谈话，而非非正式交流，也可以先问流程再考虑是否谈失去。任何类别都不授权别人评判关系，或要求你多想、少想、按规定方式向前走。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support remains available at any point",
+            "zh": "任何时候都可以询问支持"
+          },
+          "paragraphs": [
+            {
+              "en": "If missing the person is troubling, difficult to manage or simply something you want to discuss, you can ask an appropriate professional or bereavement service about support. You do not need to finish the reflection or demonstrate a minimum amount of difficulty. Different services have their own arrangements, which this page cannot verify. A first enquiry can concern what is offered and how a conversation works, leaving you room to decide what you want to share.",
+              "zh": "想念让你难受、难以应对，或只是希望有人谈谈时，可以向合适的专业人士或丧失支持服务询问。无需完成回顾，也不用证明困难达到最低量。各服务有自身安排，本页不能核实。最初可以只问提供什么、谈话怎样进行，再决定愿意分享多少。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. No elapsed-time choice or unscored record cancels that need. The page cannot monitor your circumstances or provide an emergency response. It does not recommend exposure to reminders, changes to treatment or an exercise that requires staying with distress. Its support information is unconditional and public, rather than a result unlocked by frequent observations or a particular period since the death.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续回答。任何时间选择或未计分记录都不取消这种需要。本页不能监测处境或提供紧急响应，不建议接触提醒材料、改变治疗，或安排必须停留在难受感受中的练习。支持说明无条件公开，不由观察频繁或离世经过某个时段解锁。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a description separate from a measure of recovery",
+            "zh": "描述不同于恢复程度测量"
+          },
+          "paragraphs": [
+            {
+              "en": "These original observations have no established norms, diagnostic threshold or demonstrated English–Chinese measurement equivalence. They are not the Inventory of Complicated Grief, a DSM scoring rule or a measure of how far you have moved through grief. A later answer may differ because of circumstances, recall or how you understand a statement. Comparing counts does not establish recovery, worsening or the effect of a particular activity. One useful description may be enough for the conversation you choose.",
+              "zh": "原创观察尚无已建立常模、诊断阈值或经验证的中英文测量等值，不是复杂哀伤量表、DSM计分规则，也不测已经走过哀伤多远。之后回答不同，可能来自背景、回忆或理解。比较计数不建立恢复、恶化或某项活动效果；一条有用描述，可能已经足够用于自选谈话。"
+            },
+            {
+              "en": "Answers and optional timing stay only in current-page memory. There is no draft storage, submission, questionnaire analytics or personal result address; exit, retake, reload and leaving clear both. Copying the public entry shares only its title and address. All five complete guides remain the same public text for everyone. You can read without answering, leave a description private or seek support without letting a record assign meaning to your relationship, your loss or what you should do next.",
+              "zh": "回答和可选时间只留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址；退出、重做、刷新或离页会一并清除。复制公开入口只含标题及地址。任何人都能读同样的五篇全文。可以不答题、保留描述或寻求支持，不让记录替关系、失去或下一步分配意义。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changed-roles-reading",
+      "directionIds": [
+        "changed-roles"
+      ],
+      "title": {
+        "en": "Changed roles and descriptions — Complete Reading",
+        "zh": "变化的角色与自我描述：完整读法"
+      },
+      "headline": {
+        "en": "Changed roles and descriptions — Complete Reading",
+        "zh": "变化的角色与自我描述：完整读法"
+      },
+      "summary": {
+        "en": "Describe changes in a role or responsibility while keeping privacy and your own words, without an identity label or a requirement to move on.",
+        "zh": "描述角色或责任变化，保留隐私和自己的用词，不分身份标签，也不要求向前走。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to 3 observations, with each selected label retained. IDs are not points. No total, mean, highest theme, risk level or diagnosis is produced. Optional timing is unscored and does not alter these counts, public text or support access.",
+        "zh": "六类计数合计3条，保留逐条标签。标识不是点数，不生成总分、均值、最高主题、风险等级或诊断。可选时间不计分，不改变计数、公开正文或获得支持的条件。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changed roles and descriptions: Full Bereavement Guide | FermatMind",
+          "zh": "变化的角色与自我描述：丧失回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe changes in a role or responsibility while keeping privacy and your own words, without an identity label or a requirement to move on.",
+          "zh": "描述角色或责任变化，保留隐私和自己的用词，不分身份标签，也不要求向前走。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A changed role does not define the whole person",
+            "zh": "角色变化不定义整个人"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains three original observations about a role feeling different or unclear, noticing a shared role change during an ordinary decision and being unsure how to describe your place when someone asks about part of life. The recollection period is the past four weeks after the death. These descriptions do not assess your identity, worth or ability to adapt. A role may involve a relationship, an everyday responsibility, a shared activity or words you use about yourself, without any single description covering everything.",
+              "zh": "本主题有三条原创观察：角色变得不同或难说清、普通决定让人注意到共同角色变化，以及被问起生活时不确定怎样描述自己的位置。回顾过去四周中离世之后的日子。描述不评估身份、价值或适应能力。角色可能涉及关系、日常责任、共同活动或自我称呼，没有一种描述能够涵盖整个人。"
+            },
+            {
+              "en": "People can retain a valued description, change it, use different words in different settings or prefer not to explain it. The questionnaire cannot choose among those possibilities or determine what a role should mean in your culture, family or circumstances. It does not assign a new identity after a death. If a statement fits, it records that you noticed the particular uncertainty or change; it does not establish a clinical symptom, a stage of grief or a need to replace an old role.",
+              "zh": "可以保留珍视的描述、改变用词、在不同环境用不同说法，或不作解释。问卷不能替你选择，也不决定角色在某种文化、家庭和背景中应有的意义，不在离世后分配新身份。陈述符合时，只记录注意到某种不确定或变化，不建立临床症状、哀伤阶段，或必须替换原角色的需要。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Three observations keep their own labels",
+            "zh": "三条观察保留各自标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts organise the three selected responses: did not notice, rarely, sometimes, often, very often and unscored. They add to three observations, not a role-disruption score. One often response and two unscored responses remain exactly that account. The four-item missing-the-person theme has a different number of statements, so comparing its counts with these three would also compare different denominators. The report neither ranks themes nor uses the largest count to decide your main difficulty.",
+              "zh": "六类计数整理三条所选回答：没有注意到、很少、有时、较常、经常和未计分，合计三条，不形成角色变化分数。一条较常加两条未计分，就保持这个描述。想念主题有四条，与这里比较还会比较不同分母。报告不排主题名次，也不通过最大计数决定主要困难。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and keeping an answer private remain unscored instead of becoming a low value. An entirely unscored record supplies no personal finding about roles. Likewise, did not notice cannot establish that every practical or personal question has been resolved. The category identifiers are labels, not points, and there is no total, mean, risk band or diagnostic threshold. You can leave a description unscored and still read all five complete guides and the same unconditional support information.",
+              "zh": "没有相关经历、回想不清和保留回答都未计分，不成为低值。全部未计分，不提供关于角色的个人发现；没有注意到也不能证明每个现实或个人问题都解决了。类别标识不是点数，没有总分、均值、风险档或诊断阈值。可以保留描述，五篇全文和同样的无条件支持说明仍可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An ordinary question can reveal a change",
+            "zh": "普通问题也可能让变化显现"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person asked how they usually make a household decision. They notice that the decision used to be shared with someone who has died. Another is asked to introduce part of their family life and finds that a familiar sentence no longer feels straightforward. These examples do not imply that the person has lost a stable sense of self. They show how an ordinary question can touch a relationship or arrangement that now needs different words, practical attention or no immediate answer.",
+              "zh": "设想一个虚构人物被问平常怎样作家中决定，注意到这件事曾与去世的人共同承担。另一个人被请介绍家庭生活，发现熟悉的一句话不再容易说出口。例子不暗示失去了稳定自我，而是普通问题可能碰到现在需要不同用词、实际处理或暂时不回答的关系与安排。"
+            },
+            {
+              "en": "You do not have to prepare a complete public explanation of that change. A brief response such as “That part of life has changed, and I would rather not go into it now” may fit some circumstances. In another setting you may want to talk more, use the old words or ask a practical question. The guide cannot determine which response is safe or suitable. A wish for privacy is not evidence of denial, avoidance or unwillingness to accept what happened.",
+              "zh": "无需为变化准备完整公开解释。在某些情境，可以简短说“这一部分变了，我现在不太想展开”。另一个环境中，也可能想多谈、沿用原说法或问实际问题。指南不能判哪种回应安全或合适；想保留隐私，不是对否认、回避或不愿接受事实的证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Continuity and change can coexist",
+            "zh": "延续与变化可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may keep a meaningful connection to a role while changing how an activity or responsibility is handled. Continuing to use a familiar description does not establish that someone is stuck, and choosing different words does not measure how much the relationship mattered. There is no correct amount of continuity supplied by this reflection. Your own preferences, cultural practices, relationships and practical circumstances may matter, but the record does not observe or evaluate them.",
+              "zh": "可以保留与某个角色的重要联系，同时改变活动或责任的处理方式。继续使用熟悉描述，不建立被困的结论；改用其他说法，也不衡量关系有多重要。本回顾不提供正确延续程度。个人偏好、文化做法、关系及实际背景可能重要，但记录不观察或评价这些。"
+            },
+            {
+              "en": "The optional elapsed-time choice does not change this boundary. A broad period of months or years cannot decide when you should adopt a different identity, take on a responsibility or feel comfortable describing your life. Those periods are context labels, not a timetable for adaptation. You can withhold timing entirely without losing access to the record or guides. Nothing in the report requires moving on, preserving a particular role or explaining a choice to someone else.",
+              "zh": "可选离世时间不改变这条边界。宽泛的月数或年数，不能决定何时该换身份、承担责任或自在描述生活。时段只是背景标签，不是适应时间表；完全保留时间，也不影响记录或指南。报告不要求向前走、保留某个角色，或向别人解释选择。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A practical responsibility may need a practical question",
+            "zh": "现实责任可能需要现实问题"
+          },
+          "paragraphs": [
+            {
+              "en": "A changed responsibility may involve a household task, an appointment arrangement or an activity someone used to coordinate. If you want help with that practical part, identify a limited question rather than a global judgment about coping. For example, “I need to understand who can help me with this one arrangement.” You may also want a separate conversation about what the change means to you. The report does not assume that one kind of assistance will meet both needs.",
+              "zh": "变化的责任可能涉及家中任务、约见安排或过去由对方协调的活动。想得到实际协助时，可以确定一个有限问题，而不总体评判应对能力，例如“这项安排可以找谁协助，我需要先弄清”。也可能另想谈谈变化对自己的意义。报告不假设一种帮助能同时满足两种需要。"
+            },
+            {
+              "en": "Organisations and services have their own procedures and information requirements, which this page cannot verify. If a form or request feels unclear, you can ask the relevant service what is needed and why, keeping unrelated personal details private where possible. This guide supplies no legal, financial or administrative determination. A difficulty with a practical process should not be turned into a psychological score, and a category record cannot create an obligation for another person to take over a responsibility.",
+              "zh": "机构和服务有自身流程及信息要求，本页不能核实。表格或请求不清楚时，可向相关服务问需要什么、为何需要，并尽可能保留无关私人细节。指南不作法律、财务或行政判断。流程上的困难不该变成心理分数，类别记录也不能让别人必须接过责任。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Ask for support without a role or time requirement",
+            "zh": "求助不要求某种角色或时长"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask an appropriate professional or bereavement service about a concern without finding the right words for your role first. You can begin with “I am not sure how to describe part of life since the death” and decide how much detail to add. No category count or elapsed period determines whether that conversation is permitted. You do not have to prove that a role change is severe, unusual or beyond a particular cultural expectation in order to ask a question.",
+              "zh": "无需先找到正确角色用词，也能向合适专业人士或丧失支持服务询问。可以从“离世之后，生活某一部分我不知道怎样描述”开始，再决定补多少细节。类别计数和经过时段都不决定能否谈，无需证明角色变化严重、少见或超出某种文化期待，才可以提问。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing the reflection. An unscored response or uncertainty about timing does not cancel that need. The page cannot monitor your situation, provide emergency care or decide a treatment. Support information remains public before answers and after any response pattern. The exercise requires no disclosure, family contact, confrontation, role change or participation in an activity that feels unsafe or unwelcome.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续回顾。未计分或时间不确定，不取消这种需要。本页不能监测处境、提供紧急照护或决定治疗。支持说明在答题前和任何回答模式后都公开；练习不要求披露、联系家人、对抗、改变角色或参与不安全、不愿参加的活动。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A current description is not an identity measure",
+            "zh": "当前描述不是身份测量"
+          },
+          "paragraphs": [
+            {
+              "en": "These three FermatMind original observations are not a validated identity-disruption scale or a diagnostic instrument. There are no established norms, clinical thresholds or demonstrated English–Chinese measurement equivalence. The five topics are reading categories, not proven independent dimensions or stages. A later response can differ because a practical arrangement, context, memory or interpretation changed. The difference does not by itself establish that you have adapted, failed to adapt or reached a new point in grief.",
+              "zh": "三条费马原创观察不是经验证的身份变化量表或诊断工具，没有已建立常模、临床阈值或经验证的中英文测量等值。五个主题是阅读分类，不是已证明独立的维度或阶段。之后回答不同，可能是安排、背景、记忆或理解改变，不单独建立已适应、未适应或走到哀伤新位置的结论。"
+            },
+            {
+              "en": "Answers and optional timing stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear both. Copying the public entry includes only its title and address. The complete public guides remain available without answering. If one useful sentence emerges, it may be a description you can keep private or use in a conversation, without allowing a questionnaire to rename your role or decide how you should describe yourself.",
+              "zh": "回答和可选时间仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会一并清除；复制公开入口只含标题与地址。不答题也能读完整指南。有用的一句话可以私下保留或用于谈话，无需让问卷替角色改名或决定怎样描述自己。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distance-from-reminders-reading",
+      "directionIds": [
+        "distance-from-reminders"
+      ],
+      "title": {
+        "en": "Distance from reminders — Complete Reading",
+        "zh": "与提醒材料保持距离：完整读法"
+      },
+      "headline": {
+        "en": "Distance from reminders — Complete Reading",
+        "zh": "与提醒材料保持距离：完整读法"
+      },
+      "summary": {
+        "en": "Read choices for distance in context, without prescribing reminders, revisiting, disclosure or an avoidance score.",
+        "zh": "把保持距离的选择放回情境，不安排提醒接触、重访或披露，也不生成回避分数。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to 3 observations, with each selected label retained. IDs are not points. No total, mean, highest theme, risk level or diagnosis is produced. Optional timing is unscored and does not alter these counts, public text or support access.",
+        "zh": "六类计数合计3条，保留逐条标签。标识不是点数，不生成总分、均值、最高主题、风险等级或诊断。可选时间不计分，不改变计数、公开正文或获得支持的条件。"
+      },
+      "seo": {
+        "title": {
+          "en": "Distance from reminders: Full Bereavement Guide | FermatMind",
+          "zh": "与提醒材料保持距离：丧失回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read choices for distance in context, without prescribing reminders, revisiting, disclosure or an avoidance score.",
+          "zh": "把保持距离的选择放回情境，不安排提醒接触、重访或披露，也不生成回避分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Notice a choice for distance in its setting",
+            "zh": "把保持距离的选择放回情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains three original observations about putting aside an object or message, choosing not to visit a place or activity and changing a conversation when a reminder feels too much. It asks about the past four weeks after a death, not the circumstances of the death itself. These are descriptions of choices you noticed. They do not establish an avoidance disorder, a fixed coping style or a clinical conclusion about whether keeping distance is helpful or harmful in your situation.",
+              "zh": "本主题有三条原创观察：暂放物品或消息、不去某个地方或活动，以及提醒难以承受时转开谈话。回顾离世之后的过去四周，不问离世经过。它们描述注意到的选择，不建立回避障碍、固定应对风格，也不临床判断保持距离在具体处境中有益还是有害。"
+            },
+            {
+              "en": "A reminder can be welcome at one time and unwelcome at another. The questionnaire cannot know the meaning of an object, whether a setting feels safe or what else was happening when you chose distance. It does not ask you to prove that you can tolerate a memory. You can keep an observation private, select unscored or read without answering. Nothing in this reflection requires looking at photographs, opening messages, visiting a place or discussing the person who died.",
+              "zh": "提醒在某时可能愿意接触，另一个时候却不愿意。问卷不知道物品意义、环境是否安全，或选择距离时还有什么事，不要求证明自己能承受记忆。可以保留观察、选未计分或不答题阅读。练习不要求看照片、打开消息、到访某处或谈论去世的人。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep absence of opportunity separate from absence of an observation",
+            "zh": "没有机会不同于没有观察到"
+          },
+          "paragraphs": [
+            {
+              "en": "The six category counts add to three observations: did not notice, rarely, sometimes, often, very often and unscored. No relevant experience, unclear recall or preferring not to answer belongs in unscored, not in did not notice. For example, not encountering a relevant message does not tell us how you would have felt about opening one. The record keeps the individual selected labels visible so that a missing opportunity does not disappear inside a low score.",
+              "zh": "六类计数合计三条：没有注意到、很少、有时、较常、经常和未计分。没有相关经历、回想不清或不愿回答，应保留为未计分，而不是没有注意到。例如没遇到相关消息，并不能说明打开消息时会有什么感受。记录保留逐条标签，不让缺少机会被藏进低分里。"
+            },
+            {
+              "en": "The identifiers for these categories are not points. There is no sum, mean, highest theme or threshold that tells you to approach a reminder. Three often selections do not become an unhealthy-avoidance label, and three did-not-notice selections do not certify that every memory is comfortable. The themes have different numbers of statements and should not compete by count. All five complete guides and support information remain public regardless of which categories are selected or which observations remain unscored.",
+              "zh": "类别标识不是点数，不算总分、均值、最高主题，也没有要求接触提醒的阈值。三条较常不变成不健康回避标签，三条没有注意到也不证明每段记忆都自在。主题条数不同，不能通过计数竞争。无论描述进入哪类或未计分，五篇全文和支持说明都公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A message can arrive at an unwanted moment",
+            "zh": "消息可能在不愿承受的时刻出现"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person receiving a photograph during a busy journey. They put the message aside because that moment does not feel manageable. On a different day they might want to see it, or they might not. Another person prefers not to receive unexpected photographs at all. These examples do not assign a correct response. They illustrate that timing, consent and context can matter, while the questionnaire observes none of them directly and cannot infer the reason from a frequency category.",
+              "zh": "设想一个虚构人物在忙碌途中收到照片，因为当时难以承受而先放下。另一天可能愿意看，也可能仍不愿意；另一个人则不想收到未经询问的照片。例子不指定正确回应，只说明时间、意愿和背景可能重要。问卷不直接观察这些，也不能从频率类别推断原因。"
+            },
+            {
+              "en": "If you want to communicate a boundary, a possible request is “Please ask before sending pictures or memories.” Another is “I do not want to open this now.” You do not have to give a detailed explanation or a date when you will change your mind. The other person’s intention to be kind does not determine what feels welcome to you, and your choice to set a limit does not establish how much you cared about the person who died.",
+              "zh": "愿意表达边界时，可以说“发照片或回忆前，请先问问我”，也可以说“我现在不想打开”。无需详细解释或承诺什么时候改变想法。对方出于好意，不决定你是否愿意接收；设限也不衡量你有多在意去世的人。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Objects and places do not come with a questionnaire timetable",
+            "zh": "物品和地点不接受问卷排期"
+          },
+          "paragraphs": [
+            {
+              "en": "An object may carry an everyday use, a personal meaning, shared ownership or practical questions that the reflection cannot know. It does not tell you to keep, discard, sort or give away belongings. Those choices may involve other people or procedures, and this page gives no legal or administrative determination. You can recognise that an object is difficult to face without using the record to decide what must happen to it, who should handle it or when the task should be completed.",
+              "zh": "物品可能有日常用途、个人意义、共有关系或现实问题，回顾不知道这些，不要求保留、丢弃、整理或赠送遗物。选择可能涉及他人或流程，本页不作法律或行政判断。可以承认面对物品很难，而不让记录决定必须怎样处理、由谁处理或何时完成。"
+            },
+            {
+              "en": "The same applies to places and activities. You are not asked to visit somewhere to test yourself or prove progress. A broad elapsed-time choice does not create a deadline for returning. If there is a practical matter you want assistance with, you can ask a limited question about that matter separately from choosing to discuss a memory. The guide cannot decide which setting is safe, what permissions apply or whether a particular visit would be useful for you.",
+              "zh": "地点和活动也一样。无需为了测试自己或证明进展而到访，宽泛时间选项不设返回期限。确有实际事务想得到协助时，可以把具体问题与是否谈回忆分开询问。指南不能判断环境安全、需要哪些许可，或某次到访是否对你有用。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A conversation can have a limit",
+            "zh": "谈话可以有范围"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want practical company without a conversation about the death, or want to speak about the person while leaving other details private. A sentence such as “I would like company, but not questions about that today” can describe a limit if you choose to use it. In another setting you may prefer a different request or no explanation. This reflection does not test whether others respect a boundary or ask you to provoke a response in order to find out.",
+              "zh": "可能想有实际陪伴，却不谈离世；也可能愿意谈那个人，同时保留其他细节。愿意使用时，“今天我想有人陪，但不想被问这件事”可以表达范围。在别的环境可能需要不同请求，或不作解释。回顾不测试别人是否尊重边界，也不要求故意引发反应来验证。"
+            },
+            {
+              "en": "Changing a subject can reflect many circumstances. The selected label does not establish shame, unwillingness to grieve or a permanent refusal of support. You may want a quieter, more private or professional conversation instead. You can also choose not to discuss a memory at present. The record gives no one permission to insist that you talk, listen to a story or reconnect with a person or group. A decision about disclosure belongs in its own real-world context, not in a score.",
+              "zh": "转开话题可能有不同背景，标签不建立羞耻、不愿哀伤或永久拒绝支持。也许想换成安静、私密或专业的谈话，也可以此刻不讨论记忆。记录不授权任何人坚持要求你说、听某个故事，或重新联系某人、某个群体。披露决定应放回现实背景，不交给分数。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Professional help does not require a self-test with reminders",
+            "zh": "专业支持不要求先用提醒测试自己"
+          },
+          "paragraphs": [
+            {
+              "en": "If reminders, distance from them or practical choices around them are troubling you, you can ask an appropriate professional about support without completing this exercise. You do not need to demonstrate an extreme response, a particular duration or a failed attempt to face something alone. This guide does not prescribe exposure, revisiting or another treatment exercise. An individual professional conversation can consider your circumstances, while the questionnaire cannot decide what an intervention should involve or whether one is needed.",
+              "zh": "提醒、与提醒保持距离，或相关现实选择让你困扰时，无需完成练习，也能向合适专业人士询问支持。不必先证明反应极端、持续某个时长，或独自尝试面对却失败。指南不开接触、重访或其他治疗练习。个别专业谈话可以考虑处境，问卷不能决定干预内容或是否需要干预。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing. Unscored observations and uncertain or withheld timing do not cancel that need. Support information stays public for every pattern, before and after answers. No timing category changes the text or unlocks a different level of help. The page cannot monitor distress or provide an emergency response, and there is no requirement to remain with an upsetting description to finish a record.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。未计分观察、时间不确定或保留时间，都不取消这种需要。支持说明在答题前后对所有模式公开；时间类别不改变正文，也不解锁另一层帮助。本页不能监测难受程度或提供紧急响应，无需为了完成记录而停留在令人不适的描述中。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use a limited record without a coping label",
+            "zh": "使用有限记录，不贴应对标签"
+          },
+          "paragraphs": [
+            {
+              "en": "These three original observations have no established diagnostic threshold, population norms or demonstrated English–Chinese measurement equivalence. They are not a published avoidance scale or a test of whether grief has become prolonged. A later count can change because different reminders occurred, circumstances changed or you understood a statement differently. It does not by itself show progress, regression or the effect of an activity. You may keep only a plain description of a boundary you want, without repeatedly monitoring categories.",
+              "zh": "三条原创观察没有已建立诊断阈值、常模或经验证的中英文测量等值，不是已发表回避量表，也不测试哀伤是否延长。之后计数可能随提醒机会、背景或理解改变，本身不表示进展、退步或活动效果。可以只保留一句想表达的边界，而不反复监测类别。"
+            },
+            {
+              "en": "Answers and optional timing stay only in current-page memory, with no drafts, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear both. Copying the public entry shares its title and address alone. All five complete guides remain available without answering. You can pause, keep something private, ask for practical assistance or seek a different conversation without treating the record as an instruction to approach a reminder or a judgment about your way of grieving.",
+              "zh": "回答和可选时间仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会一并清除；复制公开入口只含标题与地址。不答题也能读五篇全文。可以暂停、保留隐私、请求实际协助或寻找另一种谈话，不把记录当作接触提醒的指令或对哀伤方式的评判。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "future-and-activities-reading",
+      "directionIds": [
+        "future-and-activities"
+      ],
+      "title": {
+        "en": "Future plans and activities — Complete Reading",
+        "zh": "之后的计划与活动：完整读法"
+      },
+      "headline": {
+        "en": "Future plans and activities — Complete Reading",
+        "zh": "之后的计划与活动：完整读法"
+      },
+      "summary": {
+        "en": "Consider a particular plan or activity without a hope score, a measure of recovery or a deadline for participation.",
+        "zh": "看具体计划与活动，不算希望分数、不测恢复程度，也不设参与期限。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to 3 observations, with each selected label retained. IDs are not points. No total, mean, highest theme, risk level or diagnosis is produced. Optional timing is unscored and does not alter these counts, public text or support access.",
+        "zh": "六类计数合计3条，保留逐条标签。标识不是点数，不生成总分、均值、最高主题、风险等级或诊断。可选时间不计分，不改变计数、公开正文或获得支持的条件。"
+      },
+      "seo": {
+        "title": {
+          "en": "Future plans and activities: Full Bereavement Guide | FermatMind",
+          "zh": "之后的计划与活动：丧失回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Consider a particular plan or activity without a hope score, a measure of recovery or a deadline for participation.",
+          "zh": "看具体计划与活动，不算希望分数、不测恢复程度，也不设参与期限。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A future plan can raise a particular difficulty",
+            "zh": "之后的计划可能碰到具体困难"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains three original observations about imagining a near-future plan without the person who died, pausing an activity because taking part without them felt hard and being unsure what would feel worth doing when making a plan. Recall the past four weeks after the death. These descriptions do not measure hope, motivation or a capacity to enjoy life. They are a limited way to name something you noticed around an activity or decision, without assigning a clinical meaning.",
+              "zh": "本主题有三条原创观察：想象没有去世之人的近期计划、由于少了对方而暂放活动，以及安排计划时不确定什么值得去做。回顾过去四周中离世之后的日子。描述不测希望、动力或享受生活的能力，只帮助说清活动或决定中注意到的一件事，不分配临床意义。"
+            },
+            {
+              "en": "A plan may involve an ordinary errand, an invitation, a personal activity or something that used to be shared. You may want to continue it, change its form, postpone it or leave it aside. The reflection cannot determine what matters to you or what an activity requires. It does not set a target for returning to an old routine. Your circumstances and preferences remain relevant even when the same activity appears easy or meaningful to someone else.",
+              "zh": "计划可以是普通事务、邀请、个人活动或曾共同做的事。可能想继续、换形式、推迟或暂放。回顾不能决定什么重要、活动需要什么，也不设返回旧惯例的目标。即使别人觉得同一活动轻松或有意义，个人处境和偏好仍然相关。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Three selections do not become a recovery level",
+            "zh": "三条选择不形成恢复等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The six counts add to three observations, preserving did not notice, rarely, sometimes, often, very often and unscored separately. Each selected label remains attached to its statement. One often and two unscored does not become a level of difficulty moving forward. The category identifiers are not points, and the report gives no total, mean, highest theme or comparison with other bereaved people. Different themes also contain different numbers of statements, so a count cannot fairly stand in for a shared severity scale.",
+              "zh": "六类计数合计三条，分别保留没有注意到、很少、有时、较常、经常和未计分，并逐条保留标签。一条较常加两条未计分，不变成向前走困难的等级。类别标识不是点数，报告没有总分、均值、最高主题或他人比较。主题条数不同，计数也不能代替共同的严重程度量尺。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or choosing not to answer. For example, not being asked to make a plan does not tell us whether making one would have felt difficult. An entirely unscored theme provides no personal finding, and a did-not-notice selection does not establish that no support is wanted. All five full guides and support information remain public before answers and after every response pattern. You can leave without making or completing a plan.",
+              "zh": "未计分包括没有相关经历、回想不清或选择不回答。例如没被要求作计划，并不能说明制定计划是否会难。全部未计分，不提供个人发现；没有注意到也不证明不想要支持。五篇全文和支持说明在答题前、任何回答模式之后都公开。可以不作计划、不完成活动就离开。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An invitation may involve more than the activity itself",
+            "zh": "邀请可能不只涉及活动本身"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person invited to an event they once attended with someone who has died. The difficulty may concern company, a familiar routine, questions from others or a practical arrangement. Another person may want to attend but not talk about the death there. These examples do not establish what is causing your own experience or which decision would help. They show why one broad category cannot replace the details of a particular invitation and what you want from it.",
+              "zh": "设想一个虚构人物受邀参加过去与去世之人共同参加的活动。困难可能涉及陪伴、熟悉惯例、别人的提问或实际安排。另一个人也许想参加，却不想在那里谈离世。例子不建立你自身的原因或有用决定，只说明宽泛类别不能代替具体邀请的细节，以及自己想从中得到什么。"
+            },
+            {
+              "en": "If you want to clarify the situation, you might ask for information about timing, company or what participation involves. You can also decline, postpone or leave the question open. No questionnaire result creates a duty to attend. A decision not to take part is not proof that grief is stuck, and taking part does not establish recovery. You do not need to use the activity as a test, compare your response with someone else's or report the outcome as progress.",
+              "zh": "愿意了解时，可以问时间、陪伴或参与方式，也可以拒绝、推迟或暂不决定。问卷结果不建立参加义务。不参加不证明哀伤被困，参加也不建立恢复。无需把活动当测试、与他人比较，或把结果报告成进展。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Meaning does not have to return on a schedule",
+            "zh": "意义感不需要按日程返回"
+          },
+          "paragraphs": [
+            {
+              "en": "What feels worth doing can differ across moments and parts of life. A person may value a small activity without feeling enthusiastic, or enjoy something and still miss the person intensely. Neither example measures loyalty or the importance of a relationship. This reflection does not prescribe a feeling to accompany an activity. It also cannot establish that a changed preference is temporary, permanent or a symptom. You can acknowledge what you notice without having to explain it through a recovery stage.",
+              "zh": "觉得什么值得做，可能随时刻和生活部分而不同。可以重视一项小活动，却没有热情；也可以享受某件事，同时很想念对方。两者都不衡量忠诚或关系重要程度。回顾不规定活动该配何种感受，也不能建立偏好变化是暂时、永久还是症状。可以承认观察，而不套进恢复阶段解释。"
+            },
+            {
+              "en": "The optional elapsed-time categories do not create deadlines for making plans, enjoying an activity or choosing a new routine. They are broad context labels rather than clinical cutoffs. Any timing selection, including uncertain or withheld, leaves the same full text and support information available. Months or years alone cannot determine what a particular plan means in your life, whether a concern deserves attention or what an appropriate professional assessment would conclude.",
+              "zh": "可选经过时间不为计划、享受活动或选择新惯例设期限。它是宽泛背景标签，不是临床界限。任何选择，包括无法判断或保留，都能读同样全文和支持说明。月数、年数本身，不能决定计划在生活中的意义、困扰是否值得关注，或合适专业评估会得出什么结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "A practical question can stay small",
+            "zh": "实际问题可以保持很小"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to consider one arrangement, define the question you actually have. You may want to know whether company is available, whether a task can be shared or what would happen if you choose not to participate. Asking for that information is different from committing to an activity. The other person or service can explain what is possible, and you can decide whether it suits you. This guide cannot verify availability or promise that an alternative arrangement exists.",
+              "zh": "愿意考虑一项安排时，可以界定真正的问题：有没有陪伴、任务能否分担，或不参加会怎样。询问信息不同于承诺活动。对方或服务说明能做什么，你再判断是否合适。指南不能核实可用条件，也不保证一定有替代安排。"
+            },
+            {
+              "en": "You may prefer practical assistance without discussing the loss, or want a conversation about the loss while leaving the activity aside. Both requests can be bounded. A simple explanation such as “I would like help with this part, without talking about everything today” may fit some settings. You can choose another wording or keep the matter private. The record creates no obligation for someone else to provide help and no requirement for you to disclose more than you want.",
+              "zh": "可以只想得到实际协助而不谈失去，也可以想谈失去而先放下活动，两种请求都能有限定。例如在某些环境可说“这部分想有人帮一下，今天不想把所有事都谈开”。也可以换说法或保留隐私。记录不让别人必须提供帮助，也不要求你披露超过自己愿意的内容。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on completing an activity",
+            "zh": "支持不依赖完成活动"
+          },
+          "paragraphs": [
+            {
+              "en": "If planning, participation or a sense of meaning is troubling you, you can ask an appropriate professional or bereavement service about support without first trying to push through an activity. There is no required response count, elapsed period or failed attempt. The questionnaire does not choose a treatment or an activity schedule. An individual conversation can consider your circumstances, including practical constraints and other health concerns that this reflection cannot assess or explain.",
+              "zh": "计划、参与或意义感让你困扰时，无需先硬撑着完成活动，也能向合适专业人士或丧失支持服务询问。没有必须达到的计数、经过时段或失败尝试。问卷不选择治疗或安排活动日程。个别谈话可以考虑处境，包括现实限制和本回顾无法评估、解释的其他健康疑问。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. An unscored observation or a plan that feels out of reach does not have to be translated into a test result before help is sought. Public support information is available throughout. This page cannot monitor your situation or respond to an emergency, and it never makes support conditional on making a future plan, feeling hopeful or choosing a particular timing category.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续回答。未计分观察或觉得难以实现的计划，不必先翻译成测试结果才求助。公开支持说明始终可读。本页不能监测处境或响应紧急情况，也不要求先有未来计划、感到有希望或选择某个时间类别，才获得支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep observations separate from a prognosis",
+            "zh": "把观察与预后判断分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These three original observations have no established norms, clinical threshold or demonstrated English–Chinese measurement equivalence. They are not a measure of recovery, a published grief scale or a prediction of future functioning. A later count can change because a different plan arose, your circumstances changed or you understood a statement differently. It does not by itself show improvement, deterioration or the effect of an activity. The five themes are reading categories, not proven independent dimensions or stages.",
+              "zh": "三条原创观察没有已建立常模、临床阈值或经验证的中英文测量等值，不测恢复程度，不是已发表哀伤量表，也不预测未来功能。之后计数可能因为遇到不同计划、背景或理解改变，本身不表示改善、恶化或活动效果。五个主题是阅读分类，不是已证明独立的维度或阶段。"
+            },
+            {
+              "en": "Answers and optional timing remain only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear both. Copying the public entry includes only its title and address. All five complete guides remain available without answers. You can use a description privately, ask one practical question or seek an appropriate conversation, while leaving the choice about an activity with your circumstances and preferences rather than a score or deadline.",
+              "zh": "回答和可选时间仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会一并清除；复制公开入口只含标题与地址。不答题也能读五篇全文。可以私下使用描述、问一个实际问题或寻找合适谈话，把活动选择留给自身情况和偏好，而不是分数或期限。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feelings-and-support-reading",
+      "directionIds": [
+        "feelings-and-support"
+      ],
+      "title": {
+        "en": "Feelings and receiving support — Complete Reading",
+        "zh": "感受与接受支持：完整读法"
+      },
+      "headline": {
+        "en": "Feelings and receiving support — Complete Reading",
+        "zh": "感受与接受支持：完整读法"
+      },
+      "summary": {
+        "en": "Keep feelings, expression and requests for support distinct, without assigning emotional depth, trust capacity or a diagnosis.",
+        "zh": "区分感受、表达和支持请求，不判断情感深度、信任能力或诊断。"
+      },
+      "scoreReading": {
+        "en": "The six category counts add to 3 observations, with each selected label retained. IDs are not points. No total, mean, highest theme, risk level or diagnosis is produced. Optional timing is unscored and does not alter these counts, public text or support access.",
+        "zh": "六类计数合计3条，保留逐条标签。标识不是点数，不生成总分、均值、最高主题、风险等级或诊断。可选时间不计分，不改变计数、公开正文或获得支持的条件。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings and receiving support: Full Bereavement Guide | FermatMind",
+          "zh": "感受与接受支持：丧失回顾完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep feelings, expression and requests for support distinct, without assigning emotional depth, trust capacity or a diagnosis.",
+          "zh": "区分感受、表达和支持请求，不判断情感深度、信任能力或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Feelings and receiving support are different questions",
+            "zh": "感受与接受支持是不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme contains three original observations about a flat or distant feeling when you expected clearer emotions, wanting comfort but finding it hard to say what you needed and uncertainty about relying on someone despite wanting support. Recall the past four weeks after the death. The statements do not measure emotional depth, attachment, trustworthiness or how much the person mattered to you. They also cannot determine why a feeling occurred or what another person's response meant.",
+              "zh": "本主题有三条原创观察：本以为情绪会更清楚却感到平淡或隔着一层、想被安慰却难以表达需要，以及想要支持但对依靠某人不确定。回顾离世之后的过去四周。不测情感深度、依恋、是否值得信任或对方有多重要，也不判感受为何发生、别人回应有什么含义。"
+            },
+            {
+              "en": "A feeling, its outward expression and a request for help can differ. Someone may know what they feel but not want to discuss it, want company without a clear emotion to name or be unsure what kind of support would be welcome. These possibilities do not establish a stage of grief or a psychological deficit. You can reflect on one description without needing to resolve the others. The page does not require tears, a particular emotional response or an explanation of your relationship.",
+              "zh": "感受、外在表达和帮助请求可能不同。可以知道感受却不想讨论、想有人陪却说不出清楚情绪，或不确定愿意接受何种支持。这些不建立哀伤阶段或心理缺陷。可以只回顾一条描述，不必先解决其他问题。本页不要求眼泪、特定情绪回应或关系说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Three categories of missing information stay unscored",
+            "zh": "不同信息缺口都保留为未计分"
+          },
+          "paragraphs": [
+            {
+              "en": "For each observation, choose did not notice, rarely, sometimes, often, very often or unscored. No relevant experience, unclear recall and choosing not to answer remain unscored rather than becoming did not notice. The report shows six counts adding to three observations, with the selected label on each statement. If a conversation about support did not occur, that missing opportunity does not establish how comfortable you would have felt receiving support. It should not be translated into a low value.",
+              "zh": "每条可选没有注意到、很少、有时、较常、经常或未计分。没有相关经历、回想不清和选择不回答，都保留为未计分，不变成没有注意到。报告显示合计三条的六类计数，并逐条保留标签。若没有发生支持谈话，缺少机会不能说明接受支持是否自在，也不该被翻译成低值。"
+            },
+            {
+              "en": "The category identifiers are labels, not points. There is no total, mean, highest theme, risk level or score for your ability to trust. An entirely unscored record supplies no personal finding, while a did-not-notice response cannot certify that every emotional or support need is met. Counts from this theme are not combined with missing the person, roles, reminders or future activities. All five complete guides and support information remain public for every response pattern, without an answer-based eligibility rule.",
+              "zh": "类别标识是标签，不是点数，没有总分、均值、最高主题、风险等级或信任能力分数。全部未计分不提供个人发现，没有注意到也不证明情绪和支持需要全部满足。本主题不与想念、角色、提醒或之后活动相加。任何回答模式都能读五篇全文及支持说明，不通过答案决定资格。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An expected feeling may not arrive in an expected way",
+            "zh": "期待的感受未必按期待方式出现"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who expects to cry during a conversation but feels distant instead. Another has strong feelings later in an ordinary quiet moment. The examples do not explain the cause or establish a normal sequence. An observer cannot infer the person's relationship from visible emotion, and a questionnaire cannot do so from a category. You do not need to create a feeling, revisit a memory or remain in a conversation in order to test whether you care enough.",
+              "zh": "设想一个虚构人物以为谈话时会哭，却感到隔着一层；另一个人之后在普通安静时刻有强烈感受。例子不解释原因，也不建立正常顺序。旁观者不能凭可见情绪推断关系，问卷也不能凭类别推断。无需制造感受、重访记忆或留在谈话中，来测试是否在乎得够多。"
+            },
+            {
+              "en": "If the difference between an expected and an actual feeling is troubling, you may choose to describe that difference in a conversation. “I do not know how to explain what I have been feeling” can also be enough to begin. You can keep the details private or ask only about available support. This reflection does not label emotional distance as a protective nervous-system response, a dissociative condition or a lack of love; it has no basis for making those causal or diagnostic findings.",
+              "zh": "期待与实际感受的差异让你困扰时，可以选择在谈话里描述差异；“我不知道怎样解释最近的感受”，也可以成为起点。能保留细节，或只问支持选项。回顾不把疏离感称为神经系统保护、解离状况或缺少爱，因为没有依据作这些成因或诊断判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Trust depends on a particular relationship and situation",
+            "zh": "信任要放回具体关系和处境"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting support and being unsure about relying on a particular person can coexist. The questionnaire cannot know whether that person is available, respectful, safe or suited to the request. It does not decide that uncertainty is unreasonable or that you should increase closeness. A limited request, another person, a different setting or choosing not to share may each be possibilities. Their suitability depends on real circumstances that the category counts do not observe.",
+              "zh": "想要支持与不确定能否依靠某个人可以并存。问卷不知道对方是否有空、尊重、安全或适合该请求，不判不确定不合理，也不要求增加亲近。有限请求、换人、换环境或选择不分享，都可能是选项；是否适合取决于计数无法观察的现实条件。"
+            },
+            {
+              "en": "You are not required to reveal sensitive information to find out whether someone will respond well. Nor does a category record create a duty for another person to provide comfort or a right to access your story. If a relationship or setting feels unsafe or unwelcome, the exercise does not ask for renewed contact or reconciliation. Boundaries can be kept while you consider whether another appropriate source of support is available. The record gives no verdict about either person's character.",
+              "zh": "无需为了测试别人会不会好好回应，而披露敏感信息。类别记录也不让别人必须安慰，或有权了解你的故事。关系或环境让人不安全、不愿接触时，练习不要求重新联系或和解。可以保留边界，同时考虑另一种合适支持。记录不评判任何一方的人品。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Comfort can be a small, specific request",
+            "zh": "安慰可以是小而具体的请求"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want listening, quiet company, help with one practical task or simply fewer questions. If you choose to ask, a possible sentence is “Could you stay with me for a little while without asking me to explain everything?” Another is “I would like help with this one arrangement.” The other person can explain what they can offer, and you can decide whether it fits. A request does not have to include the questionnaire record, the timing choice or details of the death.",
+              "zh": "可能想被倾听、安静相伴、得到一项实际协助，或只是少一些提问。愿意开口时，可以说“能陪我待一小会儿，不让我解释全部吗？”也可以说“这项安排想得到一点帮助”。对方说明能提供什么，你再决定是否合适。请求不必附上问卷记录、时间选择或离世细节。"
+            },
+            {
+              "en": "Not knowing what would help is also something you can say. The reflection does not require identifying an effective strategy before approaching someone. You may want to ask an appropriate professional how a first conversation works before deciding what to share. Information about a service's process and privacy conditions needs to come from that service; this page cannot promise an arrangement on its behalf. You retain room to ask questions without turning curiosity into a commitment to treatment.",
+              "zh": "不知道什么有帮助，也可以如实表达。回顾不要求先找出有效策略才去询问。可以先问合适专业人士最初谈话怎样进行，再决定分享多少。流程和隐私条件应由具体服务说明，本页不能代为承诺。可以提问，不把好奇变成接受治疗的承诺。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Time and response counts do not decide access to support",
+            "zh": "时间与回答计数不决定支持条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The optional timing periods are background only. They do not classify emotional distance or uncertainty about support as normal, stuck or prolonged, and do not establish what a professional assessment would conclude. You may ask for support at any point after a death, with frequent, infrequent or unscored observations. There is no required anniversary, minimum count or failed attempt to manage alone. The full public text and support information stay the same even when timing is uncertain or withheld.",
+              "zh": "可选时间仅是背景，不把情绪疏离或支持上的不确定划成正常、被困或延长，也不建立专业评估会得出什么结论。离世之后任何时候、观察频繁或较少、或者未计分，都可以询问支持；不要求周年、最低计数或独自应对失败。时间不确定或保留时，全文和支持说明仍相同。"
+            },
+            {
+              "en": "If you are in immediate danger or cannot stay safe, seek local emergency assistance instead of continuing. No category or timing choice cancels that need. The page cannot monitor distress or provide an emergency response, and finishing it is not a prerequisite for real-world help. The guide prescribes no reminder exercise, forced disclosure or change to existing care. Questions about an ongoing treatment or a health concern belong with an appropriate professional who can consider the individual situation.",
+              "zh": "若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续。任何类别或时间选择都不取消这种需要。本页不能监测难受程度或提供紧急响应，完成它不是现实帮助的前提。指南不安排提醒练习、强制披露或改变既有照护。有关持续治疗或健康疑问，应与能考虑个别处境的合适专业人士讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a private observation without an emotional label",
+            "zh": "保留私人观察，不分配情绪标签"
+          },
+          "paragraphs": [
+            {
+              "en": "These three original statements have no established norms, diagnostic threshold or demonstrated English–Chinese measurement equivalence. They do not measure emotional numbness, attachment or capacity for trust as clinical constructs. The five topics organise reading rather than establish independent dimensions. A later count may differ because a setting, an opportunity for support, recall or interpretation changed. It does not by itself establish recovery, worsening or the effect of a conversation, and there is no need to repeatedly monitor your categories.",
+              "zh": "三条原创陈述没有已建立常模、诊断阈值或经验证的中英文测量等值，不把情绪麻木、依恋或信任能力作为临床构念测量。五个主题组织阅读，不建立独立维度。之后计数可能随环境、支持机会、回忆或理解变化，本身不建立恢复、恶化或谈话效果，无需反复监测类别。"
+            },
+            {
+              "en": "Answers and optional timing remain only in current-page memory, with no drafts, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear both. Copying the public entry shares its title and address without responses or timing. All five complete guides are available without answering. You can keep a description private, choose a boundary, ask a limited question or seek a suitable conversation, without allowing a record to decide what you feel or how you should receive support.",
+              "zh": "回答和可选时间仅留在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会一并清除；复制公开入口只含标题及地址，不含回答或时间。不答题也能读五篇全文。可以保留描述、选择边界、问有限问题或寻找合适谈话，不让记录决定你有何感受或应怎样接受支持。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Six categories across five separate topics",
+        "zh": "五个主题分别记录六类选择"
+      },
+      "paragraphs": [
+        {
+          "en": "The original topics contain four, three, three, three and three observations. Each selection enters did not notice, rarely, sometimes, often, very often or unscored. Six counts add to the topic’s own number of observations. The selected labels remain visible. IDs are not points; counts from different themes are not added, averaged or ranked.",
+          "zh": "五个原创主题分别有四、三、三、三、三条观察。选择进入没有注意到、很少、有时、较常、经常或未计分；六类计数合计各主题条数，并保留逐条标签。标识不是点数，不相加、平均或排名。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and preferring not to answer remain unscored, not zero. An entirely unscored record supplies no personal finding and never restricts support. These original bilingual observations have no established norms, diagnostic thresholds or demonstrated English–Chinese measurement equivalence. The topics are reading categories, not proven independent dimensions or stages.",
+          "zh": "没有相关经历、回想不清和不愿回答都未计分，不补零。全部未计分不提供个人发现，也不限制支持。原创双语观察尚无已建立常模、诊断阈值或经验证的中英文测量等值。主题是阅读分类，不是已证明独立的维度或阶段。"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "title": {
+        "en": "Optional timing never creates a clinical cutoff",
+        "zh": "可选时间不建立临床界限"
+      },
+      "paragraphs": [
+        {
+          "en": "You may choose a broad elapsed period, cannot place the timing or prefer not to answer. The periods are convenience categories for context only, not clinical cutoffs or a schedule for recovery. No dates, names or circumstances of the death are requested. The same observation choices always produce the same counts, whichever timing option you select.",
+          "zh": "可以选宽泛经过时段、无法判断时间或不愿回答。时段只为方便提供背景，不是临床界限或恢复日程。不问日期、姓名或离世经过。同样的观察选择，无论时间选什么，都产生相同计数。"
+        },
+        {
+          "en": "A clinical assessment involves more than elapsed time, and this page does not administer diagnostic criteria, the Inventory of Complicated Grief or another published grief scale. No answer assigns normal, stuck or prolonged grief. You can ask for support at any point, without an anniversary, frequent observations or completing this reflection.",
+          "zh": "临床评估不只看经过时间。本页不施测诊断标准、复杂哀伤量表或其他已发表哀伤工具，不把任何回答划成正常、被困或延长。任何时候都能询问支持，无需等周年、出现高频观察或完成回顾。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private observations, complete public text",
+        "zh": "私人观察，完整公开正文"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers and optional timing stay only in current-page memory. No drafts, answer submission, questionnaire analytics or personal result address are created. Exit, retake, reload and leaving clear both. Copying the public entry shares its title and address without answers or timing.",
+          "zh": "回答与可选时间只留在当前页面内存，不存草稿、不提交回答、不作问卷分析，也没有个人结果地址。退出、重做、刷新及离页会一并清除。复制公开入口只分享标题与地址，不含回答或时间。"
+        },
+        {
+          "en": "All five full bilingual guides are public before answers and after any response pattern. You may pause, withhold information or seek appropriate support without finishing. The exercise requires no reminder exposure, sorting belongings, disclosure or renewed contact. It cannot monitor your situation or provide an emergency response.",
+          "zh": "五篇双语全文在答题前、任何回答模式后都公开。可以暂停、保留信息或不完成就寻找合适支持。练习不要求接触提醒、整理遗物、披露或重新联系，也不能监测处境或提供紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does timing decide whether my grief is normal or prolonged?",
+        "zh": "时间会判定哀伤正常或延长吗？"
+      },
+      "answer": {
+        "en": "No. Timing is optional context with no scoring or eligibility role. The record does not identify a disorder, a stage or a timetable, and professional assessment requires more than a time category.",
+        "zh": "不会。时间只是可选背景，不计分、不决定资格。记录不识别疾病、阶段或日程，专业评估也不只看时间类别。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher frequency mean I loved the person more?",
+        "zh": "频率更高表示爱得更多吗？"
+      },
+      "answer": {
+        "en": "No. Categories do not measure love, loyalty or the importance of a relationship. A less frequent or unscored observation does not establish indifference.",
+        "zh": "不是。类别不衡量爱、忠诚或关系重要程度；较少或未计分也不建立冷漠的结论。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I have to describe the death or choose a timing period?",
+        "zh": "必须描述离世经过或选时间吗？"
+      },
+      "answer": {
+        "en": "No. No name, date or narrative is requested. Timing defaults to prefer not to answer and can remain withheld; every observation also has an unscored option.",
+        "zh": "不必。不问姓名、日期或叙述。时间默认不愿回答，可以一直保留；每条观察也有未计分选项。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I look at reminders or try an activity?",
+        "zh": "必须看提醒材料或尝试活动吗？"
+      },
+      "answer": {
+        "en": "No. The record assigns no exercise or treatment. You can maintain boundaries and ask about support without approaching a reminder, contacting someone or completing an activity.",
+        "zh": "不必。记录不分配练习或治疗。可以保留边界，不接触提醒、不联系某人、不完成活动，也能询问支持。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every guide before answering?",
+        "zh": "答题前能读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. Five complete guides and support information remain free and public with every answer and timing pattern, including entirely unscored observations and withheld timing.",
+        "zh": "可以。五篇全文及支持说明免费公开，适用于任何回答和时间模式，包括全部观察未计分、时间保留时。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NHS: Grief after bereavement or loss — support background",
+        "zh": "NHS：丧失后的哀伤——支持背景"
+      },
+      "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/grief-bereavement-loss/"
+    },
+    {
+      "title": {
+        "en": "American Psychiatric Association: Prolonged grief — a separate clinical assessment",
+        "zh": "美国精神医学学会：延长哀伤——独立的临床评估"
+      },
+      "url": "https://www.psychiatry.org/patients-families/prolonged-grief-disorder"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_bereavement_observations_with_optional_time",
+    "formCode": "fm_bereavement16_observations_v1",
+    "itemBankVersion": "original16_and_optional_elapsed_context_bilingual_v1",
+    "scoringVersion": "five_categorical_counts_4_3_3_3_3_time_never_scored_v1",
+    "resultContentVersion": "five_full_bilingual_bereavement_readings_v1",
+    "itemBankSha256": "5e3492237e2e1166addcccdece8781512d985df8c15bc0f4290d50c382eae347",
+    "resultContentSha256": "10d283abc2bdaebd98609f0180a6fa722fbef66f0a9435c4cad1f3d3bf8ab04f",
+    "psychometricValidationCompleted": false
+  }
+}

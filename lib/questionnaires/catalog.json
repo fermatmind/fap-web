@@ -6722,5 +6722,31 @@
       "reflecting-on-meaning"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "after-bereavement-reflection",
+    "code": "FM_BEREAVEMENT16_OBSERVATIONS",
+    "version": "fm_bereavement16_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "After a Bereavement: Personal Reflection",
+      "zh": "重要的人去世之后：个人回顾"
+    },
+    "description": {
+      "en": "Reflect on 16 original observations after a bereavement, with optional unscored timing and five full public guides. Private category records, without a grief score, diagnosis or timetable for support.",
+      "zh": "用16条原创观察回顾重要的人去世之后的经历，可选时间仅作背景，五篇完整指南公开。类别记录留在本页，不生成哀伤分数、诊断或求助时间表。"
+    },
+    "minutes": 5,
+    "formCode": "fm_bereavement16_observations_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "missing-the-person-reading",
+      "changed-roles-reading",
+      "distance-from-reminders-reading",
+      "future-and-activities-reading",
+      "feelings-and-support-reading"
+    ],
+    "collection": "explore"
   }
 ]

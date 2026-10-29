@@ -1,3 +1,5 @@
+import { isBereavement16ConfigurationValid } from "@/lib/questionnaires/bereavement16";
+import { BereavementGuidePage } from "./BereavementPage";
 import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
 import { SupportReflectionGuidePage } from "./SupportReflectionPage";
 import { isConnectionCheckIn21ConfigurationValid } from "@/lib/questionnaires/connectionCheckIn21";
@@ -112,6 +114,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "pressure-actions12" && !isPressureActions12ConfigurationValid(quiz)) return { title: "Action reflection unavailable", robots: { index: false, follow: false } };
@@ -163,6 +166,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "bereavement16") {
+    if (!isBereavement16ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <BereavementGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "support-reflection18") {
     if (!isSupportReflection18ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
