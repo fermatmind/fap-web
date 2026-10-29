@@ -6465,5 +6465,31 @@
       "time-windows-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "outfit-line-preferences",
+    "code": "FM_OUTFIT_LINES15",
+    "version": "fm_outfit_lines15_v1",
+    "updated": "2026-10-30",
+    "category": "everyday",
+    "title": {
+      "en": "Outfit Line Preferences",
+      "zh": "服装线条偏好"
+    },
+    "description": {
+      "en": "Explore long lines, visible ease, balance, compact contrast and soft drape through 15 original prompts. Five full guides free, with no body-type assignment.",
+      "zh": "通过十五条原创陈述，观察连贯长线、舒展余量、均衡、紧凑对照与柔和垂落偏好。五篇全文免费，不分配身体类型。"
+    },
+    "minutes": 3,
+    "formCode": "fermatmind_outfit_lines15",
+    "questionCount": 15,
+    "resultSlugs": [
+      "long-line",
+      "ease-and-room",
+      "even-balance",
+      "compact-contrast",
+      "soft-drape"
+    ],
+    "collection": "explore"
   }
 ]

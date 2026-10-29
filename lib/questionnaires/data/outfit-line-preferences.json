@@ -1,0 +1,1852 @@
+{
+  "slug": "outfit-line-preferences",
+  "code": "FM_OUTFIT_LINES15",
+  "version": "fm_outfit_lines15_v1",
+  "updated": "2026-10-30",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Outfit Line Preferences",
+    "zh": "服装线条偏好"
+  },
+  "description": {
+    "en": "Explore long lines, visible ease, balance, compact contrast and soft drape through 15 original prompts. Five full guides free, with no body-type assignment.",
+    "zh": "通过十五条原创陈述，观察连贯长线、舒展余量、均衡、紧凑对照与柔和垂落偏好。五篇全文免费，不分配身体类型。"
+  },
+  "seoTitle": {
+    "en": "Outfit Line Preferences Test: Five Full Style Guides",
+    "zh": "服装线条偏好测试：五项独立读法与完整风格说明"
+  },
+  "minutes": 3,
+  "instructions": {
+    "en": "Answer for yourself about garment lines you would currently choose. You can imagine an outfit without owning or wearing it. Rate preference rather than body shape, what is supposed to flatter you or another person’s opinion. Comfort, mobility, budget and dress codes remain your own practical considerations; they are not inferred from a score. Choose unscored when a description is unclear or unsuitable. All fifteen response choices finish the form; each three-item part needs all three numeric ratings for a mean.",
+    "zh": "为自己评价目前愿意选择的服装线条，不必拥有或穿过，可以只想象。评价偏好，不评价身体形状、应该显好看的样子或别人的意见。舒适、活动、预算和着装规定仍由你实际考虑，分数不推断这些。描述不清或不适合时选未评分。十五条均选择即可完成，每项三条全部数值有效才有均值。"
+  },
+  "resultHeading": {
+    "en": "Your five separate outfit-line readings",
+    "zh": "你的五项独立服装线条读法"
+  },
+  "introduction": {
+    "en": "An original reflection on whole-outfit lines and finishes. Five preferences remain separate without selecting a dominant family, reading a body or assigning a Kibbe Image Identity. All five full guides are free. The existing Aesthetic forms concern graphic moods and remain separate versions; scores do not convert.",
+    "zh": "这是对整套穿搭线条与收尾的原创观察。五项偏好分别保留，不选主导家族、不读取身体、不分配Kibbe Image Identity。五篇全文免费，既有审美题本关注图形氛围，作为独立版本保留，分数不换算。"
+  },
+  "source": {
+    "kind": "fermatmind-original-clothing-line-preference-reflection",
+    "formCode": "fermatmind_outfit_lines15",
+    "itemBankVersion": "fm-outfit-lines-15-v1",
+    "scoringVersion": "five-three-item-direct-agreement-means-all3-web-v1",
+    "resultContentVersion": "fm-outfit-lines-five-guides-v1",
+    "itemBankSha256": "df6f2ffbd711b47ec0617a2a808568384f5b47743ac79259740b922491c80710",
+    "resultContentSha256": "0c8b3261a31d45be5712f534f0fe0e90194c94575d47d4396418cce8ef945807",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "long-line",
+      "title": {
+        "en": "Long Lines",
+        "zh": "连贯长线"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "ease-and-room",
+      "title": {
+        "en": "Room and Ease",
+        "zh": "舒展余量"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "even-balance",
+      "title": {
+        "en": "Even Balance",
+        "zh": "平稳均衡"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "compact-contrast",
+      "title": {
+        "en": "Compact Contrast",
+        "zh": "紧凑对照"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "soft-drape",
+      "title": {
+        "en": "Soft Drape",
+        "zh": "柔和垂落"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "OLP_001",
+      "prompt": {
+        "en": "In an outfit, I prefer a clear line running from the upper part toward the hem without many visual breaks.",
+        "zh": "在一套穿搭里，我偏好从上部延伸到下摆、没有太多视觉分隔的清楚线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "long-line",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "long-line",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "long-line",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "long-line",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "long-line",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "long-line",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_002",
+      "prompt": {
+        "en": "I am drawn to long, clean garment shapes with few interruptions.",
+        "zh": "我容易被修长、干净而少有分隔的服装轮廓吸引。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "long-line",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "long-line",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "long-line",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "long-line",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "long-line",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "long-line",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_003",
+      "prompt": {
+        "en": "I would choose an outfit with a strong vertical emphasis rather than many small changes in length and scale.",
+        "zh": "我会偏向纵向线条明确的穿搭，而不是长度与尺度上很多细小变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "long-line",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "long-line",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "long-line",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "long-line",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "long-line",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "long-line",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_004",
+      "prompt": {
+        "en": "I prefer garment shapes with visible ease instead of closely tracing the body.",
+        "zh": "我偏好带有明显余量的服装轮廓，而不是紧贴身体线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "ease-and-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "ease-and-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_005",
+      "prompt": {
+        "en": "I am drawn to outfit lines that look relaxed rather than tightly set in place.",
+        "zh": "我偏好看起来舒展的穿搭线条，而不是被紧密固定住的线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "ease-and-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "ease-and-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_006",
+      "prompt": {
+        "en": "I would choose loosely defined layers that leave room for the outfit to move.",
+        "zh": "我会选择边界较宽松、给服装活动留出余地的叠层。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "ease-and-room",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "ease-and-room",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "ease-and-room",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_007",
+      "prompt": {
+        "en": "I prefer the details of an outfit to stay similar in scale rather than having one strongly dominant piece.",
+        "zh": "我偏好穿搭细节的尺度彼此相近，而不是由一件特别突出的单品主导。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "even-balance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "even-balance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "even-balance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "even-balance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "even-balance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "even-balance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_008",
+      "prompt": {
+        "en": "I am drawn to garment lines that feel quietly even across the whole outfit.",
+        "zh": "我偏好整体各处显得平稳、均衡的服装线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "even-balance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "even-balance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "even-balance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "even-balance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "even-balance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "even-balance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_009",
+      "prompt": {
+        "en": "I would choose repeated, moderate details over sharply different lengths and scales.",
+        "zh": "相比长度与尺度的强烈差异，我会选择适中的重复细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "even-balance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "even-balance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "even-balance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "even-balance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "even-balance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "even-balance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_010",
+      "prompt": {
+        "en": "I prefer clear breaks between parts of an outfit, such as a short layer against a longer one.",
+        "zh": "我偏好穿搭各部分有清楚分隔，例如短层与长层形成对照。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "compact-contrast",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "compact-contrast",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_011",
+      "prompt": {
+        "en": "I like combining small, crisp details rather than making every part flow in one continuous line.",
+        "zh": "我喜欢组合小巧利落的细节，而不是让每一部分都沿同一条连续线条展开。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "compact-contrast",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "compact-contrast",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_012",
+      "prompt": {
+        "en": "I would choose an outfit with noticeable differences in scale, length or contrast between its parts.",
+        "zh": "我会选择各部分在尺度、长度或对比上有明显差别的穿搭。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "compact-contrast",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "compact-contrast",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "compact-contrast",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_013",
+      "prompt": {
+        "en": "I prefer garment lines that bend and drape rather than remain sharply fixed.",
+        "zh": "我偏好会弯曲、垂落的服装线条，而不是保持固定的锐利线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "soft-drape",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "soft-drape",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "soft-drape",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "soft-drape",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_014",
+      "prompt": {
+        "en": "I am drawn to curved edges or gentle gathers in an outfit.",
+        "zh": "穿搭中的弧形边缘或柔和褶拢更容易吸引我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "soft-drape",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "soft-drape",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "soft-drape",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "soft-drape",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "OLP_015",
+      "prompt": {
+        "en": "I would choose a softly shaped outline with rounded finishes over strongly angular breaks.",
+        "zh": "相比强烈的棱角分隔，我会选择形状柔和、收尾圆润的轮廓。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "soft-drape",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "soft-drape",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "soft-drape",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "soft-drape",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: unclear, unsuitable or prefer not to answer",
+            "zh": "未评分：不清楚、不适用，或不愿回答"
+          },
+          "directionId": "soft-drape",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "long-line",
+      "directionIds": [
+        "long-line"
+      ],
+      "title": {
+        "en": "Long Lines",
+        "zh": "连贯长线"
+      },
+      "headline": {
+        "en": "A clothing-line preference, with context kept visible",
+        "zh": "保留情境的服装线条偏好"
+      },
+      "summary": {
+        "en": "Read the garment descriptions, examples and limits. This is a separate preference reading, without a body-type or Image Identity assignment.",
+        "zh": "结合服装描述、例子和边界阅读；这是一项独立偏好读法，不分配身体类型或Image Identity。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with outfit descriptions, not a fit score, beauty rank or body measurement.",
+        "zh": "需要三条数值有效，原始和除以3；表示对穿搭描述的认同，不是合身分、外貌排名或身体测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Long Lines: Outfit Line Preferences Guide",
+          "zh": "连贯长线：服装线条偏好完整说明"
+        },
+        "description": {
+          "en": "Understand this original outfit-line preference, its examples and missing-answer rules. Full guide free; no body type or professional identity assigned.",
+          "zh": "了解原创服装线条偏好的这一部分、例子和缺失规则。完整指南免费，不分配身体类型或专业形象身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A preference for continuity in an outfit",
+            "zh": "对穿搭中连续线条的偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns a clear line extending toward a hem, long clean garment shapes and a vertical emphasis with fewer small interruptions. A higher mean records stronger agreement with these descriptions of what you would choose. It does not measure your height, determine a body frame or show that a long outline would necessarily suit you. Think about the outfit’s visual arrangement rather than what your body is supposed to look like or what an image consultant might call your identity.",
+              "zh": "这一项关注延伸到下摆的清楚线条、修长干净的服装轮廓，以及较少细小分隔的纵向重点。较高均值记录对这些选择描述更认同，不测量身高、不确定身体框架，也不证明长线条必然适合你。请想穿搭的视觉安排，而不是身体应该长什么样，或形象顾问会怎样命名你的身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One long outline beside several short breaks",
+            "zh": "一条长轮廓与几处短分隔"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an outfit organised around a long outer layer with a relatively continuous edge. Compare that image with an outfit organised around several clear changes of length and detail. You might prefer either, both in different settings or neither description. The example does not require owning either outfit or deciding which makes a person look better. It simply makes the line preference easier to picture. The questionnaire does not know the garment, body, occasion or practical needs behind your choice.",
+              "zh": "例如，想一套由长外层和较连续边缘组织起来的穿搭，再与通过几处清楚长度变化和细节来组织的穿搭对照。可以喜欢其中一个、不同场合都喜欢，或两种描述都不合适。不必拥有这些衣服，也不必判断谁穿上更好看。例子只帮助想象线条偏好，问卷不知道你选择背后的衣服、身体、场合或实际需要。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Visual intention does not become a body type",
+            "zh": "视觉意图不变成身体类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Preferring a continuous vertical line is not evidence of a Dramatic family, a particular Kibbe Image Identity or a natural anatomical line. It is also not a wish that a body should be taller, thinner or different. A lower mean supplies no rule against long garments. The report describes the three statements you rated, without deciding how an actual garment fits or whether an outfit expresses who you are. Those questions require their own context and cannot be answered from this average.",
+              "zh": "喜欢连续纵线，不证明属于Dramatic家族、某个Kibbe Image Identity或某种天然解剖线条，也不表示希望身体更高、更瘦或不同。较低不建立不能穿长衣的规则。报告只描述你评价的三条，不决定实际合身程度或穿搭是否表达了你；这些问题需要各自情境，不能从平均数回答。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Similar means can have different details",
+            "zh": "相近均值可以来自不同细节"
+          },
+          "paragraphs": [
+            {
+              "en": "You might like a long outline while also enjoying a clearly separated collar or a contrasting short layer. Another person could dislike a strong vertical emphasis but like clean, uninterrupted garment shapes. Their means can resemble yours. The three statements do not inventory every length, fabric or arrangement, and they do not correct for what is available to you. A preference may change with a particular occasion. The number is a compact description of selected answers, not a permanent style rule.",
+              "zh": "你可能喜欢长轮廓，也喜欢分隔明确的领口或有对照的短外层；另一人可能不喜欢强烈纵向重点，却喜欢干净连续的服装形状，均值仍相近。三条没有列举所有长度、布料或组合，也没有校正可选择的东西。偏好可能随场合变化，数字只是选定回答的简述，不是永久风格规则。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Continuity can mix with other preferences",
+            "zh": "连续可以与其他偏好混合"
+          },
+          "paragraphs": [
+            {
+              "en": "A continuous outline can include soft drape, visible ease or an evenly repeated detail. Compact contrast may appeal in another part of an outfit or another setting. The five readings therefore remain separate instead of placing you on one sharp-to-soft line or selecting a highest family. The existing Aesthetic reflection concerns word-described graphic moods, colours and textures. That is a different task from choosing how the parts of a whole outfit form a line, and neither set of scores converts into the other.",
+              "zh": "连续轮廓里也可以有柔和垂落、明显余量或均匀重复的细节；紧凑对照可能在别的部位或场合吸引你。所以五项分别保留，不把你放到一条锐利到柔和的轴上，也不选最高家族。现有审美观察主要涉及文字描述的图形氛围、色彩和纹理，与整套衣服怎样形成线条不同，两套分数不换算。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Imagine a small arrangement without buying",
+            "zh": "不购买也能想一个小组合"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, picture one garment you already have or a simple outline you could draw. Notice whether keeping an edge continuous appeals more than adding several small divisions. No photograph, body measurement, purchase or change of appearance is needed. You do not have to try the arrangement or ask someone to judge it. You may leave the part unscored when the descriptions are unsuitable, read another guide or finish without deciding that a long line belongs in your wardrobe.",
+              "zh": "若有用，可想一件已有衣服，或画一个简单轮廓，留意保持边缘连续与加入几处细分隔，哪个更吸引你。不需要照片、身体测量、购买或改变外貌，也不必实际试穿或请人评价。描述不合适时可未评分，读另一篇，或不决定衣柜里必须有长线条就结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three numeric agreement ratings, with gaps preserved",
+            "zh": "三条认同评分，保留空缺"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty. An unclear, unsuitable or private statement can remain unscored. Each part needs all three numeric ratings, and its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored rating withholds that part’s mean without zero or midpoint substitution. All fifteen response choices finish the attempt; no total, rank or dominant family is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定；不清楚、不适合或不愿评价的题可未评分。每项三条数值齐全才将原始和除以3，显示一位小数，例如1、2、4之和7，除以3显示2.3。任一未评分让所属项没有均值，不补零或中点。十五条都选一个选项即可完成，不计算总分、排名或主导家族。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original preference reflection, with its own limits",
+            "zh": "有自身边界的原创偏好观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these fifteen bilingual prompts and five guides as an original clothing-line reflection. There is no psychometric validation, population norm or official body-type scoring key. The topics describe preferred garment arrangements rather than anatomy, beauty, character or professional Image Identity. No book exercise, illustration or third-party question bank is reproduced. Answers stay only in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. All five complete guides remain open even when every part is unscored. A preference is something you may use, revise or leave without choosing an identity.",
+              "zh": "费马原创这十五条双语陈述和五篇说明，观察服装线条偏好，没有心理测量验证、人群常模或官方身体类型计分键。主题描述偏好的衣服安排，不是解剖、外貌价值、品格或专业Image Identity；未复制书中练习、插图或第三方题库。答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。全部未评分也开放五篇全文，偏好可以使用、修订或放下，不必选择身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ease-and-room",
+      "directionIds": [
+        "ease-and-room"
+      ],
+      "title": {
+        "en": "Room and Ease",
+        "zh": "舒展余量"
+      },
+      "headline": {
+        "en": "A clothing-line preference, with context kept visible",
+        "zh": "保留情境的服装线条偏好"
+      },
+      "summary": {
+        "en": "Read the garment descriptions, examples and limits. This is a separate preference reading, without a body-type or Image Identity assignment.",
+        "zh": "结合服装描述、例子和边界阅读；这是一项独立偏好读法，不分配身体类型或Image Identity。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with outfit descriptions, not a fit score, beauty rank or body measurement.",
+        "zh": "需要三条数值有效，原始和除以3；表示对穿搭描述的认同，不是合身分、外貌排名或身体测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Room and Ease: Outfit Line Preferences Guide",
+          "zh": "舒展余量：服装线条偏好完整说明"
+        },
+        "description": {
+          "en": "Understand this original outfit-line preference, its examples and missing-answer rules. Full guide free; no body type or professional identity assigned.",
+          "zh": "了解原创服装线条偏好的这一部分、例子和缺失规则。完整指南免费，不分配身体类型或专业形象身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Room in a garment’s outline",
+            "zh": "服装轮廓里的余地"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about visible ease, lines that look relaxed rather than tightly fixed and loosely defined layers with room to move. Here, room means the visual space you imagine in a garment arrangement, not a measurement of a body or a tailoring assessment. A higher mean records agreement with those choices. It does not establish a Natural family, body width, physical strength or a need for a particular fit. Practical comfort and mobility remain your own considerations, beyond what this short form measures.",
+              "zh": "这一项问明显余量、看起来舒展而非紧密固定的线条，以及边界较宽松、能活动的叠层。这里的余地指你想象中服装安排的视觉空间，不是身体测量或裁剪评估。较高只记录对这些选择更认同，不确定Natural家族、身体宽度、力量或必须采用的版型。实际舒适与活动需要仍由你考虑，超出短表测量范围。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A loosely defined layer in an ordinary outfit",
+            "zh": "普通穿搭中的宽松叠层"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine adding an outer layer whose outline stays relatively open rather than fixing every edge close to the body. You might like the appearance, the movement, both or neither. Another occasion could make a more defined outline appealing. This example does not recommend a garment or assume it would fit a particular person. It is a way of making the preference concrete while leaving fabric, construction, access, weather and the purpose of the outfit outside the score.",
+              "zh": "例如，加上一件外层，让轮廓相对敞开，而不是把每条边缘都贴近身体。你可能喜欢外观、活动感、两者或都不喜欢，别的场合也可能偏好更明确的轮廓。例子不推荐单品，也不假定适合某个人，只让偏好更具体；布料、结构、可获得性、天气和用途不计入分数。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Relaxed clothing is not a personality finding",
+            "zh": "舒展衣服不是人格发现"
+          },
+          "paragraphs": [
+            {
+              "en": "Liking visible ease does not prove that you are easygoing, informal, confident or less concerned about appearance. Disagreeing does not imply rigidity or discomfort with your body. The statements ask about an outfit arrangement, and the report keeps that boundary. They do not diagnose fit problems, estimate body composition or identify your professional style category. A style can be chosen for many reasons; a mean cannot tell which reason mattered to you without information the website deliberately does not request.",
+              "zh": "喜欢明显余量，不证明随和、随性、自信或不在意外貌；不同意也不表示僵化或不接受身体。题目问的是衣服安排，报告保留这个边界，不诊断合身问题、不估算身体组成或专业风格类别。选择风格可以有许多原因，网站没有要求那些资料，均值就不能替你解释原因。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "The three descriptions need not feel identical",
+            "zh": "三个描述不必感觉完全相同"
+          },
+          "paragraphs": [
+            {
+              "en": "You could prefer room in a garment but dislike loosely defined layers, or like a relaxed line while wanting clear edges elsewhere. Those answers are not an error. The mean summarises three related descriptions without retaining every distinction on its own. Different garments and settings may also change the preference. With any unscored statement, the part has no mean rather than an estimated value. You can still finish and read the full explanation without obtaining a complete numerical picture.",
+              "zh": "你可能喜欢衣服留有空间，却不喜欢边界松散的叠层；也可能喜欢舒展线条，同时希望其他边缘很清楚，这不算答错。均值简述三个相关描述，本身不保留所有区别，衣服与场合也可能改变偏好。任一未评分都让本项没有均值，不估算；仍可完成并读全文，不必得到数值齐全的画像。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Ease can sit beside structure or softness",
+            "zh": "余量可以与结构或柔和并存"
+          },
+          "paragraphs": [
+            {
+              "en": "Room and ease can coexist with a long outline, balanced detail or soft drape. A crisp contrasting element can also appear within an otherwise relaxed arrangement. These five readings are not mutually exclusive identities, and there is no total that makes one combination more correct than another. The form does not use your other means to fill a missing answer here. Nor does it translate a graphic aesthetic label or a preference for a particular decade into a clothing-fit judgement.",
+              "zh": "余量可以与长轮廓、均衡细节或柔和垂落并存；利落的对照元素也可以在整体舒展的安排中出现。五项不是互斥身份，没有总分判断哪种组合更正确，也不用其他均值补这里的缺失。图形审美标签或偏好某个年代，也不能换算成衣服合身判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Consider an outline while keeping practical needs yours",
+            "zh": "想轮廓，实际需要仍由你决定"
+          },
+          "paragraphs": [
+            {
+              "en": "If reflection would help, picture an existing outfit and whether a little more visible room is something you would choose in its outline. You need not change the outfit, ignore comfort, buy anything or share a body image. An imagined comparison is enough for a preference exercise. If no useful image comes to mind, unscored is available. You can end after the guide without deciding that your wardrobe should become looser, more structured or more like another person’s style.",
+              "zh": "若有帮助，可想一套已有穿搭，看看轮廓多一点可见余地是否是你愿意的选择。不必改变衣服、忽略舒适、购买或分享身体图片，偏好练习只需想象比较。想不到有用画面也可未评分，读完即结束，不必决定衣柜该更宽松、更有结构或更像别人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three numeric agreement ratings, with gaps preserved",
+            "zh": "三条认同评分，保留空缺"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty. An unclear, unsuitable or private statement can remain unscored. Each part needs all three numeric ratings, and its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored rating withholds that part’s mean without zero or midpoint substitution. All fifteen response choices finish the attempt; no total, rank or dominant family is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定；不清楚、不适合或不愿评价的题可未评分。每项三条数值齐全才将原始和除以3，显示一位小数，例如1、2、4之和7，除以3显示2.3。任一未评分让所属项没有均值，不补零或中点。十五条都选一个选项即可完成，不计算总分、排名或主导家族。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original preference reflection, with its own limits",
+            "zh": "有自身边界的原创偏好观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these fifteen bilingual prompts and five guides as an original clothing-line reflection. There is no psychometric validation, population norm or official body-type scoring key. The topics describe preferred garment arrangements rather than anatomy, beauty, character or professional Image Identity. No book exercise, illustration or third-party question bank is reproduced. Answers stay only in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. All five complete guides remain open even when every part is unscored. A preference is something you may use, revise or leave without choosing an identity.",
+              "zh": "费马原创这十五条双语陈述和五篇说明，观察服装线条偏好，没有心理测量验证、人群常模或官方身体类型计分键。主题描述偏好的衣服安排，不是解剖、外貌价值、品格或专业Image Identity；未复制书中练习、插图或第三方题库。答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。全部未评分也开放五篇全文，偏好可以使用、修订或放下，不必选择身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "even-balance",
+      "directionIds": [
+        "even-balance"
+      ],
+      "title": {
+        "en": "Even Balance",
+        "zh": "平稳均衡"
+      },
+      "headline": {
+        "en": "A clothing-line preference, with context kept visible",
+        "zh": "保留情境的服装线条偏好"
+      },
+      "summary": {
+        "en": "Read the garment descriptions, examples and limits. This is a separate preference reading, without a body-type or Image Identity assignment.",
+        "zh": "结合服装描述、例子和边界阅读；这是一项独立偏好读法，不分配身体类型或Image Identity。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with outfit descriptions, not a fit score, beauty rank or body measurement.",
+        "zh": "需要三条数值有效，原始和除以3；表示对穿搭描述的认同，不是合身分、外貌排名或身体测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Even Balance: Outfit Line Preferences Guide",
+          "zh": "平稳均衡：服装线条偏好完整说明"
+        },
+        "description": {
+          "en": "Understand this original outfit-line preference, its examples and missing-answer rules. Full guide free; no body type or professional identity assigned.",
+          "zh": "了解原创服装线条偏好的这一部分、例子和缺失规则。完整指南免费，不分配身体类型或专业形象身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Moderate repetition across an outfit",
+            "zh": "穿搭各处适中的重复"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns details of similar scale, a quietly even arrangement across the whole outfit and repeated moderate elements rather than sharply different lengths and scales. A higher mean records stronger agreement with those descriptions. It does not establish a Classic family, bodily symmetry or a timeless personality. The balance is something you prefer in an outfit’s arrangement, not a property the questionnaire has measured in you. The form has no body image, measurements or observations from another person.",
+              "zh": "这一项关注相近尺度的细节、整套衣服平稳的安排，以及适中重复而非长度尺度的强烈差异。较高只记录对这些描述更认同，不确定Classic家族、身体对称或永恒人格。均衡是你在穿搭安排中的偏好，不是问卷测得的个人属性；这里没有身体图片、测量或他人的观察。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Details sharing attention rather than competing",
+            "zh": "细节分担注意，而不是彼此抢占"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine several details in an outfit that stay relatively similar in size and visual emphasis. Compare that with one element that deliberately stands out through a very different length or scale. Either arrangement may appeal, and a real outfit could use both in different areas. This example describes where you might want attention to fall, without deciding whether balance is more tasteful, formal or appropriate. The questionnaire cannot know how a particular viewer would read the outfit.",
+              "zh": "例如，穿搭中几处细节的大小与视觉重点相对接近，再与一个故意用不同长度或尺度突出的元素比较。任一都可以吸引你，真实衣服也能在不同部位兼有。例子描述你希望注意落在哪里，不判定均衡是否更有品位、正式或合适，也不知道某个观看者会怎样理解。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "An even arrangement does not become a standard",
+            "zh": "均衡安排不变成标准答案"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeing with these statements does not make a wardrobe more correct, mature or professional. Disagreeing does not indicate poor proportion or a need to tone anything down. The website does not prescribe a uniform, assess workplace appropriateness or identify a person’s social status from a preference. It also does not turn balance into the midpoint of a body-type system. This is one original reading of three outfit descriptions, and its usefulness depends on whether those descriptions matter in your own setting.",
+              "zh": "认同这些陈述，不让衣柜更正确、成熟或专业；不同意不表示比例差或需要收敛。网站不规定制服、不评估职场适当性，也不从偏好识别社会地位，更不把均衡当成身体类型体系的中点。这只是对三个原创穿搭描述的一种读法，是否有用取决于你的场合。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Different ways of liking balance",
+            "zh": "喜欢均衡也有不同方式"
+          },
+          "paragraphs": [
+            {
+              "en": "You might prefer similar detail scales while enjoying a strong contrast in colour, or like an even overall arrangement with one unusual edge. Another person might endorse the moderate-repetition statement but not the others. Similar averages can therefore contain different decisions. The three prompts are not an exhaustive style inventory, and their mean cannot choose garments on your behalf. If a statement is unclear, unsuitable or something you prefer not to answer, leaving it unscored preserves that gap instead of inventing a neutral response.",
+              "zh": "你可能喜欢细节尺度相近，也喜欢强烈色彩对比；或喜欢整体均衡，却想保留一个特别边缘。另一人可能只认同适中重复，平均仍相似。三条不是穷尽风格的清单，均值不能替你选衣。陈述不清、不适用或不愿回答时，未评分保留空缺，不编造中立回答。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Balance can include movement and contrast",
+            "zh": "均衡里也可以有变化与对照"
+          },
+          "paragraphs": [
+            {
+              "en": "An even arrangement can contain soft drape or visible ease, and a small contrasting section does not cancel a preference for moderate repetition. Long lines can also be organised in a balanced way. The report does not force these choices onto opposite ends of a single line or select one winning family. No numbers are converted into an official Image Identity. The separate graphic Aesthetic test concerns another kind of composition and should not be used to confirm or disprove this clothing-line reading.",
+              "zh": "均衡安排可以有柔和垂落或明显余量，一小处对照也不会取消适中重复的偏好；长线条也可均衡组织。报告不强迫这些选择站到单轴两端，不选获胜家族，也不把数字换算成官方Image Identity。独立图形审美测试是另一种构图任务，不能确认或推翻服装线条读法。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Notice which detail you would repeat",
+            "zh": "留意你愿意重复哪种细节"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, imagine repeating one modest detail across an outfit you already know. Notice whether that repetition appeals more than giving one element a much larger role. You do not need to buy a coordinated set, change your body, seek someone’s approval or follow a rule for a particular occasion. The exercise is only a way of noticing preference. You may leave the idea on paper, choose unscored answers or finish with no plan for changing what you wear.",
+              "zh": "若有用，可想在一套熟悉穿搭中重复一个适中细节，留意这种重复与让单个元素占更大角色，哪个更吸引你。不必购买成套衣服、改变身体、寻求认可或遵守某场合规则；这里只帮助留意偏好，可以只留纸面、选未评分，或不制订穿衣改变计划就结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three numeric agreement ratings, with gaps preserved",
+            "zh": "三条认同评分，保留空缺"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty. An unclear, unsuitable or private statement can remain unscored. Each part needs all three numeric ratings, and its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored rating withholds that part’s mean without zero or midpoint substitution. All fifteen response choices finish the attempt; no total, rank or dominant family is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定；不清楚、不适合或不愿评价的题可未评分。每项三条数值齐全才将原始和除以3，显示一位小数，例如1、2、4之和7，除以3显示2.3。任一未评分让所属项没有均值，不补零或中点。十五条都选一个选项即可完成，不计算总分、排名或主导家族。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original preference reflection, with its own limits",
+            "zh": "有自身边界的原创偏好观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these fifteen bilingual prompts and five guides as an original clothing-line reflection. There is no psychometric validation, population norm or official body-type scoring key. The topics describe preferred garment arrangements rather than anatomy, beauty, character or professional Image Identity. No book exercise, illustration or third-party question bank is reproduced. Answers stay only in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. All five complete guides remain open even when every part is unscored. A preference is something you may use, revise or leave without choosing an identity.",
+              "zh": "费马原创这十五条双语陈述和五篇说明，观察服装线条偏好，没有心理测量验证、人群常模或官方身体类型计分键。主题描述偏好的衣服安排，不是解剖、外貌价值、品格或专业Image Identity；未复制书中练习、插图或第三方题库。答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。全部未评分也开放五篇全文，偏好可以使用、修订或放下，不必选择身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compact-contrast",
+      "directionIds": [
+        "compact-contrast"
+      ],
+      "title": {
+        "en": "Compact Contrast",
+        "zh": "紧凑对照"
+      },
+      "headline": {
+        "en": "A clothing-line preference, with context kept visible",
+        "zh": "保留情境的服装线条偏好"
+      },
+      "summary": {
+        "en": "Read the garment descriptions, examples and limits. This is a separate preference reading, without a body-type or Image Identity assignment.",
+        "zh": "结合服装描述、例子和边界阅读；这是一项独立偏好读法，不分配身体类型或Image Identity。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with outfit descriptions, not a fit score, beauty rank or body measurement.",
+        "zh": "需要三条数值有效，原始和除以3；表示对穿搭描述的认同，不是合身分、外貌排名或身体测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Compact Contrast: Outfit Line Preferences Guide",
+          "zh": "紧凑对照：服装线条偏好完整说明"
+        },
+        "description": {
+          "en": "Understand this original outfit-line preference, its examples and missing-answer rules. Full guide free; no body type or professional identity assigned.",
+          "zh": "了解原创服装线条偏好的这一部分、例子和缺失规则。完整指南免费，不分配身体类型或专业形象身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Clear differences between outfit parts",
+            "zh": "穿搭部分之间的清楚差异"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about distinct breaks between short and long layers, small crisp details and noticeable differences in scale, length or contrast. A higher mean records agreement with those visual choices. It does not establish a Gamine family, physical compactness, age or a playful personality. The word compact refers here to how the elements are arranged, not to the person wearing them. The form measures neither actual body proportions nor how a given outfit will fit or be perceived.",
+              "zh": "这一项问短长层之间明确分隔、小巧利落细节，以及尺度、长度或对比的明显差异。较高只记录对这些视觉选择更认同，不确定Gamine家族、身体小巧、年龄或活泼人格。这里的紧凑指元素怎样安排，不指穿衣的人；表单不测身体比例，也不判定具体合身或观看效果。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A short layer against a longer shape",
+            "zh": "短层与较长形状的对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a short layer with a clearly marked edge over a longer shape, or a few small crisp details that change the rhythm of an outfit. You might like this arrangement while preferring a continuous outline on another day. The example does not say that contrast is more interesting or that a particular person needs shorter clothing. It is a visual comparison rather than a body recommendation. You can consider the idea without owning the pieces or trying them on.",
+              "zh": "例如，长轮廓上叠一个边缘清楚的短层，或让几处小而利落的细节改变节奏。你可以喜欢它，也在另一天偏好连续长线。例子不宣称对照更有趣，也不表示某人需要短衣；它是视觉比较，不是身体建议，不必拥有或试穿单品才能考虑。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Contrast does not imply a social role",
+            "zh": "对照不暗示社交角色"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeing with these descriptions does not mean you seek attention, look younger or should adopt an energetic persona. Disagreeing does not mean you lack creativity or cannot wear contrasting elements. The questionnaire cannot read personality or gender from clothing preference. It also does not decide whether a pattern is appropriate for work or a social event. Those are separate questions. The mean stays attached to the three descriptions rather than turning a striking outfit arrangement into a judgement about the wearer.",
+              "zh": "认同这些描述，不表示追求关注、显得更年轻或应扮演活力角色；不同意也不表示缺少创意或不能用对照元素。问卷不能从衣服偏好读人格或性别，也不判断某图案是否适合工作或社交，那是另外的问题。均值始终贴着三个描述，不把醒目的安排变成对穿衣人的评价。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Several kinds of difference can lead to one mean",
+            "zh": "几种差异可以通向同一均值"
+          },
+          "paragraphs": [
+            {
+              "en": "You could like changes in length but prefer similar colours, or enjoy a small crisp detail without wanting many visible breaks. Someone else might favour strong scale differences and dislike the other statements. The average does not preserve all of that information on its own. It also supplies no norm or preferred amount of contrast. All three numeric ratings are needed; when one description does not fit, the part remains without a mean and its full guide is still available.",
+              "zh": "你可以喜欢长度变化，却想颜色相近；也可以只喜欢一处利落细节，不想分隔很多。另一人可能喜欢尺度差异，却不喜欢另外两条。平均本身不能保留这些信息，也不提供常模或最佳对比量。三条数值齐全才有均值，不适用时让本项无均值，仍可读全文。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Distinct parts can belong to a coherent outfit",
+            "zh": "分明部分也可以形成连贯穿搭"
+          },
+          "paragraphs": [
+            {
+              "en": "Compact contrast can coexist with a long outer outline, soft material movement or a balanced arrangement in another area. These are original preference descriptions, not mutually exclusive types. The form therefore provides no total, highest-family assignment or sharp-versus-soft placement. It does not convert results from a graphic Aesthetic quiz or a historical visual-style quiz into this mean. Similar words across those tools do not make their question banks, contexts or interpretations interchangeable.",
+              "zh": "紧凑对照可以与长外轮廓、柔和活动感或其他部位的均衡并存。这些是原创偏好描述，不是互斥类型，所以没有总分、最高家族或锐利柔和轴定位，也不从图形审美或历史视觉风格测试换算。词语相近，不让题库、场合与解释可以互换。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Try the idea in imagination, without a verdict",
+            "zh": "在想象中试想，不作裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a small next step, imagine changing one division or one detail scale in an existing outfit. Notice whether the imagined difference appeals to you, without deciding it is objectively better. No photograph, purchase, outside rating or commitment to a new style is required. You do not need to imitate a public figure or use a body-type label. You may simply keep the idea as a possibility, leave the part unscored or finish after reading without changing anything.",
+              "zh": "如果想有个小下一步，可以想象在已有穿搭中改变一处分隔或细节尺度，留意是否吸引你，不裁定客观更好。无需照片、购买、外部评分或承诺新风格，也不必模仿公众人物或用身体类型标签。只保留可能性、未评分或读完不改变任何东西，都可以。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three numeric agreement ratings, with gaps preserved",
+            "zh": "三条认同评分，保留空缺"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty. An unclear, unsuitable or private statement can remain unscored. Each part needs all three numeric ratings, and its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored rating withholds that part’s mean without zero or midpoint substitution. All fifteen response choices finish the attempt; no total, rank or dominant family is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定；不清楚、不适合或不愿评价的题可未评分。每项三条数值齐全才将原始和除以3，显示一位小数，例如1、2、4之和7，除以3显示2.3。任一未评分让所属项没有均值，不补零或中点。十五条都选一个选项即可完成，不计算总分、排名或主导家族。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original preference reflection, with its own limits",
+            "zh": "有自身边界的原创偏好观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these fifteen bilingual prompts and five guides as an original clothing-line reflection. There is no psychometric validation, population norm or official body-type scoring key. The topics describe preferred garment arrangements rather than anatomy, beauty, character or professional Image Identity. No book exercise, illustration or third-party question bank is reproduced. Answers stay only in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. All five complete guides remain open even when every part is unscored. A preference is something you may use, revise or leave without choosing an identity.",
+              "zh": "费马原创这十五条双语陈述和五篇说明，观察服装线条偏好，没有心理测量验证、人群常模或官方身体类型计分键。主题描述偏好的衣服安排，不是解剖、外貌价值、品格或专业Image Identity；未复制书中练习、插图或第三方题库。答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。全部未评分也开放五篇全文，偏好可以使用、修订或放下，不必选择身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soft-drape",
+      "directionIds": [
+        "soft-drape"
+      ],
+      "title": {
+        "en": "Soft Drape",
+        "zh": "柔和垂落"
+      },
+      "headline": {
+        "en": "A clothing-line preference, with context kept visible",
+        "zh": "保留情境的服装线条偏好"
+      },
+      "summary": {
+        "en": "Read the garment descriptions, examples and limits. This is a separate preference reading, without a body-type or Image Identity assignment.",
+        "zh": "结合服装描述、例子和边界阅读；这是一项独立偏好读法，不分配身体类型或Image Identity。"
+      },
+      "scoreReading": {
+        "en": "Three numeric ratings required; raw sum / 3. Agreement with outfit descriptions, not a fit score, beauty rank or body measurement.",
+        "zh": "需要三条数值有效，原始和除以3；表示对穿搭描述的认同，不是合身分、外貌排名或身体测量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Soft Drape: Outfit Line Preferences Guide",
+          "zh": "柔和垂落：服装线条偏好完整说明"
+        },
+        "description": {
+          "en": "Understand this original outfit-line preference, its examples and missing-answer rules. Full guide free; no body type or professional identity assigned.",
+          "zh": "了解原创服装线条偏好的这一部分、例子和缺失规则。完整指南免费，不分配身体类型或专业形象身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Curves, bending lines and rounded finishes",
+            "zh": "弧线、弯曲与圆润收尾"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns garment lines that bend and drape, curved edges or gentle gathers and a softly shaped outline with rounded finishes. A higher mean records agreement with those descriptions. It does not establish a Romantic family, body softness, femininity or a particular physical feature. The word soft describes the imagined outfit line here, not a biological property or a personality. The website does not inspect a body, analyse a photograph or promise that one kind of finish will flatter you.",
+              "zh": "这一项关注弯曲垂落的服装线条、弧形边缘或柔和褶拢，以及形状柔和、收尾圆润的轮廓。较高只记录对这些描述更认同，不确定Romantic家族、身体柔软、女性气质或某种外形特征。柔和描述想象中的衣服线条，不是生物属性或人格；网站不查看身体、分析照片或保证某种收尾让你更好看。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A rounded edge within an ordinary arrangement",
+            "zh": "普通安排中的圆润边缘"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an outfit with a gently curved edge or a loosely falling line. Compare that image with one whose edges stay sharply set. You may like one, both for different purposes or neither. The example does not prescribe a fabric or infer what would happen on an actual person. Materials and construction can produce different arrangements, and this form does not assess them. The useful question is simply which description you would choose, with uncertainty left available rather than hidden.",
+              "zh": "例如，想一套有温和弧边或自然垂落线条的穿搭，再与边缘固定利落的画面对照。可以喜欢一个、不同用途都喜欢，或都不喜欢。例子不规定布料，也不推断真实上身效果；材料与结构能产生不同安排，本表不评估。这里只问愿意选哪个描述，并保留不确定性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A soft outline does not assign an identity",
+            "zh": "柔和轮廓不分配身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeing with curved or draping lines does not tell the website your gender, temperament, attractiveness or romantic behaviour. Disagreeing does not make you less gentle or prevent you from choosing a rounded detail. The report also does not identify a body frame or an official Image Identity. Preferences describe what appeals in selected words; they do not replace a professional assessment or determine what a person ought to wear. No higher score makes an outfit or a wearer more worthy of attention.",
+              "zh": "认同弧线或垂落，不会让网站知道性别、性情、吸引力或恋爱行为；不同意也不让人更不温和，或限制选择圆润细节。报告不识别身体框架或官方Image Identity。偏好描述选定文字里什么吸引你，不替代专业评估，不决定该穿什么；高分不让衣服或人更值得关注。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "The same average can describe different softness",
+            "zh": "同一平均可以描述不同柔和"
+          },
+          "paragraphs": [
+            {
+              "en": "You could favour curved edges while disliking gathers, or like a falling line while keeping most other details crisp. Another person could endorse a softly shaped outline without liking the other descriptions. Their means can be similar. The three prompts do not separate every kind of curve, movement, fabric or finish. They also do not record what you actually own or how often you wear a style. Treat the mean as agreement with those particular statements rather than a complete wardrobe description.",
+              "zh": "你可能喜欢弧边，却不喜欢褶拢；或喜欢垂落线条，同时让其他细节利落。另一人可能只认同柔和轮廓，均值仍相似。三条没区分所有弧度、活动感、布料或收尾，也不记录拥有什么或穿某风格的频率。均值只表示对这些陈述的认同，不是完整衣柜画像。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Softness can sit beside a defined structure",
+            "zh": "柔和可以放在明确结构旁"
+          },
+          "paragraphs": [
+            {
+              "en": "A rounded detail can appear within a continuous long line, a relaxed arrangement, an evenly balanced outfit or a compact contrast. The readings therefore stay separate without forcing a person to choose one family. None is used as a reverse score for the others, and no combined yin-yang placement is produced. The existing graphic Aesthetic forms concern another setting. Choosing a warm curve on a notebook cover is not the same task as preferring a draped garment outline, even when both appeal.",
+              "zh": "圆润细节可以在长线、舒展安排、均衡衣服或紧凑对照中出现，所以各项分开，不强迫选一个家族；彼此不是反向计分，也不生成综合阴阳定位。现有图形审美是另一场合，喜欢笔记封面上的暖弧线，与喜欢服装垂落轮廓不是同一任务，即使都吸引你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Notice a finish without changing yourself",
+            "zh": "留意收尾，不必改变自己"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, imagine one existing garment with a curved rather than an angular finish, or draw a simple outline. You need not alter the garment, buy anything, share a picture or change any aspect of your body. No outside approval is needed to enjoy or decline the idea. If you cannot form a meaningful preference, choose unscored. You can read all five guides and end without assigning yourself a style identity or making a plan to dress differently.",
+              "zh": "若有用，可想一件已有衣服采用弧形而非棱角收尾，或画简单轮廓。不必改衣、购买、分享图片或改变身体任何部分，喜欢或不喜欢这个想法都不需要外部认可。没有有意义偏好时选未评分，读完五篇即可结束，不分配风格身份，也不制订改变穿着的计划。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Three numeric agreement ratings, with gaps preserved",
+            "zh": "三条认同评分，保留空缺"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is a numeric neutral answer, not uncertainty. An unclear, unsuitable or private statement can remain unscored. Each part needs all three numeric ratings, and its raw sum divided by three is displayed to one decimal. Ratings of one, two and four give seven divided by three, displayed as 2.3. Any unscored rating withholds that part’s mean without zero or midpoint substitution. All fifteen response choices finish the attempt; no total, rank or dominant family is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不是不确定；不清楚、不适合或不愿评价的题可未评分。每项三条数值齐全才将原始和除以3，显示一位小数，例如1、2、4之和7，除以3显示2.3。任一未评分让所属项没有均值，不补零或中点。十五条都选一个选项即可完成，不计算总分、排名或主导家族。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "An original preference reflection, with its own limits",
+            "zh": "有自身边界的原创偏好观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these fifteen bilingual prompts and five guides as an original clothing-line reflection. There is no psychometric validation, population norm or official body-type scoring key. The topics describe preferred garment arrangements rather than anatomy, beauty, character or professional Image Identity. No book exercise, illustration or third-party question bank is reproduced. Answers stay only in current page memory, without saved drafts, quiz-flow statistics or personal-result sharing. All five complete guides remain open even when every part is unscored. A preference is something you may use, revise or leave without choosing an identity.",
+              "zh": "费马原创这十五条双语陈述和五篇说明，观察服装线条偏好，没有心理测量验证、人群常模或官方身体类型计分键。主题描述偏好的衣服安排，不是解剖、外貌价值、品格或专业Image Identity；未复制书中练习、插图或第三方题库。答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。全部未评分也开放五篇全文，偏好可以使用、修订或放下，不必选择身份。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Whole-outfit preferences, without a body verdict",
+        "zh": "观察整套衣服偏好，不裁定身体"
+      },
+      "paragraphs": [
+        {
+          "en": "These fifteen original statements concern long outlines, ease, balance, compact contrast and drape in clothing. They do not inspect anatomy, a photograph, weight or measurements, determine what flatters you, assign an official Image Identity or reproduce another site’s five-family quiz.",
+          "zh": "十五条原创陈述涉及衣服中的长轮廓、余量、均衡、紧凑对照与垂落，不检查解剖、照片、体重或测量，不判定什么显好看，不分配官方Image Identity，也不复制其他网站的五家族问卷。"
+        }
+      ]
+    },
+    {
+      "id": "means",
+      "title": {
+        "en": "Five agreement means, with missing answers retained",
+        "zh": "五项认同均值，保留缺失"
+      },
+      "paragraphs": [
+        {
+          "en": "Three is Neutral and counts numerically. Unclear or unsuitable descriptions can remain unscored; any missing numeric rating withholds only that part’s mean. No total, rank, highest family or sharp-to-soft placement is calculated. A mixture of preferences is allowed and every full guide stays open.",
+          "zh": "3是中立并计入数值；不清楚或不适用可未评分，一条数值缺失只让所属项无均值。不计算总分、排名、最高家族或锐利柔和轴定位，允许偏好混合，所有全文开放。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Current page memory only",
+        "zh": "仅当前页面内存"
+      },
+      "paragraphs": [
+        {
+          "en": "No saved drafts, quiz-flow statistics, personal-result URLs or personal-result sharing. Refreshing, changing language or leaving discards the attempt. There is no photo upload or body-measurement field. You can read the guides without generating any personal mean.",
+          "zh": "不保存草稿、不发送流程统计、不生成个人结果URL、不分享个人结果。刷新、换语言或离开会丢弃作答，不设照片上传或身体测量栏；没有个人均值也能读指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a Kibbe body type or Image Identity test?",
+        "zh": "这是Kibbe身体类型或Image Identity测试吗？"
+      },
+      "answer": {
+        "en": "It is an original clothing-line preference reflection. It does not assign a Kibbe family or Image Identity, inspect a body or reproduce book exercises. It is not affiliated with or endorsed by David Kibbe. The publisher link describes his separate approach.",
+        "zh": "这是原创服装线条偏好观察，不分配Kibbe家族或Image Identity，不检查身体、不复制书中练习，与David Kibbe无合作或背书关系；出版方链接介绍其独立方法。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the highest mean become my family?",
+        "zh": "最高均值会成为我的家族吗？"
+      },
+      "answer": {
+        "en": "No. Five means remain separate without a total, winner, body-type label or yin-yang placement. Preferences may mix across outfits and situations; the form does not treat that as a contradiction.",
+        "zh": "不会。五项分别保留，没有总分、赢家、身体类型或阴阳定位。不同穿搭和情境中偏好可以混合，不被视为矛盾。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to own or try the clothes?",
+        "zh": "需要拥有或试穿衣服吗？"
+      },
+      "answer": {
+        "en": "No. You can consider a word-described outfit in imagination. The form does not measure actual fit, comfort or affordability. Choose unscored when no meaningful preference is available.",
+        "zh": "不需要。可只在想象中考虑文字描述的穿搭。表单不测实际合身、舒适或负担能力，没有有意义偏好时选未评分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does three mean unsure?",
+        "zh": "3代表不确定吗？"
+      },
+      "answer": {
+        "en": "No. Three is the numeric Neutral agreement anchor. Uncertainty, an unsuitable description or a choice not to answer belongs in the separate unscored option. Each part needs all three numeric ratings; no missing value is replaced.",
+        "zh": "不代表。3是数值中立选项；不确定、描述不适用或不愿回答另选未评分。每项三条数值齐全才有均值，缺失不替换。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this replace the Aesthetic or Face Self-Image reflection?",
+        "zh": "会替代审美或面部自我印象观察吗？"
+      },
+      "answer": {
+        "en": "No. Graphic moods, face self-image and whole-garment line preferences concern different inputs. Existing forms remain separate, and no scores are converted between them. This form also does not classify a face or skeletal frame.",
+        "zh": "不会。图形氛围、面部自我印象与整件衣服线条偏好是不同输入。原题本独立保留，分数不换算；本表也不分类脸型或骨架。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers remain only in current page memory, without drafts, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Every public guide is available without personal answers.",
+        "zh": "答案仅留当前页面内存，不保存草稿、不发送流程统计、不分享个人结果。刷新、换语言或离开会丢失作答，所有公开指南无需个人答案即可阅读。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Publisher background on David Kibbe’s separate Image Identity approach",
+        "zh": "出版方对David Kibbe独立Image Identity方法的介绍"
+      },
+      "url": "https://www.penguinrandomhouse.com/books/723284/david-kibbes-power-of-style-by-david-kibbe/"
+    }
+  ]
+}
