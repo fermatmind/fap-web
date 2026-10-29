@@ -6623,5 +6623,29 @@
       "mutual-encouragement"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "connection-belonging-check-in",
+    "code": "FM_CONNECTION_CHECKIN21_OBSERVATIONS",
+    "version": "fm_connection_checkin21_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Connection and Belonging Check-In",
+      "zh": "联系与归属回顾"
+    },
+    "description": {
+      "en": "Reflect on 21 original observations about unwanted distance, listening and belonging. Three full public guides, private category records and no loneliness score or diagnosis.",
+      "zh": "回顾不想要的疏远感、想要的倾听与归属这21条原创观察。三篇完整指南公开，类别记录留在本页，不生成孤独分数或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_connection_checkin21_observations_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "felt-distance-reading",
+      "wanted-listening-reading",
+      "finding-belonging-reading"
+    ],
+    "collection": "explore"
   }
 ]

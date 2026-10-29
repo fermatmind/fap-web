@@ -1,0 +1,1843 @@
+{
+  "slug": "connection-belonging-check-in",
+  "code": "FM_CONNECTION_CHECKIN21_OBSERVATIONS",
+  "version": "fm_connection_checkin21_observations_v1",
+  "kind": "connection-checkin21",
+  "title": {
+    "en": "Connection and Belonging Check-In",
+    "zh": "联系与归属回顾"
+  },
+  "directions": [
+    {
+      "id": "felt-distance",
+      "title": {
+        "en": "Unwanted distance",
+        "zh": "不想要的疏远感"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "wanted-listening",
+      "title": {
+        "en": "Listening and support wanted",
+        "zh": "想要的倾听与支持"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "finding-belonging",
+      "title": {
+        "en": "Finding a place to belong",
+        "zh": "寻找归属的位置"
+      },
+      "itemCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": "CON_01",
+      "prompt": {
+        "en": "I wanted some company during free time but felt without a suitable person to approach.",
+        "zh": "空闲时我想有人陪伴，却觉得没有合适的人可以联系。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_02",
+      "prompt": {
+        "en": "Brief everyday exchanges left me feeling less connected than I wanted.",
+        "zh": "日常简短交流之后，我仍觉得联系少于自己希望的程度。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_03",
+      "prompt": {
+        "en": "I felt apart from people even while sharing the same physical space.",
+        "zh": "即使与人在同一个空间，我仍感到彼此隔着一段距离。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_04",
+      "prompt": {
+        "en": "After finishing my usual responsibilities, I wanted more personal connection than was available.",
+        "zh": "完成日常事务后，我希望有更多私人交流，却没有这样的联系。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_05",
+      "prompt": {
+        "en": "A socially busy day ended with a feeling of distance that I had not wanted.",
+        "zh": "一天里虽然有不少社交，结束时仍留下我不想要的疏远感。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_06",
+      "prompt": {
+        "en": "Time spent alone felt unwanted rather than a break I had chosen.",
+        "zh": "独处的时间让我感到并非所愿，而不是自己选择的休息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_07",
+      "prompt": {
+        "en": "I missed a feeling of companionship even when routine contact with others continued.",
+        "zh": "即使与人的日常联系仍在继续，我还是想念有人相伴的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "felt-distance"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_08",
+      "prompt": {
+        "en": "I wanted to talk about something important to me but could not identify a willing listener.",
+        "zh": "我想谈谈对自己重要的事，却想不到一位愿意倾听的人。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_09",
+      "prompt": {
+        "en": "Conversations stayed with practical matters when I had wanted room for feelings.",
+        "zh": "我希望能谈一点感受时，交流却停留在事务上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_10",
+      "prompt": {
+        "en": "I wanted someone to hear me before offering advice, but that kind of listening was missing.",
+        "zh": "我希望先被听完再得到建议，却缺少这样的倾听。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_11",
+      "prompt": {
+        "en": "A conversation ended while I still wanted the other person to understand what mattered to me.",
+        "zh": "一次谈话已经结束，我却仍希望对方理解我在意的部分。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_12",
+      "prompt": {
+        "en": "When I wanted a small amount of support, I felt without someone I could comfortably ask.",
+        "zh": "想要一点有限的支持时，我觉得没有能让我自在开口的人。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_13",
+      "prompt": {
+        "en": "I kept a concern to myself because the kind of conversation I wanted was not available.",
+        "zh": "由于缺少自己想要的那种交流，我把一件困扰留给了自己。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_14",
+      "prompt": {
+        "en": "Even after a friendly exchange, I still wanted to feel more understood.",
+        "zh": "即使交流是友善的，我仍希望能多一点被理解的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "wanted-listening"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_15",
+      "prompt": {
+        "en": "In a group I wanted to be part of, I felt more like an outsider than a participant.",
+        "zh": "在一个自己希望融入的群体里，我觉得更像局外人而不是参与者。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_16",
+      "prompt": {
+        "en": "I wanted a place where I could express an ordinary difference without feeling out of place.",
+        "zh": "我希望有个地方，表达平常的不同意见也不会觉得格格不入。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_17",
+      "prompt": {
+        "en": "A place I regularly spent time still felt like somewhere I was only visiting.",
+        "zh": "即使经常待在某个地方，我仍觉得自己只是暂时来访。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_18",
+      "prompt": {
+        "en": "Shared activities left me wishing there were a way for me to take part that fitted my circumstances.",
+        "zh": "面对共同活动，我希望能有一种适合自己实际情况的参与方式。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_19",
+      "prompt": {
+        "en": "An important part of my everyday life felt without room in the communities available to me.",
+        "zh": "在自己能接触到的群体里，我生活中重要的一部分似乎没有表达空间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_20",
+      "prompt": {
+        "en": "I wanted to be recognised as a continuing participant rather than someone starting from the outside each time.",
+        "zh": "我希望被当作持续参与的一员，而不是每次都重新从外面开始。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CON_21",
+      "prompt": {
+        "en": "I wished for a setting where I could feel welcome without having to perform a different version of myself.",
+        "zh": "我希望有个环境，不必扮成另一个样子也能感到被欢迎。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "finding-belonging"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "seoTitle": {
+    "en": "Loneliness Reflection: Connection and Belonging | FermatMind",
+    "zh": "孤独感自我回顾：联系与归属｜费马测试"
+  },
+  "description": {
+    "en": "Reflect on 21 original observations about unwanted distance, listening and belonging. Three full public guides, private category records and no loneliness score or diagnosis.",
+    "zh": "回顾不想要的疏远感、想要的倾听与归属这21条原创观察。三篇完整指南公开，类别记录留在本页，不生成孤独分数或诊断。"
+  },
+  "instructions": {
+    "en": "For adults. Recall the past four weeks and choose how often you noticed each description. Did not notice differs from no relevant experience, unclear recall or withholding an answer; use the unscored choice for those gaps. Categories are labels, not points or event counts. You may pause or leave at any time.",
+    "zh": "适用于成年人。回想过去四周，选择多常注意到每条描述。没有注意到，不同于没有相关经历、回想不清或保留回答；后者请选择未计分。类别是标签，不是点数或事件次数。可以随时暂停或离开。"
+  },
+  "introduction": {
+    "en": "Wanting company differs from counting contacts; choosing time alone need not mean unwanted loneliness. This original check-in organises three overlapping topics without assigning a level, a type or a reason. It does not administer the UCLA Loneliness Scale or any published screening instrument.",
+    "zh": "想要陪伴不同于统计联系人数；主动独处不等于不想要的孤独。本原创回顾整理三个可重叠主题，不分等级、类型或判定原因。不施测UCLA孤独量表或任何已发表筛查工具。"
+  },
+  "resultHeading": {
+    "en": "Your three separate connection-observation records",
+    "zh": "三个分别阅读的联系观察记录"
+  },
+  "profiles": [
+    {
+      "id": "felt-distance-reading",
+      "directionIds": [
+        "felt-distance"
+      ],
+      "title": {
+        "en": "Unwanted distance — Complete Reading",
+        "zh": "不想要的疏远感：完整读法"
+      },
+      "headline": {
+        "en": "Unwanted distance — Complete Reading",
+        "zh": "不想要的疏远感：完整读法"
+      },
+      "summary": {
+        "en": "Read unwanted distance in context, distinguish welcome solitude and consider one manageable form of companionship without a risk level.",
+        "zh": "把不想要的疏远感放回具体情境，区分愿意的独处，考虑可承受的陪伴，不划风险等级。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to seven statements. They do not produce points, a total, a mean, a highest theme, a loneliness level or a diagnosis. Unscored remains separate from did not notice.",
+        "zh": "六类计数合计七条陈述，不形成点数、总分、均值、最高主题、孤独等级或诊断。未计分与没有注意到分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Unwanted distance: Full Connection Guide | FermatMind",
+          "zh": "不想要的疏远感：联系观察完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read unwanted distance in context, distinguish welcome solitude and consider one manageable form of companionship without a risk level.",
+          "zh": "把不想要的疏远感放回具体情境，区分愿意的独处，考虑可承受的陪伴，不划风险等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Distance is about a connection you wanted",
+            "zh": "疏远感要放回想要的联系里"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme concerns a gap you noticed between the companionship you wanted and the connection available in everyday life. Its seven original statements include spare time without suitable company, feeling apart in a shared space and missing companionship despite routine contact. They do not count friends, judge the size of a household or establish that a relationship has failed. A person can value substantial time alone and still want a particular kind of company on one occasion.",
+              "zh": "本主题关注日常生活中，想要的陪伴与实际能够得到的联系之间，你注意到的落差。七条原创陈述包括空闲时缺少合适陪伴、在同一空间仍有距离，以及日常联系继续时仍想有人相伴。它们不数朋友、不评价家庭人数，也不判定关系失败。一个人可以珍惜大量独处时间，同时在某个时刻希望有一种具体的陪伴。"
+            },
+            {
+              "en": "The World Health Organization distinguishes loneliness as a subjective, distressing gap from social isolation as an objective shortage of relationships or interactions. This check-in borrows that conceptual distinction as background, not a published measurement instrument. The seven statements do not establish the cause, duration or health effects of a feeling. They also cannot tell whether more contact, a different setting, practical assistance or simply a different plan would be useful in your circumstances.",
+              "zh": "世界卫生组织区分了主观、令人难受的联系落差与客观上关系或互动过少的社会隔离。本回顾只把这一区分作为概念背景，不采用已发表量表。这七条无法建立感受的原因、持续时间或健康后果，也不能替你决定更频繁的联系、不同环境、实际协助或另一种安排，哪一个适合自身情况。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read seven observations without turning them into a verdict",
+            "zh": "逐条看七条记录，不把它们变成判定"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement enters one of six displayed categories: did not notice, rarely, sometimes, often, very often or unscored. The six counts add to seven statements. If two statements are sometimes, one is often and four are unscored, the record keeps exactly those counts and the individual labels. It does not add category identifiers into points. Two people with matching counts may have selected different statements, wanted different relationships and faced entirely different practical constraints.",
+              "zh": "每条陈述归入六个显示类别之一：没有注意到、很少、有时、较常、经常或未计分。六类计数合计七条。例如两条选有时、一条选较常、四条未计分，就保留这些计数及逐条标签，不把类别标识相加为点数。计数相同的人可能选择了不同陈述，想要不同的关系，也面临完全不同的现实限制。"
+            },
+            {
+              "en": "Unscored may mean that the situation did not occur, recall is unclear or you prefer to withhold an answer. It is not the same as did not notice. An entirely unscored theme supplies no personal finding about whether distance was present. Likewise, a did-not-notice response does not certify that all your needs were met. All three guides remain public regardless of answers, and no category total determines whether you may ask another person or a professional for support.",
+              "zh": "未计分可能表示没有相关经历、回想不清或选择保留回答，不等于没有注意到。整个主题未计分时，不能据此判断有没有疏远感；选没有注意到，也不证明所有需要都得到满足。三篇指南不受回答限制，任何类别计数都不决定你能否向他人或专业人士寻求支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A full day and an empty evening can mean different things",
+            "zh": "忙碌一天与空闲夜晚的含义可能不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who spends a day answering messages, attending a meeting and chatting with neighbours. In the evening, they want someone with whom they can share a small success, but no suitable conversation is available. Another person spends the evening alone by choice and enjoys a quiet activity. The number of contacts cannot distinguish these experiences. What matters for this reflection is the unwanted gap described by the person, not whether an observer thinks their calendar looks sufficiently social.",
+              "zh": "设想一个虚构人物，白天回消息、开会、与邻居寒暄；晚上却想找人分享一个小进展，而没有合适的交流。另一个人主动独处，享受安静活动。单看联系次数，无法区分两种经历。本回顾关心的是本人描述的不想要的落差，而不是旁观者觉得日程够不够热闹。"
+            },
+            {
+              "en": "A crowded event can also leave someone wanting quieter companionship, while a short exchange with one familiar person can feel sufficient. Neither example supplies a preferred social lifestyle. If you review an observation, ask what was missing at that moment: shared activity, being remembered, comfortable silence or a chance to speak. You do not have to make the answer public, turn it into a contact target or assume that the same need applies across work, home and other settings.",
+              "zh": "热闹活动之后，有人仍想要安静陪伴；与熟人的一次短交流，也可能已经足够。这些例子不指定哪一种社交生活更好。回看记录时，可以问当时缺少的是共同活动、被惦记、自在的沉默，还是开口的机会。无需公开答案、制定联系指标，也不必认为工作、家中及其他场景的需要都相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Separate a welcome pause from unwanted separation",
+            "zh": "区分愿意的暂停与不想要的分离"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful distinction is whether being alone was welcome in that particular moment. After a demanding week, choosing a quiet afternoon may meet a real need. On another afternoon, transport problems or a cancelled plan may leave you alone when you had wanted company. The same physical arrangement can have different meanings. You can acknowledge both experiences without labelling yourself inconsistent, introverted, dependent or socially unsuccessful. This exercise does not classify personality or attachment.",
+              "zh": "一个可用的区别是：当时的独处是不是自己愿意的。忙碌一周后选择安静下午，可能正好满足需要；另一天，交通问题或取消的安排可能让你在想有人陪时独处。同一种外在安排可以有不同含义。两种经历都能承认，无需给自己贴上矛盾、内向、依赖或社交失败标签，本练习也不划人格或依恋类型。"
+            },
+            {
+              "en": "You might notice that contact was available but did not feel comfortable, or that a comfortable person was unavailable because of ordinary schedules. Those are different questions from how many acquaintances you have. They may also overlap with wanting listening or a place to belong, which the other guides discuss. The three themes organise descriptions for reading; their separation does not establish independent psychological dimensions, and their counts should not compete to identify your main problem.",
+              "zh": "也可能有人可联系，但相处并不自在；或者自在的人只是因普通日程而暂时没空。这些问题不同于认识多少人，也可能与想被倾听、想有归属相重叠。另两篇指南会展开。三个主题只是整理描述的方式，不证明心理维度相互独立，计数也不用于竞争出一个主要问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose one manageable possibility, if you want",
+            "zh": "愿意时，只看一种可承受的可能"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to try something, choose a small arrangement that matches the missing kind of company. A possible message is, “Would a short walk sometime this week suit you?” Another is, “I would enjoy doing our own tasks in the same room for a while.” These are invitations with room for a real answer. You may prefer a public activity, an accessible online gathering or no experiment at present. The guide does not prescribe more disclosure or a fixed number of contacts.",
+              "zh": "愿意尝试时，可以选一种符合所缺陪伴的小安排。例如：“这周找个时间散一小会儿步，方便吗？”或者“各做各的事、一起待一会儿，我会挺喜欢。”邀请要容许对方真实回答。也可以选择公共活动、便于参与的线上聚会，或此刻不做尝试。指南不要求更多披露，也不规定联系人数。"
+            },
+            {
+              "en": "After an exchange, you can privately ask whether the arrangement matched what you wanted and whether it was manageable for everyone involved. A declined invitation does not measure your worth, and an accepted one does not guarantee closeness. Avoid treating another person's availability as a score to improve. If a relationship or setting feels unsafe, unwelcome or draining, choosing distance remains available. Nothing here requires renewed contact, reconciliation, romantic partnership or tolerating mistreatment to avoid being alone.",
+              "zh": "交流之后，可以私下看看安排是否符合需要、对参与者是否可承受。邀请被拒绝不衡量你的价值，接受也不保证亲近。不要把他人的空闲当作需要提高的分数。关系或环境让人不安全、不愿接触或过于消耗时，仍可以选择距离；这里不要求重新联系、和解、建立伴侣关系，或为了不独处而忍受不善对待。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Practical barriers are part of the situation",
+            "zh": "现实障碍也是情境的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "Schedules, transport, money, language, accessibility and caring responsibilities can limit opportunities for welcome contact. Naming one of these constraints is different from blaming yourself for not trying hard enough. A reflection cannot remove a barrier or verify which services are accessible. If practical assistance is what you need, a specific question about access, timing or accommodation may be more useful than attempting to change a personal trait. You can also decide that a particular option is not feasible now.",
+              "zh": "日程、交通、费用、语言、无障碍条件及照顾责任，都可能限制合适联系的机会。说清其中一个限制，不等于责备自己不够努力。反思不能消除障碍，也无法核实服务是否方便使用。需要实际协助时，具体询问参与方式、时间或适配安排，可能比试图改变个人特质更贴合问题；也可以判断某个选项当前不可行。"
+            },
+            {
+              "en": "If unwanted distance is troubling you, you can ask a qualified professional or an appropriate local service about support without completing this check-in. You may begin by asking how the service works and what information it requests, then choose how much to share. There is no required frequency, waiting period or response pattern. If there is immediate danger or you cannot stay safe, seek local emergency assistance rather than continuing to answer or waiting for a different result.",
+              "zh": "如果不想要的疏远感让你难受，可以向合格专业人士或合适的当地服务询问支持，无需完成回顾。可以先问服务流程、需要哪些信息，再决定分享多少。不设频率、等待期或回答模式门槛。若有即时危险或无法保障自身安全，请寻求当地紧急援助，而不是继续答题或等待另一个结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep the record small and private",
+            "zh": "让记录保持有限与私密"
+          },
+          "paragraphs": [
+            {
+              "en": "The record describes your recollection over the past four weeks. It is not a timeline of every interaction, a validated loneliness score or an assessment of another person's intentions. A later response can change because circumstances, recall or your understanding of a statement changed. Comparing two counts does not establish improvement, deterioration or the effect of an activity. If you keep your own note elsewhere, one plain description of what you wanted may be enough; you do not need a daily monitoring routine.",
+              "zh": "记录描述的是你对过去四周的回想，不是每次互动的时间线、经验证的孤独分数或对他人意图的评估。之后回答不同，可能来自情境、记忆或对陈述理解的变化。比较两次计数不能建立改善、恶化或活动效果。若自己在别处留笔记，一句“当时想要什么”可能已经够用，无需建立每日监测。"
+            },
+            {
+              "en": "On this page, answers stay only in current-page memory. There is no answer submission, draft storage or personal result URL; exit, retake, reload and leaving clear the record. Copying the public entry includes its title and address only. You can read this complete guide before answering or after an entirely unscored record. The useful next step, if any, belongs to you and your circumstances, rather than to a label, an automatic recommendation or an obligation to become more social.",
+              "zh": "本页回答仅留在当前页面内存，不提交回答、不存草稿，也不生成个人结果网址；退出、重做、刷新及离页会清除。复制公开入口只含标题和地址。答题之前或全部未计分后，都能读同一篇完整指南。是否采取下一步，应由你结合自身情况决定，而不是由标签、自动建议或“必须更合群”的义务决定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wanted-listening-reading",
+      "directionIds": [
+        "wanted-listening"
+      ],
+      "title": {
+        "en": "Listening and support wanted — Complete Reading",
+        "zh": "想要的倾听与支持：完整读法"
+      },
+      "headline": {
+        "en": "Listening and support wanted — Complete Reading",
+        "zh": "想要的倾听与支持：完整读法"
+      },
+      "summary": {
+        "en": "Distinguish listening, advice and practical help. Name a bounded request while keeping privacy, choice and room for another person’s answer.",
+        "zh": "区分倾听、建议与实际帮助，说清有限请求，同时保留隐私、选择和对方真实回答的空间。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to seven statements. They do not produce points, a total, a mean, a highest theme, a loneliness level or a diagnosis. Unscored remains separate from did not notice.",
+        "zh": "六类计数合计七条陈述，不形成点数、总分、均值、最高主题、孤独等级或诊断。未计分与没有注意到分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Listening and support wanted: Full Connection Guide | FermatMind",
+          "zh": "想要的倾听与支持：联系观察完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Distinguish listening, advice and practical help. Name a bounded request while keeping privacy, choice and room for another person’s answer.",
+          "zh": "区分倾听、建议与实际帮助，说清有限请求，同时保留隐私、选择和对方真实回答的空间。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Name the kind of conversation you wanted",
+            "zh": "说清想要哪一种交流"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme looks at occasions when the listening or support you wanted did not feel available. Its seven original statements concern finding a willing listener, making room for feelings, being heard before advice, unfinished understanding, asking for limited support, keeping a concern private and still wanting understanding after a friendly exchange. They organise your recollection. They do not observe a conversation, decide whether another person listened correctly or establish that anyone must provide a particular kind of emotional support.",
+              "zh": "本主题回顾想要的倾听或支持似乎没有得到的时刻。七条原创陈述涉及愿意倾听的人、表达感受的空间、建议前先被听完、尚未完成的理解、有限的支持请求、把困扰留给自己，以及友善交流后仍想被理解。它们整理你的回想，不观察谈话、不裁定别人听得对不对，也不规定谁必须提供某种情绪支持。"
+            },
+            {
+              "en": "Listening, advice, practical help and shared activity can each matter, but they are not interchangeable. You may have had a useful practical conversation while still wanting someone to hear a feeling. That does not erase the practical help or make the whole relationship bad. Conversely, a warm conversation may not solve a concrete problem. Consider what you wanted in a specific exchange instead of treating the theme as a general rating of the people around you.",
+              "zh": "倾听、建议、实际帮助和共同活动都可能重要，却不能彼此替换。一次事务交流可以很有用，同时你仍想有人听听感受；这不抹去实际帮助，也不说明整段关系不好。温暖的谈话也未必解决具体问题。可以回到某次交流中想要的内容，而不是把本主题当成对身边人的总体评价。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "The categories describe statements, not a support score",
+            "zh": "类别描述陈述，不生成支持分数"
+          },
+          "paragraphs": [
+            {
+              "en": "The report displays six category counts that together account for seven statements. For example, one often, three sometimes, two did not notice and one unscored remains that particular record. The numerical identifiers used for the response labels are not points, so there is no sum, mean, high or low band, comparison with other people or highest theme. The individual statement labels help you see which descriptions entered each count rather than hiding different situations behind one number.",
+              "zh": "报告显示六种类别计数，合起来对应七条陈述。例如一条较常、三条有时、两条没有注意到、一条未计分，就保留这份具体记录。回答标签使用的数字标识不是点数，因此没有总分、均值、高低档、他人比较或最高主题。逐条标签让你看到哪些描述进入了计数，避免不同情境被一个数字遮住。"
+            },
+            {
+              "en": "No relevant experience, uncertain recall and withholding a response all remain unscored. They are not converted into an absence of need. A theme with seven unscored statements does not say that support is unnecessary, while seven did-not-notice responses do not prove that every relationship is satisfying. These original statements have no established diagnostic threshold or validated population comparison. You may read all three complete guides and seek support without generating any personal record.",
+              "zh": "没有相关经历、回想不清和保留回答均保持未计分，不换算成没有需要。七条全部未计分，不表示不需要支持；七条都选没有注意到，也不证明每段关系都令人满意。原创陈述没有已建立的诊断阈值或经验证的常模比较。不生成私人记录，也能阅读三篇全文并寻求支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Friendly advice can miss a different request",
+            "zh": "友善建议也可能没有对上请求"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person describing a difficult afternoon. Their friend immediately suggests three solutions. The suggestions might be thoughtful, yet the speaker had wanted a few minutes to explain what the experience meant. Another speaker in the same situation might welcome a concrete suggestion straight away. Neither example lets this questionnaire choose the correct response. It shows why the kind of support wanted is worth naming rather than assuming that warmth, usefulness and feeling understood always move together.",
+              "zh": "设想一个虚构人物谈起难熬的下午，朋友马上给出三个解决办法。建议可能很用心，但讲述者原本希望先花几分钟说清这件事对自己的意义。另一个人却可能正想立即听到具体建议。问卷无法替两种情况选正确回应；例子只是说明，可以说清想要哪种支持，不必假设友善、有用和被理解始终一致。"
+            },
+            {
+              "en": "A sentence such as “Would you have ten minutes to listen before we think about options?” can make that request clearer if it feels appropriate. A different request could be “Could you help me check the appointment details?” The other person can say whether they have capacity. You can also postpone, choose someone else or keep the matter private. A clearer request is an option for communication, not a promise that the exchange will meet your needs or proof that previous difficulties were your fault.",
+              "zh": "合适时可以说：“方便先听我说十分钟，再一起想选项吗？”另一种请求是“能帮我核对一下约见信息吗？”对方可以说明自己是否有余力。你也可以改期、换个人，或保留这件事。更明确的请求只是交流选项，不保证需要一定满足，也不证明过去的困难是你的错。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Privacy and pace belong in the conversation",
+            "zh": "隐私和节奏同样属于交流"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting to be understood does not require disclosing everything. You may prefer to mention that a week has been difficult without explaining the events, ask someone to sit with you or speak only about a practical next step. The amount of detail that feels comfortable can change with the person and setting. The seven statements cannot decide who is trustworthy, whether disclosure is safe or how another person will handle private information. A wish for connection does not remove your right to boundaries.",
+              "zh": "想被理解不要求全部披露。你可以只说这一周有点难熬而不讲事件，请人陪坐，或只谈一个实际步骤。愿意说多少可能随对象和环境改变。七条陈述不能判断谁可信、披露是否安全或别人会如何处理私人信息；想要连接，也不取消保留边界的权利。"
+            },
+            {
+              "en": "Consider a fictional exchange in which a person asks for company but is pressed to explain an experience they do not want to discuss. They may stop the conversation or change the request. Choosing not to disclose is not evidence of avoidance, an attachment type or unwillingness to receive help. This guide does not ask you to test relationships by revealing sensitive material, deliberately provoke a reaction or use a personal result to demand access to someone else's time.",
+              "zh": "例如，一个虚构人物只想有人陪，却被追问自己不愿讲述的经历；他们可以停止谈话或改变请求。不披露不证明回避、某种依恋类型或不愿接受帮助。指南不要求用敏感材料测试关系、故意引发反应，也不让私人结果成为要求占用他人时间的依据。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Different people may offer different kinds of support",
+            "zh": "不同的人可能提供不同支持"
+          },
+          "paragraphs": [
+            {
+              "en": "One person may be comfortable discussing feelings but unavailable for practical tasks. Another may reliably help with a specific arrangement while finding open-ended emotional conversations difficult. You do not need one relationship to meet every need, nor does this observation establish a required support network. If it helps, identify one bounded request and one potentially appropriate person or service. Leave room for your own preferences, existing obligations, accessibility and the possibility that no suitable option is available right now.",
+              "zh": "有人愿意谈感受，却无法协助实际事务；另一个人能可靠地帮忙安排，却不擅长没有范围的情绪谈话。一段关系无需满足所有需要，这一观察也不规定必须具备怎样的支持网络。愿意的话，可以先识别一个有限请求，以及可能合适的人或服务，同时考虑偏好、既有责任、参与条件和当前确实没有合适选项的可能。"
+            },
+            {
+              "en": "A response such as “I cannot talk tonight, but tomorrow afternoon could work” differs from a permanent rejection, yet you are not required to wait for that person. A refusal also does not measure your worth. What you do next depends on urgency and circumstances, which the counts do not assess. Repeatedly checking whether someone cares or increasing the amount of disclosure is not a task assigned by this guide. You can step away from an unhelpful or unsafe interaction.",
+              "zh": "“今晚聊不了，明天下午可能可以”不同于永久拒绝，但你也不必等这个人。拒绝不衡量你的价值。下一步取决于事情的紧迫程度和自身情况，计数无法评估这些。反复确认对方是否在乎、增加披露量，都不是指南安排的任务；交流无益或不安全时，可以离开。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Ask about professional support without earning eligibility",
+            "zh": "询问专业支持不需要取得资格"
+          },
+          "paragraphs": [
+            {
+              "en": "If a concern is difficult to manage or you want a more private setting to discuss it, you can ask a qualified professional about options. An initial question can concern the process, confidentiality, cost, accessibility or what information is needed. You can then decide whether the service suits you and how much to share. This reflection does not determine a diagnosis, recommend a treatment or require you to exhaust informal support before approaching a professional.",
+              "zh": "困扰难以应对，或希望有更私密的讨论环境时，可以向合格专业人士询问选项。最初可以问流程、保密、费用、无障碍安排或所需信息，再决定服务是否合适、分享多少。本回顾不作诊断、不推荐治疗，也不要求先用尽非正式支持才可以找专业人士。"
+            },
+            {
+              "en": "You do not have to finish twenty-one responses, select a frequent category or wait for a concern to last a particular period. An unscored answer leaves information unknown; it does not cancel a concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing this exercise. The public support information and complete guides remain visible before answers, with an entirely unscored record and after completion, without a score-based eligibility rule.",
+              "zh": "无需完成二十一条、选择高频类别，或等困扰持续某个时段。未计分只是信息未知，不取消困扰。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续练习。公开支持说明和完整指南在答题前、全部未计分及完成后都可见，不通过分数决定资格。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Use a description you can revise",
+            "zh": "使用可以修订的描述"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible private note is “I wanted to be heard before receiving advice about that situation.” It is more specific than a global conclusion that nobody understands you, while still leaving room for a genuinely unmet need. You may revise the note after reflection or choose not to keep it. The check-in has not established that its three themes are independent dimensions, that a repeated count measures change or that a communication experiment caused any difference you noticed.",
+              "zh": "一句私下记录可以是：“那件事上，我想在听建议前先被听完。”它比“没有人理解我”的总体结论更具体，同时保留需要确实未满足的可能。之后可以修订，也可以不留笔记。回顾未建立三个主题是独立维度，也未建立重复计数能测变化，或某次沟通尝试导致了注意到的差异。"
+            },
+            {
+              "en": "Answers remain only in the current page's memory, without draft storage, submission or a personal result address. Exiting, retaking, reloading or leaving clears them. Copying the public entry shares the title and address, without individual responses or counts. This guide remains the same complete public text for everyone. Its purpose is to help make a possible request clearer, while your choice to ask, postpone, keep boundaries or seek another source of support remains yours.",
+              "zh": "回答仅留在当前页面内存，不存草稿、不提交，也没有个人结果地址；退出、重做、刷新或离页会清除。复制公开入口只分享标题和地址，不含逐条回答或计数。任何人读到的都是同一篇完整公开指南。它帮助把可能的请求说清楚，而提出、改期、保留边界或寻找其他支持的选择仍属于你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finding-belonging-reading",
+      "directionIds": [
+        "finding-belonging"
+      ],
+      "title": {
+        "en": "Finding a place to belong — Complete Reading",
+        "zh": "寻找归属的位置：完整读法"
+      },
+      "headline": {
+        "en": "Finding a place to belong — Complete Reading",
+        "zh": "寻找归属的位置：完整读法"
+      },
+      "summary": {
+        "en": "Look at participation, ordinary differences and practical barriers without assigning a belonging deficit or requiring disclosure or assimilation.",
+        "zh": "看参与方式、平常差异和现实障碍，不判归属缺陷，不要求披露或同化。"
+      },
+      "scoreReading": {
+        "en": "The six categorical counts add to seven statements. They do not produce points, a total, a mean, a highest theme, a loneliness level or a diagnosis. Unscored remains separate from did not notice.",
+        "zh": "六类计数合计七条陈述，不形成点数、总分、均值、最高主题、孤独等级或诊断。未计分与没有注意到分开显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Finding a place to belong: Full Connection Guide | FermatMind",
+          "zh": "寻找归属的位置：联系观察完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Look at participation, ordinary differences and practical barriers without assigning a belonging deficit or requiring disclosure or assimilation.",
+          "zh": "看参与方式、平常差异和现实障碍，不判归属缺陷，不要求披露或同化。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Belonging is more specific than being present",
+            "zh": "在场之外，还要看怎样参与"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme concerns settings in which you wanted to feel part of something but did not feel that place was available. The seven original statements cover being an outsider, room for an ordinary difference, feeling like a visitor, accessible participation, space for an important part of life, continuity and being welcome without performing another version of yourself. They describe possible experiences. They do not decide which community is right for you, how other people regard you or whether you have a belonging deficit.",
+              "zh": "本主题关注你希望成为其中一员，却没有感到自己拥有位置的场景。七条原创陈述涉及局外感、表达平常差异的空间、来访感、可参与的方式、重要生活内容的空间、持续参与，以及不必扮成另一个样子也被欢迎。这些只是可能的经历描述，不决定哪个群体适合你、别人如何看待你，也不判定你有归属缺陷。"
+            },
+            {
+              "en": "Being enrolled, invited or physically present may differ from feeling able to participate in a way that fits your circumstances. A person can also choose to remain a visitor without wanting closer membership. The statement matters only in relation to what you wanted, not an assumed obligation to join. This reflection does not treat cultural difference, disability, gender identity, migration, solitary interests or choosing a small circle as a personal problem to correct.",
+              "zh": "登记、受邀或实际在场，可能不同于能按适合自身情况的方式参与。一个人也可以愿意做来访者，而不想成为更亲近的成员。陈述应结合本人想要什么来读，不预设加入的义务。回顾不把文化差异、残障、性别认同、迁居、独自的兴趣或选择小圈子，当作需要修正的个人问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Keep seven labels visible",
+            "zh": "保留七条各自的标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Six category counts organise the seven responses in this theme. If one statement is very often, two are sometimes and four are unscored, the report preserves those categories and the selected statement labels. It does not turn the category identifiers into a numerical belonging score. There is no cutoff, mean, ranking or comparison with a population. Counts cannot establish the severity of exclusion or distinguish a temporary unfamiliar setting from a continuing pattern.",
+              "zh": "六类计数整理本主题的七条回答。例如一条经常、两条有时、四条未计分，报告就保留这些类别及对应的逐条标签，不把类别标识变成归属分数。没有阈值、均值、排名或人群比较。计数无法建立被排斥的严重程度，也不能区分暂时陌生的环境和持续模式。"
+            },
+            {
+              "en": "An unscored statement means that information was not supplied because the experience was inapplicable, unclear or private. It does not mean that you have a secure place everywhere. A did-not-notice response is also limited to your recollection of that statement over four weeks. You can leave any item unscored and still read every full guide. None of the response patterns establishes that you should stay in a group, leave it or change a part of yourself to qualify for support.",
+              "zh": "未计分表示相关经历不适用、回想不清或选择保留，没有提供这条信息，不等于到哪里都有稳妥位置。没有注意到也仅限对过去四周该陈述的回想。任何条目都能选未计分，全部指南仍公开。任何回答模式都不能判定该留在群体、离开群体，或改变自己的一部分才有资格获得支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An invitation may still leave a participation question",
+            "zh": "收到邀请，也可能还有参与问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person invited to a regular group activity. The activity occurs at a time they cannot attend because of caring responsibilities. They want to participate but repeatedly miss the shared experiences that others refer to later. Another person can attend yet finds that conversation assumes knowledge they have not had a chance to learn. These examples identify practical participation questions. They do not prove a lack of social skill or tell us whether anyone intended to exclude the person.",
+              "zh": "设想一个虚构人物受邀参加固定活动，却因照顾责任无法在那个时间到场；他们想参加，但反复错过别人之后谈起的共同经历。另一个人能够出席，却发现谈话默认了自己还没机会了解的背景。例子提示实际参与问题，不证明社交能力不足，也不能判断是否有人有意排斥。"
+            },
+            {
+              "en": "A different setting may offer a brief introduction, a written explanation, a remote option or another meeting time. Whether such an arrangement exists must be checked with that setting; a questionnaire cannot verify it. Asking about an option is possible if you want, but you are not responsible for solving every barrier alone. A declined request does not erase the barrier. You may choose a different activity, postpone involvement or decide that this particular group is not a useful place for you.",
+              "zh": "另一种环境可能提供简短介绍、书面说明、远程方式或其他时间，但需要向具体场所核实，问卷不能验证。愿意时可以询问选项，却不必独自解决全部障碍。请求被拒绝不抹去障碍；可以换活动、暂缓参与，或判断这个群体并不是适合自己的地方。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Ordinary differences do not require a performance",
+            "zh": "平常的差异不要求持续表演"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want to express a modest difference of opinion, use a communication style that works for you or speak about an ordinary part of life without explaining everything about yourself. Feeling welcome does not require complete agreement or unlimited disclosure. A group can contain disagreement while still making room for participation. This guide cannot determine whether a specific disagreement was respectful, discriminatory or unsafe; those questions need their own facts, context and appropriate sources of assistance.",
+              "zh": "你可能希望表达小小的不同意见、使用适合自己的沟通方式，或谈生活中普通的一部分，而无需解释整个自己。被欢迎不要求完全一致或无限披露。群体可以有分歧，也仍给参与留下空间。指南不能判断某次分歧是尊重的、歧视性的还是不安全的；这些问题需要各自的事实、背景及合适支持。"
+            },
+            {
+              "en": "If you notice a wish to perform another version of yourself, you can privately ask what feels constrained: a topic, an access need, your pace, a role or something else. You do not have to answer with an identity label or expose information to test acceptance. Nor does every adjustment amount to losing yourself; ordinary cooperation can be freely chosen. The relevant distinction is whether the arrangement feels workable and voluntary in that situation, which the counts do not decide.",
+              "zh": "注意到想扮成另一个样子的感觉时，可以私下看看受限的是话题、参与条件、节奏、角色还是其他内容。无需用身份标签回答，也不必披露信息来测试接纳。每次调整也不等于失去自我，普通合作可以出于自愿。具体安排是否可行、是否自愿，要在当时情境中判断，计数不作决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Look for one concrete point of entry",
+            "zh": "只寻找一个具体入口"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to explore a setting, a bounded question might be “Is there a short introduction for someone joining for the first time?” or “Is there another way to take part when I cannot attend at that time?” You might instead ask about a small role connected to an interest you already have. These questions seek information rather than require immediate closeness. You can use a public description or contact channel without sharing this questionnaire record or explaining why belonging has been on your mind.",
+              "zh": "愿意了解某个环境时，可以问：“第一次参与，有简短介绍吗？”或“这个时间到不了，还有别的参与方式吗？”也可以询问与既有兴趣有关的小角色。问题是获取信息，不要求立刻亲近。可以通过公开说明或联系渠道了解，无需分享问卷记录，也不必解释为何最近在想归属。"
+            },
+            {
+              "en": "Afterwards, consider whether the information made the option clearer, whether participation remained voluntary and whether the practical effort was manageable. You do not need to decide that you belong after one visit. A comfortable moment is not a membership certificate, and an awkward one does not establish permanent exclusion. This is not a graded social exercise. You can stop, try another setting or simply keep the information for later without producing a success story.",
+              "zh": "之后可以看看：信息是否让选项更清楚，参与是否仍出于自愿，实际投入是否可承受。一次到访后无需决定自己属于哪里。自在的一刻不是成员证书，尴尬的一刻也不证明永久被排斥。这不是要评分的社交练习；可以停止、换环境，或把信息留待以后，而不必产出成功故事。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Put barriers and support outside the score",
+            "zh": "障碍与支持不由分数决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Accessibility, language, finances, transport, schedules and unwelcoming conduct may shape what participation is possible. A personal reflection cannot verify which factor applies or replace a practical response. If a specific barrier is present, an appropriate service or responsible organiser may be a place to ask about options. Keep your own privacy and safety in view. You are not obliged to educate a group, tolerate harmful behaviour or repeatedly request access from a setting that does not feel safe.",
+              "zh": "无障碍条件、语言、费用、交通、日程及不友善对待，都可能影响能否参与。个人反思无法核实哪种因素适用，也不能替代实际应对。存在具体障碍时，可以向合适服务或负责组织者询问选项，同时顾及隐私和安全。你没有教育整个群体、忍受伤害或反复向不安全环境请求进入的义务。"
+            },
+            {
+              "en": "If the experience is distressing or you want help thinking through it, you can approach a qualified professional without reaching a count, completing this check-in or waiting for a particular duration. You may ask about confidentiality, accessibility and the process before deciding what to share. If there is immediate danger or you cannot stay safe, seek local emergency assistance rather than continuing the reflection. The support information remains public with any response pattern, including an entirely unscored record.",
+              "zh": "经历让你难受，或希望有人帮助梳理时，可以找合格专业人士，无需达到计数、完成回顾或等待特定时长。可以先问保密、参与条件和流程，再决定分享多少。若有即时危险或无法保障安全，请寻求当地紧急援助，而不是继续反思。无论回答模式如何，包括全部未计分，都能阅读公开支持说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A place to belong is not a test result",
+            "zh": "归属的位置不由测试分配"
+          },
+          "paragraphs": [
+            {
+              "en": "These three themes are reading categories for twenty-one original statements. They have not been established as independent dimensions, a complete account of loneliness or a way to assign people to communities. They cannot infer other people's motives, the quality of an identity or your future ability to connect. A later record may reflect a changed setting or a different interpretation. Comparing counts does not establish personal progress, failure or the effect of a particular group activity.",
+              "zh": "三个主题只是二十一条原创陈述的阅读分类，尚未建立为独立维度、孤独感的完整解释，或把人分配到群体的工具。它们不能推断他人动机、评价身份或预测未来连接能力。之后记录不同，可能来自环境改变或理解不同；比较计数不建立个人进步、失败或某次群体活动的效果。"
+            },
+            {
+              "en": "Your answers stay in current-page memory only, without drafts, submission or a private result address. Exit, retake, reload and leaving clear them, while copying the public entry shares only its title and address. All three complete guides are available before answers and remain the same afterwards. If one useful description emerges, it might be a question about a particular setting or a wish you can name more clearly. It need not become a label, a disclosure or a commitment to participate.",
+              "zh": "回答只留在当前页面内存，不存草稿、不提交，也没有私人结果地址。退出、重做、刷新及离页会清除；复制公开入口只含标题和地址。三篇全文答题前即可读，之后也相同。若得到一个有用描述，它可以只是关于某个环境的问题，或一个说得更清楚的愿望，不必变成标签、披露或参加的承诺。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Twenty-one observations, three categorical records",
+        "zh": "二十一条观察，三项类别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each theme has seven original statements. The selected labels enter six counts: did not notice, rarely, sometimes, often, very often and unscored. Six counts add to seven statements, without adding category IDs into points. Individual responses remain visible. There is no total, mean, highest theme, risk band or diagnosis.",
+          "zh": "每个主题有七条原创陈述。所选标签进入没有注意到、很少、有时、较常、经常和未计分六类计数；合计七条，不把类别标识当点数相加。逐条回答仍可见，没有总分、均值、最高主题、风险档或诊断。"
+        },
+        {
+          "en": "Unscored covers no relevant experience, unclear recall or withholding a response. It does not mean no need or no difficulty. An entirely unscored record still has access to the same three complete guides and support information. You can leave without finishing, and support never depends on a category or completion.",
+          "zh": "未计分包括没有相关经历、回想不清或保留回答，不表示没有需要或困难。全部未计分仍能阅读同样的三篇全文和支持说明。可以不完成就离开，支持不依赖某个类别或完成状态。"
+        }
+      ]
+    },
+    {
+      "id": "background",
+      "title": {
+        "en": "Loneliness, contact and chosen solitude",
+        "zh": "孤独感、联系与主动独处"
+      },
+      "paragraphs": [
+        {
+          "en": "WHO distinguishes subjective unwanted disconnection from objective social isolation. A contact count cannot by itself establish the connection someone wants. This distinction is background for reading, not a validation of these statements. The three topics overlap and are not established independent dimensions or a complete model.",
+          "zh": "世界卫生组织区分主观上不想要的联系落差与客观社会隔离。联系次数本身不能确定一个人想要怎样的连接。这一区分是阅读背景，不验证本题组。三个主题可以重叠，不是已建立的独立维度或完整模型。"
+        },
+        {
+          "en": "These twenty-one bilingual statements are FermatMind originals. They are not competitor questions, the UCLA Loneliness Scale or a clinical screener. They have no established norms, diagnostic threshold or demonstrated English–Chinese measurement equivalence. They do not judge friends, relationships, identity or the right amount of time alone.",
+          "zh": "本二十一条双语陈述为费马原创，不是竞品题目、UCLA孤独量表或临床筛查工具。尚无已建立常模、诊断阈值或经验证的中英文测量等值，不评价朋友、关系、身份或正确的独处时长。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers and complete public text",
+        "zh": "私密回答与完整公开正文"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay only in current-page memory: no drafts, submission, personal result address or questionnaire analytics. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address, without answers or counts.",
+          "zh": "回答仅留在当前页面内存：不存草稿、不提交、不生成个人结果地址，也没有问卷分析。退出、重做、刷新及离页会清除。复制公开入口只分享标题与地址，不含回答或计数。"
+        },
+        {
+          "en": "All three complete bilingual guides remain public before answering and after any response pattern. You may keep information private, choose not to contact someone or ask a qualified professional about support without waiting for a count or a period. The exercise does not require disclosure, reconciliation or joining a group.",
+          "zh": "三篇双语全文在答题前和任何回答模式后都公开。可以保留隐私、选择不联系某人，或不等计数与时长就向合格专业人士询问支持。练习不要求披露、和解或加入群体。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is time alone the same as loneliness?",
+        "zh": "独处就等于孤独吗？"
+      },
+      "answer": {
+        "en": "No. Chosen, welcome solitude can differ from unwanted distance. These descriptions concern what you wanted in context, not how many people were nearby.",
+        "zh": "不是。主动且愿意的独处可以不同于不想要的疏远。描述关注具体情境中本人想要什么，不统计身边人数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the UCLA Loneliness Scale?",
+        "zh": "这是UCLA孤独量表吗？"
+      },
+      "answer": {
+        "en": "No. These are twenty-one original FermatMind statements, not a published scale or a clinical screen. Topic similarity does not establish item or measurement equivalence.",
+        "zh": "不是。这是费马二十一条原创陈述，不是已发表量表或临床筛查。主题相似不建立题目或测量等值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why keep unscored separate?",
+        "zh": "为什么把未计分单独保留？"
+      },
+      "answer": {
+        "en": "No relevant experience, uncertain recall and withheld answers are information gaps. They do not establish an absence of difficulty and are never converted into low points.",
+        "zh": "没有相关经历、回想不清及保留回答是信息缺口，不证明没有困难，也不转换成低分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read all guides without answering?",
+        "zh": "不答题也能读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. Three complete guides are free and public. Answers unlock no extra tier, and no response pattern restricts the text or support information.",
+        "zh": "可以。三篇全文免费公开，回答不解锁额外档次，任何回答模式都不限制正文或支持说明。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the record tell me to reconnect or join a group?",
+        "zh": "记录会要求重新联系或加入群体吗？"
+      },
+      "answer": {
+        "en": "No. It assigns no task, relationship verdict or treatment. You can keep boundaries and choose distance from an unsafe or unwelcome setting. Support can be requested without completing the exercise.",
+        "zh": "不会。它不分配任务、不裁定关系或安排治疗。可以保留边界，远离不安全或不愿接触的环境；无需完成练习也能询问支持。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "WHO: Social connection — concepts and distinctions",
+        "zh": "世界卫生组织：社会连接——概念与区分"
+      },
+      "url": "https://www.who.int/news-room/questions-and-answers/item/social-connection"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_connection_belonging_observations",
+    "formCode": "fm_connection_checkin21_observations_v1",
+    "itemBankVersion": "original21_bilingual_three_by_seven_observations_v1",
+    "scoringVersion": "six_categorical_counts_per_seven_items_no_points_v1",
+    "resultContentVersion": "three_full_bilingual_connection_readings_v1",
+    "itemBankSha256": "1b6c80a5cf103303abf2bcc3cbe6f05333262935fdf903845d584a39f875a2c2",
+    "resultContentSha256": "2addd2a5ea92635e1329a3304bbf95a246d1c825ca71cd99f43e8ca42fe8102f",
+    "psychometricValidationCompleted": false
+  }
+}
