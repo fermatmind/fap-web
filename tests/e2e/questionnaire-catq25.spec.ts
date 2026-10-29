@@ -82,7 +82,11 @@ for (const l of ["en", "zh"] as const) {
     await page.goBack(); await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
     await page.goto(`${path(l)}/results/assimilation?score=175&answers=private`);
     await expect(page.locator("h1")).toHaveText(quiz.profiles[3].title[l]); await expect(page.locator("[data-catq25-result]")).toHaveCount(0);
-    for (const s of quiz.profiles[3].sections) for (const p of s.paragraphs) await expect(page.locator("main")).toContainText(p[l]);
+    // Next can retain a loading landmark while streamed content arrives.
+    await expect(page.locator("[data-public-content-loading]")).toHaveCount(0);
+    const guide = page.getByRole("main");
+    await expect(guide).toHaveCount(1);
+    for (const s of quiz.profiles[3].sections) for (const p of s.paragraphs) await expect(guide).toContainText(p[l]);
     await page.getByRole("link", { name: label(l, "Start the free 25-item self-reflection", "免费开始25项自我反思"), exact: true }).click();
     await expect(page.getByRole("button", { name: label(l, "Start test", "开始测试"), exact: true })).toBeVisible();
     expect(new URL(page.url()).search).toBe("");
