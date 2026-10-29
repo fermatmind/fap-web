@@ -1,6 +1,9 @@
 import { test, expect, type Page } from "@playwright/test";
 import data from "../../lib/questionnaires/data/sbti-test.json";
 import reference from "../fixtures/questionnaires/sbti31-original-reference.json";
+async function expectHeadingBelowHeader(page: Page, selector: string) {
+  await expect.poll(() => page.locator(selector).evaluate(el => el.getBoundingClientRect().top - (document.querySelector("header")?.getBoundingClientRect().bottom ?? 0))).toBeGreaterThanOrEqual(0);
+}
 async function finish(page: Page, locale: "en" | "zh", row: typeof reference.cases[number]) {
   for (const [i, q] of data.questions.entries()) {
     const code = (row.answers as Record<string, string>)[q.id], radio = page.locator(`input[name="${q.id}"][value="${code}"]`);
@@ -19,10 +22,12 @@ for (const locale of ["en", "zh"] as const) {
     await expect(page.getByRole("button", { name: /Start 50|开始50/ })).toHaveCount(0);
     await page.screenshot({ path: test.info().outputPath(`sbti31-${locale}-entry.png`) });
     await page.getByRole("button", { name: zh ? "开始31题" : "Start 31 questions", exact: true }).click();
+    await expectHeadingBelowHeader(page, "#sbti31-question");
     await page.getByRole("button", { name: zh ? "下一题" : "Next", exact: true }).click();
     await expect(page.locator('#take-test [role="status"]')).toContainText(zh ? "请先选择" : "Choose one");
     const row = reference.cases[zh ? 1 : 0]; await finish(page, locale, row);
     await expect(page.locator('[data-sbti31-result]')).toHaveAttribute("data-sbti31-result", row.expected.profileCode);
+    await expectHeadingBelowHeader(page, "[data-sbti31-result]");
     await expect(page.locator('[data-sbti31-match]')).toHaveText(`${row.expected.matchPercent}%`);
     expect(await page.locator('[data-sbti31-score]').allTextContents()).toEqual(row.expected.dimensionCards.map(d => String(d.score)));
     const profile = data.profiles.find(p => p.id === reference.profiles.find(p => p.code === row.expected.profileCode)!.id)!;
