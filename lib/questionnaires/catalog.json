@@ -6362,5 +6362,30 @@
       "curiosity-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "dark-tetrad-sd4",
+    "code": "SD4_28",
+    "version": "1.0.0-sd4-28-web.1",
+    "updated": "2026-10-29",
+    "category": "social",
+    "title": {
+      "en": "Short Dark Tetrad (SD4)",
+      "zh": "黑暗四特质 SD4"
+    },
+    "description": {
+      "en": "The published 28-item SD4, with four separate seven-item means and full guides. Working Chinese translation; no diagnosis or type.",
+      "zh": "发表版SD4完整28题，四项七题均值与全文分别保留。中文为工作译文，不作诊断或分型。"
+    },
+    "minutes": 7,
+    "formCode": "sd4_28_published_english",
+    "questionCount": 28,
+    "resultSlugs": [
+      "machiavellianism",
+      "narcissism",
+      "psychopathy",
+      "sadism"
+    ],
+    "collection": "explore"
   }
 ]

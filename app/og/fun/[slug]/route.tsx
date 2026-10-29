@@ -43,6 +43,7 @@ import { isInteractionPairsConfigurationValid } from "@/lib/questionnaires/inter
 import { isSkillsEvidenceConfigurationValid } from "@/lib/questionnaires/skillsEvidence";
 import { isBirthNumberConfigurationValid } from "@/lib/questionnaires/birthNumber";
 import { isTipi10ConfigurationValid } from "@/lib/questionnaires/tipi10";
+import { isSd4ConfigurationValid } from "@/lib/questionnaires/sd4";
 import { isSapsConfigurationValid } from "@/lib/questionnaires/saps";
 import { isScs26ConfigurationValid } from "@/lib/questionnaires/scs26";
 import { isCbiConfigurationValid } from "@/lib/questionnaires/cbi";
@@ -117,6 +118,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   if (questionnaire?.kind === "adexi14" && !isAdexi14ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "birth-number" && !isBirthNumberConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "ptq15" && !isPtq15ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
+  if (questionnaire?.slug === "dark-tetrad-sd4" && !isSd4ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "tipi10" && !isTipi10ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "saps" && !isSapsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "scs26" && !isScs26ConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
@@ -151,6 +153,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.kind === "paired-dimensions" ? (zh ? "原创关系安排偏好" : "Original relationship arrangements")
     : questionnaire?.kind === "eight-values" ? (zh ? "8values MIT许可改编" : "8values MIT adaptation")
     : questionnaire?.kind === "practice" ? (zh ? "原创练习题" : "Original practice bank")
+    : questionnaire?.slug === "dark-tetrad-sd4" ? (zh ? "SD4发表版28题 · 四项独立读法" : "Published SD4 28 · Four separate readings")
     : questionnaire?.slug === "dark-triad" ? (zh ? "原创三组主题观察" : "Original three-theme reflection")
     : questionnaire?.slug === "moral-dilemma-test" ? (zh ? "原创五组伦理提问" : "Original reflection on five ethical questions")
     : questionnaire?.slug === "egogram" ? (zh ? "原创五组互动观察" : "Original reflection on five interaction stances")

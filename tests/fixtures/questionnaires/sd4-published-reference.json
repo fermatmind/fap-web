@@ -1,0 +1,239 @@
+{
+  "source": "AuthorBuckelsHTMLupdated2025-10-01;exact28English/anchors/four7directkeys;crosscheckedPaulhusdistributedDOCXall28lexicallyidentical",
+  "retrievedAt": "2026-10-29T15:16:41.786522+00:00",
+  "canonicalURL": "https://www.erinbuckels.com/project/short-dark-tetrad-sd4/",
+  "canonicalHTMLSHA256": "7133742fa39381275e2f81a6e507950dd2fdf8f21276034291bbba703e4ad91d",
+  "licenseURL": "https://www2.psych.ubc.ca/~dpaulhus/Paulhus_measures/",
+  "licenseHTMLSHA256": "af5a0308c83e2a1a42aa5b327f8e4b97487d4250feb2cf5dd527bbba6c9a0854",
+  "licenseScope": "SD4 listed inPublicDomain/withoutpermission;notlimited-useSRP64/BIDR",
+  "authorDOCXSHA256": "c10444baf4f92ce170cd075c4573282b30d4044a3d31a746844ce9edf6891c89",
+  "literalPunctuationDifferences": [
+    {
+      "item": 1,
+      "docx": "It's not wise to let people know your secrets.",
+      "authorHTML": "It’s not wise to let people know your secrets."
+    },
+    {
+      "item": 12,
+      "docx": "I have some exceptional qualities",
+      "authorHTML": "I have some exceptional qualities."
+    },
+    {
+      "item": 13,
+      "docx": "I'm likely to become a future star in some area.",
+      "authorHTML": "I’m likely to become a future star in some area."
+    },
+    {
+      "item": 15,
+      "docx": "People often say I'm out of control.",
+      "authorHTML": "People often say I’m out of control."
+    },
+    {
+      "item": 19,
+      "docx": "I've been in trouble with the law.",
+      "authorHTML": "I’ve been in trouble with the law."
+    },
+    {
+      "item": 24,
+      "docx": "It's funny when idiots fall flat on their face.",
+      "authorHTML": "It’s funny when idiots fall flat on their face."
+    }
+  ],
+  "all28LexicallyEqual": true,
+  "anchors": [
+    "Strongly Disagree",
+    "Disagree",
+    "Neutral",
+    "Agree",
+    "Strongly Agree"
+  ],
+  "subscaleOrder": [
+    "machiavellianism",
+    "narcissism",
+    "psychopathy",
+    "sadism"
+  ],
+  "keys": {
+    "machiavellianism": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "narcissism": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "psychopathy": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "sadism": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  "reverseItems": [],
+  "originalRecallWindow": null,
+  "items": [
+    {
+      "number": 1,
+      "english": "It’s not wise to let people know your secrets.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 2,
+      "english": "Whatever it takes, you must get the important people on your side.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 3,
+      "english": "Avoid direct conflict with others because they may be useful in the future.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 4,
+      "english": "Keep a low profile if you want to get your way.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 5,
+      "english": "Manipulating the situation takes planning.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 6,
+      "english": "Flattery is a good way to get people on your side.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 7,
+      "english": "I love it when a tricky plan succeeds.",
+      "group": "machiavellianism"
+    },
+    {
+      "number": 8,
+      "english": "People see me as a natural leader.",
+      "group": "narcissism"
+    },
+    {
+      "number": 9,
+      "english": "I have a unique talent for persuading people.",
+      "group": "narcissism"
+    },
+    {
+      "number": 10,
+      "english": "Group activities tend to be dull without me.",
+      "group": "narcissism"
+    },
+    {
+      "number": 11,
+      "english": "I know that I am special because people keep telling me so.",
+      "group": "narcissism"
+    },
+    {
+      "number": 12,
+      "english": "I have some exceptional qualities.",
+      "group": "narcissism"
+    },
+    {
+      "number": 13,
+      "english": "I’m likely to become a future star in some area.",
+      "group": "narcissism"
+    },
+    {
+      "number": 14,
+      "english": "I like to show off every now and then.",
+      "group": "narcissism"
+    },
+    {
+      "number": 15,
+      "english": "People often say I’m out of control.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 16,
+      "english": "I tend to fight against authorities and their rules.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 17,
+      "english": "I’ve been in more fights than most people of my age and gender.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 18,
+      "english": "I tend to dive in, then ask questions later.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 19,
+      "english": "I’ve been in trouble with the law.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 20,
+      "english": "I sometimes get into dangerous situations.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 21,
+      "english": "People who mess with me always regret it.",
+      "group": "psychopathy"
+    },
+    {
+      "number": 22,
+      "english": "Watching a fist-fight excites me.",
+      "group": "sadism"
+    },
+    {
+      "number": 23,
+      "english": "I really enjoy violent films and video games.",
+      "group": "sadism"
+    },
+    {
+      "number": 24,
+      "english": "It’s funny when idiots fall flat on their face.",
+      "group": "sadism"
+    },
+    {
+      "number": 25,
+      "english": "I enjoy watching violent sports.",
+      "group": "sadism"
+    },
+    {
+      "number": 26,
+      "english": "Some people deserve to suffer.",
+      "group": "sadism"
+    },
+    {
+      "number": 27,
+      "english": "Just for kicks, I’ve said mean things on social media.",
+      "group": "sadism"
+    },
+    {
+      "number": 28,
+      "english": "I know how to hurt someone with words alone.",
+      "group": "sadism"
+    }
+  ],
+  "unadopted": "DOCXnorm637Winnipegstudents/73%female/mean20,correlationtableN651andsecondarywebsitebandsarenotgeneral-populationnormsandwillnotbeusedforpersonalbands/percentiles. Nooriginalpaperfulltextor2025critiquePDFreadclaim."
+}

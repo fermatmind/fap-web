@@ -1,0 +1,2539 @@
+{
+  "slug": "dark-tetrad-sd4",
+  "code": "SD4_28",
+  "version": "1.0.0-sd4-28-web.1",
+  "updated": "2026-10-29",
+  "category": "social",
+  "kind": "likert",
+  "minimumRatedItems": 7,
+  "title": {
+    "en": "Short Dark Tetrad (SD4)",
+    "zh": "黑暗四特质 SD4"
+  },
+  "description": {
+    "en": "The published 28-item SD4, with four separate seven-item means and full guides. Working Chinese translation; no diagnosis or type.",
+    "zh": "发表版SD4完整28题，四项七题均值与全文分别保留。中文为工作译文，不作诊断或分型。"
+  },
+  "seoTitle": {
+    "en": "SD4 Test: Published 28 Items and Four Full Guides",
+    "zh": "SD4黑暗四特质测试：发表版28题与四篇完整说明"
+  },
+  "minutes": 7,
+  "instructions": {
+    "en": "Adults answering for yourself only. Rate agreement with each statement using the five published anchors. The original form has no shared recall window. You may choose the website’s unscored response without giving a reason. All 28 statements need a response to finish; each subscale needs all seven numeric ratings for its mean. Answers stay in this page’s memory only.",
+    "zh": "仅供成年人为自己作答。按五个发表版选项表示对各陈述的认同；原题本没有共同回忆时段。可以选择网站附加的未评分，不必说明理由。28条均选择后即可完成，每个分量表七条全部数值有效才显示均值。答案仅留当前页面内存。"
+  },
+  "resultHeading": {
+    "en": "Your four separate SD4 readings",
+    "zh": "你的四项独立SD4读法"
+  },
+  "introduction": {
+    "en": "This page retains the published English SD4 items and scoring keys; the Chinese is our unvalidated working translation. All four full guides are free. The research labels are not diagnoses, personal identities, safety verdicts or a darkness level. No total or main type is assigned.",
+    "zh": "本页保留SD4发表版英文题目与计分键，中文为本站未经验证的工作译文。四篇完整说明全部免费。研究名称不构成诊断、个人身份、安全裁决或黑暗等级，不分配总分或主要类型。"
+  },
+  "source": {
+    "kind": "published-public-domain-research-instrument-with-working-zh-translation",
+    "formCode": "sd4_28_published_english",
+    "itemBankVersion": "Buckels-SD4-2025-10-01",
+    "scoringVersion": "four-direct-seven-item-means-web-missing-withheld-v1",
+    "resultContentVersion": "fermatmind-sd4-four-guides-v1",
+    "itemBankSha256": "86611b0695f98c89ddb2daca98f2321bb31f4bdf92e1cd77fb4d6c74b887286c",
+    "resultContentSha256": "27bacfc80e5bcba32efa11ef84ab05906cadf7b9b9a6d4baa6d22ff4fa2b9147",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "machiavellianism",
+      "title": {
+        "en": "Machiavellianism",
+        "zh": "马基雅维利主义"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "narcissism",
+      "title": {
+        "en": "Narcissism",
+        "zh": "自恋研究维度"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "psychopathy",
+      "title": {
+        "en": "Psychopathy",
+        "zh": "精神病态研究维度"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "sadism",
+      "title": {
+        "en": "Sadism",
+        "zh": "施虐研究维度"
+      },
+      "itemCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": "SD4_001",
+      "prompt": {
+        "en": "It’s not wise to let people know your secrets.",
+        "zh": "让别人知道你的秘密并不明智。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_002",
+      "prompt": {
+        "en": "Whatever it takes, you must get the important people on your side.",
+        "zh": "无论采取什么办法，你都必须让重要人物站在你这一边。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_003",
+      "prompt": {
+        "en": "Avoid direct conflict with others because they may be useful in the future.",
+        "zh": "避免与别人发生直接冲突，因为他们将来可能有用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_004",
+      "prompt": {
+        "en": "Keep a low profile if you want to get your way.",
+        "zh": "想按自己的意愿办事，就要保持低调。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_005",
+      "prompt": {
+        "en": "Manipulating the situation takes planning.",
+        "zh": "操纵局面需要计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_006",
+      "prompt": {
+        "en": "Flattery is a good way to get people on your side.",
+        "zh": "奉承是让别人站在你这一边的好办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_007",
+      "prompt": {
+        "en": "I love it when a tricky plan succeeds.",
+        "zh": "我很喜欢巧妙的计划成功时的感觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "machiavellianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "machiavellianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "machiavellianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_008",
+      "prompt": {
+        "en": "People see me as a natural leader.",
+        "zh": "别人认为我是天生的领导者。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_009",
+      "prompt": {
+        "en": "I have a unique talent for persuading people.",
+        "zh": "我有独特的说服他人的才能。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_010",
+      "prompt": {
+        "en": "Group activities tend to be dull without me.",
+        "zh": "没有我，集体活动往往会很无聊。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_011",
+      "prompt": {
+        "en": "I know that I am special because people keep telling me so.",
+        "zh": "我知道自己很特别，因为别人总是这样告诉我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_012",
+      "prompt": {
+        "en": "I have some exceptional qualities.",
+        "zh": "我具备一些非凡的特质。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_013",
+      "prompt": {
+        "en": "I’m likely to become a future star in some area.",
+        "zh": "我很可能将来会在某个领域成为明星。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_014",
+      "prompt": {
+        "en": "I like to show off every now and then.",
+        "zh": "我喜欢偶尔炫耀一下。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "narcissism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "narcissism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "narcissism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "narcissism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "narcissism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "narcissism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_015",
+      "prompt": {
+        "en": "People often say I’m out of control.",
+        "zh": "别人常说我失控了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_016",
+      "prompt": {
+        "en": "I tend to fight against authorities and their rules.",
+        "zh": "我往往会反抗权威及其规则。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_017",
+      "prompt": {
+        "en": "I’ve been in more fights than most people of my age and gender.",
+        "zh": "与大多数同年龄、同性别的人相比，我打过更多架。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_018",
+      "prompt": {
+        "en": "I tend to dive in, then ask questions later.",
+        "zh": "我往往先一头冲进去，之后才问问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_019",
+      "prompt": {
+        "en": "I’ve been in trouble with the law.",
+        "zh": "我曾遇到过法律方面的麻烦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_020",
+      "prompt": {
+        "en": "I sometimes get into dangerous situations.",
+        "zh": "我有时会陷入危险的处境。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_021",
+      "prompt": {
+        "en": "People who mess with me always regret it.",
+        "zh": "招惹我的人总会后悔。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "psychopathy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "psychopathy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "psychopathy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "psychopathy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "psychopathy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_022",
+      "prompt": {
+        "en": "Watching a fist-fight excites me.",
+        "zh": "观看拳脚打斗会让我兴奋。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_023",
+      "prompt": {
+        "en": "I really enjoy violent films and video games.",
+        "zh": "我很喜欢暴力电影和电子游戏。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_024",
+      "prompt": {
+        "en": "It’s funny when idiots fall flat on their face.",
+        "zh": "看到蠢人摔得脸朝下，我觉得很好笑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_025",
+      "prompt": {
+        "en": "I enjoy watching violent sports.",
+        "zh": "我喜欢观看暴力性体育运动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_026",
+      "prompt": {
+        "en": "Some people deserve to suffer.",
+        "zh": "有些人就该受苦。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_027",
+      "prompt": {
+        "en": "Just for kicks, I’ve said mean things on social media.",
+        "zh": "只是为了寻开心，我曾在社交媒体上说过刻薄的话。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SD4_028",
+      "prompt": {
+        "en": "I know how to hurt someone with words alone.",
+        "zh": "我知道怎样只用言语就伤害一个人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "sadism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "sadism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral",
+            "zh": "中立"
+          },
+          "directionId": "sadism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "sadism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "sadism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: I prefer not to answer",
+            "zh": "未评分：我不想回答"
+          },
+          "directionId": "sadism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "machiavellianism",
+      "directionIds": [
+        "machiavellianism"
+      ],
+      "title": {
+        "en": "Machiavellianism",
+        "zh": "马基雅维利主义"
+      },
+      "headline": {
+        "en": "A separate published SD4 subscale",
+        "zh": "SD4发表版的独立分量表"
+      },
+      "summary": {
+        "en": "Read the seven-item Machiavellianism mean with its actual wording, source and limits. No diagnosis, type or population rank.",
+        "zh": "结合实际题意、来源和限制，阅读七题的马基雅维利主义均值；不作诊断、分型或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SD4 Machiavellianism: Full Guide",
+          "zh": "SD4马基雅维利主义完整说明"
+        },
+        "description": {
+          "en": "Understand the seven SD4 Machiavellianism items, raw mean, missing answers and interpretation limits. Full guide free.",
+          "zh": "了解SD4马基雅维利主义七题的内容、原始均值、缺失处理与解释限制，完整指南免费。"
+        }
+      },
+      "scoreReading": {
+        "en": "Seven numeric ratings required; raw sum / 7. Any unscored response means no personal mean for this subscale.",
+        "zh": "需要七条数值有效，原始和除以7；任意未评分就不生成本项个人均值。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What these seven statements cover",
+            "zh": "这七条陈述涵盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This SD4 subscale brings together beliefs about secrecy, gaining influential support, avoiding immediate conflict for future advantage, keeping a low profile, planning, flattery and satisfaction when a tricky plan succeeds. A higher mean records stronger agreement with this particular mixture. It does not show that you carried out a manipulation, reveal what happened in a specific relationship or establish that every strategic choice has the same purpose. Read the actual statements before deciding what the name means to you.",
+              "zh": "SD4这一分量表把对保密、争取重要人物支持、为将来利益避开冲突、保持低调、计划、奉承，以及巧妙计划成功时的满足等看法放在一起。均值较高只记录对这组特定陈述更认同，不证明你实施了操纵，不揭示具体关系中发生的事情，也不确定每次策略选择都有相同目的。请先读实际陈述，再理解研究名称对自己意味着什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Planning and influence are not a single act",
+            "zh": "计划与影响并不是同一行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine agreeing that planning matters while disagreeing that flattery is a good way to win people over. Another person could give the opposite pair of answers and reach a similar overall mean. The seven-item average does not preserve that difference on its own. Planning an ordinary project, maintaining appropriate privacy or avoiding an unnecessary argument does not by itself demonstrate harmful intent. The statements include broad beliefs and preferences; the website cannot infer the motive behind a real action from their average.",
+              "zh": "例如，你认同计划很重要，却不同意奉承是争取支持的好办法；另一个人可能给出相反组合，仍有相似均值。七题平均本身不能保留这种差异。为普通项目计划、适当保留隐私或避开不必要争论，都不能单独证明伤害意图。题目包含宽泛看法和偏好，网站不能从平均数推断真实行动背后的动机。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "The label belongs to a research scale",
+            "zh": "名称属于研究量表"
+          },
+          "paragraphs": [
+            {
+              "en": "Machiavellianism is the authors’ subscale name, not a character awarded to you by this page. There is no cutoff here that turns a person into a manipulator, a political category or a relationship role. A low mean also supplies no certificate of honesty or harmlessness. These limits matter when a memorable label seems more certain than the individual answers. The report keeps the number beside the wording and leaves the other three SD4 readings separate.",
+              "zh": "马基雅维利主义是作者的分量表名称，不是页面分配给你的角色。这里没有把人变成操纵者、政治类别或关系角色的分界线。低均值也不提供诚实或无害的证明。当醒目名称显得比具体回答更确定时，这些边界尤其重要。报告把数字放在题意旁，其他三个SD4维度继续分别保留。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "What a difference cannot establish",
+            "zh": "数值差异不能确定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An answer can depend on how you understand an important person, a secret or a tricky plan. The form does not collect the examples you had in mind. A difference between attempts therefore cannot distinguish changed circumstances, a different interpretation, deliberate impression management or a lasting personal change. No reliable-change threshold or population percentile is supplied. Comparing your score with a friend or judging someone through guessed answers would add claims that this self-report version cannot support.",
+              "zh": "回答会受到你怎样理解重要人物、秘密或巧妙计划的影响，表单并不收集你想到的例子。因此，两次差异无法区分情境改变、理解不同、刻意呈现形象或持久个人变化。这里不提供可靠变化阈值或人群百分位。与朋友比高低，或代猜别人的答案来评价对方，都会增加这一自报版本无法支持的结论。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Read the four subscales independently",
+            "zh": "四个分量表分别阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "This mean does not determine the SD4 narcissism, psychopathy or sadism means. A common total would hide the distinct seven-item sets, and selecting the largest mean would not produce a validated main personality type. The existing FermatMind Mini 18-item thematic reflection is a different item bank with different anchors and missing-answer rules. Its three themes cannot be converted into this published subscale. You can read every guide without treating either version as a replacement for the other.",
+              "zh": "这个均值不决定SD4自恋、精神病态或施虐维度的均值。共同总分会遮蔽不同的七题组合，挑出最高项也不会生成经过验证的主要人格类型。现有费马Mini 18题主题观察采用不同题库、选项和缺失规则，三个主题不能换算成这个发表版分量表。可以阅读所有指南，而无需把任一版本当作另一个的替代。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "An optional question about one belief",
+            "zh": "可选地看一条具体看法"
+          },
+          "paragraphs": [
+            {
+              "en": "If reflection is useful, choose one statement and privately consider what ordinary situation you had in mind. Distinguish the belief you endorsed from any action you actually took and from what another person may have intended. There is no need to disclose an example, test a strategy, contact someone or change a relationship. You may decide that the wording does not fit your experience and leave the subscale unscored. Reading the explanation can be the end of the activity.",
+              "zh": "如果想继续观察，可选一条陈述，私下想想当时想到的普通情境；分开自己认同的看法、实际做过的行动，以及别人可能的意图。不需要公开例子、测试策略、联系任何人或改变关系。也可以认为题意不适合自己，让这个分量表未评分。读完解释就可以结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Source, language and the limits of the version",
+            "zh": "来源、语言与版本限制"
+          },
+          "paragraphs": [
+            {
+              "en": "This page follows the 28 English statements and five agreement anchors published on coauthor Erin Buckels’ SD4 project page, crosschecked against the instrument distributed by Delroy Paulhus. Paulhus lists SD4 among measures in the public domain available without permission. The cited article is Paulhus, Buckels, Trapnell and Jones, published in 2021. Our Chinese wording is a working translation, not a validated Chinese form. Publication of the original instrument does not establish validity, norms or accuracy for this website’s users or this translation.",
+              "zh": "本页采用共同作者Erin Buckels的SD4项目页发表的28条英文和五个认同选项，并与Delroy Paulhus提供的工具文档逐题核对。Paulhus把SD4列为无需另行许可即可使用的公有领域工具。所引论文为Paulhus、Buckels、Trapnell与Jones发表于2021年的文章。中文是本站工作译文，不是经验证的中文版；原工具发表不意味着已建立本站用户或译文的效度、常模或准确性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Seven direct ratings and an unrounded mean",
+            "zh": "七条同向评分与原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is the numeric neutral response, not missing information. All 28 items are direct, with no reverse scoring. For each subscale, seven numeric ratings produce their sum divided by seven, displayed to two decimals from the unrounded sum. One, two, three, four, five, three and three sum to 21 and give 3.00. Any unscored response withholds that subscale’s mean; nothing is imputed. No total, dominant type, percentile or cutoff is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不代表资料缺失。28条全部同向，零反向。每个分量表七条数值有效时，将原始和除以七，再显示两位小数。例如1、2、3、4、5、3、3之和21，均值3.00。任意一条未评分，该分量表就不显示均值，不插补任何数值；不计算总分、主要类型、百分位或界线。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "narcissism",
+      "directionIds": [
+        "narcissism"
+      ],
+      "title": {
+        "en": "Narcissism",
+        "zh": "自恋研究维度"
+      },
+      "headline": {
+        "en": "A separate published SD4 subscale",
+        "zh": "SD4发表版的独立分量表"
+      },
+      "summary": {
+        "en": "Read the seven-item Narcissism mean with its actual wording, source and limits. No diagnosis, type or population rank.",
+        "zh": "结合实际题意、来源和限制，阅读七题的自恋研究维度均值；不作诊断、分型或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SD4 Narcissism: Full Guide",
+          "zh": "SD4自恋研究维度完整说明"
+        },
+        "description": {
+          "en": "Understand the seven SD4 Narcissism items, raw mean, missing answers and interpretation limits. Full guide free.",
+          "zh": "了解SD4自恋研究维度七题的内容、原始均值、缺失处理与解释限制，完整指南免费。"
+        }
+      },
+      "scoreReading": {
+        "en": "Seven numeric ratings required; raw sum / 7. Any unscored response means no personal mean for this subscale.",
+        "zh": "需要七条数值有效，原始和除以7；任意未评分就不生成本项个人均值。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A particular seven-item self-view",
+            "zh": "一种特定的七题自我看法"
+          },
+          "paragraphs": [
+            {
+              "en": "The SD4 narcissism subscale asks about being seen as a leader, a perceived talent for persuasion, making group activities interesting, being told you are special, exceptional qualities, possible future stardom and occasional showing off. Its mean describes agreement across those seven statements. It does not establish your actual leadership, talent, future success or how other people experience you. The research name should be read alongside this content rather than treated as a complete definition of a person.",
+              "zh": "SD4自恋分量表涉及被视为领导者、自认为有说服才能、让集体活动有趣、被告知很特别、非凡特质、未来成名可能，以及偶尔炫耀。均值描述对这七条的认同，不证明真实领导力、才能、未来成功或别人怎样体验与你相处。应把研究名称与具体内容一起读，不把它当作对一个人的完整定义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Visibility and praise can differ",
+            "zh": "显眼与受到称赞可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might enjoy showing a skill while rarely thinking that a gathering is dull without you. Someone else may strongly remember being praised but dislike being the centre of attention. Different patterns can give the same average. A context with many opportunities for public performance may also make some statements easier to imagine. The form has no independent observation of these situations and cannot decide whether your account is accurate, exaggerated, modest or shaped by a particular audience.",
+              "zh": "你可能喜欢展示技能，却很少觉得没有自己聚会就无聊；另一人可能清楚记得受过称赞，却不喜欢成为焦点。不同模式可以得出相同平均数。经常公开表现的环境，也会让部分陈述更容易联想。表单没有对这些情境的独立观察，不能裁定你的描述准确、夸大、谦虚，还是受到某类观众影响。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "No personality-disorder conclusion",
+            "zh": "不作人格障碍结论"
+          },
+          "paragraphs": [
+            {
+              "en": "This website does not diagnose narcissistic personality disorder or label anyone a narcissist. The published SD4 self-report subscale is not a clinical interview, and its seven statements do not cover the evidence needed for an individual clinical assessment. A low mean does not rule out difficulties, while a high mean does not establish a disorder, abusive behaviour or the impact of a relationship. Do not use the number as a verdict about yourself, a partner, a colleague or a public figure.",
+              "zh": "网站不诊断自恋型人格障碍，也不把任何人标成自恋者。发表版SD4自报分量表不是临床访谈，七条陈述不涵盖个体临床评估所需的证据。低均值不排除困难，高均值不确定障碍、虐待行为或关系影响。不要把数字当成对自己、伴侣、同事或公众人物的裁决。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Approval and ability remain separate questions",
+            "zh": "得到认可与实际能力分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreement that others call you special is a report about your own understanding of their feedback. It is not a survey of those people. Similarly, expecting future success does not measure the skills or opportunities involved. The mean cannot sort healthy confidence from a problem in every setting, nor can it prescribe becoming more or less visible. Consider the wording as a prompt for noticing a self-view, without allowing the name to replace concrete evidence about a particular task or relationship.",
+              "zh": "认同别人说自己很特别，记录的是你对反馈的理解，并不是对那些人的调查。同样，预期未来成功不测量相关技能或机会。均值无法在所有场合区分健康自信与问题，也不规定应该更显眼还是更低调。可把题意当作留意自我看法的提示，不让名称取代某项任务或关系中的具体证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A separate SD4 score, not a winning type",
+            "zh": "单独的SD4分数，不是获胜类型"
+          },
+          "paragraphs": [
+            {
+              "en": "The other SD4 subscales ask different sets of questions. A higher narcissism mean than your other means does not make it a dominant type, and low values everywhere do not identify a specially virtuous personality. No combined darkness score, ranking or level is produced. This version also differs from the original FermatMind Mini themes and from longer or alternative narcissism inventories. Shared terminology alone does not justify merging results, converting numbers or claiming that all measures assess an identical construct.",
+              "zh": "其他SD4分量表询问不同题组。本项比其他均值高，不会使其成为主导类型；四项都低也不识别特别高尚的人格。这里不生成黑暗总分、排名或等级。本版还不同于费马原创Mini主题及其他长版或替代自恋问卷，仅有术语相近不足以合并结果、换算数字或宣称测量完全相同的构念。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Reflect without soliciting reassurance",
+            "zh": "观察时不必索取确认"
+          },
+          "paragraphs": [
+            {
+              "en": "You could privately compare one statement with one ordinary experience of praise, participation or showing a skill. Keep the experience separate from assumptions about what everyone thinks of you. You do not need to ask people to rate your character, seek reassurance about a label or prove that a description is wrong. No example is required by the website, and no action is needed to finish. You may leave any statement unanswered numerically and simply read the public explanation.",
+              "zh": "可以私下把一条陈述与一次普通的称赞、参与或展示技能经历对照，同时分开经历本身与对所有人怎么看自己的假设。不需要请别人评人格、为某个标签寻求确认，或证明描述错误。网站不要求例子，完成也不需要行动。任何题都可以不作数值回答，只读公开解释。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Source, language and the limits of the version",
+            "zh": "来源、语言与版本限制"
+          },
+          "paragraphs": [
+            {
+              "en": "This page follows the 28 English statements and five agreement anchors published on coauthor Erin Buckels’ SD4 project page, crosschecked against the instrument distributed by Delroy Paulhus. Paulhus lists SD4 among measures in the public domain available without permission. The cited article is Paulhus, Buckels, Trapnell and Jones, published in 2021. Our Chinese wording is a working translation, not a validated Chinese form. Publication of the original instrument does not establish validity, norms or accuracy for this website’s users or this translation.",
+              "zh": "本页采用共同作者Erin Buckels的SD4项目页发表的28条英文和五个认同选项，并与Delroy Paulhus提供的工具文档逐题核对。Paulhus把SD4列为无需另行许可即可使用的公有领域工具。所引论文为Paulhus、Buckels、Trapnell与Jones发表于2021年的文章。中文是本站工作译文，不是经验证的中文版；原工具发表不意味着已建立本站用户或译文的效度、常模或准确性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Seven direct ratings and an unrounded mean",
+            "zh": "七条同向评分与原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is the numeric neutral response, not missing information. All 28 items are direct, with no reverse scoring. For each subscale, seven numeric ratings produce their sum divided by seven, displayed to two decimals from the unrounded sum. One, two, three, four, five, three and three sum to 21 and give 3.00. Any unscored response withholds that subscale’s mean; nothing is imputed. No total, dominant type, percentile or cutoff is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不代表资料缺失。28条全部同向，零反向。每个分量表七条数值有效时，将原始和除以七，再显示两位小数。例如1、2、3、4、5、3、3之和21，均值3.00。任意一条未评分，该分量表就不显示均值，不插补任何数值；不计算总分、主要类型、百分位或界线。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "psychopathy",
+      "directionIds": [
+        "psychopathy"
+      ],
+      "title": {
+        "en": "Psychopathy",
+        "zh": "精神病态研究维度"
+      },
+      "headline": {
+        "en": "A separate published SD4 subscale",
+        "zh": "SD4发表版的独立分量表"
+      },
+      "summary": {
+        "en": "Read the seven-item Psychopathy mean with its actual wording, source and limits. No diagnosis, type or population rank.",
+        "zh": "结合实际题意、来源和限制，阅读七题的精神病态研究维度均值；不作诊断、分型或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SD4 Psychopathy: Full Guide",
+          "zh": "SD4精神病态研究维度完整说明"
+        },
+        "description": {
+          "en": "Understand the seven SD4 Psychopathy items, raw mean, missing answers and interpretation limits. Full guide free.",
+          "zh": "了解SD4精神病态研究维度七题的内容、原始均值、缺失处理与解释限制，完整指南免费。"
+        }
+      },
+      "scoreReading": {
+        "en": "Seven numeric ratings required; raw sum / 7. Any unscored response means no personal mean for this subscale.",
+        "zh": "需要七条数值有效，原始和除以7；任意未评分就不生成本项个人均值。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What the published items actually ask",
+            "zh": "发表版实际问了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This SD4 subscale combines reports about being described as out of control, opposing authority and rules, fights, acting before asking questions, trouble with the law, dangerous situations and making people regret provoking you. Some statements concern beliefs or tendencies and others refer to past experience. The author’s English wording has no common recall period, so this page does not silently impose a past-month or past-year window. A mean summarises these answers without establishing what happened in a particular event.",
+              "zh": "这个SD4分量表组合了被说失控、反抗权威规则、打架、先行动再问问题、法律方面的麻烦、危险处境，以及让招惹自己的人后悔等自报。部分陈述涉及倾向，部分指过去经历。作者英文没有共同回忆时段，页面因此不暗中加上过去一月或一年。均值总结这些回答，不确定具体事件中发生了什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A sensitive item can remain unscored",
+            "zh": "敏感题可以不作数值回答"
+          },
+          "paragraphs": [
+            {
+              "en": "You may not want to respond to a statement about legal trouble or fights. Choose the website’s unscored response instead of treating uncertainty or refusal as neutral agreement. This extension is separate from the author’s five numeric anchors. The page requires seven numeric ratings to display this subscale’s mean and does not estimate a missing answer from the others. If even one is unscored, you can still finish the form and read the full guide without a personal mean for this part.",
+              "zh": "关于违法麻烦或打架的陈述，你可能不想回答。可以选择网站附加的未评分选项，不把不确定或拒答当成中立。这个扩展与作者五个数值选项分开。本页只有七题全部数值有效才显示该分量表均值，不用其他题估算缺失。即使一题未评分，也能完成表单并读完整指南，只是不显示本项个人均值。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "The research name is not a diagnosis",
+            "zh": "研究名称不是诊断"
+          },
+          "paragraphs": [
+            {
+              "en": "Psychopathy is the authors’ research label for this seven-item set. The result does not diagnose a mental disorder, identify a criminal, determine dangerousness or decide whether someone is safe to trust. It is not a forensic instrument or an assessment of a person who has not answered for themselves. Clinical and legal conclusions require different evidence and qualified processes; this self-report page supplies neither. A low mean is also not a guarantee about future behaviour or the absence of serious difficulties.",
+              "zh": "精神病态是作者给这组七题的研究名称。结果不诊断精神障碍、不识别罪犯、不判断危险性或是否值得信任；也不是法医学工具，更不能评估没有亲自作答的人。临床和法律结论需要不同证据与专业程序，本页都不提供。低均值也不保证未来行为或不存在严重困难。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "One average can conceal different histories",
+            "zh": "同一平均可能包含不同经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people can reach the same mean while endorsing quite different statements about rules, impulsive action or past events. The questionnaire cannot establish when an event occurred, the surrounding constraints, the role of self-defence or what another person observed. It does not investigate an allegation. Avoid turning the average into a reconstruction of someone’s history or using an isolated response as proof. If the wording feels unsuitable, keeping the part unscored is a valid way to retain that uncertainty.",
+              "zh": "两个人可能对规则、冲动行动或过往事件给出很不同的回答，却得到同一均值。问卷不能确定事件何时发生、周围限制、自卫因素或其他人看见什么，也不调查指控。不要把平均数变成对经历的重建，或把单个回答当成证明。题意不适合时保留未评分，正是保留不确定性的一种有效方式。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "No conversion from other dark-trait versions",
+            "zh": "不从其他黑暗特质版本换算"
+          },
+          "paragraphs": [
+            {
+              "en": "This is the published SD4 seven-item subscale within a 28-item form. It is not an interchangeable substitute for another psychopathy inventory, the SD3, the Dirty Dozen or FermatMind’s original Mini themes. The four SD4 means remain separate and have no universal high or low threshold on this website. We do not apply the student norm table distributed with an author document as a general-population reference, and the working Chinese translation has not received psychometric validation here.",
+              "zh": "这是28题SD4中的发表版七题分量表，不可与其他精神病态量表、SD3、Dirty Dozen或费马原创Mini主题互换。SD4四项均值分别保留，网站不设通用高低阈值。作者文档附带的学生常模表不被用作一般人群参照，本站工作中文译文也未在这里完成心理测量验证。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Keep any reflection private and specific",
+            "zh": "让进一步观察保持私密和具体"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to reflect, focus on what you understood by one statement rather than trying to settle whether a label fits. There is no need to describe a legal event, disclose violence or ask anyone else to provide an account. The form stores answers only in current page memory and does not offer a personal-result share button. You can refresh or leave to end the attempt. Reading without producing a personal score is an equally available outcome.",
+              "zh": "若想继续观察，可关注自己怎样理解某条陈述，不必判定某个标签是否适合。不需要描述法律事件、披露暴力经历或让其他人提供说法。表单答案只放在当前页面内存，不提供个人结果分享按钮。刷新或离开就可结束；只读说明、不生成个人分数，也是同样可用的完成方式。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Source, language and the limits of the version",
+            "zh": "来源、语言与版本限制"
+          },
+          "paragraphs": [
+            {
+              "en": "This page follows the 28 English statements and five agreement anchors published on coauthor Erin Buckels’ SD4 project page, crosschecked against the instrument distributed by Delroy Paulhus. Paulhus lists SD4 among measures in the public domain available without permission. The cited article is Paulhus, Buckels, Trapnell and Jones, published in 2021. Our Chinese wording is a working translation, not a validated Chinese form. Publication of the original instrument does not establish validity, norms or accuracy for this website’s users or this translation.",
+              "zh": "本页采用共同作者Erin Buckels的SD4项目页发表的28条英文和五个认同选项，并与Delroy Paulhus提供的工具文档逐题核对。Paulhus把SD4列为无需另行许可即可使用的公有领域工具。所引论文为Paulhus、Buckels、Trapnell与Jones发表于2021年的文章。中文是本站工作译文，不是经验证的中文版；原工具发表不意味着已建立本站用户或译文的效度、常模或准确性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Seven direct ratings and an unrounded mean",
+            "zh": "七条同向评分与原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is the numeric neutral response, not missing information. All 28 items are direct, with no reverse scoring. For each subscale, seven numeric ratings produce their sum divided by seven, displayed to two decimals from the unrounded sum. One, two, three, four, five, three and three sum to 21 and give 3.00. Any unscored response withholds that subscale’s mean; nothing is imputed. No total, dominant type, percentile or cutoff is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不代表资料缺失。28条全部同向，零反向。每个分量表七条数值有效时，将原始和除以七，再显示两位小数。例如1、2、3、4、5、3、3之和21，均值3.00。任意一条未评分，该分量表就不显示均值，不插补任何数值；不计算总分、主要类型、百分位或界线。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sadism",
+      "directionIds": [
+        "sadism"
+      ],
+      "title": {
+        "en": "Sadism",
+        "zh": "施虐研究维度"
+      },
+      "headline": {
+        "en": "A separate published SD4 subscale",
+        "zh": "SD4发表版的独立分量表"
+      },
+      "summary": {
+        "en": "Read the seven-item Sadism mean with its actual wording, source and limits. No diagnosis, type or population rank.",
+        "zh": "结合实际题意、来源和限制，阅读七题的施虐研究维度均值；不作诊断、分型或人群排名。"
+      },
+      "seo": {
+        "title": {
+          "en": "SD4 Sadism: Full Guide",
+          "zh": "SD4施虐研究维度完整说明"
+        },
+        "description": {
+          "en": "Understand the seven SD4 Sadism items, raw mean, missing answers and interpretation limits. Full guide free.",
+          "zh": "了解SD4施虐研究维度七题的内容、原始均值、缺失处理与解释限制，完整指南免费。"
+        }
+      },
+      "scoreReading": {
+        "en": "Seven numeric ratings required; raw sum / 7. Any unscored response means no personal mean for this subscale.",
+        "zh": "需要七条数值有效，原始和除以7；任意未评分就不生成本项个人均值。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A mixed seven-item content set",
+            "zh": "一组内容有所不同的七题"
+          },
+          "paragraphs": [
+            {
+              "en": "The SD4 sadism subscale includes excitement at a fist-fight, enjoyment of violent films and games, amusement at another person’s fall, violent sports, a belief that some people deserve suffering, mean online comments for fun and knowing how to hurt someone with words. These contents are related within the published research instrument but are not identical actions. A higher mean records stronger agreement across the exact seven statements; it does not prove enjoyment of every kind of suffering or establish any specific harmful act.",
+              "zh": "SD4施虐分量表包括看拳脚打斗的兴奋、喜欢暴力影视游戏、觉得别人摔倒好笑、暴力运动、认为有些人该受苦、为寻开心而在线刻薄评论，以及知道怎样用言语伤人。这些内容在发表版研究工具中相关，却不是相同行动。均值较高只记录对这七条更认同，不证明喜欢所有痛苦，也不确定发生过具体伤害。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Fictional media does not establish real-world harm",
+            "zh": "虚构媒介不能证明现实伤害"
+          },
+          "paragraphs": [
+            {
+              "en": "Enjoying a violent fictional game is not equivalent to hurting a real person. Watching a sport also differs from initiating aggression, and knowing that words can hurt differs from having used them in a particular exchange. Because these different statements contribute to one mean, the item pattern matters. Two people with the same number may have endorsed entirely different content. The report cannot infer what an individual viewer or player would do outside the media setting.",
+              "zh": "喜欢虚构的暴力游戏，不等于伤害真人；观看体育也不同于主动攻击，知道言语能伤人也不同于在某次交流中这样做过。不同陈述共同形成均值，因此逐题模式很重要。同一数字可能来自完全不同内容的认同，报告不能推断个体观众或玩家在媒介之外会怎样行动。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A score is not a moral or safety verdict",
+            "zh": "分数不作道德或安全裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "The authors’ research term is not a personal identity assigned here. This subscale does not diagnose a sexual interest or disorder, identify an abuser, decide whether a relationship is safe or rank people as good and bad. No cutoff is supplied. A low mean does not certify kindness, while a high mean does not by itself establish intent, severity or responsibility for an event. Use concrete evidence and appropriate support for actual concerns rather than asking this average to settle them.",
+              "zh": "作者的研究术语不是这里分配的个人身份。这个分量表不诊断性兴趣或障碍，不识别施虐者，不决定关系是否安全，也不把人按好坏排序；这里不设界线。低均值不认证善良，高均值本身也不确定意图、严重程度或事件责任。现实疑虑需要具体证据与适当支持，不能让这个平均数裁决。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Distress, provocation and interpretation differ",
+            "zh": "痛苦、挑衅与理解分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "One statement refers to mean social-media comments made for amusement, while another is a broad belief about deserved suffering. Remembering an instance does not tell the website what another person felt or how an interaction developed. The scale also does not establish why you selected an answer. An interpretation of an insulting exchange, humour or competition may differ across settings and languages. These limitations remain even when every question has a numeric response and the arithmetic is complete.",
+              "zh": "一条涉及为寻开心而发刻薄评论，另一条是对谁该受苦的宽泛看法。记起一次经历，不会让网站知道别人感受或互动如何发展；量表也不确定你为何选择某个答案。对侮辱交流、幽默或竞争的理解可能随场合与语言不同。即使数值作答和计算完整，这些限制仍然存在。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "The fourth subscale has its own source identity",
+            "zh": "第四个分量表有独立来源身份"
+          },
+          "paragraphs": [
+            {
+              "en": "SD4 adds a sadism subscale to its other three research subscales, each with seven items. That does not make the fourth mean a supplement to an unrelated Mini score, a humour preference score or a competitor’s four-type quiz. The published 28 English items, five agreement anchors and four direct scoring keys are retained here. The optional unscored response and rule withholding a mean when any of its seven ratings is missing are website extensions, not an author-validated missing-data procedure.",
+              "zh": "SD4在其他三个研究分量表之外设置施虐分量表，四组各七题。这不使第四项成为其他Mini分数、幽默偏好或竞品四类型游戏的补丁。本页保留发表版28条英文、五个认同选项和四组同向计分键；可选未评分及缺一条便不显示均值，是网站扩展，不是作者验证过的缺失数据处理。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "Notice one interpretation without testing harm",
+            "zh": "留意一种理解，不用伤害作测试"
+          },
+          "paragraphs": [
+            {
+              "en": "If further reflection is useful, consider what you understood by one media, sport or online-comment statement. You do not need to recreate a situation, provoke anyone, seek proof from another person or disclose private incidents. Distinguish an imagined scene from a real action and from its consequences. No behavioural experiment is suggested. You can leave the part unscored, read any of the four public guides or finish without deciding what the research label says about you.",
+              "zh": "如想继续观察，可留意自己怎样理解一条媒介、体育或在线评论陈述。无需重现情境、挑衅任何人、向别人找证据或披露私事；分开想象场景、真实行动和后果。这里不建议行为实验。可以保留本项未评分、读四篇任意公开指南，或不判定研究标签对自己意味着什么就结束。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Source, language and the limits of the version",
+            "zh": "来源、语言与版本限制"
+          },
+          "paragraphs": [
+            {
+              "en": "This page follows the 28 English statements and five agreement anchors published on coauthor Erin Buckels’ SD4 project page, crosschecked against the instrument distributed by Delroy Paulhus. Paulhus lists SD4 among measures in the public domain available without permission. The cited article is Paulhus, Buckels, Trapnell and Jones, published in 2021. Our Chinese wording is a working translation, not a validated Chinese form. Publication of the original instrument does not establish validity, norms or accuracy for this website’s users or this translation.",
+              "zh": "本页采用共同作者Erin Buckels的SD4项目页发表的28条英文和五个认同选项，并与Delroy Paulhus提供的工具文档逐题核对。Paulhus把SD4列为无需另行许可即可使用的公有领域工具。所引论文为Paulhus、Buckels、Trapnell与Jones发表于2021年的文章。中文是本站工作译文，不是经验证的中文版；原工具发表不意味着已建立本站用户或译文的效度、常模或准确性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Seven direct ratings and an unrounded mean",
+            "zh": "七条同向评分与原始均值"
+          },
+          "paragraphs": [
+            {
+              "en": "Use 1 Strongly Disagree, 2 Disagree, 3 Neutral, 4 Agree and 5 Strongly Agree. Three is the numeric neutral response, not missing information. All 28 items are direct, with no reverse scoring. For each subscale, seven numeric ratings produce their sum divided by seven, displayed to two decimals from the unrounded sum. One, two, three, four, five, three and three sum to 21 and give 3.00. Any unscored response withholds that subscale’s mean; nothing is imputed. No total, dominant type, percentile or cutoff is calculated.",
+              "zh": "使用1非常不同意、2不同意、3中立、4同意、5非常同意。3是数值中立，不代表资料缺失。28条全部同向，零反向。每个分量表七条数值有效时，将原始和除以七，再显示两位小数。例如1、2、3、4、5、3、3之和21，均值3.00。任意一条未评分，该分量表就不显示均值，不插补任何数值；不计算总分、主要类型、百分位或界线。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "version",
+      "title": {
+        "en": "Published SD4, distinct from Mini",
+        "zh": "SD4发表版与Mini分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "SD4 is the authors’ 28-item research version. FermatMind’s original Mini 18-item thematic reflection is a separate form with a different bank, anchors and coverage; scores do not convert. Neither version supplies a clinical diagnosis.",
+          "zh": "SD4是作者的28题研究版本；费马原创Mini 18题主题观察采用不同题库、选项和覆盖，两者分数不换算，均不提供临床诊断。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Current page memory only",
+        "zh": "仅当前页面内存"
+      },
+      "paragraphs": [
+        {
+          "en": "There are no saved drafts, quiz-flow statistics, personal-result URLs or personal-result sharing. Refreshing, switching language or leaving discards the attempt. You can answer unscored and still read every guide.",
+          "zh": "不保存草稿，不发送测试流程统计，不生成个人结果URL，不分享个人结果。刷新、切换语言或离开会丢弃本次作答；保留未评分仍可读所有指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the published SD4?",
+        "zh": "这是SD4发表版吗？"
+      },
+      "answer": {
+        "en": "The English retains all 28 published statements, their order, five agreement anchors and four seven-item direct keys. Chinese is our working translation; the unscored option and withholding incomplete subscale means are website extensions.",
+        "zh": "英文保留全部28条发表版陈述、顺序、五个认同选项及四组七题同向计分键。中文为本站工作译文；未评分选项与缺失时不生成均值是网站扩展。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it diagnose a disorder or give a dark personality type?",
+        "zh": "会诊断障碍或分配黑暗人格类型吗？"
+      },
+      "answer": {
+        "en": "No. Four raw subscale means remain separate. There is no total, dominant type, severity level, safety judgement, norm percentile or clinical diagnosis.",
+        "zh": "不会。四项原始均值分别保留，没有总分、主导类型、严重程度、安全判断、常模百分位或临床诊断。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip a numeric rating?",
+        "zh": "不作数值回答会怎样？"
+      },
+      "answer": {
+        "en": "Select the unscored option and finish normally. A subscale needs all seven numeric ratings for a mean. One unscored response withholds only that subscale’s mean; all four full guides remain available.",
+        "zh": "选择未评分，仍可正常完成。每项需要七条数值有效才有均值，一条未评分只让该项不显示均值；四篇全文仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is three a neutral answer?",
+        "zh": "3是中立回答吗？"
+      },
+      "answer": {
+        "en": "Yes. The published anchor is Neutral and counts as three. Uncertainty, an unsuitable item or refusal can instead be left unscored; no missing rating becomes three or zero.",
+        "zh": "是。发表版选项为中立，计为3。不确定、题意不适用或不愿回答可另选未评分，缺失不补3或0。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "答案会被保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers stay in current page memory. There are no drafts, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Public guide links contain no answers or means.",
+        "zh": "答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果。刷新、换语言或离开会丢失作答，公开指南链接不含答案或均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I compare it with the Mini 18-item reflection?",
+        "zh": "能与Mini 18题观察换算吗？"
+      },
+      "answer": {
+        "en": "No. Their items, anchors, theme definitions and missing-data rules differ. The existing Mini is preserved as a separate original reflection rather than renamed or replaced by SD4.",
+        "zh": "不能。两者题目、选项、主题定义和缺失规则不同；原Mini作为独立原创观察保留，不改名、不被SD4替代。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Author SD4 instrument, anchors and scoring key",
+        "zh": "作者SD4题目、选项与计分键"
+      },
+      "url": "https://www.erinbuckels.com/project/short-dark-tetrad-sd4/"
+    },
+    {
+      "title": {
+        "en": "Paulhus measures and public-domain permission",
+        "zh": "Paulhus工具与公有领域授权"
+      },
+      "url": "https://www2.psych.ubc.ca/~dpaulhus/Paulhus_measures/"
+    },
+    {
+      "title": {
+        "en": "Paulhus et al. (2021): Screening for Dark Personalities",
+        "zh": "Paulhus等（2021）：黑暗人格筛查研究"
+      },
+      "url": "https://doi.org/10.1027/1015-5759/a000602"
+    }
+  ]
+}

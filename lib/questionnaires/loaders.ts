@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "dark-tetrad-sd4": async () => (await import("./data/dark-tetrad-sd4.json")).default as Questionnaire,
   "relationship-worry-habits": async () => (await import("./data/relationship-worry-habits.json")).default as Questionnaire,
   "face-self-image": async () => (await import("./data/face-self-image.json")).default as Questionnaire,
   "work-role-reflection": async () => (await import("./data/work-role-reflection.json")).default as Questionnaire,
