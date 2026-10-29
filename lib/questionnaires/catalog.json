@@ -6210,5 +6210,30 @@
       "closeness"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "relationship-habits",
+    "code": "FM_RELATIONSHIP_HABITS16",
+    "version": "fm_relationship_habits16_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Relationship Habits Test",
+      "zh": "关系相处习惯测试"
+    },
+    "description": {
+      "en": "Reflect on space, mental fairness tallies, delayed talks and extra giving with 16 original prompts and four full guides. Your own side, without a label.",
+      "zh": "用16条原创题，分别反思空间与暂停、心里记账、延后谈话和超出余量付出。四篇完整指南免费，只看自己一侧，不贴标签或评价伴侣。"
+    },
+    "minutes": 4,
+    "formCode": "fm_relationship_habits16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "space-and-pauses",
+      "fairness-tally",
+      "talk-delay",
+      "overextension"
+    ],
+    "collection": "explore"
   }
 ]

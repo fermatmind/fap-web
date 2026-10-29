@@ -1,0 +1,1751 @@
+{
+  "slug": "relationship-habits",
+  "code": "FM_RELATIONSHIP_HABITS16",
+  "version": "fm_relationship_habits16_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "instructions": {
+    "en": "Keep one adult close person in mind, without naming them, and answer about your own side over the past three months. Rate how often each ordinary moment occurred, from never to almost always. Three means sometimes; choose unscored if unsure, without a suitable experience or unwilling to answer. All sixteen prompts need a response, and each part needs at least three numeric ratings for a raw mean. Four separate bars and full guides appear, without a total, rank or assigned type. You may stop or read every guide without answering.",
+    "zh": "心里保留一位亲近的成年人，不必写姓名；只回答过去三个月自己一侧的情况。从从不到几乎每次，评价普通时刻出现的频率。3表示有时；不确定、没有合适经历或不愿回答时，选择未评分。全部16题需要响应，每部分至少三条数字才显示原始均值。分别呈现四条频率及完整读法，不合总分、不排名或派型。可随时停止，也可不作答直接读全部指南。"
+  },
+  "title": {
+    "en": "Relationship Habits Test",
+    "zh": "关系相处习惯测试"
+  },
+  "description": {
+    "en": "Reflect on space, mental fairness tallies, delayed talks and extra giving with 16 original prompts and four full guides. Your own side, without a label.",
+    "zh": "用16条原创题，分别反思空间与暂停、心里记账、延后谈话和超出余量付出。四篇完整指南免费，只看自己一侧，不贴标签或评价伴侣。"
+  },
+  "seoTitle": {
+    "en": "Relationship Habits Test: Space, Fairness & Giving",
+    "zh": "关系相处习惯测试：空间、付出与谈话的四项完整读法"
+  },
+  "minutes": 4,
+  "introduction": {
+    "en": "This original reflection looks at ordinary habits in a close relationship: wanting space, mentally tracking balance, postponing a wanted conversation and giving beyond your available capacity. It records four separate self-reported frequencies, with a possible useful side, a cost and concrete examples in each guide. It does not assess another person, establish objective fairness or classify a relationship as safe or unsafe. All four full guides are free.",
+    "zh": "本原创反思关注亲近关系中的普通习惯：想留空间、心里记录是否平衡、延后本想谈的话题，以及付出超过自己可用余量。它记录四项独立自报频率，每篇指南都有可能用途、代价与具体例子，不测试别人、不裁定客观公平，也不把关系分为安全或危险。四篇完整指南均免费。"
+  },
+  "resultHeading": {
+    "en": "Your four relationship-habit frequencies",
+    "zh": "本次四项关系习惯频率"
+  },
+  "source": {
+    "kind": "fermatmind_original_close_relationship_habits16",
+    "formCode": "fm_relationship_habits16_v1",
+    "itemBankVersion": "fm_relationship_habits16_v1",
+    "scoringVersion": "rh16_frequency1_5_na_min3_four4_complete16_v1",
+    "resultContentVersion": "fm_relationship_habits_four_full8_20261029_v1",
+    "itemBankSha256": "c93efcd388b427d72f754e29549433d99b2299d29c1915351ad1cc48cc76cdd4",
+    "resultContentSha256": "36d6fc0d5ba8a64ff6102a96c2d0e7a582e518cb8d8240fe0bfd49506abef717",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "space-and-pauses",
+      "title": {
+        "en": "Space and pauses",
+        "zh": "空间与暂停"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "fairness-tally",
+      "title": {
+        "en": "Keeping a mental fairness tally",
+        "zh": "心里记录付出是否平衡"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "talk-delay",
+      "title": {
+        "en": "Delaying a difficult conversation",
+        "zh": "延后难开口的谈话"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "overextension",
+      "title": {
+        "en": "Giving beyond my available capacity",
+        "zh": "付出超过自己的可用余量"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "RH_01",
+      "prompt": {
+        "en": "Over the past three months, after an extended exchange, I wanted some uninterrupted time before reconnecting.",
+        "zh": "过去三个月，一段较长的交流后，我想先有一点不被打断的时间，再重新联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "space-and-pauses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "space-and-pauses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-pauses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-pauses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-pauses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "space-and-pauses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_02",
+      "prompt": {
+        "en": "Over the past three months, I mentally counted which of us had initiated recent plans.",
+        "zh": "过去三个月，我会在心里数，最近几次安排分别是谁主动提出的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "fairness-tally",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "fairness-tally",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "fairness-tally",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "fairness-tally",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "fairness-tally",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "fairness-tally",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_03",
+      "prompt": {
+        "en": "Over the past three months, I postponed a conversation I had wanted because I expected it might become tense.",
+        "zh": "过去三个月，我想谈一件事，却因为预期可能紧张而把谈话往后放。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "talk-delay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "talk-delay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "talk-delay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "talk-delay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "talk-delay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "talk-delay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_04",
+      "prompt": {
+        "en": "Over the past three months, I agreed to an extra favour before checking how much time I had available.",
+        "zh": "过去三个月，我还没确认自己有多少时间，就先答应了一项额外帮忙。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overextension",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overextension",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overextension",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overextension",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "overextension",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "overextension",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_05",
+      "prompt": {
+        "en": "Over the past three months, when a small disagreement stirred up my thoughts, I needed quiet time before deciding what to say.",
+        "zh": "过去三个月，小分歧让思绪变多时，我需要先安静一会儿，再决定怎样说。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "space-and-pauses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "space-and-pauses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-pauses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-pauses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-pauses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "space-and-pauses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_06",
+      "prompt": {
+        "en": "Over the past three months, I compared how often I adjusted my plans with how often I thought the other person adjusted theirs.",
+        "zh": "过去三个月，我会比较自己调整安排的次数，与我感觉对方调整安排的次数。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "fairness-tally",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "fairness-tally",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "fairness-tally",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "fairness-tally",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "fairness-tally",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "fairness-tally",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_07",
+      "prompt": {
+        "en": "Over the past three months, I gave a quick reassuring answer instead of raising a different view I wanted to discuss.",
+        "zh": "过去三个月，我先给出让气氛缓和的简短回答，没有提出自己本想讨论的不同看法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "talk-delay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "talk-delay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "talk-delay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "talk-delay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "talk-delay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "talk-delay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_08",
+      "prompt": {
+        "en": "Over the past three months, I offered more help than I had originally planned to give.",
+        "zh": "过去三个月，我提供的帮助，超过了自己原本打算给出的范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overextension",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overextension",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overextension",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overextension",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "overextension",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "overextension",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_09",
+      "prompt": {
+        "en": "Over the past three months, before agreeing to a shared plan, I asked for time to think on my own.",
+        "zh": "过去三个月，答应一项共同安排前，我会先留一点时间独自想想。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "space-and-pauses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "space-and-pauses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-pauses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-pauses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-pauses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "space-and-pauses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_10",
+      "prompt": {
+        "en": "Over the past three months, when deciding whether to help again, I recalled what I had already contributed.",
+        "zh": "过去三个月，决定是否再帮一次时，我会想起自己之前已经付出了什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "fairness-tally",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "fairness-tally",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "fairness-tally",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "fairness-tally",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "fairness-tally",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "fairness-tally",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_11",
+      "prompt": {
+        "en": "Over the past three months, I moved from an uncomfortable topic to a lighter one without saying when I would return to it.",
+        "zh": "过去三个月，话题让我不太舒服时，我转向轻松话题，没有说明何时再谈。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "talk-delay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "talk-delay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "talk-delay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "talk-delay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "talk-delay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "talk-delay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_12",
+      "prompt": {
+        "en": "Over the past three months, I continued being available when I would have preferred some rest.",
+        "zh": "过去三个月，自己本来更想休息时，我仍继续保持随时回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overextension",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overextension",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overextension",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overextension",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "overextension",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "overextension",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_13",
+      "prompt": {
+        "en": "Over the past three months, during a busy stretch of contact, I preferred replying after a break rather than keeping the exchange going.",
+        "zh": "过去三个月，联系比较密集时，我更愿意歇一会儿再回复，而不是一直继续交流。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "space-and-pauses",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "space-and-pauses",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-pauses",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-pauses",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-pauses",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "space-and-pauses",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_14",
+      "prompt": {
+        "en": "Over the past three months, I kept a mental note of requests I had agreed to and what seemed to come back in return.",
+        "zh": "过去三个月，我会在心里记下答应过哪些请求，以及感觉后来得到了什么回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "fairness-tally",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "fairness-tally",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "fairness-tally",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "fairness-tally",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "fairness-tally",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "fairness-tally",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_15",
+      "prompt": {
+        "en": "Over the past three months, I hoped a small mismatch would settle itself so I would not have to bring it up.",
+        "zh": "过去三个月，遇到一点不一致时，我希望它自己过去，这样就不必提出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "talk-delay",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "talk-delay",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "talk-delay",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "talk-delay",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "talk-delay",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "talk-delay",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RH_16",
+      "prompt": {
+        "en": "Over the past three months, I set aside a personal plan rather than state a limit on what I could offer.",
+        "zh": "过去三个月，我搁置了自己的安排，而没有把能提供多少的边界说出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overextension",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overextension",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overextension",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overextension",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "overextension",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "overextension",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "space-and-pauses",
+      "directionIds": [
+        "space-and-pauses"
+      ],
+      "title": {
+        "en": "Space and Pauses: Full Relationship Habits Guide",
+        "zh": "空间与暂停：关系习惯完整读法"
+      },
+      "headline": {
+        "en": "Read one habit in context, with its possible use and cost.",
+        "zh": "结合场合阅读一项习惯，以及可能的用途与代价。"
+      },
+      "summary": {
+        "en": "An original full guide to space and pauses, with ordinary examples, mixed answers, raw frequency and clear limits.",
+        "zh": "完整阅读空间与暂停这一习惯，包含普通场景、混合回答、原始频率与清楚局限。"
+      },
+      "seo": {
+        "title": {
+          "en": "Space and Pauses: Relationship Habits Guide",
+          "zh": "空间与暂停｜关系习惯完整指南"
+        },
+        "description": {
+          "en": "Space and Pauses: read your raw frequency, examples, missing data and possible costs. A full original guide, without a label or partner judgement.",
+          "zh": "完整阅读空间与暂停：原始频率、场景、混合回答、未评分及可能代价。不贴标签，不评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original frequency prompts. At least three numeric ratings are needed; sum divided by rated items, displayed to one decimal. Unscored responses are not zero. No combined total or assigned type.",
+        "zh": "四条原创频率题，至少三条数字才显示原始和除以有效题数的均值，保留一位小数。未评分不补零，不合总分或派型。"
+      },
+      "sections": [
+        {
+          "id": "space-and-pauses-1",
+          "title": {
+            "en": "A pause is a specific preference in context",
+            "zh": "暂停是具体场合中的偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records how often you wanted uninterrupted time, quiet before a response, time to consider a plan or a break in a busy exchange. Keep the same close person and recent three-month window in mind. A higher mean describes more frequent endorsement of these moments. It does not establish emotional distance, a fixed need for solitude or the amount of contact that would suit two people.",
+              "zh": "这一部分记录：多常想有不被打断的时间、回应前先安静一下、独自考虑安排，或在密集交流中歇一会儿。请保留同一位亲近的人和最近三个月这个参照。均值较高只表示这些时刻出现得更频繁，不确定情感距离、固定独处需求，或适合两人的联系数量。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-2",
+          "title": {
+            "en": "A plan that needs time to consider",
+            "zh": "需要一点时间考虑的安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine being asked about a weekend plan after a demanding day. You may want a little time alone before deciding, while still wanting to take part. Another person may answer readily and rest afterwards. This example separates a pause from a decision about the relationship. The questionnaire cannot tell whether a particular pause helped, how it was explained or what the other person understood from it.",
+              "zh": "例如，忙碌一天后被问到周末安排，你可能想先独自想一会儿，同时仍愿意参加；另一人可能先回答，之后再休息。例子把暂停与对关系的决定分开。问卷不能判断某次暂停是否有帮助、怎样被说明，或别人如何理解。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-3",
+          "title": {
+            "en": "A useful possibility and an honest cost",
+            "zh": "一种可能用途与一个真实代价"
+          },
+          "paragraphs": [
+            {
+              "en": "A pause may give room to sort thoughts or notice available energy before making a commitment. If its meaning or timing is unclear, the conversation may also remain unfinished. Neither outcome is measured by this mean. A low mean does not prove better communication, and a high mean does not prove avoidance. Read the action and the situation together rather than treating availability as a duty or distance as a verdict.",
+              "zh": "暂停可能留出整理思绪或看清可用精力的空间，再决定是否答应。若含义或时间不清，谈话也可能一直没完成。这两种结果都不是均值测到的。较低不证明沟通更好，较高也不证明回避。请结合行动与场合阅读，不把随时在线当义务，也不把距离当判定。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-4",
+          "title": {
+            "en": "Wanting quiet and wanting time can differ",
+            "zh": "想安静与想考虑不必相同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might often want quiet after an extended exchange but rarely need extra time to decide about plans. Someone else may enjoy lengthy contact and still prefer considering a plan privately. Equal means can hide those different patterns. The four statements are not interchangeable descriptions of your whole personality. Look back at the individual moments before deciding whether there is a useful observation to keep.",
+              "zh": "你可能常在长时间交流后想安静，却很少需要额外时间决定安排；另一人可能享受长交流，同时偏好私下考虑计划。相同均值会隐藏这些不同模式。四句话不能互相替代，描述整个人格；可以先回看具体时刻，再决定是否有值得保留的观察。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-5",
+          "title": {
+            "en": "Separate a pause from leaving a topic unresolved",
+            "zh": "区分暂停与话题一直未谈"
+          },
+          "paragraphs": [
+            {
+              "en": "Space and pauses differs from Delaying a difficult conversation. A person can take time and later return clearly, or postpone a topic even while staying in frequent contact. Both parts may be high in different moments within the same window. Keeping a fairness tally and giving beyond capacity ask other questions again. No combination assigns an attachment style, a safe or unsafe category, or an explanation of another person’s intentions.",
+              "zh": "空间与暂停不同于延后难开口的谈话。一个人可以先缓缓，之后清楚地回到话题；也可以一直联系，却仍不谈那件事。同一时期的不同场合中，两项都可能较高。记录付出和超出余量付出又是其他问题，任何组合都不分配依恋类型、安全类别或别人意图的解释。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-6",
+          "title": {
+            "en": "One optional sentence about a pause",
+            "zh": "关于暂停的一句可选表达"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, recall an ordinary pause and consider whether its purpose was clear to you. You might write a sentence describing the time you wanted or the topic you hoped to revisit, without sending it or naming the other person. This is an optional reflection, not a requirement to resume a conversation or disclose feelings. You can keep the note private and finish here.",
+              "zh": "如果有用，可回想一次普通暂停，看看自己是否清楚为何需要它。可以写一句描述想要的时间或希望重谈的话题，不必发出，也不必写对方姓名。这是可选反思，不要求恢复谈话或披露感受。笔记可以保密，到此结束。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-7",
+          "title": {
+            "en": "How the four-item frequency is calculated",
+            "zh": "怎样计算四条题的频率读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Rate each prompt from 1, never, to 5, almost always, or explicitly leave it unscored. Three means sometimes. After all sixteen responses, each part needs at least three numeric ratings. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3, rather than 10 / 4. With only two numeric ratings, the part shows insufficient information. Bars locate the raw mean on the 1–5 response range, not on a percentage, severity scale or population ranking.",
+              "zh": "每题从1从不至5几乎每次，或明确选未评分；3表示有时。全部16题响应后，每部分至少三条数字才显示。例如2、3、5加一条未评分，得10/3，显示3.3，不是10/4。只有两条数字时，明确显示资料不足。条形只把原始均值放在1至5响应范围中，不是百分比、严重度或人群排名。"
+            }
+          ]
+        },
+        {
+          "id": "space-and-pauses-8",
+          "title": {
+            "en": "An original self-reflection with clear limits",
+            "zh": "边界明确的原创自我反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and full guides to describe ordinary habits on your own side of one adult close relationship. The four parts are not exclusive personality types, a diagnosis or a test of someone else. Reliability, validity, norms and language equivalence have not been established. Ratings do not establish actual fairness, safety, motives or outcomes. Every guide remains available, including when all responses are unscored, and no result requires disclosure, contact or a decision about continuing a relationship.",
+              "zh": "费马原创这16条题及完整指南，描述一段成年人亲近关系中自己一侧的普通习惯。四部分不是互斥人格类型、诊断或对别人的测试，尚未建立信效度、常模或跨语言等价。评分不确定客观公平、安全、动机或后果。所有指南始终开放，包括全部未评分时；结果不要求披露、联系或决定是否继续关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fairness-tally",
+      "directionIds": [
+        "fairness-tally"
+      ],
+      "title": {
+        "en": "Mental Fairness Tallies: Full Relationship Habits Guide",
+        "zh": "心里记录付出是否平衡：关系习惯完整读法"
+      },
+      "headline": {
+        "en": "Read one habit in context, with its possible use and cost.",
+        "zh": "结合场合阅读一项习惯，以及可能的用途与代价。"
+      },
+      "summary": {
+        "en": "An original full guide to keeping a mental fairness tally, with ordinary examples, mixed answers, raw frequency and clear limits.",
+        "zh": "完整阅读心里记录付出是否平衡这一习惯，包含普通场景、混合回答、原始频率与清楚局限。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mental Fairness Tallies: Relationship Habits Guide",
+          "zh": "心里记录付出是否平衡｜关系习惯完整指南"
+        },
+        "description": {
+          "en": "Mental Fairness Tallies: read your raw frequency, examples, missing data and possible costs. A full original guide, without a label or partner judgement.",
+          "zh": "完整阅读心里记录付出是否平衡：原始频率、场景、混合回答、未评分及可能代价。不贴标签，不评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original frequency prompts. At least three numeric ratings are needed; sum divided by rated items, displayed to one decimal. Unscored responses are not zero. No combined total or assigned type.",
+        "zh": "四条原创频率题，至少三条数字才显示原始和除以有效题数的均值，保留一位小数。未评分不补零，不合总分或派型。"
+      },
+      "sections": [
+        {
+          "id": "fairness-tally-1",
+          "title": {
+            "en": "A mental tally, rather than a fairness measurement",
+            "zh": "记录心里的账，不测客观公平"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records how often you mentally counted who initiated plans, compared adjustments, recalled past contributions or noticed what seemed to come back. Those are your observations of your own attention. The mean does not measure the actual distribution of work, establish a debt or prove that either person acted unfairly. It also cannot distinguish an accurate concern about imbalance from an incomplete impression of what happened.",
+              "zh": "这一部分记录：多常在心里数谁主动安排、比较调整次数、回想以往贡献，或留意感觉得到什么回应。这是你对自己注意方式的观察。均值不测实际分工，不建立欠账，也不证明任何一方不公平；它也无法区分准确的失衡担忧与对事情的不完整印象。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-2",
+          "title": {
+            "en": "Noticing who initiated recent plans",
+            "zh": "留意最近是谁主动安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering that you suggested the last few meetings. You may want to understand whether the arrangement feels shared, while the other person may have contributed in ways not captured by that count. The useful question is what the tally includes and leaves out. This example does not settle whether effort was equal, and the questionnaire asks you to rate no one else’s contribution or worth.",
+              "zh": "例如，你记得最近几次见面都是自己提议，想了解安排是否有共同参与感；另一人可能用这种次数没有捕捉到的方式贡献。值得问的是：心里的账包含什么、遗漏什么。例子不裁定努力是否相等，问卷也不要求给别人的贡献或价值评分。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-3",
+          "title": {
+            "en": "Attention to balance can have a cost",
+            "zh": "留意平衡也可能有代价"
+          },
+          "paragraphs": [
+            {
+              "en": "A mental tally may make an unspoken expectation easier to notice. If the count becomes the only way to read an exchange, details outside it may receive less attention. These are possibilities, not consequences proved by a higher mean. A lower mean does not demonstrate greater generosity or a fairer arrangement. No score turns care into a debt that must be repaid with access, attention or participation.",
+              "zh": "心里的账可能让未说出口的预期更容易被看见；如果只用次数理解交流，账外细节也可能被忽略。这些只是可能性，不是高均值证明的后果。较低不能证明更慷慨或安排更公平。任何分数都不把关心变成必须靠开放空间、注意或参与来偿还的债。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-4",
+          "title": {
+            "en": "Different tallies can produce the same mean",
+            "zh": "不同的账也可能得到同一均值"
+          },
+          "paragraphs": [
+            {
+              "en": "You might often recall earlier help when considering another request but rarely count who starts plans. Another person might notice initiation closely while giving little thought to returning favours. Their means can be equal. The four prompts sample different moments, so do not assume one number identifies a transactional attitude or a fixed habit in every relationship. The chosen context and the individual answers still matter.",
+              "zh": "你可能在考虑新请求时常想起以前帮过什么，却很少数谁先提出安排；另一人可能很留意谁主动，却不太想帮忙有没有回报。均值可能相同。四题取不同场合，不要凭一个数认定交易心态或所有关系中的固定习惯；选定场合与具体回答仍然重要。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-5",
+          "title": {
+            "en": "Compare a tally with giving beyond capacity",
+            "zh": "比较记账与超出余量付出"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping a mental tally and giving beyond available capacity are separate parts. Someone can frequently overextend and also frequently notice the imbalance they perceive. Another may keep clear limits while tracking the division of tasks. Neither pattern is a type assigned by this test. Pauses and delayed conversations describe other moments. The four bars retain the mix without adding a red-flag total, a relationship rank or a verdict about a partner.",
+              "zh": "心里记账与付出超过可用余量是不同部分。有人可能常超出余量，也常留意自己感觉到的失衡；另一人可能保持清楚限度，同时关注分工。问卷不把任何模式派成类型。暂停和延后谈话描述其他时刻；四条条形保留组合，不合红旗总分、不排名关系，也不判定伴侣。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-6",
+          "title": {
+            "en": "Clarify what the count is about",
+            "zh": "澄清自己到底在数什么"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, identify one kind of contribution you had in mind: time, initiating a plan, adjusting a schedule or an ordinary favour. Ask what expectation the count represents, rather than using the result as evidence against someone. You need not share a private example, settle a disagreement or make the score lower. Keep only an observation that helps you describe your own side, or stop here.",
+              "zh": "如果有用，可以辨认自己想到的是哪种贡献：时间、主动安排、调整日程或一次普通帮忙。看看次数代表什么预期，不拿结果当指责别人的证据。无需分享私密例子、解决分歧或降低分数。只保留有助于描述自己一侧的观察，也可以到此结束。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-7",
+          "title": {
+            "en": "How the four-item frequency is calculated",
+            "zh": "怎样计算四条题的频率读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Rate each prompt from 1, never, to 5, almost always, or explicitly leave it unscored. Three means sometimes. After all sixteen responses, each part needs at least three numeric ratings. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3, rather than 10 / 4. With only two numeric ratings, the part shows insufficient information. Bars locate the raw mean on the 1–5 response range, not on a percentage, severity scale or population ranking.",
+              "zh": "每题从1从不至5几乎每次，或明确选未评分；3表示有时。全部16题响应后，每部分至少三条数字才显示。例如2、3、5加一条未评分，得10/3，显示3.3，不是10/4。只有两条数字时，明确显示资料不足。条形只把原始均值放在1至5响应范围中，不是百分比、严重度或人群排名。"
+            }
+          ]
+        },
+        {
+          "id": "fairness-tally-8",
+          "title": {
+            "en": "An original self-reflection with clear limits",
+            "zh": "边界明确的原创自我反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and full guides to describe ordinary habits on your own side of one adult close relationship. The four parts are not exclusive personality types, a diagnosis or a test of someone else. Reliability, validity, norms and language equivalence have not been established. Ratings do not establish actual fairness, safety, motives or outcomes. Every guide remains available, including when all responses are unscored, and no result requires disclosure, contact or a decision about continuing a relationship.",
+              "zh": "费马原创这16条题及完整指南，描述一段成年人亲近关系中自己一侧的普通习惯。四部分不是互斥人格类型、诊断或对别人的测试，尚未建立信效度、常模或跨语言等价。评分不确定客观公平、安全、动机或后果。所有指南始终开放，包括全部未评分时；结果不要求披露、联系或决定是否继续关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "talk-delay",
+      "directionIds": [
+        "talk-delay"
+      ],
+      "title": {
+        "en": "Delaying a Conversation: Full Relationship Habits Guide",
+        "zh": "延后难开口的谈话：关系习惯完整读法"
+      },
+      "headline": {
+        "en": "Read one habit in context, with its possible use and cost.",
+        "zh": "结合场合阅读一项习惯，以及可能的用途与代价。"
+      },
+      "summary": {
+        "en": "An original full guide to delaying a difficult conversation, with ordinary examples, mixed answers, raw frequency and clear limits.",
+        "zh": "完整阅读延后难开口的谈话这一习惯，包含普通场景、混合回答、原始频率与清楚局限。"
+      },
+      "seo": {
+        "title": {
+          "en": "Delaying a Conversation: Relationship Habits Guide",
+          "zh": "延后难开口的谈话｜关系习惯完整指南"
+        },
+        "description": {
+          "en": "Delaying a Conversation: read your raw frequency, examples, missing data and possible costs. A full original guide, without a label or partner judgement.",
+          "zh": "完整阅读延后难开口的谈话：原始频率、场景、混合回答、未评分及可能代价。不贴标签，不评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original frequency prompts. At least three numeric ratings are needed; sum divided by rated items, displayed to one decimal. Unscored responses are not zero. No combined total or assigned type.",
+        "zh": "四条原创频率题，至少三条数字才显示原始和除以有效题数的均值，保留一位小数。未评分不补零，不合总分或派型。"
+      },
+      "sections": [
+        {
+          "id": "talk-delay-1",
+          "title": {
+            "en": "A topic you had wanted to discuss",
+            "zh": "一件自己原本想谈的事"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records postponing a wanted conversation, giving a reassuring answer instead of a different view, changing an uncomfortable topic or hoping a mismatch will pass. It concerns your own responses within the chosen recent context. The mean does not show whether a conversation was necessary, whether its timing was suitable or why you delayed. It also cannot tell whether an issue was resolved without a discussion.",
+              "zh": "这一部分记录：延后本想进行的谈话、用缓和回答代替不同看法、转开不舒服的话题，或希望一点不一致自行过去。它关注选定近期场合中你自己的回应。均值不能说明是否有必要谈、时机是否合适或为什么延后，也不能判断事情是否没经讨论就已解决。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-2",
+          "title": {
+            "en": "An answer that keeps a weekend plan simple",
+            "zh": "让周末安排先简单些的回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine being unsure about a weekend plan but saying a quick yes because you do not want to complicate the moment. The plan may later work well, or your original concern may remain. Both are possible examples behind the same kind of response. The questionnaire asks how often you noticed your own action, without collecting the plan, the other person’s reaction or a judgement about the outcome.",
+              "zh": "例如，对周末安排还不确定，却因不想让当下复杂而很快答应。后来安排可能很顺，也可能原来的顾虑仍在。两种情况都可能出现在相似回应之后。问卷只询问你注意到自己这样做的频率，不收集安排细节、对方反应或对结果的判定。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-3",
+          "title": {
+            "en": "A lighter moment and an unfinished concern",
+            "zh": "当下轻松些，与顾虑未说清"
+          },
+          "paragraphs": [
+            {
+              "en": "Deferring a topic may leave space for a quieter moment, but it may also leave a concern unspoken. A higher mean proves neither benefit nor cost. A lower mean does not establish courage, honesty or better communication. People may interpret a prompt differently or have different opportunities for the situation to arise. An unscored choice is available when an experience is unsuitable or you prefer not to rate it.",
+              "zh": "延后话题可能给更安静的时刻留空间，也可能让顾虑一直没说出来。较高不证明哪种好处或代价已经发生；较低也不证明勇敢、诚实或沟通更好。不同人可能对题意理解不同，或遇到相应场合的机会不同。不合适或不愿评价时，可以选未评分。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-4",
+          "title": {
+            "en": "Different reasons remain outside the score",
+            "zh": "不同原因仍在分数之外"
+          },
+          "paragraphs": [
+            {
+              "en": "You may readily discuss practical arrangements while often delaying a conversation about a different opinion. Another person may give reassuring answers quickly but later return to the issue. Similar means need not describe similar sequences. These four prompts do not distinguish every reason for waiting, and they do not decide whether silence was wise or unwelcome. Keep the actual moments in view rather than assigning yourself an avoiding identity.",
+              "zh": "你可能很容易谈实际安排，却常延后讨论不同意见；另一人可能很快给缓和回答，之后又回到事情。相似均值不等于过程相似。四题不能区分所有等待原因，也不裁定沉默明智还是不受欢迎。请保留具体时刻，不把自己归成回避身份。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-5",
+          "title": {
+            "en": "Compare delay with pauses and extra giving",
+            "zh": "比较延后、暂停与额外付出"
+          },
+          "paragraphs": [
+            {
+              "en": "Wanting a pause concerns room to think or recover between exchanges. Delaying a difficult conversation concerns leaving a wanted topic for later or not raising it. Giving beyond capacity concerns what you offer relative to your own available time or energy. These moments can overlap without being the same habit. The four readings stay separate, and no combined bar says how healthy, caring or secure a relationship is.",
+              "zh": "想暂停关乎在交流之间留出思考或恢复空间；延后难开口谈话，关乎把本想谈的事情留到后来或不提；超出余量付出，则关乎提供的帮助与自己可用时间精力的关系。它们可能重叠，却不是同一习惯。四份读法分别保留，不合出关系健康、关心程度或安全程度的条形。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-6",
+          "title": {
+            "en": "Name one topic without requiring a conversation",
+            "zh": "说清话题，不要求立即去谈"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, identify one ordinary topic you had wanted clearer and write what you would want to understand first. You need not contact anyone, disclose a private experience or force a discussion because of this result. The exercise is only an option for describing your own side. You can also decide that no example fits, leave the items unscored, read another guide or end the reflection here.",
+              "zh": "如果有用，可找一件希望更清楚的普通事情，写下自己想先了解什么。无需因结果联系任何人、披露私密经历或强行讨论。这只是描述自己一侧的可选练习。也可认为没有合适例子、保留未评分、读其他指南，或到此结束。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-7",
+          "title": {
+            "en": "How the four-item frequency is calculated",
+            "zh": "怎样计算四条题的频率读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Rate each prompt from 1, never, to 5, almost always, or explicitly leave it unscored. Three means sometimes. After all sixteen responses, each part needs at least three numeric ratings. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3, rather than 10 / 4. With only two numeric ratings, the part shows insufficient information. Bars locate the raw mean on the 1–5 response range, not on a percentage, severity scale or population ranking.",
+              "zh": "每题从1从不至5几乎每次，或明确选未评分；3表示有时。全部16题响应后，每部分至少三条数字才显示。例如2、3、5加一条未评分，得10/3，显示3.3，不是10/4。只有两条数字时，明确显示资料不足。条形只把原始均值放在1至5响应范围中，不是百分比、严重度或人群排名。"
+            }
+          ]
+        },
+        {
+          "id": "talk-delay-8",
+          "title": {
+            "en": "An original self-reflection with clear limits",
+            "zh": "边界明确的原创自我反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and full guides to describe ordinary habits on your own side of one adult close relationship. The four parts are not exclusive personality types, a diagnosis or a test of someone else. Reliability, validity, norms and language equivalence have not been established. Ratings do not establish actual fairness, safety, motives or outcomes. Every guide remains available, including when all responses are unscored, and no result requires disclosure, contact or a decision about continuing a relationship.",
+              "zh": "费马原创这16条题及完整指南，描述一段成年人亲近关系中自己一侧的普通习惯。四部分不是互斥人格类型、诊断或对别人的测试，尚未建立信效度、常模或跨语言等价。评分不确定客观公平、安全、动机或后果。所有指南始终开放，包括全部未评分时；结果不要求披露、联系或决定是否继续关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overextension",
+      "directionIds": [
+        "overextension"
+      ],
+      "title": {
+        "en": "Giving Beyond Capacity: Full Relationship Habits Guide",
+        "zh": "付出超过自己的可用余量：关系习惯完整读法"
+      },
+      "headline": {
+        "en": "Read one habit in context, with its possible use and cost.",
+        "zh": "结合场合阅读一项习惯，以及可能的用途与代价。"
+      },
+      "summary": {
+        "en": "An original full guide to giving beyond my available capacity, with ordinary examples, mixed answers, raw frequency and clear limits.",
+        "zh": "完整阅读付出超过自己的可用余量这一习惯，包含普通场景、混合回答、原始频率与清楚局限。"
+      },
+      "seo": {
+        "title": {
+          "en": "Giving Beyond Capacity: Relationship Habits Guide",
+          "zh": "付出超过自己的可用余量｜关系习惯完整指南"
+        },
+        "description": {
+          "en": "Giving Beyond Capacity: read your raw frequency, examples, missing data and possible costs. A full original guide, without a label or partner judgement.",
+          "zh": "完整阅读付出超过自己的可用余量：原始频率、场景、混合回答、未评分及可能代价。不贴标签，不评价伴侣。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original frequency prompts. At least three numeric ratings are needed; sum divided by rated items, displayed to one decimal. Unscored responses are not zero. No combined total or assigned type.",
+        "zh": "四条原创频率题，至少三条数字才显示原始和除以有效题数的均值，保留一位小数。未评分不补零，不合总分或派型。"
+      },
+      "sections": [
+        {
+          "id": "overextension-1",
+          "title": {
+            "en": "An offer compared with your own capacity",
+            "zh": "把提供的帮助与自己余量对照"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records agreeing before checking time, offering more help than planned, staying available when you preferred rest or setting aside a personal plan instead of stating a limit. Capacity here is your own estimate in an ordinary situation. The mean does not measure actual workload, generosity or exhaustion. It cannot determine why an offer was made, whether it was freely chosen or how someone else experienced it.",
+              "zh": "这一部分记录：没确认时间就答应、提供比原计划更多的帮助、想休息却仍保持回应，或不说限度而搁置个人安排。这里的余量是你对普通场合的自我估计。均值不测实际负荷、慷慨或耗竭，也不能确定为何提供帮助、是否自主选择或别人怎样体验。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-2",
+          "title": {
+            "en": "One more small favour on a busy day",
+            "zh": "忙碌一天里再帮一个小忙"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine being asked for a small favour while already occupied. You may say yes before looking at your own plan, then find that the extra task is manageable or that something else has to wait. The same initial answer can lead to different outcomes. This example is about noticing the sequence on your side, not deciding whether the request was reasonable or assigning blame to the person who asked.",
+              "zh": "例如，自己已经很忙时，又被请帮一个小忙。你可能没看安排就答应，后来发现尚可处理，也可能有别的事得等。相同的最初回答，后果可能不同。例子只帮助留意自己一侧的先后过程，不裁定请求是否合理，也不把责任归给提出请求的人。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-3",
+          "title": {
+            "en": "A willingness to help and a possible cost",
+            "zh": "愿意帮忙与可能的代价"
+          },
+          "paragraphs": [
+            {
+              "en": "Offering extra help may express a wish to contribute. If your own available time is unclear, a plan or rest you wanted may also be displaced. A higher mean does not prove kindness, poor boundaries or harm, and a lower mean does not imply less care. These possibilities need context beyond four ratings. Everyone can keep limits; no result requires greater availability or repayment of another person’s attention.",
+              "zh": "额外帮忙可能表达想参与的愿望；若自己的可用时间没看清，也可能挤掉原本想做的事或休息。较高不证明善良、边界差或伤害，较低也不表示关心更少。四项评分之外仍需要场合信息。每个人都可以保留限度，结果不要求更多在线或偿还别人的注意。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-4",
+          "title": {
+            "en": "Extra help and missed plans can differ",
+            "zh": "多帮一点与放下计划不必相同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might often offer a little more help than planned while rarely giving up a personal commitment. Another person may seldom volunteer extra tasks but regularly stay available when they would rather rest. Their means may be equal. Looking at the actual prompts helps separate these moments. The result assigns no people-pleaser label and does not infer a motive such as approval-seeking, guilt or fear from the frequency alone.",
+              "zh": "你可能常比计划多帮一点，却很少放下个人承诺；另一人可能很少主动加任务，却常在更想休息时继续保持回应。均值可能相同。回看具体题目有助于分开这些时刻。结果不派讨好型标签，也不凭频率推断寻求认可、内疚或害怕等动机。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-5",
+          "title": {
+            "en": "A different question from keeping a tally",
+            "zh": "它与心里记账是不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Giving beyond capacity concerns the scope of your own offer. Keeping a mental fairness tally concerns what you notice about contributions and returns. Someone can frequently do both, or neither. Pauses and postponed conversations add other observations without competing for a fixed total. Read all four bars as separate self-reports from the chosen window; their pattern is not a partner comparison, a compatibility score or an instruction to change a relationship.",
+              "zh": "超出余量付出关乎自己提供了多少；心里记账关乎留意怎样的贡献与回应。有人可能两者都常有，也可能都少有。暂停和延后谈话补充其他观察，不争夺固定总额。四条应作为选定时期中独立的自报来读，不比较伴侣，不算匹配，也不要求改变关系。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-6",
+          "title": {
+            "en": "An optional check before one ordinary offer",
+            "zh": "一次普通帮忙前的可选确认"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, think of an ordinary offer and note the time or energy you had expected it to need. You might keep a reminder to check that estimate before a similar offer, without cancelling anything or announcing a new rule. This is an optional reflection rather than advice about a particular relationship. Keep it only if it helps you describe your choices, or stop after reading the guide.",
+              "zh": "如果有用，可想一次普通帮忙，记下原本估计需要多少时间或精力。可以留一句提醒，下次类似帮忙前先看看这个估计，不必取消任何事或宣布新规则。这是可选反思，不是对某段特定关系的建议。只有有助于描述选择时才保留，也可读完就结束。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-7",
+          "title": {
+            "en": "How the four-item frequency is calculated",
+            "zh": "怎样计算四条题的频率读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Rate each prompt from 1, never, to 5, almost always, or explicitly leave it unscored. Three means sometimes. After all sixteen responses, each part needs at least three numeric ratings. For example, 2, 3 and 5 with one unscored item give 10 / 3, displayed as 3.3, rather than 10 / 4. With only two numeric ratings, the part shows insufficient information. Bars locate the raw mean on the 1–5 response range, not on a percentage, severity scale or population ranking.",
+              "zh": "每题从1从不至5几乎每次，或明确选未评分；3表示有时。全部16题响应后，每部分至少三条数字才显示。例如2、3、5加一条未评分，得10/3，显示3.3，不是10/4。只有两条数字时，明确显示资料不足。条形只把原始均值放在1至5响应范围中，不是百分比、严重度或人群排名。"
+            }
+          ]
+        },
+        {
+          "id": "overextension-8",
+          "title": {
+            "en": "An original self-reflection with clear limits",
+            "zh": "边界明确的原创自我反思"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and full guides to describe ordinary habits on your own side of one adult close relationship. The four parts are not exclusive personality types, a diagnosis or a test of someone else. Reliability, validity, norms and language equivalence have not been established. Ratings do not establish actual fairness, safety, motives or outcomes. Every guide remains available, including when all responses are unscored, and no result requires disclosure, contact or a decision about continuing a relationship.",
+              "zh": "费马原创这16条题及完整指南，描述一段成年人亲近关系中自己一侧的普通习惯。四部分不是互斥人格类型、诊断或对别人的测试，尚未建立信效度、常模或跨语言等价。评分不确定客观公平、安全、动机或后果。所有指南始终开放，包括全部未评分时；结果不要求披露、联系或决定是否继续关系。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Four separate raw frequency readings",
+        "zh": "四项独立的原始频率读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Sixteen original prompts form four equal parts of four. Choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always; unsure, unsuitable or declined experiences stay unscored. After all sixteen responses, a part needs at least three numeric ratings. Its raw sum is divided by its rated items and displayed to one decimal. With fewer ratings it shows insufficient information. A bar locates the mean within 1–5; it is not a percentage or severity score.",
+          "zh": "16条原创题分为四部分，每部分四条。1从不、2很少、3有时、4经常、5几乎每次；不确定、不适用或不愿评价时，保持未评分。全部16题响应后，每部分至少三条数字才显示原始和除以有效题数的均值，保留一位小数。不足时显示资料不足。条形只定位1至5内的均值，不是百分比或严重度。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Read the mix without a single verdict",
+        "zh": "阅读组合，不下一个总判定"
+      },
+      "paragraphs": [
+        {
+          "en": "All four parts can be high, low or equal. They are not competing shares and need not add to one hundred. No overall red-flag score, rank, personality label or partner judgement is generated. A useful possibility and a cost are examples to consider, not outcomes established by a number. The same mean can arise from different item patterns, so read the actual moments and keep context in view.",
+          "zh": "四项可以都高、都低或相同，不争夺固定比例，也不需要加到百分之百。不生成整体红旗分、排名、人格标签或伴侣判定。可能用途与代价只是可考虑的例子，不是数值证明的后果。不同回答可能得到相同均值，请回看实际时刻并保留场合信息。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Ordinary habits and conflict-boundary behaviours ask different questions",
+        "zh": "普通习惯与冲突边界行为是不同问题"
+      },
+      "paragraphs": [
+        {
+          "en": "This reflection asks about space, a mental fairness tally, postponing talks and giving beyond capacity. The separate Conflict and Boundary Behaviors test asks about pressure in disagreements, responding to no or pauses, deflecting impact and repair follow-through. Its original 24-item identity is preserved. Neither result is converted into the other, and these four frequencies do not measure an attachment style, actual fairness or whether a relationship should continue.",
+          "zh": "这里询问空间、心里记账、延后谈话与超出余量付出。另一个冲突与边界行为观察测试询问分歧加压、面对拒绝或暂停、回避行为影响及修复跟进，其原24题标识保持不变。两者不相互换算，本次四项频率也不测依恋类型、客观公平或是否应继续关系。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a red flag test?",
+        "zh": "这是红旗测试吗？"
+      },
+      "answer": {
+        "en": "It uses the casual self-reflection sense of noticing your own habits. Sixteen original prompts describe four ordinary patterns, with full readings of possible useful sides and costs. It does not diagnose, label a person, assess abuse or decide whether a partner is safe.",
+        "zh": "这里采用日常自我反思的含义，留意自己一侧的习惯。16条原创题描述四项普通模式，完整讨论可能用途与代价，不诊断、不贴人身标签、不评估虐待或判定伴侣是否安全。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher bar mean I am a worse person?",
+        "zh": "条形更高表示我是更差的人吗？"
+      },
+      "answer": {
+        "en": "No. It only records more frequent endorsement of that set of moments in your chosen recent context. It does not establish motives, harm, kindness, objective fairness or another person’s experience. All four complete guides remain available.",
+        "zh": "不是。它只记录选定近期场合中更频繁地认同本组时刻，不确定动机、伤害、善意、客观公平或别人的体验。四篇完整指南始终开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are ties or all-high answers handled?",
+        "zh": "并列或四项都高怎样处理？"
+      },
+      "answer": {
+        "en": "The four means remain separate, without a winner, a combined score or an assigned type. Equal answers are valid. Bars describe raw frequency rather than shares of one total, so they do not need to add to one hundred.",
+        "zh": "四项均值分别保留，不找赢家、不合总分或派型。相同回答有效。条形描述原始频率，不是总额中的比例，无需加到百分之百。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I leave an experience unscored?",
+        "zh": "可以把某项经历留为未评分吗？"
+      },
+      "answer": {
+        "en": "Yes. Choose unscored when no experience fits, you are unsure or you prefer not to answer. Each part needs three numeric ratings out of four for a mean. Fewer ratings show insufficient information, while its full general guide stays open.",
+        "zh": "可以。没有合适经历、不确定或不愿回答时，选未评分。每部分四条中至少三条数字才显示均值，不足时显示资料不足，但完整通用指南仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Optional progress stays in this browser tab for up to 24 hours and clears on completion, clearing or retake. Sharing copies only the public title and entry link. Answers and frequencies do not enter URLs, public shares or ordinary analytics.",
+        "zh": "进度可自行选择，仅在当前浏览器标签页最多保留24小时，完成、清除或重测即删除。分享只复制公开标题和入口，回答与频率不进入URL、公开分享或普通分析。"
+      }
+    }
+  ]
+}
