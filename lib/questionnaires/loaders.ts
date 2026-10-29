@@ -9,6 +9,7 @@ const loaders = {
   "dating-outlook": async () => (await import("./data/dating-outlook.json")).default as Questionnaire,
   "relationship-habits": async () => (await import("./data/relationship-habits.json")).default as Questionnaire,
   "intimacy-values": async () => (await import("./data/intimacy-values.json")).default as Questionnaire,
+  "written-coordination-practice": async () => (await import("./data/written-coordination-practice.json")).default as Questionnaire,
   "work-traits-reflection": async () => (await import("./data/work-traits-reflection.json")).default as Questionnaire,
   "work-activity-interests": async () => (await import("./data/work-activity-interests.json")).default as Questionnaire,
   "sbti-test": async () => (await import("./data/sbti-test.json")).default as Questionnaire,

@@ -6413,5 +6413,32 @@
       "sexual-attraction-breadth"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "written-coordination-practice",
+    "code": "FM_WRITTEN_COORDINATION32_30",
+    "version": "fm_written_coordination32_30_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Written Coordination Skills Practice",
+      "zh": "书面协调技能练习"
+    },
+    "description": {
+      "en": "Practise six original written tasks: 32 entry cards and 30 questions, with separate records and six full guides. No audio, hiring score or signup.",
+      "zh": "免费练习六项原创书面任务：32张录入卡、30道题，分别查看记录并阅读六篇完整指南。无音频、招聘分或注册要求。"
+    },
+    "minutes": 18,
+    "formCode": "fm_written_coordination32_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "entry",
+      "cross-reference",
+      "memory",
+      "priority",
+      "map",
+      "summary"
+    ],
+    "collection": "explore"
   }
 ]

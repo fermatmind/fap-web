@@ -1,0 +1,3120 @@
+{
+  "slug": "written-coordination-practice",
+  "code": "FM_WRITTEN_COORDINATION32_30",
+  "version": "fm_written_coordination32_30_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "written-coordination",
+  "coordination": {
+    "entry": {
+      "id": "entry",
+      "title": {
+        "en": "Fictional request-card entry",
+        "zh": "虚构请求卡录入"
+      },
+      "fields": [
+        {
+          "id": "card",
+          "title": {
+            "en": "Card code",
+            "zh": "卡片代码"
+          }
+        },
+        {
+          "id": "item",
+          "title": {
+            "en": "Requested item",
+            "zh": "所需物品"
+          }
+        },
+        {
+          "id": "zone",
+          "title": {
+            "en": "Location code",
+            "zh": "位置代码"
+          }
+        },
+        {
+          "id": "count",
+          "title": {
+            "en": "Quantity text",
+            "zh": "数量文本"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "WRITTEN_ENTRY_01",
+          "values": [
+            "FM-WC-0071",
+            "AMBER PANEL",
+            "ZONE-A01",
+            "007"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_02",
+          "values": [
+            "FM-WC-0084",
+            "BIRCH CLIP",
+            "ZONE-B01",
+            "016"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_03",
+          "values": [
+            "FM-WC-0097",
+            "COBALT FRAME",
+            "ZONE-C01",
+            "025"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_04",
+          "values": [
+            "FM-WC-0110",
+            "DUNE SLEEVE",
+            "ZONE-D01",
+            "034"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_05",
+          "values": [
+            "FM-WC-0123",
+            "ELM STRIP",
+            "ZONE-A02",
+            "043"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_06",
+          "values": [
+            "FM-WC-0136",
+            "FERN TAB",
+            "ZONE-B02",
+            "052"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_07",
+          "values": [
+            "FM-WC-0149",
+            "GARNET CASE",
+            "ZONE-C02",
+            "061"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_08",
+          "values": [
+            "FM-WC-0162",
+            "HAZEL ROLL",
+            "ZONE-D02",
+            "070"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_09",
+          "values": [
+            "FM-WC-0175",
+            "AMBER PANEL",
+            "ZONE-A03",
+            "079"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_10",
+          "values": [
+            "FM-WC-0188",
+            "BIRCH CLIP",
+            "ZONE-B03",
+            "005"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_11",
+          "values": [
+            "FM-WC-0201",
+            "COBALT FRAME",
+            "ZONE-C03",
+            "014"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_12",
+          "values": [
+            "FM-WC-0214",
+            "DUNE SLEEVE",
+            "ZONE-D03",
+            "023"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_13",
+          "values": [
+            "FM-WC-0227",
+            "ELM STRIP",
+            "ZONE-A04",
+            "032"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_14",
+          "values": [
+            "FM-WC-0240",
+            "FERN TAB",
+            "ZONE-B04",
+            "041"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_15",
+          "values": [
+            "FM-WC-0253",
+            "GARNET CASE",
+            "ZONE-C04",
+            "050"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_16",
+          "values": [
+            "FM-WC-0266",
+            "HAZEL ROLL",
+            "ZONE-D04",
+            "059"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_17",
+          "values": [
+            "FM-WC-0279",
+            "AMBER PANEL",
+            "ZONE-A05",
+            "068"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_18",
+          "values": [
+            "FM-WC-0292",
+            "BIRCH CLIP",
+            "ZONE-B05",
+            "077"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_19",
+          "values": [
+            "FM-WC-0305",
+            "COBALT FRAME",
+            "ZONE-C05",
+            "003"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_20",
+          "values": [
+            "FM-WC-0318",
+            "DUNE SLEEVE",
+            "ZONE-D05",
+            "012"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_21",
+          "values": [
+            "FM-WC-0331",
+            "ELM STRIP",
+            "ZONE-A06",
+            "021"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_22",
+          "values": [
+            "FM-WC-0344",
+            "FERN TAB",
+            "ZONE-B06",
+            "030"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_23",
+          "values": [
+            "FM-WC-0357",
+            "GARNET CASE",
+            "ZONE-C06",
+            "039"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_24",
+          "values": [
+            "FM-WC-0370",
+            "HAZEL ROLL",
+            "ZONE-D06",
+            "048"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_25",
+          "values": [
+            "FM-WC-0383",
+            "AMBER PANEL",
+            "ZONE-A07",
+            "057"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_26",
+          "values": [
+            "FM-WC-0396",
+            "BIRCH CLIP",
+            "ZONE-B07",
+            "066"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_27",
+          "values": [
+            "FM-WC-0409",
+            "COBALT FRAME",
+            "ZONE-C07",
+            "075"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_28",
+          "values": [
+            "FM-WC-0422",
+            "DUNE SLEEVE",
+            "ZONE-D07",
+            "001"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_29",
+          "values": [
+            "FM-WC-0435",
+            "ELM STRIP",
+            "ZONE-A08",
+            "010"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_30",
+          "values": [
+            "FM-WC-0448",
+            "FERN TAB",
+            "ZONE-B08",
+            "019"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_31",
+          "values": [
+            "FM-WC-0461",
+            "GARNET CASE",
+            "ZONE-C08",
+            "028"
+          ]
+        },
+        {
+          "id": "WRITTEN_ENTRY_32",
+          "values": [
+            "FM-WC-0474",
+            "HAZEL ROLL",
+            "ZONE-D08",
+            "037"
+          ]
+        }
+      ],
+      "profileId": "entry"
+    },
+    "sections": [
+      {
+        "id": "cross-reference",
+        "title": {
+          "en": "Two-step reference lookups",
+          "zh": "两步交叉查找"
+        },
+        "timeCapMs": 180000
+      },
+      {
+        "id": "memory",
+        "title": {
+          "en": "Recall after a short written exposure",
+          "zh": "短时呈现后的书面回忆"
+        },
+        "timeCapMs": 120000
+      },
+      {
+        "id": "priority",
+        "title": {
+          "en": "Apply a fictional ordering rule",
+          "zh": "按虚构规则排列"
+        },
+        "timeCapMs": 180000
+      },
+      {
+        "id": "map",
+        "title": {
+          "en": "Read an original schematic grid",
+          "zh": "阅读原创示意网格"
+        },
+        "timeCapMs": 180000
+      },
+      {
+        "id": "summary",
+        "title": {
+          "en": "Preserve facts in a written summary",
+          "zh": "在书面总结中保留事实"
+        },
+        "timeCapMs": 180000
+      }
+    ],
+    "studyMs": 15000,
+    "memoryText": {
+      "en": "Fictional coordination note: At 10:35, a BLUE CASE was logged at ALDER HALL. The requested destination was ROOM C7. Reference QX-417. Status: WAITING FOR CHECK. The note gives no statement about contents, urgency or a completed transfer.",
+      "zh": "Fictional coordination note: At 10:35, a BLUE CASE was logged at ALDER HALL. The requested destination was ROOM C7. Reference QX-417. Status: WAITING FOR CHECK. The note gives no statement about contents, urgency or a completed transfer."
+    },
+    "priorityRule": {
+      "en": "This fictional desk exercise uses only this ordering: BLOCKED work before DUE work before ROUTINE work. Within the same label, the earlier logged time comes first. These labels are artificial; do not use this rule for real emergency calls.",
+      "zh": "本虚构服务台练习只按以下规则：BLOCKED先于DUE，DUE先于ROUTINE；标签相同时，登记时间更早者优先。这些标签为人为设定，不可用于真实紧急呼叫。"
+    },
+    "grid": {
+      "columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "north": "row1",
+      "edges": {
+        "A1": [
+          "A2",
+          "B1"
+        ],
+        "A2": [
+          "A1",
+          "A3",
+          "B2"
+        ],
+        "A3": [
+          "A2",
+          "A4",
+          "B3"
+        ],
+        "A4": [
+          "A3",
+          "A5",
+          "B4"
+        ],
+        "A5": [
+          "A4",
+          "B5"
+        ],
+        "B1": [
+          "A1",
+          "B2",
+          "C1"
+        ],
+        "B2": [
+          "A2",
+          "B1",
+          "C2"
+        ],
+        "B3": [
+          "A3",
+          "B4",
+          "C3"
+        ],
+        "B4": [
+          "A4",
+          "B3",
+          "B5",
+          "C4"
+        ],
+        "B5": [
+          "A5",
+          "B4",
+          "C5"
+        ],
+        "C1": [
+          "B1",
+          "C2",
+          "D1"
+        ],
+        "C2": [
+          "B2",
+          "C1",
+          "C3",
+          "D2"
+        ],
+        "C3": [
+          "B3",
+          "C2",
+          "C4",
+          "D3"
+        ],
+        "C4": [
+          "B4",
+          "C3",
+          "C5"
+        ],
+        "C5": [
+          "B5",
+          "C4",
+          "D5"
+        ],
+        "D1": [
+          "C1",
+          "D2",
+          "E1"
+        ],
+        "D2": [
+          "C2",
+          "D1",
+          "D3",
+          "E2"
+        ],
+        "D3": [
+          "C3",
+          "D2",
+          "D4",
+          "E3"
+        ],
+        "D4": [
+          "D3",
+          "D5",
+          "E4"
+        ],
+        "D5": [
+          "C5",
+          "D4",
+          "E5"
+        ],
+        "E1": [
+          "D1",
+          "E2"
+        ],
+        "E2": [
+          "D2",
+          "E1",
+          "E3"
+        ],
+        "E3": [
+          "D3",
+          "E2",
+          "E4"
+        ],
+        "E4": [
+          "D4",
+          "E3",
+          "E5"
+        ],
+        "E5": [
+          "D5",
+          "E4"
+        ]
+      },
+      "blockedEdges": [
+        [
+          "B2",
+          "B3"
+        ],
+        [
+          "C4",
+          "D4"
+        ]
+      ],
+      "instructions": {
+        "en": "Each permitted horizontal or vertical segment is one block and works both ways. No diagonal travel. B2–B3 and C4–D4 are closed. Row 1 is north; column A is west. This is a fictional equal-length schematic, not a real street map.",
+        "zh": "每条允许的横向或纵向边为一个街段，均可双向通行，不走对角。B2–B3和C4–D4关闭。第1行在北、A列在西；这是等长虚构示意网格，不是真实街道图。"
+      }
+    }
+  },
+  "title": {
+    "en": "Written Coordination Skills Practice",
+    "zh": "书面协调技能练习"
+  },
+  "seoTitle": {
+    "en": "Six Written Coordination Exercises and Full Guides",
+    "zh": "六模块书面协调练习与完整指南"
+  },
+  "description": {
+    "en": "Practise six original written tasks: 32 entry cards and 30 questions, with separate records and six full guides. No audio, hiring score or signup.",
+    "zh": "免费练习六项原创书面任务：32张录入卡、30道题，分别查看记录并阅读六篇完整指南。无音频、招聘分或注册要求。"
+  },
+  "minutes": 18,
+  "introduction": {
+    "en": "Explore copying, two-step lookup, short written recall, a fictional ordering rule, a schematic grid and fact-preserving summaries. Each exercise is independent. Read all six complete guides before or after practising; this is not an official exam, an emergency-response protocol or a job qualification. The 18-minute editorial estimate covers instructions and one attempt at each module, not observed completion data. Optional full-guide reading time is additional.",
+    "zh": "练习复制、两步查找、短书面回忆、虚构规则排序、示意网格和保留事实的总结。各部分独立，可在练习前后读全部六篇完整指南；这不是官方考试、应急处置流程或岗位资格。18分钟为看说明加各模块一轮的编辑估计，不是实测完成数据；完整指南的可选阅读时间另计。"
+  },
+  "instructions": {
+    "en": "Choose one exercise. Entry always uses a fixed 60-second clock. For each of the five question modules, choose timed practice or untimed study before starting. Timed memory has a nominal 15-second exposure, then 120 seconds for six questions; visible-source study keeps the note available. Finish a question section explicitly or let its site cap expire; missing items stay unanswered. Do not enter real people, calls, locations or workplace records.",
+    "zh": "选择一项练习。录入始终采用固定60秒；五个问答模块均先选计时练习或不计时学习。计时记忆以15秒为呈现目标，再给120秒回答六题；可看来源学习保留原文。可明确结束问答部分，或等本站上限到时，缺失项仍为未答。不输入真实人物、来电、位置或工作记录。"
+  },
+  "resultHeading": {
+    "en": "Separate records for this practice",
+    "zh": "本次练习的独立记录"
+  },
+  "source": {
+    "kind": "fermatmind_original_written_coordination_entry32_mcq30",
+    "formCode": "fm_written_coordination32_30_v1",
+    "itemBankVersion": "original32_fourfield_cards_and30_english_questions_v1",
+    "scoringVersion": "separate_exact_entry60s_and5x6_CWU_site_caps_or_study_v1",
+    "resultContentVersion": "six_full_bilingual_written_coordination_guides_v1",
+    "itemBankSha256": "50012aa9d0f8684dc52ca211b2560c96fb5f6f1d64e0171582be7748072ce79e",
+    "resultContentSha256": "98d90e179d0e3b9c9ffc4c2e8a4f12d867372da4dd245c470d5d142b5a20d6ef",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "entry",
+      "title": {
+        "en": "Fictional request-card entry",
+        "zh": "虚构请求卡录入"
+      },
+      "itemCount": 32
+    },
+    {
+      "id": "cross-reference",
+      "title": {
+        "en": "Two-step reference lookups",
+        "zh": "两步交叉查找"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "memory",
+      "title": {
+        "en": "Recall after a short written exposure",
+        "zh": "短时呈现后的书面回忆"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "priority",
+      "title": {
+        "en": "Apply a fictional ordering rule",
+        "zh": "按虚构规则排列"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "map",
+      "title": {
+        "en": "Read an original schematic grid",
+        "zh": "阅读原创示意网格"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "summary",
+      "title": {
+        "en": "Preserve facts in a written summary",
+        "zh": "在书面总结中保留事实"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "WC_REF_01",
+      "prompt": {
+        "en": "Locations: ALDER-1 → Z01; BAY-1 → Z02; COVE-1 → Z03; DELL-1 → Z04\nGroups: Z04 → GROUP-12; Z03 → GROUP-11; Z02 → GROUP-14; Z01 → GROUP-13\nUse both fictional lists. Which group corresponds to BAY-1?",
+        "zh": "Locations: ALDER-1 → Z01; BAY-1 → Z02; COVE-1 → Z03; DELL-1 → Z04\nGroups: Z04 → GROUP-12; Z03 → GROUP-11; Z02 → GROUP-14; Z01 → GROUP-13\nUse both fictional lists. Which group corresponds to BAY-1?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "BAY-1 maps to Z02; that code maps to GROUP-14. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "BAY-1对应Z02，该代码再对应GROUP-14。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-11",
+            "zh": "GROUP-11"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-12",
+            "zh": "GROUP-12"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-13",
+            "zh": "GROUP-13"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-14",
+            "zh": "GROUP-14"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_REF_02",
+      "prompt": {
+        "en": "Locations: ALDER-2 → Z05; BAY-2 → Z06; COVE-2 → Z07; DELL-2 → Z08\nGroups: Z08 → GROUP-16; Z07 → GROUP-15; Z06 → GROUP-18; Z05 → GROUP-17\nUse both fictional lists. Which group corresponds to COVE-2?",
+        "zh": "Locations: ALDER-2 → Z05; BAY-2 → Z06; COVE-2 → Z07; DELL-2 → Z08\nGroups: Z08 → GROUP-16; Z07 → GROUP-15; Z06 → GROUP-18; Z05 → GROUP-17\nUse both fictional lists. Which group corresponds to COVE-2?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "COVE-2 maps to Z07; that code maps to GROUP-15. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "COVE-2对应Z07，该代码再对应GROUP-15。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-15",
+            "zh": "GROUP-15"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-16",
+            "zh": "GROUP-16"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-17",
+            "zh": "GROUP-17"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-18",
+            "zh": "GROUP-18"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_REF_03",
+      "prompt": {
+        "en": "Locations: ALDER-3 → Z09; BAY-3 → Z10; COVE-3 → Z11; DELL-3 → Z12\nGroups: Z12 → GROUP-20; Z11 → GROUP-19; Z10 → GROUP-22; Z09 → GROUP-21\nUse both fictional lists. Which group corresponds to DELL-3?",
+        "zh": "Locations: ALDER-3 → Z09; BAY-3 → Z10; COVE-3 → Z11; DELL-3 → Z12\nGroups: Z12 → GROUP-20; Z11 → GROUP-19; Z10 → GROUP-22; Z09 → GROUP-21\nUse both fictional lists. Which group corresponds to DELL-3?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "DELL-3 maps to Z12; that code maps to GROUP-20. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "DELL-3对应Z12，该代码再对应GROUP-20。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-19",
+            "zh": "GROUP-19"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-20",
+            "zh": "GROUP-20"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-21",
+            "zh": "GROUP-21"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-22",
+            "zh": "GROUP-22"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_REF_04",
+      "prompt": {
+        "en": "Locations: ALDER-4 → Z13; BAY-4 → Z14; COVE-4 → Z15; DELL-4 → Z16\nGroups: Z16 → GROUP-24; Z15 → GROUP-23; Z14 → GROUP-26; Z13 → GROUP-25\nUse both fictional lists. Which group corresponds to ALDER-4?",
+        "zh": "Locations: ALDER-4 → Z13; BAY-4 → Z14; COVE-4 → Z15; DELL-4 → Z16\nGroups: Z16 → GROUP-24; Z15 → GROUP-23; Z14 → GROUP-26; Z13 → GROUP-25\nUse both fictional lists. Which group corresponds to ALDER-4?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "ALDER-4 maps to Z13; that code maps to GROUP-25. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "ALDER-4对应Z13，该代码再对应GROUP-25。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-23",
+            "zh": "GROUP-23"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-24",
+            "zh": "GROUP-24"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-25",
+            "zh": "GROUP-25"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-26",
+            "zh": "GROUP-26"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_REF_05",
+      "prompt": {
+        "en": "Locations: ALDER-5 → Z17; BAY-5 → Z18; COVE-5 → Z19; DELL-5 → Z20\nGroups: Z20 → GROUP-28; Z19 → GROUP-27; Z18 → GROUP-30; Z17 → GROUP-29\nUse both fictional lists. Which group corresponds to BAY-5?",
+        "zh": "Locations: ALDER-5 → Z17; BAY-5 → Z18; COVE-5 → Z19; DELL-5 → Z20\nGroups: Z20 → GROUP-28; Z19 → GROUP-27; Z18 → GROUP-30; Z17 → GROUP-29\nUse both fictional lists. Which group corresponds to BAY-5?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "BAY-5 maps to Z18; that code maps to GROUP-30. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "BAY-5对应Z18，该代码再对应GROUP-30。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-27",
+            "zh": "GROUP-27"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-28",
+            "zh": "GROUP-28"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-29",
+            "zh": "GROUP-29"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-30",
+            "zh": "GROUP-30"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_REF_06",
+      "prompt": {
+        "en": "Locations: ALDER-6 → Z21; BAY-6 → Z22; COVE-6 → Z23; DELL-6 → Z24\nGroups: Z24 → GROUP-32; Z23 → GROUP-31; Z22 → GROUP-34; Z21 → GROUP-33\nUse both fictional lists. Which group corresponds to COVE-6?",
+        "zh": "Locations: ALDER-6 → Z21; BAY-6 → Z22; COVE-6 → Z23; DELL-6 → Z24\nGroups: Z24 → GROUP-32; Z23 → GROUP-31; Z22 → GROUP-34; Z21 → GROUP-33\nUse both fictional lists. Which group corresponds to COVE-6?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "COVE-6 maps to Z23; that code maps to GROUP-31. Both lookups are needed. The printed order of the second list does not change the code relationship.",
+        "zh": "COVE-6对应Z23，该代码再对应GROUP-31。应完成两次查找；第二列表的排列顺序不会改变代码关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GROUP-31",
+            "zh": "GROUP-31"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "GROUP-32",
+            "zh": "GROUP-32"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "GROUP-33",
+            "zh": "GROUP-33"
+          },
+          "directionId": "cross-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "GROUP-34",
+            "zh": "GROUP-34"
+          },
+          "directionId": "cross-reference"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_01",
+      "prompt": {
+        "en": "Which location was recorded?",
+        "zh": "Which location was recorded?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The fictional note states ALDER HALL. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是ALDER HALL；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ALDER HALL",
+            "zh": "ALDER HALL"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BIRCH HALL",
+            "zh": "BIRCH HALL"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ALDER STORE",
+            "zh": "ALDER STORE"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "COVE HALL",
+            "zh": "COVE HALL"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_02",
+      "prompt": {
+        "en": "What time was recorded?",
+        "zh": "What time was recorded?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The fictional note states 10:35. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是10:35；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10:25",
+            "zh": "10:25"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10:35",
+            "zh": "10:35"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10:53",
+            "zh": "10:53"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "11:35",
+            "zh": "11:35"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_03",
+      "prompt": {
+        "en": "Which object description appeared?",
+        "zh": "Which object description appeared?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The fictional note states BLUE CASE. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是BLUE CASE；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "GREEN CASE",
+            "zh": "GREEN CASE"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BLUE CART",
+            "zh": "BLUE CART"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "BLUE CASE",
+            "zh": "BLUE CASE"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BLACK CASE",
+            "zh": "BLACK CASE"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_04",
+      "prompt": {
+        "en": "What was the requested destination?",
+        "zh": "What was the requested destination?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The fictional note states ROOM C7. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是ROOM C7；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ROOM G7",
+            "zh": "ROOM G7"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ROOM C1",
+            "zh": "ROOM C1"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ROOM C7",
+            "zh": "ROOM C7"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ROOM C9",
+            "zh": "ROOM C9"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_05",
+      "prompt": {
+        "en": "Which reference appeared?",
+        "zh": "Which reference appeared?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The fictional note states QX-417. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是QX-417；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "QX-471",
+            "zh": "QX-471"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "QY-417",
+            "zh": "QY-417"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "QX-147",
+            "zh": "QX-147"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "QX-417",
+            "zh": "QX-417"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_MEM_06",
+      "prompt": {
+        "en": "What status was stated?",
+        "zh": "What status was stated?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The fictional note states WAITING FOR CHECK. The other alternatives change that detail. This checks recall of this familiar practice material, not a general memory capacity or a verified dispatcher skill.",
+        "zh": "虚构记录写的是WAITING FOR CHECK；其他选项改变了该细节。这只核对本份练习材料的回忆，不代表一般记忆容量或已验证调度能力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "READY FOR TRANSFER",
+            "zh": "READY FOR TRANSFER"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "WAITING FOR CHECK",
+            "zh": "WAITING FOR CHECK"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CHECK COMPLETED",
+            "zh": "CHECK COMPLETED"
+          },
+          "directionId": "memory"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "TRANSFER COMPLETED",
+            "zh": "TRANSFER COMPLETED"
+          },
+          "directionId": "memory"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_01",
+      "prompt": {
+        "en": "A: DUE, 09:02; B: BLOCKED, 09:08; C: ROUTINE, 08:50; D: DUE, 08:58\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: DUE, 09:02; B: BLOCKED, 09:08; C: ROUTINE, 08:50; D: DUE, 08:58\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Ticket B is first: apply the label order, then compare logged times only within the first available label. Its label is BLOCKED and its time is 09:08. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为B，标签BLOCKED、时间09:08。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_02",
+      "prompt": {
+        "en": "A: BLOCKED, 10:16; B: DUE, 10:01; C: BLOCKED, 10:09; D: ROUTINE, 09:51\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: BLOCKED, 10:16; B: DUE, 10:01; C: BLOCKED, 10:09; D: ROUTINE, 09:51\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Ticket C is first: apply the label order, then compare logged times only within the first available label. Its label is BLOCKED and its time is 10:09. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为C，标签BLOCKED、时间10:09。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_03",
+      "prompt": {
+        "en": "A: ROUTINE, 11:08; B: DUE, 11:12; C: ROUTINE, 10:59; D: DUE, 11:03\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: ROUTINE, 11:08; B: DUE, 11:12; C: ROUTINE, 10:59; D: DUE, 11:03\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Ticket D is first: apply the label order, then compare logged times only within the first available label. Its label is DUE and its time is 11:03. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为D，标签DUE、时间11:03。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_04",
+      "prompt": {
+        "en": "A: ROUTINE, 13:17; B: ROUTINE, 13:03; C: ROUTINE, 13:08; D: ROUTINE, 13:21\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: ROUTINE, 13:17; B: ROUTINE, 13:03; C: ROUTINE, 13:08; D: ROUTINE, 13:21\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Ticket B is first: apply the label order, then compare logged times only within the first available label. Its label is ROUTINE and its time is 13:03. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为B，标签ROUTINE、时间13:03。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_05",
+      "prompt": {
+        "en": "A: BLOCKED, 14:09; B: BLOCKED, 14:15; C: DUE, 13:40; D: BLOCKED, 14:11\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: BLOCKED, 14:09; B: BLOCKED, 14:15; C: DUE, 13:40; D: BLOCKED, 14:11\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Ticket A is first: apply the label order, then compare logged times only within the first available label. Its label is BLOCKED and its time is 14:09. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为A，标签BLOCKED、时间14:09。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_PRI_06",
+      "prompt": {
+        "en": "A: DUE, 15:21; B: ROUTINE, 15:00; C: DUE, 15:11; D: DUE, 15:13\nUsing the fictional rule only, which ticket comes first?",
+        "zh": "A: DUE, 15:21; B: ROUTINE, 15:00; C: DUE, 15:11; D: DUE, 15:13\nUsing the fictional rule only, which ticket comes first?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Ticket C is first: apply the label order, then compare logged times only within the first available label. Its label is DUE and its time is 15:11. An older lower-label ticket does not move ahead under this artificial exercise rule.",
+        "zh": "先按标签顺序，再仅在最高可用标签内比较登记时间，首张为C，标签DUE、时间15:11。按本练习的人为规则，较旧的低级标签单不会越过它。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "priority"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "priority"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_01",
+      "prompt": {
+        "en": "From A1 to C3, how many permitted segments are in a shortest route?",
+        "zh": "From A1 to C3, how many permitted segments are in a shortest route?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The shortest permitted route uses 4 segments. Count only connected horizontal and vertical edges and avoid the two closures. Equal-length alternative routes can exist; the question asks for distance, not a unique route. This count does not include traffic, travel time or real-world dispatch conditions.",
+        "zh": "最短允许路线为4个街段，只数连通横纵边并避开两处关闭。可能有多条同长度路线，本题问距离而非唯一走法，不含交通、用时或真实调度条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_02",
+      "prompt": {
+        "en": "From B2 to B3, how many permitted segments are in a shortest route?",
+        "zh": "From B2 to B3, how many permitted segments are in a shortest route?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The shortest permitted route uses 3 segments. Count only connected horizontal and vertical edges and avoid the two closures. Equal-length alternative routes can exist; the question asks for distance, not a unique route. This count does not include traffic, travel time or real-world dispatch conditions.",
+        "zh": "最短允许路线为3个街段，只数连通横纵边并避开两处关闭。可能有多条同长度路线，本题问距离而非唯一走法，不含交通、用时或真实调度条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_03",
+      "prompt": {
+        "en": "From C4 to D4, how many permitted segments are in a shortest route?",
+        "zh": "From C4 to D4, how many permitted segments are in a shortest route?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The shortest permitted route uses 3 segments. Count only connected horizontal and vertical edges and avoid the two closures. Equal-length alternative routes can exist; the question asks for distance, not a unique route. This count does not include traffic, travel time or real-world dispatch conditions.",
+        "zh": "最短允许路线为3个街段，只数连通横纵边并避开两处关闭。可能有多条同长度路线，本题问距离而非唯一走法，不含交通、用时或真实调度条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_04",
+      "prompt": {
+        "en": "Starting at E4, in which cardinal direction is E2?",
+        "zh": "Starting at E4, in which cardinal direction is E2?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Both nodes are in column E. Row 2 is above row 4, and the legend places row 1 to the north. E2 is therefore north of E4. This asks for position, not a travel-time estimate.",
+        "zh": "两点同在E列，第2行在第4行上方；图例规定第1行在北，因此E2在E4以北。本题问位置，不估行驶用时。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "EAST",
+            "zh": "EAST"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "SOUTH",
+            "zh": "SOUTH"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "NORTH",
+            "zh": "NORTH"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "WEST",
+            "zh": "WEST"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_05",
+      "prompt": {
+        "en": "From A1, which listed node is nearest by the fewest permitted segments?",
+        "zh": "From A1, which listed node is nearest by the fewest permitted segments?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "B1 is one permitted segment from A1. A4 takes 3, D3 takes 5 and E5 takes 8. These are schematic edge counts, not straight-line distances, traffic times or actual routing advice.",
+        "zh": "B1距A1一条允许街段；A4需3段、D3需5段、E5需8段。这里只数示意图边数，不算直线距离、交通时间或真实导航。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "D3",
+            "zh": "D3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A4",
+            "zh": "A4"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "E5",
+            "zh": "E5"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "B1",
+            "zh": "B1"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_MAP_06",
+      "prompt": {
+        "en": "Which node is at the intersection of column D and row 3?",
+        "zh": "Which node is at the intersection of column D and row 3?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Column D and row 3 identify D3. C3 changes the column, D2 changes the row and E3 changes the column. A closed street elsewhere does not rename a coordinate.",
+        "zh": "D列和第3行共同确定D3；C3和E3改变列，D2改变行。其他街段关闭不会改变坐标名称。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "C3",
+            "zh": "C3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "D2",
+            "zh": "D2"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "D3",
+            "zh": "D3"
+          },
+          "directionId": "map"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "E3",
+            "zh": "E3"
+          },
+          "directionId": "map"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_01",
+      "prompt": {
+        "en": "Fictional request AMBER: At 09:10, an item was logged at the west desk. The recorded issue was \"label missing\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request AMBER: At 09:10, an item was logged at the west desk. The recorded issue was \"label missing\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AMBER: 09:10, west desk; label missing; check requested, completion not stated.",
+            "zh": "AMBER: 09:10, west desk; label missing; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "AMBER: 09:10, west desk; label missing; check completed.",
+            "zh": "AMBER: 09:10, west desk; label missing; check completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "AMBER: 09:10, west desk; no issue reported; transfer completed.",
+            "zh": "AMBER: 09:10, west desk; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "AMBER: 08:00, west desk; label missing; check requested, completion not stated.",
+            "zh": "AMBER: 08:00, west desk; label missing; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_02",
+      "prompt": {
+        "en": "Fictional request BIRCH: At 10:25, an item was logged at the north shelf. The recorded issue was \"count not checked\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request BIRCH: At 10:25, an item was logged at the north shelf. The recorded issue was \"count not checked\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "BIRCH: 10:25, north shelf; count not checked; check completed.",
+            "zh": "BIRCH: 10:25, north shelf; count not checked; check completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BIRCH: 10:25, north shelf; no issue reported; transfer completed.",
+            "zh": "BIRCH: 10:25, north shelf; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "BIRCH: 08:00, north shelf; count not checked; check requested, completion not stated.",
+            "zh": "BIRCH: 08:00, north shelf; count not checked; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BIRCH: 10:25, north shelf; count not checked; check requested, completion not stated.",
+            "zh": "BIRCH: 10:25, north shelf; count not checked; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_03",
+      "prompt": {
+        "en": "Fictional request COBALT: At 11:40, an item was logged at the east room. The recorded issue was \"cover open\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request COBALT: At 11:40, an item was logged at the east room. The recorded issue was \"cover open\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "COBALT: 11:40, east room; no issue reported; transfer completed.",
+            "zh": "COBALT: 11:40, east room; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "COBALT: 08:00, east room; cover open; check requested, completion not stated.",
+            "zh": "COBALT: 08:00, east room; cover open; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "COBALT: 11:40, east room; cover open; check requested, completion not stated.",
+            "zh": "COBALT: 11:40, east room; cover open; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "COBALT: 11:40, east room; cover open; check completed.",
+            "zh": "COBALT: 11:40, east room; cover open; check completed."
+          },
+          "directionId": "summary"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_04",
+      "prompt": {
+        "en": "Fictional request DUNE: At 13:05, an item was logged at the south counter. The recorded issue was \"date unclear\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request DUNE: At 13:05, an item was logged at the south counter. The recorded issue was \"date unclear\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "DUNE: 08:00, south counter; date unclear; check requested, completion not stated.",
+            "zh": "DUNE: 08:00, south counter; date unclear; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "DUNE: 13:05, south counter; date unclear; check requested, completion not stated.",
+            "zh": "DUNE: 13:05, south counter; date unclear; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "DUNE: 13:05, south counter; date unclear; check completed.",
+            "zh": "DUNE: 13:05, south counter; date unclear; check completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "DUNE: 13:05, south counter; no issue reported; transfer completed.",
+            "zh": "DUNE: 13:05, south counter; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_05",
+      "prompt": {
+        "en": "Fictional request ELM: At 14:20, an item was logged at the central desk. The recorded issue was \"code unreadable\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request ELM: At 14:20, an item was logged at the central desk. The recorded issue was \"code unreadable\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ELM: 14:20, central desk; code unreadable; check requested, completion not stated.",
+            "zh": "ELM: 14:20, central desk; code unreadable; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ELM: 14:20, central desk; code unreadable; check completed.",
+            "zh": "ELM: 14:20, central desk; code unreadable; check completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ELM: 14:20, central desk; no issue reported; transfer completed.",
+            "zh": "ELM: 14:20, central desk; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ELM: 08:00, central desk; code unreadable; check requested, completion not stated.",
+            "zh": "ELM: 08:00, central desk; code unreadable; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        }
+      ]
+    },
+    {
+      "id": "WC_SUM_06",
+      "prompt": {
+        "en": "Fictional request FERN: At 15:35, an item was logged at the annex shelf. The recorded issue was \"seal unconfirmed\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?",
+        "zh": "Fictional request FERN: At 15:35, an item was logged at the annex shelf. The recorded issue was \"seal unconfirmed\". A check was requested. The note does not say that the check or a transfer has been completed.\nWhich summary preserves the stated facts without adding a completed action?"
+      },
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The matching summary retains the reference, time, place, recorded issue and requested check while preserving the unknown completion state. The alternatives invent completion, remove the issue or change the time. A request is not evidence that the action happened.",
+        "zh": "正确总结保留参考码、时间、地点、所记问题和核对请求，同时保留完成状态未知。其他选项编造完成、抹去问题或改变时间；提出请求不证明行动已经发生。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "FERN: 15:35, annex shelf; seal unconfirmed; check completed.",
+            "zh": "FERN: 15:35, annex shelf; seal unconfirmed; check completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "FERN: 15:35, annex shelf; no issue reported; transfer completed.",
+            "zh": "FERN: 15:35, annex shelf; no issue reported; transfer completed."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "FERN: 08:00, annex shelf; seal unconfirmed; check requested, completion not stated.",
+            "zh": "FERN: 08:00, annex shelf; seal unconfirmed; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "FERN: 15:35, annex shelf; seal unconfirmed; check requested, completion not stated.",
+            "zh": "FERN: 15:35, annex shelf; seal unconfirmed; check requested, completion not stated."
+          },
+          "directionId": "summary"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "entry",
+      "directionIds": [
+        "entry"
+      ],
+      "title": {
+        "en": "Copying Fictional Request Cards",
+        "zh": "复制虚构请求卡"
+      },
+      "headline": {
+        "en": "Accuracy needs a stated denominator, and output needs a stated clock.",
+        "zh": "准确率需要明确分母，产量需要明确时段。"
+      },
+      "summary": {
+        "en": "Read final-field matching and one-minute output without treating parcel or request-card practice as dispatcher qualification.",
+        "zh": "理解最终字段匹配和一分钟产量，不把包裹或请求卡练习当成调度员资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Copying Fictional Request Cards | Written Practice Guide",
+          "zh": "复制虚构请求卡：完整书面练习指南"
+        },
+        "description": {
+          "en": "Read final-field matching and one-minute output without treating parcel or request-card practice as dispatcher qualification.",
+          "zh": "理解最终字段匹配和一分钟产量，不把包裹或请求卡练习当成调度员资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Know what this small exercise records",
+            "zh": "先了解这个小练习记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This module presents thirty-two fictional request cards, each with four printed fields. You copy those values into the corresponding inputs during one fixed sixty-second interval. The source contains no real person, address or emergency call. The record describes what you entered on this device under these conditions. It does not establish that you can handle live calls, interpret spoken information or enter unfamiliar workplace records reliably over a longer shift.",
+              "zh": "本模块给出32张虚构请求卡，每张四个印刷字段，在固定60秒内复制到相应输入框。来源不含真人、真实地址或紧急呼叫。记录只描述本设备、本条件下的录入，不证明能处理真实呼叫、理解语音，或在更长班次可靠录入陌生工作记录。"
+            },
+            {
+              "en": "Both interface languages use the same original English values and codes. Keeping those strings fixed allows the exercise to check identical targets, but it does not create equivalent performance conditions for every reader. Familiarity with English, the keyboard and the device may matter. Use only the fictional values shown; entering your own details is unnecessary. This is an original written coordination exercise, not an official CritiCall form or a certified keyboard assessment.",
+              "zh": "两种界面语言使用相同原创英文值和代码，以核对相同目标，但不代表每位读者的表现条件等值。英文、键盘和设备熟悉度都可能有关。只需输入显示的虚构值，无须自己的资料。这是原创书面协调练习，不是官方CritiCall题本或键盘认证。"
+            }
+          ]
+        },
+        {
+          "id": "denominator",
+          "title": {
+            "en": "Distinguish attempted records from merely visible records",
+            "zh": "分清已尝试和仅显示的记录"
+          },
+          "paragraphs": [
+            {
+              "en": "A record enters the accuracy calculation when you commit an edit in any field or explicitly include the record while moving forward. All four fields of that record then count, including blanks. Merely viewing an untouched record does not add its fields. Later records that you never reach are also excluded. This makes the denominator inspectable; it does not award full accuracy for work that was never entered or establish a completion rate for every available card.",
+              "zh": "任一字段提交改动，或前进时明确将该卡纳入后，整张卡四字段都进入准确率，包括空白。只显示但未触及的卡不加入，未到达后续卡也排除。这让分母可核对，但不给未录入工作满分，也不代表全部可用卡的完成率。"
+            },
+            {
+              "en": "For example, suppose two cards are included and six of their eight fields match exactly. Exact field accuracy is six divided by eight, or seventy-five percent. If no record is attempted, accuracy is unavailable rather than zero or one hundred percent. A high accuracy based on one card and the same accuracy based on several cards have different coverage. Read the number of considered records and fields next to the accuracy value.",
+              "zh": "例如纳入两张卡，共八字段，其中六项精确匹配，字段准确率就是6÷8＝75%。完全没有尝试时，准确率不可用，不显示零或百分之百。一张卡和多张卡得到相同准确率，覆盖数量不同，应同时读纳入记录数与字段数。"
+            }
+          ]
+        },
+        {
+          "id": "units",
+          "title": {
+            "en": "Keep character output separate from field accuracy",
+            "zh": "把字符产量与字段准确率分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Character KPH is the final number of entered characters during the sixty seconds multiplied by sixty. It is an hourly extrapolation from a one-minute exercise, not an observed hour of work. It counts final characters, not every physical keypress, correction or deleted character. If ninety characters remain in committed fields at the deadline, the displayed character KPH is five thousand four hundred. That arithmetic alone says nothing about how many fields were wholly correct.",
+              "zh": "字符KPH是60秒内最终录入字符数乘60，是一分钟练习的小时折算，不是实测一小时工作。只数最终字符，不数每次物理按键、修正或已删除字符。截止时若已提交字段中有90个字符，折算为5400字符KPH；单靠此数不知道多少整字段正确。"
+            },
+            {
+              "en": "Exact-field character KPH counts characters only in fields that match the complete target. Field accuracy instead counts matching fields relative to all considered fields. These are different units, and neither should be multiplied into an invented level. Completing every available card can also create a source ceiling. The exercise cannot infer how much more you would have typed with an unlimited supply of equally difficult records.",
+              "zh": "精确字段字符KPH只数完整匹配字段内的字符；字段准确率则比较匹配字段数和全部纳入字段数。两者单位不同，不应相乘制造等级。完成所有可用卡也可能遇到来源上限，练习无法推断若无限提供同难度记录还能录入多少。"
+            }
+          ]
+        },
+        {
+          "id": "matching",
+          "title": {
+            "en": "An exact comparison has narrow rules",
+            "zh": "精确匹配使用有限规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Case, spaces, leading zeros and punctuation need to match the target after Unicode NFC normalization. A numeric-looking quantity remains a text field: 007 and 7 are different target strings in this exercise. An entire field either matches or does not; there is no partial-field accuracy credit. This is a declared checking rule for the fictional cards, not a statement that every real organization should preserve or reject the same formatting.",
+              "zh": "Unicode NFC规范化后，大小写、空格、前导零和标点都需与目标相同。看似数字的数量仍是文本字段，本练习中007与7不同。整字段要么匹配要么不匹配，不给字段部分准确分。这是虚构卡的既定核对规则，不代表每个真实组织都应采用相同格式处理。"
+            },
+            {
+              "en": "The difference labels describe final text, not the cause of a mistake. Blank, case-or-space difference, an adjacent transposition, omitted characters, added characters and other differences are checked in a stated order. A label cannot diagnose attention, carelessness or a reading difficulty. Reviewing the specific fictional target and the checking rule is more informative than treating a category count as a description of your general ability.",
+              "zh": "差异标签描述最终文本，不判断失误原因。依次检查空白、大小写或空格、相邻颠倒、漏字、多字及其他差异。标签不能诊断注意、粗心或阅读困难；查看具体虚构目标和规则，比把类别数量当成一般能力描述更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "clock",
+          "title": {
+            "en": "The deadline defines which edits are admitted",
+            "zh": "截止时间决定接纳哪些改动"
+          },
+          "paragraphs": [
+            {
+              "en": "The full sixty seconds are required for the minute-based output calculation, even if you reach the last card early. Corrections remain possible inside the interval, and time spent making them stays inside the clock. An edit arriving after the deadline is not admitted to the record. The page checks the deadline before accepting input; the visible countdown is a display of that rule, rather than a reason to accept a late response.",
+              "zh": "即使提前到末卡，一分钟产量也需完整60秒。时段内允许修正，修正耗时仍算在内；截止后到达的改动不被接纳。页面在接受输入前检查截止，倒计时只是规则显示，不是接纳迟到回答的理由。"
+            },
+            {
+              "en": "Moving the page into the background, leaving it or detecting a substantial disagreement between clocks cancels the active timed exercise and clears it. This is a conservative way to avoid displaying an ambiguous timed record, not proof of cheating or a judgment about the user. Restart when the conditions suit you. Device interruptions, keyboard suggestions, input methods and accessibility tools can change the conditions and should remain part of any personal interpretation.",
+              "zh": "页面进入后台、离开，或检测到明显时钟不一致时，会取消并清空当前计时练习，以免显示含糊记录；这不是作弊证明或对使用者的判断。条件合适时可重来。设备中断、键盘建议、输入法及辅助工具都会改变条件，解释时应保留。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Review one field before chasing more output",
+            "zh": "追求更多产量前先核对一个字段"
+          },
+          "paragraphs": [
+            {
+              "en": "For a modest revision exercise, choose one fictional field and identify exactly which formatting rule applies. Try locating the target, entering it, checking it and moving to the next field without adding unrelated information. You can practise slowly outside a timed attempt before deciding whether to take another full minute. A clearer checking routine is a practical question to explore; this guide does not promise a particular speed gain or a transfer to another test.",
+              "zh": "可先挑一个虚构字段，辨认适用格式规则，再练习定位、录入、核对并移向下一字段，不补无关内容。可在计时之外慢慢练，再决定是否重做完整一分钟。更清楚的核对步骤值得探索，但本指南不承诺特定提速或迁移到另一测试。"
+            },
+            {
+              "en": "Keep actual work files, personal information and confidential records outside the exercise. Do not disable an organization’s required checks to improve a practice number. If you compare attempts privately, note whether the source is now familiar and whether the device, input method or allowed assistance changed. A repeated known bank can become easier through familiarity; a higher output on it is not independent evidence of a broader work capability.",
+              "zh": "真实工作文件、个人资料和机密记录都留在练习之外，不为提高数字停用组织必需核查。私下比较时，应记录来源是否已熟悉、设备、输入法或辅助条件是否变化。重复已知题库可能因熟悉变容易，产量上升不是更广工作能力的独立证据。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Finish with a bounded description",
+            "zh": "以有边界的描述结束"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful description might be: in one sixty-second round, these many records and fields were considered, these many fields matched, and this many final characters remained. Preserve all of those quantities instead of reducing them to a pass, rank or hiring level. This module has no established norms, job-performance prediction or cross-language measurement equivalence. It does not reproduce audio entry, simultaneous emergency messages or an agency’s actual selection procedure.",
+              "zh": "有用描述可以是：某次60秒纳入多少记录与字段、多少字段匹配、留下多少最终字符。应保留这些数量，不压成通过、排名或招聘等级。本模块未建立常模、工作表现预测或跨语言测量等值，也不复现语音录入、并发紧急消息或机构真实筛选流程。"
+            },
+            {
+              "en": "All six complete guides are public before practising, and unattempted modules remain explicitly unattempted. This reading is available even when you enter nothing. You may stop after reviewing the conditions, choose another original exercise or return another day without retaining a personal record here. Public sharing contains only the general title and entry link; raw field input is cleared and is not needed to read the complete explanation.",
+              "zh": "六篇完整指南练习前公开，未尝试模块明确保留未尝试。什么也没输入仍可阅读。本次可在回看条件后结束、选另一原创练习，或日后再来，不需在这里保存个人记录。公开分享只含通用标题和入口链接，原始字段输入会清除，阅读完整解释不需要它。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cross-reference",
+      "directionIds": [
+        "cross-reference"
+      ],
+      "title": {
+        "en": "Following Two Reference Lists",
+        "zh": "按两份列表完成查找"
+      },
+      "headline": {
+        "en": "Use the relationship named by the code, rather than its position on the screen.",
+        "zh": "按代码所指关系查找，不按屏幕排列位置猜。"
+      },
+      "summary": {
+        "en": "Read six original two-step lookups with explicit correct, wrong and unanswered counts, without a speed norm or work qualification.",
+        "zh": "回看六道原创两步查找，分别读正确、错误和未答数，不对照速度常模或工作资格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Following Two Reference Lists | Written Practice Guide",
+          "zh": "按两份列表完成查找：完整书面练习指南"
+        },
+        "description": {
+          "en": "Read six original two-step lookups with explicit correct, wrong and unanswered counts, without a speed norm or work qualification.",
+          "zh": "回看六道原创两步查找，分别读正确、错误和未答数，不对照速度常模或工作资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Two lookups form one chain",
+            "zh": "一次查找链需要两步"
+          },
+          "paragraphs": [
+            {
+              "en": "Each question supplies two small fictional reference lists. A named location points to a zone code, and that zone code points to a group. The task is to follow both relationships and choose the resulting group. All information required for the answer is printed in the exercise. There is no external directory to consult and no need to know real agency territories, addresses or dispatch arrangements.",
+              "zh": "每题提供两份虚构小列表：地点指向区域码，区域码再指向小组。任务是沿两段关系选择小组，所需信息都印在练习中。不用外部名录，也不需知道真实机构辖区、地址或调度安排。"
+            },
+            {
+              "en": "The lists may appear in different orders. That variation makes the relationship itself relevant: a zone on the second row of one list need not correspond to the group on the second row of the other list. This module checks answers to these six particular lookups. It does not establish a general ability to search unfamiliar databases, work with spoken requests or maintain accuracy while handling several tasks at once.",
+              "zh": "两份列表可能采用不同顺序，因此要关注关系本身；第一列表第二行的区域，不一定对应第二列表第二行的小组。本模块只核对这六次具体查找，不证明搜索陌生数据库、处理口头请求或并行多任务时保持准确的一般能力。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Carry the exact intermediate code",
+            "zh": "准确保留中间代码"
+          },
+          "paragraphs": [
+            {
+              "en": "Start by identifying the target location exactly, including its suffix. Read its zone code, then find that exact code in the group list before selecting an answer. A similar-looking code is not interchangeable with it. This is a small example of keeping an intermediate value stable between steps. The value is supplied, so the task is neither a test of outside knowledge nor an invitation to invent a missing connection.",
+              "zh": "先准确识别目标地点，包括后缀，读出区域码，再在小组列表找到完全相同的代码后选择。近似代码不能替换。这是在步骤间保留中间值的小例子。值由题目提供，不测试外部知识，也不邀请编造缺失关系。"
+            },
+            {
+              "en": "If a real directory were incomplete, it could be appropriate to ask its owner rather than guess. These original items instead declare complete single-valued relationships so that one answer is checkable. Do not generalize their completeness to actual workplace records. When reviewing a wrong practice answer, ask whether the target was identified correctly, whether the intermediate code was carried accurately and whether the second relationship was actually consulted.",
+              "zh": "真实名录若不完整，可能应询问负责人而非猜测。本原创题则明确给出完整单值关系，以便核对一个答案，不能把其完整性推广到真实工作记录。回看错答时，可分别问：目标是否找对、中间代码是否保留准确、第二段关系是否实际查过。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A reordered list changes the route of looking, not the relationship",
+            "zh": "重排改变查阅顺序，不改变关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional list in which COVE-7 points to Z29. A separate list says that Z29 points to GROUP-41, but its rows are ordered from the highest zone code to the lowest. GROUP-41 remains the answer even if its row is elsewhere on the screen. Choosing the group in the same visual row as COVE-7 would use an unsupported positional rule instead of the two printed relationships.",
+              "zh": "例如虚构列表中COVE-7指向Z29，另一列表写Z29指向GROUP-41，行序却从大区域码排向小区域码。无论屏幕上位于哪一行，答案仍是GROUP-41。直接选与COVE-7视觉同行的小组，就是使用了未给出的位次规则。"
+            },
+            {
+              "en": "You can use this example to describe a checking step without treating one correct response as a stable strength. The task may be familiar after a repeat, and a remembered answer need not involve the same search process. The exercise does not observe your eye movements or determine which strategy produced a choice. Its evidence is the selected answer under the declared conditions, together with the supplied explanation.",
+              "zh": "可用这个例子说明核对步骤，不把一次正确当成稳定优势。重复后可能已熟悉，记住答案未必还经历相同查找过程。本练习不观察视线，也不能判断选择由哪种策略产生；证据只是既定条件中的所选答案与给出的解析。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read six outcomes without inventing a level",
+            "zh": "阅读六项结果，不制造等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The module reports correct, wrong and unanswered counts, which add to six. An explicit leave-unanswered choice and an untouched item at the deadline both remain unanswered. They are not silently converted into a selected incorrect option. If you answer four items correctly, choose one wrong option and leave one unanswered, the record is four correct, one wrong and one unanswered. No percentile or pass estimate is calculated from that small set.",
+              "zh": "模块分别报告正确、错误和未答，三者合计六。明确留空及截止时未触及的题都保留未答，不暗中换成某个错误选项。例如四题正确、一题选错、一题留空，就记录4正确、1错误、1未答，不据此计算百分位或通过估计。"
+            },
+            {
+              "en": "The timed version has a site-defined three-minute cap. Untimed study is labelled separately because it allows a different opportunity to inspect the lists. A finished practice record can be useful without being comparable to another person’s record or an official assessment. The other modules use different tasks and units, so there is no average across them, no overall coordination score and no automatic declaration of a weakest personal skill.",
+              "zh": "计时版采用本站自定三分钟上限，不计时学习另行标明，因为可查阅列表的机会不同。练习记录可以有用，但未必能与别人或官方评估相比。其他模块任务、单位不同，因此不跨模块求平均、不算整体协调分，也不自动认定最弱个人技能。"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "title": {
+            "en": "The clock belongs to this practice edition",
+            "zh": "时钟属于本练习版本"
+          },
+          "paragraphs": [
+            {
+              "en": "The active timed section admits selections only before its deadline. When the cap is reached, the section closes and remaining items stay unanswered. Finishing earlier preserves the actual observed interval for that attempt rather than pretending that every person used the full cap. The site cap is an editorial exercise condition; it is not an official CritiCall time allowance, an employer standard or a validated processing-speed threshold.",
+              "zh": "计时部分只接纳截止前选择，到上限就关闭，剩余题保持未答。提前结束保留本次实际观察时段，不假装人人用满上限。本站上限是编辑设定的练习条件，不是官方CritiCall时限、雇主标准或已验证加工速度阈值。"
+            },
+            {
+              "en": "Backgrounding, leaving or a substantial disagreement between clocks clears the active timed section. You can restart or choose untimed study rather than interpreting an interrupted attempt. In study mode, the page does not manufacture a timed performance figure. Browser speed, screen size, zoom and accessibility tools may change how easy it is to inspect the material, so keep those conditions visible if you privately compare repeated attempts.",
+              "zh": "进入后台、离开或明显时钟不一致会清空活动计时部分。可以重来或选择不计时学习，不必解释被中断的尝试；学习模式不制造计时表现数字。浏览器速度、屏幕、缩放和辅助工具可能改变查阅难度，私下比较重做结果时应保留这些条件。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Check one link at a time with fictional material",
+            "zh": "用虚构材料逐段核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes review, write a small fictional location-to-code list and a code-to-group list on separate sheets. Reorder the second list and follow one chain slowly, checking the intermediate code before selecting a group. You can ask a willing partner to verify the chain from the same printed facts. This is a way to make the method explicit, not a promise that the exercise will improve a particular selection-test score.",
+              "zh": "低风险复习可在两张纸上分别写虚构地点到代码、代码到小组的列表，重排第二份后慢慢沿一条链核对。可请愿意协助的人按相同事实验证。此举使步骤明确，不承诺提高某项筛选测试分数。"
+            },
+            {
+              "en": "Use invented entries rather than private customer, staff or agency records. If you later try a workplace task, follow its permissions, source authority and checking requirements instead of importing this exercise’s simplified assumptions. A useful personal question is whether the lookup path was clear and whether any uncertainty needed clarification. You do not have to enter a real example or upload evidence to read this complete guide.",
+              "zh": "应编造条目，不用私人客户、员工或机构资料。日后处理真实任务，沿其权限、来源权威和核查要求执行，不搬用练习的简化假设。可问查找路径是否清楚、哪些不确定需澄清；阅读全文不要求输入真实实例或上传证据。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep this practice result in its proper scope",
+            "zh": "保留练习结果的适用范围"
+          },
+          "paragraphs": [
+            {
+              "en": "These six questions and their tables are original FermatMind content. They are not official test items, a secure exam or a validated measure of dispatcher readiness. The module has no established norm group, hiring validity or English–Chinese performance equivalence. English source codes remain identical across the two interfaces, while the instructions and full reading are bilingual. That design choice should not be mistaken for evidence that language has no effect on the task.",
+              "zh": "六题及列表由费马原创，不是官方试题、保密考试或已验证调度准备度测量。模块未建立常模、招聘效度或英中文表现等值。两种界面保留相同英文代码，说明与全文双语提供；这种设计不证明语言对任务没有影响。"
+            },
+            {
+              "en": "All six complete module guides remain public before any exercise and when you leave every module unattempted. You may end with one clearer checking step, recognize that the conditions were unsuitable or simply read without taking the exercise. Personal response text is not included in a public link, and the page does not require a saved profile. The useful conclusion remains a bounded account of this practice, rather than a label attached to the person.",
+              "zh": "六篇完整模块指南作答前及全部未尝试时均公开。可以在澄清一步核对后结束、承认条件不合适，或只阅读不练习。公开链接不含个人回答，也不要求保存画像。有用结论仍是这次练习的有限记录，而不是贴在人身上的标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "directionIds": [
+        "memory"
+      ],
+      "title": {
+        "en": "Recalling a Short Written Note",
+        "zh": "回忆一则短书面记录"
+      },
+      "headline": {
+        "en": "Distinguish a recall exercise from answering with the note still visible.",
+        "zh": "分清回忆练习和可看原文作答。"
+      },
+      "summary": {
+        "en": "Read six original note-detail questions after a short exposure, without inferring memory capacity, diagnosis or dispatcher readiness.",
+        "zh": "在短时呈现后回看六道原创细节题，不推断记忆容量、诊断或调度准备度。"
+      },
+      "seo": {
+        "title": {
+          "en": "Recalling a Short Written Note | Written Practice Guide",
+          "zh": "回忆一则短书面记录：完整书面练习指南"
+        },
+        "description": {
+          "en": "Read six original note-detail questions after a short exposure, without inferring memory capacity, diagnosis or dispatcher readiness.",
+          "zh": "在短时呈现后回看六道原创细节题，不推断记忆容量、诊断或调度准备度。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A short note is a particular source",
+            "zh": "短记录只是一个具体来源"
+          },
+          "paragraphs": [
+            {
+              "en": "The timed version shows one fictional written coordination note for fifteen seconds and then removes that visible card before six questions appear. The recall phase has its own two-minute cap. The questions ask about details explicitly supplied by that note, not about what would usually happen at work. This creates a small, declared practice condition. It does not reproduce listening to a caller, responding to concurrent messages or remembering information during an actual shift.",
+              "zh": "计时版先呈现一则虚构书面协调记录15秒，再移除可见记录卡，出现六个问题。回忆阶段另有两分钟上限，只问原文明确给出的细节，不问真实工作通常会怎样。这是一个小型明确练习条件，不复现听来电、回应并发信息或真实班次中的记忆。"
+            },
+            {
+              "en": "The source uses English codes and descriptions, with bilingual instructions and explanations. Experience with the wording, reading speed, device and display can affect what happens during the exposure. A correct or incorrect response cannot separate those influences from recollection itself. The result is therefore a record of these six answers in this edition, rather than a calibrated amount of memory or evidence of a medical or learning condition.",
+              "zh": "来源使用英文代码和描述，说明与解析双语提供。词语熟悉度、阅读速度、设备和显示都会影响呈现期间发生什么，正误不能把这些影响与回忆分开。因此结果是本版六次回答的记录，不是校准后的记忆量，也不是医疗或学习问题证据。"
+            }
+          ]
+        },
+        {
+          "id": "modes",
+          "title": {
+            "en": "Visible-source study is a different activity",
+            "zh": "可看原文学习是另一种活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Untimed study keeps the note available while you inspect the questions. That can help you understand how to distinguish stated facts from similar alternatives, but it is not scored or described as a timed recall trial. The page labels the selected mode alongside its separate correct, wrong and unanswered counts. Do not compare the two modes as if they offered the same exposure, time pressure or opportunity to consult the source.",
+              "zh": "不计时学习保留原文，可边看边核对问题，帮助区分已述事实与近似选项，但不称作计时回忆尝试。页面把模式与正确、错误、未答数一起标明，不能把两种模式当成呈现时间、压力和查阅机会相同。"
+            },
+            {
+              "en": "Neither mode proves which strategy you used. The page is a public practice tool rather than a secure examination or a proctoring system. Notes, another window, prior familiarity or other assistance can change the activity, and this exercise cannot reliably infer their use. If you revisit your own record, retain an honest description of the conditions rather than treating a number as independent evidence that no assistance or prior exposure was involved.",
+              "zh": "两种模式都不能证明实际使用的策略。页面是公开练习，不是保密考试或监考系统。笔记、其他窗口、先前熟悉程度和辅助方式都会改变活动，练习无法可靠推断是否使用。回看记录时，应保留诚实的条件描述，不把数字当成未获辅助或未先接触材料的独立证据。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Recollection should preserve uncertainty",
+            "zh": "回忆时应保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a different fictional note saying that a green folder was logged at the west counter at 09:20, with a review requested. A question about the time can be answered from that statement. A claim that the review was completed cannot be added merely because completion seems likely. The exercise asks for the supplied detail, not a plausible continuation of the story. Similar alternatives are useful for noticing which exact feature you recall and which you do not.",
+              "zh": "例如另一则虚构记录写：09:20在西柜台登记绿色文件夹，并请求复核。时间可由该句回答；不能因为完成似乎合理，就添加已完成复核。本练习问给定细节，不是故事合理续写。近似选项有助留意究竟记得哪个特征、哪些仍不确定。"
+            },
+            {
+              "en": "If the detail is not recalled, an explicit unanswered response preserves that fact without selecting a random alternative. A guess can also be recorded as the option you choose, but a correct guess does not establish that the original information was remembered. The tool observes only the answer, not the cognitive process behind it. Its explanations identify what the fictional note said so that you can review the evidence after the section ends.",
+              "zh": "若记不起细节，可明确留空，不必随机选。也可以选择猜测的选项，但猜对不证明记住了原文。工具只观察回答，不观察背后的认知过程。部分结束后的解析指出虚构记录写了什么，以便回看证据。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Six answers have a limited denominator",
+            "zh": "六次回答的分母有限"
+          },
+          "paragraphs": [
+            {
+              "en": "Correct, wrong and unanswered counts add to six. For example, three correct answers, one selected wrong answer and two unanswered items remain three separate quantities. Missing answers are not replaced with zero-valued personal traits, and the page does not select a memory type or severity label. An entirely unanswered completed section can still show the full explanation without pretending to know why the answers were missing.",
+              "zh": "正确、错误和未答合计六。例如三题正确、一题选错、两题未答，就保留三个数量。不把缺失替换成零分人格特质，不选记忆类型或严重度标签。完成时全部留空，仍可看全文，而不会假装知道为何缺失。"
+            },
+            {
+              "en": "The record has no norm group, percentile, age comparison, pass estimate or diagnostic threshold. It is not combined with entry output, map answers or other modules into an overall coordination level. A repeated score may reflect familiarity with the same note, different attention to one detail or changed conditions. The exercise cannot determine which explanation applies, so use it to formulate a smaller question rather than concluding that your general memory improved or declined.",
+              "zh": "记录没有常模、百分位、年龄比较、通过估计或诊断阈值，也不与录入产量、地图题或其他模块合成整体协调等级。重做分数可能反映同一记录更熟悉、关注了不同细节或条件变化，练习无法判断是哪种。因此应提出更小的问题，不直接断定一般记忆改善或下降。"
+            }
+          ]
+        },
+        {
+          "id": "clock",
+          "title": {
+            "en": "Separate the study phase from the answer deadline",
+            "zh": "分开呈现阶段和答题截止"
+          },
+          "paragraphs": [
+            {
+              "en": "In the timed version, the study card disappears when its fifteen-second interval ends, and the answer interval begins with its own clock. The card is removed from the visible and accessible exercise display during recall. This is a presentation rule, not a promise that a public browser bundle can keep practice material secret. After the section closes, the explanations can describe the source again so that the entire exercise remains reviewable.",
+              "zh": "计时版在15秒结束后移除记录卡，再用独立时钟开始答题阶段。回忆时，记录卡从可见及辅助阅读的练习显示中移除。这是呈现规则，不保证公开浏览器程序能把练习材料保密。部分结束后，解析可再次说明来源，使整份练习可复习。"
+            },
+            {
+              "en": "Selections are checked against the answer deadline before they enter the record. Reaching the cap closes the section, with untouched questions still unanswered. Moving into the background, leaving or detecting inconsistent clocks cancels the active timed section and clears it instead of displaying a questionable interval. A cancelled section is not interpreted as poor recall. You can restart or choose visible-source study when the timed conditions do not suit the situation.",
+              "zh": "选择进入记录前先检查答题截止，到上限关闭，未触及题仍未答。进入后台、离开或时钟不一致会取消并清空活动计时部分，避免显示存疑时段。取消不被解释为回忆差；计时条件不合适时，可重来或选可看原文学习。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Review a small invented note",
+            "zh": "回看一份小型虚构记录"
+          },
+          "paragraphs": [
+            {
+              "en": "For a low-stakes exercise away from the scored section, write a short invented note containing a place, a time and an object. Read it, put it aside and describe which details you can recall without adding a story. Then compare that description with the note and distinguish exact details from uncertainty. This is an optional way to inspect an exercise method; the guide does not promise a memory-training benefit or a transferable increase in test performance.",
+              "zh": "可在计分部分之外写一则含地点、时间和物品的短虚构记录，读后放开，描述记得哪些细节，不添加故事，再对照原文区分准确细节与不确定。这只是可选的练习方法回看，不承诺记忆训练效果或可迁移的测试表现提升。"
+            },
+            {
+              "en": "Use invented information rather than health history, real callers or private workplace records. You can stop if the exercise feels unsuitable; there is no need to create stress or extend the task to obtain a better number. In real work, approved notes and reference systems may be essential. This practice does not suggest withholding useful documentation from a task merely to demonstrate that you can remember it unaided.",
+              "zh": "使用虚构信息，不用健康史、真实来电者或私人工作记录。不合适可停止，不需制造压力或延长任务来得到更好数字。真实工作中，获准笔记和参照系统可能必不可少；本练习不建议为展示无辅助记忆而拒用任务所需文档。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "A practice page cannot diagnose memory",
+            "zh": "练习页面不能诊断记忆"
+          },
+          "paragraphs": [
+            {
+              "en": "The note, questions and readings are original FermatMind content, with no established clinical, hiring or dispatcher-readiness validity. The short written exposure is not an official test module or a replacement for an appropriately designed professional evaluation. Difficulty in this exercise alone cannot identify a disorder, explain an everyday concern or establish that someone is unsuitable for a role. Those conclusions require different information and a suitable process.",
+              "zh": "记录、题目和读法由费马原创，未建立临床、招聘或调度准备度效度。短时书面呈现不是官方模块，也不替代适当设计的专业评估。仅凭本练习困难不能识别障碍、解释日常担忧或判断岗位不适合；这些结论需要不同资料和合适过程。"
+            },
+            {
+              "en": "Every complete module guide is public before answering and remains open when all modules are unattempted. You can finish with a clearer distinction between recalled detail, a guess and an unknown, or simply read without practising. No personal note, saved profile or paid report is required. Sharing offers only the general title and entry link, and an exercise record is not included in the public guide that another person opens.",
+              "zh": "每份完整模块指南作答前公开，全部未尝试时也开放。可在分清记得的细节、猜测和未知后结束，也可只阅读不练习。不要求个人记录、保存画像或付费报告。分享只提供通用标题与入口链接，别人打开的公开指南不包含本次练习记录。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "directionIds": [
+        "priority"
+      ],
+      "title": {
+        "en": "Applying a Fictional Ordering Rule",
+        "zh": "应用虚构排序规则"
+      },
+      "headline": {
+        "en": "Use the stated label order, then its tie rule, without inventing urgency.",
+        "zh": "先按给定标签顺序，再按同级规则，不添加紧急程度。"
+      },
+      "summary": {
+        "en": "Review six original four-ticket choices using a fictional desk rule, without treating them as emergency triage or professional judgment.",
+        "zh": "按虚构服务台规则回看六道四单选择题，不当作应急分诊或专业判断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Applying a Fictional Ordering Rule | Written Practice Guide",
+          "zh": "应用虚构排序规则：完整书面练习指南"
+        },
+        "description": {
+          "en": "Review six original four-ticket choices using a fictional desk rule, without treating them as emergency triage or professional judgment.",
+          "zh": "按虚构服务台规则回看六道四单选择题，不当作应急分诊或专业判断。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "An exercise rule is a declared convention",
+            "zh": "练习规则是明确约定"
+          },
+          "paragraphs": [
+            {
+              "en": "This module gives an artificial ordering for fictional work tickets: BLOCKED before DUE before ROUTINE. Within the same label, an earlier logged time comes first. Each question provides four tickets and asks which one comes first under that rule. The words are labels in a small exercise. They are not descriptions of actual medical risk, legal obligations or the appropriate response to an emergency.",
+              "zh": "模块给虚构工作单设定顺序：BLOCKED先于DUE，DUE先于ROUTINE；同标签内登记时间更早者优先。每题四张单，按规则选首张。这些词只是小练习标签，不描述实际医疗风险、法律义务或紧急情况应如何回应。"
+            },
+            {
+              "en": "All required labels and times are printed in the question, and the ordering remains available while you answer. You do not need dispatcher experience or an outside policy to solve it. This design makes a particular rule-following answer checkable. It does not establish whether the rule would be useful in a real organization or whether a person can balance uncertain, competing demands during an actual call.",
+              "zh": "所需标签、时间都在题中，作答时可查看排序规则，不需调度经验或外部政策。此设计使特定遵循规则的答案可核对，不证明规则适合真实组织，也不证明能在实际来电中权衡不确定或冲突要求。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Apply the label before comparing times",
+            "zh": "先比较标签，再比较时间"
+          },
+          "paragraphs": [
+            {
+              "en": "First identify the earliest available label in the declared order. Compare times only among tickets with that label. An older ROUTINE ticket does not move ahead of a BLOCKED ticket merely because it has waited longer. Conversely, when every ticket has the same label, the time comparison decides the answer. Keeping the two steps separate avoids replacing the stated convention with an intuitive but different rule.",
+              "zh": "先找给定顺序中最高可用标签，只在该标签内比较时间。ROUTINE即使更旧，也不会仅因等待久就越过BLOCKED；若全部同标签，则由时间决定。分开两步，可避免把规定换成另一种直觉规则。"
+            },
+            {
+              "en": "A word such as blocked may have a different meaning in your own work. Set that meaning aside for these fictional questions and use the supplied convention. Do not carry the convention into real emergency handling, where current organizational procedures and appropriate trained judgment apply. The module is about checking a declared ordering on a closed set of facts, not deciding what real public-safety priorities should be.",
+              "zh": "“受阻”等词在实际工作中可能有其他含义，本题应按给定约定，不搬用自己的解释；也不能把该约定用于真实应急处理，真实任务应沿当前组织流程和适当专业判断。本模块只核对封闭事实上的既定排序，不决定真实公共安全优先级。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "The oldest ticket is not always first under this rule",
+            "zh": "按本规则，最旧的单不总排第一"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional set with one BLOCKED ticket logged at 10:15 and one DUE ticket logged at 09:40. Under the printed rule, the BLOCKED ticket comes first despite its later time. If another BLOCKED ticket was logged at 10:05, that earlier same-label ticket would precede it. The example demonstrates the two ordering steps; it does not recommend delaying a real request or treating a label as a complete account of someone’s needs.",
+              "zh": "例如一张BLOCKED登记于10:15，一张DUE登记于09:40；按题设，BLOCKED虽较晚仍先处理。若另有10:05的BLOCKED，则同标签内更早者排前。例子展示两步排序，不建议延迟真实请求，也不把标签当成他人需要的完整描述。"
+            },
+            {
+              "en": "The original questions avoid an unresolved tie for the first ticket. That is a property of the author’s small bank, not a promise that real queues will always contain a unique first choice. Real work may require clarifying missing information or following an escalation procedure. A useful review notices whether a wrong practice answer came from applying the label order incorrectly or comparing a time from the wrong group; the page cannot determine that cause for you.",
+              "zh": "原创题避免首位无法分出的并列，这是小题库的设计属性，不保证真实队列总有唯一首选。真实任务可能需澄清缺失信息或沿升级流程处理。回看时可区分标签顺序是否用错、是否拿了另一组时间比较，但页面不能代判错因。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Keep correct, wrong and unanswered separate",
+            "zh": "分别保留正确、错误和未答"
+          },
+          "paragraphs": [
+            {
+              "en": "The six questions produce three counts that add to six. A selected wrong ticket is different from an unanswered question, even though neither counts as correct. For example, two correct, two wrong and two unanswered responses are displayed separately. The page does not turn this pattern into a judgment style, a competence band or a statement about how much responsibility you should be given at work.",
+              "zh": "六题产生三项合计为六的数量。选错单与未答不同，虽都不算正确。例如两题正确、两题错误、两题未答，就分别展示，不换成判断风格、能力档位或应承担多少工作责任的结论。"
+            },
+            {
+              "en": "The site-defined timed cap is three minutes, with an untimed study alternative. The chosen mode and closure condition belong next to the counts. No overall average combines this record with character output, map responses or memory questions. These tasks have different units and have not been calibrated onto a shared performance scale. A practice count does not establish a percentile, employer pass probability or readiness for dispatch work.",
+              "zh": "本站计时上限三分钟，也可不计时学习，应把模式和结束条件与数量一起看。不会与字符产量、地图或记忆题求总体平均；任务单位不同，未校准到共同表现尺度。练习数量不证明百分位、雇主通过概率或调度工作准备度。"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "title": {
+            "en": "A deadline does not validate a decision rule",
+            "zh": "有截止时间不代表规则有效"
+          },
+          "paragraphs": [
+            {
+              "en": "The clock supplies a limited practice condition, not evidence that faster choices are safer or more appropriate. Before accepting a selection, the page checks whether the active deadline has passed. Expiration closes the section and leaves untouched questions unanswered. An earlier explicit finish records the observed interval rather than treating the entire cap as time actually used. These are local presentation and recording rules for this edition.",
+              "zh": "时钟提供有限练习条件，不证明更快选择更安全或适当。接纳选择前先检查截止；到时关闭，未触及题保留未答。明确提前结束保留实际观察时段，不把上限当实用时间。这些只是本版局部呈现与记录规则。"
+            },
+            {
+              "en": "Moving the page into the background, leaving it or detecting a significant clock disagreement cancels and clears the active timed section. That interruption is not interpreted as poor judgment. Untimed study is available when inspection without time pressure is more useful. Neither mode reproduces concurrent emergency-message handling, and the exercise does not observe a person’s emotional response, situational awareness or ability to coordinate real resources.",
+              "zh": "进入后台、离开或明显时钟不一致会取消并清空活动计时部分，不解释为判断差。若不计时查阅更有用，可选学习模式。两种模式都不复现并发紧急消息，也不观察情绪反应、情境意识或协调真实资源的能力。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Make a rule and its exception visible",
+            "zh": "让规则及其边界可见"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional review, make four fictional tickets and write the ordering next to them. Identify the first available label, then compare only the times inside that group. Change one time and check whether the first choice should change; then change one label and inspect the result again. A willing partner can verify each answer from the same declared facts. This is a transparent exercise, not a promise of improved judgment under stress.",
+              "zh": "可自制四张虚构单，把规则写在旁边，先找最高可用标签，再仅比较组内时间。改一个时间，看首选是否变化；再改一个标签重新核对。愿意协助的人可按同样事实验证。这是透明练习，不承诺提高压力下的判断。"
+            },
+            {
+              "en": "Use invented requests rather than actual calls, health information or confidential work tickets. Do not experiment with real routing decisions to improve a practice score. If a workplace rule is unclear, seek appropriate clarification through its existing channels. A useful lesson can be recognizing that a rule has a narrow scope and that applying it outside that scope would require different evidence, authority and information than this page supplies.",
+              "zh": "应使用编造请求，不用真实来电、健康信息或机密工单，不为提高练习分数试验真实路由决定。真实规则不清时，沿现有渠道适当澄清。有用收获可以只是识别规则范围有限，超范围应用需要本页未提供的证据、权限和信息。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "This is not an emergency-response protocol",
+            "zh": "本练习不是应急处置流程"
+          },
+          "paragraphs": [
+            {
+              "en": "The labels, cases and explanations are FermatMind originals. They are not official CritiCall decision rules, licensed exam questions or agency procedures. No hiring validity, operational safety validation, norm group or English–Chinese measurement equivalence has been established for this composition. The record can support a concrete discussion of how you applied one printed convention; it cannot certify that you made professionally appropriate decisions in a real situation.",
+              "zh": "标签、案例和解析由费马原创，不是官方CritiCall决策规则、获许可考试题或机构流程。本组合未建立招聘效度、运行安全验证、常模或英中文测量等值。记录可支持讨论怎样应用一项印刷约定，不能认证真实情境中的决定专业适当。"
+            },
+            {
+              "en": "All six complete readings are public before practising and remain available when every module is unattempted. You can stop after understanding this boundary or review another task without receiving a personal type. Public sharing contains only the general title and entry link, without your responses or counts. The useful endpoint is a limited account of the fictional exercise, together with the conditions and uncertainties that keep it from becoming a broader judgment about the person.",
+              "zh": "六篇完整读法练习前公开，全部未尝试时仍可阅读。理解边界后即可结束，或看另一任务，不接收个人类型。公开分享只有通用标题和入口，不含回答与数量。有用终点是虚构练习的有限记录，以及使其不能升级为个人广泛判断的条件和未知。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "directionIds": [
+        "map"
+      ],
+      "title": {
+        "en": "Reading an Original Grid",
+        "zh": "阅读原创示意网格"
+      },
+      "headline": {
+        "en": "Check the legend, permitted links and distance definition before choosing.",
+        "zh": "选择前先核图例、允许连线和距离定义。"
+      },
+      "summary": {
+        "en": "Review original grid questions on distance, direction, nearest points and coordinates, without real navigation or dispatcher qualification.",
+        "zh": "回看距离、方位、最近点和坐标题，不作真实导航或调度资格判断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading an Original Grid | Written Practice Guide",
+          "zh": "阅读原创示意网格：完整书面练习指南"
+        },
+        "description": {
+          "en": "Review original grid questions on distance, direction, nearest points and coordinates, without real navigation or dispatcher qualification.",
+          "zh": "回看距离、方位、最近点和坐标题，不作真实导航或调度资格判断。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A schematic declares its own geometry",
+            "zh": "示意图采用自己的几何约定"
+          },
+          "paragraphs": [
+            {
+              "en": "The exercise uses a fictional five-by-five grid. Columns A through E run west to east, and rows 1 through 5 run north to south. Every allowed horizontal or vertical link counts as one segment and can be travelled in both directions. Diagonal movement is excluded. These conventions make the small questions checkable. They do not describe an actual town, the physical length of a street or the conditions under which a vehicle could travel.",
+              "zh": "练习采用虚构五乘五网格，A至E列自西向东，1至5行自北向南。每条允许的横纵连线算一段，均可双向通行，不走对角。约定让小题可核对，不描述真实城镇、街道实际长度或车辆通行条件。"
+            },
+            {
+              "en": "Two connections are closed: B2–B3 and C4–D4. A closed link removes that particular connection without removing or renaming either endpoint. The visual diagram and its written description express the same information. Use whichever format helps you inspect the facts. The six questions cover several operations on that one diagram; they are not a calibrated spatial-ability test or a complete simulation of dispatch map work.",
+              "zh": "两条连线关闭：B2–B3及C4–D4。关闭只移除该连线，不删除或改名端点。视觉图和文字描述表达相同信息，可用方便核查的形式。六题覆盖同图上的几种操作，不是校准后的空间能力测验或完整调度地图模拟。"
+            }
+          ]
+        },
+        {
+          "id": "distance",
+          "title": {
+            "en": "A route follows allowed edges",
+            "zh": "路线必须沿允许的边"
+          },
+          "paragraphs": [
+            {
+              "en": "For a shortest-route question, count permitted segments rather than drawing a straight line between endpoints. A route cannot cross either closure or use a diagonal shortcut. Moving to a neighbouring column or row normally adds one segment, but a closed connection may require going around through another row or column. The shortest distance is the smallest number of allowed segments among valid routes, not the first route that happens to catch your eye.",
+              "zh": "最短路题应数允许街段，不在端点间画直线；路线不能跨关闭边或走对角。移到邻行或邻列通常多一段，但关闭边可能要求绕经别的行列。最短距离是有效路线中的最少段数，不是第一眼看到的路线。"
+            },
+            {
+              "en": "Several routes may share the same minimum length. A distance question can therefore have one correct count without there being one uniquely correct route. The original answer key checks the count against the declared graph. This distinction matters when reviewing a response: a different route is not automatically wrong if it respects every connection and has the same minimum length. Actual travel time and real-world routing require information this equal-length exercise does not supply.",
+              "zh": "多条路线可能同样最短，因此距离题能有唯一正确数量，却没有唯一正确走法。原创答案按给定图核对数量。复习时应保留这一区别：不同路线若遵守连线且同样最短，不自动算错。真实用时和导航还需等长练习未提供的信息。"
+            }
+          ]
+        },
+        {
+          "id": "operations",
+          "title": {
+            "en": "Direction, proximity and coordinates ask different questions",
+            "zh": "方位、远近和坐标问的是不同内容"
+          },
+          "paragraphs": [
+            {
+              "en": "A direction question asks where one point lies relative to another under the legend. Moving from row 4 toward row 2 in the same column means moving north because row 1 is the northern edge. A coordinate question combines a column letter and row number to identify one node. Neither question requires choosing a shortest route. Read the requested operation before applying a method that was useful for a different question.",
+              "zh": "方位题问按图例，一点相对另一点在哪里；同列从第4行向第2行是向北，因为第1行在北端。坐标题结合列字母和行数字确定节点，两者都不要求选最短路线。应先看所问操作，不搬用另一题的解法。"
+            },
+            {
+              "en": "Nearest in this module means the fewest permitted segments from the named starting point. It does not mean the shortest straight-line distance or the quickest journey in traffic. Compare each offered destination using that same rule and account for the closures. A point that looks close on the page could require a detour. The original nearest-point question is constructed to have one best count among its alternatives, without an unresolved first-place tie.",
+              "zh": "本模块“最近”指从起点出发，允许街段数最少，不是直线距离或交通中最快。应按同一规则比较各目的地并考虑关闭边；看起来近的点可能需绕行。原创最近点题设计为选项中有一个最少数量，不留首位未分并列。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A closed edge does not erase its endpoints",
+            "zh": "关闭一边不会抹去端点"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a different fictional square with points A1, B1, A2 and B2, where A1–A2 is closed and the other three edges are open. Getting from A1 to A2 then takes three permitted segments through B1 and B2. A2 remains south of A1 under a north-at-row 1 legend, despite the detour. The route length and the relative position are two distinct facts about the same small diagram.",
+              "zh": "例如另一虚构方形含A1、B1、A2和B2，A1–A2关闭，其余三边开放。A1到A2需经B1、B2共三段；按第1行在北的图例，A2仍在A1以南。绕行长度与相对位置是同图上的两种不同事实。"
+            },
+            {
+              "en": "Use the example to check which fact a question requests before choosing an option. It does not show that a person who answers quickly has a better sense of direction or is suitable for navigation work. Familiarity with coordinate labels, diagram conventions and the particular bank can affect the exercise. The page does not observe the strategy you used, the route you considered or the source of a mistaken count.",
+              "zh": "可借例子核对题目到底问哪种事实，不据快速作答认定方向感更好或适合导航工作。坐标标签、图示约定和特定题库的熟悉度都可能影响表现。页面不观察所用策略、考虑过的路线或计数错误原因。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Read the six answers and their conditions",
+            "zh": "结合条件阅读六次回答"
+          },
+          "paragraphs": [
+            {
+              "en": "The result keeps correct, wrong and unanswered counts separately, adding to six. An unanswered item is not replaced with a selected wrong option, and an entirely unanswered completed section can still be reviewed. Each explanation identifies the relevant graph fact or operation. There is no map-reading type, norm percentile, professional level or pass prediction, and these counts are not averaged with the other modules’ different units.",
+              "zh": "结果分别保留正确、错误和未答，合计六。未答不换成已选错误；完成时全留空，也能复习。每条解析指出相关图事实或操作。没有地图类型、常模百分位、专业等级或通过预测，也不与其他模块的不同单位求平均。"
+            },
+            {
+              "en": "The timed mode uses a site-defined three-minute cap; untimed study has no performance clock. Selections are checked against the active deadline before they are accepted. Expiration closes the section and preserves untouched items as unanswered. Backgrounding, leaving or inconsistent clocks clear the active timed section rather than inventing a comparable interval. Those are recording conditions for the original exercise, not evidence of an official assessment’s timing or standards.",
+              "zh": "计时模式采用本站三分钟上限，不计时学习没有表现时钟。接纳选择前核截止，到时关闭，未触及项保留未答。后台、离开或时钟不一致会清空活动计时部分，不制造可比时段。这些是原创练习记录条件，不证明官方评估的时限或标准。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Inspect a tiny invented graph",
+            "zh": "核查一张小型虚构图"
+          },
+          "paragraphs": [
+            {
+              "en": "For optional practice, draw a small fictional grid and mark one closed edge. Write the permitted neighbours of each point, then compare two routes between the same endpoints by counting edges. Ask a willing partner to check the connections and whether a shorter route exists. You can also describe the graph in words and solve from that description. This makes the declared relationships inspectable without claiming to train a general spatial faculty.",
+              "zh": "可画一张小虚构网格，标一条关闭边，写各点可达邻点，再按边数比较相同端点间的两条路线。愿意协助的人可核查连线及是否还有更短路线，也可用文字描述图后解题。这让关系可核对，不宣称训练一般空间机能。"
+            },
+            {
+              "en": "Do not use the fictional diagram for a real journey, an operational route or an emergency response. No road conditions, traffic rules, vehicle constraints, access rights or live closures are represented. For actual work, rely on the authorized current information and applicable procedures. If those sources disagree, the appropriate next action may be clarification rather than improvising from a simplified practice rule. Keep real location information and private work details outside this page.",
+              "zh": "不把虚构图用于真实出行、运行路线或应急回应。它不包含路况、交规、车辆限制、通行权或实时封路。真实任务应使用获准最新信息和适用流程；来源冲突时，下一步可能是澄清，而不是按简化练习规则临时发挥。真实位置与私人工作信息留在本页之外。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "A diagram count is not a qualification",
+            "zh": "图上计数不是资格"
+          },
+          "paragraphs": [
+            {
+              "en": "The grid, questions and readings are original FermatMind material. They do not reproduce official CritiCall maps, items or scoring, and no vendor evidence validates this particular bank. It has no established hiring validity, norms or English–Chinese performance equivalence. The same coordinate codes appear across both interfaces, while wording is bilingual. That design does not prove equal task conditions for people using different languages, devices or accessibility tools.",
+              "zh": "网格、题目和读法由费马原创，不复制官方CritiCall地图、题目或计分，供应商证据不验证本题库。本版未建立招聘效度、常模或英中文表现等值；两种界面保留相同坐标代码并提供双语文字，不证明不同语言、设备或辅助工具使用者条件相同。"
+            },
+            {
+              "en": "All six complete readings are public before any exercise and stay open when every module is unattempted. You may finish by understanding one distinction between position and route length, or simply read without taking the section. No personal location, retained answer profile or paid report is required. A public link contains the general title and entry only; it does not contain your map answers, a route history or a statement about your suitability for a job.",
+              "zh": "六篇完整读法练习前公开，全部未尝试时也开放。可以在理解位置与路线长度的一项区别后结束，也可只读不练。不要求个人位置、保存答题画像或付费报告。公开链接仅含通用标题和入口，不含地图回答、路线历史或岗位适合结论。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "directionIds": [
+        "summary"
+      ],
+      "title": {
+        "en": "Keeping Facts in a Written Summary",
+        "zh": "在书面总结中保留事实"
+      },
+      "headline": {
+        "en": "Separate what the note says from an action it never confirms.",
+        "zh": "分清记录写了什么，以及从未确认的行动。"
+      },
+      "summary": {
+        "en": "Review six original written summaries for stated facts and unknown completion, without claiming listening skill or operational accuracy.",
+        "zh": "核对六道原创书面总结中的已述事实与未知完成状态，不推断听力或运行准确性。"
+      },
+      "seo": {
+        "title": {
+          "en": "Keeping Facts in a Written Summary | Written Practice Guide",
+          "zh": "在书面总结中保留事实：完整书面练习指南"
+        },
+        "description": {
+          "en": "Review six original written summaries for stated facts and unknown completion, without claiming listening skill or operational accuracy.",
+          "zh": "核对六道原创书面总结中的已述事实与未知完成状态，不推断听力或运行准确性。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read only this module’s units and conditions. Untouched work, missing answers and unattempted modules remain explicit. No overall, percentile, pass estimate or hiring level.",
+        "zh": "只按本模块单位与条件阅读，未触及记录、未答题和未尝试模块均明确保留。没有总体分、百分位、通过估计或招聘等级。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A summary should preserve the supplied account",
+            "zh": "总结应保留给定说明"
+          },
+          "paragraphs": [
+            {
+              "en": "Each question presents a short fictional written request and four possible summaries. The matching summary retains the stated reference, time, place, recorded issue and requested check without inventing a completed action. You read the source rather than hear a caller. The task therefore concerns these particular written details; it does not measure listening, note-taking during speech or an ability to handle a real person’s uncertain account.",
+              "zh": "每题给一则短虚构书面请求及四个总结。正确总结保留参考码、时间、地点、所记问题和核查请求，不编造已完成行动。来源靠阅读而非听来电，因此只核对这些书面细节，不测听力、边听边记或处理真人不确定说明的能力。"
+            },
+            {
+              "en": "The original source values are English, while instructions and explanations are bilingual. Words indicating a request or an unknown state matter as much as the visible codes and times. Language familiarity, reading conditions and prior exposure can affect the exercise. Keeping the source values unchanged across two interfaces does not establish equivalent performance conditions or make the questions a language-independent measure of a person’s general comprehension.",
+              "zh": "原创来源值使用英文，说明和解析双语提供。表示请求或未知状态的词，与代码和时间一样重要。语言熟悉度、阅读条件和先前接触可能影响表现；两种界面保留相同来源，不证明条件等值，也不使题目成为与语言无关的一般理解测量。"
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "en": "Requested does not mean completed",
+            "zh": "已请求不等于已完成"
+          },
+          "paragraphs": [
+            {
+              "en": "A source can say that a check was requested without saying whether it occurred. Preserving that unknown state is more accurate than adding completion because it sounds like a natural next step. Similarly, an issue being recorded is different from it being resolved. The exercise uses a deliberately closed source so that a matching summary can be checked. It asks you to retain the account, not infer the most likely outcome.",
+              "zh": "来源可写已请求核查，却未说是否进行了核查。保留未知，比因其像合理下一步就添加完成更准确。同样，问题被记录不同于问题已解决。练习刻意采用封闭来源，以便核对相符总结；要求保留说明，不推断最可能结果。"
+            },
+            {
+              "en": "This distinction does not require treating every real note as complete or authoritative. In actual work, missing or conflicting information may need clarification through the appropriate process. Here, however, the question supplies the facts to preserve and does not authorize you to add outside knowledge. When an alternative changes a time, removes an issue or claims a transfer happened, inspect whether the source actually supports that change before selecting it.",
+              "zh": "这种区别不要求把真实记录都视为完整或权威。实际工作中，缺失和冲突可能需沿适当流程澄清；本题则给出了要保留的事实，没有授权补外部知识。选项改时间、删问题或称已经转移时，应先核来源是否支持。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A plausible ending can still be unsupported",
+            "zh": "合理结尾也可能没有依据"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a different fictional request stating that a blue container was logged at the east desk at 12:10 and that its label needed checking. A summary saying the label was checked adds an event absent from that account. A summary saying there was no label issue removes a supplied concern. A faithful summary can remain short while retaining the time, place, recorded issue and the fact that completion was not stated.",
+              "zh": "例如另一则虚构请求写：12:10在东服务台登记蓝色容器，标签需要核对。总结若说标签已核对，就添加了原文没有的事件；若说没有标签问题，又删了给定关切。忠实总结可以简短，同时保留时间、地点、问题及未说明完成。"
+            },
+            {
+              "en": "Use the example to notice the difference between editing for clarity and changing the account. Different wording can preserve the same facts, while a familiar or fluent sentence can still be inaccurate. The original multiple-choice bank contains one matching alternative per item, but real summaries may have many acceptable phrasings. The page does not judge a person’s free writing, explain why an option was chosen or certify the quality of a real report.",
+              "zh": "可借例子分清澄清文字与改变说明。不同措辞能保留相同事实，熟悉或流畅的句子也可能不准确。原创选择题每题有一个相符选项，真实总结却可能有多种可接受表达。页面不评自由写作、不解释为何选择，也不认证真实报告质量。"
+            }
+          ]
+        },
+        {
+          "id": "score",
+          "title": {
+            "en": "Six choices remain six choices",
+            "zh": "六次选择仍只是六次选择"
+          },
+          "paragraphs": [
+            {
+              "en": "The display separates correct, wrong and unanswered counts, adding to six. A selected alternative that adds unsupported completion is a wrong response to that item; a skipped or untouched item is unanswered. These states are not silently merged. An entirely unanswered completed section still allows review of the source and explanations, without assigning a personal explanation for why you did not choose an option.",
+              "zh": "显示把正确、错误和未答分开，合计六。选择添加无依据完成的选项，是该题错答；跳过或未触及则是未答，不暗中合并。完成时全部未答，也可复习来源和解析，不替你解释为何没选。"
+            },
+            {
+              "en": "No comprehension type, norm percentile, hiring band or pass probability is inferred from the counts. They are also not combined with the entry, memory, priority or map records into an overall score. The modules have different conditions and units, and no shared calibrated performance scale has been established. Reviewing one changed fact can be more useful than treating a small difference in total correct as a stable personal strength or weakness.",
+              "zh": "不从数量推断理解类型、常模百分位、招聘档位或通过概率，也不与录入、记忆、排序、地图记录合成总体分。模块条件和单位不同，未建立共同校准的表现尺度。回看一项被改变的事实，可能比把正确数的小差异视为稳定长短处更有用。"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "title": {
+            "en": "Time limits are practice conditions",
+            "zh": "时限是练习条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed practice uses a site-defined three-minute cap for these six written items. The page checks the deadline before admitting a selection, and expiration closes the section with remaining items unanswered. An earlier explicit finish retains the observed interval for that attempt. This cap is not an official CritiCall limit or a professional documentation standard, and it does not establish how quickly a real account should be summarized.",
+              "zh": "计时练习为这六道书面题设本站三分钟上限；接纳选择前检查截止，到时关闭，剩余题未答。明确提前结束则保留本次观察时段。此上限不是官方CritiCall时限或专业文档标准，也不决定真实说明应多快总结。"
+            },
+            {
+              "en": "Untimed study allows you to compare the source and alternatives without a performance clock, and the chosen mode remains visible. Moving into the background, leaving or inconsistent clocks cancel and clear an active timed section. That cancelled activity is not interpreted as low comprehension. Browser speed, display size and assistance can change how the task is experienced, so preserve those conditions if you privately compare attempts rather than assuming every repetition was equivalent.",
+              "zh": "不计时学习允许无表现时钟地比较原文与选项，模式保持可见。后台、离开或时钟不一致会取消并清空活动计时部分，不解释为理解差。浏览器速度、屏幕和辅助方式会改变体验，私下比较时应保留条件，不默认每次等值。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Compare a short summary with its source",
+            "zh": "把简短总结与来源逐项对照"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional review, write a fictional note with a reference, time, location, issue and requested action. Draft one short summary and compare each stated fact with the note. Mark what is confirmed, what is merely requested and what remains unknown. A willing partner can check whether you added or removed a fact. The purpose is to make the comparison explicit, not to promise better workplace writing or a transfer to another assessment.",
+              "zh": "可写含参考码、时间、位置、问题和所请求行动的虚构记录，草拟短总结后逐项对照，标出已确认、仅请求和仍未知。愿意协助的人可检查是否增删事实。目的是让比较明确，不承诺改善工作写作或迁移到另一评估。"
+            },
+            {
+              "en": "Keep actual caller information, private conversations and confidential documents outside the exercise. Do not send a fictional practice summary through a real operational channel. For actual work, use the required format and appropriate verification, source authority and privacy procedures. A useful next action may be clarifying one missing detail with an authorized person rather than making a sentence appear more complete by filling the gap yourself.",
+              "zh": "真实来电者信息、私人谈话和机密文档都留在练习之外，不把虚构总结发入真实运行渠道。实际工作沿所需格式、核查、来源权威和隐私流程执行。下一步可能是向获准对象澄清一个缺失细节，而不是自行补空让句子看似完整。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "A written exercise cannot establish listening skill",
+            "zh": "书面练习不能证明听力"
+          },
+          "paragraphs": [
+            {
+              "en": "The transcripts, alternatives, keys and readings are FermatMind originals, not official test items or an authorized CritiCall simulation. There is no audio, live caller, concurrent alert or free-form summary scoring in this edition. No norm group, hiring validity, training-effect evidence or English–Chinese performance equivalence has been established. A correct choice supports only the narrow statement that the selected alternative matched this fictional source under the declared conditions.",
+              "zh": "记录、选项、答案和读法由费马原创，不是官方试题或获授权CritiCall模拟。本版没有音频、真实来电、并发提醒或自由总结评分，未建立常模、招聘效度、训练效果证据或英中文表现等值。答对只支持有限描述：既定条件下所选项与这份虚构来源相符。"
+            },
+            {
+              "en": "All six complete guides are public before you practise and when every module remains unattempted. You can end by recognizing one unsupported inference, choose another exercise or simply read without answering. No personal account, retained answer profile or purchase is required. Sharing contains the general title and entry link only, without response text or counts; the complete reading another person opens is the same public explanation available to everyone.",
+              "zh": "六篇完整指南练习前及全部未尝试时均公开。可在识别一个无依据推断后结束、选其他练习，或只读不答。不需个人经历、保存答题画像或购买。分享仅有通用标题和入口，不含回答或数量；别人打开的是人人相同的完整公开解释。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Six independent written exercises",
+        "zh": "六个独立书面练习"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose a module and start it independently. Entry supplies 32 fictional four-field cards for one fixed 60-second round. The other five modules each contain 6 original multiple-choice questions, with a site-timed or untimed study choice. Memory practice uses a nominal 15-second written exposure followed by a 120-second answer cap; study keeps the source visible and is labelled as visible-source study. Cross-reference, priority, map and summary timed caps are 180 seconds each. These are this site’s exercise conditions, not official test limits.",
+          "zh": "可独立选择并开始一个模块。录入部分提供32张虚构四字段卡，固定练习60秒；其余五部分各六道原创选择题，可选本站计时或不计时学习。记忆练习以15秒为目标呈现书面记录，再限120秒回答；学习模式保留原文，明确标作可看来源学习。交叉查找、排序、地图、总结各限180秒。这些是本站练习条件，不是官方时限。"
+        },
+        {
+          "en": "The stimuli are English, with bilingual instructions and explanations. No audio, live caller, simultaneous alert or operational emergency response is simulated. The map is a local fictional schematic, and the priority rule uses artificial work labels rather than medical or emergency triage. All six complete bilingual guides remain public before practising and when every module is unattempted.",
+          "zh": "题目材料为英文，说明与解析双语提供；没有音频、真实来电、并发提醒或真实应急回应。地图是本地虚构示意图，排序按人为工作标签，不做医疗或应急分诊。六篇完整双语指南在练习前及全部模块未尝试时均公开。"
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "title": {
+        "en": "Deadlines and interruptions remain explicit",
+        "zh": "明确保留截止和中断"
+      },
+      "paragraphs": [
+        {
+          "en": "The page checks an active deadline before accepting input. An expired multiple-choice section closes with untouched items unanswered. Entry needs its full 60-second interval even if all cards have been reached; output uses final committed fields only. During timed memory recall, the study card is removed from the visible and accessible exercise display. Observed exposure may differ slightly from the nominal target because the browser schedules updates; its end interval is recorded without a normative comparison.",
+          "zh": "接纳输入前先检查活动截止；选择题到时关闭，未触及项保留未答。录入即使提前到末卡，也需完整60秒，只按最终已提交字段计算产量。计时回忆时，记录卡从可见及辅助阅读的练习显示中移除。浏览器调度可能让实际呈现略偏目标，记录实际结束时段，不与常模比较。"
+        },
+        {
+          "en": "Moving to the background, leaving or a substantial clock disagreement clears the active timed exercise instead of displaying an ambiguous interval. You can restart or choose untimed study for the five question modules. The tool is not a secure exam or proctoring system. Public bank familiarity, devices, input methods and assistance can change conditions; the record cannot establish that two attempts were equivalent.",
+          "zh": "进入后台、离开或明显时钟不一致会清空活动计时练习，避免显示含糊时段。可重来，或为五个问答模块选择不计时学习。工具不是保密考试或监考系统；公开题库熟悉度、设备、输入法和辅助都会改变条件，记录不能证明两次尝试等值。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Keep each module’s units separate",
+        "zh": "各模块单位分别保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Entry reports considered records/fields, exact fields/records, field accuracy, final characters and separately defined character-KPH quantities. Character KPH means final characters in 60 seconds multiplied by 60, not physical keystrokes. Each question module reports correct, wrong and unanswered counts out of 6. An unattempted module stays unattempted, and no entry records means accuracy is unavailable rather than 0 or 100 percent.",
+          "zh": "录入分别报告纳入记录／字段、精确字段／记录、字段准确率、最终字符及定义清楚的字符KPH。字符KPH为60秒内最终字符数乘60，不是物理按键。问答模块各报六题中的正确、错误、未答数。未尝试模块仍为未尝试，未录任何记录时准确率不可用，不显示零或百分之百。"
+        },
+        {
+          "en": "There is no overall average, five-level result, pass estimate, percentile, weakest-trait label or hiring score. The modules have different tasks and units without a common calibrated scale. Six complete readings are the same for every response pattern. An original small practice bank and its time caps do not establish job suitability, training effectiveness or English–Chinese performance equivalence.",
+          "zh": "没有整体平均、五档结果、通过估计、百分位、最弱特质或招聘分。任务和单位不同，未在共同尺度校准。不同回答都可读相同六篇全文。原创小型题库及自定时限不证明岗位适合、训练效果或英中文表现等值。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Original material and memory-only privacy",
+        "zh": "原创材料与仅内存隐私"
+      },
+      "paragraphs": [
+        {
+          "en": "The cards, questions, map, keys and readings are FermatMind originals. Public CritiCall applicant materials provide background for distinguishing written practice from their own assessment; no official items, diagrams or decision rules were copied, and no vendor evidence validates this edition. The page is not affiliated with or endorsed by Biddle Consulting Group or CritiCall. Follow any real assessment’s own current instructions.",
+          "zh": "卡片、题目、地图、答案与读法由费马原创。公开CritiCall申请者材料仅用于区分书面练习与其正式评估，未复制官方题目、图示或决策规则，供应商证据不验证本版。页面与Biddle Consulting Group或CritiCall没有关联或背书；真实评估沿其自身当前说明。"
+        },
+        {
+          "en": "Use only the supplied fictional values. Exercise input stays in page memory, with no draft, answer submission, URL payload or flow statistics. Completion clears raw input; retake and exit-and-clear remove the relevant local record. Ordinary page analytics are disabled. Sharing contains only the general title and public entry link, with no responses, counts or workplace information.",
+          "zh": "只需所给虚构值；练习输入仅留页面内存，不存草稿、不提交答案、不写入URL、不采流程统计。完成清除原始输入，重做及退出并清除时删除相应本地记录。普通页面分析关闭；分享只含通用标题和公开入口，不含回答、数量或工作资料。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an official CritiCall practice test?",
+        "zh": "这是官方CritiCall练习吗？"
+      },
+      "answer": {
+        "en": "No. These are six original written coordination exercises. They do not reproduce an official test, its audio, concurrent alerts, items, norms or agency pass decisions. The vendor’s public applicant resources describe a different product and are linked for background only.",
+        "zh": "不是，这是六个原创书面协调练习，不复现官方测试、音频、并发提醒、题目、常模或机构通过决定。供应商公开申请者材料描述的是另一产品，链接仅供背景区分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to complete all six modules?",
+        "zh": "必须做完六个模块吗？"
+      },
+      "answer": {
+        "en": "No. Start a module independently or read every full guide without starting. Unattempted modules remain explicit and do not become zero scores. There is no overall average.",
+        "zh": "不用。可独立开始一部分，也可完全不开始就读全部指南。未尝试部分明确保留，不换成零分，也没有总体平均。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the memory study mode measure recall?",
+        "zh": "记忆的学习模式测回忆吗？"
+      },
+      "answer": {
+        "en": "The untimed option leaves the source visible and is labelled as visible-source study. Timed practice removes its visible study card before recall. The two conditions are different; neither is a validated measure of general memory capacity.",
+        "zh": "不计时选项保留原文，明确标作可看来源学习；计时练习在回忆前移除可见记录卡。条件不同，两者都不是已验证的一般记忆容量测量。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is character KPH a count of physical keystrokes?",
+        "zh": "字符KPH是物理按键次数吗？"
+      },
+      "answer": {
+        "en": "No. It is final committed characters in a full 60-second interval multiplied by 60. Deleted text and separate physical keypresses are not counted as output. Field accuracy and exact-field output remain separate quantities.",
+        "zh": "不是，它是完整60秒内最终已提交字符数乘60，不把删掉文字或单独物理按键当成产量；字段准确率和精确字段产量分别保留。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I apply the priority rule or map to real calls?",
+        "zh": "能把排序规则或地图用于真实来电吗？"
+      },
+      "answer": {
+        "en": "No. The labels and grid are fictional and deliberately limited. They are not emergency triage, navigation or an operational procedure. Real work requires the authorized current information and applicable professional processes.",
+        "zh": "不能。标签和网格均为范围有限的虚构设定，不是应急分诊、导航或运行流程；真实任务需要获准最新资料及适用专业流程。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will answers or personal details be saved or shared?",
+        "zh": "会保存或分享回答和个人资料吗？"
+      },
+      "answer": {
+        "en": "Input stays in page memory without drafts, answer submission or flow statistics. Use fictional values only. Raw input clears on completion, and exit-and-clear removes local records. Sharing offers the general public title and entry link only.",
+        "zh": "输入只留页面内存，不存草稿、不提交答案、不采流程统计，只需虚构值。完成清除原始输入，退出并清除删除本地记录。分享仅提供通用公开标题和入口链接。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "TestGenius: applicant preparation resources",
+        "zh": "TestGenius：申请者准备资源"
+      },
+      "url": "https://applicant.testgenius.com/knowledgebase/criticall"
+    },
+    {
+      "title": {
+        "en": "CritiCall: candidate preparation guide 2023",
+        "zh": "CritiCall：2023申请者准备指南"
+      },
+      "url": "https://criticall911.com/hubfs/Criticall-Website-Files/CritiCall_Candidate_Test_Preparation_Guide_2023.pdf"
+    },
+    {
+      "title": {
+        "en": "CritiCall: applicant FAQ, for product distinction",
+        "zh": "CritiCall：申请者常见问题，仅供产品区分"
+      },
+      "url": "https://criticall911.com/company/news/criticall-dispatcher-applicant"
+    }
+  ]
+}

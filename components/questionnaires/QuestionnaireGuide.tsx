@@ -1,3 +1,5 @@
+import { isWrittenCoordinationConfigurationValid } from "@/lib/questionnaires/writtenCoordination";
+import { WrittenCoordinationGuidePage } from "./WrittenCoordinationPage";
 import { WorkTraitsContext } from "./WorkTraitsReport";
 import { isWorkRole12ConfigurationValid } from "@/lib/questionnaires/workRole12";
 import { WorkActivityContext } from "./WorkActivityInterestsReport";
@@ -100,6 +102,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "written-coordination" && !isWrittenCoordinationConfigurationValid(quiz)) return { title: "Written practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sbti31" && !isSbti31ConfigurationValid(quiz)) return { title: "SBTI edition unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mattering10" && !isMattering10ConfigurationValid(quiz)) return { title: "Mattering unavailable", robots: { index: false, follow: false } };
   if (quiz?.slug === "cognitive-functions-test" && !isCognitiveFunctionsPageAvailable(quiz)) return { title: "Edition unavailable", robots: { index: false, follow: false } };
@@ -145,6 +148,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "written-coordination") {
+    if (!isWrittenCoordinationConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <WrittenCoordinationGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "sbti31") {
     if (!isSbti31ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
