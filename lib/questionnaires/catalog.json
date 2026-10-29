@@ -6545,5 +6545,31 @@
       "relaxed-edge"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "activity-engagement-patterns",
+    "code": "FM_ACTIVITY_ENGAGEMENT20",
+    "version": "fm_activity_engagement20_v1",
+    "updated": "2026-10-30",
+    "category": "everyday",
+    "title": {
+      "en": "Activity Engagement Patterns",
+      "zh": "活动参与方式观察"
+    },
+    "description": {
+      "en": "Explore self-starting, responding, varied interests, invited input and observing a setting through twenty original prompts. Five full guides free, with separate frequency means.",
+      "zh": "通过二十条原创陈述，观察自主发起、回应机会、兴趣切换、受邀贡献与环境观察。五项频率均值分别阅读，五篇全文免费。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_activity_engagement20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "self-starting",
+      "responding-to-opportunities",
+      "moving-between-interests",
+      "invited-contribution",
+      "observing-the-setting"
+    ],
+    "collection": "explore"
   }
 ]

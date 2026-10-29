@@ -1,0 +1,2202 @@
+{
+  "slug": "activity-engagement-patterns",
+  "code": "FM_ACTIVITY_ENGAGEMENT20",
+  "version": "fm_activity_engagement20_v1",
+  "updated": "2026-10-30",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "minutes": 4,
+  "title": {
+    "en": "Activity Engagement Patterns",
+    "zh": "活动参与方式观察"
+  },
+  "seoTitle": {
+    "en": "Activity Engagement Patterns: Five Full Reflection Guides",
+    "zh": "活动参与方式观察：五项独立均值与免费完整指南"
+  },
+  "description": {
+    "en": "Explore self-starting, responding, varied interests, invited input and observing a setting through twenty original prompts. Five full guides free, with separate frequency means.",
+    "zh": "通过二十条原创陈述，观察自主发起、回应机会、兴趣切换、受邀贡献与环境观察。五项频率均值分别阅读，五篇全文免费。"
+  },
+  "resultHeading": {
+    "en": "Your five separate activity-engagement readings",
+    "zh": "你的五项独立活动参与读法"
+  },
+  "introduction": {
+    "en": "An original reflection on ordinary, optional activities during the past four weeks. Five patterns can coexist without selecting a dominant role. All five full guides are free before answering. This is a self-report edition rather than a Human Design chart or type assessment; it requires no birth details.",
+    "zh": "这是对过去四周普通自选活动的原创观察。五种方式可以同时存在，不挑主导角色，五篇全文在作答前均已免费开放。本版记录自报经历，不作Human Design图表或类型评估，不需要出生信息。"
+  },
+  "instructions": {
+    "en": "Answer for yourself about the past four weeks and ordinary activities in which you had a genuine choice. Consider what you actually did, not what a role or tradition says you should do. Rate frequency from 1 Never to 5 Almost Always; 3 means Sometimes. Use Unscored when there was no suitable opportunity, you cannot judge or you prefer not to answer. A missing opportunity is not automatically Never. Choose a response for all twenty prompts. Each four-item part needs at least three numeric ratings: add the rated values, divide by their count and display one decimal. All items are direct, with zero reversals. Five means and all five complete guides remain separate, without a total, highest type, energy percentage or decision rule. Four minutes is an editorial estimate.",
+    "zh": "只为自己回想过去四周，有真实选择空间的普通活动。考虑实际怎样做，不按某个角色或传统声称应该怎样做来评价。用1从不到5几乎每次记录频率；3是有时。没有合适机会、无法判断或不愿回答时选未评分，机会不足不自动算从不。二十条都需选择响应。每项四条至少三条数值有效：把有效数值相加再除以有效条数，显示一位小数。全部直接计分、0反向。五项均值与五篇全文分别保留，不合总分、不选最高类型、不算能量百分比、不制定决策规则。四分钟为编辑估计。"
+  },
+  "source": {
+    "kind": "fermatmind-original-activity-engagement-frequency-reflection",
+    "formCode": "fermatmind_activity_engagement20",
+    "itemBankVersion": "fm-activity-engagement-20-v1",
+    "scoringVersion": "five-four-item-direct-frequency-means-min3-web-v1",
+    "resultContentVersion": "fm-activity-engagement-five-guides-v1",
+    "itemBankSha256": "c220b8d68830f53218f163e288c0992d7391d1f5d242303b95e88f97f1cc1a92",
+    "resultContentSha256": "f44e25eb277586049e1564da02c6b95ccff0486c48156cc7cc6fd436e8510099",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "self-starting",
+      "title": {
+        "en": "Self-Starting",
+        "zh": "自主发起"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "responding-to-opportunities",
+      "title": {
+        "en": "Responding to Opportunities",
+        "zh": "回应具体机会"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "moving-between-interests",
+      "title": {
+        "en": "Moving Between Interests",
+        "zh": "在不同兴趣间切换"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "invited-contribution",
+      "title": {
+        "en": "Invited Contribution",
+        "zh": "受邀贡献"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "observing-the-setting",
+      "title": {
+        "en": "Observing the Setting",
+        "zh": "先观察参与环境"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "AEP_001",
+      "prompt": {
+        "en": "When I had a choice of personal activities, I took a first small step on an idea of my own.",
+        "zh": "可以自行选择个人活动时，我会为自己的一个想法迈出小小第一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "self-starting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "self-starting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "self-starting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "self-starting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "self-starting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "self-starting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_002",
+      "prompt": {
+        "en": "I proposed an optional activity I wanted to try before someone else asked me to join one.",
+        "zh": "在别人邀请参加活动之前，我会提出一项自己想尝试的自选活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "self-starting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "self-starting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "self-starting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "self-starting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "self-starting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "self-starting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_003",
+      "prompt": {
+        "en": "For something within my own choice, I started a small trial without waiting for an invitation.",
+        "zh": "对于可以由自己决定的事情，我会不等邀请，先开始一次小尝试。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "self-starting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "self-starting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "self-starting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "self-starting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "self-starting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "self-starting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_004",
+      "prompt": {
+        "en": "After deciding that a personal idea interested me, I found a moment to begin it on my own.",
+        "zh": "确定对一个个人想法有兴趣后，我会自己找个时机开始。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "self-starting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "self-starting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "self-starting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "self-starting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "self-starting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "self-starting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_005",
+      "prompt": {
+        "en": "A concrete invitation or available activity helped me notice what I wanted to take part in.",
+        "zh": "具体邀请或已经出现的活动，会帮助我认出自己想参与什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_006",
+      "prompt": {
+        "en": "When several optional activities were available, I chose one that drew a clear response of interest.",
+        "zh": "有几项自选活动可参加时，我会选择一项让自己明确感到有兴趣的活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_007",
+      "prompt": {
+        "en": "Seeing a real opportunity made it easier for me to decide whether I wanted to engage.",
+        "zh": "看到实际机会时，我会更容易判断自己是否愿意投入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_008",
+      "prompt": {
+        "en": "I joined a personally chosen activity after responding to an offer that was already there.",
+        "zh": "我会先回应一个已经出现的邀约，再按自己的选择加入活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "responding-to-opportunities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_009",
+      "prompt": {
+        "en": "When I had free choice, I spent time on more than one optional interest rather than keeping to just one.",
+        "zh": "可以自由选择时，我会把时间用于不止一种自选兴趣，而不只留在一项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "moving-between-interests",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-between-interests",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-between-interests",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "moving-between-interests",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "moving-between-interests",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "moving-between-interests",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_010",
+      "prompt": {
+        "en": "I chose to move between different personal projects as my interest changed.",
+        "zh": "随着兴趣变化，我会主动在不同个人项目之间切换。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "moving-between-interests",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-between-interests",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-between-interests",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "moving-between-interests",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "moving-between-interests",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "moving-between-interests",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_011",
+      "prompt": {
+        "en": "I made room for two different interests within a stretch of time I could arrange myself.",
+        "zh": "在能够自行安排的一段时间里，我会给两种不同兴趣留出位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "moving-between-interests",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-between-interests",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-between-interests",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "moving-between-interests",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "moving-between-interests",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "moving-between-interests",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_012",
+      "prompt": {
+        "en": "A new curiosity led me to try another activity alongside something I was already exploring.",
+        "zh": "新的好奇会让我在已探索的事情之外，再试另一项活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "moving-between-interests",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "moving-between-interests",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "moving-between-interests",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "moving-between-interests",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "moving-between-interests",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "moving-between-interests",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_013",
+      "prompt": {
+        "en": "Before offering a suggestion about someone else’s optional activity, I checked whether they wanted my input.",
+        "zh": "对别人的自选活动提建议前，我会确认对方是否想听我的看法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invited-contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invited-contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invited-contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invited-contribution",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "invited-contribution",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "invited-contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_014",
+      "prompt": {
+        "en": "A clear request for my view helped me decide to contribute an observation.",
+        "zh": "对方明确想听我的看法时，我会更容易决定分享一个观察。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invited-contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invited-contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invited-contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invited-contribution",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "invited-contribution",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "invited-contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_015",
+      "prompt": {
+        "en": "When another person invited my contribution, I offered an idea while leaving the next choice to them.",
+        "zh": "别人邀请我贡献想法时，我会提出一个构思，并把下一步选择留给对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invited-contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invited-contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invited-contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invited-contribution",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "invited-contribution",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "invited-contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_016",
+      "prompt": {
+        "en": "I looked for a sign that my help was wanted before joining another person’s activity with advice.",
+        "zh": "带着建议参与别人的活动之前，我会先确认对方需要我的帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "invited-contribution",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "invited-contribution",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "invited-contribution",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "invited-contribution",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "invited-contribution",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "invited-contribution",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_017",
+      "prompt": {
+        "en": "Before joining an optional group activity, I took a moment to notice how people were working together.",
+        "zh": "加入一项自选集体活动前，我会先留意大家怎样一起参与。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "observing-the-setting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "observing-the-setting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "observing-the-setting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "observing-the-setting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "observing-the-setting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "observing-the-setting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_018",
+      "prompt": {
+        "en": "A change in a group’s atmosphere made me reconsider whether I wanted to take part.",
+        "zh": "群体氛围发生变化时，我会重新想想自己是否愿意参与。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "observing-the-setting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "observing-the-setting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "observing-the-setting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "observing-the-setting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "observing-the-setting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "observing-the-setting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_019",
+      "prompt": {
+        "en": "I compared more than one occasion before deciding which activity setting I wanted to join.",
+        "zh": "决定想加入哪种活动环境之前，我会比较不止一次实际场合。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "observing-the-setting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "observing-the-setting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "observing-the-setting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "observing-the-setting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "observing-the-setting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "observing-the-setting",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "AEP_020",
+      "prompt": {
+        "en": "When an activity was optional, I gave myself time to take in the setting before saying yes or no.",
+        "zh": "活动可以自选时，我会给自己一点时间了解环境，再决定参加与否。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "observing-the-setting",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "observing-the-setting",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "observing-the-setting",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "observing-the-setting",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost Always",
+            "zh": "几乎每次"
+          },
+          "directionId": "observing-the-setting",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no suitable opportunity, cannot judge or prefer not to answer",
+            "zh": "未评分：没有合适机会、无法判断或不愿回答"
+          },
+          "directionId": "observing-the-setting",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "self-starting",
+      "directionIds": [
+        "self-starting"
+      ],
+      "title": {
+        "en": "Self-Starting",
+        "zh": "自主发起"
+      },
+      "headline": {
+        "en": "Beginning an optional activity from an idea of your own",
+        "zh": "从自己的想法开始一项自选活动"
+      },
+      "summary": {
+        "en": "Observe recent first steps, personal proposals and small trials within your own choice. Frequency does not establish independence, initiative as an ability or a fixed role.",
+        "zh": "观察近期在自己可决定的范围内迈出第一步、提出活动与小尝试；频率不证明独立程度、发起能力或固定角色。"
+      },
+      "scoreReading": {
+        "en": "Four direct frequency prompts; at least three numeric ratings. Raw sum divided by rated count, displayed to one decimal. No total, type or energy percentage.",
+        "zh": "四条直接频率观察，至少三条数值有效。原始和除以有效条数，显示一位小数；不合总分、不分类型、不算能量百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Self-Starting: Activity Engagement Patterns Guide",
+          "zh": "自主发起：活动参与方式观察完整指南"
+        },
+        "description": {
+          "en": "Read this original activity-engagement theme through examples, opportunity, missing answers and comparisons. Full guide free, without a Human Design type or chart.",
+          "zh": "结合例子、机会、缺失回答与其他部分比较，理解这一原创活动参与主题。全文免费，不分配Human Design类型或图表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一项观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Self-Starting concerns moments when you began an optional activity from your own idea rather than first receiving a specific invitation. The four prompts look at a small first step, proposing an activity, trying something within your own choice and finding a moment to begin. A higher mean describes more frequent reported experiences of that kind during the past four weeks. It does not measure how original the idea was, whether the activity succeeded or whether you possess a special capacity to initiate.",
+              "zh": "自主发起关注：先有自己的想法，而非先收到具体邀请时，开始自选活动的那些时刻。四条分别看迈出小小第一步、提出活动、在自己可决定的范围内尝试，以及找时间开始。较高均值表示过去四周较常报告这类经历，不衡量想法有多原创、活动是否成功，也不证明拥有特殊发起能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A concrete everyday example",
+            "zh": "一个具体日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine noticing that you would enjoy a short personal drawing project and making a first rough sketch before anyone suggests the activity. Another example might be proposing a small, voluntary gathering and then deciding what first step is yours to take. The observation is the beginning you chose, not the amount of work completed or how others responded. A private, modest attempt can be relevant even if it never becomes a large project and nobody else knows about it.",
+              "zh": "例如发现自己想做一小段个人绘画，于是在别人提议之前先画一张粗略草图。也可能提出一个小型自愿聚会，再决定第一步自己做什么。观察的是自己选择的开始，不是完成工作量或别人的反应。私人而小小的尝试也有关联，即使后来没有变成大项目，也没有其他人知道。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read opportunity as well as frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "Opportunity matters. A month filled with duties, limited free choice or few personally interesting openings is different from a month with room to experiment. If a prompt has no suitable recent opportunity, use an unscored answer rather than automatically selecting Never. When an opportunity did exist but you did not act in that way, a lower frequency can describe that experience. The mean cannot separate every reason behind a choice, so keep one concrete example and its circumstances beside the number.",
+              "zh": "机会很重要。一个月里责任很多、可自由决定的空间有限或少有感兴趣的机会，与有余地尝试的月份不同。某条没有合适近期机会时，保留未评分，不自动选从不。有机会但没有这样行动，较低频率则可描述那段经历。均值无法区分选择背后的所有原因，可以把一个具体例子及其情境与数字放在一起。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other parts without choosing a type",
+            "zh": "比较其他部分，不选定类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Self-starting and responding to an opportunity can both occur frequently. You might begin one project from your own idea and join another after a clear offer interests you. Moving Between Interests concerns where attention goes across different pursuits, rather than who made the first suggestion. Invited Contribution and Observing the Setting concern other parts of participation. None of the five means cancels another. A mixed pattern is not a contradiction and does not require the report to invent a combined personality or energy type.",
+              "zh": "自主发起与回应机会可以都很频繁。一个项目从自己的想法开始，另一个则在明确邀约引起兴趣后加入。不同兴趣间切换关注投入怎样分布，不是谁最先提议；受邀贡献和先观察环境又涉及参与的其他部分。五项均值彼此不抵消，混合记录不矛盾，也不需要报告创造组合人格或能量类型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "What a lower mean cannot settle",
+            "zh": "较低均值不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean does not establish passivity, dependence or a lack of worthwhile ideas. You may have preferred existing activities, had little time to act or chosen not to begin for reasons the form does not ask about. It also cannot show whether you should start more projects. The relevant question is whether the descriptions fit the recent optional situations you recalled. Other people’s expectations, work performance and the legitimacy of your choices are not assessed by a small set of self-reported frequencies.",
+              "zh": "较低均值不证明被动、依赖或缺少有价值的想法。也许更喜欢现有活动、没有时间行动，或因题本没有询问的原因决定不开始；它也不能说明应该多开几个项目。相关的问题是：这些描述是否符合所回想的近期自选情境。别人的期待、工作表现以及选择是否正当，都不是几条自报频率所评估的内容。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small private observation to try",
+            "zh": "可以尝试的小小私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, recall one recent optional activity you began and write a short private note about the first step. Notice whether the idea arose before a specific offer, after one, or through several influences together. You do not need to change the event into a cleaner story to fit this part. The note stays yours and is not requested by the website. You may simply keep the example, compare another guide or finish without making a plan to become more self-starting.",
+              "zh": "如果有用，可以回想一项近期开始的自选活动，在私人笔记里简单记下第一步。留意想法出现在具体邀约之前、之后，还是几种影响一起作用。不必把事件整理成更符合本项的故事。笔记由自己保留，网站不要求提交；可以只留下例子、比较另一篇，或在这里结束，不需要计划让自己变得更主动发起。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Means and unscored answers",
+            "zh": "均值与未评分回答"
+          },
+          "paragraphs": [
+            {
+              "en": "All four prompts in this part are direct frequency reports, with no reverse scoring. One means Never, three means Sometimes and five means Almost Always. A suitable opportunity is needed before choosing a frequency; unclear, unavailable or declined answers stay unscored. At least three numeric ratings are required. Add those ratings and divide by their number, displaying one decimal. For example, one, three and five give a mean of 3.0 from three ratings. Two ratings are insufficient, not a low mean. Unscored answers become neither zero nor Sometimes.",
+              "zh": "本项四条都直接记录频率，没有反向计分。1是从不，3是有时，5是几乎每次。应有合适机会，才选择频率；不清楚、没有机会或不愿回答保持未评分。至少三条数值有效才有均值，把有效数值相加再除以有效条数，显示一位小数。例如1、3、5三条的均值为3.0；只有两条表示资料不足，不是低均值。未评分不补成0，也不补成“有时”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep the framework boundary visible",
+            "zh": "保留框架边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original account of recent optional activities, not a Human Design chart or type assessment. It uses no birth date, birth time, birthplace, image or biological measurement. The five readings remain separate and all stay open, including when a part has insufficient information. They assign no highest type, inner authority, population rank or rule for making decisions. The existing Energy & Flow form concerns timing, focus and pauses, while Work Role Reflection records task responsibilities. Those are separate questions, and their results do not convert into these means.",
+              "zh": "这是对近期自选活动的原创记录，不是Human Design图表或类型评估。不使用出生日期、时间、地点、图像或生物测量。五项读法分别保留，资料不足的部分也始终有完整说明；不挑最高类型、不赋予内在权威、人群排名或决策规则。已有能量与心流题本关注时间、专注和暂停，工作角色观察记录任务责任，它们是独立问题，结果不能换算为这里的均值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responding-to-opportunities",
+      "directionIds": [
+        "responding-to-opportunities"
+      ],
+      "title": {
+        "en": "Responding to Opportunities",
+        "zh": "回应具体机会"
+      },
+      "headline": {
+        "en": "Noticing interest when an actual opportunity appears",
+        "zh": "具体机会出现时，认出自己是否有兴趣"
+      },
+      "summary": {
+        "en": "Read how invitations and available activities can clarify a willingness to join. This is a recent reported pattern, without a rule to wait or a judgement about passivity.",
+        "zh": "观察邀请与已经出现的活动怎样帮助判断参与意愿。这是近期自报的方式，不规定等待，也不评价是否被动。"
+      },
+      "scoreReading": {
+        "en": "Four direct frequency prompts; at least three numeric ratings. Raw sum divided by rated count, displayed to one decimal. No total, type or energy percentage.",
+        "zh": "四条直接频率观察，至少三条数值有效。原始和除以有效条数，显示一位小数；不合总分、不分类型、不算能量百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Responding to Opportunities: Activity Engagement Patterns Guide",
+          "zh": "回应具体机会：活动参与方式观察完整指南"
+        },
+        "description": {
+          "en": "Read this original activity-engagement theme through examples, opportunity, missing answers and comparisons. Full guide free, without a Human Design type or chart.",
+          "zh": "结合例子、机会、缺失回答与其他部分比较，理解这一原创活动参与主题。全文免费，不分配Human Design类型或图表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一项观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Responding to Opportunities concerns occasions when an actual offer, invitation or available activity helped you notice what you wanted to do. The prompts do not ask whether you always wait or whether somebody else should decide for you. They look at a concrete opening and your own response of interest. A higher mean describes more frequent reported experiences of that sequence during the past four weeks. It does not establish a fixed energy type or prove that responding is always your best way to begin.",
+              "zh": "回应具体机会关注：实际邀约、邀请或已出现的活动，帮助你认出自己想做什么的那些时刻。题目不问是否总在等待，也不让别人替你决定；它观察具体机会出现，以及自己对此产生的兴趣回应。较高均值表示过去四周较常报告这种先后过程，不确定固定能量类型，也不证明回应机会永远是最好的开始方式。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A concrete everyday example",
+            "zh": "一个具体日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine seeing an invitation to a small optional workshop and realising that its particular activity interests you. You decide for yourself to join, even though you had not been planning that project beforehand. Another example is comparing several real openings and selecting one that makes your interest clearer. The relevant observation is how the concrete opportunity helped the decision, not whether you accepted every offer or whether the activity later turned out to be successful, enjoyable or useful.",
+              "zh": "例如看到一个自选小活动的邀请，才发现其中具体内容令自己有兴趣。虽然此前没计划这个项目，仍可以自主决定加入。也可能比较几个真实机会后，选出更能让兴趣清楚的一项。相关观察是具体机会怎样帮助了决定，不是是否接受所有邀约，也不是后来活动是否成功、好玩或有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read opportunity as well as frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "The number and kind of opportunities available can strongly shape what you recall. A person receiving many suitable invitations has a different month from someone who receives few or none. The form does not count invitations, measure access or adjust for those differences. Use an unscored answer when there was no suitable occasion to assess. If an opportunity was present, consider what you actually did in that situation. Keep the context visible instead of interpreting the mean as a stable personal tendency independent of circumstances.",
+              "zh": "可获得机会的数量与种类，会明显影响回忆。收到很多合适邀请，与很少或没有邀请，是不同的月份；题本不统计邀约、不测量可获得性，也不校正这些差别。没有合适场合可评价时保留未评分。有机会时，再考虑当时实际怎样做。请保留背景，不把均值看成脱离情境的稳定个人倾向。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other parts without choosing a type",
+            "zh": "比较其他部分，不选定类型"
+          },
+          "paragraphs": [
+            {
+              "en": "A high mean here can coexist with frequent Self-Starting. One activity may begin from an idea of your own, while another becomes appealing only after you see a specific offer. Invited Contribution is narrower: it concerns whether another person wanted your input before you offered advice or an observation. Responding to Opportunities concerns your own choice to participate. Observing the Setting may also help that choice. These parts describe different moments and can all be present without competing for one winning label.",
+              "zh": "这一项均值较高，也可以经常自主发起。有的活动从自己的想法开始，另一些在看到具体邀约后才有吸引力。受邀贡献更窄，关注提出建议或观察之前，对方是否想要你的投入；回应机会则关注自己是否选择参与，先观察环境也可能帮助这个选择。各项描述不同时刻，可以同时存在，不争夺唯一胜出的标签。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "What a lower mean cannot settle",
+            "zh": "较低均值不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean cannot establish that you ignore opportunities, lack curiosity or must initiate everything alone. Perhaps the available offers did not interest you, your schedule left little room or a different process was more relevant recently. A higher mean is not a reason to surrender your own judgement or accept an unwanted invitation. The form does not decide when you should act. It only gives a vocabulary for describing how some recent, optional choices became clearer when something concrete was available.",
+              "zh": "较低均值不能证明忽视机会、缺乏好奇或必须凡事独自发起。可能近期邀约没有吸引力、时间不允许，或其他过程更相关。较高均值也不是放弃自主判断或接受不想要邀请的理由。题本不决定应该何时行动，只提供一些词语，描述具体机会怎样让近期的自选决定变清楚。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small private observation to try",
+            "zh": "可以尝试的小小私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a small private observation, recall one offer you chose to accept and one you chose not to accept. Notice which concrete detail clarified your interest in each case. You do not need to count future opportunities or make a public record. A short note can help separate the existence of an offer from your own willingness to participate. You may keep that distinction, compare the Self-Starting guide or finish without changing how you make your next decision.",
+              "zh": "如果想做一点私人观察，可以回想一个选择接受、一个选择不接受的邀约，留意各自哪个具体细节让兴趣变清楚。不必统计未来机会或公开记录；简短笔记就能帮助区分“出现了邀约”与“自己愿意参与”。可以只保留这个区别、比较自主发起指南，或直接结束，不需要改变下一次决定的做法。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Means and unscored answers",
+            "zh": "均值与未评分回答"
+          },
+          "paragraphs": [
+            {
+              "en": "All four prompts in this part are direct frequency reports, with no reverse scoring. One means Never, three means Sometimes and five means Almost Always. A suitable opportunity is needed before choosing a frequency; unclear, unavailable or declined answers stay unscored. At least three numeric ratings are required. Add those ratings and divide by their number, displaying one decimal. For example, one, three and five give a mean of 3.0 from three ratings. Two ratings are insufficient, not a low mean. Unscored answers become neither zero nor Sometimes.",
+              "zh": "本项四条都直接记录频率，没有反向计分。1是从不，3是有时，5是几乎每次。应有合适机会，才选择频率；不清楚、没有机会或不愿回答保持未评分。至少三条数值有效才有均值，把有效数值相加再除以有效条数，显示一位小数。例如1、3、5三条的均值为3.0；只有两条表示资料不足，不是低均值。未评分不补成0，也不补成“有时”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep the framework boundary visible",
+            "zh": "保留框架边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original account of recent optional activities, not a Human Design chart or type assessment. It uses no birth date, birth time, birthplace, image or biological measurement. The five readings remain separate and all stay open, including when a part has insufficient information. They assign no highest type, inner authority, population rank or rule for making decisions. The existing Energy & Flow form concerns timing, focus and pauses, while Work Role Reflection records task responsibilities. Those are separate questions, and their results do not convert into these means.",
+              "zh": "这是对近期自选活动的原创记录，不是Human Design图表或类型评估。不使用出生日期、时间、地点、图像或生物测量。五项读法分别保留，资料不足的部分也始终有完整说明；不挑最高类型、不赋予内在权威、人群排名或决策规则。已有能量与心流题本关注时间、专注和暂停，工作角色观察记录任务责任，它们是独立问题，结果不能换算为这里的均值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moving-between-interests",
+      "directionIds": [
+        "moving-between-interests"
+      ],
+      "title": {
+        "en": "Moving Between Interests",
+        "zh": "在不同兴趣间切换"
+      },
+      "headline": {
+        "en": "Making room for more than one optional pursuit",
+        "zh": "为不止一种自选兴趣留出位置"
+      },
+      "summary": {
+        "en": "Observe recent movement across interests, projects and new curiosities. The reading does not measure speed, multitasking ability, distractibility or how productive you are.",
+        "zh": "观察近期在兴趣、个人项目与新好奇之间的切换，不测量速度、多任务能力、分心或生产效率。"
+      },
+      "scoreReading": {
+        "en": "Four direct frequency prompts; at least three numeric ratings. Raw sum divided by rated count, displayed to one decimal. No total, type or energy percentage.",
+        "zh": "四条直接频率观察，至少三条数值有效。原始和除以有效条数，显示一位小数；不合总分、不分类型、不算能量百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Moving Between Interests: Activity Engagement Patterns Guide",
+          "zh": "在不同兴趣间切换：活动参与方式观察完整指南"
+        },
+        "description": {
+          "en": "Read this original activity-engagement theme through examples, opportunity, missing answers and comparisons. Full guide free, without a Human Design type or chart.",
+          "zh": "结合例子、机会、缺失回答与其他部分比较，理解这一原创活动参与主题。全文免费，不分配Human Design类型或图表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一项观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Moving Between Interests concerns choosing to spend time on more than one optional pursuit during the past four weeks. The prompts look at making room for different interests, changing projects as interest changes and exploring a new curiosity alongside an existing one. A higher mean records more frequent reported experiences of that kind. It does not prove that you work faster, manage several tasks successfully or have more energy. The reading is about the activities you recalled, not an assessment of attention, efficiency or ability.",
+              "zh": "不同兴趣间切换关注：过去四周里，自己选择把时间用于不止一种自选探索。四条观察给不同兴趣留位置、随兴趣变化切换项目，以及在已有探索之外尝试新好奇。较高均值记录这类自报经历更频繁，不证明工作更快、能成功管理多项任务或精力更多。读法针对所回忆的活动，不评估注意力、效率或能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A concrete everyday example",
+            "zh": "一个具体日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine spending part of a freely arranged week on a small drawing project and another part learning a tune because both interest you. You might return to the first activity later, combine them in a little experiment or simply keep them separate. The relevant feature is the chosen movement between pursuits. It does not matter here whether both projects were finished, whether they were impressive to anybody else or whether switching made the week more productive than staying with one activity.",
+              "zh": "例如在能自行安排的一周里，一部分时间画小画，另一部分时间学一段曲子，因为两件事都有兴趣。之后可以回到第一项、把两者结合做个小尝试，或始终分开。相关特点是自己选择在探索之间切换，不在这里判断两项是否完成、是否令别人印象深刻，或是否比只做一项更有效率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read opportunity as well as frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "The range of activities available matters as much as the number you remember. Limited time, equipment, access or responsibility can leave little room to explore alternatives. Those conditions are not rated by the form. Use an unscored response when a prompt has no suitable opportunity, rather than turning a lack of options into a personal deficit. When an opportunity existed, recall your actual choice. You may also have moved between activities for practical reasons the prompts do not capture, so keep those circumstances beside the mean.",
+              "zh": "能获得哪些活动，和记得做过几项一样重要。时间、设备、可获得性或责任限制，都可能让探索其他活动的空间很少，题本不评分这些条件。没有合适机会时，保留未评分，不把选项不足变成个人缺点。有机会时再回想实际选择；切换也可能出于题目没有记录的实际原因，请把这些情境与均值放在一起。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other parts without choosing a type",
+            "zh": "比较其他部分，不选定类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone can move among interests while also preferring bounded periods of effort in the separate Energy & Flow form. That does not make the two results equivalent: one concerns which pursuits receive attention, while the other concerns the shape of an effort period. Self-Starting and Responding to Opportunities describe how an activity becomes possible or appealing, not how many interests you keep. All of these experiences can coexist. No combination of the means establishes a hybrid energy type or a special role you should perform.",
+              "zh": "在兴趣间切换的人，也可能在独立的能量与心流题本里偏好分段投入，但两项结果并不等同：一项关注哪些探索获得注意，另一项关注一段投入怎样安排。自主发起与回应机会描述活动怎样出现或变得有吸引力，不是保留几种兴趣。这些经历可以同时存在，均值组合不构成混合能量类型，也不规定应该承担的角色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "What a lower mean cannot settle",
+            "zh": "较低均值不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean does not establish that you lack curiosity or must broaden your interests. You may have enjoyed sustained attention to one project or had a month in which a single activity was especially relevant. A higher mean does not show that unfinished work is harmless or that switching is always useful. Those practical questions need the actual situation. The form provides no diagnosis, work-performance grade or instruction to organise your day around several simultaneous commitments.",
+              "zh": "较低均值不证明缺少好奇，也不要求拓宽兴趣；可能享受持续做一个项目，或这个月只有一项活动特别相关。较高均值也不表示未完成事务无关紧要，或切换永远有用；实际问题需要放回真实情境。题本不提供诊断、工作表现等级，也不要求围绕多项同时承诺来安排一天。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small private observation to try",
+            "zh": "可以尝试的小小私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small private observation, choose one recent occasion when you moved between two optional activities. Note what made the second activity appealing and whether you intended to return to the first. You can also recall an occasion when staying with one thing felt preferable. There is no need to run a productivity experiment, monitor every change of attention or submit a diary. The useful distinction is what you chose in those situations, without treating either variety or sustained focus as a personal ideal.",
+              "zh": "可以选择一次近期在两项自选活动之间切换的经历，私下记下第二项为何有吸引力，以及当时是否打算回到第一项；也可以回想一次更愿意留在同一件事上的场合。不需要做效率实验、监测每次注意变化或提交日记。有用的区别是当时选择了什么，不把多样探索或持续专注中的任何一种定成个人理想。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Means and unscored answers",
+            "zh": "均值与未评分回答"
+          },
+          "paragraphs": [
+            {
+              "en": "All four prompts in this part are direct frequency reports, with no reverse scoring. One means Never, three means Sometimes and five means Almost Always. A suitable opportunity is needed before choosing a frequency; unclear, unavailable or declined answers stay unscored. At least three numeric ratings are required. Add those ratings and divide by their number, displaying one decimal. For example, one, three and five give a mean of 3.0 from three ratings. Two ratings are insufficient, not a low mean. Unscored answers become neither zero nor Sometimes.",
+              "zh": "本项四条都直接记录频率，没有反向计分。1是从不，3是有时，5是几乎每次。应有合适机会，才选择频率；不清楚、没有机会或不愿回答保持未评分。至少三条数值有效才有均值，把有效数值相加再除以有效条数，显示一位小数。例如1、3、5三条的均值为3.0；只有两条表示资料不足，不是低均值。未评分不补成0，也不补成“有时”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep the framework boundary visible",
+            "zh": "保留框架边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original account of recent optional activities, not a Human Design chart or type assessment. It uses no birth date, birth time, birthplace, image or biological measurement. The five readings remain separate and all stay open, including when a part has insufficient information. They assign no highest type, inner authority, population rank or rule for making decisions. The existing Energy & Flow form concerns timing, focus and pauses, while Work Role Reflection records task responsibilities. Those are separate questions, and their results do not convert into these means.",
+              "zh": "这是对近期自选活动的原创记录，不是Human Design图表或类型评估。不使用出生日期、时间、地点、图像或生物测量。五项读法分别保留，资料不足的部分也始终有完整说明；不挑最高类型、不赋予内在权威、人群排名或决策规则。已有能量与心流题本关注时间、专注和暂停，工作角色观察记录任务责任，它们是独立问题，结果不能换算为这里的均值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invited-contribution",
+      "directionIds": [
+        "invited-contribution"
+      ],
+      "title": {
+        "en": "Invited Contribution",
+        "zh": "受邀贡献"
+      },
+      "headline": {
+        "en": "Offering input when another person wants it",
+        "zh": "在对方需要时贡献自己的看法"
+      },
+      "summary": {
+        "en": "Observe checking whether input is wanted, responding to a request and leaving the next choice with the other person. This does not assess the quality of your advice or a guiding ability.",
+        "zh": "观察确认对方是否需要看法、回应请求，以及把下一步选择留给对方，不评估建议质量或指导能力。"
+      },
+      "scoreReading": {
+        "en": "Four direct frequency prompts; at least three numeric ratings. Raw sum divided by rated count, displayed to one decimal. No total, type or energy percentage.",
+        "zh": "四条直接频率观察，至少三条数值有效。原始和除以有效条数，显示一位小数；不合总分、不分类型、不算能量百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Invited Contribution: Activity Engagement Patterns Guide",
+          "zh": "受邀贡献：活动参与方式观察完整指南"
+        },
+        "description": {
+          "en": "Read this original activity-engagement theme through examples, opportunity, missing answers and comparisons. Full guide free, without a Human Design type or chart.",
+          "zh": "结合例子、机会、缺失回答与其他部分比较，理解这一原创活动参与主题。全文免费，不分配Human Design类型或图表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一项观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Invited Contribution concerns recent optional situations in which you checked whether another person wanted your input or responded to a clear request. The prompts look at the invitation and the way you entered the activity, not whether your advice was perceptive or effective. A higher mean describes more frequent reported experiences of those steps during the past four weeks. It does not establish that you are naturally a guide, deserve recognition or must wait for an invitation before making ordinary choices for yourself.",
+              "zh": "受邀贡献关注近期自选情境里，确认别人是否需要自己的看法，或回应明确请求的做法。题目观察邀请以及怎样进入活动，不判断建议是否敏锐或有效。较高均值记录过去四周较常报告这些步骤，不证明天生是指导者、应当得到认可，也不要求在做自己的普通选择前等待邀请。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A concrete everyday example",
+            "zh": "一个具体日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a friend working on a small optional project. Before giving a suggestion, you ask whether they would like another view. If they agree, you offer one observation and let them decide what to do with it. Another relevant occasion might begin with a direct request for your thoughts. The observation is how the contribution was invited and offered. The form does not ask what the project was, who the friend was or whether the suggestion changed the final result.",
+              "zh": "例如朋友在做一个小小自选项目，提建议前先问对方是否想听另一种看法。对方愿意后，分享一个观察，让对方决定怎样使用。也可能一开始就收到对方明确询问。相关观察是贡献怎样被邀请、怎样提出；题本不要求项目内容、朋友身份，也不问建议是否改变了最终结果。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read opportunity as well as frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "A suitable opportunity requires an actual situation involving another person’s activity or a request for input. If none occurred recently, an unscored response is more informative than automatically selecting Never. Different people also encounter different numbers of requests, and the form does not adjust for that exposure. When a situation did occur, recall your own actions rather than guessing whether somebody secretly wanted advice. Keep uncertainty visible; a missing opportunity is not evidence of a weak social role.",
+              "zh": "合适机会需要确实涉及别人的活动，或确实有人询问看法。近期没有这些情境时，未评分比自动选择从不更准确。不同人遇到请求的次数也不同，题本不校正这种可获得性。有情境时，回想自己的行动，而不猜别人是否暗中想听建议。保留不确定；没有机会，不表示社会角色薄弱。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other parts without choosing a type",
+            "zh": "比较其他部分，不选定类型"
+          },
+          "paragraphs": [
+            {
+              "en": "This part differs from Responding to Opportunities. Responding concerns choosing an activity for yourself after seeing an opening; Invited Contribution concerns entering somebody else’s activity with input they want. It also differs from Work Role Reflection, which records whether a task was done with guidance, owned with checkpoints or supported for another person. Those responsibility categories do not measure how an invitation to contribute arose. You can show any combination across these separate observations without being assigned a helper, leader or Human Design type.",
+              "zh": "这一项与回应机会不同：回应机会关注看到机会后是否为自己选择活动，受邀贡献关注带着对方需要的看法进入其活动。它也不同于工作角色观察；后者记录在指导下参与、按检查点承担任务或支持他人等责任类别，不测量贡献邀请怎样出现。不同观察可以形成任何组合，不据此分配帮助者、领导者或Human Design类型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "What a lower mean cannot settle",
+            "zh": "较低均值不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean does not prove that you give unwanted advice, lack insight or should contribute less. You may have had few relevant occasions, used another way of checking interest or recalled situations that fit the wording poorly. A higher mean does not certify expertise or guarantee that a suggestion was helpful. These questions cannot resolve the quality of a relationship or decide who should speak in a particular discussion. They describe a narrow entry into optional contribution rather than a general social rule.",
+              "zh": "较低均值不证明常给别人不想要的建议、缺乏洞察或应该少参与；也许机会很少、用其他方式确认意愿，或回想的场合不太符合措辞。较高均值也不认证专业能力，或保证建议有帮助。这些问题不能判断关系质量，也不能决定某次讨论应由谁发言；它只描述自选贡献的一种进入过程，不制定普遍社交规则。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small private observation to try",
+            "zh": "可以尝试的小小私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private observation, recall one occasion when another person wanted your input. Note how you knew that the contribution was welcome and what choice remained with them afterwards. You do not need to record their name, words or project, and the website asks for none of those details. If no example comes to mind, leave that absence as it is. You may compare another guide or finish here, without seeking a new invitation simply to make the reading feel more complete.",
+              "zh": "可以回想一次对方确实需要自己看法的场合，私下记下怎样知道对方愿意听，以及后来哪些选择仍留给对方。不需要记录姓名、原话或项目，网站也不询问这些细节。如果没有想起例子，就保留这份空白。可以比较其他指南或在此结束，不必为了让读法显得完整而寻找新邀请。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Means and unscored answers",
+            "zh": "均值与未评分回答"
+          },
+          "paragraphs": [
+            {
+              "en": "All four prompts in this part are direct frequency reports, with no reverse scoring. One means Never, three means Sometimes and five means Almost Always. A suitable opportunity is needed before choosing a frequency; unclear, unavailable or declined answers stay unscored. At least three numeric ratings are required. Add those ratings and divide by their number, displaying one decimal. For example, one, three and five give a mean of 3.0 from three ratings. Two ratings are insufficient, not a low mean. Unscored answers become neither zero nor Sometimes.",
+              "zh": "本项四条都直接记录频率，没有反向计分。1是从不，3是有时，5是几乎每次。应有合适机会，才选择频率；不清楚、没有机会或不愿回答保持未评分。至少三条数值有效才有均值，把有效数值相加再除以有效条数，显示一位小数。例如1、3、5三条的均值为3.0；只有两条表示资料不足，不是低均值。未评分不补成0，也不补成“有时”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep the framework boundary visible",
+            "zh": "保留框架边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original account of recent optional activities, not a Human Design chart or type assessment. It uses no birth date, birth time, birthplace, image or biological measurement. The five readings remain separate and all stay open, including when a part has insufficient information. They assign no highest type, inner authority, population rank or rule for making decisions. The existing Energy & Flow form concerns timing, focus and pauses, while Work Role Reflection records task responsibilities. Those are separate questions, and their results do not convert into these means.",
+              "zh": "这是对近期自选活动的原创记录，不是Human Design图表或类型评估。不使用出生日期、时间、地点、图像或生物测量。五项读法分别保留，资料不足的部分也始终有完整说明；不挑最高类型、不赋予内在权威、人群排名或决策规则。已有能量与心流题本关注时间、专注和暂停，工作角色观察记录任务责任，它们是独立问题，结果不能换算为这里的均值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observing-the-setting",
+      "directionIds": [
+        "observing-the-setting"
+      ],
+      "title": {
+        "en": "Observing the Setting",
+        "zh": "先观察参与环境"
+      },
+      "headline": {
+        "en": "Taking in a group setting before choosing to participate",
+        "zh": "先了解集体活动的情境，再选择是否参与"
+      },
+      "summary": {
+        "en": "Observe noticing how people work together, comparing occasions and reconsidering participation when the atmosphere changes. The reading does not rate a group or your sensitivity.",
+        "zh": "观察留意大家怎样合作、比较不同场合，以及氛围变化后重新考虑参与；不评价群体质量或个人敏感程度。"
+      },
+      "scoreReading": {
+        "en": "Four direct frequency prompts; at least three numeric ratings. Raw sum divided by rated count, displayed to one decimal. No total, type or energy percentage.",
+        "zh": "四条直接频率观察，至少三条数值有效。原始和除以有效条数，显示一位小数；不合总分、不分类型、不算能量百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Observing the Setting: Activity Engagement Patterns Guide",
+          "zh": "先观察参与环境：活动参与方式观察完整指南"
+        },
+        "description": {
+          "en": "Read this original activity-engagement theme through examples, opportunity, missing answers and comparisons. Full guide free, without a Human Design type or chart.",
+          "zh": "结合例子、机会、缺失回答与其他部分比较，理解这一原创活动参与主题。全文免费，不分配Human Design类型或图表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this part observes",
+            "zh": "这一项观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Observing the Setting concerns recent optional activities in which you took in the social context before deciding to participate. The prompts look at noticing how people work together, reconsidering a choice when the atmosphere changes and comparing more than one occasion. A higher mean describes more frequent reported experiences of that process during the past four weeks. It does not establish that you accurately read other people, absorb their emotions or have a special role as a mirror of an environment.",
+              "zh": "先观察参与环境关注近期自选活动中，在决定是否加入之前了解社交情境的过程。四条包括留意大家怎样合作、氛围变化后重新考虑选择，以及比较不止一次场合。较高均值表示过去四周较常报告这种过程，不证明能准确看透别人、吸收情绪，或承担映照环境的特殊角色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A concrete everyday example",
+            "zh": "一个具体日常例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine being free to join a small creative gathering. You spend a little time noticing how people take turns, how the activity is organised and whether you want to become involved. On another occasion, a different atmosphere might lead to a different choice. The relevant observation is how taking in the setting informed your willingness to participate. The form does not ask you to judge whether the group is healthy, diagnose anybody’s motives or report what another person was feeling.",
+              "zh": "例如可以自由加入一个小型创作聚会，先花一点时间看大家怎样轮流参与、活动怎样组织，再想自己是否愿意投入。换一次场合，氛围不同，也可能作出不同选择。相关观察是了解情境怎样影响参与意愿；题本不要求判断群体是否健康、诊断动机，或报告别人感受到了什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Read opportunity as well as frequency",
+            "zh": "同时考虑机会与频率"
+          },
+          "paragraphs": [
+            {
+              "en": "An opportunity to observe depends on the situation. Some activities allow a quiet look before joining, while others begin immediately or offer little chance to compare occasions. A recent month may also include no optional group activity at all. Keep those differences visible. Use an unscored answer when there is no suitable instance or you cannot judge what happened. A frequency should describe a relevant experience, rather than fill a gap created by limited access or an unfamiliar setting.",
+              "zh": "能否观察取决于场合。有些活动允许先看看再加入，另一些立即开始，或很难比较不同次场合；最近一个月也可能完全没有自选集体活动。请保留这些差别，没有合适实例或无法判断时选未评分。频率应描述相关经历，不用来填补因机会有限或环境陌生而留下的空白。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare the other parts without choosing a type",
+            "zh": "比较其他部分，不选定类型"
+          },
+          "paragraphs": [
+            {
+              "en": "This part differs from the low-interruption focus conditions in Energy & Flow. That topic concerns how a workspace or activity setup feels for concentration; this one concerns observing a group before choosing involvement. It also differs from Invited Contribution, where the central question is whether another person wanted your input. You might notice a setting, respond to an invitation and then initiate a small activity of your own. Several patterns can describe different steps in the same event without becoming one fixed type.",
+              "zh": "这一项不同于能量与心流里的低干扰专注条件，后者关注工作区或安排是否让人愿意专注，本项关注参与前观察群体。它也不同于受邀贡献；受邀贡献的核心是对方是否想要自己的看法。一次事件里，可以先留意环境、回应邀请，再自主发起小活动。多个方式能描述同一事件的不同时刻，不必合成固定类型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "What a lower mean cannot settle",
+            "zh": "较低均值不能决定什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean does not prove that you overlook context or should delay more decisions. You may have joined familiar activities where little new observation was needed, or there may have been no chance to look before participating. A higher mean does not show that every pause leads to a better choice. The form does not compare decision quality or tell you to wait for a particular number of days. The four-week period is a window for recalling experiences, not a prescribed waiting cycle.",
+              "zh": "较低均值不证明忽略情境，也不要求多推迟决定；也许参加的活动很熟悉，不需要新的观察，或加入前没有查看机会。较高均值也不证明每次暂停都会带来更好选择。题本不比较决策质量，不规定等待多少天。四周只是回忆经历的窗口，不是建议采用的等待周期。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small private observation to try",
+            "zh": "可以尝试的小小私人观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, recall one optional group activity and separate what you directly noticed from what you inferred. You might have observed a turn-taking pattern but only guessed what others thought about it. A short private note can keep that distinction clear without naming people or describing private conversations. You can then notice how the setting related to your own willingness to participate. There is no need to monitor other people, make a group rating or continue observing until a supposedly correct moment arrives.",
+              "zh": "如果有用，可以回想一次自选集体活动，区分直接注意到的内容与推断。例如看见了轮流方式，却只是猜测别人怎样想。用简短私人笔记保留这个区别即可，不记姓名或私人谈话，再看看情境与自己的参与意愿怎样相关。不需要监测别人、给群体评分，或一直观察到所谓正确时刻。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Means and unscored answers",
+            "zh": "均值与未评分回答"
+          },
+          "paragraphs": [
+            {
+              "en": "All four prompts in this part are direct frequency reports, with no reverse scoring. One means Never, three means Sometimes and five means Almost Always. A suitable opportunity is needed before choosing a frequency; unclear, unavailable or declined answers stay unscored. At least three numeric ratings are required. Add those ratings and divide by their number, displaying one decimal. For example, one, three and five give a mean of 3.0 from three ratings. Two ratings are insufficient, not a low mean. Unscored answers become neither zero nor Sometimes.",
+              "zh": "本项四条都直接记录频率，没有反向计分。1是从不，3是有时，5是几乎每次。应有合适机会，才选择频率；不清楚、没有机会或不愿回答保持未评分。至少三条数值有效才有均值，把有效数值相加再除以有效条数，显示一位小数。例如1、3、5三条的均值为3.0；只有两条表示资料不足，不是低均值。未评分不补成0，也不补成“有时”。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep the framework boundary visible",
+            "zh": "保留框架边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an original account of recent optional activities, not a Human Design chart or type assessment. It uses no birth date, birth time, birthplace, image or biological measurement. The five readings remain separate and all stay open, including when a part has insufficient information. They assign no highest type, inner authority, population rank or rule for making decisions. The existing Energy & Flow form concerns timing, focus and pauses, while Work Role Reflection records task responsibilities. Those are separate questions, and their results do not convert into these means.",
+              "zh": "这是对近期自选活动的原创记录，不是Human Design图表或类型评估。不使用出生日期、时间、地点、图像或生物测量。五项读法分别保留，资料不足的部分也始终有完整说明；不挑最高类型、不赋予内在权威、人群排名或决策规则。已有能量与心流题本关注时间、专注和暂停，工作角色观察记录任务责任，它们是独立问题，结果不能换算为这里的均值。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Five observations about choosing to participate",
+        "zh": "五项关于选择参与的观察"
+      },
+      "paragraphs": [
+        {
+          "en": "The twenty original prompts concern self-starting, responding to a concrete opportunity, moving between interests, invited contribution and observing a setting. They record recent experiences with optional activities. More than one pattern can occur in the same event. The form does not select a dominant role or turn these observations into strengths, work performance, biological energy or a personality type.",
+          "zh": "二十条原创陈述关注自主发起、回应具体机会、不同兴趣间切换、受邀贡献与先观察环境，记录近期自选活动中的经历。同一次事件可以有多种方式；题本不挑主导角色，也不把观察换算为天赋、工作表现、生物能量或人格类型。"
+        }
+      ]
+    },
+    {
+      "id": "means",
+      "title": {
+        "en": "Frequency means with opportunity kept visible",
+        "zh": "保留机会背景的频率均值"
+      },
+      "paragraphs": [
+        {
+          "en": "One is Never, two Rarely, three Sometimes, four Often and five Almost Always. Unscored responses are separate. All twenty prompts need a response before the attempt is complete. Each four-item part needs three numeric ratings; its mean is the raw rated sum divided by rated count, displayed to one decimal. Insufficient parts keep their full guide without an invented number. There are no reversals, unequal item weights, total or highest-type rule.",
+          "zh": "1从不、2很少、3有时、4经常、5几乎每次，未评分单独保留。二十条均有响应才完成。每项四条至少三条数值有效，原始有效数值和除以有效条数，显示一位小数。资料不足的部分保留全文，不创造数字。没有反向、不等题目权重、总分或最高类型规则。"
+        }
+      ]
+    },
+    {
+      "id": "framework",
+      "title": {
+        "en": "How this differs from Human Design",
+        "zh": "与Human Design的区别"
+      },
+      "paragraphs": [
+        {
+          "en": "Jovian Archive describes four Human Design Types, with Manifesting Generators within Generator, and derives its BodyGraph from birth data. Those are descriptions of that system, not scientific validation of the present questionnaire. This edition has five original observation topics rather than five official Types. It calculates no chart and adopts no population percentages, aura claims, inner authority, not-self labels or prescribed decision strategy.",
+          "zh": "Jovian Archive将Human Design列为四类，显化生产者归在生产者之内，其BodyGraph使用出生数据。这些是对该体系的描述，不构成本问卷的科学验证。本版五项是原创观察主题，不是五个官方类型；不计算图表，不采用人口比例、气场主张、内在权威、非自我标签或规定的决策策略。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Five free full guides and page-memory answers",
+        "zh": "五篇免费全文与页面内存回答"
+      },
+      "paragraphs": [
+        {
+          "en": "All five eight-section guides are open before answering and remain complete in every finished attempt, including insufficient-information results. Answers stay in this page’s memory without stored drafts, quiz-flow statistics or personal-result sharing. Refreshing or changing language starts fresh; use Exit and clear to discard current progress. You can read a guide, compare another part or finish without signup, payment or another assessment.",
+          "zh": "五篇八节全文在作答前已开放，每次完整作答后仍全部保留，包括资料不足的结果。回答只留页面内存，不存草稿、不发送测试流程统计、不分享个人结果。刷新或换语言会重新开始；可用退出并清除来放弃本次进度。阅读指南、比较其他部分或结束，都不需要注册、付款或另做测评。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Are the full results free?",
+        "zh": "完整结果免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All five complete guides are free before answering and remain open after a complete attempt, including for parts with insufficient information. No signup or payment is needed.",
+        "zh": "免费。五篇全文在作答前已开放，完整作答后也全部保留，包括资料不足的部分，无需注册或付款。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this give a Human Design type or BodyGraph?",
+        "zh": "这会给出Human Design类型或BodyGraph吗？"
+      },
+      "answer": {
+        "en": "No. It reports five original everyday observations without a chart or type. Jovian Archive describes four Types, including Manifesting Generators within Generator; these five topics are not five official Types. No birth details are collected.",
+        "zh": "不会。本版给出五项原创日常观察，不生成图表或类型。Jovian Archive列四类，显化生产者属于生产者；这里五个主题不是五个官方类型，也不收集出生信息。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why recall four weeks?",
+        "zh": "为什么回想四周？"
+      },
+      "answer": {
+        "en": "Four weeks is an editorial window for recalling recent opportunities. It is not a lunar waiting cycle or an instruction to postpone a decision.",
+        "zh": "四周是回想近期机会的编辑窗口，不是月亮等待周期，也不是要求推迟决定。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are means calculated?",
+        "zh": "怎样计算均值？"
+      },
+      "answer": {
+        "en": "Each part has four direct frequency prompts and needs at least three numeric ratings. Add those ratings and divide by their number, displaying one decimal. Three means Sometimes; an unscored answer is not zero or Sometimes. The five means are not added or ranked into a type.",
+        "zh": "每项四条直接频率观察，至少三条数值有效。有效数值相加后除以有效条数，显示一位小数。3是有时，未评分不是0或有时。五项均值不加总、不排名成类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if there was no suitable opportunity?",
+        "zh": "没有合适机会怎么办？"
+      },
+      "answer": {
+        "en": "Use Unscored rather than automatically selecting Never. After all twenty response choices, a part with fewer than three numeric ratings is marked insufficient, with its full guide still open.",
+        "zh": "选未评分，不自动选从不。二十条均响应后，少于三条数值有效的项显示资料不足，其完整指南仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do these results convert into Energy & Flow or Work Role Reflection?",
+        "zh": "结果能换算为能量与心流或工作角色观察吗？"
+      },
+      "answer": {
+        "en": "No. Those forms concern timing and focus conditions or task responsibilities. They need their own complete attempts, and their results do not convert into these five frequency means.",
+        "zh": "不能。那些题本分别关注时间与专注条件，或任务责任，需要各自完整作答，不能换算成这里五项频率均值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers stay in current page memory, without a stored draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language clears the attempt; Exit and clear discards it immediately. Public guides contain no one’s answers or means.",
+        "zh": "回答只留当前页面内存，不存草稿、不发送测试流程统计、不分享个人结果。刷新或换语言会清除，本页退出并清除可立即放弃。公开指南不含任何人的答案或均值。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Jovian Archive: its four-Type framework, separate from this questionnaire",
+        "zh": "Jovian Archive：其四类框架，与本问卷不同"
+      },
+      "url": "https://jovianarchive.com/pages/type-and-strategy-in-human-design"
+    },
+    {
+      "title": {
+        "en": "Jovian Archive: its birth-data chart method",
+        "zh": "Jovian Archive：其出生数据图表方法"
+      },
+      "url": "https://jovianarchive.com/pages/get-your-human-design-chart"
+    }
+  ]
+}
