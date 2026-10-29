@@ -120,6 +120,7 @@ export function RiasecWorksheet({ locale: initialLocale }: { locale: Locale }) {
     </div>
     <article data-worksheet-print className={styles.printRecord} aria-label={zh ? "当前记录打印版" : "Current record print view"}>
       <h2>{copy.title}</h2><p>{example ? (zh ? "合成填写示例（不是本人记录）" : "Synthetic example (not my record)") : (zh ? "本人探索记录" : "My exploration record")} · {WORKSHEET_VERSION}</p><p>{copy.intro}</p>
+      <p>FermatMind · https://fermatmind.com/{locale}/holland-test/pdf-download</p>
       {copy.pages.flatMap(page => page.sections).map((section, index) => <section key={index}><h3>{section.heading}</h3><dl>{WORKSHEET_FIELDS.filter(field => field[3] === index).map(field => <div key={field[0]}><dt>{worksheetLabel(field, locale)}</dt><dd className={styles.value} data-print-field={field[0]}>{active[field[0]] || "—"}</dd></div>)}</dl></section>)}
     </article>
   </section>;

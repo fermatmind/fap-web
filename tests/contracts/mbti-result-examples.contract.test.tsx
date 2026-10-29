@@ -15,6 +15,12 @@ describe("public MBTI teaching examples", () => {
     expect(section).toHaveTextContent("retry or recovery option");
     expect(within(section).getByRole("link", { name: "guide to understanding and using your results" })).toHaveAttribute("href", "/en/articles/mbti-full-report-career-relationship-communication");
     expect(within(section).getByRole("link", { name: "choose the 93- or 144-question version" })).toHaveAttribute("href", "#choose-version");
+    for (const [name, extension] of [["TXT", "txt"], ["Markdown", "md"]]) {
+      const link = within(section).getByRole("link", { name: `observation record (${name})` });
+      expect(link).toHaveAttribute("href", `/resources/mbti/fermatmind-personality-observation-en.${extension}`);
+      expect(link).toHaveAttribute("download");
+    }
+    expect(section).toHaveTextContent("no automatic upload or cloud save");
     expect(section.querySelectorAll("form, input, button")).toHaveLength(0);
   });
 });

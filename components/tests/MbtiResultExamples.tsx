@@ -49,6 +49,12 @@ export function MbtiResultExamples() {
         <Link href="/en/articles/mbti-full-report-career-relationship-communication" className="underline underline-offset-4">guide to understanding and using your results</Link>{" "}
         or <a href="#choose-version" className="underline underline-offset-4">choose the 93- or 144-question version</a>.
       </p>
+      <p className="m-0 text-sm text-slate-600">
+        Keep your own notes with the observation record: it includes a blank record and a clearly synthetic planning example, without calculating a score. Download the{" "}
+        <a href="/resources/mbti/fermatmind-personality-observation-en.txt" download className="underline underline-offset-4">observation record (TXT)</a>{" "}
+        or <a href="/resources/mbti/fermatmind-personality-observation-en.md" download className="underline underline-offset-4">observation record (Markdown)</a>.
+        Open the saved file and check its contents. Your notes stay in your own file; there is no automatic upload or cloud save. If downloading is unavailable, copy the observation steps above into your own document.
+      </p>
     </section>
   );
 }

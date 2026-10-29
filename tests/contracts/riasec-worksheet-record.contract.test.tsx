@@ -80,6 +80,7 @@ describe.each(["zh", "en"] as const)("worksheet state and safety: %s", locale =>
     render(<RiasecWorksheet locale={locale} />);
     fireEvent.change(field("experiment"), { target: { value: original } });
     expect(document.querySelector('[data-print-field="experiment"]')!.textContent).toBe(original);
+    expect(document.querySelector("[data-worksheet-print]")).toHaveTextContent(`FermatMind · https://fermatmind.com/${locale}/holland-test/pdf-download`);
     expect(document.querySelector("img")).toBeNull();
     expect(document.querySelector("script")).toBeNull();
     expect(screen.getByRole("textbox", { name: /可手选的完整输出|Complete output/ })).toHaveValue(serializeWorksheet({ ...emptyWorksheet(), experiment: original }, locale, "text"));
