@@ -1,0 +1,1751 @@
+{
+  "slug": "relationship-worry-habits",
+  "code": "FM_RELATIONSHIP_WORRY16",
+  "version": "fm_relationship_worry16_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Relationship Worry Habits Test",
+    "zh": "关系担心反应观察"
+  },
+  "description": {
+    "en": "Explore repeated reassurance, comparison, extra giving and indirect checks through 16 original prompts. Four full guides free, without labels or levels.",
+    "zh": "用16条原创题观察再次求安心、比较注意、为联结额外付出与间接试探。四篇完整指南免费，不贴标签，不划等级。"
+  },
+  "seoTitle": {
+    "en": "Relationship Worry Habits: Four Full Guides Free",
+    "zh": "关系担心反应观察：四篇完整指南免费"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "For adults, keep one adult close person in mind without naming them. Answer about your own responses over the past three months, not someone else’s personality or intentions. Rate frequency from 1 never to 5 almost always; 3 means sometimes. Choose unscored when an experience is unsuitable, uncertain or private. All sixteen prompts need a response. Each part needs three numeric ratings out of four. Separate raw means and all four full guides appear, without a main type, total or heaviness level. You can stop or read without answering.",
+    "zh": "面向成年人，心里保留一位亲近的成年人，不必写姓名。只回答过去三个月自己的反应，不评定别人的人格或意图。按1从不到5几乎每次评价频率，3是有时。经历不适用、不确定或不愿评价时选未评分。16题均需响应，每部分四条至少三条数字。分别显示原始均值及全部四篇完整指南，不找主要类型、不合总分或划沉重等级。可随时停止或不作答直接阅读。"
+  },
+  "introduction": {
+    "en": "This original reflection keeps four responses separate: asking for reassurance again, attending to possible rivals, giving extra with a stated hope for connection and indirectly checking for a response. It notices your own recent moments without inferring motives from ordinary distance or help. It does not label a person, assess mental health, measure another person’s care or decide what a relationship should become. All full guides are free.",
+    "zh": "本原创反思把四种反应分开：再次求安心、留意可能的比较、带着联结期待额外付出，以及间接试探回应。只留意自己近期的时刻，不从普通疏远或帮忙推断动机。不贴人身标签、不评估心理健康、不测别人多在意，也不决定一段关系该怎样发展。全部完整指南免费。"
+  },
+  "resultHeading": {
+    "en": "Your four relationship-response frequencies",
+    "zh": "本次四项关系反应频率"
+  },
+  "source": {
+    "kind": "fermatmind_original_relationship_worry_responses16",
+    "formCode": "fm_relationship_worry16_v1",
+    "itemBankVersion": "fm_relationship_worry16_v1",
+    "scoringVersion": "rwh16_frequency1_5_na_min3_four4_complete16_v1",
+    "resultContentVersion": "fm_relationship_worry_four_full8_20261029_v1",
+    "itemBankSha256": "d36d04e69be55605bcfa8e796291234644d9b7b5a094d1eb94b784719b0c7007",
+    "resultContentSha256": "07ce6457b334fb6b6fa2917c486eabc145d1bba9446a4d2664af95dff1612077",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "direct-reassurance",
+      "title": {
+        "en": "Asking for reassurance again",
+        "zh": "再次寻求明确安心"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "rival-attention",
+      "title": {
+        "en": "Attention to possible rivals",
+        "zh": "留意可能的比较与竞争"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "giving-for-connection",
+      "title": {
+        "en": "Extra giving to seek connection",
+        "zh": "为了联结而额外付出"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "indirect-checks",
+      "title": {
+        "en": "Indirect checks for a response",
+        "zh": "间接试探回应"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "RWH_01",
+      "prompt": {
+        "en": "Over the past three months, after a caring reply, I asked for another explicit sign that things were okay between us.",
+        "zh": "过去三个月，收到关心的回应后，我又想听一次明确的表示，确认彼此之间没事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "direct-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "direct-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "direct-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "direct-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "direct-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "direct-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_02",
+      "prompt": {
+        "en": "Over the past three months, when another person received attention, I mentally compared my place with theirs.",
+        "zh": "过去三个月，另一个人得到关注时，我会在心里比较自己与其在对方心中的位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "rival-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "rival-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "rival-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "rival-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "rival-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "rival-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_03",
+      "prompt": {
+        "en": "Over the past three months, I offered extra help hoping it would make our connection feel more secure to me.",
+        "zh": "过去三个月，我会额外提供帮助，希望这样能让自己感觉彼此的联结更稳。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "giving-for-connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "giving-for-connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "giving-for-connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "giving-for-connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "giving-for-connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "giving-for-connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_04",
+      "prompt": {
+        "en": "Over the past three months, I reduced my usual contact to check whether the other person would reach out.",
+        "zh": "过去三个月，我会减少平时的联系，想看看对方是否会主动找来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "indirect-checks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "indirect-checks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "indirect-checks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "indirect-checks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "indirect-checks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "indirect-checks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_05",
+      "prompt": {
+        "en": "Over the past three months, when a plan changed, I asked whether the change meant that our connection had changed.",
+        "zh": "过去三个月，安排有变化时，我会问这是否意味着彼此的关系也有变化。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "direct-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "direct-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "direct-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "direct-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "direct-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "direct-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_06",
+      "prompt": {
+        "en": "Over the past three months, a casual mention of someone else kept returning to my mind after the conversation ended.",
+        "zh": "过去三个月，随口提到另一个人后，谈话已经结束，这件事仍反复回到我脑中。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "rival-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "rival-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "rival-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "rival-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "rival-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "rival-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_07",
+      "prompt": {
+        "en": "Over the past three months, I put a personal plan aside because I hoped the other person would feel closer to me.",
+        "zh": "过去三个月，我会把自己的安排放到一边，因为希望这样能让对方感觉与我更亲近。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "giving-for-connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "giving-for-connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "giving-for-connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "giving-for-connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "giving-for-connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "giving-for-connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_08",
+      "prompt": {
+        "en": "Over the past three months, I hinted that I was upset instead of saying what I wanted, to see whether the other person would notice.",
+        "zh": "过去三个月，我会暗示自己不开心，而不直接说想要什么，想看看对方是否会注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "indirect-checks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "indirect-checks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "indirect-checks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "indirect-checks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "indirect-checks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "indirect-checks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_09",
+      "prompt": {
+        "en": "Over the past three months, I returned to a question about where I stood after that question had already been answered.",
+        "zh": "过去三个月，关于自己在关系中处于什么位置，已经得到回答后，我又回到这个问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "direct-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "direct-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "direct-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "direct-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "direct-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "direct-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_10",
+      "prompt": {
+        "en": "Over the past three months, I looked for small signs that someone else might matter more to the person I had in mind.",
+        "zh": "过去三个月，我会留意细小线索，猜想是不是另一个人对我想到的这位更重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "rival-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "rival-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "rival-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "rival-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "rival-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "rival-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_11",
+      "prompt": {
+        "en": "Over the past three months, I stayed available longer than I wanted because I hoped it would preserve our contact.",
+        "zh": "过去三个月，我会比自己愿意的时间更久地保持回应，因为希望这样能保住联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "giving-for-connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "giving-for-connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "giving-for-connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "giving-for-connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "giving-for-connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "giving-for-connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_12",
+      "prompt": {
+        "en": "Over the past three months, I waited for a response to a hint as a way of checking how much the other person cared.",
+        "zh": "过去三个月，我会等对方对暗示的回应，想用它确认对方在意多少。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "indirect-checks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "indirect-checks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "indirect-checks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "indirect-checks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "indirect-checks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "indirect-checks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_13",
+      "prompt": {
+        "en": "Over the past three months, even without a new change, I checked whether an earlier reassuring answer still applied.",
+        "zh": "过去三个月，即使没有新变化，我仍会确认之前让我放心的回答是否还算数。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "direct-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "direct-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "direct-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "direct-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "direct-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "direct-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_14",
+      "prompt": {
+        "en": "Over the past three months, I mentally replayed how the person I had in mind had spoken about someone else.",
+        "zh": "过去三个月，我会在心里重放，这位亲近的人当时是怎样谈起另一个人的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "rival-attention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "rival-attention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "rival-attention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "rival-attention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "rival-attention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "rival-attention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_15",
+      "prompt": {
+        "en": "Over the past three months, after feeling unsure about my place, I did something extra as a way of seeking a sign that our connection mattered.",
+        "zh": "过去三个月，不确定自己在关系中的位置后，我会多做一点，想借此找到彼此联结仍重要的表示。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "giving-for-connection",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "giving-for-connection",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "giving-for-connection",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "giving-for-connection",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "giving-for-connection",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "giving-for-connection",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RWH_16",
+      "prompt": {
+        "en": "Over the past three months, I made myself seem less available than I actually was to see whether the other person would ask again.",
+        "zh": "过去三个月，我会让自己显得比实际更不方便，想看看对方是否还会再问一次。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "indirect-checks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "indirect-checks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "indirect-checks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "indirect-checks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "indirect-checks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No suitable experience, unsure or prefer not to answer",
+            "zh": "没有合适经历、不确定，或不愿回答"
+          },
+          "directionId": "indirect-checks",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "direct-reassurance",
+      "directionIds": [
+        "direct-reassurance"
+      ],
+      "title": {
+        "en": "Repeated Reassurance Requests: Full Guide",
+        "zh": "再次寻求明确安心：完整指南"
+      },
+      "headline": {
+        "en": "Notice the response, its context and the question you were holding.",
+        "zh": "观察反应、场合，以及自己当时保留的问题。"
+      },
+      "summary": {
+        "en": "Read this original relationship response with ordinary examples, possible uses and costs, mixed answers and separate raw frequency.",
+        "zh": "通过普通例子、可能用途与代价、混合回答和独立原始频率，完整阅读这一原创关系反应观察。"
+      },
+      "seo": {
+        "title": {
+          "en": "Repeated Reassurance Requests: Relationship Guide",
+          "zh": "再次寻求明确安心｜关系反应完整指南"
+        },
+        "description": {
+          "en": "Explore this relationship response with full examples, raw frequency and clear limits. No personal type, diagnosis, partner judgement or severity level.",
+          "zh": "用完整例子、原始频率和清楚局限阅读这一关系反应。不分人格类型，不诊断，不评价伴侣或划严重等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; at least three numeric ratings for a raw 1–5 mean. Unscored is not zero. No overall score or main reaction type.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不合总分或分配主要反应类型。"
+      },
+      "sections": [
+        {
+          "id": "direct-reassurance-1",
+          "title": {
+            "en": "A repeated request, not a fixed identity",
+            "zh": "描述重复请求，不定义身份"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records asking again for a caring sign, linking a changed plan to the connection, reopening an answered question and checking whether reassurance still applies. A higher mean describes more frequent endorsement of these moments with the adult close person you selected. It does not establish an attachment type, a mental health condition or a reason for the repetition. The questionnaire asks about your own responses rather than how reliable another person was.",
+              "zh": "这一部分记录再次寻求关心表示、把安排变化与联结相连、重提已回答的问题，以及确认安心回答是否仍适用。较高只表示在选定成年人关系中更常认同这些时刻，不确定依恋类型、心理健康状况或重复的原因。问卷只问自己的反应，不评定别人是否可靠。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-2",
+          "title": {
+            "en": "A plan that moves to another day",
+            "zh": "改到另一天的安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary plan moving to another day. You may understand the practical explanation and still ask whether things are okay between you. A reply might settle the question for a while, or you might later return to it. This example does not decide whether the request was reasonable or what the changed plan meant. It separates noticing your sequence from treating an answer as evidence about the other person’s feelings.",
+              "zh": "例如，一个普通安排改到另一天。你可能理解实际原因，却仍想问彼此之间是否没事；回答可能让问题暂时落定，也可能后来又回到它。例子不裁定请求是否合理，也不判定改期的含义，只帮助留意自己的先后过程，不把回答当成证明别人感受的证据。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-3",
+          "title": {
+            "en": "Clarity and repetition can pull in different directions",
+            "zh": "清楚与重复可能指向不同方向"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is making an uncertainty visible instead of expecting someone to guess it. A possible cost is having a question return before any new information has appeared, so the exchange does not feel settled to you. Neither consequence is established by a mean. A high reading does not make you demanding, and a low reading does not prove calmness, independence or a more secure relationship.",
+              "zh": "一种可能用途，是把不确定说出来，不让别人猜；一种可能代价，是没有新信息，问题却又回来，使交流对自己而言一直没落定。均值不确定这些后果。较高不把你定义为索求者，较低也不证明平静、独立或关系更稳。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-4",
+          "title": {
+            "en": "Different questions can recur at different times",
+            "zh": "不同问题可能在不同时间重复"
+          },
+          "paragraphs": [
+            {
+              "en": "You may seldom revisit a changed plan but often check whether an earlier caring answer still applies. Someone else may ask again only after uncertainty about where they stand. Their means may be similar. Four prompts cannot distinguish every trigger or explain the course of a particular exchange. Read the actual statement and the recent context rather than treating the number as a complete account of how you seek reassurance.",
+              "zh": "你可能很少重提改期，却常确认关心的回答是否仍有效；另一人可能只在不确定自己位置时再问。均值可能接近。四题不能区分所有触发点或解释某次交流经过。请读具体句子与近期场合，不把数字当成寻求安心方式的完整说明。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-5",
+          "title": {
+            "en": "Direct requests and indirect checks are distinct",
+            "zh": "直接请求与间接试探有区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Asking directly for reassurance is not the same action as reducing contact or leaving a hint to see whether someone follows. Both parts may receive high ratings in different moments. Attention to possible rivals and extra giving add other observations without competing for a fixed share. None of these readings establishes how much someone cares, whether a relationship is safe or whether either person owes more contact.",
+              "zh": "直接寻求安心，不等于减少联系或留下暗示，看别人是否追上来。不同场合中两项都可能较高。留意比较和额外付出补充其他观察，不争夺固定份额。任何读法都不确定别人多在意、关系是否安全，或谁欠谁更多联系。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-6",
+          "title": {
+            "en": "Name the uncertainty without requiring a conversation",
+            "zh": "说清不确定，不要求去谈"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write the question you found yourself returning to, without naming anyone or recording their answer. Ask whether it was the same question each time or whether its meaning had shifted. This is an optional private observation, not a requirement to ask again, seek a promise or resolve a relationship. You can keep the note unfinished, choose unscored responses or stop after reading the guide.",
+              "zh": "如果有用，可写下自己反复回到的问题，不写姓名或别人的回答，看看每次是否真是同一个问题，还是含义已变。这是可选私下观察，不要求再问、索取承诺或解决关系。可以不写完、保留未评分，或读完就结束。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-7",
+          "title": {
+            "en": "Four raw frequencies, with missing answers preserved",
+            "zh": "四项原始频率，保留缺失回答"
+          },
+          "paragraphs": [
+            {
+              "en": "For the past three months, choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always. Three is a frequency answer rather than uncertainty. Choose unscored for unsuitable experiences, uncertainty or a choice not to answer. All sixteen prompts need a response. Each part needs three numeric ratings out of four. With 2, 3 and 5 plus one unscored response, the mean is 10 / 3, displayed as 3.3, not 10 / 4. With fewer ratings it shows insufficient information. The four means stay separate; bars are not percentages or severity levels.",
+              "zh": "按过去三个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答选未评分。16题均需响应，每部分四条中至少三条数字。2、3、5加一条未评分得10/3，显示3.3，不是10/4；不足时显示资料不足。四项分别保留，条形不是百分比或严重等级。"
+            }
+          ]
+        },
+        {
+          "id": "direct-reassurance-8",
+          "title": {
+            "en": "Original observations without a personal label",
+            "zh": "不贴人身标签的原创观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and four full guides. Reliability, validity, norms and language equivalence have not been established. These are ordinary self-reported responses, not a menhera identity, attachment classification, mental health diagnosis or measure of a partner. No main type, heaviness level, love score or judgment about continuing a relationship is assigned. All parts may be high, low or equal. Low values do not prove calmness, and missing answers establish no personal conclusion. Every guide stays free and open; no disclosure, contact or change of relationship is required.",
+              "zh": "费马原创这16条题及四篇完整指南，尚未建立信效度、常模或跨语言等价。它们描述普通自报反应，不识别menhera身份、依恋分类、心理健康诊断，也不测伴侣。不分主要类型、沉重等级、爱意分数或是否继续关系。各项可都高、都低或相同；低值不证明平静，缺失不建立个人结论。全部指南免费开放，不要求披露、联系或改变关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rival-attention",
+      "directionIds": [
+        "rival-attention"
+      ],
+      "title": {
+        "en": "Attention to Possible Rivals: Full Guide",
+        "zh": "留意可能的比较与竞争：完整指南"
+      },
+      "headline": {
+        "en": "Notice the response, its context and the question you were holding.",
+        "zh": "观察反应、场合，以及自己当时保留的问题。"
+      },
+      "summary": {
+        "en": "Read this original relationship response with ordinary examples, possible uses and costs, mixed answers and separate raw frequency.",
+        "zh": "通过普通例子、可能用途与代价、混合回答和独立原始频率，完整阅读这一原创关系反应观察。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attention to Possible Rivals: Relationship Guide",
+          "zh": "留意可能的比较与竞争｜关系反应完整指南"
+        },
+        "description": {
+          "en": "Explore this relationship response with full examples, raw frequency and clear limits. No personal type, diagnosis, partner judgement or severity level.",
+          "zh": "用完整例子、原始频率和清楚局限阅读这一关系反应。不分人格类型，不诊断，不评价伴侣或划严重等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; at least three numeric ratings for a raw 1–5 mean. Unscored is not zero. No overall score or main reaction type.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不合总分或分配主要反应类型。"
+      },
+      "sections": [
+        {
+          "id": "rival-attention-1",
+          "title": {
+            "en": "Your attention is the subject",
+            "zh": "这里观察的是自己的注意"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records comparing your place with someone else’s, returning to a casual mention, looking for signs of competing importance and mentally replaying how another person was discussed. It concerns what occupied your attention in the chosen recent context. A higher mean does not verify a rival, betrayal, preference or threat. The questionnaire has no evidence about another person’s actions or intentions and asks you to provide no names or private details.",
+              "zh": "这一部分记录比较自己与别人的位置、反复想一次提及、留意重要性可能被竞争的线索，以及重放谈到别人的方式。它关注选定近期场合中什么占据了注意。较高不证明存在竞争者、背叛、偏爱或威胁。问卷没有他人行为或意图的证据，也不收集姓名或私密细节。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-2",
+          "title": {
+            "en": "A name mentioned in passing",
+            "zh": "随口提到的一个名字"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine someone mentioning an ordinary conversation with a friend. You may notice yourself returning to how that friend was described, while knowing very little about the exchange. Another time, a similar mention may pass without much thought. This example separates the amount of attention a thought receives from the accuracy of its interpretation. The result cannot tell you what happened, what a relationship means or whether there is anything to investigate.",
+              "zh": "例如，对方提起与朋友的一次普通谈话。你可能反复想到那位朋友怎样被描述，实际却很不了解交流经过；另一次，相似提及也可能很快过去。例子把一个想法占据多少注意，与解释是否准确分开。结果不知道发生了什么、某段关系代表什么，也不说明有事需要调查。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-3",
+          "title": {
+            "en": "Noticing concern and treating it as evidence differ",
+            "zh": "发现担心，与把它当证据不同"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is noticing that a comparison matters to you before calling it a fact about someone else. A possible cost is allowing a small detail to dominate how you understand an entire exchange. Neither follows automatically from the mean. More frequent attention is not proof of sharper intuition, and less frequent attention is not proof of greater trust. No result supports monitoring, demanding access or asking another person to disprove a suspicion.",
+              "zh": "一种可能用途，是先发现某个比较对自己重要，而不立即当作关于别人的事实；一种可能代价，是让小细节主导对整段交流的理解。均值不自动证明这些后果。更常注意不代表直觉更准，较少注意也不证明更信任。结果不支持监控、索要访问权限，或要求别人推翻怀疑。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-4",
+          "title": {
+            "en": "Comparison and replay are different moments",
+            "zh": "比较与重放是不同的时刻"
+          },
+          "paragraphs": [
+            {
+              "en": "You may rarely compare your place with another person’s yet replay the wording of a mention. Another person may notice a comparison quickly and then move on. Their means can be similar despite those different sequences. Four statements do not measure the length of every thought, its intensity or the reasons it arose. The individual answers remain more specific than a general label such as jealous or unbothered.",
+              "zh": "你可能很少比较位置，却反复想谈起别人的措辞；另一人可能很快出现比较，之后就放下。均值仍可能接近。四句话不测每个想法持续多久、多强烈或为何出现。具体回答比“爱吃醋”或“无所谓”这种概括标签更具体。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-5",
+          "title": {
+            "en": "A thought does not require one particular response",
+            "zh": "一个想法不要求某种特定行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Attention to possible rivals can coexist with direct reassurance requests, extra giving or indirect checks, but no part determines the others. Someone may notice a comparison and choose not to act. Another may seek reassurance about an unrelated uncertainty. The report does not turn their combination into a main reaction type or a level of relationship heaviness. It describes selected self-reports, without deciding what you should conclude about anyone.",
+              "zh": "留意可能的比较，可以与求安心、额外付出或间接试探并存，却不决定其他项。有人注意到比较后不行动，另一人可能为别的不确定寻求安心。报告不把组合压成主要反应类型或关系沉重等级，只描述选定自报，不决定应该怎样评价任何人。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-6",
+          "title": {
+            "en": "Separate what you noticed from what you inferred",
+            "zh": "分开注意与推断"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, describe one ordinary cue in a few words, then separately name the interpretation that came to mind. You need not keep the cue, verify the interpretation or discuss it with anyone. This optional note is for understanding your own attention and remains outside the questionnaire. You can leave every item unscored when the setting is unsuitable, read another guide or end without a next step.",
+              "zh": "如果有用，可用几个字写一个普通线索，再分开写当时想到的解释。不要求保留线索、核实解释或找人讨论。这份可选笔记只帮助了解自己的注意，不属于问卷。场合不适合时可以全部未评分、读其他指南，或不再继续。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-7",
+          "title": {
+            "en": "Four raw frequencies, with missing answers preserved",
+            "zh": "四项原始频率，保留缺失回答"
+          },
+          "paragraphs": [
+            {
+              "en": "For the past three months, choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always. Three is a frequency answer rather than uncertainty. Choose unscored for unsuitable experiences, uncertainty or a choice not to answer. All sixteen prompts need a response. Each part needs three numeric ratings out of four. With 2, 3 and 5 plus one unscored response, the mean is 10 / 3, displayed as 3.3, not 10 / 4. With fewer ratings it shows insufficient information. The four means stay separate; bars are not percentages or severity levels.",
+              "zh": "按过去三个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答选未评分。16题均需响应，每部分四条中至少三条数字。2、3、5加一条未评分得10/3，显示3.3，不是10/4；不足时显示资料不足。四项分别保留，条形不是百分比或严重等级。"
+            }
+          ]
+        },
+        {
+          "id": "rival-attention-8",
+          "title": {
+            "en": "Original observations without a personal label",
+            "zh": "不贴人身标签的原创观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and four full guides. Reliability, validity, norms and language equivalence have not been established. These are ordinary self-reported responses, not a menhera identity, attachment classification, mental health diagnosis or measure of a partner. No main type, heaviness level, love score or judgment about continuing a relationship is assigned. All parts may be high, low or equal. Low values do not prove calmness, and missing answers establish no personal conclusion. Every guide stays free and open; no disclosure, contact or change of relationship is required.",
+              "zh": "费马原创这16条题及四篇完整指南，尚未建立信效度、常模或跨语言等价。它们描述普通自报反应，不识别menhera身份、依恋分类、心理健康诊断，也不测伴侣。不分主要类型、沉重等级、爱意分数或是否继续关系。各项可都高、都低或相同；低值不证明平静，缺失不建立个人结论。全部指南免费开放，不要求披露、联系或改变关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "giving-for-connection",
+      "directionIds": [
+        "giving-for-connection"
+      ],
+      "title": {
+        "en": "Extra Giving for Connection: Full Guide",
+        "zh": "为了联结而额外付出：完整指南"
+      },
+      "headline": {
+        "en": "Notice the response, its context and the question you were holding.",
+        "zh": "观察反应、场合，以及自己当时保留的问题。"
+      },
+      "summary": {
+        "en": "Read this original relationship response with ordinary examples, possible uses and costs, mixed answers and separate raw frequency.",
+        "zh": "通过普通例子、可能用途与代价、混合回答和独立原始频率，完整阅读这一原创关系反应观察。"
+      },
+      "seo": {
+        "title": {
+          "en": "Extra Giving for Connection: Relationship Guide",
+          "zh": "为了联结而额外付出｜关系反应完整指南"
+        },
+        "description": {
+          "en": "Explore this relationship response with full examples, raw frequency and clear limits. No personal type, diagnosis, partner judgement or severity level.",
+          "zh": "用完整例子、原始频率和清楚局限阅读这一关系反应。不分人格类型，不诊断，不评价伴侣或划严重等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; at least three numeric ratings for a raw 1–5 mean. Unscored is not zero. No overall score or main reaction type.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不合总分或分配主要反应类型。"
+      },
+      "sections": [
+        {
+          "id": "giving-for-connection-1",
+          "title": {
+            "en": "The stated hope is part of the prompt",
+            "zh": "题目也包含自己当时的期待"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records extra help, setting aside a plan, staying available or doing something more while hoping to preserve or strengthen a connection. The intention is explicitly in the wording; it is not inferred from how much you helped. A higher mean records more frequent endorsement of those combined moments. It does not prove generosity, dependence, a lack of boundaries or whether another person actually felt closer to you.",
+              "zh": "这一部分记录额外帮忙、放下安排、持续回应或多做一点，同时希望保留或加强联结的时刻。这个意图明确写在题里，不从帮忙数量推断。较高只记录更常认同这些组合时刻，不证明慷慨、依赖、缺乏边界，或别人真的感觉更亲近。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-2",
+          "title": {
+            "en": "One more favour after an uncertain exchange",
+            "zh": "一次不确定交流后多帮一点"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine feeling unsure after a short exchange and then offering an ordinary favour, partly hoping it will bring a sign of connection. You may also genuinely want to help. Several intentions can coexist, and the questionnaire does not rank them as sincere or insincere. This example makes the stated hope visible without deciding whether the offer was appropriate, whether it changed anything or what the other person understood.",
+              "zh": "例如，一次简短交流后不太确定，于是提出帮一个普通小忙，部分是希望得到联结仍在的表示；同时也可能真心想帮忙。不同意图可以并存，问卷不把它们排成真诚或不真诚。例子只把期待放到眼前，不裁定帮忙是否合适、是否改变了什么或别人怎样理解。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-3",
+          "title": {
+            "en": "A contribution is not a claim on another person",
+            "zh": "付出不构成对别人的要求"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is recognising what you hoped an offer would mean to you. A possible cost is allowing an unspoken hope to shape an offer beyond what you wanted to give. Neither consequence is proved by the mean. Help does not create a debt of affection, reassurance or access. A high reading is not an instruction to give less, and a low reading does not mean you care less.",
+              "zh": "一种可能用途，是看见自己希望一次帮忙对自己意味着什么；一种可能代价，是未说出的期待影响了提供多少，超过原本愿意的范围。均值不证明这些后果。帮忙不建立感情、安心回应或开放权限的债；较高不命令少付出，较低也不表示关心更少。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-4",
+          "title": {
+            "en": "Availability and a changed plan can differ",
+            "zh": "保持回应与改变安排不必相同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might offer extra help with the stated hope but rarely set aside a personal plan. Another person may stay available longer than they want while making few offers. Their means can be equal. Four statements do not distinguish every resource, obligation or practical constraint. Read the specific action and the hope named in the prompt, rather than treating the number as the amount of love or effort you bring to a relationship.",
+              "zh": "你可能会带着题中期待额外帮忙，却很少放下个人安排；另一人可能经常回应得比想要更久，却少有主动提供帮助。均值可以相同。四题不能区分所有资源、义务或实际限制。请读具体行动与明说的期待，不把数字当成关系中投入的爱或努力数量。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-5",
+          "title": {
+            "en": "Different from giving beyond available capacity",
+            "zh": "与超出可用余量付出不同"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate Relationship Habits reflection asks about giving beyond your own available capacity without assigning a motive. This part asks about a stated hope for connection, whether or not the action exceeded capacity. The readings are not interchangeable. Direct reassurance and indirect checks concern different responses again. No combination identifies a devoted-giver type, a relationship imbalance or what another person should return for your contribution.",
+              "zh": "独立的关系相处习惯观察问的是付出是否超过可用余量，不分配动机。这里问明说的联结期待，不论行动是否超出余量；两者不能互换。直接求安心与间接试探又是其他反应。任何组合都不识别倾情付出型、关系失衡，或别人该怎样回报贡献。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-6",
+          "title": {
+            "en": "Separate an offer from the hoped-for sign",
+            "zh": "分开提供的事与期待的表示"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, describe one ordinary offer and separately note the sign of connection you had hoped to see. You do not need to withdraw the offer, ask for a return or discuss the note. This optional exercise is only for making your own expectation clearer to yourself. It is not advice about a particular relationship, and you may stop without changing anything or providing a personal example.",
+              "zh": "如果有用，可写一次普通帮忙，再分开记下自己期待看见的联结表示。无需撤回帮忙、要求回报或讨论笔记。这份可选练习只是让自己的期待对自己更清楚，不是对某段特定关系的建议；可以不改变任何事，也不提供个人例子，直接结束。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-7",
+          "title": {
+            "en": "Four raw frequencies, with missing answers preserved",
+            "zh": "四项原始频率，保留缺失回答"
+          },
+          "paragraphs": [
+            {
+              "en": "For the past three months, choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always. Three is a frequency answer rather than uncertainty. Choose unscored for unsuitable experiences, uncertainty or a choice not to answer. All sixteen prompts need a response. Each part needs three numeric ratings out of four. With 2, 3 and 5 plus one unscored response, the mean is 10 / 3, displayed as 3.3, not 10 / 4. With fewer ratings it shows insufficient information. The four means stay separate; bars are not percentages or severity levels.",
+              "zh": "按过去三个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答选未评分。16题均需响应，每部分四条中至少三条数字。2、3、5加一条未评分得10/3，显示3.3，不是10/4；不足时显示资料不足。四项分别保留，条形不是百分比或严重等级。"
+            }
+          ]
+        },
+        {
+          "id": "giving-for-connection-8",
+          "title": {
+            "en": "Original observations without a personal label",
+            "zh": "不贴人身标签的原创观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and four full guides. Reliability, validity, norms and language equivalence have not been established. These are ordinary self-reported responses, not a menhera identity, attachment classification, mental health diagnosis or measure of a partner. No main type, heaviness level, love score or judgment about continuing a relationship is assigned. All parts may be high, low or equal. Low values do not prove calmness, and missing answers establish no personal conclusion. Every guide stays free and open; no disclosure, contact or change of relationship is required.",
+              "zh": "费马原创这16条题及四篇完整指南，尚未建立信效度、常模或跨语言等价。它们描述普通自报反应，不识别menhera身份、依恋分类、心理健康诊断，也不测伴侣。不分主要类型、沉重等级、爱意分数或是否继续关系。各项可都高、都低或相同；低值不证明平静，缺失不建立个人结论。全部指南免费开放，不要求披露、联系或改变关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indirect-checks",
+      "directionIds": [
+        "indirect-checks"
+      ],
+      "title": {
+        "en": "Indirect Checks",
+        "zh": "间接试探回应：完整指南"
+      },
+      "headline": {
+        "en": "Notice the response, its context and the question you were holding.",
+        "zh": "观察反应、场合，以及自己当时保留的问题。"
+      },
+      "summary": {
+        "en": "Read this original relationship response with ordinary examples, possible uses and costs, mixed answers and separate raw frequency.",
+        "zh": "通过普通例子、可能用途与代价、混合回答和独立原始频率，完整阅读这一原创关系反应观察。"
+      },
+      "seo": {
+        "title": {
+          "en": "Indirect Response Checks: Relationship Guide",
+          "zh": "间接试探回应｜关系反应完整指南"
+        },
+        "description": {
+          "en": "Explore this relationship response with full examples, raw frequency and clear limits. No personal type, diagnosis, partner judgement or severity level.",
+          "zh": "用完整例子、原始频率和清楚局限阅读这一关系反应。不分人格类型，不诊断，不评价伴侣或划严重等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original prompts; at least three numeric ratings for a raw 1–5 mean. Unscored is not zero. No overall score or main reaction type.",
+        "zh": "四条原创题，至少三条数字才显示原始1至5均值。未评分不补零，不合总分或分配主要反应类型。"
+      },
+      "sections": [
+        {
+          "id": "indirect-checks-1",
+          "title": {
+            "en": "A stated checking intention, not every pause",
+            "zh": "关注明说的试探意图，不包括所有暂停"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about reducing contact, leaving a hint, waiting for its response or seeming less available with the stated intention of checking whether someone would notice or pursue contact. It does not assume that every pause or private feeling has that intention. A higher mean records your own endorsement of these specific moments, not proof of manipulation as an identity or an explanation of another person’s reaction.",
+              "zh": "这一部分问减少联系、留下暗示、等待暗示回应或显得不方便，同时明说是为了查看别人是否注意或继续联系。它不假设所有暂停或保密感受都有这种意图。较高只记录你认同这些具体时刻，不把操控当身份，也不解释别人的反应。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-2",
+          "title": {
+            "en": "A hint after a changed plan",
+            "zh": "安排改变后留下的一点暗示"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a plan changing and noticing that you made a brief hint about being disappointed while waiting to see whether the other person would ask more. The questionnaire does not know what they noticed or why they replied as they did. This example separates your stated intention from the meaning of their response. A response or absence of one cannot be used here as a reliable measure of how much someone cares.",
+              "zh": "例如，安排变化后，你注意到自己只简短暗示失落，等着看别人会不会多问。问卷不知道对方注意到了什么，也不知道为何那样回应。例子把自己明说的意图与他人回应的含义分开；回应或没有回应，都不能在这里被当成可靠的在意程度测量。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-3",
+          "title": {
+            "en": "An indirect check may leave the question unclear",
+            "zh": "间接试探可能让问题仍不清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible useful side is recognising a moment when you were looking for a sign without naming the question. A possible cost is treating an ambiguous response as an answer to a question the other person did not know was being asked. Neither outcome follows from a mean. The result does not suggest trying a more effective hint, making someone follow or using distance to secure reassurance.",
+              "zh": "一种可能用途，是看见自己曾在没有说清问题时寻找表示；一种可能代价，是把模糊回应当作回答，而别人并不知道有这个问题。均值不确定任何后果。结果不建议换更有效的暗示、让别人追上来，或借距离得到安心回应。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-4",
+          "title": {
+            "en": "The purpose matters more than the outward pause",
+            "zh": "关键是题中目的，不只外表上的暂停"
+          },
+          "paragraphs": [
+            {
+              "en": "You might need less contact for rest and never intend to check another person. That is not the action described here. You might also leave a hint in one setting while asking directly in another. Similar means can arise from different patterns across the four prompts. Read both the action and its stated intention; the test cannot infer private motives from a pause, a late reply or an answer supplied by someone else.",
+              "zh": "你可能只是需要少联系来休息，从没想测试别人，那就不是这里描述的行动。也可能在一个场合留暗示，在另一个场合直接问。四题的不同模式仍可得相似均值。请同时读行动和题中意图；测试不能从暂停、迟回复或别人提供的回答推断私下动机。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-5",
+          "title": {
+            "en": "Direct requests and giving remain separate",
+            "zh": "直接请求与付出继续分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Indirect checks differ from asking directly for reassurance and from offering extra help while hoping for connection. All may occur in different moments without describing a single main type. Attention to possible rivals records another aspect of your experience. A low value on every part does not assign a calm type, and all-unscored answers establish no personal conclusion. The complete guides remain open without a winner or relationship-heaviness level.",
+              "zh": "间接试探不同于直接求安心，也不同于希望联结而额外帮忙。它们可能在不同场合出现，不描述一种主要类型；留意比较又记录另一面。四项都低也不分配平静型，全部未评分更不建立个人结论。完整指南一直开放，不找赢家或关系沉重等级。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-6",
+          "title": {
+            "en": "Identify the question without testing a person",
+            "zh": "辨认问题，不测试某个人"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write privately what you had wanted to know at one ordinary moment. You do not need to send the question, repeat the check or ask another person to explain a past response. The aim is only to recognise your own question more clearly. You may keep it unwritten, decide that no suitable example exists, choose unscored responses or end after the guide without any further action.",
+              "zh": "如果有用，可私下写一个普通时刻自己原本想知道什么。无需发出问题、重做试探，或请别人解释过去的回应。这里只帮助更清楚地辨认自己的问题。也可以不写、觉得没有合适例子、保留未评分，或读完后不再行动。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-7",
+          "title": {
+            "en": "Four raw frequencies, with missing answers preserved",
+            "zh": "四项原始频率，保留缺失回答"
+          },
+          "paragraphs": [
+            {
+              "en": "For the past three months, choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always. Three is a frequency answer rather than uncertainty. Choose unscored for unsuitable experiences, uncertainty or a choice not to answer. All sixteen prompts need a response. Each part needs three numeric ratings out of four. With 2, 3 and 5 plus one unscored response, the mean is 10 / 3, displayed as 3.3, not 10 / 4. With fewer ratings it shows insufficient information. The four means stay separate; bars are not percentages or severity levels.",
+              "zh": "按过去三个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答选未评分。16题均需响应，每部分四条中至少三条数字。2、3、5加一条未评分得10/3，显示3.3，不是10/4；不足时显示资料不足。四项分别保留，条形不是百分比或严重等级。"
+            }
+          ]
+        },
+        {
+          "id": "indirect-checks-8",
+          "title": {
+            "en": "Original observations without a personal label",
+            "zh": "不贴人身标签的原创观察"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen prompts and four full guides. Reliability, validity, norms and language equivalence have not been established. These are ordinary self-reported responses, not a menhera identity, attachment classification, mental health diagnosis or measure of a partner. No main type, heaviness level, love score or judgment about continuing a relationship is assigned. All parts may be high, low or equal. Low values do not prove calmness, and missing answers establish no personal conclusion. Every guide stays free and open; no disclosure, contact or change of relationship is required.",
+              "zh": "费马原创这16条题及四篇完整指南，尚未建立信效度、常模或跨语言等价。它们描述普通自报反应，不识别menhera身份、依恋分类、心理健康诊断，也不测伴侣。不分主要类型、沉重等级、爱意分数或是否继续关系。各项可都高、都低或相同；低值不证明平静，缺失不建立个人结论。全部指南免费开放，不要求披露、联系或改变关系。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four raw frequencies, with missing answers preserved",
+        "zh": "四项原始频率，保留缺失回答"
+      },
+      "paragraphs": [
+        {
+          "en": "For the past three months, choose 1 never, 2 rarely, 3 sometimes, 4 often or 5 almost always. Three is a frequency answer rather than uncertainty. Choose unscored for unsuitable experiences, uncertainty or a choice not to answer. All sixteen prompts need a response. Each part needs three numeric ratings out of four. With 2, 3 and 5 plus one unscored response, the mean is 10 / 3, displayed as 3.3, not 10 / 4. With fewer ratings it shows insufficient information. The four means stay separate; bars are not percentages or severity levels.",
+          "zh": "按过去三个月评价：1从不、2很少、3有时、4经常、5几乎每次。3是频率，不是不确定。不适用、不确定或不愿回答选未评分。16题均需响应，每部分四条中至少三条数字。2、3、5加一条未评分得10/3，显示3.3，不是10/4；不足时显示资料不足。四项分别保留，条形不是百分比或严重等级。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Original observations without a personal label",
+        "zh": "不贴人身标签的原创观察"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these sixteen prompts and four full guides. Reliability, validity, norms and language equivalence have not been established. These are ordinary self-reported responses, not a menhera identity, attachment classification, mental health diagnosis or measure of a partner. No main type, heaviness level, love score or judgment about continuing a relationship is assigned. All parts may be high, low or equal. Low values do not prove calmness, and missing answers establish no personal conclusion. Every guide stays free and open; no disclosure, contact or change of relationship is required.",
+          "zh": "费马原创这16条题及四篇完整指南，尚未建立信效度、常模或跨语言等价。它们描述普通自报反应，不识别menhera身份、依恋分类、心理健康诊断，也不测伴侣。不分主要类型、沉重等级、爱意分数或是否继续关系。各项可都高、都低或相同；低值不证明平静，缺失不建立个人结论。全部指南免费开放，不要求披露、联系或改变关系。"
+        }
+      ]
+    },
+    {
+      "id": "distinction",
+      "title": {
+        "en": "Intentions explicitly stated, rather than inferred",
+        "zh": "意图明说，不从动作推断"
+      },
+      "paragraphs": [
+        {
+          "en": "A pause can be for rest, and help can have many purposes. Only rate an indirect check or extra giving for connection when the stated purpose fits your own experience. The separate Relationship Habits and Attachment reflections ask different questions; their scores are not converted into these frequencies.",
+          "zh": "暂停可以是为了休息，帮忙也可能有许多目的。只有题中明说的目的符合自己体验时，才评价间接试探或为联结额外付出。独立的关系相处习惯与依恋观察问的是不同问题，其分数不换算成本次频率。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a menhera test?",
+        "zh": "这是menhera测试吗？"
+      },
+      "answer": {
+        "en": "It addresses the casual self-reflection task of noticing relationship-worry responses. Sixteen original prompts and four full guides assign no menhera identity, main reaction type, heaviness level or mental health diagnosis. They do not reproduce another site’s scenario bank.",
+        "zh": "它回应留意关系担心反应的日常自我反思任务。16条原创题与四篇完整指南不识别menhera身份、不分主要反应类型、沉重等级或心理健康诊断，也不复刻其他网站的场景题本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher mean reveal what someone else feels?",
+        "zh": "较高均值能说明别人怎样想吗？"
+      },
+      "answer": {
+        "en": "No. It records your own endorsement of those moments. It cannot establish a rival, how much someone cares, whether a reassurance is true or what another person owes you.",
+        "zh": "不能。它只记录自己认同这些时刻的频率，不能确定竞争者是否存在、别人多在意、安心回答是真是假，或别人欠你什么。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all-low answers a calm type?",
+        "zh": "全部较低就是平静型吗？"
+      },
+      "answer": {
+        "en": "No. The four means stay separate without a winner or overall level. Low values do not establish calmness, healthy communication or the reason a response was uncommon. All-unscored answers show insufficient information and all guides stay open.",
+        "zh": "不是。四项均值分开，不找赢家或总体等级。较低不证明平静、沟通健康或反应少见的原因。全部未评分显示资料不足，全部指南仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if a prompt does not fit?",
+        "zh": "题目不符合经历怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored for unsuitable, uncertain or private experiences. Each part needs three numeric ratings out of four; fewer show insufficient information. Missing answers are not neutral answers or zeroes.",
+        "zh": "不适用、不确定或不愿评价时选未评分。每部分四条至少三条数字，不足时显示资料不足。缺失不是中立回答或零分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What is saved or shared?",
+        "zh": "会保存或分享什么？"
+      },
+      "answer": {
+        "en": "Optional progress stays in this browser tab for up to 24 hours and clears on completion, clearing or retake. Sharing copies only the public title and entry link. Personal answers and means do not enter URLs, public sharing or ordinary analytics.",
+        "zh": "可选进度仅在当前标签页最多保留24小时，完成、清除或重测即删除。分享只复制公开标题和入口。个人答案与均值不进入URL、公开分享或普通分析。"
+      }
+    }
+  ]
+}

@@ -6309,5 +6309,30 @@
       "photo-ease",
       "appearance-attention"
     ]
+  },
+  {
+    "slug": "relationship-worry-habits",
+    "code": "FM_RELATIONSHIP_WORRY16",
+    "version": "fm_relationship_worry16_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Relationship Worry Habits Test",
+      "zh": "关系担心反应观察"
+    },
+    "description": {
+      "en": "Explore repeated reassurance, comparison, extra giving and indirect checks through 16 original prompts. Four full guides free, without labels or levels.",
+      "zh": "用16条原创题观察再次求安心、比较注意、为联结额外付出与间接试探。四篇完整指南免费，不贴标签，不划等级。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_relationship_worry16_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "direct-reassurance",
+      "rival-attention",
+      "giving-for-connection",
+      "indirect-checks"
+    ]
   }
 ]
