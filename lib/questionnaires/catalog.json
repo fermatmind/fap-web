@@ -6596,5 +6596,32 @@
       "agreeing-early-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "connection-ideals",
+    "code": "FM_CONNECTION_IDEALS12",
+    "version": "fm_connection_ideals12_v1",
+    "updated": "2026-10-30",
+    "category": "relationships",
+    "title": {
+      "en": "Soulmate Quiz: Connection Ideals",
+      "zh": "灵魂伴侣测试：连接偏好"
+    },
+    "description": {
+      "en": "Compare 12 original fictional connection moments across six themes. See raw counts and every highest-tied full guide, free without signup or a prediction about a destined partner.",
+      "zh": "用12组原创想象情境比较六种连接偏好，查看原始次数与所有最高并列全文。免费免注册，不预测命定伴侣。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_connection_ideals12",
+    "questionCount": 12,
+    "resultSlugs": [
+      "shared-spark",
+      "steady-presence",
+      "easy-companionship",
+      "shared-discovery",
+      "gentle-support",
+      "mutual-encouragement"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,1695 @@
+{
+  "method": "independentlower-boundintegercirculation;onewitnessperfeasiblehighestset;not4^12individualanswerexecutionsorpsychometricvalidation",
+  "itemBankSHA256": "e64ae447b8954f56dbfd4edd526a66d7ed0304784816dca1a36311e97af7c9b4",
+  "witnesses": [
+    {
+      "leaders": [
+        "shared-spark"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 1,
+        "easy-companionship": 2,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 3,
+        "easy-companionship": 2,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 2,
+        "easy-companionship": 3,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-discovery"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 2,
+        "steady-presence": 1,
+        "easy-companionship": 2,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "gentle-support"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "D",
+        "A",
+        "C",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 2,
+        "steady-presence": 2,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 2,
+        "steady-presence": 2,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 1,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 1,
+        "easy-companionship": 3,
+        "shared-discovery": 2,
+        "gentle-support": 1,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "shared-discovery"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 2,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 1,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 1,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 2,
+        "gentle-support": 1,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "shared-discovery"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "B",
+        "B",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 2,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "gentle-support"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "shared-discovery"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "D",
+        "C",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 2,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "gentle-support"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "D",
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 2,
+        "easy-companionship": 3,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "A",
+        "D",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 2,
+        "easy-companionship": 3,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "D",
+        "A",
+        "C",
+        "C",
+        "B",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 1,
+        "easy-companionship": 2,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "D",
+        "C",
+        "C",
+        "B",
+        "C",
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 1,
+        "easy-companionship": 2,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "D",
+        "D",
+        "C",
+        "C",
+        "C",
+        "C",
+        "A",
+        "A",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 2,
+        "steady-presence": 2,
+        "easy-companionship": 0,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "easy-companionship"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 0,
+        "gentle-support": 1,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "shared-discovery"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "D",
+        "D",
+        "B",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 0,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 1,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "D",
+        "C",
+        "B",
+        "B",
+        "D",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 1,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "shared-discovery"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "D",
+        "D",
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 1,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 1,
+        "easy-companionship": 3,
+        "shared-discovery": 1,
+        "gentle-support": 3,
+        "mutual-encouragement": 1
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 1,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "D",
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 2,
+        "easy-companionship": 0,
+        "shared-discovery": 1,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "shared-discovery"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "D",
+        "D",
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 1,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "gentle-support"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 1,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 1,
+        "gentle-support": 3,
+        "mutual-encouragement": 1
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 1,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "D",
+        "C",
+        "C",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "D"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 1,
+        "shared-discovery": 2,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 1,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 2
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 1,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 2,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "D",
+        "D",
+        "A",
+        "C",
+        "A",
+        "A",
+        "A",
+        "C",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 2,
+        "easy-companionship": 3,
+        "shared-discovery": 1,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-discovery",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "D",
+        "D",
+        "C",
+        "C",
+        "B",
+        "C",
+        "A",
+        "A",
+        "B",
+        "C",
+        "C",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 2,
+        "easy-companionship": 1,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "easy-companionship",
+        "shared-discovery"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "D",
+        "C"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 0,
+        "mutual-encouragement": 0
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "easy-companionship",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "D",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 0,
+        "gentle-support": 3,
+        "mutual-encouragement": 0
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "easy-companionship",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "B",
+        "B",
+        "C",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 0,
+        "gentle-support": 0,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 0
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "A",
+        "C",
+        "C",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 3,
+        "gentle-support": 0,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "C",
+        "D",
+        "A",
+        "A",
+        "D",
+        "C",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 0,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 0
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 0,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "easy-companionship",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 0,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "shared-discovery",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 3,
+        "steady-presence": 0,
+        "easy-companionship": 0,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "shared-discovery",
+        "gentle-support"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 0
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "shared-discovery",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "A",
+        "A",
+        "D",
+        "B",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 0,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "easy-companionship",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "D",
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "C",
+        "A",
+        "B"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 3,
+        "shared-discovery": 0,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "steady-presence",
+        "shared-discovery",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "B",
+        "B",
+        "A",
+        "C",
+        "B",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 3,
+        "easy-companionship": 0,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "easy-companionship",
+        "shared-discovery",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "A",
+        "B",
+        "A",
+        "A",
+        "C",
+        "C",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 0,
+        "steady-presence": 0,
+        "easy-companionship": 3,
+        "shared-discovery": 3,
+        "gentle-support": 3,
+        "mutual-encouragement": 3
+      }
+    },
+    {
+      "leaders": [
+        "shared-spark",
+        "steady-presence",
+        "easy-companionship",
+        "shared-discovery",
+        "gentle-support",
+        "mutual-encouragement"
+      ],
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "counts": {
+        "shared-spark": 2,
+        "steady-presence": 2,
+        "easy-companionship": 2,
+        "shared-discovery": 2,
+        "gentle-support": 2,
+        "mutual-encouragement": 2
+      }
+    }
+  ],
+  "impossibleHighestSets": [
+    [
+      "shared-spark",
+      "steady-presence",
+      "easy-companionship",
+      "shared-discovery",
+      "gentle-support"
+    ],
+    [
+      "shared-spark",
+      "steady-presence",
+      "easy-companionship",
+      "shared-discovery",
+      "mutual-encouragement"
+    ],
+    [
+      "shared-spark",
+      "steady-presence",
+      "easy-companionship",
+      "gentle-support",
+      "mutual-encouragement"
+    ],
+    [
+      "shared-spark",
+      "steady-presence",
+      "shared-discovery",
+      "gentle-support",
+      "mutual-encouragement"
+    ],
+    [
+      "shared-spark",
+      "easy-companionship",
+      "shared-discovery",
+      "gentle-support",
+      "mutual-encouragement"
+    ],
+    [
+      "steady-presence",
+      "easy-companionship",
+      "shared-discovery",
+      "gentle-support",
+      "mutual-encouragement"
+    ]
+  ],
+  "impossibilityReason": "For5leaders,maximum1admitsatmost6choices;maximum2cannotreach12withstrictlylowernonleader;maximum3orhigherexceeds12withleadersalone."
+}

@@ -1,0 +1,1532 @@
+{
+  "slug": "connection-ideals",
+  "code": "FM_CONNECTION_IDEALS12",
+  "version": "fm_connection_ideals12_v1",
+  "updated": "2026-10-30",
+  "category": "relationships",
+  "kind": "archetype",
+  "title": {
+    "en": "Soulmate Quiz: Connection Ideals",
+    "zh": "灵魂伴侣测试：连接偏好"
+  },
+  "description": {
+    "en": "Compare 12 original fictional connection moments across six themes. See raw counts and every highest-tied full guide, free without signup or a prediction about a destined partner.",
+    "zh": "用12组原创想象情境比较六种连接偏好，查看原始次数与所有最高并列全文。免费免注册，不预测命定伴侣。"
+  },
+  "seoTitle": {
+    "en": "Free Soulmate Quiz: 12 Connection-Ideal Comparisons",
+    "zh": "免费灵魂伴侣测试：12组连接偏好比较"
+  },
+  "minutes": 4,
+  "resultHeading": {
+    "en": "Your connection-ideal choices and complete guides",
+    "zh": "你的连接偏好选择与完整解读"
+  },
+  "instructions": {
+    "en": "Imagine mutually welcome adult connections, without naming or evaluating a real person. For each fictional scene, choose the offered detail you would most enjoy now. There are twelve four-way comparisons, six themes and eight appearances per theme, twice in each position. Other themes are absent from that comparison, not rejected. One choice adds one raw count. Every highest tie opens in full; no match percentage or destined partner is identified. If none is useful, you may leave or read every public guide without answering.",
+    "zh": "想象双方都愿意的成年连接，不填写姓名，也不评价现实中的某个人。每个虚构场景里，选此刻最想享受的一个细节。十二次四选一，共六主题，每主题出现八次、在每位置各两次；没出现在某题的主题不是被否定。选中记一次，最高并列全部展开全文；不显示匹配比例，也不识别命定伴侣。没有适合的描述时，可以退出或不作答直接读所有公开指南。"
+  },
+  "introduction": {
+    "en": "What kind of connection story sounds appealing right now? This original entertainment reflection offers six descriptive themes, with all complete guides open before you begin. The choices describe imagined experiences, without identifying a soulmate or assessing another person.",
+    "zh": "此刻哪种连接故事更吸引你？这份原创娱乐反思提供六个描述主题，开始前就能阅读全部全文。选择描述想象中的体验，不识别灵魂伴侣，也不评估他人。"
+  },
+  "source": {
+    "kind": "fermatmind-original-fictional-connection-ideal-comparisons",
+    "formCode": "fermatmind_connection_ideals12",
+    "itemBankVersion": "fm-fictional-connection12-v1",
+    "scoringVersion": "equal-exposure-six-theme-counts-all-highest-ties-v1",
+    "resultContentVersion": "fm-connection-ideals-six-guides-v1",
+    "itemBankSha256": "e64ae447b8954f56dbfd4edd526a66d7ed0304784816dca1a36311e97af7c9b4",
+    "resultContentSha256": "682d0899502717403607643bc7415375a35adb48ba11b6d8fd80078228fbd786",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "shared-spark",
+      "title": {
+        "en": "Shared Spark",
+        "zh": "一起点亮日常"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "steady-presence",
+      "title": {
+        "en": "Steady Presence",
+        "zh": "稳定地在场"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "easy-companionship",
+      "title": {
+        "en": "Easy Companionship",
+        "zh": "自在的同伴感"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "shared-discovery",
+      "title": {
+        "en": "Shared Discovery",
+        "zh": "一起探索新事物"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "gentle-support",
+      "title": {
+        "en": "Gentle Support",
+        "zh": "温和地承接"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "mutual-encouragement",
+      "title": {
+        "en": "Mutual Encouragement",
+        "zh": "相互鼓励前行"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "CI_01",
+      "prompt": {
+        "en": "Imagine an ordinary evening with someone you freely enjoy spending time with. Which moment would you most want?",
+        "zh": "想象与自己愿意相处的人度过一个普通晚上。你最想拥有哪个时刻？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "We turn a small everyday detail into an amusing moment we both enjoy.",
+            "zh": "一起把一个日常小细节变成双方都觉得有趣的片刻。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "We keep the time we agreed on, and neither has to guess whether the other will turn up.",
+            "zh": "按说好的时间相见，谁都不必猜对方是否会出现。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "We settle into familiar company without needing to make the evening impressive.",
+            "zh": "自在地待在一起，不需要把晚上安排得很精彩。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "There is room to describe a difficult day without being hurried toward an answer.",
+            "zh": "可以说说不太顺的一天，不会被催着马上找到答案。"
+          },
+          "directionId": "gentle-support"
+        }
+      ]
+    },
+    {
+      "id": "CI_02",
+      "prompt": {
+        "en": "A free afternoon appears in an imagined connection. What sounds most appealing?",
+        "zh": "想象一段关系里忽然多出一个空闲下午。哪种安排最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "We make up a small playful challenge just for the enjoyment of doing it together.",
+            "zh": "临时想出一个小小趣味挑战，只为一起玩的乐趣。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "We return to a simple arrangement we can both comfortably count on.",
+            "zh": "回到一个双方都能安心预期的简单安排。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "We do separate little things in the same room and enjoy the undemanding company.",
+            "zh": "在同一个空间各做一点事，喜欢这种不费力的陪伴。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "We each try a small personal project while cheering the other’s effort.",
+            "zh": "各试一个自己的小项目，也为对方的投入加油。"
+          },
+          "directionId": "mutual-encouragement"
+        }
+      ]
+    },
+    {
+      "id": "CI_03",
+      "prompt": {
+        "en": "Imagine describing what makes a connection worth anticipating. Which detail comes first?",
+        "zh": "想象自己在描述一段让人期待的连接。哪个细节会先被你提起？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Small promises mean what they say and do not need repeated checking.",
+            "zh": "小约定说到做到，不需要反复确认。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A shared sense of play makes even familiar moments feel vivid.",
+            "zh": "共同的玩心，让熟悉的片刻也显得鲜活。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "We keep encountering fresh perspectives through things we choose to discover together.",
+            "zh": "通过愿意一起探索的事，不断遇到新角度。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A feeling can be heard without immediately being corrected or explained away.",
+            "zh": "一种感受可以先被听见，不会立刻被纠正或解释掉。"
+          },
+          "directionId": "gentle-support"
+        }
+      ]
+    },
+    {
+      "id": "CI_04",
+      "prompt": {
+        "en": "You are imagining a small shared tradition. Which would you choose first?",
+        "zh": "想象要建立一个小小的共同习惯。你会先选哪个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keeping a modest check-in time that works reliably for both people.",
+            "zh": "保留一个不费力、双方都能稳定做到的联系时间。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Inventing a new lighthearted question whenever we meet.",
+            "zh": "每次见面，轮流想一个轻松有趣的新问题。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Choosing a different small subject to explore together each time.",
+            "zh": "每次挑一个不同的小话题一起探索。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Sharing one small step each person chose for their own interests.",
+            "zh": "分享各自为兴趣主动迈出的一小步。"
+          },
+          "directionId": "mutual-encouragement"
+        }
+      ]
+    },
+    {
+      "id": "CI_05",
+      "prompt": {
+        "en": "Imagine plans need a harmless adjustment. What kind of moment would you most appreciate?",
+        "zh": "想象一项安排需要作一个普通的小调整。你最珍惜哪种互动？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The change does not make our familiar ease disappear.",
+            "zh": "计划变了，熟悉自在的相处感还在。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The unexpected gap becomes a chance to discover another option together.",
+            "zh": "意外空出的部分，成为一起发现另一种选择的机会。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Any disappointment can be acknowledged before deciding what comes next.",
+            "zh": "先承认一点失望，再决定接下来怎么办。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "We find a light way to turn the changed plan into something enjoyable.",
+            "zh": "一起找个轻巧的办法，让变化后的安排也有乐趣。"
+          },
+          "directionId": "shared-spark"
+        }
+      ]
+    },
+    {
+      "id": "CI_06",
+      "prompt": {
+        "en": "Think of the ending you would enjoy in a fictional story about a connection. Which scene stays with you?",
+        "zh": "想象一篇关系小故事的结尾。哪个场景最让你愿意停留？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Two people feel comfortable sharing an unremarkable hour.",
+            "zh": "两个人舒服地共享一个并不特别的小时。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Two people discover something new and want to keep comparing their impressions.",
+            "zh": "两个人发现新东西，还想继续交流感受。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Both people leave with more room to pursue a choice they personally value.",
+            "zh": "两个人都多了一点空间，继续追求各自看重的选择。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Two people laugh at a small shared joke that makes the day feel brighter.",
+            "zh": "两个人因为一个共同的小笑点，让这一天亮了一点。"
+          },
+          "directionId": "shared-spark"
+        }
+      ]
+    },
+    {
+      "id": "CI_07",
+      "prompt": {
+        "en": "Imagine meeting again after a busy week. What would you most look forward to?",
+        "zh": "想象忙碌一周后再次见面。你最期待什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Being able to bring an unfinished feeling without needing a polished explanation.",
+            "zh": "可以带着尚未理清的感受，不必先组织完美解释。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Having someone notice an effort I made, even when the outcome is still open.",
+            "zh": "即使结果未定，也有人看见自己作过的尝试。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The lively little exchanges that let us enjoy one another’s company.",
+            "zh": "轻快的小小来往，让彼此享受相处。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Not needing a special update before we can simply be at ease together.",
+            "zh": "不必拿出特别的新消息，也能自在地待着。"
+          },
+          "directionId": "easy-companionship"
+        }
+      ]
+    },
+    {
+      "id": "CI_08",
+      "prompt": {
+        "en": "You can keep one small feature of an imagined connection especially visible. Which feature?",
+        "zh": "想象可以让一段连接中的某个小特点更突出。你会选哪个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Patient attention that does not require immediate improvement.",
+            "zh": "耐心的关注，不要求感受立刻变好。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Support for freely chosen efforts, with permission to change direction.",
+            "zh": "支持自主选择的努力，也允许调整方向。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The enjoyment of making a familiar moment a little more playful together.",
+            "zh": "一起让熟悉片刻多一点玩趣的快乐。"
+          },
+          "directionId": "shared-spark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Curiosity about experiences and ideas we have not met before.",
+            "zh": "对还没遇见的体验和想法保持好奇。"
+          },
+          "directionId": "shared-discovery"
+        }
+      ]
+    },
+    {
+      "id": "CI_09",
+      "prompt": {
+        "en": "Imagine writing a short invitation for time together. Which invitation would you most like to receive?",
+        "zh": "想象收到一条邀请一起相处的短信息。哪条最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Let us try that small unfamiliar thing and see what we each find.",
+            "zh": "试试那件不熟悉的小事，看看彼此会发现什么。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "You do not need anything special to share; we can just spend an easy hour together.",
+            "zh": "不需要特别的内容，一起轻松待一个小时就好。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "If you want some listening time, there is room for it without a demand to explain everything.",
+            "zh": "想有人听听的话，这里留有时间，不要求把一切都解释清楚。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Let us keep the simple plan we both know we can manage.",
+            "zh": "照双方都能做到的简单安排来吧。"
+          },
+          "directionId": "steady-presence"
+        }
+      ]
+    },
+    {
+      "id": "CI_10",
+      "prompt": {
+        "en": "Think of a connection you might write into a gentle fictional scene. What gives it its appeal?",
+        "zh": "想象为一段温和的小故事写一种连接。什么让它吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Each person brings an unfamiliar observation for them to explore together.",
+            "zh": "各自带来一个陌生的新发现，再一起探索。"
+          },
+          "directionId": "shared-discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Silence can be comfortable rather than something to fill.",
+            "zh": "沉默也可以舒服，不需要赶紧填满。"
+          },
+          "directionId": "easy-companionship"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Each person’s own direction is encouraged rather than replaced by a shared script.",
+            "zh": "各自的方向得到鼓励，不被一套共同剧本取代。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "What was agreed yesterday can still be relied on today.",
+            "zh": "昨天说好的事，今天仍可以放心预期。"
+          },
+          "directionId": "steady-presence"
+        }
+      ]
+    },
+    {
+      "id": "CI_11",
+      "prompt": {
+        "en": "Imagine a modest shared memory you would enjoy looking back on. Which one?",
+        "zh": "想象一段自己愿意回看的小小共同记忆。你会选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A small attempt mattered even though nobody promised it would succeed.",
+            "zh": "一个小尝试得到重视，即使没人保证一定成功。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "There was time to feel heard before any suggestion was offered.",
+            "zh": "在任何建议出现前，先有时间感到自己被听见。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A simple commitment was kept without drama or reminders.",
+            "zh": "一个简单约定平稳兑现，不需要戏剧性证明或催促。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "An ordinary afternoon felt easy without either person arranging a performance.",
+            "zh": "普通下午轻松自在，谁都没费力安排表演。"
+          },
+          "directionId": "easy-companionship"
+        }
+      ]
+    },
+    {
+      "id": "CI_12",
+      "prompt": {
+        "en": "As the fictional scene ends, what would make you want another chapter?",
+        "zh": "这段想象中的关系小故事告一段落时，什么让你想看下一章？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both people keep finding room for their own chosen next steps.",
+            "zh": "双方都不断为自己选择的下一步找到空间。"
+          },
+          "directionId": "mutual-encouragement"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "More room for feelings to be heard without becoming a rescue project.",
+            "zh": "感受还有被听见的空间，但不会变成拯救任务。"
+          },
+          "directionId": "gentle-support"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The continuity of small actions both people can count on.",
+            "zh": "双方能放心预期的小行动继续发生。"
+          },
+          "directionId": "steady-presence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Another unfamiliar experience to investigate together.",
+            "zh": "又有一种陌生体验可以一起探索。"
+          },
+          "directionId": "shared-discovery"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "shared-spark",
+      "directionIds": [
+        "shared-spark"
+      ],
+      "title": {
+        "en": "Shared Spark",
+        "zh": "一起点亮日常"
+      },
+      "headline": {
+        "en": "A little shared play can make an ordinary moment vivid",
+        "zh": "一点共同玩心，让普通时刻鲜活起来"
+      },
+      "summary": {
+        "en": "Explore the appeal of mutually enjoyed humour, play and small moments of liveliness, without treating intensity as destiny.",
+        "zh": "观察双方享受的幽默、玩心与小小鲜活时刻为什么吸引你，不把强烈感受当成命定证明。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Shared Spark: Connection Ideals Full Guide",
+          "zh": "一起点亮日常：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Explore the appeal of mutually enjoyed humour, play and small moments of liveliness, without treating intensity as destiny.",
+          "zh": "观察双方享受的幽默、玩心与小小鲜活时刻为什么吸引你，不把强烈感受当成命定证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared Spark describes the appeal of a connection that brings a little liveliness to ordinary moments. The spark in this guide can be a shared joke, a playful question or a familiar task made more enjoyable together. It need not be dramatic, romantic or physically intimate. Choosing these descriptions suggests that this feature appealed within the offered stories today. It does not establish that you need a constantly exciting partner, possess a particular personality or have discovered a person with whom an intense bond is meant to happen.",
+              "zh": "一起点亮日常，描述一种连接让普通片刻多一点鲜活的吸引力。这里的火花可以是共同笑点、有趣问题，或一起把熟悉小事做得更愉快，不必戏剧化、浪漫或涉及身体亲近。选中这些描述，只说明今天在所给故事中，这个特点吸引了你；它不证明你需要持续令人兴奋的伴侣、拥有某种人格，或已发现一位注定产生强烈连接的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people tidying a table after a small gathering. One invents a harmless game about where each object belongs, and the other genuinely enjoys joining in. The task is still an ordinary task, but their shared amusement gives it a memorable texture. The useful detail is mutual enjoyment rather than one person performing endlessly for the other. Either person can be tired or prefer a quieter way of finishing. The scene remains appealing only insofar as both people have room to choose how they participate.",
+              "zh": "想象两个人在小聚后整理桌子。一个人临时想出一个无伤大雅的归位小游戏，另一个人也真心乐于参加。事情仍然普通，共同的乐趣却让它留下记忆。值得注意的是双方享受，而不是一方不停为另一方表演；任何人都可能累了，或想安静收拾。这个场景的吸引力，仍以双方能自由选择怎样参加为前提。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try naming what the word spark means in your own example. It might mean laughing easily, feeling curious about an unexpected question or noticing a playful detail in a routine day. Those are different experiences, even when the same label seems to fit. Being specific helps distinguish enjoyment from urgency, uncertainty or an obligation to keep somebody interested. You can value a lively exchange and still want predictable arrangements, personal space and quiet evenings. The theme makes one feature easier to describe; it does not replace the rest of what you want.",
+              "zh": "可以用自己的例子解释“火花”具体指什么：容易一起笑、对意外问题产生好奇，还是注意到日常里一个有趣细节。即使用同一标签，它们也是不同体验。说得具体，有助于区分享受、急迫、不确定，或必须持续吸引别人的压力。重视轻快交流，也可以同时想要可预期的安排、个人空间与安静晚上；这个主题只帮你描述一个特点，不能替代其他需要。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared Discovery also brings freshness, but its central detail is encountering something unfamiliar together. Shared Spark can appear during something completely familiar, because the play between people is the point. Easy Companionship values time that does not need to be made interesting at all. A fictional evening could contain all three. If their counts are close, inspect the exact alternatives you chose instead of trying to force a permanent boundary between themes. Counts do not measure how much fun you are, how attractive someone is or how often a real relationship should feel exciting.",
+              "zh": "一起探索新事物也带来新鲜感，但重点是共同遇见陌生事物；一起点亮日常可以发生在完全熟悉的活动中，因为人与人之间的玩心才是重点。自在的同伴感则珍惜无需刻意有趣的时间。同一个想象中的晚上可以同时包含三者。次数接近时，回看具体选项即可，不必为主题划出永久边界；次数不测你多有趣、谁多有吸引力，也不规定现实关系应该多常令人兴奋。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An appealing spark story can omit ordinary limits: different humour, uneven energy, an early start the next morning or a preference to finish a task without a game. Disappointment when a moment is less lively does not prove that the connection is wrong. Equally, a powerful thrill does not prove that it is right or require you to overlook conduct you do not welcome. This guide offers no rule about staying, leaving, waiting for someone or earning a stronger response. A pleasant feature remains one feature within a much larger situation.",
+              "zh": "好看的火花故事，可能没讲到幽默不同、精力不一、第二天早起，或只想不玩游戏地把事做完。某次不够热闹带来失望，不证明连接错误；强烈兴奋同样不证明连接正确，更不要求忽略自己不愿接受的行为。这篇指南不规定留下、离开、等待谁，或争取更强的回应。令人愉快的特点，仍只是更大现实中的一个特点。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, write one sentence beginning, “A small shared moment would feel lively to me when…” Use an ordinary example that does not depend on a named person. Then add a second sentence about what would make the same activity less enjoyable, such as pressure to laugh or lack of time. Keeping both sentences makes the ideal more concrete and less demanding. You need not contact anyone, stage a test of their reaction or share your result. If no example comes to mind, comparing another guide is already a complete next step.",
+              "zh": "可以私下写一句：“当……时，一个共同的小片刻会让我觉得鲜活。”使用不依赖具体姓名的普通例子，再写一句同一活动在什么情况下会没那么愉快，例如被要求发笑或时间不足。两句话并放，能让偏好更具体，也少一点苛求。不需要联系任何人、设计反应测试或分享结果；想不到例子时，比较另一篇指南就足够了。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steady-presence",
+      "directionIds": [
+        "steady-presence"
+      ],
+      "title": {
+        "en": "Steady Presence",
+        "zh": "稳定地在场"
+      },
+      "headline": {
+        "en": "Small agreements that feel dependable",
+        "zh": "让人可以放心预期的小约定"
+      },
+      "summary": {
+        "en": "Read about the appeal of continuity, clear changes and modest promises that are kept, without equating dependability with constant availability.",
+        "zh": "理解连贯行动、清楚说明变化与兑现小承诺的吸引力，不把可靠等同于随时在线。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Steady Presence: Connection Ideals Full Guide",
+          "zh": "稳定地在场：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Read about the appeal of continuity, clear changes and modest promises that are kept, without equating dependability with constant availability.",
+          "zh": "理解连贯行动、清楚说明变化与兑现小承诺的吸引力，不把可靠等同于随时在线。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Steady Presence describes the appeal of a connection in which small words and everyday actions hold together. Its imagined promise is modest: an arrangement can usually be relied on, and a change can be explained clearly. It is not a demand that someone never changes, makes mistakes or needs time apart. Choosing these descriptions means that dependable continuity appealed among the alternatives in this bank. It does not assign an attachment style, establish a partner’s reliability or show that one person is the only safe connection available to you.",
+              "zh": "稳定地在场，描述小承诺与日常行动连贯所带来的吸引力。想象中的承诺很朴素：安排通常可信，变化能够讲清；它不要求谁永远不变、不犯错或不需要独处。选择这类描述，说明在本题本提供的对照中，可靠的连续性感到吸引人；它不分配依恋类型、不证明某位伴侣可靠，也不表示一个人是你唯一能获得安心连接的来源。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people who have agreed to meet for a short walk. One realises that a work task will take longer and sends a clear update while there is still time to adjust. They choose another manageable time rather than leaving the other person guessing. The appealing part may be the way an ordinary change is handled, not the absence of change itself. The example does not require immediate replies, unlimited access to someone’s schedule or proof of every explanation. Both people still have separate lives and the ability to renegotiate an arrangement.",
+              "zh": "想象两个人说好散步，其中一位发现工作会晚一点结束，于是在仍来得及调整时清楚告知，再一起选择另一个做得到的时间。吸引人的可能是处理普通变化的方式，而不是永远没有变化。这个例子不要求立即回复、无限查看日程或为每句话提供证明；双方仍有各自生活，也可以重新商量安排。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try distinguishing reliability from the particular schedule you personally prefer. A daily message, a weekly meeting and an occasional planned call are different arrangements; any could be kept or repeatedly neglected. The meaningful question in this imagined ideal is whether an agreed expectation matches what people can actually offer. You may enjoy frequent contact, but frequency is not what this count measures. You can also prefer sparse contact while valuing clear agreements. Naming the size and scope of a promise makes this theme more useful than a general demand for permanent reassurance.",
+              "zh": "可以区分可靠与自己喜欢的联系频率。每天一条消息、每周一次见面、偶尔约好的通话，都是不同安排，也都可能兑现或反复落空。这个想象偏好关心的是：共同预期是否与实际能提供的东西一致。本次次数不测联系多频繁；喜欢联系少一些，也可以看重清楚约定。把承诺的大小和范围说清，比笼统要求永久安心更有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Easy Companionship shares an ordinary, low-drama setting, but its focus is comfort without needing to perform. Steady Presence focuses on continuity between expectations and actions. Gentle Support places more attention on being heard when feelings are unfinished. One scene can contain all three, and choosing one offered description does not reject the others as needs. A highest count gives you a place to begin reading, not a rule for selecting or rejecting a person. There is no validated score threshold defining how much consistency a relationship must contain.",
+              "zh": "自在的同伴感也常发生在平常、少戏剧性的场景中，但重点是不必表演也舒服；稳定地在场更关注预期与行动的连续。温和地承接则更留意尚未理清的感受能否被听见。同一场景可以包含三者，选择一道题的一项，不是否定其他需要。最高次数只是阅读起点，不是选择或拒绝一个人的规则；本版没有经过验证的门槛，规定关系必须达到多少稳定程度。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A steady story can leave out whether an arrangement was freely wanted in the first place. Keeping an unwanted plan is not automatically a virtue, and changing a plan by agreement is not a failure. Predictability can also coexist with limited curiosity or too little room for new circumstances. These possibilities do not make this theme inferior; they show why a story cannot stand in for the whole situation. The result does not authorise monitoring someone, demanding access to private information or treating a normal delay as evidence about their feelings.",
+              "zh": "稳定的故事可能没说清：安排最初是否出于双方自愿。勉强维持不想要的计划不自动成为优点，协商改变也不等于失败。可预期也可能与缺少好奇、难以调整并存。这不使主题较差，只说明一段故事不能代替全貌。结果不授权监视谁、索要私人信息，或把一次普通延迟当成对方感情的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, describe one small arrangement you would actually find manageable. Write what is included, what is outside its scope and how a change could be communicated without urgency. Keep the example independent of any named person, so it remains an exploration of your preference rather than a verdict on somebody. You do not need to make a new promise, request a reassurance ritual or compare scores with anyone. If the imagined arrangement feels too rigid after you write it, revising it is useful information rather than inconsistency in your identity.",
+              "zh": "私下反思时，可以描述一个自己确实做得到的小安排：包含什么、不包含什么，以及变化时怎样不带急迫感地说明。例子不依赖具体姓名，让它继续观察自己的偏好，而不是裁决别人。不需要作新承诺、索要固定安抚仪式，或与谁比次数；写完若觉得太僵硬，修改它就是有用信息，不意味着身份前后矛盾。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "easy-companionship",
+      "directionIds": [
+        "easy-companionship"
+      ],
+      "title": {
+        "en": "Easy Companionship",
+        "zh": "自在的同伴感"
+      },
+      "headline": {
+        "en": "Ordinary company without a performance",
+        "zh": "不必表现得精彩，也能自在相处"
+      },
+      "summary": {
+        "en": "Explore familiar ease, comfortable silence and low-pressure time together, without assuming that ease removes the need for communication.",
+        "zh": "观察熟悉自在、舒服沉默与低压力陪伴，不把轻松当成可以省略沟通。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Easy Companionship: Connection Ideals Full Guide",
+          "zh": "自在的同伴感：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Explore familiar ease, comfortable silence and low-pressure time together, without assuming that ease removes the need for communication.",
+          "zh": "观察熟悉自在、舒服沉默与低压力陪伴，不把轻松当成可以省略沟通。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Easy Companionship describes the appeal of being comfortable together without needing to make the moment remarkable. In the imagined scenes, ordinary company has value before anyone provides a surprising story, a clever joke or a successful achievement. Choosing these descriptions suggests that this quality stood out among the alternatives today. It does not prove that you are quiet, introverted or suited only to a particular kind of person. Nor does it establish that a familiar connection is automatically mutual, dependable or free of concerns that deserve attention.",
+              "zh": "自在的同伴感，描述不必把片刻变得特别，也能舒服相处的吸引力。在想象场景里，即使没有新奇故事、机智笑话或成功成就，普通陪伴也有价值。选中这些描述，只说明今天的文字对照里，这个特点格外吸引你；它不证明你安静、内向或只适合某种人，也不表示熟悉的连接自动相互、可靠，或没有需要认真对待的问题。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people spending a slow afternoon in the same space. One reads while the other works on something small, and occasionally they exchange an observation. Neither feels obliged to keep a conversation going. The scene appeals because the quiet is welcome to both, rather than because somebody has stopped asking to be heard. A different afternoon might include more talking or separate plans. The guide is about a comfortable possibility, not a rule that close people should always share a room or prefer the same level of contact.",
+              "zh": "想象两个人在同一空间度过一个慢悠悠的下午：一个看书，一个处理小事，偶尔交换一个发现，谁都不觉得必须持续交谈。场景吸引人，是因为双方都欢迎这份安静，而不是有人已放弃表达。另一个下午可以多聊天，或各有安排。这是一个舒服的可能，不规定亲近的人应总在同一房间，或喜欢同样多的联系。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try naming what makes the company feel easy in your example. It might be freedom from entertaining someone, room to be unpolished or the enjoyment of a familiar activity. Those details are more specific than assuming that the right person should understand everything without words. You can enjoy undemanding company while still needing to say when a plan, topic or kind of contact does not work for you. Ease is not the same as mind-reading. Making a preference explicit does not spoil the fact that an ordinary moment felt comfortable.",
+              "zh": "可以说清例子中的“自在”来自哪里：不必逗人开心、可以不那么精致，还是喜欢一起做熟悉的活动。这比假定对的人不用说也全懂更具体。享受不费力的陪伴，也仍可能需要说明某个安排、话题或联系形式不适合自己。自在不是读心，把偏好说出来，不会抹掉某个普通片刻曾经舒服的事实。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Steady Presence focuses on agreements and continuity; Easy Companionship focuses on the lack of pressure to perform. Shared Spark enjoys making a moment lively, while this theme allows the moment to remain unremarkable. Gentle Support gives more attention to hearing a feeling when it needs space. These can all belong to the same imagined connection. If your result includes a tie, read the complete guides together and locate the small details you liked. A count difference cannot establish that you need quiet company instead of humour, reliability or support in every setting.",
+              "zh": "稳定地在场关注约定与连贯，自在的同伴感关注不必表演的轻松。一起点亮日常喜欢让片刻鲜活，本主题允许片刻普通；温和地承接则更在意感受需要空间时能被听见。这些都可存在于同一个想象连接中。并列时一起读全文，找出自己喜欢的小细节即可；次数差异不能证明在每种情境里，你都需要安静陪伴来代替幽默、可靠或支持。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A story of effortless company can leave out an important conversation. Familiar routines sometimes feel comfortable to one person while another wants something different. Silence may be welcome, neutral or unwelcome depending on the actual people and moment. The result cannot tell which applies, and it should not be used to explain another person’s silence for them. It also gives no reason to avoid a topic simply because discussing it would feel less easy. The appealing feature is room to be ordinary together, not a guarantee that relationships require no choices or communication.",
+              "zh": "轻松陪伴的故事，可能遗漏一次重要谈话。熟悉惯例让一方舒服时，另一方可能想要不同东西；沉默究竟受欢迎、普通还是不受欢迎，取决于真实的人与时刻。结果不能判断属于哪种，更不能替对方解释沉默；它也不提供为了维持轻松就避开话题的理由。吸引人的特点是可以一起普通，不是保证关系无需选择或交流。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, imagine an hour together that does not need to impress anyone. Describe one small activity, one way each person could opt out and one preference that would still need words. This keeps the image concrete while allowing the other person a separate point of view. You need not arrange the scene, ask somebody to prove that they can be silent with you or share your tally. If the scene sounds dull rather than appealing, that is a useful comparison with another guide, not a failure to appreciate a supposedly superior kind of bond.",
+              "zh": "私下想象一个无需令任何人印象深刻的相处小时，描述一种小活动、一种各自可以退出的方式，以及一项仍需说出口的偏好。这样既具体，也为对方保留不同看法。不需要真的安排场景、让谁证明能与你沉默相处，或公开次数。如果觉得无聊而非舒服，就把它作为与其他指南的比较，不是没能欣赏某种更高级的连接。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-discovery",
+      "directionIds": [
+        "shared-discovery"
+      ],
+      "title": {
+        "en": "Shared Discovery",
+        "zh": "一起探索新事物"
+      },
+      "headline": {
+        "en": "Fresh things to notice together",
+        "zh": "一起发现新的观察角度"
+      },
+      "summary": {
+        "en": "Read about curiosity, small unfamiliar experiences and comparing impressions, without making constant novelty a requirement.",
+        "zh": "理解好奇、小小的陌生体验与交流发现的吸引力，不要求关系持续制造新鲜。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Shared Discovery: Connection Ideals Full Guide",
+          "zh": "一起探索新事物：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Read about curiosity, small unfamiliar experiences and comparing impressions, without making constant novelty a requirement.",
+          "zh": "理解好奇、小小的陌生体验与交流发现的吸引力，不要求关系持续制造新鲜。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared Discovery describes the appeal of encountering unfamiliar experiences or ideas together. The discovery can be small: an unknown walking route, a short article on an unfamiliar subject or a new way to do a familiar activity. It need not involve travel, spending money or taking a risk. Choosing these descriptions indicates that shared curiosity appealed within this set of alternatives. It does not establish an adventurous personality, determine what partner suits you or show that a connection must keep changing in order to matter.",
+              "zh": "一起探索新事物，描述共同遇见陌生体验或想法的吸引力。发现可以很小：一条不熟悉的步行路线、一篇陌生话题短文，或熟悉活动的新做法，不必旅行、花钱或冒险。选中这些描述，说明在所给选项中，共同好奇吸引了你；它不证明你有冒险人格、不决定适合什么伴侣，也不表示连接必须不断变化才有意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people looking at a public display on a topic neither knows well. One notices a detail in the wording; the other is curious about a picture. They compare impressions without needing to agree or become experts. What makes the scene appealing may be discovering how differently they attend to the same thing. A short, local experience is enough. Either person can decide that the subject is not interesting, and the story does not require persuading them to continue. Shared discovery depends on shared willingness, not on one person being assigned to provide novelty.",
+              "zh": "想象两个人观看一个双方都不熟悉话题的公开展板：一位注意文字细节，一位对图片好奇，再交换发现，不必意见一致或成为专家。吸引人的可能是发现彼此如何以不同方式看同一件事；一次短小、本地的体验就够。任何人都可以认为题材无趣，不必被说服继续；共同探索依靠双方愿意，不是指定一人负责提供新鲜感。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try distinguishing curiosity about an activity from a wish for a certain level of excitement. You might enjoy a slow discussion of one new idea more than a crowded event, or prefer trying a simple route rather than planning a major trip. Being concrete helps keep this ideal affordable and personally meaningful. It also leaves room for different tastes: another person may enjoy discovering something without wanting to do it in your preferred way. This guide describes what appealed to you in a story, not what someone else should be willing to try.",
+              "zh": "可以区分对活动的好奇与对某种兴奋程度的期待：也许慢慢讨论一个新想法，比热闹活动更吸引你；试一条小路线，也许胜过大型旅行。说具体，能让偏好保持可承担和有个人意义，也容得下不同口味。对方可能喜欢探索，却不想用你偏好的方式进行。这篇指南描述故事中吸引你的部分，不规定别人应该愿意试什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared Spark can also feel fresh, but its emphasis is mutually enjoyed play within a moment. Shared Discovery emphasises the unfamiliar subject or experience itself. Mutual Encouragement concerns support for a person’s chosen effort, which may be pursued separately rather than explored together. Steady Presence can supply a dependable arrangement within which discovery happens. These are overlapping descriptions, not competing categories of human beings. Close counts invite you to inspect which specific scenes appealed, without concluding that a person who prefers routine cannot share meaningful curiosity with you.",
+              "zh": "一起点亮日常也有新鲜感，但重点是片刻中的共同玩趣；一起探索新事物更关注陌生题材或体验本身。相互鼓励前行关心支持各自选择的努力，它也可能独立进行。稳定地在场可以提供可靠安排，让探索在其中发生。这些是重叠的描述，不是相互排斥的人群类别；次数接近时回看具体场景，不据此认定喜欢惯例的人无法与你共享有意义的好奇。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A discovery story can omit the value of repetition. Repeating an enjoyable activity may deepen attention rather than signal that a bond has become stale. People also differ in access, energy, time and interest, so a small limit does not reveal how deeply someone cares. The result cannot convert a wish for new experiences into a duty to travel, spend or keep pace with another person. Nor can a surprising shared event identify a destined connection. The useful feature is freely chosen curiosity, with room for familiar and quiet periods as well.",
+              "zh": "探索故事可能遗漏重复的价值。再做一次喜欢的事，也许加深观察，而非表示连接变旧。人们的资源、精力、时间和兴趣也不同，一个小限制不能揭示在意有多深。结果不能把新体验偏好变成旅行、消费或跟上别人节奏的义务；一次令人惊喜的共同经历，也不能识别命定连接。可用的特点是自由选择的好奇，同时为熟悉和安静阶段留出空间。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, list one unfamiliar thing you could imagine enjoying without a major commitment. Then describe what you would want to compare afterward: observations, questions, a surprising detail or simply whether the activity was enjoyable. Add a familiar alternative you would also be content with. You do not need to invite someone, buy anything or test whether another person is sufficiently adventurous. This small comparison is enough to clarify the part of discovery that appeals. If you prefer the familiar alternative, the reflection remains useful without changing or defending a label.",
+              "zh": "私下可以列一件无需重大投入、自己可能喜欢的陌生小事，再说说结束后想交流什么：观察、疑问、意外细节，还是单纯好不好玩。再加一个同样可以接受的熟悉选项。不必邀请谁、买东西或测试别人够不够爱探索；这个小比较就能澄清吸引你的部分。最后更喜欢熟悉选项，反思仍然有用，无需改变或捍卫标签。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gentle-support",
+      "directionIds": [
+        "gentle-support"
+      ],
+      "title": {
+        "en": "Gentle Support",
+        "zh": "温和地承接"
+      },
+      "headline": {
+        "en": "Room to be heard before anything is fixed",
+        "zh": "先有被听见的空间，不急着解决"
+      },
+      "summary": {
+        "en": "Explore patient attention and welcome listening, while keeping care separate from rescue, obligation or a therapist role.",
+        "zh": "观察耐心关注与自愿倾听的吸引力，并区分关心、拯救、义务和治疗者角色。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gentle Support: Connection Ideals Full Guide",
+          "zh": "温和地承接：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Explore patient attention and welcome listening, while keeping care separate from rescue, obligation or a therapist role.",
+          "zh": "观察耐心关注与自愿倾听的吸引力，并区分关心、拯救、义务和治疗者角色。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Gentle Support describes the appeal of a connection in which an unfinished feeling can be heard without immediately becoming a problem to solve. In these imagined scenes, attention is patient and the person speaking keeps control of what they share. Choosing these descriptions suggests that this feature mattered among the alternatives today. It does not identify a healer, a person who needs healing or a clinical need. It also does not show which role you occupy in real relationships, or require either person to be available for unlimited emotional support.",
+              "zh": "温和地承接，描述尚未理清的感受可以先被听见、不立刻成为待解决问题的吸引力。在想象场景中，关注有耐心，表达的人仍决定分享多少。选中这些描述，说明今天的对照里，这个特点对你有吸引力；它不识别疗愈者、需要疗愈的人或临床需要，也不说明你在现实关系里担任什么角色，更不要求任何人无限提供情绪支持。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine someone describing a disappointing ordinary day. The listener asks whether they would prefer listening, a practical suggestion or a pause, and respects the answer. The speaker does not need to give every detail or turn the conversation into a complete account of their life. The scene is appealing because the response fits what is welcome in that moment. It can be brief and still matter. Another time, the listener may not have attention available and can say so; the story does not make either person responsible for managing the other’s whole emotional world.",
+              "zh": "想象有人说起不太顺的普通一天，倾听者先问更想被听听、听一个实际建议，还是歇一会儿，并尊重回答。表达者不必交代所有细节，更不需要把谈话变成人生完整档案。场景吸引人，是因为回应贴合当下愿意接受的东西；时间短也可以有意义。另一次倾听者可能没有余力，可以说出来，不需要负责管理对方整个情绪世界。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try naming the detail you appreciate in being heard. It may be an unhurried pace, not being interrupted, a question before advice or freedom to keep something private. These details differ from wanting someone to agree with every interpretation or remove every unpleasant feeling. A supportive exchange can leave uncertainty unresolved. It can also include different perspectives when both people want that conversation. The guide gives language for an appealing experience, not a rule that another person must always respond in one particular way in order to prove their care.",
+              "zh": "可以说清“被听见”里自己珍惜什么：不被赶时间、不被打断、建议前先问，还是保留隐私的自由。这与希望别人同意每一种解释、消除每种不舒服不同。支持性的交流可以让不确定暂时存在，也可以在双方愿意时容纳不同视角。这篇指南为喜欢的体验提供词语，不规定别人必须永远用一种方式回应，才能证明在意。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Easy Companionship values low-pressure ordinary company, even when there is little to discuss. Gentle Support gives more attention to a feeling that someone chooses to bring into the exchange. Mutual Encouragement focuses on a person’s chosen next step rather than primarily on being heard now. Steady Presence concerns dependable agreements, which can include a realistic listening window. These can overlap without becoming a single role. If several themes tie, compare their complete guides rather than deciding that a person must be either a listener, an encourager or a reliable companion.",
+              "zh": "自在的同伴感珍惜低压力陪伴，即使没什么可聊；温和地承接更关注某种被主动带入交流的感受。相互鼓励前行更关心自主选择的下一步，而不只是此刻被听见。稳定地在场关注可靠约定，也可包含现实可行的倾听时间。这些可重叠，不必合成一个角色；多项并列时比较全文，不规定一个人只能是倾听者、鼓励者或可靠同伴。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An appealing listening story can omit capacity and reciprocity. People sometimes want care at a time another person cannot offer it, and that mismatch cannot be resolved by a quiz label. Patient attention also does not turn unwanted conduct into something acceptable or make suffering evidence of a special bond. This result gives no instruction to rescue, endure, return to or wait for anyone. It cannot judge the seriousness of distress or replace an appropriate source of help. Its limited purpose is to describe why a particular kind of imagined response sounded welcome to you.",
+              "zh": "好看的倾听故事可能遗漏余力与相互性：需要关心的时间，别人不一定有能力提供，这种不一致不能靠标签解决。耐心关注也不使不愿接受的行为变得可接受，更不把痛苦变成特殊连接的证据。结果不要求拯救、忍耐、回到谁身边或等待谁，也不能判断困扰的严重程度、替代适当帮助；它只描述一种想象中的回应为什么让你觉得欢迎。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, finish the sentence, “When I want to be heard, a small welcome response could be…” Keep the example ordinary and describe one limit that would also feel reasonable, such as a shorter time or a later conversation. You do not need to disclose a painful experience, nominate a person to provide care or test someone’s response. If listening is not what you want in your example, a practical action or quiet company may fit better. That comparison clarifies a preference without making a judgement about how much support you deserve.",
+              "zh": "私下补完一句：“我想被听见时，一个小小的、愿意接受的回应可以是……”使用普通例子，再描述一个同样合理的限制，例如时间短一点或稍后再谈。不必披露痛苦经历、指定谁提供关心，或测试其回应。如果例子里更想要实际行动或安静陪伴，也可以如此比较；这澄清偏好，不评判自己值得得到多少支持。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mutual-encouragement",
+      "directionIds": [
+        "mutual-encouragement"
+      ],
+      "title": {
+        "en": "Mutual Encouragement",
+        "zh": "相互鼓励前行"
+      },
+      "headline": {
+        "en": "Support for a next step that remains your choice",
+        "zh": "支持下一步，也把选择留给自己"
+      },
+      "summary": {
+        "en": "Read about noticing effort, making room for personal directions and encouraging an attempt without promising success or taking control.",
+        "zh": "理解看见努力、容纳个人方向与鼓励尝试，不承诺成功、不接管决定。"
+      },
+      "scoreReading": {
+        "en": "One raw count per selected description. Each theme appears eight times in twelve comparisons. Every highest tie is open in full; no soulmate match percentage.",
+        "zh": "每个选中描述记一次；十二次比较中各主题出现八次。最高并列全部展开全文，不显示灵魂伴侣匹配百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mutual Encouragement: Connection Ideals Full Guide",
+          "zh": "相互鼓励前行：连接偏好完整指南"
+        },
+        "description": {
+          "en": "Read about noticing effort, making room for personal directions and encouraging an attempt without promising success or taking control.",
+          "zh": "理解看见努力、容纳个人方向与鼓励尝试，不承诺成功、不接管决定。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this connection ideal describes",
+            "zh": "这一连接偏好在描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Mutual Encouragement describes the appeal of a connection that makes room for each person’s freely chosen efforts. In the imagined scenes, progress can be small and the outcome can remain uncertain. What matters is that an attempt receives attention without someone else taking ownership of its direction. Choosing these descriptions suggests that this feature appealed among the alternatives today. It does not identify a catalyst type, measure ambition or prove that a certain person is necessary for your growth. You remain able to value an interest, change it or leave it unfinished.",
+              "zh": "相互鼓励前行，描述一种连接为各自自愿选择的努力留出空间的吸引力。想象中进展可以很小，结果可以未定；重点是尝试得到关注，却不被别人接管方向。选中这些描述，只说明今天的对照里，这个特点吸引你；它不识别催化者类型、不测野心，也不证明某个人是成长所必需。你仍可重视一个兴趣、修改它，或暂时不完成。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary scene, without a destined partner",
+            "zh": "一个普通场景，不指定命定伴侣"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine one person trying to finish a small creative project. The other notices an effort they made and asks what next step they actually want, rather than supplying a complete plan. Perhaps the answer is another short attempt; perhaps it is a break. The scene remains appealing when either answer is allowed. Encouragement is not limited to productivity or visible achievement. It could concern trying a new hobby, practising a skill or choosing a quieter use of time. The point is room for a personal direction that does not have to become the other person’s project.",
+              "zh": "想象一位正在尝试完成一个小创作，另一位看见其投入，再问对方自己想怎样继续，而不是直接交出完整计划。回答可以是再试一小段，也可以是休息；两种都被允许，场景才保留吸引力。鼓励不限于生产力或可见成就，也可以关于新爱好、练习技能或选择更安静的时间用途，重点是个人方向有空间，不必变成另一个人的项目。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Name the detail that matters to you",
+            "zh": "说清自己在意的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "Try naming what encouragement would look like in a concrete example. It may mean having an effort noticed, being asked a useful question or receiving help that was actually requested. These differ from praise you do not believe, advice you did not want or pressure to fulfil somebody’s hopes. You can appreciate encouragement without making an outcome into a promise. You can also prefer to work privately and share only a small part afterward. The theme describes an appealing response, not an obligation to make your plans visible or continually demonstrate improvement to another person.",
+              "zh": "可以具体说明鼓励是什么：努力被看见、收到一个有帮助的问题，或得到确实请求过的协助。这不同于自己不相信的夸赞、不想要的建议，或必须满足别人期待的压力。珍惜鼓励，也不必把结果变成承诺；可以私下做事，只在之后分享一点。本主题描述喜欢的回应，不要求公开计划，或持续向别人展示进步。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare nearby connection ideals",
+            "zh": "比较相邻的连接偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared Discovery centres on exploring something unfamiliar together. Mutual Encouragement can support activities that remain separate, with different interests and different paces. Gentle Support gives more space to hearing a feeling in the present, while encouragement highlights a chosen direction without requiring immediate action. Shared Spark may add enjoyment to an attempt without being its purpose. These descriptions can coexist. A highest count is a reading prompt, not evidence that you should choose someone who pushes you or that a comfortable connection is less valuable than a challenging one.",
+              "zh": "一起探索新事物以共同探索陌生东西为中心；相互鼓励前行也能支持彼此独立的活动、兴趣与节奏。温和地承接更关注听见当下感受，鼓励则照见自主方向，但不要求马上行动。一起点亮日常可以给尝试添乐趣，却不必成为目的。这些可以并存；最高次数是阅读提示，不证明应该选推动你的人，也不表示舒服连接比挑战性的连接价值低。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "When the appealing story leaves something out",
+            "zh": "喜欢的故事没有讲到什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An appealing growth story can omit the right to stop. An interest may become less important, circumstances may change or the next useful step may simply be rest. None of those possibilities makes care conditional on achievement. Nor does difficulty, repeated conflict or feeling diminished automatically become beneficial growth because a story sounds transformative. The result gives no instruction to stay in an unwanted situation for a lesson. It cannot establish that someone has a special role in your life. A freely chosen attempt and a freely chosen limit can both belong in a worthwhile connection.",
+              "zh": "吸引人的成长故事可能遗漏停止的权利：兴趣可能不再重要、条件可能改变，下一步也许只是休息。这些都不应让关心以成就为条件；困难、反复冲突或被贬低的感觉，也不会因为故事听起来有转化意义就自动成为有益成长。结果不要求为了学一课而留在不想要的处境，也不能证明谁在人生里担任特殊角色。自主尝试与自主设限，都可以属于有价值的连接。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "A small reflection you can keep private",
+            "zh": "一个可以私下完成的小反思"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private reflection, choose one small interest that is your own. Describe a response you would welcome and a response you would prefer not to receive. Add that you can change your next step without needing permission from the person in the imagined scene. You do not have to announce a goal, send the result to anyone or measure whether somebody is encouraging enough. The exercise can end with clearer wording about what feels helpful. If you decide that your current preference is quiet company rather than encouragement, another guide remains equally available.",
+              "zh": "私下选一个属于自己的小兴趣，写下一种欢迎的回应与一种不想收到的回应，再补上：可以改变下一步，不需要想象中另一个人的许可。不必宣布目标、发送结果，或衡量别人够不够鼓励自己。获得更清楚的“什么有帮助”的表达，就可以结束；若现在更喜欢安静陪伴，也同样可以阅读另一篇。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read twelve choices and every highest tie",
+            "zh": "阅读十二次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "This original edition contains twelve four-way comparisons. Each theme appears eight times and twice in each option position. Selecting one offered description adds one count to its theme; a theme absent from a comparison is not being rejected. All twelve choices are needed before an interpreted result opens. Every theme sharing the highest count receives its entire guide, without a hidden tie-break or a forced secondary label. For example, three selections out of eight appearances describe three choices in this bank, not a percentage of soulmate compatibility or the probability of meeting someone.",
+              "zh": "本原创版本包含十二次四选一比较，每个主题出现八次，在各选项位置各出现两次。选中一个描述，为对应主题记一次；某主题没出现在一道比较中，不表示被否定。十二次全部选完才生成解释，每个最高次数并列的主题都展开全文，不用隐藏规则决胜，也不强派副标签。例如，出现八次选中三次，只描述这套文字对照里的三次选择，不是灵魂伴侣匹配比例或遇见某人的概率。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep a story preference separate from a relationship decision",
+            "zh": "区分故事偏好与关系决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The six names are editorial descriptions of imagined connection experiences, not established psychological types, spiritual ranks or evidence of a unique destined person. This form does not identify anyone, read another person’s intentions, predict a meeting, recommend contacting someone or decide whether a relationship should continue. A pleasing story can be useful vocabulary while remaining incomplete about real circumstances. Another person’s freely expressed preferences and actual conduct cannot be replaced by your result. You may compare every public guide, change your mind or stop using these themes without needing a new identity.",
+              "zh": "六个名称是编辑为想象中的连接体验起的描述，不是已建立的心理类型、灵性等级，也不证明有唯一命定的人。本题本不识别任何人、不读取他人意图、不预测相遇、不建议联系谁，也不决定关系是否继续。喜欢的故事可以提供表达用词，同时仍遗漏现实条件。自己的结果不能代替对方自由表达的偏好与真实行为；可以比较所有公开指南、改变主意，或不用这些主题，无需另换身份。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Franiuk, Cohen & Pomerantz (2002): research about relationship beliefs, not evidence for these six themes",
+        "zh": "Franiuk、Cohen与Pomerantz（2002）：关系信念研究，不是本版六主题的验证"
+      },
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/1475-6811.09401"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original entertainment reflection, with a clear limit",
+        "zh": "原创娱乐反思的适用范围"
+      },
+      "paragraphs": [
+        {
+          "en": "Soulmate is used here as a familiar search term for the kind of connection you imagine enjoying. The six names are original editorial themes, not spiritual facts or established personality types. No birth details, photo, partner identity or private text is requested.",
+          "zh": "这里用灵魂伴侣这个熟悉名称，讨论自己想象中喜欢哪种连接。六个名称是原创编辑主题，不是灵性事实或已建立的人格类型。不要求出生资料、照片、伴侣身份或私人文字。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Twelve choices, six themes and all highest ties",
+        "zh": "十二次选择、六主题与全部最高并列"
+      },
+      "paragraphs": [
+        {
+          "en": "Each of six themes appears eight times, twice in each option position, across twelve four-way comparisons. One selected description adds one count. All twelve choices are required for an interpretation. Every highest-count guide opens completely. Counts are relative choices in this bank, not love intensity, relationship quality or a match percentage.",
+          "zh": "十二次四选一中，六主题各出现八次、各位置两次。选中一项记一次，十二次全部完成才解释，最高次数并列的指南全部展开。次数只表示本题本的相对选择，不是爱得多深、关系质量或匹配百分比。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Page memory and an exit you control",
+        "zh": "页面内存与可自主退出"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers remain in this page’s memory. There is no saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language loses the attempt. Exit and clear removes it from the form. Every public guide is available without answering or signing up.",
+          "zh": "答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果。刷新或换语言会丢失本次作答，退出并清除会移除表单中的进度。所有公开指南无需作答或注册即可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "en": "Relationship beliefs and this original edition are different objects",
+        "zh": "关系信念研究与本原创版本分开理解"
+      },
+      "paragraphs": [
+        {
+          "en": "The cited study examines people’s beliefs about relationships and perceived partner fit. Its abstract does not establish these six themes or a method for identifying a destined person. This edition does not reproduce its questions, inherit its findings as validation or use a belief score. The twelve scenes and six guides were written for this original reflection.",
+          "zh": "所列研究讨论人们的关系信念与主观伴侣适合感；摘要不建立本版六主题，也不提供识别命定之人的方法。本版不复现其题目、不把研究发现当成本版验证，也不计算信念分数。十二场景与六份指南均为本反思原创编写。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will this tell me who my soulmate is?",
+        "zh": "能知道谁是我的灵魂伴侣吗？"
+      },
+      "answer": {
+        "en": "No. It compares fictional connection details you find appealing now. It does not identify a person, predict who or when you will meet, read someone’s intentions or calculate compatibility.",
+        "zh": "不能。它比较此刻喜欢的虚构连接细节，不识别人、不预测何时遇见谁、不读取他人意图，也不计算相容性。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are these the six types from another soulmate test?",
+        "zh": "这是其他灵魂伴侣测试里的六类型吗？"
+      },
+      "answer": {
+        "en": "No. The twelve scenes and six descriptive themes are original. This is not an exact source questionnaire, a validated personality classification or a twin-flame assessment.",
+        "zh": "不是。十二场景与六个描述主题均为原创，不是其他来源的原题本、已验证人格分类或双生火焰测评。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when themes tie?",
+        "zh": "主题并列时怎样解释？"
+      },
+      "answer": {
+        "en": "Every theme sharing the highest raw count opens with all eight sections. No hidden rule selects a sole winner and no secondary label is forced. You can read all other guides too.",
+        "zh": "每个最高原始次数并列的主题均展开八节全文，不用隐藏规则选唯一赢家，也不强派副标签；其他指南同样可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I answer about another person or use this to decide whether to stay?",
+        "zh": "可以替别人答，或据此决定关系是否继续吗？"
+      },
+      "answer": {
+        "en": "Answer only for your own imagined preferences. The form cannot assess another person or decide a real relationship. A story preference does not replace freely expressed wishes, actual conduct or your own judgement about the situation.",
+        "zh": "只为自己想象中的偏好作答。题本不能评估他人或决定现实关系；故事偏好不能代替自由表达的意愿、真实行为及对处境的判断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a relationship, an account or a paid report?",
+        "zh": "需要正在恋爱、账号或付费报告吗？"
+      },
+      "answer": {
+        "en": "No. The scenes are hypothetical and require no private relationship details. All six complete guides and every highest-tied result are free without signup. You can read them without taking the quiz.",
+        "zh": "不需要。场景是假想的，不要求私人关系资料。六份完整指南及所有最高并列结果均免费免注册，可以不作答直接阅读。"
+      }
+    }
+  ]
+}
