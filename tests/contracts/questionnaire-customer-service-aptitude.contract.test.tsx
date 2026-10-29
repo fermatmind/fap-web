@@ -84,6 +84,12 @@ describe("T143 original Customer service knowledge practice", () => {
     try { for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/customer-service-aptitude`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), metadata = await entry.generateMetadata(props);
       expect(metadata.title).toBe(quiz.seoTitle[locale]); expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com${path}`); expect(html).toContain(quiz.instructions![locale]); expect(html).toContain(locale === "zh" ? "原创练习题" : "Original practice bank"); expect(renderToStaticMarkup(<MoreTests locale={locale} />)).toContain(`href="${path}"`);
+      const entryDom = document.createElement("div"); entryDom.innerHTML = html;
+      const method = entryDom.querySelector('section[aria-labelledby="questionnaire-method"]');
+      const methodText = quiz.guide.find(section => section.id === "practice-count")!.paragraphs[0][locale];
+      expect(method?.querySelector("p")?.textContent).toBe(methodText);
+      expect(method?.closest("details")).toBeNull();
+      expect([...entryDom.querySelectorAll("p")].filter(p => p.textContent === methodText)).toHaveLength(1);
       for (const p of quiz.profiles) {
         const native = `${path}/results/${p.id}`, props = { params: Promise.resolve({ locale, slug: quiz.slug, profile: p.id }) }, html = renderToStaticMarkup(await guide.default(props)), metadata = await guide.generateMetadata(props), dom = document.createElement("div"); dom.innerHTML = html;
         expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]); for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
