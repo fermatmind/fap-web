@@ -92,7 +92,9 @@ test("@release original observations: hydration gates the start button until del
     const start = page.getByRole("button", { name: "Begin original observations", exact: true });
     await expect(start).toBeVisible(); await expect.poll(() => delayed).toBeGreaterThan(0);
     await expect(start).toBeDisabled();
-    release(); await expect(start).toBeEnabled(); await start.click();
+    release();
+    await page.waitForLoadState("load");
+    await expect(start).toBeEnabled(); await start.click();
     await expect(page.locator("#trauma-active-question")).toHaveText(quiz.questions[0].prompt.en);
   } finally { release(); }
 });
