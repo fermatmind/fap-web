@@ -1,0 +1,164 @@
+{
+  "source": "https://content.bmkg.go.id/wp-content/uploads/almanak_2026_comprev.pdf",
+  "sourcePDFSHA256": "82961b29886f1c1376e2011d5109c5d5669a3e0429b6714f3cf9a40801de6697",
+  "pageIndex": 20,
+  "printedPage": 16,
+  "normalization": "Paing→Pahing spelling only; Gregorian weekdays and pasaran independently verified",
+  "cases": [
+    {
+      "date": "2026-05-01",
+      "weekday": "jumat",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-02",
+      "weekday": "sabtu",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-03",
+      "weekday": "minggu",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-04",
+      "weekday": "senin",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-05",
+      "weekday": "selasa",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-06",
+      "weekday": "rabu",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-07",
+      "weekday": "kamis",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-08",
+      "weekday": "jumat",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-09",
+      "weekday": "sabtu",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-10",
+      "weekday": "minggu",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-11",
+      "weekday": "senin",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-12",
+      "weekday": "selasa",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-13",
+      "weekday": "rabu",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-14",
+      "weekday": "kamis",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-15",
+      "weekday": "jumat",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-16",
+      "weekday": "sabtu",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-17",
+      "weekday": "minggu",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-18",
+      "weekday": "senin",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-19",
+      "weekday": "selasa",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-20",
+      "weekday": "rabu",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-21",
+      "weekday": "kamis",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-22",
+      "weekday": "jumat",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-23",
+      "weekday": "sabtu",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-24",
+      "weekday": "minggu",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-25",
+      "weekday": "senin",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-26",
+      "weekday": "selasa",
+      "pasaran": "pon"
+    },
+    {
+      "date": "2026-05-27",
+      "weekday": "rabu",
+      "pasaran": "wage"
+    },
+    {
+      "date": "2026-05-28",
+      "weekday": "kamis",
+      "pasaran": "kliwon"
+    },
+    {
+      "date": "2026-05-29",
+      "weekday": "jumat",
+      "pasaran": "legi"
+    },
+    {
+      "date": "2026-05-30",
+      "weekday": "sabtu",
+      "pasaran": "pahing"
+    },
+    {
+      "date": "2026-05-31",
+      "weekday": "minggu",
+      "pasaran": "pon"
+    }
+  ]
+}

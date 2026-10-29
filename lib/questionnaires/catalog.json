@@ -6822,5 +6822,61 @@
       "serious-possibilities-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "weton-story-preferences",
+    "code": "FM_WETON_STORY35",
+    "version": "fm_weton_story35_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Weton Story Preferences & Calendar Reference",
+      "zh": "Weton故事偏好与历法参考"
+    },
+    "description": {
+      "en": "35 original fictional choices, every highest-tied story in full, and a separate optional Javanese calendar reference. No birth-personality verdict.",
+      "zh": "35题原创虚构选择，完整保留全部最高并列故事，另有独立可选爪哇历法参考，不据出生日期判断人格。"
+    },
+    "minutes": 12,
+    "formCode": "fm_weton_story35_v1",
+    "questionCount": 35,
+    "resultSlugs": [
+      "senin-legi",
+      "senin-pahing",
+      "senin-pon",
+      "senin-wage",
+      "senin-kliwon",
+      "selasa-legi",
+      "selasa-pahing",
+      "selasa-pon",
+      "selasa-wage",
+      "selasa-kliwon",
+      "rabu-legi",
+      "rabu-pahing",
+      "rabu-pon",
+      "rabu-wage",
+      "rabu-kliwon",
+      "kamis-legi",
+      "kamis-pahing",
+      "kamis-pon",
+      "kamis-wage",
+      "kamis-kliwon",
+      "jumat-legi",
+      "jumat-pahing",
+      "jumat-pon",
+      "jumat-wage",
+      "jumat-kliwon",
+      "sabtu-legi",
+      "sabtu-pahing",
+      "sabtu-pon",
+      "sabtu-wage",
+      "sabtu-kliwon",
+      "minggu-legi",
+      "minggu-pahing",
+      "minggu-pon",
+      "minggu-wage",
+      "minggu-kliwon"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "weton-story-preferences": async () => (await import("./data/weton-story-preferences.json")).default as Questionnaire,
   "prakriti-inventory21": async () => (await import("./data/prakriti-inventory21.json")).default as Questionnaire,
   "connection-meaning-reflection": async () => (await import("./data/connection-meaning-reflection.json")).default as Questionnaire,
   "body-frame-observations": async () => (await import("./data/body-frame-observations.json")).default as Questionnaire,
