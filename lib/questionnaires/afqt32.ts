@@ -61,8 +61,8 @@ export function scoreAfqt32(q: unknown, attempt: unknown): { status: "unavailabl
   if (!record(attempt) || Object.keys(attempt).some(k => !["mode", "answers", "sections"].includes(k)) || (typeof attempt.mode !== "string" || !["timed", "study"].includes(attempt.mode)) || !record(attempt.answers)
     || !Array.isArray(attempt.sections) || attempt.sections.length > 4) return { status: "invalid" };
   const answers = attempt.answers;
-  if (Object.entries(answers).some(([id, value]) => !q.questions.some(s => s.id === id) || !["A", "B", "C", "D", "skip"].includes(String(value)) || typeof value !== "string")) return { status: "invalid" };
-  if (!Array.from(attempt.sections).every((s, i) => record(s) && Object.keys(s).length === 3 && s.id === AFQT32_SECTIONS[i] && ["finished", "expired"].includes(String(s.reason))
+  if (Object.entries(answers).some(([id, value]) => !q.questions.some(s => s.id === id) || typeof value !== "string" || !["A", "B", "C", "D", "skip"].includes(value))) return { status: "invalid" };
+  if (!Array.from(attempt.sections).every((s, i) => record(s) && Object.keys(s).length === 3 && s.id === AFQT32_SECTIONS[i] && typeof s.reason === "string" && ["finished", "expired"].includes(s.reason)
     && typeof s.elapsedMs === "number" && Number.isFinite(s.elapsedMs) && s.elapsedMs >= 0
     && (attempt.mode === "study" ? s.reason === "finished" && s.elapsedMs === 0 : s.reason === "expired" ? s.elapsedMs >= AFQT32_LIMITS[i] * 1000 : s.elapsedMs < AFQT32_LIMITS[i] * 1000))) return { status: "invalid" };
   if (attempt.sections.length !== 4) return { status: "incomplete" };
