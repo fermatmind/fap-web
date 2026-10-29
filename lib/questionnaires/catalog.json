@@ -5882,5 +5882,30 @@
       "perceived-choice"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "asvab-practice-test",
+    "code": "FM_AFQT32",
+    "version": "1.0.0",
+    "updated": "2026-10-29",
+    "category": "framework",
+    "title": {
+      "en": "ASVAB-Style Practice: Four AFQT Areas",
+      "zh": "ASVAB四领域英文练习"
+    },
+    "description": {
+      "en": "Practise arithmetic, English vocabulary, paragraph comprehension and mathematics. Choose section timers or untimed study; review all 32 answers and four full guides free. No signup or AFQT score estimate.",
+      "zh": "练习算术、英文词汇、段落理解和数学知识；可选分段计时或不计时，免费查看全部32题答案、双语解析与四篇完整指南。无需注册，不估AFQT成绩。"
+    },
+    "minutes": 18,
+    "formCode": "fm_afqt32_english_original_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "arithmetic-reasoning",
+      "word-knowledge",
+      "paragraph-comprehension",
+      "mathematics-knowledge"
+    ],
+    "collection": "explore"
   }
 ]

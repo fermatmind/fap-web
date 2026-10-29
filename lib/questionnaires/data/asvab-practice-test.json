@@ -1,0 +1,2433 @@
+{
+  "slug": "asvab-practice-test",
+  "code": "FM_AFQT32",
+  "version": "1.0.0",
+  "updated": "2026-10-29",
+  "category": "framework",
+  "kind": "afqt32",
+  "title": {
+    "en": "ASVAB-Style Practice: Four AFQT Areas",
+    "zh": "ASVAB四领域英文练习"
+  },
+  "seoTitle": {
+    "en": "Free ASVAB Practice Test: 32 Questions & Answers",
+    "zh": "ASVAB免费练习题：32道英文题与双语解析"
+  },
+  "description": {
+    "en": "Practise arithmetic, English vocabulary, paragraph comprehension and mathematics. Choose section timers or untimed study; review all 32 answers and four full guides free. No signup or AFQT score estimate.",
+    "zh": "练习算术、英文词汇、段落理解和数学知识；可选分段计时或不计时，免费查看全部32题答案、双语解析与四篇完整指南。无需注册，不估AFQT成绩。"
+  },
+  "resultHeading": {
+    "en": "Your private practice record",
+    "zh": "本次私人练习记录"
+  },
+  "minutes": 18,
+  "introduction": {
+    "en": "Choose a mode before starting. All questions and options stay in English in either interface, while instructions and explanations are bilingual. Every part has eight original questions. You may leave items unanswered; the record keeps correct, wrong and unanswered separate. Read all four public guides even without starting.",
+    "zh": "开始前选模式。两种界面中的题目与选项均为英文，操作和解析双语。每部分八道原创题，可明确留空，记录区分正确、错误、未答。无需开始即可阅读四篇公开指南。"
+  },
+  "instructions": {
+    "en": "Start each part when ready. Within an open part, move back or change a choice. Select “Leave unanswered” to proceed without choosing A–D, or finish the part early and keep remaining blanks. Closing or expiry locks the part; the next part waits for you. After all four, review every answer and explanation.",
+    "zh": "准备好再开始每部分，开放期间可返回修改。选“留空”可不选A–D继续，也可提前结束该部分并保留剩余空白。结束或到时后锁定，下一部分等你开始。四部分结束后查看全部答案解析。"
+  },
+  "afqt32": {
+    "sections": [
+      {
+        "id": "arithmetic-reasoning",
+        "code": "AR",
+        "count": 8,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Arithmetic Reasoning",
+          "zh": "算术推理"
+        }
+      },
+      {
+        "id": "word-knowledge",
+        "code": "WK",
+        "count": 8,
+        "limitSeconds": 160,
+        "title": {
+          "en": "Word Knowledge",
+          "zh": "英文词汇知识"
+        }
+      },
+      {
+        "id": "paragraph-comprehension",
+        "code": "PC",
+        "count": 8,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Paragraph Comprehension",
+          "zh": "英文段落理解"
+        }
+      },
+      {
+        "id": "mathematics-knowledge",
+        "code": "MK",
+        "count": 8,
+        "limitSeconds": 240,
+        "title": {
+          "en": "Mathematics Knowledge",
+          "zh": "数学知识"
+        }
+      }
+    ],
+    "subtitle": {
+      "en": "Choose your practice mode",
+      "zh": "选择练习模式"
+    },
+    "privacy": {
+      "en": "Memory only; refresh, leave, language change and cached-page restoration clear the attempt. Public sharing includes guide links only. Optional action analytics require both page permission and site consent.",
+      "zh": "仅在内存；刷新、离开、切语言及缓存恢复会清除本次。分享只有指南链接；可选动作统计同时需要本页许可与全站同意。"
+    },
+    "editionNotice": {
+      "en": "Original fixed English bank. Not validated as an aptitude measure; not official ASVAB or an AFQT score predictor. Site-selected section timers do not reproduce official exam conditions.",
+      "zh": "原创固定英文题本，未验证为能力测量；不是正式ASVAB或AFQT预测。本站分段计时不复刻正式考试条件。"
+    },
+    "attribution": {
+      "en": "Questions, bilingual explanations and guides independently authored by FermatMind. Official ASVAB applicant pages inform topic and format boundaries only. No official test items, endorsement, score conversion or guaranteed result.",
+      "zh": "题目、双语解析及指南由费马独立编写；官方ASVAB申请人页面仅用于题型与形式边界。无正式试题、背书、成绩换算或结果保证。"
+    }
+  },
+  "source": {
+    "kind": "fermatmind_original_english_afqt_area_practice",
+    "formCode": "fm_afqt32_english_original_v1",
+    "itemBankVersion": "fm_afqt32_fixed_english_bilingual_explanations_v1",
+    "scoringVersion": "raw_correct_wrong_unanswered_4x8_site_caps_or_untimed_no_AFQT_v1",
+    "resultContentVersion": "fm_afqt32_four_full_guides_v1",
+    "itemBankSha256": "c57e655e99d139d9e5c81dd439f9083ce2b522e91f8ecc12171c4adce478659a",
+    "resultContentSha256": "0784230985807ea7802201b3c8cc93785cd8a5101a0b04ba5e3f91b6bdedbe3c",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "arithmetic-reasoning",
+      "title": {
+        "en": "Arithmetic Reasoning",
+        "zh": "算术推理"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "word-knowledge",
+      "title": {
+        "en": "Word Knowledge",
+        "zh": "英文词汇知识"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "paragraph-comprehension",
+      "title": {
+        "en": "Paragraph Comprehension",
+        "zh": "英文段落理解"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "mathematics-knowledge",
+      "title": {
+        "en": "Mathematics Knowledge",
+        "zh": "数学知识"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "AFQ_AR01",
+      "prompt": {
+        "en": "Six boxes contain 18 cards each. Eleven cards are removed from the combined supply. How many cards remain?",
+        "zh": "Six boxes contain 18 cards each. Eleven cards are removed from the combined supply. How many cards remain?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "86",
+            "zh": "86"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "97",
+            "zh": "97"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "108",
+            "zh": "108"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "119",
+            "zh": "119"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Start with 6 × 18 = 108 cards, then subtract the eleven removed: 108 − 11 = 97. The starting supply is not the remaining supply. Adding eleven would describe receiving extra cards, and subtracting from only one box would ignore the combined inventory.",
+        "zh": "先算6×18=108，再减11，剩97。108是起初总量，不是剩余；加11变成收到卡片，只对一箱算又忽略了合并数量。"
+      }
+    },
+    {
+      "id": "AFQ_AR02",
+      "prompt": {
+        "en": "A fictional shop reduces a $75 item by 20%. No tax or other charge is added. What is the final price?",
+        "zh": "A fictional shop reduces a $75 item by 20%. No tax or other charge is added. What is the final price?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "$15",
+            "zh": "$15"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "$55",
+            "zh": "$55"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "$65",
+            "zh": "$65"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "$60",
+            "zh": "$60"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The discount is 0.20 × 75 = 15 dollars. Subtract that discount from the original price to obtain 60 dollars. Fifteen dollars is the reduction, not the price paid. The problem explicitly excludes tax and other charges, so nothing else needs to be added.",
+        "zh": "折扣金额是75×20%=15美元，售价为75−15=60美元。15是减少额，不是支付价；题目已排除税费，不需另加。"
+      }
+    },
+    {
+      "id": "AFQ_AR03",
+      "prompt": {
+        "en": "A collection contains blue and white tokens in the ratio 2:7. There are 54 tokens altogether. How many are blue?",
+        "zh": "A collection contains blue and white tokens in the ratio 2:7. There are 54 tokens altogether. How many are blue?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "42",
+            "zh": "42"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The ratio has nine equal parts: two blue and seven white. Each part represents 54 ÷ 9 = 6 tokens, so blue tokens total 2 × 6 = 12. Using seven parts would count white tokens instead; the total must be divided across all nine parts.",
+        "zh": "总份数2+7=9，每份54÷9=6个，蓝色2×6=12个。用七份算的是白色；总数应按九份分配。"
+      }
+    },
+    {
+      "id": "AFQ_AR04",
+      "prompt": {
+        "en": "A cart travels 150 metres in 30 seconds at a constant speed. At the same speed, how many seconds does it take to travel 420 metres?",
+        "zh": "A cart travels 150 metres in 30 seconds at a constant speed. At the same speed, how many seconds does it take to travel 420 metres?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "70",
+            "zh": "70"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "75",
+            "zh": "75"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "84",
+            "zh": "84"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "90",
+            "zh": "90"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The constant speed is 150 ÷ 30 = 5 metres per second. Time equals distance divided by speed, so 420 ÷ 5 = 84 seconds. The distance ratio and time ratio must agree under the stated constant-speed model; there is no acceleration or stopping time to add.",
+        "zh": "恒速为150÷30=5米/秒，420米需420÷5=84秒。题设恒速，距离比与时间比相同，不另外加入加速或停车时间。"
+      }
+    },
+    {
+      "id": "AFQ_AR05",
+      "prompt": {
+        "en": "Four equally fast workers finish a fixed job in 12 hours. Assume constant rates, no interference and a divisible workload. How many hours would six such workers need?",
+        "zh": "Four equally fast workers finish a fixed job in 12 hours. Assume constant rates, no interference and a divisible workload. How many hours would six such workers need?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The fixed job requires 4 × 12 = 48 worker-hours in this ideal model. Six equally productive workers divide that work into 48 ÷ 6 = 8 hours. More workers reduce the time here; multiplying twelve by six-fourths reverses that relationship. This is a stated model, not a real scheduling guarantee.",
+        "zh": "理想模型中工作量为4×12=48工时，六人需48÷6=8小时。这里人数多则时间少，不能反着乘6/4；这不是现实排班保证。"
+      }
+    },
+    {
+      "id": "AFQ_AR06",
+      "prompt": {
+        "en": "A container initially holds 3 US gallons. For this question, 1 US gallon equals 4 quarts. After 2 quarts are removed, how many quarts remain?",
+        "zh": "A container initially holds 3 US gallons. For this question, 1 US gallon equals 4 quarts. After 2 quarts are removed, how many quarts remain?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Convert the initial volume before subtracting: 3 × 4 = 12 quarts, then 12 − 2 = 10 quarts. Subtracting two directly from three mixes gallons and quarts. Twelve quarts is the starting volume and does not account for the amount removed.",
+        "zh": "先统一单位：3×4=12夸脱，再减2，剩10。不能把3加仑直接减2夸脱；12只是起初体积。"
+      }
+    },
+    {
+      "id": "AFQ_AR07",
+      "prompt": {
+        "en": "At a fictional event, an adult ticket costs $14 and a child ticket costs $8. What is the total cost of two adult tickets and three child tickets, with no extra fees?",
+        "zh": "At a fictional event, an adult ticket costs $14 and a child ticket costs $8. What is the total cost of two adult tickets and three child tickets, with no extra fees?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "$52",
+            "zh": "$52"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "$54",
+            "zh": "$54"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "$60",
+            "zh": "$60"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "$66",
+            "zh": "$66"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Two adult tickets cost 2 × 14 = 28 dollars. Three child tickets cost 3 × 8 = 24 dollars. Adding the two categories gives 52 dollars. The two different prices must be applied to their own quantities; there are no fees or discounts in the stated example.",
+        "zh": "两张成人票28美元，三张儿童票24美元，共52美元。各自按对应价格乘数量，题中没有额外费用或折扣。"
+      }
+    },
+    {
+      "id": "AFQ_AR08",
+      "prompt": {
+        "en": "Two people pay a total bill of $84. One pays $12 more than the other. How much does the person paying less pay?",
+        "zh": "Two people pay a total bill of $84. One pays $12 more than the other. How much does the person paying less pay?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "$30",
+            "zh": "$30"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "$34",
+            "zh": "$34"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "$36",
+            "zh": "$36"
+          },
+          "directionId": "arithmetic-reasoning"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "$42",
+            "zh": "$42"
+          },
+          "directionId": "arithmetic-reasoning"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Let the smaller payment be x dollars. The other payment is x + 12, so 2x + 12 = 84. Subtract twelve and divide by two: x = 36. Simply halving eighty-four gives the equal-payment amount, which does not satisfy the twelve-dollar difference.",
+        "zh": "设较少者付x，另一人x+12，故2x+12=84，x=36。直接把84平分得到42，不能满足相差12美元。"
+      }
+    },
+    {
+      "id": "AFQ_WK01",
+      "prompt": {
+        "en": "The editor asked for a concise summary that kept the essential points. In this sentence, concise most nearly means:",
+        "zh": "The editor asked for a concise summary that kept the essential points. In this sentence, concise most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "lengthy",
+            "zh": "lengthy"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "unclear",
+            "zh": "unclear"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "repetitive",
+            "zh": "repetitive"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "brief",
+            "zh": "brief"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Concise describes expression that is brief and avoids unnecessary words while conveying the point. The reference to keeping essential points rules out losing the message. Lengthy and repetitive move in the opposite direction, while unclear concerns understandability rather than the requested economy of wording.",
+        "zh": "concise指简洁、避免多余词语且表达要点。保留要点不等于删掉意思；lengthy和repetitive方向相反，unclear说的是不清楚。"
+      }
+    },
+    {
+      "id": "AFQ_WK02",
+      "prompt": {
+        "en": "After the harvest, fresh vegetables were abundant in the market. In this sentence, abundant most nearly means:",
+        "zh": "After the harvest, fresh vegetables were abundant in the market. In this sentence, abundant most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "hidden",
+            "zh": "hidden"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "plentiful",
+            "zh": "plentiful"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "expensive",
+            "zh": "expensive"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "damaged",
+            "zh": "damaged"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Abundant means present in a large quantity, so plentiful is the best match. The sentence does not establish a price, damage or concealment. Although a harvest might affect several market conditions in real life, this item asks for the word’s meaning rather than an unstated economic consequence.",
+        "zh": "abundant表示数量充足，plentiful最贴近。句子没有确立价格、损坏或隐藏状态；不能用现实经济联想替代词义。"
+      }
+    },
+    {
+      "id": "AFQ_WK03",
+      "prompt": {
+        "en": "Mina was reluctant to accept the invitation, although she was free to attend. Reluctant most nearly means:",
+        "zh": "Mina was reluctant to accept the invitation, although she was free to attend. Reluctant most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "unable",
+            "zh": "unable"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "required",
+            "zh": "required"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "unwilling",
+            "zh": "unwilling"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "delighted",
+            "zh": "delighted"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reluctant describes unwillingness or hesitation, not inability. The sentence explicitly says Mina was free to attend, so unable is not supported. Required introduces an obligation, while delighted describes pleasure rather than reluctance. No conclusion about whether she eventually attended is needed to answer the vocabulary question.",
+        "zh": "reluctant表示不情愿或犹豫，不是不能。题句说她可以参加，因此不是unable；required是被要求，delighted是高兴，无需猜她最终是否赴约。"
+      }
+    },
+    {
+      "id": "AFQ_WK04",
+      "prompt": {
+        "en": "The label warned that the thin glass ornament was fragile. Fragile most nearly means:",
+        "zh": "The label warned that the thin glass ornament was fragile. Fragile most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "easily broken",
+            "zh": "easily broken"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "very costly",
+            "zh": "very costly"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "hard to see",
+            "zh": "hard to see"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "recently made",
+            "zh": "recently made"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Fragile means easily damaged or broken, making easily broken the closest choice in this glass context. Cost, visibility and age are different properties. A newly made or expensive object might also be fragile, but those possible associations do not provide the meaning of the word.",
+        "zh": "fragile指易损或易碎，在玻璃饰品语境中选easily broken。价格、可见度和制作时间是别的属性，可能相关也不是词义。"
+      }
+    },
+    {
+      "id": "AFQ_WK05",
+      "prompt": {
+        "en": "The team added extra preparation time to mitigate the effect of a crowded schedule. Mitigate most nearly means:",
+        "zh": "The team added extra preparation time to mitigate the effect of a crowded schedule. Mitigate most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "make more severe",
+            "zh": "make more severe"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "describe exactly",
+            "zh": "describe exactly"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ignore completely",
+            "zh": "ignore completely"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "make less severe",
+            "zh": "make less severe"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "To mitigate an effect is to make it less severe or burdensome. It does not mean that the effect disappears, and the sentence does not prove that the plan succeeded. Making something worse, describing it or ignoring it are different actions. The question concerns the intended meaning of the verb.",
+        "zh": "mitigate指减轻影响，不保证影响消失，也不证明安排实际成功。加重、精确描述或完全忽略都不同；本题问动词含义。"
+      }
+    },
+    {
+      "id": "AFQ_WK06",
+      "prompt": {
+        "en": "The office replaced an obsolete device that was no longer used for its work. Obsolete most nearly means:",
+        "zh": "The office replaced an obsolete device that was no longer used for its work. Obsolete most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "temporarily borrowed",
+            "zh": "temporarily borrowed"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "no longer in use",
+            "zh": "no longer in use"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "carefully repaired",
+            "zh": "carefully repaired"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "easy to carry",
+            "zh": "easy to carry"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Obsolete describes something that has fallen out of use or been superseded. The added clause supports no longer in use directly. The word alone does not say whether the device was borrowed, repaired or portable; those details would require separate information about the object.",
+        "zh": "obsolete指已过时或被替代而不用，句中补充“已不再使用”直接支持此意。借用、修理和便携与该词义不同。"
+      }
+    },
+    {
+      "id": "AFQ_WK07",
+      "prompt": {
+        "en": "From the repeated delivery records, the clerk could infer which route was usually faster. Infer most nearly means:",
+        "zh": "From the repeated delivery records, the clerk could infer which route was usually faster. Infer most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "erase the evidence",
+            "zh": "erase the evidence"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "follow an order",
+            "zh": "follow an order"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "draw a conclusion from evidence",
+            "zh": "draw a conclusion from evidence"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "make an exact copy",
+            "zh": "make an exact copy"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "To infer is to reach a conclusion using available information. Here the records supply the evidence. The word does not mean copying records, removing them or obeying an order. An inference can still have limits; choosing this definition does not establish that the clerk’s conclusion was certain.",
+        "zh": "infer是根据已有信息得出推断，记录在此提供依据；不是复制、删除或服从指令。推断仍可能有限，不等于结论必然正确。"
+      }
+    },
+    {
+      "id": "AFQ_WK08",
+      "prompt": {
+        "en": "A robust shelf supported the heavy boxes without bending. Robust most nearly means:",
+        "zh": "A robust shelf supported the heavy boxes without bending. Robust most nearly means:"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "strong and sturdy",
+            "zh": "strong and sturdy"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "light in colour",
+            "zh": "light in colour"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "difficult to find",
+            "zh": "difficult to find"
+          },
+          "directionId": "word-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "carefully hidden",
+            "zh": "carefully hidden"
+          },
+          "directionId": "word-knowledge"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "In this physical context, robust means strong or sturdy. The shelf supporting heavy boxes without bending makes that sense relevant. The other choices concern colour, availability or concealment. Robust can have related meanings in other contexts, but this question supplies the context needed to choose one.",
+        "zh": "在此物体语境中，robust指结实坚固。承受重箱而不弯曲支持这个词义；颜色、难找或被藏不是本句所问。"
+      }
+    },
+    {
+      "id": "AFQ_PC01",
+      "prompt": {
+        "en": "For the next two Saturdays, the community library will open at 10 a.m. instead of 9 a.m. Staff will use the first hour for training. Weekday opening hours remain the same. The outdoor return box will stay available when the building is closed. After the second Saturday, the manager will review the training arrangement. No decision has been made about permanent hours.\n\nWhich statement is supported by the passage?",
+        "zh": "For the next two Saturdays, the community library will open at 10 a.m. instead of 9 a.m. Staff will use the first hour for training. Weekday opening hours remain the same. The outdoor return box will stay available when the building is closed. After the second Saturday, the manager will review the training arrangement. No decision has been made about permanent hours.\n\nWhich statement is supported by the passage?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Saturday opening is later during a limited trial.",
+            "zh": "Saturday opening is later during a limited trial."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "All weekday opening times will move to 10 a.m.",
+            "zh": "All weekday opening times will move to 10 a.m."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Books cannot be returned outside opening hours.",
+            "zh": "Books cannot be returned outside opening hours."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The new Saturday hours are already permanent.",
+            "zh": "The new Saturday hours are already permanent."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first sentence limits the later opening to the next two Saturdays, and the final sentence says permanent hours are undecided. Weekdays explicitly stay unchanged and the return box remains available when closed. The passage supports a limited arrangement, not a permanent change or a restriction on all returns.",
+        "zh": "首句限于接下来两个周六，末句说长期时间未定。工作日不变、关门仍可用还书箱，因此只支持有限期间周六较晚开门。"
+      }
+    },
+    {
+      "id": "AFQ_PC02",
+      "prompt": {
+        "en": "A gardening club planted the same seeds in two beds with similar soil. Both beds received the same amount of water. One bed received six hours of sunlight each day and the other received three. After four weeks, the plants in the sunnier bed were taller. The club did not test other seasons or other plant species.\n\nWhich limitation is stated in the passage?",
+        "zh": "A gardening club planted the same seeds in two beds with similar soil. Both beds received the same amount of water. One bed received six hours of sunlight each day and the other received three. After four weeks, the plants in the sunnier bed were taller. The club did not test other seasons or other plant species.\n\nWhich limitation is stated in the passage?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The club used different seeds in each bed.",
+            "zh": "The club used different seeds in each bed."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The amount of sunlight was not recorded.",
+            "zh": "The amount of sunlight was not recorded."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The results were not tested across other seasons or species.",
+            "zh": "The results were not tested across other seasons or species."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The plants were never measured.",
+            "zh": "The plants were never measured."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The final sentence explicitly limits the observation to the conditions studied. The seeds were the same, sunlight hours were specified and plant height was compared. A result in these beds during four weeks does not by itself show what happens for every season or species; that broader test was not done.",
+        "zh": "末句明确没有测试其他季节或物种。种子相同，日照时数已给出，也比较了株高，不能把四周观察自动推广到所有条件。"
+      }
+    },
+    {
+      "id": "AFQ_PC03",
+      "prompt": {
+        "en": "For one month, the transit agency will add an early weekday bus to an existing route. The later buses will keep their current schedules. Staff will count passengers on the added service to decide whether to retain it. Weekend services are not included in this trial. A permanent decision will be announced after the review.\n\nWhat is the main purpose of the added service?",
+        "zh": "For one month, the transit agency will add an early weekday bus to an existing route. The later buses will keep their current schedules. Staff will count passengers on the added service to decide whether to retain it. Weekend services are not included in this trial. A permanent decision will be announced after the review.\n\nWhat is the main purpose of the added service?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "To replace every bus on the route.",
+            "zh": "To replace every bus on the route."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "To extend all weekend services.",
+            "zh": "To extend all weekend services."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "To introduce a permanent change immediately.",
+            "zh": "To introduce a permanent change immediately."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "To test demand for an additional early weekday bus.",
+            "zh": "To test demand for an additional early weekday bus."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The added bus is a one-month trial, and passenger counts will inform whether it is retained. Existing later buses stay on their schedules, weekends are excluded and permanence is undecided. Testing demand for the extra weekday service captures the passage without expanding its scope or treating a trial as final.",
+        "zh": "加班车试行一个月，以乘客数决定是否保留；原有较晚班次不变，周末不在范围内，永久安排未定。因此目的是测试新增早班需求。"
+      }
+    },
+    {
+      "id": "AFQ_PC04",
+      "prompt": {
+        "en": "The community workshop lends tools for Saturday classes. Anyone borrowing a tool must complete a loan form and return the borrowed tool by the following Friday afternoon. Participants who bring their own tools do not need a loan form. Reservations close on Wednesday. The notice says that loan availability is limited and that submitting a form does not guarantee a tool.\n\nWho does not need a loan form under the stated rule?",
+        "zh": "The community workshop lends tools for Saturday classes. Anyone borrowing a tool must complete a loan form and return the borrowed tool by the following Friday afternoon. Participants who bring their own tools do not need a loan form. Reservations close on Wednesday. The notice says that loan availability is limited and that submitting a form does not guarantee a tool.\n\nWho does not need a loan form under the stated rule?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every participant in a Saturday class.",
+            "zh": "Every participant in a Saturday class."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Participants using their own tools.",
+            "zh": "Participants using their own tools."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Anyone arriving on Friday.",
+            "zh": "Anyone arriving on Friday."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Only people who have never attended before.",
+            "zh": "Only people who have never attended before."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The third sentence states the exception for participants who bring their own tools. It does not exempt everyone attending, everyone arriving on Friday or a particular attendance-history group. The reservation and availability details do not change who must complete the form when borrowing. Apply the explicit exception rather than inventing another one.",
+        "zh": "第三句明确自带工具者无需借用表，不是所有参与者、周五到场者或某种资历者都免填。预约与数量信息没有改写这条例外。"
+      }
+    },
+    {
+      "id": "AFQ_PC05",
+      "prompt": {
+        "en": "Several printed labels in one museum room were damaged during maintenance. Until replacement labels arrive next week, visitors can read the same information at two kiosks in that room. Staff can also answer questions. The room will remain open. The museum has not asked visitors to bring their own devices, and no permanent change to the labels has been announced.\n\nWhich statement best summarises the notice?",
+        "zh": "Several printed labels in one museum room were damaged during maintenance. Until replacement labels arrive next week, visitors can read the same information at two kiosks in that room. Staff can also answer questions. The room will remain open. The museum has not asked visitors to bring their own devices, and no permanent change to the labels has been announced.\n\nWhich statement best summarises the notice?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Information remains available while printed labels are replaced.",
+            "zh": "Information remains available while printed labels are replaced."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The museum is permanently removing all written information.",
+            "zh": "The museum is permanently removing all written information."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every visitor must bring a personal device.",
+            "zh": "Every visitor must bring a personal device."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The whole museum will close next week.",
+            "zh": "The whole museum will close next week."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The kiosks and staff preserve access while replacement labels are awaited. The room remains open, personal devices are not required and no permanent replacement of the label system is announced. The best summary keeps the temporary purpose and the limited location instead of changing the whole museum’s arrangements.",
+        "zh": "等新标签期间，可通过现场终端和工作人员获取信息。展室开放、不要求自带设备，也没有永久取消标签，概括应保留临时性与限定范围。"
+      }
+    },
+    {
+      "id": "AFQ_PC06",
+      "prompt": {
+        "en": "A delivery office tested a new box that uses less material than the old design. Initial checks found that it protected the contents during short indoor handling tests. Before adopting it across all deliveries, the office plans to examine damage reports from actual journeys. The notice gives no results from those journeys yet and does not announce a final decision.\n\nWhy is the office waiting before wider adoption?",
+        "zh": "A delivery office tested a new box that uses less material than the old design. Initial checks found that it protected the contents during short indoor handling tests. Before adopting it across all deliveries, the office plans to examine damage reports from actual journeys. The notice gives no results from those journeys yet and does not announce a final decision.\n\nWhy is the office waiting before wider adoption?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The new box has already failed every test.",
+            "zh": "The new box has already failed every test."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Price is the only factor the office will consider.",
+            "zh": "Price is the only factor the office will consider."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Evidence from actual deliveries is still needed.",
+            "zh": "Evidence from actual deliveries is still needed."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The old design has never protected any contents.",
+            "zh": "The old design has never protected any contents."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The office explicitly plans to examine damage reports from real journeys before wider adoption, and those results are not yet supplied. Passing short indoor checks is narrower evidence. The passage reports neither universal failure, a price-only decision nor a complete failure history for the old box.",
+        "zh": "文中明确在全面采用前查看真实运输损坏记录，且尚无结果。室内短测试证据较窄；其他选项加入了全面失败、只看价格或旧箱从未有效等没有的说法。"
+      }
+    },
+    {
+      "id": "AFQ_PC07",
+      "prompt": {
+        "en": "For a four-week trial, a community choir will practise in two groups on Wednesdays. Group One begins at 6:15 p.m., and Group Two begins at 7 p.m. Members will receive their group assignment before the first session. The notice does not explain how assignments are made. At the end of the trial, the choir will review the arrangement.\n\nWhich statement is supported?",
+        "zh": "For a four-week trial, a community choir will practise in two groups on Wednesdays. Group One begins at 6:15 p.m., and Group Two begins at 7 p.m. Members will receive their group assignment before the first session. The notice does not explain how assignments are made. At the end of the trial, the choir will review the arrangement.\n\nWhich statement is supported?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every member should arrive at 6:15 p.m.",
+            "zh": "Every member should arrive at 6:15 p.m."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The choir has cancelled all Wednesday practice.",
+            "zh": "The choir has cancelled all Wednesday practice."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Assignments are definitely based on singing ability.",
+            "zh": "Assignments are definitely based on singing ability."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A member’s start time depends on the assigned group during the trial.",
+            "zh": "A member’s start time depends on the assigned group during the trial."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The two assigned groups have different stated start times, so a member’s time depends on the assignment. The sessions still occur, not everyone starts at 6:15, and the assignment method is explicitly unexplained. The four-week review also prevents treating the arrangement as a confirmed permanent schedule.",
+        "zh": "两个分组的时间不同，因此试行期内开始时间取决于分组。周三练习没有取消，不是所有人六点一刻开始；分组依据未说明，不能断言按能力分。"
+      }
+    },
+    {
+      "id": "AFQ_PC08",
+      "prompt": {
+        "en": "Volunteers plan to clean a short trail on Saturday morning. The organiser will send an update by 8 a.m. stating whether the activity will proceed. If conditions are suitable, the group will meet at 9 a.m. at the community shed. Gloves will be supplied, but participants are asked to bring drinking water. Heavy rain or high winds may lead to postponement.\n\nWhich instruction is stated?",
+        "zh": "Volunteers plan to clean a short trail on Saturday morning. The organiser will send an update by 8 a.m. stating whether the activity will proceed. If conditions are suitable, the group will meet at 9 a.m. at the community shed. Gloves will be supplied, but participants are asked to bring drinking water. Heavy rain or high winds may lead to postponement.\n\nWhich instruction is stated?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Participants must supply all of their own gloves.",
+            "zh": "Participants must supply all of their own gloves."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Participants should bring drinking water if the activity proceeds.",
+            "zh": "Participants should bring drinking water if the activity proceeds."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The organiser will wait until after 9 a.m. to send an update.",
+            "zh": "The organiser will wait until after 9 a.m. to send an update."
+          },
+          "directionId": "paragraph-comprehension"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The activity will proceed regardless of rain or wind.",
+            "zh": "The activity will proceed regardless of rain or wind."
+          },
+          "directionId": "paragraph-comprehension"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The passage asks participants to bring drinking water and says gloves will be supplied. The update is due by eight, before the planned nine o’clock meeting. Weather can postpone the activity, so neither unconditional attendance nor an update after the meeting time follows. Use the stated instructions rather than adding a weather prediction.",
+        "zh": "题目要求自带饮水，手套由组织方提供；八点前更新早于九点集合，大雨或强风可能延期，不能改成不论天气照常进行。"
+      }
+    },
+    {
+      "id": "AFQ_MK01",
+      "prompt": {
+        "en": "Solve for x: 3x + 5 = 26.",
+        "zh": "Solve for x: 3x + 5 = 26."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract five from both sides to obtain 3x = 21, then divide both sides by three: x = 7. Substitution checks the answer because 3 × 7 + 5 = 26. The same operation must be applied to both sides; dividing before removing the added five without preserving the expression changes the equation.",
+        "zh": "两边先减5得3x=21，再除3，x=7。代回3×7+5=26核对；变形应保持两边相等，不能忽略加上的5。"
+      }
+    },
+    {
+      "id": "AFQ_MK02",
+      "prompt": {
+        "en": "Simplify the expression 2a + 3b + 4a − b.",
+        "zh": "Simplify the expression 2a + 3b + 4a − b."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6a + 4b",
+            "zh": "6a + 4b"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "8ab",
+            "zh": "8ab"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "6a + 2b",
+            "zh": "6a + 2b"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2a + 2b",
+            "zh": "2a + 2b"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Combine like terms only: 2a + 4a = 6a and 3b − b = 2b. The result is 6a + 2b. Terms involving different variables cannot be merged into one product. The minus sign applies to one b, so the b coefficient decreases rather than increases.",
+        "zh": "同类项分别合并：2a+4a=6a，3b−b=2b，得6a+2b。不同变量不能并成8ab，减号意味着b的系数减少。"
+      }
+    },
+    {
+      "id": "AFQ_MK03",
+      "prompt": {
+        "en": "A right triangle has perpendicular legs of lengths 6 and 8 units. What is the length of its hypotenuse?",
+        "zh": "A right triangle has perpendicular legs of lengths 6 and 8 units. What is the length of its hypotenuse?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "For a right triangle, the hypotenuse squared equals the sum of the squared perpendicular legs: 6² + 8² = 36 + 64 = 100. The positive length is the square root of one hundred, or ten. Adding the leg lengths would calculate a different quantity, not the hypotenuse.",
+        "zh": "直角三角形斜边平方为6²+8²=100，取正长度得10。两直角边相加14不是斜边公式。"
+      }
+    },
+    {
+      "id": "AFQ_MK04",
+      "prompt": {
+        "en": "Which expression is a factorisation of x² − 9?",
+        "zh": "Which expression is a factorisation of x² − 9?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "(x − 9)(x + 9)",
+            "zh": "(x − 9)(x + 9)"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "(x − 3)²",
+            "zh": "(x − 3)²"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "(x + 3)²",
+            "zh": "(x + 3)²"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "(x − 3)(x + 3)",
+            "zh": "(x − 3)(x + 3)"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Use the difference-of-squares identity: x² − 3² = (x − 3)(x + 3). Expanding the chosen expression gives x² + 3x − 3x − 9, leaving x² − 9. Squaring a binomial introduces a nonzero middle term; using nine in both factors instead gives a constant of negative eighty-one.",
+        "zh": "用平方差：x²−3²=(x−3)(x+3)。展开中间项相消，常数为−9；二项式平方会有中间项，用±9则常数成−81。"
+      }
+    },
+    {
+      "id": "AFQ_MK05",
+      "prompt": {
+        "en": "Evaluate 2³ × 2².",
+        "zh": "Evaluate 2³ × 2²."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "64",
+            "zh": "64"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Multiplying powers with the same base adds the exponents: 2³ × 2² = 2⁵ = 32. You can also evaluate eight times four. Multiplying the exponents would describe a different operation, and using only one factor would leave part of the expression unevaluated.",
+        "zh": "同底数幂相乘指数相加，2³×2²=2⁵=32，也可算8×4。把指数相乘或只算一项都不是原式。"
+      }
+    },
+    {
+      "id": "AFQ_MK06",
+      "prompt": {
+        "en": "What is the arithmetic mean of 4, 7, 9 and 12?",
+        "zh": "What is the arithmetic mean of 4, 7, 9 and 12?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "7.5",
+            "zh": "7.5"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Add all four values: 4 + 7 + 9 + 12 = 32. Divide by the number of values, four, to obtain eight. The mean uses the complete sum and count. Selecting a middle-looking observation or dividing by a different count would answer a different question.",
+        "zh": "总和4+7+9+12=32，共四个数，均值32÷4=8。不能凭“居中”选择某个观测，也不能用不同数量作除数。"
+      }
+    },
+    {
+      "id": "AFQ_MK07",
+      "prompt": {
+        "en": "A bag contains three red marbles and two blue marbles. Each marble is equally likely to be selected. What is the probability that one selected marble is red?",
+        "zh": "A bag contains three red marbles and two blue marbles. Each marble is equally likely to be selected. What is the probability that one selected marble is red?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2/5",
+            "zh": "2/5"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3/5",
+            "zh": "3/5"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1/2",
+            "zh": "1/2"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5/3",
+            "zh": "5/3"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "There are five equally likely individual marbles and three red outcomes, so the probability is three-fifths. Two-fifths describes selecting blue. Having two colours does not make their probabilities equal when the counts differ, and five-thirds is greater than one, so it cannot be a probability here.",
+        "zh": "五颗等可能，其中三颗红，概率3/5。2/5是蓝色；两种颜色不代表各占一半，5/3超过1不可能是此处概率。"
+      }
+    },
+    {
+      "id": "AFQ_MK08",
+      "prompt": {
+        "en": "A triangle has a base of 12 units and a perpendicular height of 5 units. What is its area in square units?",
+        "zh": "A triangle has a base of 12 units and a perpendicular height of 5 units. What is its area in square units?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "17",
+            "zh": "17"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "mathematics-knowledge"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "mathematics-knowledge"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A triangle’s area is one-half times its base times the perpendicular height. Here that is 12 × 5 ÷ 2 = 30 square units. Sixty is the area of a rectangle with those dimensions, not the triangle. Adding the lengths does not produce an area.",
+        "zh": "三角形面积为底×垂直高÷2，即12×5÷2=30平方单位。60是同底高矩形面积，相加长度17不是面积。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "arithmetic-reasoning",
+      "directionIds": [
+        "arithmetic-reasoning"
+      ],
+      "title": {
+        "en": "Arithmetic Reasoning Practice Guide",
+        "zh": "算术推理练习指南"
+      },
+      "headline": {
+        "en": "Turn an English word problem into a calculation.",
+        "zh": "把英文应用题转成可检查的算式。"
+      },
+      "summary": {
+        "en": "A full guide to this original eight-item English practice section: examples, answer review, timing and the limits of a raw practice record.",
+        "zh": "完整解释本站八题英文练习的任务、例子、答案复盘、计时和原始记录边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Arithmetic Reasoning Practice Guide | ASVAB-Style Learning",
+          "zh": "算术推理练习指南｜ASVAB题型学习"
+        },
+        "description": {
+          "en": "Review this ASVAB-style practice area with worked examples, timing choices and raw-count interpretation. Full free guide; no AFQT percentile or qualification claim.",
+          "zh": "阅读ASVAB题型学习指南，查看可复算例子、计时选择及正确/错误/未答记录读法。全文免费，不估AFQT百分位或资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Correct, wrong and unanswered account for all eight items. Counts describe this fixed attempt; they are not equated ability scores or official AFQT results.",
+        "zh": "正确、错误与未答合计八题，仅描述固定题本本次作答，不是等值能力分或正式AFQT成绩。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "What this part practises",
+            "zh": "这一部分练什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Arithmetic Reasoning here means eight original English word problems about quantities, discounts, ratios, constant rates, ideal work rates, unit conversion, tickets and unequal payments. The task is to decide what operation the situation requires before doing the arithmetic. Recognising a familiar number pattern is insufficient when the requested quantity changes. These items sample a few ordinary structures; they do not cover every topic or difficulty that may appear in an official assessment.",
+              "zh": "这里有八道原创英文应用题，涉及数量、折扣、比例、恒定速度、理想工效、单位换算、票价和不等额付款。先判断情境要求什么运算，再计算；看到熟悉数字不能替代读清所求量。这只是少量题型，不涵盖正式考试所有内容或难度。"
+            },
+            {
+              "en": "The question language remains English in either interface. Chinese instructions and worked explanations help you inspect the reasoning after practice, while the assessed wording stays unchanged. Reading the English conditions is therefore part of this particular task. A missed item may involve language, arithmetic, attention or an assumption; the count alone cannot separate those explanations or establish a general mathematical ability.",
+              "zh": "两种界面中的题目都保持英文，中文操作说明和解析用于复盘，不能把被测题干改成另一语言。理解英文条件也是本练习的一部分；答错可能涉及语言、运算、注意或假设，数量本身不能区分原因或证明总体数学能力。"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "title": {
+            "en": "Read the record correctly",
+            "zh": "怎样读本次记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Your private record separates correct, wrong and unanswered out of eight. An explicit skip and a question left untouched at expiry both remain unanswered. Wrong means a selected option differs from the published key; it is not a penalty for declining to guess. The three counts always account for all eight items, including items that the timer prevented you from reaching.",
+              "zh": "私人记录将八题分为正确、错误和未答。主动留空和超时没做到都仍是未答；错误指选项与答案键不同，不把不猜测算成已选错误。三种数量之和始终为八，包括到时未到达的题目。"
+            },
+            {
+              "en": "Compare each response with its worked explanation rather than converting the correct count into an AFQT percentile. Official AFQT reporting uses standard scores and a reference group, not a direct fraction of this short bank. Equal correct counts across different parts also do not prove equal proficiency: the content and difficulty have not been equated. All explanations are available after all four parts close.",
+              "zh": "应逐题对照解析，而不是把正确数换成AFQT百分位。正式报告使用标准分和参照群体，不是这份短题本的简单比例；各部分难度未经等值，相同正确数也不能证明能力相同。四部分结束后可读全部解析。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "A worked approach",
+            "zh": "一个可复算的思路"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a new example: a fictional pack holds nine folders, and five packs are delivered before seven folders are used. First name the unknown as folders remaining. Then write five times nine minus seven, obtaining thirty-eight. Keeping a unit beside each intermediate number makes the calculation auditable. The number of packs is not itself a folder count, and the initial total is not the requested remainder.",
+              "zh": "另举一例：每包九个文件夹，送来五包后用了七个。先把未知量写成剩余文件夹数，再列5×9−7=38。每步标单位便于核对；包数不是文件夹数，起初总量也不是所求余量。"
+            },
+            {
+              "en": "For a ratio problem, add the stated parts before finding the value of one part. For a rate problem, identify whether the rate is constant and keep time units consistent. Ideal worker-hour questions depend on their explicit assumptions about equal rates and divisible work. Those assumptions make a small mathematical model solvable; they are not a promise about how real teams or journeys behave.",
+              "zh": "比例题先合总份数再求每份；速度题先看是否恒速并统一时间单位；工时题依赖相同工效、工作可分等明确假设。这些条件使小模型可计算，不是现实团队或行程的保证。"
+            }
+          ]
+        },
+        {
+          "id": "mistakes",
+          "title": {
+            "en": "Distinguish common mistakes",
+            "zh": "区分常见错误"
+          },
+          "paragraphs": [
+            {
+              "en": "Separate a setup error from a calculation error. If you correctly wrote a discount as original price minus the discount amount but multiplied incorrectly, practise that arithmetic. If you reported the amount saved as the final price, practise identifying the requested quantity. These two mistakes can produce the same wrong choice while requiring different review. Record the distinction privately without treating it as a diagnosis.",
+              "zh": "列式错误和计算错误需分开。折扣式子对、乘法错，就复习运算；把节省金额当成交价，则复习所求量。它们可能选到同一错误答案，但复盘重点不同；这种私人分类不是诊断。"
+            },
+            {
+              "en": "Check whether an answer is plausible before moving on. Removing an amount should not increase the supply, and a positive discount without added fees should not make the price larger. Such checks can detect contradictions, but they do not replace a complete solution. Some distractors are plausible numbers created by an incorrect setup, so always return to the wording and units when an explanation surprises you.",
+              "zh": "完成后检查是否合理：取走不应增加库存，不加费用的折扣不应抬高价格。合理性检查能找矛盾，却不能代替求解；错误列式也可能产生貌似合理数字，发现解析出乎意料时回看题干和单位。"
+            }
+          ]
+        },
+        {
+          "id": "timing",
+          "title": {
+            "en": "Use the clock deliberately",
+            "zh": "怎样使用计时"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode gives this part four minutes, selected by this site for a short exercise. Start only when ready; the clock begins on the section-start action. You may go back and change choices within the active part. Closing it early or reaching the deadline locks its responses. The next part waits for its own start, so an ordinary break between parts does not consume its time.",
+              "zh": "计时模式给本部分四分钟，这是本站为短练习选定的时间。准备好后开始，才会计时；当前部分可前后修改，提前结束或到时后锁定。下一部分另行点击开始，因此两部分间休息不会消耗下一段时间。"
+            },
+            {
+              "en": "Untimed study mode uses the same questions and answer key, with no section deadline. Use scratch paper and, if you choose to check a calculation with a tool, remember that this changes the practice conditions. Official applicant guidance says calculators are not allowed in the official assessment. This page does not enforce exam conditions, proctor you or reproduce official pacing, adaptivity or guessing rules.",
+              "zh": "不计时学习使用同题同答案，没有段落截止时间。可用草稿纸；若自行用工具核算，要记得练习条件已改变。官方说明正式测试不允许计算器；本站不监考、不强制考试条件，也不复刻正式节奏、自适应或猜题规则。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Review and try again",
+            "zh": "复盘与重练"
+          },
+          "paragraphs": [
+            {
+              "en": "After reviewing, choose one specific action: rewrite a unit conversion, explain why a discount is subtracted, or solve a new ratio example before looking at options. Work with different numbers rather than only repeating the exact item. A second attempt on this fixed bank can be easier because you remember the answer. That improvement cannot by itself establish learning transfer or predict an official result.",
+              "zh": "复盘后选一个具体行动：重写单位换算、解释为何减去折扣，或先独立解一道新比例题再看选项。换数字练习，别只重复原题。固定题本重做可能因记住答案变容易，不能单凭提高就证明迁移或预测正式成绩。"
+            },
+            {
+              "en": "You can clear and retake, but the page keeps no persistent answer history. Refreshing, leaving, switching language or restoring a cached page clears the attempt. Public guide links are the same for everyone and contain neither your responses nor your counts. If you want a personal study note, keep it yourself; sharing a guide is not sharing a verified examination report.",
+              "zh": "可清空重练，页面不长期保存答题历史。刷新、离开、切语言或缓存页面恢复会清除本次作答。公开指南对所有人相同，不带答案或数量；个人复习笔记自行保留，分享指南不是分享已认证考试报告。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the boundary clear",
+            "zh": "保留方法边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This independently authored practice draws its topic labels from official ASVAB descriptions. It contains no actual official test questions and is not endorsed by the ASVAB program or the Department of Defense. It does not calculate an AFQT composite, percentile, pass decision, enlistment eligibility or military job qualification. The eight-item record describes this attempt on this bank and nothing broader.",
+              "zh": "本原创练习按官方ASVAB说明选题型标签，不含正式试题，也未获项目或国防部背书。不算AFQT合成分、百分位、通过、入伍资格或军职资格；八题记录只描述本题本本次作答。"
+            },
+            {
+              "en": "For official testing procedures, use the linked official applicant information, whose formats and rules may differ from this exercise. If your next question is what activities interest you, a separate RIASEC interest assessment addresses that different question. Interests are not demonstrated arithmetic skill, and neither an interest profile nor this practice record establishes eligibility for a particular occupation or service.",
+              "zh": "正式流程以所链官方申请人说明为准，其形式和规则可能与本练习不同。若想探索感兴趣的活动，可另做RIASEC职业兴趣；兴趣不等于已展示的算术技能，两者都不构成某职业或服役资格。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word-knowledge",
+      "directionIds": [
+        "word-knowledge"
+      ],
+      "title": {
+        "en": "Word Knowledge Practice Guide",
+        "zh": "英文词汇知识练习指南"
+      },
+      "headline": {
+        "en": "Choose the closest meaning in the supplied English context.",
+        "zh": "依据给出的英文语境选择最贴近词义。"
+      },
+      "summary": {
+        "en": "A full guide to this original eight-item English practice section: examples, answer review, timing and the limits of a raw practice record.",
+        "zh": "完整解释本站八题英文练习的任务、例子、答案复盘、计时和原始记录边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Knowledge Practice Guide | ASVAB-Style Learning",
+          "zh": "英文词汇知识练习指南｜ASVAB题型学习"
+        },
+        "description": {
+          "en": "Review this ASVAB-style practice area with worked examples, timing choices and raw-count interpretation. Full free guide; no AFQT percentile or qualification claim.",
+          "zh": "阅读ASVAB题型学习指南，查看可复算例子、计时选择及正确/错误/未答记录读法。全文免费，不估AFQT百分位或资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Correct, wrong and unanswered account for all eight items. Counts describe this fixed attempt; they are not equated ability scores or official AFQT results.",
+        "zh": "正确、错误与未答合计八题，仅描述固定题本本次作答，不是等值能力分或正式AFQT成绩。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "What this part practises",
+            "zh": "这一部分练什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Word Knowledge here consists of eight original English multiple-choice items. Each presents a word in a short context and asks for the closest meaning among four options. The bank includes words such as concise, reluctant and infer. The goal is to practise interpreting vocabulary in context, not to count every word you know or produce a language-proficiency level from a small sample.",
+              "zh": "本部分有八道原创英文选择题，在短语境中问四个选项哪个最贴近词义，包含concise、reluctant、infer等。练习的是语境词义，不是统计全部词汇量，也不从小样本生成语言等级。"
+            },
+            {
+              "en": "Both interfaces deliberately retain the English stems and choices. A Chinese translation of the target word inside the question would supply or change the answer, so Chinese support belongs in the instructions and later explanation. If you want learning help rather than time pressure, select untimed study before starting. The record still concerns the same English items; it is not a separate Chinese vocabulary test.",
+              "zh": "双语界面刻意保留英文题干和选项。在题内翻译目标词会提供或改变答案，所以中文支持放在说明和之后的解析中。想先学习可开始前选不计时；记录仍对应相同英文题，不是另一套中文词汇测验。"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "title": {
+            "en": "Read the record correctly",
+            "zh": "怎样读本次记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The private result shows correct, wrong and unanswered out of eight, with no vocabulary-age, percentile or proficiency band. Wrong means you selected an option other than the key. Unanswered includes deliberate skips and untouched questions when a timed section closes. These categories distinguish the observable response without pretending to know whether you lacked the word, misread the context or simply ran out of time.",
+              "zh": "私人结果显示八题的正确、错误、未答，不给词汇年龄、百分位或等级。错误是选了非答案键；未答包括主动跳过和到时未做。分类保留可观察事实，不假装知道你是不认识、误读还是时间不足。"
+            },
+            {
+              "en": "Do not rank this count against your arithmetic or reading count as though all three were equivalent scales. Eight questions in each part only makes the denominators equal. Their difficulty, content coverage and opportunity to use context differ. Official AFQT reporting combines information through standard-score procedures; summing the raw correct answers on this practice bank is only an inventory of correct responses, not that official score.",
+              "zh": "不要把此正确数与算术或阅读直接排行成等值能力。每部分八题仅分母相同，难度、覆盖和语境帮助并不等同。正式AFQT使用标准分程序；本站合计答对数量只是答题清单，不是正式成绩。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "A worked approach",
+            "zh": "一个可复算的思路"
+          },
+          "paragraphs": [
+            {
+              "en": "Take an independent example: “The organiser gave a tentative date and said it might change.” Tentative most closely means provisional in that context. The second clause supports uncertainty about final confirmation. An option such as secret would add a property the sentence never states, while permanent would conflict with the possibility of change. Notice how surrounding words narrow the relevant sense instead of merely decorating the sentence.",
+              "zh": "另举例：“组织者给出tentative日期，并说可能改变。”此处最贴近provisional，后半句支持尚未最终确定。secret添加了没说的属性，permanent与可能改变相冲突；周围词语在限定词义。"
+            },
+            {
+              "en": "A context clue is useful without making every related idea a synonym. An abundant harvest might affect prices, but abundant describes quantity rather than a particular price. A fragile object could be expensive, yet its cost does not define fragility. Ask whether an option restates the target meaning or introduces a consequence, association or personal assumption that would need further evidence.",
+              "zh": "语境线索有用，但相关联想不都是同义词。abundant收成或影响价格，词本身说数量；fragile物品或昂贵，价格不定义易碎。判断选项是在改述词义，还是加上需要额外证据的后果与联想。"
+            }
+          ]
+        },
+        {
+          "id": "mistakes",
+          "title": {
+            "en": "Distinguish common mistakes",
+            "zh": "区分常见错误"
+          },
+          "paragraphs": [
+            {
+              "en": "When reviewing a miss, identify whether you confused an opposite, a neighbouring meaning or a detail from the sentence. Reluctant is about willingness or hesitation, while unable is about capacity. If the sentence expressly says the person could attend, inability becomes a poor reading. The distinction helps you explain the choice without making a prediction about what that person eventually decided to do.",
+              "zh": "错题可区分反义、近邻含义、句子细节混淆。reluctant涉及意愿或犹豫，unable涉及能力；明确说可以参加时，就不宜读成不能。这让你能解释答案，而不必预测人物最终决定。"
+            },
+            {
+              "en": "Words can have multiple senses. Robust used for a physical shelf points to sturdy construction; a different passage might use it for a method or argument. Learn the sense supported here before collecting other uses from a reliable dictionary. The answer explanation justifies the selected sense for this sentence. It does not claim that every other meaning of the word is always wrong in every setting.",
+              "zh": "词可多义。robust描述实体架子指结实，在别处可描述方法或论证。先学此句支持的含义，再查可靠词典的其他用法。解析是在证明本句答案，不是说其他含义在所有情境下都错误。"
+            }
+          ]
+        },
+        {
+          "id": "timing",
+          "title": {
+            "en": "Use the clock deliberately",
+            "zh": "怎样使用计时"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode allows two minutes forty seconds for this short part. This is a site-selected practice cap, not an official Word Knowledge time limit or a scaled replica of one. The timer begins only when you explicitly start this section. You can revise choices within the open section; closing it or expiry prevents later edits, while the following section waits for a fresh start.",
+              "zh": "本站计时为两分四十秒，既非官方WK时限，也不称按比例模拟。明确开始本部分才计时；开放期间可修改，结束或到时即锁定，后续部分等再次开始。"
+            },
+            {
+              "en": "If the countdown makes it difficult to explore meanings, use untimed study on another attempt. Looking up a word can be useful for learning, but an answer produced with a dictionary has different conditions from an independent first response. The page does not detect dictionary use or certify that an attempt followed official rules. Treat the mode and your actual learning conditions as context for the record.",
+              "zh": "若倒计时妨碍理解，下次选不计时。查词有助学习，但借词典作答与独立首答条件不同。页面不检测查词或认证遵守正式规则；读记录时保留模式与实际学习条件。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Review and try again",
+            "zh": "复盘与重练"
+          },
+          "paragraphs": [
+            {
+              "en": "After all four parts end, read the explanation for every item, including those answered correctly. You may have selected a correct option for an unreliable reason. Write a new English sentence that makes the same sense clear, then contrast it with an opposite or near-miss option. That small exercise provides more information about understanding than memorising the letter of the correct answer.",
+              "zh": "四部分结束后，答对题也读解析，因为可能理由不可靠却碰巧选对。用同一词义写新英文句，再与反义或相近错误选项对照；这比记答案字母更能检查理解。"
+            },
+            {
+              "en": "Repeated attempts use a fixed bank, so recall can raise a later correct count without demonstrating a broader vocabulary gain. There is no saved progress graph or persistent answer history. Clear and retake when useful, and keep any personal study notes outside the page. A public guide link shares general learning material only; it contains no selected words, private responses, counts or timing information from your attempt.",
+              "zh": "固定题本重做可能靠回忆提高，不能就称词汇全面进步。没有长期进度图或答题历史；可清空重练，个人笔记自行保留。公开指南只分享通用学习材料，不带本次选词、答案、数量或计时信息。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the boundary clear",
+            "zh": "保留方法边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The eight items are original FermatMind practice, not an official ASVAB bank or an authorised short form. Official topic descriptions inform the label, not validation of these questions. No score here establishes AFQT standing, admission, enlistment eligibility or a particular military job qualification. The explanations are free, and access does not require an account or completion of another assessment.",
+              "zh": "八题为费马原创练习，不是正式ASVAB题库或授权短版。官方题型说明支持标签，不验证这些题；本站成绩不证明AFQT排名、录取、入伍或军职资格。解析免费，无需账户或强做其他测评。"
+            },
+            {
+              "en": "For broader reading practice, use new English material and verify meanings in its own context rather than extending this tiny record to all language tasks. If you separately explore occupational interests through RIASEC, remember that liking language-related activities is a preference, not proof of vocabulary competence. Interest reflection and knowledge practice answer different questions, and neither should be used as a substitute for official testing requirements.",
+              "zh": "更广泛练习应换新英文材料，按新语境核词义，不能把本小记录外推所有语言任务。另做RIASEC时，喜欢语言活动是兴趣，不是词汇能力证明；兴趣与知识练习回答不同问题，都不能替代正式要求。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paragraph-comprehension",
+      "directionIds": [
+        "paragraph-comprehension"
+      ],
+      "title": {
+        "en": "Paragraph Comprehension Practice Guide",
+        "zh": "英文段落理解练习指南"
+      },
+      "headline": {
+        "en": "Answer from what the passage supports.",
+        "zh": "按文章实际支持的内容作答。"
+      },
+      "summary": {
+        "en": "A full guide to this original eight-item English practice section: examples, answer review, timing and the limits of a raw practice record.",
+        "zh": "完整解释本站八题英文练习的任务、例子、答案复盘、计时和原始记录边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Paragraph Comprehension Practice Guide | ASVAB-Style Learning",
+          "zh": "英文段落理解练习指南｜ASVAB题型学习"
+        },
+        "description": {
+          "en": "Review this ASVAB-style practice area with worked examples, timing choices and raw-count interpretation. Full free guide; no AFQT percentile or qualification claim.",
+          "zh": "阅读ASVAB题型学习指南，查看可复算例子、计时选择及正确/错误/未答记录读法。全文免费，不估AFQT百分位或资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Correct, wrong and unanswered account for all eight items. Counts describe this fixed attempt; they are not equated ability scores or official AFQT results.",
+        "zh": "正确、错误与未答合计八题，仅描述固定题本本次作答，不是等值能力分或正式AFQT成绩。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "What this part practises",
+            "zh": "这一部分练什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part offers eight original short English passages, each followed by one question with four choices. The fictional notices and observations concern libraries, a garden, transport, a workshop, a museum, packaging, choir schedules and volunteering. Tasks include finding stated information, identifying a purpose, recognising a limitation and choosing a supported summary. These are reading exercises, not factual claims about real organisations or evidence for their policies.",
+              "zh": "本部分有八篇原创英文短文，各配一题四选一，虚构内容涉及图书馆、园艺、交通、工坊、博物馆、包装、合唱安排和志愿活动。练明示信息、目的、限制及概括，不是现实机构事实或政策依据。"
+            },
+            {
+              "en": "English passages and answer options remain unchanged in the Chinese interface. Chinese instructions and later explanations support learning without replacing the English reading task. You may reread the active passage as needed and go back within an open section. This site does not track eye movements or infer a reading strategy from clicks, and the result cannot distinguish all reasons a particular passage was difficult.",
+              "zh": "中文界面仍使用相同英文短文和选项，中文说明及事后解析支持学习，不替换阅读任务。可反复读当前短文并在未结束部分前后修改；本站不追踪眼动，不凭点击推断策略，也不能区分所有阅读困难原因。"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "title": {
+            "en": "Read the record correctly",
+            "zh": "怎样读本次记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The private summary assigns each of the eight items to correct, wrong or unanswered. A selected distractor counts as wrong; a skip or untouched timed-out item counts as unanswered. The distinction preserves what happened rather than treating a blank as a claim about the text. The counts describe these passages on this attempt and do not provide a reading-age, grade-level, clinical or general intelligence estimate.",
+              "zh": "八题分正确、错误、未答。选干扰项算错误；主动跳过或到时未触及算未答。保留事实，不把空白当作对文章的判断。只描述本次这些短文，不估阅读年龄、年级、临床状态或智力。"
+            },
+            {
+              "en": "Every item has a published key and a bilingual explanation after all four parts close. Use that evidence to locate which sentence supports the answer and which choice overreaches. Eight correct answers do not guarantee success on longer, denser or unfamiliar official material. A raw fraction from a fixed original bank is not an AFQT percentile, and its relationship to official standard scores has not been established.",
+              "zh": "四部分结束后每题都有答案与双语解析。用它找到哪句话支持答案、哪个选项越界。八题全对不保证更长更复杂或陌生正式材料的表现；固定原创题的比例不是AFQT百分位，也未建立标准分换算。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "A worked approach",
+            "zh": "一个可复算的思路"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fresh notice: “The pool will close on Tuesday for repairs. Existing Wednesday lessons are expected to continue, but the manager will confirm them on Tuesday evening.” A supported summary preserves the Tuesday closure and the pending confirmation. It does not turn an expectation into a guarantee or infer that the pool is permanently closed. The words expected and confirm carry information about certainty.",
+              "zh": "另举通知：“泳池周二维修关闭，原周三课程预计继续，负责人周二晚确认。”概括应保留周二关闭及等待确认，不把预计变保证，也不推永久关闭。expected和confirm在表达确定程度。"
+            },
+            {
+              "en": "For an observation passage, separate what was compared from what was never tested. If two beds used the same seeds but different sunlight, the passage may support a statement about that observation. It does not automatically cover every species or season. A question about the stated limitation asks you to identify the boundary in the text, not to invent a better experiment or claim a universal cause.",
+              "zh": "观察类文章要分已比较与未测试。相同种子不同日照只支持相应观察，不自动覆盖所有季节物种。问明示限制时要指出文内边界，不是自行设计更好实验或宣称普遍因果。"
+            }
+          ]
+        },
+        {
+          "id": "mistakes",
+          "title": {
+            "en": "Distinguish common mistakes",
+            "zh": "区分常见错误"
+          },
+          "paragraphs": [
+            {
+              "en": "Watch for scope changes in an option. “One room remains open” is different from “the entire museum closes,” and “for four weeks” differs from “permanently.” A distractor may reuse several accurate words while changing one crucial qualifier. Underline the subject, time period and condition privately if useful, then check the whole proposed statement rather than matching isolated vocabulary.",
+              "zh": "警惕选项扩大范围：“一间展室开放”不同于“全馆关闭”，“四周”不同于“永久”。干扰项可重用多数词却改关键限定；可在草稿标主语、时段、条件，再检查完整陈述，不仅找词重合。"
+            },
+            {
+              "en": "An inference must stay within the information supplied. If a notice says assignments will arrive before practice but does not state the assignment method, do not supply ability, age or preference as the reason. Likewise, a conditional plan can remain conditional even when the activity sounds likely. Background knowledge helps comprehension but should not override explicit wording when the task asks what the passage supports.",
+              "zh": "推断须受给定信息限制。通知说会发分组但未说分组方法，就不能填能力、年龄或偏好；条件计划即使听来很可能也仍有条件。背景知识可帮理解，问文章支持什么时却不能压过明示措辞。"
+            }
+          ]
+        },
+        {
+          "id": "timing",
+          "title": {
+            "en": "Use the clock deliberately",
+            "zh": "怎样使用计时"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed practice gives this part four minutes for eight short passages. The cap is chosen by this site and does not reproduce official Paragraph Comprehension timing, question length or difficulty. The clock begins only on the section-start action and continues while the section is open. A background tab does not pause the deadline. Closing the section or expiry locks its choices; the next section waits for you.",
+              "zh": "本站给八篇短文四分钟，不复刻官方PC时间、篇幅或难度。点击开始该部分才计时，期间持续，切后台不暂停。结束或到时锁定选择，下一部分等你再开始。"
+            },
+            {
+              "en": "Untimed study lets you reread without a deadline. You can use it to explain why each rejected option fails before comparing your reasoning with the published explanation. Do not interpret a slower careful study attempt as inferior to a faster one: the learning conditions differ. The page reports counts without a speed rank and does not turn time taken into an ability score or a prediction of official performance.",
+              "zh": "不计时可反复读，先解释各错误选项为何不成立，再对照解析。慢而仔细的学习不因速度就较差，因为条件不同；本站无速度排名，不把用时换成能力分或正式预测。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Review and try again",
+            "zh": "复盘与重练"
+          },
+          "paragraphs": [
+            {
+              "en": "During review, label the particular demand: stated detail, purpose, summary, conditional instruction or limitation. Then locate the shortest supporting evidence in the passage and state why one tempting alternative goes beyond it. These categories are study notes, not validated subscores. There is only one item per short passage, so a single error offers too little evidence to diagnose a stable reading weakness.",
+              "zh": "复盘可标具体要求：细节、目的、概括、条件说明或限制；找到最短依据，再说一个诱人选项为何越界。这是学习笔记，不是验证过的分量表；一篇一题，单错不足以诊断稳定弱项。"
+            },
+            {
+              "en": "Use unfamiliar passages for later learning rather than relying only on repeats of this bank. Remembering the story can make a second attempt easier, and the page does not equate attempts or save a longitudinal record. Refreshing, leaving, changing language and cached-page restoration clear your private attempt. The public guide can be shared independently, without your chosen answers, counts, mode or elapsed times.",
+              "zh": "后续用陌生短文练，别仅重复本题本。记住故事会让重做变容易，本站不等值不同次作答，也不存长期记录。刷新、离开、切语言及缓存恢复会清除；分享公开指南不带个人答案、数量、模式或用时。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the boundary clear",
+            "zh": "保留方法边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an independently written English practice section using the official topic name descriptively. It contains no official secure test items, no endorsement and no official score conversion. Results do not determine enlistment eligibility, admission, occupational qualification or a diagnosis. All four study guides remain readable before answering, and all solutions become available on completion without signup or another required assessment.",
+              "zh": "本部分按官方题型名称描述独立编写的英文练习，不含正式保密试题，无背书或正式换算。结果不定入伍、录取、职业资格或诊断。四篇指南答前可读，完成后全解析免费，不需注册或另做测评。"
+            },
+            {
+              "en": "If you want information about an actual test format, follow the official applicant links rather than treating this interface as a simulator. If you want to explore activities you enjoy, the separate RIASEC entry concerns interests. Enjoying reading is not the same as demonstrating comprehension on a new passage; neither preference nor this tiny knowledge record establishes suitability for a military role.",
+              "zh": "实际考试形式以官方链接为准，不把本界面当模拟器。想探索喜欢的活动可另看RIASEC；喜欢阅读不等于已展示陌生文章理解，偏好或本短记录都不确立军职适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mathematics-knowledge",
+      "directionIds": [
+        "mathematics-knowledge"
+      ],
+      "title": {
+        "en": "Mathematics Knowledge Practice Guide",
+        "zh": "数学知识练习指南"
+      },
+      "headline": {
+        "en": "Choose a rule and verify the resulting calculation.",
+        "zh": "选择适用规则并检查计算结果。"
+      },
+      "summary": {
+        "en": "A full guide to this original eight-item English practice section: examples, answer review, timing and the limits of a raw practice record.",
+        "zh": "完整解释本站八题英文练习的任务、例子、答案复盘、计时和原始记录边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mathematics Knowledge Practice Guide | ASVAB-Style Learning",
+          "zh": "数学知识练习指南｜ASVAB题型学习"
+        },
+        "description": {
+          "en": "Review this ASVAB-style practice area with worked examples, timing choices and raw-count interpretation. Full free guide; no AFQT percentile or qualification claim.",
+          "zh": "阅读ASVAB题型学习指南，查看可复算例子、计时选择及正确/错误/未答记录读法。全文免费，不估AFQT百分位或资格。"
+        }
+      },
+      "scoreReading": {
+        "en": "Correct, wrong and unanswered account for all eight items. Counts describe this fixed attempt; they are not equated ability scores or official AFQT results.",
+        "zh": "正确、错误与未答合计八题，仅描述固定题本本次作答，不是等值能力分或正式AFQT成绩。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "What this part practises",
+            "zh": "这一部分练什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Mathematics Knowledge here is eight original English questions on a linear equation, like terms, a right triangle, difference of squares, exponents, an arithmetic mean, simple probability and triangle area. The task usually starts from a mathematical statement rather than a longer story. This is a small foundation review, not full high-school curriculum coverage, a placement examination or an estimate of the level at which you should study.",
+              "zh": "这里八道原创英文题涵盖一次方程、同类项、直角三角形、平方差、指数、均值、简单概率和三角形面积。通常从数学陈述开始，区别于较长应用情境。它是基础复习小样本，不是完整高中课程、分班考试或学习等级判定。"
+            },
+            {
+              "en": "The same English stems and options appear in both interfaces, with bilingual explanations after practice. Mathematical symbols can reduce some language demands, but they do not make the task language-free. Terms such as perpendicular, hypotenuse and arithmetic mean carry specific meanings. If a term rather than a calculation caused trouble, review it explicitly instead of treating the entire error as evidence of poor mathematical reasoning.",
+              "zh": "双语界面同英文题干选项，练后双语解析。符号减少部分语言要求却不意味着无语言；perpendicular、hypotenuse、arithmetic mean有特定义。若卡在术语，定向复习，不把整题错误都归为数学推理差。"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "title": {
+            "en": "Read the record correctly",
+            "zh": "怎样读本次记录"
+          },
+          "paragraphs": [
+            {
+              "en": "The record separates correct, wrong and unanswered out of eight. Each item counts once; there are no extra weights for algebra or geometry. A deliberate skip and a timed-out untouched item remain unanswered, while a selected non-key option counts as wrong. Correct plus wrong plus unanswered equals eight. An optional overall raw count combines the four parts only as a record of this fixed practice attempt.",
+              "zh": "记录为八题正确、错误、未答，每题一次，代数几何无额外权重。主动跳过和超时未做仍未答，选非答案键才算错误；三者之和为八。总体原始合计也只汇总本次固定题本。"
+            },
+            {
+              "en": "Do not interpret eight equal denominators as equated subject scores, and do not convert a raw total into the official AFQT. Official reporting uses standard-score information and a reference population. This original set has no such calibration, norm or pass threshold. A result such as six correct tells you which six keys matched, not where you stand among applicants or whether a particular service would accept you.",
+              "zh": "分母相同不意味着学科分数等值，也不能换算正式AFQT。正式报告用标准分和参照群体；原创题本无此标定、常模或通过线。六题对只说明六个答案匹配，不代表申请人排名或某军种接收结论。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "A worked approach",
+            "zh": "一个可复算的思路"
+          },
+          "paragraphs": [
+            {
+              "en": "For an independent equation example, solve five times x minus four equals twenty-one. Add four to both sides to obtain five times x equals twenty-five, then divide both sides by five. Substitute five into the original equation: twenty-five minus four equals twenty-one. Checking in the original expression can reveal a sign error that a plausible-looking answer alone would not expose.",
+              "zh": "另例5x−4=21，两边加4得5x=25，再除5得x=5。代回原式25−4=21。检验可找出看似合理答案中的符号错误。"
+            },
+            {
+              "en": "For geometry, identify exactly which lengths the rule requires. Triangle area uses a base and its perpendicular height; a slanted side is not automatically the height. The right-triangle relation uses the squares of perpendicular legs to find the hypotenuse, rather than adding their lengths. Name the requested quantity before choosing a formula, and keep length units distinct from square units.",
+              "zh": "几何先认规则要求哪些长度：面积需底及对应垂直高，斜边不自动是高；直角三角形用直角边平方和求斜边，不直接加长度。选公式前说清所求，长度单位与平方单位分开。"
+            }
+          ]
+        },
+        {
+          "id": "mistakes",
+          "title": {
+            "en": "Distinguish common mistakes",
+            "zh": "区分常见错误"
+          },
+          "paragraphs": [
+            {
+              "en": "Combine like terms by their coefficients while retaining the variable. Two terms containing different variables do not become one term just because they occur next to each other. For products of powers with the same base, add exponents; for a power raised to another power, the rule differs. Writing one intermediate line can make the selected rule visible and easier to check after a miss.",
+              "zh": "合并同类项时合系数、保变量，不同变量不能因为相邻就变成一项。同底数幂乘积加指数，幂再乘方则不同。写一步中间过程能显露所用规则，错后更容易检查。"
+            },
+            {
+              "en": "For a mean, add every listed value and divide by the number of values. For equally likely individual outcomes, probability is favourable outcomes divided by all outcomes. Two colours do not imply equal probability when their counts differ. These checks distinguish definitions from visual guesses about a middle number or an assumed half-and-half split. Use the assumptions actually supplied in the question.",
+              "zh": "均值用全部值之和除个数；个体等可能时概率为有利个数除总数。两种颜色不表示数量不同时仍各半。按定义和题设检查，不凭“中间数”或一半一半直觉猜。"
+            }
+          ]
+        },
+        {
+          "id": "timing",
+          "title": {
+            "en": "Use the clock deliberately",
+            "zh": "怎样使用计时"
+          },
+          "paragraphs": [
+            {
+              "en": "Timed mode gives this part four minutes, a site-selected cap for eight foundation questions. It is not an official Mathematics Knowledge time limit or validated approximation of official pacing. Begin when ready; only the explicit start runs this part’s clock. You can revisit within the active section, but after you finish it or its deadline passes, its responses are locked. The following section never starts itself.",
+              "zh": "计时为本站选定四分钟，不是官方MK时限或经验证节奏近似。准备好点击开始才运行；当前部分可返回，结束或到时后锁定。后续部分不会自动开始。"
+            },
+            {
+              "en": "Choose untimed study when you want space to derive a rule or inspect a worked example. Scratch work and external checking can support learning, while official applicant guidance states that calculators are not permitted in the official assessment. This interface does not proctor tool use. Counts from different learning conditions should not be treated as directly comparable proof of improvement or decline.",
+              "zh": "需要推导或看例题可选不计时。草稿及外部核算有助学习，但官方说明正式考试不许计算器。本站不监考工具使用，不应把条件不同的数量直接当作进退步证明。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Review and try again",
+            "zh": "复盘与重练"
+          },
+          "paragraphs": [
+            {
+              "en": "Read each solution after all four parts close, including the explanation for a correct response. Try to explain why the selected formula applies and why a nearby distractor does not. Then create a new numerical example and solve it without relying on the remembered letter. A fixed bank is useful for review, but repeating it is not a controlled measure of transfer to unfamiliar questions.",
+              "zh": "四部分结束后，正确题也读解析，解释公式为何适用及相近干扰项为何不对；再换数字独立做，不依赖字母记忆。固定题本可复习，重复却不是受控的新题迁移测量。"
+            },
+            {
+              "en": "The page stores this attempt only in memory and offers clear-and-retake rather than persistent score tracking. Refreshing, leaving, switching language or restoring a cached page clears it. Shared public guide links carry general explanations, not your answers, counts or timing. If you keep a private study note, record the exact skill and example you reviewed instead of treating the raw result as a broad personal label.",
+              "zh": "作答只在内存，可清空重练，不长期跟踪分数。刷新、离开、切语言或缓存恢复会清除。公开链接只有通用解析，不带答案、数量或时间；私人笔记可记具体技能与例子，别把原始结果当整个人的标签。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Keep the boundary clear",
+            "zh": "保留方法边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored these items and explanations. Official ASVAB descriptions supply the topic boundary, not endorsement or psychometric validation of this bank. No official test questions, score tables, composite conversions, percentiles or qualification decisions are reproduced. The result remains a local practice record even if every question is correct, and no particular preparation outcome is guaranteed.",
+              "zh": "题目解析由费马独立写作。官方题型说明提供主题边界，不是背书或信效度验证。未复刻正式试题、分表、合成换算、百分位或资格判断；全对也仍只是练习记录，不保证备考结果。"
+            },
+            {
+              "en": "For actual testing rules and format differences, use the official applicant pages linked from the entry. If you later consider occupations, the optional RIASEC interest assessment explores activities you prefer, not mathematical certification or military placement. A sound next step is to identify a specific learning question, use appropriate new material and keep official decisions with the relevant official process rather than this eight-item guide.",
+              "zh": "实际规则与形式差异请查入口所链官方页面。职业探索可另做RIASEC，它问活动偏好，不认证数学或安排军职。下一步可确定具体学习问题、使用合适新材料，并把正式决定留给正式流程。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four English practice areas",
+        "zh": "四组英文题型练习"
+      },
+      "paragraphs": [
+        {
+          "en": "Thirty-two independently written English questions: eight each in Arithmetic Reasoning (AR), Word Knowledge (WK), Paragraph Comprehension (PC) and Mathematics Knowledge (MK). Both interfaces keep the English questions and choices; instructions, explanations and full guides are bilingual. This is a short fixed learning bank, not a full ASVAB exam or official item bank.",
+          "zh": "32道独立编写的英文题：算术推理AR、词汇知识WK、段落理解PC、数学知识MK各八题。两种界面都保留英文题目和选项，操作、解析和完整指南双语。这是固定短练习，不是完整ASVAB或正式题库。"
+        },
+        {
+          "en": "Official ASVAB descriptions identify these four areas as contributing to AFQT reporting. Our topic choice does not establish psychometric validation, equivalence or endorsement. No official secure questions, third-party question bank or score-conversion table is used. The separate science and technical areas of the ASVAB are outside this practice.",
+          "zh": "官方说明这四个领域参与AFQT报告；据此选主题不代表本站获得信效度验证、等值或背书。未使用正式保密试题、第三方题库或成绩换算表；ASVAB科学和技术领域另在本练习范围之外。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Correct, wrong and unanswered",
+        "zh": "正确、错误与未答"
+      },
+      "paragraphs": [
+        {
+          "en": "Each question has one published key. A matching choice counts as correct, another selected option as wrong, and an explicit skip or an untouched item as unanswered. Each part accounts for eight questions; all four parts account for thirty-two. No guessing adjustment, subject weighting, norm, percentile, pass line, ability band or military qualification is calculated.",
+          "zh": "每题一个答案键：匹配为正确，选其他为错误，主动留空或未触及为未答。每组共八题、四组共32题。不做猜测校正、学科加权、常模、百分位、通过线、能力分段或军职资格判断。"
+        },
+        {
+          "en": "After all four parts close, every question, chosen response, correct answer and bilingual explanation is free to review, alongside all four full guides. The raw overall correct count is not an AFQT score. Official AFQT percentiles use standard-score procedures and a reference population, not this bank’s correct fraction.",
+          "zh": "四部分结束后，全部题目、所选答案、正确答案和双语解析免费查看，另有四篇完整指南。总正确数不是AFQT成绩；正式百分位使用标准分程序和参照群体，不是本站答对比例。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "Two practice modes and timing limits",
+        "zh": "两种模式与计时边界"
+      },
+      "paragraphs": [
+        {
+          "en": "Timed practice uses site-selected caps: AR 4:00, WK 2:40, PC 4:00, MK 4:00, totalling 14:40 excluding breaks. Each section waits for an explicit start. Back and edits work only within the active section; finishing or expiry locks it. Blank items stay unanswered. The timer continues in a background tab. If the device clock becomes inconsistent, the attempt is cleared rather than producing a timed result.",
+          "zh": "本站计时上限：AR4:00、WK2:40、PC4:00、MK4:00，合计14:40，不含间歇。每部分明确开始才计时；仅活动部分可前后修改，结束或超时后锁定，空白仍未答。切后台继续计时；设备时钟不一致时清除本次，不生成计时结果。"
+        },
+        {
+          "en": "Untimed study uses the same bank without deadlines. These modes do not simulate official CAT, paper or PiCAT administration, pacing, adaptivity, review or guessing rules. Official applicant guidance says calculators are not permitted in the official test; this learning page does not proctor tool use or certify conditions.",
+          "zh": "不计时学习同题无截止。两模式都不模拟正式CAT、纸笔或PiCAT的施测、节奏、自适应、返回或猜题规则。官方说明正式考试不许计算器；本学习页不监考或认证条件。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Private review and next steps",
+        "zh": "私人复盘与下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses stay in this page’s memory only. No answer draft or persistent score history is stored. Refreshing, leaving, switching language or cached-page restoration clears the attempt. Public sharing copies the four general guide links, without responses, counts, timing or mode. No account, email or another assessment is needed to read the complete content.",
+          "zh": "答案仅在当前页内存，不存答卷草稿或长期成绩。刷新、离开、切语言或缓存恢复清除本次。分享只复制四篇通用指南链接，不带答案、数量、时间或模式。完整内容无需账户、邮箱或强做其他测评。"
+        },
+        {
+          "en": "Review the exact mistake, try a new example and distinguish answer recall from learning transfer. For official testing information, follow the official applicant links below. The optional RIASEC entry explores occupational interests rather than military eligibility or demonstrated aptitude; no practice responses are transferred.",
+          "zh": "复盘具体错误、换例题重练，分清记答案和学习迁移。正式测试请查下方官方链接。可选RIASEC探索职业兴趣，不认定军职资格或已展示能力，也不传递本次答案。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an official ASVAB test or AFQT score?",
+        "zh": "这是正式ASVAB或AFQT成绩吗？"
+      },
+      "answer": {
+        "en": "No. It is 32 independently written English practice items across four AFQT-related areas. Correct counts are not official standard scores, percentiles, pass decisions or enlistment and job qualifications.",
+        "zh": "不是。这是四个AFQT相关领域的32道原创英文练习。正确数不是正式标准分、百分位、通过或入伍及军职资格。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the Chinese-interface questions translated?",
+        "zh": "中文界面会翻译题目吗？"
+      },
+      "answer": {
+        "en": "No. All questions and choices remain English so vocabulary and reading tasks stay intact. Interface, explanations and full guides are bilingual.",
+        "zh": "不会。题目和选项均保留英文，维持词汇及阅读任务；界面、解析和完整指南双语。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when a section times out?",
+        "zh": "分段超时会怎样？"
+      },
+      "answer": {
+        "en": "That part locks, untouched items remain unanswered, and the next part waits for an explicit start. Timed caps total 14:40 excluding breaks and are selected by this site, not official pacing.",
+        "zh": "该部分锁定，未做题仍为未答，下一部分等明确开始。本站上限共14:40，不含间歇，不是正式节奏。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I study without a timer or leave a question blank?",
+        "zh": "能不计时或留空吗？"
+      },
+      "answer": {
+        "en": "Yes. Choose untimed study before the first section. In either mode, select Leave unanswered or finish a part early. Correct, wrong and unanswered remain separate; blanks are not silently turned into selected wrong answers.",
+        "zh": "可以。首部分前选不计时；两种模式均可明确留空或提前结束。正确、错误、未答分开，不把空白悄悄变成已选错误。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all answers and guides free?",
+        "zh": "答案和指南全部免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All four public guides are readable before starting. After all parts close, every question, chosen answer, key and bilingual explanation is free without signup or another test.",
+        "zh": "是。四篇公开指南答前可读；四部分结束后全部题目、所选答案、答案键和双语解析免费，无需注册或另做测试。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my responses saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Responses stay in memory only and are cleared by refresh, leaving, switching language or cached-page restoration. Sharing copies general guide links, never your answers, counts, mode or elapsed times.",
+        "zh": "答案仅在内存，刷新、离开、切语言或缓存恢复会清除。分享复制通用指南链接，不含答案、数量、模式或用时。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Official ASVAB: subtest content",
+        "zh": "官方ASVAB：各分测内容"
+      },
+      "url": "https://www.officialasvab.com/applicants/subtests/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: understanding scores",
+        "zh": "官方ASVAB：成绩说明"
+      },
+      "url": "https://www.officialasvab.com/applicants/scores/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: formats and timing",
+        "zh": "官方ASVAB：形式与时间"
+      },
+      "url": "https://www.officialasvab.com/applicants/what-to-expect/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: applicant FAQs",
+        "zh": "官方ASVAB：申请人常见问题"
+      },
+      "url": "https://www.officialasvab.com/applicants/faqs/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: preparation disclaimer",
+        "zh": "官方ASVAB：备考声明"
+      },
+      "url": "https://www.officialasvab.com/applicants/asvab-test-preparation-disclaimer/"
+    },
+    {
+      "title": {
+        "en": "Official ASVAB: preparation guidance",
+        "zh": "官方ASVAB：准备说明"
+      },
+      "url": "https://www.officialasvab.com/applicants/prepare/"
+    }
+  ]
+}

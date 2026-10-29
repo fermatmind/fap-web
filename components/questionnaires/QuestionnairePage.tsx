@@ -2,6 +2,8 @@ import { isDvmsq18ConfigurationValid } from "@/lib/questionnaires/dvmsq18";
 import { Dvmsq18Page } from "./Dvmsq18Page";
 import { isSynes15ConfigurationValid } from "@/lib/questionnaires/synes15";
 import { Synes15Page } from "./Synes15Page";
+import { isAfqt32ConfigurationValid } from "@/lib/questionnaires/afqt32";
+import { Afqt32Page } from "./Afqt32Page";
 import { isAnger20ConfigurationValid } from "@/lib/questionnaires/anger20";
 import { Anger20Page } from "./Anger20Page";
 import { isSens16ConfigurationValid } from "@/lib/questionnaires/sens16";
@@ -97,6 +99,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "dvmsq18" && !isDvmsq18ConfigurationValid(quiz)) return { title: "DVMSQ unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "synes15" && !isSynes15ConfigurationValid(quiz)) return { title: "Experience checklist unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "afqt32" && !isAfqt32ConfigurationValid(quiz)) return { title: "Practice unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "anger20" && !isAnger20ConfigurationValid(quiz)) return { title: "Anger reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sens16" && !isSens16ConfigurationValid(quiz)) return { title: "Sensory reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "imagery12" && !isImagery12ConfigurationValid(quiz)) return { title: "Imagery reflection unavailable", robots: { index: false, follow: false } };
@@ -123,6 +126,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "synes15") {
     if (!isSynes15ConfigurationValid(quiz)) notFound();
     return <Synes15Page quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "afqt32") {
+    if (!isAfqt32ConfigurationValid(quiz)) notFound();
+    return <Afqt32Page quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "anger20") {
     if (!isAnger20ConfigurationValid(quiz)) notFound();
