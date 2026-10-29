@@ -1,0 +1,1378 @@
+{
+  "slug": "body-frame-observations",
+  "code": "FM_BODY_FRAME_OBSERVATIONS12",
+  "version": "fm_body_frame_observations12_v1",
+  "updated": "2026-10-30",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Body-Frame Observations",
+    "zh": "体表轮廓自我观察"
+  },
+  "description": {
+    "en": "Use 12 original descriptions of familiar outlines and joint landmarks. Three separate means and three complete guides, free without photographs, body measurements or a bone-type assignment.",
+    "zh": "用12条原创描述回顾熟悉的轮廓与关节线条。三个独立均值、三份完整指南免费开放，无需照片、测量身体或分配骨格类型。"
+  },
+  "seoTitle": {
+    "en": "Body-Frame Observations: Original 12-Item Styling Reflection",
+    "zh": "体表轮廓自我观察：12条原创造型话题反思"
+  },
+  "minutes": 4,
+  "resultHeading": {
+    "en": "Your three observation groups and full guides",
+    "zh": "你的三组观察与完整解读"
+  },
+  "instructions": {
+    "en": "For adults, answer only about comfortable ordinary views of yourself that you already know. Use memory; no new photograph, mirror check, undressing, touching, measurement or comparison with other people is needed. Rate how well each description fits your familiar impression, from 1, not at all to 5, very well; 3 means somewhat. Use unscored when you have no familiar view, cannot judge or prefer not to answer. All twelve choices finish the form; each four-item group needs at least three numeric ratings for a mean. Groups stay separate and all three guides open, with no overall body score or assigned bone type. You may stop or read every guide without answering.",
+    "zh": "面向成年人，只回答自己已熟悉、觉得舒服的普通视角。使用已有记忆即可，不要求新照片、照镜检查、脱衣、触摸、测量或与他人比较。按描述与熟悉印象的符合程度评价，1不符合、5很符合，3是部分符合；没有熟悉视角、无法判断或不愿回答时选未评分。十二项均选择即可完成，每组四条至少三条数字有效才显示均值。三组分别阅读，三份全文均开放，不合身体总分、不分配骨格类型。可随时停止，也可不作答直接读全文。"
+  },
+  "introduction": {
+    "en": "This original reflection follows an interest in body-frame styling with a narrower task: describing familiar surface impressions. It keeps rounded outlines, gradual transitions and visible joint landmarks separate. These are editorial observation groups, not Straight, Wave and Natural identities or medical measurements.",
+    "zh": "这份原创反思从骨格造型话题出发，采用更窄的任务：描述自己已熟悉的体表印象。圆润轮廓、柔和转折与关节轮廓分开阅读，它们是编辑观察分组，不是Straight、Wave、Natural身份或医疗测量。"
+  },
+  "source": {
+    "kind": "fermatmind-original-familiar-body-outline-self-observation",
+    "formCode": "fermatmind_body_frame_observations12",
+    "itemBankVersion": "fm-familiar-outline12-v1",
+    "scoringVersion": "three-independent-means-min3of4-na-unimputed-v1",
+    "resultContentVersion": "fm-body-outline-three-guides-v1",
+    "itemBankSha256": "175e76e26212b26ad0a888ef87fa4df4033fd2fc5f2970aa8e5ed13e5bbb0e27",
+    "resultContentSha256": "5756f06f22b036907581283bb1a15dba65343929f391a1edd7283db561d9a91e",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "rounded-outlines",
+      "title": {
+        "en": "Rounded Outline Impressions",
+        "zh": "圆润轮廓观察"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "gradual-transitions",
+      "title": {
+        "en": "Gradual Contour Transitions",
+        "zh": "柔和转折观察"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "joint-landmarks",
+      "title": {
+        "en": "Visible Joint Landmarks",
+        "zh": "关节轮廓观察"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "BFO_001",
+      "prompt": {
+        "en": "In an ordinary view I already know, the outside of my upper arm has a rounded, three-dimensional outline.",
+        "zh": "在自己已熟悉的普通视角里，我的上臂外侧呈现圆润、有立体感的轮廓。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "rounded-outlines",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "rounded-outlines",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_002",
+      "prompt": {
+        "en": "The shoulder outline I am familiar with looks rounded around its outer surface.",
+        "zh": "自己熟悉的肩部轮廓，在外侧表面呈现圆润感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "rounded-outlines",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "rounded-outlines",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_003",
+      "prompt": {
+        "en": "In my familiar view of my forearm, its surface has a rounded rather than a flat-looking outline.",
+        "zh": "在自己熟悉的前臂视角里，表面轮廓显得圆润，而不是平直。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "rounded-outlines",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "rounded-outlines",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_004",
+      "prompt": {
+        "en": "The calf outline I already know has a visibly rounded curve.",
+        "zh": "自己已熟悉的小腿肚轮廓，有看得出的圆润弧度。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "rounded-outlines",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "rounded-outlines",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "rounded-outlines",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_005",
+      "prompt": {
+        "en": "In a familiar ordinary view, the line from my shoulder toward my upper arm changes direction gradually.",
+        "zh": "在熟悉的普通视角里，从肩部到上臂的线条是逐渐转向的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "gradual-transitions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "gradual-transitions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_006",
+      "prompt": {
+        "en": "Around my elbow, the surrounding outline I remember changes smoothly rather than at a sharp corner.",
+        "zh": "在自己记得的肘部周围，轮廓变化平缓，不呈明显尖锐转角。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "gradual-transitions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "gradual-transitions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_007",
+      "prompt": {
+        "en": "The familiar line from my forearm toward my wrist narrows through a gradual transition.",
+        "zh": "自己熟悉的前臂到手腕线条，是逐渐收窄的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "gradual-transitions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "gradual-transitions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_008",
+      "prompt": {
+        "en": "In the view of my leg I already know, the outline around the knee changes gently into the neighbouring areas.",
+        "zh": "在自己已熟悉的腿部视角里，膝部周围轮廓向相邻部位的过渡柔和。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "gradual-transitions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "gradual-transitions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "gradual-transitions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_009",
+      "prompt": {
+        "en": "In an ordinary view I already know, I can make out a distinct collarbone line.",
+        "zh": "在自己已熟悉的普通视角里，我能辨认出清楚的锁骨线条。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "joint-landmarks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "joint-landmarks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_010",
+      "prompt": {
+        "en": "In my familiar view of my hand, the knuckle outlines are easy for me to distinguish.",
+        "zh": "在自己熟悉的手部视角里，我容易辨认出指关节的轮廓。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "joint-landmarks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "joint-landmarks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_011",
+      "prompt": {
+        "en": "At my wrist, a joint landmark is distinct in an ordinary view I already know.",
+        "zh": "在自己已熟悉的手腕普通视角里，有可以辨认的关节轮廓。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "joint-landmarks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "joint-landmarks",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BFO_012",
+      "prompt": {
+        "en": "In my familiar view of my elbow, its joint outline is distinct from the surrounding line.",
+        "zh": "在自己熟悉的肘部视角里，关节轮廓与周围线条有所区分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Does not describe my familiar impression",
+            "zh": "不符合自己熟悉的印象"
+          },
+          "directionId": "joint-landmarks",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Describes my impression a little",
+            "zh": "少有符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Describes my impression somewhat",
+            "zh": "部分符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Describes my impression quite well",
+            "zh": "比较符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Describes my impression very well",
+            "zh": "很符合"
+          },
+          "directionId": "joint-landmarks",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Unscored: no familiar view, cannot judge or prefer not to answer",
+            "zh": "未评分：没有熟悉视角、无法判断，或不愿回答"
+          },
+          "directionId": "joint-landmarks",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "rounded-outlines",
+      "directionIds": [
+        "rounded-outlines"
+      ],
+      "title": {
+        "en": "Rounded Outline Impressions",
+        "zh": "圆润轮廓观察"
+      },
+      "headline": {
+        "en": "A remembered impression of rounded surface outlines",
+        "zh": "已熟悉的表面轮廓圆润印象"
+      },
+      "summary": {
+        "en": "Understand four self-reported outline descriptions without turning visible curves into a skeletal type, a body rating or a rule about flattering clothes.",
+        "zh": "理解四条自报轮廓描述，不把看得出的曲线转成骨骼类型、身体评价或显好看规则。"
+      },
+      "scoreReading": {
+        "en": "Four descriptive ratings, with at least three numeric responses for a separate mean. Higher means more agreement with these descriptions, not a better body or an assigned bone type.",
+        "zh": "四条描述至少三条数字有效才显示独立均值；更高只表示更符合这些描述，不是身体更好或被分配骨格类型。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rounded Outline Impressions: Body-Frame Observation Guide",
+          "zh": "圆润轮廓观察：体表轮廓观察完整指南"
+        },
+        "description": {
+          "en": "Understand four self-reported outline descriptions without turning visible curves into a skeletal type, a body rating or a rule about flattering clothes.",
+          "zh": "理解四条自报轮廓描述，不把看得出的曲线转成骨骼类型、身体评价或显好看规则。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this group records",
+            "zh": "这一组记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Rounded Outline Impressions records agreement with four descriptions of familiar surface outlines: the upper arm, shoulder, forearm and calf. The descriptions concern what you remember seeing in ordinary circumstances, not a measured property of your bones. A higher mean says only that these particular words matched more of your reported impressions. It does not describe overall body size, explain why a curve appears or imply that roundness is desirable or undesirable. You do not need to make every area fit one story; different regions can look different to you.",
+              "zh": "圆润轮廓观察，记录自己对上臂、肩部、前臂与小腿肚四条熟悉表面轮廓描述的认同。它问普通情况下记得看到什么，不测骨骼性质。均值较高，只表示这些具体词语更符合自报印象；不描述整体体型大小，不解释弧度为何出现，也不表示圆润更好或更差。不需要让每个部位符合一种故事，不同区域可以在自己看来有所不同。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary remembered view",
+            "zh": "一个已熟悉的普通视角"
+          },
+          "paragraphs": [
+            {
+              "en": "Think of a familiar short-sleeved top you have worn comfortably. You may already remember the line around your upper arm or shoulder without looking again. A rounded impression in that memory is enough to understand what an item is asking. It is not an invitation to inspect your body more closely or decide whether a feature is pronounced enough. If you do not already have a clear impression, the unscored option keeps that uncertainty visible. The form remains usable without a mirror, new photograph, special clothing or another person’s opinion.",
+              "zh": "想想一件自己舒服穿过的熟悉短袖上衣，也许无需再看，就记得上臂或肩部周围线条。记忆里一点圆润印象，足以理解题目在问什么，不是在邀请更仔细检查身体，或判断特点够不够明显。没有清楚印象时，未评分保留不确定；不需要镜子、新照片、特殊衣物或其他人的意见，也能使用本题本。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the view and the body separate",
+            "zh": "区分视角与身体本身"
+          },
+          "paragraphs": [
+            {
+              "en": "The remembered view matters. A sleeve, a viewing angle or a particular pose may contribute to the outline you recall, and this short form cannot separate those influences. It therefore does not treat your response as an objective measurement or calculate a corrected body shape. A different answer in another context need not mean that your body changed or that an earlier response was wrong. You can describe the context privately if useful, but the form does not ask you to provide that description, preserve images or compare repeated observations over time.",
+              "zh": "记得的视角本身很重要：袖子、角度或姿势，都可能参与形成记忆中的轮廓；这份短题本无法分离这些影响，所以不把回答当作客观测量，也不计算校正体型。换个情境回答不同，不必表示身体变了或之前答错了。愿意时可以私下记一点背景，但表单不要求提交说明、保存图像或长期反复比较。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare observations without choosing a body type",
+            "zh": "比较观察，不选择身体类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Gradual Contour Transitions concerns how a line changes into a neighbouring area, while this group concerns a rounded outline around an area itself. Visible Joint Landmarks concerns whether particular joint-related lines are easy for you to distinguish. These are not opposite ends of one scale. A remembered shoulder can look rounded, a transition can look gradual and a wrist landmark can still be visible. Reading the three means together does not identify a mixed skeletal type. It simply keeps three sets of descriptive responses separate, including uncertainty within any one set.",
+              "zh": "柔和转折观察关心一段线怎样过渡到相邻区域，本组关心一个区域自身周围的圆润轮廓；关节轮廓观察则问某些关节相关线条是否容易辨认。三者不是同一条量尺的两端：肩部可以显得圆润，过渡可以柔和，手腕轮廓也仍可辨认。把三项均值放在一起，不会识别混合骨格类型，只是分开保留三组描述与各自的不确定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "An optional clothing comparison, not a prescription",
+            "zh": "可选服装比较，不是穿搭处方"
+          },
+          "paragraphs": [
+            {
+              "en": "If you enjoy thinking about clothes, you could compare two familiar sleeve shapes in your imagination and name the visual effect you personally prefer. That is a separate clothing preference, not a recommendation generated by your mean. A rounded outline does not require a sharp garment, a soft garment or a particular neckline. Actual movement, temperature, dress requirements and comfort need their own consideration. The comparison can end with liking either option or neither. No purchase, fitting session, photograph or effort to alter your body is needed to make the reflection complete.",
+              "zh": "如果喜欢思考穿搭，可以想象两种熟悉袖形，说说自己喜欢哪种视觉效果。这是另外的服装偏好，不是均值生成的建议。轮廓圆润，不要求选择硬朗衣物、柔软衣物或某种领口；活动、温度、着装要求与舒适，需要另行考虑。比较可以以喜欢任一款或都不喜欢结束，不需要购买、试衣、拍照，或试着改变身体。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "When a description is unclear",
+            "zh": "描述不清楚时"
+          },
+          "paragraphs": [
+            {
+              "en": "A description may feel imprecise even when you recognise the body area it names. You can leave it unscored rather than searching for a standard example or comparing yourself with someone else. The four-item mean is deliberately withheld when fewer than three descriptions receive numeric answers; this is an editorial completeness rule, not a claim that three observations make a scientific assessment. You may also decide that describing your outline is not useful today. Every public guide remains available, and stopping does not produce an incomplete body label that you need to resolve.",
+              "zh": "即使认识题目提到的部位，描述仍可能不够清楚。可以保持未评分，不必寻找标准示例或与别人比。数字少于三条时不显示四条均值，是编辑上的完整性规则，不表示三次观察就能形成科学评估。今天觉得描述身体轮廓没用，也可以如此决定。所有公开指南仍开放，停止不会产生一个必须补完的身体标签。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the mean and the minimum evidence rule",
+            "zh": "阅读均值与最低有效条数"
+          },
+          "paragraphs": [
+            {
+              "en": "This group has four original descriptions. Rate how well each describes an ordinary view you already know, from one, does not describe my impression, to five, describes it very well. The unscored choice is separate from the middle response. At least three numeric ratings are required for a mean: add their values and divide by the number rated, then display one decimal place. With fewer than three, the result says insufficient information and does not fill gaps with zero or a middle value. All three groups retain their full guides, including when every response is unscored.",
+              "zh": "本组有四条原创描述，按它们与自己已熟悉普通视角的符合程度评分：1不符合，5很符合。未评分与中间选项分开，至少三条数字有效才显示均值；把有效值相加，除以有效条数，显示一位小数。少于三条就说明信息不足，不用零或中间值填空。三组始终保留全部解读，包括所有题都未评分的情况。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep observation, style and health separate",
+            "zh": "区分观察、风格与健康"
+          },
+          "paragraphs": [
+            {
+              "en": "The three editorial observation groups are not the Straight, Wave and Natural categories used in Japanese styling frameworks. This edition neither measures skeletal structure nor establishes a lifelong body identity, clothing suitability, attractiveness or health. A self-reported visual impression cannot determine bone density, tissue composition or what another person sees. No photograph, body measurement, touching or comparison with other people is needed. You may use only comfortable familiar impressions, leave uncertain items unscored and stop at any time. Clothing preferences and practical comfort remain yours to judge independently of these means.",
+              "zh": "这三个编辑观察分组，不是日本造型框架使用的Straight、Wave、Natural类别。本版不测骨骼结构，不建立终身身体身份，也不判定服装适合度、吸引力或健康。自报视觉印象不能确定骨密度、组织构成或别人怎样看；不需要照片、身体测量、触摸或与他人比较。只使用自己舒服、熟悉的印象，不确定就未评分，随时可以停止。服装偏好与实际舒适，仍需独立于均值自行判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gradual-transitions",
+      "directionIds": [
+        "gradual-transitions"
+      ],
+      "title": {
+        "en": "Gradual Contour Transitions",
+        "zh": "柔和转折观察"
+      },
+      "headline": {
+        "en": "A remembered impression of one line changing gently into another",
+        "zh": "已熟悉的线条之间缓慢转向印象"
+      },
+      "summary": {
+        "en": "Read four descriptions of gradual contour changes as visual impressions, without inferring tissue softness, a Wave identity or clothing rules.",
+        "zh": "把四条轮廓过渡描述作为视觉印象阅读，不据此推断组织软硬、Wave身份或着装规则。"
+      },
+      "scoreReading": {
+        "en": "Four descriptive ratings, with at least three numeric responses for a separate mean. Higher means more agreement with these descriptions, not a better body or an assigned bone type.",
+        "zh": "四条描述至少三条数字有效才显示独立均值；更高只表示更符合这些描述，不是身体更好或被分配骨格类型。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gradual Contour Transitions: Body-Frame Observation Guide",
+          "zh": "柔和转折观察：体表轮廓观察完整指南"
+        },
+        "description": {
+          "en": "Read four descriptions of gradual contour changes as visual impressions, without inferring tissue softness, a Wave identity or clothing rules.",
+          "zh": "把四条轮廓过渡描述作为视觉印象阅读，不据此推断组织软硬、Wave身份或着装规则。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this group records",
+            "zh": "这一组记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Gradual Contour Transitions records agreement with four descriptions of how a familiar outline changes around neighbouring areas. The items concern the shoulder and upper arm, elbow, forearm and wrist, and the region around the knee. Words such as gradual or smooth describe a remembered visual line. They do not measure skin texture, tissue softness, muscle or fat. A higher mean means that more of these particular descriptions suited your impressions. It is not a softness score for your body, and the group is not the Wave category in a professional styling framework.",
+              "zh": "柔和转折观察，记录自己对相邻区域轮廓怎样变化的四条描述的认同，涉及肩与上臂、肘部、前臂与手腕、膝部周围。“逐渐”或“平缓”描述记忆中的视觉线条，不测皮肤质地、组织软硬、肌肉或脂肪。均值较高，只是这些具体描述更符合自报印象；它不是身体柔软度分数，本组也不是专业造型框架里的Wave类别。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary remembered view",
+            "zh": "一个已熟悉的普通视角"
+          },
+          "paragraphs": [
+            {
+              "en": "You may remember how a familiar sleeve ended near your elbow or how a comfortable cuff sat around your wrist. That ordinary memory can provide enough context to decide whether a description makes sense to you. The form does not ask you to expose a body area, change position, touch a joint or collect a more precise view. If the remembered line is unclear, unscored is a complete and useful response. You can finish all twelve choices using that option wherever needed, while the three public guides remain available without any requirement to identify a type.",
+              "zh": "也许记得一件熟悉衣物的袖口在肘部附近怎样结束，或一个舒服袖口在手腕周围的样子。普通记忆足以帮助判断描述是否能理解；表单不要求露出身体部位、改变姿势、触摸关节或寻找更准确视角。记不清线条时，未评分就是完整、有用的回应，可以在需要的题目里选择它完成十二项，三份指南也始终开放，不要求识别类型。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the view and the body separate",
+            "zh": "区分视角与身体本身"
+          },
+          "paragraphs": [
+            {
+              "en": "A line that appears gradual in one remembered view may look more distinct in another. This edition cannot separate a change of viewpoint, a garment edge, an ordinary pose or the way you interpreted the wording. It therefore keeps the response as your impression rather than correcting it into an anatomical conclusion. A lower numeric rating is not missing evidence and is not a problem to improve; it simply records less agreement with the sentence. Actual uncertainty belongs in the unscored option, which is not silently converted into a neutral response.",
+              "zh": "同一条线在一种记得的视角里过渡缓慢，换个视角也可能更清楚。本版不能分离角度、衣物边缘、普通姿势或对词语的理解，所以保留为个人印象，不校正成解剖结论。较低数字不是缺少证据，更不是需要改善的问题，只表示较不认同句子；真正不确定时使用未评分，不会被悄悄转换成中立数字。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare observations without choosing a body type",
+            "zh": "比较观察，不选择身体类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Rounded Outline Impressions asks about the visible curve around an area itself. Gradual Contour Transitions asks about the change between areas. Visible Joint Landmarks asks whether a particular line is distinct enough for you to recognise. A gradual transition and a visible landmark can coexist in different areas, or even within the same remembered view. No subtraction turns one group into the opposite of another. The result presents three independent descriptive means and their available item counts; it does not combine them into a dominant body frame, a blend or a lifetime styling identity.",
+              "zh": "圆润轮廓观察问区域自身周围的弧度，柔和转折观察问区域之间如何变化，关节轮廓观察问某条线是否能清楚辨认。柔和过渡与清楚轮廓可以分别存在于不同部位，甚至同一记得的视角里；不会通过相减把一组变成另一组的反面。结果分别显示三个描述均值及有效条数，不合成主导骨格、混合体型或终身造型身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "An optional clothing comparison, not a prescription",
+            "zh": "可选服装比较，不是穿搭处方"
+          },
+          "paragraphs": [
+            {
+              "en": "If clothing is an enjoyable topic for you, imagine changing the edge of one familiar sleeve or cuff while keeping the rest of an outfit the same. You might prefer a clear edge, a gently finished edge or neither of those descriptions. That preference cannot be predicted from this group’s mean. A garment that looks appealing still needs to feel comfortable and work for your intended activity. The imagined comparison is optional and can use things you already know; it does not require a purchase or any attempt to make a body line more or less noticeable.",
+              "zh": "如果喜欢穿搭话题，可以想象只改变一件熟悉衣物的袖边或袖口，其余保持不变。也许喜欢清楚边缘、柔和收边，或两者都不喜欢；本组均值不能预测这种偏好。看起来吸引人的衣物，还需要穿着舒服、适合要做的事。这个可选比较可以使用已熟悉的东西，不必购买，也不必设法让身体线条更明显或更不明显。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "When a description is unclear",
+            "zh": "描述不清楚时"
+          },
+          "paragraphs": [
+            {
+              "en": "If the words gradual and smooth feel too vague, you do not need to settle their meaning by searching for a standard body picture. Leave the item unscored or stop. These are original editorial descriptions, with no validated cut-off distinguishing clear from gradual lines or establishing observer agreement. The minimum of three numeric ratings is a completeness choice for displaying an average, not evidence that the average can classify you. The useful outcome may simply be noticing which descriptions you can understand comfortably and which ones are not useful for you today.",
+              "zh": "觉得“逐渐”或“平缓”太模糊时，不必搜索标准身体图片来确定意思，可以未评分或停止。这些是原创编辑描述，没有经过验证的界线，划分清楚与柔和的线条，也不证明观察者会达成一致。至少三条数字才显示均值，是完整性选择，不是均值能分类的证据。有用的收获，也许只是知道哪些描述能舒服地理解，哪些今天对自己没用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the mean and the minimum evidence rule",
+            "zh": "阅读均值与最低有效条数"
+          },
+          "paragraphs": [
+            {
+              "en": "This group has four original descriptions. Rate how well each describes an ordinary view you already know, from one, does not describe my impression, to five, describes it very well. The unscored choice is separate from the middle response. At least three numeric ratings are required for a mean: add their values and divide by the number rated, then display one decimal place. With fewer than three, the result says insufficient information and does not fill gaps with zero or a middle value. All three groups retain their full guides, including when every response is unscored.",
+              "zh": "本组有四条原创描述，按它们与自己已熟悉普通视角的符合程度评分：1不符合，5很符合。未评分与中间选项分开，至少三条数字有效才显示均值；把有效值相加，除以有效条数，显示一位小数。少于三条就说明信息不足，不用零或中间值填空。三组始终保留全部解读，包括所有题都未评分的情况。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep observation, style and health separate",
+            "zh": "区分观察、风格与健康"
+          },
+          "paragraphs": [
+            {
+              "en": "The three editorial observation groups are not the Straight, Wave and Natural categories used in Japanese styling frameworks. This edition neither measures skeletal structure nor establishes a lifelong body identity, clothing suitability, attractiveness or health. A self-reported visual impression cannot determine bone density, tissue composition or what another person sees. No photograph, body measurement, touching or comparison with other people is needed. You may use only comfortable familiar impressions, leave uncertain items unscored and stop at any time. Clothing preferences and practical comfort remain yours to judge independently of these means.",
+              "zh": "这三个编辑观察分组，不是日本造型框架使用的Straight、Wave、Natural类别。本版不测骨骼结构，不建立终身身体身份，也不判定服装适合度、吸引力或健康。自报视觉印象不能确定骨密度、组织构成或别人怎样看；不需要照片、身体测量、触摸或与他人比较。只使用自己舒服、熟悉的印象，不确定就未评分，随时可以停止。服装偏好与实际舒适，仍需独立于均值自行判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joint-landmarks",
+      "directionIds": [
+        "joint-landmarks"
+      ],
+      "title": {
+        "en": "Visible Joint Landmarks",
+        "zh": "关节轮廓观察"
+      },
+      "headline": {
+        "en": "A remembered impression of distinguishable joint-related lines",
+        "zh": "已熟悉的关节相关线条辨认印象"
+      },
+      "summary": {
+        "en": "Understand collarbone, knuckle, wrist and elbow descriptions without treating visibility as bone size, strength, health or a Natural identity.",
+        "zh": "理解锁骨、指关节、手腕与肘部描述，不把可辨认程度当成骨骼大小、强度、健康或Natural身份。"
+      },
+      "scoreReading": {
+        "en": "Four descriptive ratings, with at least three numeric responses for a separate mean. Higher means more agreement with these descriptions, not a better body or an assigned bone type.",
+        "zh": "四条描述至少三条数字有效才显示独立均值；更高只表示更符合这些描述，不是身体更好或被分配骨格类型。"
+      },
+      "seo": {
+        "title": {
+          "en": "Visible Joint Landmarks: Body-Frame Observation Guide",
+          "zh": "关节轮廓观察：体表轮廓观察完整指南"
+        },
+        "description": {
+          "en": "Understand collarbone, knuckle, wrist and elbow descriptions without treating visibility as bone size, strength, health or a Natural identity.",
+          "zh": "理解锁骨、指关节、手腕与肘部描述，不把可辨认程度当成骨骼大小、强度、健康或Natural身份。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "What this group records",
+            "zh": "这一组记录什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Visible Joint Landmarks records agreement with four descriptions of lines you can distinguish in ordinary views you already know. The items mention the collarbone, knuckles, wrist and elbow. Distinct in this guide means recognisable in your impression, not large, strong, weak or medically significant. A higher mean says that the wording matched more of your reported views. It does not measure skeletal architecture or identify the Natural category in a styling framework. A visible line in one area also does not establish a characteristic of your entire body.",
+              "zh": "关节轮廓观察，记录四条关于自己已熟悉普通视角中可辨认线条的描述，涉及锁骨、指关节、手腕与肘部。这里的“清楚”只是个人印象里能认出，不表示大、强、弱或具有医疗意义。均值较高，只是措辞更符合自报视角；不测骨骼结构，不识别造型框架中的Natural类别。一个部位看得出的线条，也不建立全身特征。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary remembered view",
+            "zh": "一个已熟悉的普通视角"
+          },
+          "paragraphs": [
+            {
+              "en": "You may already remember the outline of your hand while holding a familiar object or the line near a shirt collar. That memory can be enough to understand an item. The form does not ask you to press on a joint, compare bone widths, use a tape measure or seek somebody else’s judgement. It also does not need you to look again when the topic feels uncomfortable or uninteresting. An unscored response preserves the absence of a familiar view instead of inventing an observation. You can read the full guide regardless of how many numeric ratings you provide.",
+              "zh": "也许记得拿熟悉物品时的手部轮廓，或衬衫领口附近的线条，这个记忆就能帮助理解题目。表单不要求按压关节、比较骨头宽度、用卷尺或寻找别人的判断；觉得不舒服或没兴趣，也不需要再看。未评分会保留缺乏熟悉视角这个事实，不凭空创造观察；无论提供多少数字，都能读全文。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Keep the view and the body separate",
+            "zh": "区分视角与身体本身"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep the view attached to the observation. A line can be easier or harder to notice depending on what is visible in a particular ordinary scene and how you remember it. This short set does not standardise a camera, angle, clothing or observer, so the mean is not an objective visibility index. It cannot explain a body feature or convert an impression into an estimate of tissue composition. You do not need to resolve a disagreement between two memories; you can use the unscored choice when neither one gives you a clear answer.",
+              "zh": "让观察与视角一起理解：在某个普通场景中露出的部分，以及怎样记得它，都会影响线条容易还是不容易注意。本短题本不统一相机、角度、衣物或观察者，所以均值不是客观可见度指数；它不能解释身体特点，也不能把印象转换成组织构成估计。两个记忆不一致时，不必裁定谁对谁错，都不足以清楚作答就未评分。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Compare observations without choosing a body type",
+            "zh": "比较观察，不选择身体类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Rounded Outline Impressions and Gradual Contour Transitions may also describe parts of a view in which a joint landmark is visible. The groups are not competing body types and do not need to add to a fixed total. A high mean in one does not cancel a high mean in another; an insufficient group does not borrow information from its neighbours. Read the item counts before the averages, and keep the anatomical areas in mind. The result does not select a principal frame, infer a mixed style category or compare your visibility with a population norm.",
+              "zh": "关节线条可辨认的视角里，也可以同时存在圆润轮廓和柔和转折。三组不是竞争的身体类型，不需要相加为固定总量；一组均值高不会抵消另一组，信息不足的组也不从邻组借数据。先看有效条数，再读均值，并记得题目涉及哪些部位。结果不选择主导框架、不推断混合风格类别，也不拿可辨认程度与人群常模比较。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "An optional clothing comparison, not a prescription",
+            "zh": "可选服装比较，不是穿搭处方"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional style reflection could compare two familiar accessory or sleeve arrangements simply by the visual effect you enjoy. You might like leaving a line visible, partly covered or outside your attention altogether. Nothing in this mean tells you which choice will look best, and no feature needs to be hidden or emphasised. Practical comfort, freedom to move and the activity you plan remain separate considerations. The comparison can stay entirely imaginary. This guide offers no shopping list, brand recommendation or requirement to dress in a way associated with someone else’s frame category.",
+              "zh": "可选的造型反思，可以仅按喜欢的视觉效果比较两种熟悉配饰或袖口安排：让一条线露出、部分遮住，或完全不把注意放在那里，都可以。均值不能说明哪种最好看，也没有哪个特点必须隐藏或强调。实际舒适、活动自由与要做的事，需要另行考虑；比较完全可以只在想象中进行。本指南不列购物清单、推荐品牌，也不要求按别人分配的框架类别穿衣。"
+            }
+          ]
+        },
+        {
+          "id": "reading-6",
+          "title": {
+            "en": "When a description is unclear",
+            "zh": "描述不清楚时"
+          },
+          "paragraphs": [
+            {
+              "en": "When a joint-related description is hard to judge, treat that as uncertainty about this item rather than a reason to inspect more closely. This form does not assess pain, changes in function or any other health concern, and an answer cannot provide reassurance about those matters. Its narrow role is a descriptive reflection using familiar views, with no ideal target for the counts or means. You may skip the entire topic and still use the public clothing-preference guides separately. No completed observation pattern creates an obligation to monitor your body or repeat the quiz.",
+              "zh": "关节相关描述难判断时，把它当成对这一条不确定，不要当成需要更仔细检查的理由。本表不评估疼痛、功能变化或其他健康问题，回答也不能对这些事提供安心保证。它只用熟悉视角做描述反思，次数或均值没有理想目标。可以跳过整个话题，另行阅读公开服装偏好指南；完成任何观察组合，都不产生监测身体或重做题本的义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-7",
+          "title": {
+            "en": "Read the mean and the minimum evidence rule",
+            "zh": "阅读均值与最低有效条数"
+          },
+          "paragraphs": [
+            {
+              "en": "This group has four original descriptions. Rate how well each describes an ordinary view you already know, from one, does not describe my impression, to five, describes it very well. The unscored choice is separate from the middle response. At least three numeric ratings are required for a mean: add their values and divide by the number rated, then display one decimal place. With fewer than three, the result says insufficient information and does not fill gaps with zero or a middle value. All three groups retain their full guides, including when every response is unscored.",
+              "zh": "本组有四条原创描述，按它们与自己已熟悉普通视角的符合程度评分：1不符合，5很符合。未评分与中间选项分开，至少三条数字有效才显示均值；把有效值相加，除以有效条数，显示一位小数。少于三条就说明信息不足，不用零或中间值填空。三组始终保留全部解读，包括所有题都未评分的情况。"
+            }
+          ]
+        },
+        {
+          "id": "reading-8",
+          "title": {
+            "en": "Keep observation, style and health separate",
+            "zh": "区分观察、风格与健康"
+          },
+          "paragraphs": [
+            {
+              "en": "The three editorial observation groups are not the Straight, Wave and Natural categories used in Japanese styling frameworks. This edition neither measures skeletal structure nor establishes a lifelong body identity, clothing suitability, attractiveness or health. A self-reported visual impression cannot determine bone density, tissue composition or what another person sees. No photograph, body measurement, touching or comparison with other people is needed. You may use only comfortable familiar impressions, leave uncertain items unscored and stop at any time. Clothing preferences and practical comfort remain yours to judge independently of these means.",
+              "zh": "这三个编辑观察分组，不是日本造型框架使用的Straight、Wave、Natural类别。本版不测骨骼结构，不建立终身身体身份，也不判定服装适合度、吸引力或健康。自报视觉印象不能确定骨密度、组织构成或别人怎样看；不需要照片、身体测量、触摸或与他人比较。只使用自己舒服、熟悉的印象，不确定就未评分，随时可以停止。服装偏好与实际舒适，仍需独立于均值自行判断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Body-frame styling association: its own three-category framework",
+        "zh": "骨格诊断协会：其自身的三类别造型框架"
+      },
+      "url": "https://www.fashion.or.jp/kokkaku/"
+    },
+    {
+      "title": {
+        "en": "Body Style Association: a separate framework and centre-of-gravity convention",
+        "zh": "骨格风格协会：另一框架及其重心约定"
+      },
+      "url": "https://www.kokkaku.jp/kokkaku.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "A narrow original observation task",
+        "zh": "一个范围明确的原创观察任务"
+      },
+      "paragraphs": [
+        {
+          "en": "The twelve descriptions record your own familiar visual impressions. They do not measure bones, infer tissue composition, rate attractiveness or identify a professional styling category. The form is not a medical assessment or a reason to change your body.",
+          "zh": "十二条描述只记录自己的熟悉视觉印象，不测骨骼、不推断组织构成、不评外貌，也不识别专业造型类别。这不是医疗评估，也不是改变身体的理由。"
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "title": {
+        "en": "Three separate means, with uncertainty preserved",
+        "zh": "三个独立均值，保留不确定"
+      },
+      "paragraphs": [
+        {
+          "en": "All twelve response choices, including unscored, complete the form. Each of three groups has four items and needs at least three numeric ratings for a mean. Add valid values and divide by their count, displaying one decimal. Fewer than three means insufficient information, with no substituted value. Every group retains its full guide and no highest or blended type is assigned.",
+          "zh": "包括未评分在内，十二项均选择即可完成。三组各四条，至少三条数字有效才显示均值；有效值相加除以条数，显示一位小数。少于三条表示信息不足，不填补数值。每组始终保留全文，不分最高类型或混合类型。"
+        }
+      ]
+    },
+    {
+      "id": "framework",
+      "title": {
+        "en": "Read the styling background as background",
+        "zh": "把造型背景作为背景阅读"
+      },
+      "paragraphs": [
+        {
+          "en": "The cited associations describe their own body-frame styling systems, including Straight, Wave and Natural labels. Their centre-of-gravity conventions differ. This edition does not merge those systems, reproduce either questionnaire or inherit their claims as validation. Its twelve descriptions and three observation groups are original and do not assign those labels.",
+          "zh": "所列协会分别描述其自身的骨格造型体系，使用Straight、Wave、Natural等名称，重心约定也存在差别。本版不合并这些体系，不复现任一题本，也不把其主张当成本版验证；十二条描述和三个观察组均为原创，不分配这些标签。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private page memory and an exit you control",
+        "zh": "私有页面内存与自主退出"
+      },
+      "paragraphs": [
+        {
+          "en": "No image, name, measurement or private text is requested. Answers remain in this page’s memory, with no saved draft, quiz-flow statistics or personal-result sharing. Refreshing or changing language loses the attempt; exit and clear removes the form’s progress. Every full guide is free to read without answering or signing up.",
+          "zh": "不要求图像、姓名、测量或私人文字。答案只留当前页面内存，不保存草稿、不发送测试流程统计、不分享个人结果。刷新或换语言会丢失作答，退出并清除会移除表单进度。全部全文无需作答或注册即可免费阅读。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will this tell me whether I am Straight, Wave or Natural?",
+        "zh": "会告诉我是Straight、Wave或Natural吗？"
+      },
+      "answer": {
+        "en": "No. It records three original, nonexclusive observation groups. They do not convert into those styling labels, an official bone-structure result or a lifelong body identity.",
+        "zh": "不会。它记录三个原创、可并存的观察分组，不能换算成这些造型标签、官方骨格结果或终身身体身份。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a photograph, mirror or body measurement?",
+        "zh": "需要照片、镜子或身体测量吗？"
+      },
+      "answer": {
+        "en": "No. Use only comfortable ordinary views you already know. You do not need to inspect, undress, touch a joint or compare yourself with another person. Use unscored whenever the description is unclear or no familiar view is available.",
+        "zh": "不需要。只用自己已熟悉、觉得舒服的普通视角，不必检查、脱衣、触摸关节或与他人比较；描述不清或没有熟悉视角时选未评分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a high mean indicate a better, healthier or more attractive body?",
+        "zh": "均值高表示身体更好、更健康或更好看吗？"
+      },
+      "answer": {
+        "en": "No. It indicates greater agreement with the particular descriptions you rated. There is no ideal mean, health conclusion, appearance rank, population norm or inferred clothing suitability.",
+        "zh": "不是。它只表示更认同自己评分的具体描述，没有理想均值、健康结论、外貌排名、人群常模或服装适合度推断。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can all three groups be high or insufficient?",
+        "zh": "三组可以同时高，或都信息不足吗？"
+      },
+      "answer": {
+        "en": "Yes. The groups do not compete or need to sum to a fixed total. Each needs its own three numeric ratings; unscored items are not replaced. All three complete guides stay open even with no numeric mean.",
+        "zh": "可以。三组不竞争，也不需要相加为固定总量；每组分别需要三条数字，未评分不填补。即使没有任何数值均值，三份完整指南也始终开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this replace clothing preferences or a health assessment?",
+        "zh": "它能替代穿搭偏好或健康评估吗？"
+      },
+      "answer": {
+        "en": "No. Clothing taste, actual fit and practical comfort require separate judgement. These remembered impressions cannot assess a health concern or determine bone size, density, strength or tissue composition.",
+        "zh": "不能。服装喜好、实际合身和实用舒适需另行判断；记忆中的印象不能评估健康问题，也不能确定骨骼大小、密度、强度或组织构成。"
+      }
+    }
+  ]
+}

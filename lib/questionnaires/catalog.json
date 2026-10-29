@@ -6647,5 +6647,29 @@
       "finding-belonging-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "body-frame-observations",
+    "code": "FM_BODY_FRAME_OBSERVATIONS12",
+    "version": "fm_body_frame_observations12_v1",
+    "updated": "2026-10-30",
+    "category": "everyday",
+    "title": {
+      "en": "Body-Frame Observations",
+      "zh": "体表轮廓自我观察"
+    },
+    "description": {
+      "en": "Use 12 original descriptions of familiar outlines and joint landmarks. Three separate means and three complete guides, free without photographs, body measurements or a bone-type assignment.",
+      "zh": "用12条原创描述回顾熟悉的轮廓与关节线条。三个独立均值、三份完整指南免费开放，无需照片、测量身体或分配骨格类型。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_body_frame_observations12",
+    "questionCount": 12,
+    "resultSlugs": [
+      "rounded-outlines",
+      "gradual-transitions",
+      "joint-landmarks"
+    ],
+    "collection": "explore"
   }
 ]

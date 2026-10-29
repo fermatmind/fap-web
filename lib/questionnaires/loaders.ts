@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "body-frame-observations": async () => (await import("./data/body-frame-observations.json")).default as Questionnaire,
   "connection-ideals": async () => (await import("./data/connection-ideals.json")).default as Questionnaire,
   "activity-engagement-patterns": async () => (await import("./data/activity-engagement-patterns.json")).default as Questionnaire,
   "style-impression-preferences": async () => (await import("./data/style-impression-preferences.json")).default as Questionnaire,
