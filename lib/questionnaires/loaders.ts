@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "everyday-control-style": async () => (await import("./data/everyday-control-style.json")).default as Questionnaire,
   "asvab-practice-test": async () => (await import("./data/asvab-practice-test.json")).default as Questionnaire,
   "anger-issues-screener": async () => (await import("./data/anger-issues-screener.json")).default as Questionnaire,
   "sensory-sensitivity": async () => (await import("./data/sensory-sensitivity.json")).default as Questionnaire,

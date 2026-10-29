@@ -1,0 +1,2416 @@
+{
+  "slug": "everyday-control-style",
+  "code": "FM_EVERYDAY_CONTROL24",
+  "version": "fm_everyday_control24_v1",
+  "updated": "2026-10-29",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "en": "Everyday Control Style Test",
+    "zh": "日常掌控方式测试"
+  },
+  "seoTitle": {
+    "en": "Dominant or Submissive? Everyday Control Style Test",
+    "zh": "日常掌控方式测试：支配与顺从、共同决定与六组完整读法"
+  },
+  "description": {
+    "en": "Explore six everyday control habits with 24 original statements and full free guides. Read separate means, missing answers and examples; no power rank.",
+    "zh": "用24条原创陈述回顾说明理由、共同参与、职责内决定、共同规则、支持与交接；六篇全文免费，分开均分与资料不足，不派权力等级。"
+  },
+  "resultHeading": {
+    "en": "Your six separate readings and complete guides",
+    "zh": "六组独立读法与完整指南"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "When a shared plan needs a decision, you may explain a reason, invite input, choose within your responsibility, clarify an agreement, support a plan or reconsider who coordinates next. This original questionnaire records how often you report these actions in one recent ordinary context. All six readings remain separate, with no dominant or submissive identity and no judgement about your worth. Every full guide is free before or after the questions.",
+    "zh": "共同计划需要决定时，你可能说明理由、邀请参与、在职责内选择、澄清约定、支持计划，或重新商定下一步由谁协调。这份原创问卷记录你在近期一个普通情境中自报这些行动的频率。六组读法保持分开，不派支配或顺从身份，也不评判人的价值。作答前后均可免费阅读全部指南。"
+  },
+  "instructions": {
+    "en": "Think about ordinary voluntary shared plans over the past four weeks, keeping one context in mind. Rate each action from Never to Very often. Choose No relevant opportunity / prefer not to rate when needed; it is unscored. All 24 prompts need a response, with at least three numeric ratings per area for a mean. Answer only for yourself. You may stop or read all six guides without answering.",
+    "zh": "回想过去四周普通、自愿的共同安排，尽量以同一情境作答。按从不到非常经常评价每项行动；需要时可选不计分的“没有相关机会／不想评价”。全部24条均需回应，每组至少三条数字才显示均分。只回答自己，可以随时停止或不作答直接读六篇全文。"
+  },
+  "source": {
+    "kind": "FermatMind independently authored six-area everyday shared-plan action reflection;notFIRO/circumplex/leadershipscale",
+    "formCode": "fm_everyday_control24_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "four_items_equal_mean_min3_no_reverse_v1",
+    "resultContentVersion": "six_full_context_readings_v1",
+    "itemBankSha256": "c18b7477e326b734db54fcdcff3f7db6d60b12449da392739ee47323d6a60ed2",
+    "resultContentSha256": "bdd02ec49b5bf4c972654d061c2770b67894509e7ddca97926bca60b2a265c2d",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "reasons",
+      "title": {
+        "en": "Explaining reasons",
+        "zh": "说明理由"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "consultation",
+      "title": {
+        "en": "Inviting shared input",
+        "zh": "邀请共同参与"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "decisions",
+      "title": {
+        "en": "Making a bounded decision",
+        "zh": "在约定范围内决定"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "agreements",
+      "title": {
+        "en": "Making shared rules explicit",
+        "zh": "明确共同约定"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "support",
+      "title": {
+        "en": "Supporting an agreed plan",
+        "zh": "支持已同意的计划"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "handoffs",
+      "title": {
+        "en": "Reconsidering who steers",
+        "zh": "按情境重新交接"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "ECS_01",
+      "prompt": {
+        "en": "I explained why I preferred a plan before asking others to consider it.",
+        "zh": "请别人考虑某个计划前，我说明了自己倾向它的理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reasons",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reasons",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reasons",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reasons",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "reasons",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "reasons",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_02",
+      "prompt": {
+        "en": "Before settling a shared arrangement, I asked the affected people what mattered to them.",
+        "zh": "确定共同安排前，我询问受影响的人在意什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "consultation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "consultation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "consultation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "consultation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "consultation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "consultation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_03",
+      "prompt": {
+        "en": "When a small decision was explicitly mine to make, I chose an option instead of asking someone else to decide.",
+        "zh": "一项小决定明确由我负责时，我选定了方案，而不是请别人替我决定。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "decisions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "decisions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "decisions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "decisions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "decisions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "decisions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_04",
+      "prompt": {
+        "en": "For a shared activity, I clarified a rule people had already agreed to use.",
+        "zh": "共同活动中，我把大家已同意采用的规则说清楚。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "agreements",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreements",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "agreements",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "agreements",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_05",
+      "prompt": {
+        "en": "After willingly accepting another person’s plan, I helped carry out an agreed step.",
+        "zh": "自愿接受别人的计划后，我协助完成了其中一项约定步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_06",
+      "prompt": {
+        "en": "When relevant knowledge changed, I reconsidered who was best placed to coordinate the next step.",
+        "zh": "相关知识或信息发生变化时，我重新考虑下一步由谁协调更合适。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "handoffs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "handoffs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "handoffs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "handoffs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "handoffs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "handoffs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_07",
+      "prompt": {
+        "en": "When a friend preferred another option, I compared the reasons for our choices.",
+        "zh": "朋友倾向另一个选项时，我比较了双方选择的理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reasons",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reasons",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reasons",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reasons",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "reasons",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "reasons",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_08",
+      "prompt": {
+        "en": "I left room for another person to propose an option I had not considered.",
+        "zh": "我留出空间，让对方提出自己没考虑过的选项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "consultation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "consultation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "consultation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "consultation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "consultation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "consultation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_09",
+      "prompt": {
+        "en": "Within an agreed responsibility, I set a next step when several acceptable options remained.",
+        "zh": "在已约定的职责里，几个可接受选项仍并存时，我确定了下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "decisions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "decisions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "decisions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "decisions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "decisions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "decisions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_10",
+      "prompt": {
+        "en": "When an arrangement was interpreted differently, I referred back to the agreed conditions.",
+        "zh": "对一项安排出现不同理解时，我回到已约定的条件核对。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "agreements",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreements",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "agreements",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "agreements",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_11",
+      "prompt": {
+        "en": "When someone else coordinated an activity, I supplied information they needed for my part.",
+        "zh": "别人协调一项活动时，我提供了对方处理我这部分所需的信息。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_12",
+      "prompt": {
+        "en": "I explicitly handed coordination back to another person after my agreed part was finished.",
+        "zh": "完成自己约定负责的部分后，我明确把协调工作交还给对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "handoffs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "handoffs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "handoffs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "handoffs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "handoffs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "handoffs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_13",
+      "prompt": {
+        "en": "I used a concrete example to help a group understand my proposed approach.",
+        "zh": "我用具体例子帮助小组理解自己提议的做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reasons",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reasons",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reasons",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reasons",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "reasons",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "reasons",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_14",
+      "prompt": {
+        "en": "When several people had a stake in a small decision, I suggested a way to hear their preferences.",
+        "zh": "几个人都与一项小决定有关时，我提议用一种方式听取大家的偏好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "consultation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "consultation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "consultation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "consultation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "consultation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "consultation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_15",
+      "prompt": {
+        "en": "After gathering enough information for a routine choice I owned, I stated which option I would use.",
+        "zh": "为自己负责的日常选择取得足够信息后，我说明了要采用哪个选项。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "decisions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "decisions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "decisions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "decisions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "decisions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "decisions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_16",
+      "prompt": {
+        "en": "I pointed out when a proposed exception would change a shared rule and asked for that change to be explicit.",
+        "zh": "某个例外会改变共同规则时，我指出了这一点，并请大家明确是否修改。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "agreements",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreements",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "agreements",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "agreements",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_17",
+      "prompt": {
+        "en": "I asked what practical help would be useful before adding a task to someone else’s plan.",
+        "zh": "给别人的计划增加任务前，我先询问哪些实际帮助有用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_18",
+      "prompt": {
+        "en": "When a shared task changed, I checked whether the earlier division of decision-making still worked.",
+        "zh": "共同任务发生变化时，我核对先前的决策分工是否仍合适。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "handoffs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "handoffs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "handoffs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "handoffs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "handoffs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "handoffs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_19",
+      "prompt": {
+        "en": "When someone questioned my suggestion, I answered the concern rather than simply repeating the conclusion.",
+        "zh": "有人质疑我的提议时，我回应了疑问，而不只是重复结论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "reasons",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "reasons",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "reasons",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "reasons",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "reasons",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "reasons",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_20",
+      "prompt": {
+        "en": "I checked whether a proposed group decision reflected the discussion before treating it as agreed.",
+        "zh": "把一项小组决定视为已达成共识前，我核对它是否反映了讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "consultation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "consultation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "consultation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "consultation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "consultation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "consultation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_21",
+      "prompt": {
+        "en": "When my own part of a shared plan needed a choice, I made it and told the relevant people.",
+        "zh": "共同计划中属于我的部分需要选择时，我作了决定并告知相关人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "decisions",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "decisions",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "decisions",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "decisions",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "decisions",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "decisions",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_22",
+      "prompt": {
+        "en": "When sharing a limited resource, I checked that the same agreed rule was applied to the relevant people.",
+        "zh": "分配有限的共同资源时，我核对相关人是否适用同一条已约定规则。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "agreements",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreements",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "agreements",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "agreements",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_23",
+      "prompt": {
+        "en": "After agreeing who would lead a small activity, I followed through on the contribution I had accepted.",
+        "zh": "明确一项小活动由谁牵头后，我兑现了自己已答应的贡献。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ECS_24",
+      "prompt": {
+        "en": "When moving between two activities, I agreed whether to lead, share or follow rather than assuming the same role.",
+        "zh": "从一项活动转到另一项时，我协商自己是牵头、共同决定还是跟随，而不默认角色相同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "handoffs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "handoffs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "handoffs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "handoffs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "handoffs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to rate",
+            "zh": "没有相关机会／不想评价"
+          },
+          "directionId": "handoffs",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reasons",
+      "directionIds": [
+        "reasons"
+      ],
+      "title": {
+        "en": "Explaining reasons: Full Control Style Guide",
+        "zh": "说明理由：完整读法"
+      },
+      "headline": {
+        "en": "Explaining reasons",
+        "zh": "说明理由"
+      },
+      "summary": {
+        "en": "Read the scope and limits of explaining reasons through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解说明理由这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Explaining reasons | Everyday Control Style Test",
+          "zh": "说明理由｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore explaining reasons with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读说明理由这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "reasons-1",
+          "title": {
+            "en": "The part being described",
+            "zh": "这一部分在说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Explaining reasons means making your case available for another person to consider. These four statements concern a preferred plan, comparing reasons, offering an example and answering a concern. A higher mean records more frequent self-reports of those actions in the past four weeks. It does not show that your reasoning was accurate, persuasive or welcome. Someone may hear your explanation and still freely choose something else.",
+              "zh": "说明理由指把自己的考虑摆出来，让对方有机会理解和判断。四条题目分别涉及解释倾向、比较理由、提供例子和回应疑问。均分较高，只记录你在过去四周更常自报这些行为，不证明理由正确、说服有效或对方愿意听。别人理解之后，仍可以自由选择另一条路。"
+            }
+          ]
+        },
+        {
+          "id": "reasons-2",
+          "title": {
+            "en": "A shared-plan example",
+            "zh": "共同计划中的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Two friends are choosing where to spend an afternoon. You explain that one place offers a shorter journey and a quiet place to sit, then ask what the other person values. That is different from presenting a long list of arguments until they give in. Your result cannot distinguish those situations by itself. To understand a particular interaction, consider what was said, whether a choice remained open and whether either person asked to stop.",
+              "zh": "两位朋友在商量下午去哪里。你说明其中一处路程短、能安静坐一会儿，再问对方在意什么。这和不断列出论点直到对方让步，是不同的互动。测试结果本身不能分清某次实际过程；要理解那次互动，需要看说过什么、选择是否仍开放，以及有没有人提出停止。"
+            }
+          ]
+        },
+        {
+          "id": "reasons-3",
+          "title": {
+            "en": "What fewer reports can mean",
+            "zh": "较少自报可能意味着什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean does not establish weak communication. The available decisions may have been straightforward, you may have agreed with someone else’s reasons, or explanation may have happened outside the four-week window. Selecting no relevant opportunity removes an item from the mean. Do not turn an unscored answer into evidence that you were silent, uninterested or incapable. A short account of one real, ordinary situation can be more informative than a label.",
+              "zh": "均分较低不表示沟通弱。最近的决定可能很简单，你可能已认同别人的理由，也可能是在四周以外作了解释。“没有相关机会”不进入均分，不能把未评分答案解释成沉默、不关心或没有能力。回想一个普通而具体的情境，通常比给自己贴标签更有信息。"
+            }
+          ]
+        },
+        {
+          "id": "reasons-4",
+          "title": {
+            "en": "Compare reasons with shared input",
+            "zh": "与邀请参与比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Explaining reasons and inviting shared input answer different questions. The first concerns whether you made your own thinking understandable; the second concerns whose preferences and proposals entered the decision. You can report both frequently, or explain a proposal without opening the decision itself. Making a bounded decision is different again: it concerns exercising a responsibility already assigned to you. None of these means supplies a ranking of better leaders.",
+              "zh": "说明理由与邀请参与问的是不同的事：前者看是否把自己的考虑说清楚，后者看谁的偏好和提议进入了决定。两者可以同时常见，也可能有人解释了提议，却没有开放共同决定。在约定范围内决定又不同，它涉及行使已明确交给自己的职责。这些均分不构成优秀领导排名。"
+            }
+          ]
+        },
+        {
+          "id": "reasons-5",
+          "title": {
+            "en": "One optional observation",
+            "zh": "一个可选观察"
+          },
+          "paragraphs": [
+            {
+              "en": "For one harmless, reversible choice, try separating your preference from its reason: ‘I prefer this because …; what matters to you?’ Notice whether new information changes your proposal. This is an optional conversation prompt, not a persuasion technique or a task you owe someone. If the other person declines the conversation, respect that response. Do not practise by testing another person’s limits, reopening a refusal or discussing a sensitive situation that feels unsafe.",
+              "zh": "对一项无害、可撤销的选择，可以试着分开偏好和理由：“我倾向这样，因为……；你在意什么？”观察新信息是否改变你的提议。这是可选的对话提示，不是说服技巧，也不是你欠别人的任务。对方不想谈就尊重这一回应，不要通过试探界限、重启拒绝或讨论不安全的敏感经历来练习。"
+            }
+          ]
+        },
+        {
+          "id": "reasons-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consultation",
+      "directionIds": [
+        "consultation"
+      ],
+      "title": {
+        "en": "Inviting shared input: Full Control Style Guide",
+        "zh": "邀请共同参与：完整读法"
+      },
+      "headline": {
+        "en": "Inviting shared input",
+        "zh": "邀请共同参与"
+      },
+      "summary": {
+        "en": "Read the scope and limits of inviting shared input through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解邀请共同参与这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Inviting shared input | Everyday Control Style Test",
+          "zh": "邀请共同参与｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore inviting shared input with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读邀请共同参与这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "consultation-1",
+          "title": {
+            "en": "Whose input enters the choice",
+            "zh": "谁的意见进入选择"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns inviting affected people’s preferences, allowing another proposal, arranging a way to hear views and checking whether an agreement reflects the discussion. It describes participation in an ordinary arrangement, not whether every decision must be made by a group. A higher mean does not prove equal influence or a fair outcome. People can be invited to speak while still having little room to affect what happens next.",
+              "zh": "这一部分涉及听取受影响者的偏好、容纳别的提议、安排表达方式，以及核对决定是否反映讨论。它描述普通安排中的参与，不表示每件事都必须集体决定。较高均分不证明影响力平等或结果公平；有人可能被邀请发言，却仍没有多少空间改变下一步。"
+            }
+          ]
+        },
+        {
+          "id": "consultation-2",
+          "title": {
+            "en": "An example with different needs",
+            "zh": "需求不同的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A small group is choosing a time for a voluntary activity. Instead of asking only for approval of your preferred hour, you first ask about constraints and offer a way to suggest alternatives. One member prefers not to explain a private commitment. Consultation does not require them to disclose it. A workable decision can acknowledge a constraint without investigating its cause. The questionnaire does not observe whether such participation actually occurred.",
+              "zh": "小组在约一项自愿活动的时间。你先问大家有哪些限制，留出提出其他时间的方式，而不只是请大家批准你选好的时段。有成员不想解释私人安排，参与并不要求对方披露。承认一个时间限制，不必追问原因；问卷也没有观察这类参与是否真实发生。"
+            }
+          ]
+        },
+        {
+          "id": "consultation-3",
+          "title": {
+            "en": "Consultation has a scope",
+            "zh": "参与也有范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Reporting less consultation may reflect decisions that belonged to you alone or an arrangement already settled together. It does not by itself show disregard for others. Reporting more consultation can also coexist with unclear responsibility or repeated discussions that nobody wants. The mean cannot settle either possibility. Ask which decision was shared, who was affected and whether the group had already agreed who would make the final call.",
+              "zh": "较少征询可能因为那些决定本就属于你个人，或安排先前已共同定好，不能据此认定你忽视他人。较多征询也可能与职责不清、大家不想反复讨论并存，均分无法判断是哪一种。可以分清：哪项决定需要共享、谁受影响，以及最终由谁决定是否已说好。"
+            }
+          ]
+        },
+        {
+          "id": "consultation-4",
+          "title": {
+            "en": "Compare participation and handoffs",
+            "zh": "与重新交接比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Inviting shared input is about what enters a decision. Reconsidering who steers is about reviewing the division of coordination when circumstances change. A group can hear everyone while retaining one coordinator, or transfer coordination without consulting every person about every detail. Supporting an agreed plan follows a decision you willingly accepted. These are separate observations; a high score in one part neither requires nor cancels a high score in another.",
+              "zh": "邀请参与关心哪些信息进入决定；重新交接关心情境变化后是否复核协调分工。小组可以听取大家意见后仍由一人协调，也可能交接协调而不为每个细节询问每个人。支持计划则发生在你自愿接受安排之后。这些是分开的观察，一部分较高既不要求也不抵消另一部分较高。"
+            }
+          ]
+        },
+        {
+          "id": "consultation-5",
+          "title": {
+            "en": "A small way to make input visible",
+            "zh": "让意见有位置的小做法"
+          },
+          "paragraphs": [
+            {
+              "en": "For a simple shared arrangement, you could ask ‘Which part would you like input on, and which part can I settle?’ Confirm the boundary once, then let someone decline to take part. You may skip this prompt. It is not a rule for medical, legal, employment or safety decisions, and the result does not allocate authority. Existing responsibilities and another person’s refusal take precedence over a quiz reading.",
+              "zh": "商量一项简单共同安排时，可以问：“哪部分你希望一起商量，哪部分我可以定？”确认一次范围，也允许对方不参与。可以不采用这个提示。它不是医疗、法律、工作权限或安全决定的规则，结果不分配权力；真实职责与他人的拒绝始终优先于测试读法。"
+            }
+          ]
+        },
+        {
+          "id": "consultation-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "directionIds": [
+        "decisions"
+      ],
+      "title": {
+        "en": "Making a bounded decision: Full Control Style Guide",
+        "zh": "在约定范围内决定：完整读法"
+      },
+      "headline": {
+        "en": "Making a bounded decision",
+        "zh": "在约定范围内决定"
+      },
+      "summary": {
+        "en": "Read the scope and limits of making a bounded decision through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解在约定范围内决定这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Making a bounded decision | Everyday Control Style Test",
+          "zh": "在约定范围内决定｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore making a bounded decision with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读在约定范围内决定这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "decisions-1",
+          "title": {
+            "en": "Using a responsibility you own",
+            "zh": "使用自己已承担的职责"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern ordinary choices explicitly assigned to you: selecting an option, setting a next step, stating a choice after gathering information and telling relevant people about it. A higher mean describes more frequent self-reported decisions within that boundary. It does not measure decisiveness as an ability, entitlement to control a group or readiness for a management role. The boundary matters as much as the act of deciding.",
+              "zh": "四条题目只涉及明确属于你职责的普通选择：选定方案、确定下一步、取得信息后说明选择，以及告知相关人。较高均分描述你在这一范围内更常自报作决定，不测果断能力，不赋予你掌控小组的资格，也不说明适合管理岗位。是否在职责范围内，与作了决定同样重要。"
+            }
+          ]
+        },
+        {
+          "id": "decisions-2",
+          "title": {
+            "en": "A bounded everyday choice",
+            "zh": "有明确范围的日常选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends agree that you will choose a meeting point within an area they can all reach. You compare two suitable places, select one and tell them where to meet. That fits the limited responsibility in this part. Changing the day, budget and guest list without agreement would be a different action. The same word ‘decide’ can hide very different boundaries, and the score cannot confirm what permission existed in a real interaction.",
+              "zh": "朋友已同意由你在大家都能到的区域里选碰面地点。你比较两处合适地方，定下一处并告诉大家，这符合此处的有限职责。未经约定就改日期、预算和参加人，是另一回事。“决定”这个词可能掩盖不同边界，分数不能核实某次互动里究竟获得过什么授权。"
+            }
+          ]
+        },
+        {
+          "id": "decisions-3",
+          "title": {
+            "en": "Waiting is not automatically a deficit",
+            "zh": "等待不自动等于不足"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean can reflect few decisions assigned to you, a deliberate wait for information, or a context in which someone else appropriately coordinated the work. It does not prove passivity. A higher mean can include decisions that were easy or heavily constrained. Neither tells us whether the outcome was good. No relevant opportunity is an unscored response, and missing information remains missing instead of being treated as poor performance.",
+              "zh": "较低均分可能因为分配给你的决定不多、你在等信息，或那一情境本就由别人合理协调，不证明被动。较高均分也可能来自简单或限制很多的决定，不能说明结果好坏。“没有相关机会”不计分，缺失信息保持缺失，不被当成表现差。"
+            }
+          ]
+        },
+        {
+          "id": "decisions-4",
+          "title": {
+            "en": "Compare decisions and shared rules",
+            "zh": "与共同规则比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Making a bounded decision concerns choosing within your responsibility. Making shared rules explicit concerns clarifying conditions already agreed with others. A person can make many choices without managing shared rules, or help clarify a rule without owning the final decision. Explaining reasons adds another question: whether others could understand your thinking. These six parts are not opposing personality poles and are not combined into a dominant or submissive identity.",
+              "zh": "在约定范围内决定，关心如何在职责内选择；明确共同约定，关心是否说清已与他人达成的条件。一个人可以作很多选择却不管理共同规则，也可以帮助澄清规则却不拥有最终决定权。说明理由又关心别人是否理解你的考虑。六部分不是对立人格两极，不合成为支配或顺从身份。"
+            }
+          ]
+        },
+        {
+          "id": "decisions-5",
+          "title": {
+            "en": "Check one decision boundary",
+            "zh": "核对一次决定范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a harmless choice, you could state ‘I understand that I’m choosing this part within these limits; is that still right?’ Use an existing agreement rather than seeking endless reassurance. If the responsibility is not yours, do not take it from a questionnaire result. This optional observation is about clarifying a small arrangement, not practising authority over another person. You can finish reading without taking any action.",
+              "zh": "作一项无害选择前，可以说：“我理解这部分由我在这些范围内选，这个约定还适用吗？”依据现有约定即可，不必反复寻求保证。职责不属于自己时，不能从问卷结果取得它。这个可选观察用于澄清小安排，不是练习支配别人；读完后也可以不采取任何行动。"
+            }
+          ]
+        },
+        {
+          "id": "decisions-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agreements",
+      "directionIds": [
+        "agreements"
+      ],
+      "title": {
+        "en": "Making shared rules explicit: Full Control Style Guide",
+        "zh": "明确共同约定：完整读法"
+      },
+      "headline": {
+        "en": "Making shared rules explicit",
+        "zh": "明确共同约定"
+      },
+      "summary": {
+        "en": "Read the scope and limits of making shared rules explicit through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解明确共同约定这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Making shared rules explicit | Everyday Control Style Test",
+          "zh": "明确共同约定｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore making shared rules explicit with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读明确共同约定这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "agreements-1",
+          "title": {
+            "en": "Clarifying conditions people share",
+            "zh": "澄清大家共享的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "This part records whether you clarified an agreed rule, checked different interpretations, made exceptions explicit and applied a shared resource rule consistently. These are descriptions of actions around an agreement. A higher mean is not a score for strictness, justice or moral worth. A rule can be clear and still need revision. The questionnaire does not establish that an agreement was freely made, appropriate or followed by everyone.",
+              "zh": "这一部分记录你是否澄清已约定规则、核对不同理解、明确例外，以及一致使用共同资源规则。它描述围绕约定的行动，较高均分不是严格、公正或道德分。规则即使清楚，也可能需要修改。问卷无法确认约定是否出于自愿、是否合适，或是否人人遵守。"
+            }
+          ]
+        },
+        {
+          "id": "agreements-2",
+          "title": {
+            "en": "An ordinary shared-resource example",
+            "zh": "共同资源的普通例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Several friends share a room for a voluntary hobby session. They have agreed on equal booking slots. When two bookings overlap, you point to the existing arrangement and ask whether to apply it or openly change it. That differs from announcing a new rule after learning who would benefit. The result cannot resolve the dispute; it only offers a way to examine which action you reported taking.",
+              "zh": "几位朋友轮流使用一个房间开展自愿爱好活动，已同意每人预约相同时长。两项预约重叠时，你指出原约定，并询问是照原约定处理，还是公开修改。这与得知谁会受益之后才宣布新规则不同。结果不能裁决争执，只提供检查自己自报行动的一个角度。"
+            }
+          ]
+        },
+        {
+          "id": "agreements-3",
+          "title": {
+            "en": "Clarity and rigidity can look similar",
+            "zh": "清楚与僵化可能相像"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeating a rule can help make a shared arrangement predictable, but repetition alone does not tell us whether the rule still serves its purpose. Someone may report these actions frequently while resisting necessary changes. Someone else may report them rarely because the arrangement has been stable and clear. Neither is settled by the mean. Look for the actual condition, the reason for an exception and the process for revising it.",
+              "zh": "重申规则可能让共同安排更可预期，但重复本身不说明规则是否仍有作用。有人经常自报这些行动，同时抗拒必要调整；也有人较少自报，是因为安排一直稳定清楚。均分不能判断是哪种情况，可以看具体条件、例外理由，以及修改规则的过程。"
+            }
+          ]
+        },
+        {
+          "id": "agreements-4",
+          "title": {
+            "en": "Compare agreements and consultation",
+            "zh": "与共同参与比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Making shared rules explicit focuses on conditions. Inviting shared input focuses on people’s preferences and proposals. A conversation can involve both, for example when a group reviews a booking rule together. Supporting an agreed plan concerns your own contribution after you accept a plan. Keeping these questions separate helps avoid treating rule clarification as either natural leadership or an automatically harmful wish to control others.",
+              "zh": "明确约定看条件，邀请参与看大家的偏好与提议。小组共同复核预约规则时，两者可以同时出现。支持计划则关心你接受计划后自己的贡献。把这些问题分开，有助于避免把澄清规则直接理解成天生领导力，或自动视作有害的控制欲。"
+            }
+          ]
+        },
+        {
+          "id": "agreements-5",
+          "title": {
+            "en": "Name one change openly",
+            "zh": "把一次变化说清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "For a reversible shared arrangement, you might ask ‘Are we applying the current rule, making an exception, or changing the rule for next time?’ Let affected people respond without demanding private explanations. Skip this prompt if it is unnecessary. A score does not justify enforcing a rule, investigating another person or continuing contact after a refusal. Actual consent, responsibilities and safety remain outside what this reflection can decide.",
+              "zh": "对一项可撤销的共同安排，可以问：“这次是用原规则、作一次例外，还是从下次起修改规则？”允许受影响的人回应，不要求解释私人原因。不需要时可以跳过。分数不构成执行规则、调查别人或在被拒绝后继续联系的理由；真实同意、职责与安全不是本反思能够裁决的。"
+            }
+          ]
+        },
+        {
+          "id": "agreements-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "directionIds": [
+        "support"
+      ],
+      "title": {
+        "en": "Supporting an agreed plan: Full Control Style Guide",
+        "zh": "支持已同意的计划：完整读法"
+      },
+      "headline": {
+        "en": "Supporting an agreed plan",
+        "zh": "支持已同意的计划"
+      },
+      "summary": {
+        "en": "Read the scope and limits of supporting an agreed plan through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解支持已同意的计划这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Supporting an agreed plan | Everyday Control Style Test",
+          "zh": "支持已同意的计划｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore supporting an agreed plan with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读支持已同意的计划这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "support-1",
+          "title": {
+            "en": "Helping after a willing agreement",
+            "zh": "自愿同意之后的协助"
+          },
+          "paragraphs": [
+            {
+              "en": "Supporting an agreed plan means contributing after you willingly accept an arrangement: carrying out a step, supplying information, asking what help is useful and following through. A higher mean records those self-reports, without proving loyalty, compliance or helpfulness to someone else. Accepting a limited contribution does not transfer control over your other choices. You can support a plan and still disagree with one part or choose to withdraw appropriately.",
+              "zh": "支持已同意的计划，指自愿接受安排后完成步骤、提供信息、先问哪些帮助有用，以及兑现贡献。较高均分记录这些自报，不证明忠诚、服从或对别人确实有帮助。答应一项有限贡献，不等于把其他选择权交出去；你可以支持计划，同时对某部分有异议，或适当地退出。"
+            }
+          ]
+        },
+        {
+          "id": "support-2",
+          "title": {
+            "en": "A contribution with a clear limit",
+            "zh": "有明确限度的贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend coordinates a small community display. You agree to label three objects and finish that contribution by the agreed time. You do not need to take over the display or accept an additional task to count as supporting the plan. If your availability changes, an honest update may matter more than appearing agreeable. The questionnaire asks what you reported doing, not whether anyone approved of your contribution.",
+              "zh": "朋友协调一个小型社区展示。你答应给三件物品写标签，并按约定时间完成。不必接管整个展示，也不必再接额外任务，才算支持计划。如果时间条件变化，如实更新可能比表现得好说话更重要。问卷问你自报做过什么，不问有没有人认可这项贡献。"
+            }
+          ]
+        },
+        {
+          "id": "support-3",
+          "title": {
+            "en": "Support is not self-erasure",
+            "zh": "支持不等于忽略自己"
+          },
+          "paragraphs": [
+            {
+              "en": "Reporting these actions often does not mean you should say yes more often. A person can provide practical help while neglecting their own limits, or provide less help because the plan was not theirs to join. A lower mean does not establish selfishness. Consider whether you agreed freely, understood the contribution and could revise the arrangement. These questions require context that the numeric mean cannot supply.",
+              "zh": "经常自报这些行动，不意味着你应更常答应。一个人可能在提供实际帮助时忽略自身限度，也可能协助较少，是因为那项计划本就不需要自己加入。较低均分不说明自私。可以看自己是否自由同意、是否理解贡献范围，以及能否修改安排；这些需要情境，不能由数字补齐。"
+            }
+          ]
+        },
+        {
+          "id": "support-4",
+          "title": {
+            "en": "Compare support and role handoffs",
+            "zh": "与角色交接比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Supporting a plan concerns carrying out a contribution you accepted. Reconsidering who steers concerns whether coordination should move when knowledge, task or responsibility changes. Following someone else’s plan can be an active choice rather than the absence of leadership. Inviting shared input happens at a different point in the process. No part in this report determines a sexual role, relationship rank, personal identity or the authority another person has over you.",
+              "zh": "支持计划关心兑现已接受的贡献，重新交接关心知识、任务或职责变化后是否调整协调者。跟随别人的计划可以是主动选择，不是没有领导力。邀请共同参与则处于过程中的另一环节。本报告任何部分都不决定性角色、关系等级、个人身份，或别人对你拥有多少权力。"
+            }
+          ]
+        },
+        {
+          "id": "support-5",
+          "title": {
+            "en": "Clarify one accepted contribution",
+            "zh": "澄清一项已接受的贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "You could choose one ordinary arrangement and say ‘I can help with this part by this time; I’m not taking on the rest.’ Notice whether that matches the agreement already made. This optional wording is not a duty to help, a test of devotion or a rule for handling an unsafe relationship. You may do nothing with the result. Another person’s needs do not remove your ability to decline or set a boundary.",
+              "zh": "可以选一个普通安排，说明：“我能在这个时间前完成这一部分，其他部分不由我承担。”观察它与既有约定是否一致。这段可选表达不是帮助义务、投入程度测试，也不是处理不安全关系的规则。你可以不使用结果；他人的需要不会取消你拒绝或设定边界的权利。"
+            }
+          ]
+        },
+        {
+          "id": "support-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handoffs",
+      "directionIds": [
+        "handoffs"
+      ],
+      "title": {
+        "en": "Reconsidering who steers: Full Control Style Guide",
+        "zh": "按情境重新交接：完整读法"
+      },
+      "headline": {
+        "en": "Reconsidering who steers",
+        "zh": "按情境重新交接"
+      },
+      "summary": {
+        "en": "Read the scope and limits of reconsidering who steers through ordinary examples, a contrasting case and optional observations.",
+        "zh": "通过普通例子、对照情境与可选观察，了解按情境重新交接这组自报的范围和边界。"
+      },
+      "scoreReading": {
+        "en": "Read this separate mean with the rated count. No overall score, winner or threshold is assigned.",
+        "zh": "结合有效项数阅读这一独立均分；不派总体分、赢家或阈值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reconsidering who steers | Everyday Control Style Test",
+          "zh": "按情境重新交接｜日常掌控方式测试"
+        },
+        "description": {
+          "en": "Explore reconsidering who steers with four original self-reports, examples and clear limits. Full free guide; no identity or power rank.",
+          "zh": "用四条原创自报、普通例子与明确边界，阅读按情境重新交接这一部分。完整指南免费，不派身份或权力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "handoffs-1",
+          "title": {
+            "en": "Reviewing who coordinates next",
+            "zh": "复核下一步由谁协调"
+          },
+          "paragraphs": [
+            {
+              "en": "The four statements concern reconsidering coordination when knowledge changes, explicitly handing it back, checking a changed task and agreeing your role in a new activity. A higher mean records more frequent self-reports of those reviews. It does not measure flexibility, social intelligence or success at reading a room. Reviewing a role and actually reaching a clear agreement are different events, and this questionnaire does not observe the other people involved.",
+              "zh": "四条题目涉及知识变化后复核协调者、明确交还协调、检查变化后的任务，以及进入新活动时商定角色。较高均分记录你更常自报这些复核，不测灵活性、社交智力或察言观色是否成功。复核角色与真正达成清楚约定，是不同事件；问卷没有观察其他参与人。"
+            }
+          ]
+        },
+        {
+          "id": "handoffs-2",
+          "title": {
+            "en": "A handoff between two tasks",
+            "zh": "两个任务之间的交接"
+          },
+          "paragraphs": [
+            {
+              "en": "You organise travel to a shared activity because you know the route. Once the group arrives, someone familiar with the activity coordinates the next part, and you explicitly confirm that change. That is a task-based handoff, not a permanent change in who leads the friendship. If nobody agreed to take over, silently stepping back would be a different situation. The score does not verify that the receiving person accepted a responsibility.",
+              "zh": "你熟悉路线，负责安排大家前往活动地点。到达后，由更熟悉活动的人协调下一部分，你明确确认这一变化。这是随任务交接，不代表友谊里的长期领导地位变了。如果无人同意接手，你默默退开则是另一回事。分数不能确认接手者是否真的接受了职责。"
+            }
+          ]
+        },
+        {
+          "id": "handoffs-3",
+          "title": {
+            "en": "A stable role can also be appropriate",
+            "zh": "稳定角色也可能合适"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean may reflect a stable arrangement that did not need to change, rather than an inability to adapt. A higher mean may reflect frequent changes or uncertainty, rather than unusually good coordination. Neither reading can be chosen from the number alone. Relevant questions include what changed, who had the necessary information and whether the people involved understood the next step. An unscored item supplies no evidence about any of these.",
+              "zh": "较低均分可能来自不需要调整的稳定安排，不代表不能适应。较高均分可能因为变化多或分工不明确，不代表特别善于协调。只看数字不能选择其中哪种解释。需要看变了什么、谁掌握必要信息，以及参与人是否理解下一步；未评分题目不为这些判断提供证据。"
+            }
+          ]
+        },
+        {
+          "id": "handoffs-4",
+          "title": {
+            "en": "Compare reviewing and taking a role",
+            "zh": "与承担角色比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Reconsidering who steers reviews a division of work. Making a bounded decision uses an already assigned responsibility, while supporting a plan carries out an accepted contribution. You can report all three in the same week or within one project. They are not competing seats on a single personality scale. The report therefore keeps six means and six full readings rather than forcing a winner, a power level or a dominant–submissive classification.",
+              "zh": "重新交接是复核分工，在约定范围内决定是使用既有职责，支持计划是兑现已接受的贡献。同一周甚至同一项目里，你可以同时自报这三类行动。它们不是同一人格刻度上互相争夺的位置。因此报告保留六个均分和六份全文，不强行选赢家、权力等级或支配—顺从分类。"
+            }
+          ]
+        },
+        {
+          "id": "handoffs-5",
+          "title": {
+            "en": "Make one handoff explicit",
+            "zh": "明确一次交接"
+          },
+          "paragraphs": [
+            {
+              "en": "If a harmless shared task changes, you might ask ‘Who is coordinating this next part, and what have they agreed to take on?’ Confirm the actual agreement instead of assigning someone a role from their quiz result. The prompt is optional and cannot allocate professional, legal or safety responsibilities. It is equally reasonable to retain an existing role when it remains appropriate. No particular score requires you to hand over or take control.",
+              "zh": "一项无害共同任务变化时，可以问：“下一部分由谁协调，对方同意接下什么？”确认真实约定，而不是依据测试结果给别人分派角色。提示可不用，也不能分配专业、法律或安全职责。原角色仍合适时，保留它同样合理；任何分数都不要求你交出或取得控制权。"
+            }
+          ]
+        },
+        {
+          "id": "handoffs-arithmetic",
+          "title": {
+            "en": "Read the mean with its response count",
+            "zh": "结合有效项数读均分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part has four original statements. Responses Never to Very often receive 1 to 5; no relevant opportunity or prefer not to rate is unscored. With at least three numeric responses, the sum divided by the rated count is rounded to one decimal. For example, ratings 2, 3, 4 and an unscored response give 9 / 3 = 3.0. With only two ratings no mean is shown. Decimal places are display formatting, not measurement precision.",
+              "zh": "这一部分有四条原创陈述。“从不”至“非常经常”分别记1至5；没有相关机会或不想评价不计分。至少三条数字回答时，用和除以有效项数，显示到一位小数。例如2、3、4和一条未评分，得到9÷3＝3.0；只有两条数字时不显示均分。小数位只用于呈现，不表示测量精度。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "edition",
+      "title": {
+        "en": "One original reflection for everyday control",
+        "zh": "一份日常掌控方式原创反思"
+      },
+      "paragraphs": [
+        {
+          "en": "Looking for a Dictator Test or a Dominant or Submissive Test? Those entry names can refer to how you take part in ordinary shared plans. This edition combines six independently written action areas in one reflection. It does not assign the four styles used by another website, a political identity, a sexual role or a rank in a relationship. It is not a FIRO-B, interpersonal circumplex or validated leadership instrument.",
+          "zh": "如果你在寻找“独裁者测试”或“支配与顺从测试”，这些入口名称有时用于讨论普通共同计划里的参与方式。本版用一份反思呈现六组独立原创行动，不派其他网站的四种类型、政治身份、性角色或关系等级。它不是FIRO-B、人际圆环量表或经验证的领导力工具。"
+        }
+      ]
+    },
+    {
+      "id": "response-map",
+      "title": {
+        "en": "Open response and calculation rules",
+        "zh": "公开回答与计算规则"
+      },
+      "paragraphs": [
+        {
+          "en": "Every area has four frequency statements, interleaved in six-area rounds. There are no reverse items. Complete all 24 responses to see six separate sum/count means; each mean requires at least three numeric responses. Unscored items stay missing, never zero or midpoint. All six full guides remain available without answering, and no overall power score, relative ranking, diagnostic threshold or population percentile is calculated.",
+          "zh": "六组各有四条频率陈述，按六组交错排列，无反向题。回应全部24条后呈现六组独立的和、有效项数与均分，每组至少需三条数字回答。未评分保持缺失，不补零或中点。无需作答也可读六篇全文，不计算总体权力分、相对排名、诊断阈值或人群百分位。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Choose one ordinary context",
+        "zh": "选一个普通情境"
+      },
+      "paragraphs": [
+        {
+          "en": "Use ordinary, voluntary plans from the past four weeks, such as a hobby group or shared outing. Keep the same context while answering. Frequency also depends on opportunities, responsibilities and what changed. Your own report does not establish what someone else experienced. No one is required to disclose a private disagreement or answer on behalf of a partner, colleague or child.",
+          "zh": "以过去四周普通、自愿的共同安排为参照，例如爱好小组或共同出行，并尽量保持情境一致。频率也取决于机会、职责及发生了哪些变化。自报不证明他人的实际体验，不要求披露私人争执，也不代伴侣、同事或孩子作答。"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": {
+        "en": "What this edition can establish",
+        "zh": "本版能说明什么"
+      },
+      "paragraphs": [
+        {
+          "en": "All statements, six-area organisation and guide bodies were independently authored by FermatMind for self-reflection. Reliability, validity, population norms and English–Chinese measurement equivalence have not been established. Results do not allocate authority, judge consent or determine who should lead. They are not for hiring, clinical, legal, safety or relationship screening. You can read and finish without taking any suggested action.",
+          "zh": "题目、六组组织方式和指南正文均由费马独立创作，用于自我回顾；尚未建立信度、效度、人群常模或英中文测量等值。结果不分配权力、不裁决同意，也不决定谁该带领，不用于招聘、临床、法律、安全或关系筛选。你可以读完结束，不采用任何行动提示。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private attempt and public guides",
+        "zh": "私人作答与公开指南"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are calculated in this page without uploading an answer sheet or putting responses in a URL or analytics event. Optional tab drafts use the existing explicit opt-in, expire after 24 hours and clear on completion, exit-and-clear or retake. Public guide pages and their share cards contain general text, not your answers or means. Copying a link is optional and can be skipped.",
+          "zh": "答案在当前页面计算，不上传答卷，也不进入网址或分析事件。可选标签页草稿沿用明确主动选择，24小时失效，完成、退出清除或重测时删除。公开指南及分享图只有通用文字，不含你的答案或均分。复制链接可选，也可以不分享。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this a Dictator Test?",
+        "zh": "这是独裁者测试吗？"
+      },
+      "answer": {
+        "en": "It covers everyday use of influence and coordination through six original action areas. The provocative entry name does not make this a political test or establish that anyone is a dictator.",
+        "zh": "本版用六组原创行动回顾日常影响与协调方式。带有强烈色彩的入口名称，不使它成为政治测试，也不能认定某人是独裁者。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it tell me whether I am dominant or submissive?",
+        "zh": "它会判断我是支配型还是顺从型吗？"
+      },
+      "answer": {
+        "en": "No. Six separate means describe this attempt, with examples and limits. They do not assign identity, a sexual role, consent, authority or a relationship rank.",
+        "zh": "不会。六个独立均分描述本次自报，并提供例子和边界，不分派身份、性角色、同意、权力或关系等级。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can different parts all be frequent?",
+        "zh": "几种行动可以都经常出现吗？"
+      },
+      "answer": {
+        "en": "Yes. Explaining, asking, deciding, clarifying, helping and handing over may occur in the same project. There is no fixed total and no forced winner.",
+        "zh": "可以。解释、征询、决定、澄清、协助和交接可以发生在同一项目里，没有固定总和，也不强行选赢家。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I have no relevant experience?",
+        "zh": "没有相关经历怎么办？"
+      },
+      "answer": {
+        "en": "Use the unscored option or stop and read the complete public guides. Missing experience is not a low score or a deficit.",
+        "zh": "可以选择未评分选项，或停止作答直接读完整公开指南。缺少经历不是低分，也不是不足。"
+      }
+    }
+  ],
+  "references": []
+}

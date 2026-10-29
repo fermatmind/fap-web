@@ -5907,5 +5907,32 @@
       "mathematics-knowledge"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "everyday-control-style",
+    "code": "FM_EVERYDAY_CONTROL24",
+    "version": "fm_everyday_control24_v1",
+    "updated": "2026-10-29",
+    "category": "relationships",
+    "title": {
+      "en": "Everyday Control Style Test",
+      "zh": "日常掌控方式测试"
+    },
+    "description": {
+      "en": "Explore six everyday control habits with 24 original statements and full free guides. Read separate means, missing answers and examples; no power rank.",
+      "zh": "用24条原创陈述回顾说明理由、共同参与、职责内决定、共同规则、支持与交接；六篇全文免费，分开均分与资料不足，不派权力等级。"
+    },
+    "minutes": 5,
+    "formCode": "fm_everyday_control24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "reasons",
+      "consultation",
+      "decisions",
+      "agreements",
+      "support",
+      "handoffs"
+    ],
+    "collection": "explore"
   }
 ]
