@@ -395,15 +395,20 @@ describe("homepage v1 density contract", () => {
     });
     expect(screen.getByRole("img", { name: "抽象职业罗盘与六个方向节点" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
-    expect(screen.getByText("更新于 2026年10月24日")).toBeInTheDocument();
-    expect(screen.queryByText("2026年4月18日")).not.toBeInTheDocument();
+    expect(screen.getByText("发布于 2026年4月18日")).toBeInTheDocument();
+    expect(screen.queryByText(/更新于/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/2026年10月24日/)).not.toBeInTheDocument();
 
     const englishArticles = articles.map((article) => ({ ...article, locale: "en" }));
     rerender(<HomePageExperience locale="en" copy={homeCopy} articles={englishArticles} />);
-    expect(screen.getByText("Updated October 24, 2026")).toBeInTheDocument();
+    expect(screen.getByText("Published April 18, 2026")).toBeInTheDocument();
+    expect(screen.queryByText(/Updated/)).not.toBeInTheDocument();
     expect(articles[0].publishedAt).toBe("2026-04-18");
 
     rerender(<HomePageExperience locale="en" copy={homeCopy} articles={englishArticles.map((article) => ({ ...article, updatedAt: null }))} />);
-    expect(screen.getByText("Updated April 18, 2026")).toBeInTheDocument();
+    expect(screen.getByText("Published April 18, 2026")).toBeInTheDocument();
+
+    rerender(<HomePageExperience locale="en" copy={homeCopy} articles={englishArticles.map((article) => ({ ...article, publishedAt: null }))} />);
+    expect(screen.queryByText(/Published|Updated/)).not.toBeInTheDocument();
   });
 });

@@ -803,17 +803,17 @@ function ArticleCoverVisual({ article }: { article: HomeArticle }) {
 }
 
 function getArticleDisplayDate(article: HomeArticle, locale: Locale): string {
-  const value = article.updatedAt ?? article.publishedAt ?? article.createdAt;
+  const value = article.publishedAt;
   if (!value) return "";
 
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
 
   if (locale === "zh") {
-    return `更新于 ${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+    return `发布于 ${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   }
 
-  return "Updated " + new Intl.DateTimeFormat("en", {
+  return "Published " + new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "long",
     day: "numeric",
