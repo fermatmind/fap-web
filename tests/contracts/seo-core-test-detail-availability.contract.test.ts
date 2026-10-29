@@ -462,6 +462,10 @@ describe("SEO core test detail availability", () => {
           : "Free Emotional Intelligence Test (EQ)");
       } else if (slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN) {
         expect(heroProps.title).toBe(locale === "zh" ? "免费智商测试（IQ）" : "Free IQ Test");
+      } else if (locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM) {
+        expect(heroProps.title).toBe("九型人格测试（免费版）");
+      } else if (locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.RIASEC) {
+        expect(heroProps.title).toBe("霍兰德职业兴趣测试（免费版）");
       } else {
         expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
       }
