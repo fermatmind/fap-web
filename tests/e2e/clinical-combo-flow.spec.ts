@@ -1,3 +1,4 @@
+import structuredConsent from "../fixtures/clinical/consent-structured.json";
 import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
@@ -478,3 +479,30 @@ test.beforeEach(async ({ page }) => {
     await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, fm_token: "fm_clinical_e2e_guest_session" }) });
   });
 });
+
+for (const locale of ["en", "zh"] as const) {
+  for (const malformed of [false, true]) {
+    test(`@release clinical consent ${locale}: ${malformed ? "missing required copy cannot start" : "all structured terms precede consent"}`, async ({ page }) => {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.addInitScript(() => localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "denied", updatedAt: new Date().toISOString() })));
+      let attemptWrites = 0;
+      await page.route("**/api/v0.3/attempts/**", async route => { attemptWrites++; await route.abort(); });
+      const doc = structuredConsent[locale];
+      await page.route("**/api/v0.3/scales/CLINICAL_COMBO_68/questions*", async route => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, scale_code: "CLINICAL_COMBO_68", questions: { items: buildCc68Questions() }, meta: { consent: malformed ? { version: doc.version, title: doc.title, checkboxes: [] } : doc } }) }));
+      await page.goto(`/${locale}/tests/clinical-depression-anxiety-assessment-professional-edition/take`);
+      const button = page.getByRole("button", { name: locale === "zh" ? "同意并开始" : "Agree and start", exact: true });
+      await expect(button).toBeVisible(); await expect(button).toBeDisabled();
+      if (malformed) {
+        await expect(page.getByText(locale === "zh" ? "必需的知情说明暂不可用" : "Required consent content is unavailable", { exact: false })).toBeVisible();
+        await expect(page.getByRole("checkbox")).toBeDisabled();
+      } else {
+        const text = page.locator(".whitespace-pre-wrap"); await expect(text).toContainText(doc.title);
+        for (const statement of doc.checkboxes) await expect(text).toContainText(statement);
+        await page.getByRole("checkbox").check(); await expect(button).toBeEnabled(); await button.click();
+        await expect(page.getByText("CC68 question 1", { exact: true })).toBeVisible();
+      }
+      expect(attemptWrites).toBe(0);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    });
+  }
+}

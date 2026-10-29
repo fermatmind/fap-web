@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ModuleTransitionCard } from "@/components/clinical/quiz/ModuleTransitionCard";
 import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
+import { clinicalConsentText } from "@/lib/clinical/consent";
 import { QuestionCard } from "@/components/clinical/quiz/QuestionCard";
 import { QuizShell } from "@/components/clinical/quiz/QuizShell";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
@@ -341,8 +342,9 @@ export default function ClinicalTakeClient({
 
   const serverConsentVersion =
     typeof questionsMeta?.consent?.version === "string" ? questionsMeta.consent.version.trim() : "";
-  const serverConsentText =
-    typeof questionsMeta?.consent?.text === "string" ? questionsMeta.consent.text.trim() : "";
+  const serverConsentText = clinicalConsentText(questionsMeta?.consent);
+  const consentContentReady = scaleCode !== "CLINICAL_COMBO_68"
+    || (serverConsentVersion.length > 0 && serverConsentText.length > 0);
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -356,10 +358,11 @@ export default function ClinicalTakeClient({
   const moduleMeta = useMemo(() => normalizeModuleMeta(questionsMeta?.modules), [questionsMeta?.modules]);
 
   const needsConsent = useMemo(() => {
+    if (!consentContentReady) return true;
     if (!consentAcceptedAt) return true;
     if (!serverConsentVersion) return false;
     return consentVersion !== serverConsentVersion;
-  }, [consentAcceptedAt, consentVersion, serverConsentVersion]);
+  }, [consentAcceptedAt, consentContentReady, consentVersion, serverConsentVersion]);
   const consentRequiredMessage =
     isZh
       ? "请先阅读并同意知情同意说明，然后再开始答题。"
@@ -437,6 +440,7 @@ export default function ClinicalTakeClient({
 
         setQuestions(ordered);
         setQuestionsMeta(normalizedMeta);
+        setConsentChecked(false);
         if (scaleCode === "SDS_20") {
           const format = Array.isArray(response.options?.format) ? response.options.format : [];
           setSdsOptions(normalizeSdsOptions(format));
@@ -490,7 +494,7 @@ export default function ClinicalTakeClient({
   }, [attemptId, needsConsent, setAttemptId]);
 
   const handleAcceptConsentAndStart = useCallback(() => {
-    if (loadingQuestions || totalQuestions === 0 || !needsConsent) {
+    if (loadingQuestions || totalQuestions === 0 || !needsConsent || !consentContentReady || !consentChecked) {
       return;
     }
 
@@ -500,7 +504,7 @@ export default function ClinicalTakeClient({
     });
     setConsentChecked(false);
     setStartError(null);
-  }, [acceptConsent, loadingQuestions, needsConsent, serverConsentVersion, testKpiMetadata.apiLocale, totalQuestions]);
+  }, [acceptConsent, consentChecked, consentContentReady, loadingQuestions, needsConsent, serverConsentVersion, testKpiMetadata.apiLocale, totalQuestions]);
 
   useEffect(() => {
     if (answeredCount === 0) {
@@ -983,6 +987,7 @@ export default function ClinicalTakeClient({
         checked={consentChecked}
         starting={starting}
         error={startError}
+        unavailable={!consentContentReady}
         onCheckedChange={setConsentChecked}
         onStart={handleAcceptConsentAndStart}
       />

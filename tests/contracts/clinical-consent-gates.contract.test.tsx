@@ -1,8 +1,10 @@
 import { execFileSync } from "node:child_process";
 import type { ReactNode } from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import ClinicalTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient";
+import structuredConsent from "../fixtures/clinical/consent-structured.json";
+import { clinicalConsentText } from "@/lib/clinical/consent";
 import { useClinicalAttemptStore } from "@/lib/clinical/attemptStore";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
@@ -216,6 +218,7 @@ describe("clinical take consent gate", () => {
   });
 
   afterEach(() => {
+    cleanup();
     useClinicalAttemptStore.getState().resetAll();
     window.localStorage.clear();
     window.sessionStorage.clear();
@@ -389,6 +392,50 @@ describe("clinical take consent gate", () => {
       expect(hoisted.routerPush).toHaveBeenCalledWith("/en/attempts/attempt-clinical-start-001/report");
     });
   });
+
+  for (const locale of ["en", "zh"] as const) {
+    it(`shows every backend structured consent statement before accepting ${locale}`, async () => {
+      hoisted.pathname = `/${locale}/tests/clinical-depression-anxiety-assessment-professional-edition/take`;
+      const doc = structuredConsent[locale], response = buildClinicalQuestionsResponse();
+      hoisted.fetchClinicalQuestions.mockResolvedValue({ ...response, scale_code: "CLINICAL_COMBO_68", meta: { consent: doc } });
+      render(<ClinicalTakeClient slug="clinical-depression-anxiety-assessment-professional-edition" scaleCode="CLINICAL_COMBO_68" />);
+      const text = await screen.findByText(doc.checkboxes[0], { exact: false });
+      expect(text).toHaveTextContent(doc.title);
+      for (const line of doc.checkboxes) expect(text).toHaveTextContent(line);
+      const button = screen.getByRole("button", { name: locale === "zh" ? "同意并开始" : "Agree and start" });
+      expect(button).toBeDisabled(); expect(hoisted.startClinicalAttempt).not.toHaveBeenCalled();
+      fireEvent.click(screen.getByRole("checkbox")); fireEvent.click(button);
+      await waitFor(() => expect(screen.getByText("Clinical question 1")).toBeInTheDocument());
+      expect(useClinicalAttemptStore.getState()).toMatchObject({ consentVersion: doc.version, consentLocale: locale === "zh" ? "zh-CN" : "en" });
+      expect(hoisted.startClinicalAttempt).not.toHaveBeenCalled();
+    });
+  }
+
+  it("preserves legacy text and does not silently omit malformed structured statements", () => {
+    expect(clinicalConsentText({ text: "  Legacy terms.\nSecond paragraph.  ", checkboxes: ["unused"] })).toBe("Legacy terms.\nSecond paragraph.");
+    for (const consent of [undefined, {}, { title: "Title only" }, { checkboxes: [] }, { checkboxes: ["Valid", null] }, { checkboxes: ["Valid", "  "] }, { checkboxes: "Not an array" }]) expect(clinicalConsentText(consent)).toBe("");
+    expect(clinicalConsentText({ checkboxes: ["<script>literal text</script>"] })).toBe("1. <script>literal text</script>");
+  });
+
+  for (const consent of [
+    { version: "required", title: "No statements" },
+    { version: "required", checkboxes: ["Valid", null] },
+    { version: "required", text: " " },
+    { checkboxes: ["Terms without a version"] },
+  ]) {
+    it(`withholds required clinical consent when its body or version is unavailable: ${JSON.stringify(consent)}`, async () => {
+      const response = buildClinicalQuestionsResponse();
+      hoisted.fetchClinicalQuestions.mockResolvedValue({ ...response, scale_code: "CLINICAL_COMBO_68", meta: { consent } });
+      render(<ClinicalTakeClient slug="clinical-depression-anxiety-assessment-professional-edition" scaleCode="CLINICAL_COMBO_68" />);
+      await screen.findByText(/Required consent content is unavailable/);
+      expect(screen.getByRole("checkbox")).toBeDisabled();
+      const button = screen.getByRole("button", { name: "Agree and start" }); expect(button).toBeDisabled();
+      fireEvent.click(button);
+      expect(useClinicalAttemptStore.getState().consentAcceptedAt).toBeNull();
+      expect(screen.queryByText("Clinical question 1")).not.toBeInTheDocument();
+      expect(hoisted.startClinicalAttempt).not.toHaveBeenCalled(); expect(hoisted.submitClinicalAttempt).not.toHaveBeenCalled();
+    });
+  }
 
   it("documents the PR-WEB-SEC-31 scope boundary", () => {
     const changed = currentChangedFiles();
