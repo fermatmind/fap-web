@@ -179,6 +179,8 @@ export function RiasecResultShell({
         data-testid="riasec-trusted-result-card"
         data-riasec-source-hash={viewModel.authority?.sourceHash}
         data-riasec-compiled-hash={viewModel.authority?.compiledHash}
+      data-riasec-display-copy-revision={viewModel.displayCopy?.revision}
+      data-riasec-display-copy-source={viewModel.displayCopy?.approvedSourceHash}
         className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
       >
         <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">

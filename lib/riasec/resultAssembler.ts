@@ -1,7 +1,9 @@
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import { applyRiasecReadingCopyRevision } from "./readingCopyRevision";
 import {
   legacyProjectionAuthorityFallback,
+  parseRiasecPrivateResultAuthority,
   parseRiasecReportContentEvidence,
   resolveRiasecPrivateResultAuthority,
   type RiasecPrivateResultAuthorityView,
@@ -341,6 +343,7 @@ export type RiasecLifecycleCopy = {
 };
 
 export type RiasecResultViewModel = {
+  displayCopy?: { revision: string; approvedSourceHash: string; approvedCompiledHash: string; appliedKeys: string[] };
   authority: RiasecPrivateResultAuthorityView | null;
   reportContent?: RiasecReportContentEvidenceView | null;
   topCode: string;
@@ -767,7 +770,7 @@ export function assembleRiasecResultViewModel(
   const authority = resolvedAuthority?.mode === "canonical" && normalizeText(projectionV2?.locale) !== pageLocale
     ? null : resolvedAuthority;
 
-  return {
+  const vm: RiasecResultViewModel = {
     authority,
     reportContent: parseRiasecReportContentEvidence(projectionV2?.report_content_v1),
     topCode,
@@ -822,6 +825,25 @@ export function assembleRiasecResultViewModel(
       role: Object.fromEntries(Object.entries(asRecord(enhanced.role) ?? {}).map(([key, value]) => [key, normalizeNumber(value)])),
     },
   };
+  const report = asRecord(asRecord(reportData)?.report);
+  const meta = asRecord(report?._meta);
+  const binding = asRecord(meta?.snapshot_binding_v1);
+  // Gatekeeper may add the explicit empty-hash legacy marker to older selected snapshots.
+  // Any malformed or canonical replica excludes this legacy compatibility path.
+  const legacyReplica = (value: unknown) => value == null
+    || parseRiasecPrivateResultAuthority(value)?.mode === "immutable_legacy_snapshot";
+  const legacyEnglish = pageLocale === "en"
+    && [projectionV2?.private_result_authority, reportData.riasec_private_result_authority,
+      meta?.riasec_private_result_authority,
+      asRecord(meta?.riasec_public_projection_v2)?.private_result_authority].every(legacyReplica)
+    && binding?.schema_version === "riasec.snapshot_binding.v1"
+    && binding.snapshot_bound === true
+    && binding.form_code === formCode
+    && binding.score_space_version === asRecord(projectionV2?.form)?.score_space_version
+    && binding.canonical_authority_identity == null;
+  return hasRiasecProjection(reportData) && vm.resultLocale === pageLocale
+    && (authority?.mode === "canonical" || legacyEnglish)
+    ? applyRiasecReadingCopyRevision(vm) : vm;
 }
 
 export function getRenderableRiasecDeepContentSlots(

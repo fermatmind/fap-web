@@ -288,6 +288,8 @@ export function RiasecReadingReport({
       data-testid="riasec-reading-report"
       data-riasec-source-hash={vm.authority?.sourceHash}
       data-riasec-compiled-hash={vm.authority?.compiledHash}
+      data-riasec-display-copy-revision={vm.displayCopy?.revision}
+      data-riasec-display-copy-source={vm.displayCopy?.approvedSourceHash}
     >
       <ReportHeader
         vm={vm}
@@ -672,6 +674,8 @@ function ReportHeader({
       data-testid="riasec-trusted-result-card"
       data-riasec-source-hash={vm.authority?.sourceHash}
       data-riasec-compiled-hash={vm.authority?.compiledHash}
+      data-riasec-display-copy-revision={vm.displayCopy?.revision}
+      data-riasec-display-copy-source={vm.displayCopy?.approvedSourceHash}
     >
       <div className={styles.titleRow}>
         <div>
