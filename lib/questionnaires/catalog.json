@@ -7200,5 +7200,31 @@
       "energy-attention-and-self-talk-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "eating-experiences-reflection",
+    "code": "FM_EATING_EXPERIENCES20_CATEGORIES",
+    "version": "fm_eating20_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Eating and Body Experiences Reflection",
+      "zh": "进食与身体经历回顾"
+    },
+    "description": {
+      "en": "An adult reflection on body thoughts, limiting eating, felt loss of choice, trying to undo eating and food concerns. Private category records, no clinical score.",
+      "zh": "成年人回顾身体想法、限制进食、失去选择感、试图抵消进食及食物顾虑。私密类别记录，不设临床分数。"
+    },
+    "minutes": 6,
+    "formCode": "fm_eating20_four_weeks_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "body-thoughts-reading",
+      "limiting-eating-reading",
+      "loss-of-control-reading",
+      "undoing-eating-reading",
+      "mental-space-reading"
+    ],
+    "collection": "explore"
   }
 ]

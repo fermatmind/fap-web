@@ -1,0 +1,1953 @@
+{
+  "slug": "eating-experiences-reflection",
+  "code": "FM_EATING_EXPERIENCES20_CATEGORIES",
+  "version": "fm_eating20_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "eating-experiences20",
+  "title": {
+    "en": "Eating and Body Experiences Reflection",
+    "zh": "进食与身体经历回顾"
+  },
+  "seoTitle": {
+    "en": "Eating and Body Experiences: 20 Original Statements, Five Full Guides",
+    "zh": "进食与身体经历回顾：20条原创陈述与五篇完整指南"
+  },
+  "description": {
+    "en": "An adult reflection on body thoughts, limiting eating, felt loss of choice, trying to undo eating and food concerns. Private category records, no clinical score.",
+    "zh": "成年人回顾身体想法、限制进食、失去选择感、试图抵消进食及食物顾虑。私密类别记录，不设临床分数。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Adults answer only about themselves over the past four weeks. Use existing recollections; no food task, body inspection, weight, amount, name or medical narrative is needed. Select a description category or keep uncertainty, no relevant experience and refusal separate. Twenty selections create five records without points or a health verdict. Stop at any time, or read all five guides without answering. Answers stay only in this page’s memory.",
+    "zh": "供成年人只为自己回顾过去四周。用已有回忆即可，不需要食物任务、身体检查、体重、摄入量、姓名或医疗叙述。选择描述类别，或分别保留无法判断、没有经历及不愿回答。20条形成五份不计分、不判健康的记录。可随时停止，也可不作答直接读五篇全文。回答仅留本页内存。"
+  },
+  "resultHeading": {
+    "en": "Your five separate description records",
+    "zh": "你的五份独立描述记录"
+  },
+  "introduction": {
+    "en": "Twenty original statements and five complete guides, free without an account. This is a personal reflection, not an eating-disorder screen, nutrition assessment or substitute for medical care.",
+    "zh": "20条原创陈述与五篇完整说明，无需账户，全部免费。这是个人回顾，不是进食障碍筛查、营养评估或医疗照护的替代。"
+  },
+  "source": {
+    "kind": "fermatmind_original_eating_experience_statements",
+    "formCode": "fm_eating20_four_weeks_v1",
+    "itemBankVersion": "original20_bilingual_five_themes_four_each_v1",
+    "scoringVersion": "six_description_categories_five_records_no_points_v1",
+    "resultContentVersion": "five_full_bilingual_eating_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "406c0e7aa5e5038a50135d81e3d471595de912256aa3189a05978ec896014ae3",
+    "resultContentSha256": "55ef6513577485ce6b734ad55cebb2334a3bb812fd20c6f450be119d6aeb1a5e"
+  },
+  "directions": [
+    {
+      "id": "body-thoughts",
+      "title": {
+        "en": "Thoughts about my body",
+        "zh": "关于身体的想法"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "limiting-eating",
+      "title": {
+        "en": "Limiting or tightly controlling eating",
+        "zh": "限制或严格控制进食"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "loss-of-control",
+      "title": {
+        "en": "Feeling unable to choose when eating",
+        "zh": "进食时感到难以自主选择"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "undoing-eating",
+      "title": {
+        "en": "Trying to undo eating",
+        "zh": "试图抵消进食"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "mental-space",
+      "title": {
+        "en": "Mental space taken up by food concerns",
+        "zh": "食物相关顾虑占据的注意"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "EAT_01",
+      "prompt": {
+        "en": "I judged my worth by how I thought my body looked.",
+        "zh": "我用自己觉得身体看起来怎样，来评价自己的价值。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_02",
+      "prompt": {
+        "en": "Thoughts about my body made it difficult to stay with another activity.",
+        "zh": "关于身体的想法，让我难以把注意留在另一项活动上。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_03",
+      "prompt": {
+        "en": "I felt distressed about my body without wanting to describe a particular feature.",
+        "zh": "我对自己的身体感到困扰，但不想描述某个具体部位。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_04",
+      "prompt": {
+        "en": "I compared my body with someone else’s in a way that troubled me.",
+        "zh": "我以让自己困扰的方式，拿自己的身体与别人比较。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-thoughts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_05",
+      "prompt": {
+        "en": "I skipped eating because I was worried about body shape or weight.",
+        "zh": "我因为担心体形或体重，跳过了进食。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_06",
+      "prompt": {
+        "en": "I limited eating even when I noticed hunger, because of a rule I felt I should follow.",
+        "zh": "我注意到饿了，却因觉得应该遵守某条规则而限制进食。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_07",
+      "prompt": {
+        "en": "I avoided an eating occasion because I could not control its food choices.",
+        "zh": "我因为无法控制食物选择，避开了一次进食场合。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_08",
+      "prompt": {
+        "en": "I found it difficult to change a food rule even when it got in the way of an ordinary plan.",
+        "zh": "一条饮食规则妨碍了普通安排时，我仍发现难以改变它。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "limiting-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_09",
+      "prompt": {
+        "en": "During eating, I felt unable to decide when to stop.",
+        "zh": "进食过程中，我感觉无法自主决定何时停下。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_10",
+      "prompt": {
+        "en": "I felt carried along by eating rather than choosing what I wanted to do.",
+        "zh": "我感觉被进食推着走，而不是自主选择接下来想怎样做。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_11",
+      "prompt": {
+        "en": "After eating, I felt upset about how little choice I had felt during it.",
+        "zh": "进食后，想到当时缺少自主选择的感觉，我感到难受。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_12",
+      "prompt": {
+        "en": "I wanted to hide an eating experience because I felt ashamed of it.",
+        "zh": "我因为对一次进食经历感到羞耻，而想隐瞒它。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "loss-of-control"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_13",
+      "prompt": {
+        "en": "After eating, I changed later eating in order to make up for it.",
+        "zh": "进食后，我为了弥补它而改变了之后的进食。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_14",
+      "prompt": {
+        "en": "I changed physical activity with the intention of undoing something I had eaten.",
+        "zh": "我为了抵消已经吃下的东西，改变了身体活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_15",
+      "prompt": {
+        "en": "I did something intended to counteract eating, even though it made me uncomfortable.",
+        "zh": "我为了抵消进食而做了某件事，即使它让我不舒服。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_16",
+      "prompt": {
+        "en": "I felt bound to a rule about making up for eating after an eating occasion.",
+        "zh": "一次进食后，我感觉自己必须遵从某条弥补进食的规则。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "undoing-eating"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_17",
+      "prompt": {
+        "en": "Thoughts about food interrupted something else I wanted to focus on.",
+        "zh": "关于食物的想法打断了另一件我想专注的事。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_18",
+      "prompt": {
+        "en": "Worry about a later eating occasion occupied my attention well before it happened.",
+        "zh": "离下一次进食场合还早时，相关担忧就占据了我的注意。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_19",
+      "prompt": {
+        "en": "I repeatedly returned to thinking about an earlier eating occasion when I wanted to move on.",
+        "zh": "我想继续做别的事，却反复回想到之前的一次进食。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "EAT_20",
+      "prompt": {
+        "en": "Food or body concerns made it harder to take part in an ordinary shared activity.",
+        "zh": "食物或身体相关顾虑，让我更难参加普通的共同活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "mental-space"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "body-thoughts-reading",
+      "directionIds": [
+        "body-thoughts"
+      ],
+      "title": {
+        "en": "Thoughts about my body: Complete Eating Experiences Guide",
+        "zh": "关于身体的想法：完整进食经历指南"
+      },
+      "headline": {
+        "en": "Read the specific descriptions without a health label.",
+        "zh": "阅读具体描述，不分配健康标签。"
+      },
+      "summary": {
+        "en": "A complete original guide to this part of eating and body-related experience, with category records, uncertainties and independent support.",
+        "zh": "完整阅读这一部分进食与身体相关原创观察，保留类别记录、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Thoughts about my body | Eating Experiences Reflection",
+          "zh": "关于身体的想法｜进食经历回顾"
+        },
+        "description": {
+          "en": "Read the original descriptions, separate categories and limits for thoughts about my body. No eating-disorder score or body assessment.",
+          "zh": "完整阅读关于身体的想法的原创描述、独立类别与边界，不算进食障碍分数、不评身体。"
+        }
+      },
+      "scoreReading": {
+        "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A body thought is not a body assessment",
+            "zh": "身体想法不是身体评定"
+          },
+          "paragraphs": [
+            {
+              "en": "This record concerns judging your worth through appearance, body thoughts interrupting an activity, body-related distress and troubling comparisons. It asks what you recall experiencing, not what your body looks like. The form uses no photograph, measurement or assessment by another person. A chosen category cannot establish whether your view is accurate, why a thought arose or what anyone else sees.",
+              "zh": "本记录关注通过外表评价自己的价值、身体想法打断活动、身体相关困扰，以及让自己难受的比较。它问记得的体验，不评身体长什么样，不使用照片、测量或他人评价。所选类别不能证明看法是否准确、想法为何出现或别人看见什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Specific thoughts can differ within one record",
+            "zh": "同一份记录里的想法可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "You might recognise comparison with someone else but not a statement about your worth. Someone else may feel distress while preferring not to describe any particular feature. Four category counts cannot preserve every circumstance, so the individual choices remain visible. No complete positive body opinion is required, and uncertainty is not a failure to understand yourself.",
+              "zh": "你可能认得比较经历，却不符合用外表评价价值；另一人可能感到困扰，却不想描述具体特点。四条的类别计数不能保留全部背景，所以逐条选择仍显示。无需对整个身体作正面评价，不确定也不是不懂自己的失败。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Separate these experiences from face and styling reflections",
+            "zh": "与面部和穿搭观察分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing face self-image and body-outline activities ask different questions about familiar views, care, photographs and visual lines. They do not supply answers about eating, restriction or attempts to undo eating. A person may enjoy a styling choice while experiencing food-related distress. Neither activity is a reverse score or a way to confirm or cancel this record.",
+              "zh": "现有面部自我形象及身体轮廓活动询问熟悉视角、打理、照片和视觉线条，不提供进食、限制或抵消进食的答案。一个人可以喜欢某个造型选择，同时有食物相关困扰。各活动不是反向分数，也不能确认或抵消本记录。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No need to inspect or compare again",
+            "zh": "无需再次检查或比较"
+          },
+          "paragraphs": [
+            {
+              "en": "Nothing here asks you to find a mirror, inspect a feature, weigh yourself or compare with another body. Those activities are not evidence needed to finish. Use an existing recollection, choose an uncertainty category or stop. A public explanation is equally available when every answer is withheld.",
+              "zh": "这里不要求找镜子、检查特点、称重或与另一个身体比较。完成记录不需要这些证据。可用已有回忆、选择未知类别或停止。所有回答保留不答时，也同样能读公开说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You may name a concern without supplying a story",
+            "zh": "可以提及顾虑，不必提供故事"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to talk with a professional, you can mention that body-related thoughts are troubling without showing a score, describing your appearance or supplying private examples to this website. This reading does not decide the cause or the type of support. Reading alone or leaving the topic for now is also an available outcome.",
+              "zh": "若选择与专业人士谈谈，可以只说身体相关想法让自己难受，不必展示分数、描述外表或向网站提供私密例子。本说明不判定原因或支持类型。只阅读，或现在先离开话题，也都是可选结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+              "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+            },
+            {
+              "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+              "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limiting-eating-reading",
+      "directionIds": [
+        "limiting-eating"
+      ],
+      "title": {
+        "en": "Limiting or tightly controlling eating: Complete Eating Experiences Guide",
+        "zh": "限制或严格控制进食：完整进食经历指南"
+      },
+      "headline": {
+        "en": "Read the specific descriptions without a health label.",
+        "zh": "阅读具体描述，不分配健康标签。"
+      },
+      "summary": {
+        "en": "A complete original guide to this part of eating and body-related experience, with category records, uncertainties and independent support.",
+        "zh": "完整阅读这一部分进食与身体相关原创观察，保留类别记录、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Limiting or tightly controlling eating | Eating Experiences Reflection",
+          "zh": "限制或严格控制进食｜进食经历回顾"
+        },
+        "description": {
+          "en": "Read the original descriptions, separate categories and limits for limiting or tightly controlling eating. No eating-disorder score or body assessment.",
+          "zh": "完整阅读限制或严格控制进食的原创描述、独立类别与边界，不算进食障碍分数、不评身体。"
+        }
+      },
+      "scoreReading": {
+        "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "The described reason matters",
+            "zh": "题目描述的原因很重要"
+          },
+          "paragraphs": [
+            {
+              "en": "These four prompts concern skipping eating because of shape or weight worries, limiting eating despite hunger under a felt rule, avoiding a setting without control of food choices and difficulty changing a food rule. They are specific self-descriptions. They do not decide whether a dietary choice is medically appropriate, freely chosen, culturally meaningful or constrained by resources.",
+              "zh": "四条涉及因体形体重担忧跳过进食、在某条规则下虽饿却限制进食、因无法控制选择而避开场合，以及难以改变饮食规则。它们是具体自述，不判断某种饮食选择是否医学上合适、自主、具有文化含义或受资源限制。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Different reasons should not be collapsed",
+            "zh": "不同原因不能压成一种解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Food availability, allergies, medical advice, religious practice and a worry-driven rule are not interchangeable reasons. The form does not collect enough context to sort them. Answer only if the sentence as written describes your experience, rather than making any avoidance fit the theme. Cannot judge and no relevant experience stay separate from non-endorsement.",
+              "zh": "食物可获得性、过敏、医疗建议、宗教实践与担忧驱动的规则，不是可互换的原因。表单没有足够背景来区分。只有原句符合经历时再按它回答，不把任何避开食物都塞进主题。无法判断、没有相关经历与不符合分别保留。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No target for how much or what to eat",
+            "zh": "不设吃多少或吃什么的目标"
+          },
+          "paragraphs": [
+            {
+              "en": "No category or count supplies a portion, nutrient target, food rule or permission to skip a meal. The exercise does not test how long you can wait or how much control you have. It does not evaluate a care plan you already have. Decisions about actual health needs belong in an appropriate individual setting, not in a comparison between records.",
+              "zh": "类别与计数不提供份量、营养目标、饮食规则或跳过一餐的许可。练习不测试能等多久或控制有多强，也不评价已有照护方案。实际健康需要应在适当的个别场合讨论，不靠记录间比较决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "One theme cannot cancel another",
+            "zh": "主题之间不能相互抵消"
+          },
+          "paragraphs": [
+            {
+              "en": "Describing a restrictive practice does not establish what happened during another eating occasion. A feeling of loss of control and a food rule may coexist without one explaining the other. The record does not combine them into a mixed diagnosis or a stage of illness. Missing information in one part is not filled from another.",
+              "zh": "描述限制性做法，不确定另一次进食发生了什么。失控感与食物规则可以并存，不互相解释；记录不合成混合诊断或疾病阶段。一部分缺失的信息不从另一部分补齐。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Reflection does not require a new food task",
+            "zh": "反思不需要新的食物任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to alter a meal, challenge a rule, prove flexibility or keep a food log to finish. You may simply notice which wording was difficult to answer and keep it private. If there is a real concern, support can be sought without demonstrating the pattern again or waiting until all four statements fit.",
+              "zh": "完成不需要改变一餐、挑战规则、证明灵活或记录食物。可以只留意哪种措辞难回答，并保密。有实际顾虑时，不必再次证明模式，也无需等四句都符合才求助。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+              "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+            },
+            {
+              "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+              "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loss-of-control-reading",
+      "directionIds": [
+        "loss-of-control"
+      ],
+      "title": {
+        "en": "Feeling unable to choose when eating: Complete Eating Experiences Guide",
+        "zh": "进食时感到难以自主选择：完整进食经历指南"
+      },
+      "headline": {
+        "en": "Read the specific descriptions without a health label.",
+        "zh": "阅读具体描述，不分配健康标签。"
+      },
+      "summary": {
+        "en": "A complete original guide to this part of eating and body-related experience, with category records, uncertainties and independent support.",
+        "zh": "完整阅读这一部分进食与身体相关原创观察，保留类别记录、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feeling unable to choose when eating | Eating Experiences Reflection",
+          "zh": "进食时感到难以自主选择｜进食经历回顾"
+        },
+        "description": {
+          "en": "Read the original descriptions, separate categories and limits for feeling unable to choose when eating. No eating-disorder score or body assessment.",
+          "zh": "完整阅读进食时感到难以自主选择的原创描述、独立类别与边界，不算进食障碍分数、不评身体。"
+        }
+      },
+      "scoreReading": {
+        "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "The record concerns a felt loss of choice",
+            "zh": "这里记录感到缺少选择"
+          },
+          "paragraphs": [
+            {
+              "en": "These prompts concern feeling unable to decide when to stop, feeling carried along rather than choosing, later distress about the lack of choice and shame about an eating experience. They do not establish an objectively large amount, an episode frequency or a clinical binge-eating event. No amount, weight, timing detail or private narrative is requested.",
+              "zh": "题目关注感觉无法自主决定何时停止、被进食推着走、事后为缺少选择而难受，以及对经历感到羞耻。不确定客观大量、事件频率或临床暴食事件，也不要求摄入量、体重、时间细节或私密叙述。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "An ordinary meal is not classified by this form",
+            "zh": "本表不为一餐分类"
+          },
+          "paragraphs": [
+            {
+              "en": "Feeling full, enjoying food or eating more than on another day does not automatically fit a loss-of-choice statement. Equally, distress can be meaningful even when someone cannot describe how much was eaten. The form does not adjudicate either experience. It retains the selected words without sorting people into normal and disordered eating categories.",
+              "zh": "感到饱、享受食物或比另一天吃得多，不自动符合失去选择的陈述；无法描述吃了多少时，难受也仍可以是真实体验。表单不裁判两种情况，只保留选择的文字，不把人划成正常或异常进食类别。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Shame is not a verdict about character",
+            "zh": "羞耻感不是品格裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "Endorsing a sentence about shame records a feeling, not proof that you did something wrong. Preferring not to answer is not evidence of concealment or dishonesty. No record rates self-discipline or responsibility. The exercise cannot tell what others would think, and it never asks you to disclose an eating event as a test of openness.",
+              "zh": "符合关于羞耻的句子，记录的是感受，不证明做错了事。不愿回答不是隐瞒或不诚实的证据。记录不评自律或责任，不知道别人会怎样想，也不要求披露一次进食来证明坦诚。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No sequence of behaviours is inferred",
+            "zh": "不推断行为的先后链条"
+          },
+          "paragraphs": [
+            {
+              "en": "A selection here does not establish that a restrictive rule preceded an experience or that an attempt to undo eating followed it. The five records are organised topics, not a causal model. No total or highest theme decides what started a difficulty or what action would resolve it. You may leave every uncertain part unknown.",
+              "zh": "本组选择不确定之前有过限制规则，也不确定之后曾试图抵消进食。五份记录是话题编排，不是因果模型。没有总分或最高主题来判断困难从何开始、何种行动会解决。每一处未知都可以继续保留。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No need to reproduce or document an occasion",
+            "zh": "无需重现或记录一次场合"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading offers no exercise involving food, a test of stopping or a request to document an eating occasion. If useful, you can choose a general phrase for a private conversation, such as having felt less able to choose. You can also end here. Support does not require sharing this form or proving an event meets a definition.",
+              "zh": "本说明不安排食物练习、停止进食测试或记录进食事件。愿意时可为私下谈话选一个概括说法，例如曾感觉难以自主选择；也可以在这里结束。求助无需分享表单或证明事件符合某个定义。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+              "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+            },
+            {
+              "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+              "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "undoing-eating-reading",
+      "directionIds": [
+        "undoing-eating"
+      ],
+      "title": {
+        "en": "Trying to undo eating: Complete Eating Experiences Guide",
+        "zh": "试图抵消进食：完整进食经历指南"
+      },
+      "headline": {
+        "en": "Read the specific descriptions without a health label.",
+        "zh": "阅读具体描述，不分配健康标签。"
+      },
+      "summary": {
+        "en": "A complete original guide to this part of eating and body-related experience, with category records, uncertainties and independent support.",
+        "zh": "完整阅读这一部分进食与身体相关原创观察，保留类别记录、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Trying to undo eating | Eating Experiences Reflection",
+          "zh": "试图抵消进食｜进食经历回顾"
+        },
+        "description": {
+          "en": "Read the original descriptions, separate categories and limits for trying to undo eating. No eating-disorder score or body assessment.",
+          "zh": "完整阅读试图抵消进食的原创描述、独立类别与边界，不算进食障碍分数、不评身体。"
+        }
+      },
+      "scoreReading": {
+        "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Purpose and an action remain distinct",
+            "zh": "意图与行动分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements concern changing later eating, changing activity, doing something uncomfortable to counteract eating and feeling bound by a rule to make up for it. They retain broad descriptions of intention and action without naming or instructing a technique. The form does not determine medical effects or whether a behaviour meets a clinical definition of compensation.",
+              "zh": "四句关注改变之后进食、改变活动、为抵消进食做了令自己不舒服的事，以及感觉必须遵循弥补规则。它们保留宽泛意图和行动，不命名或指导技巧，也不确定医疗后果或是否符合临床代偿定义。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "The reason in the sentence is not assumed from an activity",
+            "zh": "不从活动本身推断原因"
+          },
+          "paragraphs": [
+            {
+              "en": "An activity, rest period or change of schedule is not automatically an attempt to undo eating. The described intention matters, and this page cannot infer it from an outside observation. Even when the wording fits, the record supplies no account of what happened or how often. You may decline to describe it without being assigned a conclusion.",
+              "zh": "某次活动、休息或安排改变，不自动属于试图抵消进食。句中意图很重要，页面不能从外部观察推断。即使措辞符合，也不说明具体发生了什么或发生次数。可以拒绝描述，不会被据此分配结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No behaviour is prescribed or compared",
+            "zh": "不指派或比较行为"
+          },
+          "paragraphs": [
+            {
+              "en": "The record does not recommend a way to compensate, choose between methods, set targets or explain how a behaviour works. It gives no instruction to continue, intensify or test an action. No result turns eating into something that must be earned or undone. Real concerns about an action or its physical effects need appropriate individual support.",
+              "zh": "记录不推荐代偿方式，不比较方法、设目标或说明行为如何运作；不指派继续、加强或试验某种行动。任何结果都不把进食变成必须挣得或抵消的东西。对行动或身体后果的实际顾虑，需要适当的个别支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Counts do not measure medical seriousness",
+            "zh": "计数不测医学严重性"
+          },
+          "paragraphs": [
+            {
+              "en": "One fitting statement may concern something important, while several partly fitting statements may involve different uncertainties. Their counts cannot order those experiences or decide which one needs attention first. Unknown or withheld answers are not a clearance. You can raise a concern without meeting a count or describing every other theme.",
+              "zh": "一条符合可能涉及重要情况，几条部分符合也可能包含不同未知。计数不能给经历排序或决定先关注哪一种。未知或不愿回答不是没事的结论，提及顾虑无需达到条数，也不必描述其余全部主题。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You can stop without an explanation",
+            "zh": "可以停止，不必解释"
+          },
+          "paragraphs": [
+            {
+              "en": "If this topic feels uncomfortable, choose prefer not to answer or end the exercise. There is no requirement to look up a behaviour, recall more detail, try a substitute or disclose what happened. A professional conversation can start with a general concern about wanting to undo eating; this website does not collect that conversation or decide its outcome.",
+              "zh": "话题令人不舒服时，可以保留不答类别或结束，无需查某种行为、回忆更多细节、尝试替代做法或披露发生了什么。专业谈话可以从对抵消进食的概括顾虑开始；网站不收集谈话，也不决定结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+              "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+            },
+            {
+              "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+              "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mental-space-reading",
+      "directionIds": [
+        "mental-space"
+      ],
+      "title": {
+        "en": "Mental space taken up by food concerns: Complete Eating Experiences Guide",
+        "zh": "食物相关顾虑占据的注意：完整进食经历指南"
+      },
+      "headline": {
+        "en": "Read the specific descriptions without a health label.",
+        "zh": "阅读具体描述，不分配健康标签。"
+      },
+      "summary": {
+        "en": "A complete original guide to this part of eating and body-related experience, with category records, uncertainties and independent support.",
+        "zh": "完整阅读这一部分进食与身体相关原创观察，保留类别记录、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mental space taken up by food concerns | Eating Experiences Reflection",
+          "zh": "食物相关顾虑占据的注意｜进食经历回顾"
+        },
+        "description": {
+          "en": "Read the original descriptions, separate categories and limits for mental space taken up by food concerns. No eating-disorder score or body assessment.",
+          "zh": "完整阅读食物相关顾虑占据的注意的原创描述、独立类别与边界，不算进食障碍分数、不评身体。"
+        }
+      },
+      "scoreReading": {
+        "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Attention and daily life are the subject",
+            "zh": "这里关注注意与日常生活"
+          },
+          "paragraphs": [
+            {
+              "en": "These four prompts describe food thoughts interrupting another activity, worry before an eating occasion, returning to an earlier occasion and difficulty joining a shared activity because of food or body concerns. They record your own account of occupied attention. They do not measure the time taken, identify a disorder or tell why a thought returned.",
+              "zh": "四句描述食物想法打断其他活动、进食场合之前担忧、反复想到之前的场合，以及因食物或身体顾虑难以参与共同活动。它们记录自己描述的注意被占据，不测时长、不识别疾病，也不解释想法为何回来。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Planning and preoccupation are not interchangeable",
+            "zh": "安排与困扰不是可互换的词"
+          },
+          "paragraphs": [
+            {
+              "en": "Thinking about shopping, a cultural occasion, an allergy or a practical meal arrangement can have many meanings. Such planning does not automatically fit a sentence about unwanted interruption or worry. Answer the wording rather than a general opinion about food. The form cannot decide whether a responsibility, preference or concern explains the experience.",
+              "zh": "考虑购物、文化场合、过敏或实际用餐安排，可能有很多含义；这类安排不自动符合被打断或担忧的句子。请回答题意，不是对食物的一般看法。表单不能裁定责任、偏好或顾虑是否解释了体验。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A difficult moment is not a fixed identity",
+            "zh": "困难时刻不是固定身份"
+          },
+          "paragraphs": [
+            {
+              "en": "A fitting statement describes a recollection over four weeks, not a permanent identity or a forecast of future eating. A partly fitting answer can preserve an exception, and a non-fitting answer cannot guarantee that another concern is absent. No comparison with other people or a normal range is supplied. Different selections remain different descriptions.",
+              "zh": "符合某句，只描述四周内的回忆，不是永久身份或未来进食预测。部分符合可以保留例外，不符合也不能保证不存在另一种顾虑。这里不提供人群比较或正常区间，不同选择仍是不同描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No diary or monitoring is required",
+            "zh": "不要求日记或监测"
+          },
+          "paragraphs": [
+            {
+              "en": "The exercise does not ask you to count thoughts, inspect meals, track weight or monitor an eating event. You can use a broad existing recollection or select cannot judge. Repeating the form more often is not a treatment task and does not demonstrate progress. Public readings stay free whether you complete all choices or none.",
+              "zh": "练习不要求数想法、检查每餐、追踪体重或监测一次进食。可用宽泛的已有回忆，或选择无法判断。更频繁重做不是治疗任务，也不证明进展。无论选完全部还是一条不答，公开说明都免费。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Choose how much of the topic to carry forward",
+            "zh": "自行选择要继续谈多少"
+          },
+          "paragraphs": [
+            {
+              "en": "You may finish after reading, keep a concern private or choose an appropriate professional conversation. You do not need to reconstruct every thought or provide the website with a narrative. Seeking support is not conditional on this record and does not require a particular body shape, diagnosis or pattern across the other four topics.",
+              "zh": "读完可以结束、保留顾虑，或选择适当的专业谈话。无需重建每个想法，也不必向网站提供叙述。求助不以本记录为条件，不要求特定体形、诊断或其他四个话题都出现某种模式。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+              "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+            },
+            {
+              "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+              "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "A transparent category record",
+        "zh": "透明的类别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Choose whether each original statement describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. The twenty choices form five records of four statements. Six category counts in each record add to four, with the original statements and selected labels retained. Labels have no points, and counts are neither symptoms nor severity or frequency. There is no total, mean, cutoff, health tier or eating-disorder result.",
+          "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历和不愿回答分别保留。20条选择形成五份各含四条陈述的记录，每份六类计数合计四条，并保留原句与所选标签。类别没有点数，计数不是症状数、严重度或发生频率，不算总分、均值、界线、健康等级或进食障碍结果。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+          "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an eating-disorder test or body assessment?",
+        "zh": "这是进食障碍测试或身体评定吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these twenty statements and five complete readings. They are not EAT-26, SCOFF, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. The record cannot assess nutrition, weight, medical stability or an eating disorder. A low count cannot establish health, and a fitting answer cannot establish a condition. The public health source supplies background, not an item bank or endorsement.",
+        "zh": "费马原创这20条陈述与五篇完整说明，不是EAT-26、SCOFF、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。记录不评估营养、体重、医学稳定性或进食障碍，计数少不证明健康，某条符合不确立疾病。公共健康来源仅作背景，不提供本题本或背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to record food or inspect my body?",
+        "zh": "需要记录食物或检查身体吗？"
+      },
+      "answer": {
+        "en": "No. Use a recollection, select an uncertainty category or read without answering. No food diary, weight, image, measurement or experiment is required. The form asks for no free-text private story.",
+        "zh": "不需要。使用回忆、选择未知类别或不作答阅读即可，不要求食物日记、体重、图片、测量或试验。表单不要求输入私密故事。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does support depend on my result?",
+        "zh": "求助要看结果吗？"
+      },
+      "answer": {
+        "en": "If eating or body concerns trouble you, you can seek support from a qualified health professional without finishing this form, a particular count or a particular appearance. This exercise prescribes no restriction, compensation, body checking, weighing, food diary or change to food or activity. It cannot decide urgency or explain physical symptoms. For immediate danger or severe current symptoms, seek local emergency medical help rather than continue the questionnaire.",
+        "zh": "进食或身体相关顾虑让你难受时，可以向合格医疗专业人士寻求支持，不必完成表单、达到计数或符合某种外表。本练习不指派限制进食、代偿、身体检查、称重、食物日记，或改变食物与活动。它不能判定紧急程度或解释身体症状。有即时危险或当前严重症状时，请寻求当地紧急医疗帮助，不要继续靠问卷处理。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Eating disorders — public background, not this inventory’s validation",
+        "zh": "NIMH：进食障碍公共背景，不为本题本作验证"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/eating-disorders"
+    }
+  ]
+}

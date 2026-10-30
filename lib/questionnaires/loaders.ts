@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "eating-experiences-reflection": async () => (await import("./data/eating-experiences-reflection.json")).default as Questionnaire,
   "child-focus-activity-observations": async () => (await import("./data/child-focus-activity-observations.json")).default as Questionnaire,
   "drinking-experiences-reflection": async () => (await import("./data/drinking-experiences-reflection.json")).default as Questionnaire,
   "care-feelings-reflection": async () => (await import("./data/care-feelings-reflection.json")).default as Questionnaire,

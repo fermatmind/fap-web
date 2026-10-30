@@ -1,3 +1,5 @@
+import { isEatingExperiences20ConfigurationValid } from "@/lib/questionnaires/eatingExperiences20";
+import { EatingExperiencesPage } from "./EatingExperiencesPage";
 import { isCaregiverContext20ConfigurationValid } from "@/lib/questionnaires/caregiverContext20";
 import { CaregiverContextPage } from "./CaregiverContextPage";
 import { isCareFeelings20ConfigurationValid } from "@/lib/questionnaires/careFeelings20";
@@ -185,6 +187,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "weton-story35" && !isWetonStory35ConfigurationValid(quiz)) return { title: "Weton story unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) return { title: "BPI-21 unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "eating-experiences20" && !isEatingExperiences20ConfigurationValid(quiz)) return { title: "Eating reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "drinking-experiences20" && !isDrinkingExperiences20ConfigurationValid(quiz)) return { title: "Drinking reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
@@ -278,6 +281,10 @@ export default async function QuestionnairePage({ params }: Props) {
   }
   if (quiz?.kind === "weton-story35" && !isWetonStory35ConfigurationValid(quiz)) notFound();
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) notFound();
+  if (quiz?.kind === "eating-experiences20") {
+    if (!isEatingExperiences20ConfigurationValid(quiz)) notFound();
+    return <EatingExperiencesPage quiz={quiz} locale={locale} />;
+  }
   if (quiz?.kind === "drinking-experiences20") {
     if (!isDrinkingExperiences20ConfigurationValid(quiz)) notFound();
     return <DrinkingExperiencesPage quiz={quiz} locale={locale} />;
