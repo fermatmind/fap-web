@@ -127,7 +127,7 @@ describe("enneagram secondary surfaces contract", () => {
       "/en/result/attempt-enneagram-105"
     );
     expect(within(row).getByTestId("enneagram-history-row-pdf-attempt-enneagram-105")).toBeInTheDocument();
-    expect(within(row).getByRole("button", { name: "Download PDF · Enneagram · 105-question Likert" })).toBeEnabled();
+    expect(within(row).getByRole("button", { name: "PDF unavailable" })).toBeDisabled();
     expect(screen.getByTestId("enneagram-history-compare-guard")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-history-compare-copy")).toHaveTextContent(
       "same-form compare contract is ready"

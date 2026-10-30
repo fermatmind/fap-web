@@ -395,6 +395,8 @@ export default function EnneagramHistoryClient() {
                           accessProjection={accessView}
                           locale={locale}
                           filenamePrefix="enneagram-report"
+                          safetyDisabled
+                          safetyDisabledLabel={locale === "zh" ? "PDF 暂不可用" : "PDF unavailable"}
                           downloadLabel={row.formSummaryLabel}
                         />
                       </div>

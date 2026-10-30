@@ -130,7 +130,7 @@ function DistributionChart({
           ? "仅用于同一题型内的相对比较。"
           : "For relative comparison within this form only."}
         {viewModel.formCode === "enneagram_likert_105"
-          ? (locale === "zh" ? " 105题：Likert强度，0–100标准化展示，不是人群百分位。" : " 105 items: Likert intensity, displayed on a normalized 0–100 scale, not a population percentile.")
+          ? (locale === "zh" ? " 105题：Likert强度，原始强度线性映射至0–100展示，不是人群百分位。" : " 105 items: Likert intensity, displayed on a normalized 0–100 scale, not a population percentile.")
           : viewModel.formCode === "enneagram_forced_choice_144"
             ? (locale === "zh" ? " 144题：迫选选择率，0–100展示；不代表绝对强度，不与105题直接换算。" : " 144 items: forced-choice selection rate on a 0–100 display; not absolute intensity and not convertible to the 105-item score.")
             : (locale === "zh" ? " 本次题本单位未提供。" : " The unit for this form was not provided.")}
@@ -179,7 +179,7 @@ function Section({ section }: { section: EnneagramCanonicalSection }) {
         <div className={styles.reflection} role="note">
           <strong>
             {section.sectionId === "6.4"
-              ? "THEORY · NOT AN ASSIGNMENT"
+              ? "OBSERVATION · NOT AN ASSIGNMENT"
               : "REFLECTION"}
           </strong>
           <p>{section.reflectionQuestion}</p>
@@ -552,6 +552,8 @@ export function EnneagramResultShell({
       data-interpretation-scope={viewModel.interpretationScope}
       data-form-variant={viewModel.formVariant}
       data-enneagram-source-hash={viewModel.sourceHash ?? undefined}
+      data-reading-copy-revision={viewModel.displayCopy?.revision}
+      data-reading-source-hash={viewModel.displayCopy?.sourceHash}
     >
       <header className={styles.hero}>
         <div className={styles.heroInner}>

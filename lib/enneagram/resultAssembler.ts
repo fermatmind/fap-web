@@ -7,6 +7,7 @@ import type {
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
 import { normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { isEnneagramPrivateResultLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
+import { enneagramReadingCopyMetadata, resolveEnneagramReadingReport, type EnneagramReadingCopy } from "@/lib/enneagram/readingCopyProjection";
 import {
   resolveEnneagramPrivateResultAuthority,
   type EnneagramPrivateResultAuthorityView,
@@ -168,6 +169,7 @@ export type EnneagramReportV2 = {
 
 export type EnneagramResultViewModel = {
   authority: EnneagramPrivateResultAuthorityView | null;
+  displayCopy?: EnneagramReadingCopy;
   reportV2: EnneagramReportV2 | null;
   distribution: EnneagramDistributionRow[];
   candidates: EnneagramCandidate[];
@@ -548,9 +550,7 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     return null;
   }
 
-  const raw =
-    asRecord(reportData.enneagram_report_v2) ??
-    asRecord(asRecord(reportData.report?._meta)?.enneagram_report_v2);
+  const raw = resolveEnneagramReadingReport(reportData, locale);
 
   if (!raw) {
     return null;
@@ -721,6 +721,7 @@ export function assembleEnneagramResultViewModel({
 
   return {
     authority,
+    displayCopy: reportV2 ? enneagramReadingCopyMetadata(reportData, locale) : undefined,
     reportV2,
     distribution: reportV2?.distribution ?? [],
     candidates: reportV2?.candidates ?? [],

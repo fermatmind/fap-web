@@ -101,7 +101,7 @@ describe("Enneagram production seven-chapter shell", () => {
   it("renders all twenty formal sections and the nine non-assigning theory levels", () => {
     renderResult();
     expect(document.querySelectorAll("[data-section-id]")).toHaveLength(20);
-    expect(screen.getByText("THEORY · NOT AN ASSIGNMENT")).toBeInTheDocument();
+    expect(screen.getByText("OBSERVATION · NOT AN ASSIGNMENT")).toBeInTheDocument();
     expect(screen.getByText("Level 9")).toBeInTheDocument();
   });
 
