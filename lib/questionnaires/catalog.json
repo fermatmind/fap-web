@@ -6946,7 +6946,7 @@
     },
     "minutes": 4,
     "formCode": "fm_focus_context16_observations_v1",
-    "questionCount": 20,
+    "questionCount": 16,
     "resultSlugs": [
       "attention-in-activities-reading",
       "restlessness-in-activities-reading",
