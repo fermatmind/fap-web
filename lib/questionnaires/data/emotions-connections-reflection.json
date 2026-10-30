@@ -1,0 +1,2294 @@
+{
+  "slug": "emotions-connections-reflection",
+  "code": "FM_EMOTIONS_CONNECTIONS21_CATEGORIES",
+  "version": "fm_emotions21_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "emotions-connections21",
+  "title": {
+    "en": "Emotions, Self and Connections Reflection",
+    "zh": "情绪、自我与联结回顾"
+  },
+  "seoTitle": {
+    "en": "Emotions and Connections: 21 Original Statements, Seven Full Guides",
+    "zh": "情绪与联结回顾：21条原创陈述与七篇完整指南"
+  },
+  "description": {
+    "en": "An adult reflection on feelings around distance, changing views, self-understanding, ordinary choices, emotional shifts, emptiness and anger. Private descriptions without clinical scoring.",
+    "zh": "成年人回顾距离感受、看法变化、自我理解、普通选择、感受转换、空虚与生气。私密描述，不设临床分数。"
+  },
+  "minutes": 7,
+  "instructions": {
+    "en": "For adults answering only about themselves over the past four weeks. Use broad existing recollections; no names, private narratives, risky-act details or new actions are needed. Twenty-one selections form seven separate description records, without points or a diagnosis. Unknown, no experience and withheld remain distinct. Stop at any time or read every complete guide without answering. Answers remain only in page memory.",
+    "zh": "供成年人只为自己回顾过去四周，使用宽泛已有回忆，不需姓名、私密叙述、风险行为细节或新行动。21条选择形成七份独立描述记录，不计分、不诊断；未知、无经历及不愿回答分别保留。可随时停止，或不答阅读全部全文。回答只留页面内存。"
+  },
+  "resultHeading": {
+    "en": "Your seven separate description records",
+    "zh": "你的七份独立描述记录"
+  },
+  "introduction": {
+    "en": "Twenty-one original statements and seven complete public readings, free without an account. This is a personal reflection on selected experiences, not a personality-disorder screen or a judgment of another person.",
+    "zh": "21条原创陈述与七篇完整公开读法，无需账户，全部免费。用于选定经历的个人回顾，不是人格障碍筛查，也不评价别人。"
+  },
+  "source": {
+    "kind": "fermatmind_original_emotions_connections_statements",
+    "formCode": "fm_emotions21_four_weeks_v1",
+    "itemBankVersion": "original21_bilingual_seven_themes_three_each_v1",
+    "scoringVersion": "six_mixed_categories_seven_records_no_points_v1",
+    "resultContentVersion": "seven_full_bilingual_emotions_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "ceec27cfc0680332495dfb62770fd61b539435298fd801120cf277daf902d014",
+    "resultContentSha256": "9f315c2d75a3906f85ddb8f458d80571ecec9f3c34eb282623039887d3e57c1e"
+  },
+  "directions": [
+    {
+      "id": "separation-feelings",
+      "title": {
+        "en": "Feelings around distance",
+        "zh": "面对疏远时的感受"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "changing-views",
+      "title": {
+        "en": "Changing views within a connection",
+        "zh": "联结中的看法变化"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "self-understanding",
+      "title": {
+        "en": "How I understood myself",
+        "zh": "怎样理解自己"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "quick-decisions",
+      "title": {
+        "en": "Acting before considering",
+        "zh": "还没想清就行动"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "feeling-shifts",
+      "title": {
+        "en": "Changes in emotional intensity",
+        "zh": "感受强度的变化"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "emptiness-experiences",
+      "title": {
+        "en": "Experiences of emptiness",
+        "zh": "空虚感的体验"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "anger-experiences",
+      "title": {
+        "en": "Anger and space for a response",
+        "zh": "生气与回应空间"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "ECN_01",
+      "prompt": {
+        "en": "A gap in contact brought a strong fear that a person important to me might leave.",
+        "zh": "联系出现间隔时，我强烈担心一位重要的人会离开。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_02",
+      "prompt": {
+        "en": "A small change in someone’s availability felt much larger to me emotionally.",
+        "zh": "别人能否回应的一点变化，在我的感受中变得很强烈。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_03",
+      "prompt": {
+        "en": "I felt able to leave some uncertainty about a connection unresolved for a while.",
+        "zh": "关于一段联结的一点不确定，我能暂时让它保持未知。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "separation-feelings"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_04",
+      "prompt": {
+        "en": "My view of someone important changed sharply after an interaction.",
+        "zh": "一次互动后，我对一位重要的人的看法急剧改变。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_05",
+      "prompt": {
+        "en": "I found it difficult to hold both something I liked and something I disliked about the same person in mind.",
+        "zh": "对于同一个人，我难以同时保留喜欢与不喜欢的方面。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_06",
+      "prompt": {
+        "en": "A moment of disappointment made the whole connection feel different to me.",
+        "zh": "一个失望的时刻，让整段联结在我感觉中都变了样。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "changing-views"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_07",
+      "prompt": {
+        "en": "How I described myself shifted depending on whom I was with.",
+        "zh": "我描述自己的方式，会随与谁在一起而变化。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_08",
+      "prompt": {
+        "en": "I found it difficult to say what mattered to me apart from someone else’s expectations.",
+        "zh": "离开别人的期待，我难以说清自己看重什么。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_09",
+      "prompt": {
+        "en": "I felt clear about something that mattered to me, even when another person saw it differently.",
+        "zh": "一件自己看重的事，即使别人看法不同，我也感到清楚。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "self-understanding"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_10",
+      "prompt": {
+        "en": "In an ordinary situation, I acted quickly before considering what I wanted to happen next.",
+        "zh": "在普通情境中，我还没想清接下来希望怎样，就很快行动了。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_11",
+      "prompt": {
+        "en": "A strong feeling led me to change a small plan before thinking it through.",
+        "zh": "一种强烈感受，让我还没想清就改变了一项小计划。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_12",
+      "prompt": {
+        "en": "I wished I had left more time before making an ordinary choice.",
+        "zh": "作出一次普通选择后，我希望当时能多留一点时间。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "quick-decisions"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_13",
+      "prompt": {
+        "en": "My feelings became intense more quickly than I had expected.",
+        "zh": "我的感受变得强烈的速度，比自己预料的快。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_14",
+      "prompt": {
+        "en": "After an interaction, my emotional state changed sharply within a short time.",
+        "zh": "一次互动后，短时间内我的情绪状态明显改变。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_15",
+      "prompt": {
+        "en": "I found it difficult to describe how one feeling changed into another.",
+        "zh": "我难以描述一种感受怎样变成了另一种。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "feeling-shifts"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_16",
+      "prompt": {
+        "en": "I felt a sense of emptiness without being able to name what was missing.",
+        "zh": "我感到空虚，却说不清缺少了什么。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_17",
+      "prompt": {
+        "en": "Even while taking part in an ordinary activity, I felt emotionally empty.",
+        "zh": "即使正参与普通活动，我仍在情感上感到空荡。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_18",
+      "prompt": {
+        "en": "I was unsure whether a quiet moment felt restful, numb or empty to me.",
+        "zh": "在安静的时刻，我不确定自己感到的是休息、麻木还是空虚。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "emptiness-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_19",
+      "prompt": {
+        "en": "Anger felt stronger than I had expected in an ordinary disagreement.",
+        "zh": "普通分歧中，生气的强度超出了自己的预期。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_20",
+      "prompt": {
+        "en": "After becoming angry, I found it difficult to return attention to something else.",
+        "zh": "生气后，我发现难以把注意转回其他事情。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "ECN_21",
+      "prompt": {
+        "en": "While angry, I felt I still had a choice about whether and how to respond.",
+        "zh": "生气时，我仍感觉可以选择是否回应，以及怎样回应。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "anger-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "separation-feelings-reading",
+      "directionIds": [
+        "separation-feelings"
+      ],
+      "title": {
+        "en": "Feelings around distance: Complete Reflection Guide",
+        "zh": "面对疏远时的感受：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of feelings around distance, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读面对疏远时的感受，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings around distance | Emotions and Connections Reflection",
+          "zh": "面对疏远时的感受｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Distance and a feeling about distance",
+            "zh": "距离与对距离的感受"
+          },
+          "paragraphs": [
+            {
+              "en": "These three statements concern a fear during a gap in contact, an emotional response to a small change in availability and being able to leave uncertainty unresolved. They describe your side of an experience. They do not establish that someone intended to leave, that a connection was threatened or that a request for contact was owed. No name, message or account of an exchange is collected.",
+              "zh": "三句关注联系间隔中的担心、对回应机会小变化的情绪，以及暂留未知的空间。它们描述自己一侧的体验，不确定别人想离开、联结受威胁或谁有义务联系。不收集姓名、信息或交流经过。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Availability does not reveal an intention",
+            "zh": "能否回应不揭示意图"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar person may be unavailable for many reasons the website cannot know. A strong feeling can still be real without being evidence of their intention. Equally, feeling able to wait does not prove that a connection is secure. The record preserves the sentence you selected and leaves the circumstances open, rather than deciding whether your concern is reasonable or unreasonable.",
+              "zh": "熟悉的人无法回应，可能有网站不知道的很多原因。强烈感受仍可以真实，却不是其意图的证据；觉得能等，也不证明联结稳固。记录保留所选句子，背景继续未知，不裁定担心合理与否。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A response habit is a different question",
+            "zh": "回应习惯是另一个问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing Relationship Worry Habits activity asks about repeated reassurance, attention to possible rivals, extra giving and indirect checks over three months. Those are specific actions with their own frequency method. This record concerns feelings and uncertainty over four weeks. An action cannot be inferred from a feeling, and neither method can be converted into the other or added into a shared score.",
+              "zh": "现有关系担心习惯回顾询问三个月内再次求安心、留意比较、额外付出及间接试探，是有独立频率方法的具体行动。这里关注四周内感受和未知。不从感受推断行动，也不换算两套方法或合成分数。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Different sentences can fit together",
+            "zh": "不同句子可以同时符合"
+          },
+          "paragraphs": [
+            {
+              "en": "You may recall a strong feeling in one situation and room for uncertainty in another. Both descriptions can fit, and the latter does not cancel the former. A category count cannot show the order, intensity or length of these moments. Three prompts also cannot explain a relationship history, assign an attachment style or determine what someone should do to reassure you.",
+              "zh": "可能在一个场合感受强烈，在另一场合容许未知；两句可同时符合，后者不抵消前者。类别计数不展示先后、强度或时长。三句也不解释关系历史、不派依恋类型或决定别人该怎样让你安心。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No contact test is required",
+            "zh": "不需要联系测试"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an existing broad recollection or choose an uncertainty category. You do not need to delay a reply, ask for another promise, check another person’s activity or test whether they follow you. You may keep the question private and finish by reading. If you want a conversation about a troubling feeling, you can describe it without presenting this page as evidence about anyone.",
+              "zh": "可用宽泛已有回忆，或选择未知。不需延迟回复、索取新承诺、查看别人活动或试验对方是否追来。问题可以保密，读完即可结束。若想谈困扰，可以描述感受，不把页面当作关于任何人的证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changing-views-reading",
+      "directionIds": [
+        "changing-views"
+      ],
+      "title": {
+        "en": "Changing views within a connection: Complete Reflection Guide",
+        "zh": "联结中的看法变化：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of changing views within a connection, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读联结中的看法变化，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changing views within a connection | Emotions and Connections Reflection",
+          "zh": "联结中的看法变化｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A changed view is the subject",
+            "zh": "这里关注看法改变"
+          },
+          "paragraphs": [
+            {
+              "en": "These prompts concern a sharp change in your view after an interaction, difficulty keeping liked and disliked aspects in mind together and disappointment changing the feel of a whole connection. They record what you recall thinking or feeling, not the other person’s character. A fitting description cannot show that either your earlier or later view was accurate, unfair or permanent.",
+              "zh": "题目关注互动后看法急变、难同时保留喜欢与不喜欢之处，以及失望改变整段联结的感觉。它们记录自己的想法感受，不评别人品格。符合某句不证明前后哪种看法准确、不公或永久。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "One moment and a larger impression differ",
+            "zh": "一个时刻不同于整体印象"
+          },
+          "paragraphs": [
+            {
+              "en": "An ordinary disappointment can change how a recent exchange feels while leaving other experiences unchanged. Someone else may notice mixed impressions at once. These are possible contexts, not stages through which a person must progress. The form does not establish that a particular change was excessive or that the other person behaved well or badly. The actual interaction remains outside the record.",
+              "zh": "普通失望可能改变近期交流的感觉，同时其他经历仍未变；另一人也可能同时注意到混合印象。这些是可能场合，不是必须经历的阶段。表单不确立变化过度，也不裁判别人做得好坏，实际互动在记录之外。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Do not turn a mixed view into a person label",
+            "zh": "不把混合看法变成人身标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A category selection is not a label such as unstable, toxic or difficult. It does not identify a personality structure, a diagnosis or a partner’s motives. You can recognise a changing impression without deciding whether a connection should continue. The same public reading is available when every answer is withheld, and declining to answer supplies no hidden explanation for the website to discover.",
+              "zh": "类别选择不是不稳定、有毒或难相处等标签，不识别人格结构、诊断或伴侣动机。可以认出印象变化，不决定是否继续联结。全部不愿回答也能读相同全文；保留不答不提供网站应发现的隐藏解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Sequence is not a cause",
+            "zh": "先后不是原因"
+          },
+          "paragraphs": [
+            {
+              "en": "An interaction followed by a changed view does not show which detail caused the change. Expectations, recent circumstances and what is remembered may differ, but this exercise cannot separate their influence. Nor can it determine whether a view changed more quickly than it ought to. The three individual choices remain more specific than a combined claim about how you always see people.",
+              "zh": "互动之后看法改变，不说明哪项细节造成变化。期待、近期情况和回忆可能不同，本练习无法区分影响，也不知道看法是否变得过快。三条独立选择，比关于总是怎样看人的综合主张更具体。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Reading does not require reopening an exchange",
+            "zh": "阅读不要求重开交流"
+          },
+          "paragraphs": [
+            {
+              "en": "You may privately notice which part of a sentence felt familiar and which remained unclear. There is no task to revisit a disagreement, obtain another person’s judgment or ask them to prove a positive view. You can stop without resolving the impression. If you choose support, a conversation can focus on your experience while leaving names and another person’s details off this website.",
+              "zh": "可私下留意句中哪些熟悉、哪些未知，不要求重谈分歧、得到别人评判或请其证明正面看法。印象没解决也能停止。若选择支持，可以只谈自己的体验，不把姓名或他人细节留在网站。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-understanding-reading",
+      "directionIds": [
+        "self-understanding"
+      ],
+      "title": {
+        "en": "How I understood myself: Complete Reflection Guide",
+        "zh": "怎样理解自己：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of how i understood myself, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读怎样理解自己，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "How I understood myself | Emotions and Connections Reflection",
+          "zh": "怎样理解自己｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Descriptions of self in different settings",
+            "zh": "不同场合中的自我描述"
+          },
+          "paragraphs": [
+            {
+              "en": "This record concerns describing yourself differently with different people, difficulty naming what matters apart from expectations and clarity about something you value despite disagreement. It does not ask you to define an identity or list personal values. The three statements can fit different moments, and none proves that a person has a stable or unstable self, a stronger character or a condition.",
+              "zh": "本记录关注随相处对象改变自我描述、离开期待难说清看重什么，以及虽有分歧仍清楚自己的重视。无需定义身份或列价值。三句可符合不同场合，不证明自我稳定与否、品格更强或存在疾病。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Flexibility and uncertainty are not the same",
+            "zh": "灵活与未知不相同"
+          },
+          "paragraphs": [
+            {
+              "en": "Choosing different words in different settings can have many meanings. A form cannot tell whether it reflects privacy, a practical role, language, uncertainty or something else. Feeling clear in one moment also does not settle every larger question about yourself. This exercise preserves the description you choose without rewarding a single consistent account or treating a changed description as a failure.",
+              "zh": "不同场合换词可能有很多含义，表单不知道涉及隐私、实际角色、语言、未知或其他因素。一刻清楚也不解决全部自我问题。练习保留选择，不奖励唯一一致叙述，也不把改变描述当失败。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No identity is assigned",
+            "zh": "不分配身份"
+          },
+          "paragraphs": [
+            {
+              "en": "These questions do not determine gender, orientation, a personality type or what an adult ought to value. Other activities about self-image, interests and social attitudes ask their own narrower questions. Their answers cannot supply a missing response here, and this record cannot confirm their results. Shared words about self-understanding do not make the underlying methods or purposes identical.",
+              "zh": "题目不决定性别、取向、人格类型或成年人应看重什么。自我形象、兴趣和社会态度等其他活动各问更窄的问题，其答案不能补这里缺失的回应，本记录也不确认其他结果。都谈自我理解，不表示方法目的相同。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A clear moment does not cancel a difficult one",
+            "zh": "清楚时刻不抵消困难时刻"
+          },
+          "paragraphs": [
+            {
+              "en": "You might feel sure about one priority and uncertain about another, or use different descriptions with different people. Those choices remain separate, without a reverse item or coherence score. Counts do not establish how often a view changed or how much distress it caused. They also cannot decide which description is more authentic or explain why an expectation mattered to you.",
+              "zh": "可能对一个重点清楚，对另一个未知，也可能对不同人使用不同描述。选择分别保留，不设反向题或一致性分数。计数不确定改变频率或困扰，也不决定哪个描述更真实、期待为何重要。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You can leave a description unfinished",
+            "zh": "描述可以不完成"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no requirement to write a personal statement, adopt a label, challenge someone’s expectations or announce a preference. Use a broad recollection, select cannot judge or read without answering. If useful in a separate conversation, you may simply say that describing what matters has felt difficult. No answer or count is required before that concern deserves attention.",
+              "zh": "不要求写自述、采用标签、挑战别人期待或宣布偏好。可用宽泛回忆、选无法判断或不作答阅读。另行谈话时，愿意可只说描述重视之事感到困难；顾虑值得被关注，不以答案或计数为条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quick-decisions-reading",
+      "directionIds": [
+        "quick-decisions"
+      ],
+      "title": {
+        "en": "Acting before considering: Complete Reflection Guide",
+        "zh": "还没想清就行动：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of acting before considering, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读还没想清就行动，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Acting before considering | Emotions and Connections Reflection",
+          "zh": "还没想清就行动｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An ordinary quick choice, not a dangerousness measure",
+            "zh": "普通快速选择，不测危险性"
+          },
+          "paragraphs": [
+            {
+              "en": "These three statements concern acting before considering a desired next outcome, changing a small plan under a strong feeling and wishing for more time before an ordinary choice. They deliberately avoid details of risky acts. A fitting answer does not identify clinical impulsivity, a disorder or dangerousness. No financial, sexual, substance-related or other private incident needs to be described.",
+              "zh": "三句关注未想清后续就行动、强烈感受下改变小计划，以及希望普通选择前多留时间。刻意不收风险行为细节。符合不识别临床冲动、障碍或危险性，无需描述财务、性、物质使用或其他私密事件。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Speed alone does not settle quality",
+            "zh": "速度本身不决定质量"
+          },
+          "paragraphs": [
+            {
+              "en": "A quick ordinary choice can work well, while a carefully considered choice can still leave regret. This form does not evaluate the decision or its consequences. It asks whether the sentence describes what you remember. It cannot establish how much time was available, whether more time would have helped or whether an immediate response was required by the actual situation.",
+              "zh": "普通选择做得快可能结果顺利，深思选择也可能遗憾。表单不评决定或后果，只问句子是否描述回忆。不知道可用时间多少、多等是否有用，或实际环境是否要求立即回应。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Different from workplace pace or risk preferences",
+            "zh": "与工作节奏或风险偏好分开"
+          },
+          "paragraphs": [
+            {
+              "en": "A preference for pace, a willingness to try something uncertain and an action before consideration are different questions. Existing work-trait and interpersonal reflections have separate prompts and methods. Their means are not imported here, and no number from this record is converted into risk tolerance or readiness for a task. Ordinary choice descriptions do not constitute a safety assessment.",
+              "zh": "节奏偏好、愿尝试未知与未考虑就行动是不同问题。现有工作特质及人际回顾有独立题目方法，均值不导入，本记录数字也不转成风险承受或任务准备度。普通选择描述不构成安全评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The topics do not explain one another",
+            "zh": "各主题不互相解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A strong feeling and a quick choice may be recalled together without one being established as the cause. A change in a connection or an empty feeling is not inferred from an action here. All seven topics remain separate descriptions. No largest count identifies a dominant problem, and withholding an answer is not proof that an unreported consequential event occurred.",
+              "zh": "强烈感受与快速选择可以一同被回忆，却不确立因果。不从本组行动推断联结变化或空虚。七主题分别保留，不用最多条数识别主要问题；不愿回答也不证明未报告的重要事件存在。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No experiment with a decision is needed",
+            "zh": "无需用决定做试验"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not make, delay or repeat a decision in order to test this record. An existing recollection is enough, and uncertainty is a valid choice. You may leave a question private without constructing a detailed example. If a real decision has important consequences, consider those actual circumstances and suitable support rather than treating a category count as permission or a restriction.",
+              "zh": "不需为测试记录而作出、延迟或重复决定，已有回忆即可，未知是有效选择。可以保密，不构造细例。真实决定后果重要时，应考虑实际情况与适当支持，不把类别计数当许可或限制。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feeling-shifts-reading",
+      "directionIds": [
+        "feeling-shifts"
+      ],
+      "title": {
+        "en": "Changes in emotional intensity: Complete Reflection Guide",
+        "zh": "感受强度的变化：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of changes in emotional intensity, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读感受强度的变化，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changes in emotional intensity | Emotions and Connections Reflection",
+          "zh": "感受强度的变化｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A description of change, not a mood diagnosis",
+            "zh": "描述变化，不诊断心境"
+          },
+          "paragraphs": [
+            {
+              "en": "These prompts concern feelings becoming intense more quickly than expected, a sharp change after an interaction and difficulty describing a transition between feelings. They do not establish an episode, duration or clinical mood pattern. A sentence can fit one recalled moment without describing your emotional life as a whole. No emotion needs to be provoked or named in detail to finish.",
+              "zh": "题目关注感受比预期更快变强、互动后明显改变，以及难描述感受转换。不确定发作、时长或临床心境模式。某句可符合一刻，不代表全部情绪生活。无需诱发情绪或详细命名来完成。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Change and intensity are separate ideas",
+            "zh": "变化与强度是不同概念"
+          },
+          "paragraphs": [
+            {
+              "en": "A feeling may change quickly while remaining mild, or remain strong without changing quickly. The first sentence also compares an experience with your own expectation, which the website cannot calibrate. The record does not infer one property from another. It cannot tell how long a change lasted, what happened before it or whether it was unusual for someone in the same circumstances.",
+              "zh": "感受可变得快而仍轻微，也可很强却不快变；第一句还与自己的期待相比，网站无法校准。不从一种属性推另一种，也不知道持续多久、之前发生什么或同样处境中是否少见。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Different from recent low mood",
+            "zh": "与近期低落分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate recent-mood reflection concerns selected low mood, enjoyment, sleep, appetite, energy and self-talk experiences. It does not supply a record of rapid transitions. This activity adds a description of change without diagnosing either depression or bipolar disorder. The forms have different questions and neither can be used to explain, confirm or cancel a result from the other.",
+              "zh": "独立近期心情回顾关注低落、享受、睡眠、食欲、精力及自我对话，不提供快速转换记录。这里补充变化描述，不诊断抑郁或双相障碍。两者题目不同，不用一套解释、确认或抵消另一套结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Noticing a sequence is not proving a trigger",
+            "zh": "注意先后不证明触发原因"
+          },
+          "paragraphs": [
+            {
+              "en": "An interaction and a later feeling may both be remembered, but the form cannot identify the detail that mattered or separate an interaction from fatigue, expectation and other circumstances. Those are possible influences, not explanations assigned by this record. Similar category counts can therefore describe very different sequences. The actual selected sentences remain available so that the aggregate does not replace them.",
+              "zh": "互动与之后感受可同时记得，却不知道何种细节重要，也无法区分互动与疲倦、期待或其他环境。它们只是可能影响，不是本记录给出的解释。相似类别计数可描述很不同的过程，因此保留原句，不让汇总替代。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No tracking assignment follows",
+            "zh": "不安排监测任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to monitor every feeling, keep an emotion diary, recreate an exchange or test how quickly you can return to another state. Use broad memories or leave the answer uncertain. Reading can end here. If changes are troubling in everyday life, support can start with that concern rather than with a complete chart, a diagnosis or a count from this page.",
+              "zh": "无需监测每个感受、记情绪日记、重现交流或测试恢复速度。可用宽泛记忆或保留未知，读完即结束。若日常变化令人困扰，可从顾虑开始寻求支持，不以完整图表、诊断或页面计数为条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emptiness-experiences-reading",
+      "directionIds": [
+        "emptiness-experiences"
+      ],
+      "title": {
+        "en": "Experiences of emptiness: Complete Reflection Guide",
+        "zh": "空虚感的体验：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of experiences of emptiness, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读空虚感的体验，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Experiences of emptiness | Emotions and Connections Reflection",
+          "zh": "空虚感的体验｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Emptiness is recorded in your own description",
+            "zh": "空虚按自己的描述保留"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern emptiness without knowing what was missing, feeling empty during an ordinary activity and uncertainty between rest, numbness and emptiness. They do not define a universal experience of emptiness or establish why it occurred. A sentence may not fit your vocabulary; cannot judge and no relevant experience remain available without being treated as a normal result.",
+              "zh": "题目关注说不清缺少什么的空虚、活动中空荡，以及休息、麻木与空虚之间的未知。不定义普遍空虚体验或确立原因。句子可能不合自己的用词，无法判断与没有经历可保留，不当正常结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Quiet, boredom and emptiness need not be identical",
+            "zh": "安静、无聊和空虚不必相同"
+          },
+          "paragraphs": [
+            {
+              "en": "A quiet moment can feel restful, uncomfortable, uninteresting or difficult to describe. This exercise does not decide which word you ought to use. The third statement explicitly preserves uncertainty rather than resolving it into an empty feeling. Neither activity level nor how a moment looks to somebody else can provide the private description that is missing from a response.",
+              "zh": "安静时刻可以休息、不自在、无趣或难描述，练习不决定应该用哪个词。第三句明确保留未知，不把它解决成空虚。活动多少或别人看见怎样，都不能补回应中缺少的私人描述。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Participation does not prove or disprove a feeling",
+            "zh": "参与不证明或排除感受"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may take part in an ordinary task while feeling empty, and another person may be alone while feeling engaged. These examples separate outward activity from a private experience without diagnosing either person. The form cannot measure enjoyment, meaning, loneliness or dissociation from these three sentences. Other reflections on connection or mood ask their own questions and are not substitutes for your answer here.",
+              "zh": "有人参与普通任务却空虚，也有人独处却投入。例子只分开外在活动与私人体验，不诊断。三句不能测享受、意义、孤独或解离。其他联结或心情回顾各问自己的问题，不替代这里的回答。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "An unknown cause remains unknown",
+            "zh": "未知原因继续未知"
+          },
+          "paragraphs": [
+            {
+              "en": "The website cannot infer that an empty feeling resulted from a relationship, a past event, a lack of purpose or a condition. Nor does a fitting answer predict what happens next. Category counts keep a small set of selected descriptions together; they do not locate an underlying deficit or identify what would fill it. Every individual choice remains visible without a ranked interpretation.",
+              "zh": "网站不推断空虚来自关系、过去事件、缺乏目标或疾病，也不由符合预测之后。类别计数只是把少量所选描述放在一起，不定位内在缺陷或识别该怎样填补。逐条选择保留，不给排名解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No experience needs to be manufactured",
+            "zh": "不需制造某种体验"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no task to isolate yourself, seek stimulation, recreate a feeling or undertake a personal challenge. You can leave the question private and stop after reading. If the experience is distressing, you can describe that concern to an appropriate professional without identifying a cause or using the website’s words. A record is never required before your experience deserves to be heard.",
+              "zh": "不要求独处、寻刺激、重现感受或进行个人挑战。可以保密，读完停止。体验让人困扰时，可向适当专业人士提顾虑，无需识别原因或采用网站词语。体验值得被听见，不以记录为条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anger-experiences-reading",
+      "directionIds": [
+        "anger-experiences"
+      ],
+      "title": {
+        "en": "Anger and space for a response: Complete Reflection Guide",
+        "zh": "生气与回应空间：完整回顾指南"
+      },
+      "headline": {
+        "en": "Separate descriptions without a personal or clinical label.",
+        "zh": "独立描述，不贴人身或临床标签。"
+      },
+      "summary": {
+        "en": "A complete original reading of anger and space for a response, preserving context, uncertainty and individual choices.",
+        "zh": "完整阅读生气与回应空间，保留背景、未知与逐条选择。"
+      },
+      "scoreReading": {
+        "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+        "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+      },
+      "seo": {
+        "title": {
+          "en": "Anger and space for a response | Emotions and Connections Reflection",
+          "zh": "生气与回应空间｜情绪与联结回顾"
+        },
+        "description": {
+          "en": "Read the complete original guide without answering. No diagnosis, total or personal type.",
+          "zh": "不答题也能读完整原创指南，不诊断、不合总分或派型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Anger, attention and an available choice",
+            "zh": "生气、注意与可用选择"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements concern anger stronger than expected, difficulty returning attention afterwards and feeling a choice about a response while angry. They preserve three different descriptions. A fitting sentence cannot show that an act was harmful, that a person lost control or that a relationship was unsafe. No account of an incident, another person’s identity or a specific act is collected.",
+              "zh": "三句关注怒意超出预期、之后难转移注意，以及生气时仍感觉有回应选择，分别保留。不由符合证明行动有害、失控或关系不安全，不收事件叙述、他人身份或具体行为。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "A feeling is different from an action",
+            "zh": "感受不同于行动"
+          },
+          "paragraphs": [
+            {
+              "en": "An intense feeling can be present alongside deliberate words, and a calm outward appearance does not reveal everything somebody feels. This record cannot reconstruct behaviour from an emotion label. Attention remaining on an exchange also does not show a future outburst or its cause. Real behaviour and its consequences need consideration on their own rather than being averaged away with ordinary experiences.",
+              "zh": "强烈感受可与审慎措辞并存，平静外表不揭示全部感受。记录不从情绪标签重建行为，注意仍留在交流上也不证明将爆发或解释原因。真实行为后果需单独考虑，不与普通经历平均抹掉。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Use the existing complete anger reading for its own question",
+            "zh": "既有完整愤怒读法有独立用途"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing Anger Response Reflection provides twenty prompts and four full guides on occurrence, visible expression, privacy and perceived choice. Its zero-to-four frequency arithmetic requires five numeric answers per topic and preserves explicit unscored responses. That broader activity is available separately. This three-sentence record is not its short form, does not replace it and cannot be converted into its sums or means.",
+              "zh": "既有愤怒反应回顾有20题与四篇全文，讨论出现、外显、保留及选择感；零至四频率计算每组需五个数字并保留不计分。它可另行阅读。这里三句不是其短版，不替代或换算其合计均值。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Choice does not cancel intensity",
+            "zh": "有选择不抵消强烈感受"
+          },
+          "paragraphs": [
+            {
+              "en": "You can recognise both strong anger and a sense that more than one response was possible. The latter is not reverse-scored, deducted or treated as a certificate of safety. It also does not prove that any particular option was used. Each sentence remains a description of the past four weeks, with no target combination, personal type or ranking across the seven topics.",
+              "zh": "可同时认得强烈怒意与不止一种回应的选择感。后者不反向、扣除或当安全证明，也不证明用了哪种选项。各句只描述四周，不设目标组合、人身类型或七主题排名。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No confrontation or anger exercise is required",
+            "zh": "无需对峙或愤怒练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not provoke anger, reopen a disagreement or contact someone to validate a response. An ordinary recollection or an uncertainty choice is enough. You may use the public guide without answering at all. If anger or what happened remains difficult, seek support based on that actual concern; neither a low count nor a large perceived-choice count can dismiss it or decide what you should do next.",
+              "zh": "无需诱发生气、重开分歧或联系别人验证回答。普通回忆或未知即可，也可不答读全文。怒意或实际事情仍难应对时，可按顾虑寻求支持；条数少或选择感多都不能否定它，也不决定下一步。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+              "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and independent support",
+            "zh": "原创边界与独立支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+              "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+            },
+            {
+              "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+              "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "A description record, not a clinical score",
+        "zh": "描述记录，不是临床分数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each original sentence receives one description of your past four weeks: does not describe, partly describes or describes. Cannot judge, no relevant experience and prefer not to answer are separate choices. Twenty-one choices make seven records of three statements, with six category counts adding to three in each. The individual sentences and selected words remain visible. Comfortable, difficult and uncertain descriptions are not reverse-scored or combined. There are no points, total, average, cutoff, dominant pattern or clinical result.",
+          "zh": "每句原创陈述选择过去四周的不符合、部分符合或符合；无法判断、没有经历及不愿回答分别保留。21条形成七份各三条的记录，每份六类计数合计三条，并保留逐条原句与所选文字。自在、困难和未知不作反向计分或合并。不设点数、总分、均值、界线、主要模式或临床结果。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+          "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this identify borderline personality disorder?",
+        "zh": "它识别边缘型人格障碍吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these twenty-one statements and seven readings as a reflection on selected experiences. They are not a borderline-personality-disorder screen, diagnostic criteria, a validated scale or a way to rate another person. Reliability, validity, norms and language equivalence have not been established. Four weeks is a recall aid, not a clinical duration criterion. Seven topics are an editorial organisation, not seven clinical subscales or a checklist that determines a condition. Public health material provides background without validating this inventory.",
+        "zh": "费马原创这21条陈述和七篇读法，用于选定经历的回顾，不是边缘型人格障碍筛查、诊断标准、验证量表或评价别人的工具。尚未建立信效度、常模或跨语言等价。四周只是回忆提示，不是临床时长标准。七个话题是编辑编排，不是七个临床分量表或用来确定疾病的清单。公共健康资料提供背景，不验证本题组。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I rate someone else or judge a relationship?",
+        "zh": "可以评价别人或判断关系吗？"
+      },
+      "answer": {
+        "en": "No. Answer only about your own selected experiences. No record establishes another person’s motives, worth, a relationship’s safety or whether it should continue. No dominant pattern or type is assigned.",
+        "zh": "不可以。只回答自己选定经历。记录不确立别人动机、价值、关系安全或是否应继续，不派主要模式或类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I have to describe an event?",
+        "zh": "必须描述事件吗？"
+      },
+      "answer": {
+        "en": "No. There are no free-text fields or requests for incident details. Broad recollections are enough; unknown, no experience and withheld remain separate. All guides are public without completion.",
+        "zh": "不需要，没有自由输入或事件细节要求。宽泛回忆即可，未知、无经历及不愿回答分别保留。全部指南公开，不需完成。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is support conditional on my count?",
+        "zh": "支持以计数为条件吗？"
+      },
+      "answer": {
+        "en": "You can seek support for an actual concern without finishing, reaching a count, accepting a label or sharing this record. A qualified mental health professional can consider your needs in an appropriate individual setting. This activity cannot assess safety, explain a cause or choose treatment. It asks for no disclosure, confrontation or reenactment. If there is immediate danger or you cannot stay safe, seek local emergency help instead of continuing.",
+        "zh": "对实际困扰寻求支持，不必完成、达到计数、接受标签或分享记录。合格心理健康专业人士可在适当的个别场合考虑需要。活动不能评估安全、解释原因或选择治疗，不要求披露、对峙或重现场景。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Borderline Personality Disorder — background only",
+        "zh": "NIMH：边缘型人格障碍，仅作背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/borderline-personality-disorder"
+    }
+  ]
+}

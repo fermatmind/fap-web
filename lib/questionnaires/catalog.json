@@ -7325,5 +7325,33 @@
       "closeness-and-boundaries-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "emotions-connections-reflection",
+    "code": "FM_EMOTIONS_CONNECTIONS21_CATEGORIES",
+    "version": "fm_emotions21_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Emotions, Self and Connections Reflection",
+      "zh": "情绪、自我与联结回顾"
+    },
+    "description": {
+      "en": "An adult reflection on feelings around distance, changing views, self-understanding, ordinary choices, emotional shifts, emptiness and anger. Private descriptions without clinical scoring.",
+      "zh": "成年人回顾距离感受、看法变化、自我理解、普通选择、感受转换、空虚与生气。私密描述，不设临床分数。"
+    },
+    "minutes": 7,
+    "formCode": "fm_emotions21_four_weeks_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "separation-feelings-reading",
+      "changing-views-reading",
+      "self-understanding-reading",
+      "quick-decisions-reading",
+      "feeling-shifts-reading",
+      "emptiness-experiences-reading",
+      "anger-experiences-reading"
+    ],
+    "collection": "explore"
   }
 ]

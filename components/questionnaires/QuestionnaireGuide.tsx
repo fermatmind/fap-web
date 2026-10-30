@@ -1,3 +1,5 @@
+import { isEmotionsConnections21ConfigurationValid } from "@/lib/questionnaires/emotionsConnections21";
+import { EmotionsConnectionsGuidePage } from "./EmotionsConnectionsPage";
 import { isFeelingsConnection8ConfigurationValid } from "@/lib/questionnaires/feelingsConnection8";
 import { FeelingsConnectionGuidePage } from "./FeelingsConnectionPage";
 import { isGenderExperiences16ConfigurationValid } from "@/lib/questionnaires/genderExperiences16";
@@ -175,6 +177,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) return { title: "BPI-21 unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "eating-experiences20" && !isEatingExperiences20ConfigurationValid(quiz)) return { title: "Eating reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "gender-experiences16" && !isGenderExperiences16ConfigurationValid(quiz)) return { title: "Gender reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "emotions-connections21" && !isEmotionsConnections21ConfigurationValid(quiz)) return { title: "Emotions reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "drinking-experiences20" && !isDrinkingExperiences20ConfigurationValid(quiz)) return { title: "Drinking reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
@@ -342,6 +345,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(p => p.id === id);
     if (!profile) notFound();
     return <GenderExperiencesGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "emotions-connections21") {
+    if (!isEmotionsConnections21ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <EmotionsConnectionsGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "drinking-experiences20") {
     if (!isDrinkingExperiences20ConfigurationValid(quiz)) notFound();
