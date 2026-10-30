@@ -1,5 +1,7 @@
 "use client";
 
+import type { Big5ReadingCopy } from "@/lib/big5/readingCopyProjection";
+
 import Link from "next/link";
 import { Big5ReadingGuide } from "./Big5ReadingGuide";
 import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
@@ -53,6 +55,7 @@ export function Big5ResultShell({
   dimensions,
   projection,
   authority,
+  displayCopy,
   normsStatus,
   qualityLevel,
   readingContext,
@@ -71,6 +74,7 @@ export function Big5ResultShell({
   dimensions: Array<Record<string, unknown>>;
   projection: Big5PublicProjection | null;
   authority?: Big5PrivateResultAuthority | null;
+  displayCopy?: Big5ReadingCopy;
   readingContext?: Big5ReadingContext;
   normsStatus: string;
   qualityLevel: string;
@@ -88,6 +92,9 @@ export function Big5ResultShell({
   return (
     <div
       data-testid="big5-result-shell"
+      data-reading-copy-revision={displayCopy?.revision}
+      data-reading-copy-source={displayCopy?.sourceHash}
+      data-reading-copy-compiled={displayCopy?.compiledHash}
       data-authority-mode={authority?.mode}
       data-source-hash={authority?.source_hash || undefined}
       data-compiled-hash={authority?.compiled_hash || undefined}

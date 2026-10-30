@@ -18,6 +18,7 @@ import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personalit
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { assembleBig5ResultViewModel, hasUsableBig5ReportEngineV2 } from "@/lib/big5/resultAssembler";
+import { withBig5ReadingCopy } from "@/lib/big5/readingCopyProjection";
 import { resolveBig5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
 import {
   filterBig5ResultPageV2PayloadForGate,
@@ -1514,6 +1515,9 @@ export function RichResultReport({
     : [];
 
   if (scaleCode === "BIG5_OCEAN") {
+    if (withBig5ReadingCopy(reportData, locale === "zh" ? "zh-CN" : "en") === null) {
+      return <p role="status">{locale === "zh" ? "这份报告的解释内容暂不可用，请稍后重试。" : "The interpretation for this report is temporarily unavailable. Please retry later."}</p>;
+    }
     const authority = resolveBig5PrivateResultAuthority(reportData);
     if (!authority) return null;
     if (authority.mode === "immutable_legacy_snapshot" && hasBig5ResultPageV2Candidate(reportData)) {
@@ -1567,6 +1571,7 @@ export function RichResultReport({
         dimensions={assembled.dimensions}
         projection={assembled.projection}
         authority={assembled.authority}
+        displayCopy={assembled.displayCopy}
         formSummaryLabel={assembled.formSummaryLabel}
         normsStatus={assembled.normsStatus}
         qualityLevel={assembled.qualityLevel}

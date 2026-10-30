@@ -19,6 +19,7 @@ import {
 import { BIG5_DOMAIN_LABELS, BIG5_DOMAIN_ORDER, type Big5DomainCode } from "@/lib/big5/taxonomy";
 import { buildBig5ReadingContext, type Big5ReadingContext } from "@/lib/big5/reportReading";
 import type { Locale } from "@/lib/i18n/locales";
+import { withBig5ReadingCopy, big5ReadingCopyMetadata, type Big5ReadingCopy } from "./readingCopyProjection";
 
 type ReportBlock = {
   id?: string;
@@ -55,6 +56,7 @@ export type Big5ResultAssemblerGate = {
 };
 
 export type Big5ResultViewModel = {
+  displayCopy?: Big5ReadingCopy;
   authority: Big5PrivateResultAuthority | null;
   projection: Big5PublicProjection | null;
   formSummaryLabel: string | null;
@@ -148,6 +150,9 @@ function isUsableCanonicalEngine(payload: Big5ReportEngineV2 | null): payload is
 }
 
 export function hasUsableBig5ReportEngineV2(reportData: ReportResponse): boolean {
+  const reading = withBig5ReadingCopy(reportData);
+  if (!reading) return false;
+  reportData = reading;
   const authority = resolveBig5PrivateResultAuthority(reportData);
   return authority?.mode === "canonical" && isUsableCanonicalEngine(resolveEnginePayload(reportData));
 }
@@ -337,9 +342,12 @@ export function assembleBig5ResultViewModel({
   reportData: ReportResponse;
   gate: Big5ResultAssemblerGate;
 }): Big5ResultViewModel {
-  const authority = resolveBig5PrivateResultAuthority(reportData);
-  const projection = resolveProjection(reportData);
-  const engine = resolveEnginePayload(reportData);
+  const reading = withBig5ReadingCopy(reportData, locale === "zh" ? "zh-CN" : "en");
+  const invalidReading = reading === null;
+  if (reading) reportData = reading;
+  const authority = invalidReading ? null : resolveBig5PrivateResultAuthority(reportData);
+  const projection = invalidReading ? null : resolveProjection(reportData);
+  const engine = invalidReading ? null : resolveEnginePayload(reportData);
   const quality = asRecord(engine?.quality) ?? asRecord(reportData.quality) ?? asRecord(reportData.report?.quality);
   const normEvidence = asRecord(engine?.norm_evidence) ?? asRecord(reportData.norms) ?? asRecord(reportData.report?.norms);
   const plannedSections = authority?.mode === "canonical"
@@ -353,6 +361,7 @@ export function assembleBig5ResultViewModel({
     .map((section) => ({ ...section, blocks: [] }));
 
   return {
+    displayCopy: invalidReading ? undefined : big5ReadingCopyMetadata(reportData),
     authority,
     projection,
     formSummaryLabel: buildBig5FormDisplayLabel(normalizeBig5FormSummary(reportData.big5_form_v1 ?? null), {
