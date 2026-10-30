@@ -1,0 +1,1971 @@
+{
+  "slug": "number-context-reflection",
+  "code": "FM_NUMBER_CONTEXT20_OBSERVATIONS",
+  "version": "fm_number_context20_observations_v1",
+  "kind": "number-context20",
+  "title": {
+    "en": "Numbers in Daily Life: Personal Reflection",
+    "zh": "日常数字：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "noticing-written-numbers",
+      "title": {
+        "en": "Noticing quantities and written numbers",
+        "zh": "注意数量与书面数字"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "following-calculation-steps",
+      "title": {
+        "en": "Following calculation steps",
+        "zh": "跟随计算步骤"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "time-and-measure-context",
+      "title": {
+        "en": "Time, distances and measures in context",
+        "zh": "情境中的时间距离与度量"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "prices-and-daily-records",
+      "title": {
+        "en": "Prices and everyday number records",
+        "zh": "价格与日常数字记录"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "NCT_01",
+      "prompt": {
+        "en": "I paused to work out what quantity a written number represented in its setting.",
+        "zh": "我停下来想，某个书面数字在当时场景里代表多少数量。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_02",
+      "prompt": {
+        "en": "I read a number again because I was unsure of the order of its digits.",
+        "zh": "我因为不确定数字的先后顺序，把一个数又读了一遍。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_03",
+      "prompt": {
+        "en": "I was unsure which of two displayed amounts was larger.",
+        "zh": "我不确定列出的两个数量哪个更大。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_04",
+      "prompt": {
+        "en": "I found it hard to give an approximate amount without working out an exact number.",
+        "zh": "我觉得不算出确切数值，就很难说出大约有多少。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_05",
+      "prompt": {
+        "en": "When writing a number, I noticed that I had grouped or placed some digits differently from what I intended.",
+        "zh": "写一个数时，我发现自己把部分数字的分组或位置写得与本意不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "noticing-written-numbers"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_06",
+      "prompt": {
+        "en": "Partway through a calculation, I lost track of a step I had already taken.",
+        "zh": "算到一半时，我记不清自己已经做到了哪一步。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_07",
+      "prompt": {
+        "en": "I used a note or other reference to keep the order of calculation steps available.",
+        "zh": "我用笔记或其他参照保留计算步骤的先后顺序，方便查看。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_08",
+      "prompt": {
+        "en": "I had a calculation result but was unsure how I had reached it.",
+        "zh": "我有一个计算结果，却不确定自己是怎样算到这一步的。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_09",
+      "prompt": {
+        "en": "After an explanation of a calculation method, I was unsure which step to use next.",
+        "zh": "听过某种计算方法的说明后，我不确定接下来该用哪一步。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_10",
+      "prompt": {
+        "en": "I checked a calculation again because I did not feel sure about the result.",
+        "zh": "我因为对结果没有把握，把一次计算又核对了一遍。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "following-calculation-steps"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_11",
+      "prompt": {
+        "en": "I paused to interpret a displayed time before using the information.",
+        "zh": "使用某个显示的时间信息前，我停下来想它是什么意思。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_12",
+      "prompt": {
+        "en": "I was unsure how much time lay between two stated times.",
+        "zh": "我不确定两个已给出的时间之间相隔多久。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_13",
+      "prompt": {
+        "en": "A task took a different amount of time from what I had expected when planning it.",
+        "zh": "一项任务实际花的时间，与我计划时预想的不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_14",
+      "prompt": {
+        "en": "I was unsure how two written measurements related when they used different units.",
+        "zh": "两项书面度量用了不同单位时，我不确定它们怎样对应。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_15",
+      "prompt": {
+        "en": "A written distance or direction involving numbers left me unsure what it meant in the situation.",
+        "zh": "一项带数字的书面距离或方向说明，让我不确定它在当时场景里是什么意思。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "time-and-measure-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_16",
+      "prompt": {
+        "en": "I paused when comparing prices that were presented in different ways.",
+        "zh": "比较以不同形式呈现的价格时，我停下来想该怎样比较。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_17",
+      "prompt": {
+        "en": "I was unsure whether an amount of change or a payment total matched what I expected.",
+        "zh": "我不确定找零或付款合计是否与自己预想的一致。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_18",
+      "prompt": {
+        "en": "While looking through a short list of costs, I lost track of which amounts I had included.",
+        "zh": "查看一小列费用时，我记不清自己已把哪些金额算在内。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_19",
+      "prompt": {
+        "en": "A percentage or discount in everyday information left me unsure how it related to the stated amount.",
+        "zh": "日常信息里的一项百分比或折扣，让我不确定它与给出的金额怎样对应。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "NCT_20",
+      "prompt": {
+        "en": "I used a tool or another person’s help to make sense of numerical information in a routine task.",
+        "zh": "处理日常事务时，我用工具或请人帮助理解其中的数字信息。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "prices-and-daily-records"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "seoTitle": {
+    "en": "Numbers in Daily Life: Personal Reflection",
+    "zh": "日常数字：个人回顾"
+  },
+  "description": {
+    "en": "20 original adult observations about everyday quantities, calculation steps, time, measures and prices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
+    "zh": "20条成年人原创观察，回顾日常数量、计算步骤、时间度量和价格信息。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+  },
+  "introduction": {
+    "en": "Recall everyday number-related experiences without solving a task. Four overlapping editorial topics remain separate categorical records, not validated dimensions or a dyscalculia test. Tool use and maths anxiety are not additional diagnostic indicators.",
+    "zh": "不必做题，回顾日常数字经历。四个可能重叠的编辑主题各自记录类别，不是验证维度或计算障碍测试。使用工具和数学担忧不是追加诊断指标。"
+  },
+  "instructions": {
+    "en": "If you choose to answer, recall the past four weeks. Select did not notice, rarely, sometimes, often or very often; choose unscored for no relevant experience, unclear recall or withholding. No calculation, clock-reading, measuring, memory or transaction task is needed. Keep useful aids. Labels are not points and unscored is not zero.",
+    "zh": "愿意回答时回顾过去四周。可选没有注意到、很少、有时、较常、经常；没有相关经历、回想不清或保留回答时选未计分。不必计算、看钟测试、测量、做记忆任务或交易。保留有用辅助。标签不是点数，未计分不是零分。"
+  },
+  "resultHeading": {
+    "en": "Your four separate everyday-number records",
+    "zh": "四个分别阅读的日常数字记录"
+  },
+  "profiles": [
+    {
+      "id": "noticing-written-numbers-reading",
+      "directionIds": [
+        "noticing-written-numbers"
+      ],
+      "title": {
+        "en": "Noticing quantities and written numbers — Complete Reading",
+        "zh": "注意数量与书面数字：完整读法"
+      },
+      "headline": {
+        "en": "Noticing quantities and written numbers",
+        "zh": "注意数量与书面数字"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Noticing quantities and written numbers — Complete Reading",
+          "zh": "注意数量与书面数字：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult everyday-number context reading, free and public. No diagnosis, mathematical-ability score or performance test.",
+          "zh": "完整成年人原创日常数字情境读法，免费公开；不作诊断、数学能力评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall quantities and written numbers in context",
+            "zh": "回顾背景中的数量与书面数字"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern interpreting the quantity behind a written number, checking the order of digits, comparing displayed amounts, estimating without an exact calculation and noticing an unintended arrangement when writing a number. If you want to answer, recall the past four weeks. There is no new number task to complete. The descriptions do not measure number sense, place-value knowledge, calculation skill or intelligence, and they cannot identify dyscalculia or the cause of a difficulty. They concern what you remember in particular situations.",
+              "zh": "这五条成年人原创观察关注理解书面数字代表的数量、核对数字顺序、比较显示数量、在不精算时估计，以及写数时发现排列非本意。愿意回答时只回顾过去四周，不需要新做数字任务。描述不测数感、数位知识、计算技能或智力，也不能识别计算障碍或困难原因，只涉及具体场景里的回忆。"
+            },
+            {
+              "en": "A long number on an unfamiliar form and a small amount in a familiar routine are different kinds of information. The page cannot know the presentation, purpose, language, units or support available when you encountered them. It would be a mistake to turn a remembered pause into a fixed limit on what you can learn or manage. You may describe uncertainty without a character judgement, a comparison with someone else or an explanation about how your brain processes quantity.",
+              "zh": "陌生表格里的长数和熟悉事务里的小数量，是不同信息。页面不知道当时的呈现方式、目的、语言、单位或可用支持。不应把记得的一次停顿当成学习或处理事务能力的固定上限。可以描述不确定，而不作性格判断、不与他人比较，也不解释大脑怎样加工数量。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions and six labels without points",
+            "zh": "五条描述与不作点数的六种标签"
+          },
+          "paragraphs": [
+            {
+              "en": "The categories are did not notice, rarely, sometimes, often, very often and unscored. Their numeric-looking identifiers are labels rather than points. Within this topic, six counts add to five descriptions and appear beside the category selected for each statement. There is no total, average, highest topic, risk band or probability of dyscalculia. Counts do not represent the number of errors, quantities, calculations or minutes involved. Choosing often does not mean that a task was performed incorrectly, and no response is graded.",
+              "zh": "类别是没有注意到、很少、有时、较常、经常和未计分。看起来像数字的标识只是标签，不是点数。本主题六种计数合计五条描述，并显示每条选择。没有总分、均值、最高主题、风险档或计算障碍概率。计数不代表错误、数量、计算次数或分钟数。选择经常不等于任务做错，任何回答都不评分。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or a preference not to answer. It stays separate from did not notice. Someone who did not encounter a comparison of amounts has not demonstrated easy comparison, and a withheld answer is not a correct performance. You do not need to look for a difficult number, produce an estimate, copy digits or inspect an old error to fill a category. A completely unscored topic leaves the same full reading and support information available without any further requirement.",
+              "zh": "未计分包括没有相关经历、回想不清或不愿回答，与没有注意到分别显示。没遇见数量比较的人没有因此展示比较轻松，保留回答也不是一次正确表现。不必找难数字、作估计、抄数字或查看旧错误来填类别。整组未计分时，相同全文与支持说明仍可读，没有其他要求。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep the number attached to its meaning",
+            "zh": "让数字与其含义保持联系"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a practical description, you might recall that a number on a label was difficult to interpret because you were unsure what it referred to. That account can remain about the situation rather than a presumed deficit. A number might describe an amount, a code, a date or something else. This page does not inspect it or judge which interpretation was reasonable. You may leave the exact number and any private details out of a conversation while still explaining what was unclear.",
+              "zh": "若想作实际描述，可能记得某标签上的数难理解，因为不清楚它指什么。表述可以留在场景层面，不预设缺陷。数字可能表示数量、编码、日期或别的意思，页面不检查，也不判断哪种理解合理。即使不说具体数字和私人细节，仍可以说明哪里不清楚。"
+            },
+            {
+              "en": "The meaning of an amount can depend on units, conventions, layout and the reason it is being used. Familiarity and language experience also belong to the context, but the record cannot decide that one of them caused an experience. The English and Chinese descriptions have no established measurement equivalence or shared clinical norm. They offer ways to express remembered situations, not a universal number-processing scale, a language-proficiency mark or a fair comparison of people who encountered different kinds of information.",
+              "zh": "数量含义可能与单位、约定、排版和使用目的有关。熟悉程度和语言经历也属于背景，但记录不能认定某项就是经历原因。中英文描述没有已确立的测量等值或共同临床常模，只提供表述回忆场景的方式，不是普遍数字加工量表、语言熟练度成绩，也不能公平比较接触不同信息的人。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Separate reflection from diagnosis and performance",
+            "zh": "把回顾与诊断表现分开"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic is not an assessment of numerical magnitude or a diagnostic checklist. A qualified assessor's work is separate from selecting descriptions on a public page. The British Dyslexia Association background linked at the entry discusses broader mathematics difficulties and assessment; it does not supply these original items, validate their categories or endorse this record. Neither a high-looking count nor an absence of noticed experiences confirms or excludes dyscalculia, another learning difficulty or a need for support.",
+              "zh": "本主题不是数量大小评估或诊断清单。合格评估者的工作与在公开页面选描述分开。入口链接的英国阅读障碍协会资料介绍更广的数学困难与评估背景，没有提供本原创题目、验证类别或背书记录。看起来较高的计数或没有注意到经历，都不能确认或排除计算障碍、其他学习困难或支持需要。"
+            },
+            {
+              "en": "The site's separate numerical-reasoning practice uses questions with worked answers. It retains its own purpose and method; these self-observations are not added to that practice's correct counts. A person does not need to complete either activity to deserve support, and neither activity provides a clinical conclusion. The four editorial topics in this reflection may overlap and have not been validated as independent dimensions. Worry about numbers, using a tool or asking for help must not be added as proof of a disorder.",
+              "zh": "站内独立数值推理练习使用有题解的问题，保留自己的目的与方法；这些自我观察不加进其答对数。获得支持不需要先做任何一种活动，它们也都不提供临床结论。本回顾四个编辑主题可能重叠，尚未验证为独立维度。对数字担忧、使用工具或求助，不应追加为障碍证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep helpful checks and aids in place",
+            "zh": "保留有帮助的核对与辅助"
+          },
+          "paragraphs": [
+            {
+              "en": "You are not asked to do mental arithmetic, judge an amount quickly or remove a calculator, note or other reference. Useful tools can remain available while you reflect. If you want to ask a practical question, it might concern a clearer explanation, an available reference or another way to present information. These are optional discussion points, not prescribed training or treatment. The website cannot decide which method will help, whether it is available or whether an arrangement is suitable for a particular task.",
+              "zh": "不要求心算、快速判断数量，或撤掉计算器、笔记及其他参照。回顾时可继续保留有用工具。若想提实际问题，可以询问更清楚说明、可查看的参照或另一信息呈现方式。这些是可选讨论点，不是规定训练或治疗。网站不能决定哪种方法有帮助、是否可用，或某安排是否适合特定任务。"
+            },
+            {
+              "en": "A category is never permission to change medication doses, stop existing checks, make a payment or judge that a safety-related calculation is correct. Keep relevant professional instructions and practical safeguards independent of the record. There is no reason to disclose an account number, passcode, private document or exact amount to use the page. No sample or real transaction is requested. A useful account can describe the information need without putting private numbers online or deliberately recreating a risky situation.",
+              "zh": "类别绝不是改变药物剂量、停止已有核对、进行付款或判断安全相关计算正确的许可。相关专业指示和实际保护应独立于记录。使用页面无需透露账号、口令、私人文档或具体金额，不要求样本或真实交易。有用表述可以描述信息需求，而不把私人数字放上网，也不故意重现有风险场景。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Ask for support without proving enough difficulty",
+            "zh": "无需证明足够困难即可咨询"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask an appropriately qualified learning-support or assessment professional what information would help them understand a concern about numbers. No count, childhood evidence or completed questionnaire is required before asking. Assessment routes and service requirements vary, and the website cannot establish local eligibility, funding, education or employment rights. You may choose what to share and keep a question focused on a practical need. The record cannot decide that a difficulty is too small to discuss or too large to approach with support.",
+              "zh": "可以询问合适的学习支持或评估专业人员，哪些资料有助于理解数字担忧。提问前不要求计数、童年证据或完成问卷。评估途径和服务要求不同，网站不能建立当地资格、资助、教育或就业权益。分享什么可自行决定，问题可以只针对实际需要。记录不能决定困难太小不值得谈，或太大无法在支持下接近。"
+            },
+            {
+              "en": "Keep existing care and professional advice independent of the page. It cannot explain away a new or changing health concern, determine medical need or urgency, or establish that a situation is harmless. Do not postpone appropriate care or support because a category appears reassuring. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. These limits apply before any selection, after all-unscored answers and for every count. There is no requirement to accumulate mistakes before asking a question.",
+              "zh": "已有照护和专业意见独立于页面。它不能解释掉新出现或变化的健康担忧，不能决定医疗需要或紧急程度，也不能证明场景无害。不要因为类别似乎令人安心而推迟合适照护或支持。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。回答前、全部未计分后及任何计数下都适用，不要求先累积错误才可提问。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A description does not become a score over time",
+            "zh": "描述不会随时间变成分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, target label or required monitoring schedule. Later selections may reflect different information, units, tasks, aids, recollections or interpretations of a statement. They do not demonstrate recovery, deterioration, treatment response or a change in numerical ability. A repeated pause is not evidence of a particular processing deficit. You can keep one useful description while leaving causes, diagnosis and future learning open, without treating the four topics as a new clinical model or a judgement about managing everyday life.",
+              "zh": "没有要提高的分数、目标标签或规定监测日程。以后选择可能反映不同信息、单位、任务、辅助、回忆或对描述的理解，不展示恢复、恶化、治疗反应或数字能力变化。重复停顿不是某种加工缺陷的证据。可以留一句有用描述，同时保留原因、诊断和未来学习的开放性，不把四主题当成新临床模型或日常生活处理能力判断。"
+            },
+            {
+              "en": "Selections stay only in current-page memory, without saved drafts, submission, questionnaire analytics or a private result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only the title and address rather than your categories. All four complete guides are public before answers and use the same text for every reader. You may read without answering, leave a statement unscored or stop after finding a question that helps you describe an experience without receiving a diagnosis from the website.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果地址。退出、重做、刷新和离页会清除，复制公开入口只含标题及地址，不含类别。四篇全文答题前公开，对所有读者相同。可以不答题阅读、保留未计分，或找到一个有助于描述经历的问题后就停止，无需网站诊断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "following-calculation-steps-reading",
+      "directionIds": [
+        "following-calculation-steps"
+      ],
+      "title": {
+        "en": "Following calculation steps — Complete Reading",
+        "zh": "跟随计算步骤：完整读法"
+      },
+      "headline": {
+        "en": "Following calculation steps",
+        "zh": "跟随计算步骤"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Following calculation steps — Complete Reading",
+          "zh": "跟随计算步骤：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult everyday-number context reading, free and public. No diagnosis, mathematical-ability score or performance test.",
+          "zh": "完整成年人原创日常数字情境读法，免费公开；不作诊断、数学能力评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall following a calculation rather than doing one now",
+            "zh": "回顾计算过程，不必现在做题"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult descriptions concern losing track of a calculation step, keeping a note available, being unsure how a result was reached, choosing the next step after an explanation and checking an uncertain result. You may recall the past four weeks if you want to answer. No arithmetic problem, timed task or memory challenge is assigned. The page does not observe your method or mark an answer. It cannot measure mathematical ability, identify dyscalculia or establish why a remembered calculation felt difficult.",
+              "zh": "这五条成年人原创描述关注忘记算到哪一步、保留笔记、对结果来源不确定、听过说明后选择下一步，以及核对没把握的结果。愿意回答时可回顾过去四周，不安排算术题、计时任务或记忆挑战。页面不观察方法，也不判答案对错，不能测数学能力、识别计算障碍或确定计算费力的原因。"
+            },
+            {
+              "en": "A familiar routine, a newly explained method and a complicated instruction can involve different demands. The record cannot make those demands equal or decide whether a task was reasonable. Uncertainty about the next step is an experience you can describe without a judgement about intelligence, motivation or suitability for a subject. It does not prove a processing deficit or a lack of effort. You may leave the explanation open rather than choosing between a clinical label and a negative judgement about yourself.",
+              "zh": "熟悉事务、新讲解的方法和复杂指示，可能有不同要求。记录不能把要求等同，也不能决定任务是否合理。不确定下一步是可以描述的经历，无需判断智力、动机或学科适配；它不证明加工缺陷或努力不足。可以保留解释，而不是在临床标签与自我负面评价之间二选一。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Categories are not correct-answer counts",
+            "zh": "类别不是答对数量"
+          },
+          "paragraphs": [
+            {
+              "en": "The six categories are did not notice, rarely, sometimes, often, very often and unscored. They are labels without numerical points. Their counts add to five descriptions in this topic, alongside the individual selections. There is no total, average, highest topic, few/some/many band or risk estimate. Often checking a result does not show how many calculations were wrong, whether a check was necessary or how accurate the final answer was. The website does not have the original calculation and cannot grade it.",
+              "zh": "六种类别是没有注意到、很少、有时、较常、经常和未计分，都是不带点数的标签。本主题计数合计五条描述，并列出逐项选择。没有总分、均值、最高主题、迹象少中多档位或风险估计。经常核对结果不说明算错多少次、核对是否必要或最终答案多准确。网站没有原计算，不能评分。"
+            },
+            {
+              "en": "Unscored is available for no relevant experience, unclear recall or withholding an answer. It is separate from did not notice and is never converted into zero mistakes. A person who used no calculation method recently has not demonstrated fluent arithmetic. You do not need to find an old worksheet, attempt a harder problem or recall an exact result to answer. A fully unscored topic keeps the same public guide and support information available; completing a record is not a condition for asking a question.",
+              "zh": "没有相关经历、回想不清或保留回答时可选未计分，与没有注意到分开，绝不换算成零错误。最近没用过计算方法的人，没有因此展示熟练算术。不必找旧练习、试更难问题或想起确切结果来回答。全部未计分也保留相同公开指南与支持说明，完成记录不是提问条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Describe where a step became unclear",
+            "zh": "描述在哪一步不清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a bounded account, you might remember that a method made sense while someone explained it but the next step became uncertain when you used it alone. That description identifies a point in an activity without explaining its cause. The page cannot know how the method was taught, whether a reference was available or what else required attention. You can keep the account this limited rather than deciding that you cannot learn mathematics or that one cognitive process must be responsible.",
+              "zh": "若想作有限描述，可能记得别人讲方法时觉得明白，独自用时却不清楚下一步。这指出活动里的一个位置，不解释原因。页面不知道怎样讲授、是否有参照可看或还有什么需要注意。可以把表述留在这个范围，不必决定自己学不会数学，或某个认知过程一定负责。"
+            },
+            {
+              "en": "You may be unsure whether the difficulty concerned the information, the sequence, an unfamiliar convention or something else. That uncertainty is allowed. The record has no basis for separating attention, language, memory and mathematical knowledge into diagnostic components. Its four topics are overlapping editorial groupings, not validated independent dimensions. They do not establish an executive-function result or add to another form's raw sums. A useful description can remain a question about a task rather than an explanation of your brain.",
+              "zh": "可能不清楚困难涉及信息、顺序、陌生约定还是其他情况，这种不确定可以保留。记录没有依据把注意、语言、记忆和数学知识拆成诊断成分。四主题是可能重叠的编辑分组，不是验证独立维度，不建立执行功能结果，也不加进另一题本原始合计。有用表述可以是针对任务的问题，而不是大脑解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep notes and checks without treating them as symptoms",
+            "zh": "保留笔记核对，不把它们当症状"
+          },
+          "paragraphs": [
+            {
+              "en": "Keeping a written step, using a calculator or checking an answer can be a practical part of an activity. The fact that you used a tool does not prove impairment, hidden dyscalculia or compensation for a disorder. Not using one also does not establish independence or accuracy. You are not asked to remove aids, perform mental arithmetic or demonstrate an unaided baseline. Continue useful checks and relevant professional instructions independently of this record, especially when the real task has consequences that the page cannot assess.",
+              "zh": "保留书面步骤、使用计算器或核对答案，可以是活动的实际组成部分。使用工具不证明受损、隐藏计算障碍或补偿某障碍，不用也不建立独立程度或准确性。不要求撤掉辅助、心算或展示无辅助基线。可继续保留有用核对和相关专业指示，尤其当真实任务有页面无法评估的后果时。"
+            },
+            {
+              "en": "A remembered repeated check does not identify anxiety, an obsession, a learning difficulty or any other cause. It cannot determine whether checking should stop, increase or follow a new routine. Likewise, a note of calculation steps is not a memory test result. The page assigns no exercise, repetition target or training programme. You may mention a tool's role in a practical conversation without being asked to recreate a mistake, make the task harder or produce proof that the tool was necessary.",
+              "zh": "记得反复核对，不能识别焦虑、强迫想法、学习困难或其他原因，也不能决定应停止、增加核对或采用新惯例。计算步骤笔记同样不是记忆测试结果。页面不安排练习、重复目标或训练计划。实际交流中可以提工具的作用，不必重现错误、增加难度或证明工具必要。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask about the information you need",
+            "zh": "围绕所需信息提问"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional question could be whether a method can be shown in smaller steps, whether an example can remain available or whether there is a clearer way to indicate what comes next. These are possible discussion points for a particular setting, not a guaranteed solution or treatment. The website cannot know what is available or choose a suitable arrangement for you. A practical need may be described without an exact calculation, a private document or a detailed history of difficulty.",
+              "zh": "可以选择询问：方法能否拆成小步骤、示例能否保留供查看，或有没有更清楚地标明下一步的方式。这些是具体场景里的可能讨论点，不是保证有效的方案或治疗。网站不知道有哪些资源，也不能替你选择适合安排。描述实际需要不必包含确切计算、私人文档或详细困难史。"
+            },
+            {
+              "en": "This record cannot certify that a calculation is safe, a financial decision is sound or a medication amount is correct. Do not use a category to change dosing, make a payment, alter safety checks or act on a real instruction that needs qualified verification. No PIN, passcode, bank statement or exact amount is requested. You may keep sensitive details out of any conversation and choose whether to seek support. Using a reflection guide creates no duty to disclose a diagnosis to an employer or another reader.",
+              "zh": "记录不能认证计算安全、财务决定可靠或药物数量正确。不要用类别改变剂量、付款、调整安全核对，或据此执行需要合格核验的真实指示。不要求PIN、口令、银行账单或具体金额。可以把敏感细节留在交流之外，自行决定是否寻求支持。使用回顾指南不产生向雇主或其他读者披露诊断的义务。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A professional question needs no threshold",
+            "zh": "专业咨询不需门槛"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask an appropriately qualified learning-support or assessment professional what information they would need to understand a concern about calculation. No high count, childhood proof or completed questionnaire is required first. The original descriptions are not diagnostic criteria or a published screener. Linked British Dyslexia Association information gives broader assessment context and does not provide the items, scoring key, validation or endorsement for this inventory. Neither a practice score elsewhere on the site nor this categorical record can confirm or exclude dyscalculia.",
+              "zh": "可以询问合适的学习支持或评估专业人员，了解计算担忧需要哪些资料。事先不要求高计数、童年证明或完成问卷。原创描述不是诊断标准或发表筛查工具。链接的英国阅读障碍协会资料提供更广评估背景，没有提供本题组条目、计分键、验证或背书。站内其他练习分数及本类别记录都不能确认或排除计算障碍。"
+            },
+            {
+              "en": "The page cannot determine a cause, medical need or urgency, or explain away a new or changing health concern. Keep existing care, assessment plans and support independent of the record rather than postponing them because a category seems reassuring. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. You do not need to accumulate enough errors or finish the remaining topics before asking for help. All support information remains public even when every answer is unscored.",
+              "zh": "页面不能决定原因、医疗需要或紧急程度，也不能解释掉新出现或变化的健康担忧。已有照护、评估计划和支持独立于记录，不要因类别似乎令人安心而推迟。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。无需累积足够错误或完成剩余主题才求助。全部未计分时，支持说明也始终公开。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Reflection is not a progress calculation",
+            "zh": "回顾不是进步计算"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred label or schedule for repeating these observations. Later selections might differ because the methods, tasks, explanations, aids or recollections differ. They do not demonstrate recovery, decline, treatment response or a change in mathematical ability. English and Chinese descriptions have no established measurement equivalence or clinical norms. You can retain a useful phrase about a specific step without treating a collection of categories as a permanent mathematical profile or a prediction about future learning and work.",
+              "zh": "没有要提高的分数、偏好标签或重复观察日程。以后选择不同，可能因为方法、任务、讲解、辅助或回忆不同，不展示恢复、退步、治疗反应或数学能力改变。中英文描述没有已确立的测量等值或临床常模。可以留下关于某一步的有用表述，而不把类别集合当成永久数学档案或未来学习工作的预测。"
+            },
+            {
+              "en": "Selections remain in current-page memory only: no saved draft, answer submission, questionnaire analytics or private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are public before answering and display the same text for every reader. Read without selecting, leave an experience unscored or stop when you have found a useful question. You do not need a clinical label or an ability judgement from a website to describe what you need.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交回答、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除。复制公开入口只含标题及地址。四篇全文答题前公开，对所有读者显示相同文字。可以不选内容阅读、保留未计分，或找到有用问题时停止。描述自身需要不需要网站临床标签或能力判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time-and-measure-context-reading",
+      "directionIds": [
+        "time-and-measure-context"
+      ],
+      "title": {
+        "en": "Time, distances and measures in context — Complete Reading",
+        "zh": "情境中的时间距离与度量：完整读法"
+      },
+      "headline": {
+        "en": "Time, distances and measures in context",
+        "zh": "情境中的时间距离与度量"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Time, distances and measures in context — Complete Reading",
+          "zh": "情境中的时间距离与度量：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult everyday-number context reading, free and public. No diagnosis, mathematical-ability score or performance test.",
+          "zh": "完整成年人原创日常数字情境读法，免费公开；不作诊断、数学能力评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall time and measurements in everyday settings",
+            "zh": "回顾日常场景里的时间与度量"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern interpreting a displayed time, considering the interval between two times, comparing a task's duration with your expectation, relating different units and understanding a written distance or numerical direction. You may recall the past four weeks if you choose. There is no clock-reading, measuring, navigation or timing task to carry out now. The page does not test time perception, spatial ability or mathematics, and it cannot establish dyscalculia or identify why an experience was difficult.",
+              "zh": "这五条成年人原创观察关注理解显示时间、考虑两个时间之间的间隔、比较任务时长与预想、联系不同单位，以及理解书面距离或带数字方向。愿意时可回顾过去四周，不必现在看钟测试、测量、导航或计时。页面不测时间知觉、空间能力或数学，也不能建立计算障碍或识别经历费力的原因。"
+            },
+            {
+              "en": "The descriptions bring together everyday situations for reading, not a validated diagnostic dimension. A schedule, a unit conversion and a direction are different kinds of information with different demands. One uncertain moment cannot explain another, and recognising several descriptions does not show that they share a cause. You may describe what happened without calling yourself careless, unintelligent or unable to manage time. No comparison with another person's pace or a supposed normal amount of independence is required.",
+              "zh": "这些描述为阅读而汇集日常场景，不是验证诊断维度。时间表、单位换算和方向是不同信息，要求不同。一处不确定不能解释另一处，认可多条也不说明它们同因。可以描述发生什么，而不称自己粗心、不聪明或不会管时间；不要求与他人速度或所谓正常独立程度比较。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Labels do not measure minutes or mistakes",
+            "zh": "标签不测分钟或错误"
+          },
+          "paragraphs": [
+            {
+              "en": "Select did not notice, rarely, sometimes, often, very often or unscored. These are category labels without points. The six counts add to five statements in this topic, and each selected category remains visible. There is no total, average, highest topic, risk band or clinical conclusion. A count is not an estimate of minutes lost, wrong directions, measurement errors or missed appointments. Choosing often for a description does not establish whether the information was interpreted correctly or how much consequence an experience had.",
+              "zh": "可以选择没有注意到、很少、有时、较常、经常或未计分，都是不带点数的类别标签。本主题六种计数合计五条描述，显示每条选择。没有总分、均值、最高主题、风险档或临床结论。计数不估计耽搁分钟、走错方向、测量错误或错过预约数量。选经常不证明理解是否正确，也不说明经历后果多大。"
+            },
+            {
+              "en": "Unscored includes no relevant experience, unclear recall and a decision not to answer. It stays separate from did not notice. Not encountering a unit conversion does not demonstrate that it would be easy, and being unable to recall a displayed time does not supply a wrong answer. You do not need to read a clock, check an old journey, measure an object or repeat a confusing instruction to answer. A completely unscored record still leaves the full guide and support information available.",
+              "zh": "未计分包括没有相关经历、回想不清和不愿回答，与没有注意到分开。没遇见单位换算不展示它会很容易，想不起显示时间也不是提供了错误答案。不必读钟、查看旧行程、测量物体或重复困惑的指示来作答。全部未计分时仍可读完整指南与支持说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep the information format in view",
+            "zh": "留意信息怎样呈现"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded account might be that you needed to pause over an unfamiliar time format, or that you were unsure how two measurements related because their units differed. That description leaves the format and setting visible. The website cannot inspect the display, know which conventions you usually use or decide what explanation would have been clear enough. A remembered pause does not become a measure of speed, a failure of number sense or a diagnosis. You can leave the exact figures and private details unspecified.",
+              "zh": "有限表述可以是：面对不熟悉的时间格式需要停顿，或因为单位不同而不确定两项度量怎样联系。这样保留了格式与场景。网站不能检查显示、不知道惯用约定，也不能决定怎样说明才足够清楚。记得的停顿不会变成速度测量、数感失败或诊断。确切数字和私人细节可以不说。"
+            },
+            {
+              "en": "Languages, writing conventions, units and opportunities to encounter them differ. The English and Chinese observations have no established measurement equivalence or common clinical norm. They are not standardised clock, direction or conversion tasks. The record cannot distinguish unfamiliar information from a learning difficulty or another explanation. It also cannot use the other three topics to resolve that uncertainty. Four overlapping editorial groupings remain separate descriptions, and their counts do not combine into a time-management or spatial-processing profile.",
+              "zh": "语言、书写约定、单位和接触机会不同。中英文观察没有已确立的测量等值或共同临床常模，不是标准化看钟、方向或换算任务。记录不能把陌生信息与学习困难或其他解释区分，也不能靠另三主题解决不确定。四个重叠编辑分组仍是分别阅读的描述，计数不合成时间管理或空间加工档案。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A plan and what happened can differ",
+            "zh": "计划与实际可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "One statement concerns a task taking a different amount of time from what you expected. That difference does not by itself identify a problem with estimating time. A task can change, interruptions can occur or the original plan may have lacked information; the page cannot know which circumstances applied. You may describe a mismatch without deciding that you have poor discipline or a particular condition. There is no instruction to keep a diary, time yourself, repeat the activity or produce a more accurate estimate next time.",
+              "zh": "一条描述涉及任务实际时长与预想不同。差异本身不识别时间估计问题；任务可能变化、出现打断，或原计划缺少资料，页面不知道哪种情况适用。可以描述不一致，而不认定自己纪律差或有某状况。不要求记日记、给自己计时、重复活动或下次作更准确估计。"
+            },
+            {
+              "en": "Likewise, uncertainty about a written distance or direction does not determine whether travelling, driving, working or another real activity is safe. The record offers no navigation advice or clearance. Do not test yourself in traffic, unfamiliar places or a safety-critical setting for the sake of an answer. Existing practical checks, professional instructions and support should remain independent of these categories. A website cannot observe where you are, verify a measurement or respond if a real situation becomes unsafe.",
+              "zh": "对书面距离或方向不确定，同样不能决定出行、驾驶、工作或其他真实活动是否安全。记录不提供导航建议或安全许可。不要为了回答而在车流、陌生地点或安全关键场景里测试自己。已有实际核对、专业指示和支持独立于类别。网站不能观察位置、核验测量，也不能在真实场景不安全时作响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Keep useful tools and established safeguards",
+            "zh": "保留有用工具与既有保护"
+          },
+          "paragraphs": [
+            {
+              "en": "A calendar, timer, conversion reference, map or another person's explanation may be useful in a particular setting. Using one does not prove a disorder or dependence, and not using one does not prove accuracy or independence. You do not need to remove aids to make a recollection more revealing. If you want to ask about a practical need, you might ask whether the format or units can be stated more clearly. This is an optional conversation topic, not a prescribed exercise or a promise that a change will help.",
+              "zh": "日历、计时器、换算参照、地图或他人说明，可能在特定场景有用。使用不证明障碍或依赖，不用也不证明准确或独立。不必撤掉辅助，让回忆显得更有揭示性。若想询问实际需要，可以问格式或单位能否说明更清楚；这是可选交流话题，不是规定练习，也不保证改变有帮助。"
+            },
+            {
+              "en": "No category authorises a medication calculation, a change to dosing or monitoring, electrical work, a travel decision or any other safety-related measurement. Follow the relevant qualified advice and existing safeguards independently of the page. It asks for no actual time, location, route, amount or document. You can keep private details out of a conversation while explaining what information you need. Choosing whether to seek support and what to disclose remains yours; the record creates no requirement to tell an employer or another reader.",
+              "zh": "任何类别都不授权药物计算、改变剂量或监测、电气工作、出行决定或其他安全相关测量。相关合格意见和既有保护独立于页面。不要求实际时间、地点、路线、数量或文档。说明信息需求时可不透露私人细节。是否求助和披露什么由自己决定，记录不产生告知雇主或其他读者的要求。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Ask without waiting for a count",
+            "zh": "不必等到某个计数再问"
+          },
+          "paragraphs": [
+            {
+              "en": "If time or measurement information concerns you, you can ask an appropriately qualified learning-support or assessment professional how they would explore the concern. No high count, proof of childhood difficulty or completed record is required. Assessment routes and formal eligibility are separate questions that the website cannot determine. The linked British Dyslexia Association background describes broader mathematics and assessment contexts. It does not supply these original items, their scoring key, clinical validity or endorsement for grouping time, distances and measures into this reading topic.",
+              "zh": "若对时间或度量信息有担忧，可以询问合适的学习支持或评估专业人员会怎样了解。不需要高计数、童年困难证明或完成记录。评估途径与正式资格是另外的问题，网站不能决定。链接的英国阅读障碍协会资料介绍更广数学与评估背景，没有提供原创条目、计分键、临床有效性，也没有背书把时间距离度量归入本阅读主题。"
+            },
+            {
+              "en": "The record cannot establish that a new or changing difficulty has a harmless cause, determine medical need or urgency, or replace existing professional advice. Do not postpone appropriate healthcare, assessment or support because a category appears reassuring. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. Support information is public before answers and for every possible record, including all-unscored selections. There is no need to demonstrate enough missed steps, wrong measurements or confusing experiences before you can ask a question.",
+              "zh": "记录不能证明新出现或变化的困难原因无害，不能决定医疗需要或紧急程度，也不替代已有专业意见。不要因类别似乎令人安心而推迟合适医疗、评估或支持。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。回答前及包括全未计分在内的任何记录下，支持说明都公开；提问不必先展示足够多漏步骤、错度量或困惑经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful account without monitoring a score",
+            "zh": "留有用描述，不监测分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred category or required schedule for returning. Later selections may reflect different formats, tasks, units, available aids, recollections or interpretations of a description. They do not show recovery, deterioration, treatment response or a change in time or numerical ability. You can keep a phrase that describes a particular information need while leaving causes, diagnosis and future learning open. This reflection does not establish that a practical difficulty is permanent, harmless or the result of a particular brain difference.",
+              "zh": "没有要提高的分数、偏好类别或规定回访日程。以后选择可能反映不同格式、任务、单位、辅助、回忆或对描述的理解，不显示恢复、恶化、治疗反应，或时间数字能力改变。可以留一句描述实际信息需要的话，同时保留原因、诊断和未来学习的开放性。回顾不证明困难永久、无害，或来自某种大脑差异。"
+            },
+            {
+              "en": "Answers remain only in current-page memory: no stored drafts, submission, questionnaire analytics or private result URL. Exit, retake, reload and leaving clear the record. The public-entry copy contains only a title and address, not your selections. All four complete guides are public before answering and show the same text to every reader. You may leave an experience unscored, stop midway or read without completing the questionnaire. A useful question does not need a diagnostic label or a safety verdict from this website.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除，复制公开入口仅含标题地址，不含选择。四篇全文答题前公开，对所有读者相同。可以保留未计分、中途停止或不完成问卷阅读。有用问题不需要网站给诊断标签或安全裁定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prices-and-daily-records-reading",
+      "directionIds": [
+        "prices-and-daily-records"
+      ],
+      "title": {
+        "en": "Prices and everyday number records — Complete Reading",
+        "zh": "价格与日常数字记录：完整读法"
+      },
+      "headline": {
+        "en": "Prices and everyday number records",
+        "zh": "价格与日常数字记录"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or ability conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Prices and everyday number records — Complete Reading",
+          "zh": "价格与日常数字记录：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult everyday-number context reading, free and public. No diagnosis, mathematical-ability score or performance test.",
+          "zh": "完整成年人原创日常数字情境读法，免费公开；不作诊断、数学能力评分或表现测试。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall everyday information involving prices and amounts",
+            "zh": "回顾涉及价格数量的日常信息"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern comparing differently presented prices, uncertainty about change or a payment total, tracking amounts in a short cost list, interpreting a percentage and using help to understand routine numerical information. If you want to answer, recall the past four weeks rather than making a transaction now. The page requests categories, not real amounts or financial records. It does not test arithmetic, financial knowledge or capacity to manage money, and it cannot identify dyscalculia or the cause of an experience.",
+              "zh": "这五条成年人原创观察关注比较不同形式价格、对找零或付款合计不确定、跟随短费用列表、理解百分比，以及借助帮助理解日常数字信息。愿意回答时回顾过去四周，不必现在交易。页面只要类别，不要真实金额或财务记录，不测试算术、理财知识或管理金钱能力，也不能识别计算障碍或经历原因。"
+            },
+            {
+              "en": "A confusing price display, an unfamiliar percentage and an amount you want to check can involve different information needs. The page cannot inspect the original material, verify the amount or judge whether it was clearly presented. You may describe uncertainty without treating it as evidence of carelessness, low intelligence or inability to make decisions. Recognising several descriptions does not show that they share a cause. A remembered experience can remain a practical question rather than a permanent judgement about you and money.",
+              "zh": "困惑的价格展示、不熟悉百分比和想核对的金额，可能涉及不同信息需要。页面不能检查原材料、核验数额或判断展示是否清楚。可以描述不确定，不必把它当成粗心、智力低或无法决策的证据。认可多条不说明它们同因。回忆可以保留为实际问题，而不是对人与金钱的永久判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Labels describe statements rather than money",
+            "zh": "标签描述条目，不描述金额"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored. The category identifiers are labels without points. Their six counts add to five descriptions in this topic, with individual selections shown separately. There is no total, average, highest topic, risk band, debt measure or probability of a learning difficulty. Counts do not represent money spent, losses, errors, purchases or successful transactions. Often asking for help does not establish inability, and rarely asking does not establish that an amount was understood correctly.",
+              "zh": "可选没有注意到、很少、有时、较常、经常或未计分。类别标识是不带点数的标签。本主题六种计数合计五条描述，并显示逐条选择。没有总分、均值、最高主题、风险档、债务度量或学习困难概率。计数不代表支出、损失、错误、购买或成功交易数量。经常求助不建立无能力，很少求助也不建立理解金额正确。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or withholding an answer. It is kept separate from did not notice. Having no recent payment experience is not a financial performance, and not wanting to describe one is not a wrong answer. You do not need to open banking information, inspect receipts, recall a private amount or search for a difficult offer to fill a category. All-unscored responses leave the full guide and support information available without requiring a transaction, an explanation or proof of difficulty.",
+              "zh": "未计分包括没有相关经历、回想不清或保留回答，与没有注意到分开。最近没有付款经历不是一次财务表现，不愿描述也不是错误回答。不必打开银行信息、查收据、回忆私人金额或找难懂优惠。全未计分仍可读全文与支持说明，不要求交易、解释或困难证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Describe the information you wanted clarified",
+            "zh": "描述想弄清的信息"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded account could be that two displayed prices used different formats and you were unsure how to compare them, or that you wanted the meaning of a percentage explained. That account identifies an information need without proving anything about your mathematical ability. The website cannot know whether units, conditions, wording or another feature mattered, and it cannot choose an explanation. You may leave exact figures, shops, accounts and other private details unspecified while explaining what was unclear in the situation.",
+              "zh": "有限表述可以是：两个展示价格形式不同，不确定怎样比较；或想了解某百分比的意思。这指出信息需要，不证明数学能力。网站不知道单位、条件、文字或其他特征是否有关，也不能选解释。说明场景里哪里不清楚时，可以不说具体数字、商店、账户和其他私人细节。"
+            },
+            {
+              "en": "A short list of amounts can also be hard to follow for reasons the page cannot inspect. It does not separate memory, attention, language and numerical understanding into diagnostic components. The four editorial topics may overlap and are not validated independent dimensions. Their counts do not combine into financial capacity, a neurotype or a clinical profile. English and Chinese descriptions have no established measurement equivalence or shared norms; they cannot fairly compare people using different currencies, conventions, services or kinds of information.",
+              "zh": "短金额列表也可能因页面看不到的情况而难跟上。它不把记忆、注意、语言和数字理解拆成诊断成分。四编辑主题可能重叠，非验证独立维度，计数不合成财务能力、神经类型或临床档案。中英文描述没有已确立的测量等值或共同常模，不能公平比较使用不同货币、约定、服务和信息的人。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Help and checking are not diagnostic indicators",
+            "zh": "帮助与核对不是诊断指标"
+          },
+          "paragraphs": [
+            {
+              "en": "Using a calculator, note, clearer explanation or another person's help can be an ordinary way to access information. Its use does not prove dyscalculia, dependence or compensation for a hidden disorder. Its absence does not prove accuracy or independence. You are not asked to withdraw useful support or perform mental arithmetic to make an observation more revealing. Existing checks and relevant professional instructions should remain in place independently of this record. The page cannot determine whether any particular check should be stopped, increased or changed.",
+              "zh": "计算器、笔记、更清楚说明或他人帮助，可以是接触信息的普通方式。使用不证明计算障碍、依赖或补偿隐藏障碍，不用也不证明准确或独立。不要求撤掉有用支持或心算，让观察显得更有揭示性。已有核对和相关专业指示应独立保留，页面不能决定某次核对应停止、增加或改变。"
+            },
+            {
+              "en": "Likewise, worry about money or uncertainty about a result is not an extra diagnostic criterion supplied by the questionnaire. This topic does not determine whether anxiety, unfamiliar information, a learning difficulty or something else explains an experience. It assigns no exposure, repeated checking, budgeting exercise or practice schedule. You may keep the account limited to a remembered activity and an open question. There is no need to recreate an error, risk a payment or demonstrate that you can manage without assistance.",
+              "zh": "对金钱担忧或对结果没把握，也不是问卷提供的追加诊断标准。本主题不决定焦虑、陌生信息、学习困难或其他情况是否解释经历，不安排暴露、重复核对、预算练习或练习日程。可以只保留记得的活动和开放问题，无需重现错误、冒险付款或展示不用帮助也能处理。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Ask a practical question without a financial verdict",
+            "zh": "提实际问题，无需财务裁定"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to discuss an information need, an optional question might be whether an amount, condition or method can be explained more clearly or provided in another usable form. That is a possible conversation topic, not financial advice, a guarantee of support or a treatment plan. The website cannot recommend a product, decide whether a purchase is affordable or judge whether a transaction should proceed. A category is never permission to spend, borrow, transfer money, sign a document or change a financial arrangement.",
+              "zh": "若想讨论信息需要，可以询问某金额、条件或方法能否说明更清楚，或提供另一可用形式。这是可能的交流话题，不是财务建议、支持保证或治疗计划。网站不能推荐产品、决定买不买得起或判断是否交易。类别绝不是支出、借款、转账、签文档或改变财务安排的许可。"
+            },
+            {
+              "en": "No PIN, password, passcode, account number, statement or actual amount is requested. You can use the page without disclosing private figures, and you can keep those details out of a support conversation. The record does not require telling an employer, school, family member or another reader. If you choose to seek help, you decide whom to approach and what feels appropriate and safe to share. The questionnaire cannot certify the safety of a person, a service or a real transaction.",
+              "zh": "不要求PIN、密码、口令、账号、账单或真实金额。可以不披露私人数字使用页面，也可以在支持交流中不说这些细节。记录不要求告知雇主、学校、家人或其他读者。若选择求助，找谁、分享什么合适安全由自己决定。问卷不能认证某个人、服务或真实交易的安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a count",
+            "zh": "支持不依赖计数"
+          },
+          "paragraphs": [
+            {
+              "en": "You may ask an appropriately qualified learning-support or assessment professional what information would help them understand a concern about everyday numbers. No count, childhood proof or completed questionnaire is required. A formal assessment and any service's requirements remain separate from this original record. Linked British Dyslexia Association information describes broader adult mathematics and assessment contexts; it supplies no items, scoring key, validation or endorsement for these five descriptions. They are not a published diagnostic checklist, an examination or a substitute for an appropriately qualified assessment.",
+              "zh": "可以询问合适的学习支持或评估专业人员，理解日常数字担忧需要哪些资料。不要求计数、童年证明或完成问卷。正式评估和服务要求与本原创记录分开。链接的英国阅读障碍协会资料介绍更广的成年人数学和评估背景，没有提供五条描述、计分键、验证或背书。它们不是发表诊断清单、考试或合适专业评估的替代。"
+            },
+            {
+              "en": "The record cannot determine medical need or urgency, establish that a new or changing difficulty is harmless or replace existing professional advice. Keep appropriate care, assessment and support independent of the page rather than postponing them because a category seems reassuring. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. Support information is public for every possible record. You do not need financial loss, repeated mistakes or an explanation about your brain before a concern is worth discussing.",
+              "zh": "记录不能决定医疗需要或紧急程度，不能建立新出现或变化的困难无害，也不替代已有专业意见。合适照护、评估和支持独立于页面，不要因类别似乎令人安心而推迟。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。任何记录下支持说明都公开，不需要财务损失、反复错误或大脑解释，担忧才值得讨论。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful account without a capacity score",
+            "zh": "留有用描述，不给能力分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred category or schedule for monitoring the observations. Later selections may reflect different tasks, information formats, available help, recollections or interpretations of a description. They do not demonstrate recovery, deterioration, treatment response or a change in financial or mathematical ability. The record cannot decide whether support became unnecessary, a difficulty is permanent or someone should take over a decision. A useful outcome may simply be finding a phrase that identifies what information you want clarified while leaving causes and diagnosis open.",
+              "zh": "没有要提高的分数、偏好类别或观察监测日程。以后选择可能反映不同任务、信息形式、帮助、回忆或对描述的理解，不展示恢复、恶化、治疗反应，或财务数学能力改变。记录不能决定支持已无必要、困难永久或应由别人接管决定。有用收获可能只是一句能指出想弄清什么的信息表述，同时保留原因与诊断开放性。"
+            },
+            {
+              "en": "Selections stay in current-page memory only, with no saved draft, submission, questionnaire analytics or private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only a title and address rather than your categories. All four complete guides remain public before answering and show the same text to every reader. You may read without selecting, withhold an experience or stop after finding a useful question. The page does not need to assign you a diagnosis or a financial-capacity judgement for that question to matter.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除；复制公开入口只含标题地址，不含类别。四篇全文答题前公开，所有读者看到同样文字。可以不选内容阅读、保留经历不答，或找到有用问题后停止；问题有价值，不需要页面先给诊断或财务能力判断。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original-context",
+      "title": {
+        "en": "Original observations, not a dyscalculia instrument",
+        "zh": "原创观察，不是计算障碍工具"
+      },
+      "paragraphs": [
+        {
+          "en": "Twenty original descriptions are grouped into four overlapping editorial topics of five. They are not a published screener, diagnostic criteria or a clinical scale. No items or scoring keys are taken from the linked background sources.",
+          "zh": "20条原创描述分成四个可能重叠的编辑主题，每组五条。它们不是发表筛查工具、诊断标准或临床量表；未从链接背景资料提取题目或计分键。"
+        },
+        {
+          "en": "The past four weeks is an editorial recall window, not a diagnostic duration. Do not create difficult calculations, remove tools or reproduce errors to answer.",
+          "zh": "过去四周是编辑设定的回忆窗口，不是诊断时长。不要为回答而找难题、撤掉辅助或重现错误。"
+        }
+      ]
+    },
+    {
+      "id": "categorical-record",
+      "title": {
+        "en": "Categories without points",
+        "zh": "类别不作点数"
+      },
+      "paragraphs": [
+        {
+          "en": "Within each topic the six category counts add to five descriptions. Numeric-looking IDs are labels. No total, mean, highest topic, few/some/many band, risk, diagnosis, IQ or proficiency is inferred. Counts describe statements, not errors, time or money amounts.",
+          "zh": "每主题六种类别计数合计五条描述。像数字的标识只是标签，不推断总分、均值、最高主题、迹象少中多档位、风险、诊断、智商或熟练度。计数针对描述，不是错误、时间或金额。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withheld answers share an explicit unscored category. It never becomes did not notice or evidence that an activity was easy.",
+          "zh": "没有相关经历、回想不清和保留回答共用明确的未计分类别，绝不变成没有注意到，也不证明活动轻松。"
+        }
+      ]
+    },
+    {
+      "id": "limits-and-support",
+      "title": {
+        "en": "Context, tools and support",
+        "zh": "背景工具与支持"
+      },
+      "paragraphs": [
+        {
+          "en": "English and Chinese measurement equivalence, norms and diagnostic validity are not established. Tool use and maths anxiety are not additional diagnostic indicators. Categories cannot establish intelligence, effort, financial capacity, work suitability or a cause. The separate numerical-reasoning practice keeps its own questions, correct counts and guides; the records are not combined.",
+          "zh": "尚未建立中英文测量等值、常模或诊断有效性。使用工具和数学担忧不是追加诊断指标。类别不建立智力、努力、财务能力、工作适配或原因。独立数值推理练习保留自己的题目、答对数和指南，不与本记录合并。"
+        },
+        {
+          "en": "Ask an appropriately qualified support or assessment professional without a count, childhood proof or completed record. Keep useful aids, existing checks and relevant professional instructions. Do not use a record for medication doses, travel safety, electrical work, payments or other financial decisions, or to explain away new or changing health concerns.",
+          "zh": "咨询合适的支持或评估专业人员，不需要计数、童年证明或完成记录。保留有用辅助、已有核对和相关专业指示。不要用记录决定药物剂量、出行安全、电气工作、付款或其他财务决定，也不应用它解释掉新出现或变化的健康担忧。"
+        }
+      ]
+    },
+    {
+      "id": "memory-only",
+      "title": {
+        "en": "Private selections, public readings",
+        "zh": "私人选择与公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Selections remain only in current-page memory: no saved drafts, submissions, questionnaire analytics or personal result URL. Retake, exit, reload and leaving clear the record. Copy shares only the public title and entry. No PIN, passcode, account, statement or real amount is requested.",
+          "zh": "选择只留在当前页面内存：不存草稿、不提交、不作问卷分析，也没有个人结果网址。重做、退出、刷新和离页会清除，复制仅含公开标题及入口。不要求PIN、口令、账户、账单或真实金额。"
+        },
+        {
+          "en": "The four complete guides are public before answers, unchanged by categories and available for all-unscored records. Read freely, withhold answers or stop at any point.",
+          "zh": "四篇完整指南答题前即公开，不随类别改变，全部未计分也可读。可以自由阅读、保留回答或随时停止。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I have dyscalculia?",
+        "zh": "能告诉我是否有计算障碍吗？"
+      },
+      "answer": {
+        "en": "No. Original observations cannot confirm or exclude dyscalculia or another learning difficulty or identify a cause. They are not a published checklist, examination or substitute for an appropriately qualified assessment.",
+        "zh": "不能。原创观察不能确认或排除计算障碍或其他学习困难，也不能找原因；不是发表清单、考试或合适专业评估的替代。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to calculate, measure or make a payment now?",
+        "zh": "现在需要计算、测量或付款吗？"
+      },
+      "answer": {
+        "en": "No. Recall only and keep useful tools and checks. Do not recreate errors, try a transaction, supply real figures or perform timed arithmetic. Use unscored for unclear recall, no experience or withholding.",
+        "zh": "不需要。只凭回忆，保留有用工具与核对。不重现错误、不试交易、不提供真实数字，也不做计时算术。回想不清、没有经历或保留回答时选未计分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does using a tool or feeling worried prove a learning difficulty?",
+        "zh": "使用工具或担忧能证明学习困难吗？"
+      },
+      "answer": {
+        "en": "No. Tool use and maths anxiety are not additional diagnostic indicators here. A category cannot establish a cause, intelligence, financial capacity, independence or suitability for study or work.",
+        "zh": "不能。使用工具和数学担忧在这里不是追加诊断指标。类别不能建立原因、智力、财务能力、独立程度或学习工作适配。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I finish or reach a count before asking for support?",
+        "zh": "求助前必须完成或达到计数吗？"
+      },
+      "answer": {
+        "en": "No. Support questions and all four guides are available without answers or a threshold. The page cannot decide medical need or urgency. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing.",
+        "zh": "不必。没有回答或门槛也能提出支持问题并读四篇指南。页面不能决定医疗需要或紧急程度；若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this combined with numerical-reasoning practice or comparable across languages?",
+        "zh": "会与数值推理练习合并或跨语言比较吗？"
+      },
+      "answer": {
+        "en": "No. Existing practice questions and correct counts remain separate. English and Chinese measurement equivalence, norms and diagnostic validity are not established. These categorical records are not ability scores or cross-language comparisons.",
+        "zh": "不会。已有练习题目与答对数保持独立。尚未建立中英文测量等值、常模或诊断有效性。类别记录不是能力分数或跨语言比较。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "British Dyslexia Association: Adult everyday mathematics context",
+        "zh": "英国阅读障碍协会：成年人日常数学背景"
+      },
+      "url": "https://www.bdadyslexia.org.uk/dyscalculia/how-can-i-identify-dyscalculia/how-does-dyscalculia-and-maths-learning-difficulties-affect-adults"
+    },
+    {
+      "title": {
+        "en": "British Dyslexia Association: Assessment and support context",
+        "zh": "英国阅读障碍协会：评估与支持背景"
+      },
+      "url": "https://www.bdadyslexia.org.uk/dyscalculia/assessment-and-support"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_number_context_observations",
+    "formCode": "fm_number_context20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_v1",
+    "scoringVersion": "six_categorical_counts_per_five_no_dyscalculia_inference_v1",
+    "resultContentVersion": "four_full_bilingual_number_context_readings_v1",
+    "itemBankSha256": "fbe0bd43900fea57c057541888a6418d843afcfa4225c5997c3f61f5535851df",
+    "resultContentSha256": "163e780b4c2c2016b68ea124e168d2abdbcebd7737511b5727a3ff9fa84b776b",
+    "psychometricValidationCompleted": false
+  }
+}

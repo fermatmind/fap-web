@@ -7027,5 +7027,30 @@
       "ways-of-accessing-text-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "number-context-reflection",
+    "code": "FM_NUMBER_CONTEXT20_OBSERVATIONS",
+    "version": "fm_number_context20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Numbers in Daily Life: Personal Reflection",
+      "zh": "日常数字：个人回顾"
+    },
+    "description": {
+      "en": "20 original adult observations about everyday quantities, calculation steps, time, measures and prices. Four full bilingual guides, free. Recall only; no diagnosis or ability score.",
+      "zh": "20条成年人原创观察，回顾日常数量、计算步骤、时间度量和价格信息。四篇双语全文免费；只凭回忆，不作诊断或能力评分。"
+    },
+    "minutes": 8,
+    "formCode": "fm_number_context20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "noticing-written-numbers-reading",
+      "following-calculation-steps-reading",
+      "time-and-measure-context-reading",
+      "prices-and-daily-records-reading"
+    ],
+    "collection": "explore"
   }
 ]
