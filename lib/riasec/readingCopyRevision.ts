@@ -5,6 +5,12 @@ import type { RiasecResultViewModel } from "./resultAssembler";
 export function applyRiasecReadingCopyRevision(vm: RiasecResultViewModel): RiasecResultViewModel {
   if ((vm.displayCopy && vm.displayCopy.revision !== revision.previousRevision) ||
       (vm.resultLocale !== "en" && vm.resultLocale !== "zh-CN")) return vm;
+  // This is a finite text revision, not admission for future content packages.
+  // Legacy snapshots reach this helper only through the assembler's existing binding checks.
+  if (vm.authority?.mode === "canonical" && !revision.acceptedCanonicalSources.some(source =>
+    source.sourceHash === vm.authority?.sourceHash && source.compiledHash === vm.authority?.compiledHash &&
+    source.compilerVersion === vm.authority?.compilerVersion && vm.authority?.locale === vm.resultLocale &&
+    source.locales.includes(vm.resultLocale as "en" | "zh-CN"))) return vm;
   const locale = vm.resultLocale;
   const bands = revision.lowBands[locale] as Record<string, { before: string; after: string }>;
   const appliedKeys: string[] = [];

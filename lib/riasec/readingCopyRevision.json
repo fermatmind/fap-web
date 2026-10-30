@@ -263,5 +263,46 @@
       "after": "Source note: the original English exercise extends the existing FermatMind editorial quality-checking activity; it is not an O*NET questionnaire or occupational record. U.S. conceptual sources checked 24 October 2026: www.onetcenter.org/IP.html and www.onetonline.org/find/descriptor/browse/1.B.1. The description page publication year is unknown. The exercise is an editorial exploration activity, not a validated interest or ability measure."
     }
   ],
-  "previousCandidateSha256": "344c42f3fbe3803dc00e5e19995d7980e710ac21c3c278c7c7efd3597a0a4596"
+  "previousCandidateSha256": "344c42f3fbe3803dc00e5e19995d7980e710ac21c3c278c7c7efd3597a0a4596",
+  "acceptedCanonicalSources": [
+    {
+      "sourceHash": "5fad2d6cbaa2fc0109a41161f2bfa40af3c1225115c6bb916f2f09d82d3e8b52",
+      "compiledHash": "3769d13a7939fa7341a0acef06bae7139e56a6e09a5fc82040f67c26113dc551",
+      "compilerVersion": "1.8.0",
+      "locales": [
+        "zh-CN"
+      ],
+      "evidence": "native-report-source-authority.json:1.8/zh-CN plus immutable 1.8 reconstruction contract"
+    },
+    {
+      "sourceHash": "c7ab76c33fb28b70623b0edb5e263ea657581f2aa41338808ee4231737206854",
+      "compiledHash": "b66309240729d785a43aac1e5a2770281520716b93ac330eb47becb830cf7c3d",
+      "compilerVersion": "1.9.0",
+      "locales": [
+        "en",
+        "zh-CN"
+      ],
+      "evidence": "native-report-source-authority.json:1.9 source-bound frozen reports"
+    },
+    {
+      "sourceHash": "2a4fde8f2a998d2ec1b80c6474223a02b7a42c1e5ad4e9369f02681502070ccc",
+      "compiledHash": "52e81292e3e5cf9bceb0dafbb5f940e93e244615ebc063d4358200a99384a092",
+      "compilerVersion": "1.9.0",
+      "locales": [
+        "en",
+        "zh-CN"
+      ],
+      "evidence": "accepted API2cc4405e9ea58925a5d7472cae5d2d5b361c9373 compiled manifest; original16 reviewed copy"
+    },
+    {
+      "sourceHash": "ee6659988dacc874db73108cb8b787e4230bab7674be27875566455656ff565f",
+      "compiledHash": "0b6fb203a87fd6d3985c2c2f895297afaa0d9750bb327eea027b138a7b06f635",
+      "compilerVersion": "1.9.0",
+      "locales": [
+        "en",
+        "zh-CN"
+      ],
+      "evidence": "API d44ad7bd435e1587774584cd29493bcd5d4ffe98 deterministic compiled manifest and four native candidate reports"
+    }
+  ]
 }

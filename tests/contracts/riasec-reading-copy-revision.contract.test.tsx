@@ -178,4 +178,49 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
     expect(screen.queryByText(row.before)).toBeNull();
     expect(revised.interpretationState).toBe(vm.interpretationState);
   });
+
+  it.each(["en", "zh-CN"] as const)("reads an unknown consistent canonical package without applying this copy revision: %s", locale => {
+    const input = wire(`1.9/${locale}/riasec_140`);
+    const rebind = (value: unknown): void => {
+      if (!value || typeof value !== "object") return;
+      for (const [key, child] of Object.entries(value)) {
+        if (["source_hash", "canonical_source_hash"].includes(key)) Reflect.set(value, key, "a".repeat(64));
+        else if (["compiled_hash", "canonical_compiled_hash"].includes(key)) Reflect.set(value, key, "b".repeat(64));
+        else rebind(child);
+      }
+    };
+    rebind(input);
+    const before = structuredClone(input);
+    expect(hasRiasecProjection(input)).toBe(true);
+    const vm = assembleRiasecResultViewModel(input, locale === "en" ? "en" : "zh");
+    expect(vm.authority?.sourceHash).toBe("a".repeat(64));
+    expect(vm.authority?.compiledHash).toBe("b".repeat(64));
+    expect(vm.dimensions).toHaveLength(6);
+    expect(vm.displayCopy).toBeUndefined();
+    expect(applyRiasecReadingCopyRevision(vm)).toBe(vm);
+    if (locale === "zh-CN") {
+      const slot = vm.deepContentSlots?.slots.find(row => row.slotId === "structural_difference_copy:summary");
+      expect(slot?.content.summary).toBe(copy.slots.find(row => row.locale === "zh-CN" && row.field === "summary")!.before);
+    } else expect(vm.lifecycleCopy?.faqItems.some(row => row.q === copy.additionalFaqs[0].question.before)).toBe(true);
+    expect(input).toEqual(before);
+  });
+
+  it.each(copy.acceptedCanonicalSources.flatMap(source => source.locales.map(locale => ({ source, locale }))))(
+    "retains the finite reviewed pair $source.compilerVersion/$locale/$source.sourceHash", ({ source, locale }) => {
+      const key = `${source.compilerVersion === "1.8.0" ? "1.8" : "1.9"}/${locale}/riasec_140`;
+      const vm = assembleRiasecResultViewModel(wire(key), locale === "en" ? "en" : "zh");
+      // VM-level admission matrix uses pairs traced to the native fixture or exact API manifest.
+      // It does not construct or promote a new runtime report authority.
+      const row = copy.slots.find(item => item.locale === locale && item.field === "summary")!;
+      const original = vm.deepContentSlots!.slots.find(slot => slot.slotId === row.slotId)!;
+      const controlled = { ...vm, displayCopy: undefined,
+        authority: { ...vm.authority!, sourceHash: source.sourceHash, compiledHash: source.compiledHash,
+          compilerVersion: source.compilerVersion, locale },
+        deepContentSlots: { ...vm.deepContentSlots!, slots: [{ ...original, content: { ...original.content, summary: row.before } }] } };
+      const revised = applyRiasecReadingCopyRevision(controlled);
+      expect(revised.deepContentSlots!.slots[0].content.summary).toBe(row.after);
+      expect(revised.displayCopy?.revision).toBe(copy.revision);
+      expect(revised.authority).toBe(controlled.authority);
+      expect(revised.dimensions).toBe(controlled.dimensions);
+    });
 });
