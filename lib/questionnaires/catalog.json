@@ -7226,5 +7226,31 @@
       "mental-space-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "communication-routines-context",
+    "code": "FM_COMMUNICATION_ROUTINES20_OBSERVATIONS",
+    "version": "fm_communication_routines20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Communication, Routines & Ways of Working",
+      "zh": "沟通、日常安排与做事方式"
+    },
+    "description": {
+      "en": "Twenty original descriptions about joining exchanges, clarity, familiar routines, details and visual aids. Keep individual labels and read five complete free guides, without an autism score, cognitive ranking or neurotype.",
+      "zh": "20条原创描述，回顾交流参与、清楚表达、熟悉安排、细节和视觉辅助。保留独立标签、阅读五篇完整免费指南，不生成自闭症分数、认知排名或神经类型。"
+    },
+    "minutes": 5,
+    "formCode": "fm_communication_routines20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "joining-an-exchange-reading",
+      "communication-clarity-reading",
+      "changes-and-routines-reading",
+      "details-and-interest-reading",
+      "visual-arrangements-reading"
+    ],
+    "collection": "explore"
   }
 ]

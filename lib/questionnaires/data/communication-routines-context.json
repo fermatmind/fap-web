@@ -1,0 +1,1955 @@
+{
+  "slug": "communication-routines-context",
+  "code": "FM_COMMUNICATION_ROUTINES20_OBSERVATIONS",
+  "version": "fm_communication_routines20_observations_v1",
+  "kind": "communication-routines20",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "title": {
+    "en": "Communication, Routines & Ways of Working",
+    "zh": "沟通、日常安排与做事方式"
+  },
+  "seoTitle": {
+    "en": "Communication & Routines Reflection: Five Everyday Topics",
+    "zh": "沟通与日常安排反思：五个日常主题"
+  },
+  "description": {
+    "en": "Twenty original descriptions about joining exchanges, clarity, familiar routines, details and visual aids. Keep individual labels and read five complete free guides, without an autism score, cognitive ranking or neurotype.",
+    "zh": "20条原创描述，回顾交流参与、清楚表达、熟悉安排、细节和视觉辅助。保留独立标签、阅读五篇完整免费指南，不生成自闭症分数、认知排名或神经类型。"
+  },
+  "introduction": {
+    "en": "Adults can describe their own recent situations without settling an identity or ability claim. Use only your recollection of the past four weeks. Helpful arrangements and difficult moments can coexist; the page does not reverse them into one score.",
+    "zh": "成年人可以描述近期自身情境，无需确定身份或能力主张。只使用过去四周的自身回忆。有帮助的安排与困难片刻可以并存，页面不把它们反向合成分数。"
+  },
+  "instructions": {
+    "en": "Choose what you noticed on relevant occasions. No opportunity, unclear recall and withholding can remain unscored. No social demonstration, eye-contact exercise, sensory exposure, private conversation or timed spatial task is needed.",
+    "zh": "按相关机会中注意到的情况选择。无机会、回忆不清与保留回答可保持未计分。无需社交演示、眼神接触练习、感官暴露、私人对话或计时空间任务。"
+  },
+  "resultHeading": {
+    "en": "Your private everyday-context record",
+    "zh": "你的私人日常情境记录"
+  },
+  "directions": [
+    {
+      "id": "joining-an-exchange",
+      "title": {
+        "en": "Joining a shared exchange",
+        "zh": "参与共同交流"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "communication-clarity",
+      "title": {
+        "en": "Clarity in communication",
+        "zh": "沟通中的清楚表达"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "changes-and-routines",
+      "title": {
+        "en": "Changes and familiar routines",
+        "zh": "变化与熟悉安排"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "details-and-interest",
+      "title": {
+        "en": "Details and sustained interest",
+        "zh": "细节与持续兴趣"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "visual-arrangements",
+      "title": {
+        "en": "Using visual arrangements",
+        "zh": "使用视觉安排"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CRC_01",
+      "prompt": {
+        "en": "In a group conversation I wanted to join, I was unsure when to take a turn.",
+        "zh": "在自己想参加的多人谈话中，我不确定何时接话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_02",
+      "prompt": {
+        "en": "After a shared activity, I wanted some quiet time before another conversation.",
+        "zh": "共同活动之后，我想先安静一会儿再进行另一段谈话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_03",
+      "prompt": {
+        "en": "I found it easier to join an exchange when its purpose was stated directly.",
+        "zh": "交流目的说得直接时，我发现自己更容易参与。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_04",
+      "prompt": {
+        "en": "I wanted more time to form a response than the conversation seemed to allow.",
+        "zh": "我想多花一点时间组织回应，但谈话的节奏似乎没有留出这些时间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "joining-an-exchange"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_05",
+      "prompt": {
+        "en": "An indirect request left me unsure what action was being asked of me.",
+        "zh": "一个间接的请求，让我不确定对方希望我做什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_06",
+      "prompt": {
+        "en": "I asked someone to say a practical instruction more explicitly.",
+        "zh": "我请对方把一条实际指示说得更明确。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_07",
+      "prompt": {
+        "en": "A written description helped me check what had been agreed.",
+        "zh": "一份文字说明，帮助我确认已经商定的内容。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_08",
+      "prompt": {
+        "en": "I was unsure whether a phrase was meant literally or playfully.",
+        "zh": "我不确定一句话是字面意思，还是在开玩笑。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "communication-clarity"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_09",
+      "prompt": {
+        "en": "A change to an ordinary plan took me time to adjust to.",
+        "zh": "一个普通计划发生变化后，我需要一些时间适应。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_10",
+      "prompt": {
+        "en": "Knowing the order of an activity helped me feel prepared to begin.",
+        "zh": "知道活动的先后顺序，帮助我做好开始的准备。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_11",
+      "prompt": {
+        "en": "I wanted notice before moving from one ordinary activity to another.",
+        "zh": "从一项普通活动转到另一项之前，我希望提前得到提示。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_12",
+      "prompt": {
+        "en": "I preferred keeping a familiar arrangement when either option would have worked.",
+        "zh": "两种选择都可行时，我更愿保留熟悉的安排。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "changes-and-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_13",
+      "prompt": {
+        "en": "I spent time exploring details of a topic because I wanted to understand it more fully.",
+        "zh": "我因为想更完整地理解一个主题，而花时间探索其中细节。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_14",
+      "prompt": {
+        "en": "A small inconsistency drew my attention while I was looking over something ordinary.",
+        "zh": "查看一件普通事物时，一处小的不一致吸引了我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_15",
+      "prompt": {
+        "en": "I wanted to continue a topic after the immediate practical question had been answered.",
+        "zh": "眼前的实际问题已有答案后，我仍想继续了解那个主题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_16",
+      "prompt": {
+        "en": "I looked for a pattern in the details of an activity I had chosen.",
+        "zh": "在自己选择的活动中，我会留意细节之间有没有规律。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "details-and-interest"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_17",
+      "prompt": {
+        "en": "A diagram helped me discuss how parts of a task fitted together.",
+        "zh": "一张示意图帮助我讨论一项任务的各部分怎样衔接。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_18",
+      "prompt": {
+        "en": "I arranged objects or notes where I could see them while thinking through an ordinary task.",
+        "zh": "思考一项普通任务时，我把物品或笔记摆在看得见的位置。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_19",
+      "prompt": {
+        "en": "I wanted a visual example alongside a spoken explanation.",
+        "zh": "听口头说明时，我还想看一个视觉示例。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "CRC_20",
+      "prompt": {
+        "en": "A change in the layout of familiar materials affected how I approached a task.",
+        "zh": "熟悉材料的摆放方式改变后，我开始任务的方式也受到影响。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "visual-arrangements"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "joining-an-exchange-reading",
+      "directionIds": [
+        "joining-an-exchange"
+      ],
+      "title": {
+        "en": "Joining a shared exchange — Complete Context Guide",
+        "zh": "参与共同交流：完整情境指南"
+      },
+      "headline": {
+        "en": "Joining a shared exchange — Complete Context Guide",
+        "zh": "参与共同交流：完整情境指南"
+      },
+      "summary": {
+        "en": "These four descriptions concern wanting to join a conversation, time between conversations, knowing its purpose and having time to form a response. They preserve your account of a setting rather than judging how socially capable, interested or friendly you are. Wanting quiet after an activity can coexist with wanting company.",
+        "zh": "四条描述涉及想参加谈话、谈话之间的时间、知道交流目的及组织回应的时间。它们保留你对场景的描述，不评社交能力、兴趣或友善程度。活动后想安静，也可以同时想与人相处。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without a score, type or ability comparison.",
+        "zh": "四条描述保留六类独立标签计数，不生成分数、类型或能力比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Joining a shared exchange — Complete Context Guide",
+          "zh": "参与共同交流：完整情境指南"
+        },
+        "description": {
+          "en": "These four descriptions concern wanting to join a conversation, time between conversations, knowing its purpose and having time to form a response. They preserve your account of a setting rather than judging how socially capable, interested or friendly you are. Wanting quiet after an activity can coexist with wanting company.",
+          "zh": "四条描述涉及想参加谈话、谈话之间的时间、知道交流目的及组织回应的时间。它们保留你对场景的描述，不评社交能力、兴趣或友善程度。活动后想安静，也可以同时想与人相处。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An exchange has a pace and arrangement",
+            "zh": "交流有自己的节奏与安排"
+          },
+          "paragraphs": [
+            {
+              "en": "These four descriptions concern wanting to join a conversation, time between conversations, knowing its purpose and having time to form a response. They preserve your account of a setting rather than judging how socially capable, interested or friendly you are. Wanting quiet after an activity can coexist with wanting company.",
+              "zh": "四条描述涉及想参加谈话、谈话之间的时间、知道交流目的及组织回应的时间。它们保留你对场景的描述，不评社交能力、兴趣或友善程度。活动后想安静，也可以同时想与人相处。"
+            },
+            {
+              "en": "Turn timing can be unfamiliar when people speak quickly, use another language or have not explained an activity. This record cannot select a cause, determine how others saw you or establish a lifelong communication pattern. It does not assess eye contact, a social deficit or your suitability for a relationship or job.",
+              "zh": "别人语速快、使用另一种语言或未解释活动时，接话时机可能陌生。记录不能选择原因、确定别人怎样看你或建立终身沟通模式，也不评眼神接触、社交缺陷或关系与工作适合度。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read all six categories without combining them",
+            "zh": "保留六类，不作合分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group retains four individual labels and six counts that add to four descriptions. These are counts of selected descriptions, not incidents, minutes or a share of your week. Category IDs are not points. There is no sum, mean, highest topic, radar, neurotype or ability ranking.",
+              "zh": "每组保留四条独立标签，六类计数合计四条描述。这是所选描述的数量，不是事件、分钟或一周比例。类别标识不是点数，没有合计、均分、最高主题、雷达图、神经类型或能力排名。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding remain distinct from did not notice on relevant occasions. Entirely unscored records give no finding. Frequent choices cannot establish a condition, and few choices cannot rule out a concern.",
+              "zh": "例如，一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；频繁不确定疾病，少量不排除担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example, with uncertainty",
+            "zh": "虚构例子，保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult who wants to contribute to a meeting but is unsure where a pause allows a turn. Later, an explicit agenda makes the purpose clearer. Those can remain two descriptions of different moments. They do not prove that an agenda solves a difficulty or that the person has a particular neurotype.",
+              "zh": "设想一位虚构成年人想在会上发言，却不确定哪个停顿可以接话；后来明确议程让目的更清楚。这可以保留为两个片刻，不证明议程解决了困难，也不证明某种神经类型。"
+            },
+            {
+              "en": "The example describes one possible setting rather than an expected answer. Your circumstances may differ. The same category may reflect different opportunities and cannot verify a cause, compare people or measure a later improvement.",
+              "zh": "例子只描述一种可能情境，不是期待答案。你的情况可能不同，相同类别可以反映不同机会，不能核实原因、比较人或测量后来改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original recollections alongside separate resources",
+            "zh": "原创回顾与独立资源并列"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping topics are original editorial content, not the AQ, RAADS-R, a cognitive battery or a validated short form. The past four weeks is a recall choice, not a diagnostic duration. There are no norms, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "20条双语描述及五个可重叠主题均为原创编辑内容，不是AQ、RAADS-R、认知测验组或验证短版。过去四周是回忆选择，不是诊断时限；没有常模、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "Separate sensory-response, sensory-perception, adult executive-function, focus-and-energy, camouflaging and visual-imagery pages keep their own items, instructions and readings. Shared topics do not make their scores interchangeable. No answers transfer here, no cross-tool total is made and no combined cognitive profile or autism inference is produced.",
+              "zh": "独立感官反应、感官知觉、成人执行功能、专注精力、社交伪装与视觉意象页保留自身题目、说明和读法。主题相近不代表分数可互换；不转移回答、不做跨题本总分，也不生成联合认知档案或自闭症推断。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional practical question",
+            "zh": "一个可选的实用问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, consider whether a meeting already offers a clear purpose and enough response time. You can discuss a practical preference without disclosing an identity or proving a questionnaire count. No new social exercise, forced eye contact or obligation to stay in an uncomfortable interaction is part of this page.",
+              "zh": "若有用，可以想会议是否已有清楚目的和足够回应时间。无需披露身份或证明问卷计数，也能讨论实用偏好。本页不包含新的社交练习、强迫眼神接触或留在不适互动中的义务。"
+            },
+            {
+              "en": "Consider only ordinary options that are already safe and available. Keep agreed support and privacy boundaries intact. This guide does not prescribe treatment, certify an arrangement or require you to change a preference so that a number falls.",
+              "zh": "只考虑本来安全可用的普通选项，保留约定支持与隐私边界。本指南不规定治疗、不认证安排，也不要求为降低数字而改变偏好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Your choice, support and privacy",
+            "zh": "选择、支持与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "Support does not depend on a questionnaire category or count. If you want help with communication or everyday participation, you can discuss your needs with an appropriately qualified professional without proving an identity. This reflection cannot assess developmental history, medical need or urgency, and should not delay care or replace existing advice.",
+              "zh": "支持不取决于问卷类别或计数。若希望就沟通或日常参与获得帮助，可以与合适的专业人士讨论需要，无需证明身份。本回顾不能评发展史、医疗需要或紧急程度，不应用来推迟照护或替代已有意见。"
+            },
+            {
+              "en": "You may leave any description unscored or stop without explanation. Answers stay in current-page memory, with no draft storage, submission, questionnaire analytics or private result address; leaving, reload, clear and retake remove them. Public copying contains only the title and entry. All five full guides remain free before and after every answer pattern.",
+              "zh": "可保留任何回答或不作解释地停止。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址；离页、刷新、清空与重做会移除。公开复制只含标题和入口。五篇全文在答题前与任何组合后免费开放。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communication-clarity-reading",
+      "directionIds": [
+        "communication-clarity"
+      ],
+      "title": {
+        "en": "Clarity in communication — Complete Context Guide",
+        "zh": "沟通中的清楚表达：完整情境指南"
+      },
+      "headline": {
+        "en": "Clarity in communication — Complete Context Guide",
+        "zh": "沟通中的清楚表达：完整情境指南"
+      },
+      "summary": {
+        "en": "This topic concerns indirect requests, asking for explicit instructions, checking a written agreement and uncertainty about literal or playful meaning. A request for clarification is an action, not evidence of a disorder or a failure to understand people. Clear and unclear exchanges can occur for the same person.",
+        "zh": "本主题涉及间接请求、请说清指示、核对文字约定及不确定字面或玩笑含义。澄清请求是一种行动，不证明疾病或不懂人。同一个人可以经历清楚和不清楚的交流。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without a score, type or ability comparison.",
+        "zh": "四条描述保留六类独立标签计数，不生成分数、类型或能力比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Clarity in communication — Complete Context Guide",
+          "zh": "沟通中的清楚表达：完整情境指南"
+        },
+        "description": {
+          "en": "This topic concerns indirect requests, asking for explicit instructions, checking a written agreement and uncertainty about literal or playful meaning. A request for clarification is an action, not evidence of a disorder or a failure to understand people. Clear and unclear exchanges can occur for the same person.",
+          "zh": "本主题涉及间接请求、请说清指示、核对文字约定及不确定字面或玩笑含义。澄清请求是一种行动，不证明疾病或不懂人。同一个人可以经历清楚和不清楚的交流。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Clarity depends on the message and its context",
+            "zh": "清楚程度取决于信息与情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns indirect requests, asking for explicit instructions, checking a written agreement and uncertainty about literal or playful meaning. A request for clarification is an action, not evidence of a disorder or a failure to understand people. Clear and unclear exchanges can occur for the same person.",
+              "zh": "本主题涉及间接请求、请说清指示、核对文字约定及不确定字面或玩笑含义。澄清请求是一种行动，不证明疾病或不懂人。同一个人可以经历清楚和不清楚的交流。"
+            },
+            {
+              "en": "The page does not know whether an instruction was complete, whether a joke relied on shared knowledge or whether a translation changed the meaning. It cannot measure pragmatic language ability, honesty, intelligence or empathy. There is no answer pattern that certifies a more effective communicator.",
+              "zh": "页面不知道指示是否完整、玩笑是否依赖共同背景，或翻译是否改变含义。它不测语用能力、诚实、智力或同理心，没有能认证沟通更有效的答法。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read all six categories without combining them",
+            "zh": "保留六类，不作合分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group retains four individual labels and six counts that add to four descriptions. These are counts of selected descriptions, not incidents, minutes or a share of your week. Category IDs are not points. There is no sum, mean, highest topic, radar, neurotype or ability ranking.",
+              "zh": "每组保留四条独立标签，六类计数合计四条描述。这是所选描述的数量，不是事件、分钟或一周比例。类别标识不是点数，没有合计、均分、最高主题、雷达图、神经类型或能力排名。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding remain distinct from did not notice on relevant occasions. Entirely unscored records give no finding. Frequent choices cannot establish a condition, and few choices cannot rule out a concern.",
+              "zh": "例如，一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；频繁不确定疾病，少量不排除担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example, with uncertainty",
+            "zh": "虚构例子，保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional colleague receives “could this be sorted soon?” without a date or action. They ask what is needed and check a written note. The record can retain the question and the useful note without deciding that a personal trait caused the ambiguity. Another message may have been clear from the start.",
+              "zh": "一位虚构同事收到“能尽快处理吗”，却没有日期或具体行动，于是询问需要什么、核对文字说明。记录可以保留提问与有用的笔记，不认定个人特质造成歧义；另一条信息也许本来就清楚。"
+            },
+            {
+              "en": "The example describes one possible setting rather than an expected answer. Your circumstances may differ. The same category may reflect different opportunities and cannot verify a cause, compare people or measure a later improvement.",
+              "zh": "例子只描述一种可能情境，不是期待答案。你的情况可能不同，相同类别可以反映不同机会，不能核实原因、比较人或测量后来改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original recollections alongside separate resources",
+            "zh": "原创回顾与独立资源并列"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping topics are original editorial content, not the AQ, RAADS-R, a cognitive battery or a validated short form. The past four weeks is a recall choice, not a diagnostic duration. There are no norms, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "20条双语描述及五个可重叠主题均为原创编辑内容，不是AQ、RAADS-R、认知测验组或验证短版。过去四周是回忆选择，不是诊断时限；没有常模、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "Separate sensory-response, sensory-perception, adult executive-function, focus-and-energy, camouflaging and visual-imagery pages keep their own items, instructions and readings. Shared topics do not make their scores interchangeable. No answers transfer here, no cross-tool total is made and no combined cognitive profile or autism inference is produced.",
+              "zh": "独立感官反应、感官知觉、成人执行功能、专注精力、社交伪装与视觉意象页保留自身题目、说明和读法。主题相近不代表分数可互换；不转移回答、不做跨题本总分，也不生成联合认知档案或自闭症推断。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional practical question",
+            "zh": "一个可选的实用问题"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary agreement, you may prefer to confirm an action or date in a format everyone involved accepts. That is a practical communication choice, not treatment or a required response to a count. Do not upload messages, contact somebody to test their meaning or repeat a difficult conversation for this reflection.",
+              "zh": "普通约定中，可以用相关人接受的形式确认行动或日期。这是沟通选择，不是治疗，也不是计数要求的回应。不要上传消息、联系某人测试含义，或为反思重做困难谈话。"
+            },
+            {
+              "en": "Consider only ordinary options that are already safe and available. Keep agreed support and privacy boundaries intact. This guide does not prescribe treatment, certify an arrangement or require you to change a preference so that a number falls.",
+              "zh": "只考虑本来安全可用的普通选项，保留约定支持与隐私边界。本指南不规定治疗、不认证安排，也不要求为降低数字而改变偏好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Your choice, support and privacy",
+            "zh": "选择、支持与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "Support does not depend on a questionnaire category or count. If you want help with communication or everyday participation, you can discuss your needs with an appropriately qualified professional without proving an identity. This reflection cannot assess developmental history, medical need or urgency, and should not delay care or replace existing advice.",
+              "zh": "支持不取决于问卷类别或计数。若希望就沟通或日常参与获得帮助，可以与合适的专业人士讨论需要，无需证明身份。本回顾不能评发展史、医疗需要或紧急程度，不应用来推迟照护或替代已有意见。"
+            },
+            {
+              "en": "You may leave any description unscored or stop without explanation. Answers stay in current-page memory, with no draft storage, submission, questionnaire analytics or private result address; leaving, reload, clear and retake remove them. Public copying contains only the title and entry. All five full guides remain free before and after every answer pattern.",
+              "zh": "可保留任何回答或不作解释地停止。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址；离页、刷新、清空与重做会移除。公开复制只含标题和入口。五篇全文在答题前与任何组合后免费开放。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changes-and-routines-reading",
+      "directionIds": [
+        "changes-and-routines"
+      ],
+      "title": {
+        "en": "Changes and familiar routines — Complete Context Guide",
+        "zh": "变化与熟悉安排：完整情境指南"
+      },
+      "headline": {
+        "en": "Changes and familiar routines — Complete Context Guide",
+        "zh": "变化与熟悉安排：完整情境指南"
+      },
+      "summary": {
+        "en": "The four observations cover adjusting after a changed plan, knowing the order before beginning, wanting transition notice and keeping a familiar arrangement when either option works. They describe ordinary preferences and recalled transitions. They do not identify rigidity, compulsions or a developmental condition.",
+        "zh": "四条观察涉及计划改变后的适应、开始前知道顺序、希望提前提示过渡，以及两种选择都可行时保留熟悉安排。它们描述普通偏好与回忆中的过渡，不识别僵化、强迫或发展状况。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without a score, type or ability comparison.",
+        "zh": "四条描述保留六类独立标签计数，不生成分数、类型或能力比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changes and familiar routines — Complete Context Guide",
+          "zh": "变化与熟悉安排：完整情境指南"
+        },
+        "description": {
+          "en": "The four observations cover adjusting after a changed plan, knowing the order before beginning, wanting transition notice and keeping a familiar arrangement when either option works. They describe ordinary preferences and recalled transitions. They do not identify rigidity, compulsions or a developmental condition.",
+          "zh": "四条观察涉及计划改变后的适应、开始前知道顺序、希望提前提示过渡，以及两种选择都可行时保留熟悉安排。它们描述普通偏好与回忆中的过渡，不识别僵化、强迫或发展状况。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A familiar sequence can be a practical preference",
+            "zh": "熟悉顺序可以是实用偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "The four observations cover adjusting after a changed plan, knowing the order before beginning, wanting transition notice and keeping a familiar arrangement when either option works. They describe ordinary preferences and recalled transitions. They do not identify rigidity, compulsions or a developmental condition.",
+              "zh": "四条观察涉及计划改变后的适应、开始前知道顺序、希望提前提示过渡，以及两种选择都可行时保留熟悉安排。它们描述普通偏好与回忆中的过渡，不识别僵化、强迫或发展状况。"
+            },
+            {
+              "en": "A routine can support participation without being compulsory. An unexpected change can also be workable. The page does not know the practical stakes, available choices or reason for a preference; a frequent label is not a rule to preserve every arrangement or a reason to remove one.",
+              "zh": "日常安排可以帮助参与，而不必是强制的；意外变化也可能可行。页面不了解实际影响、可用选择或偏好原因，频繁标签不是保留所有安排的规则，也不是移除安排的理由。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read all six categories without combining them",
+            "zh": "保留六类，不作合分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group retains four individual labels and six counts that add to four descriptions. These are counts of selected descriptions, not incidents, minutes or a share of your week. Category IDs are not points. There is no sum, mean, highest topic, radar, neurotype or ability ranking.",
+              "zh": "每组保留四条独立标签，六类计数合计四条描述。这是所选描述的数量，不是事件、分钟或一周比例。类别标识不是点数，没有合计、均分、最高主题、雷达图、神经类型或能力排名。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding remain distinct from did not notice on relevant occasions. Entirely unscored records give no finding. Frequent choices cannot establish a condition, and few choices cannot rule out a concern.",
+              "zh": "例如，一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；频繁不确定疾病，少量不排除担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example, with uncertainty",
+            "zh": "虚构例子，保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult whose ordinary appointment moves later. They need time to update a travel plan and want to know which part changes. This could reflect the practical task rather than a fixed response to change. Keeping that uncertainty is more useful than assigning a personality from one occasion.",
+              "zh": "设想一位虚构成年人普通预约推迟，需要时间更新出行计划，并想知道哪部分改变。这可能反映实际任务，而非固定的变化反应。保留不确定，比从一次机会分配人格更有用。"
+            },
+            {
+              "en": "The example describes one possible setting rather than an expected answer. Your circumstances may differ. The same category may reflect different opportunities and cannot verify a cause, compare people or measure a later improvement.",
+              "zh": "例子只描述一种可能情境，不是期待答案。你的情况可能不同，相同类别可以反映不同机会，不能核实原因、比较人或测量后来改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original recollections alongside separate resources",
+            "zh": "原创回顾与独立资源并列"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping topics are original editorial content, not the AQ, RAADS-R, a cognitive battery or a validated short form. The past four weeks is a recall choice, not a diagnostic duration. There are no norms, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "20条双语描述及五个可重叠主题均为原创编辑内容，不是AQ、RAADS-R、认知测验组或验证短版。过去四周是回忆选择，不是诊断时限；没有常模、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "Separate sensory-response, sensory-perception, adult executive-function, focus-and-energy, camouflaging and visual-imagery pages keep their own items, instructions and readings. Shared topics do not make their scores interchangeable. No answers transfer here, no cross-tool total is made and no combined cognitive profile or autism inference is produced.",
+              "zh": "独立感官反应、感官知觉、成人执行功能、专注精力、社交伪装与视觉意象页保留自身题目、说明和读法。主题相近不代表分数可互换；不转移回答、不做跨题本总分，也不生成联合认知档案或自闭症推断。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional practical question",
+            "zh": "一个可选的实用问题"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional next reflection is whether an existing plan makes its next step clear. No need to introduce a surprise, remove a helpful routine or make an activity less predictable to test yourself. Any adjustment should serve the actual task and preserve safety and agreed accessibility support.",
+              "zh": "可选地想一想现有计划是否说清下一步。无需制造惊喜、撤掉有帮助的安排，或为了测试自己而降低可预测性。调整应服务于实际任务，并保留安全和约定的无障碍支持。"
+            },
+            {
+              "en": "Consider only ordinary options that are already safe and available. Keep agreed support and privacy boundaries intact. This guide does not prescribe treatment, certify an arrangement or require you to change a preference so that a number falls.",
+              "zh": "只考虑本来安全可用的普通选项，保留约定支持与隐私边界。本指南不规定治疗、不认证安排，也不要求为降低数字而改变偏好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Your choice, support and privacy",
+            "zh": "选择、支持与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "Support does not depend on a questionnaire category or count. If you want help with communication or everyday participation, you can discuss your needs with an appropriately qualified professional without proving an identity. This reflection cannot assess developmental history, medical need or urgency, and should not delay care or replace existing advice.",
+              "zh": "支持不取决于问卷类别或计数。若希望就沟通或日常参与获得帮助，可以与合适的专业人士讨论需要，无需证明身份。本回顾不能评发展史、医疗需要或紧急程度，不应用来推迟照护或替代已有意见。"
+            },
+            {
+              "en": "You may leave any description unscored or stop without explanation. Answers stay in current-page memory, with no draft storage, submission, questionnaire analytics or private result address; leaving, reload, clear and retake remove them. Public copying contains only the title and entry. All five full guides remain free before and after every answer pattern.",
+              "zh": "可保留任何回答或不作解释地停止。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址；离页、刷新、清空与重做会移除。公开复制只含标题和入口。五篇全文在答题前与任何组合后免费开放。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "details-and-interest-reading",
+      "directionIds": [
+        "details-and-interest"
+      ],
+      "title": {
+        "en": "Details and sustained interest — Complete Context Guide",
+        "zh": "细节与持续兴趣：完整情境指南"
+      },
+      "headline": {
+        "en": "Details and sustained interest — Complete Context Guide",
+        "zh": "细节与持续兴趣：完整情境指南"
+      },
+      "summary": {
+        "en": "This topic concerns exploring a chosen subject, noticing an inconsistency, continuing after a practical answer and looking for a pattern. It records what drew your interest. It does not check whether a detail was accurate, whether a pattern was real or whether the work was more thorough than somebody else’s.",
+        "zh": "本主题涉及探索所选主题、注意不一致、实际问题回答后继续了解及寻找规律。它记录什么吸引兴趣，不核对细节是否准确、规律是否真实，或做事是否比别人更周密。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without a score, type or ability comparison.",
+        "zh": "四条描述保留六类独立标签计数，不生成分数、类型或能力比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Details and sustained interest — Complete Context Guide",
+          "zh": "细节与持续兴趣：完整情境指南"
+        },
+        "description": {
+          "en": "This topic concerns exploring a chosen subject, noticing an inconsistency, continuing after a practical answer and looking for a pattern. It records what drew your interest. It does not check whether a detail was accurate, whether a pattern was real or whether the work was more thorough than somebody else’s.",
+          "zh": "本主题涉及探索所选主题、注意不一致、实际问题回答后继续了解及寻找规律。它记录什么吸引兴趣，不核对细节是否准确、规律是否真实，或做事是否比别人更周密。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Interest in detail is not measured expertise",
+            "zh": "对细节感兴趣，不是已测专长"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns exploring a chosen subject, noticing an inconsistency, continuing after a practical answer and looking for a pattern. It records what drew your interest. It does not check whether a detail was accurate, whether a pattern was real or whether the work was more thorough than somebody else’s.",
+              "zh": "本主题涉及探索所选主题、注意不一致、实际问题回答后继续了解及寻找规律。它记录什么吸引兴趣，不核对细节是否准确、规律是否真实，或做事是否比别人更周密。"
+            },
+            {
+              "en": "Interest, expertise and performance are different. More time on details can feel welcome on one occasion and inconvenient on another. Neither frequent nor infrequent labels establish deep thinking, hyperfocus, intelligence, productivity or a strength suitable for a particular career. The page does not rate the quality of an interest.",
+              "zh": "兴趣、专长与表现不同。一次花更多时间看细节可能合意，另一次可能不方便。标签频繁与否都不确定深度思考、过度专注、智力、效率或某职业适合的优势，也不评价兴趣质量。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read all six categories without combining them",
+            "zh": "保留六类，不作合分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group retains four individual labels and six counts that add to four descriptions. These are counts of selected descriptions, not incidents, minutes or a share of your week. Category IDs are not points. There is no sum, mean, highest topic, radar, neurotype or ability ranking.",
+              "zh": "每组保留四条独立标签，六类计数合计四条描述。这是所选描述的数量，不是事件、分钟或一周比例。类别标识不是点数，没有合计、均分、最高主题、雷达图、神经类型或能力排名。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding remain distinct from did not notice on relevant occasions. Entirely unscored records give no finding. Frequent choices cannot establish a condition, and few choices cannot rule out a concern.",
+              "zh": "例如，一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；频繁不确定疾病，少量不排除担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example, with uncertainty",
+            "zh": "虚构例子，保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional reader continues learning about how a tool is made after finding the instruction they needed. That describes curiosity in that setting. It does not show superior pattern detection or a persistent inability to stop. The page cannot tell how the choice fitted the person’s other responsibilities.",
+              "zh": "一位虚构读者找到需要的操作说明后，继续了解工具怎样制造。这描述该情境的好奇，不证明规律识别更强或持续无法停止。页面不知道这个选择怎样配合其他事务。"
+            },
+            {
+              "en": "The example describes one possible setting rather than an expected answer. Your circumstances may differ. The same category may reflect different opportunities and cannot verify a cause, compare people or measure a later improvement.",
+              "zh": "例子只描述一种可能情境，不是期待答案。你的情况可能不同，相同类别可以反映不同机会，不能核实原因、比较人或测量后来改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original recollections alongside separate resources",
+            "zh": "原创回顾与独立资源并列"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping topics are original editorial content, not the AQ, RAADS-R, a cognitive battery or a validated short form. The past four weeks is a recall choice, not a diagnostic duration. There are no norms, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "20条双语描述及五个可重叠主题均为原创编辑内容，不是AQ、RAADS-R、认知测验组或验证短版。过去四周是回忆选择，不是诊断时限；没有常模、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "Separate sensory-response, sensory-perception, adult executive-function, focus-and-energy, camouflaging and visual-imagery pages keep their own items, instructions and readings. Shared topics do not make their scores interchangeable. No answers transfer here, no cross-tool total is made and no combined cognitive profile or autism inference is produced.",
+              "zh": "独立感官反应、感官知觉、成人执行功能、专注精力、社交伪装与视觉意象页保留自身题目、说明和读法。主题相近不代表分数可互换；不转移回答、不做跨题本总分，也不生成联合认知档案或自闭症推断。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional practical question",
+            "zh": "一个可选的实用问题"
+          },
+          "paragraphs": [
+            {
+              "en": "You may privately consider which details mattered for one existing task and whether its scope was clear. There is no target to spend more or less time, no instruction to stop a valued interest and no need to inspect something repeatedly for evidence. A record is not a work-performance assessment.",
+              "zh": "可以私下想一项现有任务中哪些细节重要、范围是否清楚。没有增加或减少时间的目标，不要求停止重视的兴趣，也无需反复检查寻找证据。记录不是工作表现评估。"
+            },
+            {
+              "en": "Consider only ordinary options that are already safe and available. Keep agreed support and privacy boundaries intact. This guide does not prescribe treatment, certify an arrangement or require you to change a preference so that a number falls.",
+              "zh": "只考虑本来安全可用的普通选项，保留约定支持与隐私边界。本指南不规定治疗、不认证安排，也不要求为降低数字而改变偏好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Your choice, support and privacy",
+            "zh": "选择、支持与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "Support does not depend on a questionnaire category or count. If you want help with communication or everyday participation, you can discuss your needs with an appropriately qualified professional without proving an identity. This reflection cannot assess developmental history, medical need or urgency, and should not delay care or replace existing advice.",
+              "zh": "支持不取决于问卷类别或计数。若希望就沟通或日常参与获得帮助，可以与合适的专业人士讨论需要，无需证明身份。本回顾不能评发展史、医疗需要或紧急程度，不应用来推迟照护或替代已有意见。"
+            },
+            {
+              "en": "You may leave any description unscored or stop without explanation. Answers stay in current-page memory, with no draft storage, submission, questionnaire analytics or private result address; leaving, reload, clear and retake remove them. Public copying contains only the title and entry. All five full guides remain free before and after every answer pattern.",
+              "zh": "可保留任何回答或不作解释地停止。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址；离页、刷新、清空与重做会移除。公开复制只含标题和入口。五篇全文在答题前与任何组合后免费开放。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visual-arrangements-reading",
+      "directionIds": [
+        "visual-arrangements"
+      ],
+      "title": {
+        "en": "Using visual arrangements — Complete Context Guide",
+        "zh": "使用视觉安排：完整情境指南"
+      },
+      "headline": {
+        "en": "Using visual arrangements — Complete Context Guide",
+        "zh": "使用视觉安排：完整情境指南"
+      },
+      "summary": {
+        "en": "The four descriptions concern using a diagram, arranging visible objects or notes, wanting a visual example and responding to a changed layout. They concern external material in an ordinary task. They do not ask you to rotate shapes mentally, solve a spatial problem or report the vividness of an internal image.",
+        "zh": "四条描述涉及使用示意图、摆放可见物品或笔记、希望有视觉示例，以及布局改变后的做法。它们关注普通任务中的外部材料，不要求心理旋转、解空间题或报告内在画面的生动程度。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without a score, type or ability comparison.",
+        "zh": "四条描述保留六类独立标签计数，不生成分数、类型或能力比较。"
+      },
+      "seo": {
+        "title": {
+          "en": "Using visual arrangements — Complete Context Guide",
+          "zh": "使用视觉安排：完整情境指南"
+        },
+        "description": {
+          "en": "The four descriptions concern using a diagram, arranging visible objects or notes, wanting a visual example and responding to a changed layout. They concern external material in an ordinary task. They do not ask you to rotate shapes mentally, solve a spatial problem or report the vividness of an internal image.",
+          "zh": "四条描述涉及使用示意图、摆放可见物品或笔记、希望有视觉示例，以及布局改变后的做法。它们关注普通任务中的外部材料，不要求心理旋转、解空间题或报告内在画面的生动程度。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "An external visual aid is different from an ability test",
+            "zh": "外部视觉辅助，不同于能力测验"
+          },
+          "paragraphs": [
+            {
+              "en": "The four descriptions concern using a diagram, arranging visible objects or notes, wanting a visual example and responding to a changed layout. They concern external material in an ordinary task. They do not ask you to rotate shapes mentally, solve a spatial problem or report the vividness of an internal image.",
+              "zh": "四条描述涉及使用示意图、摆放可见物品或笔记、希望有视觉示例，以及布局改变后的做法。它们关注普通任务中的外部材料，不要求心理旋转、解空间题或报告内在画面的生动程度。"
+            },
+            {
+              "en": "A useful diagram does not establish high visual-spatial ability, a visual learner type or better memory. A preference for words does not establish low ability or absent imagery. The separate visual-imagery page asks a different question and cannot be substituted for a checkable spatial task. This record supplies neither measurement.",
+              "zh": "示意图有用不确定高视觉空间能力、视觉学习类型或记忆更好。偏爱文字不确定能力低或没有意象。独立视觉意象页询问另一件事，也不能替代有可核答案的空间任务。本记录不提供这些测量。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Read all six categories without combining them",
+            "zh": "保留六类，不作合分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each group retains four individual labels and six counts that add to four descriptions. These are counts of selected descriptions, not incidents, minutes or a share of your week. Category IDs are not points. There is no sum, mean, highest topic, radar, neurotype or ability ranking.",
+              "zh": "每组保留四条独立标签，六类计数合计四条描述。这是所选描述的数量，不是事件、分钟或一周比例。类别标识不是点数，没有合计、均分、最高主题、雷达图、神经类型或能力排名。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding remain distinct from did not notice on relevant occasions. Entirely unscored records give no finding. Frequent choices cannot establish a condition, and few choices cannot rule out a concern.",
+              "zh": "例如，一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不变成有机会时没有注意到。全未计分不提供发现；频繁不确定疾病，少量不排除担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example, with uncertainty",
+            "zh": "虚构例子，保留不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult places notes in a visible sequence to discuss a shared task. When the arrangement changes, they begin differently. Those recollections can be useful descriptions of a setup; they cannot show that the layout improved cognition or that another format would be worse.",
+              "zh": "一位虚构成年人把笔记排成可见顺序来讨论共同任务，布局改变后以不同方式开始。这可以描述布置，不能证明布局改善认知或其他形式更差。"
+            },
+            {
+              "en": "The example describes one possible setting rather than an expected answer. Your circumstances may differ. The same category may reflect different opportunities and cannot verify a cause, compare people or measure a later improvement.",
+              "zh": "例子只描述一种可能情境，不是期待答案。你的情况可能不同，相同类别可以反映不同机会，不能核实原因、比较人或测量后来改善。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original recollections alongside separate resources",
+            "zh": "原创回顾与独立资源并列"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping topics are original editorial content, not the AQ, RAADS-R, a cognitive battery or a validated short form. The past four weeks is a recall choice, not a diagnostic duration. There are no norms, independent validation or established English–Chinese measurement equivalence.",
+              "zh": "20条双语描述及五个可重叠主题均为原创编辑内容，不是AQ、RAADS-R、认知测验组或验证短版。过去四周是回忆选择，不是诊断时限；没有常模、独立验证或已建立的中英文测量等值。"
+            },
+            {
+              "en": "Separate sensory-response, sensory-perception, adult executive-function, focus-and-energy, camouflaging and visual-imagery pages keep their own items, instructions and readings. Shared topics do not make their scores interchangeable. No answers transfer here, no cross-tool total is made and no combined cognitive profile or autism inference is produced.",
+              "zh": "独立感官反应、感官知觉、成人执行功能、专注精力、社交伪装与视觉意象页保留自身题目、说明和读法。主题相近不代表分数可互换；不转移回答、不做跨题本总分，也不生成联合认知档案或自闭症推断。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional practical question",
+            "zh": "一个可选的实用问题"
+          },
+          "paragraphs": [
+            {
+              "en": "For an actual low-stakes task, an existing diagram, written sequence or object may be worth considering as an available aid. Choose by the task’s requirements and your preference, rather than a profile label. No drawing test, timed rotation, vision check or imagery training is needed to complete this page.",
+              "zh": "实际低负担任务中，可以考虑现有示意图、文字顺序或物品辅助。按任务要求与偏好选择，不按类型标签。本页无需绘图测验、计时旋转、视力检查或意象训练。"
+            },
+            {
+              "en": "Consider only ordinary options that are already safe and available. Keep agreed support and privacy boundaries intact. This guide does not prescribe treatment, certify an arrangement or require you to change a preference so that a number falls.",
+              "zh": "只考虑本来安全可用的普通选项，保留约定支持与隐私边界。本指南不规定治疗、不认证安排，也不要求为降低数字而改变偏好。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Your choice, support and privacy",
+            "zh": "选择、支持与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "Support does not depend on a questionnaire category or count. If you want help with communication or everyday participation, you can discuss your needs with an appropriately qualified professional without proving an identity. This reflection cannot assess developmental history, medical need or urgency, and should not delay care or replace existing advice.",
+              "zh": "支持不取决于问卷类别或计数。若希望就沟通或日常参与获得帮助，可以与合适的专业人士讨论需要，无需证明身份。本回顾不能评发展史、医疗需要或紧急程度，不应用来推迟照护或替代已有意见。"
+            },
+            {
+              "en": "You may leave any description unscored or stop without explanation. Answers stay in current-page memory, with no draft storage, submission, questionnaire analytics or private result address; leaving, reload, clear and retake remove them. Public copying contains only the title and entry. All five full guides remain free before and after every answer pattern.",
+              "zh": "可保留任何回答或不作解释地停止。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址；离页、刷新、清空与重做会移除。公开复制只含标题和入口。五篇全文在答题前与任何组合后免费开放。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Twenty original recollections, five open readings",
+        "zh": "20条原创回顾，五篇公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Five topics organise everyday recollections. They are not calibrated dimensions. All five full explanations and support information remain public without answering, completing or signing up.",
+          "zh": "五个主题组织日常回忆，不是校准维度。五篇全文与支持说明无需作答、完成或注册就可阅读。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this identify autism or a cognitive style?",
+        "zh": "会识别自闭症或认知类型吗？"
+      },
+      "answer": {
+        "en": "No. It records selected descriptions without diagnosis, identity, a radar or ability ranking. Separate existing resources keep their own methods; no combined profile is produced.",
+        "zh": "不会。它记录所选描述，不作诊断、身份、雷达图或能力排名。独立资源保留自身方法，不生成联合档案。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is using a diagram a visual-spatial ability measure?",
+        "zh": "使用示意图是在测视觉空间能力吗？"
+      },
+      "answer": {
+        "en": "No. Using an external aid, picturing an internal image and solving a checkable spatial task are different. This page only records recalled use of external arrangements.",
+        "zh": "不是。使用外部辅助、形成内在意象与解决有可核答案的空间任务不同，本页只记录回忆中的外部安排使用。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Autism Spectrum Disorder — professional background only",
+        "zh": "NIMH：自闭症谱系障碍，仅作专业背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/autism-spectrum-disorder"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_communication_routines_observations",
+    "formCode": "fm_communication_routines20_observations_v1",
+    "itemBankVersion": "original20_bilingual_five_by_four_contexts_v1",
+    "scoringVersion": "six_label_counts_per_four_no_neurotype_or_ability_v1",
+    "resultContentVersion": "five_full_bilingual_context_guides_v1",
+    "itemBankSha256": "f5c2f8154500b421f9a1c0f2861cacc4023f7a8b23a2c265df94c86840a413c7",
+    "resultContentSha256": "91accd4b9f7c648c99382c76cd9b0368888177a9b184334b7f0fe56662020b0c",
+    "psychometricValidationCompleted": false
+  }
+}
