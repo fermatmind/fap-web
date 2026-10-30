@@ -7353,5 +7353,27 @@
       "anger-experiences-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "spatial-thinking-reflection",
+    "code": "FM_SPATIAL_CONTEXT4_OBSERVATIONS",
+    "version": "fm_spatial_context4_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Spatial Relationships in Everyday Thinking",
+      "zh": "日常思考中的空间关系"
+    },
+    "description": {
+      "en": "Four original recollection prompts about imagined turns and relative positions, with one complete free guide. Record selected labels without a correctness score, timed task, ability ranking or cognitive-style assignment.",
+      "zh": "四条原创回忆描述，涉及推想转动与相对位置，附一篇完整免费指南。保留所选标签，不生成正确率、计时任务、能力排名或认知风格分配。"
+    },
+    "minutes": 2,
+    "formCode": "fm_spatial_context4_observations_v1",
+    "questionCount": 4,
+    "resultSlugs": [
+      "spatial-relationships-reading"
+    ],
+    "collection": "explore"
   }
 ]

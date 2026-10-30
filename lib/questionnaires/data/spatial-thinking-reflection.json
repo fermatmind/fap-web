@@ -1,0 +1,467 @@
+{
+  "slug": "spatial-thinking-reflection",
+  "code": "FM_SPATIAL_CONTEXT4_OBSERVATIONS",
+  "version": "fm_spatial_context4_observations_v1",
+  "kind": "spatial-context4",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 2,
+  "title": {
+    "en": "Spatial Relationships in Everyday Thinking",
+    "zh": "日常思考中的空间关系"
+  },
+  "seoTitle": {
+    "en": "Spatial Thinking Reflection: Everyday Relationships & Layouts",
+    "zh": "空间关系思考反思：日常位置与布局"
+  },
+  "description": {
+    "en": "Four original recollection prompts about imagined turns and relative positions, with one complete free guide. Record selected labels without a correctness score, timed task, ability ranking or cognitive-style assignment.",
+    "zh": "四条原创回忆描述，涉及推想转动与相对位置，附一篇完整免费指南。保留所选标签，不生成正确率、计时任务、能力排名或认知风格分配。"
+  },
+  "introduction": {
+    "en": "Recall your own ordinary spatial-thinking opportunities during the past four weeks. Thinking about a position can use words, an abstract relation or a picture; this page does not require a vivid image. No physical demonstration, object rotation, drawing or new puzzle is requested.",
+    "zh": "回顾过去四周自己的普通空间思考机会。思考位置可以使用语言、抽象关系或画面，本页不要求生动画面，也不要求身体演示、转动物品、绘图或新做谜题。"
+  },
+  "instructions": {
+    "en": "Choose a category only from a relevant occasion you recall. No opportunity, unclear recall or withholding can stay unscored. Reports of trying, uncertainty and difficulty are not reversed or combined into an ability score. No answer is checked for spatial correctness.",
+    "zh": "只按记得的相关机会选择类别。无机会、回忆不清或保留回答可保持未计分。尝试、不确定与困难的报告不反向、不合成能力分，也不核查空间答案对错。"
+  },
+  "resultHeading": {
+    "en": "Your private spatial-thinking recollection record",
+    "zh": "你的私人空间思考回顾记录"
+  },
+  "directions": [
+    {
+      "id": "spatial-relationships",
+      "title": {
+        "en": "Thinking through relative positions",
+        "zh": "推想相对位置"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SPO_01",
+      "prompt": {
+        "en": "While planning an ordinary arrangement, I tried to work out how an object would face after I imagined turning it.",
+        "zh": "计划一种普通摆放方式时，我试着推想物品转动后会朝向哪里。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SPO_02",
+      "prompt": {
+        "en": "When thinking through a changed arrangement, I was unsure which part would be to the left or right after a turn.",
+        "zh": "在心里推想改变后的摆放时，我不确定转动后哪一部分会在左边或右边。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SPO_03",
+      "prompt": {
+        "en": "I kept relative positions in mind while thinking about where ordinary parts might fit together.",
+        "zh": "思考普通部件怎样拼在一起时，我会在心里保留它们的相对位置。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SPO_04",
+      "prompt": {
+        "en": "I found it difficult to keep the relation between two parts in mind while imagining one part moving.",
+        "zh": "推想一个部分移动时，我觉得很难在心里保留两个部分之间的关系。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "spatial-relationships"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "spatial-relationships-reading",
+      "directionIds": [
+        "spatial-relationships"
+      ],
+      "title": {
+        "en": "Spatial Relationships — Complete Recollection Guide",
+        "zh": "空间关系：完整回顾指南"
+      },
+      "headline": {
+        "en": "Spatial Relationships — Complete Recollection Guide",
+        "zh": "空间关系：完整回顾指南"
+      },
+      "summary": {
+        "en": "The four prompts concern trying to anticipate an orientation after a turn, uncertainty about left and right after a change, keeping relative positions in mind and difficulty retaining a relation while imagining movement. They describe recalled thinking, not whether the imagined arrangement was correct.",
+        "zh": "四条描述涉及尝试推想转动后朝向、变化后的左右不确定、在心里保留相对位置，以及推想移动时难以保留关系。它们描述回忆中的思考，不核定想象安排是否正确。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six separate label counts, without correctness, speed or ability scoring.",
+        "zh": "四条描述保留六类独立标签计数，不计正确率、速度或能力分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Spatial Relationships — Complete Recollection Guide",
+          "zh": "空间关系：完整回顾指南"
+        },
+        "description": {
+          "en": "The four prompts concern trying to anticipate an orientation after a turn, uncertainty about left and right after a change, keeping relative positions in mind and difficulty retaining a relation while imagining movement. They describe recalled thinking, not whether the imagined arrangement was correct.",
+          "zh": "四条描述涉及尝试推想转动后朝向、变化后的左右不确定、在心里保留相对位置，以及推想移动时难以保留关系。它们描述回忆中的思考，不核定想象安排是否正确。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Thinking about relations without assuming a picture",
+            "zh": "思考关系，不假定一定有画面"
+          },
+          "paragraphs": [
+            {
+              "en": "The four prompts concern trying to anticipate an orientation after a turn, uncertainty about left and right after a change, keeping relative positions in mind and difficulty retaining a relation while imagining movement. They describe recalled thinking, not whether the imagined arrangement was correct.",
+              "zh": "四条描述涉及尝试推想转动后朝向、变化后的左右不确定、在心里保留相对位置，以及推想移动时难以保留关系。它们描述回忆中的思考，不核定想象安排是否正确。"
+            },
+            {
+              "en": "A person may use words, an abstract relation, a sketch-like impression or a vivid picture. This page does not choose a superior method. It does not test vision, drawing, mental-rotation speed, navigation or intelligence, and a chosen label cannot establish a permanent strength or weakness.",
+              "zh": "一个人可以用语言、抽象关系、草图般印象或生动画面。本页不选更优方法，不测视力、绘图、心理旋转速度、导航或智力，所选标签也不确定永久强弱。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four selections remain six separate counts",
+            "zh": "四条选择，保留六类计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six counts add to four selected descriptions. They do not count successful rotations, correct answers, incidents or minutes. Category IDs are not points. There is no sum, mean, highest style, percentile, pass mark or expected answer pattern.",
+              "zh": "六类计数合计四条所选描述，不数成功旋转、正确答案、事件或分钟。类别标识不是点数，没有合计、均分、最高风格、百分位、及格线或期待答法。"
+            },
+            {
+              "en": "For example, one often, one sometimes and two unscored stay those four choices. No opportunity, unclear recall and withholding are distinct from did not notice on relevant occasions. An entirely unscored record says nothing about ability; frequent or infrequent labels likewise cannot certify a capacity.",
+              "zh": "例如一条较常、一条有时、两条未计分，就保持这四个选择。无机会、回忆不清与保留回答，不同于有机会时没有注意到。全未计分不说明能力，频繁或少量标签同样不认证能力。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional plan without a scored solution",
+            "zh": "一个没有计分答案的虚构计划"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult thinking about whether an ordinary box would face another way after being turned. They may reason using words and feel uncertain about one side. Both the attempt and uncertainty can be recorded without a claim about accuracy. The guide does not ask you to turn a box now or reproduce the situation.",
+              "zh": "设想一位虚构成年人推想一个普通盒子转动后会怎样朝向，可能用语言推理，并对某一侧不确定。尝试与不确定都可以记录，不声称准确度。指南不要求现在转盒子或重做情境。"
+            },
+            {
+              "en": "A laboratory mental-rotation task can collect timed judgments about object drawings. These four recollection labels collect neither correctness nor speed. The research reference explains that difference in method; its results and stimuli do not validate these new prompts or provide a personal ability norm.",
+              "zh": "实验室心理旋转任务可以收集对物体图形的计时判断。这四条回忆标签不收正确率或速度。研究引用用于说明方法差异，其结果和刺激材料不验证新题，也不提供个人能力常模。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep nearby questions separate",
+            "zh": "区分相近问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate visual-imagery reflection asks about experienced mental pictures. The visual-arrangements guide in Communication, Routines & Ways of Working concerns external aids. Neither substitutes for thinking about relative positions, and none becomes a checked spatial-performance test through a link.",
+              "zh": "独立视觉意象回顾询问体验到的脑中画面；沟通、日常安排与做事方式中的视觉安排指南关注外部辅助。两者不替代对相对位置的思考，也不会因链接就变成有可核答案的空间表现测验。"
+            },
+            {
+              "en": "Other separate entries concern recent focus, adult executive function, sensory responses, sensory perception and camouflaging. They retain their own banks and readings. No answers or scores transfer, and no joint cognitive-style radar, autism inference, neurotype, learning style or career-fit recommendation is produced.",
+              "zh": "其他独立入口涉及近期专注、成人执行功能、感官反应、感官知觉与社交伪装，保留自身题库和读法。不转移回答或分数，也不生成联合认知风格雷达、自闭症推断、神经类型、学习风格或职业适配建议。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Use real requirements for a real task",
+            "zh": "真实任务按真实要求处理"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary plan, you can use an external diagram, written sequence or suitable object if it helps make the requirements clear. Choose an aid by the actual task rather than a questionnaire label. A recollection cannot verify that an arrangement is accurate or that a practical plan will work.",
+              "zh": "普通计划中，可以用外部示意图、文字顺序或合适物品澄清要求。按实际任务选择辅助，不按问卷标签。回忆不能核实安排准确或计划可行。"
+            },
+            {
+              "en": "No new puzzle, repeated practice or performance demonstration is needed to use this page. It supplies no training promise, improvement target or reason to abandon an aid that is useful. A later difference may reflect opportunity, interpretation or recall rather than a change in spatial ability.",
+              "zh": "使用本页无需新做谜题、重复练习或表现演示。它不提供训练承诺、改善目标，也不是放弃有用辅助的理由。后来差异可能反映机会、理解或回忆，而非空间能力改变。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Original content, choice and privacy",
+            "zh": "原创内容、选择与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "These four bilingual descriptions and their categories are original editorial content, with no independent validation, norms or established language equivalence. The past four weeks is an editorial recall window. You may leave any item unscored or read the full guide without answering, signing up or proving a difficulty.",
+              "zh": "四条双语描述与类别均为原创编辑内容，没有独立验证、常模或已建立的语言等值。过去四周是编辑回忆范围。可以保留任何回答，或不答题、不注册、不证明困难就读完整指南。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no draft storage, submission, questionnaire analytics or private result address. Exit, refresh, leaving and retake clear them. Copying includes only the public title and entry. Practical support does not depend on a count, and this record cannot decide health needs or eligibility.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除；复制只含公开标题与入口。实际支持不取决于计数，本记录也不决定医疗需要或资格。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "A recollection task, not an ability task",
+        "zh": "回忆任务，不是能力任务"
+      },
+      "paragraphs": [
+        {
+          "en": "The four descriptions record recent experiences of thinking about orientation and relative positions. The same public full guide is available before answering and after every answer pattern. It does not assign a visual learner style or turn a preference into a cognitive capacity.",
+          "zh": "四条描述记录近期思考朝向与相对位置的体验。同一篇完整公开指南在答题前与任何组合后可读，不分配视觉学习风格，也不把偏好转成认知能力。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this measure visual-spatial ability?",
+        "zh": "会测量视觉空间能力吗？"
+      },
+      "answer": {
+        "en": "No. It records recalled experiences without a checkable spatial answer or timing. Attempts, uncertainty and difficulty cannot establish accuracy, speed, an ability level or a comparison with other people.",
+        "zh": "不会。它记录回忆体验，没有可核的空间答案或计时。尝试、不确定与困难不能确定准确度、速度、能力水平或与他人的比较。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the same as imagery vividness or using a diagram?",
+        "zh": "这与意象生动性或使用示意图一样吗？"
+      },
+      "answer": {
+        "en": "No. Internal pictures, thinking about spatial relations and using external visual aids are different descriptions. Separate existing entries keep their own methods; no combined radar or neurotype is produced.",
+        "zh": "不同。内在画面、思考空间关系与使用外部视觉辅助是不同描述。独立既有入口保留自身方法，不生成联合雷达图或神经类型。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Shepard & Metzler (1971), PubMed abstract — task-method background only",
+        "zh": "Shepard与Metzler（1971），PubMed摘要，仅作任务方法背景"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/5540314/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_spatial_thinking_recollections",
+    "formCode": "fm_spatial_context4_observations_v1",
+    "itemBankVersion": "original4_bilingual_spatial_relation_recollections_v1",
+    "scoringVersion": "six_label_counts_per_four_no_accuracy_speed_or_ability_v1",
+    "resultContentVersion": "one_full_bilingual_spatial_recollection_guide_v1",
+    "itemBankSha256": "015ebbac0d63e9512f27bc9ceb301777eeca61f2c799e54510d350e4908d4679",
+    "resultContentSha256": "9a1ec669ddb668040029bc10d9c351d1e990965f689d3ac76979c6042fefa72b",
+    "psychometricValidationCompleted": false
+  }
+}
