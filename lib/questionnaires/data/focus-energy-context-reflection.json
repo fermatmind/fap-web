@@ -1,0 +1,1753 @@
+{
+  "slug": "focus-energy-context-reflection",
+  "code": "FM_FOCUS_CONTEXT16_OBSERVATIONS",
+  "version": "fm_focus_context16_observations_v1",
+  "kind": "focus-context16",
+  "title": {
+    "en": "Attention & Energy: Daily Context",
+    "zh": "注意力与能量：日常情境回顾"
+  },
+  "directions": [
+    {
+      "id": "attention-in-activities",
+      "title": {
+        "en": "Attention during chosen activities",
+        "zh": "所选活动中的注意"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "restlessness-in-activities",
+      "title": {
+        "en": "Restlessness during activities",
+        "zh": "活动中的坐立不安"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "feelings-and-energy-context",
+      "title": {
+        "en": "Feelings and available energy",
+        "zh": "感受与可用精力"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "interpreting-social-experiences",
+      "title": {
+        "en": "Interpreting social experiences",
+        "zh": "理解社交经历时"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FCX_01",
+      "prompt": {
+        "en": "While reading something I intended to follow, my attention moved elsewhere.",
+        "zh": "阅读自己本来想看懂的内容时，我的注意转向了别处。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_02",
+      "prompt": {
+        "en": "During a conversation I wanted to follow, I noticed I had lost track of what was being said.",
+        "zh": "在自己想跟上的谈话中，我发现已经没跟上正在说的内容。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_03",
+      "prompt": {
+        "en": "I switched from an intended activity to something else before the step I meant to finish was done.",
+        "zh": "原本想完成的一步还没做完，我就从那项活动转向了别的事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_04",
+      "prompt": {
+        "en": "After an interruption, I found it hard to settle back into the activity I had chosen.",
+        "zh": "被打断之后，我发现很难重新投入自己选择的活动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "attention-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_05",
+      "prompt": {
+        "en": "During an activity where I wanted to stay seated, I felt drawn to move around.",
+        "zh": "在自己想坐着进行的活动中，我感到想走动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_06",
+      "prompt": {
+        "en": "I felt physically restless while trying to do something quietly.",
+        "zh": "尝试安静做一件事时，我感到身体坐立不安。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_07",
+      "prompt": {
+        "en": "I changed position repeatedly because remaining still felt uncomfortable.",
+        "zh": "因为不动让我不舒服，我反复调整姿势。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_08",
+      "prompt": {
+        "en": "A wish for more movement pulled my attention away from an activity.",
+        "zh": "想多动一动的感觉，把我的注意从一项活动上拉开。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "restlessness-in-activities"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_09",
+      "prompt": {
+        "en": "A feeling became intense quickly during an ordinary interaction.",
+        "zh": "一次普通互动中，我的某种感受很快变得强烈。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_10",
+      "prompt": {
+        "en": "A strong feeling kept drawing my attention after the event had ended.",
+        "zh": "事情结束后，一种强烈感受仍不断吸引我的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_11",
+      "prompt": {
+        "en": "My available energy felt different from what I expected for an activity.",
+        "zh": "面对一项活动时，我感觉可用的精力与原本预期不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_12",
+      "prompt": {
+        "en": "Changes in my available energy made it harder to keep to an intended pace.",
+        "zh": "可用精力的变化，使我更难保持原本打算的节奏。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "feelings-and-energy-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_13",
+      "prompt": {
+        "en": "After a brief exchange, I wondered repeatedly how the other person had received it.",
+        "zh": "简短交流后，我反复琢磨对方怎样看待刚才的交流。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_14",
+      "prompt": {
+        "en": "An unclear reply left me unsure how to understand the interaction.",
+        "zh": "一个不清楚的回复，让我不确定该怎样理解那次互动。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_15",
+      "prompt": {
+        "en": "I worried that I had been criticised when the message did not say this directly.",
+        "zh": "消息没有直接这样说时，我仍担心自己受到了批评。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "FCX_16",
+      "prompt": {
+        "en": "A tone or facial expression stayed in my mind because I was unsure what it meant.",
+        "zh": "因为不确定其含义，一个语气或表情一直留在我的脑海。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "interpreting-social-experiences"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 4,
+  "seoTitle": {
+    "en": "Attention & Energy in Daily Context: 16 Original Observations | FermatMind",
+    "zh": "注意力与能量日常情境：16条原创观察与完整指南｜费马测试"
+  },
+  "description": {
+    "en": "Recall attention, restlessness, feelings and energy context, and interpretation of social experiences with 16 original adult observations. Four complete public guides. The existing ADEXI14 page remains separate; no ADHD probability, diagnosis or combined score.",
+    "zh": "用16条成年人原创观察回顾注意、坐立不安、感受与精力背景，以及理解社交经历时的情况。四篇全文公开，已有ADEXI14页保持独立；不生成ADHD概率、诊断或合并分数。"
+  },
+  "introduction": {
+    "en": "Four overlapping reading topics describe remembered daily context, not validated independent dimensions or clinical criteria. Feelings, energy context and social interpretation are not additional ADHD diagnostic criteria. The record cannot establish a cause, neurotype, capacity, another person’s intentions or fitness for work. The existing fourteen-item executive-function form retains its separate working-memory and inhibition readings.",
+    "zh": "四个可能重叠的阅读主题描述记得的日常背景，尚非验证独立维度或临床标准。感受、精力背景与社交理解不是追加ADHD诊断标准。记录不建立原因、神经类型、容量、他人意图或工作适配。现有14题执行功能题本保留独立的工作记忆与抑制读法。"
+  },
+  "instructions": {
+    "en": "Recall the past four weeks if you want. No performance task, memory game, body check, forced sitting, message opening or recreation of an experience is needed. Choose how often you noticed each description. No relevant experience, unclear recall or withholding can stay unscored, separate from did not notice. IDs are labels, not points or counts of events. Pause or leave whenever you want. Do not use a record to change medicine, care, monitoring or safety arrangements.",
+    "zh": "愿意时回顾过去四周，不需要表现任务、记忆游戏、身体检查、强制静坐、打开消息或重现经历。选择多常注意到每条；没有相关经历、回想不清或保留回答可未计分，与没有注意到分开。标识是标签，不是点数或事件次数。可随时暂停或离开，不用记录改变药物、照护、监测或安全安排。"
+  },
+  "resultHeading": {
+    "en": "Your four separate daily-context records",
+    "zh": "四个分别阅读的日常情境记录"
+  },
+  "profiles": [
+    {
+      "id": "attention-in-activities-reading",
+      "directionIds": [
+        "attention-in-activities"
+      ],
+      "title": {
+        "en": "Attention during chosen activities — Complete Reading",
+        "zh": "所选活动中的注意：完整读法"
+      },
+      "headline": {
+        "en": "Attention during chosen activities — Complete Reading",
+        "zh": "所选活动中的注意：完整读法"
+      },
+      "summary": {
+        "en": "Read attention during chosen activities without measuring ability, assigning an ADHD explanation or judging effort.",
+        "zh": "阅读所选活动中的注意，不测能力、不分配ADHD解释，也不评价努力。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or ability score; counts do not measure events, minutes, medical safety or another person’s intentions.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或能力分数；计数不测事件、分钟、医学安全或他人意图。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attention during chosen activities: Full Daily Context Guide | FermatMind",
+          "zh": "所选活动中的注意：日常情境完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Read attention during chosen activities without measuring ability, assigning an ADHD explanation or judging effort.",
+          "zh": "阅读所选活动中的注意，不测能力、不分配ADHD解释，也不评价努力。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall attention during an activity you chose",
+            "zh": "回顾所选活动中的注意"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original adult observations about attention moving away from intended reading, losing track of a conversation you wanted to follow, switching activities before a chosen step was finished and finding it difficult to settle back after an interruption. You can recall the past four weeks if you want. The descriptions concern remembered moments in activities, not observed performance, a measurement of attention capacity or a diagnosis. They do not establish that ADHD or any other condition explains an experience.",
+              "zh": "本主题四条成年人原创观察关注阅读时注意转开、没跟上本想跟上的谈话、原定一步未完成就换活动，以及被打断后难以重新投入。愿意时可回顾过去四周。描述只涉及活动中记得的时刻，不是现场表现、注意容量测量或诊断，不证明ADHD或其他状况解释了经历。"
+            },
+            {
+              "en": "The page cannot know whether instructions were clear, the material was familiar, the environment was accessible or something else needed attention. A selection does not tell whether a task was reasonable or what caused a difficulty. You do not need to prove that you tried hard enough, accept a character judgment or compare yourself with another person. The record cannot establish intelligence, motivation, work suitability or a permanent limit on what you can learn or choose to do.",
+              "zh": "页面不知道指示是否清楚、材料是否熟悉、环境是否可用，或是否有其他事需要注意。选择不说明任务是否合理或困难原因。不必证明足够努力、接受品格评价或与别人比较。记录不建立智力、动机、工作适配或学习与选择活动的永久上限。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four statements keep six separate category labels",
+            "zh": "四条陈述，保留六类标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored for each description. The six counts add to four statements, with every individual selection retained. They do not count distractions, unfinished tasks, conversations or minutes of concentration. One often, one sometimes and two unscored remains that combination rather than an attention score. IDs are labels, not points. There is no total, mean, highest topic, clinical cutoff, population rank or comparison with how much attention other people are expected to maintain.",
+              "zh": "每条选择没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条，保留逐条选择，不算走神、未完成任务、谈话或集中分钟。一条较常、一条有时、两条未计分就保持该组合，不变成注意力分数。标识不是点数，没有总分、均值、最高主题、临床界值、人群排名或与他人预期注意程度比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding stay unscored, separate from did not notice. An entirely unscored topic gives no personal finding about attention, health or support needs. A small count does not prove strong capacity or rule out a concern; frequent labels do not establish a disorder. All four complete guides and support information remain public before answering and after every pattern. You can read them without producing a record or finding a category that seems to fit.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供注意、健康或支持需要的个人发现。计数少不证明容量强或排除担忧；频繁标签不建立疾病。四篇全文和支持说明在答题前及任何组合后公开，无需先做记录或找到似乎适合的类别。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Put a remembered moment back into its setting",
+            "zh": "把记得的时刻放回背景"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person trying to follow a conversation in an unfamiliar language while several people speak at once. Another person remembers losing the thread in a quiet conversation they wanted to follow. Both may recognise one description, without having the same circumstances or need for support. The questionnaire cannot decide which explanation applies or compare their ability. These examples illustrate missing context, rather than proving that the environment caused the experience or asking you to recreate it as a test.",
+              "zh": "设想有人在多人同时说话时用陌生语言跟谈话，另一个人在安静谈话中也记得没跟上。两者可认出同一描述，却未必有相同背景或支持需要。问卷不能决定适用解释或比较能力。例子说明缺失背景，不证明环境造成经历，也不要求重现来测试。"
+            },
+            {
+              "en": "You may remember that an interruption made returning difficult without knowing why. A broader account could include what you intended to do and what happened around that moment, if you choose to consider it privately. The page requests no task transcript, work message, medical history or information about another person. You can keep the description broad, withhold or leave. Recognising a statement does not determine that the task was badly designed, that effort was missing or that a health condition was present.",
+              "zh": "可能记得被打断后难以回来，却不知道原因。愿意时可私下考虑原本打算做什么及周围发生什么。页面不要求任务实录、工作消息、病史或他人信息。可以宽泛保留、拒答或离开。认出陈述不决定任务设计不好、缺少努力或存在健康状况。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The existing executive-function page remains separate",
+            "zh": "现有执行功能页保持独立"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind also has a separate fourteen-item ADEXI self-report page with working-memory and inhibition readings. That existing page can help you explore those particular descriptions without this supplement rewriting its items, anchors, version or adopted arithmetic. The four attention statements here are original recent observations and are not additional ADEXI items. Following a public link does not transfer answers. This page neither administers the fourteen-item form nor loads or combines a personal result from it into the current category record.",
+              "zh": "费马另有独立的14题ADEXI自评页，提供工作记忆与抑制读法。可在那里探索相应描述，本补充不重写其题目、锚点、版本或所采用算法。这里四条注意描述是原创近期观察，不是ADEXI追加题。公开链接不转移回答；本页不施测14题，也不加载或合并它的个人结果。"
+            },
+            {
+              "en": "The existing form asks how well its statements describe you and adds no fixed recent recall period. This supplement uses remembered frequency over four weeks and keeps counts of statements. Their numbers cannot be added, averaged or compared as if they used one scale. Fourteen existing items and sixteen original observations do not become a thirty-item instrument. The topics may overlap. Neither page provides an ADHD probability, assigns a neurotype or becomes a validated combined clinical instrument through reading them together.",
+              "zh": "现有题本问陈述对自己的贴切程度，不另加固定近期回忆时段；本补充问四周记得的频率并计陈述类别。两者数字不能当同一量表相加、平均或比较。已有14题和原创16条不构成30题工具。主题可能重叠。两页都不提供ADHD概率、不分神经类型，也不会因一起阅读就成为经过验证的联合临床工具。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Recollection does not require a performance test",
+            "zh": "回顾，不需要表现测试"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to repeat a reading passage, complete a memory game, open a message or make yourself lose focus to answer. There is no attention drill, productivity target or required experiment. You may keep one ordinary phrase about a moment that mattered and leave the rest. If considering the descriptions becomes burdensome, pause or stop. Completion is needed only for this page to organise its private category record, not for access to reading or an appropriate professional conversation.",
+              "zh": "答题不需要重读文章、做记忆游戏、打开消息或让自己走神。不安排注意训练、效率目标或必做实验。可以只留一句关于在意时刻的普通表述，其余放下。考虑描述令人负担时可暂停或停止。完成只关系到本页整理私人类别记录，不关系到阅读或合适的专业谈话。"
+            },
+            {
+              "en": "If you want to ask about support, one opening could be “I have noticed difficulty staying with activities I choose, and I would like to understand what may help.” A qualified healthcare professional can consider physical health, history and wider circumstances beyond these statements. This original reflection is not the ASRS or clinical criteria. Four weeks is an editorial recall window, not a diagnostic duration. You need not wait for months, prove childhood onset or show difficulty in several settings before asking a question.",
+              "zh": "愿意询问支持时，可以说：“我注意到自己难以跟住所选活动，想了解可能有什么帮助。”合格医疗专业人士可考虑陈述以外的身体健康、历史和更广背景。原创回顾不是ASRS或临床标准。四周是编辑回忆时段，不是诊断时长；提问无需等几个月、证明童年起始或展示多个场景都有困难。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a concentration count",
+            "zh": "支持，不取决于集中计数"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a concern without finishing either page or reaching a minimum count. The record cannot assess the need or urgency of healthcare, replace existing professional advice or tell you to change medicine, care or monitoring. A small count is not reassurance about health or safe performance. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing to answer. The website cannot observe your situation, arrange care or respond to an emergency.",
+              "zh": "可以询问担忧，无需完成任一页面或达到最低计数。记录不评估医疗需要或紧急程度、不替代已有专业意见，也不让你改变药物、照护或监测。计数少不是健康或安全表现保证。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察处境、安排照护或响应紧急事件。"
+            },
+            {
+              "en": "The same support information appears before answers, on every full guide and for every response pattern, including all unscored. You do not need to disclose a diagnosis, a school history or a work difficulty to the website. This is an adult self-reflection, not a parent report, a way to assess a child or an employment decision tool. A concern can be worth discussing without a category deciding that you have the right kind of attention pattern to deserve support.",
+              "zh": "相同支持说明在答题前、每篇全文及任何组合下公开，包括全未计分。不必向网站披露诊断、学校经历或工作困难。这是成年人自我回顾，不是家长报告、评估儿童的方法或雇佣决策工具。一项担忧可以值得讨论，无需类别裁定注意模式符合某种样子才值得支持。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A different record is not a change in capacity",
+            "zh": "记录不同，不等于容量改变"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference can reflect recall, interpretation, available activities or circumstances and cannot measure recovery, deterioration, treatment response or attention capacity. There is no score to improve or required monitoring schedule. Emotional intensity, energy context and social interpretation in the other guides are not additional ADHD diagnostic criteria. You may keep a useful phrase without treating the combined reading topics as a new clinical model.",
+              "zh": "原创双语观察尚无常模、验证临床界值或中英文测量等值。后来差异可反映回忆、理解、活动机会或背景，不测恢复、恶化、治疗反应或注意容量。没有要提高的分数或规定监测日程。其他指南里的情绪强度、精力背景和社交理解不是追加ADHD诊断标准。可以留一句有用表述，不把主题组合当成新临床模型。"
+            },
+            {
+              "en": "Answers remain only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are the same public text for every reader; the existing ADEXI readings retain their own separate pages. You can read without answering, stop midway or ask a professional question without obtaining a combined score, a diagnosis or an explanation of your brain from the website.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有读者相同，已有ADEXI读法保留自己的独立页面。不答题阅读、中途停止或向专业人士提问，都不需要网站给出合并分数、诊断或大脑解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restlessness-in-activities-reading",
+      "directionIds": [
+        "restlessness-in-activities"
+      ],
+      "title": {
+        "en": "Restlessness during activities — Complete Reading",
+        "zh": "活动中的坐立不安：完整读法"
+      },
+      "headline": {
+        "en": "Restlessness during activities — Complete Reading",
+        "zh": "活动中的坐立不安：完整读法"
+      },
+      "summary": {
+        "en": "Describe remembered restlessness without making stillness a goal, judging a movement need or assigning a physiological state.",
+        "zh": "描述记得的坐立不安，不以静止为目标、不评判活动需要，也不分配生理状态。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or ability score; counts do not measure events, minutes, medical safety or another person’s intentions.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或能力分数；计数不测事件、分钟、医学安全或他人意图。"
+      },
+      "seo": {
+        "title": {
+          "en": "Restlessness during activities: Full Daily Context Guide | FermatMind",
+          "zh": "活动中的坐立不安：日常情境完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe remembered restlessness without making stillness a goal, judging a movement need or assigning a physiological state.",
+          "zh": "描述记得的坐立不安，不以静止为目标、不评判活动需要，也不分配生理状态。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe remembered movement needs without judging them",
+            "zh": "描述记得的活动需要，不作评判"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original adult observations about wanting to move during a chosen seated activity, feeling physically restless while trying to do something quietly, changing position because remaining still felt uncomfortable and a wish for movement drawing attention away from an activity. You may recall the past four weeks. These descriptions do not diagnose hyperactivity, ADHD or a physical condition. They do not establish that movement was excessive, that remaining seated was appropriate or that a person should have behaved differently.",
+              "zh": "本主题四条成年人原创观察关注自选坐着进行的活动中想走动、安静做事时身体坐立不安、不动不舒服而调整姿势，以及想活动的感觉使注意转开。可回顾过去四周。这些描述不诊断多动、ADHD或身体状况，不证明活动过多、坐着才合适，或谁本来应该表现不同。"
+            },
+            {
+              "en": "The page does not know the setting, accessibility needs, physical comfort or practical reasons for a movement. A person may have a reason to change position that the wording cannot capture. No category makes stillness a goal or judges whether a rule requiring it was reasonable. You can recognise a description without accepting a moral judgment about self-control, politeness, effort or dependability. The record cannot decide whether a particular movement is safe, necessary or part of a clinical condition.",
+              "zh": "页面不知道环境、无障碍需要、身体舒适度或活动的实际原因。调整姿势可能有文字无法容纳的理由。类别不把静止设为目标，也不评判要求静止的规则是否合理。可认出描述，无需接受关于自制、礼貌、努力或可靠性的品格评价。记录不能决定某动作安全、必要或属于临床状况。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions do not count movements or diagnose a type",
+            "zh": "四条描述，不数动作或诊断类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses did not notice, rarely, sometimes, often, very often or unscored. Six category counts add to four descriptions and retain the individual labels. They do not measure movements, seated minutes, physiological arousal or energy expenditure. Two often and two unscored remains that combination rather than a hyperactivity score. IDs are labels, not points. There is no total, mean, highest topic, clinical threshold, population rank or comparison with how still another person is expected to remain in a similar situation.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条标签，不测动作、坐着分钟、生理唤起或能量消耗。两条较常、两条未计分就保持该组合，不变成多动分数。标识不是点数，没有总分、均值、最高主题、临床阈值、人群排名或与他人预期静止程度比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic offers no personal finding about restlessness, health or support needs. A small count cannot certify safe performance or rule out a concern; frequent labels do not establish a disorder. All four full guides and unconditional support information remain public before answers and after every pattern. You can read without completing the exercise or deciding whether a remembered feeling counts as hyperactivity.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供坐立不安、健康或支持需要的个人发现。计数少不认证表现安全或排除担忧；频繁标签不建立疾病。四篇全文和无条件支持说明在答题前及任何组合后公开，无需完成或决定记得的感觉算不算多动才阅读。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "The setting can matter without explaining the cause",
+            "zh": "背景可以重要，却不解释原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person who remembers discomfort during an activity with a fixed seating arrangement. Another remembers a wish for movement in a setting they had chosen and usually enjoy. Both might recognise a statement while having different circumstances or support needs. The questionnaire cannot decide whether the environment, a physical concern or another factor explains the experience. These examples illustrate what a category leaves open, rather than asking you to remain seated, remove an adjustment or recreate discomfort to test a possible explanation.",
+              "zh": "设想有人记得固定座位活动里的不舒服，另一个人记得在自选且通常喜欢的场景中想活动。两者可认出同一陈述，却有不同背景或支持需要。问卷不能决定环境、身体问题或其他因素解释经历。例子说明类别留下哪些未知，不要求坐着、移除调整或重现不适来测试解释。"
+            },
+            {
+              "en": "You may remember wanting to move more clearly than the reason for it. You do not need to reconstruct an event, identify a trigger or judge whether the need was legitimate. The page asks for no body measurement, activity tracker data, workplace record or medical history. Keep recollection broad if useful, leave a description unscored or stop. Recognising one statement does not identify a cause, establish a nervous-system state or show that movement should be reduced to improve another topic.",
+              "zh": "可能更清楚记得想活动，而非原因。不必重建事件、识别诱因或判断需要是否正当。页面不问身体测量、活动设备数据、工作记录或病史。可以宽泛回顾、未计分或停止。认出一条不识别原因、不建立神经系统状态，也不说明该减少活动来改善另一主题。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A separate executive-function form is not a diagnostic extension",
+            "zh": "独立执行功能题本，不是诊断扩展"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing fourteen-item ADEXI page has working-memory and inhibition readings. Some inhibition statements concern stopping an enjoyable activity or being described as lively, but that source group remains its own self-report content. The four recent restlessness observations here do not replace, extend or revise it. Public links provide separate reading; answers are not transferred between the forms. This page does not import an ADEXI result, combine it with a category count or turn movement into an additional clinical subscale.",
+              "zh": "现有14题ADEXI页提供工作记忆与抑制读法。部分抑制陈述涉及停止喜欢的活动或被认为活泼，但来源题组保持自己的自评内容。这里四条近期坐立不安观察不替换、扩展或修改它。公开链接只提供独立阅读，回答不在题本之间转移。本页不导入ADEXI结果、不与类别计数合并，也不把活动变成追加临床分量表。"
+            },
+            {
+              "en": "ADEXI asks how well statements describe you without adding a fixed recent recall period. This supplement uses four-week remembered frequency and counts descriptions, so the numbers cannot be added, averaged or interpreted as one scale. Fourteen existing items and sixteen original observations are not a thirty-item instrument. The topics can overlap and are not validated independent dimensions. Neither the existing form nor this reading assigns an ADHD type, establishes a physical cause or tells you whether a movement need is appropriate.",
+              "zh": "ADEXI问陈述对自己的贴切程度，不另加固定近期时段；本补充用四周记得的频率并计描述，所以数字不能相加、平均或当作同一量表。已有14题和原创16条不是30题工具。主题可能重叠，尚非验证独立维度。现有题本和本读法都不分配ADHD类型、不建立身体原因，也不判断活动需要是否合适。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Recollection assigns no stillness or exercise challenge",
+            "zh": "回顾，不安排静止或运动挑战"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no instruction to remain still, suppress a movement, exercise to change energy or continue an uncomfortable activity to demonstrate self-control. The page provides no body test, exposure exercise or productivity target. You can pause, leave or retain an existing adjustment without obtaining a category record first. Completion is relevant only to organising the private reflection. It does not determine whether you may read the guides, keep a practical precaution or ask a professional about a concern.",
+              "zh": "不要求保持不动、压住动作、用运动改变精力，或继续不舒服活动来展示自制。页面不提供身体测试、接触练习或效率目标。可以暂停、离开或保留已有调整，无需先取得类别记录。完成只关系到整理私人回顾，不决定能否阅读、保留实际预防或向专业人士询问担忧。"
+            },
+            {
+              "en": "If you want a professional conversation, an opening could be “I have noticed restlessness or discomfort during activities and would like to understand what to consider.” A qualified healthcare professional can assess broader physical health, history and circumstances that the page cannot. This is not the ASRS or clinical criteria. Four weeks is an editorial recall window rather than a diagnostic duration. You need not wait for months, show childhood onset or reach a particular number of settings before asking about support.",
+              "zh": "愿意专业谈话时，可以说：“我注意到活动中的坐立不安或不舒服，想了解哪些值得考虑。”合格医疗专业人士可评估页面不能处理的更广身体健康、历史和背景。本页不是ASRS或临床标准。四周是编辑回忆时段，不是诊断时长。询问支持无需等几个月、展示童年起始或达到指定场景数量。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on how still you can be",
+            "zh": "支持，不取决于能有多安静"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a movement need, a physical concern or difficulty with an activity without finishing this exercise or reaching a count. The page cannot assess healthcare need or urgency, replace existing professional advice or tell you to change medicine, care or monitoring. Do not use it to disregard a safety requirement or postpone an assessment. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing. The website cannot observe you or provide an emergency response.",
+              "zh": "可以询问活动需要、身体问题或活动困难，无需完成或达到计数。页面不评估医疗需要或紧急程度、不替代已有专业意见，也不让你改变药物、照护或监测。不要用它忽视安全要求或推迟评估。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察你或作紧急响应。"
+            },
+            {
+              "en": "The same support information remains public before answers, on every complete guide and for every pattern, including all unscored. You do not need to disclose a diagnosis, physical detail or workplace difficulty here to read it. This is an adult self-reflection, not a parent report or assessment of a child or employee. A low count does not establish safe performance, and a frequent label does not identify a disorder. A practical concern can be worth discussing without a label about being too active.",
+              "zh": "相同支持说明在答题前、每篇全文和任何组合下公开，包括全未计分。阅读无需在此披露诊断、身体细节或工作困难。这是成年人自我回顾，不是家长报告，也不评估儿童或雇员。计数低不建立表现安全，频繁标签不识别疾病。实际担忧可以值得讨论，无需贴上活动太多的标签。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A later difference does not measure regulation or recovery",
+            "zh": "后来不同，不测调节或恢复"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical threshold or demonstrated English–Chinese measurement equivalence. A later record can reflect recall, interpretation, available activities or circumstances rather than a change in health or capacity. It cannot measure recovery, deterioration or treatment response. There is no score to improve, target for sitting still or required monitoring schedule. You may keep one useful phrase without repeating the exercise to prove self-control, assign a neurotype or obtain reassurance about a physical concern.",
+              "zh": "原创双语观察尚无常模、验证临床阈值或中英文测量等值。后来记录可能反映回忆、理解、活动机会或背景，而非健康或容量变化，不测恢复、恶化或治疗反应。没有要提高的分数、保持静止目标或规定监测日程。可以只留一句有用表述，无需反复完成来证明自制、分神经类型或取得身体问题的保证。"
+            },
+            {
+              "en": "Answers remain in current-page memory only, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are the same public text for everyone, with the existing ADEXI readings available on their separate pages. You can read without answering, stop midway or ask a professional question without performing a movement test or obtaining a combined score or diagnosis from the website.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有人相同，已有ADEXI读法保留独立页面。不答题阅读、中途停止或向专业人士提问，都无需做动作测试或取得网站合并分数与诊断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feelings-and-energy-context-reading",
+      "directionIds": [
+        "feelings-and-energy-context"
+      ],
+      "title": {
+        "en": "Feelings and available energy — Complete Reading",
+        "zh": "感受与可用精力：完整读法"
+      },
+      "headline": {
+        "en": "Feelings and available energy — Complete Reading",
+        "zh": "感受与可用精力：完整读法"
+      },
+      "summary": {
+        "en": "Keep feelings and energy descriptions separate without measuring mood stability, treatment response or a cause.",
+        "zh": "把感受与精力描述分别保留，不测情绪稳定、治疗反应或原因。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or ability score; counts do not measure events, minutes, medical safety or another person’s intentions.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或能力分数；计数不测事件、分钟、医学安全或他人意图。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings and available energy: Full Daily Context Guide | FermatMind",
+          "zh": "感受与可用精力：日常情境完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Keep feelings and energy descriptions separate without measuring mood stability, treatment response or a cause.",
+          "zh": "把感受与精力描述分别保留，不测情绪稳定、治疗反应或原因。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keep feelings and energy descriptions distinct",
+            "zh": "把感受与精力描述分别保留"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original adult observations: a feeling becoming intense quickly during an interaction, a strong feeling continuing to draw attention afterward, available energy differing from what you expected for an activity and an energy change making an intended pace harder to maintain. You may recall the past four weeks. Two descriptions concern feelings and two concern available energy; they are grouped for reading without becoming one measured trait. They do not establish that one experience caused another or diagnose a mood or attention condition.",
+              "zh": "本主题四条成年人原创观察分别关注互动中感受很快增强、之后仍吸引注意、活动可用精力与预期不同，以及精力变化使原定节奏更难保持。可回顾过去四周。两条关于感受，两条关于可用精力，放在一起阅读不等于一个测得特质，不证明一种经历造成另一种，也不诊断情绪或注意相关状况。"
+            },
+            {
+              "en": "The page cannot know the meaning of an interaction, the demands of an activity, physical health or wider circumstances. A selection does not establish emotional dysregulation, a brain mechanism or a cause of fatigue. It cannot decide whether a feeling was proportionate, an expectation was reasonable or a physical concern needs assessment. You do not need to defend the feeling or treat the record as a judgment about resilience, motivation, maturity or the effort you were willing to make.",
+              "zh": "页面不知道互动意义、活动要求、身体健康或更广背景。选择不建立情绪失调、大脑机制或疲劳原因，不能判断感受是否相称、预期是否合理或身体问题是否需要评估。不必为感受辩护，也不把记录当成对韧性、动机、成熟或努力意愿的评价。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four labels do not measure episodes or stability",
+            "zh": "四条标签，不测发作或稳定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Each observation uses did not notice, rarely, sometimes, often, very often or unscored. Six counts sum to four descriptions and retain each selected label. They do not measure mood episodes, energy levels, sleep, physiological arousal or how long a feeling lasted. One often, one rarely and two unscored remains that pattern rather than an emotional-regulation or mood-stability score. IDs are labels, not points. There is no total, mean, highest topic, clinical threshold, risk band or comparison with a typical person's emotional response.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条标签，不测情绪发作、精力水平、睡眠、生理唤起或感受持续多久。一条较常、一条很少、两条未计分就保持该组合，不变成情绪调节或稳定性分数。标识不是点数，没有总分、均值、最高主题、临床阈值、风险档或与典型人情绪反应比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic offers no personal finding about feelings, energy or health. A small count does not rule out a concern or establish that activity is safe; frequent labels do not identify a disorder. All four complete guides and the same support information are public before answers and after every pattern. You can read them without producing a record or agreeing that a single category captures an experience.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供感受、精力或健康的个人发现。计数少不排除担忧或证明活动安全，频繁标签不识别疾病。四篇全文和相同支持说明在答题前及任何组合后公开，无需记录或认同单一类别足以表达经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A remembered change leaves its explanation open",
+            "zh": "记得变化，仍保留解释未知"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person remembering an intense feeling after a conversation they found important. Another remembers having less available energy than expected for a planned activity, without knowing why. These are different descriptions, even when the same person recognises both. The questionnaire cannot decide whether they are connected or compare the seriousness of the experiences. The examples illustrate unanswered context rather than a rule that energy changes come from emotion or that strong feelings are signs of a particular neurotype.",
+              "zh": "设想有人记得一场重要谈话后的强烈感受，另一个人记得计划活动可用精力比预期少，却不知道原因。这是不同描述，即使同一人都认出也一样。问卷不能决定两者有关或比较严重程度。例子说明背景未明，不建立精力变化来自情绪或强烈感受属于某神经类型的规则。"
+            },
+            {
+              "en": "You may recall that an intended pace became harder to maintain without being able to explain the change. No reconstruction, emotion diary, activity log or medical detail needs to be entered here. Keep the account broad, leave a statement unscored or stop if the wording does not fit. The page does not require you to name a mood, identify a trigger or prove that a reaction was reasonable. A description can be useful without settling its physical, psychological or practical explanation.",
+              "zh": "可能记得原定节奏变难维持，却无法解释变化。无需在此输入重建叙述、情绪日记、活动日志或医学细节。可以宽泛保留、未计分或停止。不要求命名情绪、识别诱因或证明反应合理。描述可以有用，却不确定其身体、心理或实际解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Existing executive-function readings keep their own scope",
+            "zh": "已有执行功能读法，保持自己的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate fourteen-item ADEXI page provides working-memory and inhibition readings. It does not become an emotion or energy scale through its link from this supplement. The four original observations here do not rewrite its source items, anchors, adopted sums, means or version. Public links offer related reading without transferring answers or importing a personal result. This page administers only its own sixteen original observations and does not add ADEXI items to an expanded attention or mood questionnaire.",
+              "zh": "独立的14题ADEXI页提供工作记忆与抑制读法，不会因为本补充链接它就成为情绪或精力量表。这里四条原创观察不改其来源题目、锚点、所采用合计、均分或版本。公开链接提供相关阅读，不转移回答或导入个人结果。本页只使用自己的16条原创观察，不把ADEXI题目加入扩大的注意或情绪问卷。"
+            },
+            {
+              "en": "The existing form asks how well statements describe you, with no added fixed recent recall period. This supplement asks about remembered frequency during four weeks and preserves category counts, so their numbers cannot be added, averaged or compared as one scale. Fourteen existing items and sixteen original observations do not make a thirty-item instrument. Feelings, energy context and social interpretation are not additional ADHD diagnostic criteria. None of these reading topics identifies a cause, assigns a neurotype or establishes a clinical model from their overlap.",
+              "zh": "现有题本问陈述对自己的贴切程度，不另加固定近期时段；本补充问四周记得的频率并保留类别计数，数字不能相加、平均或当同一量表比较。已有14题和原创16条不构成30题工具。感受、精力背景与社交理解不是追加ADHD诊断标准。主题重叠不识别原因、不分神经类型，也不建立临床模型。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No emotional-control or energy-changing task is assigned",
+            "zh": "不安排控制情绪或改变精力的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer from recollection only if you choose to answer. The page asks for no deliberate emotional trigger, forced calming, exercise, sleep change or effort to reproduce an energy shift. There is no productivity target or instruction to push through discomfort. You can pause or leave whenever you want. Completion is relevant only to organising a private record, not whether you may read information, keep an existing adjustment or ask a qualified professional about something that concerns you.",
+              "zh": "选择答题时只凭回忆。不要求故意引出情绪、强迫平静、运动、改变睡眠或重现精力变化，没有效率目标，也不要求顶着不适继续。可随时暂停或离开。完成只关系到整理私人记录，不关系到阅读、保留已有调整或向合格专业人士询问担忧。"
+            },
+            {
+              "en": "If you want a professional conversation, one opening could be “I have noticed changes in feelings or available energy and would like to understand what to consider.” A qualified healthcare professional can assess physical health, history and other circumstances beyond the page. This original reflection is not the ASRS or diagnostic criteria for ADHD, a mood disorder or another condition. Four weeks is an editorial recall window, not a diagnostic duration or a waiting requirement before asking about support.",
+              "zh": "愿意专业谈话时，可以说：“我注意到感受或可用精力的变化，想了解哪些值得考虑。”合格医疗专业人士可评估页面以外的身体健康、历史和其他背景。原创回顾不是ASRS，也不是ADHD、情绪障碍或其他状况的诊断标准。四周是编辑回忆时段，不是诊断时长或询问支持前的等待要求。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require an intense record",
+            "zh": "支持，不要求强烈的记录"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about a feeling, a physical concern or an energy change without completing this exercise or reaching a particular category count. The page cannot assess healthcare need or urgency, replace existing advice or tell you to change medicine, care or monitoring. Do not use it to postpone an assessment or disregard an existing safety concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing. The website cannot observe you or provide an emergency response.",
+              "zh": "可以询问感受、身体问题或精力变化，无需完成或达到特定计数。页面不评估医疗需要或紧急程度、不替代已有意见，也不让你改变药物、照护或监测。不要用它推迟评估或忽视已有安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察你或作紧急响应。"
+            },
+            {
+              "en": "The same support information appears before answers, on every full guide and for every pattern, including all unscored. You need not disclose a diagnosis, an interaction or health details here to read it. This is an adult self-reflection, not an assessment of a child, partner or employee. A low count cannot certify emotional stability or physical health, and a frequent label cannot diagnose a disorder. One concern can deserve a professional question without a result deciding that it is serious enough.",
+              "zh": "相同支持说明在答题前、每篇全文及任何组合中公开，包括全未计分。阅读不必在此披露诊断、互动或健康细节。这是成年人自我回顾，不评估儿童、伴侣或雇员。计数低不认证情绪稳定或身体健康，频繁标签不诊断疾病。一项担忧也可以值得向专业人士询问，无需结果决定是否足够严重。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A changed pattern cannot measure treatment or recovery",
+            "zh": "组合变化，不测治疗或恢复"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference can reflect recall, interpretation, activity demands or circumstances and cannot measure recovery, deterioration or treatment response. It cannot establish that an emotion became better regulated, energy became healthier or a medicine worked. There is no score to improve, required activity pace or monitoring schedule. You may keep one useful phrase without repeatedly completing the record or treating a category as an explanation of your health.",
+              "zh": "原创双语观察尚无常模、验证临床界值或中英文测量等值。后来差异可能反映回忆、理解、活动要求或背景，不能测恢复、恶化或治疗反应，不证明情绪调节更好、精力更健康或药物起效。没有要提高的分数、规定活动节奏或监测日程。可以只留一句有用表述，无需反复完成或把类别当作健康解释。"
+            },
+            {
+              "en": "Answers stay only in current-page memory, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares its title and address only. Four complete guides remain the same public reading for everyone; existing ADEXI guides keep their separate pages. You can read without answering, stop midway or ask a professional question without producing a combined score, accepting a mood label or letting the website decide what a feeling or energy change means.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有人相同，已有ADEXI指南保留独立页面。不答题阅读、中途停止或向专业人士提问，都无需合并分数、接受情绪标签或让网站决定感受与精力变化的含义。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interpreting-social-experiences-reading",
+      "directionIds": [
+        "interpreting-social-experiences"
+      ],
+      "title": {
+        "en": "Interpreting social experiences — Complete Reading",
+        "zh": "理解社交经历时：完整读法"
+      },
+      "headline": {
+        "en": "Interpreting social experiences — Complete Reading",
+        "zh": "理解社交经历时：完整读法"
+      },
+      "summary": {
+        "en": "Describe uncertainty around an exchange without inferring another person’s intentions or dismissing actual treatment.",
+        "zh": "描述交流周围的不确定，不推断对方意图，也不忽视实际对待。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to four original descriptions, with individual labels retained. IDs are not points. There is no total, mean, rank, risk, diagnosis or ability score; counts do not measure events, minutes, medical safety or another person’s intentions.",
+        "zh": "六类计数合计四条原创描述，并保留逐条标签。标识不是点数，没有总分、均值、排名、风险、诊断或能力分数；计数不测事件、分钟、医学安全或他人意图。"
+      },
+      "seo": {
+        "title": {
+          "en": "Interpreting social experiences: Full Daily Context Guide | FermatMind",
+          "zh": "理解社交经历时：日常情境完整指南｜费马测试"
+        },
+        "description": {
+          "en": "Describe uncertainty around an exchange without inferring another person’s intentions or dismissing actual treatment.",
+          "zh": "描述交流周围的不确定，不推断对方意图，也不忽视实际对待。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe uncertainty about an interaction, not another mind",
+            "zh": "描述互动中的不确定，不读取他人内心"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic contains four original adult observations about replaying how an exchange was received, an unclear reply leaving its meaning uncertain, worrying about criticism that was not stated directly and a tone or expression remaining in mind because its meaning felt unclear. You may recall the past four weeks. The descriptions concern your remembered experience of interpretation. They cannot determine what another person thought, whether rejection occurred or whether a concern was reasonable. They do not diagnose ADHD or any other condition.",
+              "zh": "本主题四条成年人原创观察关注反复琢磨交流怎样被接收、回复不清而含义未明、担心未直接说出的批评，以及因不确定含义而记住语气或表情。可回顾过去四周。描述只涉及记得的理解经历，不能确定对方想什么、是否发生拒绝或担忧是否合理，不诊断ADHD或其他状况。"
+            },
+            {
+              "en": "The page has no access to the interaction or the circumstances around it. A selection cannot prove that criticism was intended, reassure you that none occurred or dismiss harmful treatment as a symptom of sensitivity. You do not need to accept a label about being too emotional or socially inaccurate. Actual treatment, uncertainty and personal feelings can all matter without the questionnaire deciding which explanation is correct. No category gives another person a verdict about your motives, worth or reliability.",
+              "zh": "页面不了解互动或周围背景。选择不能证明对方有意批评、保证没有批评，或把有害对待当作敏感症状而忽视。不必接受情绪过多或社交理解不准的标签。实际对待、不确定和个人感受都可以重要，无需问卷决定哪个解释正确。类别不给别人关于你的动机、价值或可靠性的裁决。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions do not measure rejection or social ability",
+            "zh": "四条描述，不测拒绝或社交能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Each statement uses did not notice, rarely, sometimes, often, very often or unscored. Six category counts add to four descriptions and retain the individual labels. They do not count rejections, criticisms, misunderstandings or messages. One often, one sometimes and two unscored remains that pattern rather than a rejection-sensitivity or social-accuracy score. IDs are labels, not points. There is no total, mean, highest topic, diagnostic threshold, population rank or comparison with how another person should feel after a brief exchange.",
+              "zh": "每条用没有注意到、很少、有时、较常、经常或未计分。六类计数合计四条并保留逐条标签，不算拒绝、批评、误会或消息。一条较常、一条有时、两条未计分就保持该组合，不变成拒绝敏感或社交准确性分数。标识不是点数，没有总分、均值、最高主题、诊断阈值、人群排名或与他人交流后该怎样感受比较。"
+            },
+            {
+              "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored topic gives no personal finding about relationships, health or support needs. A small count does not establish that an interaction was safe or clear; frequent labels do not identify a disorder. All four full guides and the same support information remain public before answers and after every pattern. You can read without producing a record or deciding whether a single category adequately describes a private experience.",
+              "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供关系、健康或支持需要的个人发现。计数少不证明互动安全或清楚；频繁标签不识别疾病。四篇全文和相同支持说明在答题前及任何组合后公开，无需记录或决定单一类别足以描述私人经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "An unclear reply leaves more than one possibility",
+            "zh": "回复不清，可能性仍未确定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional person remembering a short reply whose meaning felt uncertain. Another remembers a tone that stayed in mind after an important conversation. The page cannot inspect either exchange or decide whether the other person was busy, critical, unclear or something else. The examples illustrate missing information rather than offering reassurance that no rejection happened. They also do not ask you to reopen a message, contact the person or gather evidence to prove that your first interpretation was right or wrong.",
+              "zh": "设想有人记得含义不明的简短回复，另一个人记得重要谈话后一直在意某个语气。页面不能查看交流或决定对方忙、批评、表达不清还是其他情况。例子说明信息缺失，不保证没有拒绝，也不让你重开消息、联系对方或收集证据来证明最初理解对错。"
+            },
+            {
+              "en": "You may recognise repeated wondering without wanting to describe the interaction itself. No message text, photograph, person's name or relationship history needs to be entered. You can keep the account broad, leave it unscored or stop. The page does not require you to challenge an interpretation, seek confirmation or forgive a behaviour. A description can help you name uncertainty while the actual meaning of the exchange and your choices about it remain outside what a category record can settle.",
+              "zh": "可能认出反复琢磨，却不愿描述互动。不必输入消息、照片、姓名或关系史。可宽泛保留、未计分或停止。页面不要求质疑理解、寻求确认或原谅行为。描述可帮助说出不确定，而交流实际含义及相关选择仍不是类别记录能确定的事。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A separate executive-function page does not explain social meaning",
+            "zh": "独立执行功能页，不解释社交含义"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind's separate fourteen-item ADEXI page offers working-memory and inhibition readings. Its existing descriptions remain their own self-report content and do not become a test of social interpretation through a public link. The four original observations here do not rewrite that form's wording, anchors, version, adopted sums or part means. No answers or personal results are transferred between the pages. This supplement does not use an inhibition response to infer what a message meant or why another person acted as they did.",
+              "zh": "费马独立的14题ADEXI页提供工作记忆与抑制读法。其描述保持自己的自评内容，不会因公开链接而成为社交理解测试。这里四条原创观察不改其措辞、锚点、版本、所采用合计或分项均分。页面之间不转移回答或个人结果；本补充不靠抑制回答推断消息含义或对方行为原因。"
+            },
+            {
+              "en": "The existing form asks how well statements describe you without adding a fixed recent recall period. This supplement records remembered frequency over four weeks, so their numbers cannot be added, averaged or compared as one scale. Fourteen existing items and sixteen original observations are not a thirty-item instrument. Social interpretation, emotional intensity and energy context are not additional ADHD diagnostic criteria. The topics may overlap without becoming validated independent dimensions, a new clinical model or an explanation of someone's relationship difficulties.",
+              "zh": "现有题本问陈述对自己的贴切程度，不另加固定近期时段；本补充记录四周记得的频率，数字不能相加、平均或当同一量表比较。已有14题和原创16条不是30题工具。社交理解、情绪强度和精力背景不是追加ADHD诊断标准。主题可重叠，却不成为验证独立维度、新临床模型或谁关系困难的解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No message-opening or confrontation task is assigned",
+            "zh": "不安排打开消息或对质任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer from recollection only if you choose to answer. The page assigns no message review, exposure to feared feedback, confrontation, reassurance-seeking exercise or test of reading facial expressions. It does not ask you to remain in an unsafe interaction or ignore a practical concern. You can pause, leave or keep an account private. Completion is relevant only to organising this private record, not whether you may read information, maintain an existing safety arrangement or ask a professional about something that matters to you.",
+              "zh": "选择答题时只凭回忆。不安排回看消息、接触害怕的反馈、对质、寻求保证练习或读取表情测试，也不让你留在不安全互动中或忽视实际担忧。可暂停、离开或保密叙述。完成只关系到整理私人记录，不关系到阅读、保留安全安排或向专业人士询问在意的事。"
+            },
+            {
+              "en": "If you want a professional conversation, one opening could be “I keep wondering about some interactions and would like to talk about the uncertainty or distress around them.” A qualified healthcare professional can consider history, health and circumstances beyond this page. This is not the ASRS or an ADHD assessment. Four weeks is an editorial recall window, not a clinical duration. You need not wait for months, show childhood onset or produce a high count before asking about support.",
+              "zh": "愿意专业谈话时，可以说：“我反复琢磨一些互动，想谈谈周围的不确定或难受。”合格医疗专业人士可考虑页面以外的历史、健康和背景。本页不是ASRS或ADHD评估。四周是编辑回忆时段，不是临床时长。询问支持无需等几个月、展示童年起始或达到高计数。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on proving rejection",
+            "zh": "支持，不取决于证明被拒绝"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask about uncertainty, distress or actual treatment without finishing the exercise or reaching a category threshold. The page cannot assess healthcare need or urgency, judge another person's intentions or replace existing professional advice. Do not use a record to postpone assessment, change medicine or care, or disregard a safety concern. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing. The website cannot observe an interaction, arrange care or provide an emergency response.",
+              "zh": "可以询问不确定、难受或实际对待，无需完成或达到类别阈值。页面不评估医疗需要或紧急程度、不判断对方意图，也不替代已有专业意见。不要用记录推迟评估、改变药物或照护，或忽视安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续；网站不能观察互动、安排照护或作紧急响应。"
+            },
+            {
+              "en": "The same support information appears before answers, on every full guide and for every pattern, including all unscored. You do not need to disclose a diagnosis, message or relationship history to the website to read it. This is an adult self-reflection, not an assessment of a child, partner or employee. A low count does not establish a healthy relationship, and frequent labels do not identify a disorder. A concern can deserve discussion without a category deciding whether your interpretation is accurate enough to count.",
+              "zh": "相同支持说明在答题前、每篇全文和任何组合下公开，包括全未计分。阅读不必向网站披露诊断、消息或关系史。这是成年人自我回顾，不评估儿童、伴侣或雇员。计数低不建立健康关系，频繁标签不识别疾病。一项担忧可以值得讨论，无需类别决定理解是否准确到足以算数。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A later record cannot certify social accuracy",
+            "zh": "后来记录，不认证社交准确性"
+          },
+          "paragraphs": [
+            {
+              "en": "These original bilingual observations have no established norms, validated clinical cutoff or demonstrated English–Chinese measurement equivalence. A later difference can reflect recall, interpretation, interaction opportunities or circumstances and cannot measure recovery, deterioration or treatment response. It does not prove that communication became more accurate, rejection stopped or a medicine worked. There is no score to improve or required monitoring schedule. You may keep one useful phrase without repeatedly completing the exercise to obtain certainty about another person or an earlier exchange.",
+              "zh": "原创双语观察尚无常模、验证临床界值或中英文测量等值。后来差异可反映回忆、理解、互动机会或背景，不测恢复、恶化或治疗反应，也不证明沟通更准确、拒绝停止或药物有效。没有要提高的分数或规定监测日程。可以只留一句有用表述，无需反复完成来确定别人或先前交流的含义。"
+            },
+            {
+              "en": "Answers remain in current-page memory only, with no stored draft, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address. All four complete guides are the same public reading for every pattern, with existing ADEXI guides on their separate pages. You can read without answering, stop midway or ask a professional question without sharing a message, obtaining a combined score or accepting a diagnosis or judgment about your relationships from the website.",
+              "zh": "回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除。复制公开入口只含标题及地址。四篇全文对所有组合相同，已有ADEXI指南保留独立页面。不答题阅读、中途停止或向专业人士提问，都无需分享消息、取得合并分数或接受网站对关系的诊断与评价。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Four records of four descriptions",
+        "zh": "四组各四条描述的记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Each original reading topic contains four observations. Six counts retain did not notice, rarely, sometimes, often, very often and unscored, alongside individual selections. Counts concern statements, not events, minutes or clinical symptoms. IDs are labels rather than points, with no total, mean, highest topic, risk band or population comparison.",
+          "zh": "每个原创阅读主题四条，六类计数保留没有注意到、很少、有时、较常、经常和未计分，并展示逐条选择。计数算陈述，不是事件、分钟或临床症状。标识是标签，不是点数；没有总分、均值、最高主题、风险档或人群比较。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withholding remain unscored, separate from did not notice. An entirely unscored record gives no personal finding or reassurance about health or safety. The topics may overlap and are not validated independent dimensions. Feelings and available energy remain different descriptions; their placement together does not establish one trait or a causal connection.",
+          "zh": "没有相关经历、回想不清和保留回答保持未计分，与没有注意到分开。全未计分不提供个人发现或健康安全保证。主题可能重叠，尚非验证独立维度。感受和可用精力保持不同描述，放在一起不建立单一特质或因果联系。"
+        }
+      ]
+    },
+    {
+      "id": "existing-primary",
+      "title": {
+        "en": "The existing fourteen-item form stays independent",
+        "zh": "已有十四题题本保持独立"
+      },
+      "paragraphs": [
+        {
+          "en": "The separate ADEXI14 page retains its own working-memory and inhibition items, anchors, source version, adopted raw sums and separately labelled part means. This page does not rewrite, extend or administer those fourteen items. Public links provide independent reading without transferring answers or importing a personal result. The existing form asks how well statements describe you, with no added fixed recent recall period; this supplement asks remembered frequency over four weeks.",
+          "zh": "独立ADEXI14页保留自己的工作记忆与抑制题目、锚点、来源版本、所采用原始合计及单独标注的分项均分。本页不重写、扩展或施测那14题。公开链接提供独立阅读，不转移回答或导入个人结果。现有题本问陈述对自己的贴切程度，不另加固定近期时段；本补充问四周记得的频率。"
+        },
+        {
+          "en": "The numbers from the two pages cannot be added, averaged or compared as one scale. Fourteen existing items and sixteen original observations are not a thirty-item instrument. Neither the separate form nor this supplement establishes an ADHD probability or neurotype. The existing three guides remain on their own public pages; the four complete guides below explain only this original supplement.",
+          "zh": "两页数字不能相加、平均或当同一量表比较。已有14题与原创16条不是30题工具。独立题本和本补充都不建立ADHD概率或神经类型。已有三篇指南保留独立公开页面；下方四篇全文只解释这份原创补充。"
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "title": {
+        "en": "Reflection does not establish a condition or care decision",
+        "zh": "回顾，不建立状况或照护决定"
+      },
+      "paragraphs": [
+        {
+          "en": "These original adult observations are not the ASRS or clinical criteria. They have no established norms, clinical cutoff or demonstrated English–Chinese measurement equivalence. The record cannot determine a cause, diagnose ADHD or a mood condition, measure intelligence or capacity, infer another person’s intentions or decide that a physical concern is harmless. Four weeks is an editorial recall window, not a diagnostic duration.",
+          "zh": "成年人原创观察不是ASRS或临床标准，尚无常模、临床界值或验证中英文测量等值。记录不能确定原因、诊断ADHD或情绪状况、测智力或容量、推断他人意图，或决定身体问题无害。四周是编辑回忆时段，不是诊断时长。"
+        },
+        {
+          "en": "You can ask a qualified healthcare professional without a minimum count, months of difficulty, proof of childhood onset or a completed record. Do not use the reflection to postpone assessment, change medicine, care or monitoring, or disregard a safety concern. It cannot assess healthcare need or urgency or replace existing advice. If you are in immediate danger or cannot stay safe, seek local emergency assistance rather than continuing.",
+          "zh": "可向合格医疗专业人士询问，无需最低计数、困难持续几个月、童年起始证据或完成记录。不用回顾推迟评估、改变药物、照护或监测，也不忽视安全担忧。页面不评估医疗需要或紧急程度，不替代已有意见。若有即时危险或无法保障安全，请寻求当地紧急援助，而非继续。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Recollection only, four full public guides",
+        "zh": "只凭回忆，四篇完整公开指南"
+      },
+      "paragraphs": [
+        {
+          "en": "No performance task, forced sitting, exercise, body check, message review or recreation of an experience is assigned. Answers remain only in current-page memory, with no draft storage, submission, questionnaire analytics or personal result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address.",
+          "zh": "不安排表现任务、强制静坐、运动、身体检查、回看消息或重现经历。回答只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有个人结果地址。退出、重做、刷新或离页会清除，复制公开入口只含标题及地址。"
+        },
+        {
+          "en": "All four complete bilingual guides and unconditional support information are public before answers and after every pattern, including all unscored. This is an adult self-reflection, not a parent report or assessment of a child, partner or employee. You can stop or withhold without finishing. The page cannot observe you, arrange care or provide an emergency response.",
+          "zh": "四篇双语全文和无条件支持说明在答题前及任何组合后公开，包括全部未计分。这是成年人自我回顾，不是家长报告，也不评估儿童、伴侣或雇员。可以不完成就停止或保留回答。页面不能观察你、安排照护或作紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the ASRS or an ADHD diagnosis?",
+        "zh": "这是ASRS或ADHD诊断吗？"
+      },
+      "answer": {
+        "en": "No. It contains 16 original context observations, not ASRS items or clinical criteria. It provides no diagnosis, probability or neurotype.",
+        "zh": "不是。这是16条原创情境观察，不是ASRS题目或临床标准，不提供诊断、概率或神经类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the fourteen existing items added to these sixteen?",
+        "zh": "已有14题会加到这16条中吗？"
+      },
+      "answer": {
+        "en": "No. The existing ADEXI14 form keeps its own version, anchors, sums, means and public guides. Answers are not transferred and no thirty-item instrument or combined score is created.",
+        "zh": "不会。已有ADEXI14题本保持自己的版本、锚点、合计、均分和公开指南；不转移回答，不形成30题工具或合并分数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are feelings and social interpretation additional ADHD criteria?",
+        "zh": "感受与社交理解是追加ADHD标准吗？"
+      },
+      "answer": {
+        "en": "No. They are descriptive reading topics, not additional diagnostic criteria or validated independent dimensions. The page cannot identify another person’s intentions or a cause.",
+        "zh": "不是。它们是描述性阅读主题，不是追加诊断标准或验证独立维度。页面不识别他人意图或原因。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I perform a task, sit still or open a message?",
+        "zh": "必须做任务、静坐或打开消息吗？"
+      },
+      "answer": {
+        "en": "No. Recall only if you want. There is no performance, movement-control, body-checking, exercise or message-review task.",
+        "zh": "不必。愿意时只凭回忆，不安排表现、控制活动、检查身体、运动或回看消息任务。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must difficulties last for months before I ask about support?",
+        "zh": "必须困难持续几个月才能询问支持吗？"
+      },
+      "answer": {
+        "en": "No. No count, duration, proof of childhood onset or completed record is required. Do not use the reflection to delay assessment or change care or safety arrangements.",
+        "zh": "不必。不要求计数、时长、童年起始证据或完成记录；不用回顾推迟评估或改变照护与安全安排。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every guide without answering?",
+        "zh": "不答题可以读全部指南吗？"
+      },
+      "answer": {
+        "en": "Yes. Four complete guides and unconditional support information remain public for every pattern, including all unscored. Existing ADEXI guides remain separately available.",
+        "zh": "可以。四篇全文和无条件支持说明对任何组合公开，包括全部未计分；已有ADEXI指南另保持可读。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: ADHD in adults — broader professional assessment background",
+        "zh": "NIMH：成年人ADHD——更广专业评估背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/adhd-what-you-need-to-know"
+    },
+    {
+      "title": {
+        "en": "NHS: ADHD in adults — assessment and context",
+        "zh": "NHS：成年人ADHD——评估与背景"
+      },
+      "url": "https://www.nhs.uk/conditions/adhd-adults/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_focus_context_observations",
+    "formCode": "fm_focus_context16_observations_v1",
+    "itemBankVersion": "original16_bilingual_four_by_four_v1",
+    "scoringVersion": "six_categorical_counts_per_four_no_adhd_inference_v1",
+    "resultContentVersion": "four_full_bilingual_focus_context_readings_v1",
+    "itemBankSha256": "bae2e18fb444d7e53627d9d135a7aa942299b6d850bec4b7afb6b3d15340f836",
+    "resultContentSha256": "8d3b1d6a67a5f6aa2bd856dc8f8869fea51e872c549e027b978609971583ce5d",
+    "psychometricValidationCompleted": false
+  }
+}

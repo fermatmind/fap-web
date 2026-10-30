@@ -6929,5 +6929,30 @@
       "keeping-and-discarding-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "focus-energy-context-reflection",
+    "code": "FM_FOCUS_CONTEXT16_OBSERVATIONS",
+    "version": "fm_focus_context16_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Attention & Energy: Daily Context",
+      "zh": "注意力与能量：日常情境回顾"
+    },
+    "description": {
+      "en": "Recall attention, restlessness, feelings and energy context, and interpretation of social experiences with 16 original adult observations. Four complete public guides. The existing ADEXI14 page remains separate; no ADHD probability, diagnosis or combined score.",
+      "zh": "用16条成年人原创观察回顾注意、坐立不安、感受与精力背景，以及理解社交经历时的情况。四篇全文公开，已有ADEXI14页保持独立；不生成ADHD概率、诊断或合并分数。"
+    },
+    "minutes": 4,
+    "formCode": "fm_focus_context16_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "attention-in-activities-reading",
+      "restlessness-in-activities-reading",
+      "feelings-and-energy-context-reading",
+      "interpreting-social-experiences-reading"
+    ],
+    "collection": "explore"
   }
 ]

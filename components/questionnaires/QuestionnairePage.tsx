@@ -9,6 +9,8 @@ import { isSuddenFear20ConfigurationValid } from "@/lib/questionnaires/suddenFea
 import { SuddenFearPage } from "./SuddenFearPage";
 import { isUnwantedActions20ConfigurationValid } from "@/lib/questionnaires/unwantedActions20";
 import { UnwantedActionsPage } from "./UnwantedActionsPage";
+import { isFocusContext16ConfigurationValid } from "@/lib/questionnaires/focusContext16";
+import { FocusContextPage } from "./FocusContextPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryPage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -151,6 +153,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const quiz = await loadQuestionnaire(slug);
   if (quiz?.kind === "sudden-fear20" && !isSuddenFear20ConfigurationValid(quiz)) return { title: "Sudden-fear reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "unwanted-actions20" && !isUnwantedActions20ConfigurationValid(quiz)) return { title: "Thoughts-and-actions reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -197,6 +200,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "unwanted-actions20") {
     if (!isUnwantedActions20ConfigurationValid(quiz)) notFound();
     return <UnwantedActionsPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "focus-context16") {
+    if (!isFocusContext16ConfigurationValid(quiz)) notFound();
+    return <FocusContextPage quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();

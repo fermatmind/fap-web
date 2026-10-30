@@ -11,6 +11,7 @@ const loaders = {
   "outfit-line-preferences": async () => (await import("./data/outfit-line-preferences.json")).default as Questionnaire,
   "sudden-fear-reflection": async () => (await import("./data/sudden-fear-reflection.json")).default as Questionnaire,
   "unwanted-thoughts-actions-reflection": async () => (await import("./data/unwanted-thoughts-actions-reflection.json")).default as Questionnaire,
+  "focus-energy-context-reflection": async () => (await import("./data/focus-energy-context-reflection.json")).default as Questionnaire,
   "health-worries-reflection": async () => (await import("./data/health-worries-reflection.json")).default as Questionnaire,
   "sleep-experiences-reflection": async () => (await import("./data/sleep-experiences-reflection.json")).default as Questionnaire,
   "after-bereavement-reflection": async () => (await import("./data/after-bereavement-reflection.json")).default as Questionnaire,
