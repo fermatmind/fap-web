@@ -54,6 +54,7 @@ export type Big5HistoryRowSummary = {
 
 export type Big5CompareSnapshot = {
   authority: Big5PrivateResultAuthority | null;
+  comparisonKey: string | null;
   domainPercentiles: Record<string, number>;
   facetPercentiles: Record<string, number>;
 };
@@ -120,6 +121,20 @@ function allowsPreciseEvidence(grade: string): boolean {
   return grade === "A" || grade === "B";
 }
 
+function allowsNormPercentiles(norms: Record<string, unknown> | null, evidence?: Record<string, unknown> | null): boolean {
+  if (evidence) {
+    const evidenceVersion = normalizeText(evidence.norm_version);
+    return evidence.comparison_allowed === true
+      && evidence.show_precise_percentiles === true
+      && (!evidenceVersion || evidenceVersion === normalizeText(norms?.norms_version));
+  }
+  // Older summaries declare calibration and version without the engine evidence object.
+  return normalizeText(norms?.status).toUpperCase() === "CALIBRATED"
+    && normalizeText(norms?.norms_version) !== ""
+    && norms?.comparison_allowed !== false
+    && norms?.show_precise_percentiles !== false;
+}
+
 export function normalizeBig5HistoryRows(
   items: MeAttemptItem[] | undefined,
   locale: Locale
@@ -141,7 +156,11 @@ export function normalizeBig5HistoryRows(
     const accessSummary = asRecord(item.access_summary) ? item.access_summary ?? null : null;
     const qualityLevel = normalizeText(qualitySummary?.level).toUpperCase();
     const qualityGrade = normalizeText(qualitySummary?.grade).toUpperCase() || qualityLevel;
-    const preciseEvidence = allowsPreciseEvidence(qualityGrade);
+    const preciseEvidence = allowsPreciseEvidence(qualityGrade) && allowsNormPercentiles(normsSummary);
+    const referenceAvailable = ["CALIBRATED", "PROVISIONAL"].includes(normalizeText(normsSummary?.status).toUpperCase())
+      && normalizeText(normsSummary?.norms_version) !== ""
+      && normsSummary?.comparison_allowed !== false
+      && ["A", "B", "C", "D"].includes(qualityGrade);
     const exposeFacetSummaries = canExposeHistoryFacetSummaries(accessSummary);
 
     const topDomains = BIG5_DOMAIN_ORDER.map((code) => ({
@@ -191,7 +210,7 @@ export function normalizeBig5HistoryRows(
         ? {
             status: preciseEvidence
               ? normalizeText(normsSummary?.status).toUpperCase()
-              : qualityGrade === "UNKNOWN"
+              : !referenceAvailable
                 ? (locale === "zh" ? "比较证据不可用" : "UNAVAILABLE")
                 : (locale === "zh" ? "暂定比较" : "PROVISIONAL"),
             normsVersion: preciseEvidence ? normalizeText(normsSummary?.norms_version) || null : null,
@@ -249,19 +268,26 @@ export function resolveBig5CompareAttemptPair(
 export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5CompareSnapshot {
   const authority = resolveBig5PrivateResultAuthority(report);
   if (!authority) {
-    return { authority: null, domainPercentiles: {}, facetPercentiles: {} };
+    return { authority: null, comparisonKey: null, domainPercentiles: {}, facetPercentiles: {} };
   }
-  const engineQuality = asRecord(report.big5_report_engine_v2)?.quality;
+  const metadata = asRecord(report.report?._meta);
+  const engine = asRecord(report.big5_report_engine_v2) ?? asRecord(metadata?.big5_report_engine_v2);
+  const engineQuality = engine?.quality;
   const quality = asRecord(engineQuality) ?? asRecord(report.quality) ?? asRecord(report.report?.quality);
   const grade = (normalizeText(quality?.grade) || normalizeText(quality?.level)).toUpperCase();
-  if (!allowsPreciseEvidence(grade)) {
-    return { authority, domainPercentiles: {}, facetPercentiles: {} };
+  const norms = asRecord(report.norms);
+  const evidence = asRecord(engine?.norm_evidence);
+  const form = normalizeBig5FormSummary(report.big5_form_v1);
+  const referenceIdentity = [form?.formCode ?? "", normalizeText(norms?.source_id), normalizeText(norms?.norms_version), normalizeText(norms?.group_id)];
+  if (!allowsPreciseEvidence(grade) || !allowsNormPercentiles(norms, evidence) || referenceIdentity.some((value) => !value)) {
+    return { authority, comparisonKey: null, domainPercentiles: {}, facetPercentiles: {} };
   }
   const domainPercentiles: Record<string, number> = {};
   const facetPercentiles: Record<string, number> = {};
 
-  const traitVector = Array.isArray(report.big5_public_projection_v1?.trait_vector)
-    ? report.big5_public_projection_v1.trait_vector
+  const projection = asRecord(report.big5_public_projection_v1) ?? asRecord(metadata?.big5_public_projection_v1);
+  const traitVector = Array.isArray(projection?.trait_vector)
+    ? projection.trait_vector
     : [];
 
   for (const trait of traitVector) {
@@ -272,8 +298,8 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
     domainPercentiles[code] = percentile;
   }
 
-  const facetVector = Array.isArray(report.big5_public_projection_v1?.facet_vector)
-    ? report.big5_public_projection_v1.facet_vector
+  const facetVector = Array.isArray(projection?.facet_vector)
+    ? projection.facet_vector
     : [];
 
   for (const facet of facetVector) {
@@ -286,6 +312,7 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
 
   return {
     authority,
+    comparisonKey: JSON.stringify(referenceIdentity),
     domainPercentiles,
     facetPercentiles,
   };

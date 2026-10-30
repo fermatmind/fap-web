@@ -150,8 +150,8 @@ export default function Big5HistoryClient() {
     empty: locale === "zh" ? "还没有 Big Five 测试记录。" : "No BIG5 attempts found yet.",
     scope:
       locale === "zh"
-        ? "这里保持单次 history 读取，不额外发 /report 或 /report-access。每条记录会直接展开成结果中心卡片。"
-        : "This stays on the single history payload. Each row expands into a compact result-center card without extra /report or /report-access requests.",
+        ? "查看历次结果的题本、主要维度与可用状态。比较前请核对题本和参照版本；单次分数差异不证明人格发生变化。"
+        : "Review the form, main dimensions, and availability of each result. Check the form and reference version before comparing; a score difference alone does not establish personality change.",
     attempt: locale === "zh" ? "测试记录" : "Attempt",
     topDomains: locale === "zh" ? "主导维度" : "Lead domains",
     topFacets: locale === "zh" ? "关键维度面" : "Key facets",
@@ -295,7 +295,7 @@ export default function Big5HistoryClient() {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-2">
         <div className="space-y-1">
-          <h1 className="text-2xl font-bold text-slate-900">BIG5 History</h1>
+          <h1 className="text-2xl font-bold text-slate-900">{locale === "zh" ? "大五结果记录" : "Big Five result history"}</h1>
           <p className="m-0 text-sm text-slate-600">{copy.scope}</p>
         </div>
         {compareLink ? (

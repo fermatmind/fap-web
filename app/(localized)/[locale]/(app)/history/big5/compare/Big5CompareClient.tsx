@@ -22,6 +22,7 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 
 type ReportPayload = {
   attemptId: string;
+  comparisonKey: string | null;
   domainPercentiles: Record<string, number>;
   facetPercentiles: Record<string, number>;
 };
@@ -62,7 +63,7 @@ export default function Big5CompareClient() {
             : await fetchBig5History({ pageSize: 2, page: 1 });
         const pair = resolveBig5CompareAttemptPair(history, queryCurrent, queryPrevious);
         if (!pair) {
-          throw new Error("Not enough history records to compare.");
+          throw new Error(locale === "zh" ? "还没有足够的历史记录可供比较。" : "Not enough history records to compare.");
         }
 
         const accessResponse = await fetchBig5ReportAccess({ attemptId: pair.current, locale }).catch(() => null);
@@ -74,11 +75,13 @@ export default function Big5CompareClient() {
           setAccessView(nextAccessView);
           setCurrent({
             attemptId: pair.current,
+            comparisonKey: null,
             domainPercentiles: {},
             facetPercentiles: {},
           });
           setPrevious({
             attemptId: pair.previous,
+            comparisonKey: null,
             domainPercentiles: {},
             facetPercentiles: {},
           });
@@ -98,11 +101,13 @@ export default function Big5CompareClient() {
         setAccessView(nextAccessView);
         setCurrent({
           attemptId: pair.current,
+          comparisonKey: currentExtract.comparisonKey,
           domainPercentiles: currentExtract.domainPercentiles,
           facetPercentiles: currentExtract.facetPercentiles,
         });
         setPrevious({
           attemptId: pair.previous,
+          comparisonKey: previousExtract.comparisonKey,
           domainPercentiles: previousExtract.domainPercentiles,
           facetPercentiles: previousExtract.facetPercentiles,
         });
@@ -124,6 +129,8 @@ export default function Big5CompareClient() {
     };
   }, [locale, queryCurrent, queryPrevious]);
 
+  const sameReference = Boolean(current?.comparisonKey && current.comparisonKey === previous?.comparisonKey);
+
   const domainDeltaRows = useMemo(() => {
     if (!current || !previous) return [];
 
@@ -132,7 +139,7 @@ export default function Big5CompareClient() {
       const prevRaw = previous.domainPercentiles[domain];
       const curr = typeof currRaw === "number" ? Math.max(0, Math.min(100, Number(currRaw))) : null;
       const prev = typeof prevRaw === "number" ? Math.max(0, Math.min(100, Number(prevRaw))) : null;
-      const comparable = curr !== null && prev !== null;
+      const comparable = sameReference && curr !== null && prev !== null;
       const delta = comparable ? Number((curr - prev).toFixed(2)) : null;
       return {
         domain,
@@ -142,7 +149,7 @@ export default function Big5CompareClient() {
         comparable,
       };
     });
-  }, [current, previous]);
+  }, [current, previous, sameReference]);
 
   const { topChangedFacets: comparableFacets, missingFacetRows: unavailableFacets } = useMemo(() => {
     if (!current || !previous) {
@@ -158,7 +165,7 @@ export default function Big5CompareClient() {
       const prevRaw = previous.facetPercentiles[key];
       const curr = typeof currRaw === "number" ? Math.max(0, Math.min(100, Number(currRaw))) : null;
       const prev = typeof prevRaw === "number" ? Math.max(0, Math.min(100, Number(prevRaw))) : null;
-      const comparable = curr !== null && prev !== null;
+      const comparable = sameReference && curr !== null && prev !== null;
       const delta = comparable ? Number((curr - prev).toFixed(2)) : null;
 
       return {
@@ -184,7 +191,7 @@ export default function Big5CompareClient() {
       topChangedFacets: comparableRows,
       missingFacetRows: missingRows,
     };
-  }, [current, previous]);
+  }, [current, previous, sameReference]);
 
   const formatValue = (value: number | null) => (value === null ? "N/A" : String(value));
   const formatDelta = (row: { delta: number | null; comparable: boolean }) => {
@@ -199,7 +206,7 @@ export default function Big5CompareClient() {
   const reportProcessing = isProjectionProcessing(accessView);
   const reportUnavailable = isProjectionUnavailable(accessView);
   const hasPreciseComparison = Boolean(
-    current && previous
+    current && previous && sameReference
     && Object.keys(current.domainPercentiles).length > 0
     && Object.keys(previous.domainPercentiles).length > 0
   );
@@ -222,11 +229,11 @@ export default function Big5CompareClient() {
           : "The formal result is still generating. You can inspect the comparison now, but PDF and full actions still follow the result-page state.")
       : reportLocked
         ? (isZh
-            ? "当前 attempt 仍是预览访问。进入正式结果页后，你会看到一致的解锁与 PDF 入口语义。"
-            : "The current attempt is still on preview access. Open the formal result page for the consistent unlock and PDF flow.")
+            ? "当前记录仅可预览。进入结果页可查看完整内容和 PDF 的实际可用状态。"
+            : "This result is available as a preview. Open the result page to check full content and PDF availability.")
         : (isZh
-            ? "当前 attempt 已进入正式结果链。你可以继续打开正式结果页，或直接下载 PDF。"
-            : "The current attempt is already on the formal result chain. Open the full result page or download the PDF directly.");
+            ? "可继续打开这次完整结果；PDF 是否可用以下载入口显示的状态为准。"
+            : "You can open this full result. Check the download entry for PDF availability.");
   const resultCtaLabel = reportLocked
     ? (isZh ? "打开正式结果预览" : "Open formal result preview")
     : reportProcessing
@@ -235,10 +242,10 @@ export default function Big5CompareClient() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold text-slate-900">BIG5 Compare</h1>
+      <h1 className="text-2xl font-bold text-slate-900">{isZh ? "大五结果比较" : "Big Five result comparison"}</h1>
 
       {error ? <Alert>{error}</Alert> : null}
-      {loading ? <Card><CardContent className="py-6 text-sm text-slate-600">Loading compare data...</CardContent></Card> : null}
+      {loading ? <Card><CardContent className="py-6 text-sm text-slate-600">{isZh ? "正在加载比较资料…" : "Loading comparison…"}</CardContent></Card> : null}
 
       {current && previous ? (
         <>
@@ -271,26 +278,27 @@ export default function Big5CompareClient() {
             </CardContent>
           </Card>
 
+          {reportReady && !hasPreciseComparison ? <Alert>{isZh ? "当前资料不足以在相同题本和参照条件下比较精确百分位。请分别阅读两份结果；这里不推断人格是否变化。" : "These records do not provide comparable precise percentiles for the same form and reference. Read each result separately; this view does not infer personality change."}</Alert> : null}
+
           {reportReady && hasPreciseComparison ? (
             <>
               <Card>
                 <CardHeader>
-                  <CardTitle>Domain percentile delta</CardTitle>
+                  <CardTitle>{isZh ? "维度参照位置差异" : "Domain percentile differences"}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-slate-700">
-                  <p className="m-0">Current: {current.attemptId}</p>
-                  <p className="m-0">Previous: {previous.attemptId}</p>
+                  <p className="m-0">{isZh ? "相同题本和参照下的两次自报位置差，不证明能力或人格发生变化。" : "Differences in self-reported positions under the same form and reference do not establish changes in ability or personality."}</p>
 
                   <div className="grid gap-2">
                     {domainDeltaRows.map((row) => (
                       <div key={row.domain} className="grid grid-cols-[60px_1fr_1fr_1fr] gap-2 rounded-lg border border-slate-200 px-3 py-2">
                         <span className="font-semibold">{row.domain}</span>
-                        <span>Now {formatValue(row.current)}</span>
-                        <span>Prev {formatValue(row.previous)}</span>
+                        <span>{isZh ? "本次" : "Now"} {formatValue(row.current)}</span>
+                        <span>{isZh ? "上次" : "Previous"} {formatValue(row.previous)}</span>
                         <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
                           {formatDelta(row)}
                         </span>
-                        {!row.comparable ? <span className="col-span-4 text-xs text-amber-700">Not comparable</span> : null}
+                        {!row.comparable ? <span className="col-span-4 text-xs text-amber-700">{isZh ? "不可比较" : "Not comparable"}</span> : null}
                       </div>
                     ))}
                   </div>
@@ -299,17 +307,17 @@ export default function Big5CompareClient() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Top changed facets</CardTitle>
+                  <CardTitle>{isZh ? "位置差异较大的面向" : "Facets with larger position differences"}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm text-slate-700">
                   {comparableFacets.length === 0 ? (
-                    <p className="m-0 text-slate-600">No comparable facet percentile data.</p>
+                    <p className="m-0 text-slate-600">{isZh ? "没有可比较的面向百分位资料。" : "No comparable facet percentile data."}</p>
                   ) : (
                     comparableFacets.map((row) => (
                       <div key={row.key} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-slate-200 px-3 py-2">
                         <span>{row.key}</span>
-                        <span>Now {formatValue(row.current)}</span>
-                        <span>Prev {formatValue(row.previous)}</span>
+                        <span>{isZh ? "本次" : "Now"} {formatValue(row.current)}</span>
+                        <span>{isZh ? "上次" : "Previous"} {formatValue(row.previous)}</span>
                         <span className={!row.comparable ? "text-amber-700" : row.delta && row.delta > 0 ? "text-emerald-700" : row.delta && row.delta < 0 ? "text-rose-700" : "text-slate-600"}>
                           {formatDelta(row)}
                         </span>
@@ -319,12 +327,12 @@ export default function Big5CompareClient() {
 
                   {unavailableFacets.length > 0 ? (
                     <div className="space-y-2 pt-2">
-                      <p className="m-0 text-xs font-semibold uppercase tracking-wide text-amber-700">Unavailable facets (N/A)</p>
+                      <p className="m-0 text-xs font-semibold uppercase tracking-wide text-amber-700">{isZh ? "面向资料不可用（N/A）" : "Unavailable facets (N/A)"}</p>
                       {unavailableFacets.map((row) => (
                         <div key={`na-${row.key}`} className="grid grid-cols-[1fr_90px_90px_90px] gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
                           <span>{row.key}</span>
-                          <span>Now {formatValue(row.current)}</span>
-                          <span>Prev {formatValue(row.previous)}</span>
+                          <span>{isZh ? "本次" : "Now"} {formatValue(row.current)}</span>
+                          <span>{isZh ? "上次" : "Previous"} {formatValue(row.previous)}</span>
                           <span className="text-amber-700">--</span>
                         </div>
                       ))}

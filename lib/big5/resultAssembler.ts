@@ -174,6 +174,7 @@ function normalizeTraitBlock(
     block_id: text(block.block_id),
     source_engine: "canonical_private_result",
     source_kind: "trait_atomic",
+    resolved_copy: copy,
     provenance: block.provenance,
     analytics: block.analytics,
     metric_code: code,

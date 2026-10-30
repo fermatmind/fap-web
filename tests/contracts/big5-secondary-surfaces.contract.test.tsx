@@ -3,11 +3,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import Big5HistoryClient from "@/app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient";
 import Big5CompareClient from "@/app/(localized)/[locale]/(app)/history/big5/compare/Big5CompareClient";
 import type { ReportResponse } from "@/lib/api/v0_3";
-import { normalizeBig5CompareSnapshot, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
+import { normalizeBig5CompareSnapshot, normalizeBig5HistoryRows, resolveBig5CompareAttemptPair } from "@/lib/big5/secondarySurfaceNormalizer";
 import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
 import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
 import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
-import { BIG5_AUTHORITY } from "@/tests/fixtures/big5/canonicalPrivateResult";
+import { BIG5_AUTHORITY, canonicalPrivateReport } from "@/tests/fixtures/big5/canonicalPrivateResult";
+import { big5ReportResponseSchema } from "@/lib/big5/contracts/schemas";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/big5",
@@ -89,13 +90,16 @@ function buildHistoryItem(
   report: ReportResponse,
   accessSummaryOverrides: Record<string, unknown> = {}
 ) {
-  const domainsMean = {
+  const domainValues = {
     O: percentileByDomain(report, "O"),
     C: percentileByDomain(report, "C"),
     E: percentileByDomain(report, "E"),
     A: percentileByDomain(report, "A"),
     N: percentileByDomain(report, "N"),
   };
+  const domainsMean = Object.fromEntries(
+    Object.entries(domainValues).filter((entry): entry is [string, number] => entry[1] !== null)
+  );
 
   const topFacets = buildTopFacetSummaries(report, 2);
   const normsVersion = String(report.norms?.norms_version ?? "");
@@ -357,7 +361,9 @@ describe("BIG5 secondary surfaces contract", () => {
 
   it("renders BIG5 compare from shared normalized report data and formal result access state", async () => {
     const currentReport = withQuality(asReport(canonical120ReportFixture), "A");
-    const previousReport = withQuality(asReport(canonical90ReportFixture), "A");
+    const previousReport = withQuality(asReport(canonical120ReportFixture), "A");
+    const previousTrait = previousReport.big5_public_projection_v1?.trait_vector?.find((trait) => trait.key === "O");
+    if (previousTrait) previousTrait.percentile = Math.max(0, Number(previousTrait.percentile) - 8);
     const currentO = percentileByDomain(currentReport, "O");
     const previousO = percentileByDomain(previousReport, "O");
     const expectedDelta = currentO !== null && previousO !== null ? Number((currentO - previousO).toFixed(2)) : null;
@@ -387,14 +393,13 @@ describe("BIG5 secondary surfaces contract", () => {
       "/en/result/attempt-current"
     );
     expect(screen.getByRole("button", { name: "Download PDF" })).toBeEnabled();
-    expect(await screen.findByText("Domain percentile delta")).toBeInTheDocument();
-    expect(screen.getByText("Current: attempt-current")).toBeInTheDocument();
-    expect(screen.getByText("Previous: attempt-previous")).toBeInTheDocument();
+    expect(await screen.findByText("Domain percentile differences")).toBeInTheDocument();
+    expect(screen.getByText(/do not establish changes in ability or personality/)).toBeInTheDocument();
     if (currentO !== null) {
       expect(screen.getByText(`Now ${currentO}`)).toBeInTheDocument();
     }
     if (previousO !== null) {
-      expect(screen.getByText(`Prev ${previousO}`)).toBeInTheDocument();
+      expect(screen.getByText(`Previous ${previousO}`)).toBeInTheDocument();
     }
     if (expectedDelta !== null) {
       const expectedDeltaLabel = `${expectedDelta > 0 ? "+" : ""}${expectedDelta}`;
@@ -407,6 +412,78 @@ describe("BIG5 secondary surfaces contract", () => {
       expect(hoisted.fetchBig5Report).toHaveBeenCalledTimes(2);
     });
     expect(hoisted.fetchBig5ReportAccess).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["form", "source", "version", "group"])("keeps different %s identities out of a shared comparison", (field) => {
+    const currentReport = withQuality(asReport(canonical120ReportFixture), "A");
+    const previousReport = withQuality(asReport(canonical120ReportFixture), "A");
+    if (field === "form") previousReport.big5_form_v1 = asReport(canonical90ReportFixture).big5_form_v1;
+    else if (previousReport.norms) previousReport.norms[field === "source" ? "source_id" : field === "version" ? "norms_version" : "group_id"] = "different-reference";
+    const current = normalizeBig5CompareSnapshot(currentReport);
+    const previous = normalizeBig5CompareSnapshot(previousReport);
+    expect(current.comparisonKey).not.toBeNull();
+    expect(previous.comparisonKey).not.toBe(current.comparisonKey);
+  });
+
+  it("honors explicit engine reference limits instead of calibrated legacy metadata", () => {
+    const report = withQuality(asReport(canonical120ReportFixture), "A");
+    report.big5_report_engine_v2 = {
+      quality: { grade: "A" },
+      norm_evidence: { comparison_allowed: true, show_precise_percentiles: false },
+    } as unknown as ReportResponse["big5_report_engine_v2"];
+    expect(normalizeBig5CompareSnapshot(report)).toMatchObject({ comparisonKey: null, domainPercentiles: {}, facetPercentiles: {} });
+    if (report.big5_report_engine_v2) report.big5_report_engine_v2.norm_evidence = { comparison_allowed: false, show_precise_percentiles: true };
+    expect(normalizeBig5CompareSnapshot(report).comparisonKey).toBeNull();
+    if (report.big5_report_engine_v2) report.big5_report_engine_v2.norm_evidence = { comparison_allowed: true, show_precise_percentiles: true, norm_version: "different-evidence-version" };
+    expect(normalizeBig5CompareSnapshot(report).comparisonKey).toBeNull();
+  });
+
+  it("keeps provisional history percentiles unavailable even with quality A", () => {
+    const report = withQuality(asReport(canonical120ReportFixture), "A");
+    const row = buildHistoryItem("provisional", "2026-03-25T00:00:00Z", report);
+    row.norms_summary.status = "PROVISIONAL";
+    const result = normalizeBig5HistoryRows([row], "en");
+    expect(result[0].topFacets.length).toBeGreaterThan(0);
+    expect(result[0].topFacets.every((facet) => facet.percentile === null)).toBe(true);
+  });
+
+  it("honors a nested engine's explicit comparison denial in a valid report", () => {
+    const report = canonicalPrivateReport();
+    report.quality = { ...report.quality, level: "A" };
+    const engine = report.big5_report_engine_v2;
+    if (!engine || !report.report) throw new Error("Complete canonical engine fixture required");
+    report.report._meta = {
+      ...(report.report._meta as Record<string, unknown>),
+      big5_report_engine_v2: {
+        ...engine,
+        quality: { ...(engine.quality as Record<string, unknown>), grade: "A", level: "A" },
+        norm_evidence: { ...(engine.norm_evidence as Record<string, unknown>), comparison_allowed: false, show_precise_percentiles: false },
+      },
+    };
+    delete report.big5_report_engine_v2;
+    expect(() => big5ReportResponseSchema.parse(report)).not.toThrow();
+    expect(normalizeBig5CompareSnapshot(report)).toMatchObject({ comparisonKey: null, domainPercentiles: {}, facetPercentiles: {} });
+  });
+
+  it.each(["en", "zh"] as const)("labels missing history references unavailable in %s", (locale) => {
+    const row = buildHistoryItem("missing-reference", "2026-03-25T00:00:00Z", withQuality(asReport(canonical120ReportFixture), "A"));
+    row.norms_summary.status = "MISSING";
+    row.norms_summary.norms_version = null;
+    const [result] = normalizeBig5HistoryRows([row], locale);
+    expect(result.normsSummary?.status).toBe(locale === "zh" ? "比较证据不可用" : "UNAVAILABLE");
+    expect(result.topFacets.every((facet) => facet.percentile === null)).toBe(true);
+  });
+
+  it("renders an explicit unavailable comparison across forms while retaining report access", async () => {
+    hoisted.pathname = "/zh/history/big5/compare";
+    hoisted.search = "current=current&previous=previous";
+    hoisted.fetchBig5ReportAccess.mockResolvedValue({ ok: true, attempt_id: "current", access_state: "ready", report_state: "ready", pdf_state: "unavailable", actions: { page_href: "/zh/result/current", pdf_href: null } });
+    hoisted.fetchBig5Report.mockResolvedValueOnce(withQuality(asReport(canonical120ReportFixture), "A"))
+      .mockResolvedValueOnce(withQuality(asReport(canonical90ReportFixture), "A"));
+    render(<Big5CompareClient />);
+    expect(await screen.findByText(/当前资料不足以在相同题本和参照条件下比较/)).toBeInTheDocument();
+    expect(screen.queryByText("维度参照位置差异")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "打开正式结果页" })).toHaveAttribute("href", "/zh/result/current");
   });
 
   it("keeps BIG5 compare action links on internal report paths when backend URLs are not allowed", async () => {
@@ -462,7 +539,7 @@ describe("BIG5 secondary surfaces contract", () => {
       "/en/result/attempt-current"
     );
     expect(screen.getByRole("button", { name: "Download PDF" })).toBeEnabled();
-    expect(screen.queryByText("Domain percentile delta")).not.toBeInTheDocument();
+    expect(screen.queryByText("Domain percentile differences")).not.toBeInTheDocument();
     expect(screen.queryByText("Current result is still in preview")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Unlock to download PDF" })).not.toBeInTheDocument();
   });
@@ -513,8 +590,8 @@ describe("BIG5 secondary surfaces contract", () => {
     render(<Big5CompareClient />);
 
     expect(await screen.findByText("Current result is still in preview")).toBeInTheDocument();
-    expect(screen.queryByText("Domain percentile delta")).not.toBeInTheDocument();
-    expect(screen.queryByText("Top changed facets")).not.toBeInTheDocument();
+    expect(screen.queryByText("Domain percentile differences")).not.toBeInTheDocument();
+    expect(screen.queryByText("Facets with larger position differences")).not.toBeInTheDocument();
     expect(hoisted.fetchBig5Report).not.toHaveBeenCalled();
   });
 });

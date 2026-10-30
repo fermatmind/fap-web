@@ -1,4 +1,7 @@
 import englishEngine from "@/tests/fixtures/big5/canonical-engine-en-120.json";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { describe, expect, it } from "vitest";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
@@ -62,6 +65,19 @@ describe("Big Five canonical private result assembler", () => {
     expect((rendered?.resolved_copy as Record<string, unknown>)?.items).toEqual([
       { title: "先观察", why_recommended: "匹配当前证据", completion_signal: "记下一次反馈" },
     ]);
+  });
+
+  it("keeps a backend trait qualifier visible through the real section renderer", () => {
+    const report = canonicalPrivateReport();
+    const source = report.big5_report_engine_v2?.sections?.find((section) => section.section_key === "domain_deep_dive")?.blocks?.find((block) => block.kind === "trait_atomic");
+    expect(source?.resolved_copy).toBeDefined();
+    source!.resolved_copy!.interpretation_qualifier = "请用实际经历核对当前解释。";
+    const view = assembleBig5ResultViewModel({ locale: "zh", reportData: report, gate });
+    const section = view.visibleSections.find((entry) => entry.key === "domain_deep_dive");
+    expect(section).toBeDefined();
+    const html = renderToStaticMarkup(createElement(SectionRenderer, { section: section!, locked: false, locale: "zh", scaleCode: "BIG5_OCEAN" }));
+    expect(html).toContain('data-testid="big5-interpretation-qualifier"');
+    expect(html).toContain("请用实际经历核对当前解释。");
   });
 
   it("fails closed when authority or immutable asset identity is invalid", () => {
