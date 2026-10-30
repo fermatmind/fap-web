@@ -1,7 +1,7 @@
 {
-  "schema": "fermatmind.riasec.display_copy_repair.v1",
-  "revision": "riasec.display_copy.20261030.v1",
-  "candidateSha256": "344c42f3fbe3803dc00e5e19995d7980e710ac21c3c278c7c7efd3597a0a4596",
+  "schema": "fermatmind.riasec.display_copy_repair.v2",
+  "revision": "riasec.display_copy.20261030.v2",
+  "candidateSha256": "aea70200d765adadb65b5d09b77320343313794ad6103522366defc228d8c876",
   "publishedSourceHash": "2a4fde8f2a998d2ec1b80c6474223a02b7a42c1e5ad4e9369f02681502070ccc",
   "publishedCompiledHash": "52e81292e3e5cf9bceb0dafbb5f940e93e244615ebc063d4358200a99384a092",
   "lowBands": {
@@ -68,6 +68,11 @@
       "surface": "low_quality_share",
       "before": "A cautious-reading result allows only a minimal public summary: it keeps the cautious-reading boundary and does not show strong interpretation content, occupation examples, scores, or private feedback.",
       "after": "A cautious-reading public summary may still show the Holland code and six 0–100 interest scores. Share it only if you are comfortable making these visible, and treat the result as tentative interest clues rather than a career or ability conclusion."
+    },
+    {
+      "surface": "history_same_form",
+      "before": "History records same-form result snapshots: Top 3 overlap, near ties, and reading strength for that response. It is an exploration log, not evidence of stable personality or ability change.",
+      "after": "History lists completed attempts with the form information and Holland code provided for each saved result, plus links to the formal result, sharing, and retaking when available. Open the reports to read their six dimensions, close scores, and response-quality notes. The list does not calculate change, establish a stable identity, or show ability gains or losses."
     }
   ],
   "faq": {
@@ -79,5 +84,184 @@
       "before": "The default view shows levels and explanations to reduce false precision. Expanded views can show more evidence when appropriate.",
       "after": "The default page shows six 0–100 interest dimension scores and their interpretations. Small differences do not establish differences in ability or job fit. When scores are close or tied, read the page’s guidance alongside concrete activities."
     }
-  }
+  },
+  "previousRevision": "riasec.display_copy.20261030.v1",
+  "reviewedSourceHash": "ee6659988dacc874db73108cb8b787e4230bab7674be27875566455656ff565f",
+  "reviewedCompiledHash": "0b6fb203a87fd6d3985c2c2f895297afaa0d9750bb327eea027b138a7b06f635",
+  "sourceStatus": "reviewed_source_candidate_publish_api_before_this_reader",
+  "additionalFaqs": [
+    {
+      "key": "F01",
+      "question": {
+        "before": "Why does the result page include Action Lab?",
+        "after": "Why does the result page suggest a small activity trial?"
+      },
+      "answer": {
+        "before": "Career interests need real-world validation. Action Lab supports low-risk experiments and does not generate career conclusions.",
+        "after": "A small trial helps you observe whether you want to repeat an activity and which conditions affect the experience. Use the activity examples and your own optional trial notes. The trial does not change your scores or establish ability, job fit, or a career conclusion."
+      }
+    },
+    {
+      "key": "F02",
+      "question": {
+        "before": "If I already have a target occupation, should I still read RIASEC?",
+        "after": "If I already have a target occupation, should I still read RIASEC?"
+      },
+      "answer": {
+        "before": "Yes. Put the target into aspiration calibration and read which activities overlap with current interest clues, and which real-world parts still need validation.",
+        "after": "Yes. Write down the target in your own exploration notes, then compare its daily activities and practical requirements with the interests shown here. This page does not automatically score or match your target occupation. Keep skill evidence, qualifications, location, time, and other unknowns separate from the interest result."
+      }
+    },
+    {
+      "key": "F09",
+      "question": {
+        "before": "Can I show the PDF to a counselor?",
+        "after": "What should I check before sharing a PDF with a counselor?"
+      },
+      "answer": {
+        "before": "Yes, but once a PDF is forwarded the platform cannot remotely recall it. A counselor discussion version should be used only with your permission.",
+        "after": "Open the file and check what it actually contains before sharing it with your permission. A downloadable PDF should not be assumed to include the full report interpretation. You can also use the visible report or a previewed selected-results text summary for discussion. Once a file has been forwarded, the platform cannot remotely recall it."
+      }
+    }
+  ],
+  "slots": [
+    {
+      "locale": "en",
+      "slotId": "aspirations_calibration_copy:input_boundary",
+      "slotKey": "aspirations_calibration_copy",
+      "slotName": "input_boundary",
+      "field": "summary",
+      "before": "Aspirations provide material for exploration; they are not assessment answers. The system will only help you see which activities within these directions overlap with your current interest clues, and which real-world aspects need observation.",
+      "after": "Aspirations are your own material for exploration, not assessment answers. You can use your notes to compare activities in a direction with your current interest clues and list real-world conditions to check. This page does not automatically score or match a target occupation."
+    },
+    {
+      "locale": "en",
+      "slotId": "disagree_path_copy:user_not_wrong_message",
+      "slotKey": "disagree_path_copy",
+      "slotName": "user_not_wrong_message",
+      "field": "summary",
+      "before": "Disagreeing with a result is valid feedback in itself. It will inform the exploration path, helping you examine your state while answering, near ties, and directions for exploring activities.",
+      "after": "You can disagree with this result. Check response quality, close scores, and the activities you pictured while answering. You may record your own observations in the optional trial notes; this page does not use that text to change the measured result."
+    },
+    {
+      "locale": "en",
+      "slotId": "disagree_path_copy:next_step",
+      "slotKey": "disagree_path_copy",
+      "slotName": "next_step",
+      "field": "summary",
+      "before": "First check response quality and near ties. Then choose whether to retake the assessment, save a preferred direction, or try a small experiment to observe specific activities.",
+      "after": "First check response quality and close scores. Then choose whether to retake when ready or try a small activity. You may write a preferred direction in your own notes and copy it before leaving; those notes stay only in this page’s memory."
+    },
+    {
+      "locale": "en",
+      "slotId": "near_tie_alternate_code_copy:top2_top3_near_tie",
+      "slotKey": "near_tie_alternate_code_copy",
+      "slotName": "top2_top3_near_tie",
+      "field": "summary",
+      "before": "The third dimension is not just a peripheral detail. It may determine whether this combination of activity clues ultimately focuses on materials, expression, real people, goals, or order.",
+      "after": "The second and third dimensions are close, so do not treat their order as a firm distinction. Keep both as activity clues, consider the alternative reading order shown on this page, and use small tasks to observe what you want to continue. Neither position determines an ability, identity, or career conclusion."
+    },
+    {
+      "locale": "en",
+      "slotId": "near_tie_alternate_code_copy:top2_top3_near_tie",
+      "slotKey": "near_tie_alternate_code_copy",
+      "slotName": "top2_top3_near_tie",
+      "field": "body",
+      "before": "The third dimension is not just a peripheral detail. It may determine whether this combination of activity clues ultimately focuses on materials, expression, real people, goals, or order.",
+      "after": "The second and third dimensions are close, so do not treat their order as a firm distinction. Keep both as activity clues, consider the alternative reading order shown on this page, and use small tasks to observe what you want to continue. Neither position determines an ability, identity, or career conclusion."
+    },
+    {
+      "locale": "en",
+      "slotId": "near_tie_alternate_code_copy:top2_top3_near_tie",
+      "slotKey": "near_tie_alternate_code_copy",
+      "slotName": "top2_top3_near_tie",
+      "field": "copy",
+      "before": "The third dimension is not just a peripheral detail. It may determine whether this combination of activity clues ultimately focuses on materials, expression, real people, goals, or order.",
+      "after": "The second and third dimensions are close, so do not treat their order as a firm distinction. Keep both as activity clues, consider the alternative reading order shown on this page, and use small tasks to observe what you want to continue. Neither position determines an ability, identity, or career conclusion."
+    },
+    {
+      "locale": "zh-CN",
+      "slotId": "structural_difference_copy:summary",
+      "slotKey": "structural_difference_copy",
+      "slotName": "summary",
+      "field": "title",
+      "before": "两次结果强调的兴趣线索不同",
+      "after": "有两份不同题本结果时，如何并读"
+    },
+    {
+      "locale": "zh-CN",
+      "slotId": "structural_difference_copy:summary",
+      "slotKey": "structural_difference_copy",
+      "slotName": "summary",
+      "field": "summary",
+      "before": "60Q 看基础兴趣结构；140Q 看任务、环境和角色责任。两次结果强调不同线索时，更适合把差异读成需要观察的线索，而不是最终结论。",
+      "after": "以下是通用阅读说明，不表示系统已经比较你的历史结果。如果你有60题与140题两份结果，可分别查看兴趣活动、任务、环境和角色责任的线索；两种题本使用不同分数参照，不比较数值涨跌，也不以长题本覆盖短题本。"
+    }
+  ],
+  "activities": [
+    {
+      "activityKey": "s_listen_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. No counselling, mental-health assessment or personal case notes. The supplied character is fictional; do not infer interpersonal skill, empathy level or stable Social interest from rehearsal. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. No counselling, mental-health assessment or personal case notes. The supplied character is fictional; do not infer interpersonal skill, empathy level or stable Social interest from rehearsal. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "s_explain_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. The game and rules are original fiction. No teaching qualification, intelligence or interpersonal aptitude is established. No contact, public lesson or paid material is required. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. The game and rules are original fiction. No teaching qualification, intelligence or interpersonal aptitude is established. No contact, public lesson or paid material is required. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "s_coach_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. This is a limited fictional conversation, not coaching certification, treatment or a professional service. No outcome prediction or personal counselling is offered. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. This is a limited fictional conversation, not coaching certification, treatment or a professional service. No outcome prediction or personal counselling is offered. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "e_pitch_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. No real persuasion campaign, sales promise, social post, spending or event commitment. Do not turn agreement with your proposal into a measure of leadership ability. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. No real persuasion campaign, sales promise, social post, spending or event commitment. Do not turn agreement with your proposal into a measure of leadership ability. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "e_resource_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. All resources and responses are fictional. This is not a funding, employment or procurement decision, and it demonstrates no success probability or professional negotiation skill. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. All resources and responses are fictional. This is not a funding, employment or procurement decision, and it demonstrates no success probability or professional negotiation skill. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "e_goal_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. Timings are fictional planning constraints, not productivity norms. No real event, promise, career ranking or measure of executive ability is created. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. Timings are fictional planning constraints, not productivity norms. No real event, promise, career ranking or measure of executive ability is created. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "c_sort_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. Titles are fictional labels, not records to open or classify on someone else’s behalf. No occupational code, personal identity or ability rating is assigned. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. Titles are fictional labels, not records to open or classify on someone else’s behalf. No occupational code, personal identity or ability rating is assigned. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "c_process_1",
+      "field": "activityUserCopy",
+      "index": null,
+      "before": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. This invented process is not an organisation’s policy, software design or legal records standard. It supplies no judgment of your administrative skill or suitability for work. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This package does not provide EN16 six-dimension interpretation.",
+      "after": "Original English teaching exercise, written 24 October 2026; all supplied situations, notes and quantities are fictional. This invented process is not an organisation’s policy, software design or legal records standard. It supplies no judgment of your administrative skill or suitability for work. The single-letter family below is inherited from the existing FermatMind editorial identity, not newly assigned or validated here. Observe willingness to repeat and contextual effort; do not score performance, infer skills or job fit, or change measured scores, Top3 or snapshots. Keep other interests open when scores are close or broad. This exercise does not provide a six-dimension RIASEC interpretation."
+    },
+    {
+      "activityKey": "c_check_1",
+      "field": "taskExamples",
+      "index": 7,
+      "before": "Source note: the original English exercise extends the existing FermatMind editorial quality-checking activity; it is not an O*NET questionnaire or occupational record. U.S. conceptual sources checked 24 October 2026: www.onetcenter.org/IP.html and www.onetonline.org/find/descriptor/browse/1.B.1. The description page publication year is unknown. Domain review, independent review and publication have not occurred.",
+      "after": "Source note: the original English exercise extends the existing FermatMind editorial quality-checking activity; it is not an O*NET questionnaire or occupational record. U.S. conceptual sources checked 24 October 2026: www.onetcenter.org/IP.html and www.onetonline.org/find/descriptor/browse/1.B.1. The description page publication year is unknown. The exercise is an editorial exploration activity, not a validated interest or ability measure."
+    }
+  ],
+  "previousCandidateSha256": "344c42f3fbe3803dc00e5e19995d7980e710ac21c3c278c7c7efd3597a0a4596"
 }

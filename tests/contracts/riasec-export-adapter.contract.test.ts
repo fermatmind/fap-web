@@ -1,10 +1,23 @@
 import { describe, expect, it } from "vitest";
 import type { ReportResponse } from "@/lib/api/v0_3";
-import { buildRiasecResultExport, getRiasecExportFacts } from "@/lib/riasec/exportAdapter";
+import { buildRiasecResultExport, getRiasecExportFacts, formatRiasecExportProfileShape } from "@/lib/riasec/exportAdapter";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
 import samples from "@/app/(localized)/[locale]/(app)/dev/riasec-reading/backend-samples.json";
 
 describe("RIASEC read-only export facts", () => {
+  it.each([
+    ["clear_code", "主线索相对清楚", "Leading interests are more distinct"],
+    ["blended_code", "多条兴趣线索共同参与", "Several leading interests to explore together"],
+    ["broad_profile", "兴趣分布较宽", "Broad interest profile"],
+    ["near_tie", "前几项接近", "Leading interests are close"],
+    ["low_quality", "谨慎阅读", "Read with caution"],
+    ["low_clarity", "主线索不够集中", "No clearly leading interest"],
+    ["unknown", "未提供／未知", "Not provided / unknown"],
+    ["", "未提供／未知", "Not provided / unknown"],
+  ])("uses human-readable display labels without inventing a shape: %s", (value, zh, en) => {
+    expect(formatRiasecExportProfileShape(value, "zh")).toBe(zh);
+    expect(formatRiasecExportProfileShape(value, "en")).toBe(en);
+  });
   it.each(["zh-CN-60", "zh-CN-140", "en-60", "en-140"] as const)("projects %s values without changing scores or inventing personal context", key => {
     const locale = key.startsWith("zh") ? "zh" : "en";
     const vm = assembleRiasecResultViewModel({ riasec_public_projection_v2: samples[key] } as unknown as ReportResponse, locale);

@@ -2,10 +2,12 @@ import fs from "node:fs";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
+import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
 import { applyRiasecReadingCopyRevision } from "@/lib/riasec/readingCopyRevision";
 import copy from "@/lib/riasec/readingCopyRevision.json";
+import nearTieSamples from "./fixtures/riasec/neartie-source-v1_8.projection.json";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn(), trackObservableFunnelEvent: vi.fn() }));
 const reports = JSON.parse(fs.readFileSync("tests/contracts/fixtures/riasec/native-report-source-authority.json", "utf8"));
@@ -26,12 +28,12 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
     const vm = assembleRiasecResultViewModel(input, "en");
     expect(vm.authority).toBeNull();
     expect(vm.reportContent).toBeNull();
-    expect(vm.displayCopy).toMatchObject({ revision: copy.revision, approvedSourceHash: copy.publishedSourceHash });
-    expect(vm.displayCopy?.appliedKeys.sort()).toEqual(["lifecycle.low_quality_share", "lifecycle.score_faq", "lifecycle.share_safe_card"]);
+    expect(vm.displayCopy).toMatchObject({ revision: copy.revision, approvedSourceHash: copy.reviewedSourceHash });
+    expect(vm.displayCopy?.appliedKeys).toEqual(expect.arrayContaining(["lifecycle.low_quality_share", "lifecycle.score_faq", "lifecycle.share_safe_card", "lifecycle.F01", "lifecycle.F02", "lifecycle.F09"]));
     render(<RichResultReport locale="en" reportData={input} />);
-    expect(screen.getByTestId("riasec-reading-report")).toHaveAttribute("data-riasec-display-copy-revision", copy.revision);
-    expect(screen.getByText(copy.faq.question.after)).toBeInTheDocument();
-    expect(screen.queryByText(copy.faq.question.before)).not.toBeInTheDocument();
+    expect(screen.getByTestId("riasec-reading-report").getAttribute("data-riasec-display-copy-revision")).toBe(copy.revision);
+    expect(screen.getByText(copy.faq.question.after)).toBeTruthy();
+    expect(screen.queryByText(copy.faq.question.before)).toBeNull();
     expect(input).toEqual(before);
     expect(applyRiasecReadingCopyRevision(vm)).toBe(vm);
   });
@@ -76,7 +78,7 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
     expect(revised.lifecycleCopy?.surfaces.map(row => row.copy)).toEqual(copy.surfaces.toReversed().map(row => row.after));
     expect(revised.lifecycleCopy?.faqItems.slice(0, 2)).toEqual(base.lifecycleCopy.faqItems.slice(0, 2));
     expect(revised.lifecycleCopy?.faqItems[2]).toEqual({ q: copy.faq.question.after, a: copy.faq.answer.after });
-    const unknown = { ...vm, displayCopy: undefined, resultSummary: null, lifecycleCopy: null };
+    const unknown = { ...vm, displayCopy: undefined, resultSummary: null, lifecycleCopy: null, deepContentSlots: null, activityExplorer: null };
     expect(applyRiasecReadingCopyRevision(unknown)).toBe(unknown);
     expect(applyRiasecReadingCopyRevision({ ...unknown, resultLocale: "unsupported" })).toEqual({ ...unknown, resultLocale: "unsupported" });
   });
@@ -97,7 +99,83 @@ describe("approved RIASEC reading copy over immutable snapshots", () => {
       expect(assembleRiasecResultViewModel(nestedConflict, "en").displayCopy).toBeUndefined();
     }
     const vm = assembleRiasecResultViewModel(wire("1.8/en/riasec_140"), "en");
-    const hidden = { ...vm, displayCopy: undefined, lifecycleCopy: { ...vm.lifecycleCopy!, status: "unavailable" } };
+    const hidden = { ...vm, displayCopy: undefined, deepContentSlots: null, activityExplorer: null, lifecycleCopy: { ...vm.lifecycleCopy!, status: "unavailable" } };
     expect(applyRiasecReadingCopyRevision(hidden)).toBe(hidden);
+  });
+
+  it.each(["en", "zh-CN"] as const)("refreshes only stable admitted slots and retains v1 corrections: %s", locale => {
+    const vm = assembleRiasecResultViewModel(wire(`1.9/${locale}/riasec_140`), locale === "en" ? "en" : "zh");
+    const rows = copy.slots.filter(row => row.locale === locale);
+    // Exercise the complete finite mapping over already admitted slot models, not raw report truth.
+    const slots = rows.map(row => {
+      const original = vm.deepContentSlots!.slots.find(slot => slot.slotKey === row.slotKey)!;
+      return { ...original, slotId: row.slotId, state: { ...original.state, slot_name: row.slotName },
+        content: { [row.field]: row.before } };
+    });
+    const controlled = { ...vm, displayCopy: { revision: copy.previousRevision, approvedSourceHash: copy.publishedSourceHash,
+      approvedCompiledHash: copy.publishedCompiledHash, appliedKeys: ["lifecycle.score_faq"] },
+      deepContentSlots: { ...vm.deepContentSlots!, slots } };
+    const before = structuredClone(controlled);
+    const revised = applyRiasecReadingCopyRevision(controlled);
+    expect(revised.deepContentSlots!.slots.map((slot, i) => slot.content[rows[i].field])).toEqual(rows.map(row => row.after));
+    expect(revised.displayCopy?.appliedKeys).toContain("lifecycle.score_faq");
+    expect(revised.authority).toBe(controlled.authority);
+    expect(revised.reportContent).toBe(controlled.reportContent);
+    expect(revised.dimensions).toBe(controlled.dimensions);
+    expect(controlled).toEqual(before);
+    expect(applyRiasecReadingCopyRevision(revised)).toBe(revised);
+    const unrelated = { ...controlled, displayCopy: undefined, resultSummary: null, lifecycleCopy: null, activityExplorer: null,
+      deepContentSlots: { ...controlled.deepContentSlots, slots: slots.map(slot => ({ ...slot, slotId: `unrelated:${slot.slotId}` })) } };
+    expect(applyRiasecReadingCopyRevision(unrelated)).toBe(unrelated);
+  });
+
+  it("refreshes the nine activity leaves by activity identity and exact text without touching task facts", () => {
+    const vm = assembleRiasecResultViewModel(wire("1.9/en/riasec_140"), "en");
+    const original = vm.activityExplorer!.codeActivityPack.activities[0];
+    const activities = copy.activities.map(row => ({ ...original, activityKey: row.activityKey,
+      activityUserCopy: row.field === "activityUserCopy" ? row.before : "Keep this boundary",
+      taskExamples: row.field === "taskExamples" ? Array.from({ length: 8 }, (_, i) => i === row.index ? row.before : `Keep task ${i}`) : original.taskExamples }));
+    const controlled = { ...vm, displayCopy: undefined, activityExplorer: { ...vm.activityExplorer!,
+      codeActivityPack: { ...vm.activityExplorer!.codeActivityPack, activities } } };
+    const revised = applyRiasecReadingCopyRevision(controlled);
+    for (const [i, row] of copy.activities.entries()) {
+      const activity = revised.activityExplorer!.codeActivityPack.activities[i];
+      expect(row.field === "activityUserCopy" ? activity.activityUserCopy : activity.taskExamples[row.index!]).toBe(row.after);
+      expect(activity.riasecDimensions).toBe(activities[i].riasecDimensions);
+      expect(activity.occupationExamples).toBe(activities[i].occupationExamples);
+      if (row.field === "taskExamples") expect(activity.taskExamples.slice(0, 7)).toEqual(activities[i].taskExamples.slice(0, 7));
+    }
+    render(<RiasecResultShell locale="en" viewModel={revised} />);
+    for (const row of copy.activities) {
+      expect(screen.getByText(row.after)).toBeTruthy();
+      expect(screen.queryByText(row.before)).toBeNull();
+    }
+  });
+
+  it("renders refreshed FAQ, English cards and Chinese static comparison guidance from admitted snapshots", () => {
+    const en = wire("1.8/en/riasec_140");
+    render(<RichResultReport locale="en" reportData={en} />);
+    for (const faq of copy.additionalFaqs) expect(screen.getByText(faq.question.after)).toBeTruthy();
+    for (const slot of copy.slots.filter(row => row.locale === "en" && row.slotKey !== "near_tie_alternate_code_copy")) {
+      expect(screen.getByText(slot.after)).toBeTruthy();
+      expect(screen.queryByText(slot.before)).toBeNull();
+    }
+    cleanup();
+    const zh = assembleRiasecResultViewModel(wire("1.9/zh-CN/riasec_140"), "zh");
+    render(<RiasecResultShell locale="zh" viewModel={zh} displayMode="static" />);
+    for (const slot of copy.slots.filter(row => row.locale === "zh-CN")) expect(screen.getByText(slot.after)).toBeTruthy();
+  });
+
+  it("keeps the selected second/third near-tie card readable after its bounded copy refresh", () => {
+    const sample = nearTieSamples.cases.find(row => row.requested_state === "top2_top3_near_tie" && row.quality === "normal")!;
+    const vm = assembleRiasecResultViewModel({ ok: true, scale_code: "RIASEC",
+      riasec_public_projection_v2: sample.projection } as unknown as ReportResponse, "en");
+    // Direct VM-level projection does not invent the binding missing from this historical test fixture.
+    const revised = applyRiasecReadingCopyRevision(vm);
+    render(<RiasecResultShell locale="en" viewModel={revised} />);
+    const row = copy.slots.find(item => item.slotKey === "near_tie_alternate_code_copy")!;
+    expect(screen.getByTestId("riasec-neartie-reading").textContent).toContain(row.after);
+    expect(screen.queryByText(row.before)).toBeNull();
+    expect(revised.interpretationState).toBe(vm.interpretationState);
   });
 });

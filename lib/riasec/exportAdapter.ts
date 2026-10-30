@@ -1,6 +1,18 @@
 import type { Locale } from "@/lib/i18n/locales";
 import { assembleRiasecResultViewModel, hasRiasecProjection, getRiasecModuleVisibility, type RiasecResultViewModel } from "./resultAssembler";
 
+export function formatRiasecExportProfileShape(value: string, locale: Locale): string {
+  const labels: Record<string, [string, string]> = {
+    clear_code: ["主线索相对清楚", "Leading interests are more distinct"],
+    blended_code: ["多条兴趣线索共同参与", "Several leading interests to explore together"],
+    broad_profile: ["兴趣分布较宽", "Broad interest profile"],
+    near_tie: ["前几项接近", "Leading interests are close"],
+    low_quality: ["谨慎阅读", "Read with caution"],
+    low_clarity: ["主线索不够集中", "No clearly leading interest"],
+  };
+  return labels[value]?.[locale === "zh" ? 0 : 1] ?? (locale === "zh" ? "未提供／未知" : "Not provided / unknown");
+}
+
 // Read-only domain projection. The shared exporter owns preview, serialization,
 // clipboard, downloads and access checks; this adapter never fetches private data.
 export function getRiasecExportFacts(vm: RiasecResultViewModel, locale: Locale) {
@@ -61,7 +73,7 @@ export function buildRiasecResultExport(report: Parameters<typeof assembleRiasec
     sections: [
       { id: "summary", title: t("兴趣线索与近分", "Interest clues and close scores"), fields: [
         { label: "Top 3", value: facts.top3 },
-        { label: t("分布形状", "Profile shape"), value: facts.profileShape },
+        { label: t("分布形状", "Profile shape"), value: formatRiasecExportProfileShape(facts.profileShape, locale) },
         { label: t("接近／并列说明", "Close-score / tie guidance"), value: facts.closeScores?.note || null },
         { label: t("可保留的其他阅读顺序", "Alternative reading orders"), value: facts.closeScores?.alternatives.join(" / ") || null },
         { label: t("排序边界", "Ordering boundary"), value: facts.closeScores?.boundary || null },
