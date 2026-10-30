@@ -1,0 +1,1588 @@
+{
+  "slug": "gender-experiences-reflection",
+  "code": "FM_GENDER_EXPERIENCES16_CATEGORIES",
+  "version": "fm_gender16_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "gender-experiences16",
+  "title": {
+    "en": "Gender Experiences Reflection",
+    "zh": "性别经历回顾"
+  },
+  "seoTitle": {
+    "en": "Gender Experiences: 16 Original Statements, Four Full Guides",
+    "zh": "性别经历回顾：16条原创陈述与四篇完整指南"
+  },
+  "description": {
+    "en": "A private adult reflection on words, bodily experience, address and everyday context. Original descriptions without a gender label or clinical result.",
+    "zh": "成年人私下回顾词语、身体体验、称呼与日常背景。原创描述，不分配性别标签或临床结果。"
+  },
+  "minutes": 5,
+  "instructions": {
+    "en": "Adults answer only about themselves over the past four weeks. Use existing recollections; no identity label, actual name, body detail, private narrative or new action is requested. Choose a description category or keep uncertainty, no relevant experience and refusal separate. Sixteen choices create four records without points, a total or an identity verdict. Stop at any time, or read every guide without answering. Answers stay only in this page’s memory.",
+    "zh": "供成年人只为自己回顾过去四周。使用已有回忆，不要求身份标签、真实姓名、身体细节、私密故事或新的行动。选择描述类别，或分别保留无法判断、没有经历及不愿回答。16条选择形成四份记录，不计分、不合总分、不判身份。可随时停止，也可不作答阅读全部指南，回答仅留本页内存。"
+  },
+  "resultHeading": {
+    "en": "Your four separate description records",
+    "zh": "你的四份独立描述记录"
+  },
+  "introduction": {
+    "en": "Sixteen original statements and four complete public guides, free without an account. This is a personal reflection, not a way to determine gender identity, diagnose dysphoria or choose a medical pathway.",
+    "zh": "16条原创陈述与四篇完整公开说明，无需账户，全部免费。这是个人回顾，不用于决定性别身份、诊断性别烦躁或选择医疗路径。"
+  },
+  "source": {
+    "kind": "fermatmind_original_gender_experience_statements",
+    "formCode": "fm_gender16_four_weeks_v1",
+    "itemBankVersion": "original16_bilingual_four_themes_four_each_v1",
+    "scoringVersion": "six_mixed_description_categories_no_points_v1",
+    "resultContentVersion": "four_full_bilingual_gender_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "23a487c7459fe26042f97f0f42dd49c096745b9ef42dc356d835c4157addd832",
+    "resultContentSha256": "83f225d6c2ac0c55fd22e5fb51659f3b1084dac038d0ce30d89e8047ea4cd0d6"
+  },
+  "directions": [
+    {
+      "id": "own-words",
+      "title": {
+        "en": "Words for my own gender",
+        "zh": "描述自己性别的词语"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "embodied-experience",
+      "title": {
+        "en": "Gender-related bodily experience",
+        "zh": "与性别有关的身体体验"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "social-address",
+      "title": {
+        "en": "Names, address and social expectations",
+        "zh": "称呼与社会期待"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "daily-context",
+      "title": {
+        "en": "Feelings and everyday context",
+        "zh": "感受与日常背景"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "GEX_01",
+      "prompt": {
+        "en": "A gender description used for me did not fit how I experienced myself.",
+        "zh": "别人用于我的性别描述，与我对自己的体验不合。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_02",
+      "prompt": {
+        "en": "I had questions about which gender words, if any, felt right for me.",
+        "zh": "我对哪些性别词语适合自己、或是否需要词语，抱有疑问。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_03",
+      "prompt": {
+        "en": "I felt at ease with how I privately described my gender to myself.",
+        "zh": "我对自己私下描述性别的方式感到自在。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_04",
+      "prompt": {
+        "en": "I felt pulled between my own gender experience and a description expected of me.",
+        "zh": "我感觉自己的性别体验与外界期待我采用的描述之间有拉扯。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "own-words"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_05",
+      "prompt": {
+        "en": "Something about my body felt out of step with how I experienced my gender.",
+        "zh": "身体的某些方面，与我体验自己性别的方式感觉不一致。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_06",
+      "prompt": {
+        "en": "I felt at home in an aspect of my body in relation to my gender.",
+        "zh": "从自己的性别体验来看，身体某个方面让我感到自在。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_07",
+      "prompt": {
+        "en": "A gendered description of my physical features made me uncomfortable.",
+        "zh": "有人用带性别含义的说法描述我的身体特点时，我感到不舒服。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_08",
+      "prompt": {
+        "en": "I was unsure how to describe the relation between my body and my gender experience.",
+        "zh": "我不确定怎样描述身体与自己性别体验之间的关系。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "embodied-experience"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_09",
+      "prompt": {
+        "en": "A name or form of address used for me did not feel like my own.",
+        "zh": "别人用于我的名字或称呼，让我感觉不像是在叫自己。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_10",
+      "prompt": {
+        "en": "I felt comfortable with a form of address used for me in a familiar setting.",
+        "zh": "在一个熟悉场合，别人用于我的称呼让我感到自在。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_11",
+      "prompt": {
+        "en": "A role expected of me because of gender did not fit how I wanted to participate.",
+        "zh": "因为性别而被期待承担的角色，与我想怎样参与不合。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_12",
+      "prompt": {
+        "en": "My comfort with gender-related address differed between settings.",
+        "zh": "我对带性别含义称呼的自在程度，在不同场合有所不同。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "social-address"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_13",
+      "prompt": {
+        "en": "A gender-related concern made it difficult to stay with another activity.",
+        "zh": "与性别相关的顾虑，让我难以把注意留在另一项活动上。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_14",
+      "prompt": {
+        "en": "I felt distressed about a mismatch between my experience and how I was treated.",
+        "zh": "自己的体验与被对待的方式不一致时，我感到困扰。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_15",
+      "prompt": {
+        "en": "A familiar setting gave me room to feel at ease with my gender experience.",
+        "zh": "一个熟悉场合给我空间，让我能自在地感受自己的性别体验。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "GEX_16",
+      "prompt": {
+        "en": "I preferred to keep a gender-related question private rather than discuss it.",
+        "zh": "我更愿意把与性别有关的疑问保留在心里，不去讨论。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-context"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "own-words-reading",
+      "directionIds": [
+        "own-words"
+      ],
+      "title": {
+        "en": "Words for my own gender: Complete Gender Experiences Guide",
+        "zh": "描述自己性别的词语：完整性别经历指南"
+      },
+      "headline": {
+        "en": "Your descriptions remain yours; no identity is assigned.",
+        "zh": "描述留给自己，不分配身份。"
+      },
+      "summary": {
+        "en": "A complete original reading of this part of gender-related experience, with individual descriptions, uncertainty and independent support.",
+        "zh": "完整阅读这一部分性别相关原创观察，保留逐条描述、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Words for my own gender | Gender Experiences Reflection",
+          "zh": "描述自己性别的词语｜性别经历回顾"
+        },
+        "description": {
+          "en": "Read original descriptions of words for my own gender, separate categories and clear limits. No identity assignment or clinical score.",
+          "zh": "完整阅读描述自己性别的词语的原创描述、独立类别和明确边界，不判身份、不设临床分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Your own descriptions remain yours",
+            "zh": "自己的描述仍由自己决定"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements concern descriptions used for you, questions about words, ease with a private description and a pull between personal experience and an expected description. They ask about what you recall over four weeks. They do not ask you to select a sex or gender, explain your history or accept the website’s vocabulary. A chosen label records a sentence, not who you are.",
+              "zh": "四句关注别人用于你的描述、对词语的疑问、对私下描述的自在感，以及个人体验与期待之间的拉扯。它们只问四周内的回忆，不要求选择生理或社会性别、解释经历或接受网站用词。所选类别记录一句话，不确定你是谁。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Private words and public address can differ",
+            "zh": "私下词语与公开称呼可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may feel at ease with private words while finding another description used in a familiar setting uncomfortable. Another person may have questions without wanting a label at all. Those are different experiences, not steps in a required sequence. The record does not infer an unspoken identity or treat uncertainty as proof of a hidden answer.",
+              "zh": "有人可以对私下词语感到自在，同时对熟悉场合的另一种描述不舒服；另一人可能有疑问，却不想用标签。这些是不同体验，不是必须经历的步骤。记录不推断未说出的身份，也不把不确定当作隐藏答案的证明。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No identity is inferred from preferences",
+            "zh": "不从偏好推断身份"
+          },
+          "paragraphs": [
+            {
+              "en": "The form asks no questions about hobbies, clothing preferences or who attracts you, and none of those is calculated into an identity here. It supplies no masculine–feminine percentage or cisgender, transgender or non-binary verdict. Reading the words may help you notice what fits a sentence while leaving the larger question entirely yours.",
+              "zh": "表单不询问爱好、穿衣偏好或谁吸引你，也不把这些换算成身份。不提供男性化女性化百分比，或顺性别、跨性别、非二元结论。读这些文字，可以帮助辨认某句是否符合，同时把更大的问题完整留给自己。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Different descriptions do not require a single explanation",
+            "zh": "不同描述不要求一个共同解释"
+          },
+          "paragraphs": [
+            {
+              "en": "One description may fit in one setting and not another. That difference cannot tell the website whether the cause concerns language, expectations, comfort, privacy or something else. Mixed choices need not be resolved into a category. The record neither rewards certainty nor treats a lack of questions as a better outcome.",
+              "zh": "一种描述可能在一个场合合适，在另一个场合不合适。这种差异不能告诉网站原因是语言、期待、自在感、隐私还是其他因素。混合选择不必被解决成一个类别。记录不奖励确定，也不把没有疑问当作更好的结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No announcement is part of the exercise",
+            "zh": "练习不包含公开宣布"
+          },
+          "paragraphs": [
+            {
+              "en": "You may keep a thought private, choose not to write anything or stop after reading. There is no task to announce a label, seek permission, disclose to someone or prove a description in real life. A supportive conversation, if wanted, can begin with uncertainty. The website neither sets a timetable nor decides what you should tell anyone.",
+              "zh": "可以保留一个想法、不写任何东西，或读完就停。没有宣布标签、征求许可、向谁公开或在现实中证明描述的任务。想得到支持时，谈话可以从未知开始；网站不设时间表，也不决定应告诉谁什么。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+              "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+            },
+            {
+              "en": "Support is available if you want it, without a label, a particular answer or completion. You may speak with a qualified professional who respects your privacy and choices, and decide how much to share. This exercise asks for no disclosure, changes to your body or presentation, trial of a name or pronoun, or medical action. It cannot assess personal safety or choose a care pathway. For immediate danger or an inability to stay safe, seek local emergency help rather than continue.",
+              "zh": "想得到支持时，无需先有标签、特定答案或完成记录。可与尊重隐私和个人选择的合格专业人士谈谈，自行决定分享多少。本练习不要求公开身份、改变身体或呈现、试用姓名代词，或采取医疗行动；不能评估个人安全或选择照护路径。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embodied-experience-reading",
+      "directionIds": [
+        "embodied-experience"
+      ],
+      "title": {
+        "en": "Gender-related bodily experience: Complete Gender Experiences Guide",
+        "zh": "与性别有关的身体体验：完整性别经历指南"
+      },
+      "headline": {
+        "en": "Your descriptions remain yours; no identity is assigned.",
+        "zh": "描述留给自己，不分配身份。"
+      },
+      "summary": {
+        "en": "A complete original reading of this part of gender-related experience, with individual descriptions, uncertainty and independent support.",
+        "zh": "完整阅读这一部分性别相关原创观察，保留逐条描述、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Gender-related bodily experience | Gender Experiences Reflection",
+          "zh": "与性别有关的身体体验｜性别经历回顾"
+        },
+        "description": {
+          "en": "Read original descriptions of gender-related bodily experience, separate categories and clear limits. No identity assignment or clinical score.",
+          "zh": "完整阅读与性别有关的身体体验的原创描述、独立类别和明确边界，不判身份、不设临床分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Bodily experience is not a body inspection",
+            "zh": "身体体验不是身体检查"
+          },
+          "paragraphs": [
+            {
+              "en": "The four prompts concern a felt mismatch, feeling at home in an aspect of the body, discomfort with a gendered description and uncertainty about how body and gender experience relate. No feature needs to be named. They do not assess anatomy, attractiveness, hormones, health or what a body ought to look like. Existing recollections are enough to understand the sentences.",
+              "zh": "四句关注感到不一致、对身体某个方面自在、对带性别含义描述不舒服，以及不确定身体与性别体验如何相关。无需命名部位，不评解剖、吸引力、激素、健康或身体应该长什么样。理解句子可以只用已有回忆。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Comfort and discomfort can coexist",
+            "zh": "自在与不自在可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "You may recognise both comfort in one aspect and discomfort in another, or uncertainty about what either experience means. These descriptions are kept separately rather than subtracted into a congruence score. No answer cancels another. The website cannot decide whether a feeling concerns your body itself, a description of it, an interaction or an experience not covered by these four prompts.",
+              "zh": "你可能在某方面自在，在另一方面不自在，也可能不确定这些体验意味着什么。它们分别保留，不相减合成一致性分数。任何回答都不抵消另一条。网站无法决定感受涉及身体本身、对身体的描述、互动，还是四题未覆盖的经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No physical change follows from a record",
+            "zh": "记录不推出身体改变"
+          },
+          "paragraphs": [
+            {
+              "en": "No combination recommends a procedure, medicine, change of appearance or a decision about care. The activity does not determine eligibility, suitability or what would help an individual. Gender-related health questions require an appropriate individual setting if you choose to explore them. A public reflection cannot supply that assessment from categories or counts.",
+              "zh": "任何组合都不推荐手术、药物、外表改变或照护决定。活动不判断资格、适合度或什么会帮助某个人。若选择探索性别相关健康问题，需要适当的个别场合；公开回顾不能靠类别或计数提供这种评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Different from outline and face-perception activities",
+            "zh": "与轮廓和面部看法活动分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Body-outline observations describe familiar visual lines, and face self-image describes selected viewing and presentation experiences. Those are different questions. Neither their means nor this record can be used to establish gender identity or a need for body change. Shared words such as body and comfort do not make the activities interchangeable.",
+              "zh": "身体轮廓观察描述熟悉视觉线条，面部自我形象描述特定观看和呈现场合；这些是不同问题。它们的均值和本记录都不能确立性别身份或改变身体的需要。都用了身体、自在之类的词，不使活动可以互换。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No new image or examination is required",
+            "zh": "无需新图像或检查"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not use this exercise as a reason to inspect, photograph, measure or repeatedly compare your body. None is requested for completion. If a sentence is difficult to answer, choose cannot judge, no relevant experience or prefer not to answer as appropriate. You can read every explanation without reaching a view about any particular feature.",
+              "zh": "不要因为本练习而检查、拍摄、测量或反复比较身体，完成不需要这些活动。句子难以回答时，可按情况选无法判断、没有经历或不愿回答。无需对某个特点形成看法，也能阅读全部说明。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+              "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+            },
+            {
+              "en": "Support is available if you want it, without a label, a particular answer or completion. You may speak with a qualified professional who respects your privacy and choices, and decide how much to share. This exercise asks for no disclosure, changes to your body or presentation, trial of a name or pronoun, or medical action. It cannot assess personal safety or choose a care pathway. For immediate danger or an inability to stay safe, seek local emergency help rather than continue.",
+              "zh": "想得到支持时，无需先有标签、特定答案或完成记录。可与尊重隐私和个人选择的合格专业人士谈谈，自行决定分享多少。本练习不要求公开身份、改变身体或呈现、试用姓名代词，或采取医疗行动；不能评估个人安全或选择照护路径。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social-address-reading",
+      "directionIds": [
+        "social-address"
+      ],
+      "title": {
+        "en": "Names, address and social expectations: Complete Gender Experiences Guide",
+        "zh": "称呼与社会期待：完整性别经历指南"
+      },
+      "headline": {
+        "en": "Your descriptions remain yours; no identity is assigned.",
+        "zh": "描述留给自己，不分配身份。"
+      },
+      "summary": {
+        "en": "A complete original reading of this part of gender-related experience, with individual descriptions, uncertainty and independent support.",
+        "zh": "完整阅读这一部分性别相关原创观察，保留逐条描述、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Names, address and social expectations | Gender Experiences Reflection",
+          "zh": "称呼与社会期待｜性别经历回顾"
+        },
+        "description": {
+          "en": "Read original descriptions of names, address and social expectations, separate categories and clear limits. No identity assignment or clinical score.",
+          "zh": "完整阅读称呼与社会期待的原创描述、独立类别和明确边界，不判身份、不设临床分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A form of address is part of a setting",
+            "zh": "称呼属于具体场合"
+          },
+          "paragraphs": [
+            {
+              "en": "This record concerns names or forms of address that did not feel like your own, address that felt comfortable, roles expected because of gender and comfort differing between settings. These are recollections of social experience. The questionnaire asks you to enter no actual name, pronoun, relationship or location, and it cannot decide what anyone intended by a word.",
+              "zh": "本记录关注不像在叫自己的名字称呼、令人自在的称呼、因性别被期待的角色，以及不同场合的自在感差异。它们是社会体验的回忆，不要求输入真实姓名、代词、关系或地点，也不能判定别人使用词语时的意图。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Expectations and agreement are different",
+            "zh": "期待与同意是不同事情"
+          },
+          "paragraphs": [
+            {
+              "en": "An expected role does not tell the website whether it was agreed, negotiable, welcome or distressing. A familiar form of address can feel different depending on who uses it and where. You can recognise a difference without being required to explain it. The four descriptions do not establish a fixed social-role preference, a political attitude or a complete account of an interaction.",
+              "zh": "被期待的角色，不会告诉网站它是否经同意、可协商、受欢迎或令人困扰。熟悉称呼也可能随使用者和场合带来不同感受。可以认出差异，而不解释原因。四句不确立固定角色偏好、政治态度或完整互动经过。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Views on gender roles are another question",
+            "zh": "性别角色观点是另一个问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The existing social-attitudes activity asks what you think about shared duties, hobbies and fair participation criteria. This record asks how address and expectations felt in your own experience. Endorsing an equality statement does not answer a personal-comfort question, and a personal experience does not identify someone’s views or identity. The methods and records are not converted.",
+              "zh": "现有社会态度活动询问怎样看共同职责、爱好与公平参与标准；本记录询问自己经历中的称呼和期待带来怎样感受。认同平等主张，不等于回答个人自在感；个人经历也不能识别某人的观点或身份。两套方法与记录不换算。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No trial, disclosure or social test is prescribed",
+            "zh": "不指派试用、公开或社交测试"
+          },
+          "paragraphs": [
+            {
+              "en": "The activity does not ask you to try a name, change pronouns, correct another person or test someone’s response. It has no knowledge of your setting or safety. You may keep familiar arrangements, leave a question private or choose a separate conversation if you want. No real-world action is needed to validate a category you selected here.",
+              "zh": "活动不要求试用名字、改变代词、纠正别人或测试回应，也不了解处境和安全。可以保留熟悉安排，把问题保密，或在想谈时另选谈话。这里选中的类别不需要现实行动来验证。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You decide whether any wording is useful",
+            "zh": "哪些词语有用由你决定"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, privately notice which part of one statement fit and which remained uncertain. No specific word must replace another, and no explanation has to be shared. A full guide can be read as information and then set aside. Whether to discuss an experience, with whom and how much remains a separate choice that this record does not make.",
+              "zh": "若有用，可私下辨认一句中哪些部分符合、哪些未知。没有哪种词必须替换另一种，也不必分享解释。可以把全文当作信息读完，再暂且放下。是否谈经历、向谁谈、谈多少，仍是记录不会代做的独立选择。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+              "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+            },
+            {
+              "en": "Support is available if you want it, without a label, a particular answer or completion. You may speak with a qualified professional who respects your privacy and choices, and decide how much to share. This exercise asks for no disclosure, changes to your body or presentation, trial of a name or pronoun, or medical action. It cannot assess personal safety or choose a care pathway. For immediate danger or an inability to stay safe, seek local emergency help rather than continue.",
+              "zh": "想得到支持时，无需先有标签、特定答案或完成记录。可与尊重隐私和个人选择的合格专业人士谈谈，自行决定分享多少。本练习不要求公开身份、改变身体或呈现、试用姓名代词，或采取医疗行动；不能评估个人安全或选择照护路径。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily-context-reading",
+      "directionIds": [
+        "daily-context"
+      ],
+      "title": {
+        "en": "Feelings and everyday context: Complete Gender Experiences Guide",
+        "zh": "感受与日常背景：完整性别经历指南"
+      },
+      "headline": {
+        "en": "Your descriptions remain yours; no identity is assigned.",
+        "zh": "描述留给自己，不分配身份。"
+      },
+      "summary": {
+        "en": "A complete original reading of this part of gender-related experience, with individual descriptions, uncertainty and independent support.",
+        "zh": "完整阅读这一部分性别相关原创观察，保留逐条描述、未知与独立支持。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feelings and everyday context | Gender Experiences Reflection",
+          "zh": "感受与日常背景｜性别经历回顾"
+        },
+        "description": {
+          "en": "Read original descriptions of feelings and everyday context, separate categories and clear limits. No identity assignment or clinical score.",
+          "zh": "完整阅读感受与日常背景的原创描述、独立类别和明确边界，不判身份、不设临床分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+        "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Feelings remain connected to their context",
+            "zh": "感受与背景一起保留"
+          },
+          "paragraphs": [
+            {
+              "en": "The prompts describe a concern interrupting attention, distress about a mismatch with treatment by others, room to feel at ease in a familiar setting and a preference to keep a question private. These are different descriptions, not four signs of illness. The record does not measure distress intensity or daily functioning and cannot explain whether an experience arose from an interaction, an expectation or another circumstance.",
+              "zh": "题目描述顾虑打断注意、对体验与被对待方式不一致的困扰、熟悉场合中自在的空间，以及想把疑问保密。它们是不同描述，不是四种疾病表现。记录不测困扰强度或日常功能，也不能解释经历源于互动、期待还是其他处境。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Privacy is not a symptom",
+            "zh": "保密不是症状"
+          },
+          "paragraphs": [
+            {
+              "en": "Choosing privacy does not establish shame, avoidance, uncertainty about identity or a lack of support. You may know what matters to you and still not want to discuss it. Equally, wanting a conversation does not establish any particular identity. The form retains your chosen description without turning readiness to disclose into a health measure.",
+              "zh": "选择保密，不证明羞耻、回避、对身份不确定或缺乏支持。你可能清楚看重什么，同时不想讨论；想谈，也不确立任何特定身份。表单保留所选描述，不把是否愿意公开变成健康测量。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Gender diversity is not a score-based condition",
+            "zh": "性别多样性不由分数判定为疾病"
+          },
+          "paragraphs": [
+            {
+              "en": "WHO’s ICD-11 discussion places gender incongruence outside its mental-disorders chapter and explains that gender-diverse identities are not mental ill-health. This reflection applies no ICD criteria. It cannot determine gender incongruence or dysphoria, and it does not treat either comfort or difficulty as a test of whether an identity is valid. No body, social or everyday record is a condition for being taken seriously.",
+              "zh": "WHO关于ICD-11的说明把性别不一致移出精神障碍章节，并明确性别多样身份并非精神健康疾病。本回顾不应用ICD标准，不能确定性别不一致或烦躁，也不以自在或困难检验某种身份是否有效。身体、社交或日常记录都不是应被认真对待的条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "The four topics do not form a severity ladder",
+            "zh": "四个话题不构成严重度阶梯"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may feel at ease with private words while finding a social setting difficult, or feel bodily uncertainty without a disruption to another activity. No topic proves or cancels another. Counting fitting statements cannot order people by distress, legitimacy or support needs. An entirely unknown or withheld record is not a normal finding and supplies no reassurance about an actual concern.",
+              "zh": "有人对私下词语自在，却在社交场合困难；也可能对身体不确定，却未打断其他活动。各主题不相互证明或抵消，符合条数不能按困扰、正当性或支持需要给人排序。全部未知或保留不答，不是正常结论，也不对实际顾虑提供安心保证。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Support can start with an uncertainty",
+            "zh": "支持可以从未知开始"
+          },
+          "paragraphs": [
+            {
+              "en": "You may want a conversation about feeling unsettled, a specific interaction or simply having questions. There is no need to arrive with a label, share a result or decide on a care pathway first. A qualified professional can discuss actual needs in an appropriate private setting. This reading makes no promise about outcomes and requires no conversation to complete the activity.",
+              "zh": "你可能想谈不安、一次具体互动，或仅仅是有疑问。无需先带着标签、分享结果或决定照护路径。合格专业人士可以在适当的私密场合讨论实际需要。本说明不承诺结果，完成也不要求真的谈话。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+              "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+              "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+            },
+            {
+              "en": "Support is available if you want it, without a label, a particular answer or completion. You may speak with a qualified professional who respects your privacy and choices, and decide how much to share. This exercise asks for no disclosure, changes to your body or presentation, trial of a name or pronoun, or medical action. It cannot assess personal safety or choose a care pathway. For immediate danger or an inability to stay safe, seek local emergency help rather than continue.",
+              "zh": "想得到支持时，无需先有标签、特定答案或完成记录。可与尊重隐私和个人选择的合格专业人士谈谈，自行决定分享多少。本练习不要求公开身份、改变身体或呈现、试用姓名代词，或采取医疗行动；不能评估个人安全或选择照护路径。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "A transparent category record",
+        "zh": "透明的类别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "For each original statement, choose whether it describes your past four weeks, partly describes them or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain separate. Six category counts in each four-statement record add to four; individual sentences and labels remain visible. Comfortable, uncomfortable and uncertain descriptions can coexist and are not reverse-scored. There are no points, totals, averages, thresholds, gender categories or clinical results.",
+          "zh": "逐条选择原创陈述是否符合过去四周、部分符合或不符合；无法判断、没有相关经历及不愿回答分别保留。每份四条陈述的六类计数合计四条，原句与选择始终可见。自在、不自在和不确定可以并存，不作反向计分。不设点数、总分、均值、界线、性别类别或临床结果。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+          "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me my gender identity?",
+        "zh": "它能告诉我自己的性别身份吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these sixteen statements and four complete readings. This is not a gender-identity classifier, a dysphoria screen, UGDS, GIDYQ or an assessment under WPATH standards. Reliability, validity, norms and English–Chinese equivalence have not been established. Four weeks is only a recall aid, not a duration criterion. No combination of choices determines an identity, diagnosis, need for treatment or future path. Public health information provides context without validating these statements.",
+        "zh": "费马原创这16条陈述与四篇完整读法。它不是性别身份分类器、性别烦躁筛查、UGDS、GIDYQ或依据WPATH标准所做的评估。尚未建立信度、效度、常模或中英等价。四周只是回忆提示，不是持续时长标准。任何选择组合都不决定身份、诊断、治疗需要或未来路径。公共健康资料提供背景，不验证这些题目。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to give names or physical details?",
+        "zh": "需要提供姓名或身体细节吗？"
+      },
+      "answer": {
+        "en": "No. There are no free-text fields, images or measurements. Use an existing recollection or keep a statement unknown, inapplicable or withheld. All public guides can be read without answering.",
+        "zh": "不需要。没有自由输入、图片或测量。使用已有回忆，或保留未知、不适用及不愿回答；不答题也能读全部公开指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to disclose something or change anything?",
+        "zh": "需要公开什么或作出改变吗？"
+      },
+      "answer": {
+        "en": "Support is available if you want it, without a label, a particular answer or completion. You may speak with a qualified professional who respects your privacy and choices, and decide how much to share. This exercise asks for no disclosure, changes to your body or presentation, trial of a name or pronoun, or medical action. It cannot assess personal safety or choose a care pathway. For immediate danger or an inability to stay safe, seek local emergency help rather than continue.",
+        "zh": "想得到支持时，无需先有标签、特定答案或完成记录。可与尊重隐私和个人选择的合格专业人士谈谈，自行决定分享多少。本练习不要求公开身份、改变身体或呈现、试用姓名代词，或采取医疗行动；不能评估个人安全或选择照护路径。有即时危险或无法保障自身安全时，请寻求当地紧急援助，不要继续靠练习处理。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "WHO: Gender incongruence and transgender health in ICD — background only",
+        "zh": "WHO：ICD中的性别不一致与跨性别健康，仅作背景"
+      },
+      "url": "https://www.who.int/standards/classifications/frequently-asked-questions/gender-incongruence-and-transgender-health-in-the-icd"
+    }
+  ]
+}

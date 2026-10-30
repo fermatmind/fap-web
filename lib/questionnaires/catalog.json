@@ -7252,5 +7252,30 @@
       "visual-arrangements-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "gender-experiences-reflection",
+    "code": "FM_GENDER_EXPERIENCES16_CATEGORIES",
+    "version": "fm_gender16_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Gender Experiences Reflection",
+      "zh": "性别经历回顾"
+    },
+    "description": {
+      "en": "A private adult reflection on words, bodily experience, address and everyday context. Original descriptions without a gender label or clinical result.",
+      "zh": "成年人私下回顾词语、身体体验、称呼与日常背景。原创描述，不分配性别标签或临床结果。"
+    },
+    "minutes": 5,
+    "formCode": "fm_gender16_four_weeks_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "own-words-reading",
+      "embodied-experience-reading",
+      "social-address-reading",
+      "daily-context-reading"
+    ],
+    "collection": "explore"
   }
 ]
