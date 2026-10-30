@@ -1,0 +1,1719 @@
+{
+  "slug": "time-of-year-context-reflection",
+  "code": "FM_SEASON_CONTEXT16_RECOLLECTIONS",
+  "version": "fm_season_context16_recollections_v1",
+  "kind": "season-context16",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "title": {
+    "en": "Time of Year and Personal Experiences: Reflection",
+    "zh": "一年中的时间与个人经历：回顾"
+  },
+  "seoTitle": {
+    "en": "Time of Year and Personal Experiences: Reflection",
+    "zh": "一年中的时间与个人经历：回顾"
+  },
+  "description": {
+    "en": "16 original adult recollections of mood and energy, sleep, appetite and timing across parts of the year. Four full public guides before answers. No seasonal-depression diagnosis, SPAQ score or assumed winter pattern.",
+    "zh": "16条成年人本人原创回顾，关注一年中不同时间的心情与精力、睡眠、食欲及时间关系。四篇全文答题前公开，不作季节性抑郁诊断或SPAQ评分，不假设冬季模式。"
+  },
+  "introduction": {
+    "en": "If you want, recall parts of the past two years that you remember. This is an editorial memory window, not verification of two yearly episodes or a clinical duration rule. No months, dates, location, hemisphere or personal history are entered. A winter, summer or other time association is not assumed or ranked.",
+    "zh": "愿意时回顾过去两年记得的不同时间，这是编辑记忆窗口，不核实两次年度发作或临床持续规则。不输入月份、日期、地点、半球或个人史，不假设或排列冬季、夏季或其他时间关联。"
+  },
+  "instructions": {
+    "en": "Use existing recollections only. Choose does not match my recollection, matches slightly, partly, mostly or closely; choose unscored for no relevant experience, unclear recall or withholding. Labels are not frequency, symptom intensity or the size of a seasonal change. No calendar reconstruction, weather exposure, body or food checks, diary or waiting for another season is required.",
+    "zh": "只用已有回忆。可选与回忆不符、稍微符合、部分符合、大体符合、很符合；无相关经历、记忆不清或保留回答可未计分。标签不是频率、症状强度或季节变化量。不必重建日历、接触天气、检查身体或食物、记日记或再等一个季节。"
+  },
+  "resultHeading": {
+    "en": "Your four separate time-of-year records",
+    "zh": "四个分别阅读的一年中时间记录"
+  },
+  "directions": [
+    {
+      "id": "mood-and-energy-across-the-year",
+      "title": {
+        "en": "Mood and energy across the year",
+        "zh": "一年中的心情与精力"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "sleep-across-the-year",
+      "title": {
+        "en": "Sleep across the year",
+        "zh": "一年中的睡眠"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "appetite-across-the-year",
+      "title": {
+        "en": "Appetite across the year",
+        "zh": "一年中的食欲"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "recalled-time-of-year-patterns",
+      "title": {
+        "en": "Recalled timing across the year",
+        "zh": "记得的一年中时间关系"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SEASON_01",
+      "prompt": {
+        "en": "Over the past two years, I recall my mood feeling different during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间的心情与另一段时间不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_02",
+      "prompt": {
+        "en": "Over the past two years, I recall my energy for ordinary activities differing between parts of the year.",
+        "zh": "过去两年，我记得一年中不同时间，用于普通活动的精力有所不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_03",
+      "prompt": {
+        "en": "Over the past two years, I recall my interest in a familiar activity differing between parts of the year.",
+        "zh": "过去两年，我记得一年中不同时间，对熟悉活动的兴趣有所不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_04",
+      "prompt": {
+        "en": "Over the past two years, I recall feeling more restless during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更坐立不安。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "mood-and-energy-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_05",
+      "prompt": {
+        "en": "Over the past two years, I recall wanting more sleep during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更想多睡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_06",
+      "prompt": {
+        "en": "Over the past two years, I recall finding it harder to settle into sleep during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更难安睡。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_07",
+      "prompt": {
+        "en": "Over the past two years, I recall waking earlier than intended more often during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更常在打算之前醒来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_08",
+      "prompt": {
+        "en": "Over the past two years, I recall finding it harder to get up at my usual waking time during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更难在平时的时刻起床。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "sleep-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_09",
+      "prompt": {
+        "en": "Over the past two years, I recall food feeling less appealing during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更难对食物提起兴趣。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_10",
+      "prompt": {
+        "en": "Over the past two years, I recall wanting more food during one part of the year than another.",
+        "zh": "过去两年，我记得一年中某段时间比另一段时间更想吃东西。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_11",
+      "prompt": {
+        "en": "Over the past two years, I recall wanting a familiar kind of food differently between parts of the year.",
+        "zh": "过去两年，我记得一年中不同时间，对某种熟悉食物的想吃程度不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_12",
+      "prompt": {
+        "en": "Over the past two years, I recall the timing of wanting food differing between parts of the year.",
+        "zh": "过去两年，我记得一年中不同时间，想吃东西的时间有所不同。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "appetite-across-the-year"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_13",
+      "prompt": {
+        "en": "Within the past two years, I recall a similar change returning around a similar time of year.",
+        "zh": "在过去两年内，我记得类似变化在一年中相近时间再次出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_14",
+      "prompt": {
+        "en": "Within the past two years, I recall an experience moving back towards my usual state at a later time of year.",
+        "zh": "在过去两年内，我记得某种经历在一年中稍晚时逐渐接近平时状态。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_15",
+      "prompt": {
+        "en": "Within the past two years, I recall a change continuing beyond the part of the year I associated it with.",
+        "zh": "在过去两年内，我记得某项变化持续超过了自己与它联系起来的那段时间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SEASON_16",
+      "prompt": {
+        "en": "Within the past two years, I recall a similar experience at a different time of year from the one I expected.",
+        "zh": "在过去两年内，我记得一种类似经历出现在自己预期之外的一年中其他时间。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Does not match my recollection",
+            "zh": "与我的回忆不符"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Matches slightly",
+            "zh": "稍微符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Matches partly",
+            "zh": "部分符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Matches mostly",
+            "zh": "大体符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Matches closely",
+            "zh": "很符合"
+          },
+          "directionId": "recalled-time-of-year-patterns"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "mood-and-energy-across-the-year-reading",
+      "directionIds": [
+        "mood-and-energy-across-the-year"
+      ],
+      "title": {
+        "en": "Mood and energy across the year — Complete Reading",
+        "zh": "一年中的心情与精力：完整读法"
+      },
+      "headline": {
+        "en": "Mood and energy across the year",
+        "zh": "一年中的心情与精力"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, seasonal type, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、季节类型、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mood and energy across the year — Complete Reading",
+          "zh": "一年中的心情与精力：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe remembered differences across parts of the year",
+            "zh": "描述记得的一年中时间差别"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern mood, energy for ordinary activity, interest in a familiar activity and restlessness feeling different across parts of the past two years. They are broad recollections, not observations of a season or measurements of mood and energy. The page does not decide which part of a year should feel better, whether a difference was large or why it happened.",
+              "zh": "四条原创描述涉及过去两年中，不同时间的心情、普通活动精力、熟悉活动兴趣与坐立不安有所不同。它们是宽泛回忆，不是季节观测或心情精力测量。页面不决定哪段时间应感觉更好、差别多大或为何出现。"
+            },
+            {
+              "en": "Recognising a statement does not establish seasonal depression, a mood episode, a daylight effect or a physical cause. Ordinary circumstances and the opportunities available at different times are not resolved by a label. You can retain a difference without deciding that the weather caused it, that it followed a regular calendar or that another person should share the same experience.",
+              "zh": "认出陈述不建立季节性抑郁、情绪发作、日照作用或身体原因。不同时间的普通处境与机会，不能靠标签解决。可以保留区别，不必决定天气造成它、它遵循规则日历，或别人应该有相同经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are not a seasonal score",
+            "zh": "回忆贴切程度不是季节分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. These labels describe how it fits what you remember, not event frequency, symptom intensity or the size of a seasonal change. Six separate counts add to four descriptions in each topic, with individual choices retained. IDs carry no points, total, mean, rank or highest topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签问对回忆的贴切程度，不是事件频率、症状强度或季节变化量。每主题六种计数合计四条，保留逐项选择。标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "A fictional record with two partly matches, one closely matches and one unscored stays those separate counts. It does not count affected seasons, years, days or clinical symptoms. No topic is given extra weight, and the timing topic does not outweigh the others. Four overlapping editorial groups have no validated independence, clinical norms or diagnostic cut-off; no count identifies seasonal affective disorder.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不计受影响季节、年份、天数或临床症状。任何主题不加额外权重，时间主题不压过其他主题。四个重叠编辑分组没有验证独立性、临床常模或诊断界值；计数不识别季节性情感障碍。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A remembered time association leaves explanations open",
+            "zh": "记得的时间关联保留解释未知"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering less energy during one part of a year that also had different demands or opportunities. You may remember the contrast without knowing what mattered. The record cannot separate climate, routine, health and other circumstances or determine that a seasonal mechanism explains them. A different experience at a similar time later remains possible without the page deciding which account is correct.",
+              "zh": "例如记得一年某段时间精力较少，同时需求或机会也不同。可能记得对比却不知道哪些因素重要。记录不能分开气候、作息、健康和其他处境，也不决定季节机制解释了它们。后来相近时间出现不同经历也可能保留，无需页面裁定哪个叙述正确。"
+            },
+            {
+              "en": "Mood, interest, energy and restlessness are also separate descriptions. Matching several does not prove they changed together, lasted the same time or formed a clinical episode. You need not find a common explanation or force different memories into one pattern. No weather exposure, mood diary, activity test or change in routine is assigned to establish the comparison.",
+              "zh": "心情、兴趣、精力及坐立不安也是不同描述。多条符合不证明它们同时变化、持续一样久或构成临床发作。不必找共同解释或把不同记忆强合成模式。不安排天气接触、心情日记、活动测试或改作息来建立比较。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Existing recent records keep their own scope",
+            "zh": "已有近期记录保留自身范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The separate recent-mood and everyday-worry pages and public clinical question pack already cover general feelings, energy and related themes. Their short recall contexts do not establish a time-of-year pattern. This supplement does not claim a new clinical construct, transfer answers or combine counts with those forms. Similar descriptions can have different references without becoming equivalent measurements.",
+              "zh": "独立近期心情、日常担心页及公开临床题包已有一般感受、精力与相关主题；短期回忆背景不建立一年中时间模式。本补充不称新临床构念、不转移回答或与其他题本合计数。相似描述可有不同参照，不成为等价测量。"
+            },
+            {
+              "en": "The Energy Flow page concerns ordinary preferences around waking time, bounded activity, focus conditions and pauses. It does not supply missing seasonal answers or establish a biological rhythm here. These original topics may overlap without forming validated independent dimensions. A qualified professional can consider a broader history and other information that this private recollection does not collect.",
+              "zh": "能量流动页关注清醒时段、分段投入、专注条件及暂停的普通偏好，不补本页季节回答，也不建立生物节律。本原创主题可重叠，不构成验证独立维度。合格专业人员可考虑私人回顾未收集的更广历史与其他信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Use a broad memory window without inventing a calendar",
+            "zh": "使用宽回忆窗口，不编造日历"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the past two years and parts of the year that you remember. This is an editorial window, not proof of a two-year clinical pattern or a required waiting period. No months, location, hemisphere or personal history are entered. The page does not assume that winter, shorter daylight or a particular climate is the relevant context for you.",
+              "zh": "愿意回答时，回顾过去两年及记得的一年中不同时间。这是编辑窗口，不证明两年临床模式，也不是必要等待期。不输入月份、地点、半球或个人史；页面不假设冬季、日照较短或特定气候就是相关背景。"
+            },
+            {
+              "en": "No relevant experience, unclear timing or withholding can remain unscored, including every description. Do not reconstruct difficult memories, inspect old records or wait for another season to qualify. A later account may differ because memory, interpretation or circumstances changed, without proving recovery, deterioration or treatment response. There is no preferred category, target count or tracking schedule.",
+              "zh": "无相关经历、时间不清或保留回答都可未计分，包括全部描述。不必重建困难记忆、检查旧记录或再等一个季节来符合条件。以后叙述可能因记忆、理解或处境不同，不证明恢复、恶化或治疗反应。没有优选类别、目标计数或追踪日程。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a repeating seasonal story",
+            "zh": "支持不取决于重复的季节故事"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting through another season or year. Keep existing care, advice, monitoring and support independent. Do not use this record to postpone assessment, change medicine or dismiss an ongoing concern as only seasonal. The page cannot assess healthcare need, urgency, physical causes or personal safety.",
+              "zh": "可以不完成、不达到计数、不再等一个季节或年份就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留；不用记录推迟评估、改药或把持续担忧当作只是季节性而忽视。页面不能评估医疗需要、紧急程度、身体原因或个人安全。"
+            },
+            {
+              "en": "This is not SPAQ or a clinical screen. No validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader assessment background, including winter and summer patterns, not these original items or validation. The page provides no light, diet, supplement, sleep or medicine instructions. In immediate danger or if you cannot stay safe, seek local emergency assistance; the website cannot monitor you or respond to an emergency.",
+              "zh": "本版不是SPAQ或临床筛查，未建立验证阈值或双语测量等值。NIMH提供包括冬季与夏季模式在内的更广评估背景，不提供本原创题或验证。本页不提供光照、饮食、补充剂、睡眠或药物指示。如有即时危险或无法保障安全，请寻求当地紧急援助；网站不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question without a season-changing task",
+            "zh": "留下自愿问题，不安排改变季节环境的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could describe the times you remember, the difference you noticed and what remains uncertain. Choose the detail and audience. You do not need dates, a verified repeating pattern or a diary before asking a professional. The page does not prescribe travel, outdoor activity, light exposure or a plan to alter mood or energy. A concern need not fit its limited descriptions to be worth discussing.",
+              "zh": "若有用，可描述记得的时间、注意到的区别与不确定处，细节和对象自行选择。不必先有日期、核实重复模式或日记再咨询专业人员。本页不开旅行、户外活动、光照或改变心情精力的方案；担忧不必符合有限描述也可值得讨论。"
+            },
+            {
+              "en": "Selections stay in page memory without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry. Four complete guides remain the same public text before answers and after any record, including entirely unscored. Reading and support do not depend on a hemisphere, a particular season or a convincing calendar story.",
+              "zh": "选择留页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。四篇全文答题前及任何记录后相同，包括全未计分。阅读和支持不取决于半球、某个季节或令人信服的日历故事。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sleep-across-the-year-reading",
+      "directionIds": [
+        "sleep-across-the-year"
+      ],
+      "title": {
+        "en": "Sleep across the year — Complete Reading",
+        "zh": "一年中的睡眠：完整读法"
+      },
+      "headline": {
+        "en": "Sleep across the year",
+        "zh": "一年中的睡眠"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, seasonal type, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、季节类型、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sleep across the year — Complete Reading",
+          "zh": "一年中的睡眠：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keep different sleep recollections separate",
+            "zh": "把不同睡眠回忆分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern wanting more sleep, difficulty settling into sleep, waking earlier than intended and finding the usual waking time harder during one part of the year than another. Recall the past two years if you choose to answer. They retain broad personal comparisons, not sleep measurements, a sleep disorder assessment or proof that one particular season changed sleep.",
+              "zh": "四条原创描述涉及一年中某段时间比另一段更想多睡、更难安睡、更早于打算醒来，以及更难在平时时刻起床。愿意回答时回顾过去两年。它们只保留宽泛个人比较，不是睡眠测量、睡眠障碍评估或某个季节改变睡眠的证据。"
+            },
+            {
+              "en": "The page cannot know the time available for sleep, an intended schedule, physical health or other circumstances. A selection does not establish that sleep was adequate, a change was harmless or a particular treatment was needed. It cannot decide what waking time is right for you. A concern can remain relevant even when none of these descriptions fit your recollection.",
+              "zh": "页面不知道可睡时间、计划作息、身体健康或其他处境。选择不建立睡眠足够、变化无害或需要特定治疗，也不能决定什么起床时刻适合你。即使全部描述不符回忆，担忧也仍可重要。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are not a seasonal score",
+            "zh": "回忆贴切程度不是季节分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. These labels describe how it fits what you remember, not event frequency, symptom intensity or the size of a seasonal change. Six separate counts add to four descriptions in each topic, with individual choices retained. IDs carry no points, total, mean, rank or highest topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签问对回忆的贴切程度，不是事件频率、症状强度或季节变化量。每主题六种计数合计四条，保留逐项选择。标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "A fictional record with two partly matches, one closely matches and one unscored stays those separate counts. It does not count affected seasons, years, days or clinical symptoms. No topic is given extra weight, and the timing topic does not outweigh the others. Four overlapping editorial groups have no validated independence, clinical norms or diagnostic cut-off; no count identifies seasonal affective disorder.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不计受影响季节、年份、天数或临床症状。任何主题不加额外权重，时间主题不压过其他主题。四个重叠编辑分组没有验证独立性、临床常模或诊断界值；计数不识别季节性情感障碍。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Opposite descriptions need not become a contradiction",
+            "zh": "相反方向的描述不必变成矛盾"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering wanting more sleep during one part of a year and difficulty settling during another. Both can remain as separate recollections. The page does not force them into one winter or summer type, reverse one answer or subtract it from another. It cannot determine whether they happened in the same year, how long either lasted or whether they belonged to one condition.",
+              "zh": "例如记得一年某段更想多睡，另一段更难安睡，两者可分别保留。页面不强合为冬季或夏季类型，不反向一项或从另一项减去。不能决定是否同一年、各持续多久或是否属于同一状况。"
+            },
+            {
+              "en": "Waking earlier than intended and finding a usual waking time difficult are also different questions. You may remember one clearly and leave another unscored. No clock time, sleep device data, nightly log or personal schedule is entered. There is no request to stay awake, change sleep timing or manufacture a comparison to see which statement fits.",
+              "zh": "早于打算醒来与难在平时时刻起床，也是不同问题。可清楚记得一条而让另一条未计分。不输入钟点、睡眠设备数据、逐夜日志或个人作息。不要求熬夜、改睡眠时间或制造比较来测试陈述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Calendar context does not establish a sleep mechanism",
+            "zh": "日历背景不建立睡眠机制"
+          },
+          "paragraphs": [
+            {
+              "en": "NIMH describes broader seasonal-affective-disorder assessment background, including winter and summer presentations. These original recollections do not administer SPAQ or reproduce a clinical questionnaire. Remembering sleep at a particular time does not establish a daylight effect, a circadian mechanism or seasonal depression. The website cannot use a match label to explain a physical change or replace existing sleep or health advice.",
+              "zh": "NIMH介绍包括冬季与夏季表现的更广季节性情感障碍评估背景。本原创回顾不施测SPAQ或复刻临床问卷。记得某时间的睡眠，不建立日照作用、生物节律机制或季节性抑郁。网站不能用贴切标签解释身体变化或替代已有睡眠健康意见。"
+            },
+            {
+              "en": "The separate recent-mood and public clinical questions already include general sleep themes, while Energy Flow concerns ordinary preferences rather than measured sleep physiology. Their questions and methods remain separate. This supplement adds time-of-year recollection without transferring answers, merging numbers or claiming a newly discovered clinical construct. Four overlapping editorial topics are not validated independent dimensions.",
+              "zh": "独立近期心情页与公开临床题目已有一般睡眠主题；能量流动关注普通偏好，不测睡眠生理。它们的题目与方法保持分开。本补充只加入一年中时间回忆，不转移回答、不合数字或声称新临床构念。四个重叠编辑主题不是验证独立维度。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Use a broad memory window without inventing a calendar",
+            "zh": "使用宽回忆窗口，不编造日历"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the past two years and parts of the year that you remember. This is an editorial window, not proof of a two-year clinical pattern or a required waiting period. No months, location, hemisphere or personal history are entered. The page does not assume that winter, shorter daylight or a particular climate is the relevant context for you.",
+              "zh": "愿意回答时，回顾过去两年及记得的一年中不同时间。这是编辑窗口，不证明两年临床模式，也不是必要等待期。不输入月份、地点、半球或个人史；页面不假设冬季、日照较短或特定气候就是相关背景。"
+            },
+            {
+              "en": "No relevant experience, unclear timing or withholding can remain unscored, including every description. Do not reconstruct difficult memories, inspect old records or wait for another season to qualify. A later account may differ because memory, interpretation or circumstances changed, without proving recovery, deterioration or treatment response. There is no preferred category, target count or tracking schedule.",
+              "zh": "无相关经历、时间不清或保留回答都可未计分，包括全部描述。不必重建困难记忆、检查旧记录或再等一个季节来符合条件。以后叙述可能因记忆、理解或处境不同，不证明恢复、恶化或治疗反应。没有优选类别、目标计数或追踪日程。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a repeating seasonal story",
+            "zh": "支持不取决于重复的季节故事"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting through another season or year. Keep existing care, advice, monitoring and support independent. Do not use this record to postpone assessment, change medicine or dismiss an ongoing concern as only seasonal. The page cannot assess healthcare need, urgency, physical causes or personal safety.",
+              "zh": "可以不完成、不达到计数、不再等一个季节或年份就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留；不用记录推迟评估、改药或把持续担忧当作只是季节性而忽视。页面不能评估医疗需要、紧急程度、身体原因或个人安全。"
+            },
+            {
+              "en": "This is not SPAQ or a clinical screen. No validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader assessment background, including winter and summer patterns, not these original items or validation. The page provides no light, diet, supplement, sleep or medicine instructions. In immediate danger or if you cannot stay safe, seek local emergency assistance; the website cannot monitor you or respond to an emergency.",
+              "zh": "本版不是SPAQ或临床筛查，未建立验证阈值或双语测量等值。NIMH提供包括冬季与夏季模式在内的更广评估背景，不提供本原创题或验证。本页不提供光照、饮食、补充剂、睡眠或药物指示。如有即时危险或无法保障安全，请寻求当地紧急援助；网站不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep an optional question without a sleep instruction",
+            "zh": "留下自愿问题，不给睡眠指示"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could distinguish what you remember about sleep opportunity, the experience itself and the timing you are uncertain about. You choose the detail and audience. No sleep schedule, light exposure, diet, supplement or medicine change is assigned. A professional can consider wider health and circumstances; you need not wait for another season, complete a diary or identify a cause before asking about a concern.",
+              "zh": "若有用，可区分记得的睡眠机会、经历本身及不确定的时间，细节和对象自行选择。不安排作息、光照、饮食、补充剂或药物改变。专业人员可考虑更广健康与处境；不必再等一个季节、完成日记或识别原因，再询问担忧。"
+            },
+            {
+              "en": "Selections stay in page memory without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them; copying shares only the public title and entry. All four full guides remain public before answers and after every record, including all-unscored. Reading and support do not depend on changing sleep, proving a seasonal pattern or matching a winter or summer stereotype.",
+              "zh": "选择留页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除，复制只含公开标题入口。四篇全文答题前及所有记录公开，包括全未计分。阅读和支持不取决于改睡眠、证明季节模式或符合冬夏刻板印象。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "appetite-across-the-year-reading",
+      "directionIds": [
+        "appetite-across-the-year"
+      ],
+      "title": {
+        "en": "Appetite across the year — Complete Reading",
+        "zh": "一年中的食欲：完整读法"
+      },
+      "headline": {
+        "en": "Appetite across the year",
+        "zh": "一年中的食欲"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, seasonal type, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、季节类型、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Appetite across the year — Complete Reading",
+          "zh": "一年中的食欲：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Keep appetite recollections separate from body judgements",
+            "zh": "食欲回忆与身体评价分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original descriptions ask about recalled differences in appetite, interest in food, wanting particular foods and when wanting food was noticeable across parts of the past two years. They do not measure food intake, body size, nutritional adequacy or a clinical appetite change. No part of the year is assigned a correct way to eat, and no category identifies a cause.",
+              "zh": "四条原创描述问过去两年不同时间中记得的食欲、食物兴趣、想吃特定食物与想吃东西的时间差别，不测食物摄入、体型、营养是否足够或临床食欲变化。不为一年某段时间规定正确吃法，类别也不识别原因。"
+            },
+            {
+              "en": "A matching recollection cannot establish seasonal depression, an eating disorder, a physical condition or a need to change food. A nonmatching or unscored description cannot establish that eating or health is adequate. The page does not ask for weight, quantities, food lists or a personal account. You may leave any description unscored without having to inspect meals or justify what you remember.",
+              "zh": "回忆符合不能建立季节性抑郁、进食障碍、身体状况或改变食物的需要。不符或未计分不证明进食或健康足够。页面不问体重、数量、食物清单或个人叙述；任何描述可未计分，不必检查餐食或解释记忆。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are not a seasonal score",
+            "zh": "回忆贴切程度不是季节分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. These labels describe how it fits what you remember, not event frequency, symptom intensity or the size of a seasonal change. Six separate counts add to four descriptions in each topic, with individual choices retained. IDs carry no points, total, mean, rank or highest topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签问对回忆的贴切程度，不是事件频率、症状强度或季节变化量。每主题六种计数合计四条，保留逐项选择。标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "A fictional record with two partly matches, one closely matches and one unscored stays those separate counts. It does not count affected seasons, years, days or clinical symptoms. No topic is given extra weight, and the timing topic does not outweigh the others. Four overlapping editorial groups have no validated independence, clinical norms or diagnostic cut-off; no count identifies seasonal affective disorder.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不计受影响季节、年份、天数或临床症状。任何主题不加额外权重，时间主题不压过其他主题。四个重叠编辑分组没有验证独立性、临床常模或诊断界值；计数不识别季节性情感障碍。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A food-related contrast does not explain itself",
+            "zh": "与食物有关的对比不会自行解释原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine recalling that interest in some foods differed around a particular part of a year. What was available, customary, affordable or practical may also have differed, and your memory may not separate these circumstances. The category cannot decide whether appetite changed, whether the setting changed or whether both contributed. It leaves the explanation open rather than converting the association into a seasonal mechanism.",
+              "zh": "例如记得一年某段时间对某些食物兴趣不同。可获得、习惯、负担得起或方便的选择也可能不同，记忆未必分开这些处境。类别不能决定食欲改变、环境改变或两者共同有关，而是保留解释未知，不把关联变成季节机制。"
+            },
+            {
+              "en": "The four descriptions also concern different aspects of experience. Wanting a particular food does not prove a change in overall appetite; remembering a different time of wanting food does not prove a change in interest. Several matches need not have occurred together or in the same part of a year. No item is reversed, weighted or used to calculate a clinical symptom count or a body-related verdict.",
+              "zh": "四条描述也关注不同方面。想吃特定食物不证明总体食欲改变；记得想吃东西的时间不同不证明兴趣改变。多条符合未必同时或在一年同一时间发生。没有反向、加权或用来计算临床症状数、身体裁定的条目。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Do not turn recollection into a food-monitoring assignment",
+            "zh": "不把回忆变成食物监测任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to watch your eating more closely, compare your body, count food or reconstruct meals to answer. If an observation would require a new check, leaving it unscored is available. This page supplies no diet, supplement, fasting, exercise or light instructions. An existing eating plan or professional recommendation remains independent of the categories and should not be changed because of them.",
+              "zh": "不必更密切观察进食、比较身体、计量食物或重建餐食来回答。若观察需要新检查，可保留未计分。本页不提供饮食、补充剂、禁食、运动或光照指示。已有饮食方案或专业建议独立于类别，不应因类别改变。"
+            },
+            {
+              "en": "General mood and energy descriptions already occur in the separate recent-mood page and public clinical question pack. Their answers cannot fill these time-of-year recollections, and this record does not extend their clinical meaning. An overlap in ordinary language is not evidence of equivalent measurement. The original four-topic arrangement has not established independent dimensions or a validated seasonal profile.",
+              "zh": "独立近期心情页及公开临床题包已有一般心情精力描述，其回答不能补本页一年中时间回忆，本记录也不扩大其临床含义。日常语言重叠不证明等价测量。本原创四主题安排未建立独立维度或验证季节画像。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Use a broad memory window without inventing a calendar",
+            "zh": "使用宽回忆窗口，不编造日历"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the past two years and parts of the year that you remember. This is an editorial window, not proof of a two-year clinical pattern or a required waiting period. No months, location, hemisphere or personal history are entered. The page does not assume that winter, shorter daylight or a particular climate is the relevant context for you.",
+              "zh": "愿意回答时，回顾过去两年及记得的一年中不同时间。这是编辑窗口，不证明两年临床模式，也不是必要等待期。不输入月份、地点、半球或个人史；页面不假设冬季、日照较短或特定气候就是相关背景。"
+            },
+            {
+              "en": "No relevant experience, unclear timing or withholding can remain unscored, including every description. Do not reconstruct difficult memories, inspect old records or wait for another season to qualify. A later account may differ because memory, interpretation or circumstances changed, without proving recovery, deterioration or treatment response. There is no preferred category, target count or tracking schedule.",
+              "zh": "无相关经历、时间不清或保留回答都可未计分，包括全部描述。不必重建困难记忆、检查旧记录或再等一个季节来符合条件。以后叙述可能因记忆、理解或处境不同，不证明恢复、恶化或治疗反应。没有优选类别、目标计数或追踪日程。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a repeating seasonal story",
+            "zh": "支持不取决于重复的季节故事"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting through another season or year. Keep existing care, advice, monitoring and support independent. Do not use this record to postpone assessment, change medicine or dismiss an ongoing concern as only seasonal. The page cannot assess healthcare need, urgency, physical causes or personal safety.",
+              "zh": "可以不完成、不达到计数、不再等一个季节或年份就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留；不用记录推迟评估、改药或把持续担忧当作只是季节性而忽视。页面不能评估医疗需要、紧急程度、身体原因或个人安全。"
+            },
+            {
+              "en": "This is not SPAQ or a clinical screen. No validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader assessment background, including winter and summer patterns, not these original items or validation. The page provides no light, diet, supplement, sleep or medicine instructions. In immediate danger or if you cannot stay safe, seek local emergency assistance; the website cannot monitor you or respond to an emergency.",
+              "zh": "本版不是SPAQ或临床筛查，未建立验证阈值或双语测量等值。NIMH提供包括冬季与夏季模式在内的更广评估背景，不提供本原创题或验证。本页不提供光照、饮食、补充剂、睡眠或药物指示。如有即时危险或无法保障安全，请寻求当地紧急援助；网站不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A concern can be discussed without a calendar or food diary",
+            "zh": "无需日历或饮食日记即可讨论担忧"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could tell a qualified healthcare professional which contrast you remember and which details remain unclear. The concern can be discussed without a count, body measurement, food diary or proof of recurrence. You choose what to disclose. This limited inventory cannot determine whether a change needs assessment, whether it is urgent or whether another explanation should be considered.",
+              "zh": "若有用，可向合格医疗专业人员说记得哪些对比、哪些细节不清。不必达到计数、身体测量、饮食日记或重复证据才能讨论，披露内容自行选择。本有限题本不能决定变化是否需要评估、是否紧急或是否应考虑其他解释。"
+            },
+            {
+              "en": "Selections remain in page memory without a saved draft, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them; copying shares only the public title and entry. Four full public guides stay available before answering and after any record. Support is available even if none of the food-related descriptions fits or every choice is unscored.",
+              "zh": "选择仅留页内存，无已存草稿、提交、问卷分析或个人结果URL。退出、重做、刷新与离页清除；复制仅含公开标题入口。四篇全文答题前及任何记录后均可读；即使食物描述均不符或全未计分，也可寻求支持。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recalled-time-of-year-patterns-reading",
+      "directionIds": [
+        "recalled-time-of-year-patterns"
+      ],
+      "title": {
+        "en": "Recalled timing across the year — Complete Reading",
+        "zh": "记得的一年中时间关系：完整读法"
+      },
+      "headline": {
+        "en": "Recalled timing across the year",
+        "zh": "记得的一年中时间关系"
+      },
+      "summary": {
+        "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+        "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+      },
+      "scoreReading": {
+        "en": "Six separate recollection-match counts add to four descriptions. Unscored stays distinct from does not match. No frequency, symptom count, total, mean, weighting, seasonal type, risk tier or clinical inference.",
+        "zh": "六种独立回忆贴切计数合计四条描述，未计分与不符分开。没有频率、症状数、总分、均值、加权、季节类型、风险档或临床推断。"
+      },
+      "seo": {
+        "title": {
+          "en": "Recalled timing across the year — Complete Reading",
+          "zh": "记得的一年中时间关系：完整读法"
+        },
+        "description": {
+          "en": "Read this complete original public topic without answering. Every visitor sees the same explanation, without personal recollections, dates, counts, a seasonal type or diagnosis.",
+          "zh": "无需答题即可阅读完整原创公开主题；每位访客看到同一解释，不含个人回忆、日期、计数、季节类型或诊断。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall an association without confirming a recurring disorder",
+            "zh": "回忆关联，不确认重复发作的疾病"
+          },
+          "paragraphs": [
+            {
+              "en": "Four original descriptions concern remembering a similar experience near a similar part of a year, moving toward your usual experience later, an experience continuing beyond its associated time and something similar at an unexpected time. They preserve different recollections, including exceptions. They do not establish a clinical episode, onset, remission, duration or a repeating seasonal pattern. No date or calendar is collected.",
+              "zh": "四条原创描述关注记得相近时间出现相似经历、后来接近平常、经历持续超过关联时间，以及意料外时间也有相似经历。它们保留包括例外在内的不同回忆，不建立临床发作、起始、缓解、持续时间或重复季节模式，不收集日期或日历。"
+            },
+            {
+              "en": "The past two years are an optional editorial memory boundary, not verification of two annual episodes or a clinical duration rule. Remembering a connection does not show that it occurred every year or only at that time. A nonmatching description cannot rule out a concern. You can retain uncertainty without making the story consistent enough to resemble a diagnosis.",
+              "zh": "过去两年是自愿编辑回忆边界，不核实两次年度发作或临床持续规则。记得联系不说明每年或仅该时间发生；描述不符不能排除担忧。可以保留不确定，不必把故事整理得像诊断一样一致。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Recollection matches are not a seasonal score",
+            "zh": "回忆贴切程度不是季节分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose does not match my recollection, matches slightly, partly, mostly, closely or unscored for each original description. These labels describe how it fits what you remember, not event frequency, symptom intensity or the size of a seasonal change. Six separate counts add to four descriptions in each topic, with individual choices retained. IDs carry no points, total, mean, rank or highest topic.",
+              "zh": "每条原创描述可选与回忆不符、稍微符合、部分符合、大体符合、很符合或未计分。标签问对回忆的贴切程度，不是事件频率、症状强度或季节变化量。每主题六种计数合计四条，保留逐项选择。标识不带点数、总分、均值、排名或最高主题。"
+            },
+            {
+              "en": "A fictional record with two partly matches, one closely matches and one unscored stays those separate counts. It does not count affected seasons, years, days or clinical symptoms. No topic is given extra weight, and the timing topic does not outweigh the others. Four overlapping editorial groups have no validated independence, clinical norms or diagnostic cut-off; no count identifies seasonal affective disorder.",
+              "zh": "虚构例中两条部分符合、一条很符合、一条未计分，只保留独立计数，不计受影响季节、年份、天数或临床症状。任何主题不加额外权重，时间主题不压过其他主题。四个重叠编辑分组没有验证独立性、临床常模或诊断界值；计数不识别季节性情感障碍。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Exceptions are observations, not negative points",
+            "zh": "例外是观察，不是负分"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine remembering a similar feeling around one time of a year and also at another unexpected time. Both recollections may fit without cancelling each other. The record does not subtract an exception from a recurrence, reverse an item or give the timing topic extra weight. No combination produces a seasonal type, probability or a judgement that the concern is genuine or not genuine.",
+              "zh": "例如记得一年某时间有相似感受，也在另一个意料外时间出现。两种回忆可同时符合而不相互抵消。记录不从重复中扣除例外、不反向条目，也不额外加权时间主题；任何组合都不产出季节类型、概率或担忧真假的裁定。"
+            },
+            {
+              "en": "Likewise, returning toward your usual experience does not establish clinical remission, and a memory of persistence does not establish a chronic condition. Different descriptions may refer to different times or circumstances. You do not have to select one as the authoritative account, reconstruct a timeline or decide why the pattern was inconsistent. A category records your chosen description without resolving these questions.",
+              "zh": "同样，接近平常不建立临床缓解，持续的记忆不建立慢性状况。不同描述可能指不同时间或处境。不必挑一个权威叙述、重建时间线或决定模式为何不一致；类别只记录所选描述，不解决这些问题。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Calendar associations do not isolate weather or biology",
+            "zh": "日历关联不分离天气或生理原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Parts of a year can coincide with changes in obligations, routines, opportunities, health and surroundings. This page does not collect enough information to separate those influences or establish any of them as the cause. It assumes neither a northern-hemisphere winter nor shorter daylight. A summer or another remembered association is not ranked as more or less credible by the inventory.",
+              "zh": "一年某段时间可能同时有责任、作息、机会、健康及环境变化。本页不收集足以分离这些影响或认定原因的信息，既不假设北半球冬季，也不假设日照较短。夏季或其他记忆关联不会在本题本被排为更可信或更不可信。"
+            },
+            {
+              "en": "The separate mood, worry and Energy Flow pages keep their own recall references and meanings. They do not supply a missing calendar here, and their results are not combined into this record. These four editorial topics can overlap and are not validated independent dimensions. A professional assessment can use broader information that a private, optional recollection inventory cannot provide.",
+              "zh": "独立心情、担心及能量流动页保留自身回忆参照与含义，不补本页缺失日历，结果也不合入本记录。四个编辑主题可重叠，不是验证独立维度。专业评估可用私人自愿回顾题本不能提供的更广信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Use a broad memory window without inventing a calendar",
+            "zh": "使用宽回忆窗口，不编造日历"
+          },
+          "paragraphs": [
+            {
+              "en": "If you choose to answer, recall the past two years and parts of the year that you remember. This is an editorial window, not proof of a two-year clinical pattern or a required waiting period. No months, location, hemisphere or personal history are entered. The page does not assume that winter, shorter daylight or a particular climate is the relevant context for you.",
+              "zh": "愿意回答时，回顾过去两年及记得的一年中不同时间。这是编辑窗口，不证明两年临床模式，也不是必要等待期。不输入月份、地点、半球或个人史；页面不假设冬季、日照较短或特定气候就是相关背景。"
+            },
+            {
+              "en": "No relevant experience, unclear timing or withholding can remain unscored, including every description. Do not reconstruct difficult memories, inspect old records or wait for another season to qualify. A later account may differ because memory, interpretation or circumstances changed, without proving recovery, deterioration or treatment response. There is no preferred category, target count or tracking schedule.",
+              "zh": "无相关经历、时间不清或保留回答都可未计分，包括全部描述。不必重建困难记忆、检查旧记录或再等一个季节来符合条件。以后叙述可能因记忆、理解或处境不同，不证明恢复、恶化或治疗反应。没有优选类别、目标计数或追踪日程。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not depend on a repeating seasonal story",
+            "zh": "支持不取决于重复的季节故事"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without finishing, reaching a count or waiting through another season or year. Keep existing care, advice, monitoring and support independent. Do not use this record to postpone assessment, change medicine or dismiss an ongoing concern as only seasonal. The page cannot assess healthcare need, urgency, physical causes or personal safety.",
+              "zh": "可以不完成、不达到计数、不再等一个季节或年份就向合格医疗或心理健康专业人员咨询。已有照护、意见、监测和支持独立保留；不用记录推迟评估、改药或把持续担忧当作只是季节性而忽视。页面不能评估医疗需要、紧急程度、身体原因或个人安全。"
+            },
+            {
+              "en": "This is not SPAQ or a clinical screen. No validated thresholds or bilingual measurement equivalence have been established. NIMH provides broader assessment background, including winter and summer patterns, not these original items or validation. The page provides no light, diet, supplement, sleep or medicine instructions. In immediate danger or if you cannot stay safe, seek local emergency assistance; the website cannot monitor you or respond to an emergency.",
+              "zh": "本版不是SPAQ或临床筛查，未建立验证阈值或双语测量等值。NIMH提供包括冬季与夏季模式在内的更广评估背景，不提供本原创题或验证。本页不提供光照、饮食、补充剂、睡眠或药物指示。如有即时危险或无法保障安全，请寻求当地紧急援助；网站不能监测或紧急响应。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Ask about the concern without proving a yearly pattern",
+            "zh": "无需证明年度模式即可咨询担忧"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, you could say that you recall an association while remaining unsure about its timing, exceptions or cause. You do not need two complete years of notes, a repeated episode or a convincing explanation before asking a qualified professional. No retrospective calendar, weather exposure, seasonal test or prospective diary is assigned. Support does not depend on making the recollection more regular.",
+              "zh": "若有用，可说记得某种关联，同时不确定时间、例外或原因。不必先有整整两年笔记、重复发作或可信解释再咨询合格专业人员。本页不安排回溯日历、天气接触、季节测试或前瞻日记；支持不取决于让回忆更规律。"
+            },
+            {
+              "en": "Choices remain in page memory without a draft, submission, questionnaire analytics or a personal result address. Exit, retake, reload and leaving clear them. Copying shares only the public title and entry, not a pattern or categories. All four complete public guides are available before answering and after any record, including entirely unscored. The website cannot observe your circumstances, monitor a season or provide emergency response.",
+              "zh": "选择留页内存，无草稿、提交、问卷分析或个人结果地址。退出、重做、刷新及离页清除；复制只含公开标题入口，不含模式或类别。四篇全文答题前及任何记录后均可读，包括全部未计分。网站不能观察处境、监测季节或紧急响应。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "context",
+      "title": {
+        "en": "A broad recollection window, not a verified seasonal pattern",
+        "zh": "宽回忆窗口，不是已核实季节模式"
+      },
+      "paragraphs": [
+        {
+          "en": "Adults can optionally recall parts of the past two years without entering dates, location or personal history. The window does not establish a clinical episode, duration, remission or two annual recurrences. No winter, hemisphere, climate or daylight cause is assumed. Timing that is unclear or does not fit can remain unscored.",
+          "zh": "成年人可自愿回顾过去两年不同时间，不输入日期、地点或个人史。窗口不建立临床发作、持续、缓解或两次年度重复，不假设冬季、半球、气候或日照原因。时间不清或不适合可保留未计分。"
+        },
+        {
+          "en": "General mood, worry, sleep and energy themes already occur in the public clinical question pack and separate original pages. This supplement only preserves a chosen time-of-year recollection context. It does not claim a new clinical construct, transfer answers or combine counts. These original descriptions are not SPAQ, a clinical screen or a seasonal-depression assessment.",
+          "zh": "一般心情、担心、睡眠和精力主题已在公开临床题包及独立原创页面存在。本补充仅保留自选一年中时间回忆背景，不称新临床构念、不转移回答或合计数。本原创描述不是SPAQ、临床筛查或季节性抑郁评估。"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "title": {
+        "en": "Separate records without an amplified timing score",
+        "zh": "独立记录，不放大时间得分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic contains four descriptions and six separate category counts. IDs carry no points. There is no total, mean, reverse scoring, weighting, highest topic or diagnostic threshold. In particular, the timing topic has no extra multiplier and exceptions do not subtract points. The overlapping editorial groups are not validated independent dimensions or a seasonal profile.",
+          "zh": "每主题四条描述、六种独立类别计数，标识不带点数。没有总分、均值、反向、加权、最高主题或诊断阈值；时间主题尤其没有额外倍数，例外也不扣分。重叠编辑分组不是验证独立维度或季节画像。"
+        },
+        {
+          "en": "No relevant experience, unclear recall or withholding stays unscored rather than becoming zero. All descriptions may remain unscored without an invented personal interpretation. Categories do not count years, episodes, days or symptoms, confirm or exclude a condition, establish a cause or show that an ongoing concern is only seasonal.",
+          "zh": "无相关经历、记忆不清或保留回答保持未计分，不变为零。全部描述可未计分，不编造个人解释。类别不计年份、发作、天数或症状，不确认排除状况、建立原因或证明持续担忧只是季节性。"
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "title": {
+        "en": "Recall only; all full guides remain public",
+        "zh": "只凭回忆，所有全文公开"
+      },
+      "paragraphs": [
+        {
+          "en": "No calendar reconstruction, weather exposure, food or body monitoring, sleep change or diary is assigned. The page provides no light, diet, supplement or medicine instructions. Choices stay in page memory without drafts, submission, questionnaire analytics or a personal result URL. Exit, retake, reload and leaving clear them; copying shares only the public title and entry.",
+          "zh": "不安排重建日历、接触天气、监测食物或身体、改睡眠或日记。页面不提供光照、饮食、补充剂或药物指示。选择留页内存，不存草稿、不提交、不作问卷分析，也无个人结果URL。退出、重做、刷新及离页清除；复制只含公开标题入口。"
+        },
+        {
+          "en": "All four complete guides and support are available before answers and after any record. You can ask a qualified professional without a count, completed record or another season or year of waiting. Keep existing care and advice independent. The page cannot assess healthcare need, urgency or personal safety, observe a season or provide emergency response.",
+          "zh": "四篇全文与支持答题前及任何记录后均可用。咨询合格专业人员不必达到计数、完成记录或再等一个季节年份；已有照护和意见独立保留。页面不能评估医疗需要、紧急程度或个人安全，不能观察季节或紧急响应。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this diagnose seasonal affective disorder or reproduce SPAQ?",
+        "zh": "这能诊断季节性情感障碍或复现SPAQ吗？"
+      },
+      "answer": {
+        "en": "No. These are sixteen original recollections, not SPAQ or a clinical screen. There are no validated cut-offs, weighted timing score or seasonal type. A category cannot confirm or exclude a condition.",
+        "zh": "不能。这是十六条原创回顾，不是SPAQ或临床筛查，没有验证界值、加权时间分或季节类型，类别不能确认或排除状况。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must the association be winter or shorter daylight?",
+        "zh": "关联必须是冬季或日照较短吗？"
+      },
+      "answer": {
+        "en": "No. No hemisphere, climate, season or daylight explanation is assumed. A summer or other association is not ranked. Recollection alone cannot establish a weather or biological cause.",
+        "zh": "不必。不假设半球、气候、季节或日照解释，不排列夏季或其他关联。只凭回忆不能建立天气或生理原因。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does two years mean I have verified a recurring clinical pattern?",
+        "zh": "两年意味着核实了重复临床模式吗？"
+      },
+      "answer": {
+        "en": "No. Two years is an optional editorial recall window, not confirmation of two annual episodes or a clinical duration rule. Exceptions and uncertain timing remain separate recollections.",
+        "zh": "不是。两年是自愿编辑回忆窗口，不确认两次年度发作或临床持续规则；例外及时间不清保留为独立回忆。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a diary, food check or light exposure to answer?",
+        "zh": "回答需要日记、食物检查或光照接触吗？"
+      },
+      "answer": {
+        "en": "No. Recall only or leave any description unscored. No calendar reconstruction, body or food monitoring, weather exposure or change in sleep, diet, supplements or medicine is instructed. All four full guides remain public.",
+        "zh": "不必。只凭回忆，或让任何描述未计分。不指示重建日历、监测身体食物、接触天气或改变睡眠、饮食、补充剂及药物；四篇全文始终公开。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I wait another season before asking for support?",
+        "zh": "咨询支持前必须再等一个季节吗？"
+      },
+      "answer": {
+        "en": "No. Ask a qualified healthcare or mental-health professional without a count, completed record or another season or year. Keep existing care independent. The page cannot assess urgency or safety. In immediate danger or if you cannot stay safe, seek local emergency assistance.",
+        "zh": "不必。无需计数、完整记录或再等季节年份即可咨询合格医疗或心理健康专业人员。已有照护独立保留。页面不能评估紧急程度或安全；如有即时危险或无法保障安全，请寻求当地紧急援助。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Seasonal Affective Disorder — broader assessment and support background",
+        "zh": "NIMH：季节性情感障碍的更广评估与支持背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/seasonal-affective-disorder"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_season_context_recollections16",
+    "formCode": "fm_season_context16_recollections_v1",
+    "itemBankVersion": "original16_bilingual_four_by_four_v1",
+    "scoringVersion": "six_recollection_match_counts_per_four_no_clinical_inference_v1",
+    "resultContentVersion": "four_full_bilingual_season_context_readings_v1",
+    "itemBankSha256": "61bb9d5815530f74642d01a67dcfaeb4e378397dda6641fef6699d9b855ac7ca",
+    "resultContentSha256": "b11ec1008037a71a203f767a1f45c6464676805803531ee3d604bb5e0085b8ed",
+    "psychometricValidationCompleted": false
+  }
+}

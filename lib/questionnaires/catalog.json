@@ -7522,5 +7522,30 @@
       "everyday-routines-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "time-of-year-context-reflection",
+    "code": "FM_SEASON_CONTEXT16_RECOLLECTIONS",
+    "version": "fm_season_context16_recollections_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Time of Year and Personal Experiences: Reflection",
+      "zh": "一年中的时间与个人经历：回顾"
+    },
+    "description": {
+      "en": "16 original adult recollections of mood and energy, sleep, appetite and timing across parts of the year. Four full public guides before answers. No seasonal-depression diagnosis, SPAQ score or assumed winter pattern.",
+      "zh": "16条成年人本人原创回顾，关注一年中不同时间的心情与精力、睡眠、食欲及时间关系。四篇全文答题前公开，不作季节性抑郁诊断或SPAQ评分，不假设冬季模式。"
+    },
+    "minutes": 8,
+    "formCode": "fm_season_context16_recollections_v1",
+    "questionCount": 16,
+    "resultSlugs": [
+      "mood-and-energy-across-the-year-reading",
+      "sleep-across-the-year-reading",
+      "appetite-across-the-year-reading",
+      "recalled-time-of-year-patterns-reading"
+    ],
+    "collection": "explore"
   }
 ]

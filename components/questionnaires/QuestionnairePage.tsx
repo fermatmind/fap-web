@@ -53,6 +53,8 @@ import { isCycleContext16ConfigurationValid } from "@/lib/questionnaires/cycleCo
 import { CycleContextPage } from "./CycleContextPage";
 import { isBirthContext16ConfigurationValid } from "@/lib/questionnaires/birthContext16";
 import { BirthContextPage } from "./BirthContextPage";
+import { isSeasonContext16ConfigurationValid } from "@/lib/questionnaires/seasonContext16";
+import { SeasonContextPage } from "./SeasonContextPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryPage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -214,6 +216,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "mood-activity16" && !isMoodActivity16ConfigurationValid(quiz)) return { title: "Mood-activity reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "cycle-context16" && !isCycleContext16ConfigurationValid(quiz)) return { title: "Cycle-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-context16" && !isBirthContext16ConfigurationValid(quiz)) return { title: "Birth-context reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "season-context16" && !isSeasonContext16ConfigurationValid(quiz)) return { title: "Season-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -334,6 +337,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "birth-context16") {
     if (!isBirthContext16ConfigurationValid(quiz)) notFound();
     return <BirthContextPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "season-context16") {
+    if (!isSeasonContext16ConfigurationValid(quiz)) notFound();
+    return <SeasonContextPage quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();
