@@ -7496,5 +7496,31 @@
       "connection-with-self-after-childbirth-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "unfamiliar-experiences-reflection",
+    "code": "FM_UNFAMILIAR20_OBSERVATIONS",
+    "version": "fm_unfamiliar20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Unfamiliar Experiences & Everyday Participation",
+      "zh": "陌生体验与日常参与"
+    },
+    "description": {
+      "en": "Twenty original descriptions of sensory impressions, following thoughts, wariness, participation and routines, with five complete free guides. Private category records, without a psychosis-risk score, reality verdict or diagnosis.",
+      "zh": "20条原创描述，回顾感官印象、思路、戒备、参与及日常安排，附五篇完整免费指南。只保留私人类别记录，不生成精神病风险分数、现实裁决或诊断。"
+    },
+    "minutes": 5,
+    "formCode": "fm_unfamiliar20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "sensory-impressions-reading",
+      "following-thoughts-reading",
+      "wariness-and-meaning-reading",
+      "contact-and-participation-reading",
+      "everyday-routines-reading"
+    ],
+    "collection": "explore"
   }
 ]

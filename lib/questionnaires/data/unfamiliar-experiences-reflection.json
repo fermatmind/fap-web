@@ -1,0 +1,1955 @@
+{
+  "slug": "unfamiliar-experiences-reflection",
+  "code": "FM_UNFAMILIAR20_OBSERVATIONS",
+  "version": "fm_unfamiliar20_observations_v1",
+  "kind": "unfamiliar20",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 5,
+  "title": {
+    "en": "Unfamiliar Experiences & Everyday Participation",
+    "zh": "陌生体验与日常参与"
+  },
+  "seoTitle": {
+    "en": "Unfamiliar Experiences Reflection: Five Everyday Topics",
+    "zh": "陌生体验反思：五个日常主题"
+  },
+  "description": {
+    "en": "Twenty original descriptions of sensory impressions, following thoughts, wariness, participation and routines, with five complete free guides. Private category records, without a psychosis-risk score, reality verdict or diagnosis.",
+    "zh": "20条原创描述，回顾感官印象、思路、戒备、参与及日常安排，附五篇完整免费指南。只保留私人类别记录，不生成精神病风险分数、现实裁决或诊断。"
+  },
+  "introduction": {
+    "en": "Adults can voluntarily recall their own experiences over the past four weeks without choosing an explanation. An unfamiliar impression or uncertain meaning cannot establish what happened outside you, another person’s intention or a future illness. No names, private narrative or evidence is requested.",
+    "zh": "成年人可自愿回顾过去四周自身体验，无需选定解释。陌生印象或含义不确定，不能确定外部发生什么、别人意图或未来疾病。不要求姓名、私人叙述或证据。"
+  },
+  "instructions": {
+    "en": "Use only recollection. No relevant occasion, unclear recall or withholding can stay unscored. Do not recreate impressions, check reality, seek signs, record people or confront someone to answer. All five full guides and the same support information are public without completion or a threshold.",
+    "zh": "只用回忆作答，无相关机会、回忆不清或保留回答可选未计分。不要为作答重做印象、检查现实、寻找迹象、记录别人或对质。五篇全文与相同支持说明公开，无完成或计数门槛。"
+  },
+  "resultHeading": {
+    "en": "Your private experience-and-participation record",
+    "zh": "你的私人体验与参与记录"
+  },
+  "directions": [
+    {
+      "id": "sensory-impressions",
+      "title": {
+        "en": "Unfamiliar sensory impressions",
+        "zh": "陌生感官印象"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "following-thoughts",
+      "title": {
+        "en": "Following a thread of thought",
+        "zh": "跟随思路"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "wariness-and-meaning",
+      "title": {
+        "en": "Wariness and uncertain meaning",
+        "zh": "戒备与含义不确定"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "contact-and-participation",
+      "title": {
+        "en": "Contact and participation",
+        "zh": "联系与参与"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "everyday-routines",
+      "title": {
+        "en": "Everyday routines and practical needs",
+        "zh": "日常安排与实际需要"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "UFE_01",
+      "prompt": {
+        "en": "I noticed a brief sound or sight that I could not readily place.",
+        "zh": "我注意到一个短暂声音或景象，一时说不清来自哪里。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_02",
+      "prompt": {
+        "en": "An ordinary sensation felt unexpectedly intense or unfamiliar to me.",
+        "zh": "一个普通感觉对我显得出乎意料地强烈或陌生。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_03",
+      "prompt": {
+        "en": "I was unsure whether a brief impression came from my surroundings or from a thought.",
+        "zh": "对于一个短暂印象，我不确定它来自周围还是一个想法。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_04",
+      "prompt": {
+        "en": "An unfamiliar impression stayed on my mind after I returned to an ordinary activity.",
+        "zh": "回到一项普通活动后，一个陌生印象仍留在我的心上。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "sensory-impressions"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_05",
+      "prompt": {
+        "en": "I lost track of the point I intended to make during an ordinary conversation.",
+        "zh": "普通谈话中，我跟丢了原本想表达的要点。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_06",
+      "prompt": {
+        "en": "I found it difficult to put an ordinary sequence of thoughts into words.",
+        "zh": "我觉得难以把一串普通想法按顺序说出来。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_07",
+      "prompt": {
+        "en": "My thoughts moved between topics more quickly than I intended.",
+        "zh": "我的想法在不同话题间转移得比我打算的更快。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_08",
+      "prompt": {
+        "en": "I used an available pause to return to the point I wanted to express.",
+        "zh": "我利用一个可以停顿的机会，回到自己想表达的要点。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "following-thoughts"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_09",
+      "prompt": {
+        "en": "I felt wary during an ordinary exchange without being sure why.",
+        "zh": "普通交流中，我感到戒备，却不确定为什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_10",
+      "prompt": {
+        "en": "An ordinary remark felt personally significant to me while its meaning remained uncertain.",
+        "zh": "一句普通话对我显得与自己有关，但它的含义仍不确定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_11",
+      "prompt": {
+        "en": "I found it difficult to set aside uncertainty about what an ordinary exchange meant.",
+        "zh": "对于一次普通交流意味着什么，我觉得难以放下这种不确定。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_12",
+      "prompt": {
+        "en": "I held back in a routine conversation because I felt unsure about the other person’s intentions.",
+        "zh": "一次日常谈话中，我因不确定对方意图而有所保留。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "wariness-and-meaning"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_13",
+      "prompt": {
+        "en": "I wanted contact but put off beginning an ordinary conversation.",
+        "zh": "我想与人联系，却推迟开始一次普通谈话。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_14",
+      "prompt": {
+        "en": "I took part in fewer familiar shared activities than I had intended.",
+        "zh": "我参与熟悉的共同活动，比自己原本打算的少。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_15",
+      "prompt": {
+        "en": "Beginning an ordinary reply felt difficult even when I wanted to respond.",
+        "zh": "即使想回应，我也觉得很难开始一条普通回复。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_16",
+      "prompt": {
+        "en": "I asked for company or support during an ordinary activity when I wanted it.",
+        "zh": "普通活动中，当我希望有人陪伴或支持时，我提出了请求。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "contact-and-participation"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_17",
+      "prompt": {
+        "en": "A familiar everyday task took more effort than I expected.",
+        "zh": "一项熟悉日常事务，比我预想的更费力。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_18",
+      "prompt": {
+        "en": "I missed a small step I had intended to include in an ordinary routine.",
+        "zh": "一件普通日常事务中，我漏了原本打算做的一个小步骤。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_19",
+      "prompt": {
+        "en": "A change in my sleeping or waking routine affected an ordinary plan.",
+        "zh": "睡觉或起床安排的变化，影响了我的一个普通计划。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "UFE_20",
+      "prompt": {
+        "en": "I wanted practical help with an everyday responsibility.",
+        "zh": "对于一项日常责任，我希望获得实际帮助。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice this on relevant occasions",
+            "zh": "有相关机会时没有注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely noticed",
+            "zh": "很少注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes noticed",
+            "zh": "有时注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often noticed",
+            "zh": "较常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often noticed",
+            "zh": "经常注意到"
+          },
+          "directionId": "everyday-routines"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot recall / prefer not to answer",
+            "zh": "没有相关机会／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "sensory-impressions-reading",
+      "directionIds": [
+        "sensory-impressions"
+      ],
+      "title": {
+        "en": "Unfamiliar sensory impressions — Complete Experience Guide",
+        "zh": "陌生感官印象：完整体验指南"
+      },
+      "headline": {
+        "en": "Unfamiliar sensory impressions — Complete Experience Guide",
+        "zh": "陌生感官印象：完整体验指南"
+      },
+      "summary": {
+        "en": "The four descriptions concern an impression that is hard to place, an unexpectedly intense sensation, uncertainty between surroundings and thought, and an impression remaining on your mind. They ask about your recollection of an experience. They do not establish whether a sound, sight or other event occurred outside you.",
+        "zh": "四条描述涉及印象来源难定位、感觉出乎意料地强烈、对周围与想法之间的不确定，以及印象留在心上。它们询问回忆中的体验，不能确定声音、景象或其他事件是否在外部发生。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six labels without a clinical score, prediction or reality verdict.",
+        "zh": "四条描述保留六类标签，不生成临床分数、预测或现实裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Unfamiliar sensory impressions — Complete Experience Guide",
+          "zh": "陌生感官印象：完整体验指南"
+        },
+        "description": {
+          "en": "The four descriptions concern an impression that is hard to place, an unexpectedly intense sensation, uncertainty between surroundings and thought, and an impression remaining on your mind. They ask about your recollection of an experience. They do not establish whether a sound, sight or other event occurred outside you.",
+          "zh": "四条描述涉及印象来源难定位、感觉出乎意料地强烈、对周围与想法之间的不确定，以及印象留在心上。它们询问回忆中的体验，不能确定声音、景象或其他事件是否在外部发生。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Describe the impression without deciding its source",
+            "zh": "描述印象，不裁定来源"
+          },
+          "paragraphs": [
+            {
+              "en": "The four descriptions concern an impression that is hard to place, an unexpectedly intense sensation, uncertainty between surroundings and thought, and an impression remaining on your mind. They ask about your recollection of an experience. They do not establish whether a sound, sight or other event occurred outside you.",
+              "zh": "四条描述涉及印象来源难定位、感觉出乎意料地强烈、对周围与想法之间的不确定，以及印象留在心上。它们询问回忆中的体验，不能确定声音、景象或其他事件是否在外部发生。"
+            },
+            {
+              "en": "This page cannot identify a hallucination, verify an interpretation or certify that a medical concern is absent. Do not repeat an experience, make recordings, seek signs or ask someone to prove an explanation for this reflection. A category records a description rather than settling what is real.",
+              "zh": "页面不能识别幻觉、核实解释或认证没有医疗担忧。无需为了本回顾重做体验、录音录像、寻找迹象或请人证明解释。类别记录描述，不裁定什么是真实。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions, six separate counts",
+            "zh": "四条描述，六类独立计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six label counts add to four selected descriptions. They count neither events nor symptoms, time, severity or likelihood. IDs are not points. There is no total, mean, highest topic, clinical cutoff, prediction or risk category.",
+              "zh": "六类标签计数合计四条所选描述，不数事件、症状、时间、严重度或可能性。标识不是点数；没有总分、均分、最高主题、临床界值、预测或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. All unscored gives no finding. Frequent selections cannot establish psychosis or its cause, and fewer selections cannot exclude a concern or certify safety.",
+              "zh": "一条较常、一条有时及两条未计分，就保留这四个选择。无机会、回忆不清或保留回答，不变成没有注意到。全未计分没有发现；频繁选择也不能确定精神病性状态或原因，少量不排除担忧、不认证安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a verdict",
+            "zh": "一个不作裁决的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult recalls a brief sound that was difficult to place while doing a routine task. They may record their uncertainty without choosing a cause or searching for evidence. If they cannot recall whether that experience occurred, the description can stay unscored. The example does not imply that an external event did or did not happen.",
+              "zh": "一位虚构成年人回忆做日常事务时听到短暂声音，却难定位来源。他可以记录不确定，不选原因、不找证据。若不记得这种体验是否发生，可保持未计分。例子不暗示外部事件发生或未发生。"
+            },
+            {
+              "en": "This is not an expected answer or an experiment to repeat. Later differences may reflect opportunity, interpretation or what you recall. They cannot establish recovery, deterioration, treatment response or future illness, and they do not prove or disprove an explanation.",
+              "zh": "例子不是期待答案或要重做的实验。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、治疗反应或未来疾病，也不证明或推翻解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original reflection, separate from clinical assessment",
+            "zh": "原创反思，与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping editorial topics are original and unvalidated. They are not the Prodromal Questionnaire, PQ-B, PRIME Screen or a clinical psychosis-risk instrument. The four-week window is editorial. No norms, diagnostic algorithm, prediction model or established language equivalence is supplied.",
+              "zh": "20条双语描述及五个可重叠编辑主题均为未经验证的原创，不是前驱症状问卷、PQ-B、PRIME Screen或临床精神病风险工具。四周范围为编辑选择，没有常模、诊断算法、预测模型或已建立语言等值。"
+            },
+            {
+              "en": "NIMH describes professional assessment and possible causes in its public background material. That source provides no validation or endorsement of this original form. Other attention, sensory or relationship forms keep their own methods; their answers and scores cannot be combined into a clinical conclusion here.",
+              "zh": "NIMH公开背景说明专业评估与可能原因，该来源不验证或背书本原创表单。其他注意、感官或关系表单保留自身方法，其回答及分数不能在此合成临床结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional way to describe an actual need",
+            "zh": "一种可选的实际需要表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want support, describe the experience in ordinary language to a qualified healthcare professional, including what is concerning you and what help you want. No detailed sensory account or attempt to reproduce the impression is required by this page. You can stop reflecting whenever you choose.",
+              "zh": "若希望获得支持，可以向合格医疗专业人士用普通语言描述体验、担忧及想要的帮助。本页不要求详细感官叙述，也不要求重现印象。你可以随时停止回顾。"
+            },
+            {
+              "en": "Reading alone is enough. No result requires disclosure, an exercise, a changed boundary or proof that you can control an experience. A count cannot prescribe a technique, determine treatment or require you to investigate another person or an uncertain interpretation.",
+              "zh": "只读即可。任何结果都不要求披露、练习、改变边界或证明能控制体验。计数不规定技巧、不决定治疗，也不要求调查别人或不裁定解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without completing or reaching a count. This page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of it. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度，不应据此推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适紧急援助而非继续。"
+            },
+            {
+              "en": "All guides and support information are public for every answer pattern. Answers stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts, names or personal explanations.",
+              "zh": "全部指南与支持说明对任何组合公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除。复制只含公开标题与入口，不含选择、计数、姓名或私人解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "following-thoughts-reading",
+      "directionIds": [
+        "following-thoughts"
+      ],
+      "title": {
+        "en": "Following a thread of thought — Complete Experience Guide",
+        "zh": "跟随思路：完整体验指南"
+      },
+      "headline": {
+        "en": "Following a thread of thought — Complete Experience Guide",
+        "zh": "跟随思路：完整体验指南"
+      },
+      "summary": {
+        "en": "These four statements concern losing a conversational point, difficulty arranging thoughts into words, moving between topics and using a pause to return. They retain different moments without deciding why they occurred. A useful pause is not reversed to cancel a difficult moment.",
+        "zh": "四条涉及谈话要点跟丢、想法难以组织成语言、话题间转移及利用停顿返回。它们保留不同片刻，不决定原因。有用的停顿不反向抵扣困难片刻。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six labels without a clinical score, prediction or reality verdict.",
+        "zh": "四条描述保留六类标签，不生成临床分数、预测或现实裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Following a thread of thought — Complete Experience Guide",
+          "zh": "跟随思路：完整体验指南"
+        },
+        "description": {
+          "en": "These four statements concern losing a conversational point, difficulty arranging thoughts into words, moving between topics and using a pause to return. They retain different moments without deciding why they occurred. A useful pause is not reversed to cancel a difficult moment.",
+          "zh": "四条涉及谈话要点跟丢、想法难以组织成语言、话题间转移及利用停顿返回。它们保留不同片刻，不决定原因。有用的停顿不反向抵扣困难片刻。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Losing a thread is not a clinical thought assessment",
+            "zh": "跟丢思路，不是临床思维评估"
+          },
+          "paragraphs": [
+            {
+              "en": "These four statements concern losing a conversational point, difficulty arranging thoughts into words, moving between topics and using a pause to return. They retain different moments without deciding why they occurred. A useful pause is not reversed to cancel a difficult moment.",
+              "zh": "四条涉及谈话要点跟丢、想法难以组织成语言、话题间转移及利用停顿返回。它们保留不同片刻，不决定原因。有用的停顿不反向抵扣困难片刻。"
+            },
+            {
+              "en": "The form does not observe speech, test logical reasoning or determine a thought disorder, intelligence or communication ability. A difficulty expressing one thought does not identify a psychiatric condition. Fewer selected descriptions cannot rule out a concern you want to discuss.",
+              "zh": "表单不观察言语、不测试逻辑推理，也不能确定思维障碍、智力或沟通能力。一个想法难表达，不识别精神疾病；较少描述也不排除你想讨论的担忧。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions, six separate counts",
+            "zh": "四条描述，六类独立计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six label counts add to four selected descriptions. They count neither events nor symptoms, time, severity or likelihood. IDs are not points. There is no total, mean, highest topic, clinical cutoff, prediction or risk category.",
+              "zh": "六类标签计数合计四条所选描述，不数事件、症状、时间、严重度或可能性。标识不是点数；没有总分、均分、最高主题、临床界值、预测或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. All unscored gives no finding. Frequent selections cannot establish psychosis or its cause, and fewer selections cannot exclude a concern or certify safety.",
+              "zh": "一条较常、一条有时及两条未计分，就保留这四个选择。无机会、回忆不清或保留回答，不变成没有注意到。全未计分没有发现；频繁选择也不能确定精神病性状态或原因，少量不排除担忧、不认证安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a verdict",
+            "zh": "一个不作裁决的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult losing their intended point in a routine exchange, then returning after a pause. Both descriptions can be retained. The record does not grade their conversation or decide whether attention, language, sleep or another factor contributed. An example is not evidence about the reader.",
+              "zh": "设想一位虚构成年人在日常交流中跟丢要点，停顿后又返回。两条都可以保留。记录不为谈话评分，也不判断注意、语言、睡眠或其他因素是否参与。例子不是关于读者的证据。"
+            },
+            {
+              "en": "This is not an expected answer or an experiment to repeat. Later differences may reflect opportunity, interpretation or what you recall. They cannot establish recovery, deterioration, treatment response or future illness, and they do not prove or disprove an explanation.",
+              "zh": "例子不是期待答案或要重做的实验。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、治疗反应或未来疾病，也不证明或推翻解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original reflection, separate from clinical assessment",
+            "zh": "原创反思，与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping editorial topics are original and unvalidated. They are not the Prodromal Questionnaire, PQ-B, PRIME Screen or a clinical psychosis-risk instrument. The four-week window is editorial. No norms, diagnostic algorithm, prediction model or established language equivalence is supplied.",
+              "zh": "20条双语描述及五个可重叠编辑主题均为未经验证的原创，不是前驱症状问卷、PQ-B、PRIME Screen或临床精神病风险工具。四周范围为编辑选择，没有常模、诊断算法、预测模型或已建立语言等值。"
+            },
+            {
+              "en": "NIMH describes professional assessment and possible causes in its public background material. That source provides no validation or endorsement of this original form. Other attention, sensory or relationship forms keep their own methods; their answers and scores cannot be combined into a clinical conclusion here.",
+              "zh": "NIMH公开背景说明专业评估与可能原因，该来源不验证或背书本原创表单。其他注意、感官或关系表单保留自身方法，其回答及分数不能在此合成临床结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional way to describe an actual need",
+            "zh": "一种可选的实际需要表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "You may privately note the ordinary task you wanted to do and the part that felt difficult. There is no need to record conversations, practise a performance test or force a long explanation. Practical communication support can be discussed from actual needs without a questionnaire score.",
+              "zh": "可以私下记录原本想做的普通任务及觉得困难的部分。无需录下谈话、练习表现测试或强迫长篇解释。实际沟通支持可按需要讨论，无需问卷分数。"
+            },
+            {
+              "en": "Reading alone is enough. No result requires disclosure, an exercise, a changed boundary or proof that you can control an experience. A count cannot prescribe a technique, determine treatment or require you to investigate another person or an uncertain interpretation.",
+              "zh": "只读即可。任何结果都不要求披露、练习、改变边界或证明能控制体验。计数不规定技巧、不决定治疗，也不要求调查别人或不裁定解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without completing or reaching a count. This page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of it. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度，不应据此推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适紧急援助而非继续。"
+            },
+            {
+              "en": "All guides and support information are public for every answer pattern. Answers stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts, names or personal explanations.",
+              "zh": "全部指南与支持说明对任何组合公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除。复制只含公开标题与入口，不含选择、计数、姓名或私人解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wariness-and-meaning-reading",
+      "directionIds": [
+        "wariness-and-meaning"
+      ],
+      "title": {
+        "en": "Wariness and uncertain meaning — Complete Experience Guide",
+        "zh": "戒备与含义不确定：完整体验指南"
+      },
+      "headline": {
+        "en": "Wariness and uncertain meaning — Complete Experience Guide",
+        "zh": "戒备与含义不确定：完整体验指南"
+      },
+      "summary": {
+        "en": "The four descriptions concern feeling wary, a remark feeling personally significant, difficulty leaving meaning uncertain and holding back in conversation. They concern your own experience. The wording does not claim that somebody intended harm, sent a message or acted in a particular way.",
+        "zh": "四条涉及戒备、话语对自己显得意味特别、难以让含义保持未知及谈话中保留。它们关注自身体验，不主张有人意图伤害、传递信息或实施特定行为。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six labels without a clinical score, prediction or reality verdict.",
+        "zh": "四条描述保留六类标签，不生成临床分数、预测或现实裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Wariness and uncertain meaning — Complete Experience Guide",
+          "zh": "戒备与含义不确定：完整体验指南"
+        },
+        "description": {
+          "en": "The four descriptions concern feeling wary, a remark feeling personally significant, difficulty leaving meaning uncertain and holding back in conversation. They concern your own experience. The wording does not claim that somebody intended harm, sent a message or acted in a particular way.",
+          "zh": "四条涉及戒备、话语对自己显得意味特别、难以让含义保持未知及谈话中保留。它们关注自身体验，不主张有人意图伤害、传递信息或实施特定行为。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A feeling of significance does not establish another person’s intention",
+            "zh": "感到意味特别，不确定别人意图"
+          },
+          "paragraphs": [
+            {
+              "en": "The four descriptions concern feeling wary, a remark feeling personally significant, difficulty leaving meaning uncertain and holding back in conversation. They concern your own experience. The wording does not claim that somebody intended harm, sent a message or acted in a particular way.",
+              "zh": "四条涉及戒备、话语对自己显得意味特别、难以让含义保持未知及谈话中保留。它们关注自身体验，不主张有人意图伤害、传递信息或实施特定行为。"
+            },
+            {
+              "en": "The page cannot prove or disprove a belief, assess trustworthiness or verify an external threat. It does not identify paranoia or a delusion. Do not use category counts as evidence about another person, confront someone for a test, seek repeated reassurance or search for confirming signs.",
+              "zh": "页面不能证明或推翻信念、评估可信度或核实外部威胁，不识别偏执或妄想。不要把计数当作他人证据、为了测试而对质、反复索求保证或寻找确认迹象。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions, six separate counts",
+            "zh": "四条描述，六类独立计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six label counts add to four selected descriptions. They count neither events nor symptoms, time, severity or likelihood. IDs are not points. There is no total, mean, highest topic, clinical cutoff, prediction or risk category.",
+              "zh": "六类标签计数合计四条所选描述，不数事件、症状、时间、严重度或可能性。标识不是点数；没有总分、均分、最高主题、临床界值、预测或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. All unscored gives no finding. Frequent selections cannot establish psychosis or its cause, and fewer selections cannot exclude a concern or certify safety.",
+              "zh": "一条较常、一条有时及两条未计分，就保留这四个选择。无机会、回忆不清或保留回答，不变成没有注意到。全未计分没有发现；频繁选择也不能确定精神病性状态或原因，少量不排除担忧、不认证安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a verdict",
+            "zh": "一个不作裁决的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult feels unsure about an ordinary comment and notices holding back in the exchange. Their record can preserve that uncertainty without interpreting the speaker’s intention. It gives no instruction to trust more, trust less, contact the person or settle the meaning.",
+              "zh": "一位虚构成年人对普通评论感到不确定，也注意到自己交流中有所保留。记录可保留不确定，不解释说话者意图；它不指示更信任、更不信任、联系对方或确定含义。"
+            },
+            {
+              "en": "This is not an expected answer or an experiment to repeat. Later differences may reflect opportunity, interpretation or what you recall. They cannot establish recovery, deterioration, treatment response or future illness, and they do not prove or disprove an explanation.",
+              "zh": "例子不是期待答案或要重做的实验。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、治疗反应或未来疾病，也不证明或推翻解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original reflection, separate from clinical assessment",
+            "zh": "原创反思，与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping editorial topics are original and unvalidated. They are not the Prodromal Questionnaire, PQ-B, PRIME Screen or a clinical psychosis-risk instrument. The four-week window is editorial. No norms, diagnostic algorithm, prediction model or established language equivalence is supplied.",
+              "zh": "20条双语描述及五个可重叠编辑主题均为未经验证的原创，不是前驱症状问卷、PQ-B、PRIME Screen或临床精神病风险工具。四周范围为编辑选择，没有常模、诊断算法、预测模型或已建立语言等值。"
+            },
+            {
+              "en": "NIMH describes professional assessment and possible causes in its public background material. That source provides no validation or endorsement of this original form. Other attention, sensory or relationship forms keep their own methods; their answers and scores cannot be combined into a clinical conclusion here.",
+              "zh": "NIMH公开背景说明专业评估与可能原因，该来源不验证或背书本原创表单。其他注意、感官或关系表单保留自身方法，其回答及分数不能在此合成临床结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional way to describe an actual need",
+            "zh": "一种可选的实际需要表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is concerning, you can describe how it affects daily life and what support you would like to a qualified professional. A detailed account of suspicions or names is unnecessary here. Keep practical safety and existing care in view without treating a category as a verdict.",
+              "zh": "体验若令人担忧，可以向合格专业人士描述它怎样影响日常及希望获得什么支持。这里无需详细怀疑叙述或姓名。保留实际安全与既有照护，不把类别当裁决。"
+            },
+            {
+              "en": "Reading alone is enough. No result requires disclosure, an exercise, a changed boundary or proof that you can control an experience. A count cannot prescribe a technique, determine treatment or require you to investigate another person or an uncertain interpretation.",
+              "zh": "只读即可。任何结果都不要求披露、练习、改变边界或证明能控制体验。计数不规定技巧、不决定治疗，也不要求调查别人或不裁定解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without completing or reaching a count. This page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of it. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度，不应据此推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适紧急援助而非继续。"
+            },
+            {
+              "en": "All guides and support information are public for every answer pattern. Answers stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts, names or personal explanations.",
+              "zh": "全部指南与支持说明对任何组合公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除。复制只含公开标题与入口，不含选择、计数、姓名或私人解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact-and-participation-reading",
+      "directionIds": [
+        "contact-and-participation"
+      ],
+      "title": {
+        "en": "Contact and participation — Complete Experience Guide",
+        "zh": "联系与参与：完整体验指南"
+      },
+      "headline": {
+        "en": "Contact and participation — Complete Experience Guide",
+        "zh": "联系与参与：完整体验指南"
+      },
+      "summary": {
+        "en": "This topic concerns wanting contact while delaying conversation, participating less than intended, difficulty beginning a reply and requesting company or support. It does not prescribe how social you should be. A request for company does not cancel another description or establish a protective score.",
+        "zh": "本主题涉及想联系却推迟谈话、参与少于打算、回复难开始及请求陪伴支持，不规定应有多合群。请求陪伴不抵扣其他描述，也不产生保护分数。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six labels without a clinical score, prediction or reality verdict.",
+        "zh": "四条描述保留六类标签，不生成临床分数、预测或现实裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Contact and participation — Complete Experience Guide",
+          "zh": "联系与参与：完整体验指南"
+        },
+        "description": {
+          "en": "This topic concerns wanting contact while delaying conversation, participating less than intended, difficulty beginning a reply and requesting company or support. It does not prescribe how social you should be. A request for company does not cancel another description or establish a protective score.",
+          "zh": "本主题涉及想联系却推迟谈话、参与少于打算、回复难开始及请求陪伴支持，不规定应有多合群。请求陪伴不抵扣其他描述，也不产生保护分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Wanted contact and actual participation are different observations",
+            "zh": "希望联系与实际参与，是不同观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This topic concerns wanting contact while delaying conversation, participating less than intended, difficulty beginning a reply and requesting company or support. It does not prescribe how social you should be. A request for company does not cancel another description or establish a protective score.",
+              "zh": "本主题涉及想联系却推迟谈话、参与少于打算、回复难开始及请求陪伴支持，不规定应有多合群。请求陪伴不抵扣其他描述，也不产生保护分数。"
+            },
+            {
+              "en": "A quieter period can have many meanings that this record cannot distinguish. The page does not determine social withdrawal, depression, personality, relationship quality or future illness. A chosen preference for solitude is not automatically the same as unwanted difficulty joining in.",
+              "zh": "较安静时期可能有多种含义，记录无法区分。页面不能确定社交退缩、抑郁、人格、关系质量或未来疾病。选择独处的偏好不自动等于不愿出现的参与困难。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions, six separate counts",
+            "zh": "四条描述，六类独立计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six label counts add to four selected descriptions. They count neither events nor symptoms, time, severity or likelihood. IDs are not points. There is no total, mean, highest topic, clinical cutoff, prediction or risk category.",
+              "zh": "六类标签计数合计四条所选描述，不数事件、症状、时间、严重度或可能性。标识不是点数；没有总分、均分、最高主题、临床界值、预测或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. All unscored gives no finding. Frequent selections cannot establish psychosis or its cause, and fewer selections cannot exclude a concern or certify safety.",
+              "zh": "一条较常、一条有时及两条未计分，就保留这四个选择。无机会、回忆不清或保留回答，不变成没有注意到。全未计分没有发现；频繁选择也不能确定精神病性状态或原因，少量不排除担忧、不认证安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a verdict",
+            "zh": "一个不作裁决的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional adult wants to reply but finds beginning difficult on one occasion and asks for company on another. Both can remain. The form cannot tell whether the circumstances, available energy, a preference or another factor mattered. It cannot infer how friends feel about them.",
+              "zh": "一位虚构成年人某次想回复却难开始，另一次请求陪伴，两者都可保留。表单无法知道情境、可用精力、偏好或其他因素有何影响，也不能推断朋友怎样看他。"
+            },
+            {
+              "en": "This is not an expected answer or an experiment to repeat. Later differences may reflect opportunity, interpretation or what you recall. They cannot establish recovery, deterioration, treatment response or future illness, and they do not prove or disprove an explanation.",
+              "zh": "例子不是期待答案或要重做的实验。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、治疗反应或未来疾病，也不证明或推翻解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original reflection, separate from clinical assessment",
+            "zh": "原创反思，与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping editorial topics are original and unvalidated. They are not the Prodromal Questionnaire, PQ-B, PRIME Screen or a clinical psychosis-risk instrument. The four-week window is editorial. No norms, diagnostic algorithm, prediction model or established language equivalence is supplied.",
+              "zh": "20条双语描述及五个可重叠编辑主题均为未经验证的原创，不是前驱症状问卷、PQ-B、PRIME Screen或临床精神病风险工具。四周范围为编辑选择，没有常模、诊断算法、预测模型或已建立语言等值。"
+            },
+            {
+              "en": "NIMH describes professional assessment and possible causes in its public background material. That source provides no validation or endorsement of this original form. Other attention, sensory or relationship forms keep their own methods; their answers and scores cannot be combined into a clinical conclusion here.",
+              "zh": "NIMH公开背景说明专业评估与可能原因，该来源不验证或背书本原创表单。其他注意、感官或关系表单保留自身方法，其回答及分数不能在此合成临床结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional way to describe an actual need",
+            "zh": "一种可选的实际需要表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, consider one existing activity you wanted to take part in and the kind of practical support you wanted. No disclosure, social challenge or contact with someone is required. You can read without changing your usual boundaries or carrying out an exercise.",
+              "zh": "若有用，可以考虑一个原本想参与的已有活动，以及想要哪种实际支持。无需披露、社交挑战或联系别人；可以只读，不改变原有边界、不做练习。"
+            },
+            {
+              "en": "Reading alone is enough. No result requires disclosure, an exercise, a changed boundary or proof that you can control an experience. A count cannot prescribe a technique, determine treatment or require you to investigate another person or an uncertain interpretation.",
+              "zh": "只读即可。任何结果都不要求披露、练习、改变边界或证明能控制体验。计数不规定技巧、不决定治疗，也不要求调查别人或不裁定解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without completing or reaching a count. This page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of it. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度，不应据此推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适紧急援助而非继续。"
+            },
+            {
+              "en": "All guides and support information are public for every answer pattern. Answers stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts, names or personal explanations.",
+              "zh": "全部指南与支持说明对任何组合公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除。复制只含公开标题与入口，不含选择、计数、姓名或私人解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "everyday-routines-reading",
+      "directionIds": [
+        "everyday-routines"
+      ],
+      "title": {
+        "en": "Everyday routines and practical needs — Complete Experience Guide",
+        "zh": "日常安排与实际需要：完整体验指南"
+      },
+      "headline": {
+        "en": "Everyday routines and practical needs — Complete Experience Guide",
+        "zh": "日常安排与实际需要：完整体验指南"
+      },
+      "summary": {
+        "en": "The four descriptions concern unexpected effort, a missed routine step, sleep or waking changes affecting a plan, and wanting practical help. They ask about ordinary situations rather than a clinician’s observation of functional decline. Wanting help is not reverse-scored or treated as evidence of dependence.",
+        "zh": "四条涉及出乎预期的费力、日常步骤遗漏、睡眠起床变化影响计划及希望实际帮助。它们询问普通情境，不是临床观察功能下降。希望帮助不反向，也不作为依赖证据。"
+      },
+      "scoreReading": {
+        "en": "Four descriptions retain six labels without a clinical score, prediction or reality verdict.",
+        "zh": "四条描述保留六类标签，不生成临床分数、预测或现实裁决。"
+      },
+      "seo": {
+        "title": {
+          "en": "Everyday routines and practical needs — Complete Experience Guide",
+          "zh": "日常安排与实际需要：完整体验指南"
+        },
+        "description": {
+          "en": "The four descriptions concern unexpected effort, a missed routine step, sleep or waking changes affecting a plan, and wanting practical help. They ask about ordinary situations rather than a clinician’s observation of functional decline. Wanting help is not reverse-scored or treated as evidence of dependence.",
+          "zh": "四条涉及出乎预期的费力、日常步骤遗漏、睡眠起床变化影响计划及希望实际帮助。它们询问普通情境，不是临床观察功能下降。希望帮助不反向，也不作为依赖证据。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Practical difficulty deserves attention without a prediction",
+            "zh": "实际困难无需预测也值得关注"
+          },
+          "paragraphs": [
+            {
+              "en": "The four descriptions concern unexpected effort, a missed routine step, sleep or waking changes affecting a plan, and wanting practical help. They ask about ordinary situations rather than a clinician’s observation of functional decline. Wanting help is not reverse-scored or treated as evidence of dependence.",
+              "zh": "四条涉及出乎预期的费力、日常步骤遗漏、睡眠起床变化影响计划及希望实际帮助。它们询问普通情境，不是临床观察功能下降。希望帮助不反向，也不作为依赖证据。"
+            },
+            {
+              "en": "The record cannot establish a decline from a previous baseline, explain sleep changes or predict psychosis. It cannot distinguish medical, situational or other causes. Fewer labels cannot certify that daily needs are met, and frequent labels do not determine what care is necessary.",
+              "zh": "记录不能确定相对既往基线的下降、解释睡眠变化或预测精神病性状态，不能区分医疗、情境或其他原因。标签较少不认证日常需要已满足；频繁标签不决定必要照护。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Four descriptions, six separate counts",
+            "zh": "四条描述，六类独立计数"
+          },
+          "paragraphs": [
+            {
+              "en": "The six label counts add to four selected descriptions. They count neither events nor symptoms, time, severity or likelihood. IDs are not points. There is no total, mean, highest topic, clinical cutoff, prediction or risk category.",
+              "zh": "六类标签计数合计四条所选描述，不数事件、症状、时间、严重度或可能性。标识不是点数；没有总分、均分、最高主题、临床界值、预测或风险类别。"
+            },
+            {
+              "en": "One often, one sometimes and two unscored remain those four choices. No opportunity, unclear recall and withholding do not become did not notice. All unscored gives no finding. Frequent selections cannot establish psychosis or its cause, and fewer selections cannot exclude a concern or certify safety.",
+              "zh": "一条较常、一条有时及两条未计分，就保留这四个选择。无机会、回忆不清或保留回答，不变成没有注意到。全未计分没有发现；频繁选择也不能确定精神病性状态或原因，少量不排除担忧、不认证安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A fictional example without a verdict",
+            "zh": "一个不作裁决的虚构例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional adult finding a familiar errand more effortful after a change in waking time and wanting help with a responsibility. The form does not assign a cause or establish a disease trajectory. Their practical need can be discussed without completing the remaining descriptions.",
+              "zh": "设想一位虚构成年人起床时间变化后觉得熟悉事务更费力，并希望有人帮助一项责任。表单不归因，也不能确定疾病进程。实际需要可以在未完成其余描述时就讨论。"
+            },
+            {
+              "en": "This is not an expected answer or an experiment to repeat. Later differences may reflect opportunity, interpretation or what you recall. They cannot establish recovery, deterioration, treatment response or future illness, and they do not prove or disprove an explanation.",
+              "zh": "例子不是期待答案或要重做的实验。后来差异可反映机会、理解或回忆，不能确定恢复、恶化、治疗反应或未来疾病，也不证明或推翻解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Original reflection, separate from clinical assessment",
+            "zh": "原创反思，与临床评估分开"
+          },
+          "paragraphs": [
+            {
+              "en": "These twenty bilingual descriptions and five overlapping editorial topics are original and unvalidated. They are not the Prodromal Questionnaire, PQ-B, PRIME Screen or a clinical psychosis-risk instrument. The four-week window is editorial. No norms, diagnostic algorithm, prediction model or established language equivalence is supplied.",
+              "zh": "20条双语描述及五个可重叠编辑主题均为未经验证的原创，不是前驱症状问卷、PQ-B、PRIME Screen或临床精神病风险工具。四周范围为编辑选择，没有常模、诊断算法、预测模型或已建立语言等值。"
+            },
+            {
+              "en": "NIMH describes professional assessment and possible causes in its public background material. That source provides no validation or endorsement of this original form. Other attention, sensory or relationship forms keep their own methods; their answers and scores cannot be combined into a clinical conclusion here.",
+              "zh": "NIMH公开背景说明专业评估与可能原因，该来源不验证或背书本原创表单。其他注意、感官或关系表单保留自身方法，其回答及分数不能在此合成临床结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "One optional way to describe an actual need",
+            "zh": "一种可选的实际需要表达方式"
+          },
+          "paragraphs": [
+            {
+              "en": "You can describe one task that matters to you, what has been harder and the support you want to a qualified healthcare professional. Do not deliberately change sleep, stop medicine or test your functioning to answer. The page does not supply a treatment plan or assess medical urgency.",
+              "zh": "可以向合格医疗专业人士描述一项重要任务、哪里变难及希望获得的支持。不要为答题故意改变睡眠、停药或测试功能。页面不提供治疗方案，也不评医疗紧急程度。"
+            },
+            {
+              "en": "Reading alone is enough. No result requires disclosure, an exercise, a changed boundary or proof that you can control an experience. A count cannot prescribe a technique, determine treatment or require you to investigate another person or an uncertain interpretation.",
+              "zh": "只读即可。任何结果都不要求披露、练习、改变边界或证明能控制体验。计数不规定技巧、不决定治疗，也不要求调查别人或不裁定解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support, stopping and privacy",
+            "zh": "支持、停止与隐私"
+          },
+          "paragraphs": [
+            {
+              "en": "If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without completing or reaching a count. This page cannot assess causes, medical need or urgency. Do not delay care or change treatment because of it. If immediate danger is present or you cannot stay safe, seek appropriate local emergency assistance rather than continuing.",
+              "zh": "体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需完成或达到计数。页面不评原因、医疗需要或紧急程度，不应据此推迟照护或改变治疗。有即时危险或无法保障安全时，寻求当地合适紧急援助而非继续。"
+            },
+            {
+              "en": "All guides and support information are public for every answer pattern. Answers stay only in current-page memory, without drafts, submission, questionnaire analytics or a personal result address. Exit, reload, leaving and retake clear them. Copying includes only the public title and entry, without selections, counts, names or personal explanations.",
+              "zh": "全部指南与支持说明对任何组合公开。回答只在当前页面内存，不存草稿、不提交、不作问卷分析、没有私人结果地址。退出、刷新、离页与重做会清除。复制只含公开标题与入口，不含选择、计数、姓名或私人解释。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Five topics, no combined risk inference",
+        "zh": "五个主题，不合成风险推断"
+      },
+      "paragraphs": [
+        {
+          "en": "Each topic keeps four selected descriptions and six label counts. Helpful and difficult descriptions are not reversed or combined. Counts do not predict illness or settle an interpretation. All five complete guides are free before answering, midway and after any result.",
+          "zh": "每主题保留四条所选描述与六类计数。帮助性与困难描述不反向、不合分。计数不预测疾病，不裁定解释。五篇完整指南在答题前、中途及任何结果后均免费开放。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this identify or predict psychosis?",
+        "zh": "能识别或预测精神病性状态吗？"
+      },
+      "answer": {
+        "en": "No. These original descriptions have no validated screening threshold, probability model, diagnosis or prediction. They cannot verify perceptions or beliefs, assess reality or decide medical need. A professional assessment is a separate process.",
+        "zh": "不能。这些原创描述没有已验证筛查门槛、概率模型、诊断或预测，不能核实感知或信念、评估现实或决定医疗需要。专业评估是不同过程。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I complete the form or prove an explanation to ask for help?",
+        "zh": "求助前需要做完或证明解释吗？"
+      },
+      "answer": {
+        "en": "No. If an experience is new, concerning, continuing or affecting daily life, you can discuss it with a qualified healthcare professional without a count or proof. Do not delay care, change treatment or investigate an interpretation because of this page.",
+        "zh": "不需要。体验若新出现、令人担忧、持续或影响日常，可以向合格医疗专业人士讨论，无需计数或证据。不要因本页推迟照护、改变治疗或调查一种解释。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: understanding psychosis — professional background only",
+        "zh": "NIMH：理解精神病性状态，仅作专业背景"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/understanding-psychosis"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_unfamiliar_experience_observations",
+    "formCode": "fm_unfamiliar20_observations_v1",
+    "itemBankVersion": "original20_bilingual_five_by_four_experiences_v1",
+    "scoringVersion": "six_labels_per_four_no_risk_prediction_or_reality_verdict_v1",
+    "resultContentVersion": "five_full_bilingual_unfamiliar_experience_guides_v1",
+    "itemBankSha256": "169de2b090ee7fa46ed2102be7765a212e42aede041916b0322b6b7b48ac3c59",
+    "resultContentSha256": "26791c337243136b0b2e2a57995903135ad868f410d9e6c32471598347e489f9",
+    "psychometricValidationCompleted": false
+  }
+}
