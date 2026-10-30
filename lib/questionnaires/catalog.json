@@ -7102,5 +7102,30 @@
       "feelings-and-support-now-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "drinking-experiences-reflection",
+    "code": "FM_DRINKING_EXPERIENCES20_CATEGORIES",
+    "version": "fm_drinking20_four_weeks_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Drinking Experiences Reflection",
+      "zh": "饮酒经历回顾"
+    },
+    "description": {
+      "en": "A private adult reflection on drinking plans, daily effects, situations and bodily experiences. Original statements and category records; no clinical score.",
+      "zh": "成年人私下回顾饮酒计划、生活影响、情境与身体感受。原创陈述与类别记录，不算临床分数。"
+    },
+    "minutes": 5,
+    "formCode": "fm_drinking20_four_weeks_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "plans-and-pull-reading",
+      "daily-effects-reading",
+      "situations-and-choices-reading",
+      "body-experiences-reading"
+    ],
+    "collection": "explore"
   }
 ]

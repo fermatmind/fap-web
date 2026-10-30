@@ -1,0 +1,1816 @@
+{
+  "slug": "drinking-experiences-reflection",
+  "code": "FM_DRINKING_EXPERIENCES20_CATEGORIES",
+  "version": "fm_drinking20_four_weeks_v1",
+  "updated": "2026-10-30",
+  "category": "framework",
+  "kind": "drinking-experiences20",
+  "title": {
+    "en": "Drinking Experiences Reflection",
+    "zh": "饮酒经历回顾"
+  },
+  "seoTitle": {
+    "en": "Drinking Experiences: 20 Original Statements, Four Full Guides",
+    "zh": "饮酒经历回顾：20条原创陈述与四篇完整指南"
+  },
+  "description": {
+    "en": "A private adult reflection on drinking plans, daily effects, situations and bodily experiences. Original statements and category records; no clinical score.",
+    "zh": "成年人私下回顾饮酒计划、生活影响、情境与身体感受。原创陈述与类别记录，不算临床分数。"
+  },
+  "minutes": 5,
+  "instructions": {
+    "en": "For adults, answer only about yourself over the past four weeks. No alcohol, experiment, amount, name or medical narrative is needed. Choose a description category or keep uncertainty, no relevant experience and refusal separate. All twenty selections produce four records without points, a total or a risk band. You can stop at any time or read every guide without answering. Answers remain only in this page’s memory.",
+    "zh": "供成年人仅为自己回顾过去四周。无需饮酒、试验、摄入量、姓名或医疗经历叙述。选择描述类别，或分别保留无法判断、没有相关经历及不愿回答。20条选择只形成四份记录，不计分、不合总分、不划风险档位。可随时停止或不作答直接读全部指南，回答仅留本页内存。"
+  },
+  "resultHeading": {
+    "en": "Your four separate description records",
+    "zh": "你的四份独立描述记录"
+  },
+  "introduction": {
+    "en": "Twenty original statements and four complete public guides. This is not a screen for alcohol use disorder, a safe-drinking calculator or a substitute for medical advice. No account or payment is needed.",
+    "zh": "20条原创陈述与四篇完整公开指南，不是酒精使用障碍筛查、安全饮酒计算器或医疗建议的替代。无需账户或付费。"
+  },
+  "source": {
+    "kind": "fermatmind_original_drinking_experience_statements",
+    "formCode": "fm_drinking20_four_weeks_v1",
+    "itemBankVersion": "original20_bilingual_four_themes_five_each_v1",
+    "scoringVersion": "six_description_categories_no_points_v1",
+    "resultContentVersion": "four_full_bilingual_drinking_readings_v1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "e8f656eedda4d0f8eb6bf4580b6894e9582e12ad83dc0d54a90e069bbdc5b449",
+    "resultContentSha256": "68f795e4428f3355a3660bdc06e1a87c2f2b9b61cea2734fec5f07b12bfeeecc"
+  },
+  "directions": [
+    {
+      "id": "plans-and-pull",
+      "title": {
+        "en": "Plans and the pull to drink",
+        "zh": "饮酒计划与牵引"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "daily-effects",
+      "title": {
+        "en": "Effects noticed in everyday life",
+        "zh": "日常生活中的影响"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "situations-and-choices",
+      "title": {
+        "en": "Situations around drinking",
+        "zh": "饮酒时的情境"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "body-experiences",
+      "title": {
+        "en": "Changes in bodily experience",
+        "zh": "身体感受的变化"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "DRK_01",
+      "prompt": {
+        "en": "I drank beyond an amount I had intended before starting.",
+        "zh": "我喝下的量超过了开始前原本打算的量。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_02",
+      "prompt": {
+        "en": "I continued drinking for longer than I had intended.",
+        "zh": "我持续饮酒的时间比原本打算的更长。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_03",
+      "prompt": {
+        "en": "I found my attention repeatedly returning to having a drink.",
+        "zh": "我发现注意力反复回到想喝酒这件事上。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_04",
+      "prompt": {
+        "en": "I found it difficult to keep a drinking limit I had chosen.",
+        "zh": "我发现难以按自己原先选定的饮酒限度去做。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_05",
+      "prompt": {
+        "en": "Arranging to drink took time away from something else I had planned.",
+        "zh": "安排饮酒占用了我原本计划做其他事情的时间。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "plans-and-pull"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_06",
+      "prompt": {
+        "en": "After drinking, I postponed an ordinary responsibility I had intended to complete.",
+        "zh": "饮酒后，我推迟了一项原本打算完成的日常责任。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_07",
+      "prompt": {
+        "en": "An after-effect of drinking got in the way of an activity the next day.",
+        "zh": "饮酒后的影响妨碍了我第二天的一项活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_08",
+      "prompt": {
+        "en": "I changed a shared arrangement because of drinking or its after-effects.",
+        "zh": "我因为饮酒或饮酒后的影响，改变了一项共同安排。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_09",
+      "prompt": {
+        "en": "I noticed disagreement with someone about an effect of my drinking.",
+        "zh": "我注意到，自己与别人对我饮酒造成的某种影响存在分歧。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_10",
+      "prompt": {
+        "en": "I set aside an activity I valued while making room for drinking.",
+        "zh": "我为了给饮酒留出空间，搁置了一项自己看重的活动。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "daily-effects"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_11",
+      "prompt": {
+        "en": "I drank when I also had a responsibility requiring alert attention.",
+        "zh": "我饮酒时，还负有一项需要保持清醒注意的责任。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_12",
+      "prompt": {
+        "en": "I drank while unsure whether it was compatible with a medicine I was using.",
+        "zh": "我不确定饮酒与自己正在使用的药物能否相容，却仍喝了酒。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_13",
+      "prompt": {
+        "en": "I drank in a setting where I had already noticed a safety concern.",
+        "zh": "在已经注意到安全顾虑的场合，我仍喝了酒。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_14",
+      "prompt": {
+        "en": "I continued drinking after noticing an unwanted effect during that occasion.",
+        "zh": "那次饮酒中已经出现自己不希望的影响后，我仍继续喝了。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_15",
+      "prompt": {
+        "en": "I found it difficult to leave a drinking situation when I wanted to.",
+        "zh": "我想离开一个饮酒场合时，发现难以离开。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "situations-and-choices"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_16",
+      "prompt": {
+        "en": "I noticed needing more alcohol than previously to feel a similar effect.",
+        "zh": "我注意到，要获得类似感受，自己需要的酒精量比以前更多。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_17",
+      "prompt": {
+        "en": "The same amount of alcohol seemed to have less effect than before.",
+        "zh": "相同量的酒精带来的感受，似乎比以前弱。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_18",
+      "prompt": {
+        "en": "I felt physically unwell when a usual drink was delayed or did not happen.",
+        "zh": "平时会喝的酒推迟了或没有喝时，我感觉身体不舒服。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_19",
+      "prompt": {
+        "en": "I drank hoping to ease an uncomfortable physical feeling after a gap without alcohol.",
+        "zh": "间隔一段时间没喝酒后，我希望靠饮酒缓解身体不适。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "DRK_20",
+      "prompt": {
+        "en": "I was unsure how a change in how my body felt related to drinking.",
+        "zh": "身体感受有所变化时，我不确定它与饮酒有什么关系。"
+      },
+      "options": [
+        {
+          "id": "not-now",
+          "label": {
+            "en": "Does not describe my past four weeks",
+            "zh": "不符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "partly",
+          "label": {
+            "en": "Partly describes my past four weeks",
+            "zh": "部分符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "fits",
+          "label": {
+            "en": "Describes my past four weeks",
+            "zh": "符合我过去四周的情况"
+          },
+          "directionId": "body-experiences"
+        },
+        {
+          "id": "unsure",
+          "label": {
+            "en": "Cannot judge",
+            "zh": "无法判断"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience",
+            "zh": "没有相关经历"
+          },
+          "directionId": "unscored"
+        },
+        {
+          "id": "withheld",
+          "label": {
+            "en": "Prefer not to answer",
+            "zh": "不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "plans-and-pull-reading",
+      "directionIds": [
+        "plans-and-pull"
+      ],
+      "title": {
+        "en": "Plans and the pull to drink: Complete Drinking Reflection Guide",
+        "zh": "饮酒计划与牵引：完整饮酒经历指南"
+      },
+      "headline": {
+        "en": "Keep the individual descriptions and their uncertainty.",
+        "zh": "保留每条描述及其不确定。"
+      },
+      "summary": {
+        "en": "Read the five original observations in context, with category records and free support information. No clinical score or drinking advice.",
+        "zh": "结合背景阅读五条原创观察、类别记录与免费支持信息，不设临床分数或饮酒建议。"
+      },
+      "seo": {
+        "title": {
+          "en": "Plans and the pull to drink | Drinking Experiences Guide",
+          "zh": "饮酒计划与牵引｜饮酒经历指南"
+        },
+        "description": {
+          "en": "A complete original guide to plans and the pull to drink, separate response categories, uncertainty and limits. For adults; no diagnosis or risk score.",
+          "zh": "完整阅读饮酒计划与牵引的原创观察、独立回答类别、未知和边界。面向成年人，不诊断、不算风险分。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+        "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Intention and what followed",
+            "zh": "原本打算与后来发生的事"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme separates an intended amount or duration from what you recall doing. It also records attention returning to drinking, difficulty keeping a chosen limit and time used arranging a drink. Endorsing a sentence describes only that sentence within four weeks. It does not show how often the event occurred, how much was consumed or why it happened. None of the five prompts is a test of willpower or character.",
+              "zh": "这一主题分开原本打算的量或时长与自己记得的实际情况，也记录注意反复回到饮酒、难以按自定限度去做，以及安排饮酒占用时间。符合某句只描述四周内的该句情形，不说明发生次数、摄入量或原因。五条题都不是意志力或品格测试。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Two plans can involve different circumstances",
+            "zh": "两项计划可能有不同背景"
+          },
+          "paragraphs": [
+            {
+              "en": "One person may recall a planned end time changing while not endorsing the statement about repeated thoughts. Another may think about drinking without drinking beyond a plan. The same category counts can conceal these differences, so the individual selections stay visible. The record cannot reconstruct an occasion or decide whether a remembered plan was realistic.",
+              "zh": "有人可能记得结束时间改变，却不符合反复想到饮酒；另一人可能会想喝酒，却没有超过计划。同样计数可以掩盖这些区别，因此逐条选择仍保留。记录不能重建一次场合，也不能判原计划是否现实。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "A plan is not a safe-drinking limit",
+            "zh": "计划不等于安全限额"
+          },
+          "paragraphs": [
+            {
+              "en": "A chosen limit is your recollection, not a limit this website endorses. Keeping to it does not establish safety, and exceeding it does not by itself establish a disorder. This form collects no dose, medical history, medicine details or observation from another person. It cannot calculate safe consumption or substitute for an individual health assessment.",
+              "zh": "自定限度是你的回忆，不是网站认可的限额。按计划做不证明安全，超过计划也不单独确立障碍。表单不收集摄入量、病史、药物详情或他人观察，不能计算安全饮酒量，也不替代个别健康评估。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Read alongside effects without adding them",
+            "zh": "与生活影响并列看，不合并"
+          },
+          "paragraphs": [
+            {
+              "en": "A mismatch with a plan and an effect on responsibilities are different descriptions. Neither one explains or cancels the other. You do not need to find a dominant theme, compare yourself with someone else or repeat the form to prove improvement. A partly fitting answer can remain partly fitting without being forced into yes or no.",
+              "zh": "计划不一致与责任受到影响，是不同描述，不能互相解释或抵消。无需找主导主题、与别人比，或靠重做证明改善。部分符合可以保留为部分，不必强行转成是或否。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An optional private recollection",
+            "zh": "可选的私下回顾"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, notice which part of one statement you recognised and which part remains uncertain. No diary, name, amount, explanation or disclosure is required. You do not need to recreate a drinking situation, test a limit or change consumption to complete this reflection. Reading may be the end of the activity.",
+              "zh": "若有用，可留意一条陈述中哪些部分认得出、哪些仍不确定。无需日记、姓名、摄入量、解释或披露，不需要重现饮酒场合、测试限度或改变摄入来完成反思。读到这里就可以结束。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+              "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+              "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+            },
+            {
+              "en": "Support does not depend on any answer or count. If you are concerned about drinking or bodily symptoms, a qualified health professional can assess your actual circumstances. This exercise gives no instructions to stop suddenly, reduce, continue drinking or manage withdrawal. Alcohol withdrawal can be dangerous; seek medical advice before a sudden change if dependence or withdrawal may be involved. For an immediate danger or severe current symptoms, use local emergency medical care instead of this exercise.",
+              "zh": "寻求支持不需要任何答案或计数。如果担心饮酒或身体症状，可以请合格医疗专业人士评估实际情况。本练习不指派突然停酒、减量、继续饮酒或自行处理戒断。酒精戒断可能危险；可能涉及依赖或戒断时，突然改变饮酒前应寻求医疗建议。有即时危险或当前严重症状时，应使用当地紧急医疗服务，不要靠本练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily-effects-reading",
+      "directionIds": [
+        "daily-effects"
+      ],
+      "title": {
+        "en": "Effects noticed in everyday life: Complete Drinking Reflection Guide",
+        "zh": "日常生活中的影响：完整饮酒经历指南"
+      },
+      "headline": {
+        "en": "Keep the individual descriptions and their uncertainty.",
+        "zh": "保留每条描述及其不确定。"
+      },
+      "summary": {
+        "en": "Read the five original observations in context, with category records and free support information. No clinical score or drinking advice.",
+        "zh": "结合背景阅读五条原创观察、类别记录与免费支持信息，不设临床分数或饮酒建议。"
+      },
+      "seo": {
+        "title": {
+          "en": "Effects noticed in everyday life | Drinking Experiences Guide",
+          "zh": "日常生活中的影响｜饮酒经历指南"
+        },
+        "description": {
+          "en": "A complete original guide to effects noticed in everyday life, separate response categories, uncertainty and limits. For adults; no diagnosis or risk score.",
+          "zh": "完整阅读日常生活中的影响的原创观察、独立回答类别、未知和边界。面向成年人，不诊断、不算风险分。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+        "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Effects are specific to an activity",
+            "zh": "影响要落在具体活动上"
+          },
+          "paragraphs": [
+            {
+              "en": "These five prompts concern postponing a responsibility, next-day interference, changes to shared plans, disagreement about an effect and setting aside a valued activity. They retain your account without deciding fault, family roles or what someone else experienced. A reported effect is not a complete history, and a category count cannot show its seriousness or cause.",
+              "zh": "五条关注责任推迟、次日活动受影响、共同安排改变、对影响存在分歧，以及搁置看重的活动。它们保留自己一侧的描述，不裁定过错、家庭角色或别人经历了什么。自报影响不是完整经历，类别计数不能说明严重程度或原因。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "The same count can describe different days",
+            "zh": "同一计数可能来自不同日子"
+          },
+          "paragraphs": [
+            {
+              "en": "Changing one shared plan is not identical to repeated difficulty with a responsibility. Both can fit different sentences, yet neither the number of fitting statements nor the number of missing statements establishes how often something occurred. The form does not observe work, relationships or daily functioning and assigns no overall impairment result.",
+              "zh": "改变一次共同计划，不等于反复难以履行责任；两者可分别符合不同句子，但符合或缺失的条数都不能确定发生次数。表单不观察工作、关系或日常功能，不分配整体受损结果。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No moral or relationship verdict",
+            "zh": "不作道德或关系裁决"
+          },
+          "paragraphs": [
+            {
+              "en": "A description of drinking-related impact does not define a person as irresponsible. Equally, non-endorsement does not prove that every responsibility or relationship is unaffected. Do not use the record to rate another person, settle a disagreement or decide whether someone is safe to trust. It is a voluntary account by the person answering.",
+              "zh": "饮酒相关影响的描述不把人定义成不负责任；不符合也不证明所有责任或关系都未受影响。不要用记录给别人评分、裁定分歧或判断是否值得信任。这是作答者自愿提供的自述。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Keep life effects separate from bodily sensations",
+            "zh": "生活影响与身体感受分开"
+          },
+          "paragraphs": [
+            {
+              "en": "Daily effects may be described even when bodily changes are unknown, and bodily concerns may matter even when no responsibility was postponed. One theme is not a prerequisite for another. The four records stay side by side without compensation, ranking or a combined conclusion about health.",
+              "zh": "身体变化未知时仍可能描述生活影响，没有推迟责任时也可能有身体顾虑。一个主题不是另一个的前提。四份记录并列保留，不相互抵消、不排名，也不合成健康结论。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "You choose what, if anything, to discuss",
+            "zh": "是否讨论以及讨论多少由你决定"
+          },
+          "paragraphs": [
+            {
+              "en": "You may keep a recollection private or choose to discuss an actual concern with a qualified professional. There is no requirement to contact someone involved, seek confirmation, disclose a conflict or perform a relationship exercise. Seeking help does not require a fitting answer, a completed form or a particular number of effects.",
+              "zh": "你可以保留回忆，或选择与合格专业人士讨论实际顾虑。无需联系当事人、求证、披露冲突或做关系练习。寻求帮助不需要某条符合、完成问卷或达到特定影响条数。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+              "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+              "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+            },
+            {
+              "en": "Support does not depend on any answer or count. If you are concerned about drinking or bodily symptoms, a qualified health professional can assess your actual circumstances. This exercise gives no instructions to stop suddenly, reduce, continue drinking or manage withdrawal. Alcohol withdrawal can be dangerous; seek medical advice before a sudden change if dependence or withdrawal may be involved. For an immediate danger or severe current symptoms, use local emergency medical care instead of this exercise.",
+              "zh": "寻求支持不需要任何答案或计数。如果担心饮酒或身体症状，可以请合格医疗专业人士评估实际情况。本练习不指派突然停酒、减量、继续饮酒或自行处理戒断。酒精戒断可能危险；可能涉及依赖或戒断时，突然改变饮酒前应寻求医疗建议。有即时危险或当前严重症状时，应使用当地紧急医疗服务，不要靠本练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "situations-and-choices-reading",
+      "directionIds": [
+        "situations-and-choices"
+      ],
+      "title": {
+        "en": "Situations around drinking: Complete Drinking Reflection Guide",
+        "zh": "饮酒时的情境：完整饮酒经历指南"
+      },
+      "headline": {
+        "en": "Keep the individual descriptions and their uncertainty.",
+        "zh": "保留每条描述及其不确定。"
+      },
+      "summary": {
+        "en": "Read the five original observations in context, with category records and free support information. No clinical score or drinking advice.",
+        "zh": "结合背景阅读五条原创观察、类别记录与免费支持信息，不设临床分数或饮酒建议。"
+      },
+      "seo": {
+        "title": {
+          "en": "Situations around drinking | Drinking Experiences Guide",
+          "zh": "饮酒时的情境｜饮酒经历指南"
+        },
+        "description": {
+          "en": "A complete original guide to situations around drinking, separate response categories, uncertainty and limits. For adults; no diagnosis or risk score.",
+          "zh": "完整阅读饮酒时的情境的原创观察、独立回答类别、未知和边界。面向成年人，不诊断、不算风险分。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+        "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Context is not a measured risk level",
+            "zh": "情境不是测得的风险档位"
+          },
+          "paragraphs": [
+            {
+              "en": "This theme records alertness-related responsibilities, uncertainty about medicines, a noticed safety concern, continuing after an unwanted effect and difficulty leaving a drinking setting. It does not calculate intoxication, a legal limit, driving fitness, medicine compatibility or likelihood of harm. Any actual safety question requires information this questionnaire does not collect.",
+              "zh": "本主题记录需要清醒注意的责任、对药物相容性的未知、已经注意到的安全顾虑、不希望的影响后仍继续，以及难以离开饮酒场合。不计算醉酒、法律限值、驾驶能力、药物相容性或伤害概率。实际安全问题需要本问卷没有收集的信息。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "A question can remain unanswered numerically",
+            "zh": "不确定可以完整保留"
+          },
+          "paragraphs": [
+            {
+              "en": "Not knowing whether alcohol and a medicine are compatible is different from having no relevant medicine experience. Prefer not to answer is different again. Each receives its own category, rather than being converted into no risk or a midpoint. The record supplies no list of compatible medicines and no permission to try a combination.",
+              "zh": "不知道酒精与药物能否相容，不同于没有相关用药经历；不愿回答又是另一回事。各自保留类别，不换算成无风险或中点。记录不提供可相容药物清单，也不许可尝试某种组合。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "One occasion cannot be reconstructed here",
+            "zh": "这里不能重建某次场合"
+          },
+          "paragraphs": [
+            {
+              "en": "A selected statement does not establish who was present, whether pressure was involved, what transport was available or how an unwanted effect developed. The record cannot determine consent, legal responsibility or another person’s intentions. No count can make an actual unsafe situation safe.",
+              "zh": "某句被选择，不确定在场者、是否存在压力、交通条件或不希望的影响如何发生。记录不能判断同意、法律责任或他人意图。任何计数都不能让实际不安全的处境变安全。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "No comparison that cancels an actual concern",
+            "zh": "不靠比较抵消实际顾虑"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may endorse one context and none of the other four. That pattern neither lowers the importance of the actual situation nor establishes a general risk trait. This page does not compare people or assign a low-risk group. A public explanation remains available even if every prompt is withheld.",
+              "zh": "有人可能只符合一种情境，其余四条都不符合。这既不降低实际场合的重要性，也不确立一种普遍冒险特质。页面不比较人，不分低风险组。全部题目保留不答时，公开说明也仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No reenactment or safety experiment",
+            "zh": "不重现、不做安全试验"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to revisit a venue, try drinking with a medicine, test alertness or ask someone to recreate an event. For a real concern, use appropriate medical or local safety support rather than the questionnaire. This reading offers context for the words, not instructions for managing a hazardous situation.",
+              "zh": "不需要重返场所、尝试酒精与药物同用、测试清醒程度或让别人重现场合。实际顾虑应使用适当的医疗或当地安全支持，不靠问卷。本说明帮助理解题意，不指派如何处理危险处境。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+              "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+              "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+            },
+            {
+              "en": "Support does not depend on any answer or count. If you are concerned about drinking or bodily symptoms, a qualified health professional can assess your actual circumstances. This exercise gives no instructions to stop suddenly, reduce, continue drinking or manage withdrawal. Alcohol withdrawal can be dangerous; seek medical advice before a sudden change if dependence or withdrawal may be involved. For an immediate danger or severe current symptoms, use local emergency medical care instead of this exercise.",
+              "zh": "寻求支持不需要任何答案或计数。如果担心饮酒或身体症状，可以请合格医疗专业人士评估实际情况。本练习不指派突然停酒、减量、继续饮酒或自行处理戒断。酒精戒断可能危险；可能涉及依赖或戒断时，突然改变饮酒前应寻求医疗建议。有即时危险或当前严重症状时，应使用当地紧急医疗服务，不要靠本练习处理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "body-experiences-reading",
+      "directionIds": [
+        "body-experiences"
+      ],
+      "title": {
+        "en": "Changes in bodily experience: Complete Drinking Reflection Guide",
+        "zh": "身体感受的变化：完整饮酒经历指南"
+      },
+      "headline": {
+        "en": "Keep the individual descriptions and their uncertainty.",
+        "zh": "保留每条描述及其不确定。"
+      },
+      "summary": {
+        "en": "Read the five original observations in context, with category records and free support information. No clinical score or drinking advice.",
+        "zh": "结合背景阅读五条原创观察、类别记录与免费支持信息，不设临床分数或饮酒建议。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changes in bodily experience | Drinking Experiences Guide",
+          "zh": "身体感受的变化｜饮酒经历指南"
+        },
+        "description": {
+          "en": "A complete original guide to changes in bodily experience, separate response categories, uncertainty and limits. For adults; no diagnosis or risk score.",
+          "zh": "完整阅读身体感受的变化的原创观察、独立回答类别、未知和边界。面向成年人，不诊断、不算风险分。"
+        }
+      },
+      "scoreReading": {
+        "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+        "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "A sensation is a report, not an explanation",
+            "zh": "感受是记录，不是原因解释"
+          },
+          "paragraphs": [
+            {
+              "en": "These prompts concern perceived changes in alcohol’s effect, feeling physically unwell when a usual drink did not happen, drinking to ease a physical feeling and uncertainty about the relation between drinking and the body. They record what you recall noticing. They cannot establish tolerance, dependence, withdrawal, a cause of symptoms or any medical condition.",
+              "zh": "本组关注感觉到酒精作用变化、平时会喝却没喝时身体不适、希望靠饮酒缓解身体感受，以及不确定身体与饮酒的关系。它们记录记得注意到的事，不能确立耐受、依赖、戒断、症状原因或医疗状况。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "The two effect-change statements may overlap",
+            "zh": "两条作用变化描述可能重叠"
+          },
+          "paragraphs": [
+            {
+              "en": "Needing more for a similar feeling and noticing less effect from the same amount can describe overlapping impressions. They are retained separately to show what was endorsed, not counted as independent medical symptoms. The last prompt concerns uncertainty and must not be treated as a severity item or reversed into certainty.",
+              "zh": "需要更多才能获得类似感受，与相同量感到作用变弱，可能是重叠印象。它们分别保留，是为了显示选择了什么，不作为独立医学症状计数。最后一条问的是不确定，不能当作严重度题或反向换成确定。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "No do-it-yourself dependence test",
+            "zh": "不做自行检验依赖的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "No answer asks you to delay a usual drink, stop suddenly, drink more, recreate discomfort or check whether another drink changes a symptom. Such actions are not part of this exercise. Alcohol withdrawal can require medical care, and this form cannot determine whether it is present or how to manage it.",
+              "zh": "任何回答都不要求推迟平时的饮酒、突然停酒、喝更多、重现不适，或检查再喝一次是否改变症状。这些都不属于练习。酒精戒断可能需要医疗照护；表单不能判断是否存在或如何处理。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Unknown does not mean medically clear",
+            "zh": "未知不等于医学上没事"
+          },
+          "paragraphs": [
+            {
+              "en": "You may be unable to judge a bodily change or prefer not to describe it. Those categories preserve uncertainty rather than support a normal result. No fitting answers also cannot exclude a medical issue. You can seek help for an actual concern without answering the other themes or waiting for a pattern to repeat.",
+              "zh": "你可能无法判断身体变化，或不想描述。这些类别保留未知，不支持正常结论。没有符合项也不能排除医疗问题。有实际顾虑时，无需回答其他主题，也无需等模式重复才能求助。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "An individual conversation can use different evidence",
+            "zh": "个别咨询会使用不同证据"
+          },
+          "paragraphs": [
+            {
+              "en": "A health professional may ask about timing, actual symptoms, medicines and medical history in an appropriate private setting. This website does not collect those details or substitute its categories for that process. You decide whether to mention a concern; there is no need to share the questionnaire, publish a record or supply a narrative here.",
+              "zh": "医疗专业人士可能在适当的私密场合询问时间、实际症状、用药与病史。网站不收集这些细节，也不用类别代替该过程。是否提及顾虑由你决定；无需分享问卷、公开记录或在这里写经历。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "How the record works",
+            "zh": "记录如何工作"
+          },
+          "paragraphs": [
+            {
+              "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+              "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Origin, limits and support",
+            "zh": "原创边界与支持"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+              "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+            },
+            {
+              "en": "Support does not depend on any answer or count. If you are concerned about drinking or bodily symptoms, a qualified health professional can assess your actual circumstances. This exercise gives no instructions to stop suddenly, reduce, continue drinking or manage withdrawal. Alcohol withdrawal can be dangerous; seek medical advice before a sudden change if dependence or withdrawal may be involved. For an immediate danger or severe current symptoms, use local emergency medical care instead of this exercise.",
+              "zh": "寻求支持不需要任何答案或计数。如果担心饮酒或身体症状，可以请合格医疗专业人士评估实际情况。本练习不指派突然停酒、减量、继续饮酒或自行处理戒断。酒精戒断可能危险；可能涉及依赖或戒断时，突然改变饮酒前应寻求医疗建议。有即时危险或当前严重症状时，应使用当地紧急医疗服务，不要靠本练习处理。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "A transparent category record",
+        "zh": "透明的类别记录"
+      },
+      "paragraphs": [
+        {
+          "en": "For each original statement, choose whether it describes your past four weeks, partly describes them, or does not describe them. Cannot judge, no relevant experience and prefer not to answer remain three separate categories. These labels have no numerical values. All twenty selections finish the record. Each theme retains five individual selections and six category counts adding to five. Counts are not symptom counts, severity, frequency, a drinking allowance or a comparison between themes. No total, average, cutoff, risk band or personal type is calculated.",
+          "zh": "逐条看原创陈述是否符合过去四周、部分符合或不符合。无法判断、没有相关经历和不愿回答分别保留为三个类别。类别没有数值。20条均选择后完成记录；每主题保留五条选择及合计为五的六类计数。计数不是症状数、严重度、频率、饮酒限额或主题间比较。不算总分、均值、界线、风险档位或个人类型。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Original method and its limits",
+        "zh": "原创方法与边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+          "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this an alcohol use disorder screen?",
+        "zh": "这是酒精使用障碍筛查吗？"
+      },
+      "answer": {
+        "en": "FermatMind authored these twenty statements and four complete readings. This is an adult self-description exercise, not AUDIT, AUDIT-C, a diagnostic checklist or a validated translation of another instrument. Reliability, validity, norms and English–Chinese equivalence have not been established. It does not assess dependence, intoxication, withdrawal, physical health or whether a change in drinking would be safe. Public health information supplies context, not validation of this record.",
+        "zh": "费马原创这20条陈述和四篇完整读法，面向成年人自述；不是AUDIT、AUDIT-C、诊断清单或其他工具的验证译版。尚未建立信度、效度、常模或中英等价。不评估依赖、醉酒、戒断、身体健康，也不判断改变饮酒是否安全。公共健康资料仅提供背景，不为本记录作效度背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I did not drink?",
+        "zh": "没有饮酒怎么办？"
+      },
+      "answer": {
+        "en": "Choose no relevant experience where that fits, or read the guides without answering. No relevant experience, cannot judge and withheld are separate categories and are not zero, a safety finding or evidence of health.",
+        "zh": "适合时选没有相关经历，也可不作答读指南。没有经历、无法判断和不愿回答各自保留，不补零，不表示安全或健康。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use this to decide how to change drinking?",
+        "zh": "能靠这个决定怎样改变饮酒吗？"
+      },
+      "answer": {
+        "en": "Support does not depend on any answer or count. If you are concerned about drinking or bodily symptoms, a qualified health professional can assess your actual circumstances. This exercise gives no instructions to stop suddenly, reduce, continue drinking or manage withdrawal. Alcohol withdrawal can be dangerous; seek medical advice before a sudden change if dependence or withdrawal may be involved. For an immediate danger or severe current symptoms, use local emergency medical care instead of this exercise.",
+        "zh": "寻求支持不需要任何答案或计数。如果担心饮酒或身体症状，可以请合格医疗专业人士评估实际情况。本练习不指派突然停酒、减量、继续饮酒或自行处理戒断。酒精戒断可能危险；可能涉及依赖或戒断时，突然改变饮酒前应寻求医疗建议。有即时危险或当前严重症状时，应使用当地紧急医疗服务，不要靠本练习处理。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "回答会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Answers and records stay in current page memory. No drafts, answer submissions or questionnaire analytics are used. Exit, retake, refresh or leaving clears them. Copying includes only the public title and entry, never personal answers.",
+        "zh": "回答与记录只留当前页面内存，不存草稿、不提交答卷、不发问卷分析。退出、重做、刷新或离开即清除。复制只含公开标题与入口，不含个人回答。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIAAA: Alcohol use disorder — background, not validation of this record",
+        "zh": "NIAAA：酒精使用障碍背景，不为本记录作验证"
+      },
+      "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery"
+    }
+  ]
+}

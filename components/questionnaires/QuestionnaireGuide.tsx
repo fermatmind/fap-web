@@ -22,6 +22,8 @@ import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sle
 import { SleepExperiencesGuidePage } from "./SleepExperiencesPage";
 import { isBereavement16ConfigurationValid } from "@/lib/questionnaires/bereavement16";
 import { BereavementGuidePage } from "./BereavementPage";
+import { isDrinkingExperiences20ConfigurationValid } from "@/lib/questionnaires/drinkingExperiences20";
+import { DrinkingExperiencesGuidePage } from "./DrinkingExperiencesPage";
 import { isSupportReflection18ConfigurationValid } from "@/lib/questionnaires/supportReflection18";
 import { SupportReflectionGuidePage } from "./SupportReflectionPage";
 import { isConnectionCheckIn21ConfigurationValid } from "@/lib/questionnaires/connectionCheckIn21";
@@ -149,6 +151,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "weton-story35" && !isWetonStory35ConfigurationValid(quiz)) return { title: "Weton story unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) return { title: "BPI-21 unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "drinking-experiences20" && !isDrinkingExperiences20ConfigurationValid(quiz)) return { title: "Drinking reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "support-reflection18" && !isSupportReflection18ConfigurationValid(quiz)) return { title: "Support reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "connection-checkin21" && !isConnectionCheckIn21ConfigurationValid(quiz)) return { title: "Connection reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "pressure-actions12" && !isPressureActions12ConfigurationValid(quiz)) return { title: "Action reflection unavailable", robots: { index: false, follow: false } };
@@ -268,6 +271,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
   }
   if (quiz?.kind === "weton-story35" && !isWetonStory35ConfigurationValid(quiz)) notFound();
   if (quiz?.kind === "bpi21" && !isBpi21ConfigurationValid(quiz)) notFound();
+  if (quiz?.kind === "drinking-experiences20") {
+    if (!isDrinkingExperiences20ConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(p => p.id === id);
+    if (!profile) notFound();
+    return <DrinkingExperiencesGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "support-reflection18") {
     if (!isSupportReflection18ConfigurationValid(quiz)) notFound();
     const profile = quiz.profiles.find(p => p.id === id);
