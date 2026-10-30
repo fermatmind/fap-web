@@ -1,0 +1,1971 @@
+{
+  "slug": "social-context-reflection",
+  "code": "FM_SOCIAL_CONTEXT20_OBSERVATIONS",
+  "version": "fm_social_context20_observations_v1",
+  "kind": "social-context20",
+  "title": {
+    "en": "Social Situations: Personal Reflection",
+    "zh": "社交场景：个人回顾"
+  },
+  "directions": [
+    {
+      "id": "being-observed",
+      "title": {
+        "en": "Being observed during an activity",
+        "zh": "活动中被他人看到"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "conversations-and-contact",
+      "title": {
+        "en": "Conversations and contact",
+        "zh": "谈话与联系"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "changing-social-plans",
+      "title": {
+        "en": "Changing plans around social situations",
+        "zh": "围绕社交场景改变计划"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "sensations-in-social-context",
+      "title": {
+        "en": "Sensations noticed in social contexts",
+        "zh": "社交背景中注意到的感觉"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SCX_01",
+      "prompt": {
+        "en": "Before an activity where people might watch me, I worried about how I would come across.",
+        "zh": "做一件可能被别人看到的事之前，我担心自己给人的印象。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_02",
+      "prompt": {
+        "en": "While speaking to a group, I was preoccupied with how others might judge what I said.",
+        "zh": "对一群人讲话时，我一直想着别人可能怎样评价自己说的内容。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_03",
+      "prompt": {
+        "en": "When someone watched me do a familiar task, I found it harder to settle into it.",
+        "zh": "有人看着我做熟悉任务时，我更难投入进去。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_04",
+      "prompt": {
+        "en": "I held back an answer or contribution because I worried about being noticed.",
+        "zh": "我因为担心被注意到，没有说出原本想到的回答或意见。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_05",
+      "prompt": {
+        "en": "After being observed during an activity, I kept thinking about how I had appeared.",
+        "zh": "一项被别人看到的活动结束后，我还在想自己当时显得怎样。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "being-observed"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_06",
+      "prompt": {
+        "en": "Before starting a conversation I wanted to have, I worried about what to say.",
+        "zh": "开始一段自己本来想进行的谈话前，我担心不知道该说什么。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_07",
+      "prompt": {
+        "en": "During a conversation, I found myself monitoring how I was coming across.",
+        "zh": "谈话时，我发现自己在留意给人的印象。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_08",
+      "prompt": {
+        "en": "When I wanted to ask someone a question, concern about their reaction made it hard to begin.",
+        "zh": "想向别人问问题时，我因为担心对方反应而难以开口。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_09",
+      "prompt": {
+        "en": "I felt tense while trying to join a conversation already in progress.",
+        "zh": "想加入已经在进行的谈话时，我感到紧张。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_10",
+      "prompt": {
+        "en": "After a conversation, I went over something I had said with worry about how it sounded.",
+        "zh": "谈话后，我反复想着自己说过的某句话，担心它听起来怎样。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "conversations-and-contact"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_11",
+      "prompt": {
+        "en": "I postponed a social contact I had intended to make because I felt worried about the interaction.",
+        "zh": "我因为担心互动，推迟了本来打算进行的一次联系。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_12",
+      "prompt": {
+        "en": "I chose a less visible part of an activity because I felt worried about being observed.",
+        "zh": "我因为担心被别人看到，在一项活动中选择了不那么显眼的部分。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_13",
+      "prompt": {
+        "en": "I changed a plan because I was concerned about a conversation it might involve.",
+        "zh": "我因为担心计划里可能涉及的谈话，改变了安排。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_14",
+      "prompt": {
+        "en": "I left a social setting earlier than I had planned because I felt uneasy about the interaction.",
+        "zh": "我因为对互动感到不自在，比原先打算的时间更早离开社交场景。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_15",
+      "prompt": {
+        "en": "I did not take up an invitation I might otherwise have chosen because I worried about the social situation.",
+        "zh": "我因为担心社交场景，没有接受一个自己本来可能会选的邀请。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "changing-social-plans"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_16",
+      "prompt": {
+        "en": "In a social situation, I noticed my face feeling hot.",
+        "zh": "在社交场景中，我注意到脸上发热的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_17",
+      "prompt": {
+        "en": "While speaking with someone, I noticed my voice feeling unsteady.",
+        "zh": "与别人说话时，我注意到声音不稳的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_18",
+      "prompt": {
+        "en": "In a social setting, I noticed my heartbeat strongly enough that it drew my attention.",
+        "zh": "在社交场景里，我注意到心跳明显到吸引了自己的注意。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_19",
+      "prompt": {
+        "en": "During a social activity, I noticed my hands feeling shaky.",
+        "zh": "在社交活动中，我注意到手发抖的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    },
+    {
+      "id": "SCX_20",
+      "prompt": {
+        "en": "Before or during social contact, I noticed an unsettled feeling in my stomach.",
+        "zh": "社交联系之前或进行中，我注意到胃里不安稳的感觉。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Did not notice",
+            "zh": "没有注意到"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "较常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Very often",
+            "zh": "经常"
+          },
+          "directionId": "sensations-in-social-context"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant experience / cannot recall / prefer not to answer",
+            "zh": "没有相关经历／无法回想／不愿回答"
+          },
+          "directionId": "unscored"
+        }
+      ]
+    }
+  ],
+  "updated": "2026-10-30",
+  "category": "framework",
+  "minutes": 8,
+  "seoTitle": {
+    "en": "Social Situations: Personal Reflection",
+    "zh": "社交场景：个人回顾"
+  },
+  "description": {
+    "en": "20 original adult observations about being observed, conversations, changing plans and sensations in social settings. Four full bilingual guides, free. Recall only; no diagnosis or confidence score.",
+    "zh": "20条成年人原创观察，回顾被他人看到、谈话联系、计划改变及社交背景中的感觉。四篇双语全文免费；只凭回忆，不作诊断或信心评分。"
+  },
+  "introduction": {
+    "en": "Recall social experiences without a contact or performance task. Four overlapping editorial topics remain separate categorical records, not validated dimensions or a social-anxiety scale. A record cannot determine others intentions or whether a setting is safe.",
+    "zh": "不必联系他人或做表现任务，回顾社交经历。四个可能重叠的编辑主题各自记录类别，不是验证维度或社交焦虑量表。记录不能决定他人意图或场景是否安全。"
+  },
+  "instructions": {
+    "en": "If you choose to answer, recall the past four weeks. Select did not notice, rarely, sometimes, often or very often; use unscored for no relevant experience, unclear recall or withholding. No exposure, conversation, eye contact, public speaking, breathing, body check or message opening is needed. Labels are not points and unscored is not zero.",
+    "zh": "愿意回答时回顾过去四周。可选没有注意到、很少、有时、较常、经常；没有相关经历、回想不清或保留回答时选未计分。不必暴露、谈话、眼神接触、公开讲话、做呼吸任务、检查身体或打开消息。标签不是点数，未计分不是零分。"
+  },
+  "resultHeading": {
+    "en": "Your four separate social-context records",
+    "zh": "四个分别阅读的社交情境记录"
+  },
+  "profiles": [
+    {
+      "id": "being-observed-reading",
+      "directionIds": [
+        "being-observed"
+      ],
+      "title": {
+        "en": "Being observed during an activity — Complete Reading",
+        "zh": "活动中被他人看到：完整读法"
+      },
+      "headline": {
+        "en": "Being observed during an activity",
+        "zh": "活动中被他人看到"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or confidence conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或信心结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Being observed during an activity — Complete Reading",
+          "zh": "活动中被他人看到：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult social-context reading, free and public. No diagnosis, confidence score, social-skill test or exposure task.",
+          "zh": "完整成年人原创社交情境读法，免费公开；不作诊断、信心评分、社交技能测试或暴露任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall an activity where you felt visible",
+            "zh": "回顾自己感到被看到的活动"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern worrying about how you would appear before an activity, thinking about judgement while speaking to a group, finding a familiar task harder to settle into when watched, holding back a contribution and thinking about your appearance afterwards. Recall the past four weeks only if you want to answer. The page does not observe your performance, measure social skill or determine what others thought. It cannot identify social anxiety disorder, a personality type or the cause of an experience.",
+              "zh": "这五条成年人原创观察关注活动前担心印象、向一群人讲话时想着评价、被看着时更难投入熟悉任务、收回意见，以及事后想着当时显得怎样。愿意回答时只回顾过去四周。页面不观察表现、不测社交技能，也不知道别人怎么想，不能识别社交焦虑障碍、人格类型或经历原因。"
+            },
+            {
+              "en": "Being visible can mean different things in a meeting, a family setting or a routine activity. Expectations, power relationships and safety may differ, and the website cannot inspect them. A remembered concern does not establish that a fear was irrational or that a situation was safe. You can describe discomfort without accepting a diagnosis or a judgement that you should be more outgoing. The record cannot decide whether another person was kind, critical, threatening or paying attention at all.",
+              "zh": "在会议、家庭场景或日常活动中被看到，可能有不同含义。期待、权力关系和安全情况可能不同，网站不能检查。记得担忧不证明恐惧不合理，也不证明场景安全。可以描述不适，而不接受诊断或应该更外向的判断。记录不能决定别人友好、挑剔、有威胁，或是否在注意自己。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions without a confidence score",
+            "zh": "五条描述，不给信心分数"
+          },
+          "paragraphs": [
+            {
+              "en": "The categories are did not notice, rarely, sometimes, often, very often and unscored. They are labels rather than numerical points. Their six counts add to five descriptions in this topic, alongside the individual selections. There is no total, average, highest topic, risk band or social-confidence level. Counts do not represent the number of presentations, mistakes, observers or opportunities lost. Choosing often does not establish how intense an experience was, whether a task went badly or whether someone else judged you negatively.",
+              "zh": "类别是没有注意到、很少、有时、较常、经常和未计分，只是标签而非数字点数。本主题六种计数合计五条描述，并列出逐项选择。没有总分、均值、最高主题、风险档或社交信心水平。计数不代表演示、错误、观察者或失去机会数量。选经常不建立经历强度、任务表现差或别人作负面评价。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or a preference not to answer. It remains separate from did not notice. Someone who did not speak to a group recently has not demonstrated easy public speaking, and withholding an experience is not a failed performance. You do not need to seek an audience, make a contribution, ask for feedback or replay an event to fill a category. All-unscored selections leave the same guide and support information available without requiring further social contact.",
+              "zh": "未计分包括没有相关经历、回想不清或不愿回答，与没有注意到分开。最近没对群体讲话的人，没有因此展示公开讲话轻松；保留经历也不是表现失败。不必找观众、发表意见、索要反馈或重播事件来填类别。全未计分仍可读相同指南和支持说明，不要求更多社交联系。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep your recollection separate from others intentions",
+            "zh": "区分自身回忆与他人意图"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded description might be that, while preparing to speak in a meeting, you worried about how your words would sound. That account concerns your remembered experience rather than an objective account of the audience. It leaves open what happened, which expectations were present and whether you felt safe. The website cannot resolve those questions or tell you to disregard a real concern. You may keep names, messages and private workplace details out of any conversation about the experience.",
+              "zh": "有限描述可以是：准备在会议上发言时，担心自己的话听起来怎样。这涉及自己的回忆，不是观众情况的客观记录，也保留发生了什么、有哪些期待及是否感到安全等问题。网站不能解决这些问题，也不能让你忽视真实担忧。谈经历时可以不透露名称、消息和私人工作细节。"
+            },
+            {
+              "en": "Likewise, thinking about how you appeared afterwards does not prove that you made a mistake or that another person disapproved. It also cannot prove that nothing difficult happened. The record does not provide reassurance about another person's intentions, identify harassment or discrimination, or decide which interpretation is true. You are not asked to inspect messages, check a recording, ask someone for reassurance or recreate an interaction. A useful description can remain limited to what you actually recall noticing.",
+              "zh": "同样，事后想着自己显得怎样，不证明犯错或别人不赞同，也不能证明什么困难都没发生。记录不提供关于他人意图的安心保证，不识别骚扰或歧视，也不决定哪个解释真实。不要求检查消息、查看录像、向别人索要安心保证或重现互动。有用描述可以只限于真正记得注意到的部分。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A description does not assign a disorder or personality",
+            "zh": "描述不分配障碍或人格"
+          },
+          "paragraphs": [
+            {
+              "en": "The four topics are overlapping editorial groupings rather than validated independent dimensions or diagnostic criteria. This topic is not a published social-anxiety scale and does not supply a clinical threshold. A count cannot confirm or exclude social anxiety disorder, identify introversion or extroversion, measure shyness or establish suitability for a job. The page also does not judge whether a social preference needs to change. Wanting privacy or choosing how to participate remains a choice that cannot be diagnosed from these categories.",
+              "zh": "四主题是可能重叠的编辑分组，不是验证独立维度或诊断标准。本主题不是发表社交焦虑量表，不提供临床界值。计数不能确认或排除社交焦虑障碍、识别内向外向、测害羞或建立工作适配。页面也不判断社交偏好是否需要改变。希望私密或选择怎样参与，不能由这些类别诊断。"
+            },
+            {
+              "en": "The English and Chinese descriptions have no established measurement equivalence or clinical norms. Different languages, settings and expectations cannot be reduced to a shared social-performance number. Linked NIMH and NHS information concerns broader professional assessment and support contexts. It does not supply these original items, scoring keys, evidence of validity or endorsement for the reading topics. A formal assessment and its conclusions remain separate from a short recollection of situations, and no part of this guide replaces existing professional advice.",
+              "zh": "中英文描述没有已确立的测量等值或临床常模。不同语言、场景和期待不能压成共同社交表现数字。链接的NIMH与NHS资料涉及更广专业评估和支持背景，没有提供原创条目、计分键、有效性证据或主题背书。正式评估及其结论与简短场景回忆分开，本指南任何部分都不替代已有专业意见。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "Participation is not an exercise assigned by this page",
+            "zh": "参与不是页面安排的练习"
+          },
+          "paragraphs": [
+            {
+              "en": "No exposure, public-speaking task, forced eye contact, conversation, eating in public or audience feedback is assigned. You do not need to test whether you can tolerate a situation, remove useful support or push through discomfort to make an observation count. The guide is not a treatment programme or a test of courage. You may keep existing safety boundaries and practical arrangements in place. The website cannot choose what contact is appropriate, determine whether someone is safe to approach or set a goal for your participation.",
+              "zh": "不安排暴露、公开讲话、强迫眼神接触、谈话、当众进食或观众反馈。不必测试能否忍受场景、撤掉有用支持或硬撑不适，才能让观察算数。指南不是治疗计划或勇气测试。可以保留已有安全边界和实际安排。网站不能选择什么联系合适、判断谁可安全接近，或给参与设目标。"
+            },
+            {
+              "en": "If you want to ask a practical question, you might ask what participation options exist in a particular setting or whether information can be provided in a way you can use. These are optional discussion points rather than a prescribed strategy or guaranteed solution. You decide what you want to share and with whom. There is no requirement to disclose a diagnosis, explain a private experience or tell an employer that you used the page. Formal rights, eligibility and service arrangements are not determined by a category.",
+              "zh": "若想提实际问题，可以询问某场景有哪些参与方式，或信息能否换成可用形式。这些是可选讨论点，不是规定策略或保证有效的方案。分享什么、向谁分享可自行决定。不必披露诊断、解释私人经历，也不必告诉雇主使用了页面。正式权益、资格和服务安排不由类别决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "A support question needs no count or waiting period",
+            "zh": "支持咨询无需计数或等待期"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a social concern without reaching a count, waiting six months or completing the record. The editorial four-week recall window is not a diagnostic duration or a rule about when help becomes appropriate. You may ask while you are still uncertain about what happened or what to call it. The website cannot decide that an experience is too small to discuss, require you to demonstrate impairment or tell you that a clinical condition explains it.",
+              "zh": "咨询合格医疗或心理健康专业人员，不需要达到计数、等待六个月或完成记录。编辑设定的四周回忆窗口不是诊断时长，也不是帮助何时合适的规则。即使还不确定发生什么或怎样称呼，也可提问。网站不能决定经历太小不值得谈，不能要求展示受损，也不能告诉你临床状况就是解释。"
+            },
+            {
+              "en": "The page cannot assess healthcare need or urgency, establish that physical sensations are harmless or only anxiety, or replace existing care and advice. Do not use a record to postpone assessment, change medication, cancel support or disregard an existing safety concern. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. Support information remains public before answers, after all-unscored responses and for every count. It does not depend on successfully taking part in a social situation.",
+              "zh": "页面不能评估医疗需要或紧急程度，不能建立身体感觉无害或只是焦虑，也不替代已有照护与意见。不要用记录推迟评估、改药、取消支持或忽视已有安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。回答前、全未计分后及任何计数下，支持说明始终公开，不依赖成功参与某次社交。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Leave with a description rather than a target score",
+            "zh": "留下描述，不留下目标分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred category or schedule for monitoring the observations. Later selections may reflect different settings, opportunities, safety conditions, recollections or interpretations of a statement. They do not demonstrate recovery, deterioration, treatment response or a change in confidence, social skill or personality. A useful phrase can describe one concern while leaving causes, others intentions and future choices open. You do not need to transform a private recollection into a lasting judgement about how well you can be seen by other people.",
+              "zh": "没有要提高的分数、偏好类别或观察监测日程。以后选择可能反映不同场景、机会、安全条件、回忆或对描述的理解，不展示恢复、恶化、治疗反应，或信心、社交技能及人格变化。有用表述可以描述一项担忧，同时保留原因、他人意图和未来选择开放性。不必把私人回忆变成关于自己多会被别人看到的持久判断。"
+            },
+            {
+              "en": "Selections stay in current-page memory only, without stored drafts, submission, questionnaire analytics or a private result address. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address, not your categories. All four complete guides are available before answers and show the same public text to every reader. You may read without selecting, withhold an experience or stop at any point. A useful professional question does not require a diagnosis or a social-performance label from the website.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果地址。退出、重做、刷新和离页会清除，复制公开入口只含标题地址，不含类别。四篇全文回答前可读，所有读者看到同样公开正文。可以不选内容阅读、保留经历不答或随时停止。有用的专业问题不需要网站诊断或社交表现标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conversations-and-contact-reading",
+      "directionIds": [
+        "conversations-and-contact"
+      ],
+      "title": {
+        "en": "Conversations and contact — Complete Reading",
+        "zh": "谈话与联系：完整读法"
+      },
+      "headline": {
+        "en": "Conversations and contact",
+        "zh": "谈话与联系"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or confidence conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或信心结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Conversations and contact — Complete Reading",
+          "zh": "谈话与联系：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult social-context reading, free and public. No diagnosis, confidence score, social-skill test or exposure task.",
+          "zh": "完整成年人原创社交情境读法，免费公开；不作诊断、信心评分、社交技能测试或暴露任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall a conversation you wanted to have",
+            "zh": "回顾自己想进行的谈话"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern worrying about what to say, monitoring how you appear during a conversation, finding it hard to begin a question, feeling tense when joining a discussion and worrying about something you said afterwards. Recall only experiences from the past four weeks if you choose. No conversation is required now. The descriptions do not measure communication ability, warmth, confidence or how well another person understood you. They cannot identify social anxiety disorder, a personality trait or the reason contact felt difficult.",
+              "zh": "这五条成年人原创观察关注担心说什么、谈话中留意自己的印象、难以开始提问、加入讨论时紧张，以及事后担心说过的话。愿意时只回顾过去四周，不必现在谈话。描述不测沟通能力、亲和力、信心或别人理解程度，不能识别社交焦虑障碍、人格特质或联系费力的原因。"
+            },
+            {
+              "en": "A brief question, a familiar conversation and a discussion involving power or private information can be very different experiences. The website cannot inspect their demands, know whether you felt safe or judge what participation was appropriate. You can describe hesitation without deciding that you lack social skills or should become more outgoing. A concern about someone else's reaction does not establish what that reaction was or would have been. Your recollection can remain specific without becoming a judgement about your ability to connect with people.",
+              "zh": "简短问题、熟人谈话和涉及权力或私人信息的讨论，可能很不一样。网站不能检查要求、不知道是否安全，也不能判断怎样参与合适。可以描述犹豫，不必认定缺社交技能或应更外向。担心对方反应不证明反应实际怎样或本来会怎样。回忆可以保持具体，不变成与人联系能力的判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions without a conversation grade",
+            "zh": "五条描述，不给谈话成绩"
+          },
+          "paragraphs": [
+            {
+              "en": "Select did not notice, rarely, sometimes, often, very often or unscored. These are labels without numerical points. Their six counts add to five descriptions in this topic, and the individual categories remain visible. There is no total, mean, highest topic, confidence level, risk band or diagnosis. Counts do not measure the number of difficult conversations, words spoken, social errors or minutes of discomfort. Often worrying about a comment does not show that the comment was inappropriate, and a small count does not establish that contact was easy or safe.",
+              "zh": "可以选没有注意到、很少、有时、较常、经常或未计分，都是不带点数的标签。本主题六种计数合计五条描述，并显示逐项类别。没有总分、均值、最高主题、信心水平、风险档或诊断。计数不测困难谈话、说出词语、社交错误或不适分钟数量。经常担心某句话不说明它不合适，计数少也不建立联系轻松或安全。"
+            },
+            {
+              "en": "Unscored is available for no relevant experience, unclear recall or withholding an answer. It remains separate from did not notice. Having no recent conversation to recall is not evidence of either social ease or avoidance. You do not need to call someone, open a message, join a discussion or ask a personal question to fill a category. A fully unscored topic leaves the same guide and support information available. There is no requirement to supply an example, identify another person or explain why you chose not to answer.",
+              "zh": "没有相关经历、回想不清或保留回答时可选未计分，与没有注意到分开。最近没有可回忆谈话，既不证明社交轻松，也不证明回避。不必打电话、打开消息、加入讨论或问私人问题。整组未计分也可读相同指南与支持说明，不要求举例、透露他人身份或解释为何不答。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep an account at the level you remember",
+            "zh": "按真正记得的范围描述"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded description could be that you wanted to ask for clarification but felt worried about beginning. That account separates a practical intention from a remembered difficulty. It does not determine why the difficulty occurred, whether the other person was approachable or what would have happened if you had asked. The website cannot provide those missing facts. You may keep the description this limited and leave private details out, rather than building a general story that you cannot communicate or that other people always judge you.",
+              "zh": "有限描述可以是：本想询问不清楚的地方，却担心开口。这把实际意图与记得的困难分开，不决定原因、不判断对方是否易接近，也不知道问了会怎样。网站不能提供缺失事实。可以保持这个范围，不说私人细节，不必发展成自己不会沟通或别人总在评价自己的笼统故事。"
+            },
+            {
+              "en": "After a conversation, you may remember replaying a phrase with concern about how it sounded. That concern does not prove a mistake, rejection or a misunderstanding. It also cannot prove that nothing harmful happened. This page does not determine another person's intentions or tell you to disregard harassment, discrimination or a real safety concern. You are not asked to check messages, obtain reassurance or recreate the contact. A useful question can stay open without the website choosing which interpretation of the conversation is correct.",
+              "zh": "谈话后可能记得反复想着某句话，担心听起来怎样。担心不证明错误、拒绝或误解，也不能证明什么伤害都没发生。页面不决定他人意图，也不能让你忽视骚扰、歧视或真实安全担忧。不要求查看消息、索要安心保证或重现联系。有用问题可以保持开放，无需网站选择谈话的正确解释。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "A social context is not a personality assignment",
+            "zh": "社交背景不是人格分配"
+          },
+          "paragraphs": [
+            {
+              "en": "The record does not determine introversion, extroversion, friendliness, empathy or whether you are good at relationships. It also cannot confirm or exclude a clinical condition from a conversation-related category. The four topics are overlapping editorial groupings rather than validated independent dimensions, a published scale or diagnostic criteria. No comparison with a reference group is available. A preference for a particular kind of contact is not something this page can grade, and choosing how much to share does not need a diagnosis to be respected.",
+              "zh": "记录不决定内向、外向、友善、共情或是否擅长关系，也不能根据谈话相关类别确认或排除临床状况。四主题是可能重叠的编辑分组，不是验证独立维度、发表量表或诊断标准，没有参照群体比较。对联系形式的偏好不是页面能评分的，选择分享多少也不需诊断才值得尊重。"
+            },
+            {
+              "en": "Language, communication conventions, familiarity and the purpose of contact can differ. The English and Chinese descriptions have no established measurement equivalence or clinical norms. They cannot provide a fair cross-language social-skill score. Linked NIMH and NHS background describes broader professional assessment and support, not validation of these original statements or endorsement of their groupings. A formal assessment and its conclusions remain separate from this page, which has no observer, standardised interaction or information about another person's response.",
+              "zh": "语言、沟通约定、熟悉程度和联系目的可能不同。中英文描述没有已确立的测量等值或临床常模，不能提供公平的跨语言社交技能分数。链接NIMH与NHS背景介绍更广专业评估支持，不是验证原创描述或背书分组。正式评估及结论与页面分开；这里没有观察者、标准化互动或他人反应资料。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "The guide assigns no contact or exposure task",
+            "zh": "指南不安排联系或暴露任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You do not need to begin a conversation, make eye contact, speak to a stranger or return to an uncomfortable setting to answer. There is no exposure exercise, breathing technique, reassurance task or practice schedule. Do not remove useful support or existing safety boundaries to make a recollection more revealing. The website cannot decide whether a person is safe to approach or whether an interaction should happen. You may read, leave a statement unscored or stop without having to demonstrate confidence or willingness to participate.",
+              "zh": "不必开始谈话、眼神接触、与陌生人讲话或回到不适场景来回答。没有暴露练习、呼吸技术、安心确认任务或练习日程。不要为让回忆更有揭示性而撤掉有用支持或已有安全边界。网站不能判断谁可安全接近或某次互动应否发生。可以阅读、保留未计分或停止，不必展示信心或参与意愿。"
+            },
+            {
+              "en": "If you want a practical conversation about support, an optional topic could be what communication options are available in a particular setting. You may choose what to ask and what to disclose, and you do not need to share private messages or identify another person. These are possible discussion points, not a treatment plan or a promise of a helpful outcome. A category does not determine formal rights, eligibility, work suitability or whether someone else should make a decision for you.",
+              "zh": "若想实际讨论支持，可以选择问某场景有哪些沟通方式。问什么、披露什么可自行决定，不必分享私人消息或透露他人身份。这些是可能讨论点，不是治疗计划，也不保证有帮助。类别不决定正式权益、资格、工作适配或是否应由别人替你决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support does not require finishing or waiting",
+            "zh": "支持不要求完成或等待"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without a count, proof of impairment, six months of symptoms or a completed record. The four-week recall window is editorial, not a diagnostic duration or a waiting rule. You may ask while you are unsure what happened or how to describe it. The page cannot decide that your concern is too small, require you to communicate successfully first or identify a clinical explanation from these categories. Support information remains public for every possible record.",
+              "zh": "咨询合格医疗或心理健康专业人员，不需要计数、受损证明、六个月症状或完成记录。四周回忆窗口是编辑设定，不是诊断时长或等待规则。即使还不确定发生什么或怎样说，也可以问。页面不能决定担忧太小，不能要求先成功沟通，也不能从类别找临床解释；任何记录下支持说明都公开。"
+            },
+            {
+              "en": "Keep existing advice, care and safety support independent of the page. It cannot establish that a physical sensation is harmless or only anxiety, assess healthcare need or urgency, or explain away a new or changing health concern. Do not use the record to postpone assessment, cancel support, change medication or disregard danger. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. You do not need to complete another conversation, gain reassurance or select a different category before asking for help.",
+              "zh": "已有意见、照护和安全支持独立于页面。它不能建立身体感觉无害或只是焦虑，不能评估医疗需要或紧急程度，也不能解释掉新出现或变化的健康担忧。不要用记录推迟评估、取消支持、改药或忽视危险。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。求助前不需要再完成谈话、获得安心保证或改选类别。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "Keep a useful phrase without a progress score",
+            "zh": "留有用表述，不给进步分数"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred category or schedule for repeating the observations. Later selections may reflect different people, situations, safety conditions, opportunities, recollections or interpretations of a statement. They do not demonstrate recovery, deterioration, treatment response or a change in communication ability, confidence or personality. A useful phrase may simply describe where contact felt difficult while leaving causes and future choices open. The record cannot decide whether a relationship is healthy or predict how a future conversation will go.",
+              "zh": "没有要提高的分数、偏好类别或重复观察日程。以后选择可能反映不同的人、场景、安全条件、机会、回忆或对描述的理解，不展示恢复、恶化、治疗反应，或沟通能力、信心及人格变化。有用表述可以只描述联系哪里费力，同时保留原因和未来选择开放性。记录不能决定关系健康与否，也不能预测下次谈话。"
+            },
+            {
+              "en": "Selections remain in current-page memory only: no saved drafts, submission, questionnaire analytics or private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only a title and address, not your categories. All four complete guides are public before answers and display the same text to every reader. You can read without answering, withhold an experience or stop when you have found a useful question. A professional conversation does not need a diagnostic label or a social-performance verdict from this website.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除，复制公开入口只含标题地址，不含类别。四篇全文答题前公开，对所有读者相同。可以不答题阅读、保留经历不答，或找到有用问题后停止。专业交流不需要网站先给诊断标签或社交表现裁定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changing-social-plans-reading",
+      "directionIds": [
+        "changing-social-plans"
+      ],
+      "title": {
+        "en": "Changing plans around social situations — Complete Reading",
+        "zh": "围绕社交场景改变计划：完整读法"
+      },
+      "headline": {
+        "en": "Changing plans around social situations",
+        "zh": "围绕社交场景改变计划"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or confidence conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或信心结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Changing plans around social situations — Complete Reading",
+          "zh": "围绕社交场景改变计划：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult social-context reading, free and public. No diagnosis, confidence score, social-skill test or exposure task.",
+          "zh": "完整成年人原创社交情境读法，免费公开；不作诊断、信心评分、社交技能测试或暴露任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall a change to a social plan",
+            "zh": "回顾社交计划的一次改变"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern postponing intended contact, taking a less visible part in an activity, changing a plan involving conversation, leaving earlier than intended and not taking up an invitation because of a social concern. Recall only the past four weeks if you want to answer. The page does not decide whether a choice was wrong, unnecessary or caused by a disorder. It cannot measure avoidance severity, opportunities lost, courage, independence or the quality of your relationships. The descriptions concern remembered choices in particular settings.",
+              "zh": "这五条成年人原创观察关注推迟原定联系、参与不太显眼的部分、改变涉及谈话的计划、提早离开，以及因社交担忧没有接受邀请。愿意回答时只回顾过去四周。页面不决定选择错误、多余或来自障碍，不测回避严重程度、失去机会、勇气、独立程度或关系质量，只描述具体背景里记得的选择。"
+            },
+            {
+              "en": "A decision about contact can involve safety, privacy, practical demands, preferences or circumstances that the website cannot know. Even when you remember feeling worried, the page cannot establish that worry was the only reason for a change. It should not turn a boundary into a symptom or decide that participation was the better option. You may describe the situation without defending your choice, proving that a threat was real or accepting a judgement that you should have stayed, spoken or attended.",
+              "zh": "联系决定可能涉及安全、私密、实际要求、偏好或网站不知道的情况。即使记得担忧，页面也不能认定它是改变的唯一原因，不应把边界变成症状或决定参与更好。可以描述场景，不必为选择辩护、证明威胁真实，也不必接受本应该留下、讲话或出席的判断。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions without an avoidance score",
+            "zh": "五条描述，不给回避分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose did not notice, rarely, sometimes, often, very often or unscored. These are labels without points. Their six counts add to five descriptions in this topic and are accompanied by individual selections. There is no total, mean, highest topic, risk band or avoidance level. Counts are not a measure of cancelled events, lost opportunities, time alone or costs to your life. An often selection does not establish impairment or a need to change a boundary, and a small count does not establish that a social setting was safe.",
+              "zh": "可选没有注意到、很少、有时、较常、经常或未计分，都是不带点数的标签。本主题六种计数合计五条描述，并显示逐项选择。没有总分、均值、最高主题、风险档或回避水平。计数不测取消活动、失去机会、独处时间或生活代价。选经常不建立受损或需要改变边界，计数少也不建立社交场景安全。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or withholding an answer. It remains separate from did not notice. Having no recent invitation or intended contact is not evidence of avoiding people or participating easily. You do not need to arrange an event, revisit a difficult setting, open a message or make contact to answer. A completely unscored topic leaves the same full guide and support information available. You may withhold a private decision without supplying a reason or turning it into evidence for another person.",
+              "zh": "未计分包括没有相关经历、回想不清或保留回答，与没有注意到分开。最近没有邀请或原定联系，既不证明躲避人，也不证明参与轻松。不必安排活动、重回困难场景、打开消息或联系人来作答。整组未计分仍可读相同全文与支持说明；私人决定可以不答，不需给理由或变成给他人的证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Describe a choice without deciding its cause",
+            "zh": "描述选择，不替它定因"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded account might be that you postponed a call you had intended to make while feeling concerned about the conversation. That description keeps an intention, a remembered feeling and a choice distinct. It does not determine what caused the choice, what would have happened if you had called or whether postponement was appropriate. The website cannot supply those missing facts. You can keep the account at the level you recall rather than creating a general story that fear controls every choice or that you never want connection.",
+              "zh": "有限表述可以是：担心谈话时，推迟了本来打算打的电话。这样区分了意图、记得的感受和选择，不决定原因、不知道打了会怎样，也不判断推迟是否合适。网站不能提供缺失事实。可以只描述真正记得的范围，不必发展成恐惧控制所有选择或自己从不想联系的笼统故事。"
+            },
+            {
+              "en": "Likewise, leaving early or choosing a less visible role does not establish that you failed to cope. It may be something you want to discuss, or you may decide that the description is not useful. The record cannot judge a relationship, identify harassment or discrimination, or tell you that another person's intentions were safe. It must not be used to dismiss a real concern. There is no requirement to explain private circumstances, identify another person or obtain their agreement with your recollection.",
+              "zh": "同样，提早离开或选择较不显眼角色，不证明没能应对。它可以是想讨论的情况，也可以觉得描述无用。记录不能判断关系、识别骚扰或歧视，也不能告诉你他人意图安全，不应用来忽视真实担忧。不要求解释私人情况、透露他人身份或取得对方对回忆的认可。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Choice, personality and diagnosis remain separate",
+            "zh": "选择人格与诊断保持分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The four topics are overlapping editorial groupings, not validated independent dimensions or a clinical model of avoidance. This inventory is not a published social-anxiety scale, diagnostic criteria or a way to assign introversion or extroversion. A count cannot confirm or exclude a disorder or establish that a preference needs fixing. The page also cannot judge social skill, confidence, friendliness, work suitability or a person's capacity for relationships. Choosing less contact in a particular setting does not provide those conclusions.",
+              "zh": "四主题是可能重叠的编辑分组，不是验证独立维度或回避临床模型。题组不是发表社交焦虑量表、诊断标准，也不分配内向外向。计数不能确认或排除障碍，不能建立偏好需要修正，也不能判断社交技能、信心、友善、工作适配或关系能力。特定场景里选择较少联系，不提供这些结论。"
+            },
+            {
+              "en": "The English and Chinese descriptions have no established measurement equivalence, clinical norms or validated thresholds. Different social expectations, opportunities and safety conditions cannot be reduced to a fair shared participation score. Linked NIMH and NHS sources give broader professional-assessment context; they supply no original items, scoring key, validation or endorsement for these groupings. A formal assessment and its conclusions remain separate from this page. A clinical duration described by a source is not a rule about how long you must wait before asking for support.",
+              "zh": "中英文描述没有已确立的测量等值、临床常模或验证界值。不同社交期待、机会和安全条件不能压成公平的共同参与分数。链接NIMH与NHS资料提供更广专业评估背景，没有提供原创条目、计分键、验证或分组背书。正式评估及结论与页面分开，来源里的临床时长也不是求助必须等待多久的规则。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No return, exposure or contact task is assigned",
+            "zh": "不安排返回暴露或联系任务"
+          },
+          "paragraphs": [
+            {
+              "en": "You are not asked to reverse a decision, attend an invitation, stay longer, make eye contact or contact someone to complete an observation. There is no exposure exercise, prescribed rehearsal or test of willingness. Keep existing useful support and safety boundaries independently of the page. It cannot decide what interaction is appropriate or whether a setting is safe. You may read without answering, pause or leave without demonstrating that you can overcome discomfort or collecting a more dramatic example of a changed plan.",
+              "zh": "不要求撤回决定、接受邀请、多留一会、眼神接触或联系人来完成观察。没有暴露练习、规定排练或意愿测试。已有有用支持和安全边界独立保留；页面不能决定什么互动合适或场景是否安全。可以不答题阅读、暂停或离开，不必展示能克服不适，也不必搜集更强烈的计划改变例子。"
+            },
+            {
+              "en": "If you want to ask a practical question, an optional topic might be which participation or communication options exist in a setting you have chosen to discuss. This is not a treatment plan or a guarantee that a particular arrangement will help. You decide what to share, with whom and whether the conversation feels appropriate. No category requires employer disclosure, private messages or a detailed personal history. Formal rights, eligibility and service arrangements are separate questions that the website cannot determine.",
+              "zh": "若想提实际问题，可以选择讨论某场景有哪些参与或沟通方式。这不是治疗计划，也不保证某种安排有帮助。分享什么、向谁分享及交流是否适合由自己决定。任何类别都不要求向雇主披露、提供私人消息或详细个人史。正式权益、资格和服务安排是另外的问题，网站不能决定。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Support is available without a participation test",
+            "zh": "支持无需参与测试"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a concern without a count, completed record, proof of impairment or six months of symptoms. The editorial four-week recall window is not a diagnostic duration or a waiting period. You may ask while you are unsure whether you want more contact, what made a situation difficult or how to describe the experience. The record cannot decide that your concern is too small or require you to take part in another social event before being heard.",
+              "zh": "咨询合格医疗或心理健康专业人员，不需要计数、完成记录、受损证明或六个月症状。编辑设定四周回忆窗口不是诊断时长或等待期。即使还不确定是否想更多联系、什么让场景费力或怎样描述，也可以问。记录不能决定担忧太小，也不能要求先再参加社交活动才被听见。"
+            },
+            {
+              "en": "The page cannot assess healthcare need or urgency, determine that a physical sensation is harmless or only anxiety, or replace existing advice. Do not use a record to postpone assessment, change medicine, cancel support or disregard a safety concern. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. Support information remains public before answers and for every possible record, including all-unscored selections. It is not conditional on attending, staying, speaking or proving that a fear was disproportionate.",
+              "zh": "页面不能评估医疗需要或紧急程度，不能决定身体感觉无害或只是焦虑，也不替代已有意见。不要用记录推迟评估、改药、取消支持或忽视安全担忧。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。回答前和任何记录下，包括全部未计分，支持说明都公开，不以出席、留下、讲话或证明恐惧不成比例为条件。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "There is no participation score to improve",
+            "zh": "没有要提高的参与分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Later selections may differ because the people, opportunities, demands, safety conditions, recollections or interpretations of a description differ. They do not demonstrate recovery, deterioration, treatment response or a change in social ability, confidence or personality. There is no preferred category, target count or required monitoring schedule. A useful phrase may simply identify a choice you want to discuss while leaving its causes and future options open. The page cannot decide whether a boundary became unnecessary or whether you should participate more next time.",
+              "zh": "以后选择可能因不同的人、机会、要求、安全条件、回忆或对描述的理解而变，不展示恢复、恶化、治疗反应，或社交能力、信心及人格改变。没有偏好类别、目标计数或规定监测日程。有用表述可以只指出想讨论的一项选择，同时保留原因和未来选项开放性。页面不能决定边界已无必要或下次应该更多参与。"
+            },
+            {
+              "en": "Selections remain in current-page memory only, with no saved draft, submission, questionnaire analytics or private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address rather than your categories. All four complete guides are public before answering and display the same text to every reader. You may withhold an experience, stop midway or read without a questionnaire. A practical or professional question does not need a diagnosis or a verdict about whether you participate enough.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除，复制公开入口只含标题地址，不含类别。四篇全文答题前公开，对所有读者相同。可以保留经历不答、中途停止或不做问卷阅读。实际或专业问题不需要诊断，也不需要裁定参与够不够。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sensations-in-social-context-reading",
+      "directionIds": [
+        "sensations-in-social-context"
+      ],
+      "title": {
+        "en": "Sensations noticed in social contexts — Complete Reading",
+        "zh": "社交背景中注意到的感觉：完整读法"
+      },
+      "headline": {
+        "en": "Sensations noticed in social contexts",
+        "zh": "社交背景中注意到的感觉"
+      },
+      "summary": {
+        "en": "Read the full original topic explanation without answers, scores or a diagnostic label. This public text is the same for every reader.",
+        "zh": "不必答题即可读完整原创主题说明，没有分数或诊断标签；公开正文对所有读者相同。"
+      },
+      "scoreReading": {
+        "en": "Six category counts add to five descriptions. Individual labels remain visible; unscored stays separate from did not notice. No total, average, ranking, risk band or confidence conclusion.",
+        "zh": "六种类别计数合计五条描述，并保留逐条标签。未计分与没有注意到分开；没有总分、均值、排序、风险档或信心结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sensations noticed in social contexts — Complete Reading",
+          "zh": "社交背景中注意到的感觉：完整读法"
+        },
+        "description": {
+          "en": "Complete original adult social-context reading, free and public. No diagnosis, confidence score, social-skill test or exposure task.",
+          "zh": "完整成年人原创社交情境读法，免费公开；不作诊断、信心评分、社交技能测试或暴露任务。"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "title": {
+            "en": "Recall sensations without checking your body now",
+            "zh": "回顾感觉，不必现在检查身体"
+          },
+          "paragraphs": [
+            {
+              "en": "These five original adult observations concern a hot feeling in the face, an unsteady voice, a noticeable heartbeat, shaky hands and an unsettled stomach before or during social contact. You may recall the past four weeks without examining yourself now. The page records remembered descriptions in a social setting; it does not establish that social anxiety caused a sensation. It cannot identify a panic attack, diagnose a condition, rule out a medical cause or determine that a physical concern is harmless or only anxiety.",
+              "zh": "这五条成年人原创观察关注社交联系前后或其中的脸部发热、声音不稳、心跳明显、手发抖及胃里不安稳。可以回顾过去四周，不必现在检查身体。页面记录社交背景里记得的描述，不证明社交焦虑造成感觉，不能识别惊恐发作、诊断状况、排除医学原因，或决定身体问题无害或只是焦虑。"
+            },
+            {
+              "en": "Remembering a sensation during an interaction describes when you noticed it, not why it occurred. The website has no examination, measurements or access to your medical history. It also cannot know what was happening in the setting or whether you felt safe. You may describe a physical concern without having to decide between a psychological and a medical explanation. A category cannot provide reassurance about your health, interpret another person's reaction or establish how noticeable the sensation was to anyone else.",
+              "zh": "记得互动中有感觉，描述的是何时注意到，不说明为何发生。网站没有检查、测量或病史，也不知道场景里发生什么、是否安全。可以描述身体担忧，无需在心理和医学解释之间作选择。类别不能给健康安心保证，不能解释他人反应，也不能建立别人有多注意到感觉。"
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": {
+            "en": "Five descriptions are not a symptom-load score",
+            "zh": "五条描述不是症状负荷分数"
+          },
+          "paragraphs": [
+            {
+              "en": "The categories are did not notice, rarely, sometimes, often, very often and unscored. They are labels without numerical points. Six counts add to five descriptions in this topic and appear beside the individual selections. There is no total, mean, highest topic, physical-symptom load, risk band or diagnosis. Counts do not measure heart rate, episodes, days, duration or severity. Often remembering a description does not establish that a symptom was frequent in a clinical sense, and no selected category determines healthcare need or urgency.",
+              "zh": "类别是没有注意到、很少、有时、较常、经常和未计分，都是不带点数的标签。本主题六种计数合计五条描述，并显示逐项选择。没有总分、均值、最高主题、身体症状负荷、风险档或诊断。计数不测心率、发作、天数、时长或严重程度。经常记得某描述不建立临床频率，任何选择都不决定医疗需要或紧急程度。"
+            },
+            {
+              "en": "Unscored covers no relevant experience, unclear recall or withholding an answer. It remains separate from did not notice. An entirely unscored record is not evidence of good health, and did-not-notice selections cannot rule out a condition. You do not need to take a pulse, look at your face, test your voice, inspect your hands or recreate stomach discomfort to answer. No symptom needs to be produced or verified. All support information and the complete guide remain available without a bodily check or a completed record.",
+              "zh": "未计分包括没有相关经历、回想不清或保留回答，与没有注意到分开。全部未计分不证明健康，没有注意到也不能排除状况。不必测脉搏、看脸、测试声音、检查手或重现胃部不适。不需要制造或核验任何症状，支持说明和全文不需身体检查或完成记录就能读。"
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": {
+            "en": "Keep a sensation and its context distinct",
+            "zh": "区分感觉与背景"
+          },
+          "paragraphs": [
+            {
+              "en": "A bounded description could be that, while speaking in a particular setting, your heartbeat drew your attention. That account identifies an experience and a context without supplying a cause. The website cannot determine what your heart was doing, how it should be interpreted or whether the social setting explains it. You may leave private names, exact times and medical details unspecified. The point is not to prove anxiety, gather more symptoms or obtain a health verdict, but to retain a description you may choose to discuss.",
+              "zh": "有限描述可以是：在某场景讲话时，心跳吸引了自己的注意。这指出经历与背景，不提供原因。网站不能决定心脏实际情况、该怎样理解或社交场景能否解释。私人名称、具体时间和医疗细节可以不说。目的不是证明焦虑、搜集更多症状或取得健康裁定，而是保留一项可选择讨论的描述。"
+            },
+            {
+              "en": "A concern that someone noticed an unsteady voice or a hot face does not establish what they saw or thought. The page cannot confirm rejection, criticism, safety or another person's intentions. It also cannot tell you to disregard a genuine threat, harassment, discrimination or an existing health concern. No recording, mirror check, message inspection or request for reassurance is assigned. You may keep uncertainty open rather than treating a remembered sensation as evidence about the audience or a particular clinical condition.",
+              "zh": "担心别人注意到声音不稳或脸热，不建立他们看见什么或怎样想。页面不能确认拒绝、批评、安全或他人意图，也不能让你忽视真实威胁、骚扰、歧视或已有健康担忧。不安排录像、镜面检查、查看消息或索要安心保证。可以保留不确定，不把回忆里的感觉当成观众或某临床状况的证据。"
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": {
+            "en": "Social context does not make a clinical instrument",
+            "zh": "社交背景不能造出临床工具"
+          },
+          "paragraphs": [
+            {
+              "en": "The four topics are overlapping editorial groupings, not validated independent dimensions or diagnostic criteria. This original inventory is not a published social-anxiety scale, a panic measure or a medical device. Neither one physical description nor a pattern across topics confirms or excludes social anxiety disorder or another condition. The record cannot establish a neurotype, personality, confidence level, social skill or work suitability. It also cannot decide whether a particular preference for contact needs to change or whether someone should participate more.",
+              "zh": "四主题是可能重叠的编辑分组，不是验证独立维度或诊断标准。本原创题组不是发表社交焦虑量表、惊恐测量或医疗器械。一条身体描述或跨主题模式都不能确认或排除社交焦虑障碍或其他状况，也不能建立神经类型、人格、信心水平、社交技能或工作适配，更不能决定某联系偏好是否需改变或应更多参与。"
+            },
+            {
+              "en": "English and Chinese descriptions have no established measurement equivalence or clinical norms. Different settings, languages and ways of describing sensations cannot be reduced to a common medical score here. Linked NIMH and NHS sources concern broader professional assessment and support. They do not supply these original items, scoring keys, validation or endorsement of the topics. A source's diagnostic duration is not a help threshold for this page, and professional assessment remains separate from the choice of a category about a remembered situation.",
+              "zh": "中英文描述没有已确立的测量等值或临床常模。不同场景、语言与感觉表述方式，不能在这里压成共同医学分数。链接NIMH与NHS资料涉及更广专业评估和支持，没有提供原创条目、计分键、验证或主题背书。来源里的诊断时长不是本页求助门槛，专业评估与对回忆场景选类别分开。"
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": {
+            "en": "No provocation, exposure or breathing task is assigned",
+            "zh": "不安排引出感觉暴露或呼吸任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not create a sensation, return to an uncomfortable interaction, make a speech or change your breathing to answer. No exercise, exposure, forced contact or body-monitoring task is assigned. Useful support and existing safety boundaries can remain in place. The page is not a treatment programme or a test of tolerance, and it cannot decide which activity is safe for you. You may pause, withhold or leave without demonstrating that a sensation passes, that you can manage it or that another person responds favourably.",
+              "zh": "不要为回答而制造感觉、回到不适互动、演讲或改变呼吸。不安排运动、暴露、强迫联系或身体监测任务，可以保留有用支持和既有安全边界。页面不是治疗计划或耐受测试，不能决定什么活动安全。可以暂停、保留回答或离开，不必展示感觉会过去、能处理它，或别人反应良好。"
+            },
+            {
+              "en": "If you want a practical support conversation, you may choose to describe the information or participation options you need in a setting. You do not have to disclose a diagnosis, demonstrate symptoms or explain private medical details to another reader or an employer. These are optional discussion points rather than a prescription or a guarantee. Formal rights, eligibility, treatment and healthcare decisions have their own appropriate processes, which this record cannot determine. A category is not permission to remove a safeguard or change existing professional instructions.",
+              "zh": "若想实际讨论支持，可以选择描述某场景里需要的信息或参与方式。不必向其他读者或雇主披露诊断、展示症状或解释私人医疗细节。这些是可选讨论点，不是处方或保证。正式权益、资格、治疗和医疗决定有自身合适流程，记录不能决定；类别也不是撤掉保护或改变已有专业指示的许可。"
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": {
+            "en": "Healthcare questions need no count or completion",
+            "zh": "医疗咨询无需计数或完成记录"
+          },
+          "paragraphs": [
+            {
+              "en": "You can ask a qualified healthcare or mental-health professional about a physical or social concern without a count, repeated episodes, six months of symptoms or a completed record. The editorial four-week window is only a recall aid, not a waiting rule. You may ask while uncertain about the cause or how to describe what you noticed. The website cannot decide that a concern is too small, require you to produce another symptom or tell you to wait until an interaction ends before seeking appropriate help.",
+              "zh": "咨询合格医疗或心理健康专业人员，不需要计数、反复发作、六个月症状或完成记录。编辑设定四周窗口只是帮助回忆，不是等待规则。即使不确定原因或怎样描述，也可以问。网站不能决定担忧太小，不能要求再出现一个症状，也不能让你等到互动结束才寻求合适帮助。"
+            },
+            {
+              "en": "Do not use a category to postpone assessment, cancel care, change medication or professional monitoring, or disregard a health or safety concern. The page cannot assess medical need or urgency, establish that a sensation is harmless or only anxiety, or provide an emergency response. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing. Support information stays public before answers, after all-unscored selections and for every count. It never depends on demonstrating confidence, participation or a particular duration of discomfort.",
+              "zh": "不要用类别推迟评估、取消照护、改变药物或专业监测，或忽视健康安全担忧。页面不能评估医疗需要或紧急程度，不能建立感觉无害或只是焦虑，也不能作紧急响应。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。回答前、全未计分后及任何计数下，支持说明都公开，不依赖展示信心、参与或特定不适时长。"
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": {
+            "en": "A recollection is not symptom monitoring",
+            "zh": "回忆不是症状监测"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no score to improve, preferred category or required schedule for repeating the observations. Later selections may reflect different settings, opportunities, recollections or interpretations of a statement. They do not show recovery, deterioration, treatment response or a change in health, confidence or social ability. This record is not a monitoring device and cannot observe you between visits. You may keep a useful description while leaving causes, medical interpretation and future choices open, without treating the four topics as a clinical model of your body or social life.",
+              "zh": "没有要提高的分数、偏好类别或规定重复日程。以后选择可能反映不同场景、机会、回忆或对描述的理解，不显示恢复、恶化、治疗反应，或健康、信心及社交能力变化。记录不是监测设备，不能在访问之间观察你。可以留有用描述，同时保留原因、医学解释和未来选择开放性，不把四主题当成身体或社交生活的临床模型。"
+            },
+            {
+              "en": "Selections stay only in current-page memory, without saved drafts, submission, questionnaire analytics or a private result URL. Exit, retake, reload and leaving clear the record. Copying the public entry shares only its title and address rather than your categories. All four complete guides are public before answering and show the same text to every reader. You can read without selecting, withhold an experience or stop at any point. A useful professional question does not require a medical reassurance, a diagnostic label or a symptom-load score from the website.",
+              "zh": "选择只在当前页面内存，不存草稿、不提交、不作问卷分析，也没有私人结果网址。退出、重做、刷新和离页会清除，复制公开入口只含标题地址，不含类别。四篇全文回答前公开，对所有读者相同。可以不选内容阅读、保留经历不答或随时停止。有用的专业问题不需要网站给医学安心保证、诊断标签或症状负荷分数。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "original-context",
+      "title": {
+        "en": "Original observations, not a social-anxiety scale",
+        "zh": "原创观察，不是社交焦虑量表"
+      },
+      "paragraphs": [
+        {
+          "en": "Twenty original descriptions form four overlapping editorial topics of five. They are not LSAS, SIAS, SPIN, diagnostic criteria or a published clinical instrument. No items or scoring keys are taken from the linked background sources.",
+          "zh": "20条原创描述分为四个可能重叠的编辑主题，每组五条。它们不是LSAS、SIAS、SPIN、诊断标准或发表临床工具，未从链接背景资料提取题目或计分键。"
+        },
+        {
+          "en": "The past four weeks is an editorial recall window, not a diagnostic duration or a waiting rule for support. Do not create social contact, recreate discomfort or check your body to answer.",
+          "zh": "过去四周是编辑设定的回忆窗口，不是诊断时长或求助等待规则。不要为回答而制造联系、重现不适或检查身体。"
+        }
+      ]
+    },
+    {
+      "id": "categorical-record",
+      "title": {
+        "en": "Categories without points",
+        "zh": "类别不作点数"
+      },
+      "paragraphs": [
+        {
+          "en": "Six category counts add to five descriptions per topic. Numeric-looking IDs are labels. No total, mean, highest topic, level, symptom load, risk, diagnosis, social skill or personality is inferred. Counts concern descriptions, not events, mistakes, minutes or lost opportunities.",
+          "zh": "每主题六种类别计数合计五条描述。像数字的标识只是标签，不推断总分、均值、最高主题、水平、症状负荷、风险、诊断、社交技能或人格。计数针对描述，不是事件、错误、分钟或失去的机会。"
+        },
+        {
+          "en": "No relevant experience, unclear recall and withheld answers share an explicit unscored category. It never becomes did not notice or evidence of confidence, health or safety.",
+          "zh": "没有相关经历、回想不清和保留回答共用明确未计分类别，绝不变成没有注意到，也不证明信心、健康或安全。"
+        }
+      ]
+    },
+    {
+      "id": "limits-and-support",
+      "title": {
+        "en": "Context, agency and support",
+        "zh": "背景自主选择与支持"
+      },
+      "paragraphs": [
+        {
+          "en": "English and Chinese measurement equivalence, norms and diagnostic validity are not established. Categories cannot determine causes, others intentions, safety, introversion, work suitability or whether a boundary should change. Do not dismiss a real threat, harassment, discrimination or health concern because of a record.",
+          "zh": "尚未建立中英文测量等值、常模或诊断有效性。类别不能决定原因、他人意图、安全、内向、工作适配或是否应改变边界。不要因记录忽视真实威胁、骚扰、歧视或健康担忧。"
+        },
+        {
+          "en": "Ask a qualified healthcare or mental-health professional without a count, six months of symptoms or a completed record. Keep existing advice, care and safety support independent of the page. No exposure, forced contact, breathing or body-monitoring task is assigned; no medical reassurance or treatment decision follows from a category.",
+          "zh": "咨询合格医疗或心理健康专业人员，不需要计数、六个月症状或完成记录。已有意见、照护和安全支持独立于页面。不安排暴露、强迫联系、呼吸或身体监测任务；类别不给医学安心保证或治疗决定。"
+        }
+      ]
+    },
+    {
+      "id": "memory-only",
+      "title": {
+        "en": "Private selections, public readings",
+        "zh": "私人选择与公开读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Selections remain only in current-page memory: no saved drafts, submissions, questionnaire analytics or personal result URL. Retake, exit, reload and leaving clear the record. Copy shares only the public title and entry. No messages, recordings, names or medical details are requested.",
+          "zh": "选择只留在当前页面内存：不存草稿、不提交、不作问卷分析，也没有个人结果网址。重做、退出、刷新和离页会清除，复制仅含公开标题及入口。不要求消息、录像、姓名或医疗细节。"
+        },
+        {
+          "en": "All four complete guides are public before answers, unchanged by categories and available for all-unscored records. Read freely, withhold or stop without demonstrating participation.",
+          "zh": "四篇全文答题前即公开，不随类别改变，全部未计分也可读。可以自由阅读、保留回答或停止，无需展示参与。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Can this tell me whether I have social anxiety disorder?",
+        "zh": "能告诉我是否有社交焦虑障碍吗？"
+      },
+      "answer": {
+        "en": "No. Original observations cannot confirm or exclude a condition or identify a cause. They are not LSAS, SIAS, SPIN, a published diagnostic instrument or a substitute for a qualified professional assessment.",
+        "zh": "不能。原创观察不能确认或排除状况，也不能找原因；不是LSAS、SIAS、SPIN、发表诊断工具或合格专业评估的替代。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to talk to someone or check a sensation now?",
+        "zh": "现在需要与人谈话或检查感觉吗？"
+      },
+      "answer": {
+        "en": "No. Recall only. No exposure, forced contact, eye contact, public speaking, breathing, body check or message opening is required. Keep useful support and safety boundaries. Use unscored for unclear recall, no experience or withholding.",
+        "zh": "不需要。只凭回忆，不要求暴露、强迫联系、眼神接触、公开讲话、呼吸任务、身体检查或打开消息。保留有用支持及安全边界；回想不清、没有经历或保留回答时选未计分。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a sensation mean only anxiety, or a worry prove what others think?",
+        "zh": "感觉说明只是焦虑，担忧能证明别人想法吗？"
+      },
+      "answer": {
+        "en": "No. A record cannot establish that sensations are harmless or only anxiety, determine others intentions or dismiss real safety concerns. The page cannot assess healthcare need or urgency or provide an emergency response.",
+        "zh": "不能。记录不能建立感觉无害或只是焦虑，不能决定他人意图，也不能忽视真实安全担忧。页面不能评估医疗需要或紧急程度，也不能作紧急响应。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I reach a count, wait months or finish before asking for help?",
+        "zh": "求助前必须达到计数、等几个月或完成吗？"
+      },
+      "answer": {
+        "en": "No. Support questions and all four guides are public without answers or a threshold. Do not postpone assessment, change medicine or cancel existing support because of a record. If there is immediate danger or you cannot stay safe, seek local emergency assistance instead of continuing.",
+        "zh": "不必。没有回答或门槛也能提出支持问题并读四篇指南。不要因记录推迟评估、改药或取消已有支持。若有即时危险或无法保障安全，请寻求当地紧急援助而非继续。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this assign confidence, introversion or social skill?",
+        "zh": "会分配信心水平、内向或社交技能吗？"
+      },
+      "answer": {
+        "en": "No. Categories cannot assign personality, ability, work suitability or a confidence level. Four topics overlap and are not validated independent dimensions; English and Chinese measurement equivalence, clinical norms and validity are not established.",
+        "zh": "不会。类别不能分配人格、能力、工作适配或信心水平。四主题可能重叠，非验证独立维度；尚未建立中英文测量等值、临床常模或有效性。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NIMH: Social Anxiety Disorder — What You Need to Know",
+        "zh": "NIMH：社交焦虑障碍背景资料"
+      },
+      "url": "https://www.nimh.nih.gov/health/publications/social-anxiety-disorder-more-than-just-shyness"
+    },
+    {
+      "title": {
+        "en": "NHS: Social anxiety background",
+        "zh": "NHS：社交焦虑背景"
+      },
+      "url": "https://www.nhs.uk/mental-health/conditions/social-anxiety/"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_social_context_observations",
+    "formCode": "fm_social_context20_observations_v1",
+    "itemBankVersion": "original20_bilingual_four_by_five_v1",
+    "scoringVersion": "six_categorical_counts_per_five_no_social_anxiety_inference_v1",
+    "resultContentVersion": "four_full_bilingual_social_context_readings_v1",
+    "itemBankSha256": "3a859e13dceb9ef46b1ae0180a4eae4bbd9240b8d4f5b7a9df2a14238f42d836",
+    "resultContentSha256": "d82690e3869db08bcc0b433b6402bc1f7bfb4086132c7a968b9dc888d63f09de",
+    "psychometricValidationCompleted": false
+  }
+}

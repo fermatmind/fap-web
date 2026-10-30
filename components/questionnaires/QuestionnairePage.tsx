@@ -17,6 +17,8 @@ import { isWrittenLanguage20ConfigurationValid } from "@/lib/questionnaires/writ
 import { WrittenLanguagePage } from "./WrittenLanguagePage";
 import { isNumberContext20ConfigurationValid } from "@/lib/questionnaires/numberContext20";
 import { NumberContextPage } from "./NumberContextPage";
+import { isSocialContext20ConfigurationValid } from "@/lib/questionnaires/socialContext20";
+import { SocialContextPage } from "./SocialContextPage";
 import { isHealthWorry21ConfigurationValid } from "@/lib/questionnaires/healthWorry21";
 import { HealthWorryPage } from "./HealthWorryPage";
 import { isSleepExperiences20ConfigurationValid } from "@/lib/questionnaires/sleepExperiences20";
@@ -163,6 +165,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (quiz?.kind === "focus-context16" && !isFocusContext16ConfigurationValid(quiz)) return { title: "Daily-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "written-language20" && !isWrittenLanguage20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "number-context20" && !isNumberContext20ConfigurationValid(quiz)) return { title: "Written-language reflection unavailable", robots: { index: false, follow: false } };
+  if (quiz?.kind === "social-context20" && !isSocialContext20ConfigurationValid(quiz)) return { title: "Social-context reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "health-worries21" && !isHealthWorry21ConfigurationValid(quiz)) return { title: "Health-worry reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "sleep-experiences20" && !isSleepExperiences20ConfigurationValid(quiz)) return { title: "Sleep reflection unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "bereavement16" && !isBereavement16ConfigurationValid(quiz)) return { title: "Bereavement reflection unavailable", robots: { index: false, follow: false } };
@@ -225,6 +228,10 @@ export default async function QuestionnairePage({ params }: Props) {
   if (quiz?.kind === "number-context20") {
     if (!isNumberContext20ConfigurationValid(quiz)) notFound();
     return <NumberContextPage quiz={quiz} locale={locale} />;
+  }
+  if (quiz?.kind === "social-context20") {
+    if (!isSocialContext20ConfigurationValid(quiz)) notFound();
+    return <SocialContextPage quiz={quiz} locale={locale} />;
   }
   if (quiz?.kind === "health-worries21") {
     if (!isHealthWorry21ConfigurationValid(quiz)) notFound();

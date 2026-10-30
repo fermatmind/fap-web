@@ -7052,5 +7052,30 @@
       "prices-and-daily-records-reading"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "social-context-reflection",
+    "code": "FM_SOCIAL_CONTEXT20_OBSERVATIONS",
+    "version": "fm_social_context20_observations_v1",
+    "updated": "2026-10-30",
+    "category": "framework",
+    "title": {
+      "en": "Social Situations: Personal Reflection",
+      "zh": "社交场景：个人回顾"
+    },
+    "description": {
+      "en": "20 original adult observations about being observed, conversations, changing plans and sensations in social settings. Four full bilingual guides, free. Recall only; no diagnosis or confidence score.",
+      "zh": "20条成年人原创观察，回顾被他人看到、谈话联系、计划改变及社交背景中的感觉。四篇双语全文免费；只凭回忆，不作诊断或信心评分。"
+    },
+    "minutes": 8,
+    "formCode": "fm_social_context20_observations_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "being-observed-reading",
+      "conversations-and-contact-reading",
+      "changing-social-plans-reading",
+      "sensations-in-social-context-reading"
+    ],
+    "collection": "explore"
   }
 ]
