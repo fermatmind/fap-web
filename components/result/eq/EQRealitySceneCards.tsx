@@ -2,9 +2,14 @@ import type { EqV5ViewModel } from "./types";
 import { SectionHeading } from "./EQEvidenceSnapshot";
 import { Stacked } from "./EQMechanismCard";
 
+const INTERNAL_SCENE_FAMILIES = new Set([
+  "career_environment", "conflict", "feedback", "pressure_recovery",
+  "relationship_boundary", "team_collaboration",
+]);
+
 function userFacingEvidenceSignal(signal: string): boolean {
   const value = signal.trim();
-  if (!value) return false;
+  if (!value || INTERNAL_SCENE_FAMILIES.has(value)) return false;
   if (value.includes("_")) return false;
   if (/^eq\./i.test(value)) return false;
   if (/^[A-Z]{2}_[A-Z]{2}/.test(value)) return false;

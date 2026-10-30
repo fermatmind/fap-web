@@ -84,6 +84,17 @@ describe("EQ v5 pure renderer contract", () => {
     expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
   });
 
+  it.each(["en", "zh"] as const)("hides internal scene keys while retaining ordinary %s evidence copy", (locale) => {
+    const reportData = standardResponse(locale === "zh" ? "zh-CN" : "en");
+    const assets = (reportData.report as Record<string, unknown>).assets as Record<string, unknown>;
+    const scenes = assets.reality_scenes as Record<string, unknown>[];
+    scenes[0].evidence_signals = ["feedback", "conflict", "pressure_recovery", "eq.scene.internal", "SA", "I paused before replying"];
+    render(<EQResultV5 locale={locale} reportData={reportData} />);
+    const section = screen.getByTestId("eq-reality-scenes");
+    expect(section).toHaveTextContent("I paused before replying");
+    expect(Array.from(section.querySelectorAll("li")).map((item) => item.textContent)).toEqual(["I paused before replying"]);
+  });
+
   it("renders Chinese backend placeholders while localizing only UI and technical enum labels", () => {
     render(<EQResultV5 locale="zh" reportData={standardResponse("zh-CN")} />);
     const result = screen.getByTestId("eq-result-v5");
